@@ -1,0 +1,104 @@
+{
+  "schema_version": "raa-atlas-input-status.v1",
+  "status_namespace": "raa_atlas_input_availability",
+  "status_namespace_note": "Atlas-input rendering state only; not country/source availability, external-intake lifecycle, backlog status, or release state.",
+  "atlas_input_status": "degraded",
+  "reason_codes": [
+    "missing_raw_inventory",
+    "missing_raw_summary",
+    "missing_scientific_review"
+  ],
+  "source_authority": "Riksantikvarieämbetet",
+  "source_family": "raa",
+  "evidence_role": "archaeology_context_only",
+  "country_scope": {
+    "Sweden": "source_coverage",
+    "Denmark": "outside_source_scope",
+    "Finland": "outside_source_scope",
+    "Norway": "outside_source_scope"
+  },
+  "country_source_coverage": {
+    "Sweden": {
+      "availability_status": "available_collected",
+      "lifecycle_status": "refused",
+      "fact_basis": "governed_assignment"
+    },
+    "Denmark": {
+      "availability_status": "not_applicable",
+      "lifecycle_status": "not_required",
+      "fact_basis": "governed_assignment"
+    },
+    "Finland": {
+      "availability_status": "not_applicable",
+      "lifecycle_status": "not_required",
+      "fact_basis": "governed_assignment"
+    },
+    "Norway": {
+      "availability_status": "not_applicable",
+      "lifecycle_status": "not_required",
+      "fact_basis": "governed_assignment"
+    }
+  },
+  "chronology_posture": "no_repository_owned_time_windows",
+  "propagation_eligible": false,
+  "geometry_publication": {
+    "status": "retained_context",
+    "default_map_state": "enabled_degraded_context",
+    "default_enabled": true,
+    "display_role": "archaeology_context_only",
+    "retained_density_is_authoritative": false,
+    "warning_codes": [
+      "retained_density_metadata_count_mismatch"
+    ]
+  },
+  "retained_context_identity": {
+    "status": "exact_v0.1.8",
+    "tag": "v0.1.8",
+    "commit": "f5ab77edcd3affee65723074d21b83161b4bf542"
+  },
+  "density_count_accounting": {
+    "status": "observed_retained_normalized_pair",
+    "density_feature_count": 106,
+    "density_cell_count_sum": 339412,
+    "metadata_fornlamning_count": 318265,
+    "difference": 21147,
+    "reconciled": false
+  },
+  "authority_counts": {
+    "archived_feature_count": null,
+    "heritage_site_count": null,
+    "density_site_count": null,
+    "density_feature_count": null
+  },
+  "review": {
+    "accepted": false,
+    "reviewer_id": null
+  },
+  "inputs": {
+    "raw_inventory": {
+      "path": "raa/raw/publicerade_lamningar_centrumpunkt.geojson",
+      "present": false,
+      "sha256": null
+    },
+    "raw_summary": {
+      "path": "raa/raw/publicerade_lamningar_centrumpunkt_summary.json",
+      "present": false,
+      "sha256": null
+    },
+    "normalized_metadata": {
+      "path": "raa/normalized/sweden_archaeology_layer.json",
+      "present": true,
+      "sha256": "baa5f7ec34e290d5b52ad93afb8a05e77830bd2b2672a15a579e571f5f6d91d8"
+    },
+    "normalized_density": {
+      "path": "raa/normalized/sweden_archaeology_density.geojson",
+      "present": true,
+      "sha256": "acac7a952dc31be8b988ecb35386c877628e2580fae427f32281310635489d20"
+    },
+    "scientific_review": {
+      "path": "raa/review/spatiotemporal_review.json",
+      "present": false,
+      "sha256": null
+    }
+  }
+}

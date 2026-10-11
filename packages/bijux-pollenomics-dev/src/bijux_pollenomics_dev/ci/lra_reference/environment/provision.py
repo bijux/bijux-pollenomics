@@ -34,7 +34,7 @@ def provision(
     makevars: Path | None = None,
     runtime_receipt: Path | None = None,
 ) -> dict[str, Any]:
-    """Provision the reference library from verified locked sources."""
+    """Install verified R sources into a private library and record their bytes."""
     lock_path, source_cache, repository, library, output = (
         local_path(path)
         for path in (lock_path, source_cache, repository, library, output)

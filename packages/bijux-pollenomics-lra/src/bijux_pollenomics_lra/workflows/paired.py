@@ -16,7 +16,7 @@ from bijux_pollenomics_lra.models.results import (
 )
 from bijux_pollenomics_lra.provenance.identity import sha256_object
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
-from bijux_pollenomics_lra.workflows.local import run_love
+from bijux_pollenomics_lra.workflows.local import love_compatibility_mode, run_love
 from bijux_pollenomics_lra.workflows.regional import run_reveals
 
 
@@ -72,26 +72,29 @@ def run_lra(
     )
     if not reveals_config.retain_samples:
         regional_result.samples = None
-    manifest = build_manifest(
-        "LRA",
-        {
-            **config.as_dict(),
-            "stage_order": ["REVEALS", f"LOVE-{love_config.method}"],
-            "regional_draw_handoff": config.couple_regional_draws,
-            "regional_child_manifest_sha256": sha256_object(
-                regional_result.manifest.scientific_identity()
-            ),
-            "local_child_manifest_sha256": sha256_object(
-                local_result.manifest.scientific_identity()
-            ),
-        },
-        {
-            "local_pollen": local_pollen,
-            "regional_pollen": regional_pollen,
-            "params": params,
-            "rings": rings,
-        },
-        stochastic=bool(reveals_config.stochastic or love_config.stochastic),
-        seed=config.seed,
+    manifest = replace(
+        build_manifest(
+            "LRA",
+            {
+                **config.as_dict(),
+                "stage_order": ["REVEALS", f"LOVE-{love_config.method}"],
+                "regional_draw_handoff": config.couple_regional_draws,
+                "regional_child_manifest_sha256": sha256_object(
+                    regional_result.manifest.scientific_identity()
+                ),
+                "local_child_manifest_sha256": sha256_object(
+                    local_result.manifest.scientific_identity()
+                ),
+            },
+            {
+                "local_pollen": local_pollen,
+                "regional_pollen": regional_pollen,
+                "params": params,
+                "rings": rings,
+            },
+            stochastic=bool(reveals_config.stochastic or love_config.stochastic),
+            seed=config.seed,
+        ),
+        compatibility_mode=love_compatibility_mode(love_config),
     )
     return LRAResult(regional_result, local_result, manifest)

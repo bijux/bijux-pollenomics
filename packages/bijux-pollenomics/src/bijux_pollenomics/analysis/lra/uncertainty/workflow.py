@@ -7,7 +7,11 @@ import shutil
 import tempfile
 from typing import Any
 
-from ..engine.discovery import load_engine
+from ..engine.discovery import (
+    EngineBinding,
+    load_engine,
+    required_capability_for_profile,
+)
 from ..engine.errors import LRARefusal
 from ..execution.adapter import validate_engine_configuration
 from ..execution.cache import run_lra_cached
@@ -50,6 +54,15 @@ def _disjoint(paths: list[Path]) -> None:
                     "invalid_joint_output_path",
                     "Input, output and cache trees must be disjoint",
                 )
+
+
+def _selected_engine(required_capability: str | None) -> EngineBinding:
+    """Keep source-profile preflight while enforcing revised facade selection."""
+    return (
+        load_engine()
+        if required_capability is None
+        else load_engine(required_capability=required_capability)
+    )
 
 
 def _completed(
@@ -96,7 +109,10 @@ def run_joint_lra_ensemble(
     if target.exists():
         raise LRARefusal("lra_output_exists", str(target))
     admitted = admit(plan, root)
-    binding = load_engine()
+    required_capability = required_capability_for_profile(
+        admitted.base()["method_profile"]
+    )
+    binding = _selected_engine(required_capability)
     validate_engine_configuration(
         binding, validate_request(admitted.base(), input_root=root)
     )
@@ -174,7 +190,7 @@ def run_joint_lra_ensemble(
             )
         rows.append(row)
         revalidate(admitted, root)
-        if load_engine().as_dict() != binding.as_dict():
+        if _selected_engine(required_capability).as_dict() != binding.as_dict():
             raise LRARefusal(
                 "lra_code_changed_during_run", "Engine distribution identity changed"
             )
@@ -205,7 +221,7 @@ def run_joint_lra_ensemble(
     checksum = digest(encoded)
     read_joint_lra_ensemble(stage, expected_manifest_sha256=checksum)
     revalidate(admitted, root)
-    if load_engine().as_dict() != binding.as_dict():
+    if _selected_engine(required_capability).as_dict() != binding.as_dict():
         raise LRARefusal(
             "lra_code_changed_during_run", "Engine distribution identity changed"
         )

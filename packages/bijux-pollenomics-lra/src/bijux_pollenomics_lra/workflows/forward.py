@@ -16,6 +16,7 @@ from bijux_pollenomics_lra.reconstruction.optimized import calK
 
 
 def _numeric(values: object, name: str) -> np.ndarray:
+    """Require finite real numeric values without string or boolean coercion."""
     raw = np.asarray(values, dtype=object)
     if any(
         isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
@@ -31,6 +32,7 @@ def _numeric(values: object, name: str) -> np.ndarray:
 
 
 def _readonly(values: np.ndarray) -> np.ndarray:
+    """Copy numeric values into an immutable float buffer with the same shape."""
     # The independent bytes backing prevents writeability from being re-enabled.
     return np.frombuffer(values.astype(float).tobytes(), dtype=float).reshape(
         values.shape
@@ -40,6 +42,12 @@ def _readonly(values: np.ndarray) -> np.ndarray:
 def _geometry(
     rings: pd.DataFrame, config: ForwardConfig
 ) -> tuple[pd.DataFrame, np.ndarray]:
+    """Validate contiguous circular rings and return terrestrial area fractions.
+
+    Ring boundaries begin at the declared basin shore and end within 100 km.
+    Areas are square metres; at least one regional ring and positive local
+    terrestrial support are required by this forward profile.
+    """
     table = frame(rings, "rings")
     required = ["inner", "outer", "mean", "ring", "terrestrial"]
     if any(name not in table for name in required):

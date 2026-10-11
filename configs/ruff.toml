@@ -31,7 +31,7 @@ exclude = [
   "*.egg-info",
   "site",
 ]
-extend-exclude = ["data"]
+extend-exclude = ["data", "**/_build_version.py"]
 
 [lint]
 select = ["E", "F", "I", "B", "UP", "SIM", "C4", "PIE", "RET", "ISC"]

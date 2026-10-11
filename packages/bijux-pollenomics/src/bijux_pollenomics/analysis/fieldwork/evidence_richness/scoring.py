@@ -225,6 +225,27 @@ def _sampling_priority_rank(sampling_posture: str) -> int:
     }.get(sampling_posture, 4)
 
 
+def _raa_band_priority(score: LakeEvidenceBandScore) -> tuple[bool, int]:
+    count = score.raa_density_site_count
+    return (count is None, -count if count is not None else 0)
+
+
+def _raa_aggregate_priority(
+    band_scores: Sequence[LakeEvidenceBandScore],
+) -> tuple[bool, float]:
+    counts = [score.raa_density_site_count for score in band_scores]
+    if all(count is None for count in counts):
+        return (True, 0.0)
+    if any(count is None for count in counts):
+        raise ValueError("RAÄ authority cannot differ across distance bands")
+    weighted = sum(
+        count * _SVAR_AGGREGATE_RADIUS_WEIGHTS.get(score.radius_km, 0.0)
+        for score, count in zip(band_scores, counts, strict=True)
+        if count is not None
+    )
+    return (False, -round(weighted, 4))
+
+
 def _svar_band_priority_key(
     candidate: LakeEvidenceCandidate,
     band_score: LakeEvidenceBandScore,
@@ -236,7 +257,7 @@ def _svar_band_priority_key(
         -candidate.time_aware_direct_pollen_records,
         -band_score.evidence_family_count,
         -band_score.sead_site_count,
-        -band_score.raa_density_site_count,
+        *_raa_band_priority(band_score),
         _sampling_priority_rank(
             candidate.lake_sampling_posture or "sampling_not_scored"
         ),
@@ -257,7 +278,7 @@ def _svar_aggregate_priority_key(
         -_weighted_band_metric(band_scores, "evidence_family_count"),
         -_weighted_band_metric(band_scores, "nearby_pollen_lake_count"),
         -_weighted_band_metric(band_scores, "sead_site_count"),
-        -_weighted_band_metric(band_scores, "raa_density_site_count"),
+        *_raa_aggregate_priority(band_scores),
         _sampling_priority_rank(
             candidate.lake_sampling_posture or "sampling_not_scored"
         ),

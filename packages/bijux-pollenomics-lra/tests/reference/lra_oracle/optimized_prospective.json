@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "declaration_id": "disqover-0.9.14-optimized-love-prospective-20260924",
+  "reference": {
+    "package": "disqover",
+    "version": "0.9.14",
+    "archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c"
+  },
+  "source_resources": {
+    "LOVEexamplePollen.json": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+    "LOVEexampleParams.json": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+    "LOVEexampleRings.json": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445"
+  },
+  "excluded_previously_observed_inputs": {
+    "case-a-taxa.csv": "5d0a391b9d186bc1881390f9e0ddd515caae8d28765635099fcbdbc6c37ab9c2",
+    "case-a-fractions.csv": "717f2fc782b1eaa1df8f0a4e9523bde7069a94e2922f7f820ea3baae39f0bb29",
+    "case-b-taxa.csv": "7b98525bbcf481c0d9c9e74306836debece3f5c6d9de56712cac27d9d0b30424",
+    "case-b-fractions.csv": "e8b63fde9d73dfb438bab7a77b3ca4e79619bbffc628504603b085bcc6ede0e2"
+  },
+  "acceptance": {
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "tolerance_rationale": "The prospective fixed-input gate allows only 1e-10 absolute plus 1e-10 relative cross-runtime floating-point drift, far below the source wrapper's 1e-4 cover and 1e-2 pollen rounding; it is fixed before R execution and must not be relaxed after observing results.",
+    "axes": "exact",
+    "selected_candidate_index": "exact",
+    "replay_termination": {
+      "iterations": 1,
+      "evaluations": "declared_candidate_count",
+      "success": true
+    },
+    "nonfinite_objective": "both_runtimes_return_nan",
+    "all_nonfinite_replay": "both_runtimes_refuse",
+    "stochastic_optimizer_trajectory": "excluded"
+  },
+  "claim_boundary": [
+    "The gate tests numerical translation and source-wrapper behavior only.",
+    "Shared candidates do not establish identical stochastic optimizer trajectories.",
+    "Synthetic source-shaped inputs do not establish ecological accuracy."
+  ],
+  "taxa": [
+    "Alnus",
+    "Betula",
+    "Corylus",
+    "Fagus",
+    "Fraxinus",
+    "Pinus",
+    "Tilia",
+    "Ulmus",
+    "Gras",
+    "Secale"
+  ],
+  "cases": [
+    {
+      "id": "mixed-canopy-compact",
+      "max_ring_love": 10,
+      "local_counts": [145, 360, 52, 37, 9, 201, 18, 7, 65, 16],
+      "regional_counts": [221, 275, 48, 81, 12, 330, 19, 13, 34, 9],
+      "candidates": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+        [0.05, 0.18, 0.08, 0.12, 0.04, 0.24, 0.07, 0.06, 0.11, 0.05],
+        [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.12, 0.22, 0.03, 0.08, 0.04, 0.28, 0.05, 0.02, 0.13, 0.03]
+      ]
+    },
+    {
+      "id": "open-land-extended",
+      "max_ring_love": 12,
+      "local_counts": [44, 128, 71, 13, 6, 96, 11, 4, 287, 62],
+      "regional_counts": [92, 184, 66, 39, 8, 247, 14, 9, 153, 31],
+      "candidates": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+        [0.04, 0.09, 0.08, 0.03, 0.02, 0.12, 0.03, 0.02, 0.41, 0.16],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0],
+        [0.2, 0.15, 0.05, 0.05, 0.05, 0.15, 0.05, 0.05, 0.15, 0.1],
+        [0.03, 0.12, 0.09, 0.02, 0.01, 0.18, 0.03, 0.02, 0.38, 0.12]
+      ]
+    },
+    {
+      "id": "conifer-rich-broad",
+      "max_ring_love": 15,
+      "local_counts": [73, 219, 31, 22, 5, 411, 9, 3, 48, 7],
+      "regional_counts": [118, 202, 39, 57, 7, 489, 12, 5, 55, 6],
+      "candidates": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+        [0.07, 0.2, 0.04, 0.05, 0.02, 0.48, 0.03, 0.02, 0.07, 0.02],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 0.6, 0.0, 0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0],
+        [0.16, 0.18, 0.06, 0.07, 0.03, 0.31, 0.04, 0.03, 0.09, 0.03],
+        [0.02, 0.12, 0.02, 0.03, 0.01, 0.68, 0.02, 0.01, 0.07, 0.02]
+      ]
+    }
+  ]
+}

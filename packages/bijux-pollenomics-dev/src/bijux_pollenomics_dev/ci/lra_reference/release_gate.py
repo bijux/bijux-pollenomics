@@ -138,7 +138,7 @@ def verify_release(
     output: Path,
     reader: EvidenceReader,
 ) -> dict[str, Any]:
-    """Validate same-revision release certification and collect its evidence."""
+    """Verify same-revision R certification and collect its source-bound evidence."""
     if (
         re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository) is None
         or re.fullmatch(r"[0-9a-f]{40}", target_sha) is None

@@ -62,7 +62,7 @@ def verify_archive(path: Path, package: str, version: str) -> None:
 def verify_sources(
     lock: ReferenceLock, cache: Path, repository: Path
 ) -> dict[str, Path]:
-    """Validate locked source archives and return their package paths."""
+    """Verify pinned source archives and their dependency closure before returning paths."""
     verified = {}
     for source in lock.sources:
         path = local_path(cache / source.archive_filename)

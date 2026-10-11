@@ -11,6 +11,8 @@ from bijux_pollenomics_lra.models.configuration import (
     LoveConfig,
     LoveMethod,
     LRAConfig,
+    OptimizedLoveProfile,
+    RegionalDrawLoveConfig,
     RevealsConfig,
 )
 from bijux_pollenomics_lra.models.errors import (
@@ -19,17 +21,33 @@ from bijux_pollenomics_lra.models.errors import (
     ValidationError,
 )
 from bijux_pollenomics_lra.models.observation import PollenObservationDraws
+from bijux_pollenomics_lra.models.publication import (
+    MultisiteRevealsInput,
+    PublicationRevealsConfig,
+)
+from bijux_pollenomics_lra.models.regional_draw_source import (
+    RegionalCoverDrawSource,
+    publication_bin_bounds_sha256,
+)
 from bijux_pollenomics_lra.models.results import (
     ForwardResult,
     LoveResult,
     LRAResult,
     LRASeriesResult,
+    MultisiteRevealsResult,
     PreparedForwardInputs,
     RevealsResult,
 )
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+)
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
-from bijux_pollenomics_lra.workflows.local import run_love
+from bijux_pollenomics_lra.workflows.local import (
+    run_love,
+    run_love_from_regional_draws,
+)
+from bijux_pollenomics_lra.workflows.multisite import run_reveals_multisite
 from bijux_pollenomics_lra.workflows.observation import sample_pollen_observations
 from bijux_pollenomics_lra.workflows.paired import run_lra
 from bijux_pollenomics_lra.workflows.regional import run_reveals
@@ -52,8 +70,13 @@ def extension_descriptor() -> dict[str, Any]:
         "integration_mode": "optional-separate-distribution",
         "capabilities": [
             "lra.reveals.regional",
+            "lra.reveals.multisite.publication-source",
             "lra.love.analytical",
+            "lra.love.analytical.fall-speed-profile."
+            + LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+            "lra.love.analytical.multisite-cover-draws.landclimii-2016-v1",
             "lra.love.optimized",
+            "lra.love.optimized." + OptimizedLoveProfile.RING_TAXON_PRESERVING.value,
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
             "lra.forward.prepare-target-geometry",
@@ -77,18 +100,27 @@ __all__ = [
     "LRASeriesResult",
     "LoveConfig",
     "LoveMethod",
+    "OptimizedLoveProfile",
     "LoveResult",
+    "MultisiteRevealsInput",
+    "MultisiteRevealsResult",
+    "RegionalCoverDrawSource",
+    "RegionalDrawLoveConfig",
     "PollenObservationDraws",
     "PreparedForwardInputs",
+    "PublicationRevealsConfig",
     "RevealsConfig",
     "RevealsResult",
     "ValidationError",
     "extension_descriptor",
     "forward_deposition",
     "prepare_forward_inputs",
+    "publication_bin_bounds_sha256",
     "run_love",
+    "run_love_from_regional_draws",
     "run_lra",
     "run_lra_series",
     "run_reveals",
+    "run_reveals_multisite",
     "sample_pollen_observations",
 ]

@@ -3,6 +3,7 @@
 from .contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    RAA_RETAINED_CONTEXT_PROFILE,
     AtlasBrowserContractError,
     AtlasCandidate,
     AtlasScope,
@@ -23,6 +24,7 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
 __all__ = [
     "GENERIC_TIME_AWARE_PROFILE",
     "NORDIC_SOURCE_CHRONOLOGY_PROFILE",
+    "RAA_RETAINED_CONTEXT_PROFILE",
     "AtlasBrowserContractError",
     "AtlasCandidate",
     "AtlasScope",

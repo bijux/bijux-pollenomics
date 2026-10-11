@@ -8,7 +8,13 @@ from enum import Enum, StrEnum
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import finite_number, integer
+from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    fall_speed_bounds,
+    finite_number,
+    integer,
+)
 
 
 class BasinType(StrEnum):
@@ -33,6 +39,13 @@ class LoveMethod(StrEnum):
 
     ANALYTICAL = "analytical"
     OPTIMIZED = "optimized"
+
+
+class OptimizedLoveProfile(StrEnum):
+    """Distinguish the source wrapper from dimension-preserving ring equations."""
+
+    DISQOVER_SOURCE = "disqover-0.9.14-source"
+    RING_TAXON_PRESERVING = "ring-taxon-preserving"
 
 
 def _enum_value(value: str | Enum, enum: type[Enum], name: str) -> str:
@@ -121,15 +134,33 @@ class LoveConfig:
     optimizer_iterations: int = 200
     optimizer_max_evaluations: int | None = None
     optimizer_tolerance: float = 0.01
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
+    optimized_profile: OptimizedLoveProfile | str = OptimizedLoveProfile.DISQOVER_SOURCE
 
     def __post_init__(self) -> None:
         method = _enum_value(self.method, LoveMethod, "method")
+        optimized_profile = _enum_value(
+            self.optimized_profile, OptimizedLoveProfile, "optimized_profile"
+        )
+        if (
+            method != LoveMethod.OPTIMIZED.value
+            and optimized_profile != OptimizedLoveProfile.DISQOVER_SOURCE.value
+        ):
+            raise ValidationError("optimized_profile requires optimized LOVE")
         basin_type = _enum_value(
             self.regional_basin_type, BasinType, "regional_basin_type"
         )
         distance_weighting = _enum_value(
             self.distance_weighting, DistanceWeighting, "distance_weighting"
         )
+        fall_speed_bounds(self.fall_speed_profile, distance_weighting)
+        if (
+            self.fall_speed_profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+            and method != LoveMethod.ANALYTICAL.value
+        ):
+            raise ValidationError(
+                "The LandClim II fall-speed profile requires analytical LOVE"
+            )
         regional_diameter = integer(
             self.regional_basin_diameter_m,
             "regional_basin_diameter_m",
@@ -160,6 +191,7 @@ class LoveConfig:
         retain_samples = _boolean(self.retain_samples, "retain_samples")
         ppe_error = _boolean(self.ppe_error, "ppe_error")
         object.__setattr__(self, "method", method)
+        object.__setattr__(self, "optimized_profile", optimized_profile)
         object.__setattr__(self, "regional_basin_type", basin_type)
         object.__setattr__(self, "distance_weighting", distance_weighting)
         object.__setattr__(self, "regional_basin_diameter_m", regional_diameter)
@@ -175,13 +207,14 @@ class LoveConfig:
 
     def as_dict(self) -> dict[str, object]:
         """Return JSON-compatible settings."""
-        return {
+        settings: dict[str, object] = {
             "method": self.method,
             "regional_basin_type": self.regional_basin_type,
             "regional_basin_diameter_m": self.regional_basin_diameter_m,
             "local_basin_diameter_m": self.local_basin_diameter_m,
             "max_ring": self.max_ring,
             "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
             "repeats": self.repeats,
             "stochastic": self.stochastic,
             "seed": self.seed,
@@ -190,6 +223,63 @@ class LoveConfig:
             "optimizer_iterations": self.optimizer_iterations,
             "optimizer_max_evaluations": self.optimizer_max_evaluations,
             "optimizer_tolerance": self.optimizer_tolerance,
+        }
+        if self.method == LoveMethod.OPTIMIZED.value:
+            settings["optimized_profile"] = self.optimized_profile
+        return settings
+
+
+@dataclass(frozen=True, slots=True)
+class RegionalDrawLoveConfig:
+    """Analytical LOVE settings that do not invent a regional pollen basin."""
+
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int = 1000
+    stochastic: bool = True
+    seed: int | None = None
+    retain_samples: bool = False
+    ppe_error: bool = True
+
+    method = LoveMethod.ANALYTICAL.value
+    distance_weighting = DistanceWeighting.GPM_NEUTRAL.value
+    fall_speed_profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+
+    def __post_init__(self) -> None:
+        local_diameter = finite_number(
+            self.local_basin_diameter_m,
+            "local_basin_diameter_m",
+            minimum=0,
+            strict_minimum=True,
+        )
+        maximum_ring = integer(self.max_ring, "max_ring")
+        repeats = integer(self.repeats, "repeats")
+        if self.seed is not None:
+            integer(self.seed, "seed", minimum=0)
+        stochastic = _boolean(self.stochastic, "stochastic")
+        retain_samples = _boolean(self.retain_samples, "retain_samples")
+        ppe_error = _boolean(self.ppe_error, "ppe_error")
+        object.__setattr__(self, "local_basin_diameter_m", local_diameter)
+        object.__setattr__(self, "max_ring", maximum_ring)
+        object.__setattr__(self, "repeats", repeats)
+        object.__setattr__(self, "stochastic", stochastic)
+        object.__setattr__(self, "retain_samples", retain_samples)
+        object.__setattr__(self, "ppe_error", ppe_error)
+
+    def as_dict(self) -> dict[str, object]:
+        """Return only settings that affect the draw-fed calculation."""
+        return {
+            "configuration_kind": "regional-cover-draws",
+            "method": self.method,
+            "local_basin_diameter_m": self.local_basin_diameter_m,
+            "max_ring": self.max_ring,
+            "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
+            "repeats": self.repeats,
+            "stochastic": self.stochastic,
+            "seed": self.seed,
+            "retain_samples": self.retain_samples,
+            "ppe_error": self.ppe_error,
         }
 
 

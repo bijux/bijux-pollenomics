@@ -10,12 +10,17 @@ import pytest
 
 from bijux_pollenomics_lra.api import (
     LoveConfig,
+    LRAConfig,
     RevealsConfig,
     ValidationError,
     run_love,
+    run_lra,
+    run_lra_series,
     run_reveals,
 )
+from bijux_pollenomics_lra.models.configuration import OptimizedLoveProfile
 from bijux_pollenomics_lra.reconstruction import optimized
+from bijux_pollenomics_lra.version import COMPATIBILITY_MODE
 
 
 def _inputs(
@@ -57,7 +62,12 @@ def _inputs(
     return local, regional, params, rings
 
 
-def _config(maximum: int, *, method: str = "optimized") -> LoveConfig:
+def _config(
+    maximum: int,
+    *,
+    method: str = "optimized",
+    optimized_profile: str = OptimizedLoveProfile.DISQOVER_SOURCE.value,
+) -> LoveConfig:
     return LoveConfig(
         method=method,
         regional_basin_type="lake",
@@ -66,6 +76,7 @@ def _config(maximum: int, *, method: str = "optimized") -> LoveConfig:
         max_ring=maximum,
         repeats=1,
         stochastic=False,
+        optimized_profile=optimized_profile,
     )
 
 
@@ -83,6 +94,106 @@ def test_source_dimension_drop_is_refused_before_optimizer(
     with pytest.raises(ValidationError) as raised:
         run_love(*_inputs(fractions), _config(maximum))
     assert raised.value.reason_code == "unsupported_source_ring_dimensions"
+
+
+def test_ring_taxon_profile_preserves_one_local_ring() -> None:
+    result = run_love(
+        *_inputs([1.0, 0.7, 0.9, 0.6]),
+        _config(1, optimized_profile=OptimizedLoveProfile.RING_TAXON_PRESERVING.value),
+        regional_cover_draws=np.array([[0.89448, 0.04771, 0.05781]]),
+        replay_candidates=np.array([[0.2, 0.5, 0.3]]),
+    )
+
+    assert result.auxiliary["K"].shape == (4, 3)
+    np.testing.assert_array_equal(result.cover["mean"].to_numpy(), [[0.2, 0.5, 0.3]])
+    np.testing.assert_array_equal(
+        result.pollen_percentages["mean"].to_numpy(), [[42.45, 18.19, 39.36]]
+    )
+    np.testing.assert_allclose(
+        result.objective_values.to_numpy(), [[1.2635232041994178]], atol=1e-13
+    )
+    assert result.manifest.algorithm == "LOVE-optimized-ring-taxon-preserving"
+    assert result.manifest.compatibility_mode == "ring-taxon-preserving"
+    assert (
+        result.manifest.parameters["optimized_profile"]
+        == OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+    )
+
+
+@pytest.mark.parametrize(
+    "profile,maximum,expected,fractions",
+    [
+        (
+            OptimizedLoveProfile.DISQOVER_SOURCE.value,
+            2,
+            COMPATIBILITY_MODE,
+            [0.0, 0.7, 0.9, 0.6],
+        ),
+        (
+            OptimizedLoveProfile.RING_TAXON_PRESERVING.value,
+            1,
+            "ring-taxon-preserving",
+            [1.0, 0.7, 0.9, 0.6],
+        ),
+    ],
+)
+def test_paired_and_series_manifests_name_the_actual_love_equations(
+    profile: str,
+    maximum: int,
+    expected: str,
+    fractions: list[float],
+) -> None:
+    local, regional, params, rings = _inputs(fractions)
+    config = LRAConfig(
+        RevealsConfig("lake", 300, iterations=1, stochastic=False),
+        _config(maximum, optimized_profile=profile),
+        seed=7,
+    )
+    candidates = np.array([[0.2, 0.5, 0.3]])
+    paired = run_lra(
+        local, regional, params, rings, config, replay_candidates=candidates
+    )
+    series = run_lra_series(
+        local, regional, params, rings, config, replay_candidates=candidates
+    )
+    assert paired.local.manifest.compatibility_mode == expected
+    assert paired.manifest.compatibility_mode == expected
+    assert series.manifest.compatibility_mode == expected
+    assert all(
+        run.manifest.compatibility_mode == expected for run in series.runs.values()
+    )
+
+
+def test_ring_taxon_profile_preserves_one_regional_ring() -> None:
+    result = run_love(
+        *_inputs([1.0, 0.7, 0.9, 0.6]),
+        _config(3, optimized_profile=OptimizedLoveProfile.RING_TAXON_PRESERVING.value),
+        regional_cover_draws=np.array([[0.89448, 0.04771, 0.05781]]),
+        replay_candidates=np.array([[0.2, 0.5, 0.3]]),
+    )
+
+    assert result.cover["mean"].shape == (3, 3)
+    np.testing.assert_array_equal(
+        result.pollen_percentages["mean"].to_numpy()[-1], [19.19, 29.7, 51.1]
+    )
+    np.testing.assert_allclose(
+        result.objective_values.to_numpy()[-1], [1.160362808782417], atol=1e-13
+    )
+
+
+@pytest.mark.parametrize("profile", ["unknown", "ring-taxon-preserving-other"])
+def test_unknown_optimized_profile_is_refused(profile: str) -> None:
+    with pytest.raises(ValidationError, match="optimized_profile"):
+        _config(1, optimized_profile=profile)
+
+
+def test_ring_taxon_profile_is_refused_for_analytical_love() -> None:
+    with pytest.raises(ValidationError, match="requires optimized LOVE"):
+        _config(
+            1,
+            method="analytical",
+            optimized_profile=OptimizedLoveProfile.RING_TAXON_PRESERVING.value,
+        )
 
 
 @pytest.mark.parametrize("maximum", [2, 3])

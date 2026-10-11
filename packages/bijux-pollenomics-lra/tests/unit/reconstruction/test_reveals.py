@@ -81,6 +81,98 @@ def test_reveals_supplied_draws_and_sample_sd() -> None:
     np.testing.assert_allclose(result["q10sim"], np.quantile(expected, 0.1, axis=0))
 
 
+def test_reveals_batch_preserves_rng_order_inputs_and_scalar_equation() -> None:
+    params = pd.DataFrame({"ppe": [1.0, 2.0, 3.0], "ppe.error": [0.1, 0.2, 0.3]})
+    deposition = np.array([0.2, 0.3, 0.5])
+    generator = np.random.default_rng(42)
+    actual = REVEALS(
+        [100, 20, 30, 50],
+        8,
+        params,
+        deposition=deposition,
+        rng=generator,
+        return_samples=True,
+    )
+
+    expected_generator = np.random.default_rng(42)
+    expected = []
+    for _ in range(8):
+        productivity = rnorm_reveals(
+            3,
+            params["ppe"].to_numpy(),
+            params["ppe.error"].to_numpy(),
+            rng=expected_generator,
+        )
+        counts = rmultinom_reveals(
+            n=1,
+            pollen=[20, 30, 50],
+            rng=expected_generator,
+        ).reshape(-1)
+        expected.append(reveals_cover(counts, productivity, deposition))
+
+    np.testing.assert_array_equal(actual["samples"], np.asarray(expected))
+    assert generator.bit_generator.state == expected_generator.bit_generator.state
+
+    supplied_pollen = np.array(
+        [
+            [20, 30, 50],
+            [30, 20, 50],
+            [40, 10, 50],
+            [50, 20, 30],
+            [15, 35, 50],
+            [10, 50, 40],
+            [45, 25, 30],
+            [35, 40, 25],
+        ],
+        dtype=float,
+    )
+    supplied_ppe = np.tile(params["ppe"].to_numpy(), (8, 1))
+    pollen_before = supplied_pollen.copy()
+    ppe_before = supplied_ppe.copy()
+    supplied = REVEALS(
+        [100, 20, 30, 50],
+        8,
+        params,
+        deposition=deposition,
+        ppe_draws=supplied_ppe,
+        pollen_draws=supplied_pollen,
+        return_samples=True,
+    )
+    scalar = np.asarray(
+        [
+            reveals_cover(counts, productivity, deposition)
+            for counts, productivity in zip(supplied_pollen, supplied_ppe, strict=True)
+        ]
+    )
+    np.testing.assert_array_equal(supplied["samples"], scalar)
+    np.testing.assert_array_equal(supplied_pollen, pollen_before)
+    np.testing.assert_array_equal(supplied_ppe, ppe_before)
+
+
+def test_reveals_batch_preserves_callback_order() -> None:
+    events: list[str] = []
+
+    def ppe_callback(n: int, mean: np.ndarray, error: np.ndarray) -> np.ndarray:
+        del n, error
+        events.append("ppe")
+        return mean
+
+    def pollen_callback(*, n: int, pollen: np.ndarray) -> np.ndarray:
+        del n
+        events.append("pollen")
+        return pollen
+
+    REVEALS(
+        [1, 20, 30],
+        3,
+        pd.DataFrame({"ppe": [1, 2], "ppe.error": [0, 0]}),
+        ppefun=ppe_callback,
+        deposition=[0.2, 0.3],
+        pollenfun=pollen_callback,
+    )
+    assert events == ["ppe", "pollen"] * 3
+
+
 def test_single_draw_sd_and_callbacks() -> None:
     params = pd.DataFrame({"ppe": [1, 2], "ppe.error": [0, 0]})
     result = REVEALS(

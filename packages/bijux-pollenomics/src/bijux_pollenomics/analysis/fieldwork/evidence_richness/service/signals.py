@@ -29,6 +29,7 @@ def _build_band_score(
     radius_km: int,
     raw: dict[str, int],
     maxima: dict[str, int],
+    raa_density_admitted: bool,
     total_score_policy: _TotalScorePolicy,
 ) -> LakeEvidenceBandScore:
     nearby_pollen = _normalized_ratio(
@@ -89,7 +90,7 @@ def _build_band_score(
             0.5,
         ),
     )
-    archaeology = _weighted_average(
+    archaeology_components = [
         (_normalized_ratio(raw["sead_site_count"], maxima["sead_site_count"]), 0.4),
         (
             _normalized_ratio(
@@ -105,13 +106,17 @@ def _build_band_score(
             ),
             0.2,
         ),
-        (
-            _normalized_ratio(
-                raw["raa_density_site_count"], maxima["raa_density_site_count"]
-            ),
-            0.2,
-        ),
-    )
+    ]
+    if raa_density_admitted:
+        archaeology_components.append(
+            (
+                _normalized_ratio(
+                    raw["raa_density_site_count"], maxima["raa_density_site_count"]
+                ),
+                0.2,
+            )
+        )
+    archaeology = _weighted_average(*archaeology_components)
     signals = _BandSignals(
         nearby_pollen=nearby_pollen,
         human=human,
@@ -133,7 +138,9 @@ def _build_band_score(
         sead_site_count=raw["sead_site_count"],
         time_aware_sead_site_count=raw["time_aware_sead_site_count"],
         human_overlap_sead_site_count=raw["human_overlap_sead_site_count"],
-        raa_density_site_count=raw["raa_density_site_count"],
+        raa_density_site_count=(
+            raw["raa_density_site_count"] if raa_density_admitted else None
+        ),
         evidence_family_count=raw["evidence_family_count"],
         nearby_pollen_signal=signals.nearby_pollen,
         human_signal=signals.human,

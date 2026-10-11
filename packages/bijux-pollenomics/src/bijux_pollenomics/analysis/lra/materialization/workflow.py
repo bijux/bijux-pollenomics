@@ -14,7 +14,7 @@ from bijux_pollenomics.core.owned_tree import publish_new_output_tree
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
 from .models import AdmissionReport, canonical_bytes, producer_identity
-from .neotoma import MISSING_LRA_EVIDENCE, source_accounting
+from .neotoma.accounting import MISSING_LRA_EVIDENCE, source_accounting
 from .paths import checked_output_directory
 from .reading import NeotomaEvidence, read_neotoma_evidence
 

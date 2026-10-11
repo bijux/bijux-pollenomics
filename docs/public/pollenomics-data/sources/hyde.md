@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-13
+last_reviewed: 2026-09-21
 ---
 
 # HYDE 3.5
@@ -124,6 +124,24 @@ adapter must explicitly join those declarations to the existing grid contract.
 The retained reader authenticates pinned bytes and internal consistency, rather
 than re-executing the original source read.
 
+`bijux_pollenomics.collection.sources.hyde.ascii.geometry.native_axis_geometry`
+can derive exact decimal source-axis edges from a retained window and the
+archive SHA-256 in its authenticated parent manifest. It uses the source's
+literal `xllcorner`, `yllcorner` and `cellsize`; rows run north to south.
+Because the native step is `0.0833333`, the calculated global east/north edges
+are `179.9998560` and `89.9999280`, rather than rounded longitude/latitude
+limits. The result carries archive, member, window and native scenario labels,
+plus separate missing, nonmissing and zero counts. It explicitly leaves CRS,
+variable units and calendar support unset, and marks country projection and
+public release as unavailable.
+
+The private source-axis envelope for the inspected base 2000AD cropland member
+contains 72,576 selected cells: 29,217 missing, 43,359 nonmissing and 15,307
+numeric zeros. Its source-axis window edges are west `3.9999264`, east
+`31.9999152`, south `53.9999424` and north `71.9999352` in undeclared native
+coordinate units. These are source-index geometry and mask counts, not a
+country overlay, area estimate, admitted Nordic subset or vegetation truth.
+
 Installed-package checks cover seven identical windows in each of base, lower
 and upper cropland for 2000AD: 117 selected cells agree exactly with independent
 native reads, including edge orientation, missingness, zeros and member hashes.
@@ -157,6 +175,19 @@ the supplied 3.5 release. Coverage prose also differs between 2023, 2024 and
 2025. Preserve these source claims until their interpretation is established.
 No distribution permission or release equivalence is inferred from the most
 favorable declaration.
+
+The host can now reconstruct a refusal-only declaration inventory from four
+pinned compact parents: the 1,574-file custody inventory and report, the 48-file
+NetCDF header inventory, and the conflict report. It requires the exact 16
+variables in each of the base, lower and upper scenarios and retains raw axes,
+spacing, orientation, dimensions, units, fill values, time/calendar labels,
+source hashes and provider claims. It does not open native value arrays. The
+inventory is reconstructed from those authenticated parents rather than trusted
+through a detached canonical-product authority. Its typed reopen reconstructs
+the inventory from the same four parents and accepts only byte-exact canonical
+output from that reconstruction. Native admission, rights, CRS, canonical BP
+conversion, confidence-bound semantics, publication, independent vegetation
+truth and scientific acceptance all remain false or unevaluated.
 
 A local comparison of year-2000 cropland in all three scenarios finds equal
 ASCII/NetCDF missing masks and identical values after conversion to the source

@@ -58,7 +58,7 @@ class EvidenceReader:
         return content
 
     def json(self, relative: str) -> dict[str, Any] | None:
-        """Decode an accounted evidence file as a JSON object when present."""
+        """Decode accounted evidence as a JSON object while preserving explicit absence."""
         content = self.read_bytes(relative)
         if content is None:
             return None

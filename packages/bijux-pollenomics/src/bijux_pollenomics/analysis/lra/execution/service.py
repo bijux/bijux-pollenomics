@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import Path
 
-from ..engine.discovery import load_engine
+from ..engine.discovery import load_engine, required_capability_for_profile
 from ..inputs.validation import ValidatedRequest, validate_request
 from ..outputs.identity import capture_code_identity, verify_code_identity
 from ..outputs.publication import LRAProduct, publish_result
@@ -17,7 +17,14 @@ def validate_lra_inputs(
 ) -> ValidatedRequest:
     """Validate source bytes and engine configuration without computing estimates."""
     request = validate_request(payload, input_root=input_root)
-    validate_engine_configuration(load_engine(), request)
+    validate_engine_configuration(
+        load_engine(
+            required_capability=required_capability_for_profile(
+                request.payload()["method_profile"]
+            )
+        ),
+        request,
+    )
     return request
 
 
@@ -26,7 +33,11 @@ def run_lra_request(
 ) -> LRAProduct:
     """Compute one exploratory product from a reproducible source-compatible request."""
     request = validate_request(payload, input_root=input_root)
-    binding = load_engine()
+    binding = load_engine(
+        required_capability=required_capability_for_profile(
+            request.payload()["method_profile"]
+        )
+    )
     identity = capture_code_identity(binding)
     result = reconstruct(binding, request)
     # A source disappearing or changing during the calculation invalidates output.

@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import cast
 
 from ..collection.contracts.cardinality import resolve_declared_count
+from .map_publication_raa import _raa_context_posture
 from .models import MultiCountryMapReport
 from .presentation.text import escape_pipes
 from .scope_policy import (
@@ -360,6 +361,7 @@ def _serialize_layer_contract_row(
     layer_key = str(layer.get("key", "")).strip()
     layer_group = str(layer.get("group", "")).strip()
     animal_chronology_context = _animal_chronology_context_posture(layer)
+    raa_context = _raa_context_posture(layer)
     features = layer.get("features")
     feature_count = len(features) if isinstance(features, list) else 0
     count = resolve_declared_count(
@@ -393,6 +395,8 @@ def _serialize_layer_contract_row(
     }
     if animal_chronology_context is not None:
         row.update(animal_chronology_context)
+    if raa_context is not None:
+        row.update(raa_context)
     return row
 
 

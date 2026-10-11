@@ -6,9 +6,7 @@ from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_publication import (
     _serialize_layer_contract_row,
-    build_map_point_traceability,
     build_map_publication_contract,
-    render_map_point_traceability_markdown,
     resolve_map_scope_policy,
 )
 from bijux_pollenomics.reporting.models import MultiCountryMapReport
@@ -44,6 +42,51 @@ class PublicationContractTests(MapPublicationTestCase):
             "species_attribution_basis": "governed_project_registry",
         }
 
+    @staticmethod
+    def _degraded_raa_layer() -> dict[str, object]:
+        return {
+            "key": "raa-archaeology",
+            "label": "RAÄ archaeology density",
+            "source_name": "RAÄ Fornsök",
+            "coverage_label": "Sweden only; retained historical cells.",
+            "count": 106,
+            "group": "archaeology-context",
+            "semantic_role": "archaeology_context",
+            "contribution_role": "display_only",
+            "default_enabled": True,
+            "applies_country_filter": True,
+            "applies_time_filter": False,
+            "candidate_ranking_eligible": False,
+            "scientific_classification_eligible": False,
+            "scientific_selection_enabled": False,
+            "propagation_status": "refused",
+            "propagation_reason_code": "archaeology_context_only",
+            "edge_count": 0,
+            "authority_status": "degraded",
+            "source_authority_admitted": False,
+            "authority_reason_codes": [
+                "missing_raw_inventory",
+                "missing_raw_summary",
+                "missing_scientific_review",
+            ],
+            "display_warning_codes": ["retained_density_metadata_count_mismatch"],
+            "retained_surface_status": "retained_historical_context",
+            "density_count_accounting": {
+                "status": "observed_retained_normalized_pair",
+                "density_feature_count": 106,
+                "density_cell_count_sum": 339412,
+                "metadata_fornlamning_count": 318265,
+                "difference": 21147,
+                "reconciled": False,
+            },
+            "density_value_label": "Retained cell count (unreconciled)",
+            "density_count_label": (
+                "Retained Swedish one-degree cell values: 339,412 summed cell "
+                "counts versus 318,265 metadata Fornlämning; display only, "
+                "source authority refused."
+            ),
+        }
+
     def test_layer_contract_preserves_zero_and_derives_only_absent_legacy_count(
         self,
     ) -> None:
@@ -60,93 +103,45 @@ class PublicationContractTests(MapPublicationTestCase):
         self.assertEqual(zero["count"], 0)
         self.assertEqual(legacy["count"], 2)
 
-    def test_point_traceability_normalizes_layer_metadata_without_data_loss(
-        self,
-    ) -> None:
-        report = MultiCountryMapReport(
-            title="Nordic Evidence Surface",
-            slug="nordic",
-            version="v66",
-            generated_on="2026-05-09",
-            countries=("Sweden", "Norway"),
-            country_sample_counts={"Sweden": 1, "Norway": 1},
-            total_unique_samples=2,
-            output_dir=Path("/tmp/docs/report/regions/nordic"),
-            scope_key="nordic",
-            scope_label="Nordic",
-            scope_kind="region",
-            parent_scope_key="europe_plus",
-        )
-        payload = build_map_point_traceability(
-            report=report,
-            point_layers=[
-                {
-                    "key": "zebra",
-                    "label": "Zebra layer",
-                    "group": "animal-evidence",
-                    "source_name": "Example source",
-                    "traceability_artifact": "zebra.json",
-                    "traceability_reference": "https://example.test/zebra",
-                    "features": [
-                        {
-                            "evidence_row_id": "zebra:1",
-                            "title": "Zebra one",
-                            "country": "Sweden",
-                            "source_url": "https://example.test/zebra/1",
-                            "species_latin_name": "Equus quagga",
-                            "animal_scope": "comparator",
-                            "coordinate_confidence": "exact",
-                        }
-                    ],
-                },
-                {
-                    "key": "aadr",
-                    "label": "Human samples",
-                    "source_name": "AADR",
-                    "features": [
-                        {"title": "Sample one", "country": "Norway"},
-                        {"title": "Sample two", "country": "Sweden"},
-                    ],
-                },
-            ],
+    def test_degraded_raa_contract_preserves_display_and_refusal_posture(self) -> None:
+        row = _serialize_layer_contract_row(
+            self._degraded_raa_layer(), policy=resolve_map_scope_policy(None)
         )
 
-        self.assertEqual(payload["schema_version"], "map-point-traceability.v2")
-        self.assertEqual(payload["scope_key"], "nordic")
-        self.assertEqual(payload["row_count"], 3)
-        self.assertEqual(payload["layer_counts"], {"aadr": 2, "zebra": 1})
-        layers = payload["layers"]
-        self.assertIsInstance(layers, list)
-        self.assertEqual([layer["layer_key"] for layer in layers], ["aadr", "zebra"])
-        self.assertEqual(layers[0]["row_count"], 2)
+        self.assertEqual(row["authority_status"], "degraded")
+        self.assertIs(row["source_authority_admitted"], False)
+        self.assertEqual(row["contribution_role"], "display_only")
+        self.assertIs(row["default_enabled"], True)
+        self.assertIs(row["applies_time_filter"], False)
+        self.assertIs(row["candidate_ranking_eligible"], False)
+        self.assertIs(row["scientific_classification_eligible"], False)
+        self.assertIs(row["scientific_selection_enabled"], False)
+        self.assertEqual(row["propagation_status"], "refused")
+        self.assertEqual(row["edge_count"], 0)
         self.assertEqual(
-            layers[0]["field_counts"],
-            {
-                "title": 2,
-                "country": 2,
-                "source_url": 0,
-                "species_latin_name": 0,
-                "animal_scope": 0,
-                "coordinate_confidence": 0,
-            },
+            row["density_count_accounting"]["difference"],  # type: ignore[index]
+            21147,
         )
-        self.assertNotIn("source_url", layers[0]["records"][0])
-        self.assertEqual(layers[1]["records"][0]["record_id"], "zebra:1")
-        self.assertNotIn("layer_key", layers[1]["records"][0])
-        self.assertNotIn("scope_key", layers[1]["records"][0])
 
-        markdown = render_map_point_traceability_markdown(payload)
-        self.assertIn("Visible point rows: `3`", markdown)
-        self.assertIn("| Zebra layer | zebra:1 | Sweden | zebra.json |", markdown)
-
-        with self.assertRaisesRegex(ValueError, "layer key is duplicated"):
-            build_map_point_traceability(
-                report=report,
-                point_layers=[
-                    {"key": "aadr", "features": []},
-                    {"key": "aadr", "features": []},
-                ],
-            )
+    def test_degraded_raa_contract_fails_closed_on_posture_drift(self) -> None:
+        for field in (
+            "contribution_role",
+            "applies_time_filter",
+            "candidate_ranking_eligible",
+            "propagation_status",
+            "edge_count",
+            "authority_status",
+            "source_authority_admitted",
+            "authority_reason_codes",
+            "display_warning_codes",
+            "density_count_accounting",
+        ):
+            layer = self._degraded_raa_layer()
+            layer.pop(field)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "RAÄ"):
+                _serialize_layer_contract_row(
+                    layer, policy=resolve_map_scope_policy(None)
+                )
 
     def test_layer_contract_refuses_malformed_or_drifting_declared_count(
         self,

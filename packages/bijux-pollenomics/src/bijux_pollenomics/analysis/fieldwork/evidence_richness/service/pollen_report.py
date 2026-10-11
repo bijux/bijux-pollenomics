@@ -45,6 +45,7 @@ def _build_pollen_candidate_report(
         animal_points=context.animal_points,
         sead_points=context.sead_points,
         raa_cells=context.raa_cells,
+        raa_density_admitted=context.raa_authority.get("admitted") is True,
         aggregate_radius_weights=_AGGREGATE_RADIUS_WEIGHTS,
         total_score_policy=_pollen_total_score,
     )
@@ -55,7 +56,7 @@ def _build_pollen_candidate_report(
         aggregate_tiebreaker=_pollen_aggregate_tiebreaker,
     )
     return LakeEvidenceRichnessReport(
-        schema_version="sweden-lake-evidence-richness.v2",
+        schema_version="sweden-lake-evidence-richness.v3",
         country="Sweden",
         radii_km=radii_km,
         candidate_count=len(assessments),

@@ -70,7 +70,9 @@ def test_complete_metadata_refuses_rehashed_contradictions(
         scientific["block_model_sha256"] = {next(iter(folds)): "a" * 64}
     with pytest.raises(ValidationRefusal):
         validate_block_metadata(experiment, scientific, folds, {}, {})
-    assert original["requested_predictions"] == 9
+    assert original["requested_predictions"] == sum(
+        len(fold["test_record_ids"]) for fold in original["folds"]
+    ) * len(original["methods"])
 
 
 def test_shared_training_state_admits_non_block_criterion_and_binds_coordinates(

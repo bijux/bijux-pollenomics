@@ -13,6 +13,9 @@ from bijux_pollenomics.analysis.lra_validation import (
     manifest_sha256,
 )
 from bijux_pollenomics.analysis.lra_validation.contracts import canonical_json
+from bijux_pollenomics.analysis.lra_validation.experiments import (
+    read_local_pollen_predictions as public_local_reader,
+)
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     LOCAL_EVALUATION_ROLES,
     LOCAL_METHOD,
@@ -33,8 +36,16 @@ from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     write_json,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.reading import local_product
+from bijux_pollenomics.analysis.lra_validation.experiments.reading import (
+    read_local_pollen_predictions as reading_local_reader,
+)
 
 from ..test_assimilation import local_payload
+
+
+def test_local_reader_is_exported_from_both_experiment_facades() -> None:
+    assert public_local_reader is reading_local_reader
+    assert reading_local_reader is local_product.read_local_pollen_predictions
 
 
 def _engine() -> dict[str, str]:

@@ -194,7 +194,7 @@ class LakeEvidenceBandScore:
     sead_site_count: int
     time_aware_sead_site_count: int
     human_overlap_sead_site_count: int
-    raa_density_site_count: int
+    raa_density_site_count: int | None
     evidence_family_count: int
     nearby_pollen_signal: float
     human_signal: float

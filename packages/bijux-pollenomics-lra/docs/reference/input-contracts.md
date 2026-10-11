@@ -19,6 +19,17 @@ PPE standard error is finite/nonnegative; the current DISQOVER parameter domain
 requires fallspeed in [0.01, 0.15] m/s. The host supplies PPE reference, units and
 scientific-domain decisions. No taxon grouping or surrogate inference occurs here.
 
+Analytical LOVE can opt into `fall_speed_profile="landclimii-2016-gpm-neutral-analytical-v1"`
+with `distance_weighting="gpm neutral"`. This named author profile accepts finite
+fallspeed in [0.006, 0.15] m/s so that the LandClim II Filipendula value of 0.006
+is preserved. It requires supplied, taxon-aligned `regional_cover_draws` containing
+closed fractions; absence or invalid draws is a refusal. It also refuses rings
+whose regional or local GPM deposition factors are nonfinite or nonpositive.
+This profile applies only to analytical LOVE with externally supplied regional
+cover draws. The generic DISQOVER wrapper, REVEALS and optimized LOVE retain the
+[0.01, 0.15] m/s domain; the named profile does not certify a broader wrapper or
+LSM profile.
+
 Ring distances (`inner`, `outer`, `mean`) and basin diameters are metres.
 Optimized LOVE additionally requires `terrestrial` area and geometric `ring` area
 in consistent square-metre units. Source-profile geometry quirks are declared in

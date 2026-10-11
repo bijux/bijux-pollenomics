@@ -5,21 +5,211 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+  NUMEXPR_NUM_THREADS: "1"
+  MAKEFLAGS: "-j1"
+  TZ: UTC
+  LANG: C
+  LC_ALL: C
+  PYTHONDONTWRITEBYTECODE: "1"
 jobs:
+  sources:
+    name: lra-source-acquisition
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      archive_sha256: ${{ steps.pack.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - name: Acquire and verify exact R and package sources
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-fetch
+      - name: Pack verified sources and acquisition receipt
+        id: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="artifacts/bijux-pollenomics-lra/reference"
+          mkdir -p "$root/handoff"
+          tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/sources.tar" "$root/sources" "$root/receipts/acquisition"
+          printf 'sha256=%s\n' "$(sha256sum "$root/handoff/sources.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff/sources.tar
+          compression-level: 0
+          if-no-files-found: error
+      - name: Retain source acquisition diagnostics
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-sources-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/receipts/acquisition/
+          if-no-files-found: warn
+
+  runtime:
+    name: lra-source-build-r
+    needs: sources
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      archive_sha256: ${{ steps.pack.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Install source-build prerequisites
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential gfortran pkg-config libreadline-dev zlib1g-dev libbz2-dev liblzma-dev libpcre2-dev libcurl4-openssl-dev libssl-dev libicu-dev
+          system="artifacts/bijux-pollenomics-lra/reference/system/runtime"
+          mkdir -p "$system"
+          dpkg-query -W > "$system/dpkg-packages.txt"
+          uname -a > "$system/kernel.txt"
+      - run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff
+      - name: Verify and restore source handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="artifacts/bijux-pollenomics-lra/reference/handoff/sources.tar"
+          printf '%s  %s\n' '${{ needs.sources.outputs.archive_sha256 }}' "$archive" | sha256sum -c -
+          tar -C "$GITHUB_WORKSPACE" -xf "$archive"
+      - name: Build R from its verified source with one worker
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-build-r
+      - name: Pack source-built R and byte inventory
+        id: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="artifacts/bijux-pollenomics-lra/reference"
+          tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/runtime.tar" "$root/runtime" "$root/receipts/runtime" "$root/system/runtime"
+          printf 'sha256=%s\n' "$(sha256sum "$root/handoff/runtime.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff/runtime.tar
+          compression-level: 0
+          if-no-files-found: error
+      - name: Retain R build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-runtime-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: |
+            artifacts/bijux-pollenomics-lra/reference/receipts/runtime/
+            artifacts/bijux-pollenomics-lra/reference/system/runtime/
+          if-no-files-found: warn
+
+  provision:
+    name: lra-verified-source-provision
+    needs: [sources, runtime]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      archive_sha256: ${{ steps.pack.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Install source-build prerequisites
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential gfortran pkg-config libreadline-dev zlib1g-dev libbz2-dev liblzma-dev libpcre2-dev libcurl4-openssl-dev libssl-dev libicu-dev
+          system="artifacts/bijux-pollenomics-lra/reference/system/provision"
+          mkdir -p "$system"
+          dpkg-query -W > "$system/dpkg-packages.txt"
+          uname -a > "$system/kernel.txt"
+      - run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff
+      - name: Verify and restore source and runtime handoffs
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="artifacts/bijux-pollenomics-lra/reference"
+          printf '%s  %s\n' '${{ needs.sources.outputs.archive_sha256 }}' "$root/handoff/sources.tar" | sha256sum -c -
+          printf '%s  %s\n' '${{ needs.runtime.outputs.archive_sha256 }}' "$root/handoff/runtime.tar" | sha256sum -c -
+          tar -C "$GITHUB_WORKSPACE" -xf "$root/handoff/sources.tar"
+          tar -C "$GITHUB_WORKSPACE" -xf "$root/handoff/runtime.tar"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path(os.environ['GITHUB_WORKSPACE']) / 'artifacts/bijux-pollenomics-lra/reference'
+          receipt = json.loads((root / 'receipts/runtime/report.json').read_text())
+          if receipt.get('status') != 'passed' or receipt.get('prefix') != str(root / 'runtime'):
+              raise SystemExit('Restored source-built R prefix differs from this runner workspace')
+          PY
+      - name: Install only verified local R package sources
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-provision
+      - name: Pack verified R library and provision receipt
+        id: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="artifacts/bijux-pollenomics-lra/reference"
+          tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/provision.tar" "$root/library" "$root/receipts/provision" "$root/system/provision"
+          printf 'sha256=%s\n' "$(sha256sum "$root/handoff/provision.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff/provision.tar
+          compression-level: 0
+          if-no-files-found: error
+      - name: Retain provisioning diagnostics
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-r-provision-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: |
+            artifacts/bijux-pollenomics-lra/reference/receipts/provision/
+            artifacts/bijux-pollenomics-lra/reference/system/provision/
+          if-no-files-found: warn
+
   reference:
     name: lra-live-r-certification
+    needs: [runtime, provision]
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
-    env:
-      OMP_NUM_THREADS: "1"
-      OPENBLAS_NUM_THREADS: "1"
-      MKL_NUM_THREADS: "1"
-      NUMEXPR_NUM_THREADS: "1"
-      MAKEFLAGS: "-j1"
-      TZ: UTC
-      LANG: C
-      LC_ALL: C
-      PYTHONDONTWRITEBYTECODE: "1"
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -42,12 +232,34 @@ jobs:
           uname -a > artifacts/bijux-pollenomics-lra/reference/system/kernel.txt
       - name: Install exact Python workspace lock
         run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - name: Acquire and verify exact R and package sources
-        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-fetch
-      - name: Build R from its verified source with one worker
-        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-build-r
-      - name: Install only verified local R package sources
-        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-provision
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/handoff
+      - name: Verify and restore source-built runtime and R library
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="artifacts/bijux-pollenomics-lra/reference"
+          printf '%s  %s\n' '${{ needs.runtime.outputs.archive_sha256 }}' "$root/handoff/runtime.tar" | sha256sum -c -
+          printf '%s  %s\n' '${{ needs.provision.outputs.archive_sha256 }}' "$root/handoff/provision.tar" | sha256sum -c -
+          tar -C "$GITHUB_WORKSPACE" -xf "$root/handoff/runtime.tar"
+          tar -C "$GITHUB_WORKSPACE" -xf "$root/handoff/provision.tar"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path(os.environ['GITHUB_WORKSPACE']) / 'artifacts/bijux-pollenomics-lra/reference'
+          runtime = json.loads((root / 'receipts/runtime/report.json').read_text())
+          provision = json.loads((root / 'receipts/provision/report.json').read_text())
+          if runtime.get('status') != 'passed' or runtime.get('prefix') != str(root / 'runtime'):
+              raise SystemExit('Restored source-built R prefix differs from this runner workspace')
+          if provision.get('status') != 'passed' or provision.get('library') != str(root / 'library'):
+              raise SystemExit('Restored R library differs from the provisioning receipt')
+          PY
       - name: Certify actual shared-input R execution
         run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" test-live-r
       - name: Upload the complete source-bound certificate bundle

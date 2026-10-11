@@ -14,8 +14,8 @@ PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 SECURITY_EXTRA_TARGETS := security-locked-dependencies
 SECURITY_SELF_MAKE = $(MAKE) -f "$(MONOREPO_ROOT)/makes/packages/bijux-pollenomics-dev.mk"
 ENABLE_PYDOCSTYLE := 1
-# ISTS is an archived LandClim header preserved by taxa reconciliation contracts.
-CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists
+# ISTS is an archived LandClim header; dokument is part of the official SLU source URL.
+CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists,dokument
 SKIP_MYPY := 0
 PACKAGE_ALL_TARGETS := clean install test lint quality security build sbom
 

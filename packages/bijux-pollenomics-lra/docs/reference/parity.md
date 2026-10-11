@@ -37,6 +37,24 @@ The live suite covers `DispersalFactorK`, `REVEALS`, `REVEALSinR`, `lov`,
 are saved as `python_expected_not_R_goldens.npz` to make their provenance
 unambiguous.
 
+The optimized-LOVE suite includes a checked prospective declaration for three
+source-compatible multi-ring cases. Input counts, shared replay candidates,
+the exact DISQOVER archive and resource hashes, and `1e-10` absolute and
+relative tolerances are committed before reference execution. The threshold is
+fixed independently of prospective R results. It permits only floating-point
+drift far below the source wrapper's `1e-4` cover and `1e-2` pollen rounding;
+failure blocks this parity claim rather than permitting a retrospective
+tolerance change.
+
+The gate checks `calK`, exact taxon and ring axes, deterministic regional cover
+and deposition, every candidate objective against the wrapper's normalized
+local pollen input, the exact selected candidate, rounded cover and pollen
+output, and exact replay iteration, evaluation-count, and success fields.
+All-zero cover probes must remain nonfinite. The replay harness must refuse an
+all-nonfinite candidate set with its specific declared error; this is not a
+claim about native DEoptim refusal behavior. Stochastic optimizer trajectories
+are excluded, and synthetic parity is not ecological validation.
+
 Status meanings:
 
 - `passed`: R executed and every numerical/string comparison passed.

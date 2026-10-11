@@ -195,7 +195,7 @@ def _report() -> LakeEvidenceRichnessReport:
         ),
     )
     return LakeEvidenceRichnessReport(
-        schema_version="sweden-lake-evidence-richness.v2",
+        schema_version="sweden-lake-evidence-richness.v3",
         country="Sweden",
         radii_km=(10, 20, 30, 40, 50),
         methodology={},

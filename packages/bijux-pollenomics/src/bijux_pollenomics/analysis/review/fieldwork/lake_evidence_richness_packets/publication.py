@@ -90,7 +90,7 @@ def render_lake_evidence_richness_markdown(
             )
             for assessment in report.assessments[:20]
         )
-        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | 0/0 | - | - | 0 | 0 | 0 |"
+        or "| — | No eligible lake candidates | — | — | — | — | — | — | — | — | — | — |"
     )
     consensus_section = _render_consensus_table(report)
     fieldwork_section = _render_fieldwork_shortlist_table(report)
@@ -125,6 +125,7 @@ This report ranks Sweden lake candidates by the richness of tracked pollen, arch
 - Spatial context is not the same as chronology support: source layers with zero numeric intervals remain visible for surrounding evidence density, but they do not contribute chronology-overlap strength.
 - Nearby time context is not lake chronology: map windows summarize numeric pollen, SEAD, or aDNA records within 50 km and label that role explicitly. Direct lake pollen chronology remains a separate field in the CSV and JSON.
 - Partial chronology remains explicit: Neotoma records with BP intervals can strengthen time-aware comparisons, while unresolved or label-only records stay visible without being promoted to same-period evidence.
+- RAÄ density counts are unavailable when source authority is not admitted: JSON uses null, CSV leaves the count empty, and this table uses —. A numeric zero requires admitted RAÄ density evidence.
 
 ## Aggregate Ranking
 
@@ -226,6 +227,10 @@ def render_lake_evidence_richness_section(
 """
 
 
+def _render_raa_density_count(count: int | None) -> str:
+    return "—" if count is None else str(count)
+
+
 def _render_band_table(report: LakeEvidenceRichnessReport, *, radius_km: int) -> str:
     ordered = sorted(
         report.assessments,
@@ -243,13 +248,13 @@ def _render_band_table(report: LakeEvidenceRichnessReport, *, radius_km: int) ->
                 f"{_band_score(assessment, radius_km).human_adna_sample_count} | "
                 f"{_band_score(assessment, radius_km).domesticated_animal_locality_count} | "
                 f"{_band_score(assessment, radius_km).sead_site_count} | "
-                f"{_band_score(assessment, radius_km).raa_density_site_count} | "
+                f"{_render_raa_density_count(_band_score(assessment, radius_km).raa_density_site_count)} | "
                 f"{_band_score(assessment, radius_km).nearby_pollen_lake_count} | "
                 f"{_band_score(assessment, radius_km).evidence_family_count} |"
             )
             for assessment in ordered
         )
-        or "| - | No lake candidates | - | 0.0000 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 |"
+        or "| — | No eligible lake candidates | — | — | — | — | — | — | — | — | — |"
     )
     return f"""## {radius_km} km Ranking
 
