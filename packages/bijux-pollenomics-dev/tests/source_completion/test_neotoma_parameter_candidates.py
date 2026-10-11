@@ -6,6 +6,7 @@ from copy import deepcopy
 import csv
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -18,7 +19,7 @@ from bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates import
 REPOSITORY = Path(__file__).resolve().parents[4]
 
 
-def _inputs() -> tuple[list[dict[str, str]], dict[str, object]]:
+def _inputs() -> tuple[list[dict[str, str]], dict[str, Any]]:
     with (REPOSITORY / PARAMETERS).open(encoding="utf-8-sig", newline="") as handle:
         parameters = list(csv.DictReader(handle))
     priority = json.loads((REPOSITORY / PRIORITY).read_text(encoding="utf-8"))

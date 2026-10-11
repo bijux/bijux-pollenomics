@@ -69,7 +69,7 @@ For lifecycle stages and source roles, see the [source-family matrix](source-fam
 ## Bound input identity
 
 - `data/source_family_evidence_stage_matrix.json` SHA-256 `861d3970536060faca9d9839fada87a5bfb67a2509f9067dff341d41d902a922`
-- `data/country_dimension_coverage.json` SHA-256 `45ad290066d26c8864a5060a6dfbc97fc050a3af4b5fa95154ada09c5a4a9474`
+- `data/country_dimension_coverage.json` SHA-256 `c7b756a103d4fb8fac962167f1650cf9cc36bdbd5f1c343ffc55fab0e8e43c7c`
 
 From the repository root, regenerate to an absent artifact directory:
 

@@ -241,36 +241,6 @@
       ]
     },
     {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "unresolved",
-      "unresolved_place_string": "",
-      "candidate_matches": [
-        "Barentsøya",
-        "Diskobukta",
-        "Gipsdalen",
-        "Kapp Flora",
-        "Rijpjorden",
-        "Sassendalen",
-        "Svalbard ancient reindeer context",
-        "Svalbard archipelago reindeer context",
-        "Tchaiabukta/Hooken Island",
-        "Wijdefjorden"
-      ],
-      "final_decision": "",
-      "decision_rationale": "",
-      "queued_sample_count": 1,
-      "queued_sample_ids": [
-        "prjeb60484:samea112757327"
-      ],
-      "recommended_source_surfaces": [
-        "archive_metadata",
-        "coordinate_resolution",
-        "tracked_source_artifact"
-      ]
-    },
-    {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
       "decision_status": "pending_manual_curation",

@@ -94,11 +94,11 @@
   ],
   "evidence_paths": [
     {
-      "path": "artifacts/v3/reference/empd2-intake001/EMPD2.sqlite3",
+      "path": "reference-sources/empd2-nfi/empd2/source.sqlite3",
       "sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2"
     },
     {
-      "path": "artifacts/v3/reference/empd2-product-screen001/report003.json",
+      "path": "reference-sources/empd2-nfi/empd2/product-screen.json",
       "sha256": "6ca256d6e74d6129ee058bea36e8d28c1199bb276d68c0548e0b998853773aaa"
     }
   ],

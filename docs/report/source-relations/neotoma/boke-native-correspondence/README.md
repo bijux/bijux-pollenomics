@@ -1,7 +1,7 @@
 # Bökesjön workbook and Neotoma source correspondence
 
 The separately retained private `rootsi/BOKE.xls` workbook and the governed
-[Neotoma/EPD dataset 54001](../../../../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json)
+[Neotoma/EPD dataset 54001](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json)
 have **52/52 identical numeric sample depths**, including fractional labels.
 Their depth-matched age numbers differ by at most **0.048410**; all 52 are
 within **0.05** of the Neotoma sample-owned calibrated-BP ages. This is

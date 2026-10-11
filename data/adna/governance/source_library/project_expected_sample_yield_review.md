@@ -11,7 +11,7 @@
 | `PRJEB75467` | `Bos taurus` | - | 1 | 44 | `minimum_expected_floor_met` | `false` |
 | `PRJNA705960` | `Bos taurus` | - | 11 | 11 | `minimum_expected_floor_met` | `false` |
 | `KU605068-KU605080` | `Camelus dromedarius` | 13 | 13 | 13 | `recovered_to_exact_expected_count` | `false` |
-| `SRP073444` | `Camelus dromedarius` | - | 1 | 0 | `paper_or_capture_gap_blocks_estimate` | `false` |
+| `SRP073444` | `Camelus dromedarius` | - | 1 | 20 | `minimum_expected_floor_met` | `false` |
 | `KX379528-KX379529` | `Canis lupus familiaris` | 2 | 2 | 2 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407451` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407453` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |

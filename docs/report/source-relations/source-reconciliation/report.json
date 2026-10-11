@@ -1,0 +1,479 @@
+{
+  "accounting_checks_pass": true,
+  "accounting_findings": [],
+  "capability_cell_count": 187,
+  "country_cell_count": 198,
+  "external_intake_custody": {
+    "country_claim_rows": 12,
+    "private_custody_manifest_sha256": "5224fafb5854450d1f02163d8ad0b9c32479ad80576d3565a230873c24643220",
+    "receipt_count": 3,
+    "receipts": [
+      {
+        "country_content_states": {
+          "DK": "not_captured",
+          "FI": "not_captured",
+          "NO": "not_captured",
+          "SE": "not_captured"
+        },
+        "historical_disposition": "pending",
+        "historical_public_release_allowed": false,
+        "historical_rights_status": "unknown",
+        "intake_id": "EXT-2026-09-04-OPENLAND-001",
+        "receipt_sha256": "da69bd9ecf4a07fa05cee7466adb8fb4ee9e7e338d30fa83c225bd1225dfd5c0",
+        "scientific_admission_from_custody": false
+      },
+      {
+        "country_content_states": {
+          "DK": "blocked",
+          "FI": "blocked",
+          "NO": "blocked",
+          "SE": "blocked"
+        },
+        "historical_disposition": "adapt",
+        "historical_public_release_allowed": false,
+        "historical_rights_status": "mixed",
+        "intake_id": "EXT-2026-09-04-OPENLAND-002",
+        "receipt_sha256": "e5d3aa9016ba548e31abd69d3f5bf18d26a365bdd0ecc6e5d5070239e7dbda0a",
+        "scientific_admission_from_custody": false
+      },
+      {
+        "country_content_states": {
+          "DK": "reference_only",
+          "FI": "reference_only",
+          "NO": "reference_only",
+          "SE": "partial"
+        },
+        "historical_disposition": "review",
+        "historical_public_release_allowed": false,
+        "historical_rights_status": "unknown",
+        "intake_id": "EXT-2026-09-04-ROOTSI-001",
+        "receipt_sha256": "0e7bfb185c34b1c370a65a915de889a26c538cc5022d1ee910634555692cc8e3",
+        "scientific_admission_from_custody": false
+      }
+    ],
+    "scientific_admission": "not_established_by_custody",
+    "verified_original_archives": 2
+  },
+  "full_audit_sha256": "13b754aafbfc502597872ef4f9df1154b1f2836cc5a6b4e9cd926f876ed27c31",
+  "full_source_confirmation": false,
+  "input_closure_sha256": "875f14fe8e6959560f9413cbc0329457d5173625f56c5b7fd73e3eaa63a47c1a",
+  "input_file_count": 308,
+  "manifest_byte_verification_count": 204,
+  "present_input_file_count": 271,
+  "schema_version": "source-reconciliation-summary.v1",
+  "scope": "The source registry and explicitly consumed manifests; no assertion of live-provider completeness, qualified approval, or unseen intake admission.",
+  "source_count": 11,
+  "source_rows": [
+    {
+      "authority_status": "review_required",
+      "evidence_role": "direct_evidence_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "relative_chronology",
+        "taxon_identity"
+      ],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "available_collected",
+        "SE": "available_collected"
+      },
+      "normalized_status": "missing",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "relative_chronology",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "aadr"
+    },
+    {
+      "authority_status": "review_required",
+      "evidence_role": "sample_owned_evidence_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "native_ecological_class",
+        "observation_unit",
+        "quantitative_observation"
+      ],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "zero_observations",
+        "SE": "available_collected"
+      },
+      "normalized_status": "present",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "relative_chronology",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "animal_adna"
+    },
+    {
+      "authority_status": "review_required",
+      "evidence_role": "framing_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "available_collected",
+        "SE": "available_collected"
+      },
+      "normalized_status": "present",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "non_pollen_context",
+        "site_identity"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "boundaries"
+    },
+    {
+      "authority_status": "review_required",
+      "evidence_role": "candidate_reference_observations",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "nordic_publication_availability": {
+        "DK": "blocked",
+        "FI": "blocked",
+        "NO": "blocked",
+        "SE": "blocked"
+      },
+      "normalized_status": "missing",
+      "published_status": "missing",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "missing",
+      "reviewed_status": "present",
+      "source_key": "empd2"
+    },
+    {
+      "authority_status": "refused",
+      "evidence_role": "external_model_comparison",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation"
+      ],
+      "nordic_publication_availability": {
+        "DK": "blocked",
+        "FI": "blocked",
+        "NO": "blocked",
+        "SE": "blocked"
+      },
+      "normalized_status": "missing",
+      "published_status": "missing",
+      "qualified_review_dimensions": [
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation"
+      ],
+      "raw_status": "missing",
+      "reviewed_status": "missing",
+      "source_key": "hyde"
+    },
+    {
+      "authority_status": "not_required",
+      "evidence_role": "primary_context",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "pollen_propagation_event",
+        "within_site_hierarchy"
+      ],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "available_collected",
+        "SE": "available_collected"
+      },
+      "normalized_status": "present",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "crop_cereal_resolution",
+        "dataset_provenance",
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "four_country_coverage",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "pollen_propagation_event",
+        "quantitative_observation",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "landclim"
+    },
+    {
+      "authority_status": "not_required",
+      "evidence_role": "primary_context",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "crop_cereal_resolution",
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "native_ecological_class",
+        "non_pollen_context",
+        "pollen_propagation_event",
+        "relative_chronology"
+      ],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "available_collected",
+        "SE": "available_collected"
+      },
+      "normalized_status": "present",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "crop_cereal_resolution",
+        "dataset_provenance",
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "four_country_coverage",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "pollen_propagation_event",
+        "quantitative_observation",
+        "relative_chronology",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "neotoma"
+    },
+    {
+      "authority_status": "review_required",
+      "evidence_role": "candidate_reference_observations",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "nordic_publication_availability": {
+        "DK": "blocked",
+        "FI": "blocked",
+        "NO": "blocked",
+        "SE": "blocked"
+      },
+      "normalized_status": "missing",
+      "published_status": "missing",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "four_country_coverage",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "missing",
+      "reviewed_status": "present",
+      "source_key": "nfi"
+    },
+    {
+      "authority_status": "refused",
+      "evidence_role": "contextual_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "chronology_uncertainty",
+        "numeric_chronology",
+        "observation_unit",
+        "relative_chronology",
+        "within_site_hierarchy"
+      ],
+      "nordic_publication_availability": {
+        "DK": "not_available_from_source",
+        "FI": "not_available_from_source",
+        "NO": "not_available_from_source",
+        "SE": "blocked"
+      },
+      "normalized_status": "present",
+      "published_status": "refused",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "dataset_provenance",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "quantitative_observation",
+        "relative_chronology",
+        "site_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "missing",
+      "source_key": "raa"
+    },
+    {
+      "authority_status": "not_required",
+      "evidence_role": "contextual_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "crop_cereal_resolution",
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "pollen_propagation_event"
+      ],
+      "nordic_publication_availability": {
+        "DK": "available_collected",
+        "FI": "available_collected",
+        "NO": "available_collected",
+        "SE": "available_collected"
+      },
+      "normalized_status": "present",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "chronology_uncertainty",
+        "coordinates",
+        "crop_cereal_resolution",
+        "dataset_provenance",
+        "derived_ecological_role",
+        "derived_pollen_group",
+        "four_country_coverage",
+        "native_ecological_class",
+        "non_pollen_context",
+        "numeric_chronology",
+        "observation_unit",
+        "pollen_propagation_event",
+        "quantitative_observation",
+        "relative_chronology",
+        "site_identity",
+        "taxon_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "sead"
+    },
+    {
+      "authority_status": "refused",
+      "evidence_role": "sampling_domain",
+      "full_confirmation": "not_established",
+      "missing_supported_dimensions": [
+        "within_site_hierarchy"
+      ],
+      "nordic_publication_availability": {
+        "DK": "not_available_from_source",
+        "FI": "not_available_from_source",
+        "NO": "not_available_from_source",
+        "SE": "blocked"
+      },
+      "normalized_status": "missing",
+      "published_status": "present",
+      "qualified_review_dimensions": [
+        "coordinates",
+        "dataset_provenance",
+        "non_pollen_context",
+        "observation_unit",
+        "quantitative_observation",
+        "site_identity",
+        "within_site_hierarchy"
+      ],
+      "raw_status": "present",
+      "reviewed_status": "present",
+      "source_key": "svar"
+    }
+  ],
+  "source_specific_reconciliation": {
+    "landclim_semantic_confirmation": "requires_publication_mapping_and_units_review",
+    "landclim_taxon_row_count": 31,
+    "landclim_taxonomy_pft_count": 12,
+    "neotoma_semantic_confirmation": "not_established_by_count_reconciliation",
+    "sead_eligible_event_count": 0,
+    "sead_observation_count": 177763,
+    "sead_refused_event_count": 177763,
+    "sead_semantic_confirmation": "not_established_by_file_reconciliation",
+    "sead_source_table_count": 61
+  },
+  "status_namespace_note": "Original source-stage, country-availability and semantic-capability records retain their native fields; accounting_checks_pass is only mechanical reconciliation.",
+  "summary_sha256": "01f67903a5bfcdbe46489399662bec2e9be404edd7716439c3b978e1ffc4d945"
+}

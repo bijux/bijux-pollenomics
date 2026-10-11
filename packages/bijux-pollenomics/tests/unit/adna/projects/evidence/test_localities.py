@@ -37,12 +37,32 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(uppsala["evidence_source_surface"], "supplementary_table")
         self.assertEqual(uppsala["coordinate_confidence"], "exact")
 
-    def test_experiment_only_archive_evidence_does_not_become_locality_packets(
+    def test_camel_biosamples_keep_paper_sites_separate_from_wadi_context(
         self,
     ) -> None:
         rows = build_project_sample_locality_evidence_rows(self.data_root, "SRP073444")
 
-        self.assertEqual(rows, ())
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(len({row["repo_stable_sample_id"] for row in rows}), 20)
+        self.assertEqual(len({row["preferred_sample_label"] for row in rows}), 20)
+        self.assertEqual(
+            len(
+                {
+                    row["location_evidence_locator"].split("paper_sample_label:", 1)[1]
+                    for row in rows
+                }
+            ),
+            19,
+        )
+        self.assertTrue(
+            all(
+                row["locality_resolution_status"] == "direct_sample_site"
+                for row in rows
+            )
+        )
+        self.assertFalse(
+            any("Wadi Halfa" in row["assigned_locality_text"] for row in rows)
+        )
 
     def test_baltic_sheep_locality_worksheet_exposes_sample_owned_sites(
         self,

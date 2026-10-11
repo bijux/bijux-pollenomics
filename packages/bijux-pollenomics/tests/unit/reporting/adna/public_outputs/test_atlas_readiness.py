@@ -40,10 +40,10 @@ def test_atlas_readiness_never_combines_sample_and_site_denominators() -> None:
             "not_materialized": 134,
         },
         "samples": {
-            "denominator": 1450,
+            "denominator": 1470,
             "mapped": 331,
-            "blocked": 1119,
-            "unresolved_subset_of_blocked": 402,
+            "blocked": 1139,
+            "unresolved_subset_of_blocked": 379,
         },
     }
     for row in rows:

@@ -120,7 +120,9 @@ def _looks_like_country(value: str) -> bool:
 
 def _looks_broad(value: str) -> bool:
     lowered = value.casefold()
-    return any(marker in lowered for marker in _BROADER_PLACE_MARKERS)
+    return lowered.endswith("øya") or any(
+        marker in lowered for marker in _BROADER_PLACE_MARKERS
+    )
 
 
 def _locality_evidence_bucket(

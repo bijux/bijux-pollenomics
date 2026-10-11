@@ -1,0 +1,300 @@
+{
+  "schema_version": "atlas-narrow-viewport-controls-browser.v1",
+  "status": "FAIL",
+  "candidate": {
+    "schema_version": "atlas-controlled-boundary-candidate.v1",
+    "status": "controlled_synthetic_geometry_only",
+    "scientific_admission": "not_evaluated",
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "generation_sha256": "17b8f5ca4e992084303b1dfaf5b796e4b89317993764bd2bc130617bc0f03ec3",
+    "renderer_sha256": "467cec301414e77267eddb30e939336ec822dafa8d85d9406c3fec03562967f5",
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "a350614bdd94311ec765118a5b3a1c4f1007a06df23d30f0ffcc044b93d42eb5"
+    }
+  },
+  "scenarios": [],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== false\n\n    at repository/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/narrow-viewport-controls.mjs:99:63",
+  "diagnostic": {
+    "hash": "#basemap=none",
+    "attribution": {
+      "x": 250.65625,
+      "y": 302,
+      "width": 61.34375,
+      "height": 16.796875,
+      "top": 302,
+      "right": 312,
+      "bottom": 318.796875,
+      "left": 250.65625
+    },
+    "attribution_text": " Leaflet",
+    "hit_class": "",
+    "hit_id": null,
+    "zoom": {
+      "x": 268,
+      "y": 228,
+      "width": 34,
+      "height": 64,
+      "top": 228,
+      "right": 302,
+      "bottom": 292,
+      "left": 268
+    },
+    "zoom_plus": {
+      "visible": true,
+      "hit_class": "",
+      "hit_id": null
+    },
+    "zoom_minus": {
+      "visible": true,
+      "hit_class": "",
+      "hit_id": null
+    },
+    "status": {
+      "x": 8,
+      "y": 746,
+      "width": 304,
+      "height": 146,
+      "top": 746,
+      "right": 312,
+      "bottom": 892,
+      "left": 8
+    },
+    "topbar": {
+      "x": 8,
+      "y": 8,
+      "width": 304,
+      "height": 210,
+      "top": 8,
+      "right": 312,
+      "bottom": 218,
+      "left": 8
+    },
+    "document_width": 320,
+    "topbar_buttons": {
+      "fit-active": {
+        "rect": {
+          "x": 17,
+          "y": 17,
+          "width": 78.515625,
+          "height": 44,
+          "top": 17,
+          "right": 95.515625,
+          "bottom": 61,
+          "left": 17
+        },
+        "hit": true,
+        "hit_class": "toolbar-button is-primary",
+        "hit_id": "fit-active"
+      },
+      "search-toggle": {
+        "rect": {
+          "x": 238.046875,
+          "y": 17,
+          "width": 64.953125,
+          "height": 44,
+          "top": 17,
+          "right": 303,
+          "bottom": 61,
+          "left": 238.046875
+        },
+        "hit": true,
+        "hit_class": "toolbar-button",
+        "hit_id": "search-toggle"
+      },
+      "panel-toggle": {
+        "rect": {
+          "x": 17,
+          "y": 71,
+          "width": 123.375,
+          "height": 44,
+          "top": 71,
+          "right": 140.375,
+          "bottom": 115,
+          "left": 17
+        },
+        "hit": true,
+        "hit_class": "toolbar-button",
+        "hit_id": "panel-toggle"
+      },
+      "time-step-older": {
+        "rect": {
+          "x": 17,
+          "y": 121,
+          "width": 74.59375,
+          "height": 44,
+          "top": 121,
+          "right": 91.59375,
+          "bottom": 165,
+          "left": 17
+        },
+        "hit": true,
+        "hit_class": "inline-button",
+        "hit_id": "time-step-older"
+      },
+      "time-stepper-status": {
+        "rect": {
+          "x": 97.59375,
+          "y": 126.03125,
+          "width": 119.40625,
+          "height": 33.9375,
+          "top": 126.03125,
+          "right": 217,
+          "bottom": 159.96875,
+          "left": 97.59375
+        },
+        "hit": true,
+        "hit_class": "time-stepper-status",
+        "hit_id": "time-stepper-status"
+      },
+      "time-step-newer": {
+        "rect": {
+          "x": 223,
+          "y": 121,
+          "width": 80,
+          "height": 44,
+          "top": 121,
+          "right": 303,
+          "bottom": 165,
+          "left": 223
+        },
+        "hit": true,
+        "hit_class": "inline-button",
+        "hit_id": "time-step-newer"
+      },
+      "time-playback-toggle": {
+        "rect": {
+          "x": 17,
+          "y": 171,
+          "width": 286,
+          "height": 38,
+          "top": 171,
+          "right": 303,
+          "bottom": 209,
+          "left": 17
+        },
+        "hit": true,
+        "hit_class": "inline-button is-primary",
+        "hit_id": "time-playback-toggle"
+      }
+    },
+    "scale": {
+      "x": 5,
+      "y": 705.8125,
+      "width": 60,
+      "height": 18.1875,
+      "top": 705.8125,
+      "right": 65,
+      "bottom": 724,
+      "left": 5
+    },
+    "legend": {
+      "x": 173.71875,
+      "y": 662,
+      "width": 138.28125,
+      "height": 62,
+      "top": 662,
+      "right": 312,
+      "bottom": 724,
+      "left": 173.71875
+    },
+    "north": {
+      "x": 258.4375,
+      "y": 176,
+      "width": 53.5625,
+      "height": 44,
+      "top": 176,
+      "right": 312,
+      "bottom": 220,
+      "left": 258.4375
+    },
+    "snapshot": {
+      "capture_api_version": "atlas-capture.v1",
+      "ready": true,
+      "basemap": "none",
+      "view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "time_window_bp": {
+        "younger_bp": 0,
+        "older_bp": 0
+      },
+      "source_chronology": null,
+      "modeled_context": null,
+      "visible_point_count": 0,
+      "visible_polygon_layer_count": 1,
+      "visible_polygon_feature_count": 4,
+      "visible_source_chronology_point_count": 0,
+      "visible_modeled_context_feature_count": 0,
+      "visible_modeled_no_pollen_data_count": null,
+      "capture_layers": {
+        "active_keys": [
+          "country-boundaries"
+        ],
+        "evidence_layer_key": null,
+        "orientation_keys": [
+          "country-boundaries"
+        ]
+      },
+      "capture_presentation": null,
+      "capture_layout": {
+        "overlay_visible": false,
+        "overlay_bounded": false,
+        "overlay_content_bounded": true,
+        "overlay_content_overflow": false,
+        "overlay_overlaps_map": false,
+        "map_bounded": true,
+        "map_width_px": 320,
+        "map_height_px": 900,
+        "scroll_x_px": 0,
+        "scroll_y_px": 0,
+        "viewport_width_px": 320,
+        "viewport_height_px": 900
+      },
+      "visible_governed_candidate_count": 0,
+      "scientific_posture": {
+        "classifications_status": "unavailable",
+        "classifications_reason_code": "accepted_scientific_classifications_not_available",
+        "observation_chronology_is_propagation": false
+      }
+    }
+  },
+  "diagnostic_screenshot": {
+    "path": "320-diagnostic.png",
+    "sha256": "a4ce45220b98dc1878550154eb48b5ed26095c020ee0105fb2725a00c83f4442"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "a350614bdd94311ec765118a5b3a1c4f1007a06df23d30f0ffcc044b93d42eb5"
+  },
+  "verifier_sha256": "eae58d88ac44ffe04c9eed120f56c4528917e8ba78c09f704e512e3381d24818"
+}

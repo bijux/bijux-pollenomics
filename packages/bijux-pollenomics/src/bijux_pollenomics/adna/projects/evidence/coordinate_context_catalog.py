@@ -204,11 +204,13 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
         ),
     ),
     "SRP073444": (
+        # This project grouping does not identify the Site 1040 specimen as a
+        # dromedary or link its named-place coordinate to a BioSample.
         AdnaCoordinateProvenanceRecord(
             project_accession="SRP073444",
             species_latin_name="Camelus dromedarius",
             species_common_name="camel",
-            site_label="Site 1040 near Wadi Halfa dromedary context",
+            site_label="Site 1040 near Wadi Halfa C. thomasi context",
             original_place_text="Site 1040 near Wadi Halfa",
             resolved_place_text="Wadi Halfa",
             political_entity="Sudan",
@@ -231,7 +233,11 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
             chronology_text="Late Pleistocene",
             dating_basis="relative_period",
             domestication_context="non_nordic_domestication_context",
-            interpretation_note="Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+            interpretation_note=(
+                "The Wadi Halfa city anchor is approximate context for the "
+                "paper's C. thomasi Site 1040 specimen, not a coordinate or "
+                "sample relation for the linked dromedary BioSamples."
+            ),
         ),
     ),
     "PRJEB60484": (

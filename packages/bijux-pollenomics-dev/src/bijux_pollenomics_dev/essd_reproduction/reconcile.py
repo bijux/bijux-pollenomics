@@ -19,9 +19,15 @@ from zipfile import ZIP_DEFLATED, ZIP_STORED, ZipFile
 
 JsonObject = dict[str, object]
 
-_COMPARISON = Path("artifacts/v2/engine/publication-check-004/comparison/report.json")
-_DESIGN = Path("artifacts/v2/engine/multisite-audit/IMPLEMENTATION-DESIGN.md")
-_RIGHTS = Path("artifacts/v2/engine/publication-license-audit/DISPOSITION.md")
+_COMPARISON = Path(
+    "docs/report/publication-replay/landclim-method-profile/reference/report.json"
+)
+_METHOD_PROFILE = Path(
+    "docs/report/publication-replay/landclim-method-profile/report.json"
+)
+_REEXECUTION = Path(
+    "docs/report/publication-replay/landclim-example-reexecution/report.json"
+)
 _TAXONOMY = Path("data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv")
 _PUBLISHED = Path("data/landclim/raw/landclim_ii_reveals_results.zip")
 
@@ -429,9 +435,12 @@ def _published_pft_evidence(repository: Path) -> JsonObject:
 
 
 def _repository_evidence(repository: Path) -> JsonObject:
-    comparison = _object(_read(repository, _COMPARISON), _COMPARISON.as_posix())
-    design = _read(repository, _DESIGN).decode()
-    rights = _read(repository, _RIGHTS).decode()
+    comparison_bytes = _read(repository, _COMPARISON)
+    comparison = _object(comparison_bytes, _COMPARISON.as_posix())
+    method_profile = _object(
+        _read(repository, _METHOD_PROFILE), _METHOD_PROFILE.as_posix()
+    )
+    reexecution = _object(_read(repository, _REEXECUTION), _REEXECUTION.as_posix())
     raw_grids = comparison.get("grids")
     if not isinstance(raw_grids, list) or len(raw_grids) != 2:
         raise ValueError("Host comparison must contain exactly two grid objects")
@@ -486,10 +495,44 @@ def _repository_evidence(repository: Path) -> JsonObject:
                         "Host comparison site check did not pass: "
                         f"{grid_id}/{site_object.get('site_id')}/{check_name}"
                     )
-    if "reports 1128 pollen records, 31 taxa, 12 PFTs" not in design:
-        raise ValueError("ESSD paper scope is absent from the implementation design")
-    if "host redistribution are **not cleared**" not in rights:
-        raise ValueError("Rights disposition no longer preserves the release blocker")
+    pft_evidence = method_profile.get("pft_evidence")
+    if (
+        method_profile.get("scope")
+        != "two_retained_author_example_grids_method_and_input_identity"
+        or method_profile.get("example_grid_sites") != {"512": 9, "562": 8}
+        or not isinstance(pft_evidence, dict)
+        or pft_evidence.get("paper_prose_claim") != 12
+        or pft_evidence.get("parameter_table_nonblank_codes") != 12
+    ):
+        raise ValueError("ESSD paper scope is absent from the governed method profile")
+    method_inputs = method_profile.get("inputs")
+    if not isinstance(method_inputs, list) or not any(
+        isinstance(item, dict)
+        and item.get("path") == _COMPARISON.as_posix()
+        and item.get("sha256") == _sha256(comparison_bytes)
+        for item in method_inputs
+    ):
+        raise ValueError("Governed method profile does not bind its comparison bytes")
+    method_admission = method_profile.get("admission")
+    replay_admission = reexecution.get("admission")
+    if (
+        not isinstance(method_admission, dict)
+        or method_admission.get("private_input_redistribution_rights_cleared")
+        is not False
+        or method_admission.get("whole_paper_reproduction") is not False
+        or not isinstance(replay_admission, dict)
+        or replay_admission.get("private_input_redistribution_rights_cleared")
+        is not False
+        or replay_admission.get("full_study_reproduction") is not False
+        or reexecution.get("passed") is not True
+    ):
+        raise ValueError("Governed source rights or study scope changed")
+    current_comparison = reexecution.get("native_comparison")
+    if (
+        not isinstance(current_comparison, dict)
+        or current_comparison.get("grids") != comparison["grids"]
+    ):
+        raise ValueError("Governed R replay and method comparison grids disagree")
     return {
         "comparison": comparison,
         "example_site_count": sum(
@@ -498,10 +541,16 @@ def _repository_evidence(repository: Path) -> JsonObject:
         "pft": _published_pft_evidence(repository),
         "evidence_receipts": [
             _evidence_receipt(repository, path)
-            for path in (_COMPARISON, _DESIGN, _RIGHTS, _TAXONOMY, _PUBLISHED)
+            for path in (
+                _COMPARISON,
+                _METHOD_PROFILE,
+                _REEXECUTION,
+                _TAXONOMY,
+                _PUBLISHED,
+            )
         ],
         "rights_status": {
-            "published_product_rights": "not_evaluated_by_pinned_local_disposition",
+            "published_product_rights": "not_evaluated_by_governed_method_profile",
             "author_example_source_rights": "no_clear_redistribution_grant",
             "original_input_rights": "not_evaluated_without_full_input_closure",
             "gpl_derived_host_integration": "compatibility_and_distribution_unresolved",
@@ -831,7 +880,7 @@ def _scope_report(
         "- Historical resampling draws, original grouped PFT/LCT uncertainty workflow, and original GIS inputs are unavailable.",
         "- Actual publication-specific R parity has not run; a skipped test or synthetic oracle is not parity evidence.",
         "- Published reconstruction products are comparison targets, not raw pollen observations or independent measured vegetation truth.",
-        "- Rights remain component-specific: published-product rights are not evaluated by the pinned local disposition; author-example source redistribution has no clear grant; original-input rights lack a full input closure; and GPL-derived host integration remains unresolved. Overall host release is not cleared.",
+        "- Rights remain component-specific: published-product rights are not evaluated by the governed method profile; author-example source redistribution has no clear grant; original-input rights lack a full input closure; and GPL-derived host integration remains unresolved. Overall host release is not cleared.",
         "",
         "## Profile separation",
         "",

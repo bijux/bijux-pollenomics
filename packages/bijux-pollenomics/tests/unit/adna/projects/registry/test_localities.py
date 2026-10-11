@@ -104,10 +104,10 @@ class AdnaProjectLocalityUnitTests(unittest.TestCase):
             ("PRJEB59481", "PRJEB60484", "unknown")
         )
 
-        self.assertEqual(
-            [row.project_accession for row in rows],
-            ["PRJEB59481", "PRJEB59481", "PRJEB60484"],
-        )
+        accessions = [row.project_accession for row in rows]
+        self.assertEqual(accessions[:2], ["PRJEB59481", "PRJEB59481"])
+        self.assertTrue(all(accession == "PRJEB60484" for accession in accessions[2:]))
+        self.assertIn("Edgeøya", [row.locality_text for row in rows])
 
 
 if __name__ == "__main__":

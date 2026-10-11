@@ -316,7 +316,7 @@
 | Equus caballus | PRJEB22390 | Botai archaeological site horse context | named_site_geocoding | approximate |
 | Sus scrofa domesticus | PRJEB30282 | Bundsø | named_site_geocoding | approximate |
 | Sus scrofa domesticus | PRJEB30282 | Trelleborg | named_site_geocoding | approximate |
-| Camelus dromedarius | SRP073444 | Site 1040 near Wadi Halfa dromedary context | named_site_geocoding | approximate |
+| Camelus dromedarius | SRP073444 | Site 1040 near Wadi Halfa C. thomasi context | named_site_geocoding | approximate |
 
 ## Still-weak geography
 

@@ -153,7 +153,9 @@ def semantic_diff(
         groups: dict[str, frozenset[str]],
         keys: frozenset[str],
     ) -> None:
-        known = keys.union(*(set(fields) for fields in groups.values()))
+        known = set(keys)
+        for fields in groups.values():
+            known.update(fields)
         if set(before) != known or set(after) != known:
             raise ValueError(f"Unclassified {path} schema field")
         for category, fields in groups.items():

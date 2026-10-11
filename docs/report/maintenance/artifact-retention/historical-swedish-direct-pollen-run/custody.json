@@ -1,0 +1,148 @@
+{
+  "decision": "retire_inactive_swedish_direct_pollen_run",
+  "scope": "Exact 15-file artifacts/v5/swedish-direct-pollen working directory only; current Swedish direct-pollen report remains governed separately.",
+  "files": [
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/REPORT.md",
+      "bytes": 3332,
+      "sha256": "0bf164f88c55499b4ad146bd6fcb82320ecc85a3c1006ee5b412fb77ffb08ca4",
+      "disposition": "historical_bytes_retained",
+      "retained_path": "docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md",
+      "retained_bytes": 3332,
+      "retained_sha256": "0bf164f88c55499b4ad146bd6fcb82320ecc85a3c1006ee5b412fb77ffb08ca4"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/cohort.csv",
+      "bytes": 2408,
+      "sha256": "174c64f4a2d33e49a447541e975343bd03ff47e2270d23404e726710b0880339",
+      "disposition": "governed_newline_normalized_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
+      "retained_bytes": 2404,
+      "retained_sha256": "f37cd64cfe3799a92d5492a558e58b4ce81888e25dcf53025ca94df301e65349"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/config.json",
+      "bytes": 2238,
+      "sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+      "retained_bytes": 2238,
+      "retained_sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/exclusions.csv",
+      "bytes": 374708,
+      "sha256": "392b60a58ed20c55426dd0ccecbf1db5562745dd48a8b3fe9bdf69a1f47cc9e9",
+      "disposition": "governed_newline_normalized_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+      "retained_bytes": 371092,
+      "retained_sha256": "f12714ca2532842a5248d86f27efcc0ea8f48d736ce7b2f4aee243590b78f26e"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/input-manifest.json",
+      "bytes": 1073,
+      "sha256": "d2d286e66b6af51600918df786a54dbfb235045532930290e76f9f75222580ba",
+      "disposition": "historical_bytes_retained",
+      "retained_path": "docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/input-manifest.json",
+      "retained_bytes": 1073,
+      "retained_sha256": "d2d286e66b6af51600918df786a54dbfb235045532930290e76f9f75222580ba"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/predictions/site-13338.json",
+      "bytes": 100034,
+      "sha256": "d4ac566aec99afe1351e267b7736dc059b92580388bd340b9df5cfa961e6da9a",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-13338.json",
+      "retained_bytes": 100034,
+      "retained_sha256": "d4ac566aec99afe1351e267b7736dc059b92580388bd340b9df5cfa961e6da9a"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/predictions/site-28869.json",
+      "bytes": 99817,
+      "sha256": "58c8396d849c4b2275b111a35c7605b61c8cc0456bbbe870e8d3cf6713a7e52d",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28869.json",
+      "retained_bytes": 99817,
+      "retained_sha256": "58c8396d849c4b2275b111a35c7605b61c8cc0456bbbe870e8d3cf6713a7e52d"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/predictions/site-28872.json",
+      "bytes": 99861,
+      "sha256": "89eb64b226c67b86a07e15f34d97b78a42f4849140f5831ca3b0fa6263cb0926",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28872.json",
+      "retained_bytes": 99861,
+      "retained_sha256": "89eb64b226c67b86a07e15f34d97b78a42f4849140f5831ca3b0fa6263cb0926"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/predictions-scored.csv",
+      "bytes": 171978,
+      "sha256": "afd800113607bc42f4b092a4d6e98c8a2401e30b753066c021d5244a2187269c",
+      "disposition": "governed_newline_normalized_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions-scored.csv",
+      "retained_bytes": 169481,
+      "retained_sha256": "b5d10daa3884e21981625b037c23b4357c58af09892bdd42ee34ac6b2f4b5665"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/prepared/dataset-19913.json",
+      "bytes": 13553,
+      "sha256": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+      "retained_bytes": 13553,
+      "retained_sha256": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/prepared/dataset-53995.json",
+      "bytes": 13679,
+      "sha256": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+      "retained_bytes": 13679,
+      "retained_sha256": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/prepared/dataset-54001.json",
+      "bytes": 10357,
+      "sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+      "retained_bytes": 10357,
+      "retained_sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/run_study.py",
+      "bytes": 27190,
+      "sha256": "b219e8bbe362f89010ac10642c298eb4a45127b75d9148252b76a33046e66fa9",
+      "disposition": "historical_bytes_retained",
+      "retained_path": "docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/run_study.py",
+      "retained_bytes": 27190,
+      "retained_sha256": "b219e8bbe362f89010ac10642c298eb4a45127b75d9148252b76a33046e66fa9"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/scores.csv",
+      "bytes": 30557,
+      "sha256": "c8333471fbfdbd9fa20b802a31a8d3f1f281b8bf824187bfcdbe0c8738516531",
+      "disposition": "governed_newline_normalized_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv",
+      "retained_bytes": 30400,
+      "retained_sha256": "3ac45ac3f764ce3784b0d6afb36fe5217d56d8670cbab19a3bb9e6df8ada439b"
+    },
+    {
+      "artifact_path": "artifacts/v5/swedish-direct-pollen/summary.json",
+      "bytes": 2860,
+      "sha256": "a42c2feaf536cd3ef026c84a650e37080574afd406073d49e8c70f545688a64e",
+      "disposition": "governed_exact_match",
+      "retained_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json",
+      "retained_bytes": 2860,
+      "retained_sha256": "a42c2feaf536cd3ef026c84a650e37080574afd406073d49e8c70f545688a64e"
+    }
+  ],
+  "scientific_scope": "Historical run and retained current report concern direct observed-pollen prediction on a declared 16-taxon subcomposition. Neither admits Swedish LRA or vegetation truth.",
+  "retirement_checks": {
+    "inventory": "15 regular files; no symlink and each hard-link count one.",
+    "liveness": "lsof of all 15 named files returned no open handle before retirement.",
+    "consumers": "Bounded repository search found only the frozen earlier scientific report manifest/scope and this custody ledger; the current Swedish report uses governed files.",
+    "hashes": "All 15 source and retained file size/hash pairs were checked immediately before removal; four CSVs additionally matched after newline normalization."
+  }
+}

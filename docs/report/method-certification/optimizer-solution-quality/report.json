@@ -1,0 +1,23 @@
+{
+  "schema_version": "love-optimizer-solution-quality.1",
+  "status": "passed",
+  "source_package": "disqover 0.9.14",
+  "rscript_sha256": "d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d",
+  "input_sha256": {
+    "docs/report/method-certification/optimizer-solution-quality/cases.json": "747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7",
+    "docs/report/method-certification/optimizer-solution-quality/solver.R": "e24a7783669d2603d1c5f038da75cb10d6b75ae32c738262a5f44dcc1df69178",
+    "docs/report/method-certification/optimizer-solution-quality/replay.py": "450a03523ed43d07b4e3f326056264d48e28e4749beea57ad4d21425c145df47",
+    "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py": "6bc70cccd28a69660f4b65c0e546371c1fa559ec16994707ea6084a2dbb81eaf",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py": "318b6d58b45940608cc7735693d78022cba5e3d9b00b8b9ae0aa9c2461605bfc"
+  },
+  "maximum_optimum_gap": 0.0001,
+  "maximum_cross_evaluation_gap": 1e-10,
+  "case_count": 3,
+  "output_sha256": {
+    "python-fits.csv": "a7a27587208dd41dfdcece0a23755aab7ccc564cd2d26d96622e6e417b1ca09d",
+    "r-fits.csv": "540be5db7a0a2febeccb0d12590ed3939cc045a8666f4835b514c187e716f05d",
+    "summary.csv": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
+    "r-session.txt": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2"
+  }
+}

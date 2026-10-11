@@ -29,8 +29,8 @@
     },
     {
       "species_latin_name": "Camelus dromedarius",
-      "normalized_sample_row_count": 13,
-      "normalized_site_evidence_count": 10,
+      "normalized_sample_row_count": 33,
+      "normalized_site_evidence_count": 17,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 1,
       "atlas_evidence_row_count": 0,

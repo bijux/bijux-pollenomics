@@ -106,7 +106,7 @@ def test_existing_output_destination_is_refused_before_execution(
     destination = tmp_path / "existing"
     destination.mkdir()
     with pytest.raises(ValueError, match="Absent run and governed report"):
-        execute(REPOSITORY, tmp_path, destination, tmp_path / "report.json")
+        execute(REPOSITORY, tmp_path, tmp_path, destination, tmp_path / "report.json")
 
 
 def test_governed_fresh_run_retains_two_grid_numerical_checks() -> None:

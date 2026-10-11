@@ -67,14 +67,14 @@ result. It records what is known about the source and what remains unavailable.
 
 ## Current Evidence Depth
 
-The governed foundation currently contains **1,450 final sample rows** across
-**10 species and 21 contributing projects**. Of those rows, 557 are fully
-grounded, 335 are partly grounded, 11 are blocked by missing metadata, 391 by
-missing location detail, and 156 by weak chronology. This is the final sample
+The governed foundation currently contains **1,470 final sample rows** across
+**10 species and 22 contributing projects**. Of those rows, 557 are fully
+grounded, 371 are partly grounded, 11 are blocked by missing metadata, 368 by
+missing location detail, and 163 by weak chronology. This is the final sample
 evidence-preparation population, not a publication-feature count.
 
 The generated project intake review separately covers **40 tracked projects**
-and contains **1,455 recovered raw sample-master rows**, of which **1,450 enter
+and contains **1,475 recovered raw sample-master rows**, of which **1,470 enter
 the final sample population**. Only four projects have an exact expected-sample
 denominator. The repository therefore does not present either total as a
 complete census of every deposited sample.
@@ -86,9 +86,11 @@ These are admitted evidence features, not proof that every project, species,
 locality, or chronology has reached the same maturity.
 
 All 170 published features are backed by at least one admitted sample. Wadi
-Halfa dromedary context for project `SRP073444` remains useful source context,
-but it is not published. Map-readiness accounting retains it among the 134
-not-materialized rows with reason
+Halfa camel context for project `SRP073444` remains useful source context,
+but it is not published. The project now has 20 archive BioSample identities
+linked to 19 published specimen labels; none establishes a sample link to the
+paper's `C.thomasi` Wadi Halfa Site 1040 context. Map-readiness accounting
+retains that context among the 134 not-materialized rows with reason
 `no_admitted_sample_backed_locality_candidate`.
 
 | Point population | Rows | Identity and coordinate posture |
@@ -129,8 +131,8 @@ different states instead of averaging them into one quality label.
 
 ```mermaid
 flowchart LR
-    Inventory["40 tracked projects"] --> Recovery["1,455 recovered raw rows"]
-    Recovery --> Foundation["1,450 final sample rows"]
+    Inventory["40 tracked projects"] --> Recovery["1,475 recovered raw rows"]
+    Recovery --> Foundation["1,470 final sample rows"]
     Foundation --> Review["identity, locality, chronology, coordinate review"]
     Review --> Samples["331 distinct admitted samples"]
     Samples --> Points["170 published locality features"]

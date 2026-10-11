@@ -159,19 +159,19 @@ def _validated_rows(document: Mapping[str, object]) -> list[dict[str, object]]:
 def _validate_paths(value: object) -> None:
     expected = [
         (
-            "artifacts/v3/reference/nordic-nfi-access-20260922/receipt.json",
+            "reference-sources/empd2-nfi/nfi/nordic-access.json",
             "b0ab87f8016b561d84cdff16e74500df1b2f1e4013f4600a3d7e0ec0942d6825",
         ),
         (
-            "artifacts/v3/reference/swedish-nfi-eligibility002/report.json",
+            "reference-sources/empd2-nfi/nfi/swedish-eligibility.json",
             "a38cba2995ec1c71f7276a4798f2ea79778f4cbbbb587bc507f902b71abc33fd",
         ),
         (
-            "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json",
+            "reference-sources/empd2-nfi/pairing/spatial-feasibility.json",
             "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66",
         ),
         (
-            "artifacts/v3/reference/swedish-nfi-plot001/swe_nfi_plotdata2.xlsx",
+            "reference-sources/empd2-nfi/nfi/swedish-plot-data.xlsx",
             NFI_SOURCE_ARTIFACT_SHA256,
         ),
     ]

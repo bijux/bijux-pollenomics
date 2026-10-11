@@ -125,7 +125,7 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
       "chronology_provenance_kind": "supplementary_pdf_text",
       "chronology_provenance_locator": "Table 1 pp. 41-43, ID B20",
-      "chronology_provenance_text": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived.",
+      "chronology_provenance_text": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived. Author preprint Table S3 row 5 names Edgeøya.",
       "chronology_normalization_status": "normalized_interval",
       "time_start_bp": 2329,
       "time_end_bp": 2460,

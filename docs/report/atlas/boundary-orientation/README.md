@@ -2,7 +2,7 @@
 
 This result exercises the production atlas renderer with four **schematic rectangles** labeled Denmark, Finland, Norway, and Sweden. The rectangles are controlled browser geometry. They are not national borders, source observations, or scientifically admitted Nordic boundary data. The candidate contains no evidence points or accepted propagation edges.
 
-The [verification receipt](verification.json) binds the candidate's geometry, selected source inputs, rendered files, browser verifier, served files, and four screenshots by SHA-256. Its producer uses the [production map renderer](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py) and existing local Leaflet assets. The [controlled producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py) labels scientific admission as `not_evaluated`.
+The [verification receipt](verification.json) binds the candidate's geometry, selected source inputs, rendered files, browser verifier, served files, and four screenshots by SHA-256. Its producer uses the [production map renderer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py) and existing local Leaflet assets. The [controlled producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py) labels scientific admission as `not_evaluated`.
 
 ## Browser observations
 
@@ -10,7 +10,7 @@ In local headless Brave at 1440 × 900 and 390 × 900, both keyless tile hosts w
 
 The renderer has **no visible north arrow or compass** in these runs. The Center value was visible in the desktop status panel; the current narrow layout hides that status field, although the value remains in the document. This result therefore does not close the explicit north-orientation indicator or mobile coordinate-visibility requirements. The controlled geometry also cannot establish national boundary accuracy, country-boundary source admission, provider availability, or accessibility across browsers.
 
-The [browser verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary-orientation.mjs) checks the rendered path boxes and country cues, tile requests, scale, and status. The final screenshots and raw browser receipt are under `artifacts/atlas-boundary-orientation/browser-coordinate-visibility/`.
+The [browser verifier](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary-orientation.mjs) checks the rendered path boxes and country cues, tile requests, scale, and status. The final screenshots and raw browser receipt are under `artifacts/atlas-boundary-orientation/browser-coordinate-visibility/`.
 
 ## Reproduction
 

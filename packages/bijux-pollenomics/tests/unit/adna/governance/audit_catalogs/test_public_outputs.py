@@ -79,14 +79,14 @@ def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
     markdown = render_public_animal_output_honesty_markdown(honesty)
 
     assert honesty["schema_version"] == "animal-output-honesty.v2"
-    assert totals["tracked_sample_count"] == 1450
+    assert totals["tracked_sample_count"] == 1470
     assert totals["mapped_sample_count"] == 331
-    assert totals["blocked_sample_count"] == 1119
-    assert totals["mapped_sample_count"] + totals["blocked_sample_count"] == 1450
-    assert totals["unresolved_sample_count"] == 398
+    assert totals["blocked_sample_count"] == 1139
+    assert totals["mapped_sample_count"] + totals["blocked_sample_count"] == 1470
+    assert totals["unresolved_sample_count"] == 379
     assert totals["country_published_sample_count"] == 0
-    assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1450
-    assert "Tracked sample rows: `1450`" in markdown
+    assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1470
+    assert "Tracked sample rows: `1470`" in markdown
     progress = json.loads(
         (
             catalog_data_root
@@ -94,8 +94,8 @@ def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
         ).read_text(encoding="utf-8")
     )
     accounting = progress["sample_evidence_depth_accounting"]
-    assert accounting["counted_sample_rows"] == 1450
-    assert accounting["project_source_master_final_sample_rows"] == 1450
+    assert accounting["counted_sample_rows"] == 1470
+    assert accounting["project_source_master_final_sample_rows"] == 1470
     assert accounting["source_master_species_alignment"] == "aligned"
 
 

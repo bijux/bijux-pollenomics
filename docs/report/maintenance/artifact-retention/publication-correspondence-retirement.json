@@ -1,0 +1,51 @@
+{
+  "durable_repository_files": [
+    {
+      "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
+      "sha256": "c5cf637e717243a917c0fa3f5f74143f793c40a78636972d4c6f7fb1d3403a6c"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
+      "sha256": "58590884296a794b1fd1b356d25dd7e2b23778979f7a987142716743e8c1593a"
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/README.md",
+      "sha256": "5bdd271e7028fc3e2fa8c8a61ad57134bda4ce8c19422fc2ea8c894457967d22"
+    }
+  ],
+  "live_open_files": 0,
+  "original_love_article": "Inspected PDF moved to private lra-reference/papers/love-method-2024 with SHA-256 3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e.",
+  "repository_consumers_of_retired_directory": 0,
+  "retired_artifact_directory": "artifacts/v5/paper-correspondence",
+  "retired_files": [
+    {
+      "bytes": 3890,
+      "path": "INTERPRETATION.md",
+      "sha256": "42a762199a469b18832060da94aa0bfea9e3fbd22d4930ec43747ad5e7f0c055"
+    },
+    {
+      "bytes": 1774,
+      "path": "REFERENCE.md",
+      "sha256": "60267d3c09f668d75ad81b3a2b00d2f9c26ac2e05ad3da5a9f4f1366ed0b890b"
+    },
+    {
+      "bytes": 6032,
+      "path": "paper-correspondence.csv",
+      "sha256": "a900d07118a014a9bc0fb5883517392e115ce9dd369d2a2f532026fdc826403c"
+    },
+    {
+      "bytes": 2295,
+      "path": "questions.md",
+      "sha256": "38497823ac1a2f88e5e0bb306737c45cc63cb8450b82845e44d1123e03f56fe6"
+    }
+  ],
+  "row_identity_check": {
+    "durable_result_ids": 10,
+    "retired_ids_present_in_durable_table": true,
+    "retired_result_ids": 9
+  },
+  "schema_version": "publication-correspondence-artifact-retirement.v1",
+  "scientific_admission": "unchanged; historical paper input equivalence and Figure 2 remain unresolved",
+  "scope": "Four derived v5 paper-correspondence files only; original publication data and other artifacts untouched.",
+  "source_questions": "Five source-owner questions now appear in the durable paper-correspondence interpretation; none was sent."
+}

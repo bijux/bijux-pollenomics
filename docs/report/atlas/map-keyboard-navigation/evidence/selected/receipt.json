@@ -1,0 +1,3336 @@
+{
+  "schema_version": "atlas-map-keyboard-navigation-browser.v1",
+  "status": "PASS",
+  "candidate": {
+    "schema_version": "atlas-controlled-boundary-candidate.v1",
+    "status": "controlled_synthetic_geometry_only",
+    "scientific_admission": "not_evaluated",
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "generation_sha256": "72ad0dcbf0c7d377ecaf5b3471d853dc557232eb591f662dd3f5cc4c7beedd0b",
+    "renderer_sha256": "10a6138148c01ccd2ea6ccf20f3ab89093d508eac8a5e1e8efa1be15539beaa3",
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "d182e5f597725a27b2596b3801b2916b694b13b009a1f3b1bdb5d0f997d6bca1"
+    }
+  },
+  "scenarios": [
+    {
+      "width": 320,
+      "mode": "provider-failure",
+      "tile_requests": 24,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "north": {
+        "tab_index": -1,
+        "role": "img",
+        "label": "North is up",
+        "focusable": false,
+        "visible": true
+      },
+      "playback": {
+        "disabled": true,
+        "visible": true,
+        "status_disabled": true,
+        "status_text": "No BP chronology available"
+      },
+      "route": [
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "panel-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "← Show controls",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 71,
+            "right": 140.375,
+            "bottom": 115,
+            "width": 123.375,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-older",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "← Older",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 121,
+            "right": 91.59375,
+            "bottom": 165,
+            "width": 74.59375,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-newer",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "Newer →",
+          "href": null,
+          "rect": {
+            "left": 223,
+            "top": 121,
+            "right": 303,
+            "bottom": 165,
+            "width": 80,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "map",
+          "tag": "div",
+          "class_name": "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom",
+          "text": "500 km+− Leaflet",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 320,
+            "bottom": 900,
+            "width": 320,
+            "height": 900
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 314,
+            "right": 300,
+            "bottom": 344,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 255.65625,
+            "top": 357,
+            "right": 307,
+            "bottom": 371,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data una",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 833,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      ],
+      "direction": {
+        "forward": {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "backward": {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      },
+      "legend": {
+        "before": {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "enter": {
+          "expanded": "true",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Collapse",
+            "href": null,
+            "rect": {
+              "left": 234.765625,
+              "top": 549,
+              "right": 303,
+              "bottom": 593,
+              "width": 68.234375,
+              "height": 44
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        },
+        "space": {
+          "expanded": "false",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Expand",
+            "href": null,
+            "rect": {
+              "left": 238.3125,
+              "top": 671,
+              "right": 301,
+              "bottom": 715,
+              "width": 62.6875,
+              "height": 44
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        }
+      },
+      "zoom": {
+        "before": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "in": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "out": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 314,
+            "right": 300,
+            "bottom": 344,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "start": 3,
+        "in_level": 4,
+        "out_level": 3
+      },
+      "attribution": {
+        "focus": {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 255.65625,
+            "top": 357,
+            "right": 307,
+            "bottom": 371,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "screenshot": {
+          "path": "320-provider-failure-attribution-focus.png",
+          "sha256": "a11364bfd3f6906a0f24c6f33afac14c86d20654cea6645e424eb5bea0a9d17d"
+        }
+      },
+      "basemap": {
+        "before": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data una",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 833,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "immediate": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 1193,
+            "right": 284,
+            "bottom": 1241,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": false,
+          "inside_viewport": false,
+          "sidebar": true,
+          "help": false
+        },
+        "settled": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 629,
+            "right": 284,
+            "bottom": 677,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "panel_open": true,
+        "scrim_hidden_from_accessibility": true,
+        "next": {
+          "id": "reset-view",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Reset view",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 687,
+            "right": 123.21875,
+            "bottom": 731,
+            "width": 89.21875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "previous": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 629,
+            "right": 284,
+            "bottom": 677,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "space": {
+          "panel_open": true,
+          "focus": {
+            "id": null,
+            "tag": "button",
+            "class_name": "basemap-button is-active",
+            "text": "No basemapOffline · no tiles",
+            "href": null,
+            "rect": {
+              "left": 34,
+              "top": 629,
+              "right": 284,
+              "bottom": 677,
+              "width": 250,
+              "height": 48
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": true,
+            "help": false
+          }
+        }
+      },
+      "help": {
+        "open": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 212.671875,
+            "top": 85,
+            "right": 271,
+            "bottom": 129,
+            "width": 58.328125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "modal": true,
+        "next": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 49,
+            "top": 771.015625,
+            "right": 157.765625,
+            "bottom": 815.015625,
+            "width": 108.765625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "wrap": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 212.671875,
+            "top": 85,
+            "right": 271,
+            "bottom": 129,
+            "width": 58.328125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "reverse_wrap": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 49,
+            "top": 771.015625,
+            "right": 157.765625,
+            "bottom": 815.015625,
+            "width": 108.765625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "return": {
+          "id": "help-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Help",
+          "href": null,
+          "rect": {
+            "left": 230.21875,
+            "top": 687,
+            "right": 284,
+            "bottom": 731,
+            "width": 53.78125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "closed": true,
+        "screenshot": {
+          "path": "320-provider-failure-help-dialog.png",
+          "sha256": "659402ffa58ed1eb557f169ad42c8f477d162188cbc68f0f48211962deb9b9bf"
+        }
+      },
+      "mobile_exit": {
+        "focus": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data una",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 833,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "panel_closed": true
+      },
+      "screenshot": {
+        "path": "320-provider-failure.png",
+        "sha256": "388c0f994a7c4b10eb67cf04464e612bc61c0be50b87367e509d1e2c745c1f14"
+      }
+    },
+    {
+      "width": 320,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "north": {
+        "tab_index": -1,
+        "role": "img",
+        "label": "North is up",
+        "focusable": false,
+        "visible": true
+      },
+      "playback": {
+        "disabled": true,
+        "visible": true,
+        "status_disabled": true,
+        "status_text": "No BP chronology available"
+      },
+      "route": [
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "panel-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "← Show controls",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 71,
+            "right": 140.375,
+            "bottom": 115,
+            "width": 123.375,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-older",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "← Older",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 121,
+            "right": 91.59375,
+            "bottom": 165,
+            "width": 74.59375,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-newer",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "Newer →",
+          "href": null,
+          "rect": {
+            "left": 223,
+            "top": 121,
+            "right": 303,
+            "bottom": 165,
+            "width": 80,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "map",
+          "tag": "div",
+          "class_name": "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom",
+          "text": "500 km+− Leaflet",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 320,
+            "bottom": 900,
+            "width": 320,
+            "height": 900
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 314,
+            "right": 300,
+            "bottom": 344,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 255.65625,
+            "top": 357,
+            "right": 307,
+            "bottom": 371,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: no basemap. Evidence data unaffected.",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "body",
+          "class_name": "",
+          "text": "Nordic Surface\n              \n                Controlled boundary orientation fi",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 320,
+            "bottom": 900,
+            "width": 320,
+            "height": 900
+          },
+          "focus_visible": false,
+          "outline_width": "3px",
+          "outline_style": "none",
+          "outline_color": "rgb(24, 37, 61)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      ],
+      "direction": {
+        "forward": {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "backward": {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      },
+      "legend": {
+        "before": {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "enter": {
+          "expanded": "true",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Collapse",
+            "href": null,
+            "rect": {
+              "left": 234.765625,
+              "top": 549,
+              "right": 303,
+              "bottom": 593,
+              "width": 68.234375,
+              "height": 44
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        },
+        "space": {
+          "expanded": "false",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Expand",
+            "href": null,
+            "rect": {
+              "left": 238.3125,
+              "top": 671,
+              "right": 301,
+              "bottom": 715,
+              "width": 62.6875,
+              "height": 44
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        }
+      },
+      "zoom": {
+        "before": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "in": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 284,
+            "right": 300,
+            "bottom": 314,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "out": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 270,
+            "top": 314,
+            "right": 300,
+            "bottom": 344,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "start": 3,
+        "in_level": 4,
+        "out_level": 3
+      },
+      "attribution": {
+        "focus": {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 255.65625,
+            "top": 357,
+            "right": 307,
+            "bottom": 371,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "screenshot": {
+          "path": "320-tile-free-attribution-focus.png",
+          "sha256": "6aa7961855c53558162bde49ec31659614a4ec71a920fcafe07c917220f4dd85"
+        }
+      },
+      "basemap": {
+        "before": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: no basemap. Evidence data unaffected.",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "immediate": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 1193,
+            "right": 284,
+            "bottom": 1241,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": false,
+          "inside_viewport": false,
+          "sidebar": true,
+          "help": false
+        },
+        "settled": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 629,
+            "right": 284,
+            "bottom": 677,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "panel_open": true,
+        "scrim_hidden_from_accessibility": true,
+        "next": {
+          "id": "reset-view",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Reset view",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 687,
+            "right": 123.21875,
+            "bottom": 731,
+            "width": 89.21875,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "previous": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 34,
+            "top": 629,
+            "right": 284,
+            "bottom": 677,
+            "width": 250,
+            "height": 48
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "space": {
+          "panel_open": true,
+          "focus": {
+            "id": null,
+            "tag": "button",
+            "class_name": "basemap-button is-active",
+            "text": "No basemapOffline · no tiles",
+            "href": null,
+            "rect": {
+              "left": 34,
+              "top": 629,
+              "right": 284,
+              "bottom": 677,
+              "width": 250,
+              "height": 48
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": true,
+            "help": false
+          }
+        }
+      },
+      "help": {
+        "open": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 212.671875,
+            "top": 85,
+            "right": 271,
+            "bottom": 129,
+            "width": 58.328125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "modal": true,
+        "next": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 49,
+            "top": 771.015625,
+            "right": 157.765625,
+            "bottom": 815.015625,
+            "width": 108.765625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "wrap": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 212.671875,
+            "top": 85,
+            "right": 271,
+            "bottom": 129,
+            "width": 58.328125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "reverse_wrap": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 49,
+            "top": 771.015625,
+            "right": 157.765625,
+            "bottom": 815.015625,
+            "width": 108.765625,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "return": {
+          "id": "help-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Help",
+          "href": null,
+          "rect": {
+            "left": 230.21875,
+            "top": 687,
+            "right": 284,
+            "bottom": 731,
+            "width": 53.78125,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "closed": true,
+        "screenshot": {
+          "path": "320-tile-free-help-dialog.png",
+          "sha256": "599772c5617ade836034565148f32f89166fca89616c4aeb647ffefb24393233"
+        }
+      },
+      "mobile_exit": {
+        "focus": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: no basemap. Evidence data unaffected.",
+          "href": null,
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 44
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "panel_closed": true
+      },
+      "screenshot": {
+        "path": "320-tile-free.png",
+        "sha256": "cc20dc4ef25dfae305d0a5e38a580f86ee65baffa2fe7587e42132ce676901d4"
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "provider-failure",
+      "tile_requests": 48,
+      "street_tile_failures": 24,
+      "terrain_tile_failures": 24,
+      "north": {
+        "tab_index": -1,
+        "role": "img",
+        "label": "North is up",
+        "focusable": false,
+        "visible": true
+      },
+      "playback": {
+        "disabled": true,
+        "visible": true,
+        "status_disabled": true,
+        "status_text": "No BP chronology available"
+      },
+      "route": [
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "panel-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "← Show controls",
+          "href": null,
+          "rect": {
+            "left": 192.46875,
+            "top": 70,
+            "right": 315.84375,
+            "bottom": 104,
+            "width": 123.375,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-older",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "← Older",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 116,
+            "right": 103.59375,
+            "bottom": 150,
+            "width": 74.59375,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-newer",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "Newer →",
+          "href": null,
+          "rect": {
+            "left": 482.5625,
+            "top": 116,
+            "right": 562.5625,
+            "bottom": 150,
+            "width": 80,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "map",
+          "tag": "div",
+          "class_name": "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom",
+          "text": "300 km+− Leaflet",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 1440,
+            "bottom": 900,
+            "width": 1440,
+            "height": 900
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 104,
+            "right": 1412,
+            "bottom": 134,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 1367.65625,
+            "top": 147,
+            "right": 1419,
+            "bottom": 161,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data una",
+          "href": null,
+          "rect": {
+            "left": 865.953125,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 541.046875,
+            "height": 16
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      ],
+      "direction": {
+        "forward": {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "backward": {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      },
+      "legend": {
+        "before": {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "enter": {
+          "expanded": "true",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Collapse",
+            "href": null,
+            "rect": {
+              "left": 1338.765625,
+              "top": 638,
+              "right": 1407,
+              "bottom": 667,
+              "width": 68.234375,
+              "height": 29
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        },
+        "space": {
+          "expanded": "false",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Expand",
+            "href": null,
+            "rect": {
+              "left": 1350.3125,
+              "top": 774,
+              "right": 1413,
+              "bottom": 803,
+              "width": 62.6875,
+              "height": 29
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        }
+      },
+      "zoom": {
+        "before": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "in": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "out": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 104,
+            "right": 1412,
+            "bottom": 134,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "start": 4,
+        "in_level": 5,
+        "out_level": 4
+      },
+      "attribution": {
+        "focus": {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 1367.65625,
+            "top": 147,
+            "right": 1419,
+            "bottom": 161,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "screenshot": {
+          "path": "1440-provider-failure-attribution-focus.png",
+          "sha256": "75ee9d5472778b9c0ea5f64f1e07d0e1bd65b21ce3bcf57daee95ba0da4683c0"
+        }
+      },
+      "basemap": {
+        "before": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data una",
+          "href": null,
+          "rect": {
+            "left": 865.953125,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 541.046875,
+            "height": 16
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "immediate": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1206,
+            "top": 360,
+            "right": 1440,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "settled": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 360,
+            "right": 1396,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "panel_open": true,
+        "scrim_hidden_from_accessibility": true,
+        "next": {
+          "id": "reset-view",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Reset view",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 416,
+            "right": 1251.21875,
+            "bottom": 450,
+            "width": 89.21875,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "previous": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 360,
+            "right": 1396,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "space": {
+          "panel_open": true,
+          "focus": {
+            "id": null,
+            "tag": "button",
+            "class_name": "basemap-button is-active",
+            "text": "No basemapOffline · no tiles",
+            "href": null,
+            "rect": {
+              "left": 1162,
+              "top": 360,
+              "right": 1396,
+              "bottom": 406,
+              "width": 234,
+              "height": 46
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": true,
+            "help": false
+          }
+        }
+      },
+      "help": {
+        "open": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 1016.671875,
+            "top": 85,
+            "right": 1075,
+            "bottom": 119,
+            "width": 58.328125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "modal": true,
+        "next": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 365,
+            "top": 781.0625,
+            "right": 473.765625,
+            "bottom": 815.0625,
+            "width": 108.765625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "wrap": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 1016.671875,
+            "top": 85,
+            "right": 1075,
+            "bottom": 119,
+            "width": 58.328125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "reverse_wrap": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 365,
+            "top": 781.0625,
+            "right": 473.765625,
+            "bottom": 815.0625,
+            "width": 108.765625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "return": {
+          "id": "help-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Help",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 460,
+            "right": 1215.78125,
+            "bottom": 494,
+            "width": 53.78125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "closed": true,
+        "screenshot": {
+          "path": "1440-provider-failure-help-dialog.png",
+          "sha256": "88eb6070be5a2540b5ba69b052f210d99b9b32da9f35f156e0db16097d11f452"
+        }
+      },
+      "mobile_exit": null,
+      "screenshot": {
+        "path": "1440-provider-failure.png",
+        "sha256": "2f4a91757eed0f98f389ce33e0afff9ef8bb2161e0437eb27fe2778f2b82614b"
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "north": {
+        "tab_index": -1,
+        "role": "img",
+        "label": "North is up",
+        "focusable": false,
+        "visible": true
+      },
+      "playback": {
+        "disabled": true,
+        "visible": true,
+        "status_disabled": true,
+        "status_text": "No BP chronology available"
+      },
+      "route": [
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "panel-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "← Show controls",
+          "href": null,
+          "rect": {
+            "left": 192.46875,
+            "top": 70,
+            "right": 315.84375,
+            "bottom": 104,
+            "width": 123.375,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-older",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "← Older",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 116,
+            "right": 103.59375,
+            "bottom": 150,
+            "width": 74.59375,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "time-step-newer",
+          "tag": "button",
+          "class_name": "inline-button",
+          "text": "Newer →",
+          "href": null,
+          "rect": {
+            "left": 482.5625,
+            "top": 116,
+            "right": 562.5625,
+            "bottom": 150,
+            "width": 80,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "map",
+          "tag": "div",
+          "class_name": "leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom",
+          "text": "300 km+− Leaflet",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 1440,
+            "bottom": 900,
+            "width": 1440,
+            "height": 900
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 104,
+            "right": 1412,
+            "bottom": 134,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 1367.65625,
+            "top": 147,
+            "right": 1419,
+            "bottom": 161,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: no basemap. Evidence data unaffected.",
+          "href": null,
+          "rect": {
+            "left": 1057.890625,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 349.109375,
+            "height": 16
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": null,
+          "tag": "body",
+          "class_name": "",
+          "text": "Nordic Surface\n              \n                Controlled boundary orientation fi",
+          "href": null,
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "right": 1440,
+            "bottom": 900,
+            "width": 1440,
+            "height": 900
+          },
+          "focus_visible": false,
+          "outline_width": "3px",
+          "outline_style": "none",
+          "outline_color": "rgb(24, 37, 61)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      ],
+      "direction": {
+        "forward": {
+          "id": "search-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Search",
+          "href": null,
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "backward": {
+          "id": "fit-active",
+          "tag": "button",
+          "class_name": "toolbar-button is-primary",
+          "text": "Fit active",
+          "href": null,
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        }
+      },
+      "legend": {
+        "before": {
+          "id": "legend-toggle",
+          "tag": "button",
+          "class_name": "legend-toggle",
+          "text": "Expand",
+          "href": null,
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "enter": {
+          "expanded": "true",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Collapse",
+            "href": null,
+            "rect": {
+              "left": 1338.765625,
+              "top": 638,
+              "right": 1407,
+              "bottom": 667,
+              "width": 68.234375,
+              "height": 29
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        },
+        "space": {
+          "expanded": "false",
+          "focus": {
+            "id": "legend-toggle",
+            "tag": "button",
+            "class_name": "legend-toggle",
+            "text": "Expand",
+            "href": null,
+            "rect": {
+              "left": 1350.3125,
+              "top": 774,
+              "right": 1413,
+              "bottom": 803,
+              "width": 62.6875,
+              "height": 29
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": false,
+            "help": false
+          }
+        }
+      },
+      "zoom": {
+        "before": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "in": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-in",
+          "text": "+",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 74,
+            "right": 1412,
+            "bottom": 104,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "out": {
+          "id": null,
+          "tag": "a",
+          "class_name": "leaflet-control-zoom-out",
+          "text": "−",
+          "href": "#",
+          "rect": {
+            "left": 1382,
+            "top": 104,
+            "right": 1412,
+            "bottom": 134,
+            "width": 30,
+            "height": 30
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "start": 4,
+        "in_level": 5,
+        "out_level": 4
+      },
+      "attribution": {
+        "focus": {
+          "id": null,
+          "tag": "a",
+          "class_name": "",
+          "text": "Leaflet",
+          "href": "https://leafletjs.com",
+          "rect": {
+            "left": 1367.65625,
+            "top": 147,
+            "right": 1419,
+            "bottom": 161,
+            "width": 51.34375,
+            "height": 14
+          },
+          "focus_visible": true,
+          "outline_width": "1px",
+          "outline_style": "auto",
+          "outline_color": "rgb(0, 95, 204)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "screenshot": {
+          "path": "1440-tile-free-attribution-focus.png",
+          "sha256": "86b52063e4d0798bf0923c1ca295477647182ce601647ec4ead5c7581605b6c1"
+        }
+      },
+      "basemap": {
+        "before": {
+          "id": "basemap-readout",
+          "tag": "button",
+          "class_name": "status-pill-value status-pill-action",
+          "text": "Basemap degraded: no basemap. Evidence data unaffected.",
+          "href": null,
+          "rect": {
+            "left": 1057.890625,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 349.109375,
+            "height": 16
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": false
+        },
+        "immediate": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1206,
+            "top": 360,
+            "right": 1440,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "settled": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 360,
+            "right": 1396,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "panel_open": true,
+        "scrim_hidden_from_accessibility": true,
+        "next": {
+          "id": "reset-view",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Reset view",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 416,
+            "right": 1251.21875,
+            "bottom": 450,
+            "width": 89.21875,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "previous": {
+          "id": null,
+          "tag": "button",
+          "class_name": "basemap-button is-active",
+          "text": "No basemapOffline · no tiles",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 360,
+            "right": 1396,
+            "bottom": 406,
+            "width": 234,
+            "height": 46
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "space": {
+          "panel_open": true,
+          "focus": {
+            "id": null,
+            "tag": "button",
+            "class_name": "basemap-button is-active",
+            "text": "No basemapOffline · no tiles",
+            "href": null,
+            "rect": {
+              "left": 1162,
+              "top": 360,
+              "right": 1396,
+              "bottom": 406,
+              "width": 234,
+              "height": 46
+            },
+            "focus_visible": true,
+            "outline_width": "3px",
+            "outline_style": "solid",
+            "outline_color": "rgba(37, 99, 235, 0.28)",
+            "center_hit": true,
+            "inside_viewport": true,
+            "sidebar": true,
+            "help": false
+          }
+        }
+      },
+      "help": {
+        "open": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 1016.671875,
+            "top": 85,
+            "right": 1075,
+            "bottom": 119,
+            "width": 58.328125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "modal": true,
+        "next": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 365,
+            "top": 781.0625,
+            "right": 473.765625,
+            "bottom": 815.0625,
+            "width": 108.765625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "wrap": {
+          "id": "help-close",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Close",
+          "href": null,
+          "rect": {
+            "left": 1016.671875,
+            "top": 85,
+            "right": 1075,
+            "bottom": 119,
+            "width": 58.328125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "reverse_wrap": {
+          "id": "help-return",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Return to map",
+          "href": null,
+          "rect": {
+            "left": 365,
+            "top": 781.0625,
+            "right": 473.765625,
+            "bottom": 815.0625,
+            "width": 108.765625,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": false,
+          "help": true
+        },
+        "return": {
+          "id": "help-toggle",
+          "tag": "button",
+          "class_name": "toolbar-button",
+          "text": "Help",
+          "href": null,
+          "rect": {
+            "left": 1162,
+            "top": 460,
+            "right": 1215.78125,
+            "bottom": 494,
+            "width": 53.78125,
+            "height": 34
+          },
+          "focus_visible": true,
+          "outline_width": "3px",
+          "outline_style": "solid",
+          "outline_color": "rgba(37, 99, 235, 0.28)",
+          "center_hit": true,
+          "inside_viewport": true,
+          "sidebar": true,
+          "help": false
+        },
+        "closed": true,
+        "screenshot": {
+          "path": "1440-tile-free-help-dialog.png",
+          "sha256": "6f79e73bc13fff384a882ef5f3b7bfe4fef46f4c3bd69287884de7eedff319e7"
+        }
+      },
+      "mobile_exit": null,
+      "screenshot": {
+        "path": "1440-tile-free.png",
+        "sha256": "b3ec67a6325d95f8e45e847417030d46a49bc200d031621a89989d1b666463a3"
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "d182e5f597725a27b2596b3801b2916b694b13b009a1f3b1bdb5d0f997d6bca1"
+  },
+  "verifier_sha256": "630283871263c5408004d6a08cb07f705fc6c12967fb2b9487a23a8beaf7f41d"
+}

@@ -67,6 +67,8 @@ def _classify_surface(output_root: Path, relative_path: str) -> dict[str, object
 def _family_for_path(path: Path) -> str:
     relative_path = path.as_posix()
     stem = path.stem
+    if relative_path.startswith("taxa-review/"):
+        return "reviews"
     if relative_path.startswith(("world/", "regions/")):
         if (
             path.suffix == ".html"

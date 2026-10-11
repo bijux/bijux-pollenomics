@@ -287,7 +287,7 @@
       "article_download_status": "archived",
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "recovered_final_sample_count": 13,
+      "recovered_final_sample_count": 33,
       "exact_expected_sample_count_total": 13,
       "projects_with_unknown_expected_total": 1,
       "projects_with_implausibly_low_recovery": 0,

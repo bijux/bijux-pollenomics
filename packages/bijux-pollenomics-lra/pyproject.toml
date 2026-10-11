@@ -35,7 +35,7 @@ version-file = "src/bijux_pollenomics_lra/_build_version.py"
 packages = ["src/bijux_pollenomics_lra"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/", "tests/", "docs/", "vendor/", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE", "CITATION.cff"]
+only-include = ["src", "tests", "docs", "vendor", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE", "CITATION.cff"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

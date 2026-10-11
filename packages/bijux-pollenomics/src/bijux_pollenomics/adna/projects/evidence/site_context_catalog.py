@@ -203,11 +203,13 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
         ),
     ),
     "SRP073444": (
+        # The taxon field groups this context under its tracked project; the
+        # paper's Site 1040 specimen is C. thomasi, not a linked BioSample.
         AdnaSiteEvidenceRecord(
             project_accession="SRP073444",
             species_latin_name="Camelus dromedarius",
             species_common_name="camel",
-            site_label="Site 1040 near Wadi Halfa dromedary context",
+            site_label="Site 1040 near Wadi Halfa C. thomasi context",
             political_entity="Sudan",
             source_artifact_path="adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
             source_artifact_kind="article_html_body_quote",
@@ -225,8 +227,10 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             dating_basis="relative_period",
             domestication_context="non_nordic_domestication_context",
             interpretation_note=(
-                "The paper names Site 1040 near Wadi Halfa but supplies neither an "
-                "excavation coordinate nor a numeric sample chronology in this quote."
+                "The article and Table S1 identify the Site 1040 specimen as "
+                "C. thomasi. None of the 20 linked dromedary BioSamples has a "
+                "source relation to this site. The quote supplies neither an "
+                "excavation coordinate nor a numeric sample chronology."
             ),
             support_gap_note=(
                 "Coordinate publication requires the separately governed named-place "

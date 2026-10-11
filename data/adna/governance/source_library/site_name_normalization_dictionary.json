@@ -6584,7 +6584,7 @@
         "supplementary_table"
       ],
       "locality_classes": [
-        "excavation_site"
+        "broader_locality"
       ]
     },
     {
@@ -6601,6 +6601,22 @@
       ],
       "locality_classes": [
         "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Edgeøya",
+      "geocoding_safe_token": "edgeøya",
+      "original_source_spellings": [
+        "Edgeøya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "broader_locality"
       ]
     },
     {
@@ -8850,6 +8866,102 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Al Buhais 18",
+      "geocoding_safe_token": "albuhais18",
+      "original_source_spellings": [
+        "Al Buhais 18"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Al Sufouh 2",
+      "geocoding_safe_token": "alsufouh2",
+      "original_source_spellings": [
+        "Al Sufouh 2"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Apamea",
+      "geocoding_safe_token": "apamea",
+      "original_source_spellings": [
+        "Apamea"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Aqaba",
+      "geocoding_safe_token": "aqaba",
+      "original_source_spellings": [
+        "Aqaba"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Muweilah (Sharjah)",
+      "geocoding_safe_token": "muweilahsharjah",
+      "original_source_spellings": [
+        "Muweilah (Sharjah)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Palmyra",
+      "geocoding_safe_token": "palmyra",
+      "original_source_spellings": [
+        "Palmyra"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
       "normalized_display_spelling": "Site 1040 near Wadi Halfa",
       "geocoding_safe_token": "site1040nearwadihalfa",
       "original_source_spellings": [
@@ -8866,10 +8978,10 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "normalized_display_spelling": "Site 1040 near Wadi Halfa dromedary context",
-      "geocoding_safe_token": "site1040nearwadihalfadromedarycontext",
+      "normalized_display_spelling": "Site 1040 near Wadi Halfa C. thomasi context",
+      "geocoding_safe_token": "site1040nearwadihalfacthomasicontext",
       "original_source_spellings": [
-        "Site 1040 near Wadi Halfa dromedary context",
+        "Site 1040 near Wadi Halfa C. thomasi context",
         "Wadi Halfa"
       ],
       "alternative_spellings": [
@@ -8882,6 +8994,38 @@
       "locality_classes": [
         "broader_locality",
         "country"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Tell Abraq",
+      "geocoding_safe_token": "tellabraq",
+      "original_source_spellings": [
+        "Tell Abraq"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Umm an-Nar",
+      "geocoding_safe_token": "ummannar",
+      "original_source_spellings": [
+        "Umm an-Nar"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "excavation_site"
       ]
     },
     {

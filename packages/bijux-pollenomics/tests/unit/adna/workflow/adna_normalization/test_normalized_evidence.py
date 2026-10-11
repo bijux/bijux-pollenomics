@@ -159,7 +159,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         bundles = build_tracked_animal_normalization_bundles()
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
-        self.assertEqual(len(samples), 1450)
+        self.assertEqual(len(samples), 1470)
         self.assertEqual(
             sum(
                 1
@@ -167,23 +167,23 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 for refusal in bundle.refusals
                 if refusal.record_kind == "sample_record"
             ),
-            43,
+            23,
         )
         camel = next(
             bundle
             for bundle in bundles
             if bundle.species.latin_name == "Camelus dromedarius"
         )
-        experiment_refusals = [
-            refusal
-            for refusal in camel.refusals
-            if refusal.reason == "experiment_to_biological_sample_mapping_unavailable"
+        camel_sra_samples = [
+            sample
+            for sample in camel.sample_records
+            if sample.project_accession == "SRP073444"
         ]
-        self.assertEqual(len(experiment_refusals), 20)
+        self.assertEqual(len(camel_sra_samples), 20)
         self.assertTrue(
             all(
-                "sequencing experiment" in refusal.detail
-                for refusal in experiment_refusals
+                sample.taxon_alignment_status == "project_species_match"
+                for sample in camel_sra_samples
             )
         )
         self.assertTrue(
@@ -203,8 +203,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(
             Counter(sample.inclusion_status for sample in samples),
             {
-                "site_curated": 1043,
-                "sample_context_blocked": 402,
+                "site_curated": 1067,
+                "sample_context_blocked": 379,
+                "comparator_site_curated": 19,
                 "nordic_lead_site_curated": 5,
             },
         )
@@ -213,7 +214,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
         self.assertEqual(
             sum(sample.locality is not None for sample in blocked_context),
-            318,
+            320,
         )
         for bundle in bundles:
             payload = bundle.as_dict()
@@ -267,13 +268,14 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for bundle in bundles
             if bundle.species.latin_name == "Camelus dromedarius"
         )
-        self.assertTrue(
-            any(
-                refusal.reason == "locality_has_no_admitted_sample_identity"
-                and refusal.source_token.startswith("SRP073444:")
-                for refusal in camel.refusals
-            )
-        )
+        camel_localities = [
+            locality
+            for locality in camel.locality_records
+            if "SRP073444" in locality.project_accessions
+        ]
+        self.assertEqual(len(camel_localities), 8)
+        self.assertEqual(sum(len(row.sample_ids) for row in camel_localities), 20)
+        self.assertTrue(all("Wadi" not in row.locality for row in camel_localities))
 
     def test_pig_site_localities_preserve_admitted_archaeological_basis(self) -> None:
         bundle = build_species_normalization_bundle("pig")

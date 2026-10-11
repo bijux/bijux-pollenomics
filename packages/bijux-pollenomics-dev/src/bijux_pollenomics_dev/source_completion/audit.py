@@ -168,3 +168,99 @@ def build_source_audit(root: Path) -> dict[str, Any]:
     }
     result["audit_sha256"] = digest(result)
     return result
+
+
+def summarize_source_audit(audit: dict[str, Any]) -> dict[str, Any]:
+    """Retain closure decisions and digests without duplicating source ledgers."""
+    files = audit["input_files"]
+    source_rows = []
+    for row in audit["source_rows"]:
+        stage = row["source_stage_record"]
+        nordic_publication = {
+            cell["country_code"]: cell["availability_status"]
+            for cell in row["country_availability_records"]
+            if cell["country_code"] in {"SE", "DK", "NO", "FI"}
+            and cell["country_dimension"] == "publication"
+        }
+        source_rows.append(
+            {
+                "source_key": row["source_key"],
+                "evidence_role": row["evidence_role"],
+                "authority_status": stage["authority_status"],
+                "raw_status": stage["raw_status"],
+                "normalized_status": stage["normalized_status"],
+                "reviewed_status": stage["reviewed_status"],
+                "published_status": stage["published_status"],
+                "nordic_publication_availability": nordic_publication,
+                "missing_supported_dimensions": row["missing_supported_dimensions"],
+                "qualified_review_dimensions": row["qualified_review_dimensions"],
+                "full_confirmation": row["v2_full_confirmation"],
+            }
+        )
+    intakes = audit.get("external_intake_custody")
+    intake_summary = None
+    if intakes is not None:
+        intake_summary = {
+            "private_custody_manifest_sha256": intakes[
+                "private_custody_manifest_sha256"
+            ],
+            "receipt_count": intakes["receipt_count"],
+            "verified_original_archives": intakes["verified_original_archives"],
+            "country_claim_rows": intakes["country_claim_rows"],
+            "scientific_admission": intakes["scientific_admission"],
+            "receipts": [
+                {
+                    "intake_id": row["intake_id"],
+                    "receipt_sha256": row["receipt_sha256"],
+                    "historical_disposition": row["historical_disposition"],
+                    "historical_rights_status": row["historical_rights_status"],
+                    "historical_public_release_allowed": row[
+                        "historical_public_release_allowed"
+                    ],
+                    "country_content_states": {
+                        cell["country_code"]: cell["content_state"]
+                        for cell in row["historical_country_coverage"]
+                    },
+                    "scientific_admission_from_custody": row[
+                        "scientific_admission_from_custody"
+                    ],
+                }
+                for row in intakes["historical_receipts"]
+            ],
+        }
+    neotoma = audit["neotoma_relational_reconciliation"] or {}
+    sead = audit["sead_authority_reconciliation"] or {}
+    landclim = audit["landclim_publication_inventory"] or {}
+    summary = {
+        "schema_version": "source-reconciliation-summary.v1",
+        "full_audit_sha256": audit["audit_sha256"],
+        "input_closure_sha256": audit["input_closure_sha256"],
+        "source_count": audit["source_count"],
+        "country_cell_count": audit["country_cell_count"],
+        "capability_cell_count": audit["capability_cell_count"],
+        "input_file_count": len(files),
+        "present_input_file_count": sum(
+            file["presence"] == "present" for file in files
+        ),
+        "manifest_byte_verification_count": len(audit["manifest_byte_verifications"]),
+        "accounting_checks_pass": audit["accounting_checks_pass"],
+        "accounting_findings": audit["accounting_findings"],
+        "full_source_confirmation": audit["full_source_confirmation"],
+        "source_rows": source_rows,
+        "external_intake_custody": intake_summary,
+        "source_specific_reconciliation": {
+            "neotoma_semantic_confirmation": neotoma.get("semantic_confirmation"),
+            "sead_semantic_confirmation": sead.get("semantic_confirmation"),
+            "sead_source_table_count": sead.get("source_table_count"),
+            "sead_observation_count": sead.get("observation_count"),
+            "sead_eligible_event_count": sead.get("eligible_event_count"),
+            "sead_refused_event_count": sead.get("refused_event_count"),
+            "landclim_semantic_confirmation": landclim.get("semantic_confirmation"),
+            "landclim_taxon_row_count": landclim.get("taxon_row_count"),
+            "landclim_taxonomy_pft_count": landclim.get("taxonomy_pft_count"),
+        },
+        "scope": audit["scope"],
+        "status_namespace_note": audit["status_namespace_note"],
+    }
+    summary["summary_sha256"] = digest(summary)
+    return summary

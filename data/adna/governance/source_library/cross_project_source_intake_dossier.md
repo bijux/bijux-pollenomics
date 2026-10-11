@@ -8,7 +8,7 @@
 | `PRJEB75467` | `10.1038/s41586-024-08112-6` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `PRJNA705960` | `none` | `` | `paper_linkage_not_curated` |
 | `KU605068-KU605080` | `10.1111/1755-0998.12551` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
-| `SRP073444` | `10.1111/1755-0998.12551` | `sample_identifiers; taxonomic_context; site_names; coordinate_resolution_candidate; chronology` | `sample_tables_published` |
+| `SRP073444` | `10.1111/1755-0998.12551` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `KX379528-KX379529` | `10.1038/ncomms16082` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `SRS1407451` | `10.1038/ncomms16082` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `SRS1407453` | `10.1038/ncomms16082` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |

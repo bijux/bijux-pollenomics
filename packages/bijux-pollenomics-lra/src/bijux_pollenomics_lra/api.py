@@ -41,7 +41,15 @@ from bijux_pollenomics_lra.models.results import (
 from bijux_pollenomics_lra.models.validation import (
     LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
 )
+from bijux_pollenomics_lra.reconstruction.fixed_site_covariance import (
+    FixedSiteCovariance,
+    fixed_site_cover_covariance,
+)
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
+    JointSiteDrawResult,
+    joint_site_cover_draws,
+)
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import (
     run_love,
@@ -71,6 +79,8 @@ def extension_descriptor() -> dict[str, Any]:
         "capabilities": [
             "lra.reveals.regional",
             "lra.reveals.multisite.publication-source",
+            "lra.reveals.multisite.fixed-site-delta-covariance",
+            "lra.reveals.multisite.joint-site-count-ppe-draws",
             "lra.love.analytical",
             "lra.love.analytical.fall-speed-profile."
             + LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
@@ -94,10 +104,12 @@ __all__ = [
     "DistanceWeighting",
     "ForwardConfig",
     "ForwardResult",
+    "FixedSiteCovariance",
     "LRAConfig",
     "LRAError",
     "LRAResult",
     "LRASeriesResult",
+    "JointSiteDrawResult",
     "LoveConfig",
     "LoveMethod",
     "OptimizedLoveProfile",
@@ -114,6 +126,8 @@ __all__ = [
     "ValidationError",
     "extension_descriptor",
     "forward_deposition",
+    "fixed_site_cover_covariance",
+    "joint_site_cover_draws",
     "prepare_forward_inputs",
     "publication_bin_bounds_sha256",
     "run_love",

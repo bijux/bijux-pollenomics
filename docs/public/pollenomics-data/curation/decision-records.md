@@ -100,26 +100,26 @@ older publication.
 
 ## One Object Can Carry Several Decisions
 
-The Wadi Halfa dromedary context illustrates why decisions remain scoped:
+The Wadi Halfa `C.thomasi` context illustrates why decisions remain scoped:
 
 | Claim or use | Governed posture |
 | --- | --- |
 | project identity | archive project `SRP073444` is tracked |
 | source context | paper-backed Site 1040 wording supplies a recoverable named-place claim |
-| sample identity | a final sample-master identity is not yet recoverable |
+| sample identity | 20 archive BioSample identities are recovered for the project, but none is linked to Site 1040 |
 | coordinate claim | named-place geocoding supports an approximate point, not a supplied excavation coordinate |
 | point product | not published; retained in map-readiness accounting as `no_admitted_sample_backed_locality_candidate` |
-| recovered-sample population | not admitted as a final recovered sample |
-| release posture | incomplete recovery remains part of the repository release refusal |
+| recovered-sample population | the project contributes final sample rows; Site 1040 remains outside the sample-backed point population |
+| release posture | missing sample linkage prevents a Site 1040 point and stronger locality claims |
 
 ```mermaid
 flowchart TB
     Project["SRP073444 project"] --> Context["paper-backed place context"]
     Context --> Approximate["approximate named-place coordinate"]
     Approximate --> Excluded["not-materialized evidence row"]
-    Project --> Missing["final sample evidence missing"]
-    Missing --> Recovery["recovery condition"]
-    Recovery --> Release["stronger release language refused"]
+    Project --> Samples["20 archive BioSample identities"]
+    Samples --> Missing["no relation to Site 1040"]
+    Missing --> Release["Site 1040 point refused"]
 ```
 
 The retained context and publication refusal are not contradictory. They answer

@@ -1,0 +1,8 @@
+# LandClim II published-window correspondence
+
+The retained Python REVEALS publication-profile output for author grids 512 and 562 is compared with the pinned PANGAEA 937075 June 2021 mean and standard-error members. The author bin labeled 225 spans 100–350 BP, exactly the published TW2 window. The 31 taxon axes use the authenticated author crosswalk; recomputed fractions are explicitly multiplied by 100 to match published percentage cover. All 62 grid/taxon keys and all mean/SE values pair without missing or extra keys.
+
+- Grid 512: 6 author sites in this bin; maximum/median absolute mean residual 9.1979/0.0214 percentage points; maximum/median absolute SE residual 3.2162/0.0114 percentage points. Largest mean discrepancy: Cyperaceae; largest SE discrepancy: Cyperaceae.
+- Grid 562: 5 author sites in this bin; maximum/median absolute mean residual 10.5527/0.0322 percentage points; maximum/median absolute SE residual 4.2581/0.0145 percentage points. Largest mean discrepancy: Calluna.vulgaris; largest SE discrepancy: Calluna.vulgaris.
+
+These are candidate-minus-archive residuals, with no fitted or declared pass tolerance. Matching keys, bin bounds and units do not establish matching historical raw-input cohorts: the local author example uses the pinned 2016 source revision while the archive is a June 2021 published product. The other author bins differ from the published time bounds and are excluded. Functional-type columns, including the unresolved ISTS mapping, are excluded. This is a numerical published-product correspondence on one window, not whole-paper reproduction or measured vegetation accuracy.

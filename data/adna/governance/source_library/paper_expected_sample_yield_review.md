@@ -15,7 +15,7 @@
 | `10.1073/pnas.1901169116` | `PRJEB30282` | `supplement_extractable` | `343` | `1` | `0` |
 | `10.1093/gbe/evae114` | `PRJEB59481` | `supplement_extractable` | `5` | `1` | `0` |
 | `10.1093/gbe/evaf181` | `PRJEB90141` | `supplement_extractable` | `4` | `1` | `0` |
-| `10.1111/1755-0998.12551` | `KU605068-KU605080; SRP073444` | `supplement_extractable` | `13` | `1` | `0` |
+| `10.1111/1755-0998.12551` | `KU605068-KU605080; SRP073444` | `supplement_extractable` | `33` | `1` | `0` |
 | `10.1111/mec.17274` | `PRJEB60484` | `manual_curation_required` | `20` | `1` | `0` |
 | `10.1126/science.aam5298` | `PRJEB19970` | `supplement_extractable` | `15` | `1` | `0` |
 | `10.1126/science.aao3297` | `PRJEB22390` | `supplement_extractable` | `42` | `1` | `0` |

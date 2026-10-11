@@ -39,7 +39,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --output artifacts/neotoma-author-taxonomy-candidates/replay
 ```
 
-The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_author_taxonomy_candidates.py)
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_author_taxonomy_candidates.py)
 checks the author lookup's pinned identity and source schema, source review and
 priority identities, distinct concept IDs, review status, source units and country
 accounting. The focused regression checks the native/digitized distinction and

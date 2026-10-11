@@ -1,6 +1,6 @@
 # Sample site manual curation queue
 
-- Queued projects: `8`
+- Queued projects: `7`
 
 | Project accession | Queued sample rows | Recommended next surface | Reasons |
 | --- | ---: | --- | --- |
@@ -11,4 +11,3 @@
 | PRJNA705960 | 11 |  | recovered_sample_rows_still_lack_any_location_claim |
 | PRJEB81815 | 3 |  | recovered_sample_rows_still_lack_any_location_claim |
 | SRS1407451 | 1 |  | recovered_sample_rows_still_lack_any_location_claim |
-| PRJEB60484 | 1 |  | recovered_sample_rows_still_lack_any_location_claim |

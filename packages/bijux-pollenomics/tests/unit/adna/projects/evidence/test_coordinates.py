@@ -46,7 +46,9 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
 
         self.assertEqual(len(rows), 1)
         row = rows[0]
-        self.assertEqual(row.site_label, "Site 1040 near Wadi Halfa dromedary context")
+        self.assertEqual(row.site_label, "Site 1040 near Wadi Halfa C. thomasi context")
+        self.assertEqual(row.species_latin_name, "Camelus dromedarius")
+        self.assertIn("C. thomasi", row.interpretation_note)
         self.assertEqual(row.original_place_text, "Site 1040 near Wadi Halfa")
         self.assertEqual(row.resolved_place_text, "Wadi Halfa")
         self.assertEqual(row.geocoding_method, "manual_named_place_resolution")

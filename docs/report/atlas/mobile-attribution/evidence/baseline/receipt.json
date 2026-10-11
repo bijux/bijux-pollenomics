@@ -1,0 +1,507 @@
+{
+  "schema_version": "atlas-mobile-attribution-browser.v1",
+  "status": "FAIL",
+  "candidate": {
+    "schema_version": "atlas-controlled-boundary-candidate.v1",
+    "status": "controlled_synthetic_geometry_only",
+    "scientific_admission": "not_evaluated",
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "generation_sha256": "661eb9ee3e15eede6a568fe30af5e3e88e69eb0aebb31abbe8292593558565b4",
+    "renderer_sha256": "bb8bac70529d7edaa44aee3fee614b686181e61712dd0af3e92878ea740f2f4a",
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "0324d2483f554c4de335db2334d31e7228ba8cb2acb725b52ca211e9a089b637"
+    }
+  },
+  "scenarios": [
+    {
+      "width": 1440,
+      "mode": "provider-failure",
+      "tile_requests": 48,
+      "street_tile_failures": 24,
+      "terrain_tile_failures": 24,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 600,
+          "top": 624,
+          "right": 623,
+          "bottom": 665,
+          "width": 23,
+          "height": 41,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 771,
+          "top": 487,
+          "right": 794,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 589,
+          "top": 487,
+          "right": 612,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 691,
+          "top": 558,
+          "right": 714,
+          "bottom": 603,
+          "width": 23,
+          "height": 45,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "300 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 876.8125,
+        "right": 76,
+        "bottom": 895,
+        "width": 71,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 457.625,
+          "top": 847,
+          "right": 549.625,
+          "bottom": 863,
+          "width": 92,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 774,
+          "right": 1413,
+          "bottom": 803,
+          "width": 62.6875,
+          "height": 29
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 865.953125,
+          "top": 847,
+          "right": 1407,
+          "bottom": 863,
+          "width": 541.046875,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 1370.4375,
+          "top": 16,
+          "right": 1424,
+          "bottom": 60,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 1378.65625,
+          "top": 883.203125,
+          "right": 1440,
+          "bottom": 900,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 332.625,
+        "top": 817,
+        "right": 1424,
+        "bottom": 876,
+        "width": 1091.375,
+        "height": 59
+      },
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 4
+      },
+      "screenshot": {
+        "path": "1440-provider-failure.png",
+        "sha256": "f5d0271e4cee0eb74a58072a8a708feb54c0a0e601505a134e990b701c45e92b"
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 600,
+          "top": 624,
+          "right": 623,
+          "bottom": 665,
+          "width": 23,
+          "height": 41,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 771,
+          "top": 487,
+          "right": 794,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 589,
+          "top": 487,
+          "right": 612,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 691,
+          "top": 558,
+          "right": 714,
+          "bottom": 603,
+          "width": 23,
+          "height": 45,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "300 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 876.8125,
+        "right": 76,
+        "bottom": 895,
+        "width": 71,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 649.5625,
+          "top": 847,
+          "right": 741.5625,
+          "bottom": 863,
+          "width": 92,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 774,
+          "right": 1413,
+          "bottom": 803,
+          "width": 62.6875,
+          "height": 29
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 1057.890625,
+          "top": 847,
+          "right": 1407,
+          "bottom": 863,
+          "width": 349.109375,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 1370.4375,
+          "top": 16,
+          "right": 1424,
+          "bottom": 60,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 1378.65625,
+          "top": 883.203125,
+          "right": 1440,
+          "bottom": 900,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 524.5625,
+        "top": 817,
+        "right": 1424,
+        "bottom": 876,
+        "width": 899.4375,
+        "height": 59
+      },
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 4
+      },
+      "screenshot": {
+        "path": "1440-tile-free.png",
+        "sha256": "435f399c5207d8a743aa5539f0dce785ddcf6d8bb4dc633b8651831563bcf5ae"
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Leaflet attribution is obscured at its center\n\nfalse !== true\n\n    at repository/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/mobile-attribution.mjs:102:14",
+  "diagnostic": {
+    "hash": "#basemap=none",
+    "attribution": {
+      "x": 328.65625,
+      "y": 883.203125,
+      "width": 61.34375,
+      "height": 16.796875,
+      "top": 883.203125,
+      "right": 390,
+      "bottom": 900,
+      "left": 328.65625
+    },
+    "attribution_text": " Leaflet",
+    "hit_class": "map-status",
+    "hit_id": null,
+    "status": {
+      "x": 8,
+      "y": 750,
+      "width": 374,
+      "height": 142,
+      "top": 750,
+      "right": 382,
+      "bottom": 892,
+      "left": 8
+    },
+    "scale": {
+      "x": 5,
+      "y": 705.8125,
+      "width": 60,
+      "height": 18.1875,
+      "top": 705.8125,
+      "right": 65,
+      "bottom": 724,
+      "left": 5
+    },
+    "legend": {
+      "x": 243.71875,
+      "y": 662,
+      "width": 138.28125,
+      "height": 62,
+      "top": 662,
+      "right": 382,
+      "bottom": 724,
+      "left": 243.71875
+    },
+    "north": {
+      "x": 328.4375,
+      "y": 176,
+      "width": 53.5625,
+      "height": 44,
+      "top": 176,
+      "right": 382,
+      "bottom": 220,
+      "left": 328.4375
+    },
+    "snapshot": {
+      "capture_api_version": "atlas-capture.v1",
+      "ready": true,
+      "basemap": "none",
+      "view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "time_window_bp": {
+        "younger_bp": 0,
+        "older_bp": 0
+      },
+      "source_chronology": null,
+      "modeled_context": null,
+      "visible_point_count": 0,
+      "visible_polygon_layer_count": 1,
+      "visible_polygon_feature_count": 4,
+      "visible_source_chronology_point_count": 0,
+      "visible_modeled_context_feature_count": 0,
+      "visible_modeled_no_pollen_data_count": null,
+      "capture_layers": {
+        "active_keys": [
+          "country-boundaries"
+        ],
+        "evidence_layer_key": null,
+        "orientation_keys": [
+          "country-boundaries"
+        ]
+      },
+      "capture_presentation": null,
+      "capture_layout": {
+        "overlay_visible": false,
+        "overlay_bounded": false,
+        "overlay_content_bounded": true,
+        "overlay_content_overflow": false,
+        "overlay_overlaps_map": false,
+        "map_bounded": true,
+        "map_width_px": 390,
+        "map_height_px": 900,
+        "scroll_x_px": 0,
+        "scroll_y_px": 0,
+        "viewport_width_px": 390,
+        "viewport_height_px": 900
+      },
+      "visible_governed_candidate_count": 0,
+      "scientific_posture": {
+        "classifications_status": "unavailable",
+        "classifications_reason_code": "accepted_scientific_classifications_not_available",
+        "observation_chronology_is_propagation": false
+      }
+    }
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "0324d2483f554c4de335db2334d31e7228ba8cb2acb725b52ca211e9a089b637"
+  },
+  "verifier_sha256": "9aa81b74e0207208ff23605f65430e2bcb622e9e58058c2d4e0603142f84ba4b"
+}
