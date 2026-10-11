@@ -14,8 +14,8 @@ duplicating the existing source and country ledgers.
 
 The registered family ledger and the [Nordic capability report](../../regions/nordic/source-capability/README.md)
 keep source-reported, governed-assignment and publication counts separate.
-The [intake custody review](../source-intake-custody/README.md) contributes
-three historical receipts and 12 four-country claims in a distinct field.
+The aggregate audit verifies three historical intake receipts and retains
+their 12 four-country claims in its `external_intake_custody` field.
 Rootsi and OpenLand are not silently added as independent family rows or
 vegetation observations. The audit retains native source-stage records,
 rights and source roles, plus Neotoma, SEAD and LandClim source-specific

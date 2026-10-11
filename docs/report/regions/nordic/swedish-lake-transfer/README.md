@@ -1,8 +1,23 @@
 # Three-lake Swedish observed-pollen transfer
 
+Our research account at `reports/science/sweden-lake-transfer.md` explains
+the decision, scores and limits. This governed page retains the
+source-bound predictions, tables and reproduction commands.
+
 The [locked protocol](protocol.json) selected Gilltjärnen, Lake Avegöl and Flinkasjön from Neotoma/EPD **using site, collection-unit, dataset and age metadata before target counts were read**. Each is one lake site with one source pollen dataset and one core. The source-default calibrated-age rule selects **268 of 273** samples; the five other source samples remain outside this study. The selected samples span **63 site by 500 BP bins**.
 
 The [input manifest](input-manifest.json) binds the Neotoma relational snapshot, the authors' 10,788-row taxonomy lookup, the 31-target axis and the previously retained 81-site DK/FI/NO training profiles. Training excludes every Swedish target site. The predictor read only [training](inputs/training-SE.json.gz) and [target metadata](inputs/metadata-SE.json.gz); the separately retained [sealed outcomes](sealed-outcomes/outcomes-SE.json.gz) were opened only after the [predictions](predictions/predictions-SE.json.gz) and their [freeze receipt](prediction-freeze.json) had been committed at `135250049`.
+
+The [producer at prediction freeze](reference/prediction-producer.py.txt) is
+retained byte for byte from that commit, SHA-256
+`3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62`.
+Later style, typing and CLI-documentation edits changed the live producer's
+file hash. The verifier authenticates the frozen prediction against the
+retained producer bytes. We separately ran the current producer's prepare,
+predict and score commands on the same source inputs: its input manifest,
+three prepared files, prediction file and five score products all matched
+their governed counterparts byte for byte. The prediction SHA-256 remained
+`eb10b5e7225cef3c51b544c1a25cebc264d9b5ab10477d9c4216b83a38bad909`.
 
 | Target lake | Selected samples | Scored bins | Native pollen NISP | Assigned to 31 targets | Author excluded | Unmapped |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

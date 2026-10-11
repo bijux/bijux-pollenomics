@@ -1,5 +1,5 @@
 {
-  "schema_version": "landclim-author-preparation-audit.v2",
+  "schema_version": "landclim-author-preparation-audit.v3",
   "scope": "17 authenticated author examples, not 1128 historical study inputs",
   "totals": {
     "sites": 17,
@@ -28,7 +28,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "BROADOWN",
@@ -48,7 +48,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "COMERSLA",
@@ -68,7 +68,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "CUTHILL2",
@@ -88,7 +88,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "EXEBRID",
@@ -108,7 +108,7 @@
         "outside_window": 1388
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "GOURTEMIRES",
@@ -128,7 +128,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "HANGINGS",
@@ -148,7 +148,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "HARESDOWN",
@@ -168,7 +168,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "LARKBARR",
@@ -188,7 +188,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "LOBBSBOG",
@@ -208,7 +208,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "LONGBREACH",
@@ -228,7 +228,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "MOLECHAM",
@@ -248,7 +248,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "NTWITCHEN",
@@ -289,7 +289,7 @@
           "count": 127
         }
       ],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "WHH05",
@@ -309,7 +309,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "independent_exact_first_match_all_8_samples"
+      "independent_partition_status": "independent_exact_first_match_all_8_samples"
     },
     {
       "site": "WHH11",
@@ -350,7 +350,7 @@
           "count": 205
         }
       ],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "WINDMILL",
@@ -370,7 +370,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
       "site": "WINNEYS",
@@ -390,7 +390,7 @@
         "outside_window": 0
       },
       "unmapped_source_labels": [],
-      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+      "independent_partition_status": "all_raw_numeric_counts_partitioned"
     }
   ],
   "category_totals": {
@@ -409,10 +409,9 @@
     "unmapped": 0,
     "outside_window": 0
   },
-  "historical_exclusion_evidence": "Fresh source replay classifies all 17 site count partitions by exact author lookup, PPE membership and time-window support; historical producer receipts independently support raw/prepared totals",
+  "independent_count_correspondence": "Fresh source replay classifies all 17 site count partitions by exact author lookup, PPE membership and time-window support; the independent count reference agrees on raw/prepared totals",
   "input_sha256": {
     "author_snapshot_manifest": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
-    "historical_audit_custody": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976",
-    "historical_terminal_report": "4046de43b9674d67ea57537d3556d62359e941def478af60314c48bc08e3e049"
+    "independent_counts": "753458772b750d1dd392ca964f74a5bebd584f1d4191b81991dc0b1861ab98d7"
   }
 }

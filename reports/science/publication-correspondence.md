@@ -9,12 +9,28 @@ meaning and historical input membership open below.
 
 ## Numerical result
 
-We compared the installed Python publication profile with the independent
+We [bound the author method and example inputs](publication-correspondence/author-method-profile.md)
+to a named source-specific publication profile, including its PPE axis,
+site geometry, bins and missing-support differences. That profile does not
+admit a historical Nordic core by itself.
+
+We [reexecuted both released author grids](publication-correspondence/author-example-reexecution.md)
+with the original R function and current native REVEALS implementation. We
+compared the installed Python publication profile with the independent
 author-R replay on 14,074 supported mean and standard-error values across the
 retained examples. Maximum residuals are about 1.84e-13 for means and
 7.16e-14 for standard errors in fractional units, inside our predeclared
 tolerances. The installed calculation therefore does not explain the larger
 archive differences on the directly matched TW2 window.
+
+We [traced WHH05 from its released raw sample to the 1500 BP author-example
+site estimate](publication-correspondence/author-example-site-replay.md): 301
+raw grains become 297 prepared grains after four explicit source exclusions.
+The 31 means and 31 standard errors agree between the independently executed
+author R and native calculation to at most `4.77e-15` and `8.90e-16` in that
+window. Across both example grids, 17 sites provide 184 supported site-windows
+out of 425 possible. This is a bounded calculation witness; the archive's
+historical site inputs and independent vegetation remain unresolved.
 
 On exact 100–350 BP support, we found maximum archived PANGAEA 937075
 mean differences from author-R of 9.19787 percentage points in grid 512
@@ -25,18 +41,44 @@ points or smaller. We report product differences, not vegetation accuracy.
 We have not established that the archive and 2016 author example used the
 same historical source records.
 
+Our [exact-window provenance result](publication-correspondence/published-window-provenance.md)
+quantifies the whole 31-taxon modeled-product difference: L1 gaps are
+18.481237 and 22.140770 percentage points in grids 512 and 562, equivalent
+to total-variation fractions 0.092406 and 0.110704. The two leading taxa
+account for 72.9% and 94.0% of those respective L1 gaps. This narrows
+the source-revision question without identifying its cause.
+
 We found one exact interval match among 25 time windows: TW2, 100–350 BP.
 Most later author windows begin and end 50 years later than the corresponding
 PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the
 published label. We restricted direct numerical archive comparison to TW2
 and did not shift the other rows retrospectively to make them appear matched.
 
-We found overlap between all 31 taxon mean ± one-SE envelopes in each grid.
+Our [62-row envelope ledger](../../docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv)
+found overlap between all 31 taxon mean ± one-SE envelopes in each grid.
 We use that only to describe two reported uncertainty scales. Dependence
 between versions and raw-input identity are unknown, so we do not call the
 overlap a significance test.
 
 ## Historical reproduction boundary
+
+### LOVE/LOVEoptim 2024
+
+We also [checked the nominated LOVE method paper](../../docs/report/method-certification/love-paper-correspondence/README.md)
+against the pinned DISQOVER example. All **30** published Table 2 fall-speed,
+PPE and PPE-SD values match the packaged example by row position; nine of ten
+taxon labels match exactly (`Grasses` versus `Gras` is the exception). The
+paper supplies 11 map-unit composition rows, but not the exact eight-site
+landscape extraction, pond/ring geometry, simulated pollen or 100 random
+realizations needed to recompute Figure 2 RMSE. The later package example has
+only one local/regional pollen pair. Its source documentation says BÜK300 for
+that example, while the paper says BÜK200 for its simulation. We record the
+input-parameter correspondence and leave Figure 2 output reproduction blocked;
+we do not transfer its reported 100–500 m behavior to Nordic lakes.
+
+The [paper-result matrix](../../docs/report/pollen-reconstruction/paper-correspondence.csv)
+keeps this input match and unavailable output separately from the LandClim
+example calculation and archive-product comparison.
 
 We reproduced all 17 example `LRAready` files byte for byte from pinned
 raw site files and formatter lookups in the
@@ -58,9 +100,34 @@ a native LandClim archive or their role as published study inputs. We have
 not cleared workbook output for public release or evaluated scientific
 acceptance.
 
+Our [independent metadata challenge](publication-correspondence/landclim-metadata-challenge/README.md)
+reconstructed the five governed inventory and refusal outputs and challenged
+the old candidate with nine adversarial edits. All five result hashes still
+match the current retained product. Its passing verdict supports exact
+metadata and refusal integrity only; it does not fill the missing historical
+counts, chronologies, rights or publication-specific R execution.
+We require the current [reconciliation producer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py)
+to reject oversized, encrypted, nonregular, duplicate and unsupported archive
+members before decompression. Its bounded acceptance gate requires exactly
+grids 512 and 562, 9 and 8 named sites, 25 bins, 31 taxa, matching site
+counts and passing grid, regional and site comparisons. The
+[focused regressions](../../packages/bijux-pollenomics-dev/tests/essd_reproduction/test_reconcile.py)
+also refuse an unknown grouped output header rather than silently counting
+it as a PFT. The `0 / 1,128` original-input statement remains an absence
+within our declared evidence closure, not an exhaustive repository-wide
+sample audit.
+
+We [recounted the released estimate archive](publication-correspondence/published-inventory/README.md)
+through the current pinned source reader and two independent historical
+checks. It contains 10,500 mean/SE grid-window rows and 493,500 paired values;
+150 rows have refused coordinates, and three small negative means remain
+source values. This establishes modeled-product structure and sign handling,
+not original pollen input closure or independent vegetation accuracy.
+
 We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
 description and 13 archived PFT positions. We retained the two public prose
-pages under exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json).
+pages in a [source manifest](../../data/landclim/review/provider-description-sources.json)
+with their capture date and exact byte identities.
 The [publisher's machine-readable Table 1](publication-correspondence/pft-crosswalk/publisher-table-review.md)
 lists nine paper TBS taxa and no `ISTS` code. In a separate
 [source-bound taxon arithmetic replay](publication-correspondence/pft-crosswalk/README.md),

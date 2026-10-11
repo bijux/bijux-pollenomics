@@ -49,6 +49,10 @@ that area or the 2.5 ha event area for fossil-sequence LRA rings while the
 record and time support differ. Neotoma dataset 4446 is a separate
 `SOLSOE83` core. We reproduce no source data from the PANGAEA record, which
 carries CC BY-NC 3.0 terms, and admit neither core to LRA on this evidence.
+Our [Solsø LRA source decision](solsoe-lra-input.md) separately compares
+LandClim I/II, PANGAEA and Neotoma sample selection; its 69 m
+LandClim-II-to-Neotoma point distance does not erase the distinct 1.352 km
+PANGAEA-event-to-Neotoma point discrepancy described here.
 
 ## Scope and conclusion
 
@@ -85,7 +89,7 @@ coverage and prior outcome exposure.
 
 | Question | Result | Status and scope |
 | --- | --- | --- |
-| Are computations correct for their declared assumptions? | Focused author-pollen search tests: 3 passed. Rootsi structural replay tests: 30 passed, 1 real-source test skipped because the test is explicitly opt-in. The exact retained workbook replay exited 0 with an unchanged read set. The installed Python publication profile matched the independent author-R replay on 14,074 supported mean and SE values; maximum residuals were 1.83881e-13 and 7.15331e-14 in fractional units. The development-package test selection reached 1,097 passing tests with 3 opt-in skips, then the command failed at its final workspace-layout guard. | Verified for these bounded implementations and inputs; not a general correctness or source-identity claim. |
+| Are the paper-profile calculations consistent with the independent author-R replay? | The installed Python profile matched 14,074 supported mean and SE values; maximum residuals were 1.83881e-13 and 7.15331e-14 in fractional units. The [method correspondence](method-correspondence.md) owns the numerical interpretation. | Verified for these bounded equations and inputs; not a general correctness or historical source-identity claim. |
 | Do results correspond to the selected publications? | For exact TW2 support (100–350 BP), the 2016 author-R and June 2021 PANGAEA means differ by maximum 9.19787 percentage points in grid 512 and 10.5527 in grid 562. Standard-error maximum gaps are 3.21615 and 4.25814 points. Both Python-to-R residuals are at most 1.238e-11 points. The 31-taxon mean-vector total-variation gaps are 0.092406 and 0.110704. All 31 mean ± one reported SE envelopes overlap in each grid; this is descriptive and does not test significance. Only 1/25 published-window interval labels matches exactly; the other 24 were excluded from direct comparison. The publication metadata inventory has 1,128 rows but zero authenticated historical primary-input closures. | Numerically reconciled on TW2. Historical raw-input cohorts, the paper's 12 versus PANGAEA's 11 versus archived 13 PFT positions, and the ISTS definition remain unresolved. |
 | Are archived PFT/LCT standard errors feasible sums of their component uncertainty? | For each of five observed mean-addend groups (ET, ST, OL, ISTS, TBS), all 10,500 archived grid/window SE rows satisfy the necessary covariance bounds. Respectively 7,588, 7,892, 5,921, 7,013 and 5,859 rows have a nondegenerate bound with the SE strictly inside it. | This bounds a possible joint covariance only. The archive-producing transformation and covariance/delta-method replay remain unresolved. |
 | Can other sites predict held-out pollen? | On the 17-site author cohort, the selected CLR-RBF scores 174 common site bins at site-macro MAE 0.017774 and Hellinger 0.256559. On those same bins inverse-distance scores MAE 0.018948 and Hellinger 0.269752, and training mean scores 0.019621 and 0.283346. Separately, Swedish Neotoma whole-site holdouts score 39 target site-bin rows per method across 13 500-cal-BP bins: nearest-site is best among the four fixed candidates (site-macro MAE 0.055371; Hellinger 0.395725), narrowly ahead of training mean (0.057177; 0.406399). | Both are exploratory and prior-exposed. The Neotoma outcomes concern declared 16-taxon subcompositions; three Swedish lakes do not support broad transfer claims. |
@@ -187,7 +191,7 @@ protocol; the comparison is development evidence, not independent validation.
 | Result | Producer, configuration and inputs | Retained output |
 | --- | --- | --- |
 | Development pollen search | Twelve fixed candidates were compared over three deterministic whole-site folds. Its input-manifest SHA-256 is `48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb`; the retained design declares folds, taxa, selection rule and prior exposure. | `author-development-design.json`, `author-development-interpretation.md`, `leaderboard.csv`, `coverage.csv`, `scores.csv`, and `author-development-predictions.csv.gz` in this directory |
-| Author-prepared LRA development | The source-bound 1250–1750 cal BP cohort has 15 positive-count sites and 31 taxa. Whole-site folds complete training but all refuse negative reconstructed local cover. This is a prior-exposed English numerical diagnostic under declared geometry assumptions. | [Author LRA development report](../../docs/report/pollen-reconstruction/author-lra-development/README.md), `report.json`, `folds.csv` and `cover-diagnostics.csv` |
+| Author-prepared LRA development | The source-bound 1250–1750 cal BP cohort has 15 positive-count sites and 31 taxa. Whole-site folds complete training but all refuse negative reconstructed local cover. This is a prior-exposed English numerical diagnostic under declared geometry assumptions. | [Author LRA development report](english-analytical-love/README.md), `report.json`, `folds.csv` and `cover-diagnostics.csv` |
 | Constrained author LRA development | A 30-target closed subcomposition excludes 159 of 20,732 author NISP. A bounded simplex LOVE backend reconstructs 192/195 training items and publishes 42 withheld-site method predictions over 14/15 folds; BECKHAM remains refused. All 42 published pollen predictions are scored after separate target opening, with site-mean MAE 0.026273 (training mean), 0.021132 (nearest) and 0.021088 (inverse-distance-squared). Fixed direct-pollen baselines score lower on the same 14 sites; vegetation accuracy is not evaluated. | [Constrained LOVE report](english-lra-pollen-prediction.md), `report.json`, `folds.csv`, `predictions.csv`, `scores.csv` and [matched direct-pollen comparison](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json) |
 | Author raw/prepared counts | A private-source recount of the 17 author examples finds 501,713 raw counts and 299,660 prepared counts. The 202,053-count difference partitions into 200,247 author-excluded, 418 unmapped and 1,388 outside-window counts; each site matches its prepared total. Exact `Plantago` lookup labels prevent a six-count misclassification at LOBBSBOG. This does not identify publication inputs. | [Author preparation audit](../../docs/report/source-relations/landclim/author-preparation-audit/README.md) and its [source-bound report](../../docs/report/source-relations/landclim/author-preparation-audit/report.json) |
 | Buffered spatial-block pollen comparison | The same 17 author sites in two adjacent withheld grids with a 20 km basin-edge buffer. Three fixed baselines score 148/184 observed site bins; a fixed half-count CLR-RBF scores 140/184. On the 140-bin common support its site-macro MAE is 0.040564 versus 0.025298 for the training mean. Strict-positive CLR training support is absent in both blocks. | [Source-bound study](../../docs/report/pollen-reconstruction/author-buffered-pollen/README.md), [four-method result](../../docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md), four method prediction and score directories, and the [custody manifest](../../docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json). This is prior-exposed English direct-pollen development evidence. |
@@ -198,10 +202,10 @@ protocol; the comparison is development evidence, not independent validation.
 | Nordic country readiness and direct-pollen transfer | Exact-label targets were separated from training by country. Frozen predictions were scored after prediction outputs were saved. The result contains 6,172 country-bin-method rows, with unsupported target bins retained in coverage. | `docs/report/regions/nordic/direct-pollen/RESULTS.md`, `manifest.json`, `coverage.csv`, `scores.csv` and `predictions.csv`; source and LRA limits are stated in the linked public source reviews. |
 | Nordic author-target observed pollen | The exact author lookup maps selected native counts into 31 targets. Three fixed, country-excluded predictors score 4,629 method rows after prediction hashes are frozen; site and taxon diagnostics retain the aggregation. | [31-target study](denmark-finland-norway-author-pollen.md), [frozen predictions](../../docs/report/regions/nordic/author-target-pollen/predictions), `scores.csv`, `site-scores.csv` and `taxon-diagnostics.csv` |
 | Swedish author-target observed pollen | All Swedish target sites are excluded from 81 DK/FI/NO training sites. Frozen 31-target predictions score 51 bins by three fixed methods, with three explicit refusals and exact native-count closure to the 39-common-bin screen. | [Swedish 31-target holdout](sweden-author-pollen.md), [predictions](../../docs/report/regions/nordic/swedish-author-target-pollen/predictions) and [scores](../../docs/report/regions/nordic/swedish-author-target-pollen/scores.csv) |
-| Additional Swedish lake transfer | Three metadata-selected EPD lake cores contribute 268 calibrated-age samples; frozen 31-target predictions score all 63 site-bins with matched source count mass. | [Three-lake transfer](../../docs/report/regions/nordic/swedish-lake-transfer/README.md), [prediction freeze](../../docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json), [scores](../../docs/report/regions/nordic/swedish-lake-transfer/scores.csv) and [verification](../../docs/report/regions/nordic/swedish-lake-transfer/verify.py) |
+| Additional Swedish lake transfer | Three metadata-selected EPD lake cores contribute 268 calibrated-age samples; frozen 31-target predictions score all 63 site-bins with matched source count mass. | [Our three-lake account](sweden-lake-transfer.md), [prediction freeze](../../docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json), [scores](../../docs/report/regions/nordic/swedish-lake-transfer/scores.csv) and [verification](../../docs/report/regions/nordic/swedish-lake-transfer/verify.py) |
 | Nordic selected model transfer | A three-fold training-site search chose predictors without target-country counts. Its selected predictions were frozen and scored on identical fixed-study support, retaining 94 Norwegian refusals. | [Development search](nordic-observed-pollen-selection.md), [selected transfer](nordic-observed-pollen-transfer.md), freeze and paired scores |
 | Swedish pollen-only and LRA boundary | Neotoma/EPD native pollen was admitted for direct prediction under the EPD CC BY 4.0 policy. LRA remains refused on unresolved, time-matched basin geometry and restricted exact-name parameter coverage. | `swedish-direct-pollen/` in this directory and `swedish-source-questions.csv`; the [LandClim](../../docs/public/pollenomics-data/sources/landclim.md) and [Neotoma](../../docs/public/pollenomics-data/sources/neotoma.md) reviews state the LRA boundary. |
-| Vegetation boundary | The EMPD2/NFI source review admits zero matched pairs; the dated Färskesjön plot is too small and distant for the landscape estimand. The historical-map study supplies map coverage and pollen anchors at three bogs, without original numerical vegetation fractions. A separate published figure yields a bounded nine-label comparison of the original Swedish REVEALS study, not validation of this repository's predictions. | [Färskesjön plot support](../../docs/report/vegetation-reference/farskesjon/README.md), [historical-map support](../../docs/report/vegetation-reference/smaland-historical-maps/README.md), [published Swedish figure comparison](../../docs/report/vegetation-reference/southern-sweden-figure/README.md), [EMPD2/NFI source review](../../docs/public/pollenomics-data/sources/empd2-nfi-review.md) and [NFI access review](../../docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md) |
+| Vegetation boundary | The EMPD2/NFI source review admits zero matched pairs; the dated Färskesjön plot is too small and distant for the landscape estimand. The historical-map study supplies map coverage and pollen anchors at three bogs, without original numerical vegetation fractions. A separate published figure yields a bounded nine-label comparison of the original Swedish REVEALS study, not validation of this repository's predictions. | [Our vegetation-reference decision](vegetation-reference.md), [Färskesjön plot support](../../docs/report/vegetation-reference/farskesjon/README.md), [historical-map support](../../docs/report/vegetation-reference/smaland-historical-maps/README.md), [published Swedish figure comparison](../../docs/report/vegetation-reference/southern-sweden-figure/README.md), [EMPD2/NFI source review](../../docs/public/pollenomics-data/sources/empd2-nfi-review.md) and [NFI access review](../../docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md) |
 | HYDE modeled context | Source-reported Nordic cropland totals and matched native ISO-grid conservation at seven CE labels, with the source declaration review and separate private scenario windows. | [Country result](hyde-cropland-source-account.md) and [HYDE source review](../../docs/public/pollenomics-data/sources/hyde.md) |
 
 We retained development predictions, per-candidate coverage, score
@@ -258,46 +262,6 @@ We treat the output directory as disposable; the documented results and
 private source capsule survive its removal. Readers without the private
 source files can inspect retained predictions and scores, but cannot rerun
 the source-backed study from this report alone.
-
-## Earlier software delivery receipt
-
-We retain the following earlier software check as historical implementation
-evidence. We do not treat it as a current integrated acceptance run or a
-scientific completion decision.
-
-| Acceptance dimension | Current state |
-| --- | --- |
-| Software path | Implemented for the declared direct observed-pollen and named numerical profiles; real Nordic LRA intake remains source-gated. |
-| Numerical parity | The [current R oracle](../../docs/report/method-certification/current-r-oracle/README.md) passes 43 named core and 23 source-domain cases; the separate author-example comparison covers 14,074 mean/SE values. Neither result authenticates missing historical publication inputs. |
-| Empirical observed pollen | Evaluated within the stated exposed Swedish, author and country-held-out cohorts, with refusals retained in the denominator. |
-| Independent measured vegetation | Not evaluated: zero admitted matched pollen/reference pairs. |
-| Practical superiority | Not established. The selected author model improves one prior-exposed common-support development score, while selected Nordic transfer loses to inverse-distance squared in Finland and Norway. |
-| Scientific acceptance | Pending for the full Nordic LRA and independent vegetation objective; this is a scoped developmental report. |
-| Public release | Not authorized by this scientific report or its software checks. |
-
-We ran the full non-slow/non-live/non-API development-package selection
-against commit `20ecd351`. It had 1,097 passing tests before the final
-guard, 3 explicitly opt-in skips and 3 pytest-asyncio deprecation warnings.
-The command exited nonzero at the workspace-layout guard because an earlier
-lint command had left `.ruff_cache` at the repository root. We removed that
-generated cache and reran runtime isolation, both direct-pollen suites and
-the guard: all 10 focused tests passed on an unchanged read set. Ruff check
-and format passed with cache reads disabled; mypy passed on both direct-pollen
-producers.
-
-Our no-isolation package build stopped because `hatch-vcs` was absent from
-that environment. The normal isolated build passed on the committed producer
-and generated a source archive and wheel. That local version included
-`+dirty` because the checkout had a separate staged documentation edit.
-We published nothing. We did not run the tox build target then because its
-`sync-license-assets-package` pretarget would rewrite the tracked
-development-package `LICENSE`, which differs from the root license.
-
-We keep software delivery separate from scientific acceptance. Swedish and
-Nordic direct-pollen results remain exploratory; Nordic LRA and independent
-measured-vegetation accuracy are still blocked or not evaluated. We have
-bounded HYDE country and seven-year native grid results, but have not run a
-matched pollen comparison using HYDE.
 
 ## Reopening conditions and remaining work
 

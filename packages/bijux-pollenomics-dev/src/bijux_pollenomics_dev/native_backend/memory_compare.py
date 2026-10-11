@@ -98,9 +98,17 @@ def run(repository: Path, output: Path, compiler: Path) -> dict[str, Any]:
         for p in sources
     }
     library_path = output / "forward-library.so"
-    _, build = compile_library(
+    _, compiled = compile_library(
         source_root / "forward_kernel.cpp", library_path, compiler
     )
+    if compiled["stdout"] or compiled["stderr"]:
+        raise ValueError("Review compiler diagnostics before retaining memory result")
+    build = {
+        "flags": compiled["command"][1:5],
+        "elapsed_seconds": compiled["elapsed_seconds"],
+        "compiler": compiled["compiler"],
+        "binary_sha256": compiled["binary_sha256"],
+    }
     cases = []
     for shape in SHAPES:
         observations: dict[str, list[dict[str, Any]]] = {mode: [] for mode in METHODS}

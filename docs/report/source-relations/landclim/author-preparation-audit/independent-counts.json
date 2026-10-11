@@ -1,0 +1,211 @@
+{
+  "schema_version": "landclim-author-example-independent-counts.v1",
+  "source_report_sha256": "4046de43b9674d67ea57537d3556d62359e941def478af60314c48bc08e3e049",
+  "sites": [
+    {
+      "site": "BECKHAM",
+      "grid": "562",
+      "raw_nonblank_rows": 26,
+      "raw_total": "9992",
+      "raw_minus_prepared": "2337",
+      "audited_excluded_total": "2337",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "7655",
+      "prepared_sha256": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e"
+    },
+    {
+      "site": "BROADOWN",
+      "grid": "512",
+      "raw_nonblank_rows": 59,
+      "raw_total": "18739",
+      "raw_minus_prepared": "982",
+      "audited_excluded_total": "982",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "17757",
+      "prepared_sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "site": "COMERSLA",
+      "grid": "562",
+      "raw_nonblank_rows": 40,
+      "raw_total": "19314",
+      "raw_minus_prepared": "7582",
+      "audited_excluded_total": "7582",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "11732",
+      "prepared_sha256": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3"
+    },
+    {
+      "site": "CUTHILL2",
+      "grid": "512",
+      "raw_nonblank_rows": 77,
+      "raw_total": "33906",
+      "raw_minus_prepared": "10065",
+      "audited_excluded_total": "10065",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "23841",
+      "prepared_sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+    },
+    {
+      "site": "EXEBRID",
+      "grid": "562",
+      "raw_nonblank_rows": 57,
+      "raw_total": "41588",
+      "raw_minus_prepared": "17447",
+      "audited_excluded_total": "17447",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "24141",
+      "prepared_sha256": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698"
+    },
+    {
+      "site": "GOURTEMIRES",
+      "grid": "562",
+      "raw_nonblank_rows": 48,
+      "raw_total": "28193",
+      "raw_minus_prepared": "5837",
+      "audited_excluded_total": "5837",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "22356",
+      "prepared_sha256": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd"
+    },
+    {
+      "site": "HANGINGS",
+      "grid": "512",
+      "raw_nonblank_rows": 61,
+      "raw_total": "18894",
+      "raw_minus_prepared": "619",
+      "audited_excluded_total": "619",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "18275",
+      "prepared_sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "site": "HARESDOWN",
+      "grid": "512",
+      "raw_nonblank_rows": 39,
+      "raw_total": "21716.0",
+      "raw_minus_prepared": "3630.0",
+      "audited_excluded_total": "3630.0",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "18086",
+      "prepared_sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "site": "LARKBARR",
+      "grid": "562",
+      "raw_nonblank_rows": 22,
+      "raw_total": "7726",
+      "raw_minus_prepared": "1534",
+      "audited_excluded_total": "1534",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "6192",
+      "prepared_sha256": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6"
+    },
+    {
+      "site": "LOBBSBOG",
+      "grid": "512",
+      "raw_nonblank_rows": 48,
+      "raw_total": "28424.0",
+      "raw_minus_prepared": "6511.0",
+      "audited_excluded_total": "6511.0",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "21913",
+      "prepared_sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "site": "LONGBREACH",
+      "grid": "562",
+      "raw_nonblank_rows": 47,
+      "raw_total": "31342",
+      "raw_minus_prepared": "10188",
+      "audited_excluded_total": "10188",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "21154",
+      "prepared_sha256": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b"
+    },
+    {
+      "site": "MOLECHAM",
+      "grid": "562",
+      "raw_nonblank_rows": 53,
+      "raw_total": "142133",
+      "raw_minus_prepared": "120664",
+      "audited_excluded_total": "120664",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "21469",
+      "prepared_sha256": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57"
+    },
+    {
+      "site": "NTWITCHEN",
+      "grid": "562",
+      "raw_nonblank_rows": 59,
+      "raw_total": "33303.0",
+      "raw_minus_prepared": "6475.0",
+      "audited_excluded_total": "6475.0",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "26828",
+      "prepared_sha256": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+    },
+    {
+      "site": "WHH05",
+      "grid": "512",
+      "raw_nonblank_rows": 8,
+      "raw_total": "2482",
+      "raw_minus_prepared": "34",
+      "audited_excluded_total": "34",
+      "partition_status": "independent_exact_first_match_all_8_samples",
+      "prepared_total": "2448",
+      "prepared_sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+    },
+    {
+      "site": "WHH11",
+      "grid": "512",
+      "raw_nonblank_rows": 56,
+      "raw_total": "20433",
+      "raw_minus_prepared": "465",
+      "audited_excluded_total": "465",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "19968",
+      "prepared_sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+    },
+    {
+      "site": "WINDMILL",
+      "grid": "512",
+      "raw_nonblank_rows": 32,
+      "raw_total": "20535.0",
+      "raw_minus_prepared": "6121.0",
+      "audited_excluded_total": "6121.0",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "14414",
+      "prepared_sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "site": "WINNEYS",
+      "grid": "512",
+      "raw_nonblank_rows": 81,
+      "raw_total": "22993",
+      "raw_minus_prepared": "1562",
+      "audited_excluded_total": "1562",
+      "partition_status": "all_raw_numeric_counts_partitioned",
+      "prepared_total": "21431",
+      "prepared_sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    }
+  ],
+  "grid_counts": {
+    "512": 9,
+    "562": 8
+  },
+  "checked_sites": 17,
+  "raw_total": "501713.0",
+  "audited_excluded_total_17_sites": "202053.0",
+  "full_partition_sites": 17,
+  "one_sample_partition_sites": 0,
+  "whh05_categories": {
+    "raw": "2482",
+    "retained": "2448",
+    "excluded_zz": "34",
+    "excluded_not_ppe": "0",
+    "unmapped": "0",
+    "outside_window": "0"
+  },
+  "prepared_total": "299660"
+}

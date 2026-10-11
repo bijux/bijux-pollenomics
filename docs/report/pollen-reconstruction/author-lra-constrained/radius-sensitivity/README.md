@@ -56,29 +56,48 @@ disagree, and the direct route used all 14 training pollen sites while LRA
 used a regional anchor plus 13 local reconstruction predictors. This is not
 an independent model ranking or vegetation-accuracy comparison.
 
-Reproduce with the exact constrained author input and closed-cover prediction
-directories named in the [parent study](../README.md). Freeze and retain the
-first output before running the score command:
+We regenerated the source inputs and 15-site predictions from the qualified
+author snapshot. The source experiment hash matched exactly. The fresh
+prediction bundle has different run metadata, but all 1,260 retained
+vegetation and forward-pollen values match the governed prediction table
+exactly. Its 126 radius scores are byte-identical to the governed scores;
+only the source and freeze identities in the new run report differ. The
+[producer](../radius_sensitivity.py) verifies the candidate bundle members
+and every numerical prediction cell against that retained table before it
+freezes the radius projections.
+
+To reproduce from the private author snapshot, run these commands from the
+repository root with an absent job directory:
 
 ```sh
 job=artifacts/jobs/author-lra-radius-replay
-inputs=artifacts/jobs/author-lra-slsqp-development/constrained-inputs-300
-predictions=artifacts/jobs/author-lra-slsqp-development/closed-cover-predictions
+source_root=/path/to/private/landclim/author-reference
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.essd_reproduction.author_lra_development \
+  --author-source-root "$source_root" --output "$job/source-inputs"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/prepare.py \
+  --source "$job/source-inputs" --destination "$job/constrained-inputs"
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 \
+  .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_lra_run \
+  --inputs "$job/constrained-inputs" --cache-root "$job/cache" \
+  --output "$job/predictions"
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py \
-  freeze --inputs "$inputs" --predictions "$predictions" \
+  freeze --inputs "$job/constrained-inputs" --predictions "$job/predictions" \
   --output "$job/frozen"
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py \
-  score --inputs "$inputs" --predictions "$predictions" \
+  score --inputs "$job/constrained-inputs" --predictions "$job/predictions" \
   --frozen "$job/frozen/predictions.json" --output "$job/scored"
 ```
 
-The producer authenticates the published source experiment and prediction
-manifest, each target geometry, and each raw count row against the source
-declarations. Its [code](../radius_sensitivity.py) invokes the installed LRA
-forward consumer for every projection. Private author inputs stay outside the
-repository; these governed outputs preserve prediction and score identities.
+The producer authenticates the source experiment, prediction bundle members,
+every target geometry and each raw count row against the source declarations.
+It invokes the installed LRA forward consumer for every projection. Private
+author inputs stay outside the repository; the governed outputs preserve the
+original prediction and score identities.
 
 To reproduce the downstream comparison from the retained source-locked
 scores without private raw files:

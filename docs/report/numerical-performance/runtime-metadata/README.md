@@ -8,10 +8,13 @@ Missing distributions retain the original `unknown` value; versions remain in
 scientific identity. No kernel, sampler, optimizer, configuration or numerical
 output rule changed.
 
-The [measured result](report.json) repeats the same seven frozen workloads, with
-one first call, seven warm timings and one separate profile call each. The
-[machine-readable comparison](comparison.json) verifies equal configurations,
-scientific outputs, native missingness and dependency versions.
+The [measured result](report.json) retains the same seven frozen workloads,
+one first call, seven warm timings, scientific-output hashes and the exact raw
+measurement digest. The [machine-readable comparison](comparison.json) checks
+equal configurations, scientific outputs, native missingness and dependency
+versions against the [source-bound baseline](reference-baseline.json). Raw
+profiler stacks and local process paths are execution diagnostics, not part of
+this reader result.
 
 | Workload | Baseline warm median, ms | Cached warm median, ms | Baseline/cached latency ratio |
 |---|---:|---:|---:|
@@ -50,11 +53,17 @@ MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.native_backend.profiling \
   --repository "$PWD" \
   --output artifacts/numerical-performance/runtime-metadata.json
+.venv/bin/python -m bijux_pollenomics_dev.native_backend.profile_summary \
+  --raw-report artifacts/numerical-performance/runtime-metadata.json \
+  --reference-baseline docs/report/numerical-performance/runtime-metadata/reference-baseline.json \
+  --output-root artifacts/numerical-performance/runtime-metadata-summary
 ```
 
-Compare the retained scientific outputs and missing-value semantics as well as
-timings. The compact reference baseline pins seven original workload medians,
-contracts and scientific output digests to the full report at Git commit
+The summary producer refuses a changed workload, contract, scientific output,
+native missingness or environment. Compare those fields with the governed
+result; timings vary across runs and are not expected to match byte for byte.
+The reference baseline pins seven original workload medians, contracts,
+scientific output digests and environment to the source report at Git commit
 `3d6b04959`, SHA-256 `e9675d170fe8ca8c0fa6ff03d75b6786c560f3c4f6398cd392963f362adbf21f`.
 The [current Python baseline](../python-baseline/report.json) is a separate
 measurement on later solver source and does not replace that historical

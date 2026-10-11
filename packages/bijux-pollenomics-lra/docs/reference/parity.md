@@ -55,7 +55,7 @@ not console commands.
 
 The vendored DISQOVER 0.9.14 archive is the R source for every compatible row.
 The [adoption manifest](../adoption-manifest.json) accounts for the received
-Python files and definitions; the [architecture map](../architecture-migration.json)
+Python files and definitions; the [definition owner map](../definition-owners.json)
 assigns their current owners. These rows bind the numerical equations and R
 entry points to current tests and retained case IDs.
 

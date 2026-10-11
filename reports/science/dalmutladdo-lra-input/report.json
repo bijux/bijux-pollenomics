@@ -1,0 +1,41 @@
+{
+  "schema_version": "dalmutladdo-source-reconciliation.v1",
+  "site_id": "neotoma:site:13388",
+  "dataset_id": "neotoma:dataset:20034",
+  "collection_unit_id": "neotoma:collection-unit:14989",
+  "paper_doi": "10.1111/j.1502-3885.2004.tb01142.x",
+  "paper_pdf_sha256": "6c7a3c0deb6c38ee487f16e78a48e8be7ce9d5803e78f90bfd945b73e5b46121",
+  "landclim_i_sha256": "851774cece8fb87928028a0da0e9ab7314ac083fdcca2d1565c00a7aa24d7081",
+  "landclim_ii_sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+  "cohort_sha256": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32",
+  "neotoma_source_sha256": {
+    "manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+    "surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+    "surfaces/collection_units/part-00001.json": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780",
+    "surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+    "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+    "surfaces/chronology_controls/part-00001.json": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84"
+  },
+  "landclim_ii_pollen_samples": 72,
+  "published_pollen_samples": 72,
+  "neotoma_source_samples": 72,
+  "neotoma_author_calibrated_age_claims": 72,
+  "neotoma_epd_uncalibrated_context_claims": 72,
+  "landclim_ii_neotoma_point_separation_m": 0.35522268059359724,
+  "landclim_ii_radius_unit_unstated": 160.0,
+  "conditional_area_if_radius_metres_ha": 8.042477193189871,
+  "landclim_i_reported_area_ha": 8.0,
+  "paper_reported_area_ha": 7.2,
+  "published_controls": 11,
+  "radiocarbon_source_control_matches": 11,
+  "calibrated_centre_matches": 10,
+  "calibrated_bound_matches": 9,
+  "published_bounds_excluding_printed_centre": [
+    "Hela-509",
+    "Hela-513"
+  ],
+  "lra_admitted_samples": 0,
+  "reason": "Physical site, core and chronology lineage is strong; the three basin-size claims differ and none supplies age-specific basin geometry, while exact LRA taxon/PPE/denominator use remains unreviewed."
+}

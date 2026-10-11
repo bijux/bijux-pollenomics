@@ -17,9 +17,10 @@ vegetation accuracy follows from this result. Original author inputs and the
 independent R reference remain in private source custody with redistribution
 unresolved.
 
-The [input and output identity](manifest.json) binds this retained result to
-the existing producer and private reference receipt. From the repository root,
-reproduce it into an absent directory under `artifacts/`:
+The [result](report.json) binds the author source revision and private reference
+receipt to the scored denominators and method. The [prediction](predictions.csv)
+and [score](scores.csv) ledgers are the retained numeric outputs. From the
+repository root, reproduce them into an absent directory under `artifacts/`:
 
 ```sh
 SOURCE_ROOT=../bijux-pollenomics-data/landclim/author-reference
@@ -31,8 +32,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --output artifacts/author-example-site-mean/replay
 ```
 
-The current producer recreated the earlier v4 outputs byte for byte from
-those pinned inputs. The governed [report](report.json) and [generated
-summary](REPORT.md) retain the exact bytes; the two CSVs use LF line endings
-in this repository and match the producer's CRLF output after newline
-normalization. The custody manifest records both source and retained hashes.
+The governed [report](report.json) and [generated summary](REPORT.md) retain
+the current result. Compare a replay with those files and normalize CSV line
+endings before comparing the numeric ledgers, because the retained CSVs use LF
+while the producer emits CRLF.

@@ -35,6 +35,11 @@ def _cell(value: object) -> object:
         return canonical(value).decode("utf-8").rstrip("\n")
     if value is None:
         return ""
+    if isinstance(value, str) and (
+        value.startswith("'")
+        or value.lstrip(" \t\r\n\ufeff").startswith(("=", "+", "-", "@"))
+    ):
+        return "'" + value
     return value
 
 

@@ -1,4 +1,4 @@
-"""Replay private LandClim author count sources and challenge receipts."""
+"""Replay private LandClim author counts against an independent count table."""
 
 from __future__ import annotations
 
@@ -21,18 +21,16 @@ pytestmark = pytest.mark.skipif(
 )
 
 
-def _source_roots() -> tuple[Path, Path]:
+def _source_root() -> Path:
     author = os.environ.get("BIJUX_LANDCLIM_AUTHOR_SOURCE_ROOT")
-    audit = os.environ.get("BIJUX_LANDCLIM_AUTHOR_AUDIT_ROOT")
-    if not author or not audit:
-        raise ValueError("Private author source and audit roots are required")
-    return Path(author), Path(audit)
+    if not author:
+        raise ValueError("Private author source root is required")
+    return Path(author)
 
 
 def test_private_author_sources_recount_seventeen_sites(tmp_path: Path) -> None:
-    author, audit = _source_roots()
     output = tmp_path / "replay"
-    report = build(REPOSITORY, author, audit, output)
+    report = build(REPOSITORY, _source_root(), output)
     assert report["totals"] == {
         "sites": 17,
         "grid_512_sites": 9,
@@ -77,13 +75,12 @@ def test_private_author_sources_recount_seventeen_sites(tmp_path: Path) -> None:
     assert (output / "report.json").read_bytes() == GOVERNED.read_bytes()
 
 
-def test_historical_audit_drift_refuses_before_output(tmp_path: Path) -> None:
-    author, audit = _source_roots()
-    changed = tmp_path / "changed-audit"
-    shutil.copytree(audit, changed)
-    path = changed / "job006/report.json"
+def test_author_source_drift_refuses_before_output(tmp_path: Path) -> None:
+    changed = tmp_path / "changed-author"
+    shutil.copytree(_source_root(), changed)
+    path = changed / "author/input/WHH05.csv"
     path.write_bytes(path.read_bytes() + b" ")
     output = tmp_path / "refused"
-    with pytest.raises(ValueError, match="audit custody changed"):
-        build(REPOSITORY, author, changed, output)
+    with pytest.raises(ValueError, match="Author source changed"):
+        build(REPOSITORY, changed, output)
     assert not output.exists()

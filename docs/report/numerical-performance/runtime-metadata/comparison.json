@@ -1,7 +1,7 @@
 {
   "schema_version": "lra-runtime-metadata-comparison.v1",
   "baseline_report": "reference-baseline.json",
-  "reference_baseline_sha256": "5fb7a0a918760e382242bc97c0ced7a681482d5565ef83ea522d7d5484b454e1",
+  "reference_baseline_sha256": "dbe8e46ccfa0bdc2df0db4acd5328c498e00eaaea958971aa06a51939912b656",
   "reference_baseline_source_sha256": "e9675d170fe8ca8c0fa6ff03d75b6786c560f3c4f6398cd392963f362adbf21f",
   "optimized_report": "report.json",
   "baseline_commit": "3d6b0495",

@@ -1,0 +1,344 @@
+{
+  "attempted_trials": 12,
+  "backend": "python-host-lra-0.1.9.dev74",
+  "claims": {
+    "calibrated_uncertainty": false,
+    "final_test_access": false,
+    "held_out_pollen_prediction": false,
+    "independent_empirical_truth": false,
+    "real_nordic_vegetation_accuracy": false,
+    "scientific_approval": false,
+    "train_only_synthetic_selection": true
+  },
+  "completed_trials": 12,
+  "eligible_candidates": [
+    {
+      "candidate_id": "lsm-ppe080",
+      "cases": 2,
+      "max_case_mae_fraction": 0.04324985362797753,
+      "mean_mae_fraction": 0.039861593480655426
+    },
+    {
+      "candidate_id": "lsm-ppe100",
+      "cases": 2,
+      "max_case_mae_fraction": 0.047156697503217083,
+      "mean_mae_fraction": 0.043548348751608554
+    },
+    {
+      "candidate_id": "gpm-ppe080",
+      "cases": 2,
+      "max_case_mae_fraction": 0.054786520294644196,
+      "mean_mae_fraction": 0.04960326014732208
+    },
+    {
+      "candidate_id": "lsm-ppe120",
+      "cases": 2,
+      "max_case_mae_fraction": 0.0697366975032171,
+      "mean_mae_fraction": 0.06651501541827523
+    },
+    {
+      "candidate_id": "gpm-ppe100",
+      "cases": 2,
+      "max_case_mae_fraction": 0.0734400308365504,
+      "mean_mae_fraction": 0.06756334875160852
+    },
+    {
+      "candidate_id": "gpm-ppe120",
+      "cases": 2,
+      "max_case_mae_fraction": 0.0967900308365504,
+      "mean_mae_fraction": 0.09148168208494188
+    }
+  ],
+  "failed_trials": 0,
+  "limitation": "The independent oracle uses area/(distance+radius)^2 times PPE and fall speed, unlike the installed REVEALS kernel; tuning may compensate for this mismatch and cannot establish ecological superiority.",
+  "oracle_report_sha256": "c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8",
+  "policy_sha256": "cb954fdd8b03b66bd1efebf36db41608a1a051b02dc2ab8b4b6eceba3648a395",
+  "refused_trials": 0,
+  "schema_version": "known-landscape-synthetic-development-report.v1",
+  "selected": {
+    "candidate_id": "lsm-ppe080",
+    "cases": 2,
+    "max_case_mae_fraction": 0.04324985362797753,
+    "mean_mae_fraction": 0.039861593480655426
+  },
+  "source_commit": "d915d1709d3c8fca4680f70958452860d578d5d1",
+  "status": "synthetic_development_complete",
+  "trials": [
+    {
+      "candidate_id": "lsm-ppe080",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.58706,
+          "conifer": 0.31765,
+          "open_land": 0.09529
+        },
+        "input_request_sha256": "529ffaa3e82b1137ec7623de6cd303d372d074118a805232117e1593f93cc455",
+        "product_manifest_sha256": "504531bc9d8498f4b59b4578d3b30cce526377c06f5e2369200121f5ac657408",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.03647333333333332,
+        "vegetation_max_abs_error_fraction": 0.054709999999999995
+      },
+      "run_id": "lsm-ppe080-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "lsm-ppe080",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.47873,
+          "conifer": 0.40328,
+          "open_land": 0.11799
+        },
+        "input_request_sha256": "2fd3bdc13d473237a3d418efc19e9792e01c2a319c81ce923699f43f8282dac1",
+        "product_manifest_sha256": "4a46bccba36d316c70be840739d30aeef858ef5eeacb517431735098a97ba139",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.04324985362797753,
+        "vegetation_max_abs_error_fraction": 0.06487478044196628
+      },
+      "run_id": "lsm-ppe080-heterogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "lsm-ppe100",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.53213,
+          "conifer": 0.35991,
+          "open_land": 0.10796
+        },
+        "input_request_sha256": "c90c1cf5701ca364c15aef87bea3a364b64b45d1a0ce0f594b517c592375514f",
+        "product_manifest_sha256": "23e1bf1e72a05362546ec0d125de8ec89d1b7608dacbecd19e17d3c35a4c5c9d",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.039940000000000024,
+        "vegetation_max_abs_error_fraction": 0.05991000000000002
+      },
+      "run_id": "lsm-ppe100-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "lsm-ppe100",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.42353999999999997,
+          "conifer": 0.44598,
+          "open_land": 0.13048
+        },
+        "input_request_sha256": "20ba453d1f2c848e5804913ef7a4c898d153073b6de3dc0e4e204dcadf8669b0",
+        "product_manifest_sha256": "a89ec4e5582cdd047e1e0ddcc8a0f95fdc64d7dba46e671a6da1d75e8942cb2e",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.047156697503217083,
+        "vegetation_max_abs_error_fraction": 0.07073504625482563
+      },
+      "run_id": "lsm-ppe100-heterogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "lsm-ppe120",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.48658999999999997,
+          "conifer": 0.39494,
+          "open_land": 0.11846999999999999
+        },
+        "input_request_sha256": "2ecc1bf64ba2db7d33e61cbf9739d21cade24c3a1a604e0bcd51ca98a778d796",
+        "product_manifest_sha256": "a3fb6738d9b39daa82faf5d8ca62e4d55f47925e0e2c0631edabf33917e79538",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.06329333333333337,
+        "vegetation_max_abs_error_fraction": 0.09494000000000002
+      },
+      "run_id": "lsm-ppe120-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "lsm-ppe120",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.37976,
+          "conifer": 0.47985,
+          "open_land": 0.14039
+        },
+        "input_request_sha256": "cedabe59dc0116928c69aba3c905d1aa4f9f2047f640555949e7ae78417be929",
+        "product_manifest_sha256": "52b1421e3be93f39b3cc326eaf55563a599db065a7784e4968134e7f614b735c",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.0697366975032171,
+        "vegetation_max_abs_error_fraction": 0.10460504625482564
+      },
+      "run_id": "lsm-ppe120-heterogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe080",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.56875,
+          "conifer": 0.34787999999999997,
+          "open_land": 0.08337
+        },
+        "input_request_sha256": "aa4169567e422399b910c4db0ae3fac468239bcb6e67f9af1f667fb6fa918f31",
+        "product_manifest_sha256": "2c2025c616c126224221845f0c5145823e6b3c41b09cb796a9b5ed61370acf73",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.044419999999999966,
+        "vegetation_max_abs_error_fraction": 0.06663
+      },
+      "run_id": "gpm-ppe080-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe080",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 1.0000000000065512e-05,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.45841,
+          "conifer": 0.4409,
+          "open_land": 0.10067999999999999
+        },
+        "input_request_sha256": "0f5f99e59951ec7606ae3121ee1579723bba9571b42e7a3a73ee317a6c9170c2",
+        "product_manifest_sha256": "acd0784ae3f0e80834f69da15a15aaf2077ec7d64a9e2e71e9f181e741d9d59d",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.054786520294644196,
+        "vegetation_max_abs_error_fraction": 0.08218478044196628
+      },
+      "run_id": "gpm-ppe080-heterogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe100",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.5134000000000001,
+          "conifer": 0.39253,
+          "open_land": 0.09407
+        },
+        "input_request_sha256": "b97fd05a7fdf6b108e7e44d6e223577883ee6521fd17ce1efc1647b9c2620015",
+        "product_manifest_sha256": "126d306148c1757cc6aff96d1b8b8eb065995557c935b241784bbcc8c64abb67",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.06168666666666665,
+        "vegetation_max_abs_error_fraction": 0.09253
+      },
+      "run_id": "gpm-ppe100-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe100",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 1.0000000000065512e-05,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.40375,
+          "conifer": 0.48540999999999995,
+          "open_land": 0.11085
+        },
+        "input_request_sha256": "ac415fcf7767ed396be9a28434912db66f1649d28d1b7a493c56099741e54189",
+        "product_manifest_sha256": "cc72050ceb586c38598962dc6e7986c14ca15cedc7fbddfe3f2c67e2564ca5f1",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.0734400308365504,
+        "vegetation_max_abs_error_fraction": 0.1101650462548256
+      },
+      "run_id": "gpm-ppe100-heterogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe120",
+      "case_id": "homogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.46787,
+          "conifer": 0.42926000000000003,
+          "open_land": 0.10287
+        },
+        "input_request_sha256": "b4a63c0aa54b9139fdefd250a6d1b08e4933d14568a54f16f3188bacd7b6af09",
+        "product_manifest_sha256": "8c503a22acfd8fcb0613da175dc5e956424e5491481aca4c1db456256d35a5a9",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 0.08617333333333337,
+        "vegetation_max_abs_error_fraction": 0.12926000000000004
+      },
+      "run_id": "gpm-ppe120-homogeneous-noise-free",
+      "status": "completed"
+    },
+    {
+      "candidate_id": "gpm-ppe120",
+      "case_id": "heterogeneous-noise-free",
+      "metrics": {
+        "closure_error_fraction": 0.0,
+        "estimated_cover_fraction": {
+          "broadleaf": 0.36073,
+          "conifer": 0.52043,
+          "open_land": 0.11884
+        },
+        "input_request_sha256": "668011b3121e2e0f3e6154d1374588099dbe25b101e45880e4752840f99c9927",
+        "product_manifest_sha256": "907fbde7ddb8065fb67138619875d8c38996ed7ff74e8c6cd89428ca5c9da7c0",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285934,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 0.0967900308365504,
+        "vegetation_max_abs_error_fraction": 0.1451850462548256
+      },
+      "run_id": "gpm-ppe120-heterogeneous-noise-free",
+      "status": "completed"
+    }
+  ]
+}

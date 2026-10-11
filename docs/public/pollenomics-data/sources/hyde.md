@@ -17,19 +17,18 @@ and land outside agriculture is not automatically forest.
 
 ## Local storage and preparation
 
-The retained [HYDE source-declaration custody](../../../report/source-relations/hyde/source-custody/README.md)
-now binds the historical full-file hash inventory, archive-member inventory,
-declaration/conflict records and three Nordic source-index windows to exact
-private copies. It records the original 1,574-file/66.4 GB hash pass without
-requiring another whole-release read for this custody move. Scientific admission
-and release-declaration conflicts remain separate from byte custody.
+Our [Nordic cropland account](../../../report/regions/nordic/hyde-country-cropland/README.md)
+states which source totals and native cells we checked and why release rights,
+CRS and calendar questions still limit use.
+The three-scenario integration check reads the qualified private source windows
+and declaration files by their pinned hashes. Its source-index result does not
+admit a country grid or validate vegetation.
 
 Keep the native dataset in a separate local data directory. Native ZIP archives,
 NetCDF files and large prepared grids are not tracked in the product Git
 repository. The preparation contract requires an explicit local source root and compact
-provenance products in a caller-selected destination. Repository
-contracts under `data/hyde/3.5` name small inventories, review receipts and
-manifests; they do not require copying the native dataset into Git.
+provenance products in a caller-selected destination. The HYDE source readers
+and report describe the input contracts; the native dataset stays outside Git.
 
 The existing declared-grid adapter supports bounded, explicitly labeled
 interchange fixtures and pre-normalized candidates. It preserves quantities,

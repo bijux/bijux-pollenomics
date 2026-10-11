@@ -25,8 +25,9 @@ GOVERNED = REPOSITORY / "docs/report/numerical-performance/python-isolated/repor
 def test_scientific_digest_matches_retained_output() -> None:
     baseline = json.loads(BASELINE.read_text())
     for case in baseline["workloads"]:
-        assert len(_scientific_sha(case["scientific_output"])) == 64
-        assert case["identical_scientific_outputs"] is True
+        assert len(case["scientific_output_sha256"]) == 64
+        assert len(case["nonfinite_single_call_sha256"]) == 64
+        assert case["contract_sha256"] == _scientific_sha(case["contract"])
 
 
 def test_summary_refuses_changed_output_and_nonfinite_meaning() -> None:
@@ -93,17 +94,18 @@ def test_governed_workers_match_retained_scientific_outputs() -> None:
     assert "only the named workload fixture" in report["rss_semantics"]
     assert len(report["cases"]) == len(baseline["workloads"]) == 7
     for actual, retained in zip(report["cases"], baseline["workloads"], strict=True):
-        expected = _scientific_sha(retained["scientific_output"])
+        expected = retained["scientific_output_sha256"]
         assert actual["name"] == retained["name"]
         assert actual["contract"] == retained["contract"]
         assert actual["retained_scientific_output_sha256"] == expected
-        assert actual["retained_nonfinite_semantics_sha256"] == _scientific_sha(
-            retained["nonfinite_output_semantics"][0]
+        assert (
+            actual["retained_nonfinite_semantics_sha256"]
+            == retained["nonfinite_single_call_sha256"]
         )
         assert len(actual["observations"]) == 5
         assert all(
             item["scientific_output_sha256"] == expected
-            and item["contract_sha256"] == _scientific_sha(retained["contract"])
+            and item["contract_sha256"] == retained["contract_sha256"]
             and item["nonfinite_semantics_sha256"]
             == actual["retained_nonfinite_semantics_sha256"]
             for item in actual["observations"]

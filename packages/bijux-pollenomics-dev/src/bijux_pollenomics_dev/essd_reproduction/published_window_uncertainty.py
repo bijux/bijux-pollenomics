@@ -137,7 +137,7 @@ def main() -> int:
     rows, report = compare_envelopes(args.correspondence_csv, args.provenance_report)
     args.output.mkdir(parents=True, exist_ok=False)
     with (args.output / "taxon-envelopes.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

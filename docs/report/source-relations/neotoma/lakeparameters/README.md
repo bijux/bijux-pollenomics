@@ -8,7 +8,6 @@ capture: 24,554 lake-parameter rows and 21 parameter types. Five parameter
 rows match five candidate sites. The source-site and capture SHA-256 digests in
 `report.json` bind the review to its inputs; site evidence, capture and page
 receipts are retained under `neotoma/lakeparameters/` in that store.
-This removes the source dependency on the disposable `artifacts/v3` run.
 
 | Country | Site | Native parameter | Value | Candidate pollen samples |
 | --- | --- | --- | ---: | ---: |

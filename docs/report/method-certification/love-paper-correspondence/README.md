@@ -8,9 +8,15 @@ the exact 1,097,851-byte inspected copy is now retained in the private source
 store at `lra-reference/papers/love-method-2024/paper.pdf`. Its
 `custody.json` receipt has SHA-256
 `37f2729e9796792098abb26d67ee3c2310d92ee9f59c99101a0cba6fec89b928`.
-The earlier public PDF download URL was not recorded, so this custody binds
-the inspected bytes and article identity without claiming publisher-byte parity.
-The publisher endpoint returned HTTP 429/403 during this review. The paper's
+The initial custody record did not include the download URL. We recovered the
+exact acquisition receipt from a historical run and retained it beside the
+PDF as `retrieval-receipt.json` (SHA-256
+`1fcc64d639ca4e93225dac4d7bf0575f6039aacaa8aa6adab160efa76a1a6b79`).
+It records a 12 September 2026 HTTP 200 download from the Semantic Scholar
+PDF mirror, with the same 1,097,851-byte count and PDF SHA-256. This resolves
+the download path for our inspected copy; it does not establish byte identity
+with the publisher's own PDF. The publisher endpoint returned HTTP 429/403
+during this review. The paper's
 data availability statement points to DISQOVER functions, without identifying
 a deposited simulation input bundle. No supplementary simulation bundle was
 identified in the accessible article. The [local source identity
@@ -41,15 +47,24 @@ the repository root with
 `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --output artifacts/method-certification/love-paper-source-parameter-replay.json`
 and compare the output byte for byte with the governed JSON.
 
+The same pinned DISQOVER 0.9.14 archive's
+`disqover/man/LOVEexampleRings.Rd` (member SHA-256
+`43c8f7166a88d35b609d8772bab2c5830dc1e76f97ff5d4e9d6fa2a5fd0fc5ad`)
+describes its example as simulated from **BÜK300**. The retained 2024 paper
+describes its eight-site Figure 2 simulation as using **BÜK200**. We retain
+those source descriptions as a difference in stated map basis; the example
+parameter match does not establish that either archive example contains the
+paper's Figure 2 landscape or random runs.
+
 | Paper method or assumption | Current executable evidence | Scope of correspondence |
 | --- | --- | --- |
 | Small-site pollen deposition combines local and regional contributions. | [Optimized forward objective](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py) and [analytical subtraction](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py). | Source equations have bounded R/Python parity; no ecological truth is inferred. |
-| Analytical LOVE assumes comparable total distance-weighted abundance among small sites and local vegetation homogeneous with the regional composition. | [Analytical ring sensitivity](../analytical-love-ring-sensitivity/README.md) retains negative and above-one estimates rather than imposing cover constraints. | These are paper-stated limitations, not assumptions validated for Nordic basins. |
+| Analytical LOVE assumes comparable total distance-weighted abundance among small sites and local vegetation homogeneous with the regional composition. | [Analytical ring sensitivity](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/analytical-love-ring-sensitivity/README.md) retains negative and above-one estimates rather than imposing cover constraints. | These are paper-stated limitations, not assumptions validated for Nordic basins. |
 | LOVEoptim fits ring-specific local cover by log-Euclidean pollen mismatch using `RcppDE::DEoptim`. | [Common objective and solution-quality study](../optimizer-solution-quality/README.md) uses installed RcppDE and the Python optimizer on identical declared objectives. | Candidate evaluations agree; achieved objective quality is bounded, while search paths and stopping events differ. |
 | Regional and local count/PPE perturbations are repeated for uncertainty. | [Paired LOVE draw study](../paired-love-draws/README.md) holds explicit local count/PPE draws equal across R and Python; [source compatibility](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/docs/reference/source-compatibility.md) records the optimized wrapper's sampled-but-unused local PPE. | The analytical supplied-draw calculation is checked. The article's general uncertainty description does not certify coverage, and the optimized source's local PPE behavior is narrower than that description implies. |
 | Ring land-cover fractions can represent lakes, wetlands and terrestrial area separately. | [Forward input profiles](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/docs/reference/forward-preparation.md) name source and revised fraction rules; source dimensional refusals and revised ring/taxon tests are explicit. | No paper landscape ring raster or site-specific geometry has been admitted. |
 | Paper simulation uses BÜK200 map units, one regional lake, eight artificial ponds (diameters about 10, 50, 100 and 200 m), a 100 km source extent, LSM unstable dispersal and 100 model runs. | [Dispersal and parity map](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/docs/reference/parity.md) covers the LSM kernel and core LOVE equations. | The published Tables 1 and 2 give map-unit compositions and ten taxon parameters, but the precise vector map extraction, pond placements, ring-area arrays, realized pollen inputs and random draws needed for Figure 2 are not supplied by the article. |
-| Paper evaluates true-versus-reconstructed ring cover with RMSE and discusses a 100–500 m range for its simulated landscape. | [Ring sensitivity](../analytical-love-ring-sensitivity/README.md) reports source-compatible numerical behavior only. | The paper's Figure 2 RMSE and preferred radius cannot be reproduced or transferred to Nordic sites without its spatial truth and ring inputs. |
+| Paper evaluates true-versus-reconstructed ring cover with RMSE and discusses a 100–500 m range for its simulated landscape. | [Ring sensitivity](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/analytical-love-ring-sensitivity/README.md) reports source-compatible numerical behavior only. | The paper's Figure 2 RMSE and preferred radius cannot be reproduced or transferred to Nordic sites without its spatial truth and ring inputs. |
 
 The accessible article supports an assumption and equation mapping. The
 [original R reference](../original-r-reference/README.md),

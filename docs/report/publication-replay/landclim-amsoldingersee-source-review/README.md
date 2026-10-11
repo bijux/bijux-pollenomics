@@ -23,10 +23,10 @@ The [full 1,128-row inventory](../landclim-study-inputs/README.md) retains the
 broader denominator; this review resolves the refusal evidence for one row
 without changing its admission status.
 
-The [custody receipt](../../maintenance/artifact-retention/landclim-amsoldingersee-custody.json)
-hashes all 47 original raw-response, source-row, process and historical
-public-note files in private storage. The original public-note check covered
-an older page hash and does not validate the current source page.
+The [source-input manifest](https://github.com/bijux/bijux-pollenomics/blob/main/data/landclim/review/amsoldingersee-source-inputs.json)
+binds the 11 consumed raw API responses, their two acquisition receipts and
+the selected publication row. Historical run plans, logs and a superseded
+public-note check are not inputs to this source decision.
 
 To replay into an absent artifact directory with the private source store:
 
@@ -38,7 +38,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --output artifacts/jobs/landclim-amsoldingersee-source-review/replay
 ```
 
-The producer checks every private file against the custody receipt, all 11
+The producer checks all 14 consumed private files against the source manifest, all 11
 HTTP response hashes and status records, the exact author example metadata,
 and the observed candidate fields before writing the report. The raw API
 responses remain outside the repository.

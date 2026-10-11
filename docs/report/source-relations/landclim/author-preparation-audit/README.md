@@ -11,10 +11,10 @@ into the non-PPE category. The report retains these categories, source hashes
 and count totals for every site.
 
 The producer verifies the private 193-file author-source snapshot manifest for
-each consumed source file. It also verifies the [private custody
-receipt](../../../maintenance/artifact-retention/landclim-author-preparation-audit-custody.json)
-for all 28 files in the older independent challenge. Its terminal 17-site
-report and receipt match the fresh site totals exactly. The consumer replays
+each consumed source file. It compares fresh totals with the
+[independent 17-site count reference](independent-counts.json), which retains
+the original independent report identity and numeric rows without the older
+challenge's plans, logs or failed jobs. The consumer replays
 the author's first exact lookup match and time binning for all 17 sites.
 `WHH05` has **2,482 raw = 2,448 retained + 34 `zz.do not use`**. The
 unmapped counts occur at NTWITCHEN (144) and WHH11 (274); the 1,388
@@ -32,8 +32,7 @@ PPE assignments.
 The lookup distinguishes `Plantago` from the separate leading-space label
 `  Plantago`. Six LOBBSBOG counts under the former are excluded by the author
 rule; trimming leading spaces would incorrectly retain them. A focused R
-source check confirmed the exact `Plantago` mapping. Earlier failed and
-narrower challenge jobs remain in private custody for diagnosis. The separate
+source check confirmed the exact `Plantago` mapping. The separate
 [R formatting replay](../author-example-taxon-support/README.md) shows all 17
 prepared files and 15,028 cells matching the author files.
 
@@ -49,7 +48,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.essd_reproduction.author_preparation_audit \
   --repository . \
   --author-source-root /path/to/private/landclim/author-reference \
-  --audit-root /path/to/private/landclim/author-preparation-audit \
   --output artifacts/jobs/landclim-author-preparation-audit/replay
 cmp docs/report/source-relations/landclim/author-preparation-audit/report.json \
   artifacts/jobs/landclim-author-preparation-audit/replay/report.json

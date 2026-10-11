@@ -205,10 +205,9 @@ truncated 999-draw input was refused. **8,312/31,000** local cells were negative
 unclipped, so finite output here must not be read as valid physical cover.
 The named `landclimii-2016-gpm-neutral-analytical-v1` profile preserved the
 author's Filipendula fall speed of **0.006 m/s**; the default profile still
-refuses that value. The regional draw and local bundle identities are saved in
-the run manifest and checksums under
-`artifacts/v3/lra/multisite-love-join002/result/` (report SHA-256
-`2bd598d15717ed2302d7a561376d866a0e791eba8c584f407d0ce0bba5c8ad6e`).
+refuses that value. The [governed interface result](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reveals-love-interface/README.md)
+records the source identities, regional draw hash, local-cell summary and
+reproduction command without depending on an old run directory.
 An earlier source-R comparison of the same grid/bin's regional draw method
 matched 31,000 cells within `1.8874e-13` absolute difference on a separately
 frozen candidate. The local site, `BROADOWN`, is also in the regional cohort;
