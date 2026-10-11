@@ -47,6 +47,16 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 Site, feature, claim, observation, relation, and event counts are different units. The atlas may display SEAD chronology and source-native detail, but it must not turn the refused event population into migration or propagation evidence.
 <!-- sead-evidence:generated:end -->
 
+The [source-to-map custody replay](../../../report/source-relations/sead/public-custody/README.md)
+checks every assigned site ID and UUID against its country decision, mapped
+site feature and Nordic map traceability record. It keeps the 126 review and
+unassigned decisions outside the published site set.
+
+The [country discovery and retrieval ledger](../../../report/source-relations/sead-country-retrieval/README.md)
+also reconciles all 2,195 discovered IDs to source retrieval and normalized
+site rows. The source supplied no country field, so its per-country counts are
+governed boundary assignments; the 126 pending decisions remain excluded.
+
 ## From A Relational Database To A Map Point
 
 A SEAD date belongs to a chain of records, not directly to a coordinate. The

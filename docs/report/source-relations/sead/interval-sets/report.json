@@ -1,0 +1,1865 @@
+{
+  "analytic_posture": {
+    "event_propagation_approved": false,
+    "qualified_or_contextual_claims_admitted": false,
+    "record_intervals_are_distinct": true,
+    "site_display_envelope_is_analytic_interval": false
+  },
+  "denominators": {
+    "display_bounds_different_from_eligible_extent": 0,
+    "eligible_record_claims": 14264,
+    "exported_record_intervals": 8172,
+    "exported_sites": 2069,
+    "native_reviewed_claims": 25109,
+    "refused_or_contextual_claims_excluded": 10845,
+    "sites_by_disjoint_phase_count": {
+      "0": 1699,
+      "1": 71,
+      "2": 74,
+      "3": 52,
+      "4": 44,
+      "5": 23,
+      "6": 19,
+      "7": 20,
+      "8": 8,
+      "9": 14,
+      "10": 12,
+      "11": 4,
+      "12": 4,
+      "13": 3,
+      "14": 3,
+      "15": 2,
+      "16": 3,
+      "17": 5,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "24": 1,
+      "25": 1,
+      "31": 1,
+      "32": 1,
+      "33": 1,
+      "45": 1
+    },
+    "sites_with_display_envelope": 850,
+    "sites_with_record_intervals": 370
+  },
+  "gold_disjoint_sites": [
+    {
+      "display_end_bp": 107,
+      "display_start_bp": 82,
+      "eligible_claim_count": 80,
+      "gap_count": 1,
+      "gaps_json": "[[84,104]]",
+      "native_claims": [
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:1480",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "1480",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:1598",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "1598",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:1702",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "1702",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:1764",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "1764",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:2196",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "2196",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:2461",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "2461",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:2629",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "2629",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:2851",
+          "claim_type": "dating_range",
+          "older_bp": 83,
+          "source_native_record_id": "2851",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3014",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "3014",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3308",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "3308",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3384",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "3384",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3517",
+          "claim_type": "dating_range",
+          "older_bp": 83,
+          "source_native_record_id": "3517",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3540",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "3540",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3797",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "3797",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:3936",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "3936",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:4312",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "4312",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:4455",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "4455",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:4563",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "4563",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:4920",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "4920",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:4940",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "4940",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5095",
+          "claim_type": "dating_range",
+          "older_bp": 83,
+          "source_native_record_id": "5095",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5101",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "5101",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5194",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "5194",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5263",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "5263",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5364",
+          "claim_type": "dating_range",
+          "older_bp": 83,
+          "source_native_record_id": "5364",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5574",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "5574",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:5697",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "5697",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6012",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6012",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6067",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "6067",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6113",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6113",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6382",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "6382",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6479",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "6479",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6486",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6486",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6789",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6789",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6887",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6887",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:6959",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "6959",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:7285",
+          "claim_type": "dating_range",
+          "older_bp": 82,
+          "source_native_record_id": "7285",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:7594",
+          "claim_type": "dating_range",
+          "older_bp": 105,
+          "source_native_record_id": "7594",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:7599",
+          "claim_type": "dating_range",
+          "older_bp": 106,
+          "source_native_record_id": "7599",
+          "younger_bp": 106
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:7645",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "7645",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2708",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "2708",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2709",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2709",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2710",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2710",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2711",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2711",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2712",
+          "claim_type": "dendrochronology",
+          "older_bp": 83,
+          "source_native_record_id": "2712",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2713",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2713",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2714",
+          "claim_type": "dendrochronology",
+          "older_bp": 83,
+          "source_native_record_id": "2714",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2715",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2715",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2716",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2716",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2717",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2717",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2718",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2718",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2719",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2719",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2720",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "2720",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2721",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2721",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2722",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2722",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2723",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2723",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2724",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "2724",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2725",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2725",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2726",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2726",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2727",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "2727",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6372",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "6372",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6373",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6373",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6374",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6374",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6375",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6375",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6376",
+          "claim_type": "dendrochronology",
+          "older_bp": 83,
+          "source_native_record_id": "6376",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6377",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6377",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6378",
+          "claim_type": "dendrochronology",
+          "older_bp": 83,
+          "source_native_record_id": "6378",
+          "younger_bp": 83
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6379",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6379",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6380",
+          "claim_type": "dendrochronology",
+          "older_bp": 106,
+          "source_native_record_id": "6380",
+          "younger_bp": 106
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6381",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6381",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6382",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6382",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6383",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6383",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6384",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "6384",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6385",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6385",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6386",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6386",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6387",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6387",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6388",
+          "claim_type": "dendrochronology",
+          "older_bp": 82,
+          "source_native_record_id": "6388",
+          "younger_bp": 82
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6389",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6389",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6390",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6390",
+          "younger_bp": 105
+        },
+        {
+          "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:6391",
+          "claim_type": "dendrochronology",
+          "older_bp": 105,
+          "source_native_record_id": "6391",
+          "younger_bp": 105
+        }
+      ],
+      "phase_count": 2,
+      "phases_json": "[[82,83],[105,107]]",
+      "record_interval_count": 12,
+      "site_uuid": "000ef3d9-389f-46cd-8cf9-a9c49507f5cd",
+      "source_site_id": "3840"
+    },
+    {
+      "display_end_bp": 303,
+      "display_start_bp": 244,
+      "eligible_claim_count": 36,
+      "gap_count": 3,
+      "gaps_json": "[[246,249],[251,262],[264,302]]",
+      "native_claims": [
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:2089",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "2089",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:2111",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "2111",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:2274",
+          "claim_type": "dating_range",
+          "older_bp": 250,
+          "source_native_record_id": "2274",
+          "younger_bp": 250
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:2692",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "2692",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:2720",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "2720",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:3095",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "3095",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:3163",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "3163",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:3948",
+          "claim_type": "dating_range",
+          "older_bp": 245,
+          "source_native_record_id": "3948",
+          "younger_bp": 245
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:4866",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "4866",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:5094",
+          "claim_type": "dating_range",
+          "older_bp": 245,
+          "source_native_record_id": "5094",
+          "younger_bp": 245
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:5150",
+          "claim_type": "dating_range",
+          "older_bp": 250,
+          "source_native_record_id": "5150",
+          "younger_bp": 250
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:5831",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "5831",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:5956",
+          "claim_type": "dating_range",
+          "older_bp": 263,
+          "source_native_record_id": "5956",
+          "younger_bp": 263
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:6343",
+          "claim_type": "dating_range",
+          "older_bp": 303,
+          "source_native_record_id": "6343",
+          "younger_bp": 303
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:6393",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "6393",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:6476",
+          "claim_type": "dating_range",
+          "older_bp": 303,
+          "source_native_record_id": "6476",
+          "younger_bp": 303
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:7022",
+          "claim_type": "dating_range",
+          "older_bp": 263,
+          "source_native_record_id": "7022",
+          "younger_bp": 263
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dating_range:7502",
+          "claim_type": "dating_range",
+          "older_bp": 244,
+          "source_native_record_id": "7502",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4216",
+          "claim_type": "dendrochronology",
+          "older_bp": 245,
+          "source_native_record_id": "4216",
+          "younger_bp": 245
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4217",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "4217",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4218",
+          "claim_type": "dendrochronology",
+          "older_bp": 303,
+          "source_native_record_id": "4218",
+          "younger_bp": 303
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4219",
+          "claim_type": "dendrochronology",
+          "older_bp": 250,
+          "source_native_record_id": "4219",
+          "younger_bp": 250
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4220",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "4220",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4221",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "4221",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4222",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "4222",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4223",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "4223",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:4224",
+          "claim_type": "dendrochronology",
+          "older_bp": 263,
+          "source_native_record_id": "4224",
+          "younger_bp": 263
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:559",
+          "claim_type": "dendrochronology",
+          "older_bp": 245,
+          "source_native_record_id": "559",
+          "younger_bp": 245
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:560",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "560",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:561",
+          "claim_type": "dendrochronology",
+          "older_bp": 303,
+          "source_native_record_id": "561",
+          "younger_bp": 303
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:562",
+          "claim_type": "dendrochronology",
+          "older_bp": 250,
+          "source_native_record_id": "562",
+          "younger_bp": 250
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:563",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "563",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:564",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "564",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:565",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "565",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:566",
+          "claim_type": "dendrochronology",
+          "older_bp": 244,
+          "source_native_record_id": "566",
+          "younger_bp": 244
+        },
+        {
+          "chronology_claim_id": "sead:00882a56-74f2-4329-9e1b-4b505bfbe8c1:dendrochronology:567",
+          "claim_type": "dendrochronology",
+          "older_bp": 263,
+          "source_native_record_id": "567",
+          "younger_bp": 263
+        }
+      ],
+      "phase_count": 4,
+      "phases_json": "[[244,245],[250,250],[263,263],[303,303]]",
+      "record_interval_count": 16,
+      "site_uuid": "00882a56-74f2-4329-9e1b-4b505bfbe8c1",
+      "source_site_id": "3873"
+    },
+    {
+      "display_end_bp": 242,
+      "display_start_bp": 145,
+      "eligible_claim_count": 36,
+      "gap_count": 9,
+      "gaps_json": "[[158,161],[163,171],[173,183],[185,192],[195,202],[204,210],[212,220],[222,231],[233,241]]",
+      "native_claims": [
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:1461",
+          "claim_type": "dating_range",
+          "older_bp": 149,
+          "source_native_record_id": "1461",
+          "younger_bp": 149
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:1627",
+          "claim_type": "dating_range",
+          "older_bp": 242,
+          "source_native_record_id": "1627",
+          "younger_bp": 242
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:1962",
+          "claim_type": "dating_range",
+          "older_bp": 194,
+          "source_native_record_id": "1962",
+          "younger_bp": 194
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:2806",
+          "claim_type": "dating_range",
+          "older_bp": 162,
+          "source_native_record_id": "2806",
+          "younger_bp": 162
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:3334",
+          "claim_type": "dating_range",
+          "older_bp": 184,
+          "source_native_record_id": "3334",
+          "younger_bp": 184
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:3418",
+          "claim_type": "dating_range",
+          "older_bp": 232,
+          "source_native_record_id": "3418",
+          "younger_bp": 232
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:3439",
+          "claim_type": "dating_range",
+          "older_bp": 221,
+          "source_native_record_id": "3439",
+          "younger_bp": 221
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:382",
+          "claim_type": "dating_range",
+          "older_bp": 149,
+          "source_native_record_id": "382",
+          "younger_bp": 145
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:516",
+          "claim_type": "dating_range",
+          "older_bp": 150,
+          "source_native_record_id": "516",
+          "younger_bp": 145
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:5235",
+          "claim_type": "dating_range",
+          "older_bp": 172,
+          "source_native_record_id": "5235",
+          "younger_bp": 172
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:5321",
+          "claim_type": "dating_range",
+          "older_bp": 153,
+          "source_native_record_id": "5321",
+          "younger_bp": 153
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:5758",
+          "claim_type": "dating_range",
+          "older_bp": 203,
+          "source_native_record_id": "5758",
+          "younger_bp": 203
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:6201",
+          "claim_type": "dating_range",
+          "older_bp": 193,
+          "source_native_record_id": "6201",
+          "younger_bp": 193
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:6721",
+          "claim_type": "dating_range",
+          "older_bp": 157,
+          "source_native_record_id": "6721",
+          "younger_bp": 157
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:7419",
+          "claim_type": "dating_range",
+          "older_bp": 150,
+          "source_native_record_id": "7419",
+          "younger_bp": 150
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:7561",
+          "claim_type": "dating_range",
+          "older_bp": 211,
+          "source_native_record_id": "7561",
+          "younger_bp": 211
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:780",
+          "claim_type": "dating_range",
+          "older_bp": 152,
+          "source_native_record_id": "780",
+          "younger_bp": 147
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dating_range:824",
+          "claim_type": "dating_range",
+          "older_bp": 157,
+          "source_native_record_id": "824",
+          "younger_bp": 148
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1972",
+          "claim_type": "dendrochronology",
+          "older_bp": 232,
+          "source_native_record_id": "1972",
+          "younger_bp": 232
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1973",
+          "claim_type": "dendrochronology",
+          "older_bp": 211,
+          "source_native_record_id": "1973",
+          "younger_bp": 211
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1974",
+          "claim_type": "dendrochronology",
+          "older_bp": 184,
+          "source_native_record_id": "1974",
+          "younger_bp": 184
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1975",
+          "claim_type": "dendrochronology",
+          "older_bp": 152,
+          "source_native_record_id": "1975",
+          "younger_bp": 147
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1976",
+          "claim_type": "dendrochronology",
+          "older_bp": 150,
+          "source_native_record_id": "1976",
+          "younger_bp": 145
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1977",
+          "claim_type": "dendrochronology",
+          "older_bp": 193,
+          "source_native_record_id": "1977",
+          "younger_bp": 193
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1978",
+          "claim_type": "dendrochronology",
+          "older_bp": 157,
+          "source_native_record_id": "1978",
+          "younger_bp": 148
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1979",
+          "claim_type": "dendrochronology",
+          "older_bp": 162,
+          "source_native_record_id": "1979",
+          "younger_bp": 162
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:1980",
+          "claim_type": "dendrochronology",
+          "older_bp": 149,
+          "source_native_record_id": "1980",
+          "younger_bp": 145
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5636",
+          "claim_type": "dendrochronology",
+          "older_bp": 242,
+          "source_native_record_id": "5636",
+          "younger_bp": 242
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5637",
+          "claim_type": "dendrochronology",
+          "older_bp": 221,
+          "source_native_record_id": "5637",
+          "younger_bp": 221
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5638",
+          "claim_type": "dendrochronology",
+          "older_bp": 194,
+          "source_native_record_id": "5638",
+          "younger_bp": 194
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5639",
+          "claim_type": "dendrochronology",
+          "older_bp": 153,
+          "source_native_record_id": "5639",
+          "younger_bp": 153
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5640",
+          "claim_type": "dendrochronology",
+          "older_bp": 150,
+          "source_native_record_id": "5640",
+          "younger_bp": 150
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5641",
+          "claim_type": "dendrochronology",
+          "older_bp": 203,
+          "source_native_record_id": "5641",
+          "younger_bp": 203
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5642",
+          "claim_type": "dendrochronology",
+          "older_bp": 157,
+          "source_native_record_id": "5642",
+          "younger_bp": 157
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5643",
+          "claim_type": "dendrochronology",
+          "older_bp": 172,
+          "source_native_record_id": "5643",
+          "younger_bp": 172
+        },
+        {
+          "chronology_claim_id": "sead:01fc30e4-8a8a-493b-b42a-a4080d408738:dendrochronology:5644",
+          "claim_type": "dendrochronology",
+          "older_bp": 149,
+          "source_native_record_id": "5644",
+          "younger_bp": 149
+        }
+      ],
+      "phase_count": 10,
+      "phases_json": "[[145,157],[162,162],[172,172],[184,184],[193,194],[203,203],[211,211],[221,221],[232,232],[242,242]]",
+      "record_interval_count": 36,
+      "site_uuid": "01fc30e4-8a8a-493b-b42a-a4080d408738",
+      "source_site_id": "4179"
+    },
+    {
+      "display_end_bp": 225,
+      "display_start_bp": 143,
+      "eligible_claim_count": 24,
+      "gap_count": 1,
+      "gaps_json": "[[186,224]]",
+      "native_claims": [
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:1634",
+          "claim_type": "dating_range",
+          "older_bp": 175,
+          "source_native_record_id": "1634",
+          "younger_bp": 175
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:2261",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "2261",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:2782",
+          "claim_type": "dating_range",
+          "older_bp": 225,
+          "source_native_record_id": "2782",
+          "younger_bp": 225
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:430",
+          "claim_type": "dating_range",
+          "older_bp": 185,
+          "source_native_record_id": "430",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:4360",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "4360",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:4566",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "4566",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:5620",
+          "claim_type": "dating_range",
+          "older_bp": 185,
+          "source_native_record_id": "5620",
+          "younger_bp": 185
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:6335",
+          "claim_type": "dating_range",
+          "older_bp": 225,
+          "source_native_record_id": "6335",
+          "younger_bp": 225
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:6345",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "6345",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:639",
+          "claim_type": "dating_range",
+          "older_bp": 163,
+          "source_native_record_id": "639",
+          "younger_bp": 143
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:6566",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "6566",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dating_range:7333",
+          "claim_type": "dating_range",
+          "older_bp": 160,
+          "source_native_record_id": "7333",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1788",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "1788",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1789",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "1789",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1790",
+          "claim_type": "dendrochronology",
+          "older_bp": 225,
+          "source_native_record_id": "1790",
+          "younger_bp": 225
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1791",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "1791",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1792",
+          "claim_type": "dendrochronology",
+          "older_bp": 185,
+          "source_native_record_id": "1792",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:1793",
+          "claim_type": "dendrochronology",
+          "older_bp": 163,
+          "source_native_record_id": "1793",
+          "younger_bp": 143
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5452",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "5452",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5453",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "5453",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5454",
+          "claim_type": "dendrochronology",
+          "older_bp": 225,
+          "source_native_record_id": "5454",
+          "younger_bp": 225
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5455",
+          "claim_type": "dendrochronology",
+          "older_bp": 160,
+          "source_native_record_id": "5455",
+          "younger_bp": 160
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5456",
+          "claim_type": "dendrochronology",
+          "older_bp": 185,
+          "source_native_record_id": "5456",
+          "younger_bp": 185
+        },
+        {
+          "chronology_claim_id": "sead:02967f42-44c3-4af3-b832-8608a3468f16:dendrochronology:5457",
+          "claim_type": "dendrochronology",
+          "older_bp": 175,
+          "source_native_record_id": "5457",
+          "younger_bp": 175
+        }
+      ],
+      "phase_count": 2,
+      "phases_json": "[[143,185],[225,225]]",
+      "record_interval_count": 12,
+      "site_uuid": "02967f42-44c3-4af3-b832-8608a3468f16",
+      "source_site_id": "3929"
+    },
+    {
+      "display_end_bp": 264,
+      "display_start_bp": 104,
+      "eligible_claim_count": 57,
+      "gap_count": 9,
+      "gaps_json": "[[105,106],[109,126],[129,151],[153,153],[155,156],[158,168],[170,221],[224,235],[237,263]]",
+      "native_claims": [
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:1136",
+          "claim_type": "dating_range",
+          "older_bp": 223,
+          "source_native_record_id": "1136",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:1916",
+          "claim_type": "dating_range",
+          "older_bp": 264,
+          "source_native_record_id": "1916",
+          "younger_bp": 264
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2293",
+          "claim_type": "dating_range",
+          "older_bp": 108,
+          "source_native_record_id": "2293",
+          "younger_bp": 108
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2310",
+          "claim_type": "dating_range",
+          "older_bp": 223,
+          "source_native_record_id": "2310",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2316",
+          "claim_type": "dating_range",
+          "older_bp": 169,
+          "source_native_record_id": "2316",
+          "younger_bp": 169
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2495",
+          "claim_type": "dating_range",
+          "older_bp": 264,
+          "source_native_record_id": "2495",
+          "younger_bp": 264
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2497",
+          "claim_type": "dating_range",
+          "older_bp": 152,
+          "source_native_record_id": "2497",
+          "younger_bp": 152
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:2620",
+          "claim_type": "dating_range",
+          "older_bp": 154,
+          "source_native_record_id": "2620",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:3467",
+          "claim_type": "dating_range",
+          "older_bp": 152,
+          "source_native_record_id": "3467",
+          "younger_bp": 152
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:3789",
+          "claim_type": "dating_range",
+          "older_bp": 222,
+          "source_native_record_id": "3789",
+          "younger_bp": 222
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:4433",
+          "claim_type": "dating_range",
+          "older_bp": 236,
+          "source_native_record_id": "4433",
+          "younger_bp": 236
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:4470",
+          "claim_type": "dating_range",
+          "older_bp": 157,
+          "source_native_record_id": "4470",
+          "younger_bp": 157
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:5107",
+          "claim_type": "dating_range",
+          "older_bp": 223,
+          "source_native_record_id": "5107",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:5442",
+          "claim_type": "dating_range",
+          "older_bp": 128,
+          "source_native_record_id": "5442",
+          "younger_bp": 128
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:5664",
+          "claim_type": "dating_range",
+          "older_bp": 236,
+          "source_native_record_id": "5664",
+          "younger_bp": 236
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:5951",
+          "claim_type": "dating_range",
+          "older_bp": 223,
+          "source_native_record_id": "5951",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6000",
+          "claim_type": "dating_range",
+          "older_bp": 104,
+          "source_native_record_id": "6000",
+          "younger_bp": 104
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6008",
+          "claim_type": "dating_range",
+          "older_bp": 127,
+          "source_native_record_id": "6008",
+          "younger_bp": 127
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6059",
+          "claim_type": "dating_range",
+          "older_bp": 154,
+          "source_native_record_id": "6059",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6384",
+          "claim_type": "dating_range",
+          "older_bp": 104,
+          "source_native_record_id": "6384",
+          "younger_bp": 104
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6420",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "6420",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6442",
+          "claim_type": "dating_range",
+          "older_bp": 152,
+          "source_native_record_id": "6442",
+          "younger_bp": 152
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:6694",
+          "claim_type": "dating_range",
+          "older_bp": 223,
+          "source_native_record_id": "6694",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7034",
+          "claim_type": "dating_range",
+          "older_bp": 169,
+          "source_native_record_id": "7034",
+          "younger_bp": 169
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7106",
+          "claim_type": "dating_range",
+          "older_bp": 154,
+          "source_native_record_id": "7106",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7388",
+          "claim_type": "dating_range",
+          "older_bp": 222,
+          "source_native_record_id": "7388",
+          "younger_bp": 222
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7501",
+          "claim_type": "dating_range",
+          "older_bp": 154,
+          "source_native_record_id": "7501",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7721",
+          "claim_type": "dating_range",
+          "older_bp": 107,
+          "source_native_record_id": "7721",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dating_range:7760",
+          "claim_type": "dating_range",
+          "older_bp": 108,
+          "source_native_record_id": "7760",
+          "younger_bp": 108
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4209",
+          "claim_type": "dendrochronology",
+          "older_bp": 264,
+          "source_native_record_id": "4209",
+          "younger_bp": 264
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4412",
+          "claim_type": "dendrochronology",
+          "older_bp": 152,
+          "source_native_record_id": "4412",
+          "younger_bp": 152
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4413",
+          "claim_type": "dendrochronology",
+          "older_bp": 169,
+          "source_native_record_id": "4413",
+          "younger_bp": 169
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4414",
+          "claim_type": "dendrochronology",
+          "older_bp": 104,
+          "source_native_record_id": "4414",
+          "younger_bp": 104
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4415",
+          "claim_type": "dendrochronology",
+          "older_bp": 223,
+          "source_native_record_id": "4415",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4416",
+          "claim_type": "dendrochronology",
+          "older_bp": 236,
+          "source_native_record_id": "4416",
+          "younger_bp": 236
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4417",
+          "claim_type": "dendrochronology",
+          "older_bp": 222,
+          "source_native_record_id": "4417",
+          "younger_bp": 222
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4418",
+          "claim_type": "dendrochronology",
+          "older_bp": 223,
+          "source_native_record_id": "4418",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4419",
+          "claim_type": "dendrochronology",
+          "older_bp": 128,
+          "source_native_record_id": "4419",
+          "younger_bp": 128
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4420",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "4420",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4421",
+          "claim_type": "dendrochronology",
+          "older_bp": 108,
+          "source_native_record_id": "4421",
+          "younger_bp": 108
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4422",
+          "claim_type": "dendrochronology",
+          "older_bp": 154,
+          "source_native_record_id": "4422",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4423",
+          "claim_type": "dendrochronology",
+          "older_bp": 157,
+          "source_native_record_id": "4423",
+          "younger_bp": 157
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:4424",
+          "claim_type": "dendrochronology",
+          "older_bp": 154,
+          "source_native_record_id": "4424",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:551",
+          "claim_type": "dendrochronology",
+          "older_bp": 264,
+          "source_native_record_id": "551",
+          "younger_bp": 264
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:751",
+          "claim_type": "dendrochronology",
+          "older_bp": 152,
+          "source_native_record_id": "751",
+          "younger_bp": 152
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:752",
+          "claim_type": "dendrochronology",
+          "older_bp": 169,
+          "source_native_record_id": "752",
+          "younger_bp": 169
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:753",
+          "claim_type": "dendrochronology",
+          "older_bp": 104,
+          "source_native_record_id": "753",
+          "younger_bp": 104
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:754",
+          "claim_type": "dendrochronology",
+          "older_bp": 223,
+          "source_native_record_id": "754",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:755",
+          "claim_type": "dendrochronology",
+          "older_bp": 236,
+          "source_native_record_id": "755",
+          "younger_bp": 236
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:756",
+          "claim_type": "dendrochronology",
+          "older_bp": 222,
+          "source_native_record_id": "756",
+          "younger_bp": 222
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:757",
+          "claim_type": "dendrochronology",
+          "older_bp": 223,
+          "source_native_record_id": "757",
+          "younger_bp": 223
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:758",
+          "claim_type": "dendrochronology",
+          "older_bp": 127,
+          "source_native_record_id": "758",
+          "younger_bp": 127
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:759",
+          "claim_type": "dendrochronology",
+          "older_bp": 107,
+          "source_native_record_id": "759",
+          "younger_bp": 107
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:760",
+          "claim_type": "dendrochronology",
+          "older_bp": 108,
+          "source_native_record_id": "760",
+          "younger_bp": 108
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:761",
+          "claim_type": "dendrochronology",
+          "older_bp": 154,
+          "source_native_record_id": "761",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:762",
+          "claim_type": "dendrochronology",
+          "older_bp": 154,
+          "source_native_record_id": "762",
+          "younger_bp": 154
+        },
+        {
+          "chronology_claim_id": "sead:039da16a-89ad-40dd-af30-6bd7f1363fb5:dendrochronology:763",
+          "claim_type": "dendrochronology",
+          "older_bp": 152,
+          "source_native_record_id": "763",
+          "younger_bp": 152
+        }
+      ],
+      "phase_count": 10,
+      "phases_json": "[[104,104],[107,108],[127,128],[152,152],[154,154],[157,157],[169,169],[222,223],[236,236],[264,264]]",
+      "record_interval_count": 42,
+      "site_uuid": "039da16a-89ad-40dd-af30-6bd7f1363fb5",
+      "source_site_id": "3886"
+    }
+  ],
+  "input_hashes": {
+    "claim_index_sha256": "57d240d66f782d1ccb9ecf0db1868a4889ffb8dbbe6a80393c28322460ce85f9",
+    "claim_parts": [
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+        "row_count": 4438,
+        "sha256": "f7848132d49be7865d136722df0fa113e08d4a9a10284411061d94c7fcc49521"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+        "row_count": 4457,
+        "sha256": "892b4a8e59892cbaff2524be9c5c310ca86663861b23bdeb79fb12f07fc5b6a6"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+        "row_count": 4416,
+        "sha256": "a67f1d7873cc1be9592210b2ed12a920cda66c192ef1bb32148d1a7990a85f2f"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+        "row_count": 4431,
+        "sha256": "6dc2ae3097dd1c37c85fc1d46a40a50cec5b4ed5559e1bef124818eb11233f42"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+        "row_count": 4465,
+        "sha256": "2d849acbcb2573663e50c967f225985da323ac3bbb9cc8d454b4c875cacaf04f"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+        "row_count": 2902,
+        "sha256": "a8b5158d3fb2ac90a6b756c65b35f8f4ae41a88b86a56eec22bb4f0bfa7d5549"
+      }
+    ],
+    "native_age_review_inputs": {
+      "admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+      "claim_index_sha256": "57d240d66f782d1ccb9ecf0db1868a4889ffb8dbbe6a80393c28322460ce85f9",
+      "claim_parts": [
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+          "row_count": 4438,
+          "sha256": "f7848132d49be7865d136722df0fa113e08d4a9a10284411061d94c7fcc49521"
+        },
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+          "row_count": 4457,
+          "sha256": "892b4a8e59892cbaff2524be9c5c310ca86663861b23bdeb79fb12f07fc5b6a6"
+        },
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+          "row_count": 4416,
+          "sha256": "a67f1d7873cc1be9592210b2ed12a920cda66c192ef1bb32148d1a7990a85f2f"
+        },
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+          "row_count": 4431,
+          "sha256": "6dc2ae3097dd1c37c85fc1d46a40a50cec5b4ed5559e1bef124818eb11233f42"
+        },
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+          "row_count": 4465,
+          "sha256": "2d849acbcb2573663e50c967f225985da323ac3bbb9cc8d454b4c875cacaf04f"
+        },
+        {
+          "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+          "row_count": 2902,
+          "sha256": "a8b5158d3fb2ac90a6b756c65b35f8f4ae41a88b86a56eec22bb4f0bfa7d5549"
+        }
+      ],
+      "manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+      "source_tables": [
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_age_types.json",
+          "row_count": 1,
+          "sha256": "179b64f91c975655d638b6654184f132177c3c6fd7ccf6deb710995d9f3fab4a"
+        },
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json",
+          "row_count": 7377,
+          "sha256": "94d23e550507a99f56dc80c0cefa697c0a8c299537ef55779b1e73756f85d829"
+        },
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json",
+          "row_count": 6947,
+          "sha256": "3ef1c9fd7ce62c7ff6f15524b5d8de70106c71ece825bc0db16061d5fd332ee2"
+        },
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+          "row_count": 10057,
+          "sha256": "d0f404fee3b0e125c1b7584a901ce4be74d2f4137dc4ac1ec8a3baff29d857eb"
+        },
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+          "row_count": 87,
+          "sha256": "2d702ed777d0a5586e0d8d0c3e5a481516c844029023170797fad0a93920659f"
+        },
+        {
+          "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+          "row_count": 641,
+          "sha256": "532f8cc2c4e8c95f1943499bdc60b26c566dc1fe4f0647f75ba0c09ef14b685e"
+        }
+      ]
+    },
+    "site_geojson_sha256": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
+    "temporal_geojson_sha256": "7174bf71204e4134952cf116369ff63effe3c21423812b5d309b3b3afc2eb2a7"
+  },
+  "requirement_id": "SEAD-004",
+  "schema_version": "sead-interval-set-review.v1",
+  "site_review_csv": {
+    "path": "sites.csv",
+    "row_count": 2069,
+    "sha256": "c542de0df6a805266b280d9a43ea17618af6f08570d52a818842c6652118fccc"
+  },
+  "source_build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+}

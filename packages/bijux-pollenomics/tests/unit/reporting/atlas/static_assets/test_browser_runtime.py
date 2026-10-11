@@ -239,7 +239,7 @@ console.log(JSON.stringify({
         "all": 2,
         "cross": 1,
         "pair": 1,
-        "sweden": 1,
+        "sweden": 2,
         "defaults_equal_restored": True,
         "defaults_equal_changed": False,
     }

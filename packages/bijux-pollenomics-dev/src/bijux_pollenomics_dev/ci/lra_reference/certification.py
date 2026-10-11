@@ -196,7 +196,12 @@ def certify(
         )
         oracle = read_json((output / "oracle/report.json").read_bytes())
         manifest = read_json((output / "oracle/case_manifest.json").read_bytes())
-        validate_oracle(oracle, manifest, lock.payload["reference"]["sha256"])
+        validate_oracle(
+            oracle,
+            manifest,
+            lock.payload["reference"]["sha256"],
+            expected_core_cases=43,
+        )
         domain_runner = (
             repository
             / "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py"
@@ -281,6 +286,7 @@ def certify(
             source_unchanged=True,
             required_profiles={
                 "core_source_compatibility": 25,
+                "prospective_optimized_love": 18,
                 "source_domains_corrected_forward": 23,
             },
             shared_input_representation="executed-oracle.R-inline-literals-v1",

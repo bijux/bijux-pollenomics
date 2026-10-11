@@ -9,6 +9,7 @@ from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 from .landclim import add_landclim_evidence
 from .neotoma import add_neotoma_evidence
 from .partitions import EvidenceMap
+from .reference_sources import add_empd2_evidence, add_nfi_evidence
 from .sead import add_sead_evidence
 from .supplementary import (
     add_aadr_evidence,
@@ -43,4 +44,6 @@ def _coverage_evidence(
     add_boundary_evidence(evidence, boundary_counts)
     add_aadr_evidence(evidence, documents)
     add_animal_adna_evidence(evidence, documents)
+    add_empd2_evidence(evidence, documents)
+    add_nfi_evidence(evidence, documents)
     return evidence

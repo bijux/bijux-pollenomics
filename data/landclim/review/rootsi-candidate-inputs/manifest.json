@@ -1,0 +1,84 @@
+{
+  "artifacts": [
+    {
+      "byte_count": 770960,
+      "logical_rows": 1128,
+      "path": "publication-candidates.jsonl",
+      "sha256": "d54b2266c4b7c7386edef9d5694c49a20c1cc1eadab3155358aca4dd386a79c3"
+    },
+    {
+      "byte_count": 29508,
+      "logical_rows": 81,
+      "path": "rootsi-crosswalk.csv",
+      "sha256": "ee76ac6af9d79ce4d81224a566e8edd7dc71eb940402b352fda809bba7e93588"
+    },
+    {
+      "byte_count": 1366173,
+      "logical_rows": 6768,
+      "path": "requirement-status.csv",
+      "sha256": "7852bb8ca7a7c064844b23a71e385030ae35d8e0b5031994eefe71253e3b7362"
+    },
+    {
+      "byte_count": 3400,
+      "logical_rows": 1,
+      "path": "report.json",
+      "sha256": "10ddc1d588411d1eb55d369d7a886ef0846acbe92fb1f6698e631fc82363c70d"
+    }
+  ],
+  "claims": {
+    "basin_and_profile_semantics_reviewed": false,
+    "historical_current_revision_crosswalk_completed": false,
+    "historical_primary_pollen_inputs_recovered": false,
+    "historical_selected_chronologies_recovered": false,
+    "original_profile_r_rerun_executed": false,
+    "per_sequence_rights_cleared": false,
+    "publication_allowed": false,
+    "reproduction_input_complete": false,
+    "rootsi_archive_membership_replayed_by_closure": false,
+    "rootsi_is_authenticated_historical_input": false,
+    "scientific_acceptance": "not_evaluated",
+    "scientifically_accepted": false,
+    "taxonomy_and_count_denominators_reviewed": false,
+    "whole_paper_reproduction_certified": false
+  },
+  "output_contract": {
+    "candidate_pair_identity_sha256": "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6",
+    "csv_null_encoding": "empty_field_with_explicit_status_columns",
+    "matching_profile": "normalized-sequence-label-or-normalized-site-name-plus-exact-sample-count-with-exact-SWE-to-Sweden-country-filter.v1",
+    "output_file_count": 5,
+    "publication_candidate_records": 1128,
+    "requirement_status_records": 6768,
+    "rootsi_crosswalk_records": 81
+  },
+  "producer": "bijux_pollenomics_dev.essd_reproduction.rootsi_input_closure",
+  "profile": "landclim-ii-rootsi-metadata-candidate-closure-v1",
+  "schema_version": "essd-rootsi-input-closure-manifest.v1",
+  "sources": {
+    "publication_inventory": {
+      "canonical_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "receipt_sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+      "records": 1128,
+      "schema_version": "landclim-study-metadata-inventory.v1",
+      "workbook_sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "rootsi_metadata": {
+      "archive_membership_verification": "retained_receipt_bound_not_replayed",
+      "archive_replayed_by_closure": false,
+      "archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+      "member": "rootsi/Metadata table_SWE_climate.xlsx",
+      "member_sha256": "08c928407aa1c70c38be8a310a1d9d5e6215434a96ee7fbbd3ba849184e9ee47",
+      "records": 81
+    },
+    "typed_cell_review": {
+      "archive_membership_verification": "retained_receipt_bound_not_replayed",
+      "archive_replayed_by_closure": false,
+      "consumption": "validated_reference_without_copy",
+      "manifest_sha256": "2e5b5a3a10cec59fc8086c0c99db56bb394e9d1f180bbd5571c1098c262c9179",
+      "rectangle_positions": 547330,
+      "schema": "quarantined-rootsi-cell-review.v1",
+      "scientific_admission": "refused",
+      "sheets": 107,
+      "workbooks": 79
+    }
+  }
+}

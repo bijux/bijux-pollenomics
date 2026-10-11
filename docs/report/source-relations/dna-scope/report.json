@@ -1,0 +1,187 @@
+{
+  "animal": {
+    "distinct_point_sample_ids": 331,
+    "foundation_missing_paper_link_projects": [
+      "PRJNA705960"
+    ],
+    "foundation_missing_paper_link_rows": 11,
+    "foundation_sample_rows": 1450,
+    "foundation_validation_overall_ok": false,
+    "nordic_point_features": 8,
+    "nordic_point_sample_ids": 12,
+    "point_chronology_evidence_counts": {
+      "archaeological_context_date": 3,
+      "broad_period_label": 1,
+      "direct_radiocarbon_date": 129,
+      "historical_or_recent_date": 35,
+      "modeled_sample_date": 2
+    },
+    "point_features": 170,
+    "point_project_paper_pairs": [
+      {
+        "paper_doi": "10.1073/pnas.1901169116",
+        "project_accession": "PRJEB30282"
+      },
+      {
+        "paper_doi": "10.1016/j.cell.2019.03.049",
+        "project_accession": "PRJEB31613"
+      },
+      {
+        "paper_doi": "10.1038/s41586-021-04018-9",
+        "project_accession": "PRJEB44430"
+      },
+      {
+        "paper_doi": "10.1093/gbe/evae114",
+        "project_accession": "PRJEB59481"
+      },
+      {
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "project_accession": "PRJEB75467"
+      },
+      {
+        "paper_doi": "10.1126/science.adt2642",
+        "project_accession": "PRJEB81815"
+      },
+      {
+        "paper_doi": "10.1093/gbe/evaf181",
+        "project_accession": "PRJEB90141"
+      },
+      {
+        "paper_doi": "10.1016/j.isci.2025.113771",
+        "project_accession": "PRJEB90261"
+      },
+      {
+        "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+        "project_accession": "PRJNA1328209"
+      }
+    ],
+    "point_scope_counts": {
+      "domesticated_core": 117,
+      "wild_or_progenitor_context": 53
+    },
+    "point_source_artifacts": [
+      {
+        "bytes": 81103,
+        "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29"
+      },
+      {
+        "bytes": 171355,
+        "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+        "sha256": "f8dcf0155fe3a1352c02a86bae8db1085e6429ddac25ca6e29b07d6be605db6b"
+      },
+      {
+        "bytes": 233005,
+        "path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "sha256": "e6367f3a2b877d7940e520dd90bc3066b9530b7dac738de5b35ade9ba4a91640"
+      },
+      {
+        "bytes": 305785,
+        "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "sha256": "2c4676aef05f1d9cc272eba1dabfc3d30fb7604c8fa3fc0713518414e213655f"
+      },
+      {
+        "bytes": 511536,
+        "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "sha256": "aaa7a6db334acdb81ac4c9f205a31e7dc746c40faa8bdd43e232425f4eb7f7a1"
+      },
+      {
+        "bytes": 2557869,
+        "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+        "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
+      },
+      {
+        "bytes": 185895,
+        "path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+        "sha256": "79e5fe0ba0bf86a217bb4d91dd8a350a27e89c976866c6ec067c700bb5eda0d2"
+      },
+      {
+        "bytes": 42068,
+        "path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+        "sha256": "b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f"
+      },
+      {
+        "bytes": 2691,
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+        "sha256": "e1541763210d77411992559dc9fcda4771db57931cb2f98ae0f682b052ca12dd"
+      },
+      {
+        "bytes": 2694,
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "sha256": "d72e70066adb82e6ecc0f8262973773753acef80a86fe21bd7341d51161febc2"
+      },
+      {
+        "bytes": 3578,
+        "path": "data/adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+        "sha256": "3f223f4490752083ea864499db2b9ce4c1b649a57d01beb8e7e89ea23d4e23f3"
+      }
+    ],
+    "point_source_path_field_status_counts": {
+      "all_paths_present": 338,
+      "partial_alternative_paths": 2
+    },
+    "point_source_path_issues": [
+      {
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+        "field": "source_artifact_path",
+        "issue": "partial_alternative_paths"
+      },
+      {
+        "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+        "field": "source_artifact_path",
+        "issue": "partial_alternative_paths"
+      }
+    ],
+    "source_family": "animal_adna"
+  },
+  "cross_source_comparison_admitted": false,
+  "human": {
+    "annotation_members": {
+      "1240k": 23250,
+      "ho": 27755
+    },
+    "genetic_ids": 27755,
+    "genotype_analysis": false,
+    "persistent_id": "doi:10.7910/DVN/FFIDCW",
+    "release": "v66",
+    "scientifically_admitted": false,
+    "source_family": "AADR",
+    "source_rows": 51005
+  },
+  "inputs": [
+    {
+      "bytes": 754,
+      "path": "data/aadr/v66/release_manifest.json",
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    },
+    {
+      "bytes": 58974,
+      "path": "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json",
+      "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049"
+    },
+    {
+      "bytes": 17520,
+      "path": "data/adna/governance/animal_sample_foundation_truth.json",
+      "sha256": "c2cb47f71f62d6d1852acbd24edbca8abd61acfb3642d1f3f12e306979e48912"
+    },
+    {
+      "bytes": 700614,
+      "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc"
+    },
+    {
+      "bytes": 265714,
+      "path": "data/adna/final/atlas/animal_atlas_candidate_accountability.json",
+      "sha256": "887bd050d0343146a25c9612a6f462f0d76dc9231618a19a8d4e3aa6541308af"
+    },
+    {
+      "bytes": 2099,
+      "path": "docs/report/animal_foundation_validation.json",
+      "sha256": "fe788fce0c4dd5c2ddf0dd3eb63eb386ffa5fd110f4ad5aa047d792ea742b48b"
+    }
+  ],
+  "pollen_evidence_admitted": false,
+  "requirement_id": "SRC-007",
+  "schema_version": "dna-source-scope-review.v1",
+  "scientific_closure": "pending_qualified_review_and_source_lineage_gaps"
+}

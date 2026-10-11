@@ -1,0 +1,265 @@
+{
+  "age_type_authority": {
+    "age_type": "AD",
+    "age_type_id": 1,
+    "description": "Anno Domini, Christian era; calendar era dates according to the Gregorian calendar."
+  },
+  "chronology_eligibility_counts": {
+    "eligible": 14264,
+    "refused": 10845
+  },
+  "claim_count": 25109,
+  "claim_review_csv": {
+    "path": "claims.csv",
+    "row_count": 25109,
+    "sha256": "cad5cd95ffd4a3190c92c85f487dfaa15f4fb0ce80c4cc9f801013468806e47c"
+  },
+  "claim_type_counts": {
+    "analysis_entity_age": 641,
+    "dating_range": 7377,
+    "dendrochronology": 6947,
+    "geochronology": 87,
+    "relative_period": 10057
+  },
+  "comparability_counts": {
+    "comparable": 14264,
+    "context_only": 10144,
+    "refused": 60,
+    "unresolved": 641
+  },
+  "gold_examples": {
+    "analysis_entity_age:analysis_entity_age_basis_unspecified": {
+      "captured_bp_endpoints": "45000;122000",
+      "chronology_claim_id": "sead:0d7569ae-5363-4d4e-80f2-f8ec3ca29027:analysis_entity_age:2679",
+      "chronology_eligibility": "refused",
+      "claim_type": "analysis_entity_age",
+      "comparability_status": "unresolved",
+      "native_year_values": "",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "analysis_entity_age_basis_unspecified;chronology_not_comparable",
+      "reviewed_age_basis": "analysis_entity_age_basis_unspecified",
+      "source_age_type": "analysis_entity_age_unspecified",
+      "source_age_type_id": "",
+      "source_age_unit": "source_years",
+      "source_record_id": "2679",
+      "source_table": "tbl_analysis_entity_ages",
+      "uncertainty_label": ""
+    },
+    "dating_range:ad_calendar_year_negative_bp_refused": {
+      "captured_bp_endpoints": "-57;-57",
+      "chronology_claim_id": "sead:081e40a9-39d9-4d3a-af1e-50cea2df6491:dating_range:2331",
+      "chronology_eligibility": "refused",
+      "claim_type": "dating_range",
+      "comparability_status": "refused",
+      "native_year_values": "2007",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "chronology_not_comparable;negative_bp",
+      "reviewed_age_basis": "ad_calendar_year_negative_bp_refused",
+      "source_age_type": "AD",
+      "source_age_type_id": "1",
+      "source_age_unit": "calendar_year",
+      "source_record_id": "2331",
+      "source_table": "tbl_analysis_dating_ranges",
+      "uncertainty_label": ""
+    },
+    "dating_range:ad_calendar_year_to_1950_bp": {
+      "captured_bp_endpoints": "105;105",
+      "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dating_range:1480",
+      "chronology_eligibility": "eligible",
+      "claim_type": "dating_range",
+      "comparability_status": "comparable",
+      "native_year_values": "1845",
+      "propagation_eligibility": "refused",
+      "publication_role": "chronology_display_only",
+      "reason_codes": "",
+      "reviewed_age_basis": "ad_calendar_year_to_1950_bp",
+      "source_age_type": "AD",
+      "source_age_type_id": "1",
+      "source_age_unit": "calendar_year",
+      "source_record_id": "1480",
+      "source_table": "tbl_analysis_dating_ranges",
+      "uncertainty_label": ""
+    },
+    "dendrochronology:ad_calendar_year_negative_bp_refused": {
+      "captured_bp_endpoints": "-57;-57",
+      "chronology_claim_id": "sead:081e40a9-39d9-4d3a-af1e-50cea2df6491:dendrochronology:4556",
+      "chronology_eligibility": "refused",
+      "claim_type": "dendrochronology",
+      "comparability_status": "refused",
+      "native_year_values": "2007",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "chronology_not_comparable;negative_bp",
+      "reviewed_age_basis": "ad_calendar_year_negative_bp_refused",
+      "source_age_type": "AD",
+      "source_age_type_id": "1",
+      "source_age_unit": "calendar_year",
+      "source_record_id": "4556",
+      "source_table": "tbl_dendro_dates",
+      "uncertainty_label": ""
+    },
+    "dendrochronology:ad_calendar_year_to_1950_bp": {
+      "captured_bp_endpoints": "107;107",
+      "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2708",
+      "chronology_eligibility": "eligible",
+      "claim_type": "dendrochronology",
+      "comparability_status": "comparable",
+      "native_year_values": "1843",
+      "propagation_eligibility": "refused",
+      "publication_role": "chronology_display_only",
+      "reason_codes": "",
+      "reviewed_age_basis": "ad_calendar_year_to_1950_bp",
+      "source_age_type": "AD",
+      "source_age_type_id": "1",
+      "source_age_unit": "calendar_year",
+      "source_record_id": "2708",
+      "source_table": "tbl_dendro_dates",
+      "uncertainty_label": "From"
+    },
+    "geochronology:geochronology_calibration_posture_unknown": {
+      "captured_bp_endpoints": "5020;5180",
+      "chronology_claim_id": "sead:03bd840c-7bb9-4771-ba1d-f90749d4fbdd:geochronology:1395",
+      "chronology_eligibility": "refused",
+      "claim_type": "geochronology",
+      "comparability_status": "context_only",
+      "native_year_values": "",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "chronology_not_comparable;geochronology_calibration_posture_unknown",
+      "reviewed_age_basis": "geochronology_calibration_posture_unknown",
+      "source_age_type": "radiometric_age_unspecified",
+      "source_age_type_id": "",
+      "source_age_unit": "source_years",
+      "source_record_id": "1395",
+      "source_table": "tbl_geochronology",
+      "uncertainty_label": ">"
+    },
+    "relative_period:relative_period_requires_governed_mapping": {
+      "captured_bp_endpoints": "4350;5250",
+      "chronology_claim_id": "sead:008c5275-9d6b-4e19-9edb-d293f2f773d2:relative_period:29290",
+      "chronology_eligibility": "refused",
+      "claim_type": "relative_period",
+      "comparability_status": "context_only",
+      "native_year_values": "",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "chronology_not_comparable;relative_period_requires_governed_mapping",
+      "reviewed_age_basis": "relative_period_requires_governed_mapping",
+      "source_age_type": "relative_period",
+      "source_age_type_id": "",
+      "source_age_unit": "source_relative_period",
+      "source_record_id": "29290",
+      "source_table": "tbl_relative_dates",
+      "uncertainty_label": ""
+    }
+  },
+  "input_hashes": {
+    "admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+    "claim_index_sha256": "57d240d66f782d1ccb9ecf0db1868a4889ffb8dbbe6a80393c28322460ce85f9",
+    "claim_parts": [
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+        "row_count": 4438,
+        "sha256": "f7848132d49be7865d136722df0fa113e08d4a9a10284411061d94c7fcc49521"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+        "row_count": 4457,
+        "sha256": "892b4a8e59892cbaff2524be9c5c310ca86663861b23bdeb79fb12f07fc5b6a6"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+        "row_count": 4416,
+        "sha256": "a67f1d7873cc1be9592210b2ed12a920cda66c192ef1bb32148d1a7990a85f2f"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+        "row_count": 4431,
+        "sha256": "6dc2ae3097dd1c37c85fc1d46a40a50cec5b4ed5559e1bef124818eb11233f42"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+        "row_count": 4465,
+        "sha256": "2d849acbcb2573663e50c967f225985da323ac3bbb9cc8d454b4c875cacaf04f"
+      },
+      {
+        "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+        "row_count": 2902,
+        "sha256": "a8b5158d3fb2ac90a6b756c65b35f8f4ae41a88b86a56eec22bb4f0bfa7d5549"
+      }
+    ],
+    "manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "source_tables": [
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_age_types.json",
+        "row_count": 1,
+        "sha256": "179b64f91c975655d638b6654184f132177c3c6fd7ccf6deb710995d9f3fab4a"
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json",
+        "row_count": 7377,
+        "sha256": "94d23e550507a99f56dc80c0cefa697c0a8c299537ef55779b1e73756f85d829"
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json",
+        "row_count": 6947,
+        "sha256": "3ef1c9fd7ce62c7ff6f15524b5d8de70106c71ece825bc0db16061d5fd332ee2"
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+        "row_count": 10057,
+        "sha256": "d0f404fee3b0e125c1b7584a901ce4be74d2f4137dc4ac1ec8a3baff29d857eb"
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+        "row_count": 87,
+        "sha256": "2d702ed777d0a5586e0d8d0c3e5a481516c844029023170797fad0a93920659f"
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+        "row_count": 641,
+        "sha256": "532f8cc2c4e8c95f1943499bdc60b26c566dc1fe4f0647f75ba0c09ef14b685e"
+      }
+    ]
+  },
+  "nonempty_uncertainty_label_counts": {
+    "dendrochronology:?": 2,
+    "dendrochronology:Ca.": 1,
+    "dendrochronology:From": 1094,
+    "geochronology:>": 12,
+    "geochronology:?": 2,
+    "geochronology:Ca.": 43,
+    "relative_period:?": 24,
+    "relative_period:Ca.": 40,
+    "relative_period:From": 3,
+    "relative_period:From ca.": 141,
+    "relative_period:To": 2
+  },
+  "refusal_reason_counts": {
+    "analysis_entity_age_basis_unspecified": 641,
+    "chronology_not_comparable": 10845,
+    "geochronology_calibration_posture_unknown": 87,
+    "negative_bp": 60,
+    "relative_period_requires_governed_mapping": 10057
+  },
+  "requirement_id": "SEAD-003",
+  "review_posture": {
+    "event_propagation_approved": false,
+    "qualified_uncertainty_review_complete": false,
+    "reason": "Source age type and native-value conversion were checked; contextual, unresolved, negative-BP and qualified open-ended dates were not promoted to independent event evidence.",
+    "scientific_chronology_admission_approved": false,
+    "typed_age_basis_verified_for_all_claims": true
+  },
+  "reviewed_age_basis_counts": {
+    "ad_calendar_year_negative_bp_refused": 60,
+    "ad_calendar_year_to_1950_bp": 14264,
+    "analysis_entity_age_basis_unspecified": 641,
+    "geochronology_calibration_posture_unknown": 87,
+    "relative_period_requires_governed_mapping": 10057
+  },
+  "schema_version": "sead-chronology-age-review.v1",
+  "source_build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+}

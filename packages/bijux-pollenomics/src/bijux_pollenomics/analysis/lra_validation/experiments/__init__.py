@@ -6,6 +6,7 @@ from .configuration import (
     ExperimentSpec,
     FittedSpatialExperimentSpec,
     LocalPollenSpec,
+    SourceExperimentSpec,
     SpatialBlockExperimentSpec,
     SpatialBlockLocalPollenSpec,
 )
@@ -34,6 +35,7 @@ __all__ = [
     "read_spatial_block_predictions",
     "prepare_fitted_spatial_predictions",
     "ExperimentSpec",
+    "SourceExperimentSpec",
     "LocalPollenSpec",
     "ExperimentProduct",
     "read_experiment_product",

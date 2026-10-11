@@ -1,0 +1,71 @@
+{
+  "admission": {
+    "qualified_review_of_126_coordinates": "pending",
+    "site_context": "admitted_for_2069_governed_country_assignments_only",
+    "source_release_status": "refused"
+  },
+  "inputs": [
+    {
+      "bytes": 23049,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+      "sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea"
+    },
+    {
+      "bytes": 19105,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+      "sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14"
+    },
+    {
+      "bytes": 1211916,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json",
+      "sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528"
+    },
+    {
+      "bytes": 601136,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+      "sha256": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479"
+    },
+    {
+      "bytes": 98642,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sites.json",
+      "sha256": "2cc201892afd57a148c4a9359228c06e3f3265af6daff6b2669fdac3352361b4"
+    },
+    {
+      "bytes": 1403,
+      "path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/countries.json",
+      "sha256": "1b321a672d4eb8f02875068973e6e24e4ee17d3af2a3619ab6dee2484f2e24a8"
+    },
+    {
+      "bytes": 4772196,
+      "path": "data/boundaries/review/country-decisions/sead.json",
+      "sha256": "5f74c5b8eeb02e28e0ff0b5abdb96a8fb0dc7fa32427055dce0c1967e07ad643"
+    },
+    {
+      "bytes": 5242657,
+      "path": "data/sead/normalized/nordic_environmental_sites.csv",
+      "sha256": "dbf4df63e8da625637f3ddb19ed7f5e7ddc7d884da9a45a85cebd286f0dbf158"
+    }
+  ],
+  "inventory": {
+    "discovered_bbox": 2195,
+    "governed_assigned": 2069,
+    "normalized_site_consumer": 2069,
+    "retrieved_tbl_sites": 2069,
+    "review_excluded": 103,
+    "unassigned_excluded": 23
+  },
+  "outputs": {
+    "countries.csv": {
+      "bytes": 563,
+      "sha256": "ee39d12eff900b8aaf3a15c571f182c3e15957d3cfe3d797c2f31f9c70221c9f"
+    },
+    "sites.csv": {
+      "bytes": 335599,
+      "sha256": "901fe18211ee3c0ad0b901bc5723bb437191bb66debc97dc5f7eb91cb212abec"
+    }
+  },
+  "run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "schema_version": "sead-country-retrieval.v1",
+  "source_country_field_posture": "not_supplied_on_all_discovered_sites",
+  "source_table_count": 61
+}

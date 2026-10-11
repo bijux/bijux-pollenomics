@@ -55,6 +55,10 @@ def _source_authority_state(
         return _animal_adna_authority_state(output_root)
     if source_key == "aadr":
         return _aadr_authority_state(output_root, version=version)
+    if source_key in {"empd2", "nfi"}:
+        from .reference_sources.authority import reference_source_authority_state
+
+        return reference_source_authority_state(output_root, source_key)
     return _SourceAuthorityState(status="not_required", reason_codes=())
 
 

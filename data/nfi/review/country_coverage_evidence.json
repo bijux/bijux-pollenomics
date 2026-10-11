@@ -1,0 +1,115 @@
+{
+  "countries": [
+    {
+      "candidate_record_count": 16,
+      "country_code": "SE",
+      "reason_codes": [
+        "candidate_point_plot_geometry_only",
+        "regional_area_cover_truth_not_admitted",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "a0632bbff92e79c490a6bceb4fa21d69133d7fee7221c93e5b340de6c0b0b375",
+      "source_reported_observation_count": null,
+      "source_reported_record_count": 43892,
+      "source_reported_site_count": 6018,
+      "source_status": "source_reported_candidate",
+      "unresolved_record_count": 16
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "DK",
+      "reason_codes": [
+        "individual_plot_data_nonpublic",
+        "research_agreement_required"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "ab0a563eafe4755414b44d43b0262322a645983996c873777ff830fb937b9f5f",
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "nonpublic_agreement_required",
+      "unresolved_record_count": null
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "NO",
+      "reason_codes": [
+        "plot_download_license_and_site_data_unavailable"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "3ae1e97f5dec256f2a324832131b40063b4f5a8769c538366a329fffca425ec0",
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "plot_data_unavailable",
+      "unresolved_record_count": null
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "FI",
+      "reason_codes": [
+        "authoritative_release_access_review_required",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "f789c22acaa5c5ca4a3095479c6084bb87ceadbf7f1372305955a12ee1f2a1d1",
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "access_review_required",
+      "unresolved_record_count": null
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "UNASSIGNED",
+      "reason_codes": [
+        "partition_not_applicable"
+      ],
+      "scientifically_admitted_record_count": null,
+      "source_artifact_sha256": null,
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "not_applicable",
+      "unresolved_record_count": null
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "OUTSIDE",
+      "reason_codes": [
+        "partition_not_applicable"
+      ],
+      "scientifically_admitted_record_count": null,
+      "source_artifact_sha256": null,
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "not_applicable",
+      "unresolved_record_count": null
+    }
+  ],
+  "evidence_paths": [
+    {
+      "path": "artifacts/v3/reference/nordic-nfi-access-20260922/receipt.json",
+      "sha256": "b0ab87f8016b561d84cdff16e74500df1b2f1e4013f4600a3d7e0ec0942d6825"
+    },
+    {
+      "path": "artifacts/v3/reference/swedish-nfi-eligibility002/report.json",
+      "sha256": "a38cba2995ec1c71f7276a4798f2ea79778f4cbbbb587bc507f902b71abc33fd"
+    },
+    {
+      "path": "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json",
+      "sha256": "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66"
+    },
+    {
+      "path": "artifacts/v3/reference/swedish-nfi-plot001/swe_nfi_plotdata2.xlsx",
+      "sha256": "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294"
+    }
+  ],
+  "review_status": "candidate_only",
+  "reviewed_record_count": 43892,
+  "schema_version": "source-country-coverage-evidence.v1",
+  "scientifically_admitted_record_count": 0,
+  "source_key": "nfi"
+}

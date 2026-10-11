@@ -196,8 +196,8 @@ def build_species_curated_sample_rows(
                     )
                 rows.append(
                     AdnaCuratedSampleRow(
-                        species_latin_name=species.latin_name,
-                        species_common_name=species.common_name,
+                        species_latin_name=master_row.species_latin_name,
+                        species_common_name=master_row.species_common_name,
                         stable_sample_id=master_row.repo_stable_sample_id,
                         project_accession=project.project_accession,
                         sample_basis=master_row.sample_basis,

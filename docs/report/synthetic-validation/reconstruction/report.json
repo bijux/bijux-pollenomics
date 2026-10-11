@@ -1,0 +1,1457 @@
+{
+  "cases": [
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 5.551115123125783e-17,
+      "case_id": "peatland-350m-5km-matched_parameters",
+      "config": {
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 5000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "matched_parameters",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.109137008513123,
+        "conifer": 0.09359846887626026,
+        "open_land": 0.12100529994911335
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.55,
+        "conifer": 0.29999999999999993,
+        "open_land": 0.14999999999999994
+      },
+      "independent_expected_truth_mae_fraction": 3.700743415417188e-17,
+      "input_pollen_fraction": {
+        "broadleaf": 0.7492362537820995,
+        "conifer": 0.1752443610334002,
+        "open_land": 0.07551938518450035
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "matched_method_calculation_control",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "b90effd878320839f6cecd7cebf746ac2c1df362ce82f5a1aa49307e301e38ec"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 350,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 5000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.55,
+        "conifer": 0.3,
+        "open_land": 0.15
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 3.700743415417188e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.29999999999999993,
+          "open_land": 0.14999999999999994
+        },
+        "annulus_edges_m": [
+          350,
+          1000,
+          2500,
+          5000
+        ],
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "case_id": "peatland-350m-5km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.7492362537820995,
+          "conifer": 0.1752443610334002,
+          "open_land": 0.07551938518450035
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.04536518498405734,
+            0.037328889290148326,
+            0.02644293423891733
+          ],
+          "conifer": [
+            0.04027650999656002,
+            0.03172753800107389,
+            0.021594420878626355
+          ],
+          "open_land": [
+            0.04824115847136251,
+            0.04176687164545484,
+            0.030997269832296004
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.109137008513123,
+          "conifer": 0.09359846887626026,
+          "open_land": 0.12100529994911335
+        },
+        "region_cutoff_m": 5000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-350m-5km",
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.55,
+        "conifer": 0.3,
+        "open_land": 0.15
+      },
+      "vegetation_mae_fraction": 0.0
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 1.92,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 4.395604395357466e-06,
+      "case_id": "peatland-350m-5km-ppe_misspecification",
+      "config": {
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 5000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "ppe_misspecification",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.109137008513123,
+        "conifer": 0.09359846887626026,
+        "open_land": 0.12100529994911335
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.6043956043956046,
+        "conifer": 0.26373626373626374,
+        "open_land": 0.13186813186813184
+      },
+      "independent_expected_truth_mae_fraction": 0.03626373626373631,
+      "input_pollen_fraction": {
+        "broadleaf": 0.7492362537820995,
+        "conifer": 0.1752443610334002,
+        "open_land": 0.07551938518450035
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "d3c5a04dddefb40a7f5d3718f714504d65a93368e5e1ac36b8d043e2ca50474c",
+          "pollen": "b90effd878320839f6cecd7cebf746ac2c1df362ce82f5a1aa49307e301e38ec"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 350,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 5000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.6043999999999999,
+        "conifer": 0.26374,
+        "open_land": 0.13187
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 3.700743415417188e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.29999999999999993,
+          "open_land": 0.14999999999999994
+        },
+        "annulus_edges_m": [
+          350,
+          1000,
+          2500,
+          5000
+        ],
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "case_id": "peatland-350m-5km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.7492362537820995,
+          "conifer": 0.1752443610334002,
+          "open_land": 0.07551938518450035
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.04536518498405734,
+            0.037328889290148326,
+            0.02644293423891733
+          ],
+          "conifer": [
+            0.04027650999656002,
+            0.03172753800107389,
+            0.021594420878626355
+          ],
+          "open_land": [
+            0.04824115847136251,
+            0.04176687164545484,
+            0.030997269832296004
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.109137008513123,
+          "conifer": 0.09359846887626026,
+          "open_land": 0.12100529994911335
+        },
+        "region_cutoff_m": 5000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-350m-5km",
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.55,
+        "conifer": 0.3,
+        "open_land": 0.15
+      },
+      "vegetation_mae_fraction": 0.03626333333333331
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 4.864424231990072e-06,
+      "case_id": "peatland-350m-5km-taxon_label_shuffle",
+      "config": {
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 5000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "taxon_label_shuffle",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.109137008513123,
+        "conifer": 0.09359846887626026,
+        "open_land": 0.12100529994911335
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.07367513557576802,
+        "conifer": 0.07404037910344903,
+        "open_land": 0.8522844853207829
+      },
+      "independent_expected_truth_mae_fraction": 0.468189656880522,
+      "input_pollen_fraction": {
+        "broadleaf": 0.1752443610334002,
+        "conifer": 0.07551938518450035,
+        "open_land": 0.7492362537820995
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "ad7645fb6c59d40914174237c624d0c2a400cdc25bf3b6e705c024c35f6ca960"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 350,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 5000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.07368000000000001,
+        "conifer": 0.07404,
+        "open_land": 0.8522799999999999
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 3.700743415417188e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.29999999999999993,
+          "open_land": 0.14999999999999994
+        },
+        "annulus_edges_m": [
+          350,
+          1000,
+          2500,
+          5000
+        ],
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "case_id": "peatland-350m-5km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.7492362537820995,
+          "conifer": 0.1752443610334002,
+          "open_land": 0.07551938518450035
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.04536518498405734,
+            0.037328889290148326,
+            0.02644293423891733
+          ],
+          "conifer": [
+            0.04027650999656002,
+            0.03172753800107389,
+            0.021594420878626355
+          ],
+          "open_land": [
+            0.04824115847136251,
+            0.04176687164545484,
+            0.030997269832296004
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.109137008513123,
+          "conifer": 0.09359846887626026,
+          "open_land": 0.12100529994911335
+        },
+        "region_cutoff_m": 5000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.55,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-350m-5km",
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.55,
+        "conifer": 0.3,
+        "open_land": 0.15
+      },
+      "vegetation_mae_fraction": 0.4681866666666667
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 5.551115123125783e-17,
+      "case_id": "peatland-200m-8km-matched_parameters",
+      "config": {
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 8000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "matched_parameters",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.15105146563711783,
+        "conifer": 0.1298986453376528,
+        "open_land": 0.16718349106794836
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.42,
+        "conifer": 0.37999999999999995,
+        "open_land": 0.2
+      },
+      "independent_expected_truth_mae_fraction": 1.850371707708594e-17,
+      "input_pollen_fraction": {
+        "broadleaf": 0.6390948138085047,
+        "conifer": 0.24862756826934504,
+        "open_land": 0.11227761792215027
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "matched_method_calculation_control",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "14d630f2126ecf03cbca031ffa9307617db208aed176a00acb02bb72058d0b51"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 200,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 8000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.42,
+        "conifer": 0.38,
+        "open_land": 0.2
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 1.850371707708594e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.37999999999999995,
+          "open_land": 0.2
+        },
+        "annulus_edges_m": [
+          200,
+          800,
+          2000,
+          4000,
+          8000
+        ],
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "case_id": "peatland-200m-8km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.6390948138085047,
+          "conifer": 0.24862756826934504,
+          "open_land": 0.11227761792215027
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.06092646681823713,
+            0.03790844184865749,
+            0.026976701961980543,
+            0.025239855008242662
+          ],
+          "conifer": [
+            0.054959888986187005,
+            0.03255598630759507,
+            0.022284579276588737,
+            0.02009819076728199
+          ],
+          "open_land": [
+            0.063604765434214,
+            0.04190481762836695,
+            0.03120219349439185,
+            0.03047171451097555
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.15105146563711783,
+          "conifer": 0.1298986453376528,
+          "open_land": 0.16718349106794836
+        },
+        "region_cutoff_m": 8000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.38,
+          "open_land": 0.2
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-200m-8km",
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.42,
+        "conifer": 0.38,
+        "open_land": 0.2
+      },
+      "vegetation_mae_fraction": 0.0
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 1.92,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 4.5248868778546836e-06,
+      "case_id": "peatland-200m-8km-ppe_misspecification",
+      "config": {
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 8000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "ppe_misspecification",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.15105146563711783,
+        "conifer": 0.1298986453376528,
+        "open_land": 0.16718349106794836
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.4751131221719456,
+        "conifer": 0.34389140271493207,
+        "open_land": 0.18099547511312217
+      },
+      "independent_expected_truth_mae_fraction": 0.03674208144796381,
+      "input_pollen_fraction": {
+        "broadleaf": 0.6390948138085047,
+        "conifer": 0.24862756826934504,
+        "open_land": 0.11227761792215027
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "d3c5a04dddefb40a7f5d3718f714504d65a93368e5e1ac36b8d043e2ca50474c",
+          "pollen": "14d630f2126ecf03cbca031ffa9307617db208aed176a00acb02bb72058d0b51"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 200,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 8000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.47511000000000003,
+        "conifer": 0.34389000000000003,
+        "open_land": 0.18100000000000002
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 1.850371707708594e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.37999999999999995,
+          "open_land": 0.2
+        },
+        "annulus_edges_m": [
+          200,
+          800,
+          2000,
+          4000,
+          8000
+        ],
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "case_id": "peatland-200m-8km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.6390948138085047,
+          "conifer": 0.24862756826934504,
+          "open_land": 0.11227761792215027
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.06092646681823713,
+            0.03790844184865749,
+            0.026976701961980543,
+            0.025239855008242662
+          ],
+          "conifer": [
+            0.054959888986187005,
+            0.03255598630759507,
+            0.022284579276588737,
+            0.02009819076728199
+          ],
+          "open_land": [
+            0.063604765434214,
+            0.04190481762836695,
+            0.03120219349439185,
+            0.03047171451097555
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.15105146563711783,
+          "conifer": 0.1298986453376528,
+          "open_land": 0.16718349106794836
+        },
+        "region_cutoff_m": 8000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.38,
+          "open_land": 0.2
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-200m-8km",
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.42,
+        "conifer": 0.38,
+        "open_land": 0.2
+      },
+      "vegetation_mae_fraction": 0.03674
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 3.970451564277999e-06,
+      "case_id": "peatland-200m-8km-taxon_label_shuffle",
+      "config": {
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 8000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "taxon_label_shuffle",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.15105146563711783,
+        "conifer": 0.1298986453376528,
+        "open_land": 0.16718349106794836
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.11089397045156428,
+        "conifer": 0.11646680404728917,
+        "open_land": 0.7726392255011465
+      },
+      "independent_expected_truth_mae_fraction": 0.381759483667431,
+      "input_pollen_fraction": {
+        "broadleaf": 0.24862756826934504,
+        "conifer": 0.11227761792215027,
+        "open_land": 0.6390948138085047
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "39a8b16b492ffb2b659e656f54febfa02f9ec0d1adb256768a52366c55f8cff3"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 200,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 8000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.11089,
+        "conifer": 0.11647,
+        "open_land": 0.77264
+      },
+      "source_case": {
+        "analytical_true_ppe_mae_fraction": 1.850371707708594e-17,
+        "analytical_true_ppe_recovery_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.37999999999999995,
+          "open_land": 0.2
+        },
+        "annulus_edges_m": [
+          200,
+          800,
+          2000,
+          4000,
+          8000
+        ],
+        "basin_diameter_m": 200,
+        "basin_type": "peatland",
+        "case_id": "peatland-200m-8km",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.6390948138085047,
+          "conifer": 0.24862756826934504,
+          "open_land": 0.11227761792215027
+        },
+        "independent_annulus_contributions": {
+          "broadleaf": [
+            0.06092646681823713,
+            0.03790844184865749,
+            0.026976701961980543,
+            0.025239855008242662
+          ],
+          "conifer": [
+            0.054959888986187005,
+            0.03255598630759507,
+            0.022284579276588737,
+            0.02009819076728199
+          ],
+          "open_land": [
+            0.063604765434214,
+            0.04190481762836695,
+            0.03120219349439185,
+            0.03047171451097555
+          ]
+        },
+        "independent_deposition_factor": {
+          "broadleaf": 0.15105146563711783,
+          "conifer": 0.1298986453376528,
+          "open_land": 0.16718349106794836
+        },
+        "region_cutoff_m": 8000,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.42,
+          "conifer": 0.38,
+          "open_land": 0.2
+        },
+        "vegetation_support": "constant cover on declared external annuli"
+      },
+      "source_case_id": "peatland-200m-8km",
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.42,
+        "conifer": 0.38,
+        "open_land": 0.2
+      },
+      "vegetation_mae_fraction": 0.38176000000000004
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 4.820180488640524e-06,
+      "case_id": "homogeneous-noise-free-transport_mismatch",
+      "config": {
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 5000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "transport_mismatch",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.109137008513123,
+        "conifer": 0.09359846887626026,
+        "open_land": 0.12100529994911335
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.5087109710877447,
+        "conifer": 0.40119420873176687,
+        "open_land": 0.09009482018048864
+      },
+      "independent_expected_truth_mae_fraction": 0.06746280582117783,
+      "input_pollen_fraction": {
+        "broadleaf": 0.7124352331606217,
+        "conifer": 0.24093264248704666,
+        "open_land": 0.046632124352331605
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "transport_and_support_mismatch_challenge",
+      "inverse_crime_control": false,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "6c80faa5b474d2bf870bfae710f89acddd18d51280f11bb310c25602f5ead453"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 350,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 5000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.50871,
+        "conifer": 0.40119,
+        "open_land": 0.09009
+      },
+      "source_case": {
+        "assumed_fall_speed_m_s": {
+          "broadleaf": 0.025,
+          "conifer": 0.031,
+          "open_land": 0.018
+        },
+        "assumed_ppe": {
+          "broadleaf": 2.4,
+          "conifer": 1.2,
+          "open_land": 0.8
+        },
+        "basin_radius_m": 175.0,
+        "case_id": "homogeneous-noise-free",
+        "cell_count": 9,
+        "cells": [
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-00",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 0.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 800000.0,
+            "cell_id": "cell-01",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": -1750.0,
+            "y_m": -1750.0
+          },
+          {
+            "area_m2": 1100000.0,
+            "cell_id": "cell-02",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": -1750.0,
+            "y_m": 1750.0
+          },
+          {
+            "area_m2": 900000.0,
+            "cell_id": "cell-03",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 1750.0,
+            "y_m": -1750.0
+          },
+          {
+            "area_m2": 1200000.0,
+            "cell_id": "cell-04",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 1750.0,
+            "y_m": 1750.0
+          },
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-05",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": -3500.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-06",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 3500.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 950000.0,
+            "cell_id": "cell-07",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 0.0,
+            "y_m": -3500.0
+          },
+          {
+            "area_m2": 1050000.0,
+            "cell_id": "cell-08",
+            "vegetation_fraction": {
+              "broadleaf": 0.55,
+              "conifer": 0.3,
+              "open_land": 0.15
+            },
+            "x_m": 0.0,
+            "y_m": 3500.0
+          }
+        ],
+        "declared_support_m": 5000.0,
+        "expected_disposition": "analytic_recovery",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.7124352331606217,
+          "conifer": 0.24093264248704666,
+          "open_land": 0.046632124352331605
+        },
+        "generated_draws": 0,
+        "landscape_extent_m": 5000.0,
+        "landscape_kind": "homogeneous",
+        "recovered_vegetation_fraction": {
+          "broadleaf": 0.5499999999999999,
+          "conifer": 0.30000000000000004,
+          "open_land": 0.15
+        },
+        "refused_draws": 0,
+        "requested_draws": 0,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.5499999999999999,
+          "conifer": 0.3,
+          "open_land": 0.15
+        },
+        "vegetation_mae_fraction": 1.850371707708594e-17
+      },
+      "source_case_id": "homogeneous-noise-free",
+      "source_case_sha256": "4831c3f588f9fa428e931795ffbfcee08ed6a7986f0d244c55e2436e9281d864",
+      "source_profile": "independent-finite-cell-known-landscape-v1",
+      "source_report_sha256": "1bd4997dfe82490a05182ca2f211f8496a1c68312f8449ee39a5f140958ad551",
+      "status": "scored",
+      "transport_matched": false,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.5499999999999999,
+        "conifer": 0.3,
+        "open_land": 0.15
+      },
+      "vegetation_mae_fraction": 0.0674633333333333
+    },
+    {
+      "assumed_fall_speed_m_s": {
+        "broadleaf": 0.025,
+        "conifer": 0.031,
+        "open_land": 0.018
+      },
+      "assumed_ppe": {
+        "broadleaf": 2.4,
+        "conifer": 1.2,
+        "open_land": 0.8
+      },
+      "calculation_max_abs_error_fraction": 1.1861058610007635e-06,
+      "case_id": "heterogeneous-noise-free-transport_mismatch",
+      "config": {
+        "basin_diameter_m": 350,
+        "basin_type": "peatland",
+        "distance_weighting": "gpm neutral",
+        "iterations": 1,
+        "region_cutoff_m": 8000.0,
+        "retain_samples": true,
+        "seed": null,
+        "stochastic": false
+      },
+      "contract_status": "passed",
+      "control": "transport_mismatch",
+      "coordinate_semantics": "synthetic_row_key_not_chronology",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "independent_expected_deposition": {
+        "broadleaf": 0.12605090321951548,
+        "conifer": 0.10698217879870492,
+        "open_land": 0.1415742238064749
+      },
+      "independent_expected_reconstruction_fraction": {
+        "broadleaf": 0.3990495748437266,
+        "conifer": 0.4950892390504124,
+        "open_land": 0.10586118610586101
+      },
+      "independent_expected_truth_mae_fraction": 0.07989619020349197,
+      "input_pollen_fraction": {
+        "broadleaf": 0.6150779615359646,
+        "conifer": 0.32383387875050146,
+        "open_land": 0.06108815971353397
+      },
+      "input_semantics": "noise_free_analytic_pollen_weights_not_observed_counts",
+      "interpretation": "transport_and_support_mismatch_challenge",
+      "inverse_crime_control": false,
+      "production_basin_assumption": "peatland",
+      "production_manifest": {
+        "algorithm": "REVEALS",
+        "compatibility_mode": "disqover-0.9.14",
+        "inputs": {
+          "params": "9dba66d96178834779475a73c753ff5bfc4f0974dbe8f85399c8d20b25a01d74",
+          "pollen": "83c507c4aaf6372ef4e9e0a61358df7d7c57aa05c14e2cc90c25f8204ce58e6c"
+        },
+        "package": "bijux-pollenomics-lra",
+        "package_version": "0.1.9.dev232+dirty",
+        "parameters": {
+          "basin_diameter_m": 350,
+          "basin_type": "peatland",
+          "distance_weighting": "gpm neutral",
+          "equation": "Sugita-2007-B1",
+          "iterations": 1,
+          "paired_pollen_draws": false,
+          "paired_ppe_draws": false,
+          "region_cutoff_m": 8000.0,
+          "retain_samples": true,
+          "seed": null,
+          "stochastic": false
+        },
+        "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "reference_package": "disqover",
+        "reference_version": "0.9.14",
+        "runtime": {
+          "numerical_backend": "python-numpy-scipy",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "platform": "macOS-26.6.2-arm64-arm-64bit",
+          "python": "3.11.13",
+          "scipy": "1.17.1"
+        },
+        "schema_version": "1.0.0",
+        "seed": null,
+        "stochastic": false
+      },
+      "reconstructed_vegetation_fraction": {
+        "broadleaf": 0.39905,
+        "conifer": 0.49509000000000003,
+        "open_land": 0.10586000000000001
+      },
+      "source_case": {
+        "assumed_fall_speed_m_s": {
+          "broadleaf": 0.025,
+          "conifer": 0.031,
+          "open_land": 0.018
+        },
+        "assumed_ppe": {
+          "broadleaf": 2.4,
+          "conifer": 1.2,
+          "open_land": 0.8
+        },
+        "basin_radius_m": 175.0,
+        "case_id": "heterogeneous-noise-free",
+        "cell_count": 9,
+        "cells": [
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-00",
+            "vegetation_fraction": {
+              "broadleaf": 0.44186046511627913,
+              "conifer": 0.37541528239202665,
+              "open_land": 0.18272425249169438
+            },
+            "x_m": 0.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 800000.0,
+            "cell_id": "cell-01",
+            "vegetation_fraction": {
+              "broadleaf": 0.4109466901665832,
+              "conifer": 0.44627932489302635,
+              "open_land": 0.14277398494039023
+            },
+            "x_m": -2800.0,
+            "y_m": -2800.0
+          },
+          {
+            "area_m2": 1100000.0,
+            "cell_id": "cell-02",
+            "vegetation_fraction": {
+              "broadleaf": 0.4100887638679173,
+              "conifer": 0.37314911277357643,
+              "open_land": 0.2167621233585063
+            },
+            "x_m": -2800.0,
+            "y_m": 2800.0
+          },
+          {
+            "area_m2": 900000.0,
+            "cell_id": "cell-03",
+            "vegetation_fraction": {
+              "broadleaf": 0.501763218406931,
+              "conifer": 0.3151603183923566,
+              "open_land": 0.1830764632007123
+            },
+            "x_m": 2800.0,
+            "y_m": -2800.0
+          },
+          {
+            "area_m2": 1200000.0,
+            "cell_id": "cell-04",
+            "vegetation_fraction": {
+              "broadleaf": 0.4465196140871233,
+              "conifer": 0.334726415056115,
+              "open_land": 0.21875397085676165
+            },
+            "x_m": 2800.0,
+            "y_m": 2800.0
+          },
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-05",
+            "vegetation_fraction": {
+              "broadleaf": 0.4308879010737716,
+              "conifer": 0.4118567991125741,
+              "open_land": 0.1572552998136543
+            },
+            "x_m": -5600.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 1000000.0,
+            "cell_id": "cell-06",
+            "vegetation_fraction": {
+              "broadleaf": 0.49763694908274453,
+              "conifer": 0.28222982365717436,
+              "open_land": 0.22013322726008114
+            },
+            "x_m": 5600.0,
+            "y_m": 0.0
+          },
+          {
+            "area_m2": 950000.0,
+            "cell_id": "cell-07",
+            "vegetation_fraction": {
+              "broadleaf": 0.4687019391199808,
+              "conifer": 0.3844914194261871,
+              "open_land": 0.1468066414538319
+            },
+            "x_m": 0.0,
+            "y_m": -5600.0
+          },
+          {
+            "area_m2": 1050000.0,
+            "cell_id": "cell-08",
+            "vegetation_fraction": {
+              "broadleaf": 0.4064752722667246,
+              "conifer": 0.33344486410471585,
+              "open_land": 0.2600798636285594
+            },
+            "x_m": 0.0,
+            "y_m": 5600.0
+          }
+        ],
+        "declared_support_m": 8000.0,
+        "expected_disposition": "analytic_recovery",
+        "expected_pollen_fraction": {
+          "broadleaf": 0.6150779615359646,
+          "conifer": 0.32383387875050146,
+          "open_land": 0.06108815971353397
+        },
+        "generated_draws": 0,
+        "landscape_extent_m": 8000.0,
+        "landscape_kind": "heterogeneous",
+        "recovered_vegetation_fraction": {
+          "broadleaf": 0.4418902658128592,
+          "conifer": 0.37524495374517436,
+          "open_land": 0.18286478044196627
+        },
+        "refused_draws": 0,
+        "requested_draws": 0,
+        "status": "success",
+        "true_support_vegetation_fraction": {
+          "broadleaf": 0.44189026581285923,
+          "conifer": 0.3752449537451744,
+          "open_land": 0.18286478044196627
+        },
+        "vegetation_mae_fraction": 3.700743415417188e-17
+      },
+      "source_case_id": "heterogeneous-noise-free",
+      "source_case_sha256": "cd2ff4ef0d198ddcbc05dd17571821c9b45315d53a83891738e60b7664922c13",
+      "source_profile": "independent-finite-cell-known-landscape-v1",
+      "source_report_sha256": "1bd4997dfe82490a05182ca2f211f8496a1c68312f8449ee39a5f140958ad551",
+      "status": "scored",
+      "transport_matched": false,
+      "true_vegetation_fraction": {
+        "broadleaf": 0.44189026581285923,
+        "conifer": 0.3752449537451744,
+        "open_land": 0.18286478044196627
+      },
+      "vegetation_mae_fraction": 0.07989669750321703
+    }
+  ],
+  "claims": {
+    "empirical_ecological_accuracy": false,
+    "held_out_spatial_accuracy": false,
+    "production_reconstruction_executed": true,
+    "real_observations_used": false,
+    "reviewed_ecological_thresholds": false,
+    "synthetic_only": true,
+    "truth_generator_imports_production_forward_or_inverse": false
+  },
+  "denominators": {
+    "attempted": 8,
+    "contract_failed": 0,
+    "contract_passed": 8,
+    "predicted": 8,
+    "refused": 0,
+    "requested": 8,
+    "scored": 8
+  },
+  "profile": "independent-public-reveals-reconstruction-challenge",
+  "prospective_contract": {
+    "deposition_absolute_tolerance": 1e-12,
+    "interval_calibration": "not_evaluated",
+    "iterations_per_reconstruction": 1,
+    "ppe_misspecification_rule": "broadleaf_nominal_ppe_times_0.8",
+    "production_reconstructions": 8,
+    "recovery_tolerance_basis": "half_unit_of_source_three_decimal_percent_rounding",
+    "recovery_tolerance_fraction": 5e-06,
+    "requested_cases": 8,
+    "shuffle_rule": "cyclic_shift_pollen_taxon_values_once_keep_truth_and_parameters_fixed",
+    "stochastic": false
+  },
+  "python": "3.11.13",
+  "schema_version": "pollenomics-synthetic-reconstruction.v1"
+}

@@ -1,0 +1,2018 @@
+{
+  "artifact_scan": {
+    "bytes": {
+      "allocated_bytes": 603297206272,
+      "apparent_bytes": 570897310425,
+      "entries": 12000000,
+      "files": 10927495
+    },
+    "complete": false,
+    "elapsed_seconds": 401.50504570873454,
+    "error_count": 0,
+    "errors": [],
+    "hardlink_examples": [
+      {
+        "first_seen": "not_retained",
+        "path": "jobs/artifact-retention/test-run/test_scan_counts_paths_and_uni0/artifacts/alias"
+      }
+    ],
+    "hardlink_path_count": 1,
+    "limit_reason": "entry_limit",
+    "process_record_paths": [
+      "v2/validation/country-hyde-integration/check-001/process.json",
+      "v2/validation/country-hyde-integration/check-002/process.json",
+      "v2/validation/hyde-native-windows/installed-join-001/process.json",
+      "v2/validation/hyde-native-windows/discovery-002/process.json",
+      "v2/validation/hyde-native-windows/discovery-001/process.json",
+      "v2/validation/host-observation-uncertainty/check-001/process.json",
+      "v2/validation/host-observation-uncertainty/ten-site-001/process.json",
+      "v2/validation/host-observation-uncertainty/check-003/process.json",
+      "v2/validation/host-observation-uncertainty/check-002/process.json",
+      "v2/validation/host-observation-uncertainty/style-001/process.json",
+      "v2/validation/host-observation-uncertainty/installed-001/process.json",
+      "v2/validation/target-forward-mapping/check-001/process.json",
+      "v2/validation/target-forward-mapping/numerical-parity-001/process.json",
+      "v2/validation/target-forward-mapping/check-003/process.json",
+      "v2/validation/target-forward-mapping/check-002/process.json",
+      "v2/validation/target-forward-mapping/numerical-parity-002/process.json",
+      "v2/validation/lra-report/browser-candidate/check-007/process.json",
+      "v2/validation/lra-report/browser-candidate/check-006/process.json",
+      "v2/validation/lra-report/browser-candidate/check-001/process.json",
+      "v2/validation/lra-report/browser-candidate/check-004/process.json",
+      "v2/validation/lra-report/browser-candidate/check-003/process.json",
+      "v2/validation/lra-report/browser-candidate/check-002/process.json",
+      "v2/validation/lra-report/browser-candidate/check-005/process.json",
+      "v2/validation/rootsi-landclim/intake-challenge-001/process.json",
+      "v2/validation/rootsi-landclim/eke-challenge-001/process.json",
+      "v2/validation/rootsi-landclim/author-crosswalk-002/process.json",
+      "v2/validation/rootsi-landclim/author-crosswalk-001/process.json",
+      "v2/validation/source-requests/challenge-002/process.json",
+      "v2/validation/source-requests/challenge-003/process.json",
+      "v2/validation/source-requests/challenge-001/process.json",
+      "v2/validation/sead-admission/challenge-002/process.json",
+      "v2/validation/sead-admission/raw-denominators-001/process.json",
+      "v2/validation/sead-admission/challenge-001/process.json",
+      "v2/validation/sead-admission/raw-denominators-002/process.json",
+      "v2/validation/local-pollen/challenge-002/process.json",
+      "v2/validation/local-pollen/challenge-003/process.json",
+      "v2/validation/local-pollen/challenge-001/process.json",
+      "v2/validation/host-final/sdist-install-002/process.json",
+      "v2/validation/host-final/preparation/process.json",
+      "v2/validation/host-final/build/process.json",
+      "v2/validation/host-final/final-closure/process.json",
+      "v2/validation/host-final/process-correction/check-001/process.json",
+      "v2/validation/host-final/sdist-install/process.json",
+      "v2/validation/joint-realizations-independent/check-001/process.json",
+      "v2/validation/joint-realizations-independent/check-003/lifecycle/process.json",
+      "v2/validation/joint-realizations-independent/check-002/base-only/process.json",
+      "v2/validation/joint-realizations-independent/check-002/lifecycle/process.json",
+      "v2/validation/joint-realizations-independent/expectations-001/process.json",
+      "v2/validation/fitted-spatial/challenge-002/process.json",
+      "v2/validation/fitted-spatial/challenge-003/process.json",
+      "v2/validation/fitted-spatial/challenge-004/process.json",
+      "v2/validation/fitted-spatial/challenge-001/process.json",
+      "v2/validation/fitted-spatial/final-binding-001/process.json",
+      "v2/validation/raa-geometry-independent/check-001/process.json",
+      "v2/validation/final-evaluation/check-007/process.json",
+      "v2/validation/final-evaluation/check-009/process.json",
+      "v2/validation/final-evaluation/synthetic-example-001/process.json",
+      "v2/validation/final-evaluation/check-008/process.json",
+      "v2/validation/final-evaluation/check-006/process.json",
+      "v2/validation/final-evaluation/check-001/process.json",
+      "v2/validation/final-evaluation/synthetic-example-002/process.json",
+      "v2/validation/final-evaluation/check-004/process.json",
+      "v2/validation/final-evaluation/check-003/process.json",
+      "v2/validation/final-evaluation/check-002/process.json",
+      "v2/validation/final-evaluation/check-005/process.json",
+      "v2/validation/final-evaluation/check-010/process.json",
+      "v2/validation/spatial-blocks/challenge-002/process.json",
+      "v2/validation/spatial-blocks/challenge-003/process.json",
+      "v2/validation/spatial-blocks/failed-source-race-001/process.json",
+      "v2/validation/spatial-blocks/challenge-001/process.json",
+      "v2/validation/spatial-blocks/final-binding-001/process.json",
+      "v2/validation/spatial-blocks/failed-source-race-002/process.json",
+      "v2/validation/temporal-evaluation-design/process.json",
+      "v2/validation/scored-evaluator-adapter-design/process.json",
+      "v2/validation/live-r-integration/lock-001/process.json",
+      "v2/validation/live-r-integration/gate-check-002/process.json",
+      "v2/validation/live-r-integration/production-certify-001/process.json",
+      "v2/validation/live-r-integration/gate-check-003/process.json",
+      "v2/validation/live-r-integration/acquire-001/process.json",
+      "v2/validation/live-r-integration/source-identity-check-002/process.json",
+      "v2/validation/live-r-integration/certify-004/process.json",
+      "v2/validation/live-r-integration/certify-003/process.json",
+      "v2/validation/live-r-integration/production-check-001/process.json",
+      "v2/validation/live-r-integration/certify-002/process.json",
+      "v2/validation/live-r-integration/certify-005/process.json",
+      "v2/validation/live-r-integration/stringi-diagnostic-002/process.json",
+      "v2/validation/live-r-integration/provision-002/process.json",
+      "v2/validation/live-r-integration/provision-005/process.json",
+      "v2/validation/live-r-integration/production-provision-001/process.json",
+      "v2/validation/live-r-integration/provision-004/process.json",
+      "v2/validation/live-r-integration/provision-003/process.json",
+      "v2/validation/live-r-integration/production-certify-002/process.json",
+      "v2/validation/live-r-integration/gate-check-001/process.json",
+      "v2/validation/live-r-integration/source-identity-check-001/process.json",
+      "v2/validation/live-r-integration/production-check-002/process.json",
+      "v2/validation/live-r-integration/production-check-005/process.json",
+      "v2/validation/live-r-integration/stringi-diagnostic-001/process.json",
+      "v2/validation/live-r-integration/production-check-004/process.json",
+      "v2/validation/live-r-integration/production-check-003/process.json",
+      "v2/validation/live-r-integration/certify-001/process.json",
+      "v2/validation/live-r-integration/provision-001/process.json",
+      "v2/validation/browser-final/check-001/process.json",
+      "v2/validation/browser-final/imports-001/process.json",
+      "v2/validation/browser-final/check-002/process.json",
+      "v2/validation/temporal-admission/check-001/process.json",
+      "v2/validation/temporal-admission/ten-site-001/process.json",
+      "v2/validation/temporal-admission/check-004/process.json",
+      "v2/validation/temporal-admission/check-003/process.json",
+      "v2/validation/temporal-admission/style-final-001/process.json",
+      "v2/validation/temporal-admission/check-002/process.json",
+      "v2/validation/observation-uncertainty/provider-boundary/process.json",
+      "v2/validation/observation-uncertainty/challenge-002/process.json",
+      "v2/validation/observation-uncertainty/corrected-006/process.json",
+      "v2/validation/observation-uncertainty/corrected-003-extra/process.json",
+      "v2/validation/observation-uncertainty/retained-support-004/process.json",
+      "v2/validation/observation-uncertainty/challenge-001/process.json",
+      "v2/validation/observation-uncertainty/cdf-boundary-grid/process.json",
+      "v2/validation/observation-uncertainty/corrected-003/process.json",
+      "v2/validation/observation-uncertainty/corrected-004-schema/process.json",
+      "v2/validation/temporal-persistence/check-007/process.json",
+      "v2/validation/temporal-persistence/check-009/process.json",
+      "v2/validation/temporal-persistence/retained-challenge-001/process.json",
+      "v2/validation/temporal-persistence/check-008/process.json",
+      "v2/validation/temporal-persistence/check-006/process.json",
+      "v2/validation/temporal-persistence/lifecycle-002/process.json",
+      "v2/validation/temporal-persistence/check-001/process.json",
+      "v2/validation/temporal-persistence/numerics-002/process.json",
+      "v2/validation/temporal-persistence/demonstration-001/process.json",
+      "v2/validation/temporal-persistence/request-replay-002/process.json",
+      "v2/validation/temporal-persistence/installed-003/process.json",
+      "v2/validation/temporal-persistence/installed-002/process.json",
+      "v2/validation/temporal-persistence/check-004/process.json",
+      "v2/validation/temporal-persistence/check-003/process.json",
+      "v2/validation/temporal-persistence/check-002/process.json",
+      "v2/validation/temporal-persistence/check-005/process.json",
+      "v2/validation/temporal-persistence/lifecycle-001/process.json",
+      "v2/validation/temporal-persistence/numerics-001/process.json",
+      "v2/validation/temporal-persistence/request-replay-001/process.json",
+      "v2/validation/temporal-persistence/installed-001/process.json",
+      "v2/scored-evidence-independent/check-001/process.json",
+      "v2/scored-evidence-independent/check-004/process.json",
+      "v2/scored-evidence-independent/check-003/process.json",
+      "v2/scored-evidence-independent/check-002/process.json",
+      "v2/engine/publication-check-001/process.json",
+      "v2/engine/profile-python-2/process.json",
+      "v2/engine/coordinate-object-final-numerics/process.json",
+      "v2/engine/typing-final-numerics/process.json",
+      "v2/engine/typing-final-wheel/process.json",
+      "v2/engine/batches/check-001/process.json",
+      "v2/engine/batches/replay-001/process.json",
+      "v2/engine/batches/check-004/process.json",
+      "v2/engine/batches/check-003/process.json",
+      "v2/engine/batches/replay-002/process.json",
+      "v2/engine/batches/check-002/process.json",
+      "v2/engine/architecture-check-2/process.json",
+      "v2/engine/installed-wheel/process.json",
+      "v2/engine/profile-python/process.json",
+      "v2/engine/publication-r-replay/process.json",
+      "v2/engine/coordinate-final-numerics/process.json",
+      "v2/engine/publication-runtime/process.json",
+      "v2/engine/coordinate-canonical-002/process.json",
+      "v2/engine/review-check/process.json",
+      "v2/engine/installed-wheel-2/process.json",
+      "v2/engine/strict-types-audit/process.json",
+      "v2/engine/coordinate-final-wheel/process.json",
+      "v2/engine/strict-types-py311/process.json",
+      "v2/engine/multisite-audit/r-experiment/process.json",
+      "v2/engine/publication-check-002/process.json",
+      "v2/engine/coordinate-object-final-wheel/process.json",
+      "v2/engine/backend-scope/process.json",
+      "v2/engine/baseline/process.json",
+      "v2/engine/publication-check-004/process.json",
+      "v2/engine/publication-check-003/process.json",
+      "v2/engine/coordinate-check-001/process.json",
+      "v2/engine/oracle/process.json",
+      "v2/engine/publication-license-audit/process.json",
+      "v2/engine/cpp-spike/process.json",
+      "v2/engine/native-controls-challenge/process.json",
+      "v2/engine/outputs-check/process.json",
+      "v2/engine/coordinate-object-check-001/process.json",
+      "v2/engine/optimizer-quality/baseline-001/process.json",
+      "v2/engine/optimizer-quality/r-001/process.json",
+      "v2/engine/optimizer-quality/baseline-002/process.json",
+      "v2/engine/current-handoff/acceptance-audit-001/process.json",
+      "v2/engine/architecture-check/process.json",
+      "v2/engine/frozen-wheel/process.json",
+      "v2/engine/adoption-check-2/process.json",
+      "v2/engine/release-check/process.json",
+      "v2/engine/adoption-check/process.json"
+    ],
+    "selected_prefixes": {
+      "jobs/linux-r-oracle/mypy-cache": {
+        "allocated_bytes": 13705216,
+        "apparent_bytes": 13640160,
+        "entries": 5,
+        "files": 3
+      },
+      "jobs/linux-r-oracle/run": {
+        "allocated_bytes": 1658880,
+        "apparent_bytes": 1161397,
+        "entries": 147,
+        "files": 142
+      },
+      "jobs/linux-r-oracle/source-closed-run": {
+        "allocated_bytes": 1679360,
+        "apparent_bytes": 1182668,
+        "entries": 147,
+        "files": 142
+      },
+      "jobs/linux-r-oracle/test-run": {
+        "allocated_bytes": 192512,
+        "apparent_bytes": 6635,
+        "entries": 61,
+        "files": 47
+      },
+      "jobs/neotoma-first-observed/mypy-cache": {
+        "allocated_bytes": 22093824,
+        "apparent_bytes": 22077920,
+        "entries": 5,
+        "files": 3
+      },
+      "v2/linux-r-runtime/build001": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 0,
+        "entries": 0,
+        "files": 0
+      },
+      "v2/linux-r-runtime/provision001": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 0,
+        "entries": 0,
+        "files": 0
+      },
+      "v2/validation/live-r-integration/acquire-001/sources": {
+        "allocated_bytes": 65208320,
+        "apparent_bytes": 65135166,
+        "entries": 38,
+        "files": 37
+      }
+    },
+    "special_entry_count": 10,
+    "symlink_count": 24070,
+    "symlink_examples": [
+      {
+        "path": "map-browser-bandit-verification/venv/bin/python3",
+        "target": "python"
+      },
+      {
+        "path": "map-browser-bandit-verification/venv/bin/python",
+        "target": "/Users/bijan/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/bin/python3.14"
+      },
+      {
+        "path": "map-browser-bandit-verification/venv/bin/python3.14",
+        "target": "python"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_governcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/dev-contract-fixes/pytest/test_setup_materializes_govern0"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/.tox",
+        "target": "artifacts/root/tox"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/.hypothesis",
+        "target": "artifacts/root/hypothesis"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/.benchmarks",
+        "target": "artifacts/root/benchmarks"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/.venv",
+        "target": "artifacts/root/check-venv"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/pollenomics/artifacts",
+        "target": "../../artifacts/pollenomics"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/pollenomics/.hypothesis",
+        "target": "../../artifacts/pollenomics/hypothesis"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/pollenomics/.benchmarks",
+        "target": "../../artifacts/pollenomics/benchmarks"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/pollenomics/.venv",
+        "target": "../../artifacts/pollenomics/venv"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics/artifacts",
+        "target": "../../artifacts/bijux-pollenomics"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics/.hypothesis",
+        "target": "../../artifacts/bijux-pollenomics/hypothesis"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics/.benchmarks",
+        "target": "../../artifacts/bijux-pollenomics/benchmarks"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics/.venv",
+        "target": "../../artifacts/bijux-pollenomics/venv"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics-dev/artifacts",
+        "target": "../../artifacts/bijux-pollenomics-dev"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics-dev/.hypothesis",
+        "target": "../../artifacts/bijux-pollenomics-dev/hypothesis"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics-dev/.benchmarks",
+        "target": "../../artifacts/bijux-pollenomics-dev/benchmarks"
+      },
+      {
+        "path": "dev-contract-fixes/pytest/test_setup_materializes_govern0/repo/packages/bijux-pollenomics-dev/.venv",
+        "target": "../../artifacts/bijux-pollenomics-dev/venv"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_controlled_source_vocabulcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_controlled_source_vocabul0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_quality_workbook_normalizcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_quality_workbook_normaliz0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_ambiguous_or_unowned_projcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_ambiguous_or_unowned_proj0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_writer_rejects_outputs_oucurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_writer_rejects_outputs_ou0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_unsafe_output_paths_are_rcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_unsafe_output_paths_are_r0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_complementary_evidence_recurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_complementary_evidence_re0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_malformed_rows_duplicate_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_malformed_rows_duplicate_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_coherently_rehashed_classcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_coherently_rehashed_class0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_bundle_manifest_rejects_pcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_bundle_manifest_rejects_p0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_uninspectable_index_is_uncurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_uninspectable_index_is_un0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_projection_is_versioned_dcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_projection_is_versioned_d0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_network_attempt_aborts_becurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_network_attempt_aborts_be0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_dependency_audit_requirescurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_dependency_audit_requires0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_invalid_scientific_valuescurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_invalid_scientific_values1"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_product_repository_state_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_product_repository_state_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_json_helpers_resolve_the_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_json_helpers_resolve_the_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_request_writer_rejects_sycurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_request_writer_rejects_sy0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_receipt_reconciles_every_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_receipt_reconciles_every_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_rendered_browser_javascricurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_rendered_browser_javascri0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_duplicate_site_ids_fail_ccurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_duplicate_site_ids_fail_c0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_repository_rootcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_repository_root0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_producer_tree_cache_exclucurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_producer_tree_cache_exclu0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_evidence_distinguishes_blcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_evidence_distinguishes_bl0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_animal_review_counts_follcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_animal_review_counts_foll0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_corrupt_slice_path_does_ncurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_corrupt_slice_path_does_n0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_primary_and_sensitivity_ocurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_primary_and_sensitivity_o0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_caller_cannot_omit_a_policurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_caller_cannot_omit_a_poli0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_staging_failure_leaves_nocurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_staging_failure_leaves_no1"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_changed_propagation_identcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_changed_propagation_ident0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_producer_identity_refusescurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_producer_identity_refuses0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_stream_is_hashed_but_nevecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_stream_is_hashed_but_neve0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_request_writer_is_idempotcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_request_writer_is_idempot0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_assembly_rejects_missing_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_assembly_rejects_missing_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_completeness_and_gap_denocurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_completeness_and_gap_deno0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_projection_preserves_canocurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_projection_preserves_cano0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_extraction_rejects_forgedcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_extraction_rejects_forged0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_repository_materializer_rcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_repository_materializer_r0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_source_native_evidence_recurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_source_native_evidence_re1"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_coherently_rehashed_gate_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_coherently_rehashed_gate_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_tampered_reconciliation_icurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_tampered_reconciliation_i0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_columnar_inventory_refusecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_columnar_inventory_refuse1"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_scoped_acquisition_requircurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_scoped_acquisition_requir0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_full_evidence_admission_rcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_full_evidence_admission_r0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_embedded_producer_and_schcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_embedded_producer_and_sch0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_policy_owned_scope_cross_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_policy_owned_scope_cross_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_repository_surface_publiccurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_repository_surface_public3"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_andcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_and0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_materialization_preservescurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_materialization_preserves0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_classification_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_classification_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_policy_refusals_remain_facurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_policy_refusals_remain_fa0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_service_requires_manifestcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_service_requires_manifest0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_repository_state_overridecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_repository_state_override0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_tracked_data_count_excludcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_tracked_data_count_exclud0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_structural_tampering_failcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_structural_tampering_fail0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_explicit_unsafe_output_pacurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_explicit_unsafe_output_pa0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_quality_workbook_refuses_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_quality_workbook_refuses_2"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_mappable_coordinates_rejecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_mappable_coordinates_reje0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_parsed_rows_and_input_idecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_parsed_rows_and_input_ide0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_non_identical_overwrite_icurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_non_identical_overwrite_i0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_gate_refuses_output_outsicurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_gate_refuses_output_outsi0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_repository_surface_baselicurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_repository_surface_baseli0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_genetic_id_grouping_trimscurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_genetic_id_grouping_trims0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_canonical_request_bytes_acurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_canonical_request_bytes_a0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_rehashed_normative_claim_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_rehashed_normative_claim_1"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_dependency_audit_reports_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_dependency_audit_reports_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_heterogeneous_projects_recurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_heterogeneous_projects_re0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_input_output_ancestor_ovecurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_input_output_ancestor_ove0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_classification_0/linked-classification-parent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_classification_0/classification-parent"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_repository_root0/linked-repository-parent",
+        "target": "/Users/bijan/bijux"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_producer_identity_refuses0/gates/execution.py",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_producer_identity_refuses0/outside.py"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_tracked_data_count_exclud0/repository/data/tracked-link",
+        "target": "tracked.json"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_producer_tree_cache_exclu0/producer/linked.pyc",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_producer_tree_cache_exclu0/producer/source.py"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_and0/linked-schemas",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_and0/schemas"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_and0/schemas/propagation-model.v1.yaml",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_symlinked_schema_root_and0/governed-model.yaml"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/5/tmp/test_request_writer_rejects_sy0/artifacts/release-candidate",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/5/tmp/test_request_writer_rejects_sy0/outside"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/2/tmp/test_gate_refuses_junit_outsidcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/2/tmp/test_gate_refuses_junit_outsid0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/2/tmp/test_artifact_inventory_binds_current",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/2/tmp/test_artifact_inventory_binds_0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/2/tmp/test_normalized_member_collisicurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/2/tmp/test_normalized_member_collisi0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/2/tmp/test_boolean_declared_count_facurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/2/tmp/test_boolean_declared_count_fa0"
+      },
+      {
+        "path": "jobs/runtime-release-verification/shards/2/tmp/test_ambiguous_or_unowned_projcurrent",
+        "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/runtime-release-verification/shards/2/tmp/test_ambiguous_or_unowned_proj0"
+      }
+    ],
+    "top_level": {
+      ".DS_Store": {
+        "allocated_bytes": 16384,
+        "apparent_bytes": 12292,
+        "entries": 1,
+        "files": 1
+      },
+      ".mypy-cache": {
+        "allocated_bytes": 7819264,
+        "apparent_bytes": 7582176,
+        "entries": 5,
+        "files": 3
+      },
+      ".pycache": {
+        "allocated_bytes": 33136640,
+        "apparent_bytes": 29937225,
+        "entries": 1708,
+        "files": 1503
+      },
+      ".ruff-cache": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 160,
+        "entries": 1,
+        "files": 0
+      },
+      ".uv-cache": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 288,
+        "entries": 1,
+        "files": 0
+      },
+      "animal-chronology-atlas-integration": {
+        "allocated_bytes": 12288,
+        "apparent_bytes": 455,
+        "entries": 6,
+        "files": 5
+      },
+      "animal-chronology-independent-verification": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 2816,
+        "entries": 1,
+        "files": 0
+      },
+      "animal-chronology-publication-contract": {
+        "allocated_bytes": 40960,
+        "apparent_bytes": 5699,
+        "entries": 11,
+        "files": 10
+      },
+      "atlas-boundary-orientation": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 256,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-detail-focus": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 640,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-frame-url-replay": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 480,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-media-independent-review": {
+        "allocated_bytes": 678793216,
+        "apparent_bytes": 611305466,
+        "entries": 23663,
+        "files": 19590
+      },
+      "atlas-media-site-count": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-media-v5-checks": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-media-v5-final": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 160,
+        "entries": 4,
+        "files": 3
+      },
+      "atlas-nordic-source": {
+        "allocated_bytes": 4259840,
+        "apparent_bytes": 3860487,
+        "entries": 231,
+        "files": 146
+      },
+      "atlas-provider-accessibility": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 352,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-release-288297fac77b": {
+        "allocated_bytes": 452354048,
+        "apparent_bytes": 446596615,
+        "entries": 2979,
+        "files": 2941
+      },
+      "atlas-release-a618ffbf0d1e": {
+        "allocated_bytes": 76279808,
+        "apparent_bytes": 75739783,
+        "entries": 278,
+        "files": 267
+      },
+      "atlas-source-detail": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 864,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-source-export": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 544,
+        "entries": 1,
+        "files": 0
+      },
+      "atlas-source-ui": {
+        "allocated_bytes": 212992,
+        "apparent_bytes": 161175,
+        "entries": 18,
+        "files": 17
+      },
+      "atlas-source-url-replay": {
+        "allocated_bytes": 17149952,
+        "apparent_bytes": 16344635,
+        "entries": 145,
+        "files": 111
+      },
+      "atlas-tile-free-orientation-controls": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 256,
+        "entries": 1,
+        "files": 0
+      },
+      "audits": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 192,
+        "entries": 1,
+        "files": 0
+      },
+      "bijux-pollenomics": {
+        "allocated_bytes": 2101760000,
+        "apparent_bytes": 1808213833,
+        "entries": 115610,
+        "files": 101398
+      },
+      "bijux-pollenomics-dev": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 864,
+        "entries": 1,
+        "files": 0
+      },
+      "bijux-pollenomics-lra": {
+        "allocated_bytes": 1132040192,
+        "apparent_bytes": 1040773766,
+        "entries": 39359,
+        "files": 33909
+      },
+      "bijux-std": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "cache": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 256,
+        "entries": 1,
+        "files": 0
+      },
+      "ci-runtime-audit.rOiide": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "contracts": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "control-validation": {
+        "allocated_bytes": 8192,
+        "apparent_bytes": 3024,
+        "entries": 3,
+        "files": 2
+      },
+      "control-validation-9ef03144": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 256,
+        "entries": 1,
+        "files": 0
+      },
+      "control-validator-9ef03144": {
+        "allocated_bytes": 23433216,
+        "apparent_bytes": 18102583,
+        "entries": 2269,
+        "files": 1996
+      },
+      "debug-plan": {
+        "allocated_bytes": 94208,
+        "apparent_bytes": 8690,
+        "entries": 36,
+        "files": 23
+      },
+      "dependency-refresh": {
+        "allocated_bytes": 298364928,
+        "apparent_bytes": 250124231,
+        "entries": 21043,
+        "files": 18007
+      },
+      "dev-contract-fixes": {
+        "allocated_bytes": 12288,
+        "apparent_bytes": 3836,
+        "entries": 46,
+        "files": 3
+      },
+      "diagnostics": {
+        "allocated_bytes": 425660416,
+        "apparent_bytes": 422722944,
+        "entries": 1480,
+        "files": 1397
+      },
+      "docs": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 128,
+        "entries": 1,
+        "files": 0
+      },
+      "execution-control": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 6368,
+        "entries": 1,
+        "files": 0
+      },
+      "history-safety": {
+        "allocated_bytes": 939606016,
+        "apparent_bytes": 939595452,
+        "entries": 7,
+        "files": 6
+      },
+      "jobs": {
+        "allocated_bytes": 73492553728,
+        "apparent_bytes": 71479047435,
+        "entries": 782076,
+        "files": 699273
+      },
+      "logs": {
+        "allocated_bytes": 946176,
+        "apparent_bytes": 903684,
+        "entries": 15,
+        "files": 14
+      },
+      "map-browser-bandit-verification": {
+        "allocated_bytes": 357265408,
+        "apparent_bytes": 286101848,
+        "entries": 23792,
+        "files": 22689
+      },
+      "map-browser-verification-d6448a77": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 224,
+        "entries": 1,
+        "files": 0
+      },
+      "mypy": {
+        "allocated_bytes": 153620480,
+        "apparent_bytes": 151625456,
+        "entries": 39,
+        "files": 24
+      },
+      "neotoma-facet-accountability": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "neotoma-facet-independent": {
+        "allocated_bytes": 126976,
+        "apparent_bytes": 68062,
+        "entries": 20,
+        "files": 19
+      },
+      "nordic-direct-pollen": {
+        "allocated_bytes": 2809856,
+        "apparent_bytes": 2783930,
+        "entries": 16,
+        "files": 14
+      },
+      "pollenomics": {
+        "allocated_bytes": 649650176,
+        "apparent_bytes": 600155575,
+        "entries": 23254,
+        "files": 19345
+      },
+      "pr-199-body.md": {
+        "allocated_bytes": 4096,
+        "apparent_bytes": 3436,
+        "entries": 1,
+        "files": 1
+      },
+      "pr-199-failures": {
+        "allocated_bytes": 393216,
+        "apparent_bytes": 389588,
+        "entries": 3,
+        "files": 2
+      },
+      "pycache": {
+        "allocated_bytes": 10870784,
+        "apparent_bytes": 8669578,
+        "entries": 1205,
+        "files": 1011
+      },
+      "pytest": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 416,
+        "entries": 1,
+        "files": 0
+      },
+      "pytest-cache": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 128,
+        "entries": 1,
+        "files": 0
+      },
+      "pytest-cache-history": {
+        "allocated_bytes": 1503232,
+        "apparent_bytes": 601496,
+        "entries": 475,
+        "files": 249
+      },
+      "pytest-tmp": {
+        "allocated_bytes": 275136512,
+        "apparent_bytes": 254848640,
+        "entries": 7228,
+        "files": 6009
+      },
+      "quality-source": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 160,
+        "entries": 1,
+        "files": 0
+      },
+      "quarantine": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "recovered": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 128,
+        "entries": 1,
+        "files": 0
+      },
+      "release-decision": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "release-decision-tests": {
+        "allocated_bytes": 6676480,
+        "apparent_bytes": 1195326,
+        "entries": 2266,
+        "files": 1610
+      },
+      "release-evidence-posture-review": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 416,
+        "entries": 1,
+        "files": 0
+      },
+      "reviews": {
+        "allocated_bytes": 22401024,
+        "apparent_bytes": 22301832,
+        "entries": 58,
+        "files": 55
+      },
+      "root": {
+        "allocated_bytes": 35206144000,
+        "apparent_bytes": 32521655964,
+        "entries": 948168,
+        "files": 890385
+      },
+      "sead-fixture-contract": {
+        "allocated_bytes": 12288,
+        "apparent_bytes": 321,
+        "entries": 4,
+        "files": 3
+      },
+      "snapshots": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 96,
+        "entries": 1,
+        "files": 0
+      },
+      "source-counts-pytest-cache": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 192,
+        "entries": 1,
+        "files": 0
+      },
+      "source-intake": {
+        "allocated_bytes": 22736896,
+        "apparent_bytes": 22685880,
+        "entries": 24,
+        "files": 21
+      },
+      "source-key-ledger": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 928,
+        "entries": 1,
+        "files": 0
+      },
+      "source-key-ledger-independent": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 1216,
+        "entries": 1,
+        "files": 0
+      },
+      "sustainability-external-root-tests": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 288,
+        "entries": 1,
+        "files": 0
+      },
+      "sustainability-tests": {
+        "allocated_bytes": 8192,
+        "apparent_bytes": 1422,
+        "entries": 16,
+        "files": 2
+      },
+      "tmp": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 256,
+        "entries": 3,
+        "files": 0
+      },
+      "transport": {
+        "allocated_bytes": 0,
+        "apparent_bytes": 64,
+        "entries": 1,
+        "files": 0
+      },
+      "uv_cache": {
+        "allocated_bytes": 582299648,
+        "apparent_bytes": 444703482,
+        "entries": 46668,
+        "files": 44188
+      },
+      "v2": {
+        "allocated_bytes": 196351315968,
+        "apparent_bytes": 189872039218,
+        "entries": 2400389,
+        "files": 2100061
+      },
+      "v3": {
+        "allocated_bytes": 285749796864,
+        "apparent_bytes": 265383733930,
+        "entries": 7530114,
+        "files": 6937931
+      },
+      "v3-cleanup": {
+        "allocated_bytes": 462848,
+        "apparent_bytes": 339589,
+        "entries": 164,
+        "files": 54
+      },
+      "v4": {
+        "allocated_bytes": 22167552,
+        "apparent_bytes": 19646548,
+        "entries": 1434,
+        "files": 906
+      },
+      "v5": {
+        "allocated_bytes": 691183616,
+        "apparent_bytes": 691015051,
+        "entries": 114,
+        "files": 90
+      },
+      "validation": {
+        "allocated_bytes": 3506065408,
+        "apparent_bytes": 3461678607,
+        "entries": 23516,
+        "files": 22201
+      }
+    },
+    "unique_inode_allocated_bytes": 603297202176,
+    "unique_inode_apparent_bytes": 570897310417,
+    "unique_inode_count": 11999999
+  },
+  "cap_decision": {
+    "deletion_authorized_by_this_report": false,
+    "deletion_required_now": false,
+    "observed_apparent_bytes": 570897310425,
+    "output_reserve_bytes": 10000000,
+    "remaining_to_threshold_bytes": 229102689575,
+    "status": "indeterminate_incomplete_scan",
+    "threshold_bytes": 800000000000
+  },
+  "method": "bounded_lstat_metadata; no_symlink_follow; selected_proof_hashes_only",
+  "native_cap_check": {
+    "apparent_byte_lower_bound": 701565625857,
+    "apparent_byte_upper_bound": 701565626368,
+    "concurrent_artifact_writes_observed": true,
+    "receipt_path": "artifacts/jobs/artifact-retention/native-du-receipt.json",
+    "receipt_sha256": "2eb71ec44c92259fd174acd9589a45f21878cd90cf8811552455048f5fd493ad",
+    "remaining_to_threshold_lower_bound": 98434373632,
+    "status": "observed_below_cap_non_atomic",
+    "traversal_is_atomic_snapshot": false
+  },
+  "observed_at_utc": "2026-09-27T23:15:04.326879+00:00",
+  "process_liveness": {
+    "checked": 188,
+    "pid_running": [],
+    "pid_running_count": 0,
+    "status": "pid_snapshot_only; reuse cannot establish job identity or inactivity"
+  },
+  "reference_scan": {
+    "bytes_read": 51298657,
+    "complete": false,
+    "error_count": 0,
+    "errors": [],
+    "files_seen": 2531,
+    "limit_reason": null,
+    "references": {
+      "artifacts/atlas-boundary-orientation/browser-coordinate-visibility": [
+        "docs/report/atlas/boundary-orientation/README.md"
+      ],
+      "artifacts/atlas-boundary-orientation/browser-coordinate-visibility/": [
+        "docs/report/atlas/boundary-orientation/README.md"
+      ],
+      "artifacts/atlas-boundary-orientation/candidate-final": [
+        "docs/report/atlas/boundary-orientation/README.md"
+      ],
+      "artifacts/atlas-detail-focus/browser-evidence-navigation": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/browser-keyboard/receipt.json": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/browser-paging-diagnostic/receipt.json": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/browser-ready/receipt.json": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/browser-replay": [
+        "docs/report/atlas/detail-focus/README.md"
+      ],
+      "artifacts/atlas-detail-focus/browser-viewport/receipt.json": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/browser/receipt.json": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/pytest-cache": [
+        "docs/report/atlas/detail-focus/README.md",
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/pytest-tmp": [
+        "docs/report/atlas/detail-focus/README.md"
+      ],
+      "artifacts/atlas-detail-focus/pytest-tmp/test_detail_focus_candidate_ex0": [
+        "docs/report/atlas/detail-focus/README.md",
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/regression-tmp": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-detail-focus/ruff-cache": [
+        "docs/report/atlas/detail-focus/verification.json"
+      ],
+      "artifacts/atlas-frame-url-replay/browser-owned": [
+        "docs/report/atlas/frame-url-replay/README.md"
+      ],
+      "artifacts/atlas-frame-url-replay/owned-candidate": [
+        "docs/report/atlas/frame-url-replay/README.md"
+      ],
+      "artifacts/atlas-frame-url-replay/replay-browser": [
+        "docs/report/atlas/frame-url-replay/README.md"
+      ],
+      "artifacts/atlas-frame-url-replay/replay-candidate": [
+        "docs/report/atlas/frame-url-replay/README.md"
+      ],
+      "artifacts/atlas-nordic-source/browser-frozen": [
+        "docs/report/atlas/nordic-source/README.md"
+      ],
+      "artifacts/atlas-nordic-source/frozen-candidate": [
+        "docs/report/atlas/nordic-source/README.md"
+      ],
+      "artifacts/atlas-nordic-source/replay-browser": [
+        "docs/report/atlas/nordic-source/README.md"
+      ],
+      "artifacts/atlas-nordic-source/replay-candidate": [
+        "docs/report/atlas/nordic-source/README.md"
+      ],
+      "artifacts/atlas-provider-accessibility/browser-clearance": [
+        "docs/report/atlas/provider-accessibility/README.md"
+      ],
+      "artifacts/atlas-provider-accessibility/browser-clearance/390-tile-free.png": [
+        "docs/report/atlas/provider-accessibility/README.md"
+      ],
+      "artifacts/atlas-provider-accessibility/browser-legend-diagnostic/390-tile-free.png": [
+        "docs/report/atlas/provider-accessibility/README.md"
+      ],
+      "artifacts/atlas-provider-accessibility/candidate-clearance": [
+        "docs/report/atlas/provider-accessibility/README.md"
+      ],
+      "artifacts/atlas-source-detail/browser-replay": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-detail/drawer-tests": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-detail/literal-observation-candidate": [
+        "docs/report/atlas/source-detail/verification.json"
+      ],
+      "artifacts/atlas-source-detail/literal-observation-candidate/expectations.json": [
+        "docs/report/atlas/source-detail/verification.json"
+      ],
+      "artifacts/atlas-source-detail/pytest-cache": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-detail/pytest.log": [
+        "docs/report/atlas/source-detail/verification.json"
+      ],
+      "artifacts/atlas-source-detail/replay-candidate": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-detail/replay-candidate/expectations.json": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-detail/source-browser/receipt.json": [
+        "docs/report/atlas/source-detail/verification.json"
+      ],
+      "artifacts/atlas-source-detail/source-literal-observation": [
+        "docs/report/atlas/source-detail/verification.json"
+      ],
+      "artifacts/atlas-source-detail/source-tests": [
+        "docs/report/atlas/source-detail/README.md"
+      ],
+      "artifacts/atlas-source-export/browser-replay": [
+        "docs/report/atlas/source-export/README.md"
+      ],
+      "artifacts/atlas-source-export/browser-source-fields": [
+        "docs/report/atlas/source-export/verification.json"
+      ],
+      "artifacts/atlas-source-export/browser/receipt.json": [
+        "docs/report/atlas/source-export/verification.json"
+      ],
+      "artifacts/atlas-source-export/replay-candidate": [
+        "docs/report/atlas/source-export/README.md"
+      ],
+      "artifacts/atlas-source-export/source-observation-candidate": [
+        "docs/report/atlas/source-export/verification.json"
+      ],
+      "artifacts/atlas-source-url-replay/browser-stale-writers": [
+        "docs/report/atlas/source-url-replay/README.md"
+      ],
+      "artifacts/atlas-source-url-replay/frozen-candidate": [
+        "docs/report/atlas/source-url-replay/README.md"
+      ],
+      "artifacts/atlas-source-url-replay/replay-browser": [
+        "docs/report/atlas/source-url-replay/README.md"
+      ],
+      "artifacts/atlas-source-url-replay/replay-candidate": [
+        "docs/report/atlas/source-url-replay/README.md"
+      ],
+      "artifacts/atlas-tile-free-orientation-controls/browser-clearance/": [
+        "docs/report/atlas/tile-free-orientation-controls/README.md"
+      ],
+      "artifacts/atlas-tile-free-orientation-controls/browser-repro": [
+        "docs/report/atlas/tile-free-orientation-controls/README.md"
+      ],
+      "artifacts/atlas-tile-free-orientation-controls/candidate-repro": [
+        "docs/report/atlas/tile-free-orientation-controls/README.md"
+      ],
+      "artifacts/author-pollen-development-reproduction": [
+        "docs/report/pollen-reconstruction/README.md"
+      ],
+      "artifacts/bijux-checks": [
+        ".github/workflows/bijux-std.yml"
+      ],
+      "artifacts/bijux-pollenomics": [
+        ".github/workflows/verify.yml"
+      ],
+      "artifacts/bijux-pollenomics-dev": [
+        ".github/workflows/verify.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra": [
+        ".github/workflows/verify.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference": [
+        ".github/workflows/lra-reference.yml",
+        "makes/packages/bijux-pollenomics-lra.mk"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/handoff": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/handoff/provision.tar": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/handoff/runtime.tar": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/handoff/sources.tar": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/receipts/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/receipts/acquisition/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/receipts/certification/bundle/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/receipts/provision/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/receipts/runtime/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/dpkg-packages.txt": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/kernel.txt": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/provision": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/provision/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/runtime": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/reference/system/runtime/": [
+        ".github/workflows/lra-reference.yml"
+      ],
+      "artifacts/bijux-pollenomics-lra/release-evidence": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py"
+      ],
+      "artifacts/bijux-pollenomics/build": [
+        "makes/root.mk"
+      ],
+      "artifacts/checks": [
+        ".github/workflows/bijux-std.yml"
+      ],
+      "artifacts/docs/site": [
+        ".github/workflows/deploy-docs.yml"
+      ],
+      "artifacts/execution-control": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py",
+        ".github/workflows/scientific-verification.yml",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/browser": [
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/execution-control/browser/evidence": [
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/execution-control/browser/plan.json": [
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/execution-control/ci": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/ci/changed-paths.txt": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/ci/path-impact-results.json": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/ci/path-selection.junit.xml": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/ci/pytest-cache": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/classification/neotoma-audit-5a932522": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/catalog.py",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/classification/neotoma-audit-visual-profile-5a932522/manifest.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/country-coverage": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/constants.py"
+      ],
+      "artifacts/execution-control/deployed-smoke": [
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/execution-control/deployed-smoke/result.json": [
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/execution-control/doc-count-plan": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/catalog.py",
+        ".github/workflows/scientific-verification.yml",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/doc-count-plan/collection-plan.json": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py",
+        ".github/workflows/scientific-verification.yml",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/doc-count-shards": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/catalog.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py",
+        ".github/workflows/scientific-verification.yml",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/doc-count-shards/": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/gates": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py",
+        ".github/workflows/scientific-verification.yml",
+        "makes/pollenomics-verification.mk",
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/gates/data.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/gates/doc-counts.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/gates/map.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/gates/provenance.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/gates/science.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/propagation/neotoma-audit-1b5114cd/manifest.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/propagation/neotoma-audit-1b5114cd/sensitivity_summary.json": [
+        "configs/release_evidence_policy.json"
+      ],
+      "artifacts/execution-control/propagation/neotoma-pollen-release-refusal-092dfe4f": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/catalog.py",
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/release-evidence/": [
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/report-rebuild-assembly/": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-assembly/reference": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-assembly/reference/manifest.json": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-assembly/replay": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-assembly/replay/manifest.json": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-fragment/": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-partition-input": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-plan": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/report-rebuild-plan/plan.json": [
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/report-rebuild-scope-input": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/reproducible-report-build": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/reproducible-report-build.XXXXXX": [
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/execution-control/reproducible-report-build/evidence": [
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/execution-control/sead-evidence-fixed-point.XXXXXX": [
+        "makes/pollenomics-verification.mk"
+      ],
+      "artifacts/jobs/country-source-limitations/reproduction": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/country_limitations.py"
+      ],
+      "artifacts/jobs/linux-r-oracle/image-build.log": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/jobs/linux-r-oracle/image-context/Dockerfile": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/image.id": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/reproduction": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/reproduction-retained": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/run/": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/run/receipt.json": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/jobs/linux-r-oracle/source-closed-run": [
+        "docs/report/method-certification/linux-r-oracle/report.json"
+      ],
+      "artifacts/jobs/linux-r-oracle/source-closed-run/": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/jobs/linux-r-oracle/source-closed-run/receipt.json": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/jobs/live-original-r-certified/library": [
+        "docs/report/method-certification/current-r-oracle/source-domains/command.json"
+      ],
+      "artifacts/jobs/live-original-r-certified/source-domains": [
+        "docs/report/method-certification/current-r-oracle/source-domains/command.json"
+      ],
+      "artifacts/jobs/live-original-r-certified/source-domains/r_support.R": [
+        "docs/report/method-certification/current-r-oracle/source-domains/command.json"
+      ],
+      "artifacts/jobs/live-original-r-certified/source-domains/source_domains.R": [
+        "docs/report/method-certification/current-r-oracle/source-domains/command.json"
+      ],
+      "artifacts/jobs/lra-forward-native/final-comparison/forward-library.so": [
+        "docs/report/numerical-performance/native-forward/report.json"
+      ],
+      "artifacts/jobs/lra-synthetic-change-time/": [
+        "docs/report/synthetic-validation/change-time/README.md"
+      ],
+      "artifacts/jobs/lra-synthetic-spatial-eligibility/": [
+        "docs/report/synthetic-validation/spatial-eligibility/README.md"
+      ],
+      "artifacts/jobs/native-memory/measured-apple-clang/": [
+        "docs/report/numerical-performance/native-memory/README.md"
+      ],
+      "artifacts/jobs/native-memory/reproduction": [
+        "docs/report/numerical-performance/native-memory/README.md"
+      ],
+      "artifacts/jobs/native-memory/stress-apple-clang/forward-library.so": [
+        "docs/report/numerical-performance/native-memory/report.json"
+      ],
+      "artifacts/jobs/native-r-comparison": [
+        "docs/report/method-certification/current-r-oracle/README.md"
+      ],
+      "artifacts/jobs/native-r-reproduction": [
+        "docs/report/method-certification/current-r-oracle/README.md"
+      ],
+      "artifacts/jobs/retained-r-reference/reproduction": [
+        "docs/report/method-certification/original-r-reference/README.md"
+      ],
+      "artifacts/jobs/source-capability/reproduction": [
+        "docs/report/regions/nordic/source-capability/README.md"
+      ],
+      "artifacts/jobs/synthetic-propagation/": [
+        "docs/report/synthetic-validation/propagation/README.md"
+      ],
+      "artifacts/nordic-direct-pollen": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "docs/report/regions/nordic/direct-pollen/RESULTS.md"
+      ],
+      "artifacts/numerical-performance/native-forward": [
+        "docs/report/numerical-performance/native-forward/README.md"
+      ],
+      "artifacts/numerical-performance/python-baseline.json": [
+        "docs/report/numerical-performance/python-baseline/README.md"
+      ],
+      "artifacts/numerical-performance/runtime-metadata.json": [
+        "docs/report/numerical-performance/runtime-metadata/README.md"
+      ],
+      "artifacts/pollenomics": [
+        ".github/workflows/verify.yml"
+      ],
+      "artifacts/python/build": [
+        ".github/workflows/release-pypi.yml"
+      ],
+      "artifacts/recovery/artifact-aliases/": [
+        "makes/bijux-py/CONTRACT.md"
+      ],
+      "artifacts/release-tree": [
+        ".github/workflows/release-pypi.yml"
+      ],
+      "artifacts/root/": [
+        "makes/bijux-py/CONTRACT.md"
+      ],
+      "artifacts/root/benchmarks": [
+        "makes/bijux-py/repository/artifact_aliases.py"
+      ],
+      "artifacts/root/check-venv": [
+        ".github/workflows/scientific-verification.yml",
+        ".github/workflows/atlas-release-verification.yml",
+        "makes/bijux-py/repository/artifact_aliases.py"
+      ],
+      "artifacts/root/check-venv/bin": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py"
+      ],
+      "artifacts/root/check-venv/bin/pytest": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py",
+        ".github/workflows/scientific-verification.yml"
+      ],
+      "artifacts/root/check-venv/bin/python": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/specification.py",
+        ".github/workflows/atlas-release-verification.yml"
+      ],
+      "artifacts/root/docs/build-site": [
+        ".github/workflows/deploy-docs.yml"
+      ],
+      "artifacts/root/docs/site": [
+        ".github/workflows/deploy-docs.yml"
+      ],
+      "artifacts/root/hypothesis": [
+        "makes/bijux-py/repository/artifact_aliases.py"
+      ],
+      "artifacts/root/ruff-cache": [
+        "configs/ruff.toml"
+      ],
+      "artifacts/root/tox": [
+        "makes/bijux-py/config/python-baseline.toml",
+        "makes/bijux-py/repository/artifact_aliases.py"
+      ],
+      "artifacts/sead-relations-replay": [
+        "docs/report/source-relations/sead/README.md"
+      ],
+      "artifacts/site/bijux-masterclass": [
+        ".github/workflows/deploy-docs.yml"
+      ],
+      "artifacts/swedish-direct-pollen": [
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md"
+      ],
+      "artifacts/test-shard-reconciliation": [
+        ".github/workflows/ci.yml"
+      ],
+      "artifacts/tmp-site": [
+        ".github/workflows/deploy-docs.yml"
+      ],
+      "artifacts/tmp/package-smoke": [
+        "makes/root.mk"
+      ],
+      "artifacts/tmp/package-smoke/bin/bijux-pollenomics": [
+        "makes/root.mk"
+      ],
+      "artifacts/tmp/package-smoke/bin/python": [
+        "makes/root.mk"
+      ],
+      "artifacts/tmp/package-source-smoke": [
+        "makes/root.mk"
+      ],
+      "artifacts/tmp/package-source-smoke/bin/bijux-pollenomics": [
+        "makes/root.mk"
+      ],
+      "artifacts/tmp/package-source-smoke/bin/python": [
+        "makes/root.mk"
+      ],
+      "artifacts/v2/engine/multisite-audit/IMPLEMENTATION-DESIGN.md": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py"
+      ],
+      "artifacts/v2/engine/publication-check-004/comparison/report.json": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py"
+      ],
+      "artifacts/v2/engine/publication-license-audit/DISPOSITION.md": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py"
+      ],
+      "artifacts/v2/linux-r-runtime/build001": [
+        "docs/report/method-certification/linux-r-oracle/report.json",
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/v2/linux-r-runtime/build001/receipt/report.json": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/v2/linux-r-runtime/provision001": [
+        "docs/report/method-certification/linux-r-oracle/report.json",
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/v2/linux-r-runtime/provision001/receipt/report.json": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/display-geometry.json": [
+        "docs/report/atlas/frame-url-replay/README.md",
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product": [
+        "docs/report/atlas/frame-url-replay/README.md"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/checksums.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_Kloc.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_Kreg.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_valid_ring.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/checksums.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_mean.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_q10.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_q90.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_sd.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/outliers.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/outliers_quantiles.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/result_contract.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/run_manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/product_manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/checksums.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/deposition_factors.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/reconstruction.csv": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/result_contract.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/run_manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/run_manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/request.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/scientific_manifest.json": [
+        "docs/report/atlas/frame-url-replay/verification.json"
+      ],
+      "artifacts/v2/validation/live-r-integration/acquire-001/sources": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "artifacts/v2/validation/live-r-integration/acquire-001/sources/R-4.6.0.tar.xz": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/artifact_custody/inventory.py"
+      ],
+      "artifacts/v3/reference/empd2-intake001/EMPD2.sqlite3": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/empd2.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ],
+      "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/nfi.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ],
+      "artifacts/v3/reference/empd2-product-screen001/report003.json": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/empd2.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ],
+      "artifacts/v3/reference/nordic-nfi-access-20260922/receipt.json": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/nfi.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ],
+      "artifacts/v3/reference/swedish-nfi-eligibility002/report.json": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/nfi.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ],
+      "artifacts/v3/reference/swedish-nfi-plot001/swe_nfi_plotdata2.xlsx": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage/evidence/reference_sources/nfi.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/reference_sources/metrics.py"
+      ]
+    },
+    "skipped_large_files": 1
+  },
+  "regenerable_candidates": [
+    {
+      "classification": "exact_regenerable_cache_for_review",
+      "deletion_authorized": false,
+      "durable_reference_mentions": [],
+      "inactive_independently_verified": false,
+      "metadata": {
+        "allocated_bytes": 13705216,
+        "apparent_bytes": 13640160,
+        "entries": 5,
+        "files": 3
+      },
+      "path": "artifacts/jobs/linux-r-oracle/mypy-cache",
+      "receipt": "artifacts/jobs/linux-r-oracle/terminal-checks.log",
+      "regeneration_command_recorded": true
+    },
+    {
+      "classification": "exact_regenerable_cache_for_review",
+      "deletion_authorized": false,
+      "durable_reference_mentions": [],
+      "inactive_independently_verified": false,
+      "metadata": {
+        "allocated_bytes": 192512,
+        "apparent_bytes": 6635,
+        "entries": 61,
+        "files": 47
+      },
+      "path": "artifacts/jobs/linux-r-oracle/test-run",
+      "receipt": "artifacts/jobs/linux-r-oracle/terminal-checks.log",
+      "regeneration_command_recorded": true
+    },
+    {
+      "classification": "exact_regenerable_cache_for_review",
+      "deletion_authorized": false,
+      "durable_reference_mentions": [],
+      "inactive_independently_verified": false,
+      "metadata": {
+        "allocated_bytes": 22093824,
+        "apparent_bytes": 22077920,
+        "entries": 5,
+        "files": 3
+      },
+      "path": "artifacts/jobs/neotoma-first-observed/mypy-cache",
+      "receipt": "artifacts/jobs/neotoma-first-observed/terminal-checks.log",
+      "regeneration_command_recorded": true
+    }
+  ],
+  "requirement_id": "V3-26",
+  "retention_decision": {
+    "delete_anything": false,
+    "reason": "Current cap decision and exact evidence review do not authorize deletion; unclassified bytes, unique proofs, private sources, and live/unknown jobs remain protected."
+  },
+  "scan_limits": {
+    "max_entries": 12000000,
+    "max_seconds": 480.0
+  },
+  "schema_version": "artifact-retention-inventory.v1",
+  "scope": "repository_root_artifacts_only",
+  "selected_proofs": [
+    {
+      "byte_count": 30948604,
+      "expected_sha256": "91f2b3693fa5252cdea9b62abc84a1c58db5547cb9f0fe3d15f44eef8aff5a27",
+      "independent_reference_origins": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "path": "artifacts/v2/validation/live-r-integration/acquire-001/sources/R-4.6.0.tar.xz",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "private_source_custody",
+      "sha256": "91f2b3693fa5252cdea9b62abc84a1c58db5547cb9f0fe3d15f44eef8aff5a27",
+      "status": "matched_declared_digest"
+    },
+    {
+      "byte_count": 213453,
+      "expected_sha256": "19fe8805879ff6e0207e5ba5168ee8b52ac9c19e36a54d7531b82847c4e60edb",
+      "independent_reference_origins": [
+        "docs/report/method-certification/linux-r-oracle/README.md",
+        "docs/report/method-certification/linux-r-oracle/report.json"
+      ],
+      "path": "artifacts/v2/linux-r-runtime/build001/receipt/report.json",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "source_built_runtime_proof",
+      "sha256": "19fe8805879ff6e0207e5ba5168ee8b52ac9c19e36a54d7531b82847c4e60edb",
+      "status": "matched_declared_digest"
+    },
+    {
+      "byte_count": 579963,
+      "expected_sha256": "793273ee77b543969480e7f393a087c0cc15f9e6def319bf415941a872fe06c4",
+      "independent_reference_origins": [
+        "docs/report/method-certification/linux-r-oracle/README.md",
+        "docs/report/method-certification/linux-r-oracle/report.json"
+      ],
+      "path": "artifacts/v2/linux-r-runtime/provision001/receipt/report.json",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "private_library_proof",
+      "sha256": "793273ee77b543969480e7f393a087c0cc15f9e6def319bf415941a872fe06c4",
+      "status": "matched_declared_digest"
+    },
+    {
+      "byte_count": 844752,
+      "expected_sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+      "independent_reference_origins": [
+        "docs/report/method-certification/linux-r-oracle/README.md",
+        "docs/report/method-certification/linux-r-oracle/report.json"
+      ],
+      "path": "artifacts/jobs/linux-r-oracle/source-closed-run/receipt.json",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "raw_numerical_result_proof",
+      "sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+      "status": "matched_declared_digest"
+    },
+    {
+      "byte_count": 823481,
+      "expected_sha256": null,
+      "independent_reference_origins": [
+        "docs/report/method-certification/linux-r-oracle/README.md"
+      ],
+      "path": "artifacts/jobs/linux-r-oracle/run/receipt.json",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "unique_source_drift_refusal",
+      "sha256": "498575d8ff751ddc37e1267f4e60fdd1fbd806d08042091f85a0527531f7293a",
+      "status": "content_recorded_without_prior_digest"
+    },
+    {
+      "byte_count": 47453,
+      "expected_sha256": null,
+      "independent_reference_origins": [],
+      "path": "artifacts/jobs/linux-r-oracle/image-build.log",
+      "retention_classification": "protected_source_or_unique_evidence",
+      "role": "unique_container_build_log",
+      "sha256": "fa3ec7eb1029ba0368470f9e216d4057a81e55d1ba27fdbc5be7b8f4cf98ee87",
+      "status": "content_recorded_without_prior_digest"
+    }
+  ]
+}

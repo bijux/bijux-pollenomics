@@ -1,0 +1,14 @@
+Registered S3 methods overwritten by 'RcppDE':
+  method          from   
+  plot.DEoptim    DEoptim
+  summary.DEoptim DEoptim
+Warning: replacing previous import 'DEoptim::DEoptim.control' by 'RcppDE::DEoptim.control' when loading 'disqover'
+Warning: replacing previous import 'DEoptim::DEoptim' by 'RcppDE::DEoptim' when loading 'disqover'
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  k-d tree limited by memory. ncmax= 661
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  k-d tree limited by memory. ncmax= 661
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  k-d tree limited by memory. ncmax= 661
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  k-d tree limited by memory. ncmax= 661

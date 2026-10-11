@@ -14,6 +14,7 @@ from ..configuration import (
     FITTED_METHOD,
     FITTED_PROFILE,
     PROFILE,
+    SOURCE_PROFILE,
     InputReference,
     identity,
     object_list,
@@ -42,7 +43,7 @@ def validate_singleton_metadata(
         and scientific.get("schema_version")
         == "lra-grouped-outer-paired-predictions.v1"
     )
-    profile = FITTED_PROFILE if fitted else PROFILE
+    profile = FITTED_PROFILE if fitted else scientific["profile"]
     common = {"profile", "request_template", "regional_priority", "source_catalogue"}
     expected = common | (
         {"support", "method"}
@@ -53,11 +54,15 @@ def validate_singleton_metadata(
         set(metadata) != expected
         or metadata["profile"] != profile
         or scientific["profile"] != profile
+        or (not fitted and profile not in {PROFILE, SOURCE_PROFILE})
     ):
         raise ValidationRefusal(
             "invalid_singleton_metadata", "Closed profile metadata required"
         )
-    template = validate_template(metadata["request_template"])
+    template = validate_template(
+        metadata["request_template"],
+        data_kind="source_observations" if profile == SOURCE_PROFILE else "synthetic",
+    )
     catalogue = [
         object_mapping(row, "source")
         for row in object_list(metadata["source_catalogue"], "source_catalogue")

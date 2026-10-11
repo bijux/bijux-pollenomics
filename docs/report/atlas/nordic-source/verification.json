@@ -1,0 +1,873 @@
+{
+  "browser": {
+    "browser": {
+      "jsVersion": "15.3.76.13",
+      "product": "Chrome/153.0.8010.53",
+      "protocolVersion": "1.3",
+      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+    },
+    "chronology_tables": [
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 38,
+        "record_id": "neotoma:site:27349",
+        "rows": 38,
+        "status_counts": {
+          "[\"unresolved\",\"unresolved\",null]": 38
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 12,
+        "record_id": "sead:site:3797",
+        "rows": 12,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 12
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 92,
+        "record_id": "neotoma:site:2966",
+        "rows": 138,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 46,
+          "[\"uncalibrated\",\"context_only\",null]": 92
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 1,
+        "record_id": "sead:site:5070",
+        "rows": 1,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 111,
+        "record_id": "neotoma:site:26128",
+        "rows": 165,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 54,
+          "[\"calibrated\",\"refused\",null]": 1,
+          "[\"uncalibrated\",\"context_only\",null]": 110
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 2,
+        "record_id": "sead:site:5119",
+        "rows": 2,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 1,
+          "[\"unknown\",\"unresolved\",\"refused\"]": 1
+        },
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 139,
+        "record_id": "neotoma:site:12",
+        "rows": 270,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 131,
+          "[\"calibrated\",\"refused\",null]": 4,
+          "[\"uncalibrated\",\"context_only\",null]": 135
+        },
+        "width": 1440
+      },
+      {
+        "reason_code": "sead_site_numeric_chronology_not_available",
+        "record_id": "sead:site:6468",
+        "source_null_not_zero": true,
+        "status": "unavailable",
+        "width": 1440
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 38,
+        "record_id": "neotoma:site:27349",
+        "rows": 38,
+        "status_counts": {
+          "[\"unresolved\",\"unresolved\",null]": 38
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 12,
+        "record_id": "sead:site:3797",
+        "rows": 12,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 12
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 92,
+        "record_id": "neotoma:site:2966",
+        "rows": 138,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 46,
+          "[\"uncalibrated\",\"context_only\",null]": 92
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 1,
+        "record_id": "sead:site:5070",
+        "rows": 1,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 111,
+        "record_id": "neotoma:site:26128",
+        "rows": 165,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 54,
+          "[\"calibrated\",\"refused\",null]": 1,
+          "[\"uncalibrated\",\"context_only\",null]": 110
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 2,
+        "record_id": "sead:site:5119",
+        "rows": 2,
+        "status_counts": {
+          "[\"not_calibrated\",\"context_only\",\"refused\"]": 1,
+          "[\"unknown\",\"unresolved\",\"refused\"]": 1
+        },
+        "width": 390
+      },
+      {
+        "all_source_cells_equal": true,
+        "numeric_null_count": 139,
+        "record_id": "neotoma:site:12",
+        "rows": 270,
+        "status_counts": {
+          "[\"calibrated\",\"comparable\",null]": 131,
+          "[\"calibrated\",\"refused\",null]": 4,
+          "[\"uncalibrated\",\"context_only\",null]": 135
+        },
+        "width": 390
+      },
+      {
+        "reason_code": "sead_site_numeric_chronology_not_available",
+        "record_id": "sead:site:6468",
+        "source_null_not_zero": true,
+        "status": "unavailable",
+        "width": 390
+      }
+    ],
+    "country_filters": [
+      {
+        "selection": "all",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 8,
+        "width": 1440
+      },
+      {
+        "selection": "Denmark",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 1440
+      },
+      {
+        "selection": "Finland",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 1440
+      },
+      {
+        "selection": "Norway",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 1440
+      },
+      {
+        "selection": "Sweden",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 1440
+      },
+      {
+        "all_visible": 8,
+        "selection": "none_then_all",
+        "width": 1440,
+        "zero_visible": true
+      },
+      {
+        "selection": "all",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 8,
+        "width": 390
+      },
+      {
+        "selection": "Denmark",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 390
+      },
+      {
+        "selection": "Finland",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 390
+      },
+      {
+        "selection": "Norway",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 390
+      },
+      {
+        "selection": "Sweden",
+        "visible_governed_candidates": 0,
+        "visible_source_sites": 2,
+        "width": 390
+      },
+      {
+        "all_visible": 8,
+        "selection": "none_then_all",
+        "width": 390,
+        "zero_visible": true
+      }
+    ],
+    "record_navigation": [
+      {
+        "classification_refusal_preserved": true,
+        "country": "Denmark",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:3797",
+        "record_id": "neotoma:site:27349",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Denmark",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:27349",
+        "record_id": "sead:site:3797",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Finland",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:5070",
+        "record_id": "neotoma:site:2966",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Finland",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:2966",
+        "record_id": "sead:site:5070",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Norway",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:5119",
+        "record_id": "neotoma:site:26128",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Norway",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:26128",
+        "record_id": "sead:site:5119",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Sweden",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:6468",
+        "record_id": "neotoma:site:12",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Sweden",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:12",
+        "record_id": "sead:site:6468",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 1440
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Denmark",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:3797",
+        "record_id": "neotoma:site:27349",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Denmark",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:27349",
+        "record_id": "sead:site:3797",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Finland",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:5070",
+        "record_id": "neotoma:site:2966",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Finland",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:2966",
+        "record_id": "sead:site:5070",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Norway",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:5119",
+        "record_id": "neotoma:site:26128",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Norway",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:26128",
+        "record_id": "sead:site:5119",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Sweden",
+        "exact_url_identity": true,
+        "next_record_id": "sead:site:6468",
+        "record_id": "neotoma:site:12",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      },
+      {
+        "classification_refusal_preserved": true,
+        "country": "Sweden",
+        "exact_url_identity": true,
+        "next_record_id": "neotoma:site:12",
+        "record_id": "sead:site:6468",
+        "relation_refusal_preserved": true,
+        "source_build_visible": true,
+        "width": 390
+      }
+    ],
+    "runtime_errors": [],
+    "schema_version": "atlas-nordic-source-browser-verification.v1",
+    "served_files_sha256": {
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "e15d6dfef08f36f4281229e7e83d0d0c669c75ccbf78fbde965b73630337ac9c",
+      "nordic-source.atlas-details.0009.5f2b629da48af77a.js": "5f2b629da48af77a712bb57db91d9fa678eed96dc1a09dd225fc45b14df1000b",
+      "nordic-source.atlas-edges.0010.1b2c1472372d24f4.js": "1b2c1472372d24f4449bac86d64ebd20fbdd6099caab936b18c97247103a6be3",
+      "nordic-source.atlas-indexes.0012.f23ba152813a4e1d.js": "f23ba152813a4e1d8ca90734547641a3236ddf85e7f9e78aeec864972d6261ea",
+      "nordic-source.atlas-nodes.0001.f50337be380ca4dc.js": "f50337be380ca4dce75c1ad621b4e7c74ed55cdcb36d848b65387a81b82c6f1d",
+      "nordic-source.atlas-nodes.0002.da89644a7649406f.js": "da89644a7649406fc54c33807fcaff67685ac6d541f60a72f5e3733a4402c8b9",
+      "nordic-source.atlas-nodes.0003.9a80c80864c28ca7.js": "9a80c80864c28ca75fb47bb797be91f6cbe0e97a14ffa4deabba650b6393fb17",
+      "nordic-source.atlas-nodes.0004.ec73a9a9d99107f9.js": "ec73a9a9d99107f916ebbad0e0be16b56a0ffcb35a99a986024943208c66908c",
+      "nordic-source.atlas-nodes.0005.b2ea850571709803.js": "b2ea85057170980303d926d4c37b831ccf158bce0c3f71c3740b05acf746bde3",
+      "nordic-source.atlas-nodes.0006.77586ff6d58454e0.js": "77586ff6d58454e0235b1bc7aa95ab0500a7b7621b7f723e7f49c2e2b0e84d0e",
+      "nordic-source.atlas-nodes.0007.665875bb2eb3fd10.js": "665875bb2eb3fd103a1cc5596ca5a655de05f46667b8f8dc6c199556cee7dc24",
+      "nordic-source.atlas-nodes.0008.d75fec52f89b439d.js": "d75fec52f89b439d09465f36113d6bf4878c2284ddd0d683e556db42f36e4064",
+      "nordic-source.atlas-provenance.0000.31800995a2084ffd.js": "31800995a2084ffda113727c1595cfc0af435418d7a1334180b25f756536c8f7",
+      "nordic-source.atlas-sequences.0011.105c6c8919cbb30a.js": "105c6c8919cbb30a8d4c880a1525b2b2075b0160cadc70970da2449dcce3d356"
+    },
+    "status": "PASS",
+    "verifier_sha256": "a72ecfe8cdd2985594094fa6f3ccb64b25066da0fa746c38bde35912e7eb5c81"
+  },
+  "evidence_id": "atlas-nordic-source-country-navigation",
+  "generation": {
+    "candidate_build_id": "atlas-f920a047dcfc96b5d7c750a46ae21314fe7ff98d18a8f278437d31e23954d6b1",
+    "countries": [
+      "Denmark",
+      "Finland",
+      "Norway",
+      "Sweden"
+    ],
+    "inputs_sha256": {
+      "docs/report/regions/nordic/nordic.atlas-details.0173.1fd49588884c2a07.js": "1fd49588884c2a0758ac23bd3e800fd03e69da9ae1123ddd8e10225286b374d2",
+      "docs/report/regions/nordic/nordic.atlas-details.0179.5761367cd06db53d.js": "5761367cd06db53d39b87f5d16427d0fc58c76302bc3c96df5ff49062a37369a",
+      "docs/report/regions/nordic/nordic.atlas-details.0183.1ab8c81603c96270.js": "1ab8c81603c9627008c0fa29d572f3acc940d43943ccf5f08eacb0c737cde53c",
+      "docs/report/regions/nordic/nordic.atlas-details.0191.1f7cb6511a10fbd3.js": "1f7cb6511a10fbd3a1223535f20b3db71947bd187b915c3cfd698267bb611d12",
+      "docs/report/regions/nordic/nordic.atlas-details.0208.cc2da1bc560c1251.js": "cc2da1bc560c1251fa93a7fb0d003555fd7f250a9b824d059f42b8e45838991b",
+      "docs/report/regions/nordic/nordic.atlas-details.0228.5b80b5b8aeda6e41.js": "5b80b5b8aeda6e411a8ede8934e1658de6ce44d02371ebf9b79be91e6780e7b3",
+      "docs/report/regions/nordic/nordic.atlas-details.0232.ee2021f717cc8113.js": "ee2021f717cc8113ef4795d868f3b6596afe2c35452411f45e5b7c24a5594370",
+      "docs/report/regions/nordic/nordic.atlas-indexes.0239.30ba693aa210c990.js": "30ba693aa210c9903627d8776694480be8543cf7226d7be6c056c6a15c7271a1",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0010.491c987cf8e5820a.js": "491c987cf8e5820add1601a5f05a37ec9a2cc022154dd6406ddf2621f568013f",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0011.a597fe8195e1d0f7.js": "a597fe8195e1d0f74ce4a012961a00abb13411823f406ac7e4b839c0de65dfa1",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0012.e902c3a478ef9023.js": "e902c3a478ef9023a702288c53bf0d56a8bb6b543a59b9eb2345717daedd123b",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0013.cba61832d6b5f78b.js": "cba61832d6b5f78b5bab6b1e6cfffe34a328f947282bf067198d86e1c5b7a754",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0014.d8ff55d0913c7196.js": "d8ff55d0913c7196bc9c45793ba103bf99c5c912b52014b58c510ad194e0c1c4",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0015.1efa461faf08da88.js": "1efa461faf08da88a5abaa5f1615b297e3470983477e69bebdf3094e23fee685",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0016.bb7a90eeb4e3b406.js": "bb7a90eeb4e3b40632ca1683c8bae2fc41d716c2ddd355f4b078015c83922393",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0017.44173322c75e6e15.js": "44173322c75e6e1539f37534dd6e66db89449b677725d5bf1571924d9d5307b0",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0018.17471d33bd4afebf.js": "17471d33bd4afebfb6c35e8eb5dd7479b5c70d791b7654fc6cd28b511a20c252",
+      "docs/report/regions/nordic/nordic.atlas-provenance.0000.d159c78f54f84c39.js": "d159c78f54f84c39313fe183842892874045d84c6140e5067fb0374f14dc415a",
+      "docs/report/regions/nordic/nordic_map.html": "790278550add51f919daebc915bd49de1bc87c6749c55f59a1effe955ad61f59",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py": "195f9d2335bd8a44b41956c236e0cefa46ab72d00a831f9ebeff1ff8eff6d458",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py": "bf8a3172d89295fca5ad6087076e0b9097e7d8571e13fa7dfa2cdc75b425c5e7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html": "4069f6acb75a5361bcf4d54de2edb02b55d8d25145caa1f497ae9332e4365f2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js": "733d6c172381f2d9555cb7bf4290f48e97d8bc8dceb57b3697676d97e78ce43b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py": "066e553e1c58295c848e917577ef3e688f2fdf4faa40ef2fd8b5c394c90341fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py": "b9b694dd0d0546a806e5f22fcf9cd503a0638267e0cf6e18424d571a24e4cd89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py": "770d80bb6ac812fea5dd09f8c120fffc97f1c0e3f9bf43f407c38b40062d3cb7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/constants.py": "8c228dce3e1b6ac932e3e2d3aebeee8e28891b5e57874e7ea403014367f1f986",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/io.py": "dde30ca2cf224f178a3d85f73fd633b4cd8f0e9f33c1f06cf394018fb776a7dc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/models.py": "2d3d43830973a98c8f79f172c6bb4de9e15808efe172f2d742a72003f95a82fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/neotoma.py": "d9c37bbcc962063ad4abfc57b34b51cf6f37248dffd32eccc5ed00cec4ebaf73",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/records.py": "38c68f150a22450a244aff47eddf9d8087aa7a4f635d29ff6a67a11e814e28c7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/__init__.py": "09d8c0ceeb013541c6b8ae200f52448e40511bd7f5d899fd9412cf7340be7577",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/accounting.py": "f5db877900e8b6e06ba7e742c5d4c293f7597f200fd68985c3c23f7227bbfd80",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/admission.py": "fc9faf672ee0cf9315f2280dd7b898ebd7718aed4a09bea297aff23cc5fbd134",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/chronology.py": "a7384b4718c8043389f237a885e04255580057be5b61bc67743d8e05261e3e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/detail_records.py": "0c6a7b5e391c677d7f78fe3ed0d3ecb0fa5c2e3a6051755e62863ceed9e06870",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/models.py": "e66b4a216bab40e505cb3abf1d83daad2a8a791da38823a18dbe9fe50c98b09f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/observations.py": "5db7926fb8f89d5de974f743074bccee62b34a24a626d6a7ea83fd654723a0b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/projection.py": "f326308c502dabe14c02e0eeb5348cba9898fbc3e0892f8b2ee4a96206545ffe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/provenance.py": "d483c8b346c94c4502569e069ee15e583610f3c74354b927dce01255be3cf620",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/relations.py": "abe3ce1dad847a51cc7d1c36be86e7a885c5f64f4b1c190ae29e4e9716c543dd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/sites.py": "1eef187b51b2568407653bbea1a2550fd2bcef59bb3e0c45812a1b76c89e6786",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_claims.py": "747480541006ebc87df5b3d461a42f6bd7470eaa86d855c2863682c6b5579c56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_records.py": "6bcf8f3575f8308568f2cd44656a92d6fd5cbdeb98b7b6403ca052c824ba5af3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/service.py": "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/native_lra.py": "b443d56a9b0b807d2922857b0cfa7641fa8147ad21cb243aab98414f60260fad",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": "33a6897af1947b5beede9c8f5247099093e11095b604130953d95680a581540b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py": "5214ac7f8ba86805b5a7e0bfd5529e5ecb3d3042854abcfc1340505400e99dc0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/state.py": "50bd3e0a59d82f70c1c7ccd2934f05c2306161dc31f09e45d12bf61daaec1044",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/__init__.py": "ae5191883dd9d1c2bcf2f793e5215d313abc09660dfcb9ef3a20a5566e484314",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/budgets.py": "afa643cdd77e43b9bc1dc57adeea7572c2efcbd983a021d93b729b462877734b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/index_bundles.py": "b67d42828cd96dcff45b757c1924c3bb01e568c23228e817196bff8228b61ec0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/indexes.py": "596ca95bba4979e654fbb477b654741671e2a361cf12e77b41c3dfc09fd0fbd0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/models.py": "f5aa9f01bbcf8d6ec861d64e629f4359a39925084f57cb1c654e71f62ea268c0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/nodes.py": "70db748025f7fc8c3484ca0daddadaa867248ea57216c86c41f968ab670f9f09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/serialization.py": "4f517d2bbef9e7b19ccdeb2f9ef587c0214bf4b7884b7b6ab742abf6f0e2654f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/validation.py": "0603633df5605270d4ec1ba6e76b6d219d61bbaecdcd96a0eeac1fc3479cc246",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/writer.py": "b8cde394647be01a8380b36935ef85af7474969f4eebcd65788d26a2e410fb7f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py": "f20dcc203108805683bd1da0241b9e48dc963501056f1e44edbeb0d87f49c089",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/temporal_admission.py": "755f485ddddc41afa580e4361fd13aa620229ae807a86ec8c0835b8a1e91bc2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_publication.py": "2e2a277de4dcd1923ed84417a617d1dabaa35679544dd680f7a56239f49de08e"
+    },
+    "schema_version": "atlas-nordic-retained-source-candidate.v1",
+    "scientific_posture": "retained source display only; no accepted classifications or propagation edges; preserve unresolved/refused/context-only claims",
+    "selected_source_record_equality": true,
+    "source_atlas_build_id": "atlas-0a15c7029a76a7959aaf03f3635624edce91d151f70df9127ffd92f7cdfefa81",
+    "source_records": [
+      {
+        "chronology_summary": {
+          "null_semantics": "source null remains null",
+          "record_count": 38,
+          "selection_posture": "all source age assignments retained"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Denmark",
+        "detail_record_sha256": "57a3e496217469274d168ee15fe3eefe5665b59896152718c8bbb833e0dddfa2",
+        "feature_identity": "evidence:27349",
+        "feature_sha256": "e3742d145faeeb336484072909d869a1a726dc2c506e57e31d3790dddd45b0d8",
+        "layer_key": "neotoma-pollen",
+        "record_id": "neotoma:site:27349",
+        "relation": {
+          "reason_code": "governed_relation_model_not_available",
+          "status": "unavailable"
+        },
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:27349",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "title": "Harreskov"
+      },
+      {
+        "chronology_summary": {
+          "null_semantics": "source null remains null",
+          "record_count": 138,
+          "selection_posture": "all source age assignments retained"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Finland",
+        "detail_record_sha256": "80efde72c84e7cd9b71b19b471d5cd6bf9611f9c2cec7ec5432cc6e1cc0a2e67",
+        "feature_identity": "evidence:2966",
+        "feature_sha256": "fdec159cfb9982c49708be194133a15ad292dbda99ec72f8cf27646734463924",
+        "layer_key": "neotoma-pollen",
+        "record_id": "neotoma:site:2966",
+        "relation": {
+          "reason_code": "governed_relation_model_not_available",
+          "status": "unavailable"
+        },
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:2966",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "title": "Aholammi"
+      },
+      {
+        "chronology_summary": {
+          "null_semantics": "source null remains null",
+          "record_count": 165,
+          "selection_posture": "all source age assignments retained"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Norway",
+        "detail_record_sha256": "6a751383b314c14abc21b3698935f1eb4f187ca9a40cf46680c8f04681c79921",
+        "feature_identity": "evidence:26128",
+        "feature_sha256": "4f20c4ca5422e5cffef54ef3e37be0732eb28b1ebb4315302bf2d71423cd0bbb",
+        "layer_key": "neotoma-pollen",
+        "record_id": "neotoma:site:26128",
+        "relation": {
+          "reason_code": "governed_relation_model_not_available",
+          "status": "unavailable"
+        },
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:26128",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "title": "Afstj\u00a2rna"
+      },
+      {
+        "chronology_summary": {
+          "null_semantics": "source null remains null",
+          "record_count": 270,
+          "selection_posture": "all source age assignments retained"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Sweden",
+        "detail_record_sha256": "020283f4f7814833375e37c864e194a67a6da83ca990bc80eb5e6a905c9858e5",
+        "feature_identity": "evidence:12",
+        "feature_sha256": "f88601da5dbfd325a19f9ec42456de8e50a03ac63ea283af23bff2cad8932950",
+        "layer_key": "neotoma-pollen",
+        "record_id": "neotoma:site:12",
+        "relation": {
+          "reason_code": "governed_relation_model_not_available",
+          "status": "unavailable"
+        },
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:12",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        },
+        "title": "Ager\u00f6ds Mosse"
+      },
+      {
+        "chronology_summary": {
+          "comparability_counts": {
+            "context_only": 12
+          },
+          "eligibility_counts": {
+            "refused": 12
+          },
+          "null_semantics": "source null remains null",
+          "publication_role": "chronology_display_only",
+          "record_count": 12,
+          "selection_posture": "retain_all_without_preferred_model"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Denmark",
+        "detail_record_sha256": "49fdb91696c77bd90cde5a3167e2f6162111ddcc5ac3b40c0f7513d3b1bd635c",
+        "feature_identity": "evidence:3797",
+        "feature_sha256": "bf729ee4ed7150544eb4c997ea37bf567874a2db8673af12ae8f2644f3585f02",
+        "layer_key": "sead-sites",
+        "record_id": "sead:site:3797",
+        "relation": {
+          "eligible_event_count": 0,
+          "reason_code": "source_classification_not_accepted",
+          "refusal_reason_counts": {},
+          "refused_observation_count": 0,
+          "scientific_posture": "observation succession is not proof of migration or causation",
+          "status": "refused"
+        },
+        "source_provenance": {
+          "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+          "acquisition_release_status": "refused",
+          "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+          "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
+          "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
+          "evidence_bundle_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e",
+          "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+          "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
+          "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+          "propagation_reason_code": "source_classification_not_accepted",
+          "propagation_status": "refused",
+          "record_locator": "tbl_sites#site_id=3797",
+          "relation_locator_contract": "observation_relation_index.json#{relation_id}",
+          "site_uuid": "0c317044-48c9-48fc-bc2d-cc2599f8660a",
+          "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+        },
+        "title": "Barmer"
+      },
+      {
+        "chronology_summary": {
+          "comparability_counts": {
+            "context_only": 1
+          },
+          "eligibility_counts": {
+            "refused": 1
+          },
+          "null_semantics": "source null remains null",
+          "publication_role": "chronology_display_only",
+          "record_count": 1,
+          "selection_posture": "retain_all_without_preferred_model"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Finland",
+        "detail_record_sha256": "f0d8cb5ea8ca0c9fb424d1955575278e27885845744c9873e88ff52150c7566a",
+        "feature_identity": "evidence:5070",
+        "feature_sha256": "51609f63a228958f80cb082ed14099549c06eb798073a4f92cb86ff2180b1fdc",
+        "layer_key": "sead-sites",
+        "record_id": "sead:site:5070",
+        "relation": {
+          "eligible_event_count": 0,
+          "reason_code": "source_classification_not_accepted",
+          "refusal_reason_counts": {
+            "eligible_chronology_claim_unavailable_at_analysis_entity": 3,
+            "source_classification_not_accepted": 3,
+            "source_unit_unavailable": 3
+          },
+          "refused_observation_count": 3,
+          "scientific_posture": "observation succession is not proof of migration or causation",
+          "status": "refused"
+        },
+        "source_provenance": {
+          "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+          "acquisition_release_status": "refused",
+          "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+          "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
+          "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
+          "evidence_bundle_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e",
+          "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+          "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
+          "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+          "propagation_reason_code": "source_classification_not_accepted",
+          "propagation_status": "refused",
+          "record_locator": "tbl_sites#site_id=5070",
+          "relation_locator_contract": "observation_relation_index.json#{relation_id}",
+          "site_uuid": "20c942e9-37a6-4b96-bd8d-4f576543748d",
+          "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+        },
+        "title": "Alatornio"
+      },
+      {
+        "chronology_summary": {
+          "comparability_counts": {
+            "context_only": 1,
+            "unresolved": 1
+          },
+          "eligibility_counts": {
+            "refused": 2
+          },
+          "null_semantics": "source null remains null",
+          "publication_role": "chronology_display_only",
+          "record_count": 2,
+          "selection_posture": "retain_all_without_preferred_model"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Norway",
+        "detail_record_sha256": "192f0db4ea4ebb70485eef3ff4b67859d5e8e8b14fb737960790631869a809a6",
+        "feature_identity": "evidence:5119",
+        "feature_sha256": "f434a46f225d0373bb00c305dfbcbe2318793dafdacd06d776b2553b29c390fc",
+        "layer_key": "sead-sites",
+        "record_id": "sead:site:5119",
+        "relation": {
+          "eligible_event_count": 0,
+          "reason_code": "source_classification_not_accepted",
+          "refusal_reason_counts": {
+            "eligible_chronology_claim_unavailable_at_analysis_entity": 3,
+            "source_classification_not_accepted": 3,
+            "source_unit_unavailable": 3
+          },
+          "refused_observation_count": 3,
+          "scientific_posture": "observation succession is not proof of migration or causation",
+          "status": "refused"
+        },
+        "source_provenance": {
+          "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+          "acquisition_release_status": "refused",
+          "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+          "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
+          "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
+          "evidence_bundle_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e",
+          "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+          "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
+          "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+          "propagation_reason_code": "source_classification_not_accepted",
+          "propagation_status": "refused",
+          "record_locator": "tbl_sites#site_id=5119",
+          "relation_locator_contract": "observation_relation_index.json#{relation_id}",
+          "site_uuid": "57acea9c-41bc-440f-80c4-db8a9f749920",
+          "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+        },
+        "title": "Andoya Lakes"
+      },
+      {
+        "chronology_summary": {
+          "reason_code": "sead_site_numeric_chronology_not_available",
+          "status": "unavailable"
+        },
+        "classification": {
+          "reason_code": "accepted_scientific_classification_not_available",
+          "status": "unavailable"
+        },
+        "country": "Sweden",
+        "detail_record_sha256": "c3f1690e05077d76e8e89c954384064f49d77418290f581f61297b2ca8af7908",
+        "feature_identity": "evidence:6468",
+        "feature_sha256": "fbafc622f1ce8e5549df81ddc9f29179ae2707d2473b71b8af661cf3a6aedaf6",
+        "layer_key": "sead-sites",
+        "record_id": "sead:site:6468",
+        "relation": {
+          "eligible_event_count": 0,
+          "reason_code": "source_classification_not_accepted",
+          "refusal_reason_counts": {},
+          "refused_observation_count": 0,
+          "scientific_posture": "observation succession is not proof of migration or causation",
+          "status": "refused"
+        },
+        "source_provenance": {
+          "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+          "acquisition_release_status": "refused",
+          "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+          "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
+          "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
+          "evidence_bundle_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e",
+          "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+          "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
+          "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+          "propagation_reason_code": "source_classification_not_accepted",
+          "propagation_status": "refused",
+          "record_locator": "tbl_sites#site_id=6468",
+          "relation_locator_contract": "observation_relation_index.json#{relation_id}",
+          "site_uuid": "e1036946-7de7-4176-b99a-fee2da820ff5",
+          "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+        },
+        "title": "10412 Fj\u00e4lkinge"
+      }
+    ]
+  },
+  "limitations": [
+    "bounded retained display of eight source records, not four-country acquisition completeness",
+    "no accepted propagation edges present; country-pair edge generation/context and edge-matrix acceptance remain unverified",
+    "full-document URL loads verified; same-document hash/popstate replay remains unverified",
+    "no new source acquisition, qualified scientific approval, browser accessibility audit or deployment certification"
+  ],
+  "producer": {
+    "module": "bijux_pollenomics_dev.ci.atlas_browser.nordic_source_candidate",
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py"
+  },
+  "schema_version": "atlas-nordic-source-review.v1",
+  "selected_checks": {
+    "node_syntax": "PASS",
+    "producer_regressions": "7 passed in 0.52s",
+    "ruff": "PASS"
+  },
+  "status": "PASS",
+  "verifier": {
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs"
+  }
+}

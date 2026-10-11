@@ -1,0 +1,143 @@
+{
+  "admission": {
+    "historical_full_study_input_identity": false,
+    "independent_vegetation_accuracy": false,
+    "pft_classification_resolved": false,
+    "private_input_redistribution_rights_cleared": false,
+    "whole_paper_reproduction": false
+  },
+  "author_snapshot_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "author_snapshot_members_verified": 193,
+  "author_source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "dataset_doi": "10.1594/PANGAEA.937075",
+  "example_grid_sites": {
+    "512": 9,
+    "562": 8
+  },
+  "example_input_rows": 17,
+  "inputs": [
+    {
+      "owner": "private_author_store",
+      "path": "snapshot-manifest.json",
+      "sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb"
+    },
+    {
+      "bytes": 5498,
+      "path": "docs/report/pollen-reconstruction/author-source-custody.json",
+      "sha256": "a69c65a2696aae98b1b624171e5fecb8335845c48c8e22b834cad270d186b493"
+    },
+    {
+      "bytes": 1773,
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "bytes": 4007032,
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    {
+      "bytes": 24499,
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/report.json",
+      "sha256": "56f3dc776aa0a3405338fba62ae51a8b383b0c64787bd6fa4364677ac7ae24c5"
+    },
+    {
+      "bytes": 2160,
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
+      "sha256": "c6b82fcc1cc916b060f9723cc760fbbfa79fe990741057ac71524fca4ac8bc6f"
+    },
+    {
+      "bytes": 2160,
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
+      "sha256": "137881d83a1f861924a14a4d1f1490b7c9a201f0d51ffef3bb5f5f128d91b5ee"
+    },
+    {
+      "bytes": 8490,
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+      "sha256": "3793aee7e8dc6f837cc0337a3e218abc3f982ecc1afff1c67933ae4b707b0585"
+    },
+    {
+      "bytes": 4200,
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "sha256": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03"
+    },
+    {
+      "bytes": 9306,
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+      "sha256": "1c7584947d3248b522151045210f2c9056e41ac3732a5c25dd88eabb6c954414"
+    }
+  ],
+  "native_numerical_comparison": "retained_two_grid_result_not_rerun_here",
+  "native_profile": "landclimii-2016-release-source-v1",
+  "original_r_replay": "retained_receipt_passed_not_rerun_here",
+  "outputs": {
+    "example_inputs.csv": {
+      "bytes": 4923,
+      "sha256": "251a350fb53c9c38812e083c4bb0c3e0a6223e6b403b83714bebdbaf4ae2b3d2"
+    },
+    "method_crosswalk.csv": {
+      "bytes": 3369,
+      "sha256": "22982f57d1cee091be579f22929ce8a096ad9165463072b75890d46d08b88c65"
+    }
+  },
+  "paper_doi": "10.5194/essd-14-1581-2022",
+  "pft_evidence": {
+    "classification_admission": "blocked_conflicting_source_versions_and_no_column_crosswalk",
+    "dataset_description_claim": 11,
+    "mean_se_output_codes": [
+      "TBE1",
+      "TBE2",
+      "IBE",
+      "MTBE",
+      "TSE",
+      "MTSE",
+      "IBS",
+      "ISTS",
+      "TBS",
+      "TSD",
+      "LSE",
+      "GL",
+      "AL"
+    ],
+    "mean_se_output_files_checked": 50,
+    "mean_se_output_pft_position_columns": 13,
+    "output_code_missing_from_parameter_table": [
+      "ISTS"
+    ],
+    "paper_prose_claim": 12,
+    "parameter_table_codes": [
+      "TBE1",
+      "TBE2",
+      "IBE",
+      "MTBE",
+      "TSE",
+      "MTSE",
+      "IBS",
+      "TBS",
+      "TSD",
+      "LSE",
+      "GL",
+      "AL"
+    ],
+    "parameter_table_nonblank_codes": 12
+  },
+  "publisher_prose_sources": [
+    {
+      "claim": "12 PFTs",
+      "local_content_hash": null,
+      "url": "https://essd.copernicus.org/articles/14/1581/2022/"
+    },
+    {
+      "claim": "11 PFTs",
+      "local_content_hash": null,
+      "url": "https://doi.org/10.1594/PANGAEA.937075"
+    }
+  ],
+  "schema_version": "landclim-method-profile.v1",
+  "scope": "two_retained_author_example_grids_method_and_input_identity"
+}

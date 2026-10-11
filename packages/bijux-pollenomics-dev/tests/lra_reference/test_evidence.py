@@ -19,7 +19,28 @@ def payloads() -> tuple[dict[str, Any], list[dict[str, Any]]]:
 
 def test_complete_contract_fixture() -> None:
     report, manifest = payloads()
-    validate_oracle(report, manifest, report["source_archive_sha256"])
+    assert validate_oracle(report, manifest, report["source_archive_sha256"]) == 25
+
+
+def test_prospective_contract_requires_all_declared_cases() -> None:
+    report, manifest = oracle_fixture(extended=True)
+    digest = report["source_archive_sha256"]
+    assert validate_oracle(report, manifest, digest, expected_core_cases=43) == 43
+    with pytest.raises(ReferenceRefusal, match="denominator"):
+        old, old_manifest = oracle_fixture()
+        validate_oracle(old, old_manifest, digest, expected_core_cases=43)
+    report["prospective_optimized_love"]["case_input_sha256"]["open-land-extended"] = (
+        "0" * 64
+    )
+    with pytest.raises(ReferenceRefusal, match="prospective"):
+        validate_oracle(report, manifest, digest)
+
+
+def test_prospective_case_contract_rejects_missing_exact_replay_coordinate() -> None:
+    report, manifest = oracle_fixture(extended=True)
+    manifest[28]["exact_indices"] = []
+    with pytest.raises(ReferenceRefusal, match="exact-coordinate"):
+        validate_oracle(report, manifest, report["source_archive_sha256"])
 
 
 @pytest.mark.parametrize(

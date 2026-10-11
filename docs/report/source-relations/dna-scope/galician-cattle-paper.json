@@ -1,0 +1,207 @@
+{
+  "animal_sample_admission": "unchanged_refused_pending_sample_owned_taxonomy_and_lineage_review",
+  "archive_biosample_accessions": 11,
+  "archive_species_counts": {
+    "Bos primigenius": 3,
+    "Bos taurus": 8
+  },
+  "nordic_relevance": "none_galician_source_context",
+  "official_urls": {
+    "article": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249537",
+    "biosample_xml_template": "https://www.ebi.ac.uk/ena/browser/api/xml/{biosample_accession}",
+    "correction": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0269578",
+    "dating_table": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s001&type=supplementary",
+    "mapping_table": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s002&type=supplementary"
+  },
+  "paper_correction_doi": "10.1371/journal.pone.0269578",
+  "paper_correction_scope": "third_author_name_only",
+  "paper_doi": "10.1371/journal.pone.0249537",
+  "paper_sequenced_sample_labels": 11,
+  "paper_sequenced_species_counts": {
+    "Bos primigenius": 3,
+    "Bos taurus": 8
+  },
+  "paper_specimen_rows": 18,
+  "paper_specimen_species_counts": {
+    "Bos primigenius": 3,
+    "Bos taurus": 15
+  },
+  "sample_label_to_biosample_crosswalk": [
+    {
+      "biosample_accession": "SAMN18106827",
+      "biosample_alias": "Bp_CL_9100BP_1",
+      "paper_row": 16,
+      "paper_sample_label": "Bp_CL_(9100BP)_1",
+      "paper_specimen_code": "CL-68",
+      "source_species": "Bos primigenius"
+    },
+    {
+      "biosample_accession": "SAMN18106828",
+      "biosample_alias": "Bp_CL_9100BP_2",
+      "paper_row": 17,
+      "paper_sample_label": "Bp_CL_(9100BP)_2",
+      "paper_specimen_code": "CL-69",
+      "source_species": "Bos primigenius"
+    },
+    {
+      "biosample_accession": "SAMN18106829",
+      "biosample_alias": "Bp_CL_9100BP_3",
+      "paper_row": 18,
+      "paper_sample_label": "Bp_CL_(9100BP)_3",
+      "paper_specimen_code": "CL-85",
+      "source_species": "Bos primigenius"
+    },
+    {
+      "biosample_accession": "SAMN18106830",
+      "biosample_alias": "Bt_MR_3736BP",
+      "paper_row": 19,
+      "paper_sample_label": "Bt_MR_(3736BP)",
+      "paper_specimen_code": "MR-125",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106831",
+      "biosample_alias": "Bt_AR_2460 BP",
+      "paper_row": 20,
+      "paper_sample_label": "Bt_AR_(2460 BP)",
+      "paper_specimen_code": "ArLu-15",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106832",
+      "biosample_alias": "Bt_AR_1200BP",
+      "paper_row": 21,
+      "paper_sample_label": "Bt_AR_(1200BP)",
+      "paper_specimen_code": "ArLu-01",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106833",
+      "biosample_alias": "Bt_AT_3370BP",
+      "paper_row": 22,
+      "paper_sample_label": "Bt_AT_(3370BP)",
+      "paper_specimen_code": "CT-243",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106834",
+      "biosample_alias": "Bt_AT_1600BP",
+      "paper_row": 23,
+      "paper_sample_label": "Bt_AT_(1600BP)",
+      "paper_specimen_code": "CT-244",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106835",
+      "biosample_alias": "Bt_SA_1200BP_1",
+      "paper_row": 24,
+      "paper_sample_label": "Bt_SA_(1200BP)_1",
+      "paper_specimen_code": "Sab-5",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106836",
+      "biosample_alias": "Bt_SA_1290BP_2",
+      "paper_row": 25,
+      "paper_sample_label": "Bt_SA_(1290BP)_2",
+      "paper_specimen_code": "Sab-2",
+      "source_species": "Bos taurus"
+    },
+    {
+      "biosample_accession": "SAMN18106837",
+      "biosample_alias": "Bt_CO_60BP",
+      "paper_row": 27,
+      "paper_sample_label": "Bt_CO_(60BP)",
+      "paper_specimen_code": "UK-LU-01",
+      "source_species": "Bos taurus"
+    }
+  ],
+  "sample_label_to_biosample_crosswalk_status": "resolved_by_source_owned_ena_biosample_alias",
+  "schema_version": "galician-cattle-paper-review.v1",
+  "source_catalog_project_species": "Bos taurus",
+  "source_catalog_species_conflict": true,
+  "source_paper_linkage_status": "primary_paper_identified_not_promoted",
+  "source_project": "PRJNA705960",
+  "sources": {
+    "archive": {
+      "bytes": 808,
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "sha256": "8ed410e6f0087bed960f68b96b9443ff10cf596e9cde831f5c2a6a4db6bd8d11"
+    },
+    "article": {
+      "bytes": 226377,
+      "path": "artifacts/jobs/galician-cattle-paper/article.html",
+      "sha256": "618f06180b93d15a8a8fc370d87223ae9222a86ea13b4d343501f292e845ff92"
+    },
+    "biosample:SAMN18106827": {
+      "bytes": 3289,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106827.xml",
+      "sha256": "1b5e69845740f1082db59ffad160c4d767f7a526c705637057bcbf17d59dbc56"
+    },
+    "biosample:SAMN18106828": {
+      "bytes": 3289,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106828.xml",
+      "sha256": "279554633080208492faf6ffe08375b1a1cdce2469471974409c1128e517173c"
+    },
+    "biosample:SAMN18106829": {
+      "bytes": 3289,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106829.xml",
+      "sha256": "87fad38a24d58089a96666abacd8cfb176b3bce6530c3d7ba00c2fca2f6f4e55"
+    },
+    "biosample:SAMN18106830": {
+      "bytes": 3270,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106830.xml",
+      "sha256": "738218c9d8102867e71c4539d355c4b941ef329988133df396668329a3a3984f"
+    },
+    "biosample:SAMN18106831": {
+      "bytes": 3280,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106831.xml",
+      "sha256": "aca9dcfec5be35071c69fd855afc213e671719731f77d5b21e78ae5a2c9409c7"
+    },
+    "biosample:SAMN18106832": {
+      "bytes": 3276,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106832.xml",
+      "sha256": "815954804fc3adf2c4b287d3ea7d922aebf18e92ec9dee5edb03e719f6f4aae3"
+    },
+    "biosample:SAMN18106833": {
+      "bytes": 3279,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106833.xml",
+      "sha256": "94b2c74229efde8db1fc0d17f3feab81233ce3c7230b6cf5874f5a837592f1b1"
+    },
+    "biosample:SAMN18106834": {
+      "bytes": 3278,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106834.xml",
+      "sha256": "324cbf93ae1e80f39487834a428ac72aa0dfa38887d23860a7ed768d1eb56046"
+    },
+    "biosample:SAMN18106835": {
+      "bytes": 3281,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106835.xml",
+      "sha256": "96f54308d4c6fb9c7c0b5f73542aa04a8c39814810532921f420b79fb4c7e58e"
+    },
+    "biosample:SAMN18106836": {
+      "bytes": 3280,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106836.xml",
+      "sha256": "aecb76241436816799ae35ffae7b44514de2571567233cab2898672d70eb67e3"
+    },
+    "biosample:SAMN18106837": {
+      "bytes": 3264,
+      "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106837.xml",
+      "sha256": "f32998eb1b55095ee6449f15d6194d050d0927e1e481fbd2e7d60c84f8266e70"
+    },
+    "correction": {
+      "bytes": 74903,
+      "path": "artifacts/jobs/galician-cattle-paper/correction.html",
+      "sha256": "224262535ab0a64c08eda4c051277f4de82106a96ea046044b650879ded335e2"
+    },
+    "dating_table": {
+      "bytes": 8374,
+      "path": "artifacts/jobs/galician-cattle-paper/dating-table.xlsx",
+      "sha256": "b719eaa15c9a86c5fa06ca3f28690330a0202a82e29800fc47b98fdd5087be03"
+    },
+    "mapping_table": {
+      "bytes": 6450,
+      "path": "artifacts/jobs/galician-cattle-paper/mapping-table.xlsx",
+      "sha256": "e4cd547dd6983fb7974a84ec73ae5617009f9379da0e69880d96b97ac7ce88a4"
+    }
+  }
+}

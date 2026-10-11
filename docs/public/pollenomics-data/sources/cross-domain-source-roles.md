@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-31
+last_reviewed: 2026-09-24
 ---
 
 # Cross-Domain Source Roles
@@ -32,6 +32,8 @@ authority, but cannot promote it.
 | animal ancient DNA | project-owned sample and its claim records | direct or qualified animal evidence | sample identity, locality, chronology, and coordinate claims that pass the product contract |
 | SVAR | registered lake | geographic and decision-support input | stable lake identity and hydrographic properties |
 | boundaries | country MultiPolygon | geographic framing | reproducible Nordic and country scope selection |
+| EMPD2 | source-native pollen sample and pollen-count rows | candidate pollen reference | 915 source-metadata samples and 27,161 count rows describe the source population; 914 mechanical candidates have zero scientific admission and zero governed publication membership |
+| Swedish NFI | country-level access lead or source-native Swedish tree-plot observation | candidate measured vegetation reference | the inspected temporary-plot subset can support local plot review only; Denmark, Finland, and Norway have no acquired admissible plot cohort, and no NFI source supplies Nordic area-cover truth |
 
 ### Role And Workflow Are Independent
 
@@ -41,13 +43,17 @@ separate:
 
 | Family boundary | Intake pattern | Why the distinction matters |
 | --- | --- | --- |
-| seven collector-managed families | release, API, or registry capture into a family-owned tree | executable support is visible through `source-support`, but presence and fitness require separate state evidence |
+| exactly seven collector-managed families | release, API, or registry capture into a family-owned tree | executable support is visible through `source-support`, but presence and fitness require separate state evidence |
 | animal ancient-DNA family | paper, archive, supplement, and sample-owned recovery | no synthetic collection adapter can replace project-by-project evidence lineage |
 | HYDE modeled context | external local file preparation and compact custody manifests | native data stays outside Git; byte custody does not establish source/scientific admission |
+| EMPD2 pollen reference | hash-bound local SQLite custody and source-completion review | country labels and counts remain source-native facts until a governed assignment and product admission say otherwise |
+| Swedish NFI reference | country access review plus bounded Swedish source custody | Swedish plot rows do not establish area cover, and access findings do not imply acquired plot data for Denmark, Finland, or Norway |
 
-The nine-family portfolio has seven collection adapters. Animal evidence and
-external HYDE custody use their own intake paths; all families retain separate
-source-admission requirements.
+The eleven-family portfolio has exactly seven collection adapters. Animal
+evidence, external HYDE custody, EMPD2 source review, and Swedish NFI reference
+review use their own intake paths; all families retain separate source- and
+product-admission requirements. EMPD2 and NFI currently contribute zero
+scientifically admitted vegetation–pollen pairs.
 
 ## Comparison Requires A Bridge
 

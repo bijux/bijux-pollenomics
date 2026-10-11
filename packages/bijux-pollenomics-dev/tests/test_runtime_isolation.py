@@ -77,6 +77,188 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"EVIDENCE_ROLE", "VALUE_UNIT"}
         ),
     },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"Fold", "SiteRecord"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "HALF_COUNT",
+                "HALF_COUNT_POLICY",
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_block_holdouts"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"Fold", "SiteRecord"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_block_holdouts"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/scoring.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {"HALF_COUNT", "HALF_COUNT_POLICY"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"site_group_id"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "site_group_id"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py": {
+        "bijux_pollenomics.collection.sources.landclim.catalog": frozenset(
+            {"time_window_from_tw_filename"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py": {
+        "bijux_pollenomics.collection.sources.landclim.catalog": frozenset(
+            {"time_window_from_tw_filename"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/rootsi_input_closure.py": {
+        "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
+            {
+                "LandClimStudyMetadataInventory",
+                "StudyMetadataRecord",
+                "read_landclim_study_inventory",
+                "reopen_landclim_study_inventory",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.rootsi": frozenset(
+            {"RootsiSiteMetadataClaim", "normalize_rootsi_site_metadata"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.authority": frozenset(
+            {"ARCHIVE_SHA256", "METADATA_MEMBER", "METADATA_SHA256"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"read_rootsi_cell_review"}
+        ),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/rootsi_workbook_replay.py": {
+        "bijux_pollenomics.collection.sources.rootsi": frozenset(
+            {
+                "RootsiSiteMetadataClaim",
+                "normalize_rootsi_site_metadata",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.authority": frozenset(
+            {"ARCHIVE_SHA256", "METADATA_MEMBER", "METADATA_SHA256"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"replay_rootsi_cell_review"}
+        ),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
+    "bijux_pollenomics_dev/source_completion/abborrtjarne_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py": {
+        "bijux_pollenomics.analysis.lra.materialization.api": frozenset(
+            {"inspect_neotoma_lra_pollen_screen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/bussjosjon_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {"SpatialConfig", "fit_spatial_model", "half_count_composition"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
     "bijux_pollenomics_dev/essd_reproduction/study_inputs.py": {
         "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
             {
@@ -87,9 +269,125 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             }
         ),
     },
+    "bijux_pollenomics_dev/lra_validation/experiment_ledger.py": {
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {"reopen_cohort_admission"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/admission.py": {
+        "bijux_pollenomics.analysis.lra_validation.channels": frozenset(
+            {"ObservationChannels", "PollenChannel"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "site_group_id"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {"ExternalInput", "Support"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/decisions.py": {
+        "bijux_pollenomics.analysis.lra_validation.channels": frozenset(
+            {"ObservationChannels"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "canonical_json", "manifest_sha256"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {
+                "COHORT_DECISION_PROFILE",
+                "EvaluationSite",
+                "ExternalInput",
+                "ReviewedEvaluationCohort",
+                "admit_reviewed_evaluation_cohort",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/evidence.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/parameters.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/pollen_index.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json", "manifest_sha256"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/taxon_mapping.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/hyde_nordic_window.py": {
+        "bijux_pollenomics.collection.sources.hyde.ascii": frozenset(
+            {"NativeAsciiWindow", "read_hyde_ascii_window"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.ascii.geometry": frozenset(
+            {"native_axis_geometry"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.local.contracts": frozenset(
+            {"checked_path", "decode", "digest", "encode", "sha256"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.netcdf": frozenset(
+            {
+                "HydeNetcdfDeclarationInventory",
+                "read_hyde_netcdf_declaration_inventory",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.quarantine": frozenset({"IntakeRefusal"}),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
     "bijux_pollenomics_dev/taxa_review/neotoma.py": {
         "bijux_pollenomics.evidence.classification": frozenset(
             {"build_neotoma_classification_accounting"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py": {
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"read_neotoma_evidence"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/decisions.py": {
+        "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
+            {"canonical_bytes"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"NeotomaEvidence"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py": {
+        "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
+            {"canonical_bytes"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.candidate_groups": frozenset(
+            {"summarize_neotoma_candidate_groups"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.frontier": frozenset(
+            {"assess_neotoma_lra_frontier"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.lakeparameters": frozenset(
+            {"assess_neotoma_lakeparameters"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen": frozenset(
+            {"assess_neotoma_pollen_screen"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence": frozenset(
+            {"assess_neotoma_candidate_site_evidence"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"NeotomaEvidence"}
         ),
     },
     "bijux_pollenomics_dev/taxa_review/sead.py": {

@@ -230,7 +230,7 @@ def test_svar_lake_candidates_prefer_direct_pollen_with_human_chronology_overlap
         )
 
 
-def test_svar_lake_candidates_prefer_sead_sites_with_human_chronology_overlap() -> None:
+def test_svar_lake_candidates_refuse_sead_site_envelopes_as_chronology() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         _write_json(
@@ -371,5 +371,9 @@ def test_svar_lake_candidates_prefer_sead_sites_with_human_chronology_overlap() 
             for score in report.assessments[1].band_scores
             if score.radius_km == 20
         )
-        assert alpha_band_20.human_overlap_sead_site_count == 1
+        assert alpha_band_20.sead_site_count == 1
+        assert beta_band_20.sead_site_count == 1
+        assert alpha_band_20.time_aware_sead_site_count == 0
+        assert beta_band_20.time_aware_sead_site_count == 0
+        assert alpha_band_20.human_overlap_sead_site_count == 0
         assert beta_band_20.human_overlap_sead_site_count == 0

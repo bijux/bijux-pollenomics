@@ -170,6 +170,8 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	data/source_family_contracts.json \
 	data/source_family_evidence_stage_matrix.json \
 	data/source_spatiotemporal_posture_registry.json \
+	data/empd2/review/country_coverage_evidence.json \
+	data/nfi/review/country_coverage_evidence.json \
 	docs/public/pollenomics-data \
 	packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/governance) \

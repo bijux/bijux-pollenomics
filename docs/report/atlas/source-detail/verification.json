@@ -1,0 +1,728 @@
+{
+  "assertions": [
+    {
+      "name": "opening-selects-overview",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "left-wraps-to-provenance",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "right-wraps-to-overview",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "end-selects-provenance",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "provenance-retains-raw-locator",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "samples-selected-and-linked",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "tab-enters-evidence-panel",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "sample-table-keyboard-route",
+      "route": [
+        {
+          "className": "focus-detail-table-wrap",
+          "disabled": false,
+          "inPanel": true
+        },
+        {
+          "className": "focus-detail-table-wrap",
+          "disabled": false,
+          "inPanel": true
+        },
+        {
+          "className": "",
+          "direction": "next",
+          "disabled": false,
+          "inPanel": true,
+          "path": "samples.samples"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "name": "tab-reaches-sample-paging-without-disabled-controls",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "paging-preserves-focus",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "tab-click-retains-focus",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "composition-retains-count-and-unit",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "actual": [
+        "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+        "neotoma:sample:355236",
+        "neotoma:variable:271",
+        "271",
+        "2",
+        "NISP",
+        "null (source null)",
+        "not_provided_by_source",
+        "reported_value",
+        "null (source null)",
+        "TRSH",
+        "pollen",
+        "pollen",
+        "neotoma:exact-unit:NISP",
+        "count",
+        "2"
+      ],
+      "expected": [
+        "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+        "neotoma:sample:355236",
+        "neotoma:variable:271",
+        "271",
+        "2",
+        "NISP",
+        "null (source null)",
+        "not_provided_by_source",
+        "reported_value",
+        "null (source null)",
+        "TRSH",
+        "pollen",
+        "pollen",
+        "neotoma:exact-unit:NISP",
+        "count",
+        "2"
+      ],
+      "name": "literal-source-observation-cells",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "next-record-retains-navigation-focus-and-status",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "previous-record-retains-navigation-focus-and-identity",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "escape-closes-and-returns-to-search",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "clear-closes-and-returns-to-search",
+      "passed": true,
+      "width": 1440
+    },
+    {
+      "name": "opening-selects-overview",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "left-wraps-to-provenance",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "right-wraps-to-overview",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "end-selects-provenance",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "provenance-retains-raw-locator",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "samples-selected-and-linked",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "tab-enters-evidence-panel",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "sample-table-keyboard-route",
+      "route": [
+        {
+          "className": "focus-detail-table-wrap",
+          "disabled": false,
+          "inPanel": true
+        },
+        {
+          "className": "focus-detail-table-wrap",
+          "disabled": false,
+          "inPanel": true
+        },
+        {
+          "className": "",
+          "direction": "next",
+          "disabled": false,
+          "inPanel": true,
+          "path": "samples.samples"
+        }
+      ],
+      "width": 390
+    },
+    {
+      "name": "tab-reaches-sample-paging-without-disabled-controls",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "paging-preserves-focus",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "tab-click-retains-focus",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "composition-retains-count-and-unit",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "actual": [
+        "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+        "neotoma:sample:355236",
+        "neotoma:variable:271",
+        "271",
+        "2",
+        "NISP",
+        "null (source null)",
+        "not_provided_by_source",
+        "reported_value",
+        "null (source null)",
+        "TRSH",
+        "pollen",
+        "pollen",
+        "neotoma:exact-unit:NISP",
+        "count",
+        "2"
+      ],
+      "expected": [
+        "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+        "neotoma:sample:355236",
+        "neotoma:variable:271",
+        "271",
+        "2",
+        "NISP",
+        "null (source null)",
+        "not_provided_by_source",
+        "reported_value",
+        "null (source null)",
+        "TRSH",
+        "pollen",
+        "pollen",
+        "neotoma:exact-unit:NISP",
+        "count",
+        "2"
+      ],
+      "name": "literal-source-observation-cells",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "next-record-retains-navigation-focus-and-status",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "previous-record-retains-navigation-focus-and-identity",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "escape-closes-and-returns-to-search",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "clear-closes-and-returns-to-search",
+      "passed": true,
+      "width": 390
+    }
+  ],
+  "browser": {
+    "jsVersion": "15.3.76.13",
+    "product": "Chrome/153.0.8010.53",
+    "protocolVersion": "1.3",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+  },
+  "browser_command": "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/detail-focus.mjs artifacts/atlas-source-detail/literal-observation-candidate artifacts/atlas-source-detail/source-literal-observation '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' artifacts/atlas-source-detail/literal-observation-candidate/expectations.json",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "evidence_id": "atlas-retained-neotoma-detail-navigation",
+  "expectations": {
+    "chronology_text": "Calibrated radiocarbon years BP",
+    "composition_record": "neotoma:sample:355236",
+    "composition_text": "NISP",
+    "first_observation": {
+      "aggregation_key": "neotoma:exact-unit:NISP",
+      "denominator_status": "not_provided_by_source",
+      "detection_status": "reported_value",
+      "observation_id": "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+      "sample_id": "neotoma:sample:355236",
+      "source_context": null,
+      "source_denominator": null,
+      "source_ecological_group": "TRSH",
+      "source_element": "pollen",
+      "source_element_type": "pollen",
+      "source_part_number": 2,
+      "source_taxon_id": 271,
+      "source_unit": "NISP",
+      "source_value": 2,
+      "unit_family": "count",
+      "variable_id": "neotoma:variable:271"
+    },
+    "fixture_kind": "retained_source_owned_neotoma_site_context",
+    "next_detail_status": "available",
+    "next_title": "Bergakyllen",
+    "provenance_build": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    "provenance_text": "surfaces/sites#site_id=neotoma:site:12",
+    "query": "Ager\u00f6ds Mosse",
+    "sample_count": 135,
+    "sample_table_path": "samples.samples",
+    "title": "Ager\u00f6ds Mosse"
+  },
+  "fixture_kind": "retained_source_owned_neotoma_site_context",
+  "generation": {
+    "candidate_build_id": "atlas-e1041ebb99258f503d47d60f92e5c1c7c4ebab15c249cc79954b42ff0ee53a4b",
+    "candidate_document_sha256": "d75dbc30454b96c7d1db1699eed5a47f35c7ae5e6265088d58c0727cfe0323aa",
+    "inputs_sha256": {
+      "docs/report/regions/nordic/nordic.atlas-details.0173.1fd49588884c2a07.js": "1fd49588884c2a0758ac23bd3e800fd03e69da9ae1123ddd8e10225286b374d2",
+      "docs/report/regions/nordic/nordic.atlas-details.0191.1f7cb6511a10fbd3.js": "1f7cb6511a10fbd3a1223535f20b3db71947bd187b915c3cfd698267bb611d12",
+      "docs/report/regions/nordic/nordic.atlas-indexes.0239.30ba693aa210c990.js": "30ba693aa210c9903627d8776694480be8543cf7226d7be6c056c6a15c7271a1",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0013.cba61832d6b5f78b.js": "cba61832d6b5f78b5bab6b1e6cfffe34a328f947282bf067198d86e1c5b7a754",
+      "docs/report/regions/nordic/nordic.atlas-provenance.0000.d159c78f54f84c39.js": "d159c78f54f84c39313fe183842892874045d84c6140e5067fb0374f14dc415a",
+      "docs/report/regions/nordic/nordic_map.html": "790278550add51f919daebc915bd49de1bc87c6749c55f59a1effe955ad61f59",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source_detail_candidate.py": "5d80fa3a8e3fc102aec0026e682b27e5dbbfb58d7bae03d974c3321c3e237f4b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py": "bf8a3172d89295fca5ad6087076e0b9097e7d8571e13fa7dfa2cdc75b425c5e7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html": "3c4cda219889ce0b96aa110824df607261c3994b1fc607a2b83286d73a86bb89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py": "066e553e1c58295c848e917577ef3e688f2fdf4faa40ef2fd8b5c394c90341fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py": "b9b694dd0d0546a806e5f22fcf9cd503a0638267e0cf6e18424d571a24e4cd89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py": "770d80bb6ac812fea5dd09f8c120fffc97f1c0e3f9bf43f407c38b40062d3cb7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/constants.py": "8c228dce3e1b6ac932e3e2d3aebeee8e28891b5e57874e7ea403014367f1f986",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/io.py": "dde30ca2cf224f178a3d85f73fd633b4cd8f0e9f33c1f06cf394018fb776a7dc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/models.py": "2d3d43830973a98c8f79f172c6bb4de9e15808efe172f2d742a72003f95a82fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/neotoma.py": "d9c37bbcc962063ad4abfc57b34b51cf6f37248dffd32eccc5ed00cec4ebaf73",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/records.py": "38c68f150a22450a244aff47eddf9d8087aa7a4f635d29ff6a67a11e814e28c7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/__init__.py": "09d8c0ceeb013541c6b8ae200f52448e40511bd7f5d899fd9412cf7340be7577",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/accounting.py": "f5db877900e8b6e06ba7e742c5d4c293f7597f200fd68985c3c23f7227bbfd80",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/admission.py": "fc9faf672ee0cf9315f2280dd7b898ebd7718aed4a09bea297aff23cc5fbd134",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/chronology.py": "a7384b4718c8043389f237a885e04255580057be5b61bc67743d8e05261e3e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/detail_records.py": "0c6a7b5e391c677d7f78fe3ed0d3ecb0fa5c2e3a6051755e62863ceed9e06870",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/models.py": "e66b4a216bab40e505cb3abf1d83daad2a8a791da38823a18dbe9fe50c98b09f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/observations.py": "5db7926fb8f89d5de974f743074bccee62b34a24a626d6a7ea83fd654723a0b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/projection.py": "f326308c502dabe14c02e0eeb5348cba9898fbc3e0892f8b2ee4a96206545ffe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/provenance.py": "d483c8b346c94c4502569e069ee15e583610f3c74354b927dce01255be3cf620",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/relations.py": "abe3ce1dad847a51cc7d1c36be86e7a885c5f64f4b1c190ae29e4e9716c543dd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/sites.py": "1eef187b51b2568407653bbea1a2550fd2bcef59bb3e0c45812a1b76c89e6786",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_claims.py": "747480541006ebc87df5b3d461a42f6bd7470eaa86d855c2863682c6b5579c56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_records.py": "6bcf8f3575f8308568f2cd44656a92d6fd5cbdeb98b7b6403ca052c824ba5af3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/service.py": "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/native_lra.py": "b443d56a9b0b807d2922857b0cfa7641fa8147ad21cb243aab98414f60260fad",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": "04d40b3dfcea8d926585016e113e20bb6c4e42607373fe48361e91d2f7fb3e67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py": "5214ac7f8ba86805b5a7e0bfd5529e5ecb3d3042854abcfc1340505400e99dc0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/state.py": "50bd3e0a59d82f70c1c7ccd2934f05c2306161dc31f09e45d12bf61daaec1044",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/__init__.py": "ae5191883dd9d1c2bcf2f793e5215d313abc09660dfcb9ef3a20a5566e484314",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/budgets.py": "afa643cdd77e43b9bc1dc57adeea7572c2efcbd983a021d93b729b462877734b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/index_bundles.py": "b67d42828cd96dcff45b757c1924c3bb01e568c23228e817196bff8228b61ec0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/indexes.py": "596ca95bba4979e654fbb477b654741671e2a361cf12e77b41c3dfc09fd0fbd0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/models.py": "f5aa9f01bbcf8d6ec861d64e629f4359a39925084f57cb1c654e71f62ea268c0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/nodes.py": "70db748025f7fc8c3484ca0daddadaa867248ea57216c86c41f968ab670f9f09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/serialization.py": "4f517d2bbef9e7b19ccdeb2f9ef587c0214bf4b7884b7b6ab742abf6f0e2654f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/validation.py": "0603633df5605270d4ec1ba6e76b6d219d61bbaecdcd96a0eeac1fc3479cc246",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/writer.py": "b8cde394647be01a8380b36935ef85af7474969f4eebcd65788d26a2e410fb7f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py": "ee4b07bb87f39d926c26f17bd334bf95b9626fee92e0a49af63201273ab6bfec",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/temporal_admission.py": "755f485ddddc41afa580e4361fd13aa620229ae807a86ec8c0835b8a1e91bc2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_publication.py": "2e2a277de4dcd1923ed84417a617d1dabaa35679544dd680f7a56239f49de08e"
+    },
+    "schema_version": "atlas-retained-source-detail-candidate.v1",
+    "scientific_posture": "source_owned_site_context; preserve chronology refusals; no reviewed classification or propagation claim",
+    "source_atlas_build_id": "atlas-0a15c7029a76a7959aaf03f3635624edce91d151f70df9127ffd92f7cdfefa81",
+    "source_records": [
+      {
+        "chronology_claim_count": 270,
+        "chronology_status_counts": [
+          {
+            "calibration": "calibrated",
+            "comparability": "comparable",
+            "count": 131
+          },
+          {
+            "calibration": "calibrated",
+            "comparability": "refused",
+            "count": 4
+          },
+          {
+            "calibration": "uncalibrated",
+            "comparability": "context_only",
+            "count": 135
+          }
+        ],
+        "detail_record_sha256": "020283f4f7814833375e37c864e194a67a6da83ca990bc80eb5e6a905c9858e5",
+        "observation_count": 2580,
+        "record_id": "neotoma:site:12",
+        "sample_count": 135,
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:12",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      },
+      {
+        "chronology_claim_count": 56,
+        "chronology_status_counts": [
+          {
+            "calibration": "calibrated",
+            "comparability": "comparable",
+            "count": 28
+          },
+          {
+            "calibration": "uncalibrated",
+            "comparability": "context_only",
+            "count": 28
+          }
+        ],
+        "detail_record_sha256": "dae818b372a5a0b944b74e6b5182885b85f40e32f79f4ef387bfb4ed7bb7a6ac",
+        "observation_count": 523,
+        "record_id": "neotoma:site:3009",
+        "sample_count": 28,
+        "source_provenance": {
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
+          "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+          "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
+          "record_locator": "surfaces/sites#site_id=neotoma:site:3009",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
+        }
+      }
+    ]
+  },
+  "generation_command": ".venv/bin/python -m bijux_pollenomics_dev.ci.atlas_browser.source_detail_candidate --repository . --destination artifacts/atlas-source-detail/literal-observation-candidate",
+  "limits": [
+    "Two retained Swedish Neotoma site contexts; no four-country, full atlas or SEAD consumer claim.",
+    "Calibrated/refused/contextual source chronology claims retained; site aggregate ranges remain contextual and are not continuous time support.",
+    "No reviewed taxa/pollen sum, propagation, LRA or vegetation accuracy claim.",
+    "No full provider matrix, palette simulation, screen-reader, 200 percent zoom, performance, deployment or release gate."
+  ],
+  "materialized_detail_record_sha256": {
+    "neotoma:site:12": "020283f4f7814833375e37c864e194a67a6da83ca990bc80eb5e6a905c9858e5",
+    "neotoma:site:3009": "dae818b372a5a0b944b74e6b5182885b85f40e32f79f4ef387bfb4ed7bb7a6ac"
+  },
+  "prior_diagnostics": [
+    {
+      "cause": "Combined package tests collided on tests namespace; selected package checks run in separate processes.",
+      "path": "artifacts/atlas-source-detail/pytest.log",
+      "result": "collection error"
+    },
+    {
+      "cause": "Chromium makes overflow table containers keyboard focusable; verifier records the bounded in-panel route to sample paging.",
+      "path": "artifacts/atlas-source-detail/source-browser/receipt.json",
+      "result": "FAIL"
+    }
+  ],
+  "runtime_errors": [],
+  "schema_version": "atlas-detail-focus-verification.v1",
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "d75dbc30454b96c7d1db1699eed5a47f35c7ae5e6265088d58c0727cfe0323aa",
+    "source-detail.atlas-details.0002.4bcd13e649426a11.js": "4bcd13e649426a119d47ca68f28be05a5b8be53759d7c14580b58f57116a1606",
+    "source-detail.atlas-edges.0003.deb29237ba844be4.js": "deb29237ba844be4f32dd3c2d1386d8d06f5687c6227c28cc5ee7e4e24eee4e1",
+    "source-detail.atlas-indexes.0005.b23b8fdb8746852f.js": "b23b8fdb8746852f9084ac66c4676b7ab99736c7778135af9e4387d24d1bcf0c",
+    "source-detail.atlas-nodes.0001.9f811cdf479b8774.js": "9f811cdf479b8774bcd535d132583e4601786d8dd06b54db2c12fef79250961e",
+    "source-detail.atlas-provenance.0000.2ddeb6332ed03d7d.js": "2ddeb6332ed03d7d3a452717a946af752150ef030d6a22b21ceaf6ce1687b150",
+    "source-detail.atlas-sequences.0004.08a4f12702bf0aa1.js": "08a4f12702bf0aa15f73bd673311441f1ade75a7d3c41e54af3c47f64708accc"
+  },
+  "source_test_result": "...                                                                      [100%]\n3 passed in 0.48s",
+  "status": "PASS",
+  "synthetic_compatibility": {
+    "assertions": [
+      {
+        "name": "opening-selects-overview",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "left-wraps-to-provenance",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "right-wraps-to-overview",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "end-selects-provenance",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "provenance-retains-raw-locator",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "samples-selected-and-linked",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "tab-enters-evidence-panel",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "sample-table-keyboard-route",
+        "route": [
+          {
+            "className": "",
+            "direction": "next",
+            "disabled": false,
+            "inPanel": true,
+            "path": "samples"
+          }
+        ],
+        "width": 1440
+      },
+      {
+        "name": "tab-reaches-sample-paging-without-disabled-controls",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "paging-preserves-focus",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "tab-click-retains-focus",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "composition-retains-count-and-unit",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "next-record-retains-navigation-focus-and-status",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "previous-record-retains-navigation-focus-and-identity",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "escape-closes-and-returns-to-search",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "clear-closes-and-returns-to-search",
+        "passed": true,
+        "width": 1440
+      },
+      {
+        "name": "opening-selects-overview",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "left-wraps-to-provenance",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "right-wraps-to-overview",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "end-selects-provenance",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "provenance-retains-raw-locator",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "samples-selected-and-linked",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "tab-enters-evidence-panel",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "sample-table-keyboard-route",
+        "route": [
+          {
+            "className": "",
+            "direction": "next",
+            "disabled": false,
+            "inPanel": true,
+            "path": "samples"
+          }
+        ],
+        "width": 390
+      },
+      {
+        "name": "tab-reaches-sample-paging-without-disabled-controls",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "paging-preserves-focus",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "tab-click-retains-focus",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "composition-retains-count-and-unit",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "next-record-retains-navigation-focus-and-status",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "previous-record-retains-navigation-focus-and-identity",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "escape-closes-and-returns-to-search",
+        "passed": true,
+        "width": 390
+      },
+      {
+        "name": "clear-closes-and-returns-to-search",
+        "passed": true,
+        "width": 390
+      }
+    ],
+    "browser": {
+      "jsVersion": "15.3.76.13",
+      "product": "Chrome/153.0.8010.53",
+      "protocolVersion": "1.3",
+      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+    },
+    "expectations": {
+      "chronology_text": "cal BP",
+      "composition_record": "taxon:triticum",
+      "composition_text": "count",
+      "fixture_kind": "synthetic_ui_contract",
+      "next_detail_status": "unavailable",
+      "next_title": "evidence-1",
+      "provenance_build": "fixture-build",
+      "provenance_text": "raw/sites.json#site:1",
+      "query": "evidence-0",
+      "sample_count": 26,
+      "sample_table_path": "samples",
+      "title": "evidence-0"
+    },
+    "fixture_kind": "synthetic_ui_contract",
+    "runtime_errors": [],
+    "schema_version": "atlas-detail-focus-verification.v1",
+    "served_files_sha256": {
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "detail-focus.atlas-details.0003.f0bd1bf81798f19b.js": "f0bd1bf81798f19b69b128a74616980c0e5008487fb38e113194dfc4b62a0668",
+      "detail-focus.atlas-edges.0004.9e0fa7d2aadeb5a9.js": "9e0fa7d2aadeb5a929960893ba701bf9b2be83277b136374cc663ce5923501ce",
+      "detail-focus.atlas-indexes.0006.74c7e1d914bc18cc.js": "74c7e1d914bc18cc9faee70001d770770f1ee6cc79ed515c030b42657fb90460",
+      "detail-focus.atlas-nodes.0001.10981b85c34815ed.js": "10981b85c34815ed68f1eacc33e4044b51c6fd5e9db43240c2ed18a88cc2d30c",
+      "detail-focus.atlas-nodes.0002.44390b419086bc55.js": "44390b419086bc55c73af75ea2ab57b43bed3d2f993cf126eb9f0e076912dfb8",
+      "detail-focus.atlas-provenance.0000.eb6de81c267c71c4.js": "eb6de81c267c71c462ea55c46bf1af790c166937ef44dd7e8cba8b93bbbba590",
+      "detail-focus.atlas-sequences.0005.7fc0bf05f25a0f9c.js": "7fc0bf05f25a0f9ca91b17a2759dfe66815c55d3f1e682679d4ea03143d78fb9",
+      "index.html": "2d36890f03e7139a23411de99c6a8fc1253c2b79ad4a9d7ba2bb45d0b0bec6ba"
+    },
+    "status": "PASS",
+    "verifier_sha256": "77e3bd4f3ae0bf2b04ea4002aed29705ad9caeba74cd4fd89f4b1c128da04b1f"
+  },
+  "synthetic_fixture_test_result": "..                                                                       [100%]\n2 passed in 0.53s",
+  "terminal_exit_code": 0,
+  "terminal_session": 58556,
+  "verifier_sha256": "77e3bd4f3ae0bf2b04ea4002aed29705ad9caeba74cd4fd89f4b1c128da04b1f"
+}
