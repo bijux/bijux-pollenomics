@@ -12,13 +12,14 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/comparison.py": "5d5eb257d1247a783627a5bc7749a55090f7a0492428574f7be4ed3b912e107f",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py": "628bb5ad9d288185717be699dedd3191ce1fa5a656871c9dd01ea96de8bae1db",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_comparison.py": "a43d0d03be8932c717f7f474a7713412a1087adc3c6a7dd2ba7abdf3ef4e64df",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/taxon_errors.py": "b88240086434437eef6c67e96ffd9f95f032fa62c0aee0a4e80254df8a9093bf"
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/taxon_errors.py": "b88240086434437eef6c67e96ffd9f95f032fa62c0aee0a4e80254df8a9093bf",
+    "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py": "12be0501ecbb88ca1eb1a8a0d835ada7c03aae32ebac471e136920b1c44f67d6"
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "c6bbdf2d204799a4b721d20bea5467a907c04c3912bbc2f49c7e544f5604ac06",
-      "bytes": 6109
+      "sha256": "e7a691f0ba04b056bef8bf2d2da86bbbb3b38f21cba47021f13d3e939f9cd320",
+      "bytes": 3835
     },
     {
       "path": "comparisons/baseline/REPORT.md",
@@ -229,6 +230,11 @@
       "path": "nearest-site/scores/scores.csv",
       "sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d",
       "bytes": 48549
+    },
+    {
+      "path": "replay.py",
+      "sha256": "12be0501ecbb88ca1eb1a8a0d835ada7c03aae32ebac471e136920b1c44f67d6",
+      "bytes": 8140
     },
     {
       "path": "training-mean/grid-512/predictions.csv",

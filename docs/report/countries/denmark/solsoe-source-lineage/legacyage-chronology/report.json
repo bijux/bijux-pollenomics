@@ -1,0 +1,67 @@
+{
+  "schema_version": "solsoe-legacyage-exact-depth-join.v1",
+  "source_doi": "10.1594/PANGAEA.933132",
+  "source_license": "CC-BY-4.0",
+  "source_sha256": {
+    "table-s5-legacyage-chronology.csv": "bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41",
+    "table-s6-chronology-comparison.csv": "2a058f08472199b0545e4562e6860371dfaba7ce74140b1e0b4dbdce0ce55300"
+  },
+  "neotoma_sha256": {
+    "samples": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "age_claims": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558"
+  },
+  "source_depth_unit": "cm",
+  "age_unit": "calibrated years BP",
+  "neotoma_site_id": "neotoma:site:3432",
+  "joined_samples": 92,
+  "unmatched_exact_depth_samples": 0,
+  "refused_age_claim_samples": 1,
+  "datasets": {
+    "4445": {
+      "core": "SOLSOE81",
+      "collection_unit_id": "neotoma:collection-unit:4303",
+      "neotoma_samples": 66,
+      "s5_model_depths": 492,
+      "exact_sample_depth_joins": 66,
+      "no_exact_depth_samples": 0,
+      "comparable_calibrated_age_claims": 65,
+      "refused_calibrated_age_claims": 1,
+      "neotoma_points_inside_s5_95_percent": 57,
+      "neotoma_points_outside_s5_95_percent": 9,
+      "legacyage_mean_minus_neotoma_point_years": {
+        "minimum": -635.0,
+        "median": 16.0,
+        "maximum": 378.0
+      },
+      "s6_original_chronology_compared": "Giesecke et al. 2014 (MADCAP)",
+      "s6_comparison": "Original chronology is partially or completely outside the 95% confidence intervals of the LegacyAge 1.0",
+      "s6_selection_reason": "Both ok and AWI's priority",
+      "s6_legacyage_source": "AWI"
+    },
+    "4446": {
+      "core": "SOLSOE83",
+      "collection_unit_id": "neotoma:collection-unit:4304",
+      "neotoma_samples": 26,
+      "s5_model_depths": 185,
+      "exact_sample_depth_joins": 26,
+      "no_exact_depth_samples": 0,
+      "comparable_calibrated_age_claims": 26,
+      "refused_calibrated_age_claims": 0,
+      "neotoma_points_inside_s5_95_percent": 26,
+      "neotoma_points_outside_s5_95_percent": 0,
+      "legacyage_mean_minus_neotoma_point_years": {
+        "minimum": -471.0,
+        "median": -3.5,
+        "maximum": 158.0
+      },
+      "s6_original_chronology_compared": "Giesecke et al. 2014 (MADCAP)",
+      "s6_comparison": "Original chronology is within the 95% confidence intervals of the LegacyAge 1.0",
+      "s6_selection_reason": "Both ok and AWI's priority, publication unavailable",
+      "s6_legacyage_source": "AWI"
+    }
+  },
+  "sample_depth_join_sha256": "0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925",
+  "refused_samples_sha256": "052d97c8a2f01743cdbf425a41c7c5c37c5ac1e8f8b4a5ba5ea9db7e874d07e8",
+  "lra_admitted_samples": 0,
+  "interpretation": "Exact sample-depth correspondence to an alternative LegacyAge chronology. The source S6 comparison does not identify historical LandClim age selection, repair a refused Neotoma age, supply sample-age basin geometry, or admit LRA input."
+}

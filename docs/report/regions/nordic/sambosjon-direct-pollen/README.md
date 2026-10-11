@@ -87,7 +87,12 @@ neither LRA nor measured-vegetation validation.
 
 The separate [source age-bound screen](age-bounds/README.md) finds that 58 of
 111 selected sample intervals span a nominal 500-cal-BP boundary. It leaves
-this point-age score and its prediction freeze unchanged.
+this point-age score and its prediction freeze unchanged. The
+[contained-age sensitivity](interval-support/README.md) keeps 53 samples and
+21 bins on those identical predictions. Primary equal-bin MAE is 0.023054
+versus 0.022881 for original counts on the same bins. The unsupported first
+bin is explicitly refused; this marginal-support comparison is no age
+posterior or independent confirmation.
 
 To replay into absent directories under `artifacts/`, run the three stages in
 order and pass the actual freeze digest to scoring:

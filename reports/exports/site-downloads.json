@@ -1,0 +1,108 @@
+{
+  "schema_version": "scientific-reader-downloads.v1",
+  "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
+  "inputs": {
+    "reports/science/paper-accounts.csv": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
+    "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
+    "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
+    "presentation/source-lock.json": "cdb7070262848dc6fa35ed7b551a29a274ab08bb978a75fce6e6a13521322800"
+  },
+  "files": [
+    {
+      "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
+      "site_uri": "assets/science/papers/landclim-regional-reconstruction.pdf",
+      "canonical_source": "reports/science/landclim-paper.md",
+      "source_sha256": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d",
+      "sha256": "6de0671ce5f67d11110541ea07532bf799dfcc08daede88ce8b70235469ba545",
+      "bytes": 75393
+    },
+    {
+      "path": "reports/exports/papers/love-optimized-local-inference.pdf",
+      "site_uri": "assets/science/papers/love-optimized-local-inference.pdf",
+      "canonical_source": "reports/science/loveoptim-paper.md",
+      "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
+      "sha256": "3ce11504e93a143275eb5e1c712683592b4988afac6648d471fd76938ea8a62d",
+      "bytes": 78023
+    },
+    {
+      "path": "reports/exports/papers/regional-reveals-theory.pdf",
+      "site_uri": "assets/science/papers/regional-reveals-theory.pdf",
+      "canonical_source": "reports/science/reveals-theory-paper.md",
+      "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
+      "sha256": "20b2f33ea78b7528ce31f42351dc6d7dec69de86cc81a0c706c2fa512fcd0f12",
+      "bytes": 41243
+    },
+    {
+      "path": "reports/exports/papers/local-love-theory.pdf",
+      "site_uri": "assets/science/papers/local-love-theory.pdf",
+      "canonical_source": "reports/science/love-theory-paper.md",
+      "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
+      "sha256": "bc9aabd61b74c35fb12342a817bfc6e888ef8cdafc993048fbee74622a740873",
+      "bytes": 41284
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
+      "site_uri": "assets/science/papers/southern-sweden-regional-validation.pdf",
+      "canonical_source": "reports/science/hellman-regional-validation-paper.md",
+      "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
+      "sha256": "e6f1b78c406dcd6439f049ad27b17eb8189bba5cd8cb6103cf228a705f309239",
+      "bytes": 41894
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
+      "site_uri": "assets/science/papers/southern-sweden-sampling-design.pdf",
+      "canonical_source": "reports/science/hellman-sampling-design-paper.md",
+      "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
+      "sha256": "ac2e50d7d79988ac290286f25b6ce5ed49ecc644dc6b97a3c91cbfa0e671f492",
+      "bytes": 42300
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-validation-synthesis.pdf",
+      "site_uri": "assets/science/papers/southern-sweden-validation-synthesis.pdf",
+      "canonical_source": "reports/science/southern-sweden-validation-paper.md",
+      "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
+      "sha256": "58fa253e660046766e8783a0e98efc5c258870869b11c26d78f1150dcdc3a973",
+      "bytes": 39773
+    },
+    {
+      "path": "reports/exports/papers/smaland-historical-map-reference.pdf",
+      "site_uri": "assets/science/papers/smaland-historical-map-reference.pdf",
+      "canonical_source": "reports/science/smaland-historical-maps-paper.md",
+      "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
+      "sha256": "05e49d14fdda486e858df0ebba6b3ea5515574dc1878fefd903ab7e45352b8ad",
+      "bytes": 68810
+    },
+    {
+      "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
+      "site_uri": "assets/science/papers/namibia-modern-pollen-vegetation-reference.pdf",
+      "canonical_source": "reports/science/namibia-pollen-vegetation-paper.md",
+      "source_sha256": "a54e9d9459a674a64944252c08ae4c9b56bbfb0c6f5e32fb793e75a5a28a4fb0",
+      "sha256": "24562c89eda2e32afaf08d631cfee0dee2733edc74841cc3f63afb4cbc1b21aa",
+      "bytes": 59978
+    },
+    {
+      "path": "presentation/big-picture.pdf",
+      "site_uri": "assets/science/presentations/big-picture.pdf",
+      "canonical_source": "presentation/big-picture.tex",
+      "source_sha256": "e73a8cd7a5518ad87cfcb2ef5c3ba5fe3494c69f4ededc952026a2591cac9995",
+      "sha256": "3131ed5daac8fc8395e3fb2cb6be95fd1c09ff7729dc44b6964a620f8bdd4ed6",
+      "bytes": 176547
+    },
+    {
+      "path": "presentation/developer.pdf",
+      "site_uri": "assets/science/presentations/developer.pdf",
+      "canonical_source": "presentation/developer.tex",
+      "source_sha256": "6bf7568a78ae966fae6554054e4ca536eedfc06a61468803e3775d0bc45806cf",
+      "sha256": "277b0da32a57676238259c641ec4f7310000ad5d564866aa117d5d4f3dc17433",
+      "bytes": 158936
+    },
+    {
+      "path": "presentation/scientific-evidence.pdf",
+      "site_uri": "assets/science/presentations/scientific-evidence.pdf",
+      "canonical_source": "presentation/scientific-evidence.tex",
+      "source_sha256": "a8bee0b8f9f9a3a271357df53394ae587d0949c53bf45094aa9176890b5d9a29",
+      "sha256": "3f5e143b06b50eaf6ce9ce3d8a6c3f70acc5f3fd44646fb251dc063335fc32b9",
+      "bytes": 211180
+    }
+  ]
+}

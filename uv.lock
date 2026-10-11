@@ -263,6 +263,9 @@ dev = [
     { name = "types-pyyaml" },
     { name = "vulture" },
 ]
+reports = [
+    { name = "markdown-it-py" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -275,6 +278,7 @@ requires-dist = [
     { name = "hatch", marker = "extra == 'dev'", specifier = ">=1.14.0,<2.0" },
     { name = "interrogate", marker = "extra == 'dev'", specifier = ">=1.7.0,<2.0" },
     { name = "jsonschema", specifier = ">=4.24,<5" },
+    { name = "markdown-it-py", marker = "extra == 'reports'", specifier = ">=4.0,<5.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.18.2,<3.0" },
     { name = "pip-audit", marker = "extra == 'dev'", specifier = ">=2.9.0,<3.0" },
     { name = "pydantic", marker = "extra == 'dev'", specifier = ">=2.12,<3.0" },
@@ -291,7 +295,7 @@ requires-dist = [
     { name = "types-pyyaml", marker = "extra == 'dev'", specifier = ">=6.0.12,<7.0" },
     { name = "vulture", marker = "extra == 'dev'", specifier = ">=2.14,<3.0" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["dev", "reports"]
 
 [[package]]
 name = "bijux-pollenomics-lra"
@@ -336,7 +340,7 @@ source = { editable = "." }
 [package.dev-dependencies]
 dev = [
     { name = "bijux-pollenomics", extra = ["dev", "lra"] },
-    { name = "bijux-pollenomics-dev", extra = ["dev"] },
+    { name = "bijux-pollenomics-dev", extra = ["dev", "reports"] },
     { name = "bijux-pollenomics-lra", extra = ["dev"] },
     { name = "mkdocs-redirects" },
     { name = "openapi-spec-validator" },
@@ -350,7 +354,7 @@ dev = [
 [package.metadata.requires-dev]
 dev = [
     { name = "bijux-pollenomics", extras = ["dev", "lra"], editable = "packages/bijux-pollenomics" },
-    { name = "bijux-pollenomics-dev", extras = ["dev"], editable = "packages/bijux-pollenomics-dev" },
+    { name = "bijux-pollenomics-dev", extras = ["dev", "reports"], editable = "packages/bijux-pollenomics-dev" },
     { name = "bijux-pollenomics-lra", extras = ["dev"], editable = "packages/bijux-pollenomics-lra" },
     { name = "mkdocs-redirects", specifier = ">=1.2.1,<2.0" },
     { name = "openapi-spec-validator", specifier = ">=0.7.1" },

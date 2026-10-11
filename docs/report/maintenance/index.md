@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Maintainer Truth Surfaces
@@ -35,4 +35,4 @@ structurally weak.
 
 ## Current Count
 
-- maintainer artifacts: `994`
+- maintainer artifacts: `1027`

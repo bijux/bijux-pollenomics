@@ -70,7 +70,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Report Portal
@@ -120,7 +120,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # How To Read Reports
@@ -165,7 +165,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Map Surfaces
@@ -203,7 +203,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Scope-Filtered Outputs
@@ -239,7 +239,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Evidence Reviews
@@ -276,7 +276,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Scientific Caveats
@@ -313,7 +313,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Maintainer Truth Surfaces

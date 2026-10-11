@@ -77,6 +77,18 @@ budget; it does not prove that another solver can certify the same fit. We
 retain the complete-fold refusal and do not score BECKHAM as if the three
 training reconstructions existed.
 
+We then tested whether an exact analytic gradient changes these six failed
+ring fits while keeping the same LOVE objective, uniform start, simplex
+constraints and declared search limits. The [source-bound gradient diagnostic](../../docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md)
+first reproduced all six original finite-difference stop messages, iteration
+counts, evaluation counts and objective values. Its gradient agreed with
+finite differences at positive points both on and off the simplex. With that
+gradient, each HANGINGS ring converged in 110 iterations and 313 objective
+evaluations; both CUTHILL2 rings and both LONGBREACH rings still stopped on
+the positive-direction line search. This isolates a numerical contribution
+to one refusal without establishing a complete BECKHAM fold. We did not
+publish new held-out predictions or scores.
+
 We preserved full-precision closed cover fractions because four-decimal
 rounding had yielded a `1.0002` sum that the consumer correctly rejected.
 

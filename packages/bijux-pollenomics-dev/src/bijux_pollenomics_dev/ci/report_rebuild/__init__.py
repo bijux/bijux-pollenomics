@@ -3,6 +3,7 @@
 from .contracts import ReportRebuildError
 from .workflow import (
     assemble_partition_lane,
+    build_owner_output,
     build_partition,
     build_partition_plan,
     verify_partitioned_rebuild,
@@ -11,6 +12,7 @@ from .workflow import (
 __all__ = [
     "ReportRebuildError",
     "assemble_partition_lane",
+    "build_owner_output",
     "build_partition",
     "build_partition_plan",
     "verify_partitioned_rebuild",

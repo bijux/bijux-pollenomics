@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import Counter
+import hashlib
 from pathlib import Path
 from typing import cast
 
@@ -18,7 +19,7 @@ def _build_report_narrative_quality_review(
         if str(row["format"]) == "md"
     ]
     for relative_path in sorted(markdown_paths):
-        text = (output_root / relative_path).read_text(encoding="utf-8")
+        text = (output_root / relative_path).read_bytes().decode("utf-8")
         review_rows.append(_build_quality_row(relative_path, text))
     for relative_path, text in sorted(portal_pages.items()):
         if not relative_path.endswith(".md"):
@@ -69,6 +70,7 @@ def _build_quality_row(relative_path: str, text: str) -> dict[str, object]:
         note = "Page explains itself but still needs stronger internal wayfinding."
     return {
         "repository_path": f"docs/report/{relative_path}",
+        "content_sha256": hashlib.sha256(text.encode()).hexdigest(),
         "prose_paragraph_count": prose_paragraph_count,
         "link_bullet_count": link_bullet_count,
         "bullet_sentence_count": bullet_sentence_count,

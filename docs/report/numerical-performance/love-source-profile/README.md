@@ -53,6 +53,13 @@ engine source hashes. Those cases do not use this profiled `LOVEexample`
 workload, so they establish current-source method parity within their own
 contracts but do not supply a same-input R comparator here.
 
+The later [LOVEexample source comparison](../love-source-comparison/README.md)
+uses one exported input and candidate set for native R 4.6.0/DISQOVER 0.9.14
+and the profiled Python public-call contract. It passes the fixed-candidate
+ring factors, objective values, selected candidates, and cover/pollen outputs.
+The decision below remains the decision of this profiling run; the later
+comparison does not measure a compiled implementation or search convergence.
+
 **Decision:** retain the Python engine and do not write a new speculative C++
 kernel for this workload. To reopen the native candidate, profile a declared
 larger qualified LOVE workload and execute source R and Python on identical

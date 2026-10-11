@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-29
+last_reviewed: 2026-10-02
 ---
 
 # Scientific evidence
@@ -18,6 +18,9 @@ on its tested sites; neither measures vegetation accuracy.
 
 | Start here | Question answered |
 | --- | --- |
+| [Papers and evidence roles](papers.md) | Which original finding, calculation and validation claim does each paper support? |
+| [Reports and presentations](downloads.md) | Download the nine canonical paper PDFs and three audience briefings for offline reading. |
+| [Country evidence status](country-status.md) | What is scored, refused or still missing in each Nordic country? |
 | [Sources and scientific scope](sources.md) | Which four-country cohorts are counted, and why are some LRA inputs still refused? |
 | [Results and model use](results.md) | Which numerical results agree or differ, how did direct and LRA pollen predictions score, and which parameters are supported? |
 
@@ -27,3 +30,8 @@ page. The repository's [claim-to-evidence index](https://github.com/bijux/bijux-
 connects headline findings to numeric tables, manifests and producers. Open
 source questions remain visible in the repository's
 [`reports/needed` register](https://github.com/bijux/bijux-pollenomics/tree/main/reports/needed).
+
+Follow the [atlas walkthrough](../interfaces/atlas-walkthrough.md) to inspect
+one published modeled-context cell, trace its source and reproduce its
+bounded country/window summary. The route separates map behavior from
+scientific acceptance.

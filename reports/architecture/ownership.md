@@ -1,84 +1,144 @@
-# Why we separate research decisions from generated reports
+# How we own research reports
 
 ## Our decision
 
-We use root [`reports/`](../README.md) as the reader's route from a question
-to a result, its source and its limits. A domain report owns one scientific
-interpretation. The [claim index](../evidence-index.md) links that
-interpretation to the governed numeric rows and maintained producer. The
-[`reports/needed/`](../needed/README.md) register holds genuine unanswered
-source questions; completed work and execution plans do not belong there.
+We maintain [root reports](../README.md) as the reader's path from a research
+question to our decision, evidence and limits. The [claim index](../evidence-index.md)
+links each interpretation to its numeric result and producer. The
+[open evidence register](../needed/README.md) names the source questions that
+still require an answer. A reader should not need a run directory or a backlog
+to understand a result.
 
-We keep `docs/report/` as an active governed output and website source tree
-while its producers still write there. We move a result only with its
-producer, tests, manifest and incoming citations, so it has one numeric
-owner after the move. A former website path may remain as a short citation
-to that owner. Selected rights-safe explanations appear under `docs/public/`;
-the [PDF briefings](../../presentation/README.md) cite locked report versions.
-We treat untracked `artifacts/` as disposable. Any current consumer that still
-requires an old run path violates this ownership boundary and needs migration.
+We keep `docs/report/` as a governed output tree because the publisher, source
+consumers and numerical studies still own distinct paths there. Moving a
+result requires moving or redirecting its producer, manifest, tests and
+incoming citations together. A former website path may remain as a short
+pointer to the new owner. We publish rights-safe explanations through
+[`docs/public/`](../../docs/public/pollenomics/science/index.md) and lock the
+sources cited by the [PDF briefings](../../presentation/README.md).
 
-This separation matters because the current `docs/report/` tree has multiple
-owners. The repository publisher, source consumers, numerical studies and
-website assets do not share one regeneration command. An isolated
-`publish-reports` run can repeat its own outputs without reproducing every
-tracked file produced by those other owners. We therefore require a
-producer-specific replay and tracked-byte comparison before claiming that a
-migrated result is reproducible. The [report verifier](../verify.py) checks
-reader inventory, local links and selected source identities; the
-[scientific verifier](../../docs/report/pollen-reconstruction/verify_report.py)
-checks its governed result set. Neither alone proves a full clean-tree
-rebuild. The [rebuild policy](../../configs/ci/reproducible-report-build.json)
-must be satisfied against every actual producer before that broader claim.
+| Content | Owner and durable location | Reader route |
+| --- | --- | --- |
+| Research interpretation | Domain page under `reports/science/` or `reports/architecture/` | [Research library](../README.md) |
+| Numeric result and exact source identity | Its maintained producer and governed output under `docs/report/` or the owning root study | [Claim index](../evidence-index.md) |
+| Private source bytes | Qualified external source store, with repository source identity and permitted-use account | [Source cohort account](../science/source-cohorts.md) |
+| Unanswered source question | `reports/needed/` until a source-bound result or decision resolves it | [Open evidence register](../needed/README.md) |
+| Public explanation | Rights-safe page and version-locked briefing | [Public science](../../docs/public/pollenomics/science/index.md) |
 
-We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
-They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
-explanatory pages have 15 resolving local links. This is a verified portion of
-the mixed report tree; the remaining nonpublisher outputs still need their own
-owner replay before an assembled whole-tree no-difference claim.
+## Why one rebuild command is insufficient
 
-We also replayed the source capability, DNA scope, Rootsi–LandClim overlap,
-LandClim author preparation, OpenLand intake and aggregate source
-reconciliation owners. Their eight generated JSON/CSV outputs now match the
-governed files. The [OpenLand decision](../../docs/report/source-relations/openland-intake/README.md)
-uses the current producer identity while retaining the same 51-member ledger.
-The [source reconciliation](../../docs/report/source-relations/source-reconciliation/README.md)
-now records the 13 authority paths added to its verified input closure; its
-accounting checks still pass without changing scientific admission. These
-source-specific replays account for another part of the tree, while full
-mixed-owner assembly remains open.
+The [repository publisher policy](../../configs/ci/reproducible-report-build.json)
+owns its country, region and foundation outputs. Independent producers own
+other source, method and study results. Some publisher summaries read those
+independent outputs, so the reducer receives verified owner files while it
+builds summaries and removes them from the publisher-owned output afterward.
+The final inventory assigns each report path one owner and compares the
+combined output with tracked `docs/report/` in two independent lanes.
 
-The five [synthetic method challenges](../../docs/report/synthetic-validation/README.md)
-also replayed their five governed JSON outputs byte for byte. Their explanatory
-pages are separately authored and linked from the family index. This gives
-these numerical and workflow checks producer ownership without treating
-fabricated cases as measured ecological validation.
+A producer replay binds its declared input bytes, command and exact output
+paths. We review the input closure as well as the byte comparison; a matching
+file does not authenticate a missing source, establish reuse rights or prove
+that all other report owners have been rebuilt. The
+[reader verifier](../verify.py) checks root pages, links and selected source
+identities. The [scientific verifier](../../docs/report/pollen-reconstruction/verify_report.py)
+checks its governed results. A complete report-tree rebuild is a separate
+acceptance decision.
 
-The [LandClim II study-input inventory](../../docs/report/publication-replay/landclim-study-inputs/README.md)
-replayed its five generated files byte for byte from the pinned raw workbook
-and receipt. Its 1,128 publication metadata rows and 4,512 explicit input
-refusals are reproducible; none becomes an authenticated historical pollen
-input or a publication reproduction merely because the inventory matches.
+The current tracked report tree contains 1,938 files. Its navigation registry
+indexes 1,934 surfaces and deliberately excludes its four registry/review
+metadata files. Each indexed Markdown surface and its layout row carries the exact content
+hash used by that consumer. Machine-readable products keep their domain
+manifest identities, avoiding recursive hashes through the scientific
+manifest that binds the portal outputs. The portal producer regenerates
+11 navigation and inventory files from the other governed report inputs;
+two isolated runs agree on all 11 outputs. This is a secondary consumer
+check of existing result bytes. It does not independently reproduce the
+scientific producers, the publisher's country bundles or the whole report
+tree. Automated layout signals do not establish actual reader comprehension
+or qualified scientific review.
 
-The [LandClim window alignment](../../docs/report/publication-replay/landclim-window-alignment/README.md)
-now replays its three governed outputs byte for byte from the pinned author
-time axis and published-window report. We fixed the CSV writer to use LF and
-removed an obsolete line-ending discrepancy from its manifest. The result
-still supports an exact time-bound comparison only for TW2; it does not
-authenticate the other historical publication inputs.
 
-Our source-bound vegetation results illustrate the boundary: the
-[Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
-[Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
-and [published-figure](../science/vegetation-reference/southern-sweden-figure/compare.py)
-producers and numeric outputs live beside the
-[vegetation decision](../science/vegetation-reference.md). Their exact
-source replays do not create an independent measured-vegetation pair for our
-predictions. The current science report states that limit directly.
+## Current output declarations
 
-We keep private licensed inputs in the qualified source store and record
-their acquisition conditions and content identities with the consuming
-domain. The tracked report should explain a result and its missing inputs
-without requiring the private bytes to be present. Historical run
-directories, deletion receipts and archive-member inventories do not belong
-in this reader library.
+The [output ownership inventory](../../configs/ci/report-ownership.json)
+assigns every tracked report path exactly one declaration. Its population is
+1,938 paths: 709 declared publisher paths, 125 original-R retained source
+files, 35 generated domain outputs, 62 maintained source files, 25
+maintained reader accounts and 982 paths with unresolved output custody.
+These role counts describe the current declarations. They do not measure
+how many outputs have been independently reproduced.
+
+The generated category includes 11 SEAD numeric products from six named
+source consumers, the two LandClim modeled-panel files and four contained-age
+files for each of two direct-pollen studies. The SEAD declarations name their
+actual raw/normalized and secondary report inputs, including source parts and
+retrieval receipts. Their reader accounts have separate editorial owners.
+Declaring the input closure does not rerun the source studies, authenticate
+new source permissions or qualify ecological events.
+
+Nine declared Danish chronology/freeze products have repository-bound input
+closures. Seven other Danish numeric products remain unresolved because their
+producer routes need exact external author taxonomy, LegacyAge tables,
+Odgaard source paper or the published EPD age table. A digest in a retained
+report does not establish possession or permitted use of those source bytes.
+The older pollen-coverage replay differs from the current governed report,
+so it cannot serve as a current matching-output receipt. These declarations
+keep source custody separate from a completed replay and from Solsø LRA
+admission.
+
+Three propagation outputs declare their exact repository input closure.
+The derived edge ledger consumes retained compact event and classification
+evidence; those original source bundles remain unresolved. The classification
+manifest names nine payloads while only three are retained locally. The
+source-first screen and derived ledger preserve zero admitted events and
+zero evaluated pairs. Their empty country bins establish neither ecological
+routes nor event absence. Both reader accounts are maintained separately.
+
+The Neotoma compact-summary and native-roundtrip declarations name their
+normalized/relational and raw-archive input closures respectively. They
+compare retained representations; neither establishes original HTTP capture
+custody. Four Neotoma reader accounts have separate editorial owners. The
+Swedish source declaration and source screen still need private metadata and
+capture inputs. The lake-parameter verifier reads its expected capture digest
+from the retained report, so that verification route remains unresolved; it
+cannot independently certify basin input or LRA admission.
+
+A fresh canonical publisher build from fixed product
+`d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
+publisher paths, with no missing or extra output. Its path-set digest is
+`e2670ba1efa03ec4dd8a54b2c013e494d7ef133922b0d6cdc0902f412e4b707b`.
+This single isolated source-checkout check establishes publisher membership;
+it does not establish an installed release, full-tree byte equality or the
+required two independent assembly lanes.
+The new declaration keeps the current-R and Linux-R raw outputs unresolved;
+the original-R source category applies only to its separately authenticated
+125-file bundle. A maintained source file or editorial account requires
+source custody and review, rather than an invented generated-output proof.
+
+Check the declaration without executing the scientific studies:
+
+```sh
+python -m bijux_pollenomics_dev.ci.report_rebuild.ownership --repository .
+```
+
+The checker compares the exact tracked namespace, path-set digest and unique
+owner assignments; it rejects missing or extra paths, unsafe source paths
+and generated owners that consume their own declared outputs. Adding
+`--require-resolved` refuses any unresolved declaration. Even when every role
+is resolved, this inventory check does not replace independent owner
+manifests, retained-source certificate validation or the two-lane full-tree
+comparison. Those checks remain with the existing report rebuild verifier.
+
+The [method correspondence](../science/method-correspondence.md),
+[publication correspondence](../science/publication-correspondence.md),
+[observed-pollen synthesis](../science/pollen-prediction.md) and
+[vegetation-reference decision](../science/vegetation-reference.md) state
+their scientific scopes independently. Reproducing a numerical report cannot
+turn a direct-pollen score into LRA validation or create a matched measured
+vegetation pair.
+
+Local `artifacts/` contains disposable execution products. We retain unique
+source identities and lasting results with their domain owners before
+retiring a run. Root reports explain the decision and its evidence; archive
+member lists, deletion receipts and transient run names stay out of the
+reader library.

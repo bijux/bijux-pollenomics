@@ -1,0 +1,469 @@
+{
+  "defects": [],
+  "images_retained": "Raster previews remain disposable build review material; retained PDF hashes bind these per-page observations.",
+  "input_receipt_sha256": "505e98bf5afde2a16c2c81a38866c944614567c327f5ab1b5163dabc39329c63",
+  "inventory_sha256": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
+  "layout_equivalence": {
+    "all_26_pages_pixel_identical": true,
+    "all_extracted_text_identical": true,
+    "committed_url_annotations_checked": true,
+    "equivalence_receipt_sha256": "ed7fef03aaf5cea1ad240f9cd69bd95f3e1704069dfede710a056b45111751e3",
+    "prior_complete_visual_review_sha256": "ad34df8c1f9621ba18c806de03ae5f43e0880cc82bfd0b1324f18be82e2551ca",
+    "scope": "Final committed-producer PDFs rendered and compared with every previously visually inspected page. Only commit-pinned URL annotations changed."
+  },
+  "notes": [
+    "No orphan or clipped pages observed.",
+    "Frontnotes remain readable without crowding titles or citation prose.",
+    "LandClim page 4 begins the next paragraph with one line before page 5; content is intact and legible."
+  ],
+  "overall_status": "layout_pass",
+  "page_count": 26,
+  "paper_count": 9,
+  "papers": [
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 5,
+      "file_url_annotations": 0,
+      "font_count": 6,
+      "input_pdf": "landclim-regional-reconstruction.pdf",
+      "input_pdf_sha256": "6de0671ce5f67d11110541ea07532bf799dfcc08daede88ce8b70235469ba545",
+      "page_count": 5,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3074,
+          "observation": "Frontnote, title, full citation, and opening argument readable; diagram begins next page.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3026,
+          "observation": "Complete flow diagram and method narrative readable; paragraph continues normally.",
+          "page": 2,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 4516,
+          "observation": "WHH05 trace and results readable; paragraph continues normally.",
+          "page": 3,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 5416,
+          "observation": "Status table fully readable; first line of following paragraph starts near bottom without clipping.",
+          "page": 4,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3071,
+          "observation": "Continuation, reproduction command, and final requests readable; no orphan page.",
+          "page": 5,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "landclim-regional-reconstruction",
+      "previous_visually_inspected_pdf_sha256": "6dba467c84af6ca2fbeed3bb549c8f71fbac50d797a9b378efd784c54d0b93ce",
+      "primary_source_url": "https://doi.org/10.5194/essd-14-1581-2022",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 5,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [
+        "±",
+        "×",
+        "−"
+      ],
+      "url_annotation_count": 61
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 4,
+      "file_url_annotations": 0,
+      "font_count": 8,
+      "input_pdf": "love-optimized-local-inference.pdf",
+      "input_pdf_sha256": "3ce11504e93a143275eb5e1c712683592b4988afac6648d471fd76938ea8a62d",
+      "page_count": 4,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3725,
+          "observation": "Frontnote, title, citation, concepts, and complete diagram readable; no footer collision.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 4568,
+          "observation": "Method, worked trace, and published findings readable; paragraph continues.",
+          "page": 2,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 4688,
+          "observation": "Published findings continuation and first four table rows readable; complete-row break.",
+          "page": 3,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3167,
+          "observation": "Repeated table header, final row, context, command, and full conclusion readable; prior orphan page gone.",
+          "page": 4,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "love-optimized-local-inference",
+      "previous_visually_inspected_pdf_sha256": "f79fc25f06467c029beb4c2acff71738ad4468e653af378ac00d3c0646a87ef7",
+      "primary_source_url": "https://doi.org/10.3390/quat7020018",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 4,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [
+        "BÜK",
+        "×",
+        "⁻"
+      ],
+      "url_annotation_count": 44
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 2,
+      "file_url_annotations": 0,
+      "font_count": 4,
+      "input_pdf": "regional-reveals-theory.pdf",
+      "input_pdf_sha256": "20b2f33ea78b7528ce31f42351dc6d7dec69de86cc81a0c706c2fa512fcd0f12",
+      "page_count": 2,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 4009,
+          "observation": "Frontnote, title, citation, concept sequence, and trace start readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3248,
+          "observation": "Trace conclusion, command, and requests readable; no orphan page.",
+          "page": 2,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "regional-reveals-theory",
+      "previous_visually_inspected_pdf_sha256": "11a8f706880f6863563fa86244c00b48ba0814b35313968411d6acb44ffc2c9e",
+      "primary_source_url": "https://doi.org/10.1177/0959683607075837",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 2,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [],
+      "url_annotation_count": 22
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 2,
+      "file_url_annotations": 0,
+      "font_count": 4,
+      "input_pdf": "local-love-theory.pdf",
+      "input_pdf_sha256": "bc9aabd61b74c35fb12342a817bfc6e888ef8cdafc993048fbee74622a740873",
+      "page_count": 2,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3927,
+          "observation": "Frontnote, title, citation, concept sequence, and trace start readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3115,
+          "observation": "Trace continuation, command, and requests readable; no orphan page.",
+          "page": 2,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "local-love-theory",
+      "previous_visually_inspected_pdf_sha256": "159658d9c0a72fd61cfd6492029f6bb8a0d8471365053c7df91dbe5464c02588",
+      "primary_source_url": "https://doi.org/10.1177/0959683607075838",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 2,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [],
+      "url_annotation_count": 23
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 2,
+      "file_url_annotations": 0,
+      "font_count": 4,
+      "input_pdf": "southern-sweden-regional-validation.pdf",
+      "input_pdf_sha256": "e6f1b78c406dcd6439f049ad27b17eb8189bba5cd8cb6103cf228a705f309239",
+      "page_count": 2,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3918,
+          "observation": "Frontnote, title, citation, method, and example start readable; example continues.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 2766,
+          "observation": "Example conclusion, command, and requests readable.",
+          "page": 2,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "southern-sweden-regional-validation",
+      "previous_visually_inspected_pdf_sha256": "e4fd9e8fa6041214b45293cb459e35fe55ac2f5fb9df7ebaf174b0d34db968b5",
+      "primary_source_url": "https://doi.org/10.1002/jqs.1126",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 2,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [
+        "Skåne",
+        "Småland"
+      ],
+      "url_annotation_count": 21
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 2,
+      "file_url_annotations": 0,
+      "font_count": 5,
+      "input_pdf": "southern-sweden-sampling-design.pdf",
+      "input_pdf_sha256": "ac2e50d7d79988ac290286f25b6ce5ed49ecc644dc6b97a3c91cbfa0e671f492",
+      "page_count": 2,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3459,
+          "observation": "Frontnote, title, citation, method, and sampling comparison readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 2687,
+          "observation": "Bounded figure example, command, and requests readable.",
+          "page": 2,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "southern-sweden-sampling-design",
+      "previous_visually_inspected_pdf_sha256": "b7a48874028c782718324975d6397da8488b09f115a7d6662894d735d25e7889",
+      "primary_source_url": "https://doi.org/10.1007/s00334-008-0149-7",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 2,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [],
+      "url_annotation_count": 20
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 2,
+      "file_url_annotations": 0,
+      "font_count": 4,
+      "input_pdf": "southern-sweden-validation-synthesis.pdf",
+      "input_pdf_sha256": "58fa253e660046766e8783a0e98efc5c258870869b11c26d78f1150dcdc3a973",
+      "page_count": 2,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 4032,
+          "observation": "Frontnote, title, citation, argument, and worked example readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3576,
+          "observation": "Comparison table, command, and final requests readable; no source-note-only page.",
+          "page": 2,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "southern-sweden-validation-synthesis",
+      "previous_visually_inspected_pdf_sha256": "8e34b7f3ceef783c787f2a5bc0f08976bba5f97a2e97625129043dd28650e908",
+      "primary_source_url": "https://doi.org/10.5194/cp-6-483-2010",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 2,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [],
+      "url_annotation_count": 17
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 4,
+      "file_url_annotations": 0,
+      "font_count": 6,
+      "input_pdf": "smaland-historical-map-reference.pdf",
+      "input_pdf_sha256": "05e49d14fdda486e858df0ebba6b3ea5515574dc1878fefd903ab7e45352b8ad",
+      "page_count": 4,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3203,
+          "observation": "Frontnote, title, citation, source roles, and map explanation readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3158,
+          "observation": "Full diagram and Stavasakra trace readable; prose continues.",
+          "page": 2,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 4088,
+          "observation": "Findings and first two status-table rows readable; table splits between rows.",
+          "page": 3,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 3651,
+          "observation": "Repeated table header, remaining rows, command, and requests readable.",
+          "page": 4,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "smaland-historical-map-reference",
+      "previous_visually_inspected_pdf_sha256": "47f5b319f8323bd96ef0e851f8bb580c1d3c3a72e2ca59e5976fd7f85bbf805a",
+      "primary_source_url": "https://doi.org/10.1002/ece3.1198",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 4,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [
+        "Småland",
+        "Stavsåkra"
+      ],
+      "url_annotation_count": 40
+    },
+    {
+      "all_extracted_pages_nonempty": true,
+      "all_fonts_embedded": true,
+      "extracted_page_count": 3,
+      "file_url_annotations": 0,
+      "font_count": 7,
+      "input_pdf": "namibia-modern-pollen-vegetation-reference.pdf",
+      "input_pdf_sha256": "24562c89eda2e32afaf08d631cfee0dee2733edc74841cc3f63afb4cbc1b21aa",
+      "page_count": 3,
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": [
+        {
+          "extracted_character_count": 3007,
+          "observation": "Frontnote, title, citation, source descriptions, and scope readable.",
+          "page": 1,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 2953,
+          "observation": "Complete diagram, worked trace, and summary table readable.",
+          "page": 2,
+          "visual_status": "readable"
+        },
+        {
+          "extracted_character_count": 2371,
+          "observation": "Boundary, final requests, and footer readable; no orphan page.",
+          "page": 3,
+          "visual_status": "readable"
+        }
+      ],
+      "paper_id": "namibia-modern-pollen-vegetation-reference",
+      "previous_visually_inspected_pdf_sha256": "2a415d0d86ba816bdbc239bae78f0ebfc593e221775d9b1299c44a6c0f3b525e",
+      "primary_source_url": "https://doi.org/10.1177/09596836211003193",
+      "primary_source_url_annotated": true,
+      "raster_page_count": 3,
+      "render_dpi": 140,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_sha256": "a54e9d9459a674a64944252c08ae4c9b56bbfb0c6f5e32fb793e75a5a28a4fb0",
+      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
+      "unicode_probes_present": [
+        "m²"
+      ],
+      "url_annotation_count": 23
+    }
+  ],
+  "producer_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "136a759213df444b2998e30a5822f947b97659168d7eddcf22da89c5a1f16c54",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "7a4b71f167b4dc4f246bc48dba80e1cc577009a0039e1a94d1c94e1ad63ec1c1",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "d675b36d527842e0a151780f3a235c1e22f7b98cf913c8db3407ec868c9aad2b",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "983fcf4122728fec04bceb70ac89c4e61bf0c2459728852162695349173d66d3"
+  },
+  "repository_link_status": "Source paths encoded to pinned GitHub revision; newly committed remote pages were not opened online.",
+  "repository_revision": "9460aa08c5a99743db1ae4cd6ee817754c7d5382",
+  "review_date": "2026-10-02",
+  "scope": "Model visual and extractability review of nine frozen standalone PDFs; no human-reader comprehension, independent scientific review, or online availability claim",
+  "source_date_epoch": 1790812800,
+  "tools": [
+    "pdftoppm -png -r 140",
+    "pdfinfo",
+    "pdffonts",
+    "pdftotext -layout",
+    "pdfinfo -url",
+    "manual original-size inspection of every rasterized page"
+  ]
+}

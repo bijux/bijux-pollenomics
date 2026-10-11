@@ -37,9 +37,14 @@ values matched the retained Python baseline. The earlier source-R comparison
 used eight different engine files, including the optimizer. We have since
 [rerun native R](../../docs/report/method-certification/current-r-oracle/README.md)
 against the installed source: 18 optimized LOVE cases pass on three declared
-fixtures. The profiled `LOVEexample` is a different input, so a larger qualified
-workload and an identical-input R/Python comparison remain prerequisites before
-reconsidering a native LOVE candidate.
+fixtures. We then compared [the same `LOVEexample` inputs](../../docs/report/numerical-performance/love-source-comparison/README.md)
+in R and Python with fixed candidates. Hexadecimal readback checked every
+input double across the two runtimes. Cover and pollen matched exactly;
+ring factors and objective values differed by at most 5.11e-15, and all eight
+selected candidates agreed. This establishes one bounded source-method
+comparison. A larger source-qualified workload, optimizer search behavior and
+conversion-inclusive full-call gain remain prerequisites before reconsidering
+a native LOVE candidate.
 
 ## Boundary we would use if a new kernel qualifies
 

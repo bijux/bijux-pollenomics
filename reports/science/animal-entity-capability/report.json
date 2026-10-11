@@ -1,0 +1,93 @@
+{
+  "schema_version": "animal-entity-capability.v1",
+  "inputs": [
+    {
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
+      "bytes": 165617,
+      "sha256": "3bf9b510d7af34fb199bd8f58bfa4c07ca8b98c30a29f29b62cc34ef1109fc2c"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.csv",
+      "bytes": 39095,
+      "sha256": "e9dcdf1a24b70a9944637b3bec1c28102b005325f36bd0efe2e9f16fcddd7cc7"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.csv",
+      "bytes": 4664,
+      "sha256": "14fb5cb2ef134cf5f6c3453a8e86c0fd3b7c733a9a25dd33b69fb612ea5eb4b2"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.csv",
+      "bytes": 86483,
+      "sha256": "cc20dbac3546f4ccd783bdbe43cfa9a4a74e7931796ae7d359bc12cacc27b7e9"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/sample_records.csv",
+      "bytes": 841,
+      "sha256": "967b14740e7ce3247d617363ecdd0f1614c7148e05a49b040c28a6e87fa2f821"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
+      "bytes": 565888,
+      "sha256": "e20b66653cf4154509eb21d1441991fbc06a438bc80d1f99a60ce40bc4db7181"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
+      "bytes": 116135,
+      "sha256": "a946e366696079e5e6549370a5ca2f6a79e2b9fb7e6388169a972750a4853134"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/sample_records.csv",
+      "bytes": 230865,
+      "sha256": "d327b862b86cbed1b0334e503292f940417940ce8104c33a0fc3044dece73941"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.csv",
+      "bytes": 27434,
+      "sha256": "0696675c852a48b4d138551916b3b181119ff2d23da229e23fb395f6c0938213"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.csv",
+      "bytes": 340530,
+      "sha256": "693021d7f9a9931c9e913bd2e2433c473f3d4912b228e9092c01d2063c50bb61"
+    },
+    {
+      "path": "data/adna/governance/animal_sample_foundation_truth.json",
+      "bytes": 18126,
+      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
+    },
+    {
+      "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "bytes": 700614,
+      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc"
+    },
+    {
+      "path": "docs/report/animal_atlas_exclusion_report.json",
+      "bytes": 1392865,
+      "sha256": "c6f40b744adb04cf9e1fadb481574ca7be7d05b23663a8c01827259b3dfa1eb8"
+    }
+  ],
+  "normalized_sample_ids": 1468,
+  "map_feature_count": 170,
+  "mapped_sample_ids": 331,
+  "excluded_sample_ids": 1137,
+  "map_exclusion_reasons": {
+    "chronology remains unresolved enough that the sample stays out of the public map": 24,
+    "no coordinate provenance row currently supports point publication": 409,
+    "sample is tracked but does not yet satisfy the full atlas point contract": 326,
+    "sample locality remains unresolved and cannot be mapped honestly": 378
+  },
+  "nordic_map_feature_count": 8,
+  "nordic_mapped_sample_ids": 12,
+  "nordic_mapped_country_labels": {
+    "Denmark": 5,
+    "Finland": 2,
+    "Sweden": 5
+  },
+  "country_assignment_admitted": false,
+  "scientifically_admitted": false,
+  "decision_sources": {
+    "mapped_sample_ids": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+    "excluded_sample_ids": "docs/report/animal_atlas_exclusion_report.json"
+  }
+}

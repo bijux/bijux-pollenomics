@@ -66,6 +66,7 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
 ```
 
 The [governed manifest](../../../docs/report/publication-replay/landclim-published-window-provenance/manifest.json)
-binds the upstream ledgers, private crosswalk and producer. The producer
-writes CRLF CSV while the governed ledger uses LF with identical parsed
-rows; compare parsed rows or normalized line endings when replaying it.
+binds the upstream ledgers, private crosswalk and producer. The producer now
+writes LF CSV, and all three governed outputs match a source-checked replay
+byte for byte. This owner replay does not authenticate the missing historical
+raw inputs behind the published archive.

@@ -2,8 +2,8 @@
   "schema_version": "landclim-published-window-provenance-custody.v1",
   "repository_inputs": {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py": {
-      "bytes": 15526,
-      "sha256": "74ba361ca20a1d6b5d4e73dfb04b6d26b80d6c762980d85b4189b4b8853ed8aa"
+      "bytes": 15824,
+      "sha256": "97a603bd52a27bfb1a1d5b7aa25431eeb964917937342b091435a507fa97ab1e"
     },
     "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv": {
       "bytes": 1820946,

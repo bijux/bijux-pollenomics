@@ -36,62 +36,20 @@ are redistributed here.
 The baseline and taxon comparison directories retain the same current v3
 comparison, including site, block and taxon diagnostics. The earlier v1
 baseline contained the same method summaries and score receipts but did not
-include those diagnostics. To replay the source-bound family from the repository
-root, use an absent output directory under `artifacts/`:
+include those diagnostics. The [family replay](replay.py) rebuilds the local
+site mean, four methods on both grids, scores and five comparisons from the
+private author capsule. It checks the declared source and producer identities,
+then compares all 51 generated files to this tracked family. From the repository
+root, use an absent output path under `artifacts/`:
 
 ```sh
-SOURCE_ROOT=../bijux-pollenomics-data/landclim/author-reference
-OUT=artifacts/author-buffered-pollen/replay
-export PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src
-
-.venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.observed_pollen_baseline \
-  --author "$SOURCE_ROOT/author" --reference "$SOURCE_ROOT/reference" \
-  --run docs/report/publication-replay/landclim-method-profile/reference \
-  --output "$OUT/local-site-mean"
-
-for spec in training-mean:training_mean nearest-site:nearest_site \
-  inverse-distance-squared:inverse_distance_squared \
-  fitted-clr-rbf:clr_rbf_ridge_half_count; do
-  family=${spec%:*}
-  method=${spec#*:}
-  for grid in 512 562; do
-    .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial \
-      predict --author "$SOURCE_ROOT/author" --reference "$SOURCE_ROOT/reference" \
-      --output "$OUT/$family/grid-$grid" --target-grid "$grid" --method "$method"
-  done
-  .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial \
-    score --author "$SOURCE_ROOT/author" --reference "$SOURCE_ROOT/reference" \
-    --output "$OUT/$family/scores" \
-    --prediction-512 "$OUT/$family/grid-512" \
-    --prediction-562 "$OUT/$family/grid-562" \
-    --local-scores "$OUT/local-site-mean/scores.csv"
-done
-
-.venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison \
-  --training-mean "$OUT/training-mean/scores" \
-  --nearest-site "$OUT/nearest-site/scores" \
-  --inverse-distance-squared "$OUT/inverse-distance-squared/scores" \
-  --output "$OUT/comparisons/baseline"
-cp -R "$OUT/comparisons/baseline" "$OUT/comparisons/taxon"
-.venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.hellinger_comparison \
-  --comparison "$OUT/comparisons/baseline/report.json" \
-  --training-mean "$OUT/training-mean/scores" \
-  --nearest-site "$OUT/nearest-site/scores" \
-  --inverse-distance-squared "$OUT/inverse-distance-squared/scores" \
-  --output "$OUT/comparisons/hellinger"
-.venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_comparison \
-  --training-mean "$OUT/training-mean/scores" \
-  --nearest-site "$OUT/nearest-site/scores" \
-  --inverse-distance-squared "$OUT/inverse-distance-squared/scores" \
-  --clr-rbf-ridge-half-count "$OUT/fitted-clr-rbf/scores" \
-  --output "$OUT/comparisons/fitted-common-support"
-.venv/bin/python docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/replay.py \
-  --author "$SOURCE_ROOT/author" --reference "$SOURCE_ROOT/reference" \
-  --output "$OUT/comparisons/strict-clr-support"
+.venv/bin/python docs/report/pollen-reconstruction/author-buffered-pollen/replay.py \
+  --source-root ../bijux-pollenomics-data/landclim/author-reference \
+  --output artifacts/author-buffered-pollen/replay
 ```
 
-The current v3 baseline output also supplies `comparisons/taxon`. Its two files
-must match `comparisons/baseline` byte for byte. The local site-mean producer's
+The baseline and taxon comparison outputs must match byte for byte.
+The local site-mean producer's
 `scores.csv` must hash to
 `644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9`.
 The tracked within-grid score ledger has normalized line endings and a

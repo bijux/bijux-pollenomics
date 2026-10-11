@@ -18,6 +18,16 @@ and 7.16e-14 for standard errors in fraction units. The [raw-to-prepared
 replay](../../../report/source-relations/landclim/author-example-taxon-support/README.md)
 also reproduces the 17 released example files byte for byte.
 
+We separately ran the 2016 author REVEALS function and a pinned later
+Petr Kuneš LRA source on one author 225 BP window in four site
+configurations. The [source comparison](../../../report/method-certification/petrkunes-r-comparison/README.md)
+retains 124 paired cover values and 124 paired standard errors that agree
+at CSV precision, plus identical 1,000-draw full-grid bootstrap indices.
+Our historical native profile matches the tagged R full-grid result within
+declared tolerances when given those indices. This is conditional numerical
+correspondence within a shared code lineage; it does not certify corrected
+uncertainty or Nordic ecological accuracy.
+
 We separately compared RcppDE and Python LOVE optimization on
 [three declared shared objectives](../../../report/method-certification/optimizer-solution-quality/README.md).
 Both attained objective gaps below `1e-4` from independent optima, and each
@@ -94,6 +104,15 @@ pollen sites; the LRA route uses one regional anchor and 13 local
 reconstruction predictors. The sites and outcomes were previously explored.
 This result does not compare vegetation accuracy or establish the best method
 for new Nordic cores.
+
+The refused BECKHAM fold remains refused after a [source-bound analytic-gradient
+check](../../../report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md).
+The check reproduced all six original ring-fit failures and recovered both
+HANGINGS fits with an exact derivative of the same LOVE objective. The four
+CUTHILL2 and LONGBREACH ring fits still failed their convergence test, so no
+BECKHAM LRA prediction or held-out score was added. A lower objective at a
+failed fit does not certify a reconstruction.
+
 The [site-influence result](../../../report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
 finds the lower direct mean Hellinger distance persists after any one scored
 site is omitted. Individual sites still disagree, especially for nearest
@@ -171,6 +190,63 @@ do not establish nonoverlap of the cores' true age distributions. This is a
 prior-exposed observed-pollen development comparison, not a test of LRA or
 measured vegetation.
 
+## Abborrtjärnen with an alternative chronology
+
+The [LegacyAge source join](../../../report/source-relations/neotoma/legacyage-chronology/README.md)
+matches published age estimates to all 107 Abborrtjärnen pollen sample depths
+and 71 of 72 Dalmutladdo depths by exact S5 row. The remaining 4.5 cm
+Dalmutladdo sample has a [source-bound derived age-summary allocation](../../../report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+from the adjacent 4 and 5 cm rows: minimum −94, maximum 541.5, median 257
+and mean 215 calibrated years BP. This is not an exact S5 row or joint age
+posterior. These are alternative ages, not the historical LandClim age vector.
+
+In a separate [three-site development sensitivity](../../../report/pollen-reconstruction/age-interval-sensitivity/README.md),
+we admitted a sample to a 500-year bin only when its entire reported LegacyAge
+95% interval fit inside that bin. Only eight Abborrtjärnen samples qualified
+for four shared bins. Four fixed pollen predictors scored the same 12
+site-bin targets each; inverse-distance-squared site-macro MAE changed from
+0.060058 to 0.059762 on that matched subset.
+
+The other two sites retain point ages, and the intervals do not provide a
+joint age posterior. This sparse, previously exposed 16-label pollen study
+does not establish a better chronology, independent accuracy or LRA inputs.
+
+For the Norwegian Dalmutladdo core, a separate
+[age-interval support check](../../../report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
+keeps only two of 72 pollen samples: their full reported LegacyAge 95%
+intervals stay inside their original 500-year bins. Four previously frozen
+Norway-excluded methods provide eight predictions across those two bins;
+20 previously scored bins have no eligible sample. The two samples do not
+change bins, so the paired same-sample scores are identical under the
+nominal and strict rules. Differences from the original full-bin scores
+reflect fewer counted samples, not a new model result or LRA validation.
+The separate [31-author-target analysis]
+(../../../report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
+reuses six frozen predictions on those two bins. Its inverse-distance-squared
+two-bin MAE is 0.006445, compared with 0.006341 for the parent's full
+compositions on the same bins. Those scores have a different taxon axis and
+denominator from the 16-label result; the two studies cannot be pooled.
+
+At Danish Solsø, a [primary LegacyAge depth join]
+(../../../report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+matches all 92 Neotoma samples across two cores. The 1981 and 1983 core
+chronologies have different agreement with these alternative age intervals.
+The join does not recover LandClim II's published selection of 79 samples or
+its historical basin inputs.
+A separate [Denmark-held-out pollen sensitivity]
+(../../../report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
+retains 15 of 91 comparable samples whose full age intervals fit their
+original bins. Eight of 24 scored bins and 32 frozen four-method predictions
+remain supported. This is a previously exposed direct-pollen result on one
+physical lake, with no new LRA or vegetation validation claim.
+The distinct [31-author-target Solsø sensitivity]
+(../../../report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+uses author-assigned pollen counts and 24 frozen three-method predictions on
+the same 15 supported samples and eight bins. Its nearest-site eight-bin MAE
+is 0.025673, compared with 0.025513 on the parent's complete counts in those
+bins. We do not pool that score with the 16-label result or infer independent
+temporal skill from this one previously exposed lake.
+
 ## A newly scored Swedish lake
 
 We applied three fixed observed-pollen predictors to Lake Sämbosjön, a
@@ -186,7 +262,12 @@ evidence, not independent confirmation or vegetation accuracy. A separate
 source age-bound screen finds that 58 of 111 sample intervals cross a nominal
 500-year bin boundary, with at least one crossing in each scored bin. The
 published MAE remains a point-age-bin result, not an age-uncertainty-adjusted
-score.
+score. The [contained-age sensitivity](../../../report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md)
+keeps 53 samples in 21 bins with the same frozen predictions. Primary MAE
+is 0.023054 versus 0.022881 for original counts on those same bins; bin 1
+has no contained sample and is refused. Marginal source-bound containment
+is a development sensitivity, with no joint age posterior or confidence
+interval.
 
 ## A second newly scored Swedish lake
 
@@ -204,7 +285,12 @@ give the denominators and per-bin results.
 Only 55,638 of 127,027 native pollen NISP counts lie on the exact 16-label
 axis (43.80%). Two of 86 source samples are excluded from age-bin scores due
 to negative source age bounds, with their counts retained separately. The
-training source-validation screen had previously parsed this target's source
+separate [contained-age sensitivity](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md)
+keeps 42 of 84 age-selected samples in 20 of 23 bins. On those same 20 bins,
+the frozen primary method's MAE is 0.019316 on contained samples versus
+0.018367 on the original full-bin observations. The remaining three bins
+refuse; this conditional check is not a joint age uncertainty model.
+The training source-validation screen had previously parsed this target's source
 partition, so this is descriptive new-site development evidence, not an
 untouched independent confirmation. It does not evaluate vegetation or LRA.
 
@@ -212,10 +298,15 @@ untouched independent confirmation. It does not evaluate vegetation or LRA.
 
 We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at
 Bussjösjön and Bökesjön in 13 common 500-cal-BP bins. The
-[lake trajectory report](../../../report/countries/sweden/observed-pollen-trajectory/README.md)
+[lake trajectory report](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md)
 retains each site's source counts, age support and 48 taxon/threshold/interval
 comparisons. Some site changes agree in direction and others contradict. A
-1000-year binning and alternate nearby-site circles expose time and location
+review of the source counts found that the 48 classifications are 24 distinct
+taxon transitions evaluated at two thresholds: one `Alnus` contradiction
+persists under both thresholds and denominators. A different Bussjösjön
+`Alnus` transition reverses direction when the 16-taxon subtotal replaces
+all native pollen counts. Neither comparison is a vegetation-cover change.
+The 1000-year binning and alternate nearby-site circles expose time and location
 sensitivity. Giving both lakes equal weight versus pooling their pollen counts
 changes 10 of 48 all-native direction classes and 9 of 48 closed-16 classes;
 four comparisons in each denominator reverse between a qualified increase and
@@ -241,6 +332,15 @@ numerical vegetation fractions. A [published southern Swedish figure](../../../r
 supports a bounded nine-label comparison of its authors' estimates, not a
 score of this repository's predictions. These source results answer different
 questions; none supplies our missing independent vegetation outcome.
+An [authenticated Namibian source join](../../../report/vegetation-reference/namibia-pollen-vegetation/README.md)
+adds ten modern soil-pollen sites paired with satellite-image-derived
+vegetation areas at 15 reported radii. It is a separate, previously inspected
+development source with no model score; its savanna soil samples do not
+validate Nordic lake reconstructions. A [descriptive radius comparison](../../../report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
+finds mean five-taxon pollen-to-area Hellinger distances of 0.3664 at 100 m,
+0.3427 at 400 m and 0.3777 at 1,500 m across the same ten sites. The source
+tables do not settle ring versus cumulative area semantics or a suitable
+pollen-source radius.
 
 ### Model settings
 

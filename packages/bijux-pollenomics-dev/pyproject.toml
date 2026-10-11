@@ -27,6 +27,9 @@ Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux
 Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [project.optional-dependencies]
+reports = [
+    "markdown-it-py>=4.0,<5.0",
+]
 dev = [
     "bijux-pollenomics-lra[dev]>=0.1.5,<1.0",
     "pytest-asyncio>=1.0.0,<2.0",

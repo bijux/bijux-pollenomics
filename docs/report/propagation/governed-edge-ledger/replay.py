@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 from collections import Counter
 import csv
 from hashlib import sha256
@@ -18,7 +19,14 @@ CLASSIFICATION = DIRECTORY / "classification-evidence"
 COUNTRIES = ("DK", "FI", "NO", "SE")
 SOURCE_REPORT = REPOSITORY / "docs/report/propagation/source-first-observed/report.json"
 CONCEPTS = REPOSITORY / "data/neotoma/review/source_taxon_concepts.json"
-FIELDS = ("source_country", "target_country", "input_events", "evaluated_pairs", "directed_candidates", "status")
+FIELDS = (
+    "source_country",
+    "target_country",
+    "input_events",
+    "evaluated_pairs",
+    "directed_candidates",
+    "status",
+)
 
 
 def digest(path: Path) -> str:
@@ -45,39 +53,76 @@ def summarize() -> tuple[list[dict[str, object]], dict[str, object]]:
     concepts = checked_json(CONCEPTS)
     release = checked_json(EVIDENCE / "release_metadata.json")
     classification = checked_json(CLASSIFICATION / "manifest.json")
-    if digest(CLASSIFICATION / "manifest.json") != release["classification_review_digest"]:
+    if (
+        digest(CLASSIFICATION / "manifest.json")
+        != release["classification_review_digest"]
+    ):
         raise ValueError("Classification receipt identity changed")
     classification_files = {item["path"]: item for item in classification["files"]}
-    for name in ("accepted_mapping_queue.json", "release_metadata.json", "observation_denominators.json"):
+    for name in (
+        "accepted_mapping_queue.json",
+        "release_metadata.json",
+        "observation_denominators.json",
+    ):
         if digest(CLASSIFICATION / name) != classification_files[name]["sha256"]:
             raise ValueError(f"Classification decision identity changed: {name}")
     accepted = checked_json(CLASSIFICATION / "accepted_mapping_queue.json")
     classification_release = checked_json(CLASSIFICATION / "release_metadata.json")
-    observation_denominators = checked_json(CLASSIFICATION / "observation_denominators.json")
+    observation_denominators = checked_json(
+        CLASSIFICATION / "observation_denominators.json"
+    )
     primary = checked_json(EVIDENCE / "primary_scenario_reconciliation.json")
     sensitivity = checked_json(EVIDENCE / "sensitivity_summary.json")
     if source["source_identity"]["build_id"] != release["build_id"]:
         raise ValueError("Source build and release build differ")
-    if concepts["source_summaries"]["neotoma"]["source_snapshot_id"] != source["source_identity"]["source_snapshot_id"]:
+    if (
+        concepts["source_summaries"]["neotoma"]["source_snapshot_id"]
+        != source["source_identity"]["source_snapshot_id"]
+    ):
         raise ValueError("Classification and observed-source snapshots differ")
-    if classification["source_snapshot_id"] != source["source_identity"]["source_snapshot_id"] or classification["build_id"] != release["build_id"]:
+    if (
+        classification["source_snapshot_id"]
+        != source["source_identity"]["source_snapshot_id"]
+        or classification["build_id"] != release["build_id"]
+    ):
         raise ValueError("Classification audit and source identities differ")
-    if accepted["record_count"] != 0 or accepted["records"] or classification_release["reviewed_accepted_mapping_count"] != 0:
+    if (
+        accepted["record_count"] != 0
+        or accepted["records"]
+        or classification_release["reviewed_accepted_mapping_count"] != 0
+    ):
         raise ValueError("Accepted classification queue changed")
-    if classification_release["public_release_allowed"] is not False or observation_denominators["total_observation_count"] != 370936:
+    if (
+        classification_release["public_release_allowed"] is not False
+        or observation_denominators["total_observation_count"] != 370936
+    ):
         raise ValueError("Classification release or source denominator changed")
     statuses = Counter(row["current_mapping_status"] for row in concepts["rows"])
-    if sum(statuses.values()) != concepts["row_count"] or set(statuses) != {"unmapped", "not_applicable"}:
+    if sum(statuses.values()) != concepts["row_count"] or set(statuses) != {
+        "unmapped",
+        "not_applicable",
+    }:
         raise ValueError("Classification admission changed")
-    if source["denominators"]["events"] != 0 or source["denominators"]["refused"] != source["denominators"]["attempts"]:
+    if (
+        source["denominators"]["events"] != 0
+        or source["denominators"]["refused"] != source["denominators"]["attempts"]
+    ):
         raise ValueError("Observed-source refusal changed")
-    if release["accepted_classification_mapping_count"] != 0 or release["input_event_count"] != 0 or release["public_release_allowed"] is not False:
+    if (
+        release["accepted_classification_mapping_count"] != 0
+        or release["input_event_count"] != 0
+        or release["public_release_allowed"] is not False
+    ):
         raise ValueError("Release admission changed")
     if primary["event_manifest_digest"] != manifest["event_manifest_digest"]:
         raise ValueError("Primary event identity changed")
 
     pairs = primary["reconciliation"]["ordered_country_pair_counts"]
-    expected = {f"{source_country}-{target_country}" for source_country in COUNTRIES for target_country in COUNTRIES}
+    expected = {
+        f"{source_country}-{target_country}"
+        for source_country in COUNTRIES
+        for target_country in COUNTRIES
+    }
     if set(pairs) != expected or primary["reconciliation"]["evaluated_pair_count"] != 0:
         raise ValueError("Primary country-pair support changed")
     if any(any(value != 0 for value in counts.values()) for counts in pairs.values()):
@@ -87,7 +132,9 @@ def summarize() -> tuple[list[dict[str, object]], dict[str, object]]:
         raise ValueError("Sensitivity scenario support changed")
     for scenario in scenarios:
         counts = scenario["country_pair_counts"]
-        if set(counts) != expected or any(any(value != 0 for value in row.values()) for row in counts.values()):
+        if set(counts) != expected or any(
+            any(value != 0 for value in row.values()) for row in counts.values()
+        ):
             raise ValueError("A sensitivity country pair has a nonzero outcome")
 
     rows = [
@@ -115,8 +162,12 @@ def summarize() -> tuple[list[dict[str, object]], dict[str, object]]:
         "concept_status_counts": dict(sorted(statuses.items())),
         "original_evidence_manifest_sha256": digest(EVIDENCE / "manifest.json"),
         "classification_review_digest": release["classification_review_digest"],
-        "accepted_mapping_queue_sha256": digest(CLASSIFICATION / "accepted_mapping_queue.json"),
-        "classification_source_observations": observation_denominators["total_observation_count"],
+        "accepted_mapping_queue_sha256": digest(
+            CLASSIFICATION / "accepted_mapping_queue.json"
+        ),
+        "classification_source_observations": observation_denominators[
+            "total_observation_count"
+        ],
         "scenario_count": len(scenarios),
         "ordered_country_pair_bins_per_scenario": len(pairs),
         "admitted_event_count": 0,
@@ -129,8 +180,10 @@ def summarize() -> tuple[list[dict[str, object]], dict[str, object]]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path)
+    args = parser.parse_args()
     rows, report = summarize()
-    ledger = DIRECTORY / "edge-ledger.csv"
     stream = io.StringIO(newline="")
     writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
     writer.writeheader()
@@ -138,9 +191,23 @@ def main() -> None:
     expected_ledger = stream.getvalue().encode("utf-8")
     report["edge_ledger_sha256"] = sha256(expected_ledger).hexdigest()
     expected_report = (json.dumps(report, indent=2) + "\n").encode("utf-8")
-    if ledger.read_bytes() != expected_ledger or (DIRECTORY / "report.json").read_bytes() != expected_report:
-        raise ValueError("Retained edge ledger or report differs from source-bound replay")
-    print("Verified 16 Nordic country-pair bins and 16 sensitivity scenarios; zero admitted events.")
+    if args.output_dir is not None:
+        output = args.output_dir
+        if output.exists() or output.is_symlink():
+            raise ValueError(f"Output directory already exists: {output}")
+        output.mkdir(parents=True)
+        (output / "edge-ledger.csv").write_bytes(expected_ledger)
+        (output / "report.json").write_bytes(expected_report)
+        return
+    if (DIRECTORY / "edge-ledger.csv").read_bytes() != expected_ledger or (
+        DIRECTORY / "report.json"
+    ).read_bytes() != expected_report:
+        raise ValueError(
+            "Retained edge ledger or report differs from source-bound replay"
+        )
+    print(
+        "Verified 16 Nordic country-pair bins and 16 sensitivity scenarios; zero admitted events."
+    )
 
 
 if __name__ == "__main__":

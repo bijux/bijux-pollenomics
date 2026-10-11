@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-01
 ---
 
 # AADR
@@ -97,6 +97,14 @@ The route can therefore reproduce a publication without pretending that a
 different, empty route has been completed. A future species-normalization
 workflow must create its own members, review decisions, and population receipt;
 it cannot retroactively treat country exports as those missing authorities.
+
+We [reconciled source IDs with the four country products](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md)
+at the Genetic-ID level. The source panels report 1,325 IDs whose Political
+Entity is exactly Denmark, Finland, Norway or Sweden; 1,231 appear in the
+retained country products. All 94 omitted IDs lack source coordinates: one
+each in Denmark and Norway and 92 in Finland. This explains product
+membership without turning the source receipt's refused country-assignment,
+map or scientific admission into approval.
 
 ## Read An AADR Member
 

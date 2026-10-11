@@ -60,6 +60,19 @@ def require_string(value: object, label: str) -> str:
     return value
 
 
+def require_relative_path(value: object, label: str) -> str:
+    """Require one normalized, nonempty path below a report or producer root."""
+    path = require_string(value, label)
+    parts = path.split("/")
+    if (
+        path.startswith("/")
+        or "\\" in path
+        or any(part in {"", ".", ".."} for part in parts)
+    ):
+        raise ReportRebuildError(f"{label} is not a safe relative path")
+    return path
+
+
 def require_string_sequence(value: object, label: str) -> tuple[str, ...]:
     """Return a unique non-empty string sequence or reject it."""
     if not isinstance(value, list) or not all(

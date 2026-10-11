@@ -19,20 +19,18 @@ unresolved.
 
 The [result](report.json) binds the author source revision and private reference
 receipt to the scored denominators and method. The [prediction](predictions.csv)
-and [score](scores.csv) ledgers are the retained numeric outputs. From the
-repository root, reproduce them into an absent directory under `artifacts/`:
+and [score](scores.csv) ledgers are the retained numeric outputs. The
+[family replay](replay.py) checks the private source identity, runs the existing
+producer, normalizes its two CSV line endings and verifies all four tracked
+outputs. From the repository root, use an absent output directory under
+`artifacts/`:
 
 ```sh
-SOURCE_ROOT=../bijux-pollenomics-data/landclim/author-reference
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.essd_reproduction.observed_pollen_baseline \
-  --author "$SOURCE_ROOT/author" \
-  --reference "$SOURCE_ROOT/reference" \
-  --run docs/report/publication-replay/landclim-method-profile/reference \
-  --output artifacts/author-example-site-mean/replay
+.venv/bin/python docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py \
+  --source-root ../bijux-pollenomics-data/landclim/author-reference \
+  --output artifacts/author-example-site-mean-holdout/replay
 ```
 
 The governed [report](report.json) and [generated summary](REPORT.md) retain
-the current result. Compare a replay with those files and normalize CSV line
-endings before comparing the numeric ledgers, because the retained CSVs use LF
-while the producer emits CRLF.
+the current result. The producer emits CRLF CSV while these retained ledgers
+use LF; the replay changes only those line endings before the byte comparison.

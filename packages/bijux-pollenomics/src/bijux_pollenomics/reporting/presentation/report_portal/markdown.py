@@ -30,8 +30,10 @@ def _render_report_surface_registry_markdown(payload: dict[str, object]) -> str:
 We group the current `docs/report/` tree by reader question. Start at the
 [report portal](index.md) for an explanation of the results and their limits.
 The [machine-readable registry](report_surface_registry.json) lists every path
-with its family, audience, geography and format when an exact file lookup is
-needed.
+with its family, audience, geography and format. Markdown rows also identify
+the exact bytes used for the layout review; machine-readable outputs retain
+their domain manifests. It excludes the four registry/review metadata
+files themselves; its count is a scoped subset of the complete report tree.
 
 - Surface count: `{payload["surface_count"]}`
 
@@ -61,7 +63,8 @@ identify pages that merit editorial reading. These automated layout signals
 do not establish scientific validity or decide whether a reference table needs
 more prose. Start with the [report portal](index.md) for the results and their
 limits; use the [machine-readable review](report_narrative_quality_review.json)
-for an exact page lookup.
+for an exact page lookup and the content identity reviewed. A `reader_ready`
+layout signal does not record an actual reader or qualified scientific review.
 
 - Reviewed markdown pages: `{payload["page_count"]}`
 

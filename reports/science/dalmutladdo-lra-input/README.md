@@ -58,6 +58,14 @@ parts. It also records the measured site-point separation, area arithmetic
 and match denominators. The paper PDF remains in the private source store;
 we publish only its citation, source hash and the derived comparison ledger.
 
+We separately tested the existing Norway-excluded **observed-pollen**
+predictions against [LegacyAge age intervals](../../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md).
+Only two of 72 Dalmutladdo samples have a full reported 95% interval inside
+their original 500-year bin. The four frozen methods retain eight predictions
+across those two bins; the other 20 originally scored bins have no eligible
+sample. This is a prior-exposed pollen-only support check. It neither resolves
+the historical LandClim chronology nor admits a basin or PPE for LRA.
+
 Our already governed [31-target source-mass ledger](../../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
 accounts for all 72 selected Neotoma pollen samples at this site: **46,477
 of 47,085** native pollen counts map to 19 author targets, **600** map to
@@ -65,6 +73,16 @@ author-excluded labels and **8** remain unmapped. The arithmetic closes
 (46,477 + 600 + 8 = 47,085). These are observed-pollen count assignments;
 they do not authenticate the LRA terrestrial denominator, resolve taxon
 concepts for excluded counts or authorize a PPE/fall-speed choice.
+
+Separately, we [allocated the LegacyAge 1.0 age summaries](../../../docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+at the one DALMUT pollen depth absent from its exact S5 row join. The original
+S4 depth metadata match all 72 Neotoma samples, and the authors' interior
+allocation rule applied to published 4 and 5 cm S5 summaries yields a derived
+4.5 cm minimum −94, maximum 541.5, median 257 and mean 215 calibrated years
+BP. This does not identify the LandClim-selected chronology, supply a joint
+posterior, or change the zero-LRA-admission decision above. Its derived
+minimum-to-maximum range crosses 500-year bin boundaries and adds no sample
+to the strict interval-contained pollen sensitivity.
 
 ## What would change this decision
 

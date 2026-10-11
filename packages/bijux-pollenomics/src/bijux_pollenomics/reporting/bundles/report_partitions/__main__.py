@@ -161,7 +161,12 @@ def _generate(request: dict[str, object]) -> dict[str, object]:
 
 
 def _assemble(request: dict[str, object]) -> dict[str, object]:
-    expected = _COMMON_FIELDS | {"schema_version", "operation", "partition_roots"}
+    expected = _COMMON_FIELDS | {
+        "schema_version",
+        "operation",
+        "partition_roots",
+        "owner_input_root",
+    }
     if set(request) != expected:
         raise ValueError("assemble request fields are not exact")
     roots = _mapping(request["partition_roots"], "partition_roots")
@@ -172,7 +177,15 @@ def _assemble(request: dict[str, object]) -> dict[str, object]:
         for key, value in roots.items()
     }
     common = _common(request)
-    assemble_report_partitions(**common, partition_roots=partition_roots)
+    raw_owner_input = request["owner_input_root"]
+    owner_input_root = (
+        None if raw_owner_input is None else _path(raw_owner_input, "owner_input_root")
+    )
+    assemble_report_partitions(
+        **common,
+        partition_roots=partition_roots,
+        owner_input_root=owner_input_root,
+    )
     return {"output_root": str(common["output_root"])}
 
 

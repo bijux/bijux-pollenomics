@@ -13,13 +13,26 @@ sources remain in their governed source store.
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
 | Neotoma acquisition and boundary authority | High for source reproducibility | Original capture custodian and country-boundary decision owner. |
+| SVAR lake registry identity and reuse | High for Swedish field ranking | SMHI/Lantmäteriet source owner and full lake-ID reconciliation. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
+| Two-lake trajectory review | High for a multi-evidence interpretation | Independent palaeoecological and source reviewers of the BUS/BOKE pollen, SEAD and LandClim support. |
 | Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
 
 These are evidence requests, not approvals. No outreach has been sent from this
 register. Repository-local work can continue on the already admitted pollen
 and English author examples while external fields remain open.
+
+The [prepared source requests](source-requests.md) and their
+[structured field list](source-requests.csv) bind 17 specific packets to the
+existing evidence, resolver role, intended use and reopening condition. They
+remain unsent.
+
+The [independent scientific review questions](scientific-review.md) bind each
+material claim to exact versions, qualifications, decision scope and its
+admission consumer. All 35 questions remain unassigned and no decisions have
+been received. Use the [decision record](review-decision.md) only when a real
+qualified reviewer returns a scoped answer.
 
 ## Abborrtjärnen LRA input identity
 
@@ -49,7 +62,11 @@ the real reconstruction consumer, retaining refusals until each field is
 supported.
 
 **Already checked:** Neotoma/PANGAEA controls, 107 source depths, 2,183
-same-label workbook counts and the user's provisional packet. The packet
+same-label workbook counts, the [LegacyAge alternative age join]
+(../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
+and the user's provisional packet. LegacyAge provides an AWI Bacon estimate
+at every ABBO sample depth, but does not identify LandClim's selected ages.
+The packet
 explicitly leaves selected age model, historical basin series, full count/PPE
 mapping and workbook analytical-use rights open. **Reopen when:** a citable
 record binds those fields to the same physical core and time window; then
@@ -66,6 +83,10 @@ finds 79 LandClim II samples versus 92 Neotoma source samples; applying the
 published age span alone retains 90, so the historical selection is still
 unidentified. Its reported site area or site radius does not supply an
 age-specific shoreline.
+The [LegacyAge exact-depth join]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+matches all 92 Neotoma samples across the 1981 and 1983 cores. It is an
+alternative chronology, not a source binding for the LandClim 79-row choice.
 
 For Norwegian Dalmutladdo, the [source-bound review](../science/dalmutladdo-lra-input/README.md)
 identifies one `DALMUT` core and 72 samples across LandClim II, Neotoma and
@@ -85,7 +106,9 @@ controls and an assumed core top. The original authors explicitly excluded
 the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
 11,000 BP base; the control-selection question is settled. The published
 LandClim II PPE/fall-speed table is also available under CC BY 4.0, but its
-exact application and covariance profile for `LAIH` are not bound. The exact
+exact application and covariance profile for `LAIH` are not bound. The
+complete primary LegacyAge S5/S6 tables contain no row for Neotoma dataset
+`52082`; that alternative release cannot supply LAIH sample ages. The
 resolver is the LandClim-selected age vector/uncertainty, dated basin geometry,
 eligible denominator, core-specific parameter use and pollen-source rights for
 those 150 samples. We retain zero Finnish LRA admissions until that same-core
@@ -170,6 +193,18 @@ site-group predictions before scoring. This source cannot fill the Swedish or
 four-country regional vegetation-cover denominator by citation alone; those
 paired measurements remain at zero.
 
+We also acquired the original [Namibian modern soil-pollen and vegetation
+tables](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md).
+Ten source events join across 15 reported vegetation radii and five taxa.
+Their satellite-image-derived areas are real source observations, but
+they are savanna soil-pollen data outside the Nordic lake target, with exact
+sample/image dates and source-radius selection unresolved. This creates a
+separate exposed development cohort; it does not close the matched Nordic
+vegetation need or provide an untouched confirmation set.
+Our [descriptive five-taxon radius comparison](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
+uses all ten sites at each publisher label. Its composition distances do not
+resolve area-ring semantics, measurement dates or a Nordic vegetation target.
+
 ## HYDE source semantics
 
 **Affected result:** selected four-country cropland grid sums agree with 84
@@ -228,6 +263,26 @@ revisions or covariance transformation. **Reopen when:** the producer or
 archive custodian supplies a versioned raw-row and PFT/SE transformation
 packet; replay the named cells and revise the correspondence result.
 
+## SVAR lake registry identity and reuse
+
+**Affected result:** Swedish lake ranking admits zero candidates while its
+governing registry is unavailable. The [SVAR source review]
+(../../docs/report/source-relations/svar/normalized-export/README.md) retains
+a 40,565-lake normalized export. A bounded official WFS check on 1 October
+2026 reported the same count and matched two source lake IDs, but the
+governed 40,523-lake review has no complete retained ID list. We cannot
+attribute the 42-record difference or promote either source to the registry.
+
+**Needed:** qualify one approved lake-geometry acquisition route and bind its
+exact version and terms to the layer actually used; then obtain the complete
+source ID sets and selection rules for both lake populations. Lantmäteriet's
+[Hydrografi Nedladdning research-access terms](https://www.lantmateriet.se/globalassets/geodata/geodataprodukter/licensvillkor-hydrografi-nedladdning.pdf)
+provide a specific route for noncommercial environmental research, but access
+requires an approved application and acceptance of those terms. They do not
+authorize the old SMHI WFS export or prove equivalent lake identities. The
+count difference of 42 is net: additions and removals may offset. Reconcile
+the full IDs before admitting a named lake or recalculating a field rank.
+
 ## Swedish lake and archaeology context joins
 
 **Affected result:** current lake, archaeology, SEAD, aDNA and pollen products
@@ -261,8 +316,13 @@ all 25 published window counts, but Neotoma site 28871 versus LandClim
 named lakes do not establish historical cores or a migration path. We also
 retain a complete [national RAA GeoPackage source candidate]
 (../../data/raa/raw/national_geopackage_source.json) in the private source
-store. Its 2,291,224,576 bytes and SHA-256 are verified; its analytical rights,
-feature semantics and relation to the current point layer are not yet reviewed.
+store. Its 2,291,224,576 bytes and SHA-256 are verified. The [RAÄ source
+review](../../docs/public/pollenomics-data/sources/raa.md#national-geopackage-source-candidate)
+binds the provider's national-download documentation and Public Domain terms to
+this release, so dataset-level analytical reuse and redistribution are no longer
+the blocker. The retained WFS center-point schema and national GeoPackage expose
+different identity fields; their record-level correspondence, populations,
+geometry, and scientific interpretation still need review before adoption.
 The Höje å report cited for Gullåkra and Vesums mossar also has an exact
 [private source identity](../../data/archaeology/raw/hojea_2003_source.json).
 Its project-area coordinates do not locate a pollen core or an independently
@@ -272,6 +332,32 @@ qualified archaeological event.
 one independent context observation on compatible place
 and time support, with permitted analytical use; run the joining consumer
 before closing the question.
+
+## Two-lake trajectory review
+
+**Affected result:** our [Bussjösjön and Bökesjön trajectory](../science/sweden-lake-trajectory.md)
+replays 13 common age bins and 48 pollen transition comparisons. It records
+eight descriptive agreement cases, two contradictions and 38 comparisons
+without a qualified joint direction. Nearby dated SEAD features are spatial
+and temporal context, while LandClim grid 779 shares the pollen input sites.
+Neither supplies an independent land-use measurement for this comparison.
+
+**Needed:** an independent palaeoecological review of the pollen taxon and
+denominator interpretation, the proposed two-lake grouping, source age
+support and catchment comparability; and a SEAD source review of whether any
+nearby feature can represent a measured, permitted ecological event. The
+reviewers should state which source pairs are comparable, which remain
+incomparable and whether any apparent contradiction survives age and spatial
+uncertainty. Their decision must cite exact source rows and not infer a causal
+land-use history from feature counts or modeled cover.
+
+**Already checked:** the source-bound producer preserves both native and
+closed-16 denominators, 500- and 1,000-year bin views, equal-site and pooled
+weighting, an alternative BUS point and all 48 transition classifications.
+No independent review or qualifying SEAD event is retained. **Reopen when:**
+the reviewer packet and any new event authority are available; rerun the
+trajectory consumer and record agreement, contradiction, incomparability and
+cannot-conclude decisions against matched support before closing this need.
 
 ## Chronology-aware temporal prediction
 
@@ -292,11 +378,51 @@ site-bin/policy queries, 473 predictions and 13 refusals across same and
 adjacent nominal bins. The [Sämbosjön source age-bound screen](../science/sambosjon-direct-pollen.md)
 finds 58/111 selected sample intervals crossing a 500-year boundary and at
 least one crossing in every scored bin. Its bound confidence level is unstated;
-it does not supply a joint age posterior or an adjusted pollen score.
-**Reopen when:** calibrated age-model uncertainty and
-eligible new cores are bound to those physical sites and windows; rerun an
-age-aware, group-excluded consumer rather than treating nominal bin shifts
-as chronology uncertainty.
+it does not supply a joint age posterior. The completed
+[interval-contained sensitivity](../../docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md)
+retains 53 of 111 samples and scores 21 of 22 nominal bins against the same
+frozen predictions; the first bin refuses for lack of contained samples.
+Its small metric changes remain an exposed one-core development comparison. The
+[LegacyAge depth join](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
+now binds 107 ABBO and 71 of 72 DALMUT samples to an independent 95% age
+range by exact S5 depth. The 4.5 cm DALMUT sample has no exact S5 row; a
+separate [author-rule summary allocation](../../docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+uses original S4 depth metadata and the 4 and 5 cm S5 rows to derive a
+4.5 cm minimum −94, maximum 541.5, median 257 and mean 215 calibrated years
+BP. These marginal rounded-summary intervals do not define joint age
+probabilities, identify LandClim's selected ages or make either site a fresh
+holdout.
+
+The [ABBO interval-contained development sensitivity]
+(../../docs/report/pollen-reconstruction/age-interval-sensitivity/README.md)
+now admits eight of 107 ABBO samples to four common bins, freezes all four
+site-excluded methods before scoring and compares 12 paired targets per
+method. Its small score changes do not establish chronology or model skill.
+At Danish Solsø, the [strict LegacyAge support check]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
+retains 15 of 91 comparable samples in eight of 24 parent bins, reusing 32
+Denmark-excluded fixed pollen predictions. It is one exposed site and does
+not identify LandClim's historical 79-row selection or a joint age posterior.
+The separate [31-author-target Solsø check]
+(../../docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+also retains 15 samples in eight bins, reuses 24 Denmark-excluded predictions
+and reconciles all 24 original author-assigned count bins. Its taxon axis and
+denominator differ from the 16-label check; neither resolves the open age-model
+or historical sample-selection need.
+The [Dalmutladdo age-interval sensitivity]
+(../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
+retains only two of 72 samples and two of 22 originally scored bins. Both
+retained samples stay in their nominal bins, so same-sample nominal and
+interval scores coincide; differences from parent full-bin scores are due to
+sample restriction. This leaves 20 bins without interval-contained support.
+The distinct [31-author-target Dalmutladdo check]
+(../../docs/report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
+also retains two samples and two bins, reuses six Norway-excluded predictions
+and reconciles all 22 original author-assigned count bins. Its scores use an
+author-target denominator and cannot be pooled with the 16-label scores.
+**Reopen when:** calibrated joint age-model uncertainty and eligible cores
+are bound to physical sites and windows; predeclare forward-time rules and
+test an untouched cohort separately from this exposed three-site study.
 
 ## Independent confirmation
 

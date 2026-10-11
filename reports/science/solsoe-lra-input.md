@@ -44,6 +44,29 @@ Core identity and chronology therefore affect the historical windows, even
 where the same lake name appears in every source. The modeled LandClim I/II
 vegetation products are also not independent measured vegetation outcomes.
 
+We joined the [primary LegacyAge S5/S6 age tables]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+to both Neotoma cores at exact depths: **66/66 SOLSOE81** and **26/26
+SOLSOE83** samples matched. One 1981 Neotoma sample still has a refused
+negative-bound age claim; the alternative age row does not repair it.
+Neotoma point ages fall inside their LegacyAge 95% ranges for 57/66 samples
+from 1981 and 26/26 from 1983; only 56/65 comparable 1981 age claims are
+inside because the refused claim is among the 57. S6 separately describes
+the original 1981 chronology as partly or wholly outside its intervals and
+the 1983 chronology as within. This supports a new age-aware pollen
+sensitivity. The historical LandClim 79-row selection and chosen chronology
+remain unresolved.
+
+On the separate [16-label Denmark-held-out pollen study]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md),
+15 of 91 comparable Solsø samples have full LegacyAge 95% intervals inside
+their original 500-year bins. They occupy eight of 24 parent bins and retain
+32 previously frozen predictions across four methods. Nearest-site mean
+absolute fraction error is 0.032310 on those eight restricted bins, versus
+0.032104 using each bin's complete parent pollen counts. No retained sample
+changes its nominal bin, so this is a sample-support sensitivity,
+not a new chronology fit or evidence for LRA accuracy.
+
 ## What would change this decision
 
 We need a source-owner packet naming the actual LandClim II 79 pollen rows,

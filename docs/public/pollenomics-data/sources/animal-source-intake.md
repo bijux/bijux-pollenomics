@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-07
+last_reviewed: 2026-10-01
 ---
 
 # Animal Source Intake
@@ -81,6 +81,14 @@ The 1,468 final foundation rows are not interchangeable with the 1,475
 recovered raw project sample-master rows. The foundation classifies admitted
 sample evidence; the sample master also preserves rows that do not enter the
 final identity population.
+
+Our [animal entity account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md)
+checks that every final foundation ID has exactly one map decision: 331 IDs
+occur in 170 point features and 1,137 are retained in the existing map
+exclusion rows. Eight Nordic-labeled features contain 12 of the mapped IDs.
+The exclusion reasons concern map placement and do not reject the underlying
+source records. Mapped IDs do not acquire qualified country or ecological
+authority from this arithmetic.
 
 ```mermaid
 flowchart LR

@@ -152,6 +152,19 @@ def test_partitioned_publication_is_byte_identical_to_monolithic_tree(
     )
     partition_roots[foundation.identity] = foundation_root
 
+    owner_input_root = tmp_path / "owner-input"
+    owner_file = owner_input_root / "quality" / "evidence.json"
+    owner_file.parent.mkdir(parents=True)
+    owner_file.write_text('{"owner": true}', encoding="utf-8")
+
+    def publish_truth_with_owner_input(
+        output_root: Path, **kwargs: object
+    ) -> dict[str, str]:
+        assert (
+            output_root / "quality" / "evidence.json"
+        ).read_bytes() == owner_file.read_bytes()
+        return publish_truth(output_root, **kwargs)
+
     assembled_root = tmp_path / "assembled"
     assembled_root.mkdir()
     assembled_report = assemble_report_partition_tree(
@@ -161,17 +174,20 @@ def test_partitioned_publication_is_byte_identical_to_monolithic_tree(
         version_dir=version_dir,
         published_output_root=published_root,
         context_root=data_root,
+        owner_input_root=owner_input_root,
         build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
         build_published_reports_summary_fn=build_published_reports_summary,
         looks_like_repository_publication_run_fn=lambda **_: False,
         publish_report_portal_fn=publish_portal,
         publish_repository_output_sustainability_review_fn=publish_sustainability,
-        publish_repository_truth_outputs_fn=publish_truth,
+        publish_repository_truth_outputs_fn=publish_truth_with_owner_input,
         write_geography_packets_fn=_write_geography_packets,
         write_summary_json_fn=write_json,
     )
 
     assert assembled_report == monolithic_report
+    assert not (assembled_root / "quality" / "evidence.json").exists()
+    assert not (assembled_root / "quality").exists()
     assert _tree_bytes(assembled_root) == _tree_bytes(monolithic_root)
 
 
