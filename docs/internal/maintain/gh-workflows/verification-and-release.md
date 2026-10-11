@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-09-07
+last_reviewed: 2026-10-11
 ---
 
 # Verification and Release
@@ -41,58 +41,52 @@ Requirements, reports, cache and command logs are retained in
 replace this proof: it may select newer versions or omit optional packages that
 remain in the frozen graph. Scientific product tests remain a separate gate.
 
-### Bounded Jobs And Complete Test Evidence
+### Automatic Source Admission
 
-Runner jobs must have a ten-minute timeout, with eight minutes as the operating
-target. A timeout is a failed gate, not evidence that the work fits its budget.
-Retain measured checkout, installation, execution, and upload durations when
-assessing the budget; test duration alone does not describe job latency.
+The canonical `bijux-std` manifest renders `ci.yml` and `verify.yml`. On pull
+requests, pushes to `main` and merge groups, repository checks validate shared
+Make parity, configuration layout and Make layout. Each of the four package
+roles then runs its complete configured lint and security targets:
+`bijux-pollenomics`, the `pollenomics` compatibility package,
+`bijux-pollenomics-dev`, and `bijux-pollenomics-lra`.
 
-The runtime package uses eight deterministic test shards per Python version.
-The existing marker selection runs before partitioning. Each shard records
-the complete selected test universe, its assigned node IDs, completed node
-IDs, exit status, and workflow revision. The final `tests-<package>-py<version>`
-job preserves the required-check identity and refuses missing, overlapping,
-unfinished, failed, or revision-inconsistent partitions. Other packages use
-the same reconciliation with one shard unless explicitly configured otherwise.
+Lint includes format checks and the package's configured static checks. Security
+includes the complete frozen dependency audit above. The final
+`verification-ready` job runs even when a dependency fails and accepts only
+successful repository and package results. Failed, cancelled or skipped
+package checks cannot produce a successful aggregate. Required source admission
+also runs for dependency pull requests.
 
-Test uploads contain JUnit, XML coverage, the hidden coverage database, and the
-partition receipt. Fixture directories and caches are not release evidence
-and are not uploaded. Coverage remains available per shard; a single shard's
-coverage must not be described as coverage of the complete suite.
+Automatic source admission does not execute product tests, scientific rebuilds,
+live R certification or browser verification. A green aggregate certifies the
+retained source gates and cannot establish scientific correctness, coverage,
+publication readiness or a successful deployment. Operators must record those
+independent results before making those claims.
 
-### Shared Workflow Exception And Removal Plan
+### Manual Scientific And Browser Evidence
 
-The bounded-job configuration is a repository-local exception to the shared
-Bijux workflow templates for the v0.1.8 CI unblock. Its authoritative local
-configuration is the `bijux-pollenomics` `workflow_wrappers` entry in
-`.github/standards/repo-config.manifest.json`; the repository renderer derives
-`.github/workflows/ci.yml` and `.github/workflows/verify.yml` from that entry.
-It covers the test matrix, compact test uploads, preserving the final
-test-check identity, and ten-minute runner-job limits. It does not change
-publication permissions, scientific admission rules, or the selected tests.
-The shared checksum manifest still binds every declared managed file and must
-pass validation.
+`scientific-verification.yml` is dispatched explicitly. Its strict final gate
+continues to reconcile the selected scientific, documentation and report
+rebuild results; manual selection does not waive a failed scientific refusal.
+Its authored runner jobs retain ten-minute budgets.
 
-The durable owner of the reusable workflow changes is `bijux-std`. The
-upstream follow-through is to parameterize bounded test partitions and compact
-artifact paths in its workflow templates, add corresponding template tests,
-and carry the runner-job budget in generated repository configuration. After
-that change is accepted, consume an exact accepted upstream commit, regenerate
-this repository's workflows and shared checksums, compare required-check names
-and test-universe receipts, and remove the local exception annotations. Do not
-erase this exception through an ordinary standards refresh before equivalent
-upstream behavior exists. No upstream issue or publication is implied by this
-local removal plan.
+`atlas-release-verification.yml` offers `source` and `deployed` verification
+scopes. The source scope checks the exact dispatched source revision with the
+browser suite. The deployed scope runs the deployed smoke check. Both scopes
+retain ten-minute runner budgets and their own evidence; neither publishes a
+site or distribution.
 
-The release builder carries a second narrow exception: all three artifact-mode
-release callers pass the requested tag into `release-artifacts.yml`. Before
-upload, the builder requires the peeled tag, checkout, and workflow SHA to
-agree, invokes the existing package publication guard, and requires the
-resolved version to equal the tag version. Its upstream follow-through is to
-add this input and fail-closed guard to the shared artifact builder and its
-callers, with tag/revision/version mismatch fixtures. Remove the local wiring
-only after an exact accepted upstream refresh preserves those checks.
+`lra-reference.yml` remains a manual or reusable exact-source R certification
+workflow. Its explicit ninety-minute budget covers acquiring and building
+verified R sources and the complete live certification. The generated source
+verification workflow does not invoke it. Retain its certificate and diagnostic
+bundle separately from ordinary source admission.
+
+Managed workflows and checksums come from an exact accepted GitHub revision of
+`bijux-std`; the tracked `.github/standards/bijux-std.sha` identifies that
+revision. Repository-owned scientific and browser workflows retain their own
+execution contracts. Local generated test-shard and release-builder exceptions
+are superseded by the accepted canonical workflow and artifact guards.
 
 ## Release Surface
 
@@ -109,12 +103,13 @@ independently reconciled.
 | Distribution | Build products | PyPI | GHCR | GitHub release assets |
 | --- | --- | --- | --- | --- |
 | `bijux-pollenomics` | wheel, source distribution, and SBOM outputs | selected | selected | selected |
-| `pollenomics` | wheel, source distribution, and SBOM outputs | selected; token auth is configured | selected | selected |
+| `pollenomics` | wheel, source distribution, and SBOM outputs | selected; publication resolves the configured authentication mode | selected | selected |
 
-`bijux-pollenomics-dev` is tested and built in verification, but it is absent
-from the release matrices and is not selected for these publication workflows.
-That distinction is deliberate: a package can be a verified repository
-component without being part of the public release set.
+`bijux-pollenomics-dev` and `bijux-pollenomics-lra` receive source admission,
+but they are absent from the release matrices and are not selected for these
+publication workflows.
+That distinction is deliberate: a package can satisfy the retained source gates
+without being part of the public release set or carrying product-test evidence.
 
 ## Trigger And Version Contract
 
