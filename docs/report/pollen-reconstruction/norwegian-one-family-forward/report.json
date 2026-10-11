@@ -1,0 +1,1270 @@
+{
+  "original_native_authority": {
+    "candidate": "480b7adc5f47a10bc173b25013ba5df59d6dbbdc",
+    "plan_sha256": "ee428d009b2e85d79b121f9a709e3b149a011ad76992134cf4cbdf3534fc4037",
+    "terminal_sha256": "ad03a1b2c44d384c71bc4c18056f13f8de9f00a2646d85d2d89d63442492d8ec"
+  },
+  "population": {
+    "core_sample_populations": {
+      "20034": {
+        "accepted": 72,
+        "refused": 0
+      },
+      "4286": {
+        "accepted": 55,
+        "refused": 1
+      },
+      "4372": {
+        "accepted": 30,
+        "refused": 2
+      }
+    },
+    "method_vectors": 60,
+    "missing_target_method_rows": 6,
+    "paired_target_windows": 18,
+    "predicted_windows": 20,
+    "scored_method_rows": 54,
+    "training_physical_cores": 2,
+    "training_publication_dependency_families": 1,
+    "unique_paired_target_panel_N": 17935
+  },
+  "producer_scope": "Replay exact retained source-bound numerical account; no fresh model, physical integration or source acquisition.",
+  "qualification": {
+    "independent_Decimal50_cells": 632,
+    "later_native_exit_code": 0,
+    "maximum_scalar_absolute_difference": 1.691355389077387e-16,
+    "new_physical_tuples": 2,
+    "new_physical_window_taxon_uses": 40,
+    "numerical_error_estimates_rigorous": false,
+    "original_model_report_pending_flag": true,
+    "physical_review_sha256": "7bc533a8886b326108e81b4c751c2e072c73d253d1acd4c1422a29705a8f719c",
+    "scalar_review_sha256": "f2448151d7b2acc98f0abe4d682ca9fcfcf5ad54a26571b19c8631b0450f32b7",
+    "source_controls": 15
+  },
+  "rights_or_external_review_admitted": false,
+  "schema_version": "norwegian-one-family-forward-account.v1",
+  "shared_PPE_identified_by_pollen_predictions": false,
+  "untouched_target_or_vegetation_accuracy_claim": false,
+  "windows": [
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0009309935755523704,
+          -0.0009309935755523703
+        ],
+        [
+          -0.0009309935755523703,
+          0.0009309935755523701
+        ]
+      ],
+      "conditional_training_cover": [
+        0.7206704040191292,
+        0.2793295959808709
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          0.00014270228154823178,
+          -0.00014270228154823183
+        ],
+        [
+          -0.00014270228154823183,
+          0.0001427022815482319
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.03276729859327134,
+        0.03276729859327134
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0010736958571006022,
+          -0.001073695857100602
+        ],
+        [
+          -0.001073695857100602,
+          0.001073695857100602
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9500542888165038,
+          0.0499457111834962
+        ],
+        "equal_source_pollen_mean": [
+          0.9540921257580111,
+          0.0459078742419889
+        ],
+        "physical_inverse_forward": [
+          0.9490058904764178,
+          0.0509941095235823
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        350,
+        700
+      ],
+      "window_index": 2
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006928645543648131,
+          -0.0006928645543648132
+        ],
+        [
+          -0.0006928645543648131,
+          0.0006928645543648132
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8358609630026251,
+        0.1641390369973748
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          6.628503412105863e-05,
+          -6.62850341210586e-05
+        ],
+        [
+          -6.628503412105859e-05,
+          6.628503412105856e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027552669353183762,
+        0.027552669353183762
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007591495884858718,
+          -0.0007591495884858719
+        ],
+        [
+          -0.0007591495884858718,
+          0.0007591495884858718
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9740980573543015,
+          0.025901942645698426
+        ],
+        "equal_source_pollen_mean": [
+          0.9766691541196612,
+          0.02333084588033888
+        ],
+        "physical_inverse_forward": [
+          0.9734976976036022,
+          0.026502302396397875
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        1200,
+        1700
+      ],
+      "window_index": 4
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0007961734649600172,
+          -0.0007961734649600172
+        ],
+        [
+          -0.0007961734649600172,
+          0.0007961734649600172
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8252857422687019,
+        0.17471425773129812
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          7.321313696885785e-05,
+          -7.321313696885785e-05
+        ],
+        [
+          -7.321313696885785e-05,
+          7.321313696885785e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.02948536250292465,
+        0.02948536250292465
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.000869386601928875,
+          -0.000869386601928875
+        ],
+        [
+          -0.000869386601928875,
+          0.000869386601928875
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9720785935884177,
+          0.027921406411582212
+        ],
+        "equal_source_pollen_mean": [
+          0.9740640910452232,
+          0.02593590895477688
+        ],
+        "physical_inverse_forward": [
+          0.9714877065145563,
+          0.02851229348544364
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        1700,
+        2200
+      ],
+      "window_index": 5
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0005319028920896994,
+          -0.0005319028920896994
+        ],
+        [
+          -0.0005319028920896994,
+          0.0005319028920896994
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8426316645803243,
+        0.1573683354196756
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          6.192041927378137e-05,
+          -6.192041927378135e-05
+        ],
+        [
+          -6.192041927378135e-05,
+          6.192041927378132e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.024368490133027956,
+        0.024368490133027953
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0005938233113634808,
+          -0.0005938233113634807
+        ],
+        [
+          -0.0005938233113634807,
+          0.0005938233113634807
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9753801593048516,
+          0.024619840695148443
+        ],
+        "equal_source_pollen_mean": [
+          0.9785433500764359,
+          0.021456649923564095
+        ],
+        "physical_inverse_forward": [
+          0.9747623359937114,
+          0.025237664006288553
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        2700,
+        3200
+      ],
+      "window_index": 7
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006924931256991186,
+          -0.0006924931256991186
+        ],
+        [
+          -0.0006924931256991186,
+          0.0006924931256991186
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8013658040796761,
+        0.19863419592032394
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          8.922638171098017e-05,
+          -8.922638171098017e-05
+        ],
+        [
+          -8.922638171098017e-05,
+          8.922638171098017e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027959247261149553,
+        0.027959247261149553
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007817195074100988,
+          -0.0007817195074100988
+        ],
+        [
+          -0.0007817195074100988,
+          0.0007817195074100988
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9675213675213675,
+          0.03247863247863248
+        ],
+        "equal_source_pollen_mean": [
+          0.9701816996788859,
+          0.029818300321114044
+        ],
+        "physical_inverse_forward": [
+          0.9667783672761638,
+          0.03322163272383606
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        3200,
+        3700
+      ],
+      "window_index": 8
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006989674591121714,
+          -0.0006989674591121714
+        ],
+        [
+          -0.0006989674591121714,
+          0.0006989674591121714
+        ]
+      ],
+      "conditional_training_cover": [
+        0.7960820236150316,
+        0.20391797638496842
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          9.280049565602767e-05,
+          -9.280049565602767e-05
+        ],
+        [
+          -9.280049565602767e-05,
+          9.280049565602767e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.028138371572786494,
+        0.028138371572786494
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007917679547681992,
+          -0.0007917679547681992
+        ],
+        [
+          -0.0007917679547681992,
+          0.0007917679547681992
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9669771380186283,
+          0.03302286198137172
+        ],
+        "equal_source_pollen_mean": [
+          0.9734512061403509,
+          0.026548793859649124
+        ],
+        "physical_inverse_forward": [
+          0.9657063568879855,
+          0.034293643112014556
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        3700,
+        4200
+      ],
+      "window_index": 9
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006945105050539681,
+          -0.000694510505053968
+        ],
+        [
+          -0.000694510505053968,
+          0.0006945105050539679
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8105128120046307,
+        0.1894871879953694
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          8.306213814490988e-05,
+          -8.30621381449099e-05
+        ],
+        [
+          -8.30621381449099e-05,
+          8.306213814490991e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.02788498956784596,
+        0.027884989567845957
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.000777572643198878,
+          -0.0007775726431988779
+        ],
+        [
+          -0.0007775726431988779,
+          0.0007775726431988779
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9698535745047373,
+          0.030146425495262703
+        ],
+        "equal_source_pollen_mean": [
+          0.9764852900338141,
+          0.023514709966185866
+        ],
+        "physical_inverse_forward": [
+          0.9686066087425806,
+          0.031393391257419336
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        4200,
+        4700
+      ],
+      "window_index": 10
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006654206263126862,
+          -0.0006654206263126862
+        ],
+        [
+          -0.0006654206263126862,
+          0.0006654206263126862
+        ]
+      ],
+      "conditional_training_cover": [
+        0.7469403335110103,
+        0.2530596664889897
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          0.00012581757814610005,
+          -0.00012581757814610005
+        ],
+        [
+          -0.00012581757814610005,
+          0.00012581757814610005
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.028128956689838076,
+        0.028128956689838076
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007912382044587863,
+          -0.0007912382044587863
+        ],
+        [
+          -0.0007912382044587863,
+          0.0007912382044587863
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9568567026194145,
+          0.04314329738058552
+        ],
+        "equal_source_pollen_mean": [
+          0.9673145532269984,
+          0.03268544677300162
+        ],
+        "physical_inverse_forward": [
+          0.9551384586865378,
+          0.04486154131346211
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        4700,
+        5200
+      ],
+      "window_index": 11
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006837469118876381,
+          -0.0006837469118876381
+        ],
+        [
+          -0.0006837469118876381,
+          0.0006837469118876381
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8337348316582853,
+        0.1662651683417147
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          6.766780363988706e-05,
+          -6.766780363988707e-05
+        ],
+        [
+          -6.766780363988709e-05,
+          6.76678036398871e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027411944760040743,
+        0.027411944760040743
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007514147155275252,
+          -0.0007514147155275252
+        ],
+        [
+          -0.0007514147155275252,
+          0.0007514147155275252
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9736842105263158,
+          0.02631578947368421
+        ],
+        "equal_source_pollen_mean": [
+          0.9758434547908232,
+          0.02415654520917679
+        ],
+        "physical_inverse_forward": [
+          0.9730970246634252,
+          0.026902975336574868
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        5200,
+        5700
+      ],
+      "window_index": 12
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0004581633402001193,
+          -0.0004581633402001193
+        ],
+        [
+          -0.0004581633402001193,
+          0.0004581633402001193
+        ]
+      ],
+      "conditional_training_cover": [
+        0.834556204753412,
+        0.165443795246588
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          6.713295826593308e-05,
+          -6.713295826593307e-05
+        ],
+        [
+          -6.713295826593308e-05,
+          6.713295826593307e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.022919343325367166,
+        0.022919343325367166
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0005252962984660524,
+          -0.0005252962984660524
+        ],
+        [
+          -0.0005252962984660524,
+          0.0005252962984660524
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9737484737484737,
+          0.026251526251526252
+        ],
+        "equal_source_pollen_mean": [
+          0.9750384217732696,
+          0.024961578226730376
+        ],
+        "physical_inverse_forward": [
+          0.9732520166454458,
+          0.026747983354554108
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        5700,
+        6200
+      ],
+      "window_index": 13
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0008031239597338247,
+          -0.0008031239597338247
+        ],
+        [
+          -0.0008031239597338247,
+          0.0008031239597338248
+        ]
+      ],
+      "conditional_training_cover": [
+        0.858370103398471,
+        0.14162989660152892
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          5.2045439244022353e-05,
+          -5.2045439244022306e-05
+        ],
+        [
+          -5.204543924402231e-05,
+          5.2045439244022265e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.029243279552366337,
+        0.029243279552366337
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0008551693989778471,
+          -0.0008551693989778471
+        ],
+        [
+          -0.0008551693989778471,
+          0.0008551693989778471
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9778296382730455,
+          0.022170361726954493
+        ],
+        "equal_source_pollen_mean": [
+          0.9779498484430973,
+          0.02205015155690273
+        ],
+        "physical_inverse_forward": [
+          0.9776370624626057,
+          0.02236293753739421
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        6700,
+        7200
+      ],
+      "window_index": 15
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.000454714949770693,
+          -0.0004547149497706929
+        ],
+        [
+          -0.0004547149497706929,
+          0.0004547149497706929
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8947524911697008,
+        0.10524750883029929
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          3.122864340699065e-05,
+          -3.122864340699067e-05
+        ],
+        [
+          -3.122864340699067e-05,
+          3.12286434069907e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.022044128315215454,
+        0.02204412831521545
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0004859435931776837,
+          -0.0004859435931776836
+        ],
+        [
+          -0.0004859435931776836,
+          0.0004859435931776836
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9842395587076438,
+          0.015760441292356184
+        ],
+        "equal_source_pollen_mean": [
+          0.9840193432298695,
+          0.015980656770130455
+        ],
+        "physical_inverse_forward": [
+          0.983954445163812,
+          0.016045554836187997
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        7200,
+        7700
+      ],
+      "window_index": 16
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.00046486306937985303,
+          -0.00046486306937985303
+        ],
+        [
+          -0.00046486306937985303,
+          0.00046486306937985303
+        ]
+      ],
+      "conditional_training_cover": [
+        0.9312450619405396,
+        0.06875493805946044
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          1.4436416129118953e-05,
+          -1.4436416129118955e-05
+        ],
+        [
+          -1.4436416129118955e-05,
+          1.4436416129118956e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.02189290948021692,
+        0.02189290948021692
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.000479299485508972,
+          -0.000479299485508972
+        ],
+        [
+          -0.000479299485508972,
+          0.000479299485508972
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9899328859060402,
+          0.010067114093959731
+        ],
+        "equal_source_pollen_mean": [
+          0.9897492287167514,
+          0.010250771283248562
+        ],
+        "physical_inverse_forward": [
+          0.9898681650196706,
+          0.010131834980329523
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        7700,
+        8200
+      ],
+      "window_index": 17
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.00037317383966043935,
+          -0.0003731738396604394
+        ],
+        [
+          -0.00037317383966043946,
+          0.0003731738396604395
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8902092674506493,
+        0.1097907325493506
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          3.3638701570130636e-05,
+          -3.363870157013061e-05
+        ],
+        [
+          -3.36387015701306e-05,
+          3.3638701570130575e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.02016959447362713,
+        0.02016959447362713
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.00040681254123057,
+          -0.00040681254123057
+        ],
+        [
+          -0.00040681254123057007,
+          0.00040681254123057007
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9842233009708737,
+          0.015776699029126214
+        ],
+        "equal_source_pollen_mean": [
+          0.9840412758139583,
+          0.015958724186041714
+        ],
+        "physical_inverse_forward": [
+          0.9831894615355042,
+          0.016810538464495803
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        8200,
+        8700
+      ],
+      "window_index": 18
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0004577779255149864,
+          -0.0004577779255149864
+        ],
+        [
+          -0.0004577779255149864,
+          0.0004577779255149864
+        ]
+      ],
+      "conditional_training_cover": [
+        0.9099633030215533,
+        0.0900366969784468
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          2.363798767083626e-05,
+          -2.3637987670836278e-05
+        ],
+        [
+          -2.363798767083628e-05,
+          2.3637987670836295e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.021941192155072675,
+        0.021941192155072675
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.00048141591318582265,
+          -0.0004814159131858227
+        ],
+        [
+          -0.0004814159131858227,
+          0.0004814159131858227
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9867256637168141,
+          0.01327433628318584
+        ],
+        "equal_source_pollen_mean": [
+          0.9857120248809622,
+          0.014287975119037788
+        ],
+        "physical_inverse_forward": [
+          0.9864683833828841,
+          0.013531616617115789
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        8700,
+        9200
+      ],
+      "window_index": 19
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006728399537174205,
+          -0.0006728399537174205
+        ],
+        [
+          -0.0006728399537174205,
+          0.0006728399537174205
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8172651249403258,
+        0.18273487505967426
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          7.854028099983766e-05,
+          -7.854028099983767e-05
+        ],
+        [
+          -7.854028099983767e-05,
+          7.854028099983769e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027411315815138428,
+        0.027411315815138428
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007513802347172582,
+          -0.0007513802347172582
+        ],
+        [
+          -0.0007513802347172582,
+          0.0007513802347172582
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9715719063545151,
+          0.028428093645484948
+        ],
+        "equal_source_pollen_mean": [
+          0.9754653357304497,
+          0.024534664269550362
+        ],
+        "physical_inverse_forward": [
+          0.9699342791792539,
+          0.030065720820746145
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        9200,
+        9700
+      ],
+      "window_index": 20
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006916890172380362,
+          -0.0006916890172380362
+        ],
+        [
+          -0.0006916890172380362,
+          0.0006916890172380362
+        ]
+      ],
+      "conditional_training_cover": [
+        0.81999770282846,
+        0.18000229717154015
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          7.671936554920878e-05,
+          -7.671936554920883e-05
+        ],
+        [
+          -7.671936554920883e-05,
+          7.671936554920887e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027720180064120165,
+        0.027720180064120165
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.000768408382787245,
+          -0.000768408382787245
+        ],
+        [
+          -0.000768408382787245,
+          0.0007684083827872451
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9725321888412017,
+          0.027467811158798282
+        ],
+        "equal_source_pollen_mean": [
+          0.9643606393606394,
+          0.03563936063936064
+        ],
+        "physical_inverse_forward": [
+          0.9704663759051675,
+          0.029533624094832404
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        9700,
+        10200
+      ],
+      "window_index": 21
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006653358259448425,
+          -0.0006653358259448427
+        ],
+        [
+          -0.0006653358259448427,
+          0.0006653358259448428
+        ]
+      ],
+      "conditional_training_cover": [
+        0.7679060680139627,
+        0.23209393198603723
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          0.00011185809199745731,
+          -0.00011185809199745724
+        ],
+        [
+          -0.00011185809199745724,
+          0.00011185809199745718
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.027878197896246806,
+        0.027878197896246806
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007771939179422999,
+          -0.0007771939179422999
+        ],
+        [
+          -0.0007771939179422999,
+          0.0007771939179422999
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9605988967691096,
+          0.039401103230890466
+        ],
+        "equal_source_pollen_mean": [
+          0.9628026294692962,
+          0.03719737053070386
+        ],
+        "physical_inverse_forward": [
+          0.9597838970368104,
+          0.04021610296318957
+        ]
+      },
+      "target_outcome_present": true,
+      "window_cal_bp": [
+        10200,
+        10700
+      ],
+      "window_index": 22
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0006689601460595872,
+          -0.0006689601460595872
+        ],
+        [
+          -0.0006689601460595872,
+          0.0006689601460595872
+        ]
+      ],
+      "conditional_training_cover": [
+        0.8761754207088989,
+        0.1238245792911011
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          4.14495184892895e-05,
+          -4.1449518489289496e-05
+        ],
+        [
+          -4.144951848928949e-05,
+          4.144951848928948e-05
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.02665351129868027,
+        0.02665351129868027
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0007104096645488767,
+          -0.0007104096645488767
+        ],
+        [
+          -0.0007104096645488767,
+          0.0007104096645488767
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.9816138917262512,
+          0.018386108273748723
+        ],
+        "equal_source_pollen_mean": [
+          0.9817502859671534,
+          0.018249714032846562
+        ],
+        "physical_inverse_forward": [
+          0.9807841295010208,
+          0.019215870498979316
+        ]
+      },
+      "target_outcome_present": false,
+      "window_cal_bp": [
+        10700,
+        11200
+      ],
+      "window_index": 23
+    },
+    {
+      "conditional_training_counting_covariance": [
+        [
+          0.0008854614964801922,
+          -0.0008854614964801922
+        ],
+        [
+          -0.0008854614964801922,
+          0.0008854614964801922
+        ]
+      ],
+      "conditional_training_cover": [
+        0.7655456948186834,
+        0.23445430518131666
+      ],
+      "conditional_training_shared_PPE_covariance": [
+        [
+          0.00011344420000970896,
+          -0.00011344420000970901
+        ],
+        [
+          -0.00011344420000970901,
+          0.00011344420000970905
+        ]
+      ],
+      "conditional_training_standard_error": [
+        0.031605469407839856,
+        0.031605469407839856
+      ],
+      "conditional_training_total_covariance": [
+        [
+          0.0009989056964899011,
+          -0.0009989056964899011
+        ],
+        [
+          -0.0009989056964899011,
+          0.0009989056964899011
+        ]
+      ],
+      "forward_predictive_uncertainty_emitted": false,
+      "predictions": {
+        "count_pooled_pollen": [
+          0.960621761658031,
+          0.039378238341968914
+        ],
+        "equal_source_pollen_mean": [
+          0.9635045662100457,
+          0.03649543378995434
+        ],
+        "physical_inverse_forward": [
+          0.9592714048458674,
+          0.04072859515413266
+        ]
+      },
+      "target_outcome_present": false,
+      "window_cal_bp": [
+        11200,
+        11700
+      ],
+      "window_index": 24
+    }
+  ]
+}

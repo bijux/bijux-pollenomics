@@ -25,7 +25,7 @@ CORE_PATH = Path(
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
     "essd_reproduction/published_window_correspondence.py"
 )
-CORE_SHA256 = "9f05dab6975656ae0488717bad26834eb5c101875da41f095fe75e8fc6703131"
+CORE_SHA256 = "92751b2208b8be921559cd82d1a399955851bf37341253439dbe941d8113321b"
 DESCRIPTOR = Path("configs/ci/qualified-report-sources/landclim-two-grid-example.json")
 DESCRIPTOR_SHA256 = "2ea14b1135f621d6facb47d950397f540911332db07fec901ccbedabf32b83df"
 AUTHOR = Path("landclim/author-reference/author")

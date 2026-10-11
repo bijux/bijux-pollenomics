@@ -1,0 +1,5995 @@
+{
+  "active_downsampling_seed": 2468,
+  "active_location_seed": 2501,
+  "actual_downsample_samples": 970,
+  "actual_nontraining_downsample_samples": 292,
+  "actual_training_samples": 678,
+  "capture_authority": {
+    "candidate": "827cdccd64273cdeb59f7ac4ce42b005a6aa4c8f",
+    "native_exit": 0,
+    "plan_sha256": "bbe0844eef83b834a4ff0fe9930b945d653df1e140a848d794985a6e90fdd292",
+    "report_sha256": "0b4039742fd5e3e6b9f732877ca4e5fe8b542d16309f4304be23aa9896f0908e",
+    "terminal_sha256": "691ad82db81eade379ab1673dbab2b3897081564d30998bf2d54fc9165df572a"
+  },
+  "commented_seed_124_activated": false,
+  "downsampling_class_counts": [
+    {
+      "Dominant": "CENF",
+      "downsample_n": "113",
+      "location_n": "614",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "CMIX",
+      "downsample_n": "113",
+      "location_n": "1073",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "DESE",
+      "downsample_n": "97",
+      "location_n": "97",
+      "training_n": "68"
+    },
+    {
+      "Dominant": "ENWD",
+      "downsample_n": "113",
+      "location_n": "114",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "GRAM",
+      "downsample_n": "113",
+      "location_n": "134",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "TEDE",
+      "downsample_n": "113",
+      "location_n": "743",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "TUND",
+      "downsample_n": "82",
+      "location_n": "82",
+      "training_n": "57"
+    },
+    {
+      "Dominant": "WTSFS",
+      "downsample_n": "113",
+      "location_n": "1134",
+      "training_n": "79"
+    },
+    {
+      "Dominant": "XSHB",
+      "downsample_n": "113",
+      "location_n": "213",
+      "training_n": "79"
+    }
+  ],
+  "downsampling_source_interpretation": "Operative ratio GRAM134/DESE97 times minority TUND82 floors to113; seven113+97+82=970. Per-class rounded0.7 gives seven79+68+57=678; globalround0.7*970=679 is not the operative selection. The source comment about reaching GRAM differs from executed source code.",
+  "limits": [
+    "Source-seed-compatible training IDs match allpublished parameters but exactoriginal historical native IDs/runtime remain unauthenticated",
+    "PNV labels are modelderived, not independentfield vegetation or quantitativecover",
+    "The292nontraining PNV samples are disjoint by nativeID/recordedcoordinate; historical hyperparameter selection and broader untouchedconfirmation are not established",
+    "Opaque entity-name tokens and coordinate matches are exposure proxies, not authenticatedsite/core identities or ecologicalindependence",
+    "Northern-Europe rectangle is a coordinate screen, not authenticatedNordiccountry scope; allclass and TUND/CENF exclusions retained",
+    "No rights/source redistribution/externalscientificreview inference"
+  ],
+  "native_entity_wire_transport": {
+    "documentation": "https://stat.ethz.ch/CRAN/doc/manuals/r-release/R-ints.html#Encodings-for-CHARSXPs",
+    "native_csv_sha256": "5554ca76302bf919695e4ec7022fa711dffb93c07b937e8593318e28964097fb",
+    "native_entity_rows": 917,
+    "one_to_one_complete_wire_population": true,
+    "publication_scope": "Retained admitted actual917native-wire capture; current producer does not read the absent original-entity CSV or repeat its byte comparison",
+    "rule": "Latin1-marked source bytes >=128 represented as ASCII <xx> by actual C-locale native CSV",
+    "scope": "derived native CSV wire comparison only, source opaque names unchanged",
+    "source_names_requiring_byte_escape_transport": 5
+  },
+  "native_source_samples": 5765,
+  "original_matrix_reuse_authentication": {
+    "Composit": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 917,
+      "reconstructed_total": 917,
+      "reconstructed_trace": 679,
+      "trace_fraction": 0.7404580152671756
+    },
+    "Dominant": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 917,
+      "reconstructed_total": 917,
+      "reconstructed_trace": 570,
+      "trace_fraction": 0.6215921483097055
+    },
+    "Subdominant": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 565,
+      "reconstructed_total": 565,
+      "reconstructed_trace": 113,
+      "trace_fraction": 0.2
+    }
+  },
+  "prediction_scope": "Use admitted native predicted classes; exposure-only execution repeats no distances, fitting, R sampling or training statistics",
+  "profiles": {
+    "author_nontraining_downsample_PNV_samples": {
+      "TUND_CENF_excluded_rows": 59,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6588190218616181,
+        "composite_agreement": 0.7568493150684932,
+        "composite_correct": 221,
+        "denominator": 292,
+        "dominant_agreement": 0.6575342465753424,
+        "dominant_correct": 192,
+        "reference_class_counts": {
+          "CENF": 34,
+          "CMIX": 34,
+          "DESE": 29,
+          "ENWD": 34,
+          "GRAM": 34,
+          "TEDE": 34,
+          "TUND": 25,
+          "WTSFS": 34,
+          "XSHB": 34
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 23,
+            "prediction": "CENF",
+            "reference": "CENF"
+          },
+          {
+            "n": 4,
+            "prediction": "CMIX",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "CENF"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "CENF"
+          },
+          {
+            "n": 3,
+            "prediction": "TUND",
+            "reference": "CENF"
+          },
+          {
+            "n": 28,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 16,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 6,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "DESE"
+          },
+          {
+            "n": 5,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 21,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 23,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 5,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 19,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "CENF",
+            "reference": "TUND"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "TUND"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "TUND"
+          },
+          {
+            "n": 19,
+            "prediction": "TUND",
+            "reference": "TUND"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 6,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 16,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 5,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 2,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 4,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 27,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 292,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.6588190218616181,
+          "composite_agreement": 0.7568493150684932,
+          "composite_correct": 221,
+          "denominator": 292,
+          "dominant_agreement": 0.6575342465753424,
+          "dominant_correct": 192,
+          "reference_class_counts": {
+            "CENF": 34,
+            "CMIX": 34,
+            "DESE": 29,
+            "ENWD": 34,
+            "GRAM": 34,
+            "TEDE": 34,
+            "TUND": 25,
+            "WTSFS": 34,
+            "XSHB": 34
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 23,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 4,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "CENF"
+            },
+            {
+              "n": 3,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 28,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 3,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 16,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "DESE"
+            },
+            {
+              "n": 6,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "DESE"
+            },
+            {
+              "n": 5,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 21,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "CMIX",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 23,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 5,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 19,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 7,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "TUND"
+            },
+            {
+              "n": 19,
+              "prediction": "TUND",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "CMIX",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 5,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 6,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 16,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 5,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 2,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 4,
+              "prediction": "GRAM",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "XSHB"
+            },
+            {
+              "n": 27,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        }
+      },
+      "grouping": "individual native sample IDs",
+      "sample_exposure_categories": {
+        "no_matching_training_id_coordinate_or_opaque_name": 292
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6418429440741813,
+        "composite_agreement": 0.7553648068669528,
+        "composite_correct": 176,
+        "denominator": 233,
+        "dominant_agreement": 0.6437768240343348,
+        "dominant_correct": 150,
+        "reference_class_counts": {
+          "CMIX": 34,
+          "DESE": 29,
+          "ENWD": 34,
+          "GRAM": 34,
+          "TEDE": 34,
+          "WTSFS": 34,
+          "XSHB": 34
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 28,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 16,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 6,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "DESE"
+          },
+          {
+            "n": 5,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 21,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 23,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 5,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 19,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 6,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 16,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 5,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 2,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 4,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 27,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 292
+    },
+    "complete_curated_cohort": {
+      "TUND_CENF_excluded_rows": 885,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6711586268606085,
+        "composite_agreement": 0.7468378327355106,
+        "composite_correct": 3956,
+        "denominator": 5297,
+        "dominant_agreement": 0.6503681329054182,
+        "dominant_correct": 3445,
+        "reference_class_counts": {
+          "CENF": 646,
+          "CMIX": 1628,
+          "DESE": 102,
+          "ENWD": 140,
+          "GRAM": 174,
+          "TEDE": 910,
+          "TUND": 139,
+          "WTSFS": 1262,
+          "XSHB": 296
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 420,
+            "prediction": "CENF",
+            "reference": "CENF"
+          },
+          {
+            "n": 121,
+            "prediction": "CMIX",
+            "reference": "CENF"
+          },
+          {
+            "n": 4,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 4,
+            "prediction": "GRAM",
+            "reference": "CENF"
+          },
+          {
+            "n": 12,
+            "prediction": "TEDE",
+            "reference": "CENF"
+          },
+          {
+            "n": 83,
+            "prediction": "TUND",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "CENF"
+          },
+          {
+            "n": 59,
+            "prediction": "CENF",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1169,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 40,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 28,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 245,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 32,
+            "prediction": "TUND",
+            "reference": "CMIX"
+          },
+          {
+            "n": 51,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "CMIX"
+          },
+          {
+            "n": 59,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 21,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "DESE"
+          },
+          {
+            "n": 20,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 105,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 10,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 2,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 24,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 8,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 105,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 16,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 6,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 13,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 140,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 18,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 67,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 38,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 527,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 5,
+            "prediction": "TUND",
+            "reference": "TEDE"
+          },
+          {
+            "n": 83,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 13,
+            "prediction": "CENF",
+            "reference": "TUND"
+          },
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "TUND"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "TUND"
+          },
+          {
+            "n": 105,
+            "prediction": "TUND",
+            "reference": "TUND"
+          },
+          {
+            "n": 2,
+            "prediction": "CENF",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 35,
+            "prediction": "CMIX",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 12,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 24,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 125,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 189,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 2,
+            "prediction": "TUND",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 704,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 169,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 13,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 10,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 15,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 251,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 5521,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.7672042167966454,
+          "composite_agreement": 0.8495575221238938,
+          "composite_correct": 576,
+          "denominator": 678,
+          "dominant_agreement": 0.7669616519174042,
+          "dominant_correct": 520,
+          "reference_class_counts": {
+            "CENF": 79,
+            "CMIX": 79,
+            "DESE": 68,
+            "ENWD": 79,
+            "GRAM": 79,
+            "TEDE": 79,
+            "TUND": 57,
+            "WTSFS": 79,
+            "XSHB": 79
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 55,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 11,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "CENF"
+            },
+            {
+              "n": 10,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 63,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 3,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TUND",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 43,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 13,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 12,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "ENWD"
+            },
+            {
+              "n": 65,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 11,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 49,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "WTSFS",
+              "reference": "GRAM"
+            },
+            {
+              "n": 9,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 6,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 62,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 6,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 48,
+              "prediction": "TUND",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 4,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 66,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 6,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 4,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "XSHB"
+            },
+            {
+              "n": 69,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.6320789562974094,
+          "composite_agreement": 0.7269647696476965,
+          "composite_correct": 3219,
+          "denominator": 4428,
+          "dominant_agreement": 0.6269196025293586,
+          "dominant_correct": 2776,
+          "reference_class_counts": {
+            "CENF": 564,
+            "CMIX": 1512,
+            "DESE": 30,
+            "ENWD": 41,
+            "GRAM": 73,
+            "TEDE": 805,
+            "TUND": 56,
+            "WTSFS": 1172,
+            "XSHB": 175
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 364,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 108,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "CENF"
+            },
+            {
+              "n": 10,
+              "prediction": "TEDE",
+              "reference": "CENF"
+            },
+            {
+              "n": 73,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "CENF"
+            },
+            {
+              "n": 57,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1072,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 3,
+              "prediction": "DESE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 37,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 26,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 238,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 30,
+              "prediction": "TUND",
+              "reference": "CMIX"
+            },
+            {
+              "n": 49,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 16,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "DESE"
+            },
+            {
+              "n": 7,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "DESE"
+            },
+            {
+              "n": 5,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 28,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "ENWD"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "GRAM"
+            },
+            {
+              "n": 13,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 45,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 7,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "GRAM"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 134,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 16,
+              "prediction": "DESE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 62,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 34,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 445,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 5,
+              "prediction": "TUND",
+              "reference": "TEDE"
+            },
+            {
+              "n": 80,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 29,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 7,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 15,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "TUND"
+            },
+            {
+              "n": 33,
+              "prediction": "TUND",
+              "reference": "TUND"
+            },
+            {
+              "n": 2,
+              "prediction": "CENF",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 35,
+              "prediction": "CMIX",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 12,
+              "prediction": "DESE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 23,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 123,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 184,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 2,
+              "prediction": "TUND",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 629,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 162,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 9,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 7,
+              "prediction": "GRAM",
+              "reference": "XSHB"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 11,
+              "prediction": "WTSFS",
+              "reference": "XSHB"
+            },
+            {
+              "n": 144,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": 0.6408337408337409,
+          "composite_agreement": 0.8429319371727748,
+          "composite_correct": 161,
+          "denominator": 191,
+          "dominant_agreement": 0.7801047120418848,
+          "dominant_correct": 149,
+          "reference_class_counts": {
+            "CENF": 3,
+            "CMIX": 37,
+            "DESE": 4,
+            "ENWD": 20,
+            "GRAM": 22,
+            "TEDE": 26,
+            "TUND": 26,
+            "WTSFS": 11,
+            "XSHB": 42
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 1,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 34,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 12,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 11,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "DESE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 20,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 24,
+              "prediction": "TUND",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 9,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 3,
+              "prediction": "WTSFS",
+              "reference": "XSHB"
+            },
+            {
+              "n": 38,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        }
+      },
+      "grouping": "literal opaque entity-name token modes with lexicographic class ties",
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 678,
+        "no_matching_training_id_coordinate_or_opaque_name": 4882,
+        "other_sample_same_recorded_training_coordinate": 205
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6689091498944452,
+        "composite_agreement": 0.7504533091568449,
+        "composite_correct": 3311,
+        "denominator": 4412,
+        "dominant_agreement": 0.6618313689936537,
+        "dominant_correct": 2920,
+        "reference_class_counts": {
+          "CMIX": 1537,
+          "DESE": 102,
+          "ENWD": 140,
+          "GRAM": 174,
+          "TEDE": 905,
+          "WTSFS": 1258,
+          "XSHB": 296
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 1169,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 40,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 28,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 245,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 51,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "CMIX"
+          },
+          {
+            "n": 59,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 21,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "DESE"
+          },
+          {
+            "n": 20,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 105,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 10,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 2,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 24,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 8,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 105,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 16,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 6,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 13,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 140,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 18,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 67,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 38,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 527,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 83,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 35,
+            "prediction": "CMIX",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 12,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 24,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 125,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 189,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 704,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 169,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 13,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 10,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 15,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 251,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 5765
+    },
+    "emb_complete_coordinate_window": {
+      "TUND_CENF_excluded_rows": 2,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.5461346668277486,
+        "composite_agreement": 0.7260663507109004,
+        "composite_correct": 766,
+        "denominator": 1055,
+        "dominant_agreement": 0.6075829383886255,
+        "dominant_correct": 641,
+        "reference_class_counts": {
+          "CENF": 1,
+          "CMIX": 81,
+          "DESE": 59,
+          "ENWD": 140,
+          "GRAM": 128,
+          "TEDE": 363,
+          "WTSFS": 272,
+          "XSHB": 11
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "CENF",
+            "reference": "CMIX"
+          },
+          {
+            "n": 38,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 14,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 20,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 44,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 13,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 105,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 10,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 20,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 8,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 80,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 15,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 13,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 52,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 17,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 224,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 27,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 10,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 15,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 27,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 54,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 143,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 1277,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.7588503492371528,
+          "composite_agreement": 0.8312236286919831,
+          "composite_correct": 197,
+          "denominator": 237,
+          "dominant_agreement": 0.7637130801687764,
+          "dominant_correct": 181,
+          "reference_class_counts": {
+            "CMIX": 7,
+            "DESE": 41,
+            "ENWD": 79,
+            "GRAM": 50,
+            "TEDE": 35,
+            "WTSFS": 18,
+            "XSHB": 7
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 4,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 30,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 10,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "ENWD"
+            },
+            {
+              "n": 65,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 10,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 32,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 28,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 16,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 6,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.48825069731633997,
+          "composite_agreement": 0.6909090909090909,
+          "composite_correct": 532,
+          "denominator": 770,
+          "dominant_agreement": 0.5597402597402598,
+          "dominant_correct": 431,
+          "reference_class_counts": {
+            "CENF": 1,
+            "CMIX": 74,
+            "DESE": 18,
+            "ENWD": 41,
+            "GRAM": 59,
+            "TEDE": 320,
+            "WTSFS": 253,
+            "XSHB": 4
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 34,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 13,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 4,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 19,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 14,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 28,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "CMIX",
+              "reference": "GRAM"
+            },
+            {
+              "n": 10,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 38,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 7,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 20,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 13,
+              "prediction": "DESE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 47,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 17,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 190,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 25,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 8,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 14,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 26,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 54,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 126,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 32,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": 0.719078947368421,
+          "composite_agreement": 0.7708333333333334,
+          "composite_correct": 37,
+          "denominator": 48,
+          "dominant_agreement": 0.6041666666666666,
+          "dominant_correct": 29,
+          "reference_class_counts": {
+            "ENWD": 20,
+            "GRAM": 19,
+            "TEDE": 8,
+            "WTSFS": 1
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 12,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 10,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 6,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            }
+          ]
+        }
+      },
+      "grouping": "literal opaque entity-name token modes with lexicographic class ties",
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 237,
+        "no_matching_training_id_coordinate_or_opaque_name": 1096,
+        "other_sample_same_recorded_training_coordinate": 62
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6249916474504076,
+        "composite_agreement": 0.7274453941120608,
+        "composite_correct": 766,
+        "denominator": 1053,
+        "dominant_agreement": 0.6087369420702754,
+        "dominant_correct": 641,
+        "reference_class_counts": {
+          "CMIX": 80,
+          "DESE": 59,
+          "ENWD": 140,
+          "GRAM": 128,
+          "TEDE": 363,
+          "WTSFS": 272,
+          "XSHB": 11
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 38,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 14,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 20,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 44,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 13,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 105,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 9,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 10,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 20,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 8,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 80,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 15,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 13,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 52,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 17,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 224,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 27,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 10,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 15,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 27,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 54,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 143,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 1395
+    },
+    "northern_europe_coordinate_screen": {
+      "TUND_CENF_excluded_rows": 639,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.6723223198066607,
+        "composite_agreement": 0.7767653758542141,
+        "composite_correct": 682,
+        "denominator": 878,
+        "dominant_agreement": 0.6674259681093394,
+        "dominant_correct": 586,
+        "reference_class_counts": {
+          "CENF": 458,
+          "CMIX": 239,
+          "TEDE": 48,
+          "TUND": 133
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 296,
+            "prediction": "CENF",
+            "reference": "CENF"
+          },
+          {
+            "n": 74,
+            "prediction": "CMIX",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 5,
+            "prediction": "TEDE",
+            "reference": "CENF"
+          },
+          {
+            "n": 81,
+            "prediction": "TUND",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "CENF"
+          },
+          {
+            "n": 26,
+            "prediction": "CENF",
+            "reference": "CMIX"
+          },
+          {
+            "n": 161,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 27,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 20,
+            "prediction": "TUND",
+            "reference": "CMIX"
+          },
+          {
+            "n": 15,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 30,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "TUND",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 13,
+            "prediction": "CENF",
+            "reference": "TUND"
+          },
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "TUND"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "TUND"
+          },
+          {
+            "n": 99,
+            "prediction": "TUND",
+            "reference": "TUND"
+          }
+        ]
+      },
+      "eligible_label_samples": 878,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.8440402476780186,
+          "composite_agreement": 0.9,
+          "composite_correct": 117,
+          "denominator": 130,
+          "dominant_agreement": 0.7846153846153846,
+          "dominant_correct": 102,
+          "reference_class_counts": {
+            "CENF": 57,
+            "CMIX": 17,
+            "TEDE": 2,
+            "TUND": 54
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 41,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 7,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 9,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 14,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TUND",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 6,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 45,
+              "prediction": "TUND",
+              "reference": "TUND"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.618003812971937,
+          "composite_agreement": 0.7503486750348675,
+          "composite_correct": 538,
+          "denominator": 717,
+          "dominant_agreement": 0.6373779637377964,
+          "dominant_correct": 457,
+          "reference_class_counts": {
+            "CENF": 398,
+            "CMIX": 220,
+            "TEDE": 46,
+            "TUND": 53
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 254,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 65,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "CENF"
+            },
+            {
+              "n": 72,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "CENF"
+            },
+            {
+              "n": 26,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 145,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 3,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 26,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 18,
+              "prediction": "TUND",
+              "reference": "CMIX"
+            },
+            {
+              "n": 15,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 28,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "TUND",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 7,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 15,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "TUND"
+            },
+            {
+              "n": 30,
+              "prediction": "TUND",
+              "reference": "TUND"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": 0.7521367521367521,
+          "composite_agreement": 0.8709677419354839,
+          "composite_correct": 27,
+          "denominator": 31,
+          "dominant_agreement": 0.8709677419354839,
+          "dominant_correct": 27,
+          "reference_class_counts": {
+            "CENF": 3,
+            "CMIX": 2,
+            "TUND": 26
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 1,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 24,
+              "prediction": "TUND",
+              "reference": "TUND"
+            }
+          ]
+        }
+      },
+      "grouping": "literal opaque entity-name token modes with lexicographic class ties",
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 130,
+        "no_matching_training_id_coordinate_or_opaque_name": 785,
+        "other_sample_same_recorded_training_coordinate": 31
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.7431854021175941,
+        "composite_agreement": 0.8368200836820083,
+        "composite_correct": 200,
+        "denominator": 239,
+        "dominant_agreement": 0.799163179916318,
+        "dominant_correct": 191,
+        "reference_class_counts": {
+          "CMIX": 193,
+          "TEDE": 46
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 161,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 27,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 15,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 30,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          }
+        ]
+      },
+      "source_samples": 946
+    },
+    "original_emb_selected_cohort": {
+      "TUND_CENF_excluded_rows": 2,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.561042918238349,
+        "composite_agreement": 0.7404580152671756,
+        "composite_correct": 679,
+        "denominator": 917,
+        "dominant_agreement": 0.6215921483097055,
+        "dominant_correct": 570,
+        "reference_class_counts": {
+          "CENF": 1,
+          "CMIX": 71,
+          "DESE": 58,
+          "ENWD": 114,
+          "GRAM": 91,
+          "TEDE": 309,
+          "WTSFS": 262,
+          "XSHB": 11
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "CENF",
+            "reference": "CMIX"
+          },
+          {
+            "n": 35,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 18,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 44,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 12,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 87,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 8,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 8,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 17,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 61,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 5,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 13,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 12,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 35,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 14,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 199,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 26,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 10,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 15,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 24,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 53,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 137,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 917,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.7588503492371528,
+          "composite_agreement": 0.8312236286919831,
+          "composite_correct": 197,
+          "denominator": 237,
+          "dominant_agreement": 0.7637130801687764,
+          "dominant_correct": 181,
+          "reference_class_counts": {
+            "CMIX": 7,
+            "DESE": 41,
+            "ENWD": 79,
+            "GRAM": 50,
+            "TEDE": 35,
+            "WTSFS": 18,
+            "XSHB": 7
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 4,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 30,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 10,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "ENWD"
+            },
+            {
+              "n": 65,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 10,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 32,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 28,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 16,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 6,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.5017227680115006,
+          "composite_agreement": 0.7088235294117647,
+          "composite_correct": 482,
+          "denominator": 680,
+          "dominant_agreement": 0.5720588235294117,
+          "dominant_correct": 389,
+          "reference_class_counts": {
+            "CENF": 1,
+            "CMIX": 64,
+            "DESE": 17,
+            "ENWD": 35,
+            "GRAM": 41,
+            "TEDE": 274,
+            "WTSFS": 244,
+            "XSHB": 4
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 31,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 12,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 17,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 14,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "DESE"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 22,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "XSHB",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "CMIX",
+              "reference": "GRAM"
+            },
+            {
+              "n": 7,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 29,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 13,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 12,
+              "prediction": "DESE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 31,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 14,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 171,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 25,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 8,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 14,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 23,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 53,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 121,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 32,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        }
+      },
+      "grouping": "literal opaque entity-name token modes with lexicographic class ties",
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 237,
+        "no_matching_training_id_coordinate_or_opaque_name": 680
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.642197942775417,
+        "composite_agreement": 0.7420765027322405,
+        "composite_correct": 679,
+        "denominator": 915,
+        "dominant_agreement": 0.6229508196721312,
+        "dominant_correct": 570,
+        "reference_class_counts": {
+          "CMIX": 70,
+          "DESE": 58,
+          "ENWD": 114,
+          "GRAM": 91,
+          "TEDE": 309,
+          "WTSFS": 262,
+          "XSHB": 11
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 35,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 18,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 44,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 12,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 87,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 8,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 8,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 17,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 61,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 5,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 3,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 13,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 12,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 35,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 14,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 199,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 26,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 10,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 15,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 24,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 53,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 137,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 32,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 917
+    },
+    "original_emb_subdominant_matrix_members": {
+      "TUND_CENF_excluded_rows": 1,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.5204075931122277,
+        "composite_agreement": 0.7592920353982301,
+        "composite_correct": 429,
+        "denominator": 565,
+        "dominant_agreement": 0.5663716814159292,
+        "dominant_correct": 320,
+        "reference_class_counts": {
+          "CENF": 1,
+          "CMIX": 49,
+          "DESE": 35,
+          "ENWD": 80,
+          "GRAM": 52,
+          "TEDE": 165,
+          "WTSFS": 173,
+          "XSHB": 10
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "CENF"
+          },
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 12,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 24,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 61,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 35,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 3,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 5,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 21,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 100,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 16,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 14,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 42,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 74,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 29,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 6,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 565,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.750587779324186,
+          "composite_agreement": 0.86,
+          "composite_correct": 129,
+          "denominator": 150,
+          "dominant_agreement": 0.7533333333333333,
+          "dominant_correct": 113,
+          "reference_class_counts": {
+            "CMIX": 5,
+            "DESE": 24,
+            "ENWD": 53,
+            "GRAM": 29,
+            "TEDE": 21,
+            "WTSFS": 11,
+            "XSHB": 7
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 15,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 8,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "ENWD"
+            },
+            {
+              "n": 43,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 20,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 16,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 10,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 6,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": 0.43772263699799935,
+          "composite_agreement": 0.7228915662650602,
+          "composite_correct": 300,
+          "denominator": 415,
+          "dominant_agreement": 0.4987951807228916,
+          "dominant_correct": 207,
+          "reference_class_counts": {
+            "CENF": 1,
+            "CMIX": 44,
+            "DESE": 11,
+            "ENWD": 27,
+            "GRAM": 23,
+            "TEDE": 144,
+            "WTSFS": 162,
+            "XSHB": 3
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "CENF"
+            },
+            {
+              "n": 17,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 12,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 12,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 9,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "DESE"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 18,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 4,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "ENWD"
+            },
+            {
+              "n": 1,
+              "prediction": "CMIX",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 15,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 9,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 5,
+              "prediction": "DESE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 19,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 7,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 84,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 15,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 5,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 12,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 14,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 42,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 64,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 29,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 1,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        }
+      },
+      "grouping": "literal opaque entity-name token modes with lexicographic class ties",
+      "original_subdominant_target_agreement": {
+        "denominator": 565,
+        "subdominant_agreement": 0.2,
+        "subdominant_correct": 113
+      },
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 150,
+        "no_matching_training_id_coordinate_or_opaque_name": 415
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.5947515349854031,
+        "composite_agreement": 0.7606382978723404,
+        "composite_correct": 429,
+        "denominator": 564,
+        "dominant_agreement": 0.5673758865248227,
+        "dominant_correct": 320,
+        "reference_class_counts": {
+          "CMIX": 49,
+          "DESE": 35,
+          "ENWD": 80,
+          "GRAM": 52,
+          "TEDE": 165,
+          "WTSFS": 173,
+          "XSHB": 10
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 20,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 12,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 24,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "DESE"
+          },
+          {
+            "n": 9,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 1,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 61,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "ENWD"
+          },
+          {
+            "n": 1,
+            "prediction": "CMIX",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 35,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 3,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 5,
+            "prediction": "DESE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 21,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 100,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 16,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 7,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 13,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 14,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 42,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 74,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 29,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 1,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 6,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 565,
+      "subdominant_target_exposure_partition": {
+        "direct_training_sample_id": {
+          "denominator": 150,
+          "subdominant_agreement": 0.10666666666666667,
+          "subdominant_correct": 16
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "denominator": 415,
+          "subdominant_agreement": 0.23373493975903614,
+          "subdominant_correct": 97
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "denominator": 0,
+          "subdominant_agreement": null,
+          "subdominant_correct": 0
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "denominator": 0,
+          "subdominant_agreement": null,
+          "subdominant_correct": 0
+        }
+      }
+    },
+    "regenerated_training_PNV_samples": {
+      "TUND_CENF_excluded_rows": 140,
+      "all_class_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.7672042167966454,
+        "composite_agreement": 0.8495575221238938,
+        "composite_correct": 576,
+        "denominator": 678,
+        "dominant_agreement": 0.7669616519174042,
+        "dominant_correct": 520,
+        "reference_class_counts": {
+          "CENF": 79,
+          "CMIX": 79,
+          "DESE": 68,
+          "ENWD": 79,
+          "GRAM": 79,
+          "TEDE": 79,
+          "TUND": 57,
+          "WTSFS": 79,
+          "XSHB": 79
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 55,
+            "prediction": "CENF",
+            "reference": "CENF"
+          },
+          {
+            "n": 11,
+            "prediction": "CMIX",
+            "reference": "CENF"
+          },
+          {
+            "n": 1,
+            "prediction": "GRAM",
+            "reference": "CENF"
+          },
+          {
+            "n": 2,
+            "prediction": "TEDE",
+            "reference": "CENF"
+          },
+          {
+            "n": 10,
+            "prediction": "TUND",
+            "reference": "CENF"
+          },
+          {
+            "n": 2,
+            "prediction": "CENF",
+            "reference": "CMIX"
+          },
+          {
+            "n": 63,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 5,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "TUND",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 43,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 13,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 12,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 65,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 11,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 49,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 6,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 4,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 62,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 6,
+            "prediction": "CENF",
+            "reference": "TUND"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "TUND"
+          },
+          {
+            "n": 48,
+            "prediction": "TUND",
+            "reference": "TUND"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 66,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 6,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 4,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 69,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "eligible_label_samples": 678,
+      "exposure_partition_agreement": {
+        "direct_training_sample_id": {
+          "balanced_dominant_agreement_present_classes": 0.7672042167966454,
+          "composite_agreement": 0.8495575221238938,
+          "composite_correct": 576,
+          "denominator": 678,
+          "dominant_agreement": 0.7669616519174042,
+          "dominant_correct": 520,
+          "reference_class_counts": {
+            "CENF": 79,
+            "CMIX": 79,
+            "DESE": 68,
+            "ENWD": 79,
+            "GRAM": 79,
+            "TEDE": 79,
+            "TUND": 57,
+            "WTSFS": 79,
+            "XSHB": 79
+          },
+          "reference_row_prediction_column_matrix": [
+            {
+              "n": 55,
+              "prediction": "CENF",
+              "reference": "CENF"
+            },
+            {
+              "n": 11,
+              "prediction": "CMIX",
+              "reference": "CENF"
+            },
+            {
+              "n": 1,
+              "prediction": "GRAM",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "TEDE",
+              "reference": "CENF"
+            },
+            {
+              "n": 10,
+              "prediction": "TUND",
+              "reference": "CENF"
+            },
+            {
+              "n": 2,
+              "prediction": "CENF",
+              "reference": "CMIX"
+            },
+            {
+              "n": 63,
+              "prediction": "CMIX",
+              "reference": "CMIX"
+            },
+            {
+              "n": 3,
+              "prediction": "ENWD",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "CMIX"
+            },
+            {
+              "n": 5,
+              "prediction": "TEDE",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "TUND",
+              "reference": "CMIX"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "CMIX"
+            },
+            {
+              "n": 43,
+              "prediction": "DESE",
+              "reference": "DESE"
+            },
+            {
+              "n": 13,
+              "prediction": "GRAM",
+              "reference": "DESE"
+            },
+            {
+              "n": 12,
+              "prediction": "XSHB",
+              "reference": "DESE"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "ENWD"
+            },
+            {
+              "n": 65,
+              "prediction": "ENWD",
+              "reference": "ENWD"
+            },
+            {
+              "n": 5,
+              "prediction": "GRAM",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "TEDE",
+              "reference": "ENWD"
+            },
+            {
+              "n": 3,
+              "prediction": "WTSFS",
+              "reference": "ENWD"
+            },
+            {
+              "n": 11,
+              "prediction": "DESE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 2,
+              "prediction": "ENWD",
+              "reference": "GRAM"
+            },
+            {
+              "n": 49,
+              "prediction": "GRAM",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "TEDE",
+              "reference": "GRAM"
+            },
+            {
+              "n": 4,
+              "prediction": "WTSFS",
+              "reference": "GRAM"
+            },
+            {
+              "n": 9,
+              "prediction": "XSHB",
+              "reference": "GRAM"
+            },
+            {
+              "n": 6,
+              "prediction": "CMIX",
+              "reference": "TEDE"
+            },
+            {
+              "n": 4,
+              "prediction": "ENWD",
+              "reference": "TEDE"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "TEDE"
+            },
+            {
+              "n": 62,
+              "prediction": "TEDE",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "WTSFS",
+              "reference": "TEDE"
+            },
+            {
+              "n": 2,
+              "prediction": "XSHB",
+              "reference": "TEDE"
+            },
+            {
+              "n": 6,
+              "prediction": "CENF",
+              "reference": "TUND"
+            },
+            {
+              "n": 3,
+              "prediction": "CMIX",
+              "reference": "TUND"
+            },
+            {
+              "n": 48,
+              "prediction": "TUND",
+              "reference": "TUND"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 2,
+              "prediction": "GRAM",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 4,
+              "prediction": "TEDE",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 66,
+              "prediction": "WTSFS",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 6,
+              "prediction": "XSHB",
+              "reference": "WTSFS"
+            },
+            {
+              "n": 4,
+              "prediction": "DESE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "ENWD",
+              "reference": "XSHB"
+            },
+            {
+              "n": 3,
+              "prediction": "GRAM",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "TEDE",
+              "reference": "XSHB"
+            },
+            {
+              "n": 1,
+              "prediction": "WTSFS",
+              "reference": "XSHB"
+            },
+            {
+              "n": 69,
+              "prediction": "XSHB",
+              "reference": "XSHB"
+            }
+          ]
+        },
+        "no_matching_training_id_coordinate_or_opaque_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_coordinate_same_opaque_training_entity_name": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        },
+        "other_sample_same_recorded_training_coordinate": {
+          "balanced_dominant_agreement_present_classes": null,
+          "composite_agreement": null,
+          "composite_correct": 0,
+          "denominator": 0,
+          "dominant_agreement": null,
+          "dominant_correct": 0,
+          "reference_class_counts": {},
+          "reference_row_prediction_column_matrix": []
+        }
+      },
+      "grouping": "individual native sample IDs",
+      "sample_exposure_categories": {
+        "direct_training_sample_id": 678
+      },
+      "source_TUND_CENF_filtered_agreement": {
+        "balanced_dominant_agreement_present_classes": 0.7727231145622806,
+        "composite_agreement": 0.8475836431226765,
+        "composite_correct": 456,
+        "denominator": 538,
+        "dominant_agreement": 0.775092936802974,
+        "dominant_correct": 417,
+        "reference_class_counts": {
+          "CMIX": 75,
+          "DESE": 68,
+          "ENWD": 79,
+          "GRAM": 79,
+          "TEDE": 79,
+          "WTSFS": 79,
+          "XSHB": 79
+        },
+        "reference_row_prediction_column_matrix": [
+          {
+            "n": 63,
+            "prediction": "CMIX",
+            "reference": "CMIX"
+          },
+          {
+            "n": 3,
+            "prediction": "ENWD",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "CMIX"
+          },
+          {
+            "n": 5,
+            "prediction": "TEDE",
+            "reference": "CMIX"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "CMIX"
+          },
+          {
+            "n": 43,
+            "prediction": "DESE",
+            "reference": "DESE"
+          },
+          {
+            "n": 13,
+            "prediction": "GRAM",
+            "reference": "DESE"
+          },
+          {
+            "n": 12,
+            "prediction": "XSHB",
+            "reference": "DESE"
+          },
+          {
+            "n": 3,
+            "prediction": "CMIX",
+            "reference": "ENWD"
+          },
+          {
+            "n": 65,
+            "prediction": "ENWD",
+            "reference": "ENWD"
+          },
+          {
+            "n": 5,
+            "prediction": "GRAM",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "TEDE",
+            "reference": "ENWD"
+          },
+          {
+            "n": 3,
+            "prediction": "WTSFS",
+            "reference": "ENWD"
+          },
+          {
+            "n": 11,
+            "prediction": "DESE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 2,
+            "prediction": "ENWD",
+            "reference": "GRAM"
+          },
+          {
+            "n": 49,
+            "prediction": "GRAM",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "GRAM"
+          },
+          {
+            "n": 4,
+            "prediction": "WTSFS",
+            "reference": "GRAM"
+          },
+          {
+            "n": 9,
+            "prediction": "XSHB",
+            "reference": "GRAM"
+          },
+          {
+            "n": 6,
+            "prediction": "CMIX",
+            "reference": "TEDE"
+          },
+          {
+            "n": 4,
+            "prediction": "ENWD",
+            "reference": "TEDE"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "TEDE"
+          },
+          {
+            "n": 62,
+            "prediction": "TEDE",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "WTSFS",
+            "reference": "TEDE"
+          },
+          {
+            "n": 2,
+            "prediction": "XSHB",
+            "reference": "TEDE"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 2,
+            "prediction": "GRAM",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 4,
+            "prediction": "TEDE",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 66,
+            "prediction": "WTSFS",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 6,
+            "prediction": "XSHB",
+            "reference": "WTSFS"
+          },
+          {
+            "n": 4,
+            "prediction": "DESE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "ENWD",
+            "reference": "XSHB"
+          },
+          {
+            "n": 3,
+            "prediction": "GRAM",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "TEDE",
+            "reference": "XSHB"
+          },
+          {
+            "n": 1,
+            "prediction": "WTSFS",
+            "reference": "XSHB"
+          },
+          {
+            "n": 69,
+            "prediction": "XSHB",
+            "reference": "XSHB"
+          }
+        ]
+      },
+      "source_samples": 678
+    }
+  },
+  "schema_version": "embsecbio-training-evaluation-exposure.v1",
+  "training_coordinate_count": 678,
+  "training_opaque_name_count": 678
+}

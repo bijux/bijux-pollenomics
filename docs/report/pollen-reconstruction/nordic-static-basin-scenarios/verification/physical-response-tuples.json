@@ -1,0 +1,440 @@
+[
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.0996308728577838e-09,
+    "factor": 0.31111443880959694,
+    "fall_speed_m_s": 0.021,
+    "receiver_radius_m": 89,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Alnus glutinosa"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.394540116391155e-09,
+    "factor": 0.292007913782744,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 89,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4445.metadata_static_radius",
+        "parameter_taxon": "Betula"
+      },
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.0462893343453205e-09,
+    "factor": 0.28503924311023676,
+    "fall_speed_m_s": 0.025,
+    "receiver_radius_m": 89,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Corylus avellana"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.3249850102356974e-09,
+    "factor": 0.23360957831389104,
+    "fall_speed_m_s": 0.032,
+    "receiver_radius_m": 89,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Tilia"
+      },
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Ulmus"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.548569426295491e-09,
+    "factor": 0.19159422326155578,
+    "fall_speed_m_s": 0.038,
+    "receiver_radius_m": 89,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4445.metadata_static_radius",
+        "parameter_taxon": "Calluna vulgaris"
+      },
+      {
+        "case_id": "4446.metadata_static_radius",
+        "parameter_taxon": "Calluna vulgaris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.100265151755393e-09,
+    "factor": 0.3110097097630631,
+    "fall_speed_m_s": 0.021,
+    "receiver_radius_m": 89.20620580763855,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89.20620580763855,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Alnus glutinosa"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.395256302758451e-09,
+    "factor": 0.2919022985513981,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 89.20620580763855,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89.20620580763855,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4445.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Betula"
+      },
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.046885063775031e-09,
+    "factor": 0.284933715995061,
+    "fall_speed_m_s": 0.025,
+    "receiver_radius_m": 89.20620580763855,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89.20620580763855,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Corylus avellana"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.3256753930897947e-09,
+    "factor": 0.23350860292096814,
+    "fall_speed_m_s": 0.032,
+    "receiver_radius_m": 89.20620580763855,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89.20620580763855,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Tilia"
+      },
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Ulmus"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.5493319735483135e-09,
+    "factor": 0.19150069490390667,
+    "fall_speed_m_s": 0.038,
+    "receiver_radius_m": 89.20620580763855,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 89.20620580763855,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "4445.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Calluna vulgaris"
+      },
+      {
+        "case_id": "4446.reported_2_5_ha_static_circle",
+        "parameter_taxon": "Calluna vulgaris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.1046496643828098e-09,
+    "factor": 0.2677828057341759,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 151.3879513212096,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 151.3879513212096,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_7_2_ha_static_circle",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.4123641671663298e-09,
+    "factor": 0.21780137156940987,
+    "fall_speed_m_s": 0.031,
+    "receiver_radius_m": 151.3879513212096,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 151.3879513212096,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_7_2_ha_static_circle",
+        "parameter_taxon": "Pinus sylvestris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.5119042009485715e-09,
+    "factor": 0.1900234285954674,
+    "fall_speed_m_s": 0.035,
+    "receiver_radius_m": 151.3879513212096,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 151.3879513212096,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_7_2_ha_static_circle",
+        "parameter_taxon": "Poaceae"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.119529663974196e-09,
+    "factor": 0.2653845019469522,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 159.57691216057307,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 159.57691216057307,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_8_0_ha_static_circle",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.4293172090519065e-09,
+    "factor": 0.2155332322340275,
+    "fall_speed_m_s": 0.031,
+    "receiver_radius_m": 159.57691216057307,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 159.57691216057307,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_8_0_ha_static_circle",
+        "parameter_taxon": "Pinus sylvestris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.5297355322866417e-09,
+    "factor": 0.18787918393534733,
+    "fall_speed_m_s": 0.035,
+    "receiver_radius_m": 159.57691216057307,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 159.57691216057307,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.reported_8_0_ha_static_circle",
+        "parameter_taxon": "Poaceae"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.120292625842446e-09,
+    "factor": 0.26526398916936,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 160,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 160,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.metadata_static_radius",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.4301694308890403e-09,
+    "factor": 0.21541938103669986,
+    "fall_speed_m_s": 0.031,
+    "receiver_radius_m": 160,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 160,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.metadata_static_radius",
+        "parameter_taxon": "Pinus sylvestris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.5306511276604297e-09,
+    "factor": 0.1877716165328432,
+    "fall_speed_m_s": 0.035,
+    "receiver_radius_m": 160,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 160,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "20034.metadata_static_radius",
+        "parameter_taxon": "Poaceae"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.306118270854007e-09,
+    "factor": 0.23909910019425804,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 284.9017742606504,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 284.9017742606504,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "52082.reported_25_5_ha_static_circle",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.4324424794934563e-09,
+    "factor": 0.19098021042349436,
+    "fall_speed_m_s": 0.031,
+    "receiver_radius_m": 284.9017742606504,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 284.9017742606504,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "52082.reported_25_5_ha_static_circle",
+        "parameter_taxon": "Pinus sylvestris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.3062602612499036e-09,
+    "factor": 0.2390835395925667,
+    "fall_speed_m_s": 0.024,
+    "receiver_radius_m": 285,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 285,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "52082.metadata_static_radius",
+        "parameter_taxon": "Betula"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  },
+  {
+    "empirical_diffusion_coefficient": 0.12,
+    "estimated_absolute_error": 2.432584045326895e-09,
+    "factor": 0.19096584468494196,
+    "fall_speed_m_s": 0.031,
+    "receiver_radius_m": 285,
+    "regional_extent_m": 100000.0,
+    "rigorous_error_bound": false,
+    "source_inner_radius_m": 285,
+    "turbulence_parameter": 0.25,
+    "uses": [
+      {
+        "case_id": "52082.metadata_static_radius",
+        "parameter_taxon": "Pinus sylvestris"
+      }
+    ],
+    "wind_speed_m_s": 3.0
+  }
+]

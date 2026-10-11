@@ -1,0 +1,9 @@
+{
+  "base_descriptor": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
+  "schema_version": "qualified-rootsi-native-workbook.v1",
+  "workbook": {
+    "path": "rootsi/BUS.xls",
+    "sha256": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e",
+    "size": 59904
+  }
+}

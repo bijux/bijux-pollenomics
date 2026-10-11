@@ -1,0 +1,1471 @@
+{
+  "base_packages": {
+    "grDevices": "4.6.0",
+    "graphics": "4.6.0",
+    "grid": "4.6.0",
+    "methods": "4.6.0",
+    "parallel": "4.6.0",
+    "stats": "4.6.0",
+    "tools": "4.6.0",
+    "utils": "4.6.0"
+  },
+  "install_order": [
+    "DEoptim",
+    "GenSA",
+    "R6",
+    "RColorBrewer",
+    "Rcpp",
+    "S7",
+    "cli",
+    "cpp11",
+    "farver",
+    "generics",
+    "glue",
+    "labeling",
+    "magrittr",
+    "pkgconfig",
+    "rlang",
+    "stringi",
+    "utf8",
+    "viridisLite",
+    "withr",
+    "RcppArmadillo",
+    "Rmalschains",
+    "isoband",
+    "lifecycle",
+    "plyr",
+    "RcppDE",
+    "gtable",
+    "scales",
+    "vctrs",
+    "ggplot2",
+    "pillar",
+    "purrr",
+    "stringr",
+    "tidyselect",
+    "tibble",
+    "dplyr",
+    "tidyr"
+  ],
+  "packages": [
+    {
+      "archive_filename": "DEoptim_2.2-8.tar.gz",
+      "byte_count": 65921,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": null,
+          "package": "parallel",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        }
+      ],
+      "license": "GPL (>= 2)",
+      "needs_compilation": true,
+      "package": "DEoptim",
+      "sha256": "631eabdcf26ec25a759651f699db1971beca3ae193c7fbd1c63a78248fdbf54c",
+      "url": "https://cran.r-project.org/src/contrib/DEoptim_2.2-8.tar.gz",
+      "version": "2.2-8"
+    },
+    {
+      "archive_filename": "GenSA_1.1.15.tar.gz",
+      "byte_count": 51065,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "2.12.0"
+        }
+      ],
+      "license": "GPL-2",
+      "needs_compilation": true,
+      "package": "GenSA",
+      "sha256": "68970dc3b463986b5b7130acbd42a5ae5a85835d004fb54f81b3ef5c2fccf925",
+      "url": "https://cran.r-project.org/src/contrib/GenSA_1.1.15.tar.gz",
+      "version": "1.1.15"
+    },
+    {
+      "archive_filename": "R6_2.6.1.tar.gz",
+      "byte_count": 64507,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.6"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "R6",
+      "sha256": "59c6eba8b1b912eb7e104f65053235604be853425ee67c152ac4e86a1f2073b4",
+      "url": "https://cran.r-project.org/src/contrib/R6_2.6.1.tar.gz",
+      "version": "2.6.1"
+    },
+    {
+      "archive_filename": "RColorBrewer_1.1-3.tar.gz",
+      "byte_count": 11638,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "2.0.0"
+        }
+      ],
+      "license": "Apache License 2.0",
+      "needs_compilation": false,
+      "package": "RColorBrewer",
+      "sha256": "4f42f5423c45688b39f492c7892d93f37b4541831c8ffb140364d2bd89031ac0",
+      "url": "https://cran.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz",
+      "version": "1.1-3"
+    },
+    {
+      "archive_filename": "Rcpp_1.1.1-1.1.tar.gz",
+      "byte_count": 1883279,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.5.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        }
+      ],
+      "license": "GPL (>= 2)",
+      "needs_compilation": true,
+      "package": "Rcpp",
+      "sha256": "32e5d5fee4080c8ca315f31b74c3eaa6367a1900e92e860e00390c9565f5fbe1",
+      "url": "https://cran.r-project.org/src/contrib/Archive/Rcpp/Rcpp_1.1.1-1.1.tar.gz",
+      "version": "1.1.1-1.1"
+    },
+    {
+      "archive_filename": "RcppArmadillo_15.4.2-1.tar.gz",
+      "byte_count": 1093518,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.3.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "Rcpp",
+          "version": "1.1.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "stats",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "Rcpp",
+          "version": null
+        }
+      ],
+      "license": "GPL (>= 2)",
+      "needs_compilation": true,
+      "package": "RcppArmadillo",
+      "sha256": "141c8da25f1e8ff1771b0a1b68d65fbdd821b6061cdd9504ff446ee65f70b801",
+      "url": "https://cran.r-project.org/src/contrib/Archive/RcppArmadillo/RcppArmadillo_15.4.2-1.tar.gz",
+      "version": "15.4.2-1"
+    },
+    {
+      "archive_filename": "RcppDE_0.1.9.tar.gz",
+      "byte_count": 291113,
+      "dependencies": [
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "Rcpp",
+          "version": null
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "Rcpp",
+          "version": null
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "RcppArmadillo",
+          "version": null
+        }
+      ],
+      "license": "GPL (>= 2)",
+      "needs_compilation": true,
+      "package": "RcppDE",
+      "sha256": "f48aeea87e379beb1a408aef11d65c3f2b8ce09e97c2add6f42f9446ea92fe3b",
+      "url": "https://cran.r-project.org/src/contrib/RcppDE_0.1.9.tar.gz",
+      "version": "0.1.9"
+    },
+    {
+      "archive_filename": "Rmalschains_0.2-11.tar.gz",
+      "byte_count": 265014,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "Rcpp",
+          "version": "0.9.10"
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "Rcpp",
+          "version": null
+        }
+      ],
+      "license": "GPL-3",
+      "needs_compilation": true,
+      "package": "Rmalschains",
+      "sha256": "cc240727129edd1aa9a1d666dc3ddcc220d5f0e66498e982f72cfef8910ce3f3",
+      "url": "https://cran.r-project.org/src/contrib/Archive/Rmalschains/Rmalschains_0.2-11.tar.gz",
+      "version": "0.2-11"
+    },
+    {
+      "archive_filename": "S7_0.2.2.tar.gz",
+      "byte_count": 184632,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.5.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "S7",
+      "sha256": "6f33245dde05b74265b1c4d379e034bc3a8923d41e7b52e6e75a75ce97d42af7",
+      "url": "https://cran.r-project.org/src/contrib/S7_0.2.2.tar.gz",
+      "version": "0.2.2"
+    },
+    {
+      "archive_filename": "cli_3.6.6.tar.gz",
+      "byte_count": 644134,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.4"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "cli",
+      "sha256": "b2b58d6dd82f5798b335e39c00591686a01fd3e94399ef898e146173e36f18f9",
+      "url": "https://cran.r-project.org/src/contrib/cli_3.6.6.tar.gz",
+      "version": "3.6.6"
+    },
+    {
+      "archive_filename": "cpp11_0.5.5.tar.gz",
+      "byte_count": 304823,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.0.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "cpp11",
+      "sha256": "72486beb0605c1229bf3d422cd536224af8dc09bd389a3116f62f4c7705c62f4",
+      "url": "https://cran.r-project.org/src/contrib/cpp11_0.5.5.tar.gz",
+      "version": "0.5.5"
+    },
+    {
+      "archive_filename": "dplyr_1.2.1.tar.gz",
+      "byte_count": 923509,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.6.2"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "generics",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "glue",
+          "version": "1.3.2"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.5"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "magrittr",
+          "version": "1.5"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "pillar",
+          "version": "1.9.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "R6",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.7"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "tibble",
+          "version": "3.2.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "tidyselect",
+          "version": "1.2.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.7.1"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "dplyr",
+      "sha256": "18d66fe2f24cda8b619c177326d39dd015229ab99695fa67d3fa31e4569390e0",
+      "url": "https://cran.r-project.org/src/contrib/dplyr_1.2.1.tar.gz",
+      "version": "1.2.1"
+    },
+    {
+      "archive_filename": "farver_2.1.2.tar.gz",
+      "byte_count": 1275981,
+      "dependencies": [],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "farver",
+      "sha256": "528823b95daab4566137711f1c842027a952bea1b2ae6ff098e2ca512b17fe25",
+      "url": "https://cran.r-project.org/src/contrib/farver_2.1.2.tar.gz",
+      "version": "2.1.2"
+    },
+    {
+      "archive_filename": "generics_0.1.4.tar.gz",
+      "byte_count": 47224,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.6"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "generics",
+      "sha256": "bbe95a097792d38fc3b7e677738af1b95b66ea5e5017e33b8beac6a6088d0801",
+      "url": "https://cran.r-project.org/src/contrib/generics_0.1.4.tar.gz",
+      "version": "0.1.4"
+    },
+    {
+      "archive_filename": "ggplot2_4.0.3.tar.gz",
+      "byte_count": 6327703,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "grDevices",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "grid",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "gtable",
+          "version": "0.3.6"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "isoband",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">",
+          "package": "lifecycle",
+          "version": "1.0.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "S7",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "scales",
+          "version": "1.4.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "stats",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.6.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "withr",
+          "version": "2.5.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "ggplot2",
+      "sha256": "690224bd61642b6222adb109470988e87f786e193cca77a15c0923cf9da73fa5",
+      "url": "https://cran.r-project.org/src/contrib/ggplot2_4.0.3.tar.gz",
+      "version": "4.0.3"
+    },
+    {
+      "archive_filename": "glue_1.8.1.tar.gz",
+      "byte_count": 129786,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "glue",
+      "sha256": "1c55905d3efc3d5c199ceb0bd12218e97f0d4c64df6038ff41ecef415478a122",
+      "url": "https://cran.r-project.org/src/contrib/glue_1.8.1.tar.gz",
+      "version": "1.8.1"
+    },
+    {
+      "archive_filename": "gtable_0.3.6.tar.gz",
+      "byte_count": 148148,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "glue",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "grid",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "lifecycle",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "stats",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "gtable",
+      "sha256": "d305a5fa11278b649d2d8edc5288bf28009be888a42be58ff8714018e49de0ef",
+      "url": "https://cran.r-project.org/src/contrib/gtable_0.3.6.tar.gz",
+      "version": "0.3.6"
+    },
+    {
+      "archive_filename": "isoband_0.3.0.tar.gz",
+      "byte_count": 1593511,
+      "dependencies": [
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "grid",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "rlang",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "cpp11",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "isoband",
+      "sha256": "fe8d3d58ca75bbee32f389152ac0058818f3f76f09c9867949531de7abc424ac",
+      "url": "https://cran.r-project.org/src/contrib/isoband_0.3.0.tar.gz",
+      "version": "0.3.0"
+    },
+    {
+      "archive_filename": "labeling_0.4.3.tar.gz",
+      "byte_count": 10167,
+      "dependencies": [
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "stats",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "graphics",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE | Unlimited",
+      "needs_compilation": false,
+      "package": "labeling",
+      "sha256": "c62f4fc2cc74377d7055903c5f1913b7295f7587456fe468592738a483e264f2",
+      "url": "https://cran.r-project.org/src/contrib/labeling_0.4.3.tar.gz",
+      "version": "0.4.3"
+    },
+    {
+      "archive_filename": "lifecycle_1.0.5.tar.gz",
+      "byte_count": 107137,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.6"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.4.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "lifecycle",
+      "sha256": "61841e3e6edba056a88355a3f1d6698ab8d5d9cb3c05f2af0ec5a44ab516f8ee",
+      "url": "https://cran.r-project.org/src/contrib/lifecycle_1.0.5.tar.gz",
+      "version": "1.0.5"
+    },
+    {
+      "archive_filename": "magrittr_2.0.5.tar.gz",
+      "byte_count": 281813,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.4.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "magrittr",
+      "sha256": "3f5b5b1d4e6d12807a95c50b6c88cb1d8af2c5eb5213f08bfe58f278eca2ed23",
+      "url": "https://cran.r-project.org/src/contrib/magrittr_2.0.5.tar.gz",
+      "version": "2.0.5"
+    },
+    {
+      "archive_filename": "pillar_1.11.1.tar.gz",
+      "byte_count": 409508,
+      "dependencies": [
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "2.3.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "glue",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "lifecycle",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.0.2"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "utf8",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.5.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "pillar",
+      "sha256": "056ce154238c9b5b8d5dcbcb52e1bc51d33870ce08c8a9ca9496478bd59f4653",
+      "url": "https://cran.r-project.org/src/contrib/pillar_1.11.1.tar.gz",
+      "version": "1.11.1"
+    },
+    {
+      "archive_filename": "pkgconfig_2.0.3.tar.gz",
+      "byte_count": 6080,
+      "dependencies": [
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "pkgconfig",
+      "sha256": "330fef440ffeb842a7dcfffc8303743f1feae83e8d6131078b5a44ff11bc3850",
+      "url": "https://cran.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz",
+      "version": "2.0.3"
+    },
+    {
+      "archive_filename": "plyr_1.8.9.tar.gz",
+      "byte_count": 401488,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "Rcpp",
+          "version": "0.11.0"
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "Rcpp",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "plyr",
+      "sha256": "15b5e7f711d53bf41b8687923983b8ef424563aa2f74c5195feb5b1df1aee103",
+      "url": "https://cran.r-project.org/src/contrib/plyr_1.8.9.tar.gz",
+      "version": "1.8.9"
+    },
+    {
+      "archive_filename": "purrr_1.2.2.tar.gz",
+      "byte_count": 278508,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.6.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "magrittr",
+          "version": "1.5.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.6.3"
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "purrr",
+      "sha256": "ac3bc0fc0e789510042522e6c4294336c71447be8f6921b5ef78b9a9fb86617d",
+      "url": "https://cran.r-project.org/src/contrib/purrr_1.2.2.tar.gz",
+      "version": "1.2.2"
+    },
+    {
+      "archive_filename": "rlang_1.2.0.tar.gz",
+      "byte_count": 780860,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.0.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "rlang",
+      "sha256": "8f808ad4f6c1ba37d81b6a4a2cdb4a7d4d30d5bee4ba3e9924352d85a3874357",
+      "url": "https://cran.r-project.org/src/contrib/Archive/rlang/rlang_1.2.0.tar.gz",
+      "version": "1.2.0"
+    },
+    {
+      "archive_filename": "scales_1.4.0.tar.gz",
+      "byte_count": 328671,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "farver",
+          "version": "2.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "glue",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "labeling",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "lifecycle",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "R6",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "RColorBrewer",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "viridisLite",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "scales",
+      "sha256": "d55ef5f08c92652d7a95cfa27584024723ab17873f1b2577dd488cb7c883ceee",
+      "url": "https://cran.r-project.org/src/contrib/scales_1.4.0.tar.gz",
+      "version": "1.4.0"
+    },
+    {
+      "archive_filename": "stringi_1.8.7.tar.gz",
+      "byte_count": 11910646,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.4"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "tools",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "stats",
+          "version": null
+        }
+      ],
+      "license": "file LICENSE",
+      "needs_compilation": true,
+      "package": "stringi",
+      "sha256": "0526decdcd41b7c42278aca96945394c2cb66ba6fdd47fd917b5d3d38ed5c8c6",
+      "url": "https://cran.r-project.org/src/contrib/Archive/stringi/stringi_1.8.7.tar.gz",
+      "version": "1.8.7"
+    },
+    {
+      "archive_filename": "stringr_1.6.0.tar.gz",
+      "byte_count": 195833,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "glue",
+          "version": "1.6.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "magrittr",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.0.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "stringi",
+          "version": "1.5.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.4.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "stringr",
+      "sha256": "24f2fc5df980a7eb888659e22b9744d2316c558624015c7a7cd8c3ce3e370064",
+      "url": "https://cran.r-project.org/src/contrib/stringr_1.6.0.tar.gz",
+      "version": "1.6.0"
+    },
+    {
+      "archive_filename": "tibble_3.3.1.tar.gz",
+      "byte_count": 557135,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.4.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "cli",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "magrittr",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "methods",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "pillar",
+          "version": "1.8.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "pkgconfig",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.0.2"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.5.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "tibble",
+      "sha256": "fb309f8a1939021b237c7e85ff7ad6e8ff5acd57a6230d220a452094b492b28f",
+      "url": "https://cran.r-project.org/src/contrib/tibble_3.3.1.tar.gz",
+      "version": "3.3.1"
+    },
+    {
+      "archive_filename": "tidyr_1.3.2.tar.gz",
+      "byte_count": 809031,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.4.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "dplyr",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "glue",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "magrittr",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "purrr",
+          "version": "1.0.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "stringr",
+          "version": "1.5.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "tibble",
+          "version": "2.1.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "tidyselect",
+          "version": "1.2.1"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "utils",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.5.2"
+        },
+        {
+          "kind": "LinkingTo",
+          "operator": ">=",
+          "package": "cpp11",
+          "version": "0.4.0"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "tidyr",
+      "sha256": "04c0e6daf0af682af73763a42c027d7171761cdbdbf9ff7a77a0e421343d665a",
+      "url": "https://cran.r-project.org/src/contrib/tidyr_1.3.2.tar.gz",
+      "version": "1.3.2"
+    },
+    {
+      "archive_filename": "tidyselect_1.2.1.tar.gz",
+      "byte_count": 103591,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.4"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.3.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "glue",
+          "version": "1.3.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.0.4"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "vctrs",
+          "version": "0.5.2"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "withr",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "tidyselect",
+      "sha256": "169e97ba0bbfbcdf4a80534322751f87a04370310c40e27f04aac6525d45903c",
+      "url": "https://cran.r-project.org/src/contrib/tidyselect_1.2.1.tar.gz",
+      "version": "1.2.1"
+    },
+    {
+      "archive_filename": "utf8_1.2.6.tar.gz",
+      "byte_count": 243856,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "2.10"
+        }
+      ],
+      "license": "Apache License (== 2.0) | file LICENSE",
+      "needs_compilation": true,
+      "package": "utf8",
+      "sha256": "4589f8b72291329e70b7f3a8c20f2feb4e7764eebad2e6976bc9a3eee7686ce9",
+      "url": "https://cran.r-project.org/src/contrib/utf8_1.2.6.tar.gz",
+      "version": "1.2.6"
+    },
+    {
+      "archive_filename": "vctrs_0.7.3.tar.gz",
+      "byte_count": 1083213,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "4.0.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "cli",
+          "version": "3.4.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "glue",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "lifecycle",
+          "version": "1.0.3"
+        },
+        {
+          "kind": "Imports",
+          "operator": ">=",
+          "package": "rlang",
+          "version": "1.1.7"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": true,
+      "package": "vctrs",
+      "sha256": "b45078413e06ac624dddb7221a3a43908b405c8abec09822cb86638d30b0435b",
+      "url": "https://cran.r-project.org/src/contrib/vctrs_0.7.3.tar.gz",
+      "version": "0.7.3"
+    },
+    {
+      "archive_filename": "viridisLite_0.4.3.tar.gz",
+      "byte_count": 1269031,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "2.10"
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "viridisLite",
+      "sha256": "433be9bde66234dc76301fb4ffbbc9fc74bab5c14f4548d8ef2fc0065e121ef5",
+      "url": "https://cran.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz",
+      "version": "0.4.3"
+    },
+    {
+      "archive_filename": "withr_3.0.2.tar.gz",
+      "byte_count": 103240,
+      "dependencies": [
+        {
+          "kind": "Depends",
+          "operator": ">=",
+          "package": "R",
+          "version": "3.6.0"
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "graphics",
+          "version": null
+        },
+        {
+          "kind": "Imports",
+          "operator": null,
+          "package": "grDevices",
+          "version": null
+        }
+      ],
+      "license": "MIT + file LICENSE",
+      "needs_compilation": false,
+      "package": "withr",
+      "sha256": "0a3a05f493d275cca4bf13c8c1b95a1a4eed7f83b2493f41fde02ce3fc92c1a3",
+      "url": "https://cran.r-project.org/src/contrib/Archive/withr/withr_3.0.2.tar.gz",
+      "version": "3.0.2"
+    }
+  ],
+  "profile_id": "disqover-0.9.14-r4.6.0-source-locked-v1",
+  "r": {
+    "archive_filename": "R-4.6.0.tar.xz",
+    "byte_count": 30948604,
+    "dependencies": [],
+    "license": "See source COPYING and per-file notices",
+    "license_evidence": [
+      "R-4.6.0/COPYING"
+    ],
+    "needs_compilation": false,
+    "package": "R",
+    "sha256": "91f2b3693fa5252cdea9b62abc84a1c58db5547cb9f0fe3d15f44eef8aff5a27",
+    "url": "https://cran.r-project.org/src/base/R-4/R-4.6.0.tar.xz",
+    "version": "4.6.0"
+  },
+  "reference": {
+    "license": "GPL (>= 2)",
+    "package": "disqover",
+    "repository_path": "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz",
+    "sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+    "version": "0.9.14"
+  },
+  "runtime_policy": {
+    "ci_architecture": "x86_64",
+    "ci_os": "ubuntu-24.04",
+    "locale": "C",
+    "numerical_threads": 1,
+    "package_configure_args": {
+      "stringi": [
+        "--disable-icu-bundle",
+        "--with-extra-cxxflags=-std=gnu++17"
+      ]
+    },
+    "python_minor": "3.11",
+    "r_build_jobs": 1,
+    "r_configure_args": [
+      "--with-x=no",
+      "--enable-R-shlib",
+      "--without-recommended-packages"
+    ],
+    "r_user_library": "new isolated directory; every locked package must load from this directory",
+    "r_version": "4.6.0",
+    "reproducibility_scope": "Exact R, dependency, reference and case-input sources; system-toolchain identity recorded, no bit-identical compiled-binary claim",
+    "system_toolchain": "C/C++17 and Fortran compilers; exact compiler/OS/system library identities recorded per run",
+    "timezone": "UTC"
+  },
+  "schema_version": "lra-r-source-lock.v1",
+  "scientific_claims": {
+    "external_validation": false,
+    "optimizer_replay_not_trajectory_parity": true,
+    "shared_draws_not_equal_rng_seeds": true
+  }
+}

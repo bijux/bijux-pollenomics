@@ -259,6 +259,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"inspect_neotoma_lra_pollen_screen"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/neotoma/source_bound_reports.py": {
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
     "bijux_pollenomics_dev/source_completion/neotoma_screen_summary.py": {
         "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
             {"canonical_bytes"}
@@ -1100,6 +1103,10 @@ def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
         "bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/candidate_series.py": (
             "bijux_pollenomics.analysis.lra.materialization.api",
             "inspect_neotoma_lra_candidate_series",
+        ),
+        "bijux_pollenomics_dev/source_completion/neotoma/source_bound_reports.py": (
+            "bijux_pollenomics.core.owned_tree",
+            "publish_new_output_tree",
         ),
         "bijux_pollenomics_dev/source_completion/pollen_reconstruction/english_shared_ppe.py": (
             "bijux_pollenomics.analysis.lra.execution.adapter",

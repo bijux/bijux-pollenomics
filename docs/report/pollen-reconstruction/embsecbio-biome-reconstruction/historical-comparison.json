@@ -1,0 +1,48 @@
+{
+  "all_location_samples": 4398,
+  "emb_selected_samples": 917,
+  "matrices": {
+    "Composit": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 917,
+      "reconstructed_total": 917,
+      "reconstructed_trace": 679,
+      "trace_fraction": 0.7404580152671756
+    },
+    "Dominant": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 917,
+      "reconstructed_total": 917,
+      "reconstructed_trace": 570,
+      "trace_fraction": 0.6215921483097055
+    },
+    "Subdominant": {
+      "all_cells_exact": true,
+      "cell_differences": [],
+      "orientation": "reference rows/prediction columns: MLmetrics table(y_true,y_pred)",
+      "original_total": 565,
+      "reconstructed_total": 565,
+      "reconstructed_trace": 113,
+      "trace_fraction": 0.2
+    }
+  },
+  "schema_version": "embsecbio-source-seed-matrix-compatibility.v1",
+  "scoped_compatibility": {
+    "LC_COLLATE": "C",
+    "RNGversion": "4.0.2",
+    "actual_runtime": "macOS nativeR4.6/dplyr1.2.1",
+    "all_four_Rejection_scenarios_all_cells_exact": true,
+    "dplyr_legacy_locale": false,
+    "four_Rounding_scenarios_nonidentical_retained": true,
+    "original_R4_0_2_installation_authenticated": false,
+    "original_training_regenerated": false,
+    "sample_kind": "Rejection",
+    "source_seed": 2501
+  },
+  "selection_capture_sha256": "45cc91811f73ed603a177c8ce9b8f9117887d7c72e25bbbf6b9b925f5e905340",
+  "source_seed": 2501
+}

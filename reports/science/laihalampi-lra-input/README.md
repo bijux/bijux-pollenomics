@@ -22,6 +22,36 @@ calibrated non-parametric weighted-regression chronology supplies **150
 comparable point ages**; the separate radiocarbon chronology supplies 150
 context-only ages. A point age does not itself preserve its uncertainty.
 
+We checked the exact source chronology flags and all 300 sample-age claims
+against the retained raw Neotoma download. Both chronology payloads assert
+`isdefault = true`, but the collection unit's `defaultchronology` points to
+**37159**, the `C14 BP` linear-interpolation model. The calibrated
+`cal yr BP` model is **37160**. The normalized sample claims therefore mark
+all 150 radiocarbon ages as the effective default and none of the 150
+calibrated ages as that default. Source default flags do not select a common
+calendar-age model: the radiocarbon series remains context-only, while the
+calibrated series supplies the comparable point ages. Neither flag identifies
+the LandClim-selected historical vector.
+
+The 150 native sample depths occupy every integer position from 1 to 150.
+Sorting by source depth, each chronology has **149 adjacent pairs**, with
+**zero age reversals or ties**. The calibrated points span **0–11,000 BP**;
+the radiocarbon points span **112.7273–8,984.615 BP**. Every point fits its
+own source-declared chronology range. Those two spans use different age
+bases and are not a numerical age-error comparison. These are ordering and
+source-support checks, not a recovered age-depth fit or proof of complete
+physical-core sampling.
+
+All **300 raw sample-age claims lack younger and older uncertainty bounds**.
+The 150 comparable calibrated claims have normalized endpoints equal to their
+point ages; those degenerate display intervals do not supply a confidence
+interval or joint chronology posterior. We retain the source flags, exact
+point values and missing bounds without substituting radiocarbon errors or
+core-top control intervals for sample uncertainty. The retained download
+`data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json` and the
+relational sources remain separately bound by their exact bytes; these checks
+do not change any study scores or the zero-LRA-admission decision.
+
 Our [source-bound machine result](report.json) pins the two LandClim workbook
 hashes, selected-cohort hash and the Neotoma relational parts. It records five
 named radiocarbon controls plus an assumed core-top control in the Neotoma

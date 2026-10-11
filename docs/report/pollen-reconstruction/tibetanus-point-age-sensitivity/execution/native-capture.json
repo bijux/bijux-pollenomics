@@ -1,0 +1,77 @@
+{
+  "actual_command": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/swedish-landclim-neotoma-recovery/tibetanus-chronology-point-sensitivity/runtime/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/swedish-landclim-neotoma-recovery/tibetanus-chronology-point-sensitivity/consume.py"
+  ],
+  "candidate": "3e6935b96111da878bf0d7065adf65526891ba53",
+  "comparison_files": {
+    "report.json": {
+      "bytes": 4914501,
+      "sha256": "5abb9af22673ec7e93fb38642b2d5f7958bd002218a5edd4514e11ffa093e5fe"
+    }
+  },
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_sha256": "87423a0100a829582df839e4ede5e11418944124859dad8e6cdd09bf405f61d8",
+  "native_exit_code": 0,
+  "native_files": {
+    "all_literal_parameters_sparse_zero_hypothesis.native_default_calibrated_points.json": {
+      "bytes": 171872,
+      "sha256": "efc62e7f5a38663b5f045627769ca521872c728f6b7a33f9c7acab3d4d26233c"
+    },
+    "all_literal_parameters_sparse_zero_hypothesis.published_TP_depth_matched_points.json": {
+      "bytes": 174815,
+      "sha256": "542c4433cfd6d979de24725ad5d01ca95c5ada27670c3466a7c2a1cd4cbb7172"
+    },
+    "large_grass_cereal_proxy_sparse_zero_hypothesis.native_default_calibrated_points.json": {
+      "bytes": 276159,
+      "sha256": "b723aeffc2e6ad9bd1fef4eea7f9e5e9ee598ec207a53b1bb24d6c26ab47ac4e"
+    },
+    "large_grass_cereal_proxy_sparse_zero_hypothesis.published_TP_depth_matched_points.json": {
+      "bytes": 281881,
+      "sha256": "077eddd3a7889d4caccdd11a89c6b792b0ba287677f8e926f0a2656aa5567eec"
+    },
+    "local-source-point-support.json": {
+      "bytes": 552989,
+      "sha256": "7173832dbe169d089db1219b97cf3ee3c62529a4c069a42262190aee921ab156"
+    },
+    "major_parameter_transfers_sparse_zero_hypothesis.native_default_calibrated_points.json": {
+      "bytes": 276214,
+      "sha256": "b6d84211dec788df17e244255ae50f17a644d3eedfec615f2cf2107818e099e0"
+    },
+    "major_parameter_transfers_sparse_zero_hypothesis.published_TP_depth_matched_points.json": {
+      "bytes": 281905,
+      "sha256": "d5c7ee0887d5ab0f4f9be37b79b1b111b8f9bbfb44e652cebd6c671d2a8ff1eb"
+    },
+    "shared_birch_PPE_sparse_zero_hypothesis.native_default_calibrated_points.json": {
+      "bytes": 275967,
+      "sha256": "f82550a46d788ef9a0371ce339a7d68afcfab33755d9efef99f26ff86e1a0bdb"
+    },
+    "shared_birch_PPE_sparse_zero_hypothesis.published_TP_depth_matched_points.json": {
+      "bytes": 281689,
+      "sha256": "c3865387d2c85d7f7a4bc3e72f8b565231c61431c4f6969d2c8a3ea493958f95"
+    }
+  },
+  "native_pid": 22809,
+  "observed_descendants": {
+    "22809": {
+      "group": 22809,
+      "parent": 22798,
+      "pid": 22809,
+      "rss_bytes": 384303104,
+      "start": "Mon Oct  5 01:38:03 2026    ",
+      "state": "Rs"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 396115968,
+  "plan_sha256": "a36aff64a0e7e794c6911fa021da0a1f1efc1598382db0c4616cf6843b9cd5be",
+  "resource_failure": null,
+  "scope": "Two explicitly declared TIB point-age scenarios only; eight cases across four unchanged transfer panels; each occupied window recomputed, fixed source-bound existing100m/wind3 physicalresponse. New window membership/count/mask/point/SE/fullcov outputs and full window union comparison. No physical quadrature, interpolation, calibration/age-model fitting, historical/observedzero/taxonomy/vegetation/rights admission.",
+  "source_context": "Current clean 3e6935b registration context (broad report publication only; original scientific/runtime dependencies unchanged); exact original827 broader seven-module/native parser and original5fe+4dde61enginebytes/owned numerical runtime reused. Actual f186 source/census/direct raw sample45 correspondence is a new chronology-input dependency; original4d68 default chronology/science retained untouched.",
+  "status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "wall_seconds": 25.688179832999595
+}

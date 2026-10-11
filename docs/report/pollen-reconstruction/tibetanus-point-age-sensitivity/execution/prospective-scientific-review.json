@@ -1,0 +1,30 @@
+{
+  "status": "finite_read_only_prelaunch_scientific_review_no_identified_blocker",
+  "plan_sha256": "a36aff64a0e7e794c6911fa021da0a1f1efc1598382db0c4616cf6843b9cd5be",
+  "candidate": "3e6935b96111da878bf0d7065adf65526891ba53",
+  "controls_sha256": {
+    "assumptions/protocol.json": "3943070ee7076b042279a8f0c4d534c4de0cf72cb05c2001379ae78ff86bb586",
+    "consume.py": "d7d43d7c3c9104ac9514a14e3e87ed46b103e647b042ef77ead34cf75c5ab676",
+    "prepare.py": "dbea76f6c4cca9ced09e74b60e036d05ccecb83469cfaf0654a70f43b32597f4",
+    "runner.py": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699"
+  },
+  "review_scope": "Read-only exact consumer/protocol/source-correspondence inspection; no launch,numerical result,source acquisition or independent reproduction. Root owns plan/runtime/writer authentication and release.",
+  "source_epoch_qualifier_sha256": "9f94792812a1b3495a94d5aea5f7815303b86d083823fc980831bfdf9984a5df",
+  "findings": {
+    "source_correspondence": "45 native sample IDs unique and exactly equal point-comparison membership; cm depth tolerance1e-8 and typed workbook column4 points rechecked; no interpolation,extrapolation or source offset. Raw rejected control remains documentary and is not fitted.",
+    "changed_input": "Direct source TP point ages are a distinct chronology alternative; native default38408 retained. Source differences up to368.89yr support changed-window sensitivity,not superior chronology or historical model identity.",
+    "fixed_axes": "Four original TIB mappings/taxon vectors/public PPE SD/fall-speed values source verified. Original baseline physical factors reused unchanged with static100m/100km/wind3 conditional scope; no new integral need asserted.",
+    "count_and_mask": "Native integer counts and original sparse-zero/partition hypotheses reused; mapped+residual=NISP asserted every occupied window; actual source-label masks and hypothetical model masks retained separately in private support; source absence not measured zero.",
+    "baseline_acceptance": "Each native-default occupied window requires exact existing counts and point/SE/counting/PPE/total covariance equality,including assumed-zero counters; no accepted result currently exists.",
+    "alternative_acceptance": "Each native sample included/excluded exactly once per chronology; zero-panel exclusions explicit; occupied window union of both chronologies retained with missing branch null rather than zero cover. This is occupied union,not an independently generated complete25window domain.",
+    "conditional_covariance": "Maintained fixed-site count/PPE delta covariance on pooled mapped panel. Source-point timing,calibration,basin,mapping,sparse reporting and within-window heterogeneity uncertainty are outside SE.",
+    "source_epoch": "Native BP conventionalAD1950; sourcecalyrBP shared1950 is explicit transfer assumption supplemented by primary source Table1captionAD1950 and matching rounded TIB endpoints. No publication/coring year reset,posterior or zero-width missing bound.",
+    "scope_limits": "No historical reproduction,taxonomic admission,observed sparse zeros,vegetation accuracy,rights,new nativeR parity or external review claim."
+  },
+  "decision": "No identified scientific blocker in this finite prospective scope; execution acceptance awaits genuine native result and custody. Parent must authenticate prospective frozen inputs and bounds separately.",
+  "actual_inspection_commands": [
+    "read exact consume.py and assumptions/protocol.json",
+    "read plan header/control/resource JSON and primary-source-epoch-qualifier.json; verify exact plan/control hashes"
+  ],
+  "native_scientific_execution": false
+}

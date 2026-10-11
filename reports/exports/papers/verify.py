@@ -67,11 +67,24 @@ def main() -> None:
         if row["canonical_report"] != original["canonical_report"]:
             raise ValueError("PDF points to a different canonical account")
         source = ROOT / row["canonical_report"]
+        source_revision = row.get("source_revision", manifest["repository_revision"])
+        if "source_revision" in row and "build_receipt_sha256" not in row:
+            raise ValueError("A separately exported paper needs its build receipt")
+        receipt_sha256 = row.get(
+            "build_receipt_sha256", manifest["build_receipt_sha256"]
+        )
+        if not re.fullmatch(r"[0-9a-f]{64}", receipt_sha256):
+            raise ValueError("Invalid paper build receipt identity")
+        if (
+            visual.get("input_receipt_sha256", review["input_receipt_sha256"])
+            != receipt_sha256
+            or visual.get("source_revision", review["repository_revision"])
+            != source_revision
+        ):
+            raise ValueError("Paper layout review belongs to another export revision")
         if (
             digest(source) != row["source_sha256"]
-            or committed_digest(
-                manifest["repository_revision"], row["canonical_report"]
-            )
+            or committed_digest(source_revision, row["canonical_report"])
             != row["source_sha256"]
         ):
             raise ValueError(f"Canonical report changed: {source}")

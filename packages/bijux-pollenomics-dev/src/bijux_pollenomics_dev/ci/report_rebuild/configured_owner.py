@@ -8,7 +8,6 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import stat
 import sys
 from typing import Any
 
@@ -24,6 +23,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.ownership import (
 )
 from bijux_pollenomics_dev.ci.report_rebuild.scheduling_custody.context import (
     _SCHEDULE_RESOLUTION,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.source_paths import (
+    safe_source_file as _safe_file,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.source_qualification import (
     validated_external_report_sources,
@@ -79,7 +81,13 @@ OWNER_FIELDS: frozenset[str] = frozenset(
     }
 )
 OPTIONAL_OWNER_FIELDS: frozenset[str] = frozenset(
-    {"include_repository_argument", "output_subdirectory", "external_source_descriptor"}
+    {
+        "include_repository_argument",
+        "output_subdirectory",
+        "external_source_descriptor",
+        "artifact_output_flag",
+        "native_capture_profile",
+    }
 )
 
 
@@ -106,25 +114,6 @@ def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
             raise ReportRebuildError(f"duplicate JSON key: {key}")
         result[key] = value
     return result
-
-
-def _safe_file(repository: Path, relative: str, label: str) -> Path:
-    """Require a regular repository file reached only through real directories."""
-    parts = require_relative_path(relative, label).split("/")
-    path = repository
-    try:
-        for component in parts[:-1]:
-            path /= component
-            if not stat.S_ISDIR(path.lstat().st_mode):
-                raise ReportRebuildError(f"{label} has a non-real ancestor: {path}")
-        path /= parts[-1]
-        if not stat.S_ISREG(path.lstat().st_mode):
-            raise ReportRebuildError(f"{label} is not a regular file: {path}")
-    except OSError as error:
-        raise ReportRebuildError(f"{label} is unreadable: {path}") from error
-    if not path.resolve().is_relative_to(repository):
-        raise ReportRebuildError(f"{label} escapes the repository")
-    return path
 
 
 def _repository_relative(repository: Path, supplied: Path, label: str) -> str:
@@ -182,11 +171,26 @@ def _configuration_owner(
             and type(row["include_repository_argument"]) is not bool
         ):
             raise ReportRebuildError("include_repository_argument must be a boolean")
+        if (
+            "artifact_output_flag" in row
+            and row["artifact_output_flag"] != "--retained-artifacts-root"
+        ):
+            raise ReportRebuildError("artifact output flag is not maintained")
         if "output_subdirectory" in row:
             require_relative_path(row["output_subdirectory"], "output subdirectory")
         if "external_source_descriptor" in row:
             require_relative_path(
                 row["external_source_descriptor"], "external source descriptor"
+            )
+        if "native_capture_profile" in row and (
+            row["owner_id"] != "method-certification/current-r-oracle/report-products"
+            or row["module"]
+            != "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison"
+            or not isinstance(row["native_capture_profile"], str)
+            or row["native_capture_profile"] not in {"annulus", "count-domain"}
+        ):
+            raise ReportRebuildError(
+                "native capture profile is outside the maintained owner"
             )
         identity = require_relative_path(row["owner_id"], "configured owner ID")
         if identity in seen:
@@ -376,6 +380,16 @@ def resolve_configured_owner(
         if source_root is not None and external_descriptor is not None
         else ()
     )
+    artifact_arguments = (
+        (row["artifact_output_flag"], "{artifact_root}")
+        if "artifact_output_flag" in row
+        else ()
+    )
+    native_capture_arguments = (
+        ("--capture-profile", row["native_capture_profile"])
+        if "native_capture_profile" in row
+        else ()
+    )
     command = (
         sys.executable,
         "-c",
@@ -385,6 +399,8 @@ def resolve_configured_owner(
         *repository_arguments,
         *arguments,
         *external_arguments,
+        *artifact_arguments,
+        *native_capture_arguments,
         "--output",
         output_argument,
     )

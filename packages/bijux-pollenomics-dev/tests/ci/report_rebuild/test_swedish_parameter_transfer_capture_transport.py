@@ -1,0 +1,138 @@
+"""Require exact scientific capture membership and immutable actual source bytes."""
+
+from __future__ import annotations
+
+import hashlib
+from pathlib import Path
+import shutil
+
+import pytest
+
+from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.swedish_parameter_transfer import (
+    CAPTURE_AUTHORITY,
+    CAPTURE_PINS,
+    OWNER,
+    validated_swedish_parameter_transfer_captures,
+)
+
+_CaptureFixture = tuple[Path, dict[str, InventoryEntry], list[dict[str, object]]]
+
+
+@pytest.fixture
+def capture_repository(tmp_path: Path) -> _CaptureFixture:
+    repository = next(
+        parent
+        for parent in Path(__file__).resolve().parents
+        if (parent / "packages/bijux-pollenomics-dev/pyproject.toml").is_file()
+    )
+    tracked = {}
+    for name, expected in CAPTURE_PINS.items():
+        source = repository / name
+        assert hashlib.sha256(source.read_bytes()).hexdigest() == expected
+        target = tmp_path / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        tracked[name] = InventoryEntry(
+            path=name.removeprefix("docs/report/"),
+            kind="file",
+            size=source.stat().st_size,
+            sha256=expected,
+            canonical_sha256=expected,
+        )
+    owners: list[dict[str, object]] = [
+        {
+            "owner_id": OWNER,
+            "role": "retained_source",
+            "paths": sorted(CAPTURE_PINS),
+            "producer_paths": [],
+            "producer_inputs": [],
+        }
+    ]
+    return tmp_path, tracked, owners
+
+
+def test_exact_scientific_captures_preserve_original_authority(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    entries, evidence = validated_swedish_parameter_transfer_captures(
+        root, tracked, owners
+    )
+    assert len(entries) == 6
+    assert evidence["reviewed_capture_sha256"] == CAPTURE_PINS
+    assert evidence["original_capture_authority"] == CAPTURE_AUTHORITY
+
+
+def test_modified_source_capture_refuses_even_with_original_inventory(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    path = root / sorted(CAPTURE_PINS)[0]
+    path.write_bytes(path.read_bytes() + b" ")
+    with pytest.raises(ReportRebuildError, match="bytes changed"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_missing_source_capture_refuses(capture_repository: _CaptureFixture) -> None:
+    root, tracked, owners = capture_repository
+    (root / sorted(CAPTURE_PINS)[0]).unlink()
+    with pytest.raises(ReportRebuildError, match="input refused"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_capture_symlink_cannot_bypass_source_custody(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    path = root / sorted(CAPTURE_PINS)[0]
+    sibling = path.with_suffix(".protected.json")
+    path.rename(sibling)
+    path.symlink_to(sibling.name)
+    with pytest.raises(ReportRebuildError, match="input refused"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_extra_retained_owner_cannot_extend_capture_admission(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    owners.append({**owners[0], "owner_id": OWNER + "/extra"})
+    with pytest.raises(ReportRebuildError, match="owner differs"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_configuration_role_cannot_replace_retained_capture(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    owners[0]["role"] = "maintained_configuration"
+    with pytest.raises(ReportRebuildError, match="owner differs"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_partial_capture_family_cannot_be_admitted(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    del tracked[sorted(CAPTURE_PINS)[0]]
+    with pytest.raises(ReportRebuildError, match="bytes changed"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)
+
+
+def test_unrelated_candidate_without_capture_family_has_no_admission(
+    tmp_path: Path,
+) -> None:
+    assert validated_swedish_parameter_transfer_captures(tmp_path, {}, []) == ((), {})
+
+
+@pytest.mark.parametrize("invalid_paths", ["captured/member.json", [7]])
+def test_malformed_retained_owner_paths_refuse_capture_admission(
+    capture_repository: _CaptureFixture, invalid_paths: object
+) -> None:
+    """Refuse malformed owner paths before comparing captured source membership."""
+    root, tracked, owners = capture_repository
+    owners[0]["paths"] = invalid_paths
+    with pytest.raises(ReportRebuildError, match="paths must be a string list"):
+        validated_swedish_parameter_transfer_captures(root, tracked, owners)

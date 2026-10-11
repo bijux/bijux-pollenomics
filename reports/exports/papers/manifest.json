@@ -5,7 +5,7 @@
   "inventory_report_hashes": {
     "reports/science/hellman-regional-validation-paper.md": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
     "reports/science/hellman-sampling-design-paper.md": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
-    "reports/science/landclim-paper.md": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d",
+    "reports/science/landclim-paper.md": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
     "reports/science/love-theory-paper.md": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
     "reports/science/loveoptim-paper.md": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
     "reports/science/namibia-pollen-vegetation-paper.md": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
@@ -14,6 +14,7 @@
     "reports/science/southern-sweden-validation-paper.md": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d"
   },
   "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
+  "library_scope": "Eight unchanged baseline paper exports plus one separately reproduced ten-page LandClim account including Nordic/Tibetanus evidence. Per-paper source/build/tool metadata identifies the successor; baseline global production metadata remains its original authority.",
   "papers": [
     {
       "account_status": "full_paper_account_scientific_gates_open",
@@ -34,18 +35,40 @@
           "sha256": "872d649a3887b234440a4cbb6464230a40067204fcf55a45d47322682ee069df"
         }
       ],
+      "build_receipt_sha256": "434f23c8f45a219535c10697999bdeec81780a7addf8fc19fed1737bf68f8a4f",
       "canonical_report": "reports/science/landclim-paper.md",
       "citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials, ESSD 14, 1581\u20131619",
       "code_blocks": 1,
       "diagrams": 1,
-      "external_links": 8,
-      "latex_sha256": "caa8f85f674316c22d476137a3961914884a990eee65b37fd2857512b0757753",
-      "local_repository_links": 40,
+      "external_links": 11,
+      "latex_sha256": "1f7e7b6f218ef40bb2dab5efabd392baac7a1752a293ebcffa17496b8e34f1f1",
+      "local_repository_links": 74,
       "paper_id": "landclim-regional-reconstruction",
       "pdf": "landclim-regional-reconstruction.pdf",
-      "pdf_bytes": 81690,
-      "pdf_sha256": "c9ce2f710ffff35394e400078c77a3b9b3febb6f76cb408175bb830e053e41b3",
-      "source_sha256": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d"
+      "pdf_bytes": 111219,
+      "pdf_sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
+      "producer_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
+      "producer_sha256": {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "5b089e9318f726bb0689b5677e97bd41919053bdc4125ba24e076865948319d4",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "3925f8b56303443175e273f1ec423686d75963ea6251d5704b6a96ac3dc29203",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "c3d5aba6cc5211d49fe05ba39df5b2fcf7257074068de09d14b90da06fdc8a22",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
+      },
+      "python_dependencies": {
+        "markdown-it-py": "4.0.0"
+      },
+      "repository_link_base": "https://github.com/bijux/bijux-pollenomics/blob/95fe2cd57c9fd1a61e11c413f047402f8fcd8a89/",
+      "repository_links_verified_online": false,
+      "source_date_epoch": 1790812800,
+      "source_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
+      "source_sha256": "fe7a731caeb02d8577a5490d68f8aa39fcddb998978b5b194db510a3db6e4076",
+      "tools": {
+        "dot": "dot - graphviz version 13.1.0 (20250701.0955)",
+        "latexmk": "Latexmk, John Collins, 31 Jan. 2024. Version 4.83",
+        "xelatex": "XeTeX 3.141592653-2.6-0.999996 (TeX Live 2024)"
+      }
     },
     {
       "account_status": "full_paper_account_simulation_inputs_open",

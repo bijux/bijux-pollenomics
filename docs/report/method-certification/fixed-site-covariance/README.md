@@ -8,7 +8,7 @@ three taxon count vectors with a shared PPE vector and its **full covariance**.
 The [machine result](report.json) retains the counts, physical parameters,
 deposition factors, component covariance matrices, source-file identities and
 declared limitations. The result SHA-256 is
-`8b7c137687ab1b964a698463456ebe6fd656840b9fa3ff88942f83804827f9fa`.
+`ab9a44e76567d7a5e6841ec3e989c76bad9afc305388c8b837959e7c16e648d9`.
 
 For taxon $i$, the unclosed weight is
 $w_i = \sum_s n_{si}/(K_{si} p_i)$, and the cover is $w_i/\sum_j w_j$.
@@ -40,6 +40,91 @@ it does not certify lake transport physics, chronology, PPE applicability,
 empirical skill or corrected site-resampling uncertainty. A joint site,
 counting, parameter and chronology analysis remains necessary for full
 multi-site certification.
+
+## Conditional composition and covariance identities
+
+The [maintained covariance implementation](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py)
+has the following algebraic properties for any declared panel of $m\geq2$
+taxa and $S\geq1$ fixed sites. These properties concern its conditional
+composition and first-order delta covariance.
+
+Assume nonnegative integer counts $n_{si}$ with positive site totals
+$N_s=\sum_i n_{si}$, finite positive deposition factors $K_{si}$ and PPE
+values $p_i$, and a finite symmetric positive-semidefinite PPE covariance
+$C_p$. For the source-observed profile, every supplied panel cell must have
+resolved measurement support; an unreported source cell is not an observed
+zero. Hold site selection,
+chronology, taxonomy, geometry and transport fixed. Assume independent
+fixed-total multinomial counts between sites and independence of counts
+from the shared PPE vector. Pooling samples additionally assumes a common
+conditional panel composition within each pooled window. These are model
+conditions, not consequences of the algebra.
+
+Write $b_{si}=(K_{si}p_i)^{-1}$, $w_i=\sum_s b_{si}n_{si}$,
+$W=\sum_i w_i$ and $c_i=w_i/W$. Then $W>0$, $c_i\geq0$ and
+$\sum_i c_i=1$: positive response/PPE parameters do not imply strictly
+positive composition for a taxon with zero counts. Finite arithmetic also
+requires representable weights and a finite positive normalizer; the
+implementation rejects invalid corrected totals and requires every site's
+integer count total to be below $2^{53}$.
+
+Let $\mathbf1$ be the all-ones column vector and
+$B=I-c\mathbf1^T$. Differentiating normalization gives
+$dc=B\,dw/W$. Consequently the count Jacobian for site $s$ and the
+Jacobian of the shared PPE vector are
+
+$$
+J_s=B\operatorname{diag}(b_s)/W,
+\qquad
+H=-B\operatorname{diag}(c_i/p_i).
+$$
+
+In components, $(J_s)_{ij}=(\delta_{ij}-c_i)b_{sj}/W$ and
+$H_{ij}=c_j(c_i-\delta_{ij})/p_j$. The latter follows from
+$\partial w_i/\partial p_j=-\delta_{ij}w_j/p_j$ even when several
+sites share the PPE vector.
+
+At the observed fractions $f_s=n_s/N_s$, the plug-in count covariance is
+$C_{n_s}=N_s[\operatorname{diag}(f_s)-f_sf_s^T]$. Its multinomial
+formula is exact at the unknown sampling probabilities; substituting
+observed fractions estimates that covariance. Under the independence
+conditions above, the reported first-order covariance is
+
+$$
+C_c=\sum_s J_sC_{n_s}J_s^T+HC_pH^T.
+$$
+
+For any vector $u$, with $\bar u_s=\sum_i f_{si}u_i$,
+$u^TC_{n_s}u=N_s\sum_i f_{si}(u_i-\bar u_s)^2\geq0$.
+Each count matrix is therefore positive semidefinite. Congruence preserves
+this property because $v^TACA^Tv=(A^Tv)^TC(A^Tv)\geq0$;
+the count, PPE and summed covariance components are positive semidefinite.
+Also $\mathbf1^TB=0$, so $\mathbf1^TJ_s=\mathbf1^TH=0$.
+Each component satisfies $C\mathbf1=0$ and $\mathbf1^TC=0$:
+its row and column sums vanish and its all-ones direction is singular.
+Additional zero-variance directions are possible. These are exact-real
+identities. Implementation covariance checks and the separately retained
+numerical closure checks use their declared floating-point tolerances.
+
+For a single pooled panel with fixed total $N$, let $f=n/N$ and
+$Z=\sum_i b_i f_i=W/N$. The fraction Jacobian is
+$J_f=B\operatorname{diag}(b)/Z=N J_n$. Thus
+$J_f[\operatorname{diag}(f)-ff^T]J_f^T/N
+=J_nN[\operatorname{diag}(f)-ff^T]J_n^T$.
+The fraction and count formulations used for two-, three- and six-taxon
+panels have the same conditional counting covariance. A diagonal
+$C_p=\operatorname{diag}(\mathrm{SD}_p^2)$ is a particular independence
+assumption about PPE estimates; the general identity allows full $C_p$.
+
+These identities do not prove the empirical multinomial assumptions,
+source completeness, PPE transfer, physical factors or vegetation accuracy.
+Panel closure is not closure over unparameterized taxa. At a zero-count
+boundary the plug-in standard error can be zero without establishing an
+absence interval. Shared PPE can correlate different windows or scenarios;
+the individual covariance matrices are not a joint time-series model.
+The delta approximation does not establish exact nonlinear sampling
+uncertainty or confidence-interval coverage, historical reproduction,
+chronology accuracy or the full LRA method contract.
 
 Replay into `artifacts/` and compare the result byte-for-byte:
 

@@ -12,8 +12,10 @@ import sys
 from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
     require_absent_artifact_output,
 )
-from bijux_pollenomics_dev.ci.report_rebuild.configured_owner import _safe_file
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.source_paths import (
+    safe_source_file as _safe_file,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.source_qualification import (
     validated_external_report_sources,
 )

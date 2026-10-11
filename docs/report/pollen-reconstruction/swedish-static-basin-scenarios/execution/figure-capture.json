@@ -1,0 +1,18 @@
+{
+  "actual_native_exit": 0,
+  "plan_sha256": "b74fe3eda156b4fb267193eb3bb1cb498dc4abab6cae913e671aff7606e90946",
+  "actual_receipt_sha256": "ddfa56a61c1761e15d092d8cc08831ce76205d80358a333250aadc77ab2ad872",
+  "png_sha256": "1c5cd34d7cb28cb9d60a01a86e124a4f23226f67893abaee1be86af92f410ed6",
+  "source_csv_sha256": "b0c1b150b0bb2345e5cdbccb554538b8af6000833bf840561791c76f842ca278",
+  "renderer_sha256": "b093e8c2254ad710da8f71db2e2dabe3c78f87eafb9927ba87cf8e3bbcde7db0",
+  "native_wall_seconds": 1.2312972500221804,
+  "peak_rss_bytes": 101269504,
+  "peak_processes": 2,
+  "custody_after_unchanged": true,
+  "owned_survivors": {},
+  "inspection": {
+    "tool": "actual view_image of1740x1380PNG",
+    "result": "Four facets, ASCII core labels/caption, legends/axes/BP1950 and conditional bars readable; no clipping. 167derivedrows. EarlierCairoempty-output andUnicodecorruptionpredecessors preserved.",
+    "scope": "Agent artifact layout inspection; not unfamiliar-reader feedback, independent model evidence or font/platform/PDF portability."
+  }
+}

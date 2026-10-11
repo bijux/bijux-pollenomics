@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "policy_id": "neotoma",
+      "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "http_status": 200,
+      "final_url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "response_headers": {
+        "Date": "Sun, 04 Oct 2026 22:34:52 GMT",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Server": "Apache/2.4.58 (Ubuntu)",
+        "X-Powered-By": "Craft CMS",
+        "Vary": "Accept-Encoding"
+      },
+      "response_bytes": 48638,
+      "response_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "response_file": "policy-neotoma.response",
+      "body_text_characters": 48610,
+      "cc_by_4_0_marker_observed": true,
+      "transport_passed": true,
+      "wall_seconds": 0.9734952499857172
+    },
+    {
+      "policy_id": "epd",
+      "url": "https://epdweblog.org/epd_data_home/epd_policy/",
+      "http_status": 200,
+      "final_url": "https://epdweblog.org/epd_data_home/epd_policy/",
+      "response_headers": {
+        "Server": "nginx",
+        "Date": "Sun, 04 Oct 2026 22:34:53 GMT",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Vary": "accept, content-type, cookie",
+        "X-hacker": "Want root?  Visit join.a8c.com/hacker and mention this header.",
+        "Host-Header": "WordPress.com",
+        "Link": "<https://wp.me/P7GatR-W>; rel=shortlink",
+        "X-ac": "14.arn _dca MISS",
+        "Alt-Svc": "clear",
+        "Server-Timing": "a8c-cdn, dc;desc=arn, cache;desc=MISS;dur=379.0"
+      },
+      "response_bytes": 90403,
+      "response_sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+      "response_file": "policy-epd.response",
+      "body_text_characters": 90385,
+      "cc_by_4_0_marker_observed": true,
+      "transport_passed": true,
+      "wall_seconds": 0.9688671250478365
+    }
+  ],
+  "stages": [
+    {
+      "name": "primary_policy_public_source_acquisition",
+      "native_exit": 0,
+      "wall_seconds": 1.9427551660337485
+    }
+  ],
+  "scope": "Exact primary policy raw-byte capture only; apply to source-bound publicNeotoma inputs after attribution/constituent/DOI reconciliation. No private author-copy/historical/geometry/rights blanket endorsement."
+}

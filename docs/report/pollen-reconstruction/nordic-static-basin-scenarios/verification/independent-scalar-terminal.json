@@ -1,0 +1,31 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-independent-scalar-covariance/review.py"
+  ],
+  "actual_wall_seconds": 0.12280791596276686,
+  "changed_inputs": [],
+  "frozen_input_custody_before_after": "unchanged",
+  "native_exit": 0,
+  "outputs": {
+    "native.log": {
+      "bytes": 2146,
+      "sha256": "635bcafe4d0114eec53188e3a85bed0e64189ae5f8b293197f0c9cce48f90a7f"
+    },
+    "review.json": {
+      "bytes": 2330,
+      "sha256": "d419615c986bccb09bb67e7af68508885502b2a56fe1030a6ca7b6f13f92e486"
+    }
+  },
+  "plan_sha256": "3871dae600cf61f2b28ae728c5f2a9490833c94b9af6c06a6f32c3cafa500bec",
+  "process_scope": "Reviewed stdlib-only child code creates no descendants; subprocess.run waits/reaps sole native child; no process-group or unrelated process ownership claim.",
+  "resource_scope": "Darwin native child getrusage peak and postterminal writer/log bounds; wall timeout enforced; no active RSS/output cap or complete runtime/stdlib custody.",
+  "started_at_utc": "2026-10-05T00:39:07.562960+00:00",
+  "status": "PASS",
+  "supervisor_exit": 0,
+  "terminal_observed_peak_rss_bytes": 21397504,
+  "timeout": false,
+  "within_terminal_observed_bounds": true
+}

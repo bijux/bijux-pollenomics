@@ -1,0 +1,38 @@
+{
+  "file_count": 5,
+  "files": [
+    {
+      "path": "independent-review.json",
+      "sha256": "ea2dd28c67786a810d332e060d1cad753357e67a162c54e17f244480b4bfbb5f",
+      "size": 1529
+    },
+    {
+      "path": "joint-covariance.json",
+      "sha256": "b9fb9856aa06db17dc01c3ae8e797d71346d6ae4ba5366e3b557b8d5d13599cb",
+      "size": 14253377
+    },
+    {
+      "path": "launch-record-incident.json",
+      "sha256": "d13b90a4876c8d9157edbaf6a20616e2af8c86c2c0a4181c3f6f9dba9ccc6e45",
+      "size": 1545
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "45e29f1759b98049177821819254075b1801f1cacfc1b02e99a46014b75e5f8f",
+      "size": 40182
+    },
+    {
+      "path": "postexecution-review.json",
+      "sha256": "38c39b70496550ac06b2a99d23eea59c472a504cfcf9c24c32546bd1d40d4b1f",
+      "size": 1303
+    }
+  ],
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "3e1ceeb5715e74cddfbcb45b5fdbc89bc560995e03211bc0a741e7cd093ec0c8",
+    "size": 606
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "retained-nordic-joint-conditional-covariance.v1",
+  "source_id": "nordic-shared-count-parameter-covariance"
+}

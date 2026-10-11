@@ -1,0 +1,176 @@
+{
+  "actual_callable_count": 10,
+  "actual_candidate": "827cdccd64273cdeb59f7ac4ce42b005a6aa4c8f",
+  "actual_comparison_sha256": "081ef7687745154135adac4a41a07e497af31f025aba11fcc66ea43d5eb3bbe0",
+  "actual_controls_sha256": {
+    "candidate-source-binding.json": "10b19c78a756639b6531ceb08e0b870e40dcaf7086c566a9f0e8ec18e8de3752",
+    "candidate/pyproject.toml": "9cc54d64c3f76f62bf16e7d2552d02c390d99c82387f0617782c880ba92acecd",
+    "capture_producer.py": "c938a01715fed510b088edf98641c5282c6d63927164f72bc40f3eec16fc3a24",
+    "consume.py": "2cd5413be27b132806df71da7bf84bb13827361a441c5cad83faec1a30b5e60a",
+    "runner.py": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699"
+  },
+  "actual_file_module_count": 1203,
+  "actual_first_party_file_module_count": 65,
+  "actual_local_source_support_sha256": "c6cd154713d0cfed085435341752b8798e05ec219efeaf01d7c9d2f4b518d888",
+  "actual_native_exit_code": 0,
+  "actual_receipt_sha256": "ad217ffc8d1a23d4efe2212c28a3ee6a4d07cfc67340fcb6b82f59ff3fb8aacd",
+  "actual_reference_observed_imports_sha256": "34ce457892496a942950dbf07b4870399ee3e3a50d577af5ee4d2424ce043da8",
+  "actual_reference_report_sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+  "actual_replay_observed_imports_sha256": "90904a314e2eca29e3030aee7cfb322694c59b14a183aae21513b9bc24848657",
+  "actual_replay_report_sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+  "actual_source_support_keys": 316,
+  "actual_wall_seconds": 88.91540624998743,
+  "comparison": {
+    "actual_reference_replay_report_bytes_identical": true,
+    "expected_native_receipt_sha256": "0856063d5c8ecf58049d5c9c0bc82f9291b8b946f6b92b0fd070b881dfcd6400",
+    "expected_native_report_sha256": "39486e777a450bc29dd72c37f36b359e1d7d8bc6a4e7c1b6543457c1db8e7164",
+    "original_eab5_numerical_and_mask_aggregate_comparisons": [
+      {
+        "compared_saved_numerical_values": 16632,
+        "core": "ABB",
+        "included_samples": 106,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 22,
+        "scenario": "all_literal_parameters_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 37752,
+        "core": "ABB",
+        "included_samples": 106,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 22,
+        "scenario": "major_parameter_transfers_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 37752,
+        "core": "ABB",
+        "included_samples": 106,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 22,
+        "scenario": "shared_birch_PPE_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 37752,
+        "core": "ABB",
+        "included_samples": 106,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 22,
+        "scenario": "large_grass_cereal_proxy_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 6435,
+        "core": "BOKE",
+        "included_samples": 50,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 13,
+        "scenario": "all_literal_parameters_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 22308,
+        "core": "BOKE",
+        "included_samples": 50,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 13,
+        "scenario": "major_parameter_transfers_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 22308,
+        "core": "BOKE",
+        "included_samples": 50,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 13,
+        "scenario": "shared_birch_PPE_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 22308,
+        "core": "BOKE",
+        "included_samples": 50,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 13,
+        "scenario": "large_grass_cereal_proxy_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 7371,
+        "core": "BUS",
+        "included_samples": 66,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 21,
+        "scenario": "all_literal_parameters_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 30240,
+        "core": "BUS",
+        "included_samples": 66,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 21,
+        "scenario": "major_parameter_transfers_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 30240,
+        "core": "BUS",
+        "included_samples": 66,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 21,
+        "scenario": "shared_birch_PPE_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 33075,
+        "core": "BUS",
+        "included_samples": 66,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 21,
+        "scenario": "large_grass_cereal_proxy_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 6624,
+        "core": "TIB",
+        "included_samples": 45,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 23,
+        "scenario": "all_literal_parameters_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 11385,
+        "core": "TIB",
+        "included_samples": 45,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 23,
+        "scenario": "major_parameter_transfers_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 11385,
+        "core": "TIB",
+        "included_samples": 45,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 23,
+        "scenario": "shared_birch_PPE_sparse_zero_hypothesis"
+      },
+      {
+        "compared_saved_numerical_values": 11385,
+        "core": "TIB",
+        "included_samples": 45,
+        "max_absolute_difference": 0.0,
+        "occupied_windows": 23,
+        "scenario": "large_grass_cereal_proxy_sparse_zero_hypothesis"
+      }
+    ],
+    "reference_report_sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+    "replay_report_sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+    "scope": "Actual maintained source/control/publication contract with unchanged wider conditional science; no new accuracy/history/taxonomy/sparse-zero measurement/nativeR admission. Baseline full covariance/allprofilepointandSE compared; original full-profile matrices remain in native predecessor."
+  },
+  "custody_after_unchanged": true,
+  "failed_byte_predecessor": {
+    "cause": "152 JSON mapping-order lines differed despite equal parsed JSON and344952 exact numerical values. Sorted full-report encoding and explicit byte refusal qualified in actual successor.",
+    "comparison_sha256": "919cec397688b4f10909aa0a5084f8b8e23266382eb266484a8e76937eb9c1b4",
+    "exact_byte_acceptance": false,
+    "native_exit_code": 0,
+    "native_receipt_sha256": "4a4209757dacd12402e39ae273892cdac59b6119a6f78e360b937a01d9c84f4d",
+    "plan_sha256": "408678085409b3d9e169947b14bbefdcc37082050ab970af676f7d73d0f1dc6c"
+  },
+  "original_broad_scientific_candidate_scope": "Scientific engine exact original5fe plus expressly admitted4dde covariance guard unchanged; canonicala95 guard admission separate. Current preparation candidate a17da308 metadata follow-through leaves all61 engine bytes unchanged. Maintained tiny-panel reference/replay producer source remains exact8d60365. Named changed dependency is failed2382 diagnostic flat-cover indexing and missing incremental output capture; source counts, scientific mappings, numerical model, masks, and parameter profiles unchanged.",
+  "owned_survivors": {},
+  "peak_processes": 2,
+  "peak_rss_bytes": 442335232,
+  "plan_sha256": "9fa2b7804f52bc3bb953a8d07a53fea27ca79266655400bd453fb1a4e9b8b636",
+  "scope": "Actual maintained conditional source/mask producer reference and replay. Exactbyte output witness is separate from original eab5 science and prior408 bytefailure. No historical identity, observed sparse zeros, taxonomy-transfer admission, ecologicalaccuracy, chronology uncertainty/nativeR/platform/release claim."
+}

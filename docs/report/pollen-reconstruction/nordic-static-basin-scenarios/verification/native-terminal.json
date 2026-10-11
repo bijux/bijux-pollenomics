@@ -1,0 +1,89 @@
+{
+  "actual_command": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-static-basin-reconstruction/runtime/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-static-basin-reconstruction/consume.py"
+  ],
+  "candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "comparison_files": {
+    "actual-first-party-import-closure.json": {
+      "bytes": 14321,
+      "sha256": "42c519627404030a6a2706fbb034f9dfea3694778046f745a7a24baefc34c322"
+    },
+    "physical-response-tuples.json": {
+      "bytes": 12504,
+      "sha256": "675e7ae2107829fd575255249f2643bde31951945b15690e46631455137be8e3"
+    },
+    "report.json": {
+      "bytes": 604997,
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe"
+    }
+  },
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_sha256": "670bee131dae2760ccf3c2bf4ec4cfa45e7c1d3e9916e66cd5b5dbb9678c9af5",
+  "native_exit_code": 0,
+  "native_files": {
+    "20034.metadata_static_radius.json": {
+      "bytes": 52094,
+      "sha256": "1e13d9977ff9483f824261140430202d58d74b201aa7f32918ef7cb0fbfb0e0d"
+    },
+    "20034.reported_7_2_ha_static_circle.json": {
+      "bytes": 52196,
+      "sha256": "435e83076330c2a189106c2316f4fab0d32d5198a7fc37dc271ed28a2be6e72e"
+    },
+    "20034.reported_8_0_ha_static_circle.json": {
+      "bytes": 52186,
+      "sha256": "98828ed9f2328ff403be4200ffd987879eaf44e0a0969108a7d61263b95ffce0"
+    },
+    "4445.metadata_static_radius.json": {
+      "bytes": 38936,
+      "sha256": "e4c6e54c54c316b93eedc222844720c130d28acfca45ef60529b4b91253fd09c"
+    },
+    "4445.reported_2_5_ha_static_circle.json": {
+      "bytes": 39031,
+      "sha256": "287ac789b55c53b0e11da4d204ac8631387749bad7ab7e6cb86cf66409cec95c"
+    },
+    "4446.metadata_static_radius.json": {
+      "bytes": 63108,
+      "sha256": "67dbdc4e67f9506376620068627ec635487bc0f3e9711829f916662da1c8d54d"
+    },
+    "4446.reported_2_5_ha_static_circle.json": {
+      "bytes": 63202,
+      "sha256": "d165103f2dd764fcb326ce12b9d95cd3fdfbdad69460765c3524caa5189c1eb7"
+    },
+    "52082.metadata_static_radius.json": {
+      "bytes": 40484,
+      "sha256": "03c04e68feaa7aacb4879a9f4bb255bfbd94662c7dac255a39fa60850997d92b"
+    },
+    "52082.reported_25_5_ha_static_circle.json": {
+      "bytes": 40583,
+      "sha256": "4889cf8c05692c86087c1c18fbf532f0abee058a8496b59ef89f248ffca51f32"
+    },
+    "local-native-source-support.json": {
+      "bytes": 1483086,
+      "sha256": "10c250757923f37ac383b2efd6fcc41af3d5d73b21f69f65ff6fee99443e2fa7"
+    }
+  },
+  "native_pid": 34391,
+  "observed_descendants": {
+    "34391": {
+      "group": 34391,
+      "parent": 34358,
+      "pid": 34391,
+      "rss_bytes": 203505664,
+      "start": "Mon Oct  5 02:26:38 2026    ",
+      "state": "Rs"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 331071488,
+  "plan_sha256": "84049168f9423f80c21b9c360f85b9f4025b5c92cd1afa096b253115cba98828",
+  "resource_failure": null,
+  "scope": "New conditional per-core literal-panel reconstruction, four cores across Finland/Norway/Denmark and nine explicit static geometry cases. Source counts and named old calibrated chronology points retained; no historic LandClim preparation identity, ecological accuracy, full31, whole vegetation cover or raw redistribution claim.",
+  "source_context": "Current clean33d documentary registration candidate; exact12 current scientific input Gitblobs and sources/reconstruction helpers verified. Exact original61 LRA5fe+4dde engine bytes remain unchanged/currentcommitted. Owned numerical runtime copied unchanged from actual TIB a36; no broaddependency/platform rerun. Actual fc2 census314 source counts/namedCalBP/panel/geometry support is the new scientific consumer dependency. Original Swedish outputs and old Nordic observed-pollen cohorts remain byteexact.",
+  "status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "wall_seconds": 26.13061412499519
+}

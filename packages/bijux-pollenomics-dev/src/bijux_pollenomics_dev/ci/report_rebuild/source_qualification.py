@@ -67,4 +67,20 @@ def validated_external_report_sources(
         from .source_contracts.pangaea_age_controls import validated_solsoe_age_table
 
         return validated_solsoe_age_table(repository, source_root, descriptor_path)
+    if schema == "qualified-pangaea-epd-age-table.v1":
+        from .source_contracts.pangaea_epd_age_table import validated_epd_age_table
+
+        return validated_epd_age_table(repository, source_root, descriptor_path)
+    if schema == "qualified-rootsi-native-workbook.v1":
+        from .source_contracts.rootsi_native_workbooks import (
+            validated_rootsi_native_workbook,
+        )
+
+        return validated_rootsi_native_workbook(
+            repository, source_root, descriptor_path
+        )
+    if schema == "qualified-pangaea-abbo-profile.v1":
+        from .source_contracts.pangaea_abbo_profile import validated_abbo_profile
+
+        return validated_abbo_profile(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")

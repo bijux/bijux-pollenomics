@@ -1,0 +1,30 @@
+{
+  "native_samples": 4548,
+  "qualified_native_datasets": 59,
+  "raw_source_reacquisition_or_raw_scan_claim": false,
+  "schema_version": "retained-source-observed-panel-coverage.v1",
+  "source_account_sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+  "source_terminal_sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+  "used_dataset_ids": [
+    1438,
+    4037,
+    4040,
+    4042,
+    4370,
+    4403,
+    4496,
+    19909,
+    19913,
+    21790,
+    23013,
+    45311,
+    45314,
+    53969,
+    53970,
+    53972,
+    53999,
+    54001,
+    54020
+  ],
+  "workbook_rows": 84
+}

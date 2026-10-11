@@ -1,0 +1,890 @@
+{
+  "methods": [
+    "physical_inverse_forward",
+    "count_pooled_pollen",
+    "equal_source_pollen_mean"
+  ],
+  "negative_outcomes_removed": false,
+  "paired_contrasts": [
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -2.9310012284882966e-05,
+        "target_panel_count_mean_negative_log_probability": -0.00015294537259152863
+      },
+      "window_index": 2
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00018327036557956702,
+        "target_panel_count_mean_negative_log_probability": -0.0009993352287566704
+      },
+      "window_index": 2
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -7.159764308730158e-05,
+        "target_panel_count_mean_negative_log_probability": -0.000701565445742236
+      },
+      "window_index": 4
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0003945294870909299,
+        "target_panel_count_mean_negative_log_probability": -0.004069304062971735
+      },
+      "window_index": 4
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -5.196986084073118e-05,
+        "target_panel_count_mean_negative_log_probability": -0.00047385871095600995
+      },
+      "window_index": 5
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00023682968375307264,
+        "target_panel_count_mean_negative_log_probability": -0.0022392300494834816
+      },
+      "window_index": 5
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -8.26326480448899e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0008499485012437857
+      },
+      "window_index": 7
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0005296233061002948,
+        "target_panel_count_mean_negative_log_probability": -0.005827482255961219
+      },
+      "window_index": 7
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -9.582753354698409e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0007541114680961747
+      },
+      "window_index": 8
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00045704855772438734,
+        "target_panel_count_mean_negative_log_probability": -0.003749889505858306
+      },
+      "window_index": 8
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -5.7771967796453627e-05,
+        "target_panel_count_mean_negative_log_probability": -0.00044425484567020557
+      },
+      "window_index": 9
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00045237596937548904,
+        "target_panel_count_mean_negative_log_probability": -0.0038967242881735864
+      },
+      "window_index": 9
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00023351328546243003,
+        "target_panel_count_mean_negative_log_probability": -0.001957915565239554
+      },
+      "window_index": 10
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.001579901127239382,
+        "target_panel_count_mean_negative_log_probability": -0.0149475837571178
+      },
+      "window_index": 10
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -1.6504028169312406e-05,
+        "target_panel_count_mean_negative_log_probability": -9.831348886391034e-05
+      },
+      "window_index": 11
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0003716250352881248,
+        "target_panel_count_mean_negative_log_probability": -0.002614177883795088
+      },
+      "window_index": 11
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -8.030985074554495e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0007752064407132997
+      },
+      "window_index": 12
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.000387491734826662,
+        "target_panel_count_mean_negative_log_probability": -0.003900238368207104
+      },
+      "window_index": 12
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -5.189331884611001e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0005029194500188183
+      },
+      "window_index": 13
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0001913368381355105,
+        "target_panel_count_mean_negative_log_probability": -0.0019006618541027032
+      },
+      "window_index": 13
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -3.3749022875639335e-05,
+        "target_panel_count_mean_negative_log_probability": -0.00038755192521627846
+      },
+      "window_index": 15
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -5.4891125261928055e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0006320109515381422
+      },
+      "window_index": 15
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -7.800629865647307e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0012461401081974022
+      },
+      "window_index": 16
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -1.7727353184735298e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0002812676215968035
+      },
+      "window_index": 16
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -1.8016234614698368e-05,
+        "target_panel_count_mean_negative_log_probability": -0.00045052136245143926
+      },
+      "window_index": 17
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": 3.30643938200887e-05,
+        "target_panel_count_mean_negative_log_probability": 0.0008194551390980354
+      },
+      "window_index": 17
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.000426439333667282,
+        "target_panel_count_mean_negative_log_probability": -0.006653961243982431
+      },
+      "window_index": 18
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0003510472747714835,
+        "target_panel_count_mean_negative_log_probability": -0.005446972449985266
+      },
+      "window_index": 18
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -9.248120130113391e-05,
+        "target_panel_count_mean_negative_log_probability": -0.0017485076435868607
+      },
+      "window_index": 19
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": 0.0002703449631899328,
+        "target_panel_count_mean_negative_log_probability": 0.0049288189961164686
+      },
+      "window_index": 19
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00021420160453430783,
+        "target_panel_count_mean_negative_log_probability": -0.0018870466069549896
+      },
+      "window_index": 20
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0007665316517189704,
+        "target_panel_count_mean_negative_log_probability": -0.007259664838258656
+      },
+      "window_index": 20
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00029589022135056986,
+        "target_panel_count_mean_negative_log_probability": -0.002673647209787189
+      },
+      "window_index": 21
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": 0.0007747493220461856,
+        "target_panel_count_mean_negative_log_probability": 0.006179423151150193
+      },
+      "window_index": 21
+    },
+    {
+      "baseline": "count_pooled_pollen",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.00014620274185964555,
+        "target_panel_count_mean_negative_log_probability": -0.0009562869985788036
+      },
+      "window_index": 22
+    },
+    {
+      "baseline": "equal_source_pollen_mean",
+      "physical_minus_baseline": {
+        "squared_L2_panel_fraction_error": -0.0005548351471395385,
+        "target_panel_count_mean_negative_log_probability": -0.0037312236913340513
+      },
+      "window_index": 22
+    }
+  ],
+  "physical_poorer_than_baseline_window_indices": {
+    "count_pooled_pollen": [],
+    "equal_source_pollen_mean": [
+      17,
+      19,
+      21
+    ]
+  },
+  "same_support_context": [
+    1486,
+    1436
+  ],
+  "schema_version": "norwegian-one-family-forward-comparisons.v1",
+  "scope": "Development-exposed two-taxon direct-pollen scores; source families, chronological correlations and physical assumptions remain conditional. Smaller scores do not establish vegetation truth.",
+  "score_rows": [
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 8.359339380084553e-05,
+      "status": "scored",
+      "target_panel_N": 1897,
+      "target_panel_count_mean_negative_log_probability": 0.2203338589245045,
+      "window_index": 2
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00011290340608572849,
+      "status": "scored",
+      "target_panel_N": 1897,
+      "target_panel_count_mean_negative_log_probability": 0.22048680429709602,
+      "window_index": 2
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00026686375938041255,
+      "status": "scored",
+      "target_panel_N": 1897,
+      "target_panel_count_mean_negative_log_probability": 0.22133319415326116,
+      "window_index": 2
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.001742187232149688,
+      "status": "scored",
+      "target_panel_N": 964,
+      "target_panel_count_mean_negative_log_probability": 0.22872480655925578,
+      "window_index": 4
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0018137848752369896,
+      "status": "scored",
+      "target_panel_N": 964,
+      "target_panel_count_mean_negative_log_probability": 0.22942637200499802,
+      "window_index": 4
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002136716719240618,
+      "status": "scored",
+      "target_panel_N": 964,
+      "target_panel_count_mean_negative_log_probability": 0.23279411062222752,
+      "window_index": 4
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0009411399195039963,
+      "status": "scored",
+      "target_panel_N": 976,
+      "target_panel_count_mean_negative_log_probability": 0.20607437977104112,
+      "window_index": 5
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0009931097803447275,
+      "status": "scored",
+      "target_panel_N": 976,
+      "target_panel_count_mean_negative_log_probability": 0.20654823848199713,
+      "window_index": 5
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.001177969603257069,
+      "status": "scored",
+      "target_panel_N": 976,
+      "target_panel_count_mean_negative_log_probability": 0.2083136098205246,
+      "window_index": 5
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002194941323341159,
+      "status": "scored",
+      "target_panel_N": 1542,
+      "target_panel_count_mean_negative_log_probability": 0.23882168521719035,
+      "window_index": 7
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002277573971386049,
+      "status": "scored",
+      "target_panel_N": 1542,
+      "target_panel_count_mean_negative_log_probability": 0.23967163371843414,
+      "window_index": 7
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002724564629441454,
+      "status": "scored",
+      "target_panel_N": 1542,
+      "target_panel_count_mean_negative_log_probability": 0.24464916747315157,
+      "window_index": 7
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002031641027691754,
+      "status": "scored",
+      "target_panel_N": 1229,
+      "target_panel_count_mean_negative_log_probability": 0.2532013369120334,
+      "window_index": 8
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002127468561238738,
+      "status": "scored",
+      "target_panel_N": 1229,
+      "target_panel_count_mean_negative_log_probability": 0.25395544838012957,
+      "window_index": 8
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0024886895854161414,
+      "status": "scored",
+      "target_panel_N": 1229,
+      "target_panel_count_mean_negative_log_probability": 0.2569512264178917,
+      "window_index": 8
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00023026809924944866,
+      "status": "scored",
+      "target_panel_N": 844,
+      "target_panel_count_mean_negative_log_probability": 0.1851800577178216,
+      "window_index": 9
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0002880400670459023,
+      "status": "scored",
+      "target_panel_N": 844,
+      "target_panel_count_mean_negative_log_probability": 0.1856243125634918,
+      "window_index": 9
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0006826440686249377,
+      "status": "scored",
+      "target_panel_N": 844,
+      "target_panel_count_mean_negative_log_probability": 0.18907678200599518,
+      "window_index": 9
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.004267552433341745,
+      "status": "scored",
+      "target_panel_N": 232,
+      "target_panel_count_mean_negative_log_probability": 0.2979600912682921,
+      "window_index": 10
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.004501065718804175,
+      "status": "scored",
+      "target_panel_N": 232,
+      "target_panel_count_mean_negative_log_probability": 0.29991800683353165,
+      "window_index": 10
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.005847453560581127,
+      "status": "scored",
+      "target_panel_N": 232,
+      "target_panel_count_mean_negative_log_probability": 0.3129076750254099,
+      "window_index": 10
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 4.756582684832128e-06,
+      "status": "scored",
+      "target_panel_N": 431,
+      "target_panel_count_mean_negative_log_probability": 0.1878142990895559,
+      "window_index": 11
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 2.1260610854144533e-05,
+      "status": "scored",
+      "target_panel_N": 431,
+      "target_panel_count_mean_negative_log_probability": 0.18791261257841982,
+      "window_index": 11
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00037638161797295695,
+      "status": "scored",
+      "target_panel_N": 431,
+      "target_panel_count_mean_negative_log_probability": 0.190428476973351,
+      "window_index": 11
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002298297218703989,
+      "status": "scored",
+      "target_panel_N": 773,
+      "target_panel_count_mean_negative_log_probability": 0.24544432381645256,
+      "window_index": 12
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002378607069449534,
+      "status": "scored",
+      "target_panel_N": 773,
+      "target_panel_count_mean_negative_log_probability": 0.24621953025716586,
+      "window_index": 12
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002685788953530651,
+      "status": "scored",
+      "target_panel_N": 773,
+      "target_panel_count_mean_negative_log_probability": 0.24934456218465967,
+      "window_index": 12
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.001339921041624711,
+      "status": "scored",
+      "target_panel_N": 836,
+      "target_panel_count_mean_negative_log_probability": 0.21627979814012374,
+      "window_index": 13
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.001391814360470821,
+      "status": "scored",
+      "target_panel_N": 836,
+      "target_panel_count_mean_negative_log_probability": 0.21678271759014256,
+      "window_index": 13
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0015312578797602215,
+      "status": "scored",
+      "target_panel_N": 836,
+      "target_panel_count_mean_negative_log_probability": 0.21818045999422644,
+      "window_index": 13
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.003822239846558279,
+      "status": "scored",
+      "target_panel_N": 454,
+      "target_panel_count_mean_negative_log_probability": 0.2722467455725714,
+      "window_index": 15
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0038559888694339184,
+      "status": "scored",
+      "target_panel_N": 454,
+      "target_panel_count_mean_negative_log_probability": 0.27263429749778767,
+      "window_index": 15
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.003877130971820207,
+      "status": "scored",
+      "target_panel_N": 454,
+      "target_panel_count_mean_negative_log_probability": 0.27287875652410953,
+      "window_index": 15
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.009317973505127596,
+      "status": "scored",
+      "target_panel_N": 344,
+      "target_panel_count_mean_negative_log_probability": 0.3631765060287987,
+      "window_index": 16
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00939597980378407,
+      "status": "scored",
+      "target_panel_N": 344,
+      "target_panel_count_mean_negative_log_probability": 0.3644226461369961,
+      "window_index": 16
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.009335700858312332,
+      "status": "scored",
+      "target_panel_N": 344,
+      "target_panel_count_mean_negative_log_probability": 0.3634577736503955,
+      "window_index": 16
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00967709864453022,
+      "status": "scored",
+      "target_panel_N": 1167,
+      "target_panel_count_mean_negative_log_probability": 0.375321220879799,
+      "window_index": 17
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.009695114879144918,
+      "status": "scored",
+      "target_panel_N": 1167,
+      "target_panel_count_mean_negative_log_probability": 0.37577174224225046,
+      "window_index": 17
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00964403425071013,
+      "status": "scored",
+      "target_panel_N": 1167,
+      "target_panel_count_mean_negative_log_probability": 0.374501765740701,
+      "window_index": 17
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0210549075645051,
+      "status": "scored",
+      "target_panel_N": 1365,
+      "target_panel_count_mean_negative_log_probability": 0.5028243003043488,
+      "window_index": 18
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.021481346898172382,
+      "status": "scored",
+      "target_panel_N": 1365,
+      "target_panel_count_mean_negative_log_probability": 0.5094782615483312,
+      "window_index": 18
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.021405954839276584,
+      "status": "scored",
+      "target_panel_N": 1365,
+      "target_panel_count_mean_negative_log_probability": 0.508271272754334,
+      "window_index": 18
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.01610495387095764,
+      "status": "scored",
+      "target_panel_N": 1714,
+      "target_panel_count_mean_negative_log_probability": 0.4565476422538694,
+      "window_index": 19
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.016197435072258775,
+      "status": "scored",
+      "target_panel_N": 1714,
+      "target_panel_count_mean_negative_log_probability": 0.45829614989745626,
+      "window_index": 19
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.015834608907767708,
+      "status": "scored",
+      "target_panel_N": 1714,
+      "target_panel_count_mean_negative_log_probability": 0.45161882325775293,
+      "window_index": 19
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.00203281951028059,
+      "status": "scored",
+      "target_panel_N": 1356,
+      "target_panel_count_mean_negative_log_probability": 0.2457207548242422,
+      "window_index": 20
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0022470211148148977,
+      "status": "scored",
+      "target_panel_N": 1356,
+      "target_panel_count_mean_negative_log_probability": 0.24760780143119718,
+      "window_index": 20
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0027993511619995603,
+      "status": "scored",
+      "target_panel_N": 1356,
+      "target_panel_count_mean_negative_log_probability": 0.25298041966250084,
+      "window_index": 20
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0024186092589942153,
+      "status": "scored",
+      "target_panel_N": 1244,
+      "target_panel_count_mean_negative_log_probability": 0.25456034575096437,
+      "window_index": 21
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.002714499480344785,
+      "status": "scored",
+      "target_panel_N": 1244,
+      "target_panel_count_mean_negative_log_probability": 0.25723399296075156,
+      "window_index": 21
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0016438599369480297,
+      "status": "scored",
+      "target_panel_N": 1244,
+      "target_panel_count_mean_negative_log_probability": 0.24838092259981417,
+      "window_index": 21
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.003949823945729701,
+      "status": "scored",
+      "target_panel_N": 567,
+      "target_panel_count_mean_negative_log_probability": 0.30961353263586006,
+      "window_index": 22
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.004096026687589347,
+      "status": "scored",
+      "target_panel_N": 567,
+      "target_panel_count_mean_negative_log_probability": 0.31056981963443886,
+      "window_index": 22
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "squared_L2_panel_fraction_error": 0.0045046590928692395,
+      "status": "scored",
+      "target_panel_N": 567,
+      "target_panel_count_mean_negative_log_probability": 0.3133447563271941,
+      "window_index": 22
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 23
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 23
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 23
+    },
+    {
+      "method": "physical_inverse_forward",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 24
+    },
+    {
+      "method": "count_pooled_pollen",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 24
+    },
+    {
+      "method": "equal_source_pollen_mean",
+      "prediction_ledger_sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "reason": "target_native_sample_window_absent",
+      "status": "no_scored_outcome",
+      "target_panel_N": null,
+      "window_index": 24
+    }
+  ],
+  "summaries": [
+    {
+      "equal_window_mean": {
+        "squared_L2_panel_fraction_error": 0.004639595801043084,
+        "target_panel_count_mean_negative_log_probability": 0.28110253809259583
+      },
+      "method": "physical_inverse_forward",
+      "paired_windows": 18,
+      "target_panel_N": 17935,
+      "target_panel_count_weighted_mean": {
+        "squared_L2_panel_fraction_error": 0.005202331047626767,
+        "target_panel_count_mean_negative_log_probability": 0.28864103079507875
+      }
+    },
+    {
+      "equal_window_mean": {
+        "squared_L2_panel_fraction_error": 0.004754946734803328,
+        "target_panel_count_mean_negative_log_probability": 0.2823644660030342
+      },
+      "method": "count_pooled_pollen",
+      "paired_windows": 18,
+      "target_panel_N": 17935,
+      "target_panel_count_weighted_mean": {
+        "squared_L2_panel_fraction_error": 0.005323951955346503,
+        "target_panel_count_mean_negative_log_probability": 0.29004580567417915
+      }
+    },
+    {
+      "equal_window_mean": {
+        "squared_L2_panel_fraction_error": 0.00494242391093941,
+        "target_panel_count_mean_negative_log_probability": 0.2838563197326389
+      },
+      "method": "equal_source_pollen_mean",
+      "paired_windows": 18,
+      "target_panel_N": 17935,
+      "target_panel_count_weighted_mean": {
+        "squared_L2_panel_fraction_error": 0.005431156838588712,
+        "target_panel_count_mean_negative_log_probability": 0.2906913717405934
+      }
+    }
+  ],
+  "support_distance_radius_m": 100000
+}

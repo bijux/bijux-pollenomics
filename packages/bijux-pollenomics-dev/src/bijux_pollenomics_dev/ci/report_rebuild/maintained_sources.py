@@ -30,21 +30,33 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.nordic_static_basin import (
+    validated_nordic_static_basin_captures,
+)
+from .scientific_captures.swedish_parameter_transfer import (
+    validated_swedish_parameter_transfer_captures,
+)
+from .scientific_captures.swedish_source_chronology import (
+    validated_swedish_source_chronology_captures,
+)
+from .scientific_captures.swedish_static_basin import (
+    validated_swedish_static_basin_captures,
+)
 
 # This independent admission set is reviewed separately from mutable role labels.
 # Updating a maintained report path requires an explicit transport-contract change.
 MAINTAINED_ROLE_PATHS = {
     "maintained_code": (
-        62,
-        "fe00aed84742364e74dfa0bc51425268e0e2ec657a891410530eaaebd19b8629",
+        63,
+        "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        180,
-        "1b5595b05026bb8020b23c626d7d0f3130cb965eada21223e7c378213629aaeb",
+        196,
+        "c053a77282c5d8c77302bd695f1c109516a0cac84a21d7b70afb6b992f9ffd2f",
     ),
     "maintained_configuration": (
-        2,
-        "3b0f3edb6f831c629755e8b57e02ebc7ad9dd9970e59b92030de7af9ac13582e",
+        14,
+        "a81101b6cffc4ddc16e6691dc8a0eab0364b40e3787a316b4e7757d633298774",
     ),
 }
 SOURCE_FORMATS = {
@@ -190,12 +202,39 @@ def validated_maintained_report_sources(
             ):
                 raise ReportRebuildError(f"maintained source inventory differs: {path}")
             selected.append(entry)
+    capture_entries, capture_evidence = validated_swedish_static_basin_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    parameter_entries, parameter_evidence = (
+        validated_swedish_parameter_transfer_captures(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    chronology_entries, chronology_evidence = (
+        validated_swedish_source_chronology_captures(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    nordic_entries, nordic_evidence = validated_nordic_static_basin_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    all_capture_entries = (
+        capture_entries + parameter_entries + chronology_entries + nordic_entries
+    )
+    for entry in all_capture_entries:
+        name = "docs/report/" + entry.path
+        capture = _regular_confined_file(repository, name, "scientific capture")
+        if capture.read_bytes() != _head_blob(repository, name):
+            raise ReportRebuildError("scientific capture differs from Git candidate")
+    selected.extend(all_capture_entries)
     try:
         if repository_identity(repository, required=True) != expected_repository:
             raise ReportRebuildError("maintained source Git candidate changed")
     except ReproducibleReportError as error:
         raise ReportRebuildError("maintained source Git candidate changed") from error
-    if len(selected) != sum(count for count, _ in MAINTAINED_ROLE_PATHS.values()):
+    if len(selected) != sum(count for count, _ in MAINTAINED_ROLE_PATHS.values()) + len(
+        all_capture_entries
+    ):
         raise ReportRebuildError("maintained source coverage is incomplete")
     evidence: JsonObject = {
         "schema_version": "maintained-report-source-evidence.v1",
@@ -211,4 +250,12 @@ def validated_maintained_report_sources(
         },
         "inventory": inventory_json(sorted(selected, key=lambda entry: entry.path)),
     }
+    if capture_entries:
+        evidence["retained_scientific_captures"] = capture_evidence
+    if parameter_entries:
+        evidence["retained_parameter_transfer_captures"] = parameter_evidence
+    if chronology_entries:
+        evidence["retained_source_chronology_captures"] = chronology_evidence
+    if nordic_entries:
+        evidence["retained_nordic_static_basin_captures"] = nordic_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

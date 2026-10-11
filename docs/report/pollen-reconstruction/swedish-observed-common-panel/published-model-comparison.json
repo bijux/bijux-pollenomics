@@ -1,0 +1,193 @@
+{
+  "actual_comparisons": 225,
+  "baseline_model_comparator_summary": [
+    {
+      "accuracy_interpretation": "Model-output diagnostic only; source cohort/chronology/geometry/transport and source-weighting differences remain explicit",
+      "baseline_compared_windows": 7,
+      "grid_id": "779",
+      "maximum_absolute_model_ratio_difference": "0.4378269069506039418901853170",
+      "median_absolute_model_ratio_difference": "0.3807946492283098521723918024"
+    },
+    {
+      "accuracy_interpretation": "Model-output diagnostic only; source cohort/chronology/geometry/transport and source-weighting differences remain explicit",
+      "baseline_compared_windows": 22,
+      "grid_id": "830",
+      "maximum_absolute_model_ratio_difference": "0.2410769887335965169648309816",
+      "median_absolute_model_ratio_difference": "0.0912250481176625210083387569"
+    },
+    {
+      "accuracy_interpretation": "Model-output diagnostic only; source cohort/chronology/geometry/transport and source-weighting differences remain explicit",
+      "baseline_compared_windows": 16,
+      "grid_id": "880",
+      "maximum_absolute_model_ratio_difference": "0.6722995481164990218804167220",
+      "median_absolute_model_ratio_difference": "0.1188347832815523298909997474"
+    }
+  ],
+  "limits": [
+    "Own exact three-grid/25window row and numerical qualification; prior512/562TW2contract never transplanted",
+    "Published31taxon reconstruction is a model comparator, not independent observed vegetation",
+    "New native source count cohort and count weighting, named chronology, static-radius association and annulus law are not authenticated historical inputs",
+    "Matching grid/window labels enables declared projection only; it does not establish historical result reproduction",
+    "Published marginal SEs supply no cross-taxon covariance; ratio SE and joint uncertainty comparison are uncomputed",
+    "All missing/invalid/incomplete cohort windows remain refusals; no new physicalmodel, nativeR or fit rerun"
+  ],
+  "original_comparison_sha256": "8b91f61aafb336826fe663e63f3e69f532a00eaeddc1e7c5da3c28485e8cc4cd",
+  "schema_version": "retained-published-model-panel-comparison.v1",
+  "source_cohort_refusals": [
+    {
+      "TW_index": 1,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 1,
+      "grid_id": "830",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 1,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 2,
+      "grid_id": "830",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 3,
+      "grid_id": "830",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 9,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 10,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 11,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 12,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 13,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 14,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 15,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 16,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 17,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 18,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 18,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 19,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 19,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 20,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 20,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 21,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 21,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 22,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 22,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 23,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 23,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 24,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 24,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 25,
+      "grid_id": "779",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    },
+    {
+      "TW_index": 25,
+      "grid_id": "880",
+      "reason": "No complete prespecified source-unit common-panel cohort in this published time window"
+    }
+  ],
+  "units": {
+    "compared_ratio": "dimensionless Betula/(Betula+Poaceae); common percentage/fraction scale cancels",
+    "new_conditional_panel_cover": "fraction",
+    "published31taxon_cover_means": "percentage_points"
+  }
+}

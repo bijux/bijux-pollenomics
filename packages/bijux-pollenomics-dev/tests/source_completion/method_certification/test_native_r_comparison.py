@@ -8,7 +8,9 @@ from typing import Any, TypedDict
 
 import pytest
 
-from bijux_pollenomics_dev.lra_validation.native_reference.capture import NativeCapture
+from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
+    AnnulusCapture,
+)
 from bijux_pollenomics_dev.source_completion.method_certification import (
     native_r_comparison as producer,
 )
@@ -25,7 +27,8 @@ class _ConsumerDeclaration(TypedDict):
 @pytest.fixture
 def comparison(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]]:
+) -> tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]]:
+    """Provide comparison for the retained source contract."""
     repository = tmp_path / "repository"
     repository.mkdir()
     maintained = (
@@ -37,12 +40,18 @@ def comparison(
         for row in policy["owners"]
         if row["owner_id"] == "method-certification/current-r-oracle/report-products"
     )
-    assert len(declaration["producer_paths"]) == 95
+    assert len(declaration["producer_paths"]) == 98
     assert len(declaration["producer_inputs"]) == 280
     assert {name for name in declaration["producer_paths"] if name.endswith(".R")} == {
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
     }
+    # Exercise the default historical profile independently of the configured
+    # current-owner profile; both contracts declare their actual selected packet.
+    declaration["producer_inputs"] = [
+        name.replace("native-r-count-domain/", "native-r-annulus/")
+        for name in declaration["producer_inputs"]
+    ]
     for name in declaration["producer_paths"] + declaration["producer_inputs"]:
         path = repository / name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -52,7 +61,7 @@ def comparison(
     )
     output = repository / "artifacts/owner/producer-output/source-products"
     output.parent.mkdir(parents=True)
-    source = NativeCapture(
+    source = AnnulusCapture(
         repository / "capture",
         repository / "public-archives",
         "a" * 40,
@@ -60,8 +69,11 @@ def comparison(
         (),
         {},
         {},
+        {},
     )
-    monkeypatch.setattr(producer, "validated_native_capture", lambda _: source)
+    monkeypatch.setattr(
+        producer, "validated_current_capture", lambda _, *, profile="annulus": source
+    )
     calls: list[tuple[Path, ...]] = []
 
     def summarize(*paths: Path) -> dict[str, Any]:
@@ -86,8 +98,9 @@ def comparison(
 
 
 def test_comparison_uses_capture_and_never_claims_new_r(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
 ) -> None:
+    """Verify comparison uses capture and never claims new r."""
     repository, output, source, calls = comparison
     result = producer.build(repository, output)
     assert calls == [
@@ -110,7 +123,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         )
         assert "consumer_source_revision" not in report
         assert "source_revision" not in report
-        assert len(report["consumer_inputs"]["code_sha256"]) == 95
+        assert len(report["consumer_inputs"]["code_sha256"]) == 98
         assert (
             report["consumer_inputs"]["capture_manifest_sha256"]
             == source.manifest_sha256
@@ -125,7 +138,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         assert report["native_capture_manifest_sha256"] == source.manifest_sha256
         assert (
             report["native_source_acquisition"]
-            == "fresh_public_locked_archive_acquisition"
+            == "retained_public_locked_archive_acquisition"
         )
         assert report["original_R_to_current_R_compared"] == 48
     assert result == json.loads((output / "report.json").read_text())
@@ -142,10 +155,11 @@ def test_comparison_uses_capture_and_never_claims_new_r(
 
 @pytest.mark.parametrize("kind", ["directory", "file", "broken-alias"])
 def test_existing_output_refuses_before_source_reads(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,
     kind: str,
 ) -> None:
+    """Verify existing output refuses before source reads."""
     repository, output, _, calls = comparison
     if kind == "directory":
         output.mkdir()
@@ -159,19 +173,20 @@ def test_existing_output_refuses_before_source_reads(
 
 
 def test_mutated_capture_refuses_before_publication(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """Verify mutated capture refuses before publication."""
     repository, output, before, _ = comparison
     calls = 0
 
-    def validate(_: Path) -> NativeCapture:
+    def validate(_: Path, *, profile: str = "annulus") -> AnnulusCapture:
         nonlocal calls
         calls += 1
         return (
             before
             if calls == 1
-            else NativeCapture(
+            else AnnulusCapture(
                 before.directory,
                 before.source_archives,
                 "c" * 40,
@@ -179,10 +194,11 @@ def test_mutated_capture_refuses_before_publication(
                 (),
                 {},
                 {},
+                {},
             )
         )
 
-    monkeypatch.setattr(producer, "validated_native_capture", validate)
+    monkeypatch.setattr(producer, "validated_current_capture", validate)
     with pytest.raises(ValueError, match="changed during comparison"):
         producer.build(repository, output)
     assert not (output / "report.json").exists()
@@ -192,9 +208,10 @@ def test_mutated_capture_refuses_before_publication(
 
 
 def test_source_mismatch_preserves_failure_without_rerun(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """Verify source mismatch preserves failure without rerun."""
     repository, output, _, _ = comparison
 
     def stale(*_: Path) -> dict[str, Any]:
@@ -210,8 +227,10 @@ def test_source_mismatch_preserves_failure_without_rerun(
     "operation", ["source-route", "sidecar-collision", "parent-alias", "lexical-escape"]
 )
 def test_owned_destination_confinement_refuses(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]], operation: str
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    operation: str,
 ) -> None:
+    """Verify owned destination confinement refuses."""
     repository, output, _, calls = comparison
     if operation == "source-route":
         output = repository / "data/producer-output/source-products"
@@ -233,9 +252,10 @@ def test_owned_destination_confinement_refuses(
 
 
 def test_consumer_head_stays_raw_while_governed_bytes_are_content_bound(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """Verify consumer head stays raw while governed bytes are content bound."""
     repository, _, _, _ = comparison
     outputs: list[Path] = []
     for index, revision in enumerate(("c" * 40, "d" * 40)):
@@ -281,16 +301,17 @@ def test_consumer_head_stays_raw_while_governed_bytes_are_content_bound(
 @pytest.mark.parametrize(
     "name",
     [
-        "data/method-certification/native-r/capture/oracle/C0000.csv",
+        "data/method-certification/native-r-annulus/capture/oracle/C0000.csv",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture.py",
         "configs/ci/report-ownership.json",
     ],
 )
 def test_protected_consumer_mutation_refuses_publication(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,
     name: str,
 ) -> None:
+    """Verify protected consumer mutation refuses publication."""
     repository, output, _, _ = comparison
 
     def changed(*paths: Path) -> dict[str, Any]:
@@ -327,9 +348,10 @@ def test_protected_consumer_mutation_refuses_publication(
     ],
 )
 def test_consumer_contract_refuses_before_comparison(
-    comparison: tuple[Path, Path, NativeCapture, list[tuple[Path, ...]]],
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     condition: str,
 ) -> None:
+    """Verify consumer contract refuses before comparison."""
     repository, output, _, calls = comparison
     policy_path = repository / "configs/ci/report-ownership.json"
     policy = json.loads(policy_path.read_text())
@@ -350,7 +372,8 @@ def test_consumer_contract_refuses_before_comparison(
         row["producer_inputs"][1] = "../outside"
     else:
         target = (
-            repository / "data/method-certification/native-r/capture/oracle/C0000.csv"
+            repository
+            / "data/method-certification/native-r-annulus/capture/oracle/C0000.csv"
         )
         target.unlink()
         target.symlink_to(repository / row["producer_paths"][0])
@@ -359,3 +382,39 @@ def test_consumer_contract_refuses_before_comparison(
         producer.build(repository, output)
     assert calls == []
     assert not output.exists()
+
+
+@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+def test_selected_capture_profile_binds_consumer_data_and_output(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+    profile: str,
+) -> None:
+    """Verify selected capture profile binds consumer data and output."""
+    repository, output, source, _ = comparison
+    policy_path = repository / "configs/ci/report-ownership.json"
+    policy = json.loads(policy_path.read_text())
+    inputs = policy["owners"][0]["producer_inputs"]
+    for index, name in enumerate(inputs):
+        selected = name.replace("native-r-annulus/", f"native-r-{profile}/")
+        if selected != name:
+            path = repository / selected
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((repository / name).read_bytes())
+            inputs[index] = selected
+    policy_path.write_text(json.dumps(policy))
+    selected_profiles: list[str] = []
+
+    def validate(_: Path, *, profile: str = "annulus") -> AnnulusCapture:
+        selected_profiles.append(profile)
+        return source
+
+    monkeypatch.setattr(producer, "validated_current_capture", validate)
+    result = producer.build(repository, output, capture_profile=profile)  # type: ignore[arg-type]
+    assert selected_profiles == [profile, profile]
+    assert result["native_capture_profile"] == profile
+    assert result["consumer_inputs"]["capture_profile"] == profile
+    assert (
+        f"data/method-certification/native-r-{profile}/capture/capture.json"
+        in result["consumer_inputs"]["data_sha256"]
+    )

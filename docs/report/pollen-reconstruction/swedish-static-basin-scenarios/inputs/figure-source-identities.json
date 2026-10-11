@@ -1,0 +1,9 @@
+{
+  "source_files": {
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json": {
+      "sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+      "bytes": 726215
+    }
+  },
+  "scope": "New maintained CSV projection from actual8d895 aggregate numerical report, without claiming original unsavedforegroundCSVproducer custody; old retainedb0CSV andRPNGcaptures stayseparate."
+}

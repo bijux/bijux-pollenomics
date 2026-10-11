@@ -117,8 +117,11 @@ def build_owner_output(
     evidence_root.mkdir(parents=True)
     producer_root = evidence_root / "producer-output"
     producer_root.mkdir()
+    artifact_root = evidence_root / "producer-artifacts"
     command = tuple(
-        arg.replace("{output_root}", str(producer_root.resolve()))
+        arg.replace("{output_root}", str(producer_root.resolve())).replace(
+            "{artifact_root}", str(artifact_root.resolve())
+        )
         for arg in producer_command
     )
     run_owner_command(

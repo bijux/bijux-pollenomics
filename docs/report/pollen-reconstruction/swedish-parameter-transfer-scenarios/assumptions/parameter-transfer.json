@@ -1,0 +1,133 @@
+{
+  "schema_version": "four-core-declared-parameter-transfer-scenarios.v1",
+  "assumptions": {
+    "sparse_reporting": "Hypothesis: the retained pollen NISP rows are a complete mutually exclusive count partition and unlisted selected taxa have zero counts. This is not observed zero or an admitted historical preparation. Record every assumed zero cell and retain actual source presence mask separately. Without this hypothesis, refuse incomplete broad-panel input. Retain the selected SOURCE-NAME axis and actual per-source-name presence before merging; count absent sibling source contributions separately from completely absent parameter targets. Merging tree/dwarf birch cannot hide an absent sibling.",
+    "parameter_transfer": "Apply public target PPE/fall-speed to the source label named in each mapping; generic-to-specific transfer is a numerical surrogate hypothesis, not a taxon identity assertion. No privateLUT used.",
+    "count_partition": "Each native datum is allocated to at most one parameter target; mapped mass plus unparameterized residual must exactly equal all reported pollen NISP. Parent aggregate and child rows are refused unless an explicit residual/mutual-exclusivity assumption is supplied; preserve sourceIDs and both alternatives.",
+    "chronology": "Only exact named calibrated native point ages, BPdatumAD1950, within [0,11700). Originalbounds missing; uncertainty excludes chronology. This is separate from the published youngest interval starting at actual core surface.",
+    "geometry": "Same staticmetadata-radius disk/100km landannulus and transport profiles as original scoped captures. No historical identity or physical field validation claimed.",
+    "uncertainty": "Conditional multinomial and assumed diagonal public PPE variance; no posterior probabilities for taxon transfer/sparse reporting/geometry/chronology. A zero cover/SE for an assumed-zero source is imposed conditional behavior and does not mean no uncertainty about true presence. Zero plug-in delta counting variance can also occur at genuinely observed zero proportions; it does not prove true absence or calibrated interval coverage. Conditional delta SE is not an absence interval."
+  },
+  "profiles": [
+    {
+      "id": "all_literal_parameters_sparse_zero_hypothesis",
+      "nonliteral_mappings": {},
+      "include_dwarf_birch": false,
+      "large_grass_rule": "unparameterized_residual"
+    },
+    {
+      "id": "major_parameter_transfers_sparse_zero_hypothesis",
+      "nonliteral_mappings": {
+        "Alnus": "Alnus glutinosa",
+        "Corylus": "Corylus avellana",
+        "Corylus-type": "Corylus avellana",
+        "Quercus": "Quercus deciduous t.",
+        "Pinus": "Pinus sylvestris",
+        "Picea": "Picea abies",
+        "Fagus": "Fagus sylvatica",
+        "Juniperus": "Juniperus communis",
+        "Carpinus": "Carpinus betulus",
+        "Calluna": "Calluna vulgaris",
+        "Fraxinus excelsior": "Fraxinus",
+        "Tilia cordata": "Tilia",
+        "Artemisia-type": "Artemisia",
+        "Rumex acetosa-type": "Rumex acetosa-t",
+        "Rumex acetosa group": "Rumex acetosa-t",
+        "Amaranthaceae": "Amaranthaceae/Chenopodiaceae",
+        "Betula pubescens": "Betula",
+        "Poaceae undiff. (<40 µm)": "Poaceae"
+      },
+      "include_dwarf_birch": false,
+      "large_grass_rule": "unparameterized_residual"
+    },
+    {
+      "id": "shared_birch_PPE_sparse_zero_hypothesis",
+      "nonliteral_mappings": {
+        "Alnus": "Alnus glutinosa",
+        "Corylus": "Corylus avellana",
+        "Corylus-type": "Corylus avellana",
+        "Quercus": "Quercus deciduous t.",
+        "Pinus": "Pinus sylvestris",
+        "Picea": "Picea abies",
+        "Fagus": "Fagus sylvatica",
+        "Juniperus": "Juniperus communis",
+        "Carpinus": "Carpinus betulus",
+        "Calluna": "Calluna vulgaris",
+        "Fraxinus excelsior": "Fraxinus",
+        "Tilia cordata": "Tilia",
+        "Artemisia-type": "Artemisia",
+        "Rumex acetosa-type": "Rumex acetosa-t",
+        "Rumex acetosa group": "Rumex acetosa-t",
+        "Amaranthaceae": "Amaranthaceae/Chenopodiaceae",
+        "Betula pubescens": "Betula",
+        "Poaceae undiff. (<40 µm)": "Poaceae",
+        "Betula nana": "Betula"
+      },
+      "include_dwarf_birch": true,
+      "large_grass_rule": "unparameterized_residual"
+    },
+    {
+      "id": "large_grass_cereal_proxy_sparse_zero_hypothesis",
+      "nonliteral_mappings": {
+        "Alnus": "Alnus glutinosa",
+        "Corylus": "Corylus avellana",
+        "Corylus-type": "Corylus avellana",
+        "Quercus": "Quercus deciduous t.",
+        "Pinus": "Pinus sylvestris",
+        "Picea": "Picea abies",
+        "Fagus": "Fagus sylvatica",
+        "Juniperus": "Juniperus communis",
+        "Carpinus": "Carpinus betulus",
+        "Calluna": "Calluna vulgaris",
+        "Fraxinus excelsior": "Fraxinus",
+        "Tilia cordata": "Tilia",
+        "Artemisia-type": "Artemisia",
+        "Rumex acetosa-type": "Rumex acetosa-t",
+        "Rumex acetosa group": "Rumex acetosa-t",
+        "Amaranthaceae": "Amaranthaceae/Chenopodiaceae",
+        "Betula pubescens": "Betula",
+        "Poaceae undiff. (<40 µm)": "Poaceae",
+        "Betula nana": "Betula",
+        "Poaceae undiff. (>40 µm)": "Cerealia-t"
+      },
+      "include_dwarf_birch": true,
+      "large_grass_rule": "Declared >40micron fraction uses cereal PPE/fall-speed as sensitivity proxy only; size is not cereal identification. Existing named cereal source labels remain residual in this profile to avoid unreviewed parent/type regrouping."
+    }
+  ],
+  "finite_guards": [
+    "sourcehash mismatch/wrongunits/fractionalcounts viaactualrawparser",
+    "missingzero assumption must refuse ratherthan markactualmeasurementcomplete",
+    "duplicate source mapping or native datum to two targets refuses",
+    "unsupported parametername/footnote interpretation refuses",
+    "source-parent/child ambiguity refuses absentexplicitresidualdecision",
+    "per-sample/window mapped+residual count conservation",
+    "originaltiny-panel outputs/candidate identities remain unchanged",
+    "source-name sibling absence tracked before many-to-one merge; any-source presence distinct from all-contributing-source completeness"
+  ],
+  "historical_replay_claim": false,
+  "accepted_taxonomy_mapping_claim": false,
+  "complete31source_measurement_claim": false,
+  "vegetation_accuracy_claim": false,
+  "source_scope": "New conditional parameter-transfer reconstruction of four exact selected native Swedish datasets. This protocol declares surrogate PPE and sparse-source hypotheses; it does not authenticate taxonomy or observed absences.",
+  "all_source_taxon_census_sha256": "80fb918773182f10b3ccfdc2cf805dd7d63564c45a187f56b53952cc27c4f108",
+  "native_source_population": {
+    "19913": {
+      "native_samples": 107,
+      "all_native_pollen_NISP_sum": 129750
+    },
+    "54001": {
+      "native_samples": 52,
+      "all_native_pollen_NISP_sum": 42548
+    },
+    "53995": {
+      "native_samples": 69,
+      "all_native_pollen_NISP_sum": 68668
+    },
+    "53980": {
+      "native_samples": 45,
+      "all_native_pollen_NISP_sum": 43851
+    }
+  },
+  "sparse_zero_hypothesis": true,
+  "mutually_exclusive_partition_hypothesis": true
+}
