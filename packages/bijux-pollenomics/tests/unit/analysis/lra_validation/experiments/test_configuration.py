@@ -11,9 +11,9 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     BLOCK_METHODS,
     FITTED_METHOD,
     FITTED_METHODS,
+    TRAINING_MEAN_METHOD,
     InputReference,
     SpatialBlockLocalPollenSpec,
-    TRAINING_MEAN_METHOD,
 )
 
 from .test_inputs import fixture_inputs

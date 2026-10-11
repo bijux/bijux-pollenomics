@@ -15,9 +15,9 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.block_products import 
     rows as block_rows,
 )
 from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
-    ExternalInput,
     EvaluationScope,
     EvaluationSite,
+    ExternalInput,
     Support,
     validate_frozen_prediction,
 )

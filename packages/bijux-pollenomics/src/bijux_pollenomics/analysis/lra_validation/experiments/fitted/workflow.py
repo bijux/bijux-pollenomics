@@ -16,8 +16,8 @@ from ..configuration import (
     FITTED_METHODS,
     FITTED_PROFILE,
     FITTED_ROLES,
-    FittedSpatialExperimentSpec,
     TRAINING_MEAN_METHOD,
+    FittedSpatialExperimentSpec,
 )
 from ..inputs import verify_consumed_sources
 from ..outputs import (

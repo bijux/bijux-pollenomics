@@ -278,32 +278,33 @@ def adapt_authenticated_spatial_block_local_vegetation_rows(
         baseline_key = fold_id, record_id, BLOCK_BASELINE_METHOD
         local = local_rows.get(local_key)
         baseline = baseline_rows.get(baseline_key)
-        if local is not None:
-            if (
-                local.get("group_id") != site.group_id
-                or local.get("bin_id") != site.bin_id
-                or set(object_mapping(local["vegetation_fraction"], "vegetation"))
-                != set(scope.taxa)
-            ):
-                refuse("Local product target ownership, bin or taxa differ from scope")
-        if baseline is not None:
-            if (
-                baseline.get("group_id") != site.group_id
-                or baseline.get("bin_id") != site.bin_id
-                or set(object_mapping(baseline["vegetation_fraction"], "vegetation"))
-                != set(scope.taxa)
-            ):
-                refuse("Baseline target ownership, bin or taxa differ from scope")
-        if local is not None and baseline is not None:
-            if (
+        if local is not None and (
+            local.get("group_id") != site.group_id
+            or local.get("bin_id") != site.bin_id
+            or set(object_mapping(local["vegetation_fraction"], "vegetation"))
+            != set(scope.taxa)
+        ):
+            refuse("Local product target ownership, bin or taxa differ from scope")
+        if baseline is not None and (
+            baseline.get("group_id") != site.group_id
+            or baseline.get("bin_id") != site.bin_id
+            or set(object_mapping(baseline["vegetation_fraction"], "vegetation"))
+            != set(scope.taxa)
+        ):
+            refuse("Baseline target ownership, bin or taxa differ from scope")
+        if (
+            local is not None
+            and baseline is not None
+            and (
                 local.get("target_geometry_sha256")
                 != baseline.get("target_geometry_sha256")
                 or local.get("training_admission_sha256")
                 != manifest_sha256(baseline.get("training_admission"))
                 or canonical_json(local.get("outer_fold"))
                 != canonical_json(baseline.get("outer_fold"))
-            ):
-                refuse("Local and baseline product admission or geometry differs")
+            )
+        ):
+            refuse("Local and baseline product admission or geometry differs")
         result.append(
             _local_row(
                 local,

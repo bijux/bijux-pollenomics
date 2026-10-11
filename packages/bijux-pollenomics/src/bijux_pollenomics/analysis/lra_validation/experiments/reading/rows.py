@@ -130,7 +130,7 @@ def _predictions(
                     "Paired interruption status and reason differ",
                 )
             paired_failures[terminal_key] = status
-        terminal = {terminal_key: "predicted" for terminal_key in predictions}
+        terminal = dict.fromkeys(predictions, "predicted")
         terminal.update(paired_failures)
         ordered = [(fold, method) for fold in folds for method in methods]
         first_not_run = next(

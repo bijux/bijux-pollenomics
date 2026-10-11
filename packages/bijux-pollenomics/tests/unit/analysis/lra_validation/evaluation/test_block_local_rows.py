@@ -2,8 +2,8 @@
 
 from dataclasses import replace
 import json
-from types import SimpleNamespace
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -18,11 +18,11 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     canonical_json,
     manifest_sha256,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation import block_local_rows
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     evaluate_final,
     validate_evaluation_policy,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation import block_local_rows
 from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
     EvaluationScope,
     EvaluationSite,
