@@ -60,10 +60,13 @@ def canonical_digest(value: object) -> str:
 
 
 def sha256(value: bytes) -> str:
+    """Return the SHA-256 digest of the supplied bytes."""
     return hashlib.sha256(value).hexdigest()
 
 
 def json_bytes(value: bytes) -> dict[str, Any]:
+    """Decode a candidate JSON object without duplicate keys or nonfinite values."""
+
     def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         for key, item in pairs:
@@ -105,6 +108,7 @@ def inventory(root: Path) -> list[dict[str, Any]]:
 
 
 def git_bytes(root: Path, *args: str) -> bytes:
+    """Return Git object bytes through a bounded argument-vector invocation."""
     try:
         result = run_bounded_argv(("git", *args), cwd=root, timeout_seconds=30)
     except BoundedProcessError as error:
@@ -348,6 +352,7 @@ def _verify_product(root: Path, expected: str) -> None:
 
 
 def audit_artifact_candidate(plan: BrowserVerificationPlan) -> JsonObject:
+    """Validate the artifact candidate against source and product input evidence."""
     candidate = plan.candidate
     if not isinstance(candidate, AtlasArtifactCandidate):
         raise AtlasBrowserContractError("artifact audit requires an artifact candidate")

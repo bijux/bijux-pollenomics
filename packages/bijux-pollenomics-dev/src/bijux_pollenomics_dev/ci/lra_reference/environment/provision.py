@@ -34,6 +34,7 @@ def provision(
     makevars: Path | None = None,
     runtime_receipt: Path | None = None,
 ) -> dict[str, Any]:
+    """Provision the reference library from verified locked sources."""
     lock_path, source_cache, repository, library, output = (
         local_path(path)
         for path in (lock_path, source_cache, repository, library, output)
@@ -266,6 +267,7 @@ def provision(
 
 
 def main() -> int:
+    """Provision the reference environment from explicit command arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--lock", type=Path, required=True)
     parser.add_argument("--source-cache", type=Path, required=True)

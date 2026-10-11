@@ -38,6 +38,7 @@ def certify(
     provision_receipt: Path,
     output: Path,
 ) -> dict[str, Any]:
+    """Certify the locked reference against executed R evidence and source identity."""
     lock_path, repository, library, provision_receipt, output = (
         local_path(path)
         for path in (lock_path, repository, library, provision_receipt, output)

@@ -38,6 +38,7 @@ SCHEMA = "lra-live-r-certification.v2"
 
 
 def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
+    """Inventory regular evidence files by digest and byte count."""
     result = {}
     for path in sorted(root.rglob("*")):
         if path.is_symlink():
@@ -54,6 +55,7 @@ def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
 
 
 def validate_oracle(report: Any, manifest: Any, reference_hash: str) -> None:
+    """Validate the executed oracle report against its exact case manifest."""
     if not isinstance(report, dict) or not isinstance(manifest, list):
         raise ReferenceRefusal("Oracle report/manifest shape differs")
     exact = {

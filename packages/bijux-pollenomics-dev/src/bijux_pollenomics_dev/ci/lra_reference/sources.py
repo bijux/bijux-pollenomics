@@ -11,6 +11,7 @@ from .paths import local_path
 
 
 def sha256(path: Path) -> str:
+    """Return the SHA-256 digest of the exact file bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
@@ -61,6 +62,7 @@ def verify_archive(path: Path, package: str, version: str) -> None:
 def verify_sources(
     lock: ReferenceLock, cache: Path, repository: Path
 ) -> dict[str, Path]:
+    """Validate locked source archives and return their package paths."""
     verified = {}
     for source in lock.sources:
         path = local_path(cache / source.archive_filename)
@@ -210,6 +212,7 @@ SOURCE_TREE_ARGUMENTS = (
 
 
 def source_inventory(repository: Path) -> dict[str, str]:
+    """Inventory regular executable source files without symbolic links."""
     files: list[Path] = []
     for relative in SOURCE_DIRECTORIES:
         directory = repository / relative

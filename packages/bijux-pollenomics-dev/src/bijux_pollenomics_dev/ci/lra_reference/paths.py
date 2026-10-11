@@ -17,6 +17,7 @@ def local_path(value: Path) -> Path:
 
 
 def exclusive_outputs(outputs: tuple[Path, ...], inputs: tuple[Path, ...]) -> None:
+    """Refuse existing outputs and overlapping input or output paths."""
     for output in outputs:
         if output.exists():
             raise ReferenceRefusal(f"Output already exists: {output}")

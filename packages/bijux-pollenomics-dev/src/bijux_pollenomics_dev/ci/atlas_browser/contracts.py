@@ -111,6 +111,7 @@ class AtlasArtifactCandidate:
     kind: str = "local_lra_presentation"
 
     def __post_init__(self) -> None:
+        """Validate the artifact candidate identifiers and content digests."""
         if self.kind != "local_lra_presentation":
             raise AtlasBrowserContractError("unsupported artifact candidate kind")
         for key in ("generator_repository_head", "generator_repository_tree"):
@@ -140,10 +141,12 @@ class AtlasArtifactCandidate:
             )
 
     def as_json(self) -> JsonObject:
+        """Serialize the artifact candidate fields as a JSON object."""
         return cast(JsonObject, asdict(self))
 
     @classmethod
     def from_json(cls, value: object) -> AtlasArtifactCandidate:
+        """Parse an exact artifact candidate object with string values."""
         if not isinstance(value, dict) or set(value) != {
             field.name for field in fields(cls)
         }:

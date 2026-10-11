@@ -16,7 +16,11 @@ MAX_RESPONSE_BYTES = 32 * 1024 * 1024
 
 
 class EvidenceReader(Protocol):
-    def read(self, path: str) -> bytes: ...
+    """Provide raw release evidence bytes for a validated repository route."""
+
+    def read(self, path: str) -> bytes:
+        """Read raw evidence from the requested repository route."""
+        ...
 
 
 class _SafeRedirect(HTTPRedirectHandler):
@@ -35,9 +39,11 @@ class GitHubReader:
     """Only GET is exposed; no dispatch, rerun, status mutation or publication."""
 
     def __init__(self) -> None:
+        """Start the bounded collection deadline for GitHub release evidence."""
         self.started = time.monotonic()
 
     def read(self, path: str) -> bytes:
+        """Read validated GitHub evidence within the collection deadline."""
         if time.monotonic() - self.started > 300:
             raise ReferenceRefusal("Release evidence collection exceeded deadline")
         if (

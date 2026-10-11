@@ -74,6 +74,7 @@ def _positive_id(value: Any) -> int:
 def select_run(
     rows: list[dict[str, Any]], repository: str, target_sha: str
 ) -> dict[str, Any]:
+    """Select the latest certification run for the exact repository revision."""
     matching = [
         row
         for row in rows
@@ -137,6 +138,7 @@ def verify_release(
     output: Path,
     reader: EvidenceReader,
 ) -> dict[str, Any]:
+    """Validate same-revision release certification and collect its evidence."""
     if (
         re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository) is None
         or re.fullmatch(r"[0-9a-f]{40}", target_sha) is None
@@ -291,6 +293,7 @@ def verify_release(
 
 
 def main() -> int:
+    """Collect and validate release certification from explicit command arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target-sha", required=True)
     parser.add_argument("--release-tag", required=True)

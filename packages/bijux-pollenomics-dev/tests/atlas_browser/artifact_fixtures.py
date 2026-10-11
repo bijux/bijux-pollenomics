@@ -23,10 +23,12 @@ from .fixtures import BUILD_ID
 
 
 def encode(value: object) -> bytes:
+    """Encode a fixture as deterministic compact JSON bytes."""
     return json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
 
 
 def write(root: Path, member: str, payload: bytes) -> None:
+    """Write fixture bytes to the requested candidate member."""
     path = root / member
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(payload)
@@ -171,6 +173,7 @@ def artifact_plan(
 def rewrite_receipt(
     plan: BrowserVerificationPlan, **updates: object
 ) -> BrowserVerificationPlan:
+    """Rewrite a fixture receipt and refresh its candidate digest."""
     assert isinstance(plan.candidate, AtlasArtifactCandidate)
     path = plan.repository_root / plan.candidate.generator_receipt
     value = json.loads(path.read_bytes())

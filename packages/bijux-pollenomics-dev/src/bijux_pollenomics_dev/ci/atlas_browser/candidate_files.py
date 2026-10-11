@@ -10,6 +10,7 @@ from .contracts import AtlasBrowserContractError
 
 
 def regular_bytes(path: Path) -> bytes:
+    """Read regular candidate file bytes while refusing symbolic links."""
     if any(parent.is_symlink() for parent in (path, *path.parents)):
         raise AtlasBrowserContractError(f"symbolic link in candidate: {path}")
     try:

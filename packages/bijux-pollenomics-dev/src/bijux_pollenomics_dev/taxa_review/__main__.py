@@ -9,6 +9,7 @@ from .decisions import load_review_json
 
 
 def main() -> None:
+    """Build or validate a taxa review bundle from explicit command arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     build = commands.add_parser("build")

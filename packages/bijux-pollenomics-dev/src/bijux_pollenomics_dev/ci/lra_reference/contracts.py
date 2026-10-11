@@ -15,6 +15,8 @@ class ReferenceRefusal(ValueError):
 
 @dataclass(frozen=True)
 class Source:
+    """Identify a locked source archive and its expected bytes."""
+
     package: str
     version: str
     url: str
@@ -25,6 +27,8 @@ class Source:
 
 @dataclass(frozen=True)
 class ReferenceLock:
+    """Carry the source lock, archive identities and installation order."""
+
     path: Path
     payload: dict[str, Any]
     sources: tuple[Source, ...]
@@ -164,6 +168,8 @@ def load_lock(path: Path) -> ReferenceLock:
 
 
 def read_json(data: bytes) -> Any:
+    """Decode evidence JSON while refusing duplicate keys and nonfinite numbers."""
+
     def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         for key, value in pairs:

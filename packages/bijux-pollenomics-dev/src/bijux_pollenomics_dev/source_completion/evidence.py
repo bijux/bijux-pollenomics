@@ -19,21 +19,25 @@ class EvidenceReader:
     """Record every consumed file and reject paths outside the audited tree."""
 
     def __init__(self, root: Path) -> None:
+        """Initialize evidence accounting within the resolved repository root."""
         self.root = root.resolve()
         self.files: dict[str, dict[str, Any]] = {}
         self.verifications: dict[str, dict[str, Any]] = {}
         self.issues: list[dict[str, Any]] = []
 
     def resolve(self, relative: str) -> Path:
+        """Resolve an evidence path while refusing repository escapes."""
         path = (self.root / relative).resolve()
         if not path.is_relative_to(self.root):
             raise ValueError(f"Evidence path escapes repository: {relative}")
         return path
 
     def issue(self, code: str, path: str, **details: Any) -> None:
+        """Record a structured evidence issue with its reason and details."""
         self.issues.append({"reason_code": code, "path": path, **details})
 
     def read_bytes(self, relative: str) -> bytes | None:
+        """Read and account for evidence bytes while detecting changes during audit."""
         path = self.resolve(relative)
         if not path.is_file():
             if self.files.get(relative, {}).get("presence") == "present":
@@ -54,6 +58,7 @@ class EvidenceReader:
         return content
 
     def json(self, relative: str) -> dict[str, Any] | None:
+        """Decode an accounted evidence file as a JSON object when present."""
         content = self.read_bytes(relative)
         if content is None:
             return None
@@ -63,6 +68,7 @@ class EvidenceReader:
         return result
 
     def verify(self, relative: str, expected: dict[str, Any]) -> bytes | None:
+        """Compare accounted file bytes with the declared digest and byte count."""
         content = self.read_bytes(relative)
         if content is None:
             self.issue("manifest_file_missing", relative)

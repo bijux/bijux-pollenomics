@@ -12,6 +12,7 @@ from .rows import review_row
 
 
 def landclim_rows(reader: EvidenceReader) -> list[dict[str, Any]]:
+    """Build review rows from the archived LandClim taxonomy authority."""
     path = "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
     content = reader.read_bytes(path)
     if content is None:
@@ -57,6 +58,7 @@ def _resource_frames(
 
 
 def parameter_rows(reader: EvidenceReader) -> list[dict[str, Any]]:
+    """Build parameter review rows from declared reference data and its manifest."""
     directory = (
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data"
     )
@@ -148,6 +150,7 @@ def parameter_rows(reader: EvidenceReader) -> list[dict[str, Any]]:
 
 
 def adna_rows(reader: EvidenceReader) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Build animal DNA context rows from the governed species dashboard."""
     dashboard_path = "data/adna/governance/cross_species_coverage_dashboard.json"
     dashboard = reader.json(dashboard_path)
     if dashboard is None:

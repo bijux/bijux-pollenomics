@@ -30,6 +30,8 @@ VERSION_NAMES = {
 
 @dataclass(frozen=True)
 class SourceIdentity:
+    """Record tracked, generated and executed source identity separately."""
+
     tracked_files: dict[str, str]
     tracked_git_blobs: dict[str, str]
     generated_files: dict[str, dict[str, Any]]
@@ -225,6 +227,7 @@ def selected_engine_version(identity: SourceIdentity) -> dict[str, Any]:
 
 
 def validate_generated_evidence(root: Path, certificate: dict[str, Any]) -> None:
+    """Refuse incomplete or altered tracked and generated source evidence."""
     generated = certificate.get("generated_source_files")
     blobs = certificate.get("tracked_git_blobs")
     source_files = certificate.get("source_files")
