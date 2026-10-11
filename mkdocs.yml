@@ -11,6 +11,7 @@ docs_dir: docs
 strict: true
 site_dir: artifacts/root/docs/site
 hooks:
+  - configs/docs/publish_site_assets.py
   - configs/docs/science_downloads.py
 watch:
   - docs
