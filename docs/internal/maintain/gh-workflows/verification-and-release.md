@@ -23,6 +23,24 @@ evidence includes the source SHA, resolved environment, invoked gates, exact
 results, warnings, and retained artifacts. It does not publish a distribution
 or waive a scientific refusal.
 
+### Complete Frozen Dependency Audit
+
+The development package security target audits every registry name and version
+in `uv.lock`, including optional dependencies and platform-specific alternatives.
+The repository `make security` command includes this target, and the package
+profile routes the hook through its own Make entrypoint.
+
+Pinned alternatives with the same distribution name are audited in separate
+batches. Admission requires an exact report for every locked pair, no skipped
+distributions and no known vulnerabilities. Unsupported registry or source
+records fail admission. Editable workspace packages are checked by the retained
+source gates rather than queried as published distributions.
+
+Requirements, reports, cache and command logs are retained in
+`artifacts/security/locked-dependencies/`. An installed-environment scan cannot
+replace this proof: it may select newer versions or omit optional packages that
+remain in the frozen graph. Scientific product tests remain a separate gate.
+
 ### Bounded Jobs And Complete Test Evidence
 
 Runner jobs must have a ten-minute timeout, with eight minutes as the operating

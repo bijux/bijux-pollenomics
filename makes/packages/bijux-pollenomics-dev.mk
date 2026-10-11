@@ -11,6 +11,8 @@ QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"
 QUALITY_PATHS := src tests
 SECURITY_AUDIT_PREPARE_MODE = pyproject
 PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
+SECURITY_EXTRA_TARGETS := security-locked-dependencies
+SECURITY_SELF_MAKE = $(MAKE) -f "$(MONOREPO_ROOT)/makes/packages/bijux-pollenomics-dev.mk"
 ENABLE_PYDOCSTYLE := 1
 # ISTS is an archived LandClim header preserved by taxa reconciliation contracts.
 CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists
@@ -42,3 +44,7 @@ test-all-plus-run-time: test
 .PHONY: test-all-plus-run-time
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
+
+security-locked-dependencies: ## Audit every frozen optional and platform registry version.
+	@PYTHONPATH="$(MONOREPO_ROOT)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(VENV_PYTHON)" -m bijux_pollenomics_dev.security.locked_dependencies
+.PHONY: security-locked-dependencies
