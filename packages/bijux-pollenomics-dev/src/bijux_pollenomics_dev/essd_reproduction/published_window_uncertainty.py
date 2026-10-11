@@ -16,10 +16,53 @@ def _digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _require_provenance_bytes(
+    correspondence_csv: Path, provenance_report: Path
+) -> None:
+    """Bind both inputs to the retained provenance product before interpretation."""
+    if (
+        correspondence_csv.parent != provenance_report.parent
+        or correspondence_csv.name != "paper-correspondence.csv"
+        or provenance_report.name != "report.json"
+    ):
+        raise ValueError("Provenance inputs must be one named product set")
+    manifest_path = provenance_report.parent / "manifest.json"
+    if any(
+        path.is_symlink() or not path.is_file()
+        for path in (correspondence_csv, provenance_report, manifest_path)
+    ):
+        raise ValueError("Provenance inputs must be regular files")
+    manifest = json.loads(manifest_path.read_text())
+    if (
+        not isinstance(manifest, dict)
+        or manifest.get("schema_version")
+        != "landclim-published-window-provenance-custody.v1"
+    ):
+        raise ValueError("Unsupported provenance custody manifest")
+    outputs = manifest.get("outputs")
+    if not isinstance(outputs, dict) or set(outputs) != {
+        "REPORT.md",
+        "report.json",
+        "paper-correspondence.csv",
+    }:
+        raise ValueError("Provenance custody output population does not close")
+    for path in (correspondence_csv, provenance_report):
+        entry = outputs[path.name]
+        if (
+            not isinstance(entry, dict)
+            or set(entry) != {"bytes", "sha256"}
+            or type(entry["bytes"]) is not int
+            or entry["bytes"] != path.stat().st_size
+            or entry["sha256"] != _digest(path)
+        ):
+            raise ValueError(f"Provenance custody mismatch: {path.name}")
+
+
 def compare_envelopes(
     correspondence_csv: Path, provenance_report: Path
 ) -> tuple[list[dict[str, str]], dict[str, object]]:
     """Compare one-SE envelopes without treating them as confidence intervals."""
+    _require_provenance_bytes(correspondence_csv, provenance_report)
     source = json.loads(provenance_report.read_text())
     if (
         source.get("schema_version") != "landclimii-published-window-provenance.v2"

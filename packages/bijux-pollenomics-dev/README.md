@@ -46,6 +46,7 @@ that check actually evaluated.
 | `bijux_pollenomics_dev.release.license_assets` | check or sync | package legal-file copies from root authorities |
 | `bijux_pollenomics_dev.release.version_resolver` | inspect | package version resolved from metadata, Hatch, or tags |
 | `bijux_pollenomics_dev.release.publication_guard` | check | prerelease, local-version, and built-artifact findings |
+| `bijux_pollenomics_dev.lra_validation.retained_reference` | compare | current installed Python correspondence with the authenticated 43-core/23-domain R reference |
 
 Check modes do not rewrite governed files. Sync modes have narrow write sets:
 badge sync owns only marked badge blocks; license sync owns only package legal
@@ -135,6 +136,32 @@ Repository Make targets compose these modules into broader maintainer lanes.
 Run the narrowest owner-specific check first and retain outputs under
 `artifacts/` when terminal status alone is not enough to reconstruct the
 verification boundary.
+
+## Retained R Correspondence
+
+`bijux_pollenomics_dev.lra_validation.retained_reference` compares the current
+installed Python engine with an explicitly supplied, authenticated R reference
+bundle. Its maintained profile pins all 143 original members, including the
+certificate, source identity, R runtime, 43 core cases and 23 domain cases.
+The historical canonical replay remains a separate reference.
+
+Use a normal noneditable development installation for the selected clean
+repository revision. Supply the retained bundle directory and an absent
+output directory under that repository's `artifacts/`:
+
+```bash
+python -I -B -m bijux_pollenomics_dev.lra_validation.retained_reference \
+  --repository . \
+  --bundle path/to/authenticated-reference \
+  --output artifacts/retained-r-correspondence
+```
+
+The interpreter must belong to the selected installation. The consumer checks
+installed code and numerical resource bytes against the repository, authenticates
+shared fixture inputs, and retains source differences from the original R
+execution. A successful report establishes correspondence for those 66 cases.
+It records the original R execution separately from the current Python run;
+it does not execute fresh R, approve scientific inputs, or certify a release.
 
 ## Documentation Boundary
 

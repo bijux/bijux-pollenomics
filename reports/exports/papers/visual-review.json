@@ -1,502 +1,341 @@
 {
-  "byte_identical_export_reproduction": {
-    "all_nine_pdf_bytes_and_sources_identical": true,
-    "prior_input_receipt_sha256": "87a9bd973ef8e7990ce57dacfbac98ba5adced93897b0782c25922ee7bd7af0b",
-    "prior_producer_sha256": {
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "22b53b3be6e6605cb24929162ac665e7e5a9e57bd0243c83363d011d46186146",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "b5ef1da5597cb12ab099c88b515d2b32cf67cfd701b5ecbcebf93e966ebb36e3",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "02b57b39c804bf1cb85a9dd3ebad26583ff8a7f6b91dad0777962a346664a46f",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "5e0100d2920eea2b8378fc695d521e85d448d671a03275786316702c37567f32"
-    },
-    "prior_reproduction_receipt_sha256": "9dd03dce3bef85917d1726411eecb614c81fb8bd1836feeaf3c077830365faf0",
-    "producer_revision": "1a3f44530170d81b38317760d86d766ec418a03f",
-    "reproduction_receipt_sha256": "436702007481dfc96e0eb045af627bfc0bd31acd69c9fe6e5bb21f195b928f19",
-    "scope": "Retain per-page visual, font and extractability observations because an actual original-source export with the current committed renderer reproduced all nine PDF and report-source bytes. No new visual, human-reader or scientific acceptance is claimed."
-  },
   "defects": [],
-  "export_reproduction_history": [
-    {
-      "all_nine_pdf_bytes_and_sources_identical": true,
-      "prior_input_receipt_sha256": "505e98bf5afde2a16c2c81a38866c944614567c327f5ab1b5163dabc39329c63",
-      "prior_producer_sha256": {
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "136a759213df444b2998e30a5822f947b97659168d7eddcf22da89c5a1f16c54",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "7a4b71f167b4dc4f246bc48dba80e1cc577009a0039e1a94d1c94e1ad63ec1c1",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "d675b36d527842e0a151780f3a235c1e22f7b98cf913c8db3407ec868c9aad2b",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "983fcf4122728fec04bceb70ac89c4e61bf0c2459728852162695349173d66d3"
-      },
-      "producer_revision": "cfbeadc21f2f6b55a87d746c0cb0be67e9154c54",
-      "reproduction_receipt_sha256": "9dd03dce3bef85917d1726411eecb614c81fb8bd1836feeaf3c077830365faf0",
-      "scope": "Retain the existing per-page visual/font/extractability observations because actual original-source export with the current committed renderer reproduces every PDF byte. This records producer equivalence and does not claim a new visual review, human-reader comprehension or scientific acceptance."
-    }
-  ],
-  "images_retained": "Raster previews remain disposable build review material; retained PDF hashes bind these per-page observations.",
-  "input_receipt_sha256": "3e52153b42dc2433d0bd54289e6095ea22b33debdb247be1b7db7536856b0382",
-  "inventory_sha256": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
-  "layout_equivalence": {
-    "all_26_pages_pixel_identical": true,
-    "all_extracted_text_identical": true,
-    "committed_url_annotations_checked": true,
-    "equivalence_receipt_sha256": "ed7fef03aaf5cea1ad240f9cd69bd95f3e1704069dfede710a056b45111751e3",
-    "prior_complete_visual_review_sha256": "ad34df8c1f9621ba18c806de03ae5f43e0880cc82bfd0b1324f18be82e2551ca",
-    "scope": "Final committed-producer PDFs rendered and compared with every previously visually inspected page. Only commit-pinned URL annotations changed."
-  },
-  "notes": [
-    "No orphan or clipped pages observed.",
-    "Frontnotes remain readable without crowding titles or citation prose.",
-    "LandClim page 4 begins the next paragraph with one line before page 5; content is intact and legible."
-  ],
+  "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b",
+  "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
   "overall_status": "layout_pass",
   "page_count": 26,
+  "page_evidence_sha256": "da4ff8c5cc723f284f3efedc67cf132ded9931dfbf7235d904ca6a2999d3a957",
   "paper_count": 9,
   "papers": [
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 5,
-      "file_url_annotations": 0,
-      "font_count": 6,
       "input_pdf": "landclim-regional-reconstruction.pdf",
-      "input_pdf_sha256": "6de0671ce5f67d11110541ea07532bf799dfcc08daede88ce8b70235469ba545",
+      "input_pdf_sha256": "c9ce2f710ffff35394e400078c77a3b9b3febb6f76cb408175bb830e053e41b3",
       "page_count": 5,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3074,
-          "observation": "Frontnote, title, full citation, and opening argument readable; diagram begins next page.",
+          "image": "page-1.png",
+          "observation": "Full 2022 citation, source hash, definition of site-window counts and 1128 records fit page; real bold and italic faces are visible.",
           "page": 1,
+          "png_sha256": "7e95cfa3ade68d5092d178973e0e9a1d42c9c762e1683da449e6eed893ccc26c",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3026,
-          "observation": "Complete flow diagram and method narrative readable; paragraph continues normally.",
+          "image": "page-2.png",
+          "observation": "All six flowchart boxes and arrows readable; transport assumptions, 17 lakes and 425-window denominator fit above separate footer.",
           "page": 2,
+          "png_sha256": "bf273f0fbb87c4860e408c2100a85a97e622ea0ef91b78b0e37bd3875859746c",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 4516,
-          "observation": "WHH05 trace and results readable; paragraph continues normally.",
+          "image": "page-3.png",
+          "observation": "WHH05 301 to297-grain trace, 31-taxon means and SE, 14074 comparison count and TW2 residuals readable without clipped digits.",
           "page": 3,
+          "png_sha256": "bc456661b51d57b1b6a0670ce9b9306fbbbdf817e89fd075f26bbc44af1fe997",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 5416,
-          "observation": "Status table fully readable; first line of following paragraph starts near bottom without clipping.",
+          "image": "page-4.png",
+          "observation": "Archive 11/12/13-PFT distinction and four complete missing-evidence table rows readable; no rows overlap source footer.",
           "page": 4,
+          "png_sha256": "773edb27609ae67e213b77e804094b38a8e79279a6881d23c4e8524310acf5e3",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3071,
-          "observation": "Continuation, reproduction command, and final requests readable; no orphan page.",
+          "image": "page-5.png",
+          "observation": "Continuation rule, 0/1128 limitation, reproduction code and precise unsent source/reviewer questions readable; scientific acceptance remains open.",
           "page": 5,
+          "png_sha256": "d63177d64ac7e3f264d1ffa594d29c47a97638ffd7d071207b77b1aa0a0f7d56",
           "visual_status": "readable"
         }
       ],
       "paper_id": "landclim-regional-reconstruction",
-      "previous_visually_inspected_pdf_sha256": "6dba467c84af6ca2fbeed3bb549c8f71fbac50d797a9b378efd784c54d0b93ce",
-      "primary_source_url": "https://doi.org/10.5194/essd-14-1581-2022",
       "primary_source_url_annotated": true,
-      "raster_page_count": 5,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [
-        "±",
-        "×",
-        "−"
-      ],
-      "url_annotation_count": 61
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 4,
-      "file_url_annotations": 0,
-      "font_count": 8,
       "input_pdf": "love-optimized-local-inference.pdf",
-      "input_pdf_sha256": "3ce11504e93a143275eb5e1c712683592b4988afac6648d471fd76938ea8a62d",
+      "input_pdf_sha256": "cd04def7764d2d72534fae9161f0c7e3bb23af8997d89b6cf8d49a02fb174d1e",
       "page_count": 4,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3725,
-          "observation": "Frontnote, title, citation, concepts, and complete diagram readable; no footer collision.",
+          "image": "page-1.png",
+          "observation": "2024 citation, simulation scope and entire flow diagram readable with distinct branches and measured/simulated evaluation annotation.",
           "page": 1,
+          "png_sha256": "86daf32191de7d6aabaaaffc59c7fb9e32f78f2d0a491f9fb325f4457e865a6d",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 4568,
-          "observation": "Method, worked trace, and published findings readable; paragraph continues.",
+          "image": "page-2.png",
+          "observation": "Table2 30/30 cells, Betula4/0.4/0.024 and 594/999 versus424/1000 counts readable; both long matched output decimals intact.",
           "page": 2,
+          "png_sha256": "18c0d6c78d1b2697885a266567ae963e017809844336743107716be41ae487a9",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 4688,
-          "observation": "Published findings continuation and first four table rows readable; complete-row break.",
+          "image": "page-3.png",
+          "observation": "Four full numerical-evidence rows readable, retaining historical48/66 versus current66 and Linux platform scope; negative exponents and table borders intact.",
           "page": 3,
+          "png_sha256": "a756f19807165bd21b57b447259f1e9807dc215214571238b855c1ca6de6a8e7",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3167,
-          "observation": "Repeated table header, final row, context, command, and full conclusion readable; prior orphan page gone.",
+          "image": "page-4.png",
+          "observation": "Final table row3/10 rings and16 negative/six above1 cells visible; command and unsent requests stay inside margins.",
           "page": 4,
+          "png_sha256": "3249d0a7280edfc9f899452f72df91199892a57a09395779a701d0d90bb053ef",
           "visual_status": "readable"
         }
       ],
       "paper_id": "love-optimized-local-inference",
-      "previous_visually_inspected_pdf_sha256": "f79fc25f06467c029beb4c2acff71738ad4468e653af378ac00d3c0646a87ef7",
-      "primary_source_url": "https://doi.org/10.3390/quat7020018",
       "primary_source_url_annotated": true,
-      "raster_page_count": 4,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [
-        "BÜK",
-        "×",
-        "⁻"
-      ],
-      "url_annotation_count": 44
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 2,
-      "file_url_annotations": 0,
-      "font_count": 4,
       "input_pdf": "regional-reveals-theory.pdf",
-      "input_pdf_sha256": "20b2f33ea78b7528ce31f42351dc6d7dec69de86cc81a0c706c2fa512fcd0f12",
+      "input_pdf_sha256": "dfc61dbe4329f600f47b4a44ca249560baa022029e605d25af48f160435ed04f",
       "page_count": 2,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 4009,
-          "observation": "Frontnote, title, citation, concept sequence, and trace start readable.",
+          "image": "page-1.png",
+          "observation": "2007a citation and abstract-only scope clear; regional104\u2013105-km2 support, flow code and WHH05 trace visible with separate footer.",
           "page": 1,
+          "png_sha256": "908c92bc1a6861b956c509eca1ec2956a33a48976f2c6d301230e4207baba327",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3248,
-          "observation": "Trace conclusion, command, and requests readable; no orphan page.",
+          "image": "page-2.png",
+          "observation": "31 mean/SE trace,184/425 supported bins, bounded command and explicit missing original simulation source remain readable.",
           "page": 2,
+          "png_sha256": "9ee9df932f5bccf4e0a929590d173ed41e2d04b96b88d65fdc02803bc88014f3",
           "visual_status": "readable"
         }
       ],
       "paper_id": "regional-reveals-theory",
-      "previous_visually_inspected_pdf_sha256": "11a8f706880f6863563fa86244c00b48ba0814b35313968411d6acb44ffc2c9e",
-      "primary_source_url": "https://doi.org/10.1177/0959683607075837",
       "primary_source_url_annotated": true,
-      "raster_page_count": 2,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [],
-      "url_annotation_count": 22
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 2,
-      "file_url_annotations": 0,
-      "font_count": 4,
       "input_pdf": "local-love-theory.pdf",
-      "input_pdf_sha256": "bc9aabd61b74c35fb12342a817bfc6e888ef8cdafc993048fbee74622a740873",
+      "input_pdf_sha256": "6ba154e83cd7c8a3f1858d20450d2a85e0c9d96bc575e45f09d6f60882396f57",
       "page_count": 2,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3927,
-          "observation": "Frontnote, title, citation, concept sequence, and trace start readable.",
+          "image": "page-1.png",
+          "observation": "2007b citation, code arrows and constructed200\u2013300m ring trace readable;31000 cells/8312negative and signed minimum preserved.",
           "page": 1,
+          "png_sha256": "5740a86674a6a34a772a63f6d434e88e1c653baff02bc4933307ff70474289e8",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3115,
-          "observation": "Trace continuation, command, and requests readable; no orphan page.",
+          "image": "page-2.png",
+          "observation": "Draw uncertainty and3/10 ring limits readable; full command and unsent source/reviewer request within margins.",
           "page": 2,
+          "png_sha256": "d2bac5f6588fc92f2ecb874fd47b8970e273e338a4d4b3538cacb8e470c1b840",
           "visual_status": "readable"
         }
       ],
       "paper_id": "local-love-theory",
-      "previous_visually_inspected_pdf_sha256": "159658d9c0a72fd61cfd6492029f6bb8a0d8471365053c7df91dbe5464c02588",
-      "primary_source_url": "https://doi.org/10.1177/0959683607075838",
       "primary_source_url_annotated": true,
-      "raster_page_count": 2,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [],
-      "url_annotation_count": 23
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 2,
-      "file_url_annotations": 0,
-      "font_count": 4,
       "input_pdf": "southern-sweden-regional-validation.pdf",
-      "input_pdf_sha256": "e6f1b78c406dcd6439f049ad27b17eb8189bba5cd8cb6103cf228a705f309239",
+      "input_pdf_sha256": "7f279ef718b889080ad7efd1b21ebeefa7f68a5c5f3a80f3c1ecc4b6d7bfc6b7",
       "page_count": 2,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3918,
-          "observation": "Frontnote, title, citation, method, and example start readable; example continues.",
+          "image": "page-1.png",
+          "observation": "2008a citation/2007 online date distinction,26taxa/10lakes and Skane Pinus arithmetic readable; equation continues correctly on next page.",
           "page": 1,
+          "png_sha256": "c83866cb5c642ba6b0aedfb9b62d2414ef5b534b3edec69319124368852b7803",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 2766,
-          "observation": "Example conclusion, command, and requests readable.",
+          "image": "page-2.png",
+          "observation": "Zero percentage-point continuation and five/four label denominator clear; SHA hash wraps without loss, command and precise missing ten-lake inputs fit.",
           "page": 2,
+          "png_sha256": "3a8ab0f11da6180d78fc7fefa2ef967e7950db5e689ebd2bf3b0696195f6d2a5",
           "visual_status": "readable"
         }
       ],
       "paper_id": "southern-sweden-regional-validation",
-      "previous_visually_inspected_pdf_sha256": "e4fd9e8fa6041214b45293cb459e35fe55ac2f5fb9df7ebaf174b0d34db968b5",
-      "primary_source_url": "https://doi.org/10.1002/jqs.1126",
       "primary_source_url_annotated": true,
-      "raster_page_count": 2,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [
-        "Skåne",
-        "Småland"
-      ],
-      "url_annotation_count": 21
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 2,
-      "file_url_annotations": 0,
-      "font_count": 5,
       "input_pdf": "southern-sweden-sampling-design.pdf",
-      "input_pdf_sha256": "ac2e50d7d79988ac290286f25b6ce5ed49ecc644dc6b97a3c91cbfa0e671f492",
+      "input_pdf_sha256": "6fee1371a5e3334f9adf8954a1b254f6a9eb874e696d3420a94c72c483533f35",
       "page_count": 2,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3459,
-          "observation": "Frontnote, title, citation, method, and sampling comparison readable.",
+          "image": "page-1.png",
+          "observation": "2008b citation,25/20/four samples,200km radius versus100x100km2 square and25minus20equals5 visible.",
           "page": 1,
+          "png_sha256": "93c03a4c181fea6abbe0a18d6466ac57789450aeb001a5f2a2415adf2c5061e4",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 2687,
-          "observation": "Bounded figure example, command, and requests readable.",
+          "image": "page-2.png",
+          "observation": "Sm\u00e5land Picea16/54/44 percentages and28/10-point differences visible; full command, hash and scenario-specific unsent questions readable.",
           "page": 2,
+          "png_sha256": "3be93d2f1c6a8cb8d1ee4824be35b6f9d4d6a93fd67109b1c53e419f2a42cc52",
           "visual_status": "readable"
         }
       ],
       "paper_id": "southern-sweden-sampling-design",
-      "previous_visually_inspected_pdf_sha256": "b7a48874028c782718324975d6397da8488b09f115a7d6662894d735d25e7889",
-      "primary_source_url": "https://doi.org/10.1007/s00334-008-0149-7",
       "primary_source_url_annotated": true,
-      "raster_page_count": 2,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [],
-      "url_annotation_count": 20
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 2,
-      "file_url_annotations": 0,
-      "font_count": 4,
       "input_pdf": "southern-sweden-validation-synthesis.pdf",
-      "input_pdf_sha256": "58fa253e660046766e8783a0e98efc5c258870869b11c26d78f1150dcdc3a973",
+      "input_pdf_sha256": "db84fa8b5d085db16eb35afa49f94b376bbaf5e369f2c451262bf8abb41db75d",
       "page_count": 2,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 4032,
-          "observation": "Frontnote, title, citation, argument, and worked example readable.",
+          "image": "page-1.png",
+          "observation": "2010 citation and Figure6 scope, selected-label rule and Cerealia4/32/41 to37/9-point calculation readable.",
           "page": 1,
+          "png_sha256": "745fe66b03995081138f57b0b96f342bc7bd345bdb883e36808337fdf254f50c",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3576,
-          "observation": "Comparison table, command, and final requests readable; no source-note-only page.",
+          "image": "page-2.png",
+          "observation": "Three-row table preserves Skane5/14.80/4.20,Sm\u00e5land4/20.50/6.25,pooled9/17.33/5.11; hash/code and unsent inputs fit.",
           "page": 2,
+          "png_sha256": "f50a08982843e70d543a65de0ffb320b666f2b024ef0a5469c78f9f25857ad2d",
           "visual_status": "readable"
         }
       ],
       "paper_id": "southern-sweden-validation-synthesis",
-      "previous_visually_inspected_pdf_sha256": "8e34b7f3ceef783c787f2a5bc0f08976bba5f97a2e97625129043dd28650e908",
-      "primary_source_url": "https://doi.org/10.5194/cp-6-483-2010",
       "primary_source_url_annotated": true,
-      "raster_page_count": 2,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [],
-      "url_annotation_count": 17
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 4,
-      "file_url_annotations": 0,
-      "font_count": 6,
       "input_pdf": "smaland-historical-map-reference.pdf",
-      "input_pdf_sha256": "05e49d14fdda486e858df0ebba6b3ea5515574dc1878fefd903ab7e45352b8ad",
+      "input_pdf_sha256": "ab3cb9fb5d3ce33e4c8dfb82a22aa36f1fab4b7b21c9928562aed982fb83d9a1",
       "page_count": 4,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3203,
-          "observation": "Frontnote, title, citation, source roles, and map explanation readable.",
+          "image": "page-1.png",
+          "observation": "2014 citation, three bogs/two regional lakes,25taxa/fourLuVs/3km map support readable.",
           "page": 1,
+          "png_sha256": "f53fe80883cef2556e2d92b8286b410fb485a22dc41ec1bce66e010b2da0d4ee",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3158,
-          "observation": "Full diagram and Stavasakra trace readable; prose continues.",
+          "image": "page-2.png",
+          "observation": "Entire source-to-comparison flowchart and four CE windows visible;Stavs\u00e5kra617grains/1930 and100/75/24/10% support trace fit.",
           "page": 2,
+          "png_sha256": "74109679d667e359319a6039628cf3300547bd55c6a556822a13cf7e36db1474",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 4088,
-          "observation": "Findings and first two status-table rows readable; table splits between rows.",
+          "image": "page-3.png",
+          "observation": "Notteryd841/1993 and Storasj\u00f6574/1935 traces,1.3\u20131.7km/\u00b150years limits and first two table rows readable; long refusal identifier wraps within cell.",
           "page": 3,
+          "png_sha256": "8336e898040076e4ee43cb505cc3c045168ad97ed4c8732004a828559f24e121",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 3651,
-          "observation": "Repeated table header, remaining rows, command, and requests readable.",
+          "image": "page-4.png",
+          "observation": "Table continuation preserves shared three anchors, complete coverage reproduction command and precise unsent numeric-reference questions within margins.",
           "page": 4,
+          "png_sha256": "c0d678a52dc51d545258edb3c183f7b2b3e70e9a46629e10844756014c270892",
           "visual_status": "readable"
         }
       ],
       "paper_id": "smaland-historical-map-reference",
-      "previous_visually_inspected_pdf_sha256": "47f5b319f8323bd96ef0e851f8bb580c1d3c3a72e2ca59e5976fd7f85bbf805a",
-      "primary_source_url": "https://doi.org/10.1002/ece3.1198",
       "primary_source_url_annotated": true,
-      "raster_page_count": 4,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [
-        "Småland",
-        "Stavsåkra"
-      ],
-      "url_annotation_count": 40
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     },
     {
-      "all_extracted_pages_nonempty": true,
       "all_fonts_embedded": true,
-      "extracted_page_count": 3,
-      "file_url_annotations": 0,
-      "font_count": 7,
       "input_pdf": "namibia-modern-pollen-vegetation-reference.pdf",
-      "input_pdf_sha256": "24562c89eda2e32afaf08d631cfee0dee2733edc74841cc3f63afb4cbc1b21aa",
+      "input_pdf_sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
       "page_count": 3,
-      "page_size": "595.28 x 841.89 pts (A4)",
       "pages": [
         {
-          "extracted_character_count": 3007,
-          "observation": "Frontnote, title, citation, source descriptions, and scope readable.",
+          "image": "page-1.png",
+          "observation": "2021 citation and abstract-only calibration scope visible;931033/931035/931037 identifiers,CCBY4.0 and grain/area distinction readable.",
           "page": 1,
+          "png_sha256": "efdf70a54a7a938e4e29dad1a79fe7a387275df180f64b3bd57880fdef9d22cc",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 2953,
-          "observation": "Complete diagram, worked trace, and summary table readable.",
+          "image": "page-2.png",
+          "observation": "Entire diagram including dashed calibration limit readable;750rows/50series/9declines/700comparisons and64.621\u201393.534% annuli visible. All T1 counts, conditional fractions and full sqrt Hellinger expression intact.",
           "page": 2,
+          "png_sha256": "ce1f671f791220c91730f0693177af584ab8d106975335dab705492a0d62c1e7",
           "visual_status": "readable"
         },
         {
-          "extracted_character_count": 2371,
-          "observation": "Boundary, final requests, and footer readable; no orphan page.",
+          "image": "page-3.png",
+          "observation": "Continuation defines v correctly;100/400/1500m three-row distances table readable; precise unsent source-request slash list wraps within right margin.",
           "page": 3,
+          "png_sha256": "1c731445c0fa7576ce752389eff4d3d91ecbbf29e6953e9127b0beb01e18f2b5",
           "visual_status": "readable"
         }
       ],
       "paper_id": "namibia-modern-pollen-vegetation-reference",
-      "previous_visually_inspected_pdf_sha256": "2a415d0d86ba816bdbc239bae78f0ebfc593e221775d9b1299c44a6c0f3b525e",
-      "primary_source_url": "https://doi.org/10.1177/09596836211003193",
       "primary_source_url_annotated": true,
-      "raster_page_count": 3,
-      "render_dpi": 140,
-      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "a54e9d9459a674a64944252c08ae4c9b56bbfb0c6f5e32fb793e75a5a28a4fb0",
-      "text_reading_order": "Citation, prose, table, command, and page continuations checked against rendered pages; diagram labels checked visually.",
-      "unicode_probes_present": [
-        "m²"
-      ],
-      "url_annotation_count": 23
+      "source_sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
     }
   ],
-  "producer_sha256": {
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "5b089e9318f726bb0689b5677e97bd41919053bdc4125ba24e076865948319d4",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "3925f8b56303443175e273f1ec423686d75963ea6251d5704b6a96ac3dc29203",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "e5f1e300d21cad36371d21c2a6eb0843c593e13743a6435b3c2b6dd45b8c47e4",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
-  },
-  "repository_link_status": "Source paths encoded to pinned GitHub revision; newly committed remote pages were not opened online.",
-  "repository_revision": "9460aa08c5a99743db1ae4cd6ee817754c7d5382",
-  "review_date": "2026-10-02",
-  "scope": "Model visual and extractability review of nine frozen standalone PDFs; no human-reader comprehension, independent scientific review, or online availability claim",
-  "source_date_epoch": 1790812800,
-  "tools": [
-    "pdftoppm -png -r 140",
-    "pdfinfo",
-    "pdffonts",
-    "pdftotext -layout",
-    "pdfinfo -url",
-    "manual original-size inspection of every rasterized page"
-  ]
+  "repository_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+  "review_scope": "Root viewed every fresh full-page PNG and read actual page text, checking critical operands, denominators, tables, source hashes, citation years, footers and URL annotations against canonical reports. Layout acceptance only; untagged PDFs, no independent human comprehension or ecological qualification. One nonfatal LOVEoptim underfull-box notice has no visible defect.",
+  "scientific_or_release_admission": false,
+  "source_date_epoch": 1790812800
 }

@@ -155,7 +155,10 @@ def write_review(payload: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     documents = {
         "taxa-review.json": (
-            json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+            json.dumps(
+                payload, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False
+            )
+            + "\n"
         ).encode(),
         "taxa-review.csv": csv_bytes(payload["rows"]),
         "REVIEW-INSTRUCTIONS.md": INSTRUCTIONS.encode(),

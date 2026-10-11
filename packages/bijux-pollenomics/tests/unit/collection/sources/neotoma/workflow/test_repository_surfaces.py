@@ -18,6 +18,7 @@ from bijux_pollenomics.collection.sources.neotoma.context_points import (
 from bijux_pollenomics.collection.sources.neotoma.review import (
     build_neotoma_temporal_review,
 )
+from tests.support.context_data.boundaries import write_synthetic_boundary_manifest
 from tests.support.neotoma.relational_shapes import mapping
 
 ROOT = Path(__file__).resolve().parents[8]
@@ -119,6 +120,7 @@ class NeotomaRepositorySurfaceTests(unittest.TestCase):
                     encoding="utf-8",
                 )
 
+            write_synthetic_boundary_manifest(data_root / "boundaries" / "raw")
             report = materialize_neotoma_repository_surfaces(data_root)
 
             normalized_payload = json.loads(

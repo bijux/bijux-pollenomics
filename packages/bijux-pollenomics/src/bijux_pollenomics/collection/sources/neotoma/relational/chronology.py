@@ -118,6 +118,15 @@ def age_temporal_posture(age: Mapping[str, object]) -> dict[str, object]:
         if age_type == "Calibrated radiocarbon years BP"
         else "not_applicable"
     )
+    # Missing/null bounds permit a reported point age. Malformed explicit
+    # bounds must not be discarded to manufacture a comparable point interval.
+    if any(
+        age.get(field) is not None and finite_number(age.get(field)) is None
+        for field in ("ageyounger", "ageolder")
+    ):
+        return temporal_result(
+            calibration_status, "refused", None, None, "invalid_interval_bound"
+        )
     younger = finite_number(age.get("ageyounger"))
     older = finite_number(age.get("ageolder"))
     if (younger is None) != (older is None):

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from bijux_pollenomics.reporting.map_document.template import (
     MAP_DOCUMENT_TEMPLATE,
 )
@@ -147,7 +149,10 @@ console.log(JSON.stringify({label:featureTimeLabel(feature),descriptor:featureTi
     )
 
 
-def test_golden_zero_bp_and_null_stay_distinct_in_rendered_javascript() -> None:
+@pytest.mark.parametrize("_fixture_id", ["TIME-010"])
+def test_golden_zero_bp_and_null_stay_distinct_in_rendered_javascript(
+    _fixture_id: str,
+) -> None:
     helpers = template_block(
         "function finiteTimeValue", "function pointFeatureInTimeWindow"
     )

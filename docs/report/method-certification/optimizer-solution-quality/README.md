@@ -13,7 +13,10 @@ All three objective values are within the declared `1e-4` gap of independently
 derived optima, and every cross-engine evaluation differs from the producing
 engine's objective by less than the declared `1e-10` absolute tolerance.
 The symmetric, constrained-boundary and composition-ambiguous examples probe
-different optimizer geometry. The ambiguous objective has multiple equally
+different optimizer geometry. The case arrays, seed and iteration cap are
+authored study choices retained as configuration. Their custody does not
+reproduce an optimizer run or establish independent scientific approval.
+The ambiguous objective has multiple equally
 good cover vectors, so vector equality would be a false solution-quality
 criterion. Python reported success after 29–40 iterations and 600–1,230
 evaluations. R used the complete 400-iteration cap (8,020 or 12,030

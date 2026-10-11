@@ -304,6 +304,9 @@ class PropagationPairRefusal:
     feature_key: str
     scenario_id: str
     reason_code: str
+    config_digest: str
+    propagation_contract_version: str = PROPAGATION_CONTRACT_VERSION
+    producer_version: str = NETWORK_PRODUCER_VERSION
 
     def as_dict(self) -> dict[str, object]:
         return dict(self.__dict__)
@@ -439,14 +442,13 @@ def _validate_resolution_requirements(event: PhenomenonEvent) -> None:
 
 
 def _validate_coordinates(latitude: float | None, longitude: float | None) -> None:
-    if latitude is None and longitude is None:
-        return
-    if latitude is None or longitude is None:
-        _invalid("coordinates must either both be present or both be null")
     for value, minimum, maximum, field_name in (
         (latitude, -90.0, 90.0, "latitude"),
         (longitude, -180.0, 180.0, "longitude"),
     ):
+        # Missing source axes remain explicit for pair-refusal accounting.
+        if value is None:
+            continue
         if isinstance(value, bool) or not isinstance(value, (int, float)):
             _invalid(f"{field_name} must be a finite number")
         numeric = float(value)

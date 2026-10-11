@@ -18,6 +18,7 @@ from bijux_pollenomics.collection.sources.sead.collection import (
     materialize_sead_repository_surfaces,
 )
 from tests.support.context_data import NordicBoundaryTestCase
+from tests.support.context_data.boundaries import write_synthetic_boundary_manifest
 
 _SITE_UUID = "16fd2706-8baf-433b-82eb-8c7fada847da"
 
@@ -204,6 +205,7 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                     encoding="utf-8",
                 )
 
+            write_synthetic_boundary_manifest(data_root / "boundaries" / "raw")
             fixture_rows = json.loads(
                 (data_root / "sead" / "raw" / "nordic_sites.json").read_text(
                     encoding="utf-8"

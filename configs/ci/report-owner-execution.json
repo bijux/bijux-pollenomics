@@ -999,6 +999,19 @@
       "timeout_seconds": 600
     },
     {
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/prepared-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.lilla_gloppsjon_preparation",
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/input-manifest.json",
+        "source-products/metadata.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/metadata.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/lilla-gloppsjon-publication-link.json",
+      "timeout_seconds": 180
+    },
+    {
       "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_predictions",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
@@ -1441,6 +1454,198 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-value-components/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_components",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-value-components/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/analysis-value-components/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.buffered_author_pollen",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/author-buffered-pollen/result-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/comparisons/baseline/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
+        "source-products/comparisons/baseline/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
+        "source-products/comparisons/fitted-common-support/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
+        "source-products/comparisons/fitted-common-support/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json",
+        "source-products/comparisons/hellinger/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
+        "source-products/comparisons/hellinger/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/report.json",
+        "source-products/comparisons/hellinger/scores.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/scores.csv",
+        "source-products/comparisons/strict-clr-support/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
+        "source-products/comparisons/strict-clr-support/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json",
+        "source-products/comparisons/taxon/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
+        "source-products/comparisons/taxon/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/report.json",
+        "source-products/fitted-clr-rbf/grid-512/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/predictions.csv",
+        "source-products/fitted-clr-rbf/grid-512/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/report.json",
+        "source-products/fitted-clr-rbf/grid-512/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/statuses.csv",
+        "source-products/fitted-clr-rbf/grid-562/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/predictions.csv",
+        "source-products/fitted-clr-rbf/grid-562/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/report.json",
+        "source-products/fitted-clr-rbf/grid-562/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/statuses.csv",
+        "source-products/fitted-clr-rbf/scores/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
+        "source-products/fitted-clr-rbf/scores/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/report.json",
+        "source-products/fitted-clr-rbf/scores/scored-predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/scored-predictions.csv",
+        "source-products/fitted-clr-rbf/scores/scores.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/scores.csv",
+        "source-products/inverse-distance-squared/grid-512/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/predictions.csv",
+        "source-products/inverse-distance-squared/grid-512/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/report.json",
+        "source-products/inverse-distance-squared/grid-512/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/statuses.csv",
+        "source-products/inverse-distance-squared/grid-562/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/predictions.csv",
+        "source-products/inverse-distance-squared/grid-562/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/report.json",
+        "source-products/inverse-distance-squared/grid-562/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/statuses.csv",
+        "source-products/inverse-distance-squared/scores/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
+        "source-products/inverse-distance-squared/scores/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/report.json",
+        "source-products/inverse-distance-squared/scores/scored-predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/scored-predictions.csv",
+        "source-products/inverse-distance-squared/scores/scores.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/scores.csv",
+        "source-products/nearest-site/grid-512/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/predictions.csv",
+        "source-products/nearest-site/grid-512/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/report.json",
+        "source-products/nearest-site/grid-512/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/statuses.csv",
+        "source-products/nearest-site/grid-562/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/predictions.csv",
+        "source-products/nearest-site/grid-562/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/report.json",
+        "source-products/nearest-site/grid-562/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/statuses.csv",
+        "source-products/nearest-site/scores/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
+        "source-products/nearest-site/scores/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/report.json",
+        "source-products/nearest-site/scores/scored-predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scored-predictions.csv",
+        "source-products/nearest-site/scores/scores.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scores.csv",
+        "source-products/training-mean/grid-512/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/predictions.csv",
+        "source-products/training-mean/grid-512/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/report.json",
+        "source-products/training-mean/grid-512/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/statuses.csv",
+        "source-products/training-mean/grid-562/predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/predictions.csv",
+        "source-products/training-mean/grid-562/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/report.json",
+        "source-products/training-mean/grid-562/statuses.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/statuses.csv",
+        "source-products/training-mean/scores/REPORT.md": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
+        "source-products/training-mean/scores/report.json": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/report.json",
+        "source-products/training-mean/scores/scored-predictions.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/scored-predictions.csv",
+        "source-products/training-mean/scores/scores.csv": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-value-methods/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_methods",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-value-methods/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/analysis-value-methods/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.interval_sensitivity",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/comparison.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json",
+        "source-products/predictions-scored.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions-scored.csv",
+        "source-products/predictions/site-13338.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-13338.json",
+        "source-products/predictions/site-28869.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28869.json",
+        "source-products/predictions/site-28872.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28872.json",
+        "source-products/scores.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/scores.csv",
+        "source-products/summary.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/summary.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/direct-pollen/source-measures/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.direct_pollen_measure_strata",
+      "source_paths": {
+        "report.json": "docs/report/regions/nordic/direct-pollen/source-measures/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 240
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_direct_pollen",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-direct-pollen/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/cohort.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
+        "source-products/exclusions.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+        "source-products/input-manifest.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/input-manifest.json",
+        "source-products/predictions-scored.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions-scored.csv",
+        "source-products/predictions/site-13338.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-13338.json",
+        "source-products/predictions/site-28869.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28869.json",
+        "source-products/predictions/site-28872.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28872.json",
+        "source-products/prepared/dataset-19913.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+        "source-products/prepared/dataset-53995.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "source-products/prepared/dataset-54001.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+        "source-products/scores.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv",
+        "source-products/summary.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "source-relations/dna-scope/galician-cattle-samples/sample-review",
+      "module": "bijux_pollenomics_dev.source_completion.adna.galician_sample_review",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/dna-scope/galician-cattle-samples/report.json",
+        "source-products/samples.csv": "docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 240
+    },
+    {
+      "owner_id": "method-certification/original-r-reference/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.original_r_account",
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/original-r-reference/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "method-certification/current-r-oracle/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/current-r-oracle/report.json",
+        "source-products/source-replay.json": "docs/report/method-certification/current-r-oracle/source-replay.json"
+      },
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 300
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
+      "module": "bijux_pollenomics_dev.source_completion.love.paper_tables",
+      "source_paths": {
+        "report.json": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-core-controls/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_core_controls",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-primary-age-controls.json",
+      "source_paths": {
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }

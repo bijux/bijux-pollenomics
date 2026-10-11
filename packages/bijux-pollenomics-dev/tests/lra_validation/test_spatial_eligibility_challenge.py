@@ -32,8 +32,8 @@ def test_all_requested_attempts_and_exclusions_are_retained(report: JsonObject) 
         "requested_pair_attempts": 18,
         "attempted_pairs": 18,
         "evaluated": 12,
-        "pair_refused": 2,
-        "ingestion_refused": 3,
+        "pair_refused": 3,
+        "ingestion_refused": 2,
         "fixture_refused": 1,
         "contract_passed": 18,
         "regional_requested_neighbors": 3,
@@ -75,7 +75,15 @@ def test_coordinate_identity_refusals_and_fixture_axes(report: JsonObject) -> No
     missing = cast(JsonObject, cases["missing-coordinate"]["output"])
     assert missing["reason_code"] == "invalid_or_missing_coordinate"
     assert "distance_km_unrounded" not in missing
-    assert cases["partial-coordinate"]["status"] == "ingestion_refused"
+    partial = cases["partial-coordinate"]
+    assert partial["status"] == "pair_refused"
+    assert (
+        cast(JsonObject, partial["output"])["reason_code"]
+        == "invalid_or_missing_coordinate"
+    )
+    target = cast(JsonObject, cast(JsonObject, partial["inputs"])["target"])
+    assert target["latitude"] is None and target["longitude"] == 13.0
+    assert "distance_km_unrounded" not in cast(JsonObject, partial["output"])
     assert cases["reversed-nordic-axis"]["silent_axis_swap"] is False
 
 

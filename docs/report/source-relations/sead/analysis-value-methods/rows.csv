@@ -1,0 +1,29 @@
+country_code,parent_value_state,component_kind,source_method_id,source_method_name,value_class_id,value_class_name,value_type_id,value_type_name,declared_base_type,source_unit_id,parent_count
+SE,reported,untyped_source_text,10,Dendrochronology,1,Tree species,8,Label,text,,4777
+SE,reported,untyped_source_text,10,Dendrochronology,2,Tree rings,1,Count,integer,,26
+SE,reported,untyped_source_text,10,Dendrochronology,4,Number of analysed radii.,1,Count,integer,,19
+SE,reported,untyped_source_text,10,Dendrochronology,6,Sapwood (Sp),1,Count,integer,,1798
+SE,reported,untyped_source_text,10,Dendrochronology,8,Waney edge (W),13,Waney edge (W),category,,82
+SE,reported,untyped_source_text,10,Dendrochronology,9,Pith (P),1,Count,integer,,1791
+SE,reported,untyped_source_text,10,Dendrochronology,10,Tree age ≥,5,Age in years,integer,,2407
+SE,reported,untyped_source_text,10,Dendrochronology,11,Tree age ≤,5,Age in years,integer,,2390
+SE,reported,untyped_source_text,10,Dendrochronology,12,Inferred growth year ≥,6,Year,integer,8,2562
+SE,reported,untyped_source_text,10,Dendrochronology,13,Inferred growth year ≤,6,Year,integer,8,2562
+SE,reported,untyped_source_text,10,Dendrochronology,14,Estimated felling year,10,Year range,int4range,8,3472
+SE,reported,untyped_source_text,10,Dendrochronology,15,Possible estimated felling year,10,Year range,int4range,8,437
+SE,reported,untyped_source_text,10,Dendrochronology,16,Provenance,7,Note,text,,1414
+SE,reported,untyped_source_text,10,Dendrochronology,17,Outermost tree-ring date,10,Year range,int4range,8,3475
+SE,reported,untyped_source_text,10,Dendrochronology,19,Date note,7,Note,text,,49
+SE,reported,untyped_source_text,10,Dendrochronology,20,Provenance comment,7,Note,text,,189
+SE,reported,untyped_source_text,10,Dendrochronology,21,Non-measured tree rings,1,Count,integer,,1
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),33,General library file name,9,Identifier,text,,5
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),34,Metagenomics analysis,7,Note,text,,5
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),40,1st deg. relatives,9,Identifier,text,,6
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),42,mtDNA haplogroup,9,Identifier,text,,10
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),53,Reference genome assembly,9,Identifier,text,,10
+SE,reported,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),54,Organism genome mapped to,9,Identifier,text,,10
+SE,source_null,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),38,>2nd deg. relatives,9,Identifier,text,,10
+SE,source_null,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),39,2nd deg. relatives,9,Identifier,text,,10
+SE,source_null,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),40,1st deg. relatives,9,Identifier,text,,4
+SE,source_null,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),41,Y haplogroup,9,Identifier,text,,10
+SE,source_null,untyped_source_text,175,Ancient DNA analysis (Sample Extraction/Analysis),43,Molecular sex - Rx,17,Molecular sex,category,,10

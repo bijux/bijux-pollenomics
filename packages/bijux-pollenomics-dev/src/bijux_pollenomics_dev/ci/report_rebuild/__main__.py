@@ -50,6 +50,7 @@ def _parser() -> argparse.ArgumentParser:
     assemble.add_argument("--source-root", type=Path)
     assemble.add_argument("--retain-maintained-report-sources", action="store_true")
     assemble.add_argument("--retain-original-r-reference", action="store_true")
+    assemble.add_argument("--retain-native-r-reference", action="store_true")
 
     owner = commands.add_parser("owner")
     _common(owner)
@@ -72,6 +73,7 @@ def _parser() -> argparse.ArgumentParser:
     verify.add_argument("--replay-owners-root", type=Path)
     verify.add_argument("--source-root", type=Path)
     verify.add_argument("--retain-original-r-reference", action="store_true")
+    verify.add_argument("--retain-native-r-reference", action="store_true")
     verify.add_argument("--retain-maintained-report-sources", action="store_true")
     return parser
 
@@ -121,6 +123,7 @@ def main(argv: list[str] | None = None) -> int:
                 source_root=args.source_root,
                 retain_maintained_report_sources=args.retain_maintained_report_sources,
                 retain_original_r_reference=args.retain_original_r_reference,
+                retain_native_r_reference=args.retain_native_r_reference,
             )
         elif args.command == "owner":
             source_paths = dict(
@@ -161,6 +164,7 @@ def main(argv: list[str] | None = None) -> int:
                 owner_ids=tuple(args.owner_id),
                 source_root=args.source_root,
                 retain_original_r_reference=args.retain_original_r_reference,
+                retain_native_r_reference=args.retain_native_r_reference,
                 retain_maintained_report_sources=args.retain_maintained_report_sources,
             )
             return 0 if report["status"] == "PASS" else 1

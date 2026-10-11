@@ -133,6 +133,61 @@ def _copy_output(repository: Path, relative: str) -> None:
     target.write_bytes((repository / relative).read_bytes())
 
 
+def test_analysis_value_components_use_absent_child_output() -> None:
+    repository = Path(__file__).resolve().parents[3]
+    selected = owner_runner.resolve_configured_owner(
+        repository, "source-relations/sead/analysis-value-components/report-products"
+    )
+    assert selected.command[-1] == "{output_root}/source-products"
+    assert selected.source_paths == {
+        "source-products/report.json": "source-relations/sead/analysis-value-components/report.json",
+        "source-products/rows.csv": "source-relations/sead/analysis-value-components/rows.csv",
+    }
+    assert len(selected.inputs) == 1042
+
+
+def test_neotoma_entity_map_assets_resolve_as_code_only() -> None:
+    repository = Path(__file__).resolve().parents[3]
+    owner_id = "regions/nordic/source-capability/neotoma-entities/derived-products"
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text()
+    )
+    declaration = next(
+        row for row in inventory["owners"] if row["owner_id"] == owner_id
+    )
+    assets = {
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/"
+        + name
+        for name in (
+            "document.html",
+            "native-lra.js",
+            "source-record-export.js",
+            "url-state.js",
+        )
+    }
+    assert assets <= set(declaration["producer_paths"])
+    assert assets.isdisjoint(declaration["producer_inputs"])
+    resolved = owner_runner.resolve_configured_owner(repository, owner_id)
+    assert assets <= set(resolved.inputs)
+    assert set(resolved.inputs) == set(declaration["producer_paths"]) | set(
+        declaration["producer_inputs"]
+    )
+
+
+def test_owner_schedule_refuses_overlapping_code_and_data(repository: Path) -> None:
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda payload: payload["owners"][0].update(
+            producer_inputs=[MODULE_PATH, PARENT]
+        ),
+    )
+    with pytest.raises(
+        ReportRebuildError, match="owner producer and data paths overlap"
+    ):
+        scheduling.configured_owner_schedule(repository)
+
+
 def test_exact_declared_code_and_data_inputs_resolve(repository: Path) -> None:
     resolved = owner_runner.resolve_configured_owner(repository, OWNER_ID)
     assert set(resolved.inputs) == {MODULE_PATH, PARENT}

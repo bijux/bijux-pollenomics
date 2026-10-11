@@ -6,6 +6,8 @@ The matrix contains 68 supported, 58 partial, and 61 unsupported capability cell
 
 The producer refuses incomplete or duplicated source–dimension rows, a difference between declared support and audit support, changed evidence presence, invalid count metrics, and paths escaping the repository. Source support and evidence presence remain independent. Country coverage, transformation lineage, publication language, and source-specific scientific review are governed by their separate source and country ledgers; this review does not replace them.
 
+The producer marks a `taxon_identity` cell declared unsupported by its source contract with `not_provided_by_source`. This reason describes source-native taxon availability; broad land-use categories do not become taxa. A supported or partially supported source with missing repository evidence retains its missing materialization state instead. Null source taxa, unmapped concepts, support states, coverage counts, and human-review requirements retain their separate meanings.
+
 ## Reproduce
 
 From the repository root:

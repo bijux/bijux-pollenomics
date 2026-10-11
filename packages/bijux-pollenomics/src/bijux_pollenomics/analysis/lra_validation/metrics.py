@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass, replace
-from math import isclose, log, sqrt
+from math import hypot, isclose, isqrt, ldexp, log, sqrt
+from sys import float_info
 
 from .contracts import ValidationRefusal, finite_number, required_identity
 
@@ -77,6 +78,25 @@ def hellinger_distance(
     )
 
 
+def _round_subnormal_boundary_rmse(errors: list[float]) -> float:
+    """Round RMS at the subnormal boundary from exact binary64 error units."""
+    unit_exponent = float_info.min_exp - float_info.mant_dig
+    units_per_one = 1 << -unit_exponent
+    squared_units = 0
+    for error in errors:
+        numerator, denominator = error.as_integer_ratio()
+        units = abs(numerator) * (units_per_one // denominator)
+        squared_units += units * units
+    count = len(errors)
+    lower = isqrt(squared_units // count)
+    # RMS in units is sqrt(S/n); its rounding midpoint is lower + 1/2.
+    # Compare 4*S with n*(2*lower+1)^2 exactly, choosing the even tie.
+    midpoint = count * (2 * lower + 1) ** 2
+    if 4 * squared_units > midpoint or (4 * squared_units == midpoint and lower % 2):
+        lower += 1
+    return ldexp(float(lower), unit_exponent)
+
+
 def _score(
     target: str, predicted: Mapping[str, float], observed: Mapping[str, float | None]
 ) -> CompositionScore:
@@ -116,6 +136,17 @@ def _score(
     closed_composition(present)
     errors = [prediction[key] - present[key] for key in sorted(prediction)]
     n = len(errors)
+    mean_squared_error = sum(value * value for value in errors) / n
+    rmse = sqrt(mean_squared_error)
+    if mean_squared_error < float_info.min and any(errors):
+        # Scaling avoids lost precision when squared errors become subnormal.
+        # Normal mean-square arithmetic retains its existing rounding.
+        scale = max(abs(value) for value in errors)
+        rmse = scale * (hypot(*(value / scale for value in errors)) / sqrt(n))
+        if rmse < 1.5 * float_info.min:
+            # Subnormal outputs and this adjacent normal range share minimum spacing.
+            # The margin covers rounded seam crossings; integer units stay below 2**53.
+            rmse = _round_subnormal_boundary_rmse(errors)
     return CompositionScore(
         target,
         "scored",
@@ -123,7 +154,7 @@ def _score(
         n,
         (),
         sum(abs(value) for value in errors) / n,
-        sqrt(sum(value * value for value in errors) / n),
+        rmse,
         sum(errors) / n,
         0.5 * sum(abs(value) for value in errors),
         signed_error_by_taxon=tuple(

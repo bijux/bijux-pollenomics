@@ -8,7 +8,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 REPORT = Path("docs/report/source-relations/sead")
 COUNTRIES = {"DK": "Denmark", "FI": "Finland", "NO": "Norway", "SE": "Sweden"}
 
@@ -32,6 +31,55 @@ def _same(label: str, *values: object) -> None:
 def _bound(root: Path, owner: dict[str, Any], relative: str, field: str) -> None:
     if _sha(root / relative) != owner[field][relative]:
         raise ValueError(f"SEAD handoff source digest differs: {relative}")
+
+
+def _source_join_projection(source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Retain every relation identity and denominator from the captured join audit."""
+    edges = source["edges"]
+    if not isinstance(edges, list):
+        raise ValueError("SEAD handoff source join audit is not a list")
+    projected: list[dict[str, Any]] = []
+    names: set[str] = set()
+    for edge in edges:
+        name = edge["edge"]
+        if not isinstance(name, str) or name in names:
+            raise ValueError("SEAD handoff source join identities differ")
+        names.add(name)
+        projected.append(
+            {
+                "edge": name,
+                "child_row_count": edge["child_row_count"],
+                "referenced_child_row_count": edge["referenced_child_row_count"],
+                "matched_child_count": edge["matched_child_count"],
+                "null_reference_child_count": edge["null_reference_child_count"],
+                "orphan_child_count": len(edge["orphan_child_ids"]),
+                "unexplained_loss_count": edge["unexplained_loss_count"],
+            }
+        )
+    return sorted(projected, key=lambda row: row["edge"])
+
+
+def _checked_country_rows(
+    rows: object, codes: set[str], label: str
+) -> dict[str, dict[str, Any]]:
+    """Refuse duplicate or missing country records before reducing denominators."""
+    if not isinstance(rows, list) or len(rows) != len(codes):
+        raise ValueError(f"SEAD handoff {label} country population differs")
+    result: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError(f"SEAD handoff {label} country row is not an object")
+        code = row.get("country_code")
+        if not isinstance(code, str) or code not in codes or code in result:
+            raise ValueError(f"SEAD handoff {label} country identities differ")
+        result[code] = row
+    return result
+
+
+def _count(value: object, label: str) -> int:
+    if type(value) is not int or value < 0:
+        raise ValueError(f"SEAD handoff {label} is not a nonnegative integer")
+    return value
 
 
 def verify(root: Path) -> dict[str, Any]:
@@ -90,7 +138,8 @@ def verify(root: Path) -> dict[str, Any]:
         summary["normalized_manifest_sha256"],
         _sha(root / evidence_path),
     )
-    for relative in (admission_path, manifest_path, f"{raw}/reconciliation/joins.json"):
+    joins_path = f"{raw}/reconciliation/joins.json"
+    for relative in (admission_path, manifest_path, joins_path):
         _bound(root, public, relative, "inputs_sha256")
     for relative in (
         f"{base}/chronology-claim-review/report.json",
@@ -136,6 +185,19 @@ def verify(root: Path) -> dict[str, Any]:
     )
     _same("complete receipts", summary["receipt_status_counts"], {"complete": 61})
     _same("join edges", public["join_edge_count"], len(public["join_edges"]), 86)
+    _same(
+        "source join projection",
+        public["join_edges"],
+        _source_join_projection(_document(root, joins_path)),
+    )
+    _same(
+        "join null references",
+        _count(public["join_null_reference_count"], "join null references"),
+        sum(
+            _count(edge["null_reference_child_count"], "edge null references")
+            for edge in public["join_edges"]
+        ),
+    )
     if any(
         edge["orphan_child_count"] or edge["unexplained_loss_count"]
         for edge in public["join_edges"]
@@ -205,9 +267,9 @@ def verify(root: Path) -> dict[str, Any]:
         },
         assigned,
     )
-    country_rows = {row["country_code"]: row for row in coverage["country_rows"]}
-    if set(country_rows) != set(COUNTRIES):
-        raise ValueError("SEAD handoff country set differs")
+    country_rows = _checked_country_rows(
+        coverage["country_rows"], set(COUNTRIES), "coverage"
+    )
     for code, sites in assigned.items():
         _same(
             f"{code} site custody",
@@ -220,6 +282,35 @@ def verify(root: Path) -> dict[str, Any]:
         "country claims",
         sum(chronology["country_counts"].values()),
         review["claim_count"],
+    )
+    if set(chronology["country_counts"]) != set(COUNTRIES):
+        raise ValueError("SEAD handoff chronology country set differs")
+    chronology_rows = _checked_country_rows(
+        chronology["country_site_denominators"], set(COUNTRIES), "chronology"
+    )
+    for code, row in chronology_rows.items():
+        _same(f"{code} chronology country name", row["country"], COUNTRIES[code])
+        _same(
+            f"{code} chronology assigned sites",
+            _count(row["assigned_site_count"], "assigned sites"),
+            assigned[code],
+        )
+        _same(
+            f"{code} chronology site split",
+            _count(row["claim_site_count"], "claim sites")
+            + _count(row["assigned_sites_without_claim_count"], "sites without claims"),
+            assigned[code],
+        )
+        _same(
+            f"{code} chronology claims",
+            _count(row["claim_count"], "country claims"),
+            chronology["country_counts"][code],
+            chronology["propagation_refusal_counts_by_country"][code],
+        )
+    _same(
+        "chronology claim sites",
+        sum(row["claim_site_count"] for row in chronology_rows.values()),
+        chronology["claim_site_count"],
     )
     _same(
         "source observations",

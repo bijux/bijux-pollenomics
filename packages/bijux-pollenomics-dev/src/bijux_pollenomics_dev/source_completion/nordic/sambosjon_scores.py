@@ -13,9 +13,13 @@ FROZEN = Path("docs/report/regions/nordic/sambosjon-direct-pollen/frozen")
 def run(repository: Path, output: Path) -> None:
     """Validate retained inputs before the original scorer reads target counts."""
     sambosjon_execution._destination(repository, output)
-    prepared, manifest, protocol = sambosjon_execution._prepared(repository)
+    prepared, manifest, protocol, candidate_bins = sambosjon_execution._prepared(
+        repository
+    )
     frozen = repository / FROZEN
-    hashes = sambosjon_execution._complete_stage(frozen, repository, manifest, protocol)
+    hashes = sambosjon_execution._complete_stage(
+        frozen, repository, manifest, protocol, candidate_bins
+    )
     module = sambosjon_execution._source(repository)
     sambosjon_execution._invoke(
         module,

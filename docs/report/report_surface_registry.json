@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1945,
+  "surface_count": 1953,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,24 +11,24 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1039,
+    "maintenance": 1045,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
-    "scopes": 772
+    "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1041,
-    "public_reading_surface": 781,
+    "maintainer_diagnostic": 1047,
+    "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
   "geography_counts": {
     "denmark": 49,
     "europe_plus": 63,
     "finland": 14,
-    "nordic": 496,
+    "nordic": 498,
     "norway": 14,
-    "report_root": 1088,
+    "report_root": 1094,
     "sweden": 49,
     "world": 172
   },
@@ -2278,7 +2278,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
-      "content_sha256": "a40adfc2699f2a687536bca088e015f6d7503aa3cf3cf2d0da71723787622038",
+      "content_sha256": "b751f006818f26518ec49e6e0db2e222c4c345d53733183fffa40031a4741512",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3447,7 +3447,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "c806f119a186ad501adfb64aa13c7bd1436669b20c8b81f43cfc6cd324e219f2",
+      "content_sha256": "9c87666f15e9bf44bc85ad88096dc5f77e64cc83e3d28206efad3cd041c682d9",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -6884,7 +6884,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/love-paper-correspondence/README.md",
-      "content_sha256": "fd596fa0c46e8b095e290f44e9987a2ed3063a4c454110d68968d4c18e220575",
+      "content_sha256": "821395f5b44827fe8fee6e19c479f743248e4c5024f346f0c5ea5a37e58f1de9",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -6958,7 +6958,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/optimizer-solution-quality/README.md",
-      "content_sha256": "1021d6ead4b17d16cbe8ebf06da4c4ac4cab0a2b5e827d5bcdf6a40df21d5c2b",
+      "content_sha256": "47cf6fb027e098ebd0334237b68094db732dfa5b30bc3a8764023fbbf49ca234",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -9195,6 +9195,18 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -13233,6 +13245,31 @@
       "reader_route": "scope_bundle"
     },
     {
+      "repository_path": "docs/report/regions/nordic/direct-pollen/source-measures/README.md",
+      "content_sha256": "27c03037403edbf549ce6c51b26e3e545c3c7e137854708708a9b71d49cd5830",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/direct-pollen/source-measures/report.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
       "repository_path": "docs/report/regions/nordic/direct-pollen/training-sources.csv",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
@@ -17260,7 +17297,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
-      "content_sha256": "39b8421af6a934faea8a6756851fb849dd5bb293111d79c0d642c1c9b3a0cbfc",
+      "content_sha256": "949e3bcf1298e90f4d6ca3e0838a5a697684ae4800c73c623abacc86449d38ef",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -20579,7 +20616,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
+      "content_sha256": "1045d28e5a6b00ab680d203fa0e432bb5fb942ec99b1855c4dace2d1fed3261d",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -20692,6 +20729,80 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-numerical-values/values.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "content_sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/rows.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-methods/README.md",
+      "content_sha256": "0b761ff508fc2c021f1ed1e4afe8bb010c302ebaf9a1967f0ec7d79dbcb5c30a",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-methods/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-methods/rows.csv",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -21073,7 +21184,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "content_sha256": "8697bb846919c3969c8d18e45a3b729a630cf83af2890ca9250b5abceacd447b",
+      "content_sha256": "d29b724520011b6ef56e95c13fb86662a68d17b96a14384fbb593c325c304920",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -21273,7 +21384,7 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/spatial-eligibility/README.md",
-      "content_sha256": "d9826a85e134d51a56ba287ea173fee095d630a8ccf995c7e721dac938c57d61",
+      "content_sha256": "15afae340fa50d4afb37cd71af31b254c668ec760730a788a633defdd47209a8",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23593,7 +23704,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "f4495c78d9fc687c7801bcdc046642e59c468c2adb9addecb4789961585a364a",
+      "content_sha256": "30eaa75e77222f53eaa8a9a5b29c2de26518fcb89cf570cd6bb6b42a2dad03f4",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -23606,7 +23717,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "481758f74d2a21205c6cbca84ab91770348c3ad31a5dcf46378d0a77357f63c0",
+      "content_sha256": "eb31cd88be7bd1ef42a6cc6f0258c2fbd76601c4883295cabaadafd95fda8eeb",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -23645,7 +23756,7 @@
     },
     {
       "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "6cf6d4dc800f1525caf3e210b6b9e5dd6697c0f49f03dd1621d723a3e9a89d7e",
+      "content_sha256": "805be9b9aaafe6fc3837efb8fa2e804dc8c43b14b0c78b88b0716e07592b4304",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -23655,18 +23766,6 @@
       "caution_level": "medium",
       "explanation": "Reader-facing portal page for navigating the report tree.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     }
   ]
 }

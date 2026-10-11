@@ -32,6 +32,44 @@ PPEFunction = Callable[[int, np.ndarray, np.ndarray], np.ndarray]
 PollenFunction = Callable[..., np.ndarray]
 
 
+def _reveals_percentages(
+    pollen: np.ndarray, ppe: np.ndarray, deposition: np.ndarray
+) -> np.ndarray:
+    """Preserve ordinary B1 arithmetic and stabilize unresolved weight scales."""
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        combined = ppe * deposition[None, :]
+        weighted = pollen / combined
+        scale = np.sum(weighted, axis=1, keepdims=True)
+        cover = 100 * pollen / (combined * scale)
+        unresolved = (
+            ~np.isfinite(cover).all(axis=1)
+            | ~np.isclose(cover.sum(axis=1), 100.0, rtol=0, atol=1e-10)
+            | np.any(combined < np.finfo(float).tiny, axis=1)
+            | np.any((pollen > 0) & (weighted < np.finfo(float).tiny), axis=1)
+        )
+        if np.any(unresolved):
+            # Common units cancel before normalization. Zero-count taxa keep
+            # zero weight; a positive count in each row makes its log maximum finite.
+            log_weights = (
+                np.log(pollen[unresolved])
+                - np.log(ppe[unresolved])
+                - np.log(deposition)[None, :]
+            )
+            shifted = log_weights - log_weights.max(axis=1, keepdims=True)
+            log_normalizer = np.log(np.exp(shifted).sum(axis=1, keepdims=True))
+            # Exponentiate percentages directly: an intermediate fraction can
+            # underflow even when multiplying it by 100 would be representable.
+            percentages = np.exp(np.log(100.0) + shifted - log_normalizer)
+            cover[unresolved] = percentages * (
+                100.0 / percentages.sum(axis=1, keepdims=True)
+            )
+    if not np.isfinite(cover).all() or not np.allclose(
+        cover.sum(axis=1), 100.0, rtol=0, atol=1e-10
+    ):
+        raise ValidationError("REVEALS normalization is numerically unresolved")
+    return np.asarray(cover)
+
+
 def reveals_cover(
     pollen: object,
     ppe: object,
@@ -50,14 +88,14 @@ def reveals_cover(
         raise ValidationError(
             "pollen, PPE, and deposition must have the same number of taxa"
         )
-    if pollen_values.sum() <= 0:
+    if not np.any(pollen_values > 0):
         raise ValidationError("Pollen total must be positive")
     if np.any(ppe_values <= 0) or np.any(deposition_values <= 0):
         raise ValidationError("PPE and deposition factors must be strictly positive")
 
-    combined = deposition_values * ppe_values
-    scale = np.sum(pollen_values / combined)
-    cover = 100 * pollen_values / (combined * scale)
+    cover = _reveals_percentages(
+        pollen_values[None, :], ppe_values[None, :], deposition_values
+    )[0]
     return (
         np.asarray(r_round(cover, round_digits)) if round_digits is not None else cover
     )
@@ -75,14 +113,12 @@ def _reveals_cover_batch(
         raise ValidationError(f"ppe_draws must have shape {pollen_values.shape}")
     if pollen_values.shape[1] != len(deposition):
         raise ValidationError("Deposition and pollen taxon dimensions disagree")
-    if np.any(pollen_values.sum(axis=1) <= 0):
+    if np.any(~np.any(pollen_values > 0, axis=1)):
         raise ValidationError("Pollen total must be positive")
     if np.any(ppe_values <= 0) or np.any(deposition <= 0):
         raise ValidationError("PPE and deposition factors must be strictly positive")
 
-    combined = ppe_values * deposition[None, :]
-    scale = np.sum(pollen_values / combined, axis=1)
-    cover = 100 * pollen_values / (combined * scale[:, None])
+    cover = _reveals_percentages(pollen_values, ppe_values, deposition)
     return np.asarray(r_round(cover, 3), dtype=float)
 
 
@@ -135,7 +171,7 @@ def REVEALS(
             "pollen must be a finite coordinate followed by taxon counts"
         )
     counts = vector(row[1:], "pollen counts", nonnegative=True)
-    if counts.sum() <= 0:
+    if not np.any(counts > 0):
         raise ValidationError("Pollen total must be positive")
     ppe_table = _normalise_ppe_table(ppes, len(counts))
     deposition_values = vector(

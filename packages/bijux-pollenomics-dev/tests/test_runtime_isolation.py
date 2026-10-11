@@ -321,6 +321,31 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"distance_km"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/adna/galician_sample_review.py": {
+        "bijux_pollenomics.adna.projects.sample_master.tables.galician_cattle.species": frozenset(
+            {"write_galician_sample_species_review"}
+        ),
+        "bijux_pollenomics.core.repository": frozenset({"repository_data_root"}),
+    },
+    "bijux_pollenomics_dev/source_completion/sead/analysis_value_components.py": {
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {
+                "SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256",
+                "SEAD_GOVERNED_ADMISSION_SHA256",
+                "SEAD_GOVERNED_BUILD_ID",
+                "SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_RUN_ID",
+                "SEAD_GOVERNED_PARENT_ADMISSION_SHA256",
+                "governed_sead_evidence_root",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead/analysis_value_methods.py": {
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {"SEAD_GOVERNED_ADMISSION_SHA256", "SEAD_GOVERNED_EVIDENCE_RUN_ID"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/sead/boolean_values.py": {
         "bijux_pollenomics.evidence.sources.sead": frozenset(
             {

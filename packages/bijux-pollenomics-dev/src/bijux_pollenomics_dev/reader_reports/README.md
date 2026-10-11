@@ -8,8 +8,12 @@ unsupported markup instead of dropping it.
 
 Install the developer package's `reports` extra, or use the repository's
 locked development environment. External prerequisites are `latexmk`,
-XeLaTeX and Graphviz `dot`, with STIX Two Text, Arial and Menlo fonts available
-to the TeX installation. Builds embed the selected font subsets. The report
+XeLaTeX and Graphviz `dot`, with the static STIX Two Text OpenType files
+`STIXTwoText-Regular.otf`, `STIXTwoText-Bold.otf`,
+`STIXTwoText-Italic.otf` and `STIXTwoText-BoldItalic.otf` discoverable
+by TeX, plus Arial and Menlo fonts available to the TeX installation.
+The template selects each real text face explicitly; a variable system-family
+name does not establish that XeTeX found its bold face. Builds embed the selected font subsets. The report
 renderer uses these named fonts rather than claiming identical layout across
 unqualified systems; the receipt records compiler versions.
 

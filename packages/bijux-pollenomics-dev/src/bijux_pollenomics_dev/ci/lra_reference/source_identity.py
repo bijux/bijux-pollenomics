@@ -38,6 +38,46 @@ class SourceIdentity:
     executed_files: dict[str, str]
 
 
+def _literal_template_nodes(tree: ast.Module) -> list[ast.stmt]:
+    """Normalize only the fixed setuptools-scm typing block without executing it."""
+    typing_metadata = ast.parse(
+        "TYPE_CHECKING = False\n"
+        "if TYPE_CHECKING:\n"
+        "    from typing import Tuple\n"
+        "    from typing import Union\n"
+        "    VERSION_TUPLE = Tuple[Union[int, str], ...]\n"
+        "    COMMIT_ID = Union[str, None]\n"
+        "else:\n"
+        "    VERSION_TUPLE = object\n"
+        "    COMMIT_ID = object\n"
+        "version: str\n"
+        "__version__: str\n"
+        "__version_tuple__: VERSION_TUPLE\n"
+        "version_tuple: VERSION_TUPLE\n"
+        "commit_id: COMMIT_ID\n"
+        "__commit_id__: COMMIT_ID\n"
+    ).body
+    if len(tree.body) != 12 or [ast.dump(node) for node in tree.body[1:9]] != [
+        ast.dump(node) for node in typing_metadata
+    ]:
+        return tree.body
+    literal_annotations = ast.parse(
+        "from __future__ import annotations\n"
+        "version: str\n"
+        "__version__: str\n"
+        "__version_tuple__: tuple[int | str, ...]\n"
+        "version_tuple: tuple[int | str, ...]\n"
+        "commit_id: str | None\n"
+        "__commit_id__: str | None\n"
+    ).body
+    return [
+        literal_annotations[0],
+        tree.body[0],
+        *literal_annotations[1:],
+        *tree.body[9:],
+    ]
+
+
 def generated_literals(data: bytes) -> dict[str, Any]:
     """Parse only the known literal template; never execute generated source."""
     if len(data) > 65536:
@@ -51,7 +91,7 @@ def generated_literals(data: bytes) -> dict[str, Any]:
     values: dict[str, Any] = {}
     annotations: set[str] = set()
     future = 0
-    for node in tree.body:
+    for node in _literal_template_nodes(tree):
         if (
             isinstance(node, ast.ImportFrom)
             and node.module == "__future__"
@@ -119,7 +159,7 @@ def generated_literals(data: bytes) -> dict[str, Any]:
             commit_id is not None
             and (
                 not isinstance(commit_id, str)
-                or re.fullmatch(r"[0-9a-f]+", commit_id) is None
+                or re.fullmatch(r"g?[0-9a-f]+", commit_id) is None
             )
         )
     ):

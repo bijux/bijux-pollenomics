@@ -115,3 +115,75 @@ def test_export_identity_note_precedes_content_instead_of_orphan_endpage() -> No
 def test_flowchart_label_can_follow_first_unlabelled_reference() -> None:
     dot = mermaid_to_dot('flowchart LR\nA --> B\nB["Cover"] --> C')
     assert 'B [label="Cover"]' in dot
+
+
+def test_slash_separated_prose_can_wrap_without_changing_link_targets(
+    tmp_path: Path,
+) -> None:
+    root, report = _repository(tmp_path)
+    result = ReportRenderer(root, report, "a" * 40).render(
+        "Lake Otjikoto count/chronology/PPE/transport inputs "
+        "[source](https://example.org/count/chronology)."
+    )
+    assert (
+        r"count/\allowbreak{}chronology/\allowbreak{}PPE/\allowbreak{}transport"
+        in result.latex
+    )
+    assert r"\href{https://example.org/count/chronology}" in result.latex
+    assert result.external_link_count == 1
+
+
+def test_long_inline_expression_keeps_short_function_names_and_operands() -> None:
+    value = "sqrt(sum((sqrt(p_i) - sqrt(v_i))²) / 2)"
+    rendered = _inline_code(value)
+    assert r"\seqsplit" not in rendered
+    assert "sqrt(sum((sqrt(p" in rendered
+    assert r"/\allowbreak{}" in rendered
+    assert rendered.replace(r"\allowbreak{}", "") == (
+        r"\texttt{" + escape_latex(value) + "}"
+    )
+    assert r"\seqsplit{" + "a" * 64 + "}" in _inline_code("a" * 64)
+
+
+def test_template_selects_distinct_real_stix_text_faces() -> None:
+    document = document_latex("BODY", "Title", "paper.md", "a" * 64)
+    assert r"\setmainfont{STIXTwoText-Regular.otf}" in document
+    for face in ("Bold", "Italic", "BoldItalic"):
+        assert f"{face}Font=STIXTwoText-{face}.otf" in document
+    assert "FakeBold" not in document
+
+
+@pytest.mark.parametrize("operand", ["1e-16", "1e+16", "-1e-16", "+1e+16"])
+def test_long_inline_expression_keeps_signed_scientific_operands(operand: str) -> None:
+    value = f"sqrt(sum(weights)) * {operand} / (1 + scale)"
+    rendered = _inline_code(value)
+    assert operand in rendered
+    assert r"1e-\allowbreak{}" not in rendered
+    assert r"1e+\allowbreak{}" not in rendered
+    assert r"-\allowbreak{}1e" not in rendered
+    assert r"+\allowbreak{}1e" not in rendered
+    assert rendered.replace(r"\allowbreak{}", "") == (
+        r"\texttt{" + escape_latex(value) + "}"
+    )
+
+
+@pytest.mark.parametrize(
+    "operand",
+    [
+        "-1.23456789012345678901234567890e-16",
+        "1.23456789012345678901234567890e+16",
+        "(-1.23456789012345678901234567890e-16)",
+        "sqrt(-1.23456789012345678901234567890e-16)",
+        "1.23456789012345678901234567890",
+        "−1.23456789012345678901234567890e−16",
+    ],
+)
+def test_long_numeric_operands_remain_whole_in_inline_assignments(operand: str) -> None:
+    value = "correction=" + operand
+    rendered = _inline_code(value)
+    assert r"\seqsplit" not in rendered
+    assert operand in rendered
+    assert rendered.replace(r"\allowbreak{}", "") == (
+        r"\texttt{" + escape_latex(value) + "}"
+    )
+    assert r"\seqsplit{" in _inline_code("identifier=" + "a" * 64)

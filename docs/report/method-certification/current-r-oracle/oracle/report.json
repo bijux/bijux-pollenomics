@@ -47,7 +47,7 @@
     "Candidate replay isolates LOVE objective/wrapper parity from optimizer trajectories.",
     "A pass does not establish ecological validity against held-out observations."
   ],
-  "elapsed_seconds": 10.817072082776576,
+  "elapsed_seconds": 8.201326708018314,
   "R_exit_code": 0,
   "status": "passed",
   "cases": [

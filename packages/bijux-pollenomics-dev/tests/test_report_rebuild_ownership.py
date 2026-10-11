@@ -158,6 +158,14 @@ def test_exact_git_population_and_unresolved_reporting(
     assert "unresolved report owners remain" in capsys.readouterr().err
 
 
+def test_maintained_configuration_requires_json_path(repository: Path) -> None:
+    payload = _inventory(repository)
+    _owner(payload, "reader-pages").update(role="maintained_configuration")
+    _write_inventory(repository, payload)
+    with pytest.raises(ReportOwnershipError, match="non-JSON path"):
+        check_report_ownership(repository)
+
+
 def test_rejects_omitted_and_extra_declarations(repository: Path) -> None:
     payload = _inventory(repository)
     _owner(payload, "reader-pages")["paths"] = ["docs/report/README.md"]

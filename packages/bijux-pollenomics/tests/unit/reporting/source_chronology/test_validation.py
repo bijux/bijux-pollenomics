@@ -104,3 +104,20 @@ def test_projection_rejects_observation_reuse_across_same_level_nodes() -> None:
             tampered,
             detail_record_ids={DETAIL_ID},
         )
+
+
+@pytest.mark.parametrize("_fixture_id", ["SOURCE-008"])
+def test_projection_refuses_a_missing_normalized_node(_fixture_id: str) -> None:
+    result, atlas = projection()
+    layers = deepcopy(atlas.point_layers)
+    features = cast(list[dict[str, object]], layers[0]["features"])
+    assert features
+    features.pop()
+    with pytest.raises(ValueError):
+        validate_source_chronology_atlas_projection(
+            result,
+            SourceChronologyAtlasProjection(
+                point_layers=layers, reconciliation=atlas.reconciliation
+            ),
+            detail_record_ids={DETAIL_ID},
+        )

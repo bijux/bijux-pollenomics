@@ -6,6 +6,7 @@ import hashlib
 import json
 from typing import cast
 
+from jsonschema import Draft202012Validator
 import pytest
 
 from bijux_pollenomics.governance.country_coverage import (
@@ -338,3 +339,22 @@ def test_source_specific_absence_and_review_are_not_encoded_as_zero() -> None:
     assert _counts(_cell(ledger, "animal_adna", "publication", "NO"))["sites"] == 0
     assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["samples"] == 2
     assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["sites"] == 1
+
+
+@pytest.mark.parametrize("_fixture_id", ["MATCH-011"])
+def test_source_resolution_is_a_null_feature_coverage_sentinel(
+    _fixture_id: str,
+) -> None:
+    cells = _cells(_build())
+    source_cells = [cell for cell in cells if cell["resolution"] == "source"]
+    assert source_cells
+    validator = Draft202012Validator(json.loads(_CELL_SCHEMA_PATH.read_bytes()))
+    for cell in source_cells:
+        assert cell["feature_key"] is None
+        assert cell["classification_contract_version"] is None
+        assert validator.is_valid(cell)
+    for mutation in (
+        {"feature_key": "taxon:invented"},
+        {"classification_contract_version": "classification.v1"},
+    ):
+        assert not validator.is_valid({**source_cells[0], **mutation})

@@ -110,7 +110,9 @@ def prepare_to_artifacts(repository: Path, output: Path) -> None:
     )
 
 
-def _prepared(repository: Path) -> tuple[Path, dict[str, Any], dict[str, Any]]:
+def _prepared(
+    repository: Path,
+) -> tuple[Path, dict[str, Any], dict[str, Any], tuple[int, ...]]:
     prepared = _real_dir(repository / PREPARED, repository)
     expected = {"input-manifest.json", "metadata.json", "training.json.gz"}
     if {path.name for path in prepared.iterdir()} != expected:
@@ -132,6 +134,20 @@ def _prepared(repository: Path) -> tuple[Path, dict[str, Any], dict[str, Any]]:
         or len(metadata["sites"][0].get("candidate_bin_ids", [])) != 22
     ):
         raise ValueError("Sämbosjön prepared input identity differs")
+    raw_bins = metadata["sites"][0]["candidate_bin_ids"]
+    if (
+        not isinstance(raw_bins, list)
+        or any(
+            not isinstance(value, str)
+            or not value.isascii()
+            or not value.isdecimal()
+            or str(int(value)) != value
+            for value in raw_bins
+        )
+        or len(set(raw_bins)) != len(raw_bins)
+    ):
+        raise ValueError("Sämbosjön candidate bin identities differ")
+    candidate_bins = tuple(int(value) for value in raw_bins)
     protocol = json.loads(protocol_path.read_bytes())
     if (
         protocol.get("target_site_id") != SITE
@@ -139,11 +155,15 @@ def _prepared(repository: Path) -> tuple[Path, dict[str, Any], dict[str, Any]]:
         or protocol.get("pre_score_predictions_sha256") is None
     ):
         raise ValueError("Sämbosjön prediction protocol differs")
-    return prepared, manifest, protocol
+    return prepared, manifest, protocol, candidate_bins
 
 
 def _complete_stage(
-    stage: Path, repository: Path, manifest: dict[str, Any], protocol: dict[str, Any]
+    stage: Path,
+    repository: Path,
+    manifest: dict[str, Any],
+    protocol: dict[str, Any],
+    candidate_bins: tuple[int, ...],
 ) -> dict[str, str]:
     _real_dir(stage, repository)
     if {path.name for path in stage.iterdir()} != {"predictions.json", "freeze.json"}:
@@ -158,6 +178,24 @@ def _complete_stage(
     rows = predictions.get("predictions")
     refusals = predictions.get("refusals")
     timestamp = datetime.fromisoformat(frozen["created_at_utc"])
+    expected_pairs = {
+        (bin_id, method) for bin_id in candidate_bins for method in METHODS
+    }
+    if (
+        isinstance(rows, list)
+        and len(rows) == 66
+        and all(isinstance(row, dict) for row in rows)
+    ):
+        actual_pairs = [(row.get("bin_id"), row.get("method")) for row in rows]
+        if (
+            any(
+                type(bin_id) is not int or not isinstance(method, str)
+                for bin_id, method in actual_pairs
+            )
+            or len(set(actual_pairs)) != len(actual_pairs)
+            or set(actual_pairs) != expected_pairs
+        ):
+            raise ValueError("Sämbosjön prediction bin-method grid differs")
     if (
         timestamp.tzinfo is None
         or frozen.get("schema_version") != "sambosjon-direct-pollen-freeze.v1"
@@ -187,7 +225,7 @@ def _complete_stage(
 def predict_to_artifacts(repository: Path, output: Path) -> dict[str, Any]:
     """Retain the full live freeze stage; expose only its exact prediction bytes."""
     artifacts, destination = _destination(repository, output)
-    prepared, manifest, protocol = _prepared(repository)
+    prepared, manifest, protocol, candidate_bins = _prepared(repository)
     module = _source(repository)
     stage_id = hashlib.sha256(
         destination.relative_to(artifacts).as_posix().encode("utf-8")
@@ -214,7 +252,9 @@ def predict_to_artifacts(repository: Path, output: Path) -> dict[str, Any]:
             str(stage),
         ],
     )
-    stage_hashes = _complete_stage(stage, repository, manifest, protocol)
+    stage_hashes = _complete_stage(
+        stage, repository, manifest, protocol, candidate_bins
+    )
     destination.mkdir(parents=True, exist_ok=False)
     copied = destination / "predictions.json"
     shutil.copyfile(stage / "predictions.json", copied)

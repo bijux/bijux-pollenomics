@@ -8,8 +8,6 @@ TEST_PATHS_UNIT := tests
 TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_PATHS := src tests
-SECURITY_AUDIT_PREPARE_MODE = pyproject
-PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 ENABLE_PYDOCSTYLE := 1
 SKIP_MYPY := 0
 PACKAGE_ALL_TARGETS := clean install test lint quality security build sbom
@@ -39,3 +37,7 @@ test-all-plus-run-time: test
 .PHONY: test-all-plus-run-time
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
+
+
+WORKSPACE_AUDIT_EXTRAS := dev
+include $(MONOREPO_ROOT)/makes/workspace-dependency-audit.mk

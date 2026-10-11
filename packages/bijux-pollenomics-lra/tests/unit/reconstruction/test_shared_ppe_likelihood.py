@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Mapping
+from fractions import Fraction
 from typing import NotRequired, TypedDict
 
 import numpy as np
@@ -237,3 +238,55 @@ def test_result_arrays_are_owned_read_only_and_independent_of_inputs() -> None:
         assert not array.flags.writeable
         with pytest.raises(ValueError, match="read-only"):
             array.flat[0] = 0.0
+
+
+def _scaled_uncertainty_input(sd: float, variance: float) -> SharedPpeInputs:
+    mean = 4 * sd
+    return {
+        "regional_counts": [1, 2],
+        "local_counts": [1, 2],
+        "ppe_mean": [mean, mean],
+        "ppe_sd": [sd, sd],
+        "ppe_covariance": [[variance, 0.0], [0.0, variance]],
+        "regional_kernel": [1 / mean, 1 / mean],
+        "local_kernels": [[1 / mean, 1 / mean], [0.0, 0.0]],
+        "terrestrial_fractions": [1.0, 1.0],
+        "draws": 2,
+        "seed": 0,
+    }
+
+
+@pytest.mark.parametrize("sd", [2.0**-538, 2.0**-600, 1e-200])
+def test_positive_sd_cannot_be_declared_as_zero_variance_by_underflow(
+    sd: float,
+) -> None:
+    # Exact binary-float SD squared is positive, but its variance cannot be
+    # represented in the declared binary64 covariance unit. It is not zero.
+    exact = Fraction.from_float(sd) ** 2
+    assert exact > 0 and float(exact) == 0
+    with pytest.raises(ValidationError) as error:
+        fit_shared_ppe_likelihood(**_scaled_uncertainty_input(sd, 0.0))
+    assert error.value.reason_code == "ppe_variance_not_representable"
+
+
+def test_smallest_representable_positive_variance_keeps_actual_ppe_draws() -> None:
+    sd = 2.0**-537
+    exact = Fraction.from_float(sd) ** 2
+    smallest = float(np.nextafter(0.0, 1.0))
+    assert exact == Fraction.from_float(smallest)
+    result = fit_shared_ppe_likelihood(**_scaled_uncertainty_input(sd, smallest))
+    expected = np.random.default_rng(0).normal([4 * sd, 4 * sd], [sd, sd])
+    assert np.all(expected > 0)
+    np.testing.assert_array_equal(result.ppe_draws[0], [4 * sd, 4 * sd])
+    np.testing.assert_array_equal(result.ppe_draws[1], expected)
+    assert not np.array_equal(result.ppe_draws[0], result.ppe_draws[1])
+    assert all(fit.converged for fit in result.fits)
+    assert np.max(result.forward_max_abs) <= 1e-12
+
+
+def test_genuine_zero_sd_and_zero_covariance_remain_deterministic() -> None:
+    parameters = _scaled_uncertainty_input(2.0**-538, 0.0)
+    parameters["ppe_sd"] = [0.0, 0.0]
+    result = fit_shared_ppe_likelihood(**parameters)
+    np.testing.assert_array_equal(result.ppe_draws[0], result.ppe_draws[1])
+    np.testing.assert_array_equal(result.local_cover[0], result.local_cover[1])

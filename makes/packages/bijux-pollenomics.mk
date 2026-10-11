@@ -33,8 +33,6 @@ TEST_CI_TARGETS := test-unit test-e2e
 QUALITY_PATHS = src tests
 QUALITY_MYPY_CONFIG = $(MONOREPO_ROOT)/configs/mypy.ini
 QUALITY_MYPY_TARGETS = $(MYPY_TARGETS)
-SECURITY_AUDIT_PREPARE_MODE = pyproject
-PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 QUALITY_POST_TARGETS := quality-compileall
 BUILD_PACKAGE_NAME := bijux-pollenomics
 BUILD_PRE_TARGETS := sync-license-assets-package
@@ -124,3 +122,8 @@ test-full: test-all
 .PHONY: test-full
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
+
+
+WORKSPACE_AUDIT_EXTRAS := dev lra
+WORKSPACE_AUDIT_ADDITIONAL_DISTRIBUTIONS := bijux-pollenomics-dev
+include $(MONOREPO_ROOT)/makes/workspace-dependency-audit.mk

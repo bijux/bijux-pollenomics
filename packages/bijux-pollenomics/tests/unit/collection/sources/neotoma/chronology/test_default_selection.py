@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import unittest
 
+import pytest
+
 from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
@@ -71,3 +73,32 @@ class NeotomaDefaultChronologySelectionTests(unittest.TestCase):
             mapping(conflicts[0]["detail"])["duplicate_default_age_types"],
             {"Calibrated radiocarbon years BP": ["7001", "7002"]},
         )
+
+
+@pytest.mark.parametrize("_fixture_id", ["SOURCE-002"])
+def test_claim_array_order_cannot_choose_the_default_chronology(
+    _fixture_id: str,
+) -> None:
+    row = download_row()
+    sample = rows(nested(row, "site", "collectionunit", "dataset")["samples"])[0]
+    original = build_neotoma_relational_snapshot(
+        [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    ages = sample["ages"]
+    chronologies = nested(row, "site", "collectionunit")["chronologies"]
+    assert isinstance(ages, list) and isinstance(chronologies, list)
+    ages.reverse()
+    chronologies.reverse()
+    reverse = build_neotoma_relational_snapshot(
+        [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    fields = ("source_age_type", "is_default_chronology", "younger_bp", "older_bp")
+
+    def projected(payload: dict[str, object]) -> dict[str, tuple[object, ...]]:
+        return {
+            str(claim["source_age_type"]): tuple(claim[field] for field in fields)
+            for claim in rows(payload["age_claims"])
+        }
+
+    assert projected(original) == projected(reverse)
+    assert len(rows(reverse["age_claims"])) == 2

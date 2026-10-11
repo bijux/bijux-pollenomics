@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from datetime import date
 import json
-from typing import Any
+from math import isfinite
+from typing import Any, NoReturn
 
 from ..source_completion.evidence import digest
 
@@ -139,7 +140,7 @@ def validate_decisions(
 
 
 def load_review_json(content: bytes) -> dict[str, Any]:
-    """Reject duplicate object keys at the human-review boundary."""
+    """Reject duplicate object keys and nonfinite numbers at the review boundary."""
 
     def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
@@ -149,7 +150,21 @@ def load_review_json(content: bytes) -> dict[str, Any]:
             result[key] = value
         return result
 
-    result = json.loads(content, object_pairs_hook=unique)
+    def finite_number(text: str) -> float:
+        value = float(text)
+        if not isfinite(value):
+            raise ValueError("Review JSON numbers must be finite")
+        return value
+
+    def nonfinite_number(text: str) -> NoReturn:
+        raise ValueError("Review JSON does not permit nonfinite constants: " + text)
+
+    result = json.loads(
+        content,
+        object_pairs_hook=unique,
+        parse_float=finite_number,
+        parse_constant=nonfinite_number,
+    )
     if not isinstance(result, dict):
         raise ValueError("Review JSON must be an object")
     return result
