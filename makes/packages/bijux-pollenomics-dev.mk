@@ -12,6 +12,8 @@ QUALITY_PATHS := src tests
 SECURITY_AUDIT_PREPARE_MODE = pyproject
 PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 ENABLE_PYDOCSTYLE := 1
+# ISTS is an archived LandClim header preserved by taxa reconciliation contracts.
+CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists
 SKIP_MYPY := 0
 PACKAGE_ALL_TARGETS := clean install test lint quality security build sbom
 
