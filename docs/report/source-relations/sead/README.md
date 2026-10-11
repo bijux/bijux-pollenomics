@@ -34,6 +34,10 @@ approve cross-source taxon/parameter mappings, lake events, propagation or
 independent measured vegetation accuracy. The replay does not convert refused
 scientific admission into a passing scientific result.
 
+The [pollen-named dataset screen](pollen-named-dataset-screen/README.md) exports
+sample-level source observations and records why the captured rows cannot form
+an admitted pollen time series or LRA input.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,

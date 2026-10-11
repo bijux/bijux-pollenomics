@@ -1,0 +1,109 @@
+{
+  "schema_version": "abbo-published-neotoma-age-control-correspondence.v1",
+  "dataset_id": 19913,
+  "site_id": 13338,
+  "chronology_id": 11516,
+  "chronology_name": "EPD 1",
+  "neotoma_age_model": "linear interpolation",
+  "neotoma_model_age_unit": "Calibrated radiocarbon years BP",
+  "published_radiocarbon_date_count": 6,
+  "exact_depth_lab_age_error_matches": 6,
+  "neotoma_core_top": {
+    "depth_cm": 648,
+    "age_cal_bp": -52,
+    "independent_published_date": false
+  },
+  "sample_age_uncertainty_bounds": "not supplied in Neotoma sample ages",
+  "sample_count_without_age_uncertainty_bounds": 107,
+  "pollen_profile_sample_depths_matched": 107,
+  "pangaea_license": "CC-BY-NC-3.0; raw table retained outside product repository",
+  "lra_admitted_samples": 0,
+  "controls": [
+    {
+      "neotoma_chroncontrol_id": 39858,
+      "lab_number": "Poz-4445",
+      "depth_cm": 693.5,
+      "radiocarbon_bp": 1660,
+      "radiocarbon_error_older_bp": 35,
+      "radiocarbon_error_younger_bp": 35,
+      "calibrated_control_bp": 1564,
+      "calibrated_younger_limit_bp": 1418,
+      "calibrated_older_limit_bp": 1693,
+      "published_date_fields_match": true
+    },
+    {
+      "neotoma_chroncontrol_id": 39859,
+      "lab_number": "Poz-4446",
+      "depth_cm": 733.5,
+      "radiocarbon_bp": 2235,
+      "radiocarbon_error_older_bp": 30,
+      "radiocarbon_error_younger_bp": 30,
+      "calibrated_control_bp": 2227,
+      "calibrated_younger_limit_bp": 2153,
+      "calibrated_older_limit_bp": 2337,
+      "published_date_fields_match": true
+    },
+    {
+      "neotoma_chroncontrol_id": 39860,
+      "lab_number": "Poz-4511",
+      "depth_cm": 756.5,
+      "radiocarbon_bp": 2800,
+      "radiocarbon_error_older_bp": 30,
+      "radiocarbon_error_younger_bp": 30,
+      "calibrated_control_bp": 2902,
+      "calibrated_younger_limit_bp": 2797,
+      "calibrated_older_limit_bp": 2976,
+      "published_date_fields_match": true
+    },
+    {
+      "neotoma_chroncontrol_id": 39861,
+      "lab_number": "Poz-4447",
+      "depth_cm": 801.5,
+      "radiocarbon_bp": 4170,
+      "radiocarbon_error_older_bp": 40,
+      "radiocarbon_error_younger_bp": 40,
+      "calibrated_control_bp": 4710,
+      "calibrated_younger_limit_bp": 4578,
+      "calibrated_older_limit_bp": 4835,
+      "published_date_fields_match": true
+    },
+    {
+      "neotoma_chroncontrol_id": 39862,
+      "lab_number": "Poz-4512",
+      "depth_cm": 846.5,
+      "radiocarbon_bp": 5980,
+      "radiocarbon_error_older_bp": 40,
+      "radiocarbon_error_younger_bp": 40,
+      "calibrated_control_bp": 6819,
+      "calibrated_younger_limit_bp": 6721,
+      "calibrated_older_limit_bp": 6937,
+      "published_date_fields_match": true
+    },
+    {
+      "neotoma_chroncontrol_id": 39863,
+      "lab_number": "Poz-4514",
+      "depth_cm": 880.5,
+      "radiocarbon_bp": 8000,
+      "radiocarbon_error_older_bp": 35,
+      "radiocarbon_error_younger_bp": 35,
+      "calibrated_control_bp": 8877,
+      "calibrated_younger_limit_bp": 8725,
+      "calibrated_older_limit_bp": 9007,
+      "published_date_fields_match": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "epd/pangaea/abbo-age-determination-pangaea-740080.tsv",
+      "sha256": "9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d"
+    },
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+      "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/abbo-profile/report.json",
+      "sha256": "c29738753e25a99767776cfecfbdaebe0c3a4394c38df91b72bb2c4c944c6263"
+    }
+  ]
+}

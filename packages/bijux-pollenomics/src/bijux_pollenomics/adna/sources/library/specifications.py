@@ -83,6 +83,22 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41598-024-54296-2/article.html",
             article_kind="article_html",
             article_note="Scientific Reports article page is archived as the accessible paper surface.",
+            supplementary_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="supplementary_pdf",
+                    label="reindeer supplementary figures",
+                    source_url="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-024-54296-2/MediaObjects/41598_2024_54296_MOESM1_ESM.pdf",
+                    relative_path="papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM1_ESM.pdf",
+                    remote_note="Publisher-linked supplementary figures for the reindeer article.",
+                ),
+                _RemoteArtifactSpec(
+                    artifact_kind="supplementary_spreadsheet",
+                    label="reindeer supplementary tables",
+                    source_url="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-024-54296-2/MediaObjects/41598_2024_54296_MOESM2_ESM.xlsx",
+                    relative_path="papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+                    remote_note="Publisher-linked Table S1 supplies specimen locality and calibrated age evidence.",
+                ),
+            ),
         ),
         "10.1038/ncomms16082": _PaperSourceSpec(
             doi="10.1038/ncomms16082",
@@ -126,6 +142,26 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-1755-0998.12551/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the camel paper.",
+        ),
+        "10.1111/mec.17274": _PaperSourceSpec(
+            doi="10.1111/mec.17274",
+            article_source_url=(
+                "https://api.nva.unit.no/publication/"
+                "0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/"
+                "filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f"
+            ),
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.pdf",
+            article_kind="article_pdf",
+            article_note="Published Molecular Ecology article deposited as an open file in Norway's National Research Archive; Table 1 identifies 18 Svalbard specimens.",
+            additional_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="author_preprint_pdf",
+                    label="author bioRxiv preprint",
+                    source_url="https://www.biorxiv.org/content/10.1101/2023.09.21.558762v1.full.pdf",
+                    relative_path="papers/10.1111-mec.17274/author_preprint.pdf",
+                    remote_note="Author preprint Table 1 independently confirms specimen-level Svalbard UTM grid values and calibrated ages in the captured published article.",
+                ),
+            ),
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(
             doi="10.1126/science.aam5298",
@@ -257,26 +293,49 @@ def _expand_remote_assets(
 
 
 def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
-    if project_accession != "PRJEB59481":
+    sample_accessions = {
+        "PRJEB41594": (
+            "SAMEA8022720",
+            "SAMEA8022721",
+            "SAMEA8022722",
+            "SAMEA8022723",
+            "SAMEA8022724",
+        ),
+        "PRJEB59481": (
+            "SAMEA112960291",
+            "SAMEA112960292",
+            "SAMEA112960293",
+            "SAMEA112960294",
+            "SAMEA112960295",
+        ),
+        "PRJEB60484": (
+            *(f"SAMEA{number}" for number in range(112757323, 112757341)),
+            "SAMEA114857470",
+            "SAMEA114857471",
+        ),
+    }
+    accessions = sample_accessions.get(project_accession)
+    if accessions is None:
         return ()
     return tuple(
         _RemoteArtifactSpec(
             artifact_kind="ena_sample_xml",
             label=f"ENA sample XML {accession}",
             source_url=f"https://www.ebi.ac.uk/ena/browser/api/xml/{accession}",
-            relative_path=(f"projects/PRJEB59481/ena_samples/{accession}.xml"),
+            relative_path=(f"projects/{project_accession}/ena_samples/{accession}.xml"),
             remote_note=(
                 "Official ENA biological-sample record supplies exact sample "
-                "identity, source-native lat_lon, taxonomy, and material wording."
+                "identity, source-native alias and taxonomy; locality and date "
+                "require separate source evidence."
+                if project_accession == "PRJEB41594"
+                else (
+                    "Official ENA biological-sample record supplies exact specimen alias and taxonomy; locality and date require a source-matched paper row."
+                    if project_accession == "PRJEB60484"
+                    else "Official ENA biological-sample record supplies exact sample identity, source-native lat_lon, taxonomy, and material wording."
+                )
             ),
         )
-        for accession in (
-            "SAMEA112960291",
-            "SAMEA112960292",
-            "SAMEA112960293",
-            "SAMEA112960294",
-            "SAMEA112960295",
-        )
+        for accession in accessions
     )
 
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import gzip
+from hashlib import sha256
 import io
 import json
 from pathlib import Path
@@ -10,7 +11,11 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from bijux_pollenomics.adna.projects.sample_master.tables.workbook import (
+    _read_xlsx_rows,
+)
 from bijux_pollenomics.adna.sources import library as source_library_module
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.sources.library import (
     acquisition as source_library_acquisition,
 )
@@ -18,6 +23,12 @@ from bijux_pollenomics.adna.sources.library import (
     refresh_source_library,
 )
 from bijux_pollenomics.adna.sources.library import storage as source_library_storage
+from bijux_pollenomics.adna.sources.library.registries.bundles import (
+    build_project_source_bundles,
+)
+from bijux_pollenomics.adna.sources.library.registries.papers import (
+    build_paper_registry,
+)
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     migrate_html_source_artifact,
     read_source_artifact_text,
@@ -27,6 +38,76 @@ from tests.support.repository import REPOSITORY_ROOT
 from .fixtures import _bounded_paper_spec
 
 DATA_ROOT = REPOSITORY_ROOT / "data"
+
+
+def test_reindeer_custody_uses_primary_doi_and_publisher_sample_workbook() -> None:
+    project = next(
+        row
+        for row in build_archive_project_catalog()
+        if row.project_accession == "PRJEB60484"
+    )
+    assert project.paper_linkage is not None
+    assert project.paper_linkage.doi == "10.1111/mec.17274"
+    source = (
+        DATA_ROOT
+        / "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary"
+    )
+    wrong = source / "41598_2024_64499_MOESM1_ESM.pdf"
+    assert not wrong.exists()
+    workbook = source / "41598_2024_54296_MOESM2_ESM.xlsx"
+    assert sha256(workbook.read_bytes()).hexdigest() == (
+        "1a11850c94d8a08f91a11feecc298dc9be9003911bd6dc39df6f6796c2348988"
+    )
+    rows = _read_xlsx_rows(workbook, sheet_name="SI Table S1")
+    assert rows[3][0] == "Sample ID"
+    assert sum(len(row) > 13 and row[13] == "PRJEB60484" for row in rows) == 16
+    samples = sorted(
+        (
+            DATA_ROOT / "adna/governance/source_library/projects/PRJEB60484/ena_samples"
+        ).glob("*.xml")
+    )
+    assert len(samples) == 20
+    assert all(
+        json.loads(path.with_suffix(".xml.metadata.json").read_text())["content_sha256"]
+        == sha256(path.read_bytes()).hexdigest()
+        for path in samples
+    )
+    bundle = next(
+        row
+        for row in build_project_source_bundles(DATA_ROOT)
+        if row.project_accession == "PRJEB60484"
+    )
+    paper = next(
+        row
+        for row in build_paper_registry(DATA_ROOT)
+        if row.paper_doi == "10.1111/mec.17274"
+    )
+    assert bundle.paper_download_status == "archived"
+    assert "missing_local_paper_evidence" not in bundle.blockers
+    assert paper.article_download_status == "archived"
+    assert paper.article_readability_status == "readable_pdf"
+    article = (
+        DATA_ROOT
+        / "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
+    )
+    article_digest = "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f"
+    assert sha256(article.read_bytes()).hexdigest() == article_digest
+    article_receipt = json.loads(article.with_suffix(".pdf.metadata.json").read_text())
+    assert article_receipt["content_sha256"] == article_digest
+    assert article_receipt["published_article_doi"] == "10.1111/mec.17274"
+    assert (
+        article_receipt["license_url"] == "https://creativecommons.org/licenses/by/4.0/"
+    )
+    preprint = (
+        DATA_ROOT
+        / "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf"
+    )
+    digest = "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af"
+    assert sha256(preprint.read_bytes()).hexdigest() == digest
+    receipt = json.loads(preprint.with_suffix(".pdf.metadata.json").read_text())
+    assert receipt["content_sha256"] == digest
+    assert receipt["preprint_doi"] == "10.1101/2023.09.21.558762"
+    assert receipt["artifact_kind"] == "author_preprint_pdf"
 
 
 class OfficialSourceCaptureTests(unittest.TestCase):

@@ -26,6 +26,32 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 The [comparison producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py) validates original certificate closure, every current source hash and command result, exact private archive custody, full case denominators, and cross-platform R vectors before retaining the raw results. Strict mypy and Ruff checks passed for the two producers; the actual R and comparison commands returned zero.
 
+## Optimized LOVE objective and bounded search
+
+The current [solver](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py)
+and [optimized reconstruction](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py)
+match the source SHA-256 values bound in this report's `current_inputs_sha256`.
+The focused [solver checks](../../../../packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
+and [optimized-profile checks](../../../../packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py)
+passed **70/70** on this source state. They cover fixed-candidate objective replay,
+independently derived interior and boundary optima under eight seeds each,
+distinct cover vectors with the same optimum, exact evaluation budgets and
+nonconvergence, bounded custom result certification, and a LOVE consumer's
+forward-pollen and objective values. The 18 prospective R cases additionally
+check declared optimized intermediates and supplied-candidate wrapper behavior.
+
+Recheck the focused Python consumer selection from the repository root:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  .venv/bin/python -m pytest -q \
+  -o cache_dir=artifacts/jobs/love-optimizer-acceptance/cache \
+  --basetemp=artifacts/jobs/love-optimizer-acceptance/tmp \
+  packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py
+```
+
 ## Scientific and release boundary
 
 This is current native macOS R execution with exact package source versions. It is **not** the separate locked Linux release certificate: the interpreter and platform identities differ, and this output does not claim a full Linux runtime/library file closure or release authorization. The prospective replay cases test agreed objective and wrapper behavior under supplied candidates; they do not establish stochastic optimizer trajectory parity, a global optimum, uncertainty calibration, ecological prediction accuracy, or independent vegetation truth. Those remain separate acceptance requirements.

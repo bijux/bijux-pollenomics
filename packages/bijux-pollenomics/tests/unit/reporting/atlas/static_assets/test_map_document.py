@@ -18,6 +18,7 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
 from .fixtures.layers import build_point_layers, build_polygon_layers
@@ -63,6 +64,11 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     )
 
     assert len(html.encode("utf-8")) <= ATLAS_DOCUMENT_MAX_BYTES
+    source_css = MAP_DOCUMENT_TEMPLATE.split("<style>", 1)[1].split("</style>", 1)[0]
+    rendered_css = html.split("<style>", 1)[1].split("</style>", 1)[0]
+    assert rendered_css == "\n".join(
+        line.lstrip(" \t") for line in source_css.split("\n")
+    )
     assert all(line == line.rstrip() for line in html.splitlines())
     assert 'id="atlas-static-bootstrap"' in html
     assert "selection_aware_static_scripts" in html

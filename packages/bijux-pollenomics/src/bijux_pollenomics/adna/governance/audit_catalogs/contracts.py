@@ -135,6 +135,7 @@ class CoordinateCaveatSurface(TypedDict):
 class HonestyRow(TypedDict):
     species_latin_name: str
     species_common_name: str
+    source_taxon_mismatches: dict[str, int]
     tracked_sample_count: int
     mapped_sample_count: int
     blocked_sample_count: int

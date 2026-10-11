@@ -409,9 +409,9 @@
   },
   "animal_sample_chronology_context": {
     "artifact": "world_animal_sample_chronology_context.json",
-    "content_sha256": "10dee8b43da3eab5adea5a40fac2c0ae0b3ae7344d784d3de2e891713634cb88",
-    "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
-    "corpus_identity_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7",
+    "content_sha256": "147ef4b0cc056e2aaeb0418cf99d997b93b922fdd065ae9a99b4051d3d35364c",
+    "input_identity_sha256": "47197b87f1409384b1924681e71db0466a94dd6126e3fa33b1b4b0c49ec9d617",
+    "corpus_identity_sha256": "a8fe4bb5f4b2adbe947b553a15e33fb3326bfaceec70531841c6bbdf84803c21",
     "scope": {
       "key": "world",
       "kind": "world",

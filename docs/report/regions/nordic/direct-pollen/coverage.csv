@@ -1,16 +1,82 @@
 country,site_id,site_name,candidate_age_count_bins,positive_closed_taxon_bins,predicted_bins,scored_bins,empty_or_refused_outcome_bins,eligible_bins_without_prediction
+DK,neotoma:site:3432,Lake Solsø,24,24,24,24,0,0
+FI,neotoma:site:15733,Lake Tsuolbmajavri,20,20,20,20,0,0
+FI,neotoma:site:20,Akuvaara,22,22,22,22,0,0
+FI,neotoma:site:24041,Lake Skaidejavri,21,21,21,21,0,0
+FI,neotoma:site:28072,Laihalampi,23,23,23,23,0,0
+FI,neotoma:site:28074,Toskaljarvi,20,20,20,20,0,0
+FI,neotoma:site:2966,Aholammi,23,23,23,23,0,0
 FI,neotoma:site:30965,Palomaa,2,2,2,2,0,0
-NO,neotoma:site:13476,Liten Cap’pesjav’ri,28,28,19,19,0,9
-NO,neotoma:site:13478,Over Gunnarsfjorden,21,21,19,19,0,2
-NO,neotoma:site:13481,Over Kobbkrokvatnet,26,25,19,19,1,6
-NO,neotoma:site:28412,Lake Topptjønna,19,19,7,7,0,12
-NO,neotoma:site:28431,Lake Heimtjønna,25,25,15,15,0,10
-NO,neotoma:site:28440,Lake Store Finnsjøen,24,24,17,17,0,7
-NO,neotoma:site:28451,Lervahå bog,17,17,12,12,0,5
-NO,neotoma:site:28452,Liastemmen bog,10,10,0,0,0,10
-NO,neotoma:site:28455,Eigebakken bog,10,10,0,0,0,10
+FI,neotoma:site:3145,Hirvilampi,24,24,24,24,0,0
+FI,neotoma:site:3165,Isokärret,9,9,9,9,0,0
+FI,neotoma:site:3177,Kaarkotinlampi,19,19,19,19,0,0
+FI,neotoma:site:3178,Kaartlamminsuo,10,10,10,10,0,0
+FI,neotoma:site:3180,Kangerjoki,15,15,15,15,0,0
+FI,neotoma:site:3195,Kirkkosaari,11,11,11,11,0,0
+FI,neotoma:site:3196,Kittilä,3,3,3,3,0,0
+FI,neotoma:site:3210,Kuivajarvi,20,20,20,20,0,0
+FI,neotoma:site:3264,Maanselänsuo,18,18,18,18,0,0
+FI,neotoma:site:3299,Mossen,5,5,5,5,0,0
+FI,neotoma:site:3302,Mukkavaara,24,24,24,24,0,0
+FI,neotoma:site:3365,Vasikkasuo,20,20,20,20,0,0
+FI,neotoma:site:3388,Rukatunturi,11,11,11,11,0,0
+FI,neotoma:site:3389,Ryönänsuo,22,22,22,22,0,0
+FI,neotoma:site:3400,Särkikangas,13,13,13,13,0,0
+FI,neotoma:site:3412,Siikasuo,10,10,10,10,0,0
+FI,neotoma:site:3414,Sipola,2,2,2,2,0,0
+FI,neotoma:site:3451,Suovalampi,19,19,19,19,0,0
+FI,neotoma:site:3455,Syrjälänsuo,23,23,23,23,0,0
+FI,neotoma:site:3479,Tullerinsuo,7,7,7,7,0,0
+FI,neotoma:site:3513,Ylimysneva,19,19,19,19,0,0
+NO,neotoma:site:13383,Lake Flåfattjønna,33,33,25,25,0,8
+NO,neotoma:site:13384,Lake Ifjord,24,24,24,24,0,0
+NO,neotoma:site:13388,Dalmutladdo,22,22,22,22,0,0
+NO,neotoma:site:13390,Trettetjørn,25,25,23,23,0,2
+NO,neotoma:site:13391,Brurskardtjørni,24,24,24,24,0,0
+NO,neotoma:site:13392,Vestre Øykjamyrtjørn,28,28,25,25,0,3
+NO,neotoma:site:13396,Sandvikvatn,19,19,19,19,0,0
+NO,neotoma:site:13476,Liten Cap’pesjav’ri,28,28,25,25,0,3
+NO,neotoma:site:13478,Over Gunnarsfjorden,21,21,21,21,0,0
+NO,neotoma:site:13481,Over Kobbkrokvatnet,26,25,24,24,1,1
+NO,neotoma:site:25998,Myrvatnet,25,25,23,23,0,2
+NO,neotoma:site:26123,Morttjern,24,24,24,24,0,0
+NO,neotoma:site:26124,Storsandvatnet,29,29,25,25,0,4
+NO,neotoma:site:26125,Svartvatnet,32,32,25,25,0,7
+NO,neotoma:site:26126,Tiåvatnet,26,26,25,25,0,1
+NO,neotoma:site:26127,Råtåsj¢en,24,24,24,24,0,0
+NO,neotoma:site:26128,Afstj¢rna,27,27,25,25,0,2
+NO,neotoma:site:26129,Måsåtjørnet,28,28,25,25,0,3
+NO,neotoma:site:26167,Litlvatnet,26,26,25,25,0,1
+NO,neotoma:site:26168,Gammelheimenvatnet,21,21,21,21,0,0
+NO,neotoma:site:26169,Bjørnfjelltjørn,24,24,24,24,0,0
+NO,neotoma:site:26210,Haugtjernet,22,22,22,22,0,0
+NO,neotoma:site:26211,Kinnshaugen,30,30,25,25,0,5
+NO,neotoma:site:26212,Øygardstjønn,25,25,25,25,0,0
+NO,neotoma:site:26213,Lisletjønn,21,21,21,21,0,0
+NO,neotoma:site:26214,Flotatjønn,21,21,21,21,0,0
+NO,neotoma:site:26215,Lille Kjelavatn,18,18,18,18,0,0
+NO,neotoma:site:26216,Holebudalen,23,23,23,23,0,0
+NO,neotoma:site:26217,Grostjørna,26,26,24,24,0,2
+NO,neotoma:site:26218,Reiersdalvann,24,24,24,24,0,0
+NO,neotoma:site:26219,Dalane,31,31,25,25,0,6
+NO,neotoma:site:26220,Grauthelleren,31,31,23,23,0,8
+NO,neotoma:site:26221,Isbenttjønn,22,22,22,22,0,0
+NO,neotoma:site:28157,Lake Skogstjern,22,22,22,22,0,0
+NO,neotoma:site:28412,Lake Topptjønna,19,19,13,13,0,6
+NO,neotoma:site:28431,Lake Heimtjønna,25,25,20,20,0,5
+NO,neotoma:site:28440,Lake Store Finnsjøen,24,24,23,23,0,1
+NO,neotoma:site:28451,Lervahå bog,17,17,17,17,0,0
+NO,neotoma:site:28452,Liastemmen bog,10,10,6,6,0,4
+NO,neotoma:site:28455,Eigebakken bog,10,10,6,6,0,4
 NO,neotoma:site:28457,Reinskaret bog,16,16,16,16,0,0
-NO,neotoma:site:28459,Hemma,4,4,2,2,0,2
+NO,neotoma:site:28459,Hemma,4,4,4,4,0,0
+NO,neotoma:site:3022,Blåvasstjønn,20,20,20,20,0,0
+NO,neotoma:site:310,Bruvatnet [Rovvejávri],28,28,25,25,0,3
+NO,neotoma:site:3106,Flaatevatn,19,19,19,19,0,0
+NO,neotoma:site:3115,Frengstadsetra,18,18,18,18,0,0
 NO,neotoma:site:33292,Svanåvatnet,18,18,18,18,0,0
-NO,neotoma:site:33300,Brattheivatnet,17,17,5,5,0,12
-NO,neotoma:site:33301,Lusvatnet,14,14,5,5,0,9
+NO,neotoma:site:33300,Brattheivatnet,17,17,11,11,0,6
+NO,neotoma:site:33301,Lusvatnet,14,14,11,11,0,3
+NO,neotoma:site:3372,Råttuvarri,21,21,21,21,0,0
+NO,neotoma:site:3475,Trollvatnet,22,22,20,20,0,2
+NO,neotoma:site:947,Grasvatn,24,24,23,23,0,1

@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import Any
 
 from .contract import (
+    SEAD_NORMALIZED_LINEAGE_INPUTS,
+    SEAD_NORMALIZED_LINEAGE_PATH,
     SEAD_REPOSITORY_SURFACE_PATHS,
     RepositorySurfaceCandidate,
     file_sha256,
@@ -79,6 +81,7 @@ def validate_json_surfaces(candidate: RepositorySurfaceCandidate) -> None:
 
 def validate_cross_format_counts(candidate: RepositorySurfaceCandidate) -> None:
     root = candidate.candidate_data_root / "sead"
+    validate_normalized_lineage(candidate.candidate_data_root)
     for stem in ("nordic_environmental_sites", "nordic_temporal_evidence"):
         csv_count = csv_row_count(root / "normalized" / f"{stem}.csv")
         geojson = json_object(root / "normalized" / f"{stem}.geojson")
@@ -128,6 +131,40 @@ def validate_cross_format_counts(candidate: RepositorySurfaceCandidate) -> None:
         root / "review" / "scientific_classification_candidates.csv"
     ):
         raise ValueError("SEAD candidate classification counts differ")
+
+
+def validate_normalized_lineage(data_root: Path) -> None:
+    """Bind every normalized map source to the admitted acquisition identity."""
+    lineage = json_object(data_root / SEAD_NORMALIZED_LINEAGE_PATH)
+    if lineage.get("schema_version") != "sead-normalized-surface-lineage.v1":
+        raise ValueError("SEAD normalized lineage schema differs")
+    for field in (
+        "source_run_id",
+        "build_id",
+        "acquisition_manifest_sha256",
+        "parent_admission_sha256",
+        "acquisition_bundle_sha256",
+    ):
+        value = lineage.get(field)
+        if not isinstance(value, str) or not value:
+            raise ValueError(f"SEAD normalized lineage {field} is missing")
+    expected = {
+        str(path.relative_to("sead")): file_sha256(data_root / path)
+        for path in SEAD_NORMALIZED_LINEAGE_INPUTS
+    }
+    if lineage.get("normalized_surface_sha256") != expected:
+        raise ValueError("SEAD normalized lineage surface hashes differ")
+    review_lineage = json_object(data_root / "sead/review/temporal_review.json").get(
+        "lineage"
+    )
+    shared_fields = (
+        "source_run_id",
+        "build_id",
+        "acquisition_manifest_sha256",
+        "parent_admission_sha256",
+    )
+    if review_lineage != {field: lineage[field] for field in shared_fields}:
+        raise ValueError("SEAD normalized and review lineage differ")
 
 
 def json_object(path: Path) -> dict[str, Any]:

@@ -1,0 +1,13 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-024-54296-2/MediaObjects/41598_2024_54296_MOESM1_ESM.pdf",
+  "artifact_kind": "supplementary_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 915734,
+  "paper_doi": "10.1038/s41598-024-54296-2",
+  "content_sha256": "93889718035d8c8aface421858067ae7e151a71fa893a7df2e63cb2b10111286",
+  "storage_byte_size": 915734,
+  "storage_sha256": "93889718035d8c8aface421858067ae7e151a71fa893a7df2e63cb2b10111286",
+  "storage_path": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM1_ESM.pdf",
+  "content_encoding": null
+}

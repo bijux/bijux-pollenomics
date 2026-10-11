@@ -269,7 +269,19 @@ def _validate_row_identity(
     row: Mapping[str, object], *, accession: str, species: str, filename: str
 ) -> _SampleKey:
     _require_equal(row.get("project_accession"), accession, f"{filename} row project")
-    _require_equal(row.get("species_latin_name"), species, f"{filename} row species")
+    sample_species = _required_text(row, "species_latin_name")
+    if filename == "sample_master.json" and sample_species != species:
+        _require_equal(
+            row.get("taxon_alignment_status"),
+            "project_species_mismatch",
+            f"{filename} source taxon posture",
+        )
+        _require_equal(
+            row.get("source_native_scientific_name"),
+            sample_species,
+            f"{filename} source species",
+        )
+        _required_text(row, "source_native_tax_id")
     sample_id = _required_text(row, "repo_stable_sample_id")
     status = _required_text(row, "sample_identity_resolution")
     if status not in _IDENTITY_STATUSES:

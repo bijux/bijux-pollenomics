@@ -41,15 +41,27 @@ def build_repository_source_acquisition_queue(
         "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
         "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json",
     }
+    archived_supplements = counts["papers_with_archived_supplements"]
+    tracked_papers = counts["tracked_paper_count"]
+    staged_supplements = counts["papers_with_local_reference_supplements"]
     if (
-        counts["papers_with_local_reference_supplements"]
-        <= counts["papers_with_archived_supplements"]
+        staged_supplements <= archived_supplements
+        and archived_supplements < tracked_papers
     ):
+        animal_gap_row = {
+            "queue_key": "animal_adna_repo_ingestion",
+            "source_family": "animal_adna",
+            "priority": "high",
+            "current_gap": f"archived supplements cover {archived_supplements} of {tracked_papers} tracked animal papers",
+            "required_outcome": "recover or confirm absence of missing paper supplements before source-backed sample extraction",
+            "evidence_anchor": "data/adna/governance/source_library/supplement_recovery_audit.json",
+        }
+    elif staged_supplements <= archived_supplements:
         animal_gap_row = {
             "queue_key": "animal_adna_sample_extraction",
             "source_family": "animal_adna",
             "priority": "high",
-            "current_gap": "repository supplement capture now matches visible local staging, but sample, site, and chronology extraction still lags",
+            "current_gap": "all tracked paper supplements are archived, but sample, site, and chronology extraction still lags",
             "required_outcome": "use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence",
             "evidence_anchor": "data/adna/governance/source_library/project_source_evidence_matrix.json",
         }

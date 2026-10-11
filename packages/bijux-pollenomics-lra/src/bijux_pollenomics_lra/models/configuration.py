@@ -74,12 +74,14 @@ class RevealsConfig:
     stochastic: bool = True
     seed: int | None = None
     retain_samples: bool = False
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
 
     def __post_init__(self) -> None:
         basin_type = _enum_value(self.basin_type, BasinType, "basin_type")
         method = _enum_value(
             self.distance_weighting, DistanceWeighting, "distance_weighting"
         )
+        fall_speed_bounds(self.fall_speed_profile, method)
         diameter = integer(self.basin_diameter_m, "basin_diameter_m", minimum=10)
         iterations = integer(self.iterations, "iterations")
         cutoff = finite_number(
@@ -113,6 +115,7 @@ class RevealsConfig:
             "stochastic": self.stochastic,
             "seed": self.seed,
             "retain_samples": self.retain_samples,
+            "fall_speed_profile": self.fall_speed_profile,
         }
 
 

@@ -51,10 +51,12 @@ POLLEN = _object(
         "basin": BASIN,
     }
 )
+# LandClim II includes Filipendula at 0.006 m/s; validation binds this range
+# to the named analytical GPM profile before the numerical engine is invoked.
 PARAMETER = _object(
     {
         "taxon": IDENTITY,
-        "fallspeed_m_s": {"type": "number", "minimum": 0.01, "maximum": 0.15},
+        "fallspeed_m_s": {"type": "number", "minimum": 0.006, "maximum": 0.15},
         "ppe": {"type": "number", "exclusiveMinimum": 0},
         "ppe_sd": NONNEGATIVE,
     }

@@ -40,6 +40,30 @@ def test_minimal_exact_join_preserves_source_chronology_and_identity(
     assert corpus.input_identity.as_dict()["artifact_count"] == 4
 
 
+def test_source_native_species_can_differ_from_project_species(tmp_path: Path) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    for row in (master, chronology, site):
+        row["species_latin_name"] = "Ovis ammon"
+        row["species_common_name"] = "argali"
+    master["taxon_alignment_status"] = "project_species_mismatch"
+    master["source_native_scientific_name"] = "Ovis ammon"
+    master["source_native_tax_id"] = "30527"
+    write_source_repository(
+        tmp_path, masters=[master], chronologies=[chronology], sites=[site]
+    )
+
+    corpus = load_animal_sample_chronology_corpus(tmp_path)
+    assert len(corpus.nodes) == 1
+    assert corpus.nodes[0].project_species_latin_name == "Ovis ammon"
+
+    master["source_native_scientific_name"] = "Ovis aries"
+    write_source_repository(
+        tmp_path / "invalid", masters=[master], chronologies=[chronology], sites=[site]
+    )
+    with pytest.raises(ValueError, match="source species mismatch"):
+        load_animal_sample_chronology_corpus(tmp_path / "invalid")
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [

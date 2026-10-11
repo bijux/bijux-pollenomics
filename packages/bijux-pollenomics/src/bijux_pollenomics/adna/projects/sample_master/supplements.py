@@ -50,7 +50,9 @@ from .tables.european_cats import (
     _build_european_cat_rows,
 )
 from .tables.fertile_crescent_cattle import _build_fertile_crescent_cattle_rows
+from .tables.obishir_sheep import build_obishir_sample_rows
 from .tables.pig_panel import _build_pig_panel_rows, load_pig_site_coordinate_evidence
+from .tables.reindeer import build_reindeer_sample_rows
 
 
 def _project_specific_sample_rows(
@@ -87,6 +89,16 @@ def _project_specific_sample_rows(
         )
     if project.project_accession == "PRJEB59481":
         return _baltic_sheep_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB41594":
+        return build_obishir_sample_rows(
+            output_root,
+            _project_scope_archive_sample_rows(output_root, species, project),
+        )
+    if project.project_accession == "PRJEB60484":
+        return build_reindeer_sample_rows(
+            output_root,
+            _project_scope_archive_sample_rows(output_root, species, project),
+        )
     if project.project_accession == "PRJEB81815":
         return _european_cat_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB31621":

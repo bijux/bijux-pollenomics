@@ -1,0 +1,94 @@
+{
+  "dataset_doi": "10.1594/PANGAEA.937075",
+  "evidence_scope": "source_parameter_codes_and_complete_published_output_axes_and_mean_arithmetic",
+  "inputs": [
+    {
+      "bytes": 1773,
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "bytes": 4007032,
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    }
+  ],
+  "outputs": {
+    "columns.csv": {
+      "bytes": 1575,
+      "sha256": "2e7b86fef9154bf2cde6d91300d8ad7645197aaccd6ef58e2bf1479afabe2572"
+    },
+    "lct_groups.csv": {
+      "bytes": 521,
+      "sha256": "430cfd63c8bf52b49a5cbf1457d011e9fe349a3de936a5cf6cfb25c8d6b0debc"
+    },
+    "windows.csv": {
+      "bytes": 2487,
+      "sha256": "db0de8c5b67657afade80e3332d6741574b2d66de2b78c50ee8dbdf20eebacf1"
+    }
+  },
+  "publisher_prose_claims": {
+    "pangaea_description_pft_count": 11,
+    "paper_pft_count": 12,
+    "prose_byte_identity": "not_retained_in_this_review"
+  },
+  "schema_version": "landclim-pft-crosswalk.v1",
+  "summary": {
+    "declared_mean_sum_absolute_tolerance": 1e-09,
+    "lct_standard_error_aggregation_admitted": false,
+    "maximum_mean_residual_by_lct": {
+      "ET": 9.947598300641403e-14,
+      "OL": 1.3500311979441904e-13,
+      "ST": 1.9184653865522705e-13
+    },
+    "mean_files": 25,
+    "mean_grid_window_rows": 10500,
+    "output_pft_position_codes": [
+      "TBE1",
+      "TBE2",
+      "IBE",
+      "MTBE",
+      "TSE",
+      "MTSE",
+      "IBS",
+      "ISTS",
+      "TBS",
+      "TSD",
+      "LSE",
+      "GL",
+      "AL"
+    ],
+    "paper_dataset_pft_count_reconciled": false,
+    "pft_taxon_definition_admitted_for_ists": false,
+    "rows_per_file": 420,
+    "se_files": 25,
+    "se_grid_window_rows": 10500,
+    "se_naive_sum_disagreement_rows_by_lct": {
+      "ET": 7588,
+      "OL": 5921,
+      "ST": 7892
+    },
+    "source_parameter_pft_codes": [
+      "TBE1",
+      "TBE2",
+      "IBE",
+      "MTBE",
+      "TSE",
+      "MTSE",
+      "IBS",
+      "TBS",
+      "TSD",
+      "LSE",
+      "GL",
+      "AL"
+    ],
+    "unmapped_output_codes": [
+      "ISTS"
+    ]
+  }
+}

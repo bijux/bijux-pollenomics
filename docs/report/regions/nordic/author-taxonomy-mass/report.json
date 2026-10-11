@@ -1,0 +1,1496 @@
+{
+  "schema_version": "nordic-held-out-author-taxonomy-mass.v1",
+  "scope": "source-owned selected EPD pollen NISP from the published DK/FI/NO country-held-out cohorts",
+  "author_lookup_rows": 10788,
+  "selected_site_count": 81,
+  "selected_sample_count": 5432,
+  "selected_pollen_observation_rows": 116727,
+  "countries": [
+    {
+      "country": "DK",
+      "site_count": 1,
+      "selected_samples": 91,
+      "all_native_nisp": 129768,
+      "author_assigned_nisp": 122998,
+      "author_excluded_nisp": 6699,
+      "unmapped_nisp": 71,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.94783,
+      "top_unmapped_names": [
+        {
+          "source_name": "Schoenoplectus lacustris-type",
+          "nisp": 39
+        },
+        {
+          "source_name": "Ranunculus peltatus-type",
+          "nisp": 12
+        },
+        {
+          "source_name": "Silene-type undiff.",
+          "nisp": 9
+        },
+        {
+          "source_name": "Rubus idaeus-type",
+          "nisp": 8
+        },
+        {
+          "source_name": "Maianthemum-type",
+          "nisp": 1
+        },
+        {
+          "source_name": "Narthecium-type",
+          "nisp": 1
+        },
+        {
+          "source_name": "Stellaria palustris",
+          "nisp": 1
+        }
+      ],
+      "top_author_excluded_names": [
+        {
+          "source_name": "Myrica gale",
+          "nisp": 2063
+        },
+        {
+          "source_name": "Plantago uniflora",
+          "nisp": 665
+        },
+        {
+          "source_name": "Nymphaea",
+          "nisp": 515
+        },
+        {
+          "source_name": "Empetrum",
+          "nisp": 479
+        },
+        {
+          "source_name": "Populus tremula",
+          "nisp": 403
+        },
+        {
+          "source_name": "Potentilla-type",
+          "nisp": 270
+        },
+        {
+          "source_name": "Potamogeton",
+          "nisp": 221
+        },
+        {
+          "source_name": "Urtica",
+          "nisp": 180
+        },
+        {
+          "source_name": "Sparganium-type",
+          "nisp": 124
+        },
+        {
+          "source_name": "Genista-type",
+          "nisp": 116
+        },
+        {
+          "source_name": "Jasione montana",
+          "nisp": 113
+        },
+        {
+          "source_name": "Daucus-type",
+          "nisp": 106
+        }
+      ],
+      "top_size_variant_candidates": []
+    },
+    {
+      "country": "FI",
+      "site_count": 28,
+      "selected_samples": 1797,
+      "all_native_nisp": 1260281,
+      "author_assigned_nisp": 1229019,
+      "author_excluded_nisp": 28847,
+      "unmapped_nisp": 2415,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.975194,
+      "top_unmapped_names": [
+        {
+          "source_name": "Betula pubescens var. pumila-type",
+          "nisp": 1239
+        },
+        {
+          "source_name": "Rhododendron subsect. Ledum",
+          "nisp": 354
+        },
+        {
+          "source_name": "Spermatophyta undiff. (aquatics)",
+          "nisp": 286
+        },
+        {
+          "source_name": "Poaceae (Cerealia-type)",
+          "nisp": 263
+        },
+        {
+          "source_name": "Spermatophyta undiff.",
+          "nisp": 128
+        },
+        {
+          "source_name": "Rumex subg. Acetosa",
+          "nisp": 65
+        },
+        {
+          "source_name": "Poaceae (Cerealia) undiff.",
+          "nisp": 28
+        },
+        {
+          "source_name": "Micranthes stellaris-type",
+          "nisp": 12
+        },
+        {
+          "source_name": "Humulus/Urtica",
+          "nisp": 11
+        },
+        {
+          "source_name": "Linnaea",
+          "nisp": 8
+        },
+        {
+          "source_name": "Cerastium cerastoides-type",
+          "nisp": 6
+        },
+        {
+          "source_name": "Orthilia",
+          "nisp": 4
+        }
+      ],
+      "top_author_excluded_names": [
+        {
+          "source_name": "Cornus mas/C. suecica",
+          "nisp": 9218
+        },
+        {
+          "source_name": "Betula nana-type",
+          "nisp": 2951
+        },
+        {
+          "source_name": "Betula nana",
+          "nisp": 2009
+        },
+        {
+          "source_name": "Populus",
+          "nisp": 1559
+        },
+        {
+          "source_name": "Typha latifolia",
+          "nisp": 1332
+        },
+        {
+          "source_name": "Empetrum",
+          "nisp": 811
+        },
+        {
+          "source_name": "Rosaceae undiff.",
+          "nisp": 628
+        },
+        {
+          "source_name": "Apiaceae",
+          "nisp": 551
+        },
+        {
+          "source_name": "Myriophyllum alterniflorum",
+          "nisp": 534
+        },
+        {
+          "source_name": "Potentilla",
+          "nisp": 511
+        },
+        {
+          "source_name": "Melampyrum",
+          "nisp": 488
+        },
+        {
+          "source_name": "Empetrum nigrum",
+          "nisp": 440
+        }
+      ],
+      "top_size_variant_candidates": []
+    },
+    {
+      "country": "NO",
+      "site_count": 52,
+      "selected_samples": 3544,
+      "all_native_nisp": 2286020,
+      "author_assigned_nisp": 2018295,
+      "author_excluded_nisp": 233598,
+      "unmapped_nisp": 34127,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.882886,
+      "top_unmapped_names": [
+        {
+          "source_name": "Ranunculus sect. Batrachium",
+          "nisp": 15061
+        },
+        {
+          "source_name": "Artemisia sp.",
+          "nisp": 11150
+        },
+        {
+          "source_name": "Betula (tree)",
+          "nisp": 1119
+        },
+        {
+          "source_name": "Betula (hybrid)",
+          "nisp": 1098
+        },
+        {
+          "source_name": "Lychnis/Dianthus-type",
+          "nisp": 999
+        },
+        {
+          "source_name": "Artemisia norvegica",
+          "nisp": 711
+        },
+        {
+          "source_name": "Salix sp.",
+          "nisp": 551
+        },
+        {
+          "source_name": "Micranthes stellaris-type",
+          "nisp": 360
+        },
+        {
+          "source_name": "Alnus (tree, robust deep pores)",
+          "nisp": 330
+        },
+        {
+          "source_name": "Bistorta",
+          "nisp": 303
+        },
+        {
+          "source_name": "Sorbus group",
+          "nisp": 300
+        },
+        {
+          "source_name": "cf. Cyperaceae-type",
+          "nisp": 266
+        }
+      ],
+      "top_author_excluded_names": [
+        {
+          "source_name": "Myriophyllum alterniflorum",
+          "nisp": 76935
+        },
+        {
+          "source_name": "Empetrum",
+          "nisp": 24035
+        },
+        {
+          "source_name": "Potamogeton",
+          "nisp": 20304
+        },
+        {
+          "source_name": "Betula nana",
+          "nisp": 17348
+        },
+        {
+          "source_name": "Myriophyllum spicatum",
+          "nisp": 11966
+        },
+        {
+          "source_name": "Populus tremula",
+          "nisp": 5473
+        },
+        {
+          "source_name": "Urtica",
+          "nisp": 4625
+        },
+        {
+          "source_name": "Thalictrum",
+          "nisp": 4339
+        },
+        {
+          "source_name": "Cichorioideae",
+          "nisp": 3947
+        },
+        {
+          "source_name": "Melampyrum",
+          "nisp": 3802
+        },
+        {
+          "source_name": "Potentilla-type",
+          "nisp": 3041
+        },
+        {
+          "source_name": "Betula/Corylus/Myrica",
+          "nisp": 2819
+        }
+      ],
+      "top_size_variant_candidates": []
+    }
+  ],
+  "sites": [
+    {
+      "country": "DK",
+      "site_id": "neotoma:site:3432",
+      "site_name": "Lake Solsø",
+      "selected_samples": 91,
+      "all_native_nisp": 129768,
+      "author_assigned_nisp": 122998,
+      "author_excluded_nisp": 6699,
+      "unmapped_nisp": 71,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.94783,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:15733",
+      "site_name": "Lake Tsuolbmajavri",
+      "selected_samples": 146,
+      "all_native_nisp": 73554,
+      "author_assigned_nisp": 72800,
+      "author_excluded_nisp": 752,
+      "unmapped_nisp": 2,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.989749,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:20",
+      "site_name": "Akuvaara",
+      "selected_samples": 33,
+      "all_native_nisp": 25731,
+      "author_assigned_nisp": 25614,
+      "author_excluded_nisp": 117,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.995453,
+      "author_targets_present": 15,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:24041",
+      "site_name": "Lake Skaidejavri",
+      "selected_samples": 98,
+      "all_native_nisp": 49514,
+      "author_assigned_nisp": 49098,
+      "author_excluded_nisp": 397,
+      "unmapped_nisp": 19,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.991598,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:28072",
+      "site_name": "Laihalampi",
+      "selected_samples": 150,
+      "all_native_nisp": 85303,
+      "author_assigned_nisp": 84078,
+      "author_excluded_nisp": 916,
+      "unmapped_nisp": 309,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.985639,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:28074",
+      "site_name": "Toskaljarvi",
+      "selected_samples": 160,
+      "all_native_nisp": 77563,
+      "author_assigned_nisp": 76730,
+      "author_excluded_nisp": 819,
+      "unmapped_nisp": 14,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.98926,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:2966",
+      "site_name": "Aholammi",
+      "selected_samples": 46,
+      "all_native_nisp": 45486,
+      "author_assigned_nisp": 44271,
+      "author_excluded_nisp": 1175,
+      "unmapped_nisp": 40,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.973288,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:30965",
+      "site_name": "Palomaa",
+      "selected_samples": 127,
+      "all_native_nisp": 33504,
+      "author_assigned_nisp": 28116,
+      "author_excluded_nisp": 3776,
+      "unmapped_nisp": 1612,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.839183,
+      "author_targets_present": 16,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3145",
+      "site_name": "Hirvilampi",
+      "selected_samples": 133,
+      "all_native_nisp": 125877,
+      "author_assigned_nisp": 124509,
+      "author_excluded_nisp": 1364,
+      "unmapped_nisp": 4,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.989132,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3165",
+      "site_name": "Isokärret",
+      "selected_samples": 33,
+      "all_native_nisp": 35610,
+      "author_assigned_nisp": 35088,
+      "author_excluded_nisp": 501,
+      "unmapped_nisp": 21,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.985341,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3177",
+      "site_name": "Kaarkotinlampi",
+      "selected_samples": 36,
+      "all_native_nisp": 37506,
+      "author_assigned_nisp": 37130,
+      "author_excluded_nisp": 364,
+      "unmapped_nisp": 12,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.989975,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3178",
+      "site_name": "Kaartlamminsuo",
+      "selected_samples": 54,
+      "all_native_nisp": 54431,
+      "author_assigned_nisp": 54036,
+      "author_excluded_nisp": 369,
+      "unmapped_nisp": 26,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.992743,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3180",
+      "site_name": "Kangerjoki",
+      "selected_samples": 26,
+      "all_native_nisp": 26078,
+      "author_assigned_nisp": 25610,
+      "author_excluded_nisp": 335,
+      "unmapped_nisp": 133,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.982054,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3195",
+      "site_name": "Kirkkosaari",
+      "selected_samples": 47,
+      "all_native_nisp": 48784,
+      "author_assigned_nisp": 48330,
+      "author_excluded_nisp": 433,
+      "unmapped_nisp": 21,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.990694,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3196",
+      "site_name": "Kittilä",
+      "selected_samples": 15,
+      "all_native_nisp": 13978,
+      "author_assigned_nisp": 13177,
+      "author_excluded_nisp": 798,
+      "unmapped_nisp": 3,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.942696,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3210",
+      "site_name": "Kuivajarvi",
+      "selected_samples": 110,
+      "all_native_nisp": 58989,
+      "author_assigned_nisp": 58175,
+      "author_excluded_nisp": 794,
+      "unmapped_nisp": 20,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.986201,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3264",
+      "site_name": "Maanselänsuo",
+      "selected_samples": 28,
+      "all_native_nisp": 7040,
+      "author_assigned_nisp": 6981,
+      "author_excluded_nisp": 59,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.991619,
+      "author_targets_present": 17,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3299",
+      "site_name": "Mossen",
+      "selected_samples": 56,
+      "all_native_nisp": 41517,
+      "author_assigned_nisp": 40987,
+      "author_excluded_nisp": 461,
+      "unmapped_nisp": 69,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.987234,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3302",
+      "site_name": "Mukkavaara",
+      "selected_samples": 55,
+      "all_native_nisp": 26776,
+      "author_assigned_nisp": 26664,
+      "author_excluded_nisp": 112,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.995817,
+      "author_targets_present": 16,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3365",
+      "site_name": "Vasikkasuo",
+      "selected_samples": 59,
+      "all_native_nisp": 30308,
+      "author_assigned_nisp": 29928,
+      "author_excluded_nisp": 344,
+      "unmapped_nisp": 36,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.987462,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3388",
+      "site_name": "Rukatunturi",
+      "selected_samples": 15,
+      "all_native_nisp": 19271,
+      "author_assigned_nisp": 18484,
+      "author_excluded_nisp": 786,
+      "unmapped_nisp": 1,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.959161,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3389",
+      "site_name": "Ryönänsuo",
+      "selected_samples": 73,
+      "all_native_nisp": 72295,
+      "author_assigned_nisp": 71248,
+      "author_excluded_nisp": 1033,
+      "unmapped_nisp": 14,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.985518,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3400",
+      "site_name": "Särkikangas",
+      "selected_samples": 23,
+      "all_native_nisp": 16875,
+      "author_assigned_nisp": 14729,
+      "author_excluded_nisp": 2140,
+      "unmapped_nisp": 6,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.87283,
+      "author_targets_present": 15,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3412",
+      "site_name": "Siikasuo",
+      "selected_samples": 55,
+      "all_native_nisp": 58281,
+      "author_assigned_nisp": 57807,
+      "author_excluded_nisp": 464,
+      "unmapped_nisp": 10,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.991867,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3414",
+      "site_name": "Sipola",
+      "selected_samples": 13,
+      "all_native_nisp": 10799,
+      "author_assigned_nisp": 10342,
+      "author_excluded_nisp": 434,
+      "unmapped_nisp": 23,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.957681,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3451",
+      "site_name": "Suovalampi",
+      "selected_samples": 34,
+      "all_native_nisp": 16467,
+      "author_assigned_nisp": 16404,
+      "author_excluded_nisp": 63,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.996174,
+      "author_targets_present": 15,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3455",
+      "site_name": "Syrjälänsuo",
+      "selected_samples": 76,
+      "all_native_nisp": 71687,
+      "author_assigned_nisp": 70825,
+      "author_excluded_nisp": 857,
+      "unmapped_nisp": 5,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.987976,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3479",
+      "site_name": "Tullerinsuo",
+      "selected_samples": 55,
+      "all_native_nisp": 68946,
+      "author_assigned_nisp": 60451,
+      "author_excluded_nisp": 8485,
+      "unmapped_nisp": 10,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.876788,
+      "author_targets_present": 25,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "FI",
+      "site_id": "neotoma:site:3513",
+      "site_name": "Ylimysneva",
+      "selected_samples": 41,
+      "all_native_nisp": 28111,
+      "author_assigned_nisp": 27407,
+      "author_excluded_nisp": 699,
+      "unmapped_nisp": 5,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.974956,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13383",
+      "site_name": "Lake Flåfattjønna",
+      "selected_samples": 147,
+      "all_native_nisp": 174436,
+      "author_assigned_nisp": 169722,
+      "author_excluded_nisp": 4630,
+      "unmapped_nisp": 84,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.972976,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13384",
+      "site_name": "Lake Ifjord",
+      "selected_samples": 92,
+      "all_native_nisp": 42028,
+      "author_assigned_nisp": 40467,
+      "author_excluded_nisp": 1410,
+      "unmapped_nisp": 151,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.962858,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13388",
+      "site_name": "Dalmutladdo",
+      "selected_samples": 72,
+      "all_native_nisp": 47085,
+      "author_assigned_nisp": 46477,
+      "author_excluded_nisp": 600,
+      "unmapped_nisp": 8,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.987087,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13390",
+      "site_name": "Trettetjørn",
+      "selected_samples": 53,
+      "all_native_nisp": 26798,
+      "author_assigned_nisp": 24180,
+      "author_excluded_nisp": 2551,
+      "unmapped_nisp": 67,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.902306,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13391",
+      "site_name": "Brurskardtjørni",
+      "selected_samples": 61,
+      "all_native_nisp": 36327,
+      "author_assigned_nisp": 35108,
+      "author_excluded_nisp": 1202,
+      "unmapped_nisp": 17,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.966444,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13392",
+      "site_name": "Vestre Øykjamyrtjørn",
+      "selected_samples": 97,
+      "all_native_nisp": 58876,
+      "author_assigned_nisp": 56162,
+      "author_excluded_nisp": 2662,
+      "unmapped_nisp": 52,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.953903,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13396",
+      "site_name": "Sandvikvatn",
+      "selected_samples": 45,
+      "all_native_nisp": 32742,
+      "author_assigned_nisp": 31220,
+      "author_excluded_nisp": 1509,
+      "unmapped_nisp": 13,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.953515,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13476",
+      "site_name": "Liten Cap’pesjav’ri",
+      "selected_samples": 72,
+      "all_native_nisp": 25405,
+      "author_assigned_nisp": 24256,
+      "author_excluded_nisp": 812,
+      "unmapped_nisp": 337,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.954773,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13478",
+      "site_name": "Over Gunnarsfjorden",
+      "selected_samples": 116,
+      "all_native_nisp": 46624,
+      "author_assigned_nisp": 45148,
+      "author_excluded_nisp": 1360,
+      "unmapped_nisp": 116,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.968342,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:13481",
+      "site_name": "Over Kobbkrokvatnet",
+      "selected_samples": 69,
+      "all_native_nisp": 21944,
+      "author_assigned_nisp": 9659,
+      "author_excluded_nisp": 9340,
+      "unmapped_nisp": 2945,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.440166,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:25998",
+      "site_name": "Myrvatnet",
+      "selected_samples": 62,
+      "all_native_nisp": 24641,
+      "author_assigned_nisp": 23653,
+      "author_excluded_nisp": 973,
+      "unmapped_nisp": 15,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.959904,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26123",
+      "site_name": "Morttjern",
+      "selected_samples": 66,
+      "all_native_nisp": 44488,
+      "author_assigned_nisp": 42037,
+      "author_excluded_nisp": 2446,
+      "unmapped_nisp": 5,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.944906,
+      "author_targets_present": 25,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26124",
+      "site_name": "Storsandvatnet",
+      "selected_samples": 82,
+      "all_native_nisp": 41525,
+      "author_assigned_nisp": 39662,
+      "author_excluded_nisp": 1844,
+      "unmapped_nisp": 19,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.955135,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26125",
+      "site_name": "Svartvatnet",
+      "selected_samples": 74,
+      "all_native_nisp": 32938,
+      "author_assigned_nisp": 31065,
+      "author_excluded_nisp": 1830,
+      "unmapped_nisp": 43,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.943136,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26126",
+      "site_name": "Tiåvatnet",
+      "selected_samples": 88,
+      "all_native_nisp": 38837,
+      "author_assigned_nisp": 37003,
+      "author_excluded_nisp": 1771,
+      "unmapped_nisp": 63,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.952777,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26127",
+      "site_name": "Råtåsj¢en",
+      "selected_samples": 67,
+      "all_native_nisp": 39891,
+      "author_assigned_nisp": 39052,
+      "author_excluded_nisp": 822,
+      "unmapped_nisp": 17,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.978968,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26128",
+      "site_name": "Afstj¢rna",
+      "selected_samples": 54,
+      "all_native_nisp": 33420,
+      "author_assigned_nisp": 32763,
+      "author_excluded_nisp": 639,
+      "unmapped_nisp": 18,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.980341,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26129",
+      "site_name": "Måsåtjørnet",
+      "selected_samples": 54,
+      "all_native_nisp": 32962,
+      "author_assigned_nisp": 32295,
+      "author_excluded_nisp": 663,
+      "unmapped_nisp": 4,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.979765,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26167",
+      "site_name": "Litlvatnet",
+      "selected_samples": 50,
+      "all_native_nisp": 17945,
+      "author_assigned_nisp": 17066,
+      "author_excluded_nisp": 867,
+      "unmapped_nisp": 12,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.951017,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26168",
+      "site_name": "Gammelheimenvatnet",
+      "selected_samples": 73,
+      "all_native_nisp": 36781,
+      "author_assigned_nisp": 35847,
+      "author_excluded_nisp": 914,
+      "unmapped_nisp": 20,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.974606,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26169",
+      "site_name": "Bjørnfjelltjørn",
+      "selected_samples": 62,
+      "all_native_nisp": 29326,
+      "author_assigned_nisp": 28321,
+      "author_excluded_nisp": 975,
+      "unmapped_nisp": 30,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.96573,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26210",
+      "site_name": "Haugtjernet",
+      "selected_samples": 76,
+      "all_native_nisp": 51405,
+      "author_assigned_nisp": 48147,
+      "author_excluded_nisp": 3231,
+      "unmapped_nisp": 27,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.936621,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26211",
+      "site_name": "Kinnshaugen",
+      "selected_samples": 69,
+      "all_native_nisp": 38318,
+      "author_assigned_nisp": 36060,
+      "author_excluded_nisp": 2229,
+      "unmapped_nisp": 29,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.941072,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26212",
+      "site_name": "Øygardstjønn",
+      "selected_samples": 54,
+      "all_native_nisp": 31803,
+      "author_assigned_nisp": 31238,
+      "author_excluded_nisp": 560,
+      "unmapped_nisp": 5,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.982234,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26213",
+      "site_name": "Lisletjønn",
+      "selected_samples": 50,
+      "all_native_nisp": 29702,
+      "author_assigned_nisp": 29067,
+      "author_excluded_nisp": 632,
+      "unmapped_nisp": 3,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.978621,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26214",
+      "site_name": "Flotatjønn",
+      "selected_samples": 47,
+      "all_native_nisp": 27902,
+      "author_assigned_nisp": 27364,
+      "author_excluded_nisp": 537,
+      "unmapped_nisp": 1,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.980718,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26215",
+      "site_name": "Lille Kjelavatn",
+      "selected_samples": 87,
+      "all_native_nisp": 43074,
+      "author_assigned_nisp": 41499,
+      "author_excluded_nisp": 1542,
+      "unmapped_nisp": 33,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.963435,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26216",
+      "site_name": "Holebudalen",
+      "selected_samples": 93,
+      "all_native_nisp": 45904,
+      "author_assigned_nisp": 44007,
+      "author_excluded_nisp": 1830,
+      "unmapped_nisp": 67,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.958675,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26217",
+      "site_name": "Grostjørna",
+      "selected_samples": 77,
+      "all_native_nisp": 42427,
+      "author_assigned_nisp": 40602,
+      "author_excluded_nisp": 1802,
+      "unmapped_nisp": 23,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.956985,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26218",
+      "site_name": "Reiersdalvann",
+      "selected_samples": 90,
+      "all_native_nisp": 54373,
+      "author_assigned_nisp": 51672,
+      "author_excluded_nisp": 2681,
+      "unmapped_nisp": 20,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.950325,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26219",
+      "site_name": "Dalane",
+      "selected_samples": 68,
+      "all_native_nisp": 36190,
+      "author_assigned_nisp": 34107,
+      "author_excluded_nisp": 2052,
+      "unmapped_nisp": 31,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.942443,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26220",
+      "site_name": "Grauthelleren",
+      "selected_samples": 69,
+      "all_native_nisp": 43999,
+      "author_assigned_nisp": 41619,
+      "author_excluded_nisp": 2349,
+      "unmapped_nisp": 31,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.945908,
+      "author_targets_present": 24,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:26221",
+      "site_name": "Isbenttjønn",
+      "selected_samples": 58,
+      "all_native_nisp": 34213,
+      "author_assigned_nisp": 33400,
+      "author_excluded_nisp": 811,
+      "unmapped_nisp": 2,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.976237,
+      "author_targets_present": 23,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28157",
+      "site_name": "Lake Skogstjern",
+      "selected_samples": 236,
+      "all_native_nisp": 158506,
+      "author_assigned_nisp": 156565,
+      "author_excluded_nisp": 1540,
+      "unmapped_nisp": 401,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.987754,
+      "author_targets_present": 25,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28412",
+      "site_name": "Lake Topptjønna",
+      "selected_samples": 93,
+      "all_native_nisp": 67259,
+      "author_assigned_nisp": 60038,
+      "author_excluded_nisp": 5836,
+      "unmapped_nisp": 1385,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.892639,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28431",
+      "site_name": "Lake Heimtjønna",
+      "selected_samples": 55,
+      "all_native_nisp": 19845,
+      "author_assigned_nisp": 14400,
+      "author_excluded_nisp": 2993,
+      "unmapped_nisp": 2452,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.725624,
+      "author_targets_present": 18,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28440",
+      "site_name": "Lake Store Finnsjøen",
+      "selected_samples": 70,
+      "all_native_nisp": 46182,
+      "author_assigned_nisp": 39952,
+      "author_excluded_nisp": 5251,
+      "unmapped_nisp": 979,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.865099,
+      "author_targets_present": 18,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28451",
+      "site_name": "Lervahå bog",
+      "selected_samples": 35,
+      "all_native_nisp": 19691,
+      "author_assigned_nisp": 18275,
+      "author_excluded_nisp": 1357,
+      "unmapped_nisp": 59,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.928089,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28452",
+      "site_name": "Liastemmen bog",
+      "selected_samples": 73,
+      "all_native_nisp": 120440,
+      "author_assigned_nisp": 84594,
+      "author_excluded_nisp": 28803,
+      "unmapped_nisp": 7043,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.702375,
+      "author_targets_present": 13,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28455",
+      "site_name": "Eigebakken bog",
+      "selected_samples": 69,
+      "all_native_nisp": 236920,
+      "author_assigned_nisp": 114819,
+      "author_excluded_nisp": 104770,
+      "unmapped_nisp": 17331,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.484632,
+      "author_targets_present": 12,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28457",
+      "site_name": "Reinskaret bog",
+      "selected_samples": 30,
+      "all_native_nisp": 17210,
+      "author_assigned_nisp": 16122,
+      "author_excluded_nisp": 1082,
+      "unmapped_nisp": 6,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.936781,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:28459",
+      "site_name": "Hemma",
+      "selected_samples": 12,
+      "all_native_nisp": 8205,
+      "author_assigned_nisp": 7133,
+      "author_excluded_nisp": 1047,
+      "unmapped_nisp": 25,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.869348,
+      "author_targets_present": 18,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:3022",
+      "site_name": "Blåvasstjønn",
+      "selected_samples": 36,
+      "all_native_nisp": 21113,
+      "author_assigned_nisp": 20237,
+      "author_excluded_nisp": 875,
+      "unmapped_nisp": 1,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.958509,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:310",
+      "site_name": "Bruvatnet [Rovvejávri]",
+      "selected_samples": 40,
+      "all_native_nisp": 15495,
+      "author_assigned_nisp": 15157,
+      "author_excluded_nisp": 338,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.978187,
+      "author_targets_present": 15,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:3106",
+      "site_name": "Flaatevatn",
+      "selected_samples": 32,
+      "all_native_nisp": 18981,
+      "author_assigned_nisp": 18140,
+      "author_excluded_nisp": 841,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.955693,
+      "author_targets_present": 22,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:3115",
+      "site_name": "Frengstadsetra",
+      "selected_samples": 31,
+      "all_native_nisp": 32326,
+      "author_assigned_nisp": 30705,
+      "author_excluded_nisp": 1615,
+      "unmapped_nisp": 6,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.949855,
+      "author_targets_present": 18,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:33292",
+      "site_name": "Svanåvatnet",
+      "selected_samples": 81,
+      "all_native_nisp": 31081,
+      "author_assigned_nisp": 29755,
+      "author_excluded_nisp": 1291,
+      "unmapped_nisp": 35,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.957337,
+      "author_targets_present": 20,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:33300",
+      "site_name": "Brattheivatnet",
+      "selected_samples": 63,
+      "all_native_nisp": 15008,
+      "author_assigned_nisp": 14427,
+      "author_excluded_nisp": 580,
+      "unmapped_nisp": 1,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.961287,
+      "author_targets_present": 17,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:33301",
+      "site_name": "Lusvatnet",
+      "selected_samples": 83,
+      "all_native_nisp": 16150,
+      "author_assigned_nisp": 11171,
+      "author_excluded_nisp": 4905,
+      "unmapped_nisp": 74,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.691703,
+      "author_targets_present": 19,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:3372",
+      "site_name": "Råttuvarri",
+      "selected_samples": 32,
+      "all_native_nisp": 14195,
+      "author_assigned_nisp": 14082,
+      "author_excluded_nisp": 113,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.992039,
+      "author_targets_present": 15,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:3475",
+      "site_name": "Trollvatnet",
+      "selected_samples": 34,
+      "all_native_nisp": 19839,
+      "author_assigned_nisp": 19710,
+      "author_excluded_nisp": 129,
+      "unmapped_nisp": 0,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.993498,
+      "author_targets_present": 16,
+      "lra_admitted_samples": 0
+    },
+    {
+      "country": "NO",
+      "site_id": "neotoma:site:947",
+      "site_name": "Grasvatn",
+      "selected_samples": 45,
+      "all_native_nisp": 43245,
+      "author_assigned_nisp": 33068,
+      "author_excluded_nisp": 10156,
+      "unmapped_nisp": 21,
+      "size_variant_candidate_nisp": 0,
+      "assigned_fraction": 0.764666,
+      "author_targets_present": 21,
+      "lra_admitted_samples": 0
+    }
+  ],
+  "lra_admitted_samples": 0,
+  "interpretation": "Exact author LUT coverage is source-taxonomy feasibility only; exclusions and unmapped mass remain outside the 31-target assignment, and no country basin or historical model is admitted.",
+  "inputs": [
+    {
+      "source_role": "external_author_lookup",
+      "path": "author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/cohort.csv",
+      "sha256": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32"
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
+      "sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf"
+    },
+    {
+      "path": "data/neotoma/relational/manifest.json",
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+    },
+    {
+      "path": "data/neotoma/relational/observations",
+      "part_sha256": [
+        "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+        "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+        "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+        "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+        "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+        "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+        "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+        "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd"
+      ]
+    }
+  ]
+}

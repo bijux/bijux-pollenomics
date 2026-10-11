@@ -14,7 +14,7 @@
 | `KX379528-KX379529` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRS1407451` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
 | `SRS1407453` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
-| `PRJEB90141` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
+| `PRJEB90141` | `Capra hircus` | `ready_for_publication_review` | `paper_capture` | `paper_capture` |
 | `PRJEB90261` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJNA1328209` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJEB43564` | `Equus asinus` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
@@ -33,7 +33,7 @@
 | `PRJEB81815` | `Felis catus` | `blocked_projects` | `site_recovery` | `publication_readiness` |
 | `PRJNA1178732` | `Felis catus` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `PRJEB36540` | `Ovis aries` | `blocked_projects` | `chronology_recovery` | `publication_readiness` |
-| `PRJEB41594` | `Ovis aries` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `PRJEB41594` | `Ovis aries` | `blocked_projects` | `chronology_recovery` | `publication_readiness` |
 | `PRJEB59481` | `Ovis aries` | `ready_for_publication_review` | `none` | `none` |
 | `PRJEB61808` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB69690` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |

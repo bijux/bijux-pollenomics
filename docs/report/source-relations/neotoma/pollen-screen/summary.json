@@ -1,0 +1,160 @@
+{
+  "schema_version": "neotoma-pollen-prerequisite-screen.v1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "normalized_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "raw_manifest_sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
+  "normalized_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "source_denominators": {
+    "available_observations": 370936,
+    "available_samples": 12388,
+    "source_age_claims": 23281,
+    "source_conflicts": 33,
+    "source_orphans": 52
+  },
+  "screen_denominators": {
+    "count_candidate_observations": 358670,
+    "count_candidate_source_label_statuses": {
+      "source_element_not_pollen": 92675,
+      "source_element_type_missing": 472,
+      "source_label_pollen": 265523
+    },
+    "count_refusal_reason_occurrences": {
+      "count_is_not_finite_integer": 2817,
+      "source_identity_conflict": 704,
+      "source_unit_is_not_count": 8745
+    },
+    "necessary_candidate_samples": 10637,
+    "pollen_count_observations": 265523,
+    "refused_count_observations": 12266,
+    "refused_samples": 1751,
+    "sample_refusal_reason_occurrences": {
+      "no_numeric_count_candidate": 53,
+      "no_sample_owned_comparable_typed_age": 1704
+    },
+    "samples_with_count_and_comparable_age": 10637
+  },
+  "country_denominators": {
+    "DK": {
+      "count_candidate_observations": 9208,
+      "count_candidate_source_label_statuses": {
+        "source_element_not_pollen": 1278,
+        "source_element_type_missing": 0,
+        "source_label_pollen": 7930
+      },
+      "observations": 9247,
+      "pollen_count_observations": 7930,
+      "refused_count_observations": 39,
+      "sample_refusal_reason_occurrences": {
+        "no_numeric_count_candidate": 0,
+        "no_sample_owned_comparable_typed_age": 188
+      },
+      "samples": 279,
+      "samples_with_count_and_comparable_age": 91,
+      "samples_with_count_candidates": 279,
+      "samples_with_owned_comparable_age": 91,
+      "samples_with_pollen_count": 279,
+      "screen_candidate_samples": 91,
+      "screen_refused_samples": 188
+    },
+    "FI": {
+      "count_candidate_observations": 44428,
+      "count_candidate_source_label_statuses": {
+        "source_element_not_pollen": 11257,
+        "source_element_type_missing": 0,
+        "source_label_pollen": 33171
+      },
+      "observations": 46241,
+      "pollen_count_observations": 33171,
+      "refused_count_observations": 1813,
+      "sample_refusal_reason_occurrences": {
+        "no_numeric_count_candidate": 53,
+        "no_sample_owned_comparable_typed_age": 340
+      },
+      "samples": 2184,
+      "samples_with_count_and_comparable_age": 1797,
+      "samples_with_count_candidates": 2131,
+      "samples_with_owned_comparable_age": 1844,
+      "samples_with_pollen_count": 2131,
+      "screen_candidate_samples": 1797,
+      "screen_refused_samples": 387
+    },
+    "NO": {
+      "count_candidate_observations": 136157,
+      "count_candidate_source_label_statuses": {
+        "source_element_not_pollen": 44069,
+        "source_element_type_missing": 236,
+        "source_label_pollen": 91852
+      },
+      "observations": 143065,
+      "pollen_count_observations": 91852,
+      "refused_count_observations": 6908,
+      "sample_refusal_reason_occurrences": {
+        "no_numeric_count_candidate": 0,
+        "no_sample_owned_comparable_typed_age": 340
+      },
+      "samples": 3884,
+      "samples_with_count_and_comparable_age": 3544,
+      "samples_with_count_candidates": 3884,
+      "samples_with_owned_comparable_age": 3544,
+      "samples_with_pollen_count": 3884,
+      "screen_candidate_samples": 3544,
+      "screen_refused_samples": 340
+    },
+    "SE": {
+      "count_candidate_observations": 159337,
+      "count_candidate_source_label_statuses": {
+        "source_element_not_pollen": 34034,
+        "source_element_type_missing": 236,
+        "source_label_pollen": 125067
+      },
+      "observations": 162683,
+      "pollen_count_observations": 125067,
+      "refused_count_observations": 3346,
+      "sample_refusal_reason_occurrences": {
+        "no_numeric_count_candidate": 0,
+        "no_sample_owned_comparable_typed_age": 753
+      },
+      "samples": 5764,
+      "samples_with_count_and_comparable_age": 5011,
+      "samples_with_count_candidates": 5764,
+      "samples_with_owned_comparable_age": 5011,
+      "samples_with_pollen_count": 5764,
+      "screen_candidate_samples": 5011,
+      "screen_refused_samples": 753
+    },
+    "UNASSIGNED": {
+      "count_candidate_observations": 9540,
+      "count_candidate_source_label_statuses": {
+        "source_element_not_pollen": 2037,
+        "source_element_type_missing": 0,
+        "source_label_pollen": 7503
+      },
+      "observations": 9700,
+      "pollen_count_observations": 7503,
+      "refused_count_observations": 160,
+      "sample_refusal_reason_occurrences": {
+        "no_numeric_count_candidate": 0,
+        "no_sample_owned_comparable_typed_age": 83
+      },
+      "samples": 277,
+      "samples_with_count_and_comparable_age": 194,
+      "samples_with_count_candidates": 277,
+      "samples_with_owned_comparable_age": 194,
+      "samples_with_pollen_count": 277,
+      "screen_candidate_samples": 194,
+      "screen_refused_samples": 83
+    }
+  },
+  "candidate_sample_ids_sha256": "c1db21f7f494cf98f7a20b294219593b5b0c296f9177bb92d362828107168a98",
+  "screen_status": "prerequisite_only",
+  "lra_accepted_samples": 0,
+  "claims_not_made": [
+    "reviewed_taxa_or_ppe",
+    "selected_chronology",
+    "compatible_pollen_denominator",
+    "admitted_basin_geometry",
+    "numerical_lra_input",
+    "measured_vegetation_truth",
+    "four_country_lra_admission"
+  ]
+}

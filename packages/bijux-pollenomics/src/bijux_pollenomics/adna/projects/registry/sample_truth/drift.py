@@ -15,7 +15,12 @@ def _sample_source_backed_locality_count(
     locality_tokens: set[str] = set()
     for row in sample_rows:
         locality = row.get("locality")
-        if not isinstance(locality, str) or not locality.strip():
+        if (
+            not isinstance(locality, str)
+            or not locality.strip()
+            or locality.strip()
+            == "site detail not yet extracted from tracked source support"
+        ):
             continue
         locality_identity = row.get("locality_identity")
         if not isinstance(locality_identity, dict):

@@ -1,0 +1,65 @@
+{
+  "schema_version": "bussjosjon-native-count-correspondence.v1",
+  "neotoma_dataset_id": 53995,
+  "neotoma_site_id": 28869,
+  "rootsi_archive_member": "rootsi/BUS.xls",
+  "input_sha256": {
+    "neotoma_raw_part": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+    "rootsi_workbook": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e"
+  },
+  "samples": 69,
+  "workbook_header_columns": 115,
+  "unique_casefold_shared_taxon_labels": 58,
+  "excluded_duplicate_workbook_labels": {
+    "betula": [
+      0,
+      113
+    ],
+    "pinus": [
+      1,
+      114
+    ]
+  },
+  "zero_only_duplicate_column_candidates": [
+    {
+      "casefold_label": "betula",
+      "workbook_positions": [
+        0,
+        113
+      ],
+      "workbook_column_mass": [
+        6198,
+        0
+      ],
+      "source_pairs": 69,
+      "equal_pairs": 69,
+      "source_mass": 6198,
+      "status": "unapplied_zero_only_duplicate_column_candidate"
+    },
+    {
+      "casefold_label": "pinus",
+      "workbook_positions": [
+        1,
+        114
+      ],
+      "workbook_column_mass": [
+        2878,
+        0
+      ],
+      "source_pairs": 69,
+      "equal_pairs": 69,
+      "source_mass": 2878,
+      "status": "unapplied_zero_only_duplicate_column_candidate"
+    }
+  ],
+  "cell_status_counts": {
+    "absent_source_workbook_zero": 2807,
+    "explicit_agreement": 1195,
+    "explicit_neotoma_mass": 44079,
+    "workbook_mass_on_explicit_pairs": 44079
+  },
+  "comparison_rule": "unique casefold labels only; no semantic taxon mapping",
+  "workbook_age_column": "absent",
+  "basin_radius_transfer": "refused",
+  "lra_admitted_samples": 0
+}

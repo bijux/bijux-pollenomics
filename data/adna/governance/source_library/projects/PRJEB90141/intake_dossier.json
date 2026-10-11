@@ -8,7 +8,7 @@
   "inventory_disposition": "tracked_intake_candidate",
   "stage_statuses": {
     "project_admission": "complete",
-    "paper_capture": "complete",
+    "paper_capture": "blocked",
     "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
@@ -16,8 +16,10 @@
     "coordinate_derivation": "complete",
     "publication_readiness": "complete"
   },
-  "blocking_stages": [],
-  "next_required_stage": null,
+  "blocking_stages": [
+    "paper_capture"
+  ],
+  "next_required_stage": "paper_capture",
   "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
@@ -43,7 +45,9 @@
     "data/adna/governance/source_library/projects/PRJEB90141/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB90141/sample_locality_evidence.json"
   ],
-  "missing_assets": [],
+  "missing_assets": [
+    "Readable repository paper capture is still missing."
+  ],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context"

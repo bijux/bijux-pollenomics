@@ -3,7 +3,7 @@
 - Species: `Rangifer tarandus`
 - Archive status: `comparator_only`
 - Inventory disposition: `tracked_intake_candidate`
-- Paper DOI: `10.1038/s41598-024-54296-2`
+- Paper DOI: `10.1111/mec.17274`
 - Publication readiness: `blocked`
 - Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
@@ -16,7 +16,7 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `complete`
+- `supplement_capture`: `not_required`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
 - `chronology_recovery`: `in_progress`
@@ -33,9 +33,49 @@
 
 ## Known Assets
 
-- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
-- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
-- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json`
+- `adna/governance/source_library/papers/10.1111-mec.17274/article.pdf`
+- `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
+- `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757325.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757325.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757326.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757326.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757328.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757328.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757329.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757329.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757330.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757330.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757331.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757331.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757332.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757332.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757333.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757333.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757334.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757334.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757335.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757335.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757336.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757336.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757338.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757338.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757339.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757339.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757340.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757340.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857470.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857470.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857471.xml`
+- `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857471.xml.metadata.json`
 - `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html`
 - `data/adna/governance/source_library/projects/PRJEB60484/sample_master.json`
 - `data/adna/governance/source_library/projects/PRJEB60484/sample_sites.json`
@@ -47,12 +87,8 @@
 - Some recovered sample rows still lack a defensible site assignment.
 - Some recovered sample rows still lack sample-level chronology.
 
-## Contradictory Evidence
-
-- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
-
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 40 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 20 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 20 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 2 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 1 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 1 item(s), blocks exact site, coordinate, and publication recovery

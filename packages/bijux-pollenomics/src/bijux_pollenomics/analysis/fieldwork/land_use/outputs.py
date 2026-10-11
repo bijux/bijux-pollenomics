@@ -65,12 +65,11 @@ def render_markdown(payload: dict[str, object]) -> str:
     return f"""# Southern Sweden temporal land-use synthesis
 
 This surface joins published LandClim time windows to temporally compatible
-archaeology and ancient-DNA context around the complete ranked Sweden lake set
-and the governed southern Sweden wetland contexts. It makes both modeled-grid
+archaeology and ancient-DNA context around governed named lakes, any additional
+ranked Swedish lakes, and named wetland contexts. It makes both modeled-grid
 coverage and lake inclusion explicit instead of silently dropping targets.
 
-The governed LandClim grid covers **{payload["landclim_covered_target_count"]} of
-{payload["target_count"]} targets**. The remaining
+The governed LandClim grid covers **{payload["landclim_covered_target_count"]} of {payload["target_count"]} targets**. The remaining
 **{payload["landclim_uncovered_target_count"]} targets** stay visible below with
 no modeled windows rather than receiving inferred values.
 

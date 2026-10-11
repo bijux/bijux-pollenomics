@@ -304,7 +304,11 @@ def _sample_row_has_numeric_coordinates(row: dict[str, Any]) -> bool:
 
 
 def _has_text_value(value: object) -> bool:
-    return isinstance(value, str) and bool(value.strip())
+    return (
+        isinstance(value, str)
+        and bool(value.strip())
+        and value.strip() != "site detail not yet extracted from tracked source support"
+    )
 
 
 def _sample_row_has_numeric_chronology(row: dict[str, Any]) -> bool:

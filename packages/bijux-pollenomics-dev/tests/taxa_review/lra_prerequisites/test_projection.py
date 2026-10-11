@@ -69,9 +69,9 @@ def test_nonfinite_evidence_cannot_enter_canonical_projection() -> None:
         _basin_rows(_sites(math.nan), {"source_rows": []})
 
 
-def test_country_denominators_preserve_zero_denmark_and_refuse_unassigned() -> None:
+def test_country_denominators_include_denmark_and_refuse_unassigned() -> None:
     source_counts = {
-        "DK": (0, 0),
+        "DK": (1, 1),
         "FI": (1, 1),
         "NO": (2, 1),
         "SE": (3, 2),
@@ -104,14 +104,14 @@ def test_country_denominators_preserve_zero_denmark_and_refuse_unassigned() -> N
     ]
     result = _country_denominators(screen, sites, chronology, basins)
     assert result["DK"] == {
-        "chronology_samples": 0,
-        "basin_sites": 0,
-        "coverage_status": "no_necessary_candidates",
+        "chronology_samples": 1,
+        "basin_sites": 1,
+        "coverage_status": "prerequisite_review_only",
     }
     assert result["UNASSIGNED"] == {
         "chronology_samples": 1,
         "basin_sites": 1,
         "coverage_status": "refused_unassigned_country",
     }
-    assert sum(row["chronology_samples"] for row in result.values()) == 7
-    assert sum(row["basin_sites"] for row in result.values()) == 5
+    assert sum(row["chronology_samples"] for row in result.values()) == 8
+    assert sum(row["basin_sites"] for row in result.values()) == 6

@@ -8,6 +8,38 @@ from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
 
 
 class SeadChronologyClaimTests(unittest.TestCase):
+    def test_open_ended_dendro_from_is_context_only(self) -> None:
+        claim = normalize_sead_chronology_claims(
+            [
+                {
+                    "site_id": 6468,
+                    "site_uuid": "uuid-6468",
+                    "dendro_date_rows": [
+                        {
+                            "dendro_date_id": 2708,
+                            "analysis_entity_id": 171002,
+                            "age_type": "AD",
+                            "age_older": 1843,
+                            "age_younger": None,
+                            "uncertainty_label": "From",
+                            "time_start_bp": 107,
+                            "time_end_bp": 107,
+                        }
+                    ],
+                }
+            ],
+            provenance_record_id="sead-capture",
+            build_id="build-123",
+        )[0]
+
+        self.assertEqual(claim["source_age_value"]["age_older"], 1843)
+        self.assertEqual(claim["comparability_status"], "context_only")
+        self.assertEqual(claim["chronology_eligibility"], "refused")
+        self.assertEqual(claim["publication_role"], "review_only")
+        self.assertIsNone(claim["younger_bp"])
+        self.assertIsNone(claim["older_bp"])
+        self.assertIn("open_ended_dendro_from_uncertainty", claim["reason_codes"])
+
     def test_claims_remain_source_rows_with_entity_lineage(self) -> None:
         claims = normalize_sead_chronology_claims(
             [

@@ -132,7 +132,7 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
     assert readiness["totals"]["refused_coordinate_provenance_count"] == 4
     assert readiness["totals"]["region_only_coordinate_refusal_count"] == 4
     assert readiness["totals"]["unresolved_location_coordinate_refusal_count"] == 0
-    assert readiness["totals"]["unresolved_sample_count"] == 402
+    assert readiness["totals"]["unresolved_sample_count"] == 398
     assert readiness["publication_accounting"]["overall_ok"]
     refusal_lookup = {
         (row["project_accession"], row["site_label"]): row["reason_code"]

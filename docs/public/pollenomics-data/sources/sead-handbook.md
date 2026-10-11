@@ -50,7 +50,7 @@ relational neighbourhood, not automatically a stronger chronology.
 | --- | --- | --- |
 | temporal-evidence feature | one interval shared by identified linked chronology rows | included when that interval overlaps |
 | dated site summary | the widest captured chronology envelope beneath one site | useful for overview, too coarse for event-level reading |
-| unresolved site inventory | spatial identity without captured numeric chronology | withheld from narrowed windows |
+| optional site inventory | four-country spatial identity, with any site envelope used only for display | visible when enabled at any BP window; excluded from time-matched counts |
 
 ### 4. Return to the intended claim
 
@@ -105,10 +105,10 @@ in this period.”
 | assigned four-country sites | 2,069 |
 | Swedish sites with comparable chronology | 370 |
 | Swedish sites without comparable chronology | 1,555 |
-| Swedish numeric chronology features | 8,172 |
+| Swedish numeric chronology features | 7,244 |
 | chronology claims | 25,109 |
-| comparable chronology claims | 14,264 |
-| context-only chronology claims | 10,144 |
+| comparable chronology claims | 13,170 |
+| context-only chronology claims | 11,238 |
 | temporal-contract-refused chronology claims | 60 |
 | unresolved chronology claims | 641 |
 | country-review rows | 103 |
@@ -116,15 +116,15 @@ in this period.”
 
 The 25,109 chronology claims comprise 7,377 dating ranges, 10,057 relative
 period rows, 641 analysis-entity ages, 87 geochronology rows, and 6,947
-dendrochronology rows. Exactly 14,264 claims are comparable; 10,144 remain
+dendrochronology rows. Exactly 13,170 claims are comparable; 11,238 remain
 context-only, 60 are explicitly refused by the nonnegative-BP contract, and 641
-are unresolved. The atlas renders the comparable Swedish relations as 8,172
+are unresolved. The atlas renders the comparable Swedish relations as 7,244
 interval features without promoting the other claims.
 
 ## Use The Timeline Correctly
 
 The temporal-evidence layer is the comparison mode and is enabled by default.
-All 8,172 of its Swedish features are eligible for interval filtering. The
+All 7,244 of its Swedish features are eligible for interval filtering. The
 site-inventory layer is optional: turn it on to inspect the full 2,069-site
 four-country spatial population. Claims without comparable intervals remain
 context-only, explicitly refused, or unresolved and cannot enter a narrowed
@@ -136,13 +136,12 @@ stateDiagram-v2
     FullExtent: temporal evidence visible; site inventory optional
     FullExtent --> NarrowWindow: reader narrows BP range
     NarrowWindow: record-level interval overlaps visible
-    NarrowWindow: unresolved site inventory withheld
+    NarrowWindow: unresolved discovery features withheld; optional site inventory remains spatial context
     NarrowWindow --> FullExtent: reader restores full span
 ```
 
-This behavior prevents two opposite errors: discarding valuable undated
-spatial context from the overview, and pretending that undated sites are
-present in every period.
+This behavior retains undated spatial context without pretending that an
+undated site is present in the selected period.
 
 ## Use The Governed Sweden Discovery Surface
 

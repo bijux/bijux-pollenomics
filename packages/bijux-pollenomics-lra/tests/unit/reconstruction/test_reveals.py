@@ -7,6 +7,9 @@ import pytest
 import bijux_pollenomics_lra as lra
 from bijux_pollenomics_lra.models.configuration import RevealsConfig
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+)
 from bijux_pollenomics_lra.reconstruction.draws import (
     maher_counts,
     multidraw,
@@ -257,6 +260,45 @@ def test_typed_reveals_result_and_artifacts(tmp_path) -> None:
     assert (path / "monte_carlo_samples.npz").is_file()
     assert (path / "run_manifest.json").is_file()
     assert (path / "checksums.json").is_file()
+
+
+def test_named_landclim_regional_profile_keeps_source_fall_speed() -> None:
+    pollen = pd.DataFrame({"age": [1500], "Filipendula": [20], "Betula": [80]})
+    params = pd.DataFrame(
+        {
+            "species": ["Filipendula", "Betula"],
+            "fallspeed": [0.006, 0.024],
+            "ppe": [1.0, 5.0],
+            "ppe.error": [0.0, 0.0],
+        }
+    )
+    with pytest.raises(ValidationError, match="between 0.01 and 0.15"):
+        run_reveals(
+            pollen,
+            params,
+            RevealsConfig("lake", 100, stochastic=False),
+        )
+    with pytest.raises(ValidationError, match="requires gpm neutral"):
+        RevealsConfig(
+            "lake",
+            100,
+            fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+        )
+    config = RevealsConfig(
+        "lake",
+        100,
+        distance_weighting="gpm neutral",
+        fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+        stochastic=False,
+        iterations=2,
+    )
+    result = run_reveals(pollen, params, config)
+    assert result.manifest.parameters["fall_speed_profile"] == (
+        LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+    )
+    assert result.table.filter(regex=r"\.mean$").sum(axis=1).iloc[0] == pytest.approx(
+        100.0, abs=0.01
+    )
 
 
 @pytest.mark.parametrize(

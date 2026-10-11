@@ -236,6 +236,7 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                             "run_id": "sead-test-run",
                             "build_id": "sha256:" + "b" * 64,
                             "acquisition_manifest_sha256": "a" * 64,
+                            "acquisition_bundle_sha256": "sha256:" + "c" * 64,
                             "parent_admission_sha256": "p" * 64,
                         },
                         copied_files={

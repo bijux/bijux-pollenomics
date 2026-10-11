@@ -31,13 +31,13 @@
 | `Felis catus` | `PRJEB81815` | `0` | `3` | `3` | `blocked` |
 | `Felis catus` | `PRJNA1178732` | `0` | `0` | `0` | `complete` |
 | `Ovis aries` | `PRJEB36540` | `0` | `0` | `10` | `blocked` |
-| `Ovis aries` | `PRJEB41594` | `0` | `5` | `5` | `blocked` |
+| `Ovis aries` | `PRJEB41594` | `0` | `0` | `2` | `blocked` |
 | `Ovis aries` | `PRJEB59481` | `0` | `0` | `0` | `complete` |
 | `Ovis aries` | `PRJEB61808` | `0` | `0` | `0` | `blocked` |
 | `Ovis aries` | `PRJEB69690` | `0` | `0` | `0` | `blocked` |
 | `Ovis aries` | `PRJEB81145` | `0` | `0` | `0` | `blocked` |
 | `Rangifer tarandus` | `PRJEB57293` | `0` | `0` | `0` | `not_required` |
-| `Rangifer tarandus` | `PRJEB60484` | `0` | `20` | `20` | `blocked` |
+| `Rangifer tarandus` | `PRJEB60484` | `0` | `1` | `1` | `blocked` |
 | `Rangifer tarandus` | `PRJEB61721` | `0` | `0` | `0` | `not_required` |
 | `Rangifer tarandus` | `PRJNA634908` | `0` | `0` | `0` | `not_required` |
 | `Sus scrofa domesticus` | `PRJEB30282` | `0` | `23` | `341` | `blocked` |

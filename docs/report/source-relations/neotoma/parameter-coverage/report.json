@@ -1,0 +1,206 @@
+{
+  "schema_version": "swedish-neotoma-parameter-mass.v1",
+  "source_role": "literal_name_candidate_screen",
+  "count_unit": "native_NISP",
+  "denominator": "all native NISP pollen counts in each source age bin",
+  "candidate_parameter_name_count": 20,
+  "common_bin_count": 39,
+  "site_count": 3,
+  "lra_admitted_samples": 0,
+  "scientific_admission_allowed": false,
+  "interpretation": "Exact text equality is an unreviewed lead, not taxon equivalence, PPE/FSP applicability, complete pollen denominator or LRA admission. The prior-exposed direct-pollen 16-taxon response is a separate subcomposition.",
+  "sites": [
+    {
+      "dataset_id": "19913",
+      "site_id": "13338",
+      "site": "Abborrtjärnen",
+      "common_bin_count": 13,
+      "all_native_nisp": 88004,
+      "literal_parameter_name_nisp": 81970,
+      "literal_parameter_name_fraction": 0.931435,
+      "direct_16_taxon_nisp": 36518,
+      "direct_16_taxon_fraction": 0.414958,
+      "leading_unmatched_native_names": [
+        {
+          "name": "Alnus",
+          "count": 3904
+        },
+        {
+          "name": "Populus",
+          "count": 516
+        },
+        {
+          "name": "Corylus-type",
+          "count": 288
+        },
+        {
+          "name": "Quercus",
+          "count": 211
+        },
+        {
+          "name": "Nymphaea alba",
+          "count": 182
+        },
+        {
+          "name": "Sorbus aucuparia",
+          "count": 166
+        },
+        {
+          "name": "Indeterminable",
+          "count": 94
+        },
+        {
+          "name": "Rumex acetosa-type",
+          "count": 77
+        },
+        {
+          "name": "Melampyrum",
+          "count": 75
+        },
+        {
+          "name": "Fraxinus excelsior",
+          "count": 74
+        }
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "site_id": "28869",
+      "site": "Bussjösjön",
+      "common_bin_count": 13,
+      "all_native_nisp": 56450,
+      "literal_parameter_name_nisp": 10752,
+      "literal_parameter_name_fraction": 0.190469,
+      "direct_16_taxon_nisp": 24399,
+      "direct_16_taxon_fraction": 0.432223,
+      "leading_unmatched_native_names": [
+        {
+          "name": "Alnus",
+          "count": 11648
+        },
+        {
+          "name": "Corylus",
+          "count": 8391
+        },
+        {
+          "name": "Poaceae undiff. (<40 µm)",
+          "count": 6096
+        },
+        {
+          "name": "Humulus/Cannabis",
+          "count": 4647
+        },
+        {
+          "name": "Quercus",
+          "count": 3097
+        },
+        {
+          "name": "Pinus",
+          "count": 2263
+        },
+        {
+          "name": "Phragmites-type",
+          "count": 1432
+        },
+        {
+          "name": "Typha angustifolia-type",
+          "count": 1036
+        },
+        {
+          "name": "Rumex acetosa/R. acetosella",
+          "count": 859
+        },
+        {
+          "name": "Fagus",
+          "count": 676
+        }
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "site_id": "28872",
+      "site": "Bökesjön",
+      "common_bin_count": 13,
+      "all_native_nisp": 42548,
+      "literal_parameter_name_nisp": 14512,
+      "literal_parameter_name_fraction": 0.341074,
+      "direct_16_taxon_nisp": 24317,
+      "direct_16_taxon_fraction": 0.571519,
+      "leading_unmatched_native_names": [
+        {
+          "name": "Corylus",
+          "count": 9596
+        },
+        {
+          "name": "Alnus",
+          "count": 6789
+        },
+        {
+          "name": "Quercus",
+          "count": 6192
+        },
+        {
+          "name": "Fagus",
+          "count": 2470
+        },
+        {
+          "name": "Pinus",
+          "count": 927
+        },
+        {
+          "name": "Phragmites-type",
+          "count": 353
+        },
+        {
+          "name": "Sorbus aucuparia",
+          "count": 300
+        },
+        {
+          "name": "Rumex acetosella",
+          "count": 179
+        },
+        {
+          "name": "Carpinus",
+          "count": 138
+        },
+        {
+          "name": "Calluna",
+          "count": 104
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/report/source-relations/neotoma/parameter-candidates/report.json",
+      "bytes": 18733,
+      "sha256": "6f3290a73db9d5e02c4f66a9c38fe809cbf3d1795515186b7a9f0da9843e3065"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+      "bytes": 2238,
+      "sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+      "bytes": 371092,
+      "sha256": "f12714ca2532842a5248d86f27efcc0ea8f48d736ce7b2f4aee243590b78f26e"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+      "bytes": 13553,
+      "sha256": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+      "bytes": 13679,
+      "sha256": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+      "bytes": 10357,
+      "sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520"
+    }
+  ],
+  "bins_csv_sha256": "e4530cc679662aeaac9496451aa5a7164097ee625a7c28482c67dbfcc69d8bf6"
+}

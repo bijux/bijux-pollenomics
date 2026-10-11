@@ -36,7 +36,7 @@
       "documentation_clarity": 4,
       "output_honesty": 3,
       "metrics": {
-        "normalized_file_count": 7,
+        "normalized_file_count": 8,
         "source_pages": 2
       },
       "note": "SEAD and RA\u00c4 are present and documented, but they remain contextual rather than fully synthesized outputs."
@@ -77,11 +77,11 @@
         "tracked_papers": 18,
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
-        "papers_with_archived_supplements": 18,
+        "papers_with_archived_supplements": 17,
         "published_atlas_points": 170,
         "tracked_samples": 1450,
         "mapped_samples": 331,
-        "unresolved_samples": 402,
+        "unresolved_samples": 379,
         "mappable_coordinate_provenance": 304,
         "refused_coordinate_provenance": 4
       },
@@ -109,7 +109,7 @@
       "documentation_clarity": 4,
       "output_honesty": 4,
       "metrics": {
-        "source_explainer_count": 16,
+        "source_explainer_count": 22,
         "landing_page_count": 6
       },
       "note": "Breadth has been restored across repository, data, maintainer, fieldwork, and atlas entry surfaces."

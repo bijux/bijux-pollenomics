@@ -54,7 +54,9 @@ def build_project_source_bundles(
         paper_required = _paper_required(project.archive_status)
         supplement_required = _supplement_required(project)
         blockers = []
-        if paper_required and not paper_artifacts:
+        if paper_required and not any(
+            item.artifact_kind != "paper_metadata_json" for item in paper_artifacts
+        ):
             blockers.append("missing_local_paper_evidence")
         if supplement_required and not supplement_artifacts:
             blockers.append("missing_local_supplementary_material")
@@ -78,7 +80,7 @@ def build_project_source_bundles(
                 archive_metadata_sufficient=not paper_required,
                 paper_required=paper_required,
                 supplement_required=supplement_required,
-                paper_download_status=_fold_fetch_status(paper_artifacts),
+                paper_download_status=_fold_paper_status(paper_artifacts),
                 supplement_download_status=_fold_fetch_status(supplement_artifacts),
                 local_artifact_ids=tuple(
                     item.artifact_id for item in local_project_artifacts
@@ -101,3 +103,13 @@ def _fold_fetch_status(artifacts: tuple[AdnaSourceArtifact, ...]) -> str:
     if "archived" in statuses:
         return "partial"
     return "missing"
+
+
+def _fold_paper_status(artifacts: tuple[AdnaSourceArtifact, ...]) -> str:
+    """A DOI metadata record alone is only a partial paper capture."""
+    status = _fold_fetch_status(artifacts)
+    if status == "archived" and all(
+        item.artifact_kind == "paper_metadata_json" for item in artifacts
+    ):
+        return "partial"
+    return status

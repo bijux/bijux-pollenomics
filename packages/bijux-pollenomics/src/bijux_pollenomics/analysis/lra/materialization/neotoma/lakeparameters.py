@@ -94,12 +94,50 @@ def assess_neotoma_lakeparameters(
         capture.get("schema_version") != "neotoma-live-lakeparameter-custody.v1"
         or capture.get("source_consistency")
         != "live_paginated_not_transactional_snapshot"
-        or capture.get("candidate_site_report_sha256") != site_evidence.result_digest
         or capture.get("basin_admission_status") != "not_evaluated"
         or not isinstance(records, list)
         or not 2 <= len(records) <= 31
     ):
         raise ValueError("Lakeparameter capture is not bound to candidate site review")
+    capture_site_digest = capture.get("candidate_site_report_sha256")
+    capture_sites = by_site
+    if capture_site_digest != site_evidence.result_digest:
+        original_path = root / "site-evidence.json"
+        if original_path.is_symlink() or not original_path.is_file():
+            raise ValueError("Original capture site review is unavailable")
+        original_bytes = original_path.read_bytes()
+        if hashlib.sha256(original_bytes).hexdigest() != capture_site_digest:
+            raise ValueError("Original capture site review digest differs")
+        original = json_object(original_bytes)
+        original_rows = original.get("site_rows")
+        if (
+            original.get("schema_version") != "neotoma-candidate-site-evidence.v1"
+            or original.get("lra_admission_status") != "refused"
+            or original.get("denominators", {}).get("lra_accepted_samples") != 0
+            or original.get("source_snapshot_id") != sites.get("source_snapshot_id")
+            or original.get("raw_manifest_sha256") != sites.get("raw_manifest_sha256")
+            or not isinstance(original_rows, list)
+        ):
+            raise ValueError(
+                "Original capture site review has different source authority"
+            )
+        capture_sites = {
+            int(row["site_id"].removeprefix("neotoma:site:")): row
+            for row in original_rows
+        }
+        if (
+            not capture_sites
+            or len(capture_sites) != len(original_rows)
+            or len(capture_sites) != original["denominators"]["candidate_source_sites"]
+            or not capture_sites.keys() <= by_site.keys()
+            or any(
+                capture_sites[key]["country_code"] != by_site[key]["country_code"]
+                or capture_sites[key]["source_site_name"]
+                != by_site[key]["source_site_name"]
+                for key in capture_sites
+            )
+        ):
+            raise ValueError("Original capture sites do not match current source sites")
 
     source_rows: list[tuple[dict[str, Any], dict[str, Any], int]] = []
     keys: set[tuple[int, int]] = set()
@@ -147,6 +185,11 @@ def assess_neotoma_lakeparameters(
         or any(key[1] not in by_type for key in keys)
     ):
         raise ValueError("Lakeparameter source type IDs do not reconcile")
+    matched_capture = [
+        (row, record, index)
+        for row, record, index in source_rows
+        if row["siteid"] in capture_sites
+    ]
     matched = [
         (row, record, index)
         for row, record, index in source_rows
@@ -155,11 +198,11 @@ def assess_neotoma_lakeparameters(
     if (
         capture.get("table_rows") != len(source_rows)
         or capture.get("type_rows") != len(types)
-        or capture.get("candidate_site_ids") != len(by_site)
+        or capture.get("candidate_site_ids") != len(capture_sites)
         or capture.get("candidate_site_ids_with_parameter_rows")
-        != len({row["siteid"] for row, _, _ in matched})
-        or capture.get("candidate_parameter_rows") != len(matched)
-        or capture.get("candidate_rows") != [row for row, _, _ in matched]
+        != len({row["siteid"] for row, _, _ in matched_capture})
+        or capture.get("candidate_parameter_rows") != len(matched_capture)
+        or capture.get("candidate_rows") != [row for row, _, _ in matched_capture]
         or capture.get("parameter_types") != types
     ):
         raise ValueError("Lakeparameter capture summary differs from raw pages")
@@ -190,6 +233,7 @@ def assess_neotoma_lakeparameters(
     payload = {
         "schema_version": "neotoma-lakeparameter-source-review.v1",
         "site_evidence_sha256": site_evidence.result_digest,
+        "capture_site_evidence_sha256": capture_site_digest,
         "capture_sha256": capture_sha,
         "source_consistency": "live_paginated_not_transactional_snapshot",
         "source_table_rows": len(source_rows),

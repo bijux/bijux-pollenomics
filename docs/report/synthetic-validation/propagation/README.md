@@ -79,3 +79,12 @@ pairwise topology. It does not validate all threshold profiles, ecological/taxon
 hierarchies, source admission, real regional borders, empirical threshold choice,
 or causal spread. Country labels are annotations in the fixture, not coordinate
 claims about actual national territories.
+
+A separate focused [network consumer check](../../../../packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py)
+uses fabricated older/younger pairs in seven feature universes spanning whole
+pollen, group, subgroup, two roles and two taxa. The indexed network evaluates
+only the 14 within-feature oriented pairs and emits seven forward candidates;
+it does not enumerate cross-feature pairs. A direct pair with the same taxon
+label but a different accepted concept ID is refused. This checks separation
+logic only. Current source classification still admits no real propagation
+event or edge for these ecological partitions.

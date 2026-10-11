@@ -1,0 +1,115 @@
+{
+  "axis": [
+    "Abies alba",
+    "Alnus glutinosa",
+    "Amanranthaceae/Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus sempervirens",
+    "Calluna vulgaris",
+    "Carpinus betulus",
+    "Carpinus orientalis",
+    "Castanea",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus sylvatica",
+    "Filipendula",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous",
+    "Quercus evergreen",
+    "Rumex acetosa-t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "country_source_denominators": {
+    "DK": {
+      "assigned_nisp": 122998,
+      "author_excluded_nisp": 6699,
+      "native_nisp": 129768,
+      "selected_samples": 91,
+      "sites": 1,
+      "unmapped_nisp": 71
+    },
+    "FI": {
+      "assigned_nisp": 1229019,
+      "author_excluded_nisp": 28847,
+      "native_nisp": 1260281,
+      "selected_samples": 1797,
+      "sites": 28,
+      "unmapped_nisp": 2415
+    },
+    "NO": {
+      "assigned_nisp": 2018295,
+      "author_excluded_nisp": 233598,
+      "native_nisp": 2286020,
+      "selected_samples": 3544,
+      "sites": 52,
+      "unmapped_nisp": 34127
+    }
+  },
+  "coverage_sha256": "e155f1a36167a1304348706ddef3518a8d921d87e024743370c2a1d50f741d88",
+  "input_manifest_sha256": "392e6cb60d971e2644f59d7e283a12716a911e3825b168198cd7fd552eedb0ee",
+  "interpretation": "Previously exposed country-held-out observed-pollen subcomposition on 31 author lookup targets; not LRA, measured vegetation validation or independent confirmation.",
+  "methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "prediction_sha256": {
+    "DK": "d05a71fbc1bfd8310b03bf4b44e8f469d559619d0d27c8eb6460f349423d849c",
+    "FI": "9bfb61f4e65d60b83d7df4a11368a6ae76eeda6fa694777834f58d3301d9d4ac",
+    "NO": "e03f948b39e9fe937ef8d170082a237cd36c1f4d8cb9f427a3ce5e7ac9f17058"
+  },
+  "schema_version": "nordic-author-target-pollen-study.v1",
+  "score_rows": 4629,
+  "scores_sha256": "6febc4c908470614571b0df3633cfaca218c098cea684929f75b82c56344c205",
+  "site_macro_hellinger_distance": {
+    "DK": {
+      "inverse_distance_squared": 0.37138879748334563,
+      "nearest_site": 0.34299550200451884,
+      "training_mean": 0.44667898654312194
+    },
+    "FI": {
+      "inverse_distance_squared": 0.3014237541963993,
+      "nearest_site": 0.2681660448978589,
+      "training_mean": 0.33808202409025107
+    },
+    "NO": {
+      "inverse_distance_squared": 0.3035870667635106,
+      "nearest_site": 0.3658281492127434,
+      "training_mean": 0.3242369895615637
+    }
+  },
+  "site_macro_mae_fraction": {
+    "DK": {
+      "inverse_distance_squared": 0.024857752210893168,
+      "nearest_site": 0.02324247885181099,
+      "training_mean": 0.031384848719272974
+    },
+    "FI": {
+      "inverse_distance_squared": 0.018279310698615353,
+      "nearest_site": 0.017335477919261204,
+      "training_mean": 0.0205446412955599
+    },
+    "NO": {
+      "inverse_distance_squared": 0.019459403669515797,
+      "nearest_site": 0.023897992776623224,
+      "training_mean": 0.02074413812099705
+    }
+  },
+  "site_score_rows": 243,
+  "site_scores_sha256": "d0087476464d0557661ac920e66968723bd074a431f4ac6c3814a420ee76091f",
+  "taxon_diagnostic_rows": 279,
+  "taxon_diagnostics_sha256": "0dfae6d4e40e372ab45e26625151a248e4db09ab6ed811903aae7595eb596b5a"
+}

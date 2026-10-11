@@ -12,12 +12,12 @@
 | `10.1038-s41562-021-01083-y` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1038-s41586-021-04018-9` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1038-s41586-024-08112-6` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
-| `10.1038-s41598-024-54296-2` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1038-s42003-021-02794-8` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1073-pnas.1901169116` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1093-gbe-evae114` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1093-gbe-evaf181` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1111-1755-0998.12551` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
+| `10.1111-mec.17274` | `true` | `missing` | `missing` | `aligned` |
 | `10.1126-science.aam5298` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1126-science.aao3297` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1126-science.aav1002` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |

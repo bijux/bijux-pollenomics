@@ -1,0 +1,814 @@
+{
+  "admission": {
+    "full_study_reproduction": false,
+    "independent_vegetation_accuracy": false,
+    "private_input_redistribution_rights_cleared": false,
+    "two_grid_numerical_parity": true
+  },
+  "author_r_source_sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+  "environment": {
+    "R": "Rscript (R) version 4.6.0 (2026-04-24)",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "python_executable": "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+    "scipy": "1.17.1",
+    "thread_limit": "1",
+    "zipfR": "0.6.70"
+  },
+  "native_comparison": {
+    "coverage": "two_author_example_grids_only_not_full_1128_record_study",
+    "grids": [
+      {
+        "available_site_bins": 97,
+        "bins": 25,
+        "checks": {
+          "regional_cover": {
+            "atol": 1e-11,
+            "finite_pairs": 558,
+            "max_absolute_error": 1.2378986724570495e-13,
+            "passed": true,
+            "rtol": 1e-10,
+            "undefined_masks_equal": true,
+            "values": 558
+          },
+          "regional_se": {
+            "atol": 5e-08,
+            "finite_pairs": 558,
+            "max_absolute_error": 6.461498003318411e-14,
+            "passed": true,
+            "rtol": 1e-09,
+            "undefined_masks_equal": true,
+            "values": 558
+          },
+          "site_counts_equal": true,
+          "sites": [
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 527,
+                "max_absolute_error": 2.1316282072803006e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 527,
+                "max_absolute_error": 3.74353326115795e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "site_id": "BROADOWN"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 403,
+                "max_absolute_error": 3.9968028886505635e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 403
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 403,
+                "max_absolute_error": 4.093947403305265e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 403
+              },
+              "site_id": "CUTHILL2"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 527,
+                "max_absolute_error": 4.318767565791859e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 527,
+                "max_absolute_error": 5.35682609381638e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "site_id": "HANGINGS"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.141309269314661e-13,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.5942976105964846e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "site_id": "HARESDOWN"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.035838081975271e-13,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.2812667593564697e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "site_id": "LOBBSBOG"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 248,
+                "max_absolute_error": 1.3877787807814457e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 248
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 248,
+                "max_absolute_error": 1.6583956430338276e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 248
+              },
+              "site_id": "WHH05"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 124,
+                "max_absolute_error": 1.3100631690576847e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 124
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 124,
+                "max_absolute_error": 1.0408340855860843e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 124
+              },
+              "site_id": "WHH11"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.254552017826427e-13,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.4981071938535706e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "site_id": "WINDMILL"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 527,
+                "max_absolute_error": 2.6922908347160046e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 527,
+                "max_absolute_error": 3.0322966360074588e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 527
+              },
+              "site_id": "WINNEYS"
+            }
+          ]
+        },
+        "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+        "grid_id": "512",
+        "missing_site_bins": 128,
+        "passed": true,
+        "reference_files": {
+          "512/bootstrap-bin-1.csv": "beefe8bda1a7aaff68b4d1a04a920e471fb2f52511926a3338f5e7c6f846dff0",
+          "512/bootstrap-bin-10.csv": "6c821a1e6517d909f6e437d52a845a3d08a8dfdc5d1d281effc3ee51cbebc2da",
+          "512/bootstrap-bin-11.csv": "df61985dcad91df9e5e95cf0fc426933a1a0218b45a7bf0b76d52f1cc162f6cc",
+          "512/bootstrap-bin-12.csv": "33fd0deaa89e13a6be979a1bfe19534938b747807a94f7110d52bd1912f22537",
+          "512/bootstrap-bin-13.csv": "ad70b2e3f3abbd5d3de58aba3335781417c46be5f6cd55e2e86054c5e5949c35",
+          "512/bootstrap-bin-14.csv": "4ca8cda46ba1111bbfec427ccdeef2bb6fecffe534a16e84f3bfe9c1ca7ba636",
+          "512/bootstrap-bin-15.csv": "67bf78b0e1a4bad274b8de628e47f2c865a28b019824b79d7d6da96f688e2707",
+          "512/bootstrap-bin-16.csv": "fe23b6978ce48e7b7367134384b4c087dde2118fa007596d407fd3718943e5b9",
+          "512/bootstrap-bin-17.csv": "d368ffd438aebb85a54306d85825a00426660948e9cf717fa5388c7661a76f45",
+          "512/bootstrap-bin-2.csv": "3435e788fafddd452b6482122df70dcbc191ab9fc140360e24e71c2027866def",
+          "512/bootstrap-bin-3.csv": "d34cda243efe9675ff4ccffbb3ecc206df0c98ff03c852724dec247fc4474bed",
+          "512/bootstrap-bin-4.csv": "d92be6241e8d3a49f943c57819aa198072c72960ffc01050b51e3c3986b88b83",
+          "512/bootstrap-bin-5.csv": "00df4525363d710246c1a50ceae7480957e902a78204ae1f50e4946b52e3e7d4",
+          "512/bootstrap-bin-6.csv": "c82913adb138c5dce61b424aae618b92521b5ee84274883577065c8d2a34d741",
+          "512/bootstrap-bin-7.csv": "1ad29e35dbaf04b2431cb279838809212c237d679b9fb88e1349ea7931ae394f",
+          "512/bootstrap-bin-8.csv": "d36c19846d88af91dc83da3c0f897ceee5ec17b9f038f4a5fd6de083724ff54e",
+          "512/bootstrap-bin-9.csv": "0547f5de8612bc412c82fb16fe8f730c10de2e1def962e18eee000c21ee349b0",
+          "512/regional-cover.csv": "f07f3c67f0a5e8c134f4c6605425f6befd82f3b39b953d2af092578b1a5480f1",
+          "512/regional-se.csv": "0a6b728ea6d5125c465737fe0ac90eb836114eb7c95d697cd48cf12071fcbbb9",
+          "512/site-1-cover.csv": "6e01b30f73c8d6772e56dca3afd4bc4a16c48b06ebd2931317a4364c5953eaff",
+          "512/site-1-se.csv": "769077241dec71a7251ffaa865f5f6544e9d6c473bd55203f9d5c2e372260571",
+          "512/site-2-cover.csv": "ff8321df6d77cc05988f7421de55f8c12f8b3a08b2cc07550939612425d4a9cc",
+          "512/site-2-se.csv": "ccbba5683f71525f61b6fa8848e35dfae65208e6b4ab476efab1209dcae928ac",
+          "512/site-3-cover.csv": "4b8ffa91774dc48f14294ddc8e7d22840a1eac6e73b70310edac2dd92a953ce8",
+          "512/site-3-se.csv": "249a534cb2a15bbecf282f6ea4ddb1ae99b6bf96c906fd24ef1772a22965850a",
+          "512/site-4-cover.csv": "f3eea6db2b72fb0ddab26a917df4f93aa3d2b1c852167d76925c388905e52bf6",
+          "512/site-4-se.csv": "bddad20d1baca382c08145f3ce84732135c319b51c53e4c87fe19fab10e85ea6",
+          "512/site-5-cover.csv": "f4deea094e226d1a5ed9c5d3be053ec085cf2a2cf2450eb6a1c03e60e6ec0388",
+          "512/site-5-se.csv": "747e97d8dd0258b29b0ed84b3ba57f750c6100b8037ebb94cb056a0eb7e3b0d8",
+          "512/site-6-cover.csv": "c9c7f93bc9da45e02684c12014d6fab3bb2141ac571bb99fd90777426a84683a",
+          "512/site-6-se.csv": "e72d0fea31fdd5ec44ab920e342abeea533a5eac5ce14da3a785f8933eecd69c",
+          "512/site-7-cover.csv": "11e347aa3d96fadec35ea95cdd46e48397621cb4c73408363514610b1351b1f6",
+          "512/site-7-se.csv": "084150989020e9206045d1a96921412981fec36de5df4d30baa939e14c1184d0",
+          "512/site-8-cover.csv": "808c1ccf00e5f80f0569b111d90bf01f0d3b0781ea74aa0d61fee55036664299",
+          "512/site-8-se.csv": "8073f3f3cc0bb6ed5c2bb329d7c3c038189ba4edbf7bc308a86e004cacc6928d",
+          "512/site-9-cover.csv": "267ca530b4bea01999c198f9cd71b6b3d1592b4d2b0d2f770a3a752683b34066",
+          "512/site-9-se.csv": "3a70d7d43387b489681cd33033ba48bf3f310bb89c08706926e59d90569f301d",
+          "512/site-count.csv": "8adf2e3e27a835145b9122f59084fe103c17feb215408a14fd84c1b94f04a7b5"
+        },
+        "sites": 9,
+        "source_files": {
+          "TWlookup.csv": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+          "bins.csv": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+          "run.REVEALS.files/LRAready_BROADOWN.csv": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+          "run.REVEALS.files/LRAready_CUTHILL2.csv": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+          "run.REVEALS.files/LRAready_HANGINGS.csv": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+          "run.REVEALS.files/LRAready_HARESDOWN.csv": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9",
+          "run.REVEALS.files/LRAready_LOBBSBOG.csv": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7",
+          "run.REVEALS.files/LRAready_WHH05.csv": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+          "run.REVEALS.files/LRAready_WHH11.csv": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+          "run.REVEALS.files/LRAready_WINDMILL.csv": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f",
+          "run.REVEALS.files/LRAready_WINNEYS.csv": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6",
+          "run.REVEALS.files/av-RPP.all.landclimII.csv": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+          "run.REVEALS.files/avar-RPP.all.landclimII.csv": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+          "run.REVEALS.files/site.list.512.csv": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7"
+        },
+        "supported_bins": 18,
+        "taxa": 31,
+        "transformations": [
+          "exact_R_make_names_crosswalk_checked_before_positional_arrays",
+          "source_zero_no_count_windows_to_explicit_unavailable_nan",
+          "source_bins_retained_despite_50BP_difference_from_paper"
+        ]
+      },
+      {
+        "available_site_bins": 87,
+        "bins": 25,
+        "checks": {
+          "regional_cover": {
+            "atol": 1e-11,
+            "finite_pairs": 775,
+            "max_absolute_error": 7.321920847402907e-14,
+            "passed": true,
+            "rtol": 1e-10,
+            "undefined_masks_equal": true,
+            "values": 775
+          },
+          "regional_se": {
+            "atol": 5e-08,
+            "finite_pairs": 775,
+            "max_absolute_error": 7.153305725537962e-14,
+            "passed": true,
+            "rtol": 1e-09,
+            "undefined_masks_equal": true,
+            "values": 775
+          },
+          "site_counts_equal": true,
+          "sites": [
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 341,
+                "max_absolute_error": 1.8041124150158794e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 341
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 341,
+                "max_absolute_error": 4.817327092787593e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 341
+              },
+              "site_id": "BECKHAM"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 496,
+                "max_absolute_error": 3.419486915845482e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 496
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 496,
+                "max_absolute_error": 5.717648576819556e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 496
+              },
+              "site_id": "COMERSLA"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 310,
+                "max_absolute_error": 7.183142969324763e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 310
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 310,
+                "max_absolute_error": 7.0013439490423934e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 310
+              },
+              "site_id": "EXEBRID"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 279,
+                "max_absolute_error": 5.5316862201948425e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 279
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 279,
+                "max_absolute_error": 6.224187831804784e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 279
+              },
+              "site_id": "GOURTEMIRES"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 279,
+                "max_absolute_error": 4.898859096158503e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 279
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 279,
+                "max_absolute_error": 6.591949208711867e-15,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 279
+              },
+              "site_id": "LARKBARR"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 465,
+                "max_absolute_error": 9.731104810839497e-14,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 465
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 465,
+                "max_absolute_error": 2.3542799654219237e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 465
+              },
+              "site_id": "LONGBREACH"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 217,
+                "max_absolute_error": 1.8388068845354155e-13,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 217,
+                "max_absolute_error": 5.381459167175251e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 217
+              },
+              "site_id": "MOLECHAM"
+            },
+            {
+              "cover": {
+                "atol": 1e-11,
+                "finite_pairs": 310,
+                "max_absolute_error": 1.6608936448392342e-13,
+                "passed": true,
+                "rtol": 1e-10,
+                "undefined_masks_equal": true,
+                "values": 310
+              },
+              "se": {
+                "atol": 5e-08,
+                "finite_pairs": 310,
+                "max_absolute_error": 1.3487475025719675e-14,
+                "passed": true,
+                "rtol": 1e-09,
+                "undefined_masks_equal": true,
+                "values": 310
+              },
+              "site_id": "NTWITCHEN"
+            }
+          ]
+        },
+        "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+        "grid_id": "562",
+        "missing_site_bins": 113,
+        "passed": true,
+        "reference_files": {
+          "562/bootstrap-bin-1.csv": "ac93ad3bccbaea194b9d38aa5b45c98f8096688971d265166081b4a0eb8ea231",
+          "562/bootstrap-bin-10.csv": "18a20fb9f21a97f746fb5bbf68e9daafcffbd43a68ed73dd8aad4feaea982e34",
+          "562/bootstrap-bin-11.csv": "38eeb08e63573fd540bb72188497239215a9b234c5637f6dde3c618110143ded",
+          "562/bootstrap-bin-12.csv": "0ea088b8f24f8c44684fb41fad42214fbe6a5a926ffe3e0058e24090635ff69a",
+          "562/bootstrap-bin-13.csv": "a702d560dde39fa89c49d93a0d71227c788cd5ae94efcfc2e55160db836b8382",
+          "562/bootstrap-bin-14.csv": "9d7ce679b34911ac7905a4db02e922b032ba6d1e8a4d6e0162915fb448e22c84",
+          "562/bootstrap-bin-15.csv": "0afc5f66c626e38a83d84e0c36a736fd06df890e4016fac42b928bf226962b92",
+          "562/bootstrap-bin-16.csv": "c95d4a2f89d687277dfdf9173fbd77fb4167250c29edd3756ac218e9abc90eef",
+          "562/bootstrap-bin-17.csv": "8fa908a8c03eca5c5f729f3ed8e4d168dc0fdeff036c135380c21d415c80dd3c",
+          "562/bootstrap-bin-18.csv": "9f194d0fe8f9dcbdd30af68228488a7c3a25794d904afd924dc084d3d81af984",
+          "562/bootstrap-bin-19.csv": "3c21cd6872abcd8abc04ab4f44ee3ef7c50060713669f7925625f1613e576eba",
+          "562/bootstrap-bin-2.csv": "69c17093ecd02add978ef36399af49fa015f9dd03883a9f700959424a1861723",
+          "562/bootstrap-bin-3.csv": "f8144e16a88a39994db716188acb8e3e4ff23ac226e26de4c36a4f010fdd890b",
+          "562/bootstrap-bin-4.csv": "800aa04d889b02c0af948dea45249443bedd6e97ff9e49d03b54e44596b12ffb",
+          "562/bootstrap-bin-5.csv": "f7fdc83d52069703038310437cb345010e6ef47af33bae47640f7e00a627b38e",
+          "562/bootstrap-bin-6.csv": "02c1ff61fbb76392c124acfda29d7ad5af7ceb6061df99cf692c158ca8b878c6",
+          "562/bootstrap-bin-7.csv": "b723518549c830c29137200162c8df6d329186b356c3b26b41dac5f393627edf",
+          "562/bootstrap-bin-8.csv": "dbd2db51b287ac9c64d38d3b225c3a0a2f5003e7786c80a9cc9f8462a1e9bbf7",
+          "562/bootstrap-bin-9.csv": "56e98f2a399547d962a661a597bc156c1508f07a38100d9d316b7ac3b2bfb941",
+          "562/regional-cover.csv": "fddeaf89caad55d5650a01101f5875474ffa4bdfa5f31d521f77396fb5343b38",
+          "562/regional-se.csv": "bed90a4887cd4c47c315c5d82167bbf72e9f379a914a031ab10c0b8beec3088b",
+          "562/site-1-cover.csv": "f422f2f116aecf4b022f0957a91883936ddcc6485267d71d62564f1985685d0c",
+          "562/site-1-se.csv": "d421978a4ca1c877137436435a1ce8c41fb839bfc9d1823a3e5df58ebfc99b2d",
+          "562/site-2-cover.csv": "cad5cf17f08deeb87506d6ae52f73607598854b2f4f13a63b05eb39c1dfd3861",
+          "562/site-2-se.csv": "631d241771bf2eac97c07a04630f81b7b0f7cb6676861de7568e4b733b585342",
+          "562/site-3-cover.csv": "329385b17def9b539e37a51c74c7c3b5b97bc4ed5fc15e1a4939b00b361bc7a3",
+          "562/site-3-se.csv": "eef9229e9f0d7e4030652ed64bbc40a68b82c3db9802de07334e25de09873bbf",
+          "562/site-4-cover.csv": "dcbcd3dcc0cfa233f58e4f17a12f794b458709c3bea5b9c9d2e5db462c6acfdc",
+          "562/site-4-se.csv": "5aa52c06b43f16f4f2c0ac085e9a37db3f13075875f824ae69b793090b3ee429",
+          "562/site-5-cover.csv": "bdf21f59cde7e4ab6678b5377d691d7aa6a3d750eb922b8040983b18de0c6f88",
+          "562/site-5-se.csv": "e130b6951c27f23eb7bfcc1439efb227e753f02791fc2604829f7aa9919b66fd",
+          "562/site-6-cover.csv": "1088987a93a4d1fc486cabababdbaaf11eb8e3618f8b93c0a025e1d589a6138a",
+          "562/site-6-se.csv": "503bc54afdde5c2e628f1f9319361d45128fd85956b80aecd698644ad7358b72",
+          "562/site-7-cover.csv": "424b78398640bac56085bd8eaa59cd57d7f18d0225c8a706aecf602750efd112",
+          "562/site-7-se.csv": "54a7edd92a0dd22b78adf3a924cefe2a56cc50432dd003fed81a7f0cf57bf100",
+          "562/site-8-cover.csv": "e60790b4432599360927709c6747a29528584b39a9442d5fc4fa308107ec0171",
+          "562/site-8-se.csv": "613fc81ad18ba51c18375690994992c469b28ac74caf4885870614c5c717dd41",
+          "562/site-count.csv": "9bb85770027fe9618d81341add666c17fae31225c8b19064277c78d5e438259e"
+        },
+        "sites": 8,
+        "source_files": {
+          "TWlookup.csv": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+          "bins.csv": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+          "run.REVEALS.files/LRAready_BECKHAM.csv": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+          "run.REVEALS.files/LRAready_COMERSLA.csv": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3",
+          "run.REVEALS.files/LRAready_EXEBRID.csv": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698",
+          "run.REVEALS.files/LRAready_GOURTEMIRES.csv": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd",
+          "run.REVEALS.files/LRAready_LARKBARR.csv": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+          "run.REVEALS.files/LRAready_LONGBREACH.csv": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b",
+          "run.REVEALS.files/LRAready_MOLECHAM.csv": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+          "run.REVEALS.files/LRAready_NTWITCHEN.csv": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328",
+          "run.REVEALS.files/av-RPP.all.landclimII.csv": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+          "run.REVEALS.files/avar-RPP.all.landclimII.csv": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+          "run.REVEALS.files/site.list.562.csv": "0dbbc3ea5a982cea7b692a11befbbbcceddc4ab8b7d7adf4e0b44662a8a9081b"
+        },
+        "supported_bins": 25,
+        "taxa": 31,
+        "transformations": [
+          "exact_R_make_names_crosswalk_checked_before_positional_arrays",
+          "source_zero_no_count_windows_to_explicit_unavailable_nan",
+          "source_bins_retained_despite_50BP_difference_from_paper"
+        ]
+      }
+    ],
+    "independent_measured_vegetation_accuracy": "not_evaluated",
+    "profile": "landclimii-2016-release-source-v1",
+    "reference_receipt_sha256": "0e91e8e1402a5bc046718490efbfda387119506f4cc1e5b0d3e2d96e4d0e4ed6",
+    "schema_version": "1.0.0"
+  },
+  "native_comparison_report_sha256": "09308e540906f74909a1a09753d44626ccd598e3e545364d93e66f05febd8686",
+  "native_output_checksums": {
+    "512": {
+      "bytes": 9106380,
+      "checksum_manifest_sha256": "8d3da997fd8e1139c0a8e4526ea755af7358812c17ccaa7072f959beb8122c2d",
+      "files": 53
+    },
+    "562": {
+      "bytes": 9623701,
+      "checksum_manifest_sha256": "d578b8edf2e73013a5ed831301a674934d55ff813e86028a54abd993ea4eb924",
+      "files": 52
+    }
+  },
+  "native_source_files": {
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": "efaec7b04707508db414b67fa386c432e7d5392bc9c34529d007641f4a8eda2d",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py": "f8313262a25b1ddee87f05b0a119d314b3ec031096cc003a124c49bfca0a9513",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": "6d38f5fce85e01da5cba64e6f429e1a024edf617bad60cc7a6e362018e02d586",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py": "12a06fa95f8d436d7c2465b9de07b767e95193dc8dff28cb6ed3f1cafa4f56f0",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py": "ba15436199128f43ac32967db0cfa7bc9bd19a73d0539fb06906eeb2c02d3479",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py": "3793aee7e8dc6f837cc0337a3e218abc3f982ecc1afff1c67933ae4b707b0585",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/regional_draw_source.py": "5bf348137efc831390d7f049f985021ba48638c1aad31665e60cfb3cec4937e4",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py": "5b4e709b2d1d4ce2ea1e98eec9d481716740fdc723b6d3606ae9a50b1245d2be",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py": "1c7584947d3248b522151045210f2c9056e41ac3732a5c25dd88eabb6c954414",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py": "318b6d58b45940608cc7735693d78022cba5e3d9b00b8b9ae0aa9c2461605bfc",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py": "95e100ecd0a9f112830aaa9346abed077b4e2e61ff840deafda7b102547aad01",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py": "74a15a49d4cddc9e526160274a6561b767a6d457641403dd12ca417756b63e8b",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py": "304317faa6c89dfd43bbdb7b1f1dc82d9226cc1b2fb9ffba08bc7b03c2277ed6",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py": "a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py": "e0fce6132380512fefa7254e52a8802a6c84ab92c247089b8990b890ec4887eb",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py": "6bc70cccd28a69660f4b65c0e546371c1fa559ec16994707ea6084a2dbb81eaf",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py": "a2585b7eb9fcfa2587bbf60a0bdd7579fcb903626e2a5e9b2c91698ed99f0f27",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "73d7d2f22c0f7ab9671b90b938c7149b3d1fcedb2405a26ad2a726ca55a729bc",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py": "f5471ce866452832ed8aef10cc9774a23f5617da874f1a213c2fd01f500938de",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py": "d2bbd87589c87c798941856592b47fedee50b9da817b60ee51f291360d5e7829",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py": "ef05a86be898f4903a63edea9a2dddf35fba2d097bf24f430c72a123b368a4be",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py": "01c22ca754a6882122421346582512e02c320989c6c859883823da717297fcdd",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py": "6fd244753ce97bcdb93ae9514392d1196b1dc39cd2fad2047953dcdde35c44a4",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py": "73971f320bb4612a7003323514d8972aca154296f7c18efeabfff6551c3ef0d2",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py": "7a1c9d287aa5d874a61e7fd0a5f915e1fe6bfb54123393ef0e6ad1c6a4510dc2",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py": "f81f4a7361f63eaca5d672f611a3a241b2cf0c0bd68c5d6edf677352bf62cd71",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py": "9b05be03acf62ff02d466993066108f8f9a00989138020c085227747cb1819df",
+    "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py": "38f0d00aebe51354609b2163621634d64b93a3f3fd27381b853a1d311233ed23",
+    "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.R": "0967670cacfefbc609ceeb498039184fc02b2ade15ad4f94375b0c3b764fd220",
+    "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.py": "7d8c1a74f649b97c1969f6d6601ee78a4228b16a4cf22dec904903247635395d"
+  },
+  "original_r_receipt": {
+    "bootstrap_draws_saved": true,
+    "command": [
+      "/usr/local/bin/Rscript",
+      "--vanilla",
+      "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.R",
+      "/Users/bijan/bijux/bijux-pollenomics-data/landclim/author-reference/author",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/v2/engine/publication-runtime/r-library",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/landclim-example-reexecution/fresh-run/reference"
+    ],
+    "elapsed_seconds": 167.22274494171143,
+    "exit_code": 0,
+    "input_files": {
+      "TWlookup.csv": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "bins.csv": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+      "run.REVEALS.files/GC.list.csv": "abeda970bdc0fb63a35eda6faa088d81f8fb70a0ffc0376eaa63fc1f28cc6c17",
+      "run.REVEALS.files/LRA-REVEALS-release.R": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+      "run.REVEALS.files/LRAready_BECKHAM.csv": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+      "run.REVEALS.files/LRAready_BROADOWN.csv": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+      "run.REVEALS.files/LRAready_COMERSLA.csv": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3",
+      "run.REVEALS.files/LRAready_CUTHILL2.csv": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+      "run.REVEALS.files/LRAready_EXEBRID.csv": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698",
+      "run.REVEALS.files/LRAready_GOURTEMIRES.csv": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd",
+      "run.REVEALS.files/LRAready_HANGINGS.csv": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+      "run.REVEALS.files/LRAready_HARESDOWN.csv": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9",
+      "run.REVEALS.files/LRAready_LARKBARR.csv": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+      "run.REVEALS.files/LRAready_LOBBSBOG.csv": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7",
+      "run.REVEALS.files/LRAready_LONGBREACH.csv": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b",
+      "run.REVEALS.files/LRAready_MOLECHAM.csv": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+      "run.REVEALS.files/LRAready_NTWITCHEN.csv": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328",
+      "run.REVEALS.files/LRAready_WHH05.csv": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "run.REVEALS.files/LRAready_WHH11.csv": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+      "run.REVEALS.files/LRAready_WINDMILL.csv": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f",
+      "run.REVEALS.files/LRAready_WINNEYS.csv": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6",
+      "run.REVEALS.files/av-RPP.all.landclimII.csv": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+      "run.REVEALS.files/avar-RPP.all.landclimII.csv": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+      "run.REVEALS.files/site.list.512.csv": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7",
+      "run.REVEALS.files/site.list.562.csv": "0dbbc3ea5a982cea7b692a11befbbbcceddc4ab8b7d7adf4e0b44662a8a9081b",
+      "run.REVEALS.files/taxa.csv": "6aac6ac4615d203383fb3c73eac7581db592984ba08dd2ddf7e08c52165dd237"
+    },
+    "input_files_unchanged": true,
+    "output_files": {
+      "512/bootstrap-bin-1.csv": "beefe8bda1a7aaff68b4d1a04a920e471fb2f52511926a3338f5e7c6f846dff0",
+      "512/bootstrap-bin-10.csv": "6c821a1e6517d909f6e437d52a845a3d08a8dfdc5d1d281effc3ee51cbebc2da",
+      "512/bootstrap-bin-11.csv": "df61985dcad91df9e5e95cf0fc426933a1a0218b45a7bf0b76d52f1cc162f6cc",
+      "512/bootstrap-bin-12.csv": "33fd0deaa89e13a6be979a1bfe19534938b747807a94f7110d52bd1912f22537",
+      "512/bootstrap-bin-13.csv": "ad70b2e3f3abbd5d3de58aba3335781417c46be5f6cd55e2e86054c5e5949c35",
+      "512/bootstrap-bin-14.csv": "4ca8cda46ba1111bbfec427ccdeef2bb6fecffe534a16e84f3bfe9c1ca7ba636",
+      "512/bootstrap-bin-15.csv": "67bf78b0e1a4bad274b8de628e47f2c865a28b019824b79d7d6da96f688e2707",
+      "512/bootstrap-bin-16.csv": "fe23b6978ce48e7b7367134384b4c087dde2118fa007596d407fd3718943e5b9",
+      "512/bootstrap-bin-17.csv": "d368ffd438aebb85a54306d85825a00426660948e9cf717fa5388c7661a76f45",
+      "512/bootstrap-bin-2.csv": "3435e788fafddd452b6482122df70dcbc191ab9fc140360e24e71c2027866def",
+      "512/bootstrap-bin-3.csv": "d34cda243efe9675ff4ccffbb3ecc206df0c98ff03c852724dec247fc4474bed",
+      "512/bootstrap-bin-4.csv": "d92be6241e8d3a49f943c57819aa198072c72960ffc01050b51e3c3986b88b83",
+      "512/bootstrap-bin-5.csv": "00df4525363d710246c1a50ceae7480957e902a78204ae1f50e4946b52e3e7d4",
+      "512/bootstrap-bin-6.csv": "c82913adb138c5dce61b424aae618b92521b5ee84274883577065c8d2a34d741",
+      "512/bootstrap-bin-7.csv": "1ad29e35dbaf04b2431cb279838809212c237d679b9fb88e1349ea7931ae394f",
+      "512/bootstrap-bin-8.csv": "d36c19846d88af91dc83da3c0f897ceee5ec17b9f038f4a5fd6de083724ff54e",
+      "512/bootstrap-bin-9.csv": "0547f5de8612bc412c82fb16fe8f730c10de2e1def962e18eee000c21ee349b0",
+      "512/regional-cover.csv": "f07f3c67f0a5e8c134f4c6605425f6befd82f3b39b953d2af092578b1a5480f1",
+      "512/regional-se.csv": "0a6b728ea6d5125c465737fe0ac90eb836114eb7c95d697cd48cf12071fcbbb9",
+      "512/site-1-cover.csv": "6e01b30f73c8d6772e56dca3afd4bc4a16c48b06ebd2931317a4364c5953eaff",
+      "512/site-1-se.csv": "769077241dec71a7251ffaa865f5f6544e9d6c473bd55203f9d5c2e372260571",
+      "512/site-2-cover.csv": "ff8321df6d77cc05988f7421de55f8c12f8b3a08b2cc07550939612425d4a9cc",
+      "512/site-2-se.csv": "ccbba5683f71525f61b6fa8848e35dfae65208e6b4ab476efab1209dcae928ac",
+      "512/site-3-cover.csv": "4b8ffa91774dc48f14294ddc8e7d22840a1eac6e73b70310edac2dd92a953ce8",
+      "512/site-3-se.csv": "249a534cb2a15bbecf282f6ea4ddb1ae99b6bf96c906fd24ef1772a22965850a",
+      "512/site-4-cover.csv": "f3eea6db2b72fb0ddab26a917df4f93aa3d2b1c852167d76925c388905e52bf6",
+      "512/site-4-se.csv": "bddad20d1baca382c08145f3ce84732135c319b51c53e4c87fe19fab10e85ea6",
+      "512/site-5-cover.csv": "f4deea094e226d1a5ed9c5d3be053ec085cf2a2cf2450eb6a1c03e60e6ec0388",
+      "512/site-5-se.csv": "747e97d8dd0258b29b0ed84b3ba57f750c6100b8037ebb94cb056a0eb7e3b0d8",
+      "512/site-6-cover.csv": "c9c7f93bc9da45e02684c12014d6fab3bb2141ac571bb99fd90777426a84683a",
+      "512/site-6-se.csv": "e72d0fea31fdd5ec44ab920e342abeea533a5eac5ce14da3a785f8933eecd69c",
+      "512/site-7-cover.csv": "11e347aa3d96fadec35ea95cdd46e48397621cb4c73408363514610b1351b1f6",
+      "512/site-7-se.csv": "084150989020e9206045d1a96921412981fec36de5df4d30baa939e14c1184d0",
+      "512/site-8-cover.csv": "808c1ccf00e5f80f0569b111d90bf01f0d3b0781ea74aa0d61fee55036664299",
+      "512/site-8-se.csv": "8073f3f3cc0bb6ed5c2bb329d7c3c038189ba4edbf7bc308a86e004cacc6928d",
+      "512/site-9-cover.csv": "267ca530b4bea01999c198f9cd71b6b3d1592b4d2b0d2f770a3a752683b34066",
+      "512/site-9-se.csv": "3a70d7d43387b489681cd33033ba48bf3f310bb89c08706926e59d90569f301d",
+      "512/site-count.csv": "8adf2e3e27a835145b9122f59084fe103c17feb215408a14fd84c1b94f04a7b5",
+      "562/bootstrap-bin-1.csv": "ac93ad3bccbaea194b9d38aa5b45c98f8096688971d265166081b4a0eb8ea231",
+      "562/bootstrap-bin-10.csv": "18a20fb9f21a97f746fb5bbf68e9daafcffbd43a68ed73dd8aad4feaea982e34",
+      "562/bootstrap-bin-11.csv": "38eeb08e63573fd540bb72188497239215a9b234c5637f6dde3c618110143ded",
+      "562/bootstrap-bin-12.csv": "0ea088b8f24f8c44684fb41fad42214fbe6a5a926ffe3e0058e24090635ff69a",
+      "562/bootstrap-bin-13.csv": "a702d560dde39fa89c49d93a0d71227c788cd5ae94efcfc2e55160db836b8382",
+      "562/bootstrap-bin-14.csv": "9d7ce679b34911ac7905a4db02e922b032ba6d1e8a4d6e0162915fb448e22c84",
+      "562/bootstrap-bin-15.csv": "0afc5f66c626e38a83d84e0c36a736fd06df890e4016fac42b928bf226962b92",
+      "562/bootstrap-bin-16.csv": "c95d4a2f89d687277dfdf9173fbd77fb4167250c29edd3756ac218e9abc90eef",
+      "562/bootstrap-bin-17.csv": "8fa908a8c03eca5c5f729f3ed8e4d168dc0fdeff036c135380c21d415c80dd3c",
+      "562/bootstrap-bin-18.csv": "9f194d0fe8f9dcbdd30af68228488a7c3a25794d904afd924dc084d3d81af984",
+      "562/bootstrap-bin-19.csv": "3c21cd6872abcd8abc04ab4f44ee3ef7c50060713669f7925625f1613e576eba",
+      "562/bootstrap-bin-2.csv": "69c17093ecd02add978ef36399af49fa015f9dd03883a9f700959424a1861723",
+      "562/bootstrap-bin-3.csv": "f8144e16a88a39994db716188acb8e3e4ff23ac226e26de4c36a4f010fdd890b",
+      "562/bootstrap-bin-4.csv": "800aa04d889b02c0af948dea45249443bedd6e97ff9e49d03b54e44596b12ffb",
+      "562/bootstrap-bin-5.csv": "f7fdc83d52069703038310437cb345010e6ef47af33bae47640f7e00a627b38e",
+      "562/bootstrap-bin-6.csv": "02c1ff61fbb76392c124acfda29d7ad5af7ceb6061df99cf692c158ca8b878c6",
+      "562/bootstrap-bin-7.csv": "b723518549c830c29137200162c8df6d329186b356c3b26b41dac5f393627edf",
+      "562/bootstrap-bin-8.csv": "dbd2db51b287ac9c64d38d3b225c3a0a2f5003e7786c80a9cc9f8462a1e9bbf7",
+      "562/bootstrap-bin-9.csv": "56e98f2a399547d962a661a597bc156c1508f07a38100d9d316b7ac3b2bfb941",
+      "562/regional-cover.csv": "fddeaf89caad55d5650a01101f5875474ffa4bdfa5f31d521f77396fb5343b38",
+      "562/regional-se.csv": "bed90a4887cd4c47c315c5d82167bbf72e9f379a914a031ab10c0b8beec3088b",
+      "562/site-1-cover.csv": "f422f2f116aecf4b022f0957a91883936ddcc6485267d71d62564f1985685d0c",
+      "562/site-1-se.csv": "d421978a4ca1c877137436435a1ce8c41fb839bfc9d1823a3e5df58ebfc99b2d",
+      "562/site-2-cover.csv": "cad5cf17f08deeb87506d6ae52f73607598854b2f4f13a63b05eb39c1dfd3861",
+      "562/site-2-se.csv": "631d241771bf2eac97c07a04630f81b7b0f7cb6676861de7568e4b733b585342",
+      "562/site-3-cover.csv": "329385b17def9b539e37a51c74c7c3b5b97bc4ed5fc15e1a4939b00b361bc7a3",
+      "562/site-3-se.csv": "eef9229e9f0d7e4030652ed64bbc40a68b82c3db9802de07334e25de09873bbf",
+      "562/site-4-cover.csv": "dcbcd3dcc0cfa233f58e4f17a12f794b458709c3bea5b9c9d2e5db462c6acfdc",
+      "562/site-4-se.csv": "5aa52c06b43f16f4f2c0ac085e9a37db3f13075875f824ae69b793090b3ee429",
+      "562/site-5-cover.csv": "bdf21f59cde7e4ab6678b5377d691d7aa6a3d750eb922b8040983b18de0c6f88",
+      "562/site-5-se.csv": "e130b6951c27f23eb7bfcc1439efb227e753f02791fc2604829f7aa9919b66fd",
+      "562/site-6-cover.csv": "1088987a93a4d1fc486cabababdbaaf11eb8e3618f8b93c0a025e1d589a6138a",
+      "562/site-6-se.csv": "503bc54afdde5c2e628f1f9319361d45128fd85956b80aecd698644ad7358b72",
+      "562/site-7-cover.csv": "424b78398640bac56085bd8eaa59cd57d7f18d0225c8a706aecf602750efd112",
+      "562/site-7-se.csv": "54a7edd92a0dd22b78adf3a924cefe2a56cc50432dd003fed81a7f0cf57bf100",
+      "562/site-8-cover.csv": "e60790b4432599360927709c6747a29528584b39a9442d5fc4fa308107ec0171",
+      "562/site-8-se.csv": "613fc81ad18ba51c18375690994992c469b28ac74caf4885870614c5c717dd41",
+      "562/site-count.csv": "9bb85770027fe9618d81341add666c17fae31225c8b19064277c78d5e438259e",
+      "taxon-name-crosswalk.csv": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    "reference_acceleration": "memoized_exact_KPf_input_tuples",
+    "seed": 20220912,
+    "source_function_bodies_unchanged": true,
+    "source_sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+    "wrapper_sha256": "0967670cacfefbc609ceeb498039184fc02b2ade15ad4f94375b0c3b764fd220"
+  },
+  "original_r_receipt_sha256": "0e91e8e1402a5bc046718490efbfda387119506f4cc1e5b0d3e2d96e4d0e4ed6",
+  "passed": true,
+  "private_snapshot_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "private_snapshot_members_verified": 193,
+  "repository_head_at_execution": "5ef296c623cc017e9ef5c2e8683129e483b38bb4",
+  "runs": {
+    "native_comparison": {
+      "command": [
+        "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+        "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py",
+        "--source",
+        "/Users/bijan/bijux/bijux-pollenomics-data/landclim/author-reference/author",
+        "--reference",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/landclim-example-reexecution/fresh-run/reference",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/landclim-example-reexecution/fresh-run/comparison"
+      ],
+      "elapsed_seconds": 2.7544406251981854,
+      "exit_code": 0,
+      "log_sha256": "b732aeebebefed0d8a50e43cf2c5ea8cbf3e827690a4de758d6fae2e013689a2"
+    },
+    "original_r": {
+      "command": [
+        "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+        "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.py",
+        "--source",
+        "/Users/bijan/bijux/bijux-pollenomics-data/landclim/author-reference/author",
+        "--library",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/v2/engine/publication-runtime/r-library",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/landclim-example-reexecution/fresh-run/reference"
+      ],
+      "elapsed_seconds": 168.8407682501711,
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "schema_version": "landclim-example-reexecution.v1",
+  "scope": "two_author_example_grids_only",
+  "tolerances": {
+    "cover": {
+      "atol": 1e-11,
+      "rtol": 1e-10
+    },
+    "se": {
+      "atol": 5e-08,
+      "rtol": 1e-09
+    }
+  }
+}

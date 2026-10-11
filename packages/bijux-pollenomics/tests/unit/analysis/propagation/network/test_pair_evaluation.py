@@ -205,3 +205,57 @@ def test_direct_incompatible_pair_is_refused_before_candidate_assignment() -> No
 
     assert isinstance(refusal, PropagationPairRefusal)
     assert refusal.reason_code == "incompatible_feature"
+
+
+def test_five_resolution_networks_keep_role_and_taxon_edges_separate() -> None:
+    features = (
+        ("whole_pollen", "whole:all", ""),
+        ("ecological_group", "group:trees", ""),
+        ("ecological_subgroup", "subgroup:temperate_trees", ""),
+        ("ecological_role", "role:cereal_indicator", ""),
+        ("ecological_role", "role:wood_pasture", ""),
+        ("taxon", "taxon:triticum_aestivum", "accepted-wheat"),
+        ("taxon", "taxon:secale_cereale", "accepted-rye"),
+    )
+    events = tuple(
+        event(
+            f"{index}-{position}",
+            latitude=55.60 + position * 0.01,
+            younger_bp=5600 - position * 100,
+            older_bp=5600 - position * 100,
+            resolution=resolution,
+            feature_key=feature,
+            accepted_taxon_concept_id=concept,
+        )
+        for index, (resolution, feature, concept) in enumerate(features)
+        for position in (0, 1)
+    )
+    result = scenario(
+        generate_propagation_network(events),
+        DEFAULT_PROPAGATION_SCENARIO.scenario_id,
+    )
+    identities = {row.event_id: row for row in events}
+    assert len(result.directed_candidates) == len(features)
+    assert len(result.evaluated_pairs) == 2 * len(features)
+    assert not result.refusals
+    for edge in result.directed_candidates:
+        source = identities[edge.source_event_id]
+        target = identities[edge.target_event_id]
+        assert (source.resolution, source.feature_key) == (
+            target.resolution,
+            target.feature_key,
+        )
+        assert source.accepted_taxon_concept_id == target.accepted_taxon_concept_id
+
+    wheat = next(row for row in events if row.feature_key == "taxon:triticum_aestivum")
+    conflicting_concept = replace(
+        wheat,
+        source_record_id="alternate-concept",
+        site_id="alternate-site",
+        observation_ids=("alternate-observation",),
+        event_id="",
+        accepted_taxon_concept_id="alternate-wheat-concept",
+    )
+    refusal = evaluate_propagation_pair(wheat, conflicting_concept)
+    assert isinstance(refusal, PropagationPairRefusal)
+    assert refusal.reason_code == "incompatible_feature"

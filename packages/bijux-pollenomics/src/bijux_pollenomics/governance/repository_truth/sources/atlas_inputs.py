@@ -77,8 +77,11 @@ def build_repository_atlas_input_audit(
             ["data/sead/normalized/nordic_environmental_sites.geojson"],
             ["docs/report/regions/nordic/nordic_environmental_sites.geojson"],
             "data/sead/raw/nordic_sites.json",
-            {"site_count": counts["tracked_sead_site_count"]},
-            "SEAD is broader environmental archaeology context and should stay visible as its own source family.",
+            {
+                "site_count": counts["tracked_sead_site_count"],
+                "source_bounding_box_site_count": counts["sead_source_bbox_site_count"],
+            },
+            "SEAD is broader environmental archaeology context. The published four-country site layer is a subset of the raw bounding-box capture.",
         ),
         _atlas_input_row(
             "raa",

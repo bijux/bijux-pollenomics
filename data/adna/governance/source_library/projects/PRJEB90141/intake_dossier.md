@@ -5,7 +5,7 @@
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1093/gbe/evaf181`
 - Publication readiness: `complete`
-- Next required stage: `none`
+- Next required stage: `paper_capture`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `4`
@@ -15,7 +15,7 @@
 ## Stage Statuses
 
 - `project_admission`: `complete`
-- `paper_capture`: `complete`
+- `paper_capture`: `blocked`
 - `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `complete`
@@ -41,4 +41,4 @@
 
 ## Missing Assets
 
-- none
+- Readable repository paper capture is still missing.

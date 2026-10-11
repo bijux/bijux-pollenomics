@@ -77,6 +77,20 @@ def _build_core_counts(
         data_root / "sead" / "raw" / "nordic_sites.json",
         {"row_count": 0},
     )
+    sead_source_bbox_count = int(cast(Any, sead_sites.get("row_count", 0)))
+    sead_normalized_path = (
+        data_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"
+    )
+    sead_published_path = (
+        report_root / "regions" / "nordic" / "nordic_environmental_sites.geojson"
+    )
+    sead_visible_count = _count_geojson_features(sead_normalized_path)
+    if sead_published_path.is_file() and (
+        _count_geojson_features(sead_published_path) != sead_visible_count
+    ):
+        raise ValueError("Published SEAD site count differs from normalized source")
+    if sead_visible_count > sead_source_bbox_count:
+        raise ValueError("Assigned SEAD site count exceeds source bounding-box rows")
     raa_layer = _load_json_or_default(
         data_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
         {"density_feature_count": 0, "counts": {}},
@@ -250,7 +264,8 @@ def _build_core_counts(
         "tracked_neotoma_site_count": int(
             cast(Any, neotoma_sites.get("site_count", 0))
         ),
-        "tracked_sead_site_count": int(cast(Any, sead_sites.get("row_count", 0))),
+        "tracked_sead_site_count": sead_visible_count,
+        "sead_source_bbox_site_count": sead_source_bbox_count,
         "tracked_raa_published_site_count": (
             int(
                 cast(

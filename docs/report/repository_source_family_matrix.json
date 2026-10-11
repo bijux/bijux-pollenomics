@@ -14,8 +14,8 @@
         "docs/public/pollenomics-data/sources/animal-source-intake.md"
       ],
       "visible_count": 18,
-      "acquisition_posture": "repo_capture_matches_visible_staging",
-      "main_gap": "tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative"
+      "acquisition_posture": "repository_supplement_capture_incomplete",
+      "main_gap": "Archived supplements cover 17 of 18 tracked animal papers; sample-owned extraction remains incomplete"
     },
     {
       "source_key": "aadr",
@@ -69,7 +69,7 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/sead.md"
       ],
-      "visible_count": 2195,
+      "visible_count": 2069,
       "acquisition_posture": "tracked_context_layer",
       "main_gap": "SEAD provides environmental archaeology context and should not disappear behind animal intake work"
     },

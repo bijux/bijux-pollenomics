@@ -1,0 +1,28 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://api.nva.unit.no/publication/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f",
+  "artifact_kind": "article_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 8867790,
+  "paper_doi": "10.1111/mec.17274",
+  "published_article_doi": "10.1111/mec.17274",
+  "repository_record": "https://nva.sikt.no/registration/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095",
+  "retrieved_at_utc": "2026-09-28T17:06:25Z",
+  "license_name": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "evidence_locators": [
+    {
+      "claim_family": "specimen_site_chronology",
+      "locator": "Table 1, published page 4"
+    },
+    {
+      "claim_family": "source_role",
+      "locator": "Data Availability Statement, published page 13"
+    }
+  ],
+  "content_sha256": "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f",
+  "storage_byte_size": 8867790,
+  "storage_sha256": "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f",
+  "storage_path": "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+  "content_encoding": null
+}

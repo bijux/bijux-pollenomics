@@ -2,7 +2,8 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 18,
   "counts": {
-    "archived_and_parseable": 18
+    "archived_and_parseable": 17,
+    "not_found_yet": 1
   },
   "rows": [
     {
@@ -92,18 +93,6 @@
       "recovery_status": "archived_and_parseable"
     },
     {
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "project_accessions": [
-        "PRJEB60484"
-      ],
-      "supplementary_verification_status": "supplement_archived_in_repo",
-      "repository_supplement_capture_status": "archived",
-      "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "missing",
-      "supplementary_count": 1,
-      "recovery_status": "archived_and_parseable"
-    },
-    {
       "paper_doi": "10.1038/s42003-021-02794-8",
       "project_accessions": [
         "PRJEB36540"
@@ -163,6 +152,18 @@
       "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "recovery_status": "archived_and_parseable"
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "supplementary_verification_status": "supplement_not_verified_yet",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "missing",
+      "local_reference_supplement_status": "missing",
+      "supplementary_count": 0,
+      "recovery_status": "not_found_yet"
     },
     {
       "paper_doi": "10.1126/science.aam5298",

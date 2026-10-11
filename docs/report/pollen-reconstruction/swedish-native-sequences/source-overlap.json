@@ -1,0 +1,102 @@
+{
+  "schema_version": "swedish-pollen-source-overlap.v1",
+  "inputs_sha256": {
+    "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json": "9956683a701d5ed576836e1f37d894dce81d8e6cb1050a10dfc3980190140b37",
+    "data/landclim/normalized/nordic_pollen_site_sequences.csv": "3f0bbc4978d54ee9bff164594e1f358c4adee544de5c198ef970699511cc9b9e"
+  },
+  "neotoma_site_count": 3,
+  "landclim_site_metadata_lead_count": 8,
+  "matches": [
+    {
+      "neotoma_dataset_id": "19913",
+      "neotoma_site_id": "13338",
+      "neotoma_site_name": "Abborrtjärnen",
+      "landclim_record_id": "897303:Abborrtjärnen:63.883333:14.450000",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+      "landclim_provenance": "SiteData:Abborrtjärnen",
+      "point_distance_m": 0.33358477988154306,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "19913",
+      "neotoma_site_id": "13338",
+      "neotoma_site_name": "Abborrtjärnen",
+      "landclim_record_id": "937075:ABB",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+      "landclim_provenance": "LANDCLIMII metadata file:ABB",
+      "point_distance_m": 0.33358477988154306,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "53995",
+      "neotoma_site_id": "28869",
+      "neotoma_site_name": "Bussjösjön",
+      "landclim_record_id": "897303:Bussjösjön:55.466667:13.816667",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+      "landclim_provenance": "SiteData:Bussjösjön",
+      "point_distance_m": 0.3834570106017648,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "53995",
+      "neotoma_site_id": "28869",
+      "neotoma_site_name": "Bussjösjön",
+      "landclim_record_id": "900966:GC18:Bussjösjön",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.900966",
+      "landclim_provenance": "Metadata:Bussjösjön",
+      "point_distance_m": 0.3834570106017648,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "53995",
+      "neotoma_site_id": "28869",
+      "neotoma_site_name": "Bussjösjön",
+      "landclim_record_id": "937075:BUS",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+      "landclim_provenance": "LANDCLIMII metadata file:BUS",
+      "point_distance_m": 0.3834570106017648,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "54001",
+      "neotoma_site_id": "28872",
+      "neotoma_site_name": "Bökesjön",
+      "landclim_record_id": "897303:Bökesjön:55.575556:13.437500",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.897303",
+      "landclim_provenance": "SiteData:Bökesjön",
+      "point_distance_m": 0.44477970703544906,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "54001",
+      "neotoma_site_id": "28872",
+      "neotoma_site_name": "Bökesjön",
+      "landclim_record_id": "900966:GC18:Bökesjön",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.900966",
+      "landclim_provenance": "Metadata:Bökesjön",
+      "point_distance_m": 0.44477970703544906,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    },
+    {
+      "neotoma_dataset_id": "54001",
+      "neotoma_site_id": "28872",
+      "neotoma_site_name": "Bökesjön",
+      "landclim_record_id": "937075:BOKE",
+      "landclim_source_url": "https://doi.org/10.1594/PANGAEA.937075",
+      "landclim_provenance": "LANDCLIMII metadata file:BOKE",
+      "point_distance_m": 0.44477970703544906,
+      "name_match": "casefold_exact",
+      "lineage_status": "possible_shared_source; not_independent_corroboration"
+    }
+  ],
+  "independent_corroboration_admitted": false,
+  "same_core_or_sample_identity_admitted": false,
+  "interpretation": "Exact-name, near-coordinate LandClim site metadata are lineage leads, not separate pollen observations; original source-core identity requires review."
+}

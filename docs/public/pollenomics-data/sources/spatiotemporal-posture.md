@@ -24,7 +24,7 @@ spatial role, temporal capability, ranking role, and current evidence basis.
 | --- | --- | --- | --- | --- |
 | LandClim | site sequences and model-grid context | numeric BP windows where present | chronology-aware pollen and landscape context | observed sites and model grids remain distinct |
 | Neotoma | palaeoecological site points | numeric site spans for a subset; uneven resolution | site-level pollen comparison where intervals overlap | missing intervals cannot be inferred from nearby sites |
-| SEAD | environmental-archaeology site inventory | numeric site envelopes for a subset; label-only and unresolved time retained | broad archaeology context with interval-aware filtering | only numeric members support overlap, and a site envelope is not a sample-event date |
+| SEAD | optional four-country site inventory and separate Swedish discovery layer | site envelopes are display context; eligible linked record intervals are filterable | spatial archaeology context plus record-level interval navigation | inventory sites do not enter BP matching; unresolved discovery features are withheld in narrowed windows |
 | RAÄ | Swedish registry points and density representation | no repository-wide uniform interval | Swedish spatial archaeology context | density and registry effort do not measure historical abundance |
 | SVAR | registered lake and water-body geometry | present-day registry state | candidate identity, containment, and distance | no historical chronology or sampling-feasibility claim |
 | boundaries | administrative polygons | no scientific temporal claim | clipping, containment, and scope | no independent evidential weight |

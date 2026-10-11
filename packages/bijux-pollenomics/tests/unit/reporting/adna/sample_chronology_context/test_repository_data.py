@@ -34,8 +34,8 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 20,
         "sample_identity_not_final": 5,
-        "source_chronology_not_comparable": 558,
-        "source_coordinate_not_mappable": 335,
+        "source_chronology_not_comparable": 555,
+        "source_coordinate_not_mappable": 338,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
         "site_provenance_unavailable": 0,

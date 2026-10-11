@@ -221,6 +221,23 @@
       ]
     },
     {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "archive_status": "paper_pinned_core",
+      "paper_download_status": "partial",
+      "supplement_download_status": "archived",
+      "blockers": [
+        "missing_local_paper_evidence"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
       "project_accession": "PRJEB9799",
       "species_latin_name": "Equus caballus",
       "paper_doi": null,

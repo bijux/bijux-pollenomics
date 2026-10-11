@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -82,22 +83,33 @@ def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
     assert totals["mapped_sample_count"] == 331
     assert totals["blocked_sample_count"] == 1119
     assert totals["mapped_sample_count"] + totals["blocked_sample_count"] == 1450
-    assert totals["unresolved_sample_count"] == 402
+    assert totals["unresolved_sample_count"] == 398
     assert totals["country_published_sample_count"] == 0
     assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1450
     assert "Tracked sample rows: `1450`" in markdown
+    progress = json.loads(
+        (
+            catalog_data_root
+            / "adna/governance/source_library/source_recovery_progress.json"
+        ).read_text(encoding="utf-8")
+    )
+    accounting = progress["sample_evidence_depth_accounting"]
+    assert accounting["counted_sample_rows"] == 1450
+    assert accounting["project_source_master_final_sample_rows"] == 1450
+    assert accounting["source_master_species_alignment"] == "aligned"
 
 
 def _sample_row(
     stable_id: str,
     *,
     species_name: str = "Ovis aries",
+    common_name: str = "sheep",
     inclusion_status: str = "sample_context_published",
 ) -> dict[str, object]:
     return {
         "identity": {"stable_token": stable_id},
         "species_latin_name": species_name,
-        "species_common_name": "sheep",
+        "species_common_name": common_name,
         "inclusion_status": inclusion_status,
     }
 
@@ -109,7 +121,9 @@ def _stub_honesty_inputs(
     mapped: set[str] | None = None,
     country_published: set[str] | None = None,
 ) -> None:
-    monkeypatch.setattr(public_outputs, "_species_roots", lambda _root: [Path("sheep")])
+    monkeypatch.setattr(
+        public_outputs, "_species_roots", lambda _root: [Path("ovis_aries")]
+    )
     monkeypatch.setattr(public_outputs, "_load_sample_rows", lambda _root: rows)
     monkeypatch.setattr(
         public_outputs,
@@ -197,3 +211,33 @@ def test_output_honesty_refuses_identity_and_membership_drift(
 
     with pytest.raises(ValueError, match=message):
         build_public_animal_output_honesty(Path("data"), report_root)
+
+
+def test_output_honesty_keeps_declared_source_taxon_separate(
+    monkeypatch: pytest.MonkeyPatch,
+    report_root: Path,
+) -> None:
+    rows = [
+        _sample_row("sheep-1"),
+        {
+            **_sample_row(
+                "goat-1",
+                species_name="Capra hircus",
+                common_name="goat",
+                inclusion_status="sample_context_blocked",
+            ),
+            "taxon_alignment_status": "project_species_mismatch",
+            "source_native_scientific_name": "Capra hircus",
+        },
+    ]
+    _stub_honesty_inputs(monkeypatch, rows, mapped={"sheep-1"})
+
+    honesty = build_public_animal_output_honesty(Path("data"), report_root)
+
+    assert [
+        (row["species_latin_name"], row["tracked_sample_count"])
+        for row in honesty["rows"]
+    ] == [("Ovis aries", 2)]
+    assert honesty["rows"][0]["source_taxon_mismatches"] == {"Capra hircus": 1}
+    assert honesty["totals"]["blocked_sample_count"] == 1
+    assert "Capra hircus: 1" in render_public_animal_output_honesty_markdown(honesty)

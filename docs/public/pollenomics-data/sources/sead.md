@@ -28,7 +28,7 @@ chronology explicitly rather than as a static or timeless point.
 ## Current Evidence State
 
 <!-- sead-evidence:generated:start -->
-The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its denominators are:
+The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its raw-parent admission SHA-256 is `168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1`. Its denominators are:
 
 | Governed population | Count | Interpretation |
 | --- | ---: | --- |
@@ -37,8 +37,8 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 | assigned four-country sites | 2,069 | SE 1,925, DK 59, NO 45, FI 40 |
 | sites requiring country review | 103 | retained outside assigned publication membership |
 | unassigned sites | 23 | retained without a governed country assignment |
-| atlas SEAD features | 11,796 | 2,069 four-country site features plus 9,727 Swedish chronology-discovery features; not a distinct-site count |
-| chronology claims | 25,109 | 14,264 comparable, 10,144 context-only, 60 refused by the numeric BP contract, 641 unresolved |
+| atlas SEAD features | 10,868 | 2,069 four-country site features plus 8,799 Swedish chronology-discovery features; not a distinct-site count |
+| chronology claims | 25,109 | 13,170 comparable, 11,238 context-only, 60 refused by the numeric BP contract, 641 unresolved |
 | source-native observations | 177,763 | quantitative observation denominator |
 | source-native taxon relations | 1,974 | preserved source taxonomy, not accepted cross-source classification |
 | dimension relations | 2,639 | explicit source-native measurement dimensions |
@@ -99,13 +99,14 @@ site envelope but is still contextual evidence, not proof of a lake event.
 
 A site has a normalized `time_start_bp` and `time_end_bp` derived from
 captured temporal relations. It may also retain the original relative-period
-labels and uncertainty notes. The atlas can test interval overlap for this
-site.
+labels and uncertainty notes. The optional site-inventory layer displays this
+envelope as context; its points are never time-filtered. Only eligible linked
+record intervals in the Swedish discovery layer enter the atlas BP filter.
 
 For example, Agerod V (`4237`) is published with a site envelope of
-`7000–10000 BP`. That makes it eligible for a map window that overlaps the
-interval. It does not prove that every Agerod V observation belongs to every
-year in that span.
+`7000–10000 BP`. That envelope does not make the site present in every
+overlapping map window. An Agerod V discovery feature appears in a selected
+window only when its own eligible source-record interval overlaps.
 
 ### Source label without numeric support
 
@@ -130,7 +131,9 @@ flowchart TD
     Numeric -->|no| Label{"source period label?"}
     Label -->|yes| Context["contextual label only"]
     Label -->|no| Unresolved["unresolved"]
-    Timed --> Slider["numeric timeline filtering"]
+    Timed --> Display["site-envelope display context"]
+    Relations --> Record["eligible linked record interval"]
+    Record --> Slider["numeric timeline filtering"]
     Context --> Reading["popup and source interpretation"]
     Unresolved --> Reading
 ```
@@ -144,8 +147,9 @@ admission to the current canonical timeline remains governed separately.
 
 ## How The Atlas Timeline Treats SEAD
 
-The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It
-contains all 1,925 assigned Swedish SEAD sites as 8,172 linked numeric
+The Nordic Atlas exposes a governed Sweden archaeology discovery layer and an
+optional four-country SEAD site-inventory layer. The discovery layer contains
+all 1,925 assigned Swedish SEAD sites as 7,244 linked numeric
 chronology features plus 1,555 explicitly unresolved site features. Once a reader narrows
 the time window:
 
@@ -155,12 +159,33 @@ the time window:
 
 This is different from declaring unresolved sites absent from the selected
 period. The interface is refusing a comparison it cannot make.
-Static layers such as boundaries are unaffected by this rule.
+The optional 2,069-site inventory remains spatial context at any BP window.
+Its derived site envelopes are displayed for orientation and never used for
+interval filtering or counted as evidence within the selected period. Static
+layers such as boundaries are likewise unaffected.
 
-The Nordic normalized site and temporal-evidence products remain available for
-audit and reuse. They are not loaded beside the discovery layer because doing
-so would duplicate the same SEAD population and obscure the governed
-discovery contract.
+The normalized temporal-evidence product remains available for audit and reuse.
+It is not loaded beside the discovery layer because that would duplicate the
+same record intervals.
+
+## What The Current Capture Cannot Resolve
+
+Of the 2,069 assigned sites, 1,219 have no defensible numeric site envelope:
+1,217 are unresolved and two retain contextual labels only. The captured
+bibliography offers a directly followable DOI or URL for three sites; 2,066
+require the source site page or further primary evidence. The per-site
+dispositions and affected UUIDs are retained in
+`data/sead/review/temporal_review.json`,
+`data/sead/review/access_model.json`, and
+`data/sead/review/recovery_requirements.json`. These are different gaps: a
+bibliography relation does not supply a sample date.
+
+Earlier backlog counts of 1,268 sites without numeric chronology and 2,192
+without a direct bibliography link belong to a different captured population.
+Their differences from the current counts are **not** evidence that individual
+sites were recovered. A new date or link needs an identified source relation,
+stable source page, or citable primary record; otherwise the row stays
+contextual with its reason visible.
 
 ## Compare SEAD With LANDCLIM And AADR Carefully
 
@@ -192,8 +217,8 @@ flowchart LR
     Coordinate -->|review| Review["103 country-review rows"]
     Coordinate -->|unassigned| Retained["23 unassigned rows"]
     Capture --> Chronology["25,109 chronology claims"]
-    Chronology --> Comparable["14,264 comparable claims"]
-    Chronology --> Ineligible["10,144 context-only + 60 refused + 641 unresolved"]
+    Chronology --> Comparable["13,170 comparable claims"]
+    Chronology --> Ineligible["11,238 context-only + 60 refused + 641 unresolved"]
 ```
 
 This is not deduplication or evidence deletion. A boundary or publication
@@ -205,7 +230,7 @@ SEAD supports:
 
 - finding environmental-archaeology sites near a lake, pollen sequence, or
   aDNA locality under a declared distance rule;
-- navigating 14,264 comparable chronology claims through interval-preserving features;
+- navigating 13,170 comparable chronology claims through interval-preserving features;
 - retaining relative-period language for human interpretation without
   inventing numeric bounds;
 - identifying sites whose bibliography or deeper relational evidence merits
