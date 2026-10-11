@@ -67,7 +67,7 @@ def main() -> int:
             selected.add_argument("--standard-root")
             selected.add_argument("--build-command", required=True)
             selected.add_argument("--verify-command", required=True)
-        if name == "render":
+        if name in {"render", "admit"}:
             selected.add_argument("--reader-owner")
             selected.add_argument("--interactive-report-owner")
     options = parser.parse_args()
@@ -77,6 +77,23 @@ def main() -> int:
         if expected_sha and expected_sha != source_sha:
             raise ValueError("Publication checkout differs from the dispatched accepted source")
         environment = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
+        if options.command == "admit":
+            # Admission requires source checks around the exact route/search artifact.
+            # A renderer's successful build receipt alone does not attest that boundary.
+            environment.update(DOCS_PYTHON=sys.executable, DOCS_SITE_DIR=options.site_dir,
+                               DOCS_BUILD_SITE_URL=options.site_url, DOCS_SOURCE_IDENTITY=SOURCE,
+                               BIJUX_DOCS_SITE_REPORT=EVIDENCE + "site-verification.json")
+            for key in ("BIJUX_DOCS_READER_OWNER", "BIJUX_DOCS_INTERACTIVE_REPORT_OWNER", "BIJUX_DOCS_READER_SOURCE_SHA"):
+                environment.pop(key, None)
+            if options.reader_owner and options.interactive_report_owner:
+                raise ValueError("Passive and interactive publication owners cannot be mixed")
+            if options.interactive_report_owner:
+                environment.update(BIJUX_DOCS_INTERACTIVE_REPORT_OWNER=options.interactive_report_owner,
+                                   BIJUX_DOCS_READER_SOURCE_SHA=source_sha)
+            elif options.reader_owner:
+                environment.update(BIJUX_DOCS_READER_OWNER=options.reader_owner, BIJUX_DOCS_READER_SOURCE_SHA=source_sha)
+            subprocess.run(["bash", str(SHARED / "tooling/scripts/verify_bijux_docs_site.sh")],
+                           env=environment, check=True)
         subprocess.run([sys.executable, *arguments(options.command, options, source_sha)],
                        env=environment, check=True)
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
