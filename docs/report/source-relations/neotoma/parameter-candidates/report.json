@@ -1,0 +1,478 @@
+{
+  "schema_version": "neotoma-landclim-parameter-candidates.v1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "source_concept_review_bundle_sha256": "df8e45b4876095828ff856713ec780175a210332609eea0c2e48afc899c9cbe0",
+  "parameter_row_count": 31,
+  "exact_name_parameter_count": 20,
+  "unmatched_parameter_count": 11,
+  "exact_name_concept_count": 23,
+  "lra_accepted_samples": 0,
+  "scientific_admission_allowed": false,
+  "interpretation": "Literal source-name correspondence only. Distinct source concepts and NISP units remain separate. Name equality does not establish taxon identity, count denominator, PPE/FSP applicability or LRA admission.",
+  "rows": [
+    {
+      "parameter_source_name": "Picea abies",
+      "parameter_pft_code": "TBE1",
+      "parameter_fsp_source_text": "0.056",
+      "parameter_ppe_source_text": "5.437 (0.097)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:2a5a1eb6c1411bf5e3d2840b",
+          "source_identity_sha256": "70006453cb1531592bded51dcd59cd846a9b15855bda21bd248649eb9dc5a315",
+          "source_unit": "NISP",
+          "candidate_observation_count": 1142,
+          "candidate_exact_count_sum": 28851,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Abies alba",
+      "parameter_pft_code": "TBE2",
+      "parameter_fsp_source_text": "0.12",
+      "parameter_ppe_source_text": "6.875 (1.442)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Pinus sylvestris",
+      "parameter_pft_code": "IBE",
+      "parameter_fsp_source_text": "0.031",
+      "parameter_ppe_source_text": "6.058 (0.237)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:4bfe2caac127d2f3036d760f",
+          "source_identity_sha256": "34626fcddb5449c83359c13d1119881d8619cbb83ee9a4f3de698282d4af68a1",
+          "source_unit": "NISP",
+          "candidate_observation_count": 3383,
+          "candidate_exact_count_sum": 791119,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Phillyrea",
+      "parameter_pft_code": "MTBE",
+      "parameter_fsp_source_text": "0.015",
+      "parameter_ppe_source_text": "0.512 (0.076)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:25c6f9648f58487b5ea7cb3d",
+          "source_identity_sha256": "5c2b5dcc6022dca37fd77011d53b554419dad78a2f34ceab167934a2fed75918",
+          "source_unit": "NISP",
+          "candidate_observation_count": 1,
+          "candidate_exact_count_sum": 1,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Pistacia",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.03",
+      "parameter_ppe_source_text": "0.755 (0.201)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Quercus evergreen t.",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.035*",
+      "parameter_ppe_source_text": "11.043 (0.261)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Juniperus communis",
+      "parameter_pft_code": "TSE",
+      "parameter_fsp_source_text": "0.016",
+      "parameter_ppe_source_text": "2.07 (0.04)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:ed4fdb9a0a4a9463890e4b1e",
+          "source_identity_sha256": "49f4fcee5f9901ca6799df9f9ebcc6c71927296c099ee374f5a2657d29056a02",
+          "source_unit": "NISP",
+          "candidate_observation_count": 3024,
+          "candidate_exact_count_sum": 64205,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Ericaceae**",
+      "parameter_pft_code": "MTSE",
+      "parameter_fsp_source_text": "0.038*",
+      "parameter_ppe_source_text": "4.265 (0.094)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Buxus sempervirens",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.032",
+      "parameter_ppe_source_text": "1.89 (0.068)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Alnus glutinosa",
+      "parameter_pft_code": "IBS",
+      "parameter_fsp_source_text": "0.021",
+      "parameter_ppe_source_text": "13.562 (0.293)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:122ed5da7e36fead29c80ccc",
+          "source_identity_sha256": "6930c2a85289fa4510b9b041ecad58fe0616d9e3e8f6195ab76e9a2a8539a9ca",
+          "source_unit": "NISP",
+          "candidate_observation_count": 88,
+          "candidate_exact_count_sum": 13334,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Betula",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.024",
+      "parameter_ppe_source_text": "5.106 (0.303)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:9acd122e254e9cbd95fc1a50",
+          "source_identity_sha256": "f8dcc0ff3c2858a0a3cd3dac89d11d682db136f864b1a4d1bea2e5bfbbc87770",
+          "source_unit": "NISP digitized",
+          "candidate_observation_count": 49,
+          "candidate_exact_count_sum": 2608,
+          "review_state": "needs_discussion"
+        },
+        {
+          "review_row_id": "neotoma:classification-concept:c91b04ca190beaf11d463e9a",
+          "source_identity_sha256": "1bb792b96616264100c2c9a096a125c86ecc80bce05500f10683fe29142b5115",
+          "source_unit": "NISP",
+          "candidate_observation_count": 9920,
+          "candidate_exact_count_sum": 2917382,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Carpinus betulus",
+      "parameter_pft_code": "TBS",
+      "parameter_fsp_source_text": "0.042",
+      "parameter_ppe_source_text": "4.52 (0.425)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:c202514e6d4073ea3810e35f",
+          "source_identity_sha256": "97b024b1bde9e52c8f225bbd07355ab298eb4e2744eba5d9393ad1bfcc6c3c7a",
+          "source_unit": "NISP",
+          "candidate_observation_count": 436,
+          "candidate_exact_count_sum": 2097,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Carpinus orientalis",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.042",
+      "parameter_ppe_source_text": "0.24 (0.07)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Castanea sativa",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.01",
+      "parameter_ppe_source_text": "3.258 (0.059)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Corylus avellana",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.025",
+      "parameter_ppe_source_text": "1.71 (0.1)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:16db9132da6196ccd7521977",
+          "source_identity_sha256": "77fbc70e5dbe1dae1e486435b72af72ccee7b713e8fb230359ccb954a2913a04",
+          "source_unit": "NISP",
+          "candidate_observation_count": 1946,
+          "candidate_exact_count_sum": 99383,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Fagus sylvatica",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.057",
+      "parameter_ppe_source_text": "5.863 (0.176)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:ee50dbad58b1d0672b858656",
+          "source_identity_sha256": "e895eddd3fcc87ee12076333ebd357fe3f50426bc5487b703116380dfd5024b3",
+          "source_unit": "NISP",
+          "candidate_observation_count": 360,
+          "candidate_exact_count_sum": 3130,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Fraxinus",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.022",
+      "parameter_ppe_source_text": "1.044 (0.048)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:608181c25528563725cbd21a",
+          "source_identity_sha256": "dc7c2eba5b2fe371e47c991b612d58404e5051e700a6ae92f8ea9e457f0b4c72",
+          "source_unit": "NISP",
+          "candidate_observation_count": 2939,
+          "candidate_exact_count_sum": 26616,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Quercus deciduous t.",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.035",
+      "parameter_ppe_source_text": "4.537 (0.086)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Tilia",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.032",
+      "parameter_ppe_source_text": "1.21 (0.116)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:64a55815fec6ca000bf095a3",
+          "source_identity_sha256": "71cecfa746e3632aaeff051255fde0dd360ff641fa112fda4bdc554da0d9b0cb",
+          "source_unit": "NISP digitized",
+          "candidate_observation_count": 10,
+          "candidate_exact_count_sum": 118,
+          "review_state": "needs_discussion"
+        },
+        {
+          "review_row_id": "neotoma:classification-concept:aeae54e19c6125224deec3db",
+          "source_identity_sha256": "22b7f40f535d1ea44784d8a25f81f5e058cbdc0852f56f7f1ee7c34858ae1173",
+          "source_unit": "NISP",
+          "candidate_observation_count": 3574,
+          "candidate_exact_count_sum": 74066,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Ulmus",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.032",
+      "parameter_ppe_source_text": "1.27 (0.05)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:54d82a28db585eddcaf382f8",
+          "source_identity_sha256": "5679eea3e0ab990767e959e475b6c0ef85a3636170ec268ca03e738f05e75b62",
+          "source_unit": "NISP digitized",
+          "candidate_observation_count": 9,
+          "candidate_exact_count_sum": 28,
+          "review_state": "needs_discussion"
+        },
+        {
+          "review_row_id": "neotoma:classification-concept:f1677edd8464d889de1deb32",
+          "source_identity_sha256": "68ddc71c14b4d835f26025672271791f106af2731a959e567cc57f0bd68a05f4",
+          "source_unit": "NISP",
+          "candidate_observation_count": 7286,
+          "candidate_exact_count_sum": 101645,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Salix",
+      "parameter_pft_code": "TSD",
+      "parameter_fsp_source_text": "0.022",
+      "parameter_ppe_source_text": "1.182 (0.077)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:16cdf9539790d01ff4ad93e0",
+          "source_identity_sha256": "acce779e140d2b3a3ac3ae0be22be4b1d4559f5b0f18a5b41f654e9588403c38",
+          "source_unit": "NISP",
+          "candidate_observation_count": 6479,
+          "candidate_exact_count_sum": 87610,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Calluna vulgaris",
+      "parameter_pft_code": "LSE",
+      "parameter_fsp_source_text": "0.038",
+      "parameter_ppe_source_text": "1.085 (0.029)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:c04f055f4290ea09ab34508e",
+          "source_identity_sha256": "dacbd98db9bdd3ac3d0a657afcece882e7289bf1abdc5d89ea480a1c1566aacc",
+          "source_unit": "NISP",
+          "candidate_observation_count": 3723,
+          "candidate_exact_count_sum": 80771,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Artemisia",
+      "parameter_pft_code": "GL",
+      "parameter_fsp_source_text": "0.025",
+      "parameter_ppe_source_text": "3.937 (0.146)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:4fa33717810097e267547973",
+          "source_identity_sha256": "395393138c78b8cd2676d3ee86f430b65c6348084e72eb89b2798b3180efe060",
+          "source_unit": "NISP",
+          "candidate_observation_count": 5888,
+          "candidate_exact_count_sum": 52453,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Amaranthaceae/Chenopodiaceae",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.019",
+      "parameter_ppe_source_text": "4.28 (0.27)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Cyperaceae",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.035",
+      "parameter_ppe_source_text": "0.962 (0.05)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:bf4f446ca03fc4ed63392da5",
+          "source_identity_sha256": "a149cb0fa308b27fac6a6c3258af609a453c14411d9195543ef0571814bfb23a",
+          "source_unit": "NISP",
+          "candidate_observation_count": 6640,
+          "candidate_exact_count_sum": 219073,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Filipendula",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.006",
+      "parameter_ppe_source_text": "3 (0.285)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:d0b745b0868d7c9464dd407a",
+          "source_identity_sha256": "a43aa6a30afe0daae460bf8c77fcea776ac370aaf2ef62608f5417ff855661d9",
+          "source_unit": "NISP",
+          "candidate_observation_count": 5513,
+          "candidate_exact_count_sum": 25373,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Poaceae",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.035",
+      "parameter_ppe_source_text": "1 (0)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:6d96265027029dc8f7ba5960",
+          "source_identity_sha256": "37907367b342a3b95f0b2ddf3ae1888cf9e7ab61a18ab0e584b7dba7fd5d122d",
+          "source_unit": "NISP",
+          "candidate_observation_count": 7095,
+          "candidate_exact_count_sum": 324320,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Plantago lanceolata",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.029",
+      "parameter_ppe_source_text": "2.33 (0.201)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:ae8c87039ea889adc462dce5",
+          "source_identity_sha256": "b6b18911ac9d5b414ed90f85b29d6ee7b71151da2ffe3a239fd801c4b0ed19d7",
+          "source_unit": "NISP",
+          "candidate_observation_count": 2160,
+          "candidate_exact_count_sum": 14585,
+          "review_state": "needs_discussion"
+        }
+      ]
+    },
+    {
+      "parameter_source_name": "Rumex acetosa-t",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.018",
+      "parameter_ppe_source_text": "3.02 (0.278)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Cerealia-t",
+      "parameter_pft_code": "AL",
+      "parameter_fsp_source_text": "0.06",
+      "parameter_ppe_source_text": "1.85 (0.380)",
+      "literal_name_match_status": "no_exact_source_name",
+      "source_concepts": []
+    },
+    {
+      "parameter_source_name": "Secale cereale",
+      "parameter_pft_code": "",
+      "parameter_fsp_source_text": "0.06",
+      "parameter_ppe_source_text": "3.99 (0.320)",
+      "literal_name_match_status": "exact_unreviewed_candidate",
+      "source_concepts": [
+        {
+          "review_row_id": "neotoma:classification-concept:b857bc26861254d5ba15ea32",
+          "source_identity_sha256": "da1e5ff424ce63bb1f4504a93992b09c313dcb03233b8f9baab5a59b0aeaa724",
+          "source_unit": "NISP",
+          "candidate_observation_count": 202,
+          "candidate_exact_count_sum": 792,
+          "review_state": "needs_discussion"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/taxon-priority/priority.json",
+      "bytes": 505271,
+      "sha256": "d2e3b1947c0cb698a6a2ab48aa6be3a85680b495f596dda1ec50cd411c17924f"
+    }
+  ]
+}

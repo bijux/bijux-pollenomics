@@ -111,6 +111,9 @@ def project_site_chronology(
         age_type = lookups.age_type_by_id.get(
             parse_required_int(dendro_date.get("age_type_id")), ""
         )
+        uncertainty = lookups.uncertainty_by_id.get(
+            parse_required_int(dendro_date.get("dating_uncertainty_id")), {}
+        )
         interval = _dendro_date_interval(dendro_date, age_type=age_type)
         if not site_id:
             continue
@@ -119,10 +122,7 @@ def project_site_chronology(
                 dendro_date,
                 age_type=age_type,
                 interval=interval,
-                uncertainty=lookups.uncertainty_by_id.get(
-                    parse_required_int(dendro_date.get("dating_uncertainty_id")),
-                    {},
-                ),
+                uncertainty=uncertainty,
                 relation_identity=_analysis_entity_relation_identity(
                     analysis_entity_id,
                     physical_sample_id_by_analysis_entity_id=relations.physical_sample_by_analysis_entity,
@@ -131,7 +131,11 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None and sead_interval_is_canonical(interval):
+        if (
+            interval is not None
+            and sead_interval_is_canonical(interval)
+            and uncertainty.get("uncertainty") != "From"
+        ):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for relative_date in source.relative_dates:
         analysis_entity_id = parse_required_int(relative_date.get("analysis_entity_id"))

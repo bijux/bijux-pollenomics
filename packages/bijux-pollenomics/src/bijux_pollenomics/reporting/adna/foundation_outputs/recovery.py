@@ -80,6 +80,9 @@ def build_animal_intake_recovery_review(
             ],
         },
         "sample_evidence_depth_counts": progress["sample_evidence_depth_counts"],
+        "sample_evidence_depth_accounting": progress[
+            "sample_evidence_depth_accounting"
+        ],
         "top_gap_projects": [
             {
                 "project_accession": row["project_accession"],

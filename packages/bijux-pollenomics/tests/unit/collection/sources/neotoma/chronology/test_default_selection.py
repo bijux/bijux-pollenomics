@@ -20,7 +20,7 @@ class NeotomaDefaultChronologySelectionTests(unittest.TestCase):
         self.assertEqual(len(dataset["chronologies"]), 2)
         self.assertEqual(rows[0]["chronology_count"], 2)
 
-    def test_explicit_default_governs_and_source_assertion_conflict_is_visible(
+    def test_explicit_default_coexists_with_other_age_type_default(
         self,
     ) -> None:
         payload = build_neotoma_relational_snapshot(
@@ -48,28 +48,24 @@ class NeotomaDefaultChronologySelectionTests(unittest.TestCase):
             for conflict in payload["conflicts"]
             if conflict["conflict_kind"] == "default_chronology_assertions_conflict"
         ]
-        self.assertEqual(len(default_conflicts), 1)
+        self.assertEqual(default_conflicts, [])
+
+    def test_two_defaults_of_same_age_type_remain_a_conflict(self) -> None:
+        row = download_row()
+        chronologies = row["site"]["collectionunit"]["chronologies"]
+        chronologies[1]["chronology"]["chronology"]["modelagetype"] = (
+            "Calibrated radiocarbon years BP"
+        )
+        payload = build_neotoma_relational_snapshot(
+            [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+        )
+        conflicts = [
+            conflict
+            for conflict in payload["conflicts"]
+            if conflict["conflict_kind"] == "default_chronology_assertions_conflict"
+        ]
+        self.assertEqual(len(conflicts), 1)
         self.assertEqual(
-            default_conflicts[0]["detail"]["governing_selection"],
-            "collection_unit.defaultchronology",
-        )
-        self.assertEqual(
-            default_conflicts[0]["detail"]["explicit_default_chronology_id"],
-            "neotoma:chronology:301:7001",
-        )
-        self.assertEqual(
-            default_conflicts[0]["detail"]["source_flagged_default_chronology_ids"],
-            ["neotoma:chronology:301:7001", "neotoma:chronology:301:7002"],
-        )
-        chronology_ids = {
-            chronology["chronology_id"] for chronology in payload["chronologies"]
-        }
-        self.assertIn(
-            default_conflicts[0]["detail"]["explicit_default_chronology_id"],
-            chronology_ids,
-        )
-        self.assertTrue(
-            set(
-                default_conflicts[0]["detail"]["source_flagged_default_chronology_ids"]
-            ).issubset(chronology_ids)
+            conflicts[0]["detail"]["duplicate_default_age_types"],
+            {"Calibrated radiocarbon years BP": ["7001", "7002"]},
         )

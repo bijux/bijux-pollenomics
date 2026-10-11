@@ -1,0 +1,44 @@
+{
+  "schema_version": "nordic-selected-pollen-freeze.v1",
+  "producer_sha256": "1a6a29deda3bb25a9b218e65f9cdfdbae0a8c976f514962b9ca9a62a88448d8b",
+  "selection_report_sha256": "3189271a721554e9384b70b9ff9ca9f183de4a593e37cb84f2b519cb2a112dde",
+  "published_fixed_manifest_sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf",
+  "prepared_manifest_sha256": "d1e20733eeabde12ab8ab2ee3ff687cd854c2fee4269fb20fe175365267d99d5",
+  "prepared_file_sha256": {
+    "DK": {
+      "training": "def96acd422e9a4975ee8fff3b79a2127c4d1747b3345d2d24296b9670070700",
+      "metadata": "b4a5a7a9b51e9e47f936d4a8acdc0311a3ee377e75217ac22bb427adc14ca6b1"
+    },
+    "FI": {
+      "training": "908f2868c5b8020878119329cb0de3c941ac680f54fdb4ca073a83776920793f",
+      "metadata": "c6faf842ea9163737e6b10233dd34195187219f7e8931a67f56ddcbe739b000a"
+    },
+    "NO": {
+      "training": "c16fd213650f022076ad157a4b3f09c96c4c9d6bfd889c06180e068dceae305f",
+      "metadata": "5ec869fc2876b1a05862bdeee911de1457922076e63e1f1b40b1ee7976f6b3a4"
+    }
+  },
+  "prediction_sha256": {
+    "DK": "7eb5bf7b8090c78ebd3cd3342e7d9c2d5bb6d16511c1e81d123ae85da9bfb3d3",
+    "FI": "b77217a752661dbdfaa1cd405de1e0277dbb640c40d0562ab1c685ca8f664acd",
+    "NO": "7dfa8e59b198f3dda2b2dc7cab67e9b4150f6609bb73f600c1b05faf147d203d"
+  },
+  "countries": {
+    "DK": {
+      "candidate_site_bins": 24,
+      "predicted_site_bins": 24,
+      "refused_site_bins": 0
+    },
+    "FI": {
+      "candidate_site_bins": 435,
+      "predicted_site_bins": 435,
+      "refused_site_bins": 0
+    },
+    "NO": {
+      "candidate_site_bins": 1178,
+      "predicted_site_bins": 1084,
+      "refused_site_bins": 94
+    }
+  },
+  "target_outcomes_read": false
+}

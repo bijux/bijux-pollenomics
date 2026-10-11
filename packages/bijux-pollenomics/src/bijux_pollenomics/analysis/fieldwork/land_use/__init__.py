@@ -28,7 +28,7 @@ from .models import (
 from .outputs import render_markdown, write_csv, write_json
 from .spatial import polygon_contains, within_radius
 from .synthesis import build_synthesis
-from .targets import synthesis_targets, target_row
+from .targets import named_registry_details, synthesis_targets, target_row
 from .temporal import intervals_overlap
 
 __all__ = [
@@ -69,6 +69,7 @@ def build_sweden_land_use_synthesis(  # type: ignore[no-untyped-def]
         cross_proxy_posture=_cross_proxy_posture,
         dataset_id=_LANDCLIM_DATASET_ID,
         context_radius_km=_CONTEXT_RADIUS_KM,
+        named_registry=named_registry_details(Path(context_root)),
     )
 
 

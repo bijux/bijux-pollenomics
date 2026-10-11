@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any, cast
 
 from .documentation import (
     build_repository_docs_restoration_ledger,
@@ -47,6 +48,9 @@ def build_repository_truth_posture(
         data_root=data_root,
         report_root=report_root,
     )
+    supplements_missing = int(
+        cast(Any, counts["papers_with_archived_supplements"])
+    ) < int(cast(Any, counts["tracked_paper_count"]))
     return {
         "schema_version": "repository-truth-posture.v2",
         "repository": "bijux-pollenomics",
@@ -65,12 +69,20 @@ def build_repository_truth_posture(
             "animal_sample_site_extraction",
             "animal_sample_chronology_extraction",
             "animal_coordinate_resolution",
-            "supplement_capture_recovery",
+            *(["supplement_capture_recovery"] if supplements_missing else []),
             "atlas_depth_recovery",
         ],
         "counts": counts,
         "recovery_priorities": [
-            "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
+            *(
+                [
+                    "archive missing supplementary material before extracting sample-owned locality and chronology evidence"
+                ]
+                if supplements_missing
+                else [
+                    "extract sample-owned locality and chronology evidence from archived supplementary material"
+                ]
+            ),
             "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
             "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
             "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues",

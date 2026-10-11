@@ -142,9 +142,10 @@ POINT_LAYER_METADATA = {
     "sead-sites": {
         "group": "environmental-context",
         "source_name": "SEAD",
-        "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
-        "geometry_label": "Point records",
+        "coverage_label": "SEAD site inventory for spatial context. Site envelopes summarize source chronology and are not dated events or interval evidence.",
+        "geometry_label": "Context site points",
         "default_enabled": False,
+        "applies_time_filter": False,
     },
     "sead-temporal-evidence": {
         "group": "environmental-context",

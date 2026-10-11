@@ -199,7 +199,10 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         self.assertEqual(
             reindeer_anchor.sample_basis, "archive_project_sample_accession_anchor"
         )
-        self.assertEqual(reindeer_anchor.sample_evidence_status, "archive_native")
+        self.assertEqual(
+            reindeer_anchor.sample_evidence_status, "direct_table_extracted"
+        )
+        self.assertEqual(reindeer_anchor.preferred_sample_label, "MLM12")
         self.assertTrue(reindeer_anchor.archive_native_sample_id.startswith("SAMEA"))
 
     def test_locally_captured_archive_projects_publish_native_sample_rows(

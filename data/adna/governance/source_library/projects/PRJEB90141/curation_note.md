@@ -5,7 +5,7 @@
 - Evidence strength: `primary_paper_pinned`
 - Project URL: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90141&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0
 - Paper DOI: `10.1093/gbe/evaf181`
-- Paper download status: `archived`
+- Paper download status: `partial`
 - Supplement download status: `archived`
 
 Paper-level evidence is required; locally curated supplementary evidence is also available.
@@ -19,4 +19,4 @@ Paper-level evidence is required; locally curated supplementary evidence is also
 
 ## Blockers
 
-- none
+- `missing_local_paper_evidence`

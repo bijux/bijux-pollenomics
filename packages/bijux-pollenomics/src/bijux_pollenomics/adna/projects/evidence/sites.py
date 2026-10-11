@@ -164,7 +164,9 @@ def _direct_sample_site_rows(
             row.chronology_text for row in group if row.chronology_text
         }
         site_chronology_text = (
-            next(iter(chronology_values)) if len(chronology_values) == 1 else ""
+            next(iter(chronology_values))
+            if len(chronology_values) == 1 and all(row.chronology_text for row in group)
+            else ""
         )
         rows.append(
             AdnaSiteEvidenceRecord(

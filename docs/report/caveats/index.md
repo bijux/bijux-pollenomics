@@ -30,4 +30,4 @@ map or country bundle.
 
 ## Current Count
 
-- caveat artifacts: `8`
+- caveat artifacts: `9`

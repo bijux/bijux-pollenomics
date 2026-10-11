@@ -21,7 +21,7 @@ def test_site_ledgers_retain_unresolved_and_region_refused_denominators(
     unresolved = build_unresolved_site_ledger(catalog_data_root)
     overbroad = build_overbroad_site_ledger(catalog_data_root)
 
-    assert len(unresolved) == 402
+    assert len(unresolved) == 398
     pig_context = [
         row for row in unresolved if row["project_accession"] == "PRJEB30282"
     ]
@@ -35,7 +35,12 @@ def test_site_ledgers_retain_unresolved_and_region_refused_denominators(
         )
         == 318
     )
-    assert sum(row["project_accession"] != "PRJEB30282" for row in unresolved) == 61
+    assert sum(row["project_accession"] != "PRJEB30282" for row in unresolved) == 57
+    assert {
+        row["stable_sample_id"]
+        for row in unresolved
+        if row["project_accession"] == "PRJEB41594"
+    } == {"ovis_aries:sample:prjeb41594:samea8022722"}
     assert len(overbroad) == 4
     assert "PRJEB30282" not in {row["project_accession"] for row in overbroad}
 

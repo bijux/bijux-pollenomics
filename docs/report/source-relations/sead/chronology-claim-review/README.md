@@ -10,7 +10,8 @@ examples. [claims.csv](claims.csv) retains one review decision for every claim.
 
 | Source age basis | Claims | Reviewed meaning |
 | --- | ---: | --- |
-| AD calendar years with nonnegative BP result | 14,264 | `1950 − native AD year` matches both captured BP endpoints; eligible for chronology display only |
+| AD calendar years with bounded nonnegative BP result | 13,170 | `1950 − native AD year` matches both captured BP endpoints; eligible for chronology display only |
+| Dendrochronology `From` uncertainty | 1,094 | Native AD conversion matches, but one-sided dates have no bounded interval and remain context only |
 | AD calendar years with negative BP result | 60 | Native conversion matches, but canonical numeric interval is refused |
 | Relative periods | 10,057 | Context only; no governed numeric-period mapping |
 | Radiometric/geochronology ages | 87 | Context only; calibration basis is unspecified |
@@ -25,15 +26,14 @@ and unknown-age branches. Those test values are synthetic branch checks:
 this pinned capture supplies **no** native calibrated-BP or BCE type to certify
 against a real SEAD row.
 
-The 14,264 `eligible` claims have the producer's `chronology_display_only`
+The 13,170 `eligible` claims have the producer's `chronology_display_only`
 role. All 25,109 claims retain `propagation_eligibility=refused`; this review
 approves no event, ecological mapping, or scientific chronology admission.
-Source qualifiers remain visible in the per-claim CSV. In particular, **1,094**
-dendrochronology claims carry the native `From` uncertainty label even where
-the current producer records a display-eligible calendar-year boundary. This
-review verifies their age basis and captured conversion; it does not certify
-that an open-ended source qualifier is a bounded physical dating interval.
-Qualified uncertainty review remains open.
+Source qualifiers remain visible in the per-claim CSV. All **1,094** captured
+dendrochronology claims labeled `From` have only one native year and no paired
+row for the same analysis entity. Their captured BP conversion remains
+verifiable, but the producer refuses numeric display for these open-ended
+claims. Qualified uncertainty review remains open.
 
 The producer is
 `bijux_pollenomics.collection.sources.sead.evidence.review.chronology_claims`.

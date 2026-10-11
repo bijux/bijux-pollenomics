@@ -1,0 +1,4790 @@
+[
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173173",
+    "analysis_unit_id": 138434,
+    "sample_name": null,
+    "depth": 648,
+    "depth_unit": null,
+    "calibrated_age_bp": -52,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1157,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/0"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173174",
+    "analysis_unit_id": 138437,
+    "sample_name": null,
+    "depth": 650,
+    "depth_unit": null,
+    "calibrated_age_bp": 19,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1206,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/1"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173175",
+    "analysis_unit_id": 138439,
+    "sample_name": null,
+    "depth": 652,
+    "depth_unit": null,
+    "calibrated_age_bp": 90,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1215,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/2"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173176",
+    "analysis_unit_id": 138441,
+    "sample_name": null,
+    "depth": 654,
+    "depth_unit": null,
+    "calibrated_age_bp": 161,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1183,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/3"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173177",
+    "analysis_unit_id": 138443,
+    "sample_name": null,
+    "depth": 656,
+    "depth_unit": null,
+    "calibrated_age_bp": 232,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1249,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/4"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173178",
+    "analysis_unit_id": 138445,
+    "sample_name": null,
+    "depth": 658,
+    "depth_unit": null,
+    "calibrated_age_bp": 303,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1127,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/5"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173179",
+    "analysis_unit_id": 138447,
+    "sample_name": null,
+    "depth": 660,
+    "depth_unit": null,
+    "calibrated_age_bp": 374,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1141,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/6"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173180",
+    "analysis_unit_id": 138451,
+    "sample_name": null,
+    "depth": 664,
+    "depth_unit": null,
+    "calibrated_age_bp": 516,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1063,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/7"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173181",
+    "analysis_unit_id": 138455,
+    "sample_name": null,
+    "depth": 668,
+    "depth_unit": null,
+    "calibrated_age_bp": 658,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1123,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/8"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173182",
+    "analysis_unit_id": 138459,
+    "sample_name": null,
+    "depth": 672,
+    "depth_unit": null,
+    "calibrated_age_bp": 800,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1172,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/9"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173183",
+    "analysis_unit_id": 138463,
+    "sample_name": null,
+    "depth": 676,
+    "depth_unit": null,
+    "calibrated_age_bp": 942,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1274,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/10"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173184",
+    "analysis_unit_id": 138467,
+    "sample_name": null,
+    "depth": 680,
+    "depth_unit": null,
+    "calibrated_age_bp": 1085,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1126,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/11"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173185",
+    "analysis_unit_id": 138471,
+    "sample_name": null,
+    "depth": 684,
+    "depth_unit": null,
+    "calibrated_age_bp": 1227,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1133,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/12"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173186",
+    "analysis_unit_id": 138475,
+    "sample_name": null,
+    "depth": 688,
+    "depth_unit": null,
+    "calibrated_age_bp": 1369,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1069,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/13"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173187",
+    "analysis_unit_id": 138479,
+    "sample_name": null,
+    "depth": 692,
+    "depth_unit": null,
+    "calibrated_age_bp": 1511,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1160,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/14"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173188",
+    "analysis_unit_id": 138484,
+    "sample_name": null,
+    "depth": 696,
+    "depth_unit": null,
+    "calibrated_age_bp": 1605,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1087,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/15"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173189",
+    "analysis_unit_id": 138488,
+    "sample_name": null,
+    "depth": 700,
+    "depth_unit": null,
+    "calibrated_age_bp": 1672,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1239,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/16"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173190",
+    "analysis_unit_id": 138492,
+    "sample_name": null,
+    "depth": 704,
+    "depth_unit": null,
+    "calibrated_age_bp": 1738,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1134,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/17"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173191",
+    "analysis_unit_id": 138496,
+    "sample_name": null,
+    "depth": 708,
+    "depth_unit": null,
+    "calibrated_age_bp": 1804,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1151,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/18"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173192",
+    "analysis_unit_id": 138500,
+    "sample_name": null,
+    "depth": 712,
+    "depth_unit": null,
+    "calibrated_age_bp": 1871,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1081,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/19"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173193",
+    "analysis_unit_id": 138504,
+    "sample_name": null,
+    "depth": 716,
+    "depth_unit": null,
+    "calibrated_age_bp": 1937,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1226,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/20"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173194",
+    "analysis_unit_id": 138508,
+    "sample_name": null,
+    "depth": 720,
+    "depth_unit": null,
+    "calibrated_age_bp": 2003,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1131,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/21"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173195",
+    "analysis_unit_id": 138512,
+    "sample_name": null,
+    "depth": 724,
+    "depth_unit": null,
+    "calibrated_age_bp": 2070,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1198,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/22"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173196",
+    "analysis_unit_id": 138516,
+    "sample_name": null,
+    "depth": 728,
+    "depth_unit": null,
+    "calibrated_age_bp": 2136,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1088,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/23"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173197",
+    "analysis_unit_id": 138520,
+    "sample_name": null,
+    "depth": 732,
+    "depth_unit": null,
+    "calibrated_age_bp": 2202,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1128,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/24"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173198",
+    "analysis_unit_id": 138522,
+    "sample_name": null,
+    "depth": 734,
+    "depth_unit": null,
+    "calibrated_age_bp": 2242,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1038,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/25"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173199",
+    "analysis_unit_id": 138524,
+    "sample_name": null,
+    "depth": 736,
+    "depth_unit": null,
+    "calibrated_age_bp": 2300,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1199,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/26"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173200",
+    "analysis_unit_id": 138526,
+    "sample_name": null,
+    "depth": 738,
+    "depth_unit": null,
+    "calibrated_age_bp": 2359,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1075,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/27"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173201",
+    "analysis_unit_id": 138528,
+    "sample_name": null,
+    "depth": 740,
+    "depth_unit": null,
+    "calibrated_age_bp": 2418,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1088,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/28"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173202",
+    "analysis_unit_id": 138530,
+    "sample_name": null,
+    "depth": 742,
+    "depth_unit": null,
+    "calibrated_age_bp": 2476,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1162,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/29"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173203",
+    "analysis_unit_id": 138532,
+    "sample_name": null,
+    "depth": 744,
+    "depth_unit": null,
+    "calibrated_age_bp": 2535,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1085,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/30"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173204",
+    "analysis_unit_id": 138534,
+    "sample_name": null,
+    "depth": 746,
+    "depth_unit": null,
+    "calibrated_age_bp": 2594,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1183,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/31"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173205",
+    "analysis_unit_id": 138537,
+    "sample_name": null,
+    "depth": 748,
+    "depth_unit": null,
+    "calibrated_age_bp": 2653,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1320,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/32"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173206",
+    "analysis_unit_id": 138539,
+    "sample_name": null,
+    "depth": 750,
+    "depth_unit": null,
+    "calibrated_age_bp": 2711,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1494,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/33"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173207",
+    "analysis_unit_id": 138541,
+    "sample_name": null,
+    "depth": 752,
+    "depth_unit": null,
+    "calibrated_age_bp": 2770,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1066,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/34"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173208",
+    "analysis_unit_id": 138543,
+    "sample_name": null,
+    "depth": 754,
+    "depth_unit": null,
+    "calibrated_age_bp": 2829,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1290,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/35"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173209",
+    "analysis_unit_id": 138545,
+    "sample_name": null,
+    "depth": 756,
+    "depth_unit": null,
+    "calibrated_age_bp": 2887,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1129,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/36"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173210",
+    "analysis_unit_id": 138547,
+    "sample_name": null,
+    "depth": 758,
+    "depth_unit": null,
+    "calibrated_age_bp": 2962,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1318,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/37"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173211",
+    "analysis_unit_id": 138549,
+    "sample_name": null,
+    "depth": 760,
+    "depth_unit": null,
+    "calibrated_age_bp": 3043,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1275,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/38"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173212",
+    "analysis_unit_id": 138551,
+    "sample_name": null,
+    "depth": 762,
+    "depth_unit": null,
+    "calibrated_age_bp": 3123,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1296,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/39"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173213",
+    "analysis_unit_id": 138553,
+    "sample_name": null,
+    "depth": 764,
+    "depth_unit": null,
+    "calibrated_age_bp": 3203,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1719,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/40"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173214",
+    "analysis_unit_id": 138555,
+    "sample_name": null,
+    "depth": 766,
+    "depth_unit": null,
+    "calibrated_age_bp": 3284,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1137,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/41"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173215",
+    "analysis_unit_id": 138557,
+    "sample_name": null,
+    "depth": 768,
+    "depth_unit": null,
+    "calibrated_age_bp": 3364,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1336,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/42"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173216",
+    "analysis_unit_id": 138559,
+    "sample_name": null,
+    "depth": 770,
+    "depth_unit": null,
+    "calibrated_age_bp": 3444,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1258,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/43"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173217",
+    "analysis_unit_id": 138561,
+    "sample_name": null,
+    "depth": 772,
+    "depth_unit": null,
+    "calibrated_age_bp": 3525,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1271,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/44"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173218",
+    "analysis_unit_id": 138563,
+    "sample_name": null,
+    "depth": 774,
+    "depth_unit": null,
+    "calibrated_age_bp": 3605,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1236,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/45"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173219",
+    "analysis_unit_id": 138565,
+    "sample_name": null,
+    "depth": 776,
+    "depth_unit": null,
+    "calibrated_age_bp": 3685,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1258,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/46"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173220",
+    "analysis_unit_id": 138567,
+    "sample_name": null,
+    "depth": 778,
+    "depth_unit": null,
+    "calibrated_age_bp": 3766,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1215,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/47"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173221",
+    "analysis_unit_id": 138569,
+    "sample_name": null,
+    "depth": 780,
+    "depth_unit": null,
+    "calibrated_age_bp": 3846,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1201,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/48"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173222",
+    "analysis_unit_id": 138571,
+    "sample_name": null,
+    "depth": 782,
+    "depth_unit": null,
+    "calibrated_age_bp": 3927,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1236,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/49"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173223",
+    "analysis_unit_id": 138573,
+    "sample_name": null,
+    "depth": 784,
+    "depth_unit": null,
+    "calibrated_age_bp": 4007,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1294,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/50"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173224",
+    "analysis_unit_id": 138575,
+    "sample_name": null,
+    "depth": 786,
+    "depth_unit": null,
+    "calibrated_age_bp": 4087,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1144,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/51"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173225",
+    "analysis_unit_id": 138577,
+    "sample_name": null,
+    "depth": 788,
+    "depth_unit": null,
+    "calibrated_age_bp": 4168,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1476,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/52"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173226",
+    "analysis_unit_id": 138579,
+    "sample_name": null,
+    "depth": 790,
+    "depth_unit": null,
+    "calibrated_age_bp": 4248,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1156,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/53"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173227",
+    "analysis_unit_id": 138581,
+    "sample_name": null,
+    "depth": 792,
+    "depth_unit": null,
+    "calibrated_age_bp": 4328,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1498,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/54"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173228",
+    "analysis_unit_id": 138583,
+    "sample_name": null,
+    "depth": 794,
+    "depth_unit": null,
+    "calibrated_age_bp": 4409,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1139,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/55"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173229",
+    "analysis_unit_id": 138585,
+    "sample_name": null,
+    "depth": 796,
+    "depth_unit": null,
+    "calibrated_age_bp": 4489,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1258,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/56"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173230",
+    "analysis_unit_id": 138587,
+    "sample_name": null,
+    "depth": 798,
+    "depth_unit": null,
+    "calibrated_age_bp": 4569,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1185,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/57"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173231",
+    "analysis_unit_id": 138589,
+    "sample_name": null,
+    "depth": 800,
+    "depth_unit": null,
+    "calibrated_age_bp": 4650,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1085,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/58"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173232",
+    "analysis_unit_id": 138591,
+    "sample_name": null,
+    "depth": 802,
+    "depth_unit": null,
+    "calibrated_age_bp": 4733,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1227,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/59"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173233",
+    "analysis_unit_id": 138593,
+    "sample_name": null,
+    "depth": 804,
+    "depth_unit": null,
+    "calibrated_age_bp": 4827,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1377,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/60"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173234",
+    "analysis_unit_id": 138595,
+    "sample_name": null,
+    "depth": 806,
+    "depth_unit": null,
+    "calibrated_age_bp": 4921,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1141,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/61"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173235",
+    "analysis_unit_id": 138597,
+    "sample_name": null,
+    "depth": 808,
+    "depth_unit": null,
+    "calibrated_age_bp": 5015,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1414,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/62"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173236",
+    "analysis_unit_id": 138599,
+    "sample_name": null,
+    "depth": 810,
+    "depth_unit": null,
+    "calibrated_age_bp": 5108,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1207,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/63"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173237",
+    "analysis_unit_id": 138601,
+    "sample_name": null,
+    "depth": 812,
+    "depth_unit": null,
+    "calibrated_age_bp": 5202,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1261,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/64"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173238",
+    "analysis_unit_id": 138603,
+    "sample_name": null,
+    "depth": 814,
+    "depth_unit": null,
+    "calibrated_age_bp": 5296,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1186,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/65"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173239",
+    "analysis_unit_id": 138605,
+    "sample_name": null,
+    "depth": 816,
+    "depth_unit": null,
+    "calibrated_age_bp": 5390,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1184,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/66"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173240",
+    "analysis_unit_id": 138607,
+    "sample_name": null,
+    "depth": 818,
+    "depth_unit": null,
+    "calibrated_age_bp": 5483,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1091,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/67"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173241",
+    "analysis_unit_id": 138609,
+    "sample_name": null,
+    "depth": 820,
+    "depth_unit": null,
+    "calibrated_age_bp": 5577,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1158,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/68"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173242",
+    "analysis_unit_id": 138611,
+    "sample_name": null,
+    "depth": 822,
+    "depth_unit": null,
+    "calibrated_age_bp": 5671,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1186,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/69"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173243",
+    "analysis_unit_id": 138613,
+    "sample_name": null,
+    "depth": 824,
+    "depth_unit": null,
+    "calibrated_age_bp": 5765,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1155,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/70"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173244",
+    "analysis_unit_id": 138615,
+    "sample_name": null,
+    "depth": 826,
+    "depth_unit": null,
+    "calibrated_age_bp": 5858,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1140,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/71"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173245",
+    "analysis_unit_id": 138617,
+    "sample_name": null,
+    "depth": 828,
+    "depth_unit": null,
+    "calibrated_age_bp": 5952,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1296,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/72"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173246",
+    "analysis_unit_id": 138619,
+    "sample_name": null,
+    "depth": 830,
+    "depth_unit": null,
+    "calibrated_age_bp": 6046,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1199,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/73"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173247",
+    "analysis_unit_id": 138621,
+    "sample_name": null,
+    "depth": 832,
+    "depth_unit": null,
+    "calibrated_age_bp": 6139,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1140,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/74"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173248",
+    "analysis_unit_id": 138623,
+    "sample_name": null,
+    "depth": 834,
+    "depth_unit": null,
+    "calibrated_age_bp": 6233,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1090,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/75"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173249",
+    "analysis_unit_id": 138625,
+    "sample_name": null,
+    "depth": 836,
+    "depth_unit": null,
+    "calibrated_age_bp": 6327,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1388,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/76"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173250",
+    "analysis_unit_id": 138627,
+    "sample_name": null,
+    "depth": 838,
+    "depth_unit": null,
+    "calibrated_age_bp": 6421,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1149,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/77"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173251",
+    "analysis_unit_id": 138629,
+    "sample_name": null,
+    "depth": 840,
+    "depth_unit": null,
+    "calibrated_age_bp": 6514,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1203,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/78"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173252",
+    "analysis_unit_id": 138631,
+    "sample_name": null,
+    "depth": 842,
+    "depth_unit": null,
+    "calibrated_age_bp": 6608,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1193,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/79"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173253",
+    "analysis_unit_id": 138633,
+    "sample_name": null,
+    "depth": 844,
+    "depth_unit": null,
+    "calibrated_age_bp": 6702,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1764,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/80"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173254",
+    "analysis_unit_id": 138635,
+    "sample_name": null,
+    "depth": 846,
+    "depth_unit": null,
+    "calibrated_age_bp": 6796,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1181,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/81"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173255",
+    "analysis_unit_id": 138637,
+    "sample_name": null,
+    "depth": 848,
+    "depth_unit": null,
+    "calibrated_age_bp": 6910,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1340,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/82"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173256",
+    "analysis_unit_id": 138639,
+    "sample_name": null,
+    "depth": 850,
+    "depth_unit": null,
+    "calibrated_age_bp": 7031,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1272,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/83"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173257",
+    "analysis_unit_id": 138641,
+    "sample_name": null,
+    "depth": 852,
+    "depth_unit": null,
+    "calibrated_age_bp": 7152,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1402,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/84"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173258",
+    "analysis_unit_id": 138643,
+    "sample_name": null,
+    "depth": 854,
+    "depth_unit": null,
+    "calibrated_age_bp": 7273,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1070,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/85"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173259",
+    "analysis_unit_id": 138645,
+    "sample_name": null,
+    "depth": 856,
+    "depth_unit": null,
+    "calibrated_age_bp": 7394,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1437,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/86"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173260",
+    "analysis_unit_id": 138647,
+    "sample_name": null,
+    "depth": 858,
+    "depth_unit": null,
+    "calibrated_age_bp": 7515,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1220,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/87"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173261",
+    "analysis_unit_id": 138649,
+    "sample_name": null,
+    "depth": 860,
+    "depth_unit": null,
+    "calibrated_age_bp": 7636,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1281,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/88"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173262",
+    "analysis_unit_id": 138651,
+    "sample_name": null,
+    "depth": 862,
+    "depth_unit": null,
+    "calibrated_age_bp": 7757,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1259,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/89"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173263",
+    "analysis_unit_id": 138653,
+    "sample_name": null,
+    "depth": 864,
+    "depth_unit": null,
+    "calibrated_age_bp": 7878,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1492,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/90"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173264",
+    "analysis_unit_id": 138655,
+    "sample_name": null,
+    "depth": 866,
+    "depth_unit": null,
+    "calibrated_age_bp": 7999,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1130,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/91"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173265",
+    "analysis_unit_id": 138657,
+    "sample_name": null,
+    "depth": 868,
+    "depth_unit": null,
+    "calibrated_age_bp": 8120,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1432,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/92"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173266",
+    "analysis_unit_id": 138659,
+    "sample_name": null,
+    "depth": 870,
+    "depth_unit": null,
+    "calibrated_age_bp": 8241,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1095,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/93"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173267",
+    "analysis_unit_id": 138661,
+    "sample_name": null,
+    "depth": 872,
+    "depth_unit": null,
+    "calibrated_age_bp": 8363,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1289,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/94"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173268",
+    "analysis_unit_id": 138663,
+    "sample_name": null,
+    "depth": 874,
+    "depth_unit": null,
+    "calibrated_age_bp": 8484,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1261,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/95"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173269",
+    "analysis_unit_id": 138665,
+    "sample_name": null,
+    "depth": 876,
+    "depth_unit": null,
+    "calibrated_age_bp": 8605,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1184,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/96"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173270",
+    "analysis_unit_id": 138667,
+    "sample_name": null,
+    "depth": 878,
+    "depth_unit": null,
+    "calibrated_age_bp": 8726,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1127,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/97"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173271",
+    "analysis_unit_id": 138669,
+    "sample_name": null,
+    "depth": 880,
+    "depth_unit": null,
+    "calibrated_age_bp": 8847,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1310,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/98"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173272",
+    "analysis_unit_id": 138671,
+    "sample_name": null,
+    "depth": 882,
+    "depth_unit": null,
+    "calibrated_age_bp": 8968,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1332,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/99"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173273",
+    "analysis_unit_id": 138673,
+    "sample_name": null,
+    "depth": 884,
+    "depth_unit": null,
+    "calibrated_age_bp": 9089,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1120,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/100"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173274",
+    "analysis_unit_id": 138675,
+    "sample_name": null,
+    "depth": 886,
+    "depth_unit": null,
+    "calibrated_age_bp": 9210,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1144,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/101"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173275",
+    "analysis_unit_id": 138677,
+    "sample_name": null,
+    "depth": 888,
+    "depth_unit": null,
+    "calibrated_age_bp": 9331,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1299,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/102"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173276",
+    "analysis_unit_id": 138679,
+    "sample_name": null,
+    "depth": 890,
+    "depth_unit": null,
+    "calibrated_age_bp": 9452,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1108,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/103"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173277",
+    "analysis_unit_id": 138681,
+    "sample_name": null,
+    "depth": 892,
+    "depth_unit": null,
+    "calibrated_age_bp": 9573,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1255,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/104"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173278",
+    "analysis_unit_id": 138683,
+    "sample_name": null,
+    "depth": 894,
+    "depth_unit": null,
+    "calibrated_age_bp": 9694,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 1061,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/105"
+  },
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "sample_id": "173279",
+    "analysis_unit_id": 138685,
+    "sample_name": null,
+    "depth": 896,
+    "depth_unit": null,
+    "calibrated_age_bp": 9815,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 11516,
+    "sample_analysts": [
+      "Giesecke, Thomas"
+    ],
+    "reported_nisp_denominator": 519,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset/samples/106"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552099",
+    "analysis_unit_id": 428900,
+    "sample_name": null,
+    "depth": 0,
+    "depth_unit": null,
+    "calibrated_age_bp": -52.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1173,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/0"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552100",
+    "analysis_unit_id": 428895,
+    "sample_name": null,
+    "depth": 20,
+    "depth_unit": null,
+    "calibrated_age_bp": -41.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1244,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/1"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552116",
+    "analysis_unit_id": 428899,
+    "sample_name": null,
+    "depth": 60,
+    "depth_unit": null,
+    "calibrated_age_bp": -16.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1326,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/2"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552110",
+    "analysis_unit_id": 428896,
+    "sample_name": null,
+    "depth": 100,
+    "depth_unit": null,
+    "calibrated_age_bp": 14.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1129,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/3"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552109",
+    "analysis_unit_id": 428898,
+    "sample_name": null,
+    "depth": 140,
+    "depth_unit": null,
+    "calibrated_age_bp": 54.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 709,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/4"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552111",
+    "analysis_unit_id": 428897,
+    "sample_name": null,
+    "depth": 180,
+    "depth_unit": null,
+    "calibrated_age_bp": 103.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1081,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/5"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552114",
+    "analysis_unit_id": 428902,
+    "sample_name": null,
+    "depth": 220,
+    "depth_unit": null,
+    "calibrated_age_bp": 162.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1046,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/6"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552112",
+    "analysis_unit_id": 428903,
+    "sample_name": null,
+    "depth": 260,
+    "depth_unit": null,
+    "calibrated_age_bp": 230.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1151,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/7"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552115",
+    "analysis_unit_id": 428901,
+    "sample_name": null,
+    "depth": 300,
+    "depth_unit": null,
+    "calibrated_age_bp": 307.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1126,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/8"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552118",
+    "analysis_unit_id": 428904,
+    "sample_name": null,
+    "depth": 340,
+    "depth_unit": null,
+    "calibrated_age_bp": 393.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1136,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/9"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552101",
+    "analysis_unit_id": 428905,
+    "sample_name": null,
+    "depth": 380,
+    "depth_unit": null,
+    "calibrated_age_bp": 487,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1963,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/10"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552102",
+    "analysis_unit_id": 428906,
+    "sample_name": null,
+    "depth": 420,
+    "depth_unit": null,
+    "calibrated_age_bp": 589.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1799,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/11"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552103",
+    "analysis_unit_id": 428907,
+    "sample_name": null,
+    "depth": 460,
+    "depth_unit": null,
+    "calibrated_age_bp": 699,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1408,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/12"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552104",
+    "analysis_unit_id": 428908,
+    "sample_name": null,
+    "depth": 500,
+    "depth_unit": null,
+    "calibrated_age_bp": 816.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 2767,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/13"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552105",
+    "analysis_unit_id": 428909,
+    "sample_name": null,
+    "depth": 540,
+    "depth_unit": null,
+    "calibrated_age_bp": 941.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1201,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/14"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552106",
+    "analysis_unit_id": 428910,
+    "sample_name": null,
+    "depth": 580,
+    "depth_unit": null,
+    "calibrated_age_bp": 1073.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1035,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/15"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552107",
+    "analysis_unit_id": 428913,
+    "sample_name": null,
+    "depth": 620,
+    "depth_unit": null,
+    "calibrated_age_bp": 1212.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1101,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/16"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552108",
+    "analysis_unit_id": 428911,
+    "sample_name": null,
+    "depth": 660,
+    "depth_unit": null,
+    "calibrated_age_bp": 1358.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1177,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/17"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552113",
+    "analysis_unit_id": 428912,
+    "sample_name": null,
+    "depth": 680,
+    "depth_unit": null,
+    "calibrated_age_bp": 1433.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1198,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/18"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552117",
+    "analysis_unit_id": 428914,
+    "sample_name": null,
+    "depth": 720,
+    "depth_unit": null,
+    "calibrated_age_bp": 1588.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1179,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/19"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552119",
+    "analysis_unit_id": 428915,
+    "sample_name": null,
+    "depth": 760,
+    "depth_unit": null,
+    "calibrated_age_bp": 1751.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1113,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/20"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552120",
+    "analysis_unit_id": 428916,
+    "sample_name": null,
+    "depth": 800,
+    "depth_unit": null,
+    "calibrated_age_bp": 1922.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1245,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/21"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552121",
+    "analysis_unit_id": 428919,
+    "sample_name": null,
+    "depth": 840,
+    "depth_unit": null,
+    "calibrated_age_bp": 2104.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1196,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/22"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552122",
+    "analysis_unit_id": 428918,
+    "sample_name": null,
+    "depth": 880,
+    "depth_unit": null,
+    "calibrated_age_bp": 2296.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 762,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/23"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552123",
+    "analysis_unit_id": 428917,
+    "sample_name": null,
+    "depth": 920,
+    "depth_unit": null,
+    "calibrated_age_bp": 2501.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1162,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/24"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552124",
+    "analysis_unit_id": 428920,
+    "sample_name": null,
+    "depth": 960,
+    "depth_unit": null,
+    "calibrated_age_bp": 2719.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1261,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/25"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552125",
+    "analysis_unit_id": 428921,
+    "sample_name": null,
+    "depth": 1000,
+    "depth_unit": null,
+    "calibrated_age_bp": 2952.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1107,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/26"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552126",
+    "analysis_unit_id": 428922,
+    "sample_name": null,
+    "depth": 1040,
+    "depth_unit": null,
+    "calibrated_age_bp": 3201.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1127,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/27"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552128",
+    "analysis_unit_id": 428923,
+    "sample_name": null,
+    "depth": 1060,
+    "depth_unit": null,
+    "calibrated_age_bp": 3332.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1081,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/28"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552127",
+    "analysis_unit_id": 428924,
+    "sample_name": null,
+    "depth": 1080,
+    "depth_unit": null,
+    "calibrated_age_bp": 3467.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 990,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/29"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552129",
+    "analysis_unit_id": 428925,
+    "sample_name": null,
+    "depth": 1100,
+    "depth_unit": null,
+    "calibrated_age_bp": 3605.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1081,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/30"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552130",
+    "analysis_unit_id": 428926,
+    "sample_name": null,
+    "depth": 1120,
+    "depth_unit": null,
+    "calibrated_age_bp": 3748.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1065,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/31"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552131",
+    "analysis_unit_id": 428927,
+    "sample_name": null,
+    "depth": 1140,
+    "depth_unit": null,
+    "calibrated_age_bp": 3894,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1048,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/32"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552132",
+    "analysis_unit_id": 428928,
+    "sample_name": null,
+    "depth": 1160,
+    "depth_unit": null,
+    "calibrated_age_bp": 4042.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1036,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/33"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552133",
+    "analysis_unit_id": 428929,
+    "sample_name": null,
+    "depth": 1180,
+    "depth_unit": null,
+    "calibrated_age_bp": 4194,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1101,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/34"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552134",
+    "analysis_unit_id": 428931,
+    "sample_name": null,
+    "depth": 1200,
+    "depth_unit": null,
+    "calibrated_age_bp": 4347.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1050,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/35"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552135",
+    "analysis_unit_id": 428930,
+    "sample_name": null,
+    "depth": 1220,
+    "depth_unit": null,
+    "calibrated_age_bp": 4502.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1382,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/36"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552136",
+    "analysis_unit_id": 428932,
+    "sample_name": null,
+    "depth": 1240,
+    "depth_unit": null,
+    "calibrated_age_bp": 4659.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1031,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/37"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552139",
+    "analysis_unit_id": 428933,
+    "sample_name": null,
+    "depth": 1260,
+    "depth_unit": null,
+    "calibrated_age_bp": 4816.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 989,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/38"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552137",
+    "analysis_unit_id": 428934,
+    "sample_name": null,
+    "depth": 1280,
+    "depth_unit": null,
+    "calibrated_age_bp": 4975.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1071,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/39"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552138",
+    "analysis_unit_id": 428935,
+    "sample_name": null,
+    "depth": 1300,
+    "depth_unit": null,
+    "calibrated_age_bp": 5133.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1026,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/40"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552140",
+    "analysis_unit_id": 428936,
+    "sample_name": null,
+    "depth": 1310,
+    "depth_unit": null,
+    "calibrated_age_bp": 5213.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1013,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/41"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552141",
+    "analysis_unit_id": 428937,
+    "sample_name": null,
+    "depth": 1320,
+    "depth_unit": null,
+    "calibrated_age_bp": 5292.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1065,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/42"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552143",
+    "analysis_unit_id": 428938,
+    "sample_name": null,
+    "depth": 1330,
+    "depth_unit": null,
+    "calibrated_age_bp": 5371.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1161,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/43"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552142",
+    "analysis_unit_id": 428939,
+    "sample_name": null,
+    "depth": 1340,
+    "depth_unit": null,
+    "calibrated_age_bp": 5450.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1132,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/44"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552144",
+    "analysis_unit_id": 428940,
+    "sample_name": null,
+    "depth": 1360,
+    "depth_unit": null,
+    "calibrated_age_bp": 5607.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1174,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/45"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552146",
+    "analysis_unit_id": 428942,
+    "sample_name": null,
+    "depth": 1380,
+    "depth_unit": null,
+    "calibrated_age_bp": 5763.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1005,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/46"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552145",
+    "analysis_unit_id": 428941,
+    "sample_name": null,
+    "depth": 1400,
+    "depth_unit": null,
+    "calibrated_age_bp": 5919,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1027,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/47"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552147",
+    "analysis_unit_id": 428943,
+    "sample_name": null,
+    "depth": 1440,
+    "depth_unit": null,
+    "calibrated_age_bp": 6227.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1217,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/48"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552148",
+    "analysis_unit_id": 428945,
+    "sample_name": null,
+    "depth": 1480,
+    "depth_unit": null,
+    "calibrated_age_bp": 6532.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1043,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/49"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552149",
+    "analysis_unit_id": 428944,
+    "sample_name": null,
+    "depth": 1520,
+    "depth_unit": null,
+    "calibrated_age_bp": 6836.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 1190,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/50"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552150",
+    "analysis_unit_id": 428946,
+    "sample_name": null,
+    "depth": 1540,
+    "depth_unit": null,
+    "calibrated_age_bp": 6988.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 921,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/51"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552151",
+    "analysis_unit_id": 428948,
+    "sample_name": null,
+    "depth": 1560,
+    "depth_unit": null,
+    "calibrated_age_bp": 7140.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 397,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/52"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552152",
+    "analysis_unit_id": 428947,
+    "sample_name": null,
+    "depth": 1580,
+    "depth_unit": null,
+    "calibrated_age_bp": 7291.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 564,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/53"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552153",
+    "analysis_unit_id": 428949,
+    "sample_name": null,
+    "depth": 1590,
+    "depth_unit": null,
+    "calibrated_age_bp": 7367.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 704,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/54"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552155",
+    "analysis_unit_id": 428950,
+    "sample_name": null,
+    "depth": 1630,
+    "depth_unit": null,
+    "calibrated_age_bp": 7670.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 652,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/55"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552154",
+    "analysis_unit_id": 428951,
+    "sample_name": null,
+    "depth": 1640,
+    "depth_unit": null,
+    "calibrated_age_bp": 7746.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 608,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/56"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552156",
+    "analysis_unit_id": 428952,
+    "sample_name": null,
+    "depth": 1650,
+    "depth_unit": null,
+    "calibrated_age_bp": 7822,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 597,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/57"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552157",
+    "analysis_unit_id": 428953,
+    "sample_name": null,
+    "depth": 1660,
+    "depth_unit": null,
+    "calibrated_age_bp": 7897.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 745,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/58"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552158",
+    "analysis_unit_id": 428954,
+    "sample_name": null,
+    "depth": 1670,
+    "depth_unit": null,
+    "calibrated_age_bp": 7973.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 559,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/59"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552159",
+    "analysis_unit_id": 428955,
+    "sample_name": null,
+    "depth": 1680,
+    "depth_unit": null,
+    "calibrated_age_bp": 8049.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 727,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/60"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552161",
+    "analysis_unit_id": 428957,
+    "sample_name": null,
+    "depth": 1690,
+    "depth_unit": null,
+    "calibrated_age_bp": 8125.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 588,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/61"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552160",
+    "analysis_unit_id": 428958,
+    "sample_name": null,
+    "depth": 1700,
+    "depth_unit": null,
+    "calibrated_age_bp": 8200.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 123,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/62"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552162",
+    "analysis_unit_id": 428956,
+    "sample_name": null,
+    "depth": 1750,
+    "depth_unit": null,
+    "calibrated_age_bp": 8579.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 402,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/63"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552163",
+    "analysis_unit_id": 428959,
+    "sample_name": null,
+    "depth": 1760,
+    "depth_unit": null,
+    "calibrated_age_bp": 8655.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 459,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/64"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552164",
+    "analysis_unit_id": 428960,
+    "sample_name": null,
+    "depth": 1780,
+    "depth_unit": null,
+    "calibrated_age_bp": 8807,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 225,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/65"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552165",
+    "analysis_unit_id": 428961,
+    "sample_name": null,
+    "depth": 1800,
+    "depth_unit": null,
+    "calibrated_age_bp": 8958.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 213,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/66"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552166",
+    "analysis_unit_id": 428962,
+    "sample_name": null,
+    "depth": 1820,
+    "depth_unit": null,
+    "calibrated_age_bp": 9110.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 154,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/67"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "sample_id": "552167",
+    "analysis_unit_id": 428963,
+    "sample_name": null,
+    "depth": 1840,
+    "depth_unit": null,
+    "calibrated_age_bp": 9261.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38418,
+    "sample_analysts": [
+      "Regnéll, Joachim"
+    ],
+    "reported_nisp_denominator": 130,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset/samples/68"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552387",
+    "analysis_unit_id": 429155,
+    "sample_name": null,
+    "depth": 2,
+    "depth_unit": null,
+    "calibrated_age_bp": -39.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1020,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/0"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552388",
+    "analysis_unit_id": 429156,
+    "sample_name": null,
+    "depth": 12,
+    "depth_unit": null,
+    "calibrated_age_bp": -22.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 529,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/1"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552391",
+    "analysis_unit_id": 429154,
+    "sample_name": null,
+    "depth": 32,
+    "depth_unit": null,
+    "calibrated_age_bp": 10,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 535,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/2"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552390",
+    "analysis_unit_id": 429157,
+    "sample_name": null,
+    "depth": 52,
+    "depth_unit": null,
+    "calibrated_age_bp": 59,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 535,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/3"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552394",
+    "analysis_unit_id": 429159,
+    "sample_name": null,
+    "depth": 72,
+    "depth_unit": null,
+    "calibrated_age_bp": 110.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 544,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/4"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552389",
+    "analysis_unit_id": 429162,
+    "sample_name": null,
+    "depth": 92,
+    "depth_unit": null,
+    "calibrated_age_bp": 146.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 540,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/5"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552392",
+    "analysis_unit_id": 429158,
+    "sample_name": null,
+    "depth": 112,
+    "depth_unit": null,
+    "calibrated_age_bp": 184.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 526,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/6"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552393",
+    "analysis_unit_id": 429161,
+    "sample_name": null,
+    "depth": 120,
+    "depth_unit": null,
+    "calibrated_age_bp": 205.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 510,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/7"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552396",
+    "analysis_unit_id": 429163,
+    "sample_name": null,
+    "depth": 140,
+    "depth_unit": null,
+    "calibrated_age_bp": 282.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 543,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/8"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552395",
+    "analysis_unit_id": 429160,
+    "sample_name": null,
+    "depth": 160,
+    "depth_unit": null,
+    "calibrated_age_bp": 411.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 528,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/9"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552397",
+    "analysis_unit_id": 429164,
+    "sample_name": null,
+    "depth": 170,
+    "depth_unit": null,
+    "calibrated_age_bp": 501.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1067,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/10"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552398",
+    "analysis_unit_id": 429165,
+    "sample_name": null,
+    "depth": 180,
+    "depth_unit": null,
+    "calibrated_age_bp": 612,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 527,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/11"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552400",
+    "analysis_unit_id": 429166,
+    "sample_name": null,
+    "depth": 190,
+    "depth_unit": null,
+    "calibrated_age_bp": 745.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 812,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/12"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552399",
+    "analysis_unit_id": 429167,
+    "sample_name": null,
+    "depth": 200,
+    "depth_unit": null,
+    "calibrated_age_bp": 902.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 516,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/13"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552401",
+    "analysis_unit_id": 429168,
+    "sample_name": null,
+    "depth": 205,
+    "depth_unit": null,
+    "calibrated_age_bp": 987.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1038,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/14"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552403",
+    "analysis_unit_id": 429169,
+    "sample_name": null,
+    "depth": 207.5,
+    "depth_unit": null,
+    "calibrated_age_bp": 1031.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1043,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/15"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552402",
+    "analysis_unit_id": 429170,
+    "sample_name": null,
+    "depth": 210,
+    "depth_unit": null,
+    "calibrated_age_bp": 1076.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1046,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/16"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552404",
+    "analysis_unit_id": 429171,
+    "sample_name": null,
+    "depth": 215,
+    "depth_unit": null,
+    "calibrated_age_bp": 1168.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 697,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/17"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552405",
+    "analysis_unit_id": 429172,
+    "sample_name": null,
+    "depth": 220,
+    "depth_unit": null,
+    "calibrated_age_bp": 1263,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 566,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/18"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552406",
+    "analysis_unit_id": 429173,
+    "sample_name": null,
+    "depth": 225,
+    "depth_unit": null,
+    "calibrated_age_bp": 1358.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 904,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/19"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552407",
+    "analysis_unit_id": 429174,
+    "sample_name": null,
+    "depth": 230,
+    "depth_unit": null,
+    "calibrated_age_bp": 1455.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1060,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/20"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552408",
+    "analysis_unit_id": 429175,
+    "sample_name": null,
+    "depth": 235,
+    "depth_unit": null,
+    "calibrated_age_bp": 1552.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 855,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/21"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552409",
+    "analysis_unit_id": 429176,
+    "sample_name": null,
+    "depth": 240,
+    "depth_unit": null,
+    "calibrated_age_bp": 1650.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 540,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/22"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552411",
+    "analysis_unit_id": 429177,
+    "sample_name": null,
+    "depth": 245,
+    "depth_unit": null,
+    "calibrated_age_bp": 1749.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1009,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/23"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552410",
+    "analysis_unit_id": 429178,
+    "sample_name": null,
+    "depth": 247.5,
+    "depth_unit": null,
+    "calibrated_age_bp": 1799.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1031,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/24"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552415",
+    "analysis_unit_id": 429179,
+    "sample_name": null,
+    "depth": 250,
+    "depth_unit": null,
+    "calibrated_age_bp": 1850.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1015,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/25"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552413",
+    "analysis_unit_id": 429180,
+    "sample_name": null,
+    "depth": 255,
+    "depth_unit": null,
+    "calibrated_age_bp": 1952.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1015,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/26"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552412",
+    "analysis_unit_id": 429181,
+    "sample_name": null,
+    "depth": 260,
+    "depth_unit": null,
+    "calibrated_age_bp": 2056.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 514,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/27"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552414",
+    "analysis_unit_id": 429182,
+    "sample_name": null,
+    "depth": 265,
+    "depth_unit": null,
+    "calibrated_age_bp": 2161.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1018,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/28"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552416",
+    "analysis_unit_id": 429183,
+    "sample_name": null,
+    "depth": 270,
+    "depth_unit": null,
+    "calibrated_age_bp": 2269.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1028,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/29"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552417",
+    "analysis_unit_id": 429184,
+    "sample_name": null,
+    "depth": 275,
+    "depth_unit": null,
+    "calibrated_age_bp": 2379.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 721,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/30"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552418",
+    "analysis_unit_id": 429185,
+    "sample_name": null,
+    "depth": 280,
+    "depth_unit": null,
+    "calibrated_age_bp": 2491.9,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 509,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/31"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552419",
+    "analysis_unit_id": 429186,
+    "sample_name": null,
+    "depth": 290,
+    "depth_unit": null,
+    "calibrated_age_bp": 2723.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1021,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/32"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552422",
+    "analysis_unit_id": 429187,
+    "sample_name": null,
+    "depth": 300,
+    "depth_unit": null,
+    "calibrated_age_bp": 2960.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 521,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/33"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552421",
+    "analysis_unit_id": 429188,
+    "sample_name": null,
+    "depth": 305,
+    "depth_unit": null,
+    "calibrated_age_bp": 3078.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1011,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/34"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552424",
+    "analysis_unit_id": 429189,
+    "sample_name": null,
+    "depth": 320,
+    "depth_unit": null,
+    "calibrated_age_bp": 3409.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 525,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/35"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552420",
+    "analysis_unit_id": 429190,
+    "sample_name": null,
+    "depth": 340,
+    "depth_unit": null,
+    "calibrated_age_bp": 3788.1,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 526,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/36"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552423",
+    "analysis_unit_id": 429191,
+    "sample_name": null,
+    "depth": 360,
+    "depth_unit": null,
+    "calibrated_age_bp": 4115,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 513,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/37"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552427",
+    "analysis_unit_id": 429192,
+    "sample_name": null,
+    "depth": 380,
+    "depth_unit": null,
+    "calibrated_age_bp": 4414.3,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1006,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/38"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552426",
+    "analysis_unit_id": 429193,
+    "sample_name": null,
+    "depth": 385,
+    "depth_unit": null,
+    "calibrated_age_bp": 4487.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1003,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/39"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552425",
+    "analysis_unit_id": 429194,
+    "sample_name": null,
+    "depth": 390,
+    "depth_unit": null,
+    "calibrated_age_bp": 4562,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1003,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/40"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552428",
+    "analysis_unit_id": 429195,
+    "sample_name": null,
+    "depth": 395,
+    "depth_unit": null,
+    "calibrated_age_bp": 4639.5,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1007,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/41"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552429",
+    "analysis_unit_id": 429196,
+    "sample_name": null,
+    "depth": 400,
+    "depth_unit": null,
+    "calibrated_age_bp": 4722,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1009,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/42"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552430",
+    "analysis_unit_id": 429197,
+    "sample_name": null,
+    "depth": 405,
+    "depth_unit": null,
+    "calibrated_age_bp": 4811.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1004,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/43"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552431",
+    "analysis_unit_id": 429199,
+    "sample_name": null,
+    "depth": 410,
+    "depth_unit": null,
+    "calibrated_age_bp": 4907.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1004,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/44"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552433",
+    "analysis_unit_id": 429198,
+    "sample_name": null,
+    "depth": 415,
+    "depth_unit": null,
+    "calibrated_age_bp": 5008.8,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1018,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/45"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552432",
+    "analysis_unit_id": 429200,
+    "sample_name": null,
+    "depth": 420,
+    "depth_unit": null,
+    "calibrated_age_bp": 5112.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1030,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/46"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552434",
+    "analysis_unit_id": 429201,
+    "sample_name": null,
+    "depth": 425,
+    "depth_unit": null,
+    "calibrated_age_bp": 5215.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1002,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/47"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552436",
+    "analysis_unit_id": 429203,
+    "sample_name": null,
+    "depth": 430,
+    "depth_unit": null,
+    "calibrated_age_bp": 5317.6,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1001,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/48"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552435",
+    "analysis_unit_id": 429202,
+    "sample_name": null,
+    "depth": 435,
+    "depth_unit": null,
+    "calibrated_age_bp": 5416.7,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1003,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/49"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552437",
+    "analysis_unit_id": 429204,
+    "sample_name": null,
+    "depth": 440,
+    "depth_unit": null,
+    "calibrated_age_bp": 5512.4,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 999,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/50"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "sample_id": "552438",
+    "analysis_unit_id": 429205,
+    "sample_name": null,
+    "depth": 445,
+    "depth_unit": null,
+    "calibrated_age_bp": 5605.2,
+    "age_younger_bp": null,
+    "age_older_bp": null,
+    "chronology_id": 38422,
+    "sample_analysts": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "reported_nisp_denominator": 1001,
+    "quality_flags": [
+      "sample_age_bounds_missing"
+    ],
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset/samples/51"
+  }
+]

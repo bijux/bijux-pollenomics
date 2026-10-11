@@ -1,0 +1,31 @@
+{
+  "admission_note": "A pollen word in a dataset name does not identify a pollen proxy, counted grain unit, accepted taxon classification, or sample-owned chronology.",
+  "admission_status": "refused",
+  "admitted_lra_sample_count": 0,
+  "admitted_pollen_time_series_count": 0,
+  "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "candidate_observation_count": 2063,
+  "candidate_physical_sample_count": 534,
+  "candidate_site_count": 45,
+  "country_observation_counts": {
+    "SE": 2063
+  },
+  "evidence_manifest_sha256": "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508",
+  "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+  "pollen_named_dataset_count": 95,
+  "refusal_reason_counts": {
+    "dataset_name_does_not_certify_pollen_proxy": 2063,
+    "eligible_chronology_claim_unavailable_at_analysis_entity": 2063,
+    "source_classification_not_accepted": 2063,
+    "source_unit_unavailable": 2063
+  },
+  "sample_observation_csv": "sample-observations.csv",
+  "sample_observation_csv_sha256": "01b7e38d94eaf763e0eebdb35526a6696d10cd198de11b01263b21b71a17afb5",
+  "schema_version": "sead-pollen-named-dataset-screen.v1",
+  "screen_rule": "dataset_name_contains_pollen_case_insensitive; proxy identity is unconfirmed",
+  "source_observation_denominator": 177763,
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "source_table_observation_counts": {
+    "tbl_abundances": 2063
+  }
+}

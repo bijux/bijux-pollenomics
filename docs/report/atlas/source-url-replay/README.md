@@ -22,7 +22,7 @@ At widths 1440 and 390, the browser establishes 16 full-document canonical basel
 
 Comparison includes canonical URL, country set, active layer keys, time window, visible source/edge counts, classification posture, source chronology and modeled-context snapshot, focus title/tab, complete rendered chronology text, density, diameter, cross-border control, and panel state. The source classification and relation remain unapproved; zero accepted propagation edges are displayed. The unresolved Swedish SEAD record uses the full time extent, preserving its unavailable chronology reason; narrowed numeric windows continue to exclude unresolved context.
 
-The affected selection passed 83 browser semantics and document tests in 2.62 seconds, including three pure URL-controller regressions for internal publication, complete incoming URL preservation against stale writers, and duplicate history events. Mypy passed for both renderer wiring modules; selected Ruff/style and Node syntax checks passed.
+The current selection passed 139 map document and browser semantics tests and 12 atlas browser candidate producer regressions. The browser replay passed with zero runtime errors.
 
 ## Reproduction
 
@@ -37,7 +37,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/s
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-The retained candidate is `artifacts/atlas-source-url-replay/frozen-candidate`; its actual final browser receipt is under `artifacts/atlas-source-url-replay/browser-stale-writers`. The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-url-replay.mjs) use existing local dependencies. Browser profiles are removed after the observed terminal result.
+The verification receipt records the current candidate and browser result byte identities; artifact output directories are disposable reproduction products. The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-url-replay.mjs) use existing local dependencies. Browser profiles are removed after the observed terminal result.
 
 ## Scope
 

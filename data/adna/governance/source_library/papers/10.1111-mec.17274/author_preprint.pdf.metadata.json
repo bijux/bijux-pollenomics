@@ -1,0 +1,27 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.biorxiv.org/content/10.1101/2023.09.21.558762v1.full.pdf",
+  "artifact_kind": "author_preprint_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 2611241,
+  "paper_doi": "10.1111/mec.17274",
+  "preprint_doi": "10.1101/2023.09.21.558762",
+  "retrieved_at_utc": "2026-09-28T16:38:56Z",
+  "license_name": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "evidence_locators": [
+    {
+      "claim_family": "specimen_site_chronology",
+      "locator": "Table 1, pp. 41–43"
+    },
+    {
+      "claim_family": "source_role",
+      "locator": "preprint DOI and version on each page"
+    }
+  ],
+  "content_sha256": "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af",
+  "storage_byte_size": 2611241,
+  "storage_sha256": "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af",
+  "storage_path": "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
+  "content_encoding": null
+}

@@ -8,9 +8,11 @@
 
 ## Sample Evidence Depth
 
+The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+
 - sample identity only: `0`
-- sample with site: `558`
-- sample with site and chronology: `335`
+- sample with site: `536`
+- sample with site and chronology: `357`
 - sample with site chronology and coordinates: `557`
 
 ## Top Gap Projects
@@ -33,7 +35,7 @@
 | `PRJEB7537` | `Equus caballus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB81815` | `Felis catus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJEB36540` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
-| `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
+| `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB61808` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB69690` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB81145` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |

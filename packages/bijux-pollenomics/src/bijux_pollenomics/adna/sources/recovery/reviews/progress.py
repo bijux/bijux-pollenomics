@@ -9,10 +9,26 @@ from typing import Any
 def build_progress(output_root: Path, *, surface: Any) -> dict[str, Any]:
     rows = surface._project_recovery_rows(output_root)
     sample_depth_counts = surface._sample_evidence_depth_counts(output_root)
+    source_master_total = sum(
+        surface._int_value(row["final_sample_count"]) for row in rows
+    )
+    species_sample_total = sum(sample_depth_counts.values())
     return {
         "schema_version": "animal-source-recovery-progress.v1",
         "project_count": len(rows),
         "sample_evidence_depth_counts": sample_depth_counts,
+        "sample_evidence_depth_accounting": {
+            "partition": "mutually_exclusive",
+            "counted_sample_rows": species_sample_total,
+            "count_basis": "species_normalized_sample_rows",
+            "project_source_master_final_sample_rows": source_master_total,
+            "source_master_species_alignment": (
+                "aligned"
+                if source_master_total == species_sample_total
+                else "unreconciled"
+            ),
+            "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval",
+        },
         "project_counts": {
             "projects_with_sample_identity_rows": sum(
                 1 for row in rows if surface._int_value(row["final_sample_count"]) > 0

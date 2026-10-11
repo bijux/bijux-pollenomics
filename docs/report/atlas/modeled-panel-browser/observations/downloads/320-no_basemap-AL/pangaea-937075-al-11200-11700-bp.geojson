@@ -1,0 +1,1355 @@
+{
+  "type": "FeatureCollection",
+  "schema_version": "modeled-context-visible-frame.v3",
+  "modeled_context": {
+    "dataset_id": "937075",
+    "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+    "method_citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene",
+    "method_doi": "https://doi.org/10.5194/essd-14-1581-2022",
+    "metric_family_key": "source_pft_codes",
+    "metric_family_label": "Source plant-functional-type codes",
+    "metric_key": "AL",
+    "metric_label": "Agricultural land - cereals (AL)",
+    "metric_source_label": "AL",
+    "metric_definition": "Agricultural land - cereals",
+    "value_unit": "percentage_cover",
+    "metric_count_denominator": 47,
+    "estimate_standard_error_pair_count_denominator": 88125,
+    "land_cover_pft_reconciliation_count_denominator": 5625,
+    "source_window": {
+      "label": "11200-11700 BP",
+      "time_start_bp": 11200,
+      "time_end_bp": 11700,
+      "feature_count": 75,
+      "no_pollen_data_count": 48,
+      "quality_class_counts": {
+        "high": 10,
+        "low": 17,
+        "no_pollen_data": 48
+      },
+      "country_counts": {
+        "Denmark": 6,
+        "Finland": 19,
+        "Norway": 24,
+        "Sweden": 26
+      },
+      "country_quality_class_counts": {
+        "Denmark": {
+          "high": 0,
+          "low": 1,
+          "no_pollen_data": 5
+        },
+        "Finland": {
+          "high": 1,
+          "low": 2,
+          "no_pollen_data": 16
+        },
+        "Norway": {
+          "high": 5,
+          "low": 7,
+          "no_pollen_data": 12
+        },
+        "Sweden": {
+          "high": 4,
+          "low": 7,
+          "no_pollen_data": 15
+        }
+      }
+    },
+    "country_counts": {
+      "Denmark": 6
+    },
+    "quality_class_counts": {
+      "low": 1,
+      "no_pollen_data": 5
+    },
+    "quality_class_count_denominator": 6,
+    "evidence_role": "context_only",
+    "propagation_use_allowed": false,
+    "interpolation_allowed": false,
+    "quality_classes": [
+      "high",
+      "low",
+      "no_pollen_data"
+    ],
+    "source_quality_class_counts": {
+      "high": 628,
+      "low": 940,
+      "no_pollen_data": 307
+    },
+    "no_pollen_data_display_posture": "null_not_zero"
+  },
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              8,
+              55
+            ],
+            [
+              9,
+              55
+            ],
+            [
+              9,
+              56
+            ],
+            [
+              8,
+              56
+            ],
+            [
+              8,
+              55
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "8.5E 55.5N · 11200-11700 BP",
+        "parent_grid_record_id": "774",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "774"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "publication_value_posture": "unavailable_source_placeholders_replaced_with_null",
+        "quality_class": "no_pollen_data",
+        "reconstruction_values": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "record_count": 1,
+        "record_id": "937075:774:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              9,
+              55
+            ],
+            [
+              10,
+              55
+            ],
+            [
+              10,
+              56
+            ],
+            [
+              9,
+              56
+            ],
+            [
+              9,
+              55
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "9.5E 55.5N · 11200-11700 BP",
+        "parent_grid_record_id": "775",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "775"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "publication_value_posture": "unavailable_source_placeholders_replaced_with_null",
+        "quality_class": "no_pollen_data",
+        "reconstruction_values": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "record_count": 1,
+        "record_id": "937075:775:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              11,
+              55
+            ],
+            [
+              12,
+              55
+            ],
+            [
+              12,
+              56
+            ],
+            [
+              11,
+              56
+            ],
+            [
+              11,
+              55
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "11.5E 55.5N · 11200-11700 BP",
+        "parent_grid_record_id": "777",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "777"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "publication_value_posture": "unavailable_source_placeholders_replaced_with_null",
+        "quality_class": "no_pollen_data",
+        "reconstruction_values": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "record_count": 1,
+        "record_id": "937075:777:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              8,
+              56
+            ],
+            [
+              9,
+              56
+            ],
+            [
+              9,
+              57
+            ],
+            [
+              8,
+              57
+            ],
+            [
+              8,
+              56
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "8.5E 56.5N · 11200-11700 BP",
+        "parent_grid_record_id": "824",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "824"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "quality_class": "low",
+        "reconstruction_values": {
+          "AL": 0,
+          "Abies.alba": 0,
+          "Alnus.glutinosa": 0,
+          "Amanranthaceae.Chenopodiaceae": 0,
+          "Artemisia": 0.179193664392745,
+          "Betula": 4.5372084517882,
+          "Buxus.sempervirens": 0,
+          "Calluna.vulgaris": 5.86325818189338,
+          "Carpinus.betulus": 0,
+          "Carpinus.orientalis": 0,
+          "Castanea": 0,
+          "Cerealia.t": 0,
+          "Corylus.avellana": 0,
+          "Cyperaceae": 46.0006386478819,
+          "ET": 3.1194025306271,
+          "Ericaceae": 0,
+          "Fagus.sylvatica": 0,
+          "Filipendula": 0.619991978772598,
+          "Fraxinus": 0,
+          "GL": 84.996603852673,
+          "IBE": 2.53671914836772,
+          "IBS": 4.5372084517882,
+          "ISTS": 0,
+          "Juniperus": 0.582683382259385,
+          "LSE": 5.86325818189338,
+          "MTBE": 0,
+          "MTSE": 0,
+          "OL": 90.8598620345664,
+          "Phillyrea": 0,
+          "Picea": 0,
+          "Pinus": 2.53671914836772,
+          "Pistacia": 0,
+          "Plantago.lanceolata.type": 0,
+          "Poaceae": 37.5864930534761,
+          "Quercus.deciduous": 0,
+          "Quercus.evergreen": 0,
+          "Rumex.acetosa.t": 0.610286508149655,
+          "ST": 6.02073543480647,
+          "Salix": 1.48352698301827,
+          "Secale": 0,
+          "TBE1": 0,
+          "TBE2": 0,
+          "TBS": 0,
+          "TSD": 1.48352698301827,
+          "TSE": 0.582683382259385,
+          "Tilia": 0,
+          "Ulmus": 0
+        },
+        "record_count": 1,
+        "record_id": "937075:824:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": 0,
+          "Abies.alba": 0,
+          "Alnus.glutinosa": 0,
+          "Amanranthaceae.Chenopodiaceae": 0,
+          "Artemisia": 0.107288820740391,
+          "Betula": 1.47473906477211,
+          "Buxus.sempervirens": 0,
+          "Calluna.vulgaris": 1.47438563622954,
+          "Carpinus.betulus": 0,
+          "Carpinus.orientalis": 0,
+          "Castanea": 0,
+          "Cerealia.t": 0,
+          "Corylus.avellana": 0,
+          "Cyperaceae": 5.13856427971746,
+          "ET": 1.02119841356704,
+          "Ericaceae": 0,
+          "Fagus.sylvatica": 0,
+          "Filipendula": 0.425103660572461,
+          "Fraxinus": 0,
+          "GL": 6.93377671211131,
+          "IBE": 0.946214306624486,
+          "IBS": 1.47473906477211,
+          "ISTS": 0,
+          "Juniperus": 0.384089424237348,
+          "LSE": 1.47438563622954,
+          "MTBE": 0,
+          "MTSE": 0,
+          "OL": 7.08879908713296,
+          "Phillyrea": 0,
+          "Picea": 0,
+          "Pinus": 0.946214306624486,
+          "Pistacia": 0,
+          "Plantago.lanceolata.type": 0,
+          "Poaceae": 4.60928063456049,
+          "Quercus.deciduous": 0,
+          "Quercus.evergreen": 0,
+          "Rumex.acetosa.t": 0.484483906034623,
+          "ST": 1.69450220092404,
+          "Salix": 0.834555210738934,
+          "Secale": 0,
+          "TBE1": 0,
+          "TBE2": 0,
+          "TBS": 0,
+          "TSD": 0.834555210738934,
+          "TSE": 0.384089424237348,
+          "Tilia": 0,
+          "Ulmus": 0
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              9,
+              56
+            ],
+            [
+              10,
+              56
+            ],
+            [
+              10,
+              57
+            ],
+            [
+              9,
+              57
+            ],
+            [
+              9,
+              56
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "9.5E 56.5N · 11200-11700 BP",
+        "parent_grid_record_id": "825",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "825"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "publication_value_posture": "unavailable_source_placeholders_replaced_with_null",
+        "quality_class": "no_pollen_data",
+        "reconstruction_values": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "record_count": 1,
+        "record_id": "937075:825:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              10,
+              56
+            ],
+            [
+              11,
+              56
+            ],
+            [
+              11,
+              57
+            ],
+            [
+              10,
+              57
+            ],
+            [
+              10,
+              56
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "bibliography_reference_keys": [
+          "githumbi-et-al-2022",
+          "sugita-2007-reveals"
+        ],
+        "category": "Vegetation reconstruction time window",
+        "country": "Denmark",
+        "dataset_id": "937075",
+        "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+        "description": "One published LandClim REVEALS model window retained separately so atlas time filtering does not treat the full Holocene span as continuous.",
+        "geometry_type": "Polygon",
+        "layer_key": "landclim-reveals-temporal-grid",
+        "layer_label": "LandClim REVEALS time-window grids",
+        "name": "10.5E 56.5N · 11200-11700 BP",
+        "parent_grid_record_id": "826",
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Grid cell",
+            "value": "826"
+          },
+          {
+            "label": "Time window",
+            "value": "11200-11700 BP"
+          },
+          {
+            "label": "Value unit",
+            "value": "percentage cover"
+          }
+        ],
+        "publication_value_posture": "unavailable_source_placeholders_replaced_with_null",
+        "quality_class": "no_pollen_data",
+        "reconstruction_values": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "record_count": 1,
+        "record_id": "937075:826:11200-11700-bp",
+        "source": "LandClim",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "standard_errors": {
+          "AL": null,
+          "Abies.alba": null,
+          "Alnus.glutinosa": null,
+          "Amanranthaceae.Chenopodiaceae": null,
+          "Artemisia": null,
+          "Betula": null,
+          "Buxus.sempervirens": null,
+          "Calluna.vulgaris": null,
+          "Carpinus.betulus": null,
+          "Carpinus.orientalis": null,
+          "Castanea": null,
+          "Cerealia.t": null,
+          "Corylus.avellana": null,
+          "Cyperaceae": null,
+          "ET": null,
+          "Ericaceae": null,
+          "Fagus.sylvatica": null,
+          "Filipendula": null,
+          "Fraxinus": null,
+          "GL": null,
+          "IBE": null,
+          "IBS": null,
+          "ISTS": null,
+          "Juniperus": null,
+          "LSE": null,
+          "MTBE": null,
+          "MTSE": null,
+          "OL": null,
+          "Phillyrea": null,
+          "Picea": null,
+          "Pinus": null,
+          "Pistacia": null,
+          "Plantago.lanceolata.type": null,
+          "Poaceae": null,
+          "Quercus.deciduous": null,
+          "Quercus.evergreen": null,
+          "Rumex.acetosa.t": null,
+          "ST": null,
+          "Salix": null,
+          "Secale": null,
+          "TBE1": null,
+          "TBE2": null,
+          "TBS": null,
+          "TSD": null,
+          "TSE": null,
+          "Tilia": null,
+          "Ulmus": null
+        },
+        "subtitle": "Published REVEALS vegetation reconstruction for one grid cell and time window",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+        "temporal_semantics": {
+          "comparability_posture": "numeric_interval_with_caveat",
+          "comparison_note": "This interval belongs to a modeled REVEALS grid estimate; it is not a sample-owned chronology or a continuous value between published windows.",
+          "duration_years": 500,
+          "evidence_class": "modeled_vegetation_time_window",
+          "normalized_labels": [
+            "11200-11700 BP"
+          ],
+          "original_labels": [
+            "11200-11700 BP"
+          ],
+          "precision_posture": "published_reveals_grid_window",
+          "provenance_excerpt": "",
+          "provenance_locator": "LANDCLIMII.RV.means.JUN2021/TW25.RV.estimates.jun21.csv",
+          "provenance_path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+          "refusal_reason_code": "",
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "landclim",
+          "summary_label": "11200-11700 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_end_bp": 11700,
+          "time_mean_bp": 11450,
+          "time_start_bp": 11200,
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "time_end_bp": 11700,
+        "time_label": "11200-11700 BP",
+        "time_mean_bp": 11450,
+        "time_start_bp": 11200,
+        "value_unit": "percentage_cover"
+      },
+      "type": "Feature"
+    }
+  ]
+}

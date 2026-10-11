@@ -2,16 +2,18 @@
 
 - Tracked projects: `40`
 - Sample identity rows present: `21`
-- Defensible site rows present: `12`
+- Defensible site rows present: `13`
 - Sample-owned chronology present: `10`
 - Mappable coordinate projects: `11`
 - Ready for publication review: `10`
 
 ## Sample Evidence Depth
 
+The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+
 - sample identity only: `0`
-- sample with site: `558`
-- sample with site and chronology: `335`
+- sample with site: `536`
+- sample with site and chronology: `357`
 - sample with site chronology and coordinates: `557`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
@@ -24,7 +26,7 @@
 | `KX379528-KX379529` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
 | `SRS1407451` | `Canis lupus familiaris` | `4` | `8` | `0.5` |
 | `SRS1407453` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
-| `PRJEB90141` | `Capra hircus` | `8` | `8` | `1.0` |
+| `PRJEB90141` | `Capra hircus` | `7` | `8` | `0.875` |
 | `PRJEB90261` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJNA1328209` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJEB43564` | `Equus asinus` | `1` | `7` | `0.1429` |
@@ -43,13 +45,13 @@
 | `PRJEB81815` | `Felis catus` | `4` | `8` | `0.5` |
 | `PRJNA1178732` | `Felis catus` | `7` | `8` | `0.875` |
 | `PRJEB36540` | `Ovis aries` | `5` | `8` | `0.625` |
-| `PRJEB41594` | `Ovis aries` | `4` | `8` | `0.5` |
+| `PRJEB41594` | `Ovis aries` | `5` | `8` | `0.625` |
 | `PRJEB59481` | `Ovis aries` | `8` | `8` | `1.0` |
 | `PRJEB61808` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB57293` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB60484` | `Rangifer tarandus` | `4` | `8` | `0.5` |
+| `PRJEB60484` | `Rangifer tarandus` | `3` | `7` | `0.4286` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `4` | `8` | `0.5` |

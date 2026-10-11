@@ -1,0 +1,62 @@
+{
+  "decision": {
+    "benchmark_policy_frozen": false,
+    "evaluation_performed": false,
+    "local_plot_validation_supported": false,
+    "observed_tree_vegetation_measurement_pair_admitted": false,
+    "regional_reconstruction_validation_supported": false,
+    "review_state": "awaiting_qualified_source_review",
+    "scientific_acceptance": "not_evaluated"
+  },
+  "denominators": {
+    "all_plot_year_sample_pairs_within_1km": 53,
+    "current_benchmark_refusals": 16,
+    "distinct_selected_nfi_plot_years": 14,
+    "measured_pairs_admitted": 0,
+    "nearest_plot_candidates_within_1km": 16,
+    "nfi_distinct_tract_plot_keys": 6018,
+    "nfi_plot_year_source_rows": 43892,
+    "swedish_empd2_metadata_samples": 132
+  },
+  "input_sha256": {
+    "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json": "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66",
+    "artifacts/v3/reference/empd2-nfi-provenance001/report004.json": "bcab3834980f6934143f3a2bf4e2a0155bf3c7024850989de4f0f28f89584c31",
+    "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "empd2_original_source": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+    "nfi_original_workbook": "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294",
+    "producer": "3e059e43b81f8ef1aba4a64903f58ed2897a6acf785b5898ff85dc73d371f836"
+  },
+  "local_source_bound_ledger_sha256": "b9e51b2c54416da4b34fc1c9c1c3d1a101b4c2ff0cfbe915097a785962cf49a6",
+  "missing_or_unreviewed_fields_all_pairs": [
+    "authenticated_pollen_collection_date",
+    "nfi_tree_measurement_values_and_units",
+    "nfi_plot_effective_area_and_vegetation_denominator",
+    "pollen_taxon_count_denominator_and_tree_taxon_crosswalk",
+    "pollen_basin_or_local_vegetation_footprint",
+    "plot_to_reconstruction_support_rule",
+    "independent_source_and_leakage_review",
+    "reviewed_nonnull_benchmark_minimum_and_thresholds"
+  ],
+  "pair_specific_extra_gaps": {
+    "collection_note_requires_review": 1,
+    "cross_source_identity_unresolved": 5
+  },
+  "pairs_csv": {
+    "bytes": 15177,
+    "sha256": "dead80111026ca2f0ceb8bd31c36ae3461bdbb1d89f367656d43445f65d94c40"
+  },
+  "schema_version": "empd2-nfi-pair-decision.v1",
+  "source_provenance": {
+    "distance_method": "WGS84 inverse geodesic; unrounded source values",
+    "empd2_doi": "https://doi.org/10.1594/PANGAEA.909130",
+    "empd2_source_license": "CC BY 4.0 per PANGAEA source page",
+    "nfi_guide_license": "CC0 1.0 per SLU calibration guide",
+    "nfi_guide_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+    "nfi_outcomes_opened": false,
+    "nfi_provider": "Swedish University of Agricultural Sciences, National Forest Inventory",
+    "nfi_row_level_location_published": false,
+    "nfi_source_crs": "SWEREF99 TM / EPSG:3006",
+    "raw_sources_copied": false
+  },
+  "status": "zero_measured_pairs_refused_for_current_benchmark"
+}

@@ -4,6 +4,9 @@
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577008 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577009 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577010 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -94,9 +97,6 @@
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574443 | Former Soviet Union | site_curated |  | no coordinate provenance row currently supports point publication |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574444 | Former Soviet Union | site_curated |  | no coordinate provenance row currently supports point publication |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574447 | Uralsk | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106830 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106831 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106832 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -122,6 +122,7 @@
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
+| Capra hircus | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | Obishir V | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016168 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016169 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016171 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -757,31 +758,30 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu4 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu6 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu9 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757326 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | Obishir V | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | Obishir V | site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | Diskobukta | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | Sassendalen | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | Diskobukta | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757326 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757327 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757328 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757329 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757330 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757331 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757332 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757333 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757334 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757335 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757328 | Diskobukta | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757329 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757330 | Rijpjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757331 | Gipsdalen | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757332 | Gipsdalen | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757333 | Sassendalen | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757334 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757335 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | Wijdefjorden | comparator_site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | Kapp Flora | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160866 | Nivå | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160869 | Flynderhage | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160870 | Kush, Ras al-Khaimah | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

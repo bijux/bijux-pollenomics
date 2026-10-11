@@ -1,0 +1,94 @@
+country,method,taxon,scored_sites,site_macro_abs_error_fraction
+SE,training_mean,Abies alba,3,3.13641869019911e-06
+SE,training_mean,Alnus glutinosa,3,0.10412860369579278
+SE,training_mean,Amanranthaceae/Chenopodiaceae,3,0.0012929408046151707
+SE,training_mean,Artemisia,3,0.004293004436820988
+SE,training_mean,Betula,3,0.16399596278217904
+SE,training_mean,Buxus sempervirens,3,0.0
+SE,training_mean,Calluna vulgaris,3,0.007929559397351453
+SE,training_mean,Carpinus betulus,3,0.002305182969236441
+SE,training_mean,Carpinus orientalis,3,0.0
+SE,training_mean,Castanea,3,0.0
+SE,training_mean,Cerealia-t,3,0.002121629510679416
+SE,training_mean,Corylus avellana,3,0.15126864333608653
+SE,training_mean,Cyperaceae,3,0.048387932416220775
+SE,training_mean,Ericaceae,3,0.015121264828898062
+SE,training_mean,Fagus sylvatica,3,0.018291106403287828
+SE,training_mean,Filipendula,3,0.004607686742699927
+SE,training_mean,Fraxinus,3,0.017197751394309027
+SE,training_mean,Juniperus,3,0.023369416934860696
+SE,training_mean,Phillyrea,3,0.0
+SE,training_mean,Picea,3,0.03093039221218236
+SE,training_mean,Pinus,3,0.23438108630461754
+SE,training_mean,Pistacia,3,0.0
+SE,training_mean,Plantago lanceolata type,3,0.008383000814131831
+SE,training_mean,Poaceae,3,0.03213433316880289
+SE,training_mean,Quercus deciduous,3,0.06711409964252057
+SE,training_mean,Quercus evergreen,3,0.0
+SE,training_mean,Rumex acetosa-t,3,0.007642772433328407
+SE,training_mean,Salix,3,0.003546069740063217
+SE,training_mean,Secale,3,0.00239775013289651
+SE,training_mean,Tilia,3,0.01133884168734872
+SE,training_mean,Ulmus,3,0.017892461218027067
+SE,nearest_site,Abies alba,3,0.0
+SE,nearest_site,Alnus glutinosa,3,0.08314592876403247
+SE,nearest_site,Amanranthaceae/Chenopodiaceae,3,0.001522167043463081
+SE,nearest_site,Artemisia,3,0.0039028480935734433
+SE,nearest_site,Betula,3,0.14365334412981656
+SE,nearest_site,Buxus sempervirens,3,0.0
+SE,nearest_site,Calluna vulgaris,3,0.15099554909182228
+SE,nearest_site,Carpinus betulus,3,0.0019833616244242193
+SE,nearest_site,Carpinus orientalis,3,0.0
+SE,nearest_site,Castanea,3,0.0
+SE,nearest_site,Cerealia-t,3,0.0018719411898739783
+SE,nearest_site,Corylus avellana,3,0.09701757649911592
+SE,nearest_site,Cyperaceae,3,0.10125592773452946
+SE,nearest_site,Ericaceae,3,0.0032537679864942134
+SE,nearest_site,Fagus sylvatica,3,0.017592317006503048
+SE,nearest_site,Filipendula,3,0.003410067366040576
+SE,nearest_site,Fraxinus,3,0.013454461987184165
+SE,nearest_site,Juniperus,3,0.010225812734799236
+SE,nearest_site,Phillyrea,3,0.0
+SE,nearest_site,Picea,3,0.013769012249687228
+SE,nearest_site,Pinus,3,0.08015239162078647
+SE,nearest_site,Pistacia,3,0.0
+SE,nearest_site,Plantago lanceolata type,3,0.007666496852006643
+SE,nearest_site,Poaceae,3,0.09311457884755493
+SE,nearest_site,Quercus deciduous,3,0.036403782883763905
+SE,nearest_site,Quercus evergreen,3,0.0
+SE,nearest_site,Rumex acetosa-t,3,0.009364175186693814
+SE,nearest_site,Salix,3,0.005727546713167873
+SE,nearest_site,Secale,3,0.002197233325525451
+SE,nearest_site,Tilia,3,0.009153766859031914
+SE,nearest_site,Ulmus,3,0.015885090413932164
+SE,inverse_distance_squared,Abies alba,3,3.964975060505769e-06
+SE,inverse_distance_squared,Alnus glutinosa,3,0.08777036482093674
+SE,inverse_distance_squared,Amanranthaceae/Chenopodiaceae,3,0.0012845907799048646
+SE,inverse_distance_squared,Artemisia,3,0.003968694020794622
+SE,inverse_distance_squared,Betula,3,0.1470762859717385
+SE,inverse_distance_squared,Buxus sempervirens,3,0.0
+SE,inverse_distance_squared,Calluna vulgaris,3,0.018541283068408045
+SE,inverse_distance_squared,Carpinus betulus,3,0.002158840254224764
+SE,inverse_distance_squared,Carpinus orientalis,3,0.0
+SE,inverse_distance_squared,Castanea,3,0.0
+SE,inverse_distance_squared,Cerealia-t,3,0.002003723934669469
+SE,inverse_distance_squared,Corylus avellana,3,0.13607158216232335
+SE,inverse_distance_squared,Cyperaceae,3,0.05290465361421696
+SE,inverse_distance_squared,Ericaceae,3,0.007800666166014649
+SE,inverse_distance_squared,Fagus sylvatica,3,0.01799031787529411
+SE,inverse_distance_squared,Filipendula,3,0.0046388293399490296
+SE,inverse_distance_squared,Fraxinus,3,0.0160895107025968
+SE,inverse_distance_squared,Juniperus,3,0.025939764063566285
+SE,inverse_distance_squared,Phillyrea,3,0.0
+SE,inverse_distance_squared,Picea,3,0.02587620070624507
+SE,inverse_distance_squared,Pinus,3,0.20257167195917386
+SE,inverse_distance_squared,Pistacia,3,0.0
+SE,inverse_distance_squared,Plantago lanceolata type,3,0.008004342401080647
+SE,inverse_distance_squared,Poaceae,3,0.038132352902421805
+SE,inverse_distance_squared,Quercus deciduous,3,0.052694925380041405
+SE,inverse_distance_squared,Quercus evergreen,3,0.0
+SE,inverse_distance_squared,Rumex acetosa-t,3,0.0074864292936267065
+SE,inverse_distance_squared,Salix,3,0.0037971076941168747
+SE,inverse_distance_squared,Secale,3,0.002231363905310645
+SE,inverse_distance_squared,Tilia,3,0.00961996874506191
+SE,inverse_distance_squared,Ulmus,3,0.016287249760908853

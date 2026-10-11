@@ -1,0 +1,82 @@
+country,site_id,site_name,selected_samples,all_native_nisp,author_assigned_nisp,author_excluded_nisp,unmapped_nisp,size_variant_candidate_nisp,assigned_fraction,author_targets_present,lra_admitted_samples
+DK,neotoma:site:3432,Lake Solsø,91,129768,122998,6699,71,0,0.94783,24,0
+FI,neotoma:site:15733,Lake Tsuolbmajavri,146,73554,72800,752,2,0,0.989749,22,0
+FI,neotoma:site:20,Akuvaara,33,25731,25614,117,0,0,0.995453,15,0
+FI,neotoma:site:24041,Lake Skaidejavri,98,49514,49098,397,19,0,0.991598,19,0
+FI,neotoma:site:28072,Laihalampi,150,85303,84078,916,309,0,0.985639,24,0
+FI,neotoma:site:28074,Toskaljarvi,160,77563,76730,819,14,0,0.98926,19,0
+FI,neotoma:site:2966,Aholammi,46,45486,44271,1175,40,0,0.973288,23,0
+FI,neotoma:site:30965,Palomaa,127,33504,28116,3776,1612,0,0.839183,16,0
+FI,neotoma:site:3145,Hirvilampi,133,125877,124509,1364,4,0,0.989132,24,0
+FI,neotoma:site:3165,Isokärret,33,35610,35088,501,21,0,0.985341,23,0
+FI,neotoma:site:3177,Kaarkotinlampi,36,37506,37130,364,12,0,0.989975,22,0
+FI,neotoma:site:3178,Kaartlamminsuo,54,54431,54036,369,26,0,0.992743,24,0
+FI,neotoma:site:3180,Kangerjoki,26,26078,25610,335,133,0,0.982054,21,0
+FI,neotoma:site:3195,Kirkkosaari,47,48784,48330,433,21,0,0.990694,23,0
+FI,neotoma:site:3196,Kittilä,15,13978,13177,798,3,0,0.942696,20,0
+FI,neotoma:site:3210,Kuivajarvi,110,58989,58175,794,20,0,0.986201,23,0
+FI,neotoma:site:3264,Maanselänsuo,28,7040,6981,59,0,0,0.991619,17,0
+FI,neotoma:site:3299,Mossen,56,41517,40987,461,69,0,0.987234,24,0
+FI,neotoma:site:3302,Mukkavaara,55,26776,26664,112,0,0,0.995817,16,0
+FI,neotoma:site:3365,Vasikkasuo,59,30308,29928,344,36,0,0.987462,19,0
+FI,neotoma:site:3388,Rukatunturi,15,19271,18484,786,1,0,0.959161,20,0
+FI,neotoma:site:3389,Ryönänsuo,73,72295,71248,1033,14,0,0.985518,24,0
+FI,neotoma:site:3400,Särkikangas,23,16875,14729,2140,6,0,0.87283,15,0
+FI,neotoma:site:3412,Siikasuo,55,58281,57807,464,10,0,0.991867,24,0
+FI,neotoma:site:3414,Sipola,13,10799,10342,434,23,0,0.957681,19,0
+FI,neotoma:site:3451,Suovalampi,34,16467,16404,63,0,0,0.996174,15,0
+FI,neotoma:site:3455,Syrjälänsuo,76,71687,70825,857,5,0,0.987976,23,0
+FI,neotoma:site:3479,Tullerinsuo,55,68946,60451,8485,10,0,0.876788,25,0
+FI,neotoma:site:3513,Ylimysneva,41,28111,27407,699,5,0,0.974956,22,0
+NO,neotoma:site:13383,Lake Flåfattjønna,147,174436,169722,4630,84,0,0.972976,23,0
+NO,neotoma:site:13384,Lake Ifjord,92,42028,40467,1410,151,0,0.962858,19,0
+NO,neotoma:site:13388,Dalmutladdo,72,47085,46477,600,8,0,0.987087,19,0
+NO,neotoma:site:13390,Trettetjørn,53,26798,24180,2551,67,0,0.902306,21,0
+NO,neotoma:site:13391,Brurskardtjørni,61,36327,35108,1202,17,0,0.966444,20,0
+NO,neotoma:site:13392,Vestre Øykjamyrtjørn,97,58876,56162,2662,52,0,0.953903,21,0
+NO,neotoma:site:13396,Sandvikvatn,45,32742,31220,1509,13,0,0.953515,24,0
+NO,neotoma:site:13476,Liten Cap’pesjav’ri,72,25405,24256,812,337,0,0.954773,19,0
+NO,neotoma:site:13478,Over Gunnarsfjorden,116,46624,45148,1360,116,0,0.968342,20,0
+NO,neotoma:site:13481,Over Kobbkrokvatnet,69,21944,9659,9340,2945,0,0.440166,19,0
+NO,neotoma:site:25998,Myrvatnet,62,24641,23653,973,15,0,0.959904,21,0
+NO,neotoma:site:26123,Morttjern,66,44488,42037,2446,5,0,0.944906,25,0
+NO,neotoma:site:26124,Storsandvatnet,82,41525,39662,1844,19,0,0.955135,22,0
+NO,neotoma:site:26125,Svartvatnet,74,32938,31065,1830,43,0,0.943136,21,0
+NO,neotoma:site:26126,Tiåvatnet,88,38837,37003,1771,63,0,0.952777,22,0
+NO,neotoma:site:26127,Råtåsj¢en,67,39891,39052,822,17,0,0.978968,19,0
+NO,neotoma:site:26128,Afstj¢rna,54,33420,32763,639,18,0,0.980341,23,0
+NO,neotoma:site:26129,Måsåtjørnet,54,32962,32295,663,4,0,0.979765,23,0
+NO,neotoma:site:26167,Litlvatnet,50,17945,17066,867,12,0,0.951017,20,0
+NO,neotoma:site:26168,Gammelheimenvatnet,73,36781,35847,914,20,0,0.974606,22,0
+NO,neotoma:site:26169,Bjørnfjelltjørn,62,29326,28321,975,30,0,0.96573,19,0
+NO,neotoma:site:26210,Haugtjernet,76,51405,48147,3231,27,0,0.936621,24,0
+NO,neotoma:site:26211,Kinnshaugen,69,38318,36060,2229,29,0,0.941072,24,0
+NO,neotoma:site:26212,Øygardstjønn,54,31803,31238,560,5,0,0.982234,23,0
+NO,neotoma:site:26213,Lisletjønn,50,29702,29067,632,3,0,0.978621,23,0
+NO,neotoma:site:26214,Flotatjønn,47,27902,27364,537,1,0,0.980718,23,0
+NO,neotoma:site:26215,Lille Kjelavatn,87,43074,41499,1542,33,0,0.963435,23,0
+NO,neotoma:site:26216,Holebudalen,93,45904,44007,1830,67,0,0.958675,22,0
+NO,neotoma:site:26217,Grostjørna,77,42427,40602,1802,23,0,0.956985,24,0
+NO,neotoma:site:26218,Reiersdalvann,90,54373,51672,2681,20,0,0.950325,24,0
+NO,neotoma:site:26219,Dalane,68,36190,34107,2052,31,0,0.942443,23,0
+NO,neotoma:site:26220,Grauthelleren,69,43999,41619,2349,31,0,0.945908,24,0
+NO,neotoma:site:26221,Isbenttjønn,58,34213,33400,811,2,0,0.976237,23,0
+NO,neotoma:site:28157,Lake Skogstjern,236,158506,156565,1540,401,0,0.987754,25,0
+NO,neotoma:site:28412,Lake Topptjønna,93,67259,60038,5836,1385,0,0.892639,19,0
+NO,neotoma:site:28431,Lake Heimtjønna,55,19845,14400,2993,2452,0,0.725624,18,0
+NO,neotoma:site:28440,Lake Store Finnsjøen,70,46182,39952,5251,979,0,0.865099,18,0
+NO,neotoma:site:28451,Lervahå bog,35,19691,18275,1357,59,0,0.928089,20,0
+NO,neotoma:site:28452,Liastemmen bog,73,120440,84594,28803,7043,0,0.702375,13,0
+NO,neotoma:site:28455,Eigebakken bog,69,236920,114819,104770,17331,0,0.484632,12,0
+NO,neotoma:site:28457,Reinskaret bog,30,17210,16122,1082,6,0,0.936781,19,0
+NO,neotoma:site:28459,Hemma,12,8205,7133,1047,25,0,0.869348,18,0
+NO,neotoma:site:3022,Blåvasstjønn,36,21113,20237,875,1,0,0.958509,19,0
+NO,neotoma:site:310,Bruvatnet [Rovvejávri],40,15495,15157,338,0,0,0.978187,15,0
+NO,neotoma:site:3106,Flaatevatn,32,18981,18140,841,0,0,0.955693,22,0
+NO,neotoma:site:3115,Frengstadsetra,31,32326,30705,1615,6,0,0.949855,18,0
+NO,neotoma:site:33292,Svanåvatnet,81,31081,29755,1291,35,0,0.957337,20,0
+NO,neotoma:site:33300,Brattheivatnet,63,15008,14427,580,1,0,0.961287,17,0
+NO,neotoma:site:33301,Lusvatnet,83,16150,11171,4905,74,0,0.691703,19,0
+NO,neotoma:site:3372,Råttuvarri,32,14195,14082,113,0,0,0.992039,15,0
+NO,neotoma:site:3475,Trollvatnet,34,19839,19710,129,0,0,0.993498,16,0
+NO,neotoma:site:947,Grasvatn,45,43245,33068,10156,21,0,0.764666,21,0

@@ -1,0 +1,55 @@
+{
+  "collection_date_agreement": false,
+  "dataset_id": "19913",
+  "depth_relation": "pangaea_m_equals_neotoma_native_divided_by_100_for_all_107_samples",
+  "governed_sequence_manifest_sha256": "9f9a29740c56ec64dc089e50d57514071146fc3945a90d3e3b270dedfb5e722b",
+  "historical_basin_geometry_admitted": false,
+  "lra_input_admitted": false,
+  "matched_sample_depths": 107,
+  "neotoma_collection_date": "2002-01-01",
+  "neotoma_depth_source_unit": null,
+  "pangaea_area_temporal_support": "source_event_metadata_only",
+  "pangaea_core_date": "2002-06-15",
+  "pangaea_reported_lake_area_ha": 3,
+  "schema_version": "neotoma-abbo-pangaea-lineage.v1",
+  "site_id": "13338",
+  "source_core_handle": "ABBO",
+  "source_depth_unit": "m",
+  "source_profile_doi": "10.1594/PANGAEA.738429",
+  "source_profile_license": "CC-BY-NC-3.0",
+  "source_profile_sha256": "ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154",
+  "source_profile_url": "https://doi.pangaea.de/10.1594/PANGAEA.738429",
+  "taxon_count_comparisons": 535,
+  "taxon_results": [
+    {
+      "matched_depths": 107,
+      "native_taxon": "Alnus",
+      "pangaea_column": "Aln [#]",
+      "positive_count_depths": 106
+    },
+    {
+      "matched_depths": 107,
+      "native_taxon": "Betula",
+      "pangaea_column": "Bet [#]",
+      "positive_count_depths": 107
+    },
+    {
+      "matched_depths": 107,
+      "native_taxon": "Cyperaceae",
+      "pangaea_column": "Cypae [#]",
+      "positive_count_depths": 105
+    },
+    {
+      "matched_depths": 107,
+      "native_taxon": "Picea abies",
+      "pangaea_column": "Pic.a [#]",
+      "positive_count_depths": 55
+    },
+    {
+      "matched_depths": 107,
+      "native_taxon": "Poaceae",
+      "pangaea_column": "Poac [#]",
+      "positive_count_depths": 106
+    }
+  ]
+}

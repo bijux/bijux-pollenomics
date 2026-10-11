@@ -1,0 +1,54 @@
+{
+  "axis": [
+    "Abies alba",
+    "Alnus glutinosa",
+    "Amanranthaceae/Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus sempervirens",
+    "Calluna vulgaris",
+    "Carpinus betulus",
+    "Carpinus orientalis",
+    "Castanea",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus sylvatica",
+    "Filipendula",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous",
+    "Quercus evergreen",
+    "Rumex acetosa-t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "parent_input_manifest_sha256": "392e6cb60d971e2644f59d7e283a12716a911e3825b168198cd7fd552eedb0ee",
+  "parent_training_sha256": {
+    "inputs/training-DK.json.gz": "53453012dec30e6e3031c0080ab42f4b42f4f936cc459aab285198f49fe17f0a",
+    "inputs/training-FI.json.gz": "506919c6c484862ca909789dc0f0db5b2b21899216eb574064861e0ca5517d9f",
+    "inputs/training-NO.json.gz": "a566022059430b5b55f9f8144c248ac0cfb082170476f74b17c08d175a868765"
+  },
+  "produced_file_sha256": {
+    "inputs/metadata-SE.json.gz": "a7d8b5b1c9dc696db0b0f168bad83ff55f4447c762028d7af0947dad0d4cc770",
+    "inputs/training-SE.json.gz": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+    "sealed-outcomes/outcomes-SE.json.gz": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5"
+  },
+  "schema_version": "swedish-author-target-pollen-inputs.v1",
+  "swedish_common_bin_config_sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0",
+  "swedish_common_bin_mass_sha256": "557a31ea6392d63c4e0dc0e8d090d2f3dcd78d31658ea2a823558cc841e11221",
+  "swedish_source_sha256": {
+    "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+  },
+  "target_outcomes_in_prediction_inputs": false
+}

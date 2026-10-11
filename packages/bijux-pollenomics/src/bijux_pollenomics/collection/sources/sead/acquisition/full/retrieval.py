@@ -8,6 +8,7 @@ from urllib.error import HTTPError, URLError
 
 from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_POSTGREST_ROOT,
+    sead_retry_delay,
     sead_retryable_error,
 )
 
@@ -111,6 +112,7 @@ def acquire_sead_table(
                 break
             except (TimeoutError, URLError, HTTPError) as exc:
                 retryable = sead_retryable_error(exc)
+                delay = sead_retry_delay(exc, attempt) if retryable else None
                 failures.append(
                     {
                         "page": page_number,
@@ -118,14 +120,14 @@ def acquire_sead_table(
                         "attempt": attempt,
                         "error_type": type(exc).__name__,
                         "message": str(exc),
-                        "retryable": retryable,
+                        "retryable": retryable and delay is not None,
                     }
                 )
-                if not retryable or attempt == request_retries:
+                if delay is None or attempt == request_retries:
                     return raise_acquisition_error(
                         **result_arguments(), reason="terminal_request_failure"
                     )
-                sleep_fn(float(attempt))
+                sleep_fn(delay)
         if not isinstance(payload, list) or any(
             not isinstance(row, Mapping) for row in payload
         ):

@@ -102,6 +102,14 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         self.assertGreater(
             progress_payload["project_counts"]["projects_with_sample_identity_rows"], 0
         )
+        self.assertEqual(
+            sum(progress_payload["sample_evidence_depth_counts"].values()),
+            progress_payload["sample_evidence_depth_accounting"]["counted_sample_rows"],
+        )
+        self.assertEqual(
+            progress_payload["sample_evidence_depth_accounting"]["partition"],
+            "mutually_exclusive",
+        )
         self.assertGreater(missing_source_payload["row_count"], 0)
 
     def test_project_recovery_dossier_collects_assets_gaps_and_manual_work(

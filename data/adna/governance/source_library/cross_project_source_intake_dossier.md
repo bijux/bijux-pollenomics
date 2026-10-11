@@ -37,7 +37,7 @@
 | `PRJEB69690` | `none` | `` | `paper_linkage_not_curated` |
 | `PRJEB81145` | `none` | `` | `paper_linkage_not_curated` |
 | `PRJEB57293` | `none` | `sample_identifiers` | `scope_rejected` |
-| `PRJEB60484` | `10.1038/s41598-024-54296-2` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
+| `PRJEB60484` | `10.1111/mec.17274` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `PRJEB61721` | `none` | `sample_identifiers` | `scope_rejected` |
 | `PRJNA634908` | `none` | `sample_identifiers` | `scope_rejected` |
 | `PRJEB30282` | `10.1073/pnas.1901169116` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |

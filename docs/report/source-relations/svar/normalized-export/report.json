@@ -1,0 +1,48 @@
+{
+  "schema_version": "svar-normalized-export-custody.v1",
+  "export_generated_on": "2026-09-08",
+  "export_lake_count_claim": 40565,
+  "review_source_lake_count_claim": 40523,
+  "review_subset_feature_count": 99,
+  "current_ranked_candidate_count": 0,
+  "source_population_reconciled": false,
+  "raw_wfs_capture_bound_to_export": false,
+  "qualified_review_accepted": false,
+  "ranking_admitted": false,
+  "inputs": [
+    {
+      "source_root_role": "external_svar_source_store",
+      "path": "svar/normalized-export-2026-09-08/sweden_lake_registry.geojson",
+      "bytes": 261041034,
+      "sha256": "d9a1943d1a35e7ab6d48e06156fef625e7c62c8bc410cecf9d8f592ccb07dfd8"
+    },
+    {
+      "source_root_role": "external_svar_source_store",
+      "path": "svar/normalized-export-2026-09-08/svar_summary.json",
+      "bytes": 111,
+      "sha256": "fb3addf3ad3cebf5e92fab98143673d62132741dd12e98d3b22b83b48cc25106"
+    },
+    {
+      "source_root_role": "external_svar_source_store",
+      "path": "svar/normalized-export-2026-09-08/svar_lake_registry_manifest.json",
+      "bytes": 284,
+      "sha256": "5f565f792b98f2afce301192645a8dd5102dbe731e1ad061034e244bf8a929be"
+    },
+    {
+      "path": "data/svar/review/lake_candidate_registry_review.json",
+      "bytes": 1509,
+      "sha256": "004f7e5542d577976f34d265ce5db1aff4fde695ffe2b3786367faa5a5c40d09"
+    },
+    {
+      "path": "data/svar/review/sweden_lake_candidate_registry.geojson",
+      "bytes": 200287,
+      "sha256": "05b7e51b615836f14af2090ac577dc2a862c6ed462132db906cdc3d25ca45957"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
+      "bytes": 5817,
+      "sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596"
+    }
+  ],
+  "interpretation": "Exact recovered normalized bytes are privately retained. The source population differs from the current candidate review, the raw WFS capture is absent, and qualified source review is outstanding. Neither the export nor the derived subset restores a lake ranking."
+}

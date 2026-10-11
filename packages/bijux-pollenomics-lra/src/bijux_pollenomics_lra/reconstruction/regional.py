@@ -17,6 +17,7 @@ from bijux_pollenomics_lra.dispersal.kernels import (
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
     frame,
     integer,
     matrix,
@@ -243,6 +244,8 @@ def checkREVEALS(
     regionCutoff: float,
     writeresults: bool = False,
     verbose: bool = False,
+    *,
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE,
 ) -> bool:
     """Validate the source wrapper's scientific and dimensional contract."""
     del writeresults
@@ -266,7 +269,12 @@ def checkREVEALS(
             "Pollen counts must be nonnegative with positive sample totals"
         )
 
-    normalise_parameters(params, list(pollen_table.columns[1:]))
+    normalise_parameters(
+        params,
+        list(pollen_table.columns[1:]),
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=str(dwm).lower(),
+    )
     basin_type = str(tBasin).lower()
     method = str(dwm).lower()
     if basin_type not in BASIN_TYPES:
@@ -308,10 +316,16 @@ def _reconstruct_frame(
     pollen_draws: object | None,
     output_dir: str | Path,
     collect_samples: bool,
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE,
 ) -> tuple[pd.DataFrame, pd.Series, np.ndarray | None]:
     pollen_table = frame(pollen, "pollen")
     taxa = list(map(str, pollen_table.columns[1:]))
-    parameter_table = normalise_parameters(params, taxa)
+    parameter_table = normalise_parameters(
+        params,
+        taxa,
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=str(dwm).lower(),
+    )
     basin_type = str(tBasin).lower()
     method = str(dwm).lower()
     checkREVEALS(
@@ -324,6 +338,7 @@ def _reconstruct_frame(
         regionCutoff,
         writeresults,
         verbose,
+        fall_speed_profile=fall_speed_profile,
     )
 
     n = int(n)

@@ -241,60 +241,28 @@
       ]
     },
     {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "decision_status": "pending_manual_curation",
-      "locality_resolution_status": "unresolved",
-      "unresolved_place_string": "",
-      "candidate_matches": [],
-      "final_decision": "",
-      "decision_rationale": "",
-      "queued_sample_count": 5,
-      "queued_sample_ids": [
-        "prjeb41594:samea8022720",
-        "prjeb41594:samea8022721",
-        "prjeb41594:samea8022722",
-        "prjeb41594:samea8022723",
-        "prjeb41594:samea8022724"
-      ],
-      "recommended_source_surfaces": [
-        "tracked_source_artifact"
-      ]
-    },
-    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "decision_status": "pending_manual_curation",
       "locality_resolution_status": "unresolved",
       "unresolved_place_string": "",
       "candidate_matches": [
+        "Barentsøya",
+        "Diskobukta",
+        "Gipsdalen",
+        "Kapp Flora",
+        "Rijpjorden",
+        "Sassendalen",
         "Svalbard ancient reindeer context",
-        "Svalbard archipelago reindeer context"
+        "Svalbard archipelago reindeer context",
+        "Tchaiabukta/Hooken Island",
+        "Wijdefjorden"
       ],
       "final_decision": "",
       "decision_rationale": "",
-      "queued_sample_count": 20,
+      "queued_sample_count": 1,
       "queued_sample_ids": [
-        "prjeb60484:samea112757323",
-        "prjeb60484:samea112757324",
-        "prjeb60484:samea112757325",
-        "prjeb60484:samea112757326",
-        "prjeb60484:samea112757327",
-        "prjeb60484:samea112757328",
-        "prjeb60484:samea112757329",
-        "prjeb60484:samea112757330",
-        "prjeb60484:samea112757331",
-        "prjeb60484:samea112757332",
-        "prjeb60484:samea112757333",
-        "prjeb60484:samea112757334",
-        "prjeb60484:samea112757335",
-        "prjeb60484:samea112757336",
-        "prjeb60484:samea112757337",
-        "prjeb60484:samea112757338",
-        "prjeb60484:samea112757339",
-        "prjeb60484:samea112757340",
-        "prjeb60484:samea114857470",
-        "prjeb60484:samea114857471"
+        "prjeb60484:samea112757327"
       ],
       "recommended_source_surfaces": [
         "archive_metadata",

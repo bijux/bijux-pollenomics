@@ -16,7 +16,7 @@ from .chronology_claims import (
     build_sead_chronology_age_review,
 )
 
-EXPECTED_TEMPORAL_FEATURES = 8_172
+EXPECTED_TEMPORAL_FEATURES = 7_244
 EXPECTED_SITE_FEATURES = 2_069
 _SITE_FIELDS = (
     "site_uuid",

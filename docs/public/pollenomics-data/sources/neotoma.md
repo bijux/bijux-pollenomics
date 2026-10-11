@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-28
 ---
 
 # Neotoma
@@ -42,7 +42,7 @@ chronologies, 2,798 chronology controls, 12,388 samples, 23,281 age claims,
 1,262 variables, and 370,936 observations.
 
 The age claims remain partitioned by comparability: 11,526 comparable, 10,622
-context-only, 294 refused, and 839 unresolved. The snapshot also preserves 150
+context-only, 294 refused, and 839 unresolved. The corrected snapshot preserves 33
 conflict records and 52 orphan records rather than hiding them. Of the 200
 sites, 193 have assigned governed-country decisions and are spatially eligible;
 7 remain in review under `UNASSIGNED` and are blocked from propagation.
@@ -53,6 +53,72 @@ and build
 `sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1`.
 The manifest validates row counts, stable IDs, country partitions, part hashes,
 and the complete materialization digest.
+
+### Current sample-level pollen screen
+
+The [governed prerequisite screen](../../../report/source-relations/neotoma/pollen-screen/README.md)
+uses the corrected relational projection and the captured raw source. Neotoma
+allows one default chronology per age type; a radiocarbon and a calibrated
+default within one collection unit do not constitute a conflict. The earlier
+projection incorrectly treated these as contradictory and excluded valid
+count observations. The [chronology manual](https://open.neotomadb.org/manual/chronology-age-related-tables-1.html)
+states this source rule.
+
+| Source partition | Captured samples | Agreeing pollen count observations | Necessary candidate samples | Refused samples |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 5,764 | 125,067 | 5,011 | 753 |
+| Denmark | 279 | 7,930 | 91 | 188 |
+| Norway | 3,884 | 91,852 | 3,544 | 340 |
+| Finland | 2,184 | 33,171 | 1,797 | 387 |
+| Unassigned | 277 | 7,503 | 194 | 83 |
+| **Captured total** | **12,388** | **265,523** | **10,637** | **1,751** |
+
+These are source prerequisites: agreeing source pollen labels, finite integer
+counts and a sample-owned comparable typed age. They are not selected LRA
+taxa, PPE, basin geometry or a validated pollen denominator. No real source
+sample has been admitted to LRA or measured-vegetation accuracy evaluation.
+The [Nordic country-held-out direct-pollen study](../../../report/regions/nordic/direct-pollen/RESULTS.md)
+uses a separately declared 16-label observed-pollen subcomposition and retains
+all target-country exclusions and scores.
+
+Those 10,637 prerequisite samples occupy 163 source site IDs, 167 collection
+unit IDs and 169 dataset IDs. Sweden contributes 5,011 samples at 77 sites;
+Denmark 91 at one site; Norway 3,544 at 52 sites; Finland 1,797 at 28 sites;
+and the unassigned review partition 194 at five sites. These counts are derived
+from the sample IDs and parent IDs in the current governed screen. The earlier
+3,538-sample, 54-site basin and taxon reviews below cover a narrower historical
+screen and cannot certify this current candidate population.
+The [current source-bound LRA prerequisite review](../../../report/source-relations/neotoma/lra-prerequisites/README.md)
+retains all 10,637 sample chronology alternatives and 163 site basin review
+rows. It verifies the original 54-site lakeparameter receipt before reusing its
+exact full-table source pages for the current cohort. Fourteen source parameter
+rows match 13 current sites, without approving historical basin geometry;
+zero samples are admitted to LRA.
+
+The [current pollen-concept priority](../../../report/source-relations/neotoma/taxon-priority/README.md)
+joins the corrected 10,637-sample cohort to 1,006 Neotoma review concepts and
+228,323 source-pollen-labelled count observations. All selected concepts remain
+unapproved; exact `NISP` and `NISP digitized` count sums stay separate. The
+historical 674-concept priority below applies only to the older cohort.
+
+For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
+matches 107 sample depths and 535 selected taxon-count cells against a separate
+EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core
+date differs from the Neotoma January 2002 collection date. Its area has no
+sample-age-specific basin boundary and does not admit numerical LRA.
+
+For Bökesjön, a [primary basin source review](../../../report/source-relations/neotoma/boke-basin/README.md)
+finds a 1984 depth map and a 1.5 ha lake area, while another lake study reports
+1.6 ha. Neither source links its sampling point or modern area to the Neotoma
+pollen core's historical basin boundary. BOKE remains unadmitted to LRA.
+
+### Historical screen before chronology correction
+
+The following 21 September source screens and derived priority/mass reviews
+were made with the former projection. Their counts and artifact paths document
+the earlier decision only; they do not describe the current relational
+snapshot or current country cohort. Do not use their candidate counts as present
+LRA or held-out prediction denominators.
 
 ### Sample-level LRA prerequisite screen
 
@@ -103,13 +169,15 @@ lead only when both source element fields agree; it does not establish a
 reviewed taxon mapping, PPE or compatible count denominator. The API never
 chooses an age claim or produces an executable LRA request.
 
-For source samples `552226` through `552229` in one captured Swedish collection
-unit, the bounded export preserves 116 numeric count observations: 109 carry
-the exact source element label `pollen` and seven are labelled spore. It retains
-four comparable typed age claims without ordering or selecting them. The four
-samples remain refused for numerical LRA and held-out scoring pending chronology,
-taxa/PPE, basin, unit and source-conflict review. These four source samples are
-not asserted to be four independent sites or a complete stratigraphic core.
+The [retained Ageröds Mosse source series](../../../report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json)
+uses the current corrected source projection. Its 16 consecutive source samples
+at one site contain 409 native observations, including 360 agreeing
+pollen-labelled integer count candidates, and 32 alternative age claims. Four
+samples lack a comparable owned age; the following 12 pass that necessary age
+screen. Every sample remains refused for numerical LRA while chronology choice,
+classification, PPE/parameter binding and historical basin geometry are
+unapproved. These 16 rows are one bounded source series, not independent sites
+or a complete basin-qualified reconstruction.
 
 ### Full-source agreeing-pollen prerequisite screen
 
@@ -173,8 +241,8 @@ admits **zero** samples to numerical LRA or measured held-out scoring.
 
 ### What basin evidence accompanies those source locations?
 
-The authenticated site and collection-unit review at
-`artifacts/v3/source/neotoma-site-evidence-20260921/report002.json`
+The authenticated site and collection-unit review retained in the external
+Neotoma source-data store
 (SHA-256 `aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce`)
 retains source row locators and native descriptions, geography, area, collection
 unit type, depositional environment, water depth, location and collection date.
@@ -203,7 +271,8 @@ diameter; their applicability and units for this captured API value require
 source review. A collection date is not a sample age. Historical basin size,
 source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
 
-The host `inspect_neotoma_lra_lakeparameters` review accepts an explicitly
+The [retained lake-parameter source review](../../../report/source-relations/neotoma/lakeparameters/README.md)
+and host `inspect_neotoma_lra_lakeparameters` consumer accept an explicitly
 pinned public Neotoma lakeparameter capture, verifies every captured page and
 type-table hash, and joins only exact source site IDs. The 2026-09-21 bounded
 capture (`capture.json` SHA-256

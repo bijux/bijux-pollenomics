@@ -1,0 +1,15 @@
+{
+  "schema_version": "sead-normalized-surface-lineage.v1",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+  "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+  "acquisition_bundle_sha256": "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9",
+  "normalized_surface_sha256": {
+    "normalized/chronology_claims.json": "8699d529912a90affd546b6a357fca1015fe2dda81621667286e6e95c537a470",
+    "normalized/nordic_environmental_sites.csv": "dbf4df63e8da625637f3ddb19ed7f5e7ddc7d884da9a45a85cebd286f0dbf158",
+    "normalized/nordic_environmental_sites.geojson": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
+    "normalized/nordic_temporal_evidence.csv": "ae3a91725eda0f76d51e142a7271f4435eabbae9d957df13905fafdd42b71aa0",
+    "normalized/nordic_temporal_evidence.geojson": "4baba82c1a2ede8fda974d05641ee21ff7d7e4e6ddcfddec4c85d54b8f0e2f58"
+  }
+}

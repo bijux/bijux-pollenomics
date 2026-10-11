@@ -8,6 +8,15 @@ import os
 from pathlib import Path
 import tempfile
 
+SEAD_NORMALIZED_LINEAGE_PATH = Path("sead/normalized/source_lineage.json")
+SEAD_NORMALIZED_LINEAGE_INPUTS = (
+    Path("sead/normalized/chronology_claims.json"),
+    Path("sead/normalized/nordic_environmental_sites.csv"),
+    Path("sead/normalized/nordic_environmental_sites.geojson"),
+    Path("sead/normalized/nordic_temporal_evidence.csv"),
+    Path("sead/normalized/nordic_temporal_evidence.geojson"),
+)
+
 SEAD_REPOSITORY_SURFACE_PATHS = tuple(
     Path(value)
     for value in (
@@ -20,6 +29,7 @@ SEAD_REPOSITORY_SURFACE_PATHS = tuple(
         "sead/normalized/nordic_environmental_sites.geojson",
         "sead/normalized/nordic_temporal_evidence.csv",
         "sead/normalized/nordic_temporal_evidence.geojson",
+        "sead/normalized/source_lineage.json",
         "sead/review/access_model.csv",
         "sead/review/access_model.json",
         "sead/review/access_model.md",
@@ -87,7 +97,11 @@ def prepare_repository_surface_transaction(
             for relative_path in SEAD_REPOSITORY_SURFACE_PATHS
         )
         existing_count = sum(item.existed for item in baseline)
-        if existing_count not in {0, len(SEAD_REPOSITORY_SURFACE_PATHS)}:
+        missing = {item.relative_path for item in baseline if not item.existed}
+        if existing_count not in {
+            0,
+            len(SEAD_REPOSITORY_SURFACE_PATHS),
+        } and missing != {SEAD_NORMALIZED_LINEAGE_PATH}:
             raise ValueError("SEAD repository-surface baseline is partial")
         transaction_root = Path(
             tempfile.mkdtemp(prefix="transaction-", dir=artifacts_root)

@@ -109,14 +109,14 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(
             rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
         )
-        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 8_172)
+        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 7_244)
         self.assertEqual(
             rows["sead"]["detail_metrics"]["captured_chronology_record_count"],
             25_109,
         )
         self.assertEqual(
             rows["sead"]["detail_metrics"]["mapped_chronology_record_count"],
-            14_264,
+            13_170,
         )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],
