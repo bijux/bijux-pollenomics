@@ -8,7 +8,7 @@
 - Next required stage: `chronology_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `20`
+- Final recovered sample rows: `18`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
 
@@ -51,3 +51,4 @@
 ## Manual Curation Work Units
 
 - `chronology_recovery`: 24 item(s), blocks chronology honesty and publication precision
+- `sample_identity_resolution`: 2 item(s), blocks trustworthy project-level sample recovery counts

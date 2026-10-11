@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-12
+last_reviewed: 2026-09-30
 ---
 
 # Package Split
@@ -17,6 +17,12 @@ GPL-derived numerical engine being integrated for v0.2.x; it is not yet admitted
 to the public release set. The split separates scientific
 behavior, compatibility, and repository maintenance without creating
 competing products.
+
+On 30 September 2026, we checked PyPI's project and simple indexes. The
+published host was `0.1.8` with no `lra` extra, and the engine project was
+absent from both indexes. The optional-extra install has been verified from
+local built wheels; public-index installation remains pending a reviewed
+release of both compatible distributions.
 
 ## Distribution Contracts
 

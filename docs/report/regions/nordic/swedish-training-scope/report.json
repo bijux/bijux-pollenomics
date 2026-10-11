@@ -1,0 +1,57 @@
+{
+  "coverage_rows": 6,
+  "coverage_sha256": "58b910beaf0e2ad7a0d3f84e16fbbfffcf417b5b255fff1d94ee4f25335fc32b",
+  "interpretation": "Prior-exposed Swedish whole-site observed-pollen comparison on 31 author targets; four-country training adds DK/FI/NO sites and does not supply LRA or vegetation truth.",
+  "paired_score_rows": 117,
+  "paired_scores_sha256": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
+  "paired_site_bins": 39,
+  "prediction_freeze_sha256": "8ff7979c370465762b0903ed1551f1b78161dade7fda60e2ed5f2ceea3182f8b",
+  "prepare_sha256": "36a86fe1293d223a8aa3820351ae82f0ee8aec80666a83d37cb43afb862e7020",
+  "schema_version": "swedish-training-scope-study.v1",
+  "scope_coverage": {
+    "four_country": {
+      "candidate_bins": 54,
+      "predicted_bins": 54,
+      "refused_bins": 0,
+      "training_sites_per_fold": 83
+    },
+    "sweden_only": {
+      "candidate_bins": 54,
+      "predicted_bins": 39,
+      "refused_bins": 15,
+      "training_sites_per_fold": 2
+    }
+  },
+  "score_rows": 279,
+  "scores_sha256": "6f7d7d745d3ffbb027879718d03e3efbcad669a20b0ef23f8a70f4bc045e9920",
+  "site_macro_hellinger_distance_on_common_support": {
+    "inverse_distance_squared": {
+      "four_country": 0.33671648882840494,
+      "sweden_only": 0.4602275735470711
+    },
+    "nearest_site": {
+      "four_country": 0.39013449871035416,
+      "sweden_only": 0.4644313995461847
+    },
+    "training_mean": {
+      "four_country": 0.46388702440929835,
+      "sweden_only": 0.5093059404813884
+    }
+  },
+  "site_macro_mae_fraction_on_common_support": {
+    "inverse_distance_squared": {
+      "four_country": 0.02322620037318312,
+      "sweden_only": 0.03284577451308052
+    },
+    "nearest_site": {
+      "four_country": 0.026715639047860666,
+      "sweden_only": 0.0322889464275184
+    },
+    "training_mean": {
+      "four_country": 0.03293535405315334,
+      "sweden_only": 0.03584399926168128
+    }
+  },
+  "source_outcome_sha256": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5",
+  "target_sites": 3
+}

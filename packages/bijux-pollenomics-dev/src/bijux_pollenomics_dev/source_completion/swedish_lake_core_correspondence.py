@@ -342,7 +342,7 @@ def compare_lakes(
 
 
 def main() -> int:
-    """Run Swedish lake core correspondence from the supplied command arguments."""
+    """Run the CLI to compare two Swedish lake core leads across retained Neotoma and LandClim sources."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in (
         "raw_part",

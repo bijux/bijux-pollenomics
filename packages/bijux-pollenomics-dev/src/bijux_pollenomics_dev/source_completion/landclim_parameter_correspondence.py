@@ -126,7 +126,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run LandClim parameter correspondence accounts from the supplied command arguments."""
+    """Run the CLI to compare the author's REVEALS inputs with the published PPE/FSP table."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

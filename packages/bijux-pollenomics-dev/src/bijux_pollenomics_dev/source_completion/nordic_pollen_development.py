@@ -418,7 +418,7 @@ def publish(repository: Path, inputs: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run governed Nordic pollen development accounts from the supplied command arguments."""
+    """Run the CLI to select observed-pollen transfer models inside held-out-country training sets."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--inputs", type=Path, required=True)

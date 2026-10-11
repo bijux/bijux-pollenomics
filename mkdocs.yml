@@ -114,6 +114,10 @@ nav:
   - Home: index.md
   - Pollenomics:
       - Overview: public/pollenomics/index.md
+      - Scientific Evidence:
+          - Overview: public/pollenomics/science/index.md
+          - Sources and Scope: public/pollenomics/science/sources.md
+          - Results and Model Use: public/pollenomics/science/results.md
       - Foundation:
           - Overview: public/pollenomics/foundation/index.md
           - Repository Scope and Limits: public/pollenomics/foundation/repository-scope-and-limits.md

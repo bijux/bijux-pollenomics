@@ -136,7 +136,7 @@ def require_current_review(
 
 
 def run(repository: Path, output: Path) -> Path:
-    """Publish source capability accounts bound to their governing ledgers."""
+    """Publish capability and materialization without conflating either with admission."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
@@ -154,7 +154,7 @@ def run(repository: Path, output: Path) -> Path:
 
 
 def main() -> None:
-    """Run source capability publication evidence from the supplied command arguments."""
+    """Run the CLI to publish capability and materialization without conflating either with admission."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

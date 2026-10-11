@@ -128,7 +128,7 @@ def compare_envelopes(
 
 
 def main() -> int:
-    """Run published-window uncertainty comparisons from the supplied command arguments."""
+    """Run the CLI to describe mean and reported-SE overlap for one authenticated ESSD window."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--correspondence-csv", type=Path, required=True)
     parser.add_argument("--provenance-report", type=Path, required=True)

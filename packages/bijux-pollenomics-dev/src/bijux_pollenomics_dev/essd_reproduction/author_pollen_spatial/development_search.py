@@ -525,7 +525,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
 
 
 def main() -> int:
-    """Run governed pollen development searches from the supplied command arguments."""
+    """Run a bounded, site-grouped observed-pollen development search."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--author", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True)

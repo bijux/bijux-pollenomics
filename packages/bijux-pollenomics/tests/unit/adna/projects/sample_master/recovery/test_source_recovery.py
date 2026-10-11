@@ -238,6 +238,11 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
                         Counter(row.sample_identity_resolution for row in rows),
                         {"final": 44, "provisional": 1},
                     )
+                elif project_accession == "SRP073444":
+                    self.assertEqual(
+                        Counter(row.sample_identity_resolution for row in rows),
+                        {"final": 18, "ambiguous": 2},
+                    )
                 else:
                     self.assertTrue(
                         all(row.sample_identity_resolution == "final" for row in rows)

@@ -16,6 +16,11 @@ def test_reindeer_table_joins_keep_geography_and_unresolved_aliases() -> None:
     by_alias = {row.preferred_sample_label: row for row in rows}
 
     assert len(rows) == len(by_alias) == 20
+    assert all(
+        "mec17274-sup-0003-Table S3.xlsx" in row.sample_lineage_path for row in rows
+    )
+    assert "Table S3 row 111, ID FJL1a" in by_alias["FJL1a"].sample_lineage_locator
+    assert "Table S3 row 112, ID FJL3" in by_alias["FJL3"].sample_lineage_locator
     assert (
         sum(row.sample_evidence_status == "direct_table_extracted" for row in rows)
         == 20

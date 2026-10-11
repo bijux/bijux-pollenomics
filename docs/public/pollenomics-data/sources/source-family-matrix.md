@@ -74,7 +74,7 @@ The current stage matrix reports this materialized state:
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
 | SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
 | AADR | present | missing | present | present | three v66 capture files and a compact accountability receipt reconcile 51,005 rows into 27,755 Genetic IDs; normalized membership and qualified scientific review remain unavailable |
-| animal aDNA | present | present | present | present | 10 species and 1,470 final sample-foundation rows from 22 contributing projects are materialized within a 40-project registry |
+| animal aDNA | present | present | present | present | 10 species and 1,468 final sample-foundation rows from 22 contributing projects are materialized within a 40-project registry |
 | EMPD2 | missing | missing | present | missing | compact governed review records 915 source-metadata samples, 27,161 count rows, and 914 mechanical candidates; none is a governed assignment, publication member, or scientific admission |
 | Swedish NFI | missing | missing | present | missing | compact governed access and reference review covers four country leads; only the contracted Swedish source has local plot-row custody, with zero admitted pollen–plot pairs and no area-cover authority |
 

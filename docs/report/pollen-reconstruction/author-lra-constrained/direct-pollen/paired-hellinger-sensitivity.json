@@ -1,0 +1,60 @@
+{
+  "schema_version": "author-lra-paired-hellinger-sensitivity.v1",
+  "paired_hellinger_sha256": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+  "excluded_site": "author:BECKHAM",
+  "matched_sites": 14,
+  "method_summaries": [
+    {
+      "method": "training_mean",
+      "matched_sites": 14,
+      "direct_lower_site_count": 14,
+      "lra_lower_site_count": 0,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_hellinger": -0.07858827266935527,
+      "median_direct_minus_lra_hellinger": -0.06050133720816944,
+      "leave_one_site_out_mean_range": [
+        -0.08244273388213018,
+        -0.07000585086681729
+      ],
+      "omitted_site_at_range_bounds": [
+        "author:WINDMILL",
+        "author:GOURTEMIRES"
+      ]
+    },
+    {
+      "method": "nearest_site",
+      "matched_sites": 14,
+      "direct_lower_site_count": 7,
+      "lra_lower_site_count": 7,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_hellinger": -0.030233539996537804,
+      "median_direct_minus_lra_hellinger": -0.004977524088982582,
+      "leave_one_site_out_mean_range": [
+        -0.03531840720362008,
+        -0.018214778548645772
+      ],
+      "omitted_site_at_range_bounds": [
+        "author:MOLECHAM",
+        "author:WINNEYS"
+      ]
+    },
+    {
+      "method": "inverse_distance_squared",
+      "matched_sites": 14,
+      "direct_lower_site_count": 11,
+      "lra_lower_site_count": 3,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_hellinger": -0.04174271164581233,
+      "median_direct_minus_lra_hellinger": -0.015243518094405606,
+      "leave_one_site_out_mean_range": [
+        -0.04613914440282157,
+        -0.03400202607625569
+      ],
+      "omitted_site_at_range_bounds": [
+        "author:HANGINGS",
+        "author:WINNEYS"
+      ]
+    }
+  ],
+  "interpretation": "descriptive leave-one-site-out influence on prior-exposed English development; no sampling confidence interval, vegetation accuracy, or transfer claim"
+}

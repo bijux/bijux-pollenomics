@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
+from .reference_stash import _reference_stash_records_cached
 from .registries import (
     _build_paper_registry_cached,
     _build_project_registry_cached,
     _build_supplement_zip_member_registry_cached,
 )
-from .storage import (
-    _build_source_artifact_index_cached,
-    _reference_stash_records_cached,
-)
+from .storage import _build_source_artifact_index_cached
 
 
 def _clear_source_library_caches() -> None:

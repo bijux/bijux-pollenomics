@@ -26,6 +26,147 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_author_radius_sensitivity() -> None:
+    """Keep frozen forward projections and paired scores bound to the old study."""
+    root = REPORT_DIR / "author-lra-constrained"
+    study = root / "radius-sensitivity"
+    frozen_path = study / "frozen/predictions.json"
+    frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+    report = json.loads((study / "scored/report.json").read_text(encoding="utf-8"))
+    if (
+        frozen["outcomes_opened"] is not False
+        or frozen["source"]["experiment_sha256"]
+        != "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
+        or frozen["source"]["prediction_manifest_sha256"]
+        != "56bc555a2373fb16c291e6fb9dc50cc43b5f99f7b03dc6e516c00c14d953329f"
+        or frozen["factors"] != [0.8, 1.0, 1.2]
+        or report["prediction_freeze_sha256"] != sha256(frozen_path)
+        or report["eligible_sites"] != 15
+        or report["scored_sites"] != 14
+        or report["refused_site"] != "author:BECKHAM"
+    ):
+        raise ValueError("author radius sensitivity source or coverage changed")
+    predictions = frozen["rows"]
+    with (study / "scored/scores.csv").open(newline="", encoding="utf-8") as stream:
+        scores = list(csv.DictReader(stream))
+
+    def key(row: dict[str, Any]) -> tuple[str, str, float]:
+        return row["record_id"], row["method"], float(row["radius_factor"])
+
+    if (
+        len(predictions) != len(scores) != 126
+        or len({key(row) for row in predictions}) != 126
+        or {key(row) for row in predictions} != {key(row) for row in scores}
+    ):
+        raise ValueError("author radius sensitivity rows differ")
+    with (root / "scores.csv").open(newline="", encoding="utf-8") as stream:
+        original = {
+            (row["target_record_id"], row["method"]): float(row["mae_fraction"])
+            for row in csv.DictReader(stream)
+            if row["status"] == "scored"
+        }
+    for row in scores:
+        if float(row["radius_factor"]) == 1.0 and not math.isclose(
+            float(row["mae_fraction"]),
+            original[row["record_id"], row["method"]],
+            abs_tol=1e-15,
+            rel_tol=0,
+        ):
+            raise ValueError("author radius baseline score differs")
+    for summary in report["site_macro"]:
+        selected = [
+            row
+            for row in scores
+            if row["method"] == summary["method"]
+            and float(row["radius_factor"]) == summary["radius_factor"]
+        ]
+        if len(selected) != 14 or any(
+            not math.isclose(
+                sum(float(row[field]) for row in selected) / 14,
+                summary[result_field],
+                abs_tol=1e-15,
+                rel_tol=0,
+            )
+            for field, result_field in (
+                ("mae_fraction", "site_macro_mae_fraction"),
+                ("hellinger_distance", "site_macro_hellinger_distance"),
+            )
+        ):
+            raise ValueError("author radius site-macro summary differs")
+
+    paired_dir = study / "paired"
+    paired_report = json.loads((paired_dir / "report.json").read_text())
+    expected_sources = {
+        "radius_report": study / "scored/report.json",
+        "radius_scores": study / "scored/scores.csv",
+        "direct_mae": root / "direct-pollen/matched-scores.csv",
+        "direct_hellinger": root / "direct-pollen/paired-hellinger.json",
+    }
+    if (
+        paired_report["source_sha256"]
+        != {name: sha256(path) for name, path in expected_sources.items()}
+        or paired_report["producer_sha256"] != sha256(study / "paired_comparison.py")
+        or paired_report["matched_sites"] != 14
+        or paired_report["paired_rows"] != 126
+        or len(paired_report["summary"]) != 9
+    ):
+        raise ValueError("author radius paired source identity changed")
+    with (paired_dir / "paired-scores.csv").open(newline="") as stream:
+        paired = list(csv.DictReader(stream))
+    radius_by_key = {key(row): row for row in scores}
+    if len(paired) != 126 or {key(row) for row in paired} != set(radius_by_key):
+        raise ValueError("author radius paired support changed")
+    for row in paired:
+        source = radius_by_key[key(row)]
+        if (
+            row["observation_sha256"] != source["observation_sha256"]
+            or not math.isclose(
+                float(row["lra_mae_fraction"]),
+                float(source["mae_fraction"]),
+                abs_tol=1e-15,
+                rel_tol=0,
+            )
+            or not math.isclose(
+                float(row["direct_mae_fraction"]) - float(row["lra_mae_fraction"]),
+                float(row["direct_minus_lra_mae_fraction"]),
+                abs_tol=1e-15,
+                rel_tol=0,
+            )
+        ):
+            raise ValueError("author radius paired row differs")
+    for summary in paired_report["summary"]:
+        subset = [
+            row
+            for row in paired
+            if row["method"] == summary["method"]
+            and float(row["radius_factor"]) == summary["radius_factor"]
+        ]
+        if (
+            len(subset) != 14
+            or summary["direct_minus_lra_mae_fraction"] >= 0
+            or summary["direct_minus_lra_hellinger_distance"] >= 0
+            or sum(float(row["direct_minus_lra_mae_fraction"]) < 0 for row in subset)
+            != summary["direct_lower_mae_sites"]
+            or any(
+                not math.isclose(
+                    sum(float(row[field]) for row in subset) / 14,
+                    summary[field],
+                    abs_tol=1e-15,
+                    rel_tol=0,
+                )
+                for field in (
+                    "direct_mae_fraction",
+                    "lra_mae_fraction",
+                    "direct_minus_lra_mae_fraction",
+                    "direct_hellinger_distance",
+                    "lra_hellinger_distance",
+                    "direct_minus_lra_hellinger_distance",
+                )
+            )
+        ):
+            raise ValueError("author radius paired summary differs")
+
+
 def verify_publication_correspondence(scope: dict[str, Any]) -> None:
     """Keep publication ledgers bound to their distinct scientific claims."""
     correspondence = scope["publication_correspondence"]
@@ -518,7 +659,7 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
     """Check source identity and complete published uncertainty-bound coverage."""
     directory = (
         REPOSITORY_ROOT
-        / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
+        / "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds"
     )
     report: dict[str, Any] = json.loads(
         (directory / "report.json").read_text(encoding="utf-8")
@@ -592,6 +733,22 @@ def main() -> None:
     verify_publication_correspondence(scope)
     verify_publication_input_inventory(scope)
     verify_author_buffered_pollen(scope)
+    verify_author_radius_sensitivity()
+    radius_scope = scope["author_lra_forward_radius_sensitivity"]
+    radius_report = REPOSITORY_ROOT / radius_scope["report"]
+    if (
+        radius_scope["prediction_freeze_sha256"]
+        != json.loads(radius_report.read_text())["prediction_freeze_sha256"]
+        or radius_scope["modeled_radius_factors"] != [0.8, 1.0, 1.2]
+        or radius_scope["prediction_rows"] != 126
+        or radius_scope["eligible_sites"] != 15
+        or radius_scope["scored_sites"] != 14
+        or radius_scope["paired_report"]
+        != "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json"
+        or radius_scope["paired_rows"] != 126
+        or radius_scope["aggregate_direct_lower_all_nine"] is not True
+    ):
+        raise ValueError("author radius scope differs from retained study")
     with (REPORT_DIR / "swedish-source-questions.csv").open(
         newline="", encoding="utf-8"
     ) as stream:

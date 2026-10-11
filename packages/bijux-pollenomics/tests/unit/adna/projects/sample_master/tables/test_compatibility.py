@@ -126,12 +126,14 @@ def test_table_adapter_package_is_bounded_by_durable_responsibility() -> None:
     }
 
     assert frozenset(modules) == {
+        "camel_samples.py",
         "goat_canary.py",
         "goat_imputation.py",
         "goat_qinghai.py",
         "horse_chronology.py",
         "horse_nature.py",
         "horse_panels.py",
+        "obishir_sheep.py",
         "sheep.py",
         "workbook.py",
     }

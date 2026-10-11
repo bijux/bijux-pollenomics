@@ -130,7 +130,7 @@ def replay(
 
 
 def main() -> None:
-    """Rank unresolved Neotoma taxonomy by retained source evidence."""
+    """Run the CLI to replay source-bound Neotoma review priorities and captured citation leads."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--review-directory", required=True, type=Path)

@@ -9,11 +9,11 @@
   },
   "yield_review": {
     "tracked_project_count": 40,
-    "projects_with_exact_expected_count": 4,
+    "projects_with_exact_expected_count": 5,
     "projects_with_minimum_expected_floor": 22,
     "projects_with_implausibly_low_recovery": 0,
-    "exact_expected_sample_total": 17,
-    "recovered_final_sample_total": 1470,
+    "exact_expected_sample_total": 37,
+    "recovered_final_sample_total": 1468,
     "minimum_gap_total": 0
   },
   "species_deficit_counts": {
@@ -92,7 +92,7 @@
     "chronology_recovery": 12,
     "locality_string_resolution": 7,
     "site_resolution": 7,
-    "sample_identity_resolution": 1
+    "sample_identity_resolution": 2
   },
   "missing_source_queue_counts": {
     "missing_primary_paper_linkage": 13,
@@ -105,14 +105,14 @@
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
     "sample_with_site": 539,
-    "sample_with_site_and_chronology": 374,
+    "sample_with_site_and_chronology": 372,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {
     "partition": "mutually_exclusive",
-    "counted_sample_rows": 1470,
+    "counted_sample_rows": 1468,
     "count_basis": "species_normalized_sample_rows",
-    "project_source_master_final_sample_rows": 1470,
+    "project_source_master_final_sample_rows": 1468,
     "source_master_species_alignment": "aligned",
     "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
   },

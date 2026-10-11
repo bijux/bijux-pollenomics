@@ -176,7 +176,7 @@ def build(repository: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Bind retained dataset identities to explicit study inclusion decisions."""
+    """Run the CLI to bind Neotoma dataset identities to the bounded Nordic pollen study."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

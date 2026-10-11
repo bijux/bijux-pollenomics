@@ -248,8 +248,8 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
             for row in sensitivity["rows"]
             if row["profile_key"] == "baseline" and row["lake_label"] == "Alpha"
         )
-        assert alpha_baseline["sead_temporal_context_window_count"] == 1
-        assert alpha_baseline["sead_temporal_context_record_count"] == 2
+        assert alpha_baseline["sead_temporal_context_window_count"] == 0
+        assert alpha_baseline["sead_temporal_context_record_count"] == 0
         assert alpha_baseline["temporal_context_windows"] == "late_holocene"
 
 

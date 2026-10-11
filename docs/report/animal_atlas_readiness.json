@@ -17,9 +17,9 @@
       "not_materialized": 134
     },
     "samples": {
-      "denominator": 1470,
+      "denominator": 1468,
       "mapped": 331,
-      "blocked": 1139,
+      "blocked": 1137,
       "unresolved_subset_of_blocked": 378
     }
   },
@@ -221,15 +221,15 @@
       "not_materialized_count": 1,
       "candidate_point_count": 0,
       "mapped_sample_count": 0,
-      "blocked_sample_count": 33,
-      "tracked_sample_count": 33,
+      "blocked_sample_count": 31,
+      "tracked_sample_count": 31,
       "coordinate_mappable_provenance_count": 1,
       "coordinate_refused_provenance_count": 0,
       "coordinate_provenance_denominator": 1,
       "coordinate_mappable_share": 1.0,
       "publication_share_of_mappable_coordinates": 0.0,
       "readiness_status": "blocked",
-      "status_reason": "33 blocked sample rows and 0 refused coordinate-provenance rows still prevent atlas publication.",
+      "status_reason": "31 blocked sample rows and 0 refused coordinate-provenance rows still prevent atlas publication.",
       "country_mapped_locality_counts": {}
     },
     {

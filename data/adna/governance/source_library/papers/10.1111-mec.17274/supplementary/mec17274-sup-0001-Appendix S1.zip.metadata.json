@@ -1,0 +1,27 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fmec.17274&file=mec17274-sup-0001-Appendix+S1.zip",
+  "source_listing_url": "https://onlinelibrary.wiley.com/doi/10.1111/mec.17274",
+  "artifact_kind": "supplementary_zip",
+  "content_type": "application/zip",
+  "byte_size": 5457175,
+  "paper_doi": "10.1111/mec.17274",
+  "project_accessions": [
+    "PRJEB60484"
+  ],
+  "acquisition_route": "user_supplied_2026-09-29",
+  "publisher_listing_status": "matching_filename_listed",
+  "publisher_byte_parity": "unverified_publisher_download_http_403",
+  "member_table_s3_sha256": "81cc00377f5898004b8f4f724c0aa1b787fdb30d7df9874b31f1a27241268462",
+  "content_sha256": "179ce63b79122e62017c8df8433379929f8c160f399ff44969ef05917ad734c9",
+  "storage_byte_size": 5457175,
+  "storage_sha256": "179ce63b79122e62017c8df8433379929f8c160f399ff44969ef05917ad734c9",
+  "storage_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+  "content_encoding": null,
+  "evidence_locators": [
+    {
+      "claim_family": "sample_metadata",
+      "locator": "Appendix S1 ZIP member mec17274-sup-0003-Table S3.xlsx, Tabellenblatt1 rows 3-20 and 111-112"
+    }
+  ]
+}

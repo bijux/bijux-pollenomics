@@ -54,7 +54,7 @@ def panel_rows(csv_bytes: bytes, report: dict[str, Any]) -> list[dict[str, str]]
 def generate_modeled_panel_candidate(
     repository: Path, destination: Path
 ) -> dict[str, Any]:
-    """Create retained modeled panel browser fixtures in a new artifact tree."""
+    """Render a source-bound PANGAEA 937075 atlas for panel browser checks."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -226,7 +226,7 @@ def generate_modeled_panel_candidate(
 
 
 def main() -> None:
-    """Run modeled panel browser fixtures from the supplied command arguments."""
+    """Run the CLI to render a source-bound PANGAEA 937075 atlas for panel browser checks."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--destination", type=Path, required=True)

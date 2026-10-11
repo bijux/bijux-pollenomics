@@ -41,7 +41,7 @@ FIELDS = (
 
 
 class WindowRow(TypedDict):
-    """Retain the source identity and values of one published uncertainty window."""
+    """Record one archived PFT group and window covariance-bound summary."""
 
     window: int
     group: str
@@ -182,7 +182,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
-    """Run source-bound PFT uncertainty bounds from the supplied command arguments."""
+    """Run the CLI to check archived standard errors against necessary sum-covariance bounds."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

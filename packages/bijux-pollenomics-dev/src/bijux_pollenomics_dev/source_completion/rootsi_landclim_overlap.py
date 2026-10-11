@@ -414,7 +414,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
-    """Run Rootsi and LandClim source overlap from the supplied command arguments."""
+    """Run the CLI to bind Rootsi metadata candidates to LandClim site coverage without admitting truth."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

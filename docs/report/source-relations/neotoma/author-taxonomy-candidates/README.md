@@ -28,6 +28,22 @@ is admitted. A qualified reviewer can use the retained concept IDs and country
 counts to work through the high-mass author-target leads first, while preserving
 ambiguous and unmatched rows in the denominator.
 
+## Cereal concept questions
+
+The user's two cited Neotoma IDs occur in the retained 1,006-concept ledger.
+These counts are the priority-screen observations, not every Neotoma occurrence:
+
+| Native ID and label | Priority observations | Native NISP | Literal author lookup | Decision state |
+| --- | ---: | ---: | --- | --- |
+| `3924` `Hordeum/Secale` | 2, both SE | 2, both SE | `Cerealia-t` | Combined taxon; cannot be narrowed to `Secale` from this name. |
+| `969` `Triticum` | 153: FI 3, NO 2, SE 148 | 1,354: FI 4, NO 2, SE 1,348 | `Cerealia-t` | Literal author-target candidate; broader cereal aggregation still needs review. |
+
+Both rows retain `needs_discussion` and `scientific_admission_allowed: false`.
+The current author lookup has a broad cereal target; it does not supply a
+qualified species-level `Secale` determination for a combined pollen type.
+Reassigning either row would change the declared taxon axis and requires a
+source-specific review, not a text replacement in the model.
+
 Replay against the retained author reference, writing a disposable copy under
 `artifacts/`, then compare `report.json` byte-for-byte with the governed result:
 

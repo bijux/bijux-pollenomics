@@ -1,7 +1,7 @@
 # Project expected sample yield review
 
 - Tracked projects: `40`
-- Projects with exact expected counts: `4`
+- Projects with exact expected counts: `5`
 - Projects with a minimum expected floor: `22`
 - Implausibly low recovery projects: `0`
 
@@ -11,7 +11,7 @@
 | `PRJEB75467` | `Bos taurus` | - | 1 | 44 | `minimum_expected_floor_met` | `false` |
 | `PRJNA705960` | `Bos taurus` | - | 11 | 11 | `minimum_expected_floor_met` | `false` |
 | `KU605068-KU605080` | `Camelus dromedarius` | 13 | 13 | 13 | `recovered_to_exact_expected_count` | `false` |
-| `SRP073444` | `Camelus dromedarius` | - | 1 | 20 | `minimum_expected_floor_met` | `false` |
+| `SRP073444` | `Camelus dromedarius` | - | 1 | 18 | `minimum_expected_floor_met` | `false` |
 | `KX379528-KX379529` | `Canis lupus familiaris` | 2 | 2 | 2 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407451` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407453` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |
@@ -40,7 +40,7 @@
 | `PRJEB69690` | `Ovis aries` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
 | `PRJEB81145` | `Ovis aries` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |
 | `PRJEB57293` | `Rangifer tarandus` | - | - | 0 | `out_of_scope_reference` | `false` |
-| `PRJEB60484` | `Rangifer tarandus` | - | 1 | 20 | `minimum_expected_floor_met` | `false` |
+| `PRJEB60484` | `Rangifer tarandus` | 20 | 20 | 20 | `recovered_to_exact_expected_count` | `false` |
 | `PRJEB61721` | `Rangifer tarandus` | - | - | 0 | `out_of_scope_reference` | `false` |
 | `PRJNA634908` | `Rangifer tarandus` | - | - | 0 | `out_of_scope_reference` | `false` |
 | `PRJEB30282` | `Sus scrofa domesticus` | - | 1 | 343 | `minimum_expected_floor_met` | `false` |

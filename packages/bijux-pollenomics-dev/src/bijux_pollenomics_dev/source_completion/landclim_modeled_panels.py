@@ -193,7 +193,7 @@ def run(repository: Path, output: Path) -> Path:
 
 
 def main() -> None:
-    """Run LandClim modeled panel custody from the supplied command arguments."""
+    """Run the CLI to publish source-bound Nordic LandClim model panels and uncertainty ranges."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

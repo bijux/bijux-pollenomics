@@ -139,6 +139,7 @@ class LoveConfig:
     optimizer_tolerance: float = 0.01
     fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
     optimized_profile: OptimizedLoveProfile | str = OptimizedLoveProfile.DISQOVER_SOURCE
+    optimizer_backend: str = "scipy.differential_evolution"
 
     def __post_init__(self) -> None:
         method = _enum_value(self.method, LoveMethod, "method")
@@ -150,6 +151,18 @@ class LoveConfig:
             and optimized_profile != OptimizedLoveProfile.DISQOVER_SOURCE.value
         ):
             raise ValidationError("optimized_profile requires optimized LOVE")
+        if self.optimizer_backend not in {
+            "scipy.differential_evolution",
+            "scipy.slsqp-simplex-uniform",
+        }:
+            raise ValidationError("Unknown optimized LOVE optimizer backend")
+        if self.optimizer_backend == "scipy.slsqp-simplex-uniform" and (
+            method != LoveMethod.OPTIMIZED.value
+            or optimized_profile != OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+        ):
+            raise ValidationError(
+                "Simplex SLSQP requires ring-taxon-preserving optimized LOVE"
+            )
         basin_type = _enum_value(
             self.regional_basin_type, BasinType, "regional_basin_type"
         )
@@ -229,6 +242,8 @@ class LoveConfig:
         }
         if self.method == LoveMethod.OPTIMIZED.value:
             settings["optimized_profile"] = self.optimized_profile
+        if self.optimizer_backend != "scipy.differential_evolution":
+            settings["optimizer_backend"] = self.optimizer_backend
         return settings
 
 

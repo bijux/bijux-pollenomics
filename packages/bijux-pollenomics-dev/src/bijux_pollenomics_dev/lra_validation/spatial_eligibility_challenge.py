@@ -390,7 +390,7 @@ def build_spatial_eligibility_challenge() -> JsonObject:
 
 
 def main() -> int:
-    """Run spatial eligibility challenge evidence from the supplied command arguments."""
+    """Run the CLI to retain synthetic threshold, chronology and regional eligibility consumers."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

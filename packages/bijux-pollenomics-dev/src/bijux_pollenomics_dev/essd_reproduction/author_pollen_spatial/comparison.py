@@ -379,7 +379,7 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
 
 
 def main() -> int:
-    """Run held-out pollen prediction comparisons from the supplied command arguments."""
+    """Run the CLI to compare persisted author-pollen baselines on identical buffered target support."""
     parser = argparse.ArgumentParser(description=__doc__)
     for method in METHOD_LABELS:
         parser.add_argument(f"--{method.replace('_', '-')}", type=Path, required=True)

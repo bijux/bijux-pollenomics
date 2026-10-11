@@ -1,0 +1,42 @@
+{
+  "interpretation": "Official modern lake identity and source-bound nearby SEAD display intervals are established. Physical pollen-core identity, selected source age model, scientific chronology admission, event propagation and ecological causation are not established.",
+  "lake": {
+    "core_identity_decision": "not_established",
+    "neotoma_candidate_site_id": "neotoma:site:28871",
+    "neotoma_to_landclim_km": 1.02697,
+    "official_area_km2": 0.022251,
+    "official_name": "Bjäresjö",
+    "official_registry_id": "614958-137018",
+    "radius_transfer": "refused",
+    "representative_point_lon_lat": [
+      13.751743,
+      55.459405
+    ],
+    "requested_name": "Bjäresjösjön",
+    "same_name_landclim_sequence": "BJARE",
+    "source_temporal_posture": "current_hydrographic_identity_only"
+  },
+  "nearby_sead_sha256": "79e9d001756dbb5e0a15862e3f1eef4cd65aa5b70719e39b598605c77396adcc",
+  "published_window_count": 25,
+  "schema_version": "bjaresjo-context-screen.v1",
+  "sead": {
+    "chronology_role": "display_only",
+    "ecological_or_event_join": "refused",
+    "nearby_interval_features": 371,
+    "nearby_sites": 13,
+    "radius_km": 20.0,
+    "source_release_status": "refused"
+  },
+  "source_sha256": {
+    "land_use_synthesis": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380",
+    "registry": "05b7e51b615836f14af2090ac577dc2a862c6ed462132db906cdc3d25ca45957",
+    "sead_admission": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+    "sead_claim_review": "6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9",
+    "sead_claims": "e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546",
+    "sead_interval_review": "b2c7fe1f2e4ab7b1d331031abcc4fac9bd484d81345f463df5d3f08085a0735c",
+    "sead_intervals": "4baba82c1a2ede8fda974d05641ee21ff7d7e4e6ddcfddec4c85d54b8f0e2f58",
+    "site_ledger": "104049578ccd4f6fb0e0df869ffa33ed5033bb8a68d5208e019428de7ee43e8c"
+  },
+  "window_counts_match_published_synthesis": true,
+  "window_overlap_sha256": "53181987cf6b8ecf5537e077fb9e44ad96762f51a6050cbe81b95ec3467935af"
+}

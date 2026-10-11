@@ -65,7 +65,7 @@ def _primary_rows(data: bytes) -> list[dict[str, str]]:
 
 
 def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
-    """Publish Sølsø core age lineage accounts while retaining source and refusal boundaries."""
+    """Match a primary Solsø core age table to retained Neotoma controls."""
     repository = repository.resolve()
     source_path = source_root.resolve() / SOURCE
     source_data = source_path.read_bytes()
@@ -287,7 +287,7 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
 
 
 def main() -> None:
-    """Run Sølsø core age lineage accounts from the supplied command arguments."""
+    """Run the CLI to match a primary Solsø core age table to retained Neotoma controls."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)

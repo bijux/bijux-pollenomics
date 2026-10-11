@@ -153,7 +153,7 @@ def render(
 
 
 def run(repository: Path, output: Path) -> Path:
-    """Publish country limitation text bound to current source ledgers."""
+    """Render source-bound Nordic country limitations from the governed ledgers."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
@@ -185,7 +185,7 @@ def run(repository: Path, output: Path) -> Path:
 
 
 def main() -> int:
-    """Run source-bound country limitation evidence from the supplied command arguments."""
+    """Run the CLI to render source-bound Nordic country limitations from the governed ledgers."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

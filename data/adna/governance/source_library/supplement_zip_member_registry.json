@@ -92,6 +92,42 @@
       "inferred_purpose": "unclassified_bundle_member"
     },
     {
+      "paper_doi": "10.1111/mec.17274",
+      "parent_artifact_id": "10.1111-mec.17274:mec17274-sup-0001-Appendix S1.zip",
+      "zip_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+      "member_name": "mec17274-sup-0001-Supinfo.docx",
+      "member_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip#mec17274-sup-0001-Supinfo.docx",
+      "member_byte_size": 5400671,
+      "inferred_purpose": "unclassified_bundle_member"
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "parent_artifact_id": "10.1111-mec.17274:mec17274-sup-0001-Appendix S1.zip",
+      "zip_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+      "member_name": "mec17274-sup-0002-Table_S1.xlsx",
+      "member_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip#mec17274-sup-0002-Table_S1.xlsx",
+      "member_byte_size": 22951,
+      "inferred_purpose": "structured_table_candidate"
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "parent_artifact_id": "10.1111-mec.17274:mec17274-sup-0001-Appendix S1.zip",
+      "zip_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+      "member_name": "mec17274-sup-0003-Table S3.xlsx",
+      "member_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip#mec17274-sup-0003-Table S3.xlsx",
+      "member_byte_size": 60378,
+      "inferred_purpose": "structured_table_candidate"
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "parent_artifact_id": "10.1111-mec.17274:mec17274-sup-0001-Appendix S1.zip",
+      "zip_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+      "member_name": "mec17274-sup-0004-Table S4.xlsx",
+      "member_local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip#mec17274-sup-0004-Table S4.xlsx",
+      "member_byte_size": 13857,
+      "inferred_purpose": "structured_table_candidate"
+    },
+    {
       "paper_doi": "10.1126/science.adt2642",
       "parent_artifact_id": "10.1126-science.adt2642:science.adt2642_tables s1_to_s8.zip",
       "zip_local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",

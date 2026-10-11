@@ -1,6 +1,6 @@
 # Manual curation worklist
 
-- Work units: `27`
+- Work units: `28`
 
 | Project | Species | Work unit | State | Open items | Impact |
 | --- | --- | --- | --- | ---: | --- |
@@ -14,6 +14,7 @@
 | `PRJNA705960` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `11` | blocks coordinate derivation and exact locality publication |
 | `PRJNA705960` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `11` | blocks exact site, coordinate, and publication recovery |
 | `SRP073444` | `Camelus dromedarius` | `chronology_recovery` | `pending_source_recovery` | `24` | blocks chronology honesty and publication precision |
+| `SRP073444` | `Camelus dromedarius` | `sample_identity_resolution` | `pending_manual_curation` | `2` | blocks trustworthy project-level sample recovery counts |
 | `SRS1407451` | `Canis lupus familiaris` | `chronology_recovery` | `pending_source_recovery` | `2` | blocks chronology honesty and publication precision |
 | `SRS1407451` | `Canis lupus familiaris` | `locality_string_resolution` | `pending_manual_curation` | `1` | blocks coordinate derivation and exact locality publication |
 | `SRS1407451` | `Canis lupus familiaris` | `site_resolution` | `pending_manual_curation` | `1` | blocks exact site, coordinate, and publication recovery |

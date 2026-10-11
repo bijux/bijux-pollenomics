@@ -5,8 +5,6 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass, replace
 import json
-from pathlib import PurePosixPath
-import re
 from typing import ClassVar, Literal, cast
 
 from ..contracts import (
@@ -17,6 +15,12 @@ from ..contracts import (
 )
 from ..contracts import (
     required_identity as _required_identity,
+)
+from .references.model import (
+    InputReference as InputReference,
+)
+from .references.model import (
+    object_mapping as object_mapping,
 )
 
 Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
@@ -52,45 +56,11 @@ def identity(value: object) -> str:
     return _required_identity(value)
 
 
-def object_mapping(value: object, name: str) -> dict[str, object]:
-    """Admit a JSON object without manufacturing or coercing keys."""
-    if not isinstance(value, Mapping) or any(not isinstance(key, str) for key in value):
-        raise ValidationRefusal("invalid_experiment", f"{name} must be an object")
-    return dict(value)
-
-
 def object_list(value: object, name: str) -> list[object]:
     """Admit an explicit JSON array."""
     if not isinstance(value, (list, tuple)):
         raise ValidationRefusal("invalid_experiment", f"{name} must be an array")
     return list(value)
-
-
-@dataclass(frozen=True)
-class InputReference:
-    """A relative file identity whose contents can be opened after fold admission."""
-
-    path: str
-    sha256: str
-
-    @classmethod
-    def parse(cls, value: object, name: str) -> InputReference:
-        row = object_mapping(value, name)
-        if set(row) != {"path", "sha256"}:
-            raise ValidationRefusal("invalid_experiment_reference", name)
-        path = row["path"]
-        digest = row["sha256"]
-        if (
-            not isinstance(path, str)
-            or not path
-            or "\\" in path
-            or PurePosixPath(path).is_absolute()
-            or ".." in PurePosixPath(path).parts
-            or not isinstance(digest, str)
-            or not re.fullmatch(r"[0-9a-f]{64}", digest)
-        ):
-            raise ValidationRefusal("invalid_experiment_reference", name)
-        return cls(path, digest)
 
 
 @dataclass(frozen=True)
@@ -259,10 +229,22 @@ def validate_template(
                 "unsupported_experiment_profile",
                 "Initial profile uses deterministic source computations",
             )
-    if object_mapping(configuration["love"], "love").get("method") != "analytical":
+    love = object_mapping(configuration["love"], "love")
+    analytical = (
+        love.get("method") == "analytical"
+        and template["method_profile"] == "disqover-0.9.14-source-compatible"
+    )
+    constrained = (
+        data_kind == "source_observations"
+        and love.get("method") == "optimized"
+        and love.get("optimized_profile") == "ring-taxon-preserving"
+        and love.get("optimizer_backend") == "scipy.slsqp-simplex-uniform"
+        and template["method_profile"] == "ring-taxon-preserving"
+    )
+    if not (analytical or constrained):
         raise ValidationRefusal(
             "unsupported_experiment_profile",
-            "Initial extraction supports analytical LOVE",
+            "Source extraction requires an admitted analytical or constrained LOVE profile",
         )
     for evidence in object_list(template.get("evidence"), "evidence"):
         if object_mapping(evidence, "evidence").get("role") not in {

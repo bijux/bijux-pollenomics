@@ -1,0 +1,18 @@
+{
+  "prepare_sha256": "c8269b2e9df29c60c34d632b460b258eeaae0c22045b6f7ea325206c55eb4863",
+  "products": [
+    {
+      "prediction_sha256": "35ce1e8006058f32d7bcd3986a2d456ff9708cdba25f16a9731def051e7018e7",
+      "site_id": "13338"
+    },
+    {
+      "prediction_sha256": "0b239384d4587b7ae30c374309f3b2358ca42d71f711bfe9581e6550c1d35be9",
+      "site_id": "28869"
+    },
+    {
+      "prediction_sha256": "b97ac151b655d3483f33b8e8aac1fc65d23ef3a00ccc5966616e5ef0a94f96d6",
+      "site_id": "28872"
+    }
+  ],
+  "schema_version": "swedish-support-sensitivity-freeze.v1"
+}

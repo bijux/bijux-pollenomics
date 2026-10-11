@@ -243,7 +243,7 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
 
 
 def main() -> None:
-    """Run Nordic author taxon mass accounts from the supplied command arguments."""
+    """Run the CLI to measure Nordic held-out native pollen coverage by author REVEALS taxa."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)

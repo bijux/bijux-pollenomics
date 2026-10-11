@@ -315,7 +315,7 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
 
 
 def main() -> None:
-    """Run governed author LRA development accounts from the supplied command arguments."""
+    """Run the CLI to materialize a bounded author-prepared LRA development cohort."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--author-source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

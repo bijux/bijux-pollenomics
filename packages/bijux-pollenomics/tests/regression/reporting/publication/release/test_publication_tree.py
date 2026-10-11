@@ -7,6 +7,9 @@ import unittest
 
 import pytest
 
+from bijux_pollenomics.adna.governance.audit_catalogs import (
+    render_public_animal_output_honesty_markdown,
+)
 from bijux_pollenomics.reporting import (
     generate_published_reports,
 )
@@ -256,7 +259,15 @@ class CountryReportTests(unittest.TestCase):
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertTrue(repository_claim_audit["overall_ok"])
-            self.assertTrue(release_gate["overall_ok"])
+            self.assertFalse(release_gate["overall_ok"])
+            self.assertEqual(
+                [
+                    check["check_id"]
+                    for check in release_gate["checks"]
+                    if not check["passed"]
+                ],
+                ["project_recovery_guard_passes"],
+            )
             self.assertFalse(release_gate["reference_grade_support_ready"])
             sheep_audit_row = next(
                 row
@@ -311,6 +322,10 @@ class CountryReportTests(unittest.TestCase):
                 {"thin", "publishable"},
             )
             self.assertIn("tracked_sample_count", animal_output_honesty["totals"])
+            self.assertEqual(
+                (output / "animal_output_honesty.md").read_text(encoding="utf-8"),
+                render_public_animal_output_honesty_markdown(animal_output_honesty),
+            )
             self.assertIn("row_count", atlas_exclusion_report)
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertIn("nordic", published_summary["artifacts"]["regional_bundles"])

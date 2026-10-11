@@ -615,7 +615,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
-    """Run source-bound PFT crosswalk accounts from the supplied command arguments."""
+    """Run the CLI to retain PANGAEA 937075 column identities and bounded LCT arithmetic."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

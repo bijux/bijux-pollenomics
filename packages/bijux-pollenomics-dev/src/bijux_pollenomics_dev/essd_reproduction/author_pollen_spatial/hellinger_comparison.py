@@ -263,7 +263,7 @@ def compare_hellinger(
 
 
 def main() -> int:
-    """Run site-weighted Hellinger comparisons from the supplied command arguments."""
+    """Run the CLI to score retained observed-pollen block predictions with Hellinger distance."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--comparison", type=Path, required=True)
     for method in METHOD_LABELS:

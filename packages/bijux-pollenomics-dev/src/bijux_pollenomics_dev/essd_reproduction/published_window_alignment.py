@@ -143,7 +143,7 @@ def align_windows(
 
 
 def main() -> int:
-    """Run published-window alignment evidence from the supplied command arguments."""
+    """Run the CLI to compare the author example's BP bins with the published archive's TW labels."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bins", type=Path, required=True)
     parser.add_argument("--lookup", type=Path, required=True)

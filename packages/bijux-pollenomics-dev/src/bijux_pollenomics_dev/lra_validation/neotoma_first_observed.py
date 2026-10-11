@@ -433,7 +433,7 @@ def _screen_inventory(
 
 
 def build_neotoma_first_observed(repository: Path) -> JsonObject:
-    """Bind first-observed Neotoma attempts to their retained reader snapshot."""
+    """Screen complete native Neotoma sample series for first-observed readiness."""
     manifest, exports, identity = _reader_snapshot(repository)
     attempts: list[JsonObject] = []
     sites: list[JsonObject] = []
@@ -585,7 +585,7 @@ def build_neotoma_first_observed(repository: Path) -> JsonObject:
 
 
 def main() -> int:
-    """Run first-observed Neotoma reconstruction evidence from the supplied command arguments."""
+    """Run the CLI to screen complete native Neotoma sample series for first-observed readiness."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=Path.cwd())
     parser.add_argument("--output", type=Path, required=True)

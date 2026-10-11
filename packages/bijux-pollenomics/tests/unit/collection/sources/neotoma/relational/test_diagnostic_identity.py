@@ -30,15 +30,12 @@ class NeotomaDiagnosticIdentityTests(unittest.TestCase):
 
         self.assertEqual(forward, reverse)
         conflicts = cast(list[dict[str, object]], forward["conflicts"])
-        self.assertEqual(len(conflicts), 2)
-        self.assertEqual(
-            len({cast(str, conflict["conflict_id"]) for conflict in conflicts}),
-            2,
-        )
-        site_conflict = next(
-            conflict
-            for conflict in conflicts
-            if conflict["conflict_kind"] == "site_payload_conflict"
+        self.assertEqual(len(conflicts), 1)
+        site_conflict = conflicts[0]
+        self.assertEqual(site_conflict["conflict_kind"], "site_payload_conflict")
+        self.assertEqual(site_conflict["subject_id"], "neotoma:site:20")
+        self.assertTrue(
+            cast(str, site_conflict["conflict_id"]).startswith("neotoma:conflict:")
         )
         detail = cast(dict[str, object], site_conflict["detail"])
         self.assertEqual(detail["resolution"], "canonical_minimum")

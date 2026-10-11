@@ -1,6 +1,6 @@
 # Runtime metadata cost in LRA reconstruction
 
-The [baseline profile](../python-baseline/report.json) identified repeated package
+The [reference baseline](reference-baseline.json) identified repeated package
 metadata parsing in paired reconstruction. The runtime manifest now caches the
 installed NumPy, SciPy and pandas version strings within one immutable numerical
 worker environment. Each manifest still receives its own runtime mapping.
@@ -53,5 +53,9 @@ MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 ```
 
 Compare the retained scientific outputs and missing-value semantics as well as
-timings. The original baseline retains its source identity and is not rewritten
-with the cached producer's hashes.
+timings. The compact reference baseline pins seven original workload medians,
+contracts and scientific output digests to the full report at Git commit
+`3d6b04959`, SHA-256 `e9675d170fe8ca8c0fa6ff03d75b6786c560f3c4f6398cd392963f362adbf21f`.
+The [current Python baseline](../python-baseline/report.json) is a separate
+measurement on later solver source and does not replace that historical
+before/after comparator.

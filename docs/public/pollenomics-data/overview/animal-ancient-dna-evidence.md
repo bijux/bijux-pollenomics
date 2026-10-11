@@ -67,14 +67,14 @@ result. It records what is known about the source and what remains unavailable.
 
 ## Current Evidence Depth
 
-The governed foundation currently contains **1,470 final sample rows** across
+The governed foundation currently contains **1,468 final sample rows** across
 **10 species and 22 contributing projects**. Of those rows, 557 are fully
-grounded, 371 are partly grounded, 11 are blocked by missing metadata, 368 by
-missing location detail, and 163 by weak chronology. This is the final sample
+grounded, 371 are partly grounded, 11 are blocked by missing metadata, 367 by
+missing location detail, and 162 by weak chronology. This is the final sample
 evidence-preparation population, not a publication-feature count.
 
 The generated project intake review separately covers **40 tracked projects**
-and contains **1,475 recovered raw sample-master rows**, of which **1,470 enter
+and contains **1,475 recovered raw sample-master rows**, of which **1,468 enter
 the final sample population**. Only four projects have an exact expected-sample
 denominator. The repository therefore does not present either total as a
 complete census of every deposited sample.
@@ -132,7 +132,7 @@ different states instead of averaging them into one quality label.
 ```mermaid
 flowchart LR
     Inventory["40 tracked projects"] --> Recovery["1,475 recovered raw rows"]
-    Recovery --> Foundation["1,470 final sample rows"]
+    Recovery --> Foundation["1,468 final sample rows"]
     Foundation --> Review["identity, locality, chronology, coordinate review"]
     Review --> Samples["331 distinct admitted samples"]
     Samples --> Points["170 published locality features"]

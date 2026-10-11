@@ -314,7 +314,11 @@ def LOVEoptim(
             if optimization_result.x.sum() <= 0:
                 raise ValidationError("Optimizer returned an all-zero cover vector")
             proportions = optimization_result.x / optimization_result.x.sum()
-            cover_samples[repeat_index, ring_index] = r_round(proportions, 4)
+            cover_samples[repeat_index, ring_index] = (
+                proportions
+                if optimization_result.algorithm == "scipy.slsqp-simplex-uniform"
+                else r_round(proportions, 4)
+            )
             pollen_samples[repeat_index, ring_index] = r_round(
                 100
                 * love_pollen(

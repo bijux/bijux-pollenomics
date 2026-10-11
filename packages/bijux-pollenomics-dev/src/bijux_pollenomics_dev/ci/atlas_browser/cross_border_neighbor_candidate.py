@@ -31,12 +31,12 @@ RECTANGLES = {
 
 
 def digest(payload: bytes) -> str:
-    """Bind the exact fixture payload bytes with SHA256."""
+    """Hash exact cross-border candidate bytes for identity checks."""
     return hashlib.sha256(payload).hexdigest()
 
 
 def fixture_layers() -> tuple[list[JsonObject], list[JsonObject]]:
-    """Create controlled event layers for cross-border navigation checks."""
+    """Build the controlled point and line layers for the border fixture."""
     point_features = [
         {
             "record_id": record_id,
@@ -106,7 +106,7 @@ def fixture_layers() -> tuple[list[JsonObject], list[JsonObject]]:
 
 
 def fixture_edges() -> list[JsonObject]:
-    """Declare controlled cross-border neighbor relationships for browser checks."""
+    """Build the controlled cross-border relations for the browser fixture."""
     return cast(
         list[JsonObject],
         [
@@ -131,7 +131,7 @@ def fixture_edges() -> list[JsonObject]:
 
 
 def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
-    """Create retained cross-border neighbor browser fixtures in a new artifact tree."""
+    """Render a controlled cross-border relation through the production atlas."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -253,7 +253,7 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run cross-border neighbor browser fixtures from the supplied command arguments."""
+    """Run the CLI to render a controlled cross-border relation through the production atlas."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--destination", required=True, type=Path)

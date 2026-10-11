@@ -17,7 +17,7 @@ from .boundary_orientation_candidate import COUNTRIES, boundary_layers
 
 
 def digest(payload: bytes) -> str:
-    """Bind the exact fixture payload bytes with SHA256."""
+    """Hash exact browser candidate bytes for identity checks."""
     return hashlib.sha256(payload).hexdigest()
 
 
@@ -45,7 +45,7 @@ def fixture_points() -> list[dict[str, Any]]:
 
 
 def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
-    """Create retained keyboard playback browser fixtures in a new artifact tree."""
+    """Render controlled BP chronology for production atlas keyboard playback checks."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -140,7 +140,7 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run keyboard playback browser fixtures from the supplied command arguments."""
+    """Run the CLI to render controlled BP chronology for production atlas keyboard playback checks."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--destination", required=True, type=Path)

@@ -4,7 +4,7 @@
     "schema_version": "adna-source-library.v1",
     "archive_sufficient_count": 6,
     "paper_dependent_count": 34,
-    "supplement_dependent_count": 2,
+    "supplement_dependent_count": 3,
     "blocked_count": 20,
     "rows": [
       {
@@ -244,9 +244,9 @@
         "archive_status": "comparator_only",
         "archive_metadata_sufficient": false,
         "paper_required": true,
-        "supplement_required": false,
+        "supplement_required": true,
         "paper_download_status": "archived",
-        "supplement_download_status": "missing",
+        "supplement_download_status": "archived",
         "blockers": []
       },
       {
@@ -937,9 +937,9 @@
       "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
       "archive_status": "comparator_only",
       "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
+      "ingestion_status": "paper_and_supplement_archived",
       "paper_download_status": "archived",
-      "supplement_download_status": "missing",
+      "supplement_download_status": "archived",
       "unresolved_sample_count": 0,
       "region_only_site_count": 1,
       "blockers": [

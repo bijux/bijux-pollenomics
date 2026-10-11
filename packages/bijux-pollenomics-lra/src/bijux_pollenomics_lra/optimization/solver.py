@@ -9,7 +9,7 @@ from inspect import Parameter, signature
 import warnings
 
 import numpy as np
-from scipy.optimize import Bounds, differential_evolution
+from scipy.optimize import Bounds, LinearConstraint, differential_evolution, minimize
 
 from bijux_pollenomics_lra.models.errors import NativeOptimizerWarning, ValidationError
 from bijux_pollenomics_lra.models.validation import (
@@ -117,6 +117,53 @@ class ReplayOptimizer:
                 else "Evaluation budget reached before complete candidate replay"
             ),
             algorithm="candidate-replay",
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class SimplexSLSQPOptimizer:
+    """Search one nonnegative cover composition from a uniform initial point.
+
+    This is a development optimizer for the existing LOVE objective. It does
+    not reproduce the source RcppDE search trajectory or add ecological data.
+    """
+
+    def solve(
+        self,
+        objective: Objective,
+        lower: np.ndarray,
+        upper: np.ndarray,
+        *,
+        maxiter: int,
+        tolerance: float,
+        **_: object,
+    ) -> OptimizationResult:
+        """Return SciPy's terminal constrained search without a success waiver."""
+        if (
+            lower.shape != upper.shape
+            or lower.ndim != 1
+            or not np.array_equal(lower, np.zeros_like(lower))
+            or not np.array_equal(upper, np.ones_like(upper))
+        ):
+            raise ValidationError("Simplex SLSQP requires unit-box cover bounds")
+        size = len(lower)
+        result = minimize(
+            objective,
+            np.full(size, 1 / size),
+            method="SLSQP",
+            bounds=Bounds(lower, upper),
+            constraints=(LinearConstraint(np.ones((1, size)), [1.0], [1.0]),),
+            options={"maxiter": maxiter, "ftol": tolerance, "disp": False},
+        )
+        candidate = np.asarray(result.x, dtype=float)
+        return OptimizationResult(
+            x=candidate,
+            fun=float(result.fun),
+            nit=int(result.nit),
+            nfev=int(result.nfev),
+            success=bool(result.success and abs(float(candidate.sum()) - 1) <= 1e-6),
+            message=str(result.message),
+            algorithm="scipy.slsqp-simplex-uniform",
         )
 
 

@@ -1,0 +1,36 @@
+{
+  "decks": [
+    "big-picture",
+    "developer",
+    "scientific-evidence"
+  ],
+  "source_date_epoch": 1790726400,
+  "sources": {
+    "docs/public/pollenomics/architecture/package-split.md": "57ec9e6c8950e0bba2360e950294b0e1452b38d42efd497ebe487941f2c10a0d",
+    "docs/report/method-certification/original-r-reference/README.md": "c366c13945eedb6283046a8744cf5c84b2e681939526aea37f6146d739cbf9ef",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json": "63a90bd5566fd944e86c0b8be96a0fee5a5713be29d52873b473d9752c0b3601",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+    "docs/report/pollen-reconstruction/verify_report.py": "78301b98a4a1c9fa36ac113a67f3962828ce4498e03d876c61568e002e7a89f2",
+    "docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv": "b28d555c33b561225323e2e3327684d65178788c2b01278092d5d438229eb40a",
+    "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
+    "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
+    "presentation/README.md": "c4c8e910feee73159bfda2dc0f1c70480963c9be7cf6911db9f7a66d2755f075",
+    "presentation/big-picture.tex": "6a01b462b18dcac4ac8e4c7a92aeadd66c272c90585af636ddba353fbcf15bd4",
+    "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
+    "presentation/developer.tex": "855ea504de4bba7b0941ad3d3b95b2f481f730a8c6c911883aed7fca68e10291",
+    "presentation/scientific-evidence.tex": "21488c29de67c976b20482f7991dc2fcb6072d81a56594ad6f68d26635cb1d9f",
+    "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
+    "reports/README.md": "3604112c2cd9889b7f8007e31b8bde42f0c2cfd5028f8576236b994d8b0fa00b",
+    "reports/needed/README.md": "584dd7f6b98f7052b08016160d4d13e661d4f4fb264123a0168e2f705fe4de2e",
+    "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
+    "reports/science/denmark-finland-norway-author-pollen.md": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
+    "reports/science/english-lra-pollen-prediction.md": "3d69d66ec56cb135733c0e37be4a3c7169cb79d4de6c0223a0673f7541320d7f",
+    "reports/science/model-use.md": "579e852bbfcda98b87b6820e95b702c21043ca177164e702d6b40f1843408694",
+    "reports/science/pollen-prediction.md": "52dd99c6f9a30cee69289ebac8413e79e8ede551583e084dbdd64621d71cd978",
+    "reports/science/publication-correspondence.md": "9306687427124e57a0eb08d5d5126ee1d5d966a5f44b0ff63f8b4d350005b808",
+    "reports/science/sweden-author-pollen.md": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
+    "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
+    "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246"
+  }
+}

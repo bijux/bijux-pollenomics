@@ -16,7 +16,9 @@ from bijux_pollenomics.adna.sources.inventory import (
 )
 from bijux_pollenomics.adna.sources.library import (
     build_paper_registry,
-    materialize_source_library,
+)
+from bijux_pollenomics.adna.sources.library.materialization import (
+    _materialize_curated_local_supplements,
 )
 
 
@@ -94,7 +96,7 @@ class ReferenceStashTests(unittest.TestCase):
                 {"BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT": str(stash_root)},
                 clear=False,
             ):
-                materialize_source_library(output_root)
+                _materialize_curated_local_supplements(output_root)
                 paper_registry = build_paper_registry(output_root)
                 recovery = build_supplement_recovery_audit(output_root)
 

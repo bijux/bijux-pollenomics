@@ -152,7 +152,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run Swedish source model lineage accounts from the supplied command arguments."""
+    """Run the CLI to trace observed Swedish pollen sites into published LandClim grid metadata."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

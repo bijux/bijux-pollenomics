@@ -25,7 +25,7 @@ sample-site assignment and 63 remain unresolved. No current row is promoted
 through a sample-group, project-only, region-only, or inferred named-place
 assignment. These counts describe locality linkage, not coordinate quality;
 even a direct site still needs independent coordinate provenance before it can
-become a point. The final sample-foundation population contains 1,470 rows, so
+become a point. The final sample-foundation population contains 1,468 rows, so
 the raw locality-review count must not be used as a final-identity denominator.
 
 The repository records three related but non-interchangeable dimensions:

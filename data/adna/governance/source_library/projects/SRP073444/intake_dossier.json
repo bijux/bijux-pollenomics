@@ -27,7 +27,7 @@
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
   "recovered_sample_count": 20,
-  "final_sample_count": 20,
+  "final_sample_count": 18,
   "unresolved_sample_count": null,
   "material_evidence_expected_count": 0,
   "material_evidence_conflict_count": 0,
@@ -76,6 +76,18 @@
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/SRP073444/sample_chronology.json",
         "data/adna/governance/source_library/projects/SRP073444/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "work_unit_type": "sample_identity_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "Stable sample identity rows still carry unresolved ambiguity.",
+      "downstream_impact": "blocks trustworthy project-level sample recovery counts",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/SRP073444/sample_master.json"
       ]
     }
   ],

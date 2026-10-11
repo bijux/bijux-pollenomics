@@ -139,7 +139,9 @@ def build_camel_sample_rows(
                     f"{table['paper_sample_label']} to {table['locality_text']}, "
                     f"{table['political_entity']}, age {table['paper_age_text']}."
                 ),
-                sample_identity_resolution="final",
+                sample_identity_resolution=(
+                    "ambiguous" if table["paper_sample_label"] == "Palm143" else "final"
+                ),
                 sample_ambiguity_note=(
                     "Distinct BioSample accessions share paper specimen label "
                     "Palm143; physical specimen independence is not established."

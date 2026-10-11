@@ -45,7 +45,7 @@ def digest(value: Any) -> str:
 def generate_nordic_source_candidate(
     repository: Path, destination: Path
 ) -> dict[str, Any]:
-    """Retain eight exact country source records and authenticate the written assets."""
+    """Produce eight authenticated retained source contexts for Nordic browser replay."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -285,7 +285,7 @@ def generate_nordic_source_candidate(
 
 
 def main() -> None:
-    """Generate the bounded Nordic context and print its authenticated identities."""
+    """Run the CLI to produce eight authenticated retained source contexts for Nordic browser replay."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--destination", required=True, type=Path)

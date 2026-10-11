@@ -154,7 +154,7 @@ def build(repository: Path, profile: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
-    """Run Abborrtjärn profile source lineage from the supplied command arguments."""
+    """Run the CLI to compare the Abborrtjärnen Neotoma sequence with its PANGAEA EPD profile."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--profile", required=True, type=Path)

@@ -100,7 +100,7 @@ def verify_native_parity(
 
 
 def main() -> None:
-    """Require matching native cases and retained live R execution evidence."""
+    """Run the CLI to join independent native case preparation to same-revision live R evidence."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--native", type=Path, required=True)
     parser.add_argument("--live", type=Path, required=True)

@@ -269,7 +269,7 @@ def generate_source_detail_candidate(
 
 
 def main() -> None:
-    """Generate the bounded source drawer and print its authenticated identities."""
+    """Run the CLI to render a bounded source-owned drawer candidate from authenticated atlas chunks."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--destination", type=Path, required=True)

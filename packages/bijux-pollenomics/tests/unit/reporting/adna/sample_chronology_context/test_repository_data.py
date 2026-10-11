@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 from collections import Counter
+from dataclasses import replace
 from hashlib import sha256
 import json
 from pathlib import Path
 
+from bijux_pollenomics.reporting.adna.sample_chronology_context.projection import (
+    project_animal_sample_chronology_context,
+)
 from bijux_pollenomics.reporting.adna.sample_chronology_context.repository import (
     load_animal_sample_chronology_corpus,
 )
+from bijux_pollenomics.reporting.bundles.atlas_bundle.animal_chronology_publication import (
+    build_animal_chronology_publication,
+)
+from bijux_pollenomics.reporting.geography import build_published_geography_plan
 
 
 def _data_root() -> Path:
@@ -33,12 +41,21 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     }
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 0,
-        "sample_identity_not_final": 5,
+        "sample_identity_not_final": 7,
         "source_chronology_not_comparable": 539,
-        "source_coordinate_not_mappable": 374,
+        "source_coordinate_not_mappable": 372,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
         "site_provenance_unavailable": 0,
+    }
+    assert {
+        (refusal.project_accession, refusal.repo_stable_sample_id)
+        for refusal in corpus.refusals
+        if refusal.reason_code == "sample_identity_not_final"
+        and refusal.project_accession == "SRP073444"
+    } == {
+        ("SRP073444", "srp073444:samn04631877"),
+        ("SRP073444", "srp073444:samn04631967"),
     }
     assert Counter(node.project_species_latin_name for node in corpus.nodes) == {
         "Bos taurus": 31,
@@ -83,6 +100,39 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         "available": 72,
         "unavailable": 485,
     }
+
+
+def test_published_chronology_accountability_replays_current_source() -> None:
+    corpus = load_animal_sample_chronology_corpus(_data_root())
+    plan = build_published_geography_plan(("Sweden", "Norway", "Finland", "Denmark"))
+    for scope in (plan.world_scope, *plan.regional_scopes):
+        name = f"{scope.slug}_animal_sample_chronology_context.json"
+        projection = project_animal_sample_chronology_context(
+            corpus, geography_scope=scope
+        )
+        projection = replace(
+            projection,
+            point_layers=tuple(
+                {**layer, "traceability_artifact": name}
+                for layer in projection.point_layers
+            ),
+        )
+        payload, identity = build_animal_chronology_publication(
+            projection, artifact_name=name
+        )
+        result_dir = (
+            _data_root().parent / "docs" / "report" / Path(*scope.output_dir_parts)
+        )
+        assert json.loads((result_dir / name).read_text()) == payload
+        contract = json.loads(
+            (result_dir / f"{scope.slug}_map_publication_contract.json").read_text()
+        )
+        assert contract["animal_sample_chronology_context"] == identity
+        for suffix in ("bundle", "summary"):
+            result = json.loads(
+                (result_dir / f"{scope.slug}_{suffix}.json").read_text()
+            )
+            assert result["map_publication_contract"] == contract
 
 
 def test_real_admitted_identity_set_equals_curated_fully_grounded_set() -> None:

@@ -1,0 +1,34 @@
+{
+  "age_bin_width_bp": 500,
+  "folds": [
+    {
+      "input_manifest_sha256": "78a94d08c94a3ad69fb020cdfbbab2d7780cd69eecd2838bccbade7ab4976745",
+      "scope": "four_country",
+      "site_id": "13338"
+    },
+    {
+      "input_manifest_sha256": "966c5013e2fcf817b050fdd7f47c6a2d6fe16f6b5fed5ba52d9234c35c46fff9",
+      "scope": "four_country",
+      "site_id": "28869"
+    },
+    {
+      "input_manifest_sha256": "ca1e3cfc63fec0c879bed0fcd957e4dc0c62fb63a157710be9363709fada0cfb",
+      "scope": "four_country",
+      "site_id": "28872"
+    }
+  ],
+  "interpretation": "Previously exposed development cohort; target physical sites absent from every predictor fold; age displacement is nominal source-bin displacement, not age-model uncertainty.",
+  "schema_version": "swedish-support-sensitivity-preparation.v1",
+  "sealed_outcome_sha256": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5",
+  "shift_bins": [
+    -1,
+    0,
+    1
+  ],
+  "source_prepare_sha256": "36a86fe1293d223a8aa3820351ae82f0ee8aec80666a83d37cb43afb862e7020",
+  "support_policies": [
+    "all",
+    "nearest_five",
+    "beyond_100_km"
+  ]
+}

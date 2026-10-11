@@ -180,7 +180,7 @@ def derive(
 
 
 def build(root: Path, output: Path) -> dict[str, Any]:
-    """Bind source capability evidence to contract and stage ledger identities."""
+    """Re-audit every governed source capability against present evidence bytes."""
     contract, contract_identity = _read(root, CONTRACT)
     stage, stage_identity = _read(root, STAGES)
     report = derive(root, contract, stage)
@@ -191,7 +191,7 @@ def build(root: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run source capability evidence custody from the supplied command arguments."""
+    """Run the CLI to re-audit every governed source capability against present evidence bytes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

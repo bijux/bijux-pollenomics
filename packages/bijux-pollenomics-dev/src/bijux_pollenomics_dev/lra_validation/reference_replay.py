@@ -240,7 +240,7 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
-    """Run retained reconstruction reference replay from the supplied command arguments."""
+    """Run the CLI to replay current Python calculations against authenticated retained R vectors."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--bundle", type=Path, required=True)

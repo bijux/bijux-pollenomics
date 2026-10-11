@@ -51,18 +51,18 @@ class SiteGeometry:
 
     @property
     def record_id(self) -> str:
-        """Return the stable author-prefixed identity of this source site."""
+        """Return the stable author record identifier for this site."""
         return f"author:{self.site_id}"
 
     @property
     def group_id(self) -> str:
-        """Return the leakage group bound to this source record identity."""
+        """Return the physical-site group identifier for this author site."""
         return site_group_id((self.record_id,))
 
 
 @dataclass(frozen=True)
 class AuthorStudy:
-    """Bind author sources, taxon axes and site geometry for held-out studies."""
+    """Bind author source files, bins, taxa and physical site geometry."""
 
     author: Path
     source_hashes: dict[str, str]

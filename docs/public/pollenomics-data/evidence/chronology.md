@@ -38,7 +38,7 @@ Its precision postures include 468 sample-precise points, 328 sample-precise
 intervals, 200 approximate or modeled sample claims, 32 contextual intervals,
 40 broad-period-only claims, and 407 unresolved claims. These chronology rows
 are the raw recovered review population; the final sample foundation contains
-1,470 rows after identity admission.
+1,468 rows after identity admission.
 
 These views are deliberately different. A row may contain numbers and still be
 contextual or approximate; numeric normalization does not confer sample-level

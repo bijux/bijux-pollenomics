@@ -21,14 +21,14 @@ the stable sample identifier.
 
 ## Current Evidence Posture
 
-The governed snapshot contains a 1,470-row final sample-foundation truth
+The governed snapshot contains a 1,468-row final sample-foundation truth
 surface across 10 species and 22 contributing projects. It classifies 557 rows
-as fully grounded, 335 as partially grounded, 11 as blocked by missing
-metadata, 368 as blocked by missing location detail, and 163 as blocked by weak
+as fully grounded, 371 as partially grounded, 11 as blocked by missing
+metadata, 367 as blocked by missing location detail, and 162 as blocked by weak
 chronology.
 
 The project sample-master registry covers 40 tracked projects and contains
-1,475 recovered raw rows, of which 1,470 enter the final sample population.
+1,475 recovered raw rows, of which 1,468 enter the final sample population.
 Twenty-two projects contribute final rows, and the identity ambiguity ledger
 retains three review rows. These populations have different curation contracts
 and must be named separately. Neither count proves that every sample deposited
@@ -290,7 +290,7 @@ strengthen any row's locality or chronology.
 
 | Claim | Required denominator or evidence |
 | --- | --- |
-| percentage of foundation rows fully grounded | all 1,470 final governed foundation rows |
+| percentage of foundation rows fully grounded | all 1,468 final governed foundation rows |
 | percentage of recovered raw identities admitted to final | all 1,475 recovered raw project sample-master rows |
 | project recovery completeness | project-specific expected sample population with provenance |
 | point publication rate | explicitly defined eligible candidate population and point contract |

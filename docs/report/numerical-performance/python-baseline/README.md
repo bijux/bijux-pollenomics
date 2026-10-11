@@ -8,13 +8,13 @@ scientific output is identical across timing repetitions.
 
 | Workload | First call, ms | Warm median, ms | Warm range, ms |
 |---|---:|---:|---:|
-| reveals-interactive | 68.505 | 2.681 | 2.564–4.098 |
-| reveals-reference-series | 19.546 | 19.226 | 19.181–19.332 |
-| love-analytical | 11.873 | 6.489 | 6.444–6.621 |
-| love-optimized-replay | 23.649 | 21.241 | 21.187–21.461 |
-| lra-replicated-series | 83.968 | 82.052 | 81.585–82.148 |
-| forward-validated | 0.082 | 0.041 | 0.040–0.046 |
-| forward-dot-compute | 0.021 | 0.005 | 0.005–0.006 |
+| reveals-interactive | 82.211 | 2.971 | 2.875–5.216 |
+| reveals-reference-series | 21.688 | 21.392 | 20.822–37.899 |
+| love-analytical | 13.218 | 7.217 | 7.042–7.438 |
+| love-optimized-replay | 26.120 | 22.934 | 22.601–23.773 |
+| lra-replicated-series | 90.800 | 89.167 | 88.027–90.497 |
+| forward-validated | 0.139 | 0.041 | 0.040–0.051 |
+| forward-dot-compute | 0.029 | 0.005 | 0.005–0.006 |
 
 The REVEALS workloads use one and all 45 retained Tiefer See rows with 21 taxa.
 LOVE uses the retained 10-taxon, 36-ring example: eight analytical repeats or
@@ -39,18 +39,21 @@ the production ratio is retained. Timing measures the declared source workflow,
 not a new scientific eligibility or accuracy claim. The initial report writer
 refused non-JSON NaNs; the corrected writer preserves them explicitly.
 
-The process high-water RSS was 163.45 MiB on the recorded macOS machine, including
+The process high-water RSS was 164.78 MiB on the recorded macOS machine, including
 imports and all workloads. It is not per-workload incremental memory. First calls
 share the process and may reuse kernels warmed by an earlier workload; they are
 not isolated cold-cache measurements. The profile records individual Python,
 library, conversion and copy functions with their call counts and exclusive and
 cumulative costs.
 
-This measurement refreshes an older retained baseline on the current numerical
-source. All seven scientific outputs and nonfinite meanings match the older
-measurement exactly. Three REVEALS-inclusive workload contracts now include the
-declared fall-speed profile, and eight source identities differ. The timing
-differences between the two reports therefore do not establish a speed change.
+All seven scientific outputs, nonfinite meanings and workload contracts match
+the preceding retained measurement. Four solver source files changed for the
+opt-in constrained LOVE backend; this report measures their current bytes.
+Timing and process RSS variation between runs does not establish a speed change.
+This measurement also binds unchanged calculations to the documented profiling
+source after public CLI docstrings were added.
+The source inventory excludes the ignored generated `_build_version.py`, whose
+SCM label changes during builds without changing the numerical method.
 
 ## Reproduce
 

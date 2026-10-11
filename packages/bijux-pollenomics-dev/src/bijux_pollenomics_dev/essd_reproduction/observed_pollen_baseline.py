@@ -266,7 +266,7 @@ def _write_csv(path: Path, rows: list[dict[str, object]]) -> None:
 
 
 def main() -> int:
-    """Run observed pollen baseline evidence from the supplied command arguments."""
+    """Run the CLI to score site-ID-withheld pollen means on authenticated author example counts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--author", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True)
