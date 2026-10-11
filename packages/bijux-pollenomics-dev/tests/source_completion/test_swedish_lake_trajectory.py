@@ -46,6 +46,65 @@ def test_governed_trajectory_keeps_pollen_and_context_roles(tmp_path: Path) -> N
     assert bus["10km_inventory_point"]["dated_feature_count"] == 115
 
 
+def test_weighting_sensitivity_keeps_matched_count_estimands(tmp_path: Path) -> None:
+    report = publish(REPOSITORY, tmp_path)
+    sensitivity = report["weighting_sensitivity"]
+    assert sensitivity["matched_transition_count"] == 48
+    assert sensitivity["matched_denominator_comparison_count"] == 96
+    assert sensitivity["by_denominator"] == {
+        "all_native_nisp": {
+            "matched_transition_count": 48,
+            "direction_class_changed_count": 10,
+            "opposite_qualified_direction_count": 4,
+        },
+        "closed_16_nisp": {
+            "matched_transition_count": 48,
+            "direction_class_changed_count": 9,
+            "opposite_qualified_direction_count": 4,
+        },
+    }
+    for window in report["windows"]:
+        observations = window["observations"]
+        weighted = window["weighted_fractions"]
+        assert weighted["sample_count"] == sum(
+            observations[site]["sample_count"] for site in ("BUS", "BOKE")
+        )
+        for denominator, fraction in (
+            ("all_native_nisp", "native_fraction"),
+            ("closed_16_nisp", "closed_16_fraction"),
+        ):
+            total = sum(observations[site][denominator] for site in ("BUS", "BOKE"))
+            cell = weighted["denominators"][denominator]
+            assert cell["pooled_denominator_count"] == total
+            for taxon in report["taxa"]:
+                assert cell["taxa"][taxon]["equal_site_fraction"] == pytest.approx(
+                    sum(
+                        observations[site]["taxa"][taxon][fraction]
+                        for site in ("BUS", "BOKE")
+                    )
+                    / 2
+                )
+                assert cell["taxa"][taxon]["pooled_count_fraction"] == pytest.approx(
+                    sum(
+                        observations[site]["taxa"][taxon]["count"]
+                        for site in ("BUS", "BOKE")
+                    )
+                    / total
+                )
+    reversal = next(
+        row
+        for row in report["transitions"]
+        if row["older_bin_index"] == 8
+        and row["younger_bin_index"] == 7
+        and row["taxon"] == "Alnus"
+        and row["minimum_change_fraction"] == 0.005
+    )
+    native = reversal["weighting_sensitivity"]["all_native_nisp"]
+    assert native["equal_site_direction"] == -1
+    assert native["pooled_count_direction"] == 1
+    assert native["opposite_qualified_direction"] is True
+
+
 def test_sample_age_bounds_change_requires_new_review(tmp_path: Path) -> None:
     for source in (SEAD, LINEAGE, PREPARED / "dataset-54001.json"):
         destination = tmp_path / source

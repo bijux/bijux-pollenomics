@@ -19,6 +19,26 @@ The report's country scope records Sweden as a two-site comparison and
 Denmark, Norway and Finland as **not evaluated for this question**. The
 result cannot estimate a national Swedish trend or a four-country trend.
 
+The weighting sensitivity compares an equal-site mean of the BUS
+and BOKE fractions with a pooled count fraction in every common bin. Pooling
+uses the sum of the two lakes' `Alnus` or `Plantago lanceolata` counts divided
+by the sum of the matching denominator counts: all native NISP for the
+all-native fraction, and closed-16 NISP for the closed subcomposition. Weighting
+the closed fraction by all-native counts would mix two different compositions.
+The report retains each site's sample count and both count denominators, plus
+the pooled denominator counts and total sample count per bin. Sample counts do
+not act as weights. All **48 matched taxon/threshold/interval comparisons** are evaluated
+under both denominators, giving 96 paired direction classifications. At the
+0.5- and 1.0-point thresholds together, the equal-site and pooled directions
+differ in **10/48** all-native comparisons and **9/48** closed-16 comparisons.
+Four comparisons in each denominator switch between qualified increase and
+qualified decrease; the others enter or leave the effect threshold. For
+`Alnus` from 4000–4500 to 3500–4000 cal BP at the 0.5-point threshold, the
+all-native equal-site fraction decreases while the pooled count fraction
+increases. Changing count shares between lakes can therefore change a pooled
+trajectory even when the same two sites and bins are used. These are
+descriptive pollen fractions, not independent vegetation or land-use evidence.
+
 At the 0.5-point threshold, `Alnus` has five descriptive same-direction
 transitions and one opposite-direction transition; the remaining 18
 taxon/transitions cannot pass the denominator/effect threshold. At the

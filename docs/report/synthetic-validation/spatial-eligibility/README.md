@@ -60,13 +60,10 @@ range validation alone cannot detect every axis reversal.
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.spatial_eligibility_challenge \
-  --output docs/report/synthetic-validation/spatial-eligibility/report.json
+  --output artifacts/jobs/synthetic-validation/spatial-eligibility/report.json
+cmp docs/report/synthetic-validation/spatial-eligibility/report.json \
+  artifacts/jobs/synthetic-validation/spatial-eligibility/report.json
 ```
-
-Selected checks passed: six direct consumer regressions, 12 existing spatial/pair
-regressions, strict type checking of the two changed Python files, and Ruff style
-and format checks. Commands, terminal outcomes, input hashes, and logs are retained
-under `artifacts/jobs/lra-synthetic-spatial-eligibility/`.
 
 This result supports spatial eligibility and regional country-neutral candidate
 selection. Country-only map context and focal-country display counts require a

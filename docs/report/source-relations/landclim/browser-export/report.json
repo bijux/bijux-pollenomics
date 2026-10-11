@@ -1,0 +1,56 @@
+{
+  "schema_version": "landclim-browser-export.v1",
+  "status": "executed_browser_download_reconciled",
+  "reference_product_head": "555ef191dbd8fe3672b30e2c60dbb9ad790c0e0d",
+  "browser": "Brave Browser 154.1.96.59",
+  "download_filename": "pangaea-937075-ol-0-100-bp.geojson",
+  "download_bytes": 237793,
+  "download_sha256": "90d7ca58dfa0a6dc3f17a6a3d3ca12393929cb87aaf1b8314b74b3449d9327e6",
+  "download_completed_event": true,
+  "source_window": {
+    "label": "0-100 BP",
+    "younger_bp": 0,
+    "older_bp": 100
+  },
+  "countries": {
+    "Denmark": 6,
+    "Sweden": 26
+  },
+  "feature_count": 32,
+  "record_ids_exactly_match_normalized_projection": true,
+  "all_parsed_feature_properties_and_geometry_match_normalized_projection": true,
+  "normalized_projection_feature_digests_match_pinned_ledger": true,
+  "download_number_lexemes_may_differ_from_ledger": true,
+  "metric_count": 47,
+  "source_metric_family_counts": {
+    "exact_taxa": 31,
+    "source_pft_codes": 13,
+    "source_land_cover_types": 3
+  },
+  "metric_keys_match_between_estimates_and_standard_errors": true,
+  "numeric_pair_count": 1363,
+  "null_pair_count": 141,
+  "numeric_zero_estimate_count": 408,
+  "numeric_zero_standard_error_count": 408,
+  "quality_class_counts": {
+    "high": 15,
+    "low": 14,
+    "no_pollen_data": 3
+  },
+  "source_class_boundary": "ET_ST_OL_source_land_cover_types;AL_source_PFT_component_of_OL",
+  "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+  "method_citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene",
+  "method_doi": "https://doi.org/10.5194/essd-14-1581-2022",
+  "scenario_identity": "published_PANGAEA_937075_REVEALS_reconstruction;no_alternative_scenario_asserted",
+  "download_has_explicit_scenario_field": false,
+  "evidence_role": "context_only",
+  "propagation_use_allowed": false,
+  "interpolation_allowed": false,
+  "geometry_crs": "not_explicit_in_download;coordinate_interpretation_requires_source_policy_and_geojson_spec",
+  "download_polygons_are_one_degree_squares_on_published_source_centers": true,
+  "published_source_centers_verified": 32,
+  "pinned_lineage_report_sha256": "d9d2c25e213de87b73a7e9cef3c7a02d08ca6064f302631dc59598fdccb975cb",
+  "pinned_normalized_geojson_sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e",
+  "pinned_map_html_sha256": "83d0cc9eb8ea5d9bde6787a5c2922adc72d0ed399886118c7519515466e9b8a4",
+  "pinned_ledger_sha256": "fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5"
+}

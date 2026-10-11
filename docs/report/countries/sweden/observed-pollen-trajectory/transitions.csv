@@ -1,49 +1,49 @@
-older_bin_index,younger_bin_index,taxon,minimum_change_fraction,pollen_site_direction_outcome,inference_scope
-0,-1,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-0,-1,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-1,0,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-1,0,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-2,1,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-2,1,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-3,2,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-3,2,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-4,3,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-4,3,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-5,4,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-5,4,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-6,5,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-6,5,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-7,6,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-7,6,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-8,7,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-8,7,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-9,8,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-9,8,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-10,9,Alnus,0.005,descriptive_contradiction,descriptive_two_site_pollen_only_no_age_bounds
-10,9,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-11,10,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-11,10,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-0,-1,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-0,-1,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-1,0,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-1,0,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-2,1,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-2,1,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-3,2,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds
-3,2,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-4,3,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-4,3,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-5,4,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-5,4,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-6,5,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-6,5,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-7,6,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-7,6,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-8,7,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-8,7,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-9,8,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-9,8,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-10,9,Alnus,0.01,descriptive_contradiction,descriptive_two_site_pollen_only_no_age_bounds
-10,9,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-11,10,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
-11,10,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds
+older_bin_index,younger_bin_index,taxon,minimum_change_fraction,pollen_site_direction_outcome,inference_scope,all_native_nisp_equal_site_delta_fraction,all_native_nisp_pooled_count_delta_fraction,all_native_nisp_equal_site_direction,all_native_nisp_pooled_count_direction,all_native_nisp_direction_class_changed,all_native_nisp_opposite_qualified_direction,closed_16_nisp_equal_site_delta_fraction,closed_16_nisp_pooled_count_delta_fraction,closed_16_nisp_equal_site_direction,closed_16_nisp_pooled_count_direction,closed_16_nisp_direction_class_changed,closed_16_nisp_opposite_qualified_direction
+0,-1,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.013371787266961817,-0.015441990156843013,-1,-1,False,False,-0.05118282957235758,-0.047871594854671434,-1,-1,False,False
+0,-1,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.011875531124276998,-0.014579688661231292,-1,-1,False,False,-0.04515572827911129,-0.046864587676441555,-1,-1,False,False
+1,0,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.0087220737339362,-0.011502646900694163,-1,-1,False,False,-0.03069722690871246,-0.03294731336695103,-1,-1,False,False
+1,0,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0006264732499770623,-0.00028345761509094083,0,0,False,False,-0.006781542696926629,0.0005170706247153295,-1,0,True,False
+2,1,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.04643582782262043,-0.0559205827954278,-1,-1,False,False,-0.03437468925626164,-0.033948105002543194,-1,-1,False,False
+2,1,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.014950335644442769,-0.010519280362119177,-1,-1,False,False,0.0010064625487501283,0.004341002128894017,0,0,False,False
+3,2,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.02972388018472058,-0.03174570141203316,-1,-1,False,False,-0.05343916262041443,-0.05607992373146195,-1,-1,False,False
+3,2,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.004940503239482124,0.007922461833442168,0,1,True,False,0.01259554996574063,0.01575496867259628,1,1,False,False
+4,3,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0050650086481118795,0.0006661320294245321,1,0,True,False,-0.008489785297850383,-0.016093658639226516,-1,-1,False,False
+4,3,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0028468254242441787,0.004249809483302017,0,0,False,False,0.0015045461212607539,0.005840730831272303,0,1,True,False
+5,4,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.031212909141993345,-0.024220878363397286,-1,-1,False,False,-0.033365089698538075,-0.029662257822030025,-1,-1,False,False
+5,4,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.007070199288249538,-0.02424996542481379,-1,-1,False,False,-0.00864200680861113,-0.043731239553183,-1,-1,False,False
+6,5,Alnus,0.005,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.1347566039631424,-0.177674441152599,-1,-1,False,False,-0.2113799291108454,-0.277077488101066,-1,-1,False,False
+6,5,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0274748171944565,0.037559273208509755,1,1,False,False,0.05431661125071492,0.0715035896285721,1,1,False,False
+7,6,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.003937736907630995,-0.04179954209084591,0,-1,True,False,-0.055628245675159116,-0.15561134429058954,-1,-1,False,False
+7,6,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0006486418022382339,0.00040373686577537937,0,0,False,False,0.0006200276732755581,-0.00017651904444357294,0,0,False,False
+8,7,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.020343930010933153,0.04634942563807004,-1,1,True,True,0.06170026376800131,0.21108926603811862,1,1,False,False
+8,7,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.002349158198003541,0.003331609965024099,0,0,False,False,0.004667936534529002,0.0066903689380880425,0,1,True,False
+9,8,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.01152417315048826,0.010828276682246896,-1,1,True,True,-0.01859962705205953,0.01033057832013029,-1,1,True,True
+9,8,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0009092551080929275,-0.0009835624268237594,0,0,False,False,-0.0014450664482668861,-0.0015868072037622555,0,0,False,False
+10,9,Alnus,0.005,descriptive_contradiction,descriptive_two_site_pollen_only_no_age_bounds,0.05108105720509726,0.04153011799424883,1,1,False,False,0.04468551807538507,0.046145283377723445,1,1,False,False
+10,9,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0007944937697633796,-0.000803589684190382,0,0,False,False,-0.0014422386582727586,-0.0014586690985342208,0,0,False,False
+11,10,Alnus,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.012807849833121998,-0.031626929365743295,-1,-1,False,False,0.02147876884433192,-0.015779580740040433,1,-1,True,True
+11,10,Plantago lanceolata,0.005,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0024967702894344197,0.0024878002105061716,0,0,False,False,0.00414595834757174,0.00415136516046623,0,0,False,False
+0,-1,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.013371787266961817,-0.015441990156843013,-1,-1,False,False,-0.05118282957235758,-0.047871594854671434,-1,-1,False,False
+0,-1,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.011875531124276998,-0.014579688661231292,-1,-1,False,False,-0.04515572827911129,-0.046864587676441555,-1,-1,False,False
+1,0,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0087220737339362,-0.011502646900694163,0,-1,True,False,-0.03069722690871246,-0.03294731336695103,-1,-1,False,False
+1,0,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0006264732499770623,-0.00028345761509094083,0,0,False,False,-0.006781542696926629,0.0005170706247153295,0,0,False,False
+2,1,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.04643582782262043,-0.0559205827954278,-1,-1,False,False,-0.03437468925626164,-0.033948105002543194,-1,-1,False,False
+2,1,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.014950335644442769,-0.010519280362119177,-1,-1,False,False,0.0010064625487501283,0.004341002128894017,0,0,False,False
+3,2,Alnus,0.01,descriptive_agreement,descriptive_two_site_pollen_only_no_age_bounds,-0.02972388018472058,-0.03174570141203316,-1,-1,False,False,-0.05343916262041443,-0.05607992373146195,-1,-1,False,False
+3,2,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.004940503239482124,0.007922461833442168,0,0,False,False,0.01259554996574063,0.01575496867259628,1,1,False,False
+4,3,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0050650086481118795,0.0006661320294245321,0,0,False,False,-0.008489785297850383,-0.016093658639226516,0,-1,True,False
+4,3,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0028468254242441787,0.004249809483302017,0,0,False,False,0.0015045461212607539,0.005840730831272303,0,0,False,False
+5,4,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.031212909141993345,-0.024220878363397286,-1,-1,False,False,-0.033365089698538075,-0.029662257822030025,-1,-1,False,False
+5,4,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.007070199288249538,-0.02424996542481379,0,-1,True,False,-0.00864200680861113,-0.043731239553183,0,-1,True,False
+6,5,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.1347566039631424,-0.177674441152599,-1,-1,False,False,-0.2113799291108454,-0.277077488101066,-1,-1,False,False
+6,5,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0274748171944565,0.037559273208509755,1,1,False,False,0.05431661125071492,0.0715035896285721,1,1,False,False
+7,6,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.003937736907630995,-0.04179954209084591,0,-1,True,False,-0.055628245675159116,-0.15561134429058954,-1,-1,False,False
+7,6,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0006486418022382339,0.00040373686577537937,0,0,False,False,0.0006200276732755581,-0.00017651904444357294,0,0,False,False
+8,7,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.020343930010933153,0.04634942563807004,-1,1,True,True,0.06170026376800131,0.21108926603811862,1,1,False,False
+8,7,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.002349158198003541,0.003331609965024099,0,0,False,False,0.004667936534529002,0.0066903689380880425,0,0,False,False
+9,8,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.01152417315048826,0.010828276682246896,-1,1,True,True,-0.01859962705205953,0.01033057832013029,-1,1,True,True
+9,8,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0009092551080929275,-0.0009835624268237594,0,0,False,False,-0.0014450664482668861,-0.0015868072037622555,0,0,False,False
+10,9,Alnus,0.01,descriptive_contradiction,descriptive_two_site_pollen_only_no_age_bounds,0.05108105720509726,0.04153011799424883,1,1,False,False,0.04468551807538507,0.046145283377723445,1,1,False,False
+10,9,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.0007944937697633796,-0.000803589684190382,0,0,False,False,-0.0014422386582727586,-0.0014586690985342208,0,0,False,False
+11,10,Alnus,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,-0.012807849833121998,-0.031626929365743295,-1,-1,False,False,0.02147876884433192,-0.015779580740040433,1,-1,True,True
+11,10,Plantago lanceolata,0.01,cannot_conclude_denominator_or_effect_threshold,descriptive_two_site_pollen_only_no_age_bounds,0.0024967702894344197,0.0024878002105061716,0,0,False,False,0.00414595834757174,0.00415136516046623,0,0,False,False

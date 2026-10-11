@@ -78,7 +78,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "classification-audit-manifest.v1"
     )
     assert artifacts["classification"]["path"] == (
-        "artifacts/execution-control/classification/"
+        "artifacts/release-verification/classification/"
         "neotoma-audit-visual-profile-5a932522/manifest.json"
     )
     assert artifacts["country-coverage"]["schema_version"] == (

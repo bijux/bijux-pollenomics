@@ -2,21 +2,11 @@
 
 [Theuerkauf and Couwenberg (2024)](https://doi.org/10.3390/quat7020018)
 describe analytical LOVEr and optimized LOVEoptim using a simulated landscape.
-The full article text was inspected through a public PDF copy with SHA-256
-`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`;
-the exact 1,097,851-byte inspected copy is now retained in the private source
-store at `lra-reference/papers/love-method-2024/paper.pdf`. Its
-`custody.json` receipt has SHA-256
-`37f2729e9796792098abb26d67ee3c2310d92ee9f59c99101a0cba6fec89b928`.
-The initial custody record did not include the download URL. We recovered the
-exact acquisition receipt from a historical run and retained it beside the
-PDF as `retrieval-receipt.json` (SHA-256
-`1fcc64d639ca4e93225dac4d7bf0575f6039aacaa8aa6adab160efa76a1a6b79`).
-It records a 12 September 2026 HTTP 200 download from the Semantic Scholar
-PDF mirror, with the same 1,097,851-byte count and PDF SHA-256. This resolves
-the download path for our inspected copy; it does not establish byte identity
-with the publisher's own PDF. The publisher endpoint returned HTTP 429/403
-during this review. The paper's
+We inspected an exact 1,097,851-byte article PDF retained in the private
+source store as `lra-reference/papers/love-method-2024/paper.pdf` (SHA-256
+`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`).
+This copy came from a public article mirror; its byte identity with the
+publisher's PDF is unestablished. The paper's
 data availability statement points to DISQOVER functions, without identifying
 a deposited simulation input bundle. No supplementary simulation bundle was
 identified in the accessible article. The [local source identity

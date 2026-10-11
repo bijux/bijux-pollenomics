@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import re
 import subprocess
@@ -186,3 +187,32 @@ def test_make_has_explicit_gate_refresh_and_candidate_addressed_outputs() -> Non
     assert "release-evidence: release-evidence-request" in makefile
     assert "release-evidence: verify-science" not in makefile
     assert "release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)" in makefile
+
+
+def test_release_gate_inputs_match_policy_bundles() -> None:
+    policy = json.loads(
+        (REPOSITORY_ROOT / "configs/release_evidence_policy.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    artifacts = {entry["identity"]: entry for entry in policy["required_artifacts"]}
+    specification = build_product_gate_specification(REPOSITORY_ROOT, "provenance")
+    makefile = (REPOSITORY_ROOT / "makes/pollenomics-verification.mk").read_text(
+        encoding="utf-8"
+    )
+
+    for identity, variable in (
+        ("classification", "POLLENOMICS_CLASSIFICATION_EVIDENCE"),
+        ("propagation", "POLLENOMICS_PROPAGATION_EVIDENCE"),
+    ):
+        bundle = artifacts[identity]["path"].removesuffix("/manifest.json")
+        assert bundle in specification.input_paths
+        assert f"{variable} := {bundle}\n" in makefile
+
+    gate_directory = specification.artifacts_directory
+    assert gate_directory == "artifacts/release-verification/gates"
+    assert f"POLLENOMICS_GATE_ARTIFACTS := {gate_directory}\n" in makefile
+    for gate_id in policy["required_gate_ids"]:
+        assert artifacts[f"gate-{gate_id}"]["path"] == (
+            f"{gate_directory}/{gate_id}.json"
+        )

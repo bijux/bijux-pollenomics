@@ -17,9 +17,10 @@ not been reviewed for those 72 samples.
 
 The LandClim II site coordinates and Neotoma site point differ by about
 **0.36 m** under WGS84 distance. LandClim II lists a lake, 72 pollen samples,
-23 time windows, an authors chronology, `siteradius = 160` with unstated
-unit, and an `NR` access marker. Neotoma binds all 72 source samples to one
-`DALMUT` collection unit (`neotoma:collection-unit:14989`) and one dataset
+23 time windows, an authors chronology, `siteradius = 160 m` as defined in
+the workbook's `readme` sheet, and an `NR` access marker. Neotoma binds all
+72 source samples to one `DALMUT` collection unit
+(`neotoma:collection-unit:14989`) and one dataset
 (`neotoma:dataset:20034`). Its author chronology
 (`neotoma:chronology:14989:11601`) assigns 72 comparable calibrated sample
 ages using a weighted mixed-effects regression; the separate EPD linear
@@ -38,7 +39,7 @@ richness standardization.
 | --- | ---: | --- |
 | Boreas Table 1 lake surface | 7.2 ha | A reported site area, without an age-specific shoreline. |
 | LandClim I `SiteData`, `Area of site (ha) (*Actual size)` | `8.00*` ha | A second reported area for the named site. |
-| LandClim II `siteradius` | 160, unit unstated | If metres and circular, area would be 8.0425 ha; this is a conditional calculation. |
+| LandClim II `siteradius` | 160 m, per the workbook definition | A circle with that radius has area 8.0425 ha; this does not identify a historical shoreline. |
 
 The [11-row control ledger](controls.csv) matches every published lab ID,
 depth midpoint, uncalibrated age and radiocarbon error to the Neotoma author

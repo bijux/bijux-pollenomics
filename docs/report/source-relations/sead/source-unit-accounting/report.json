@@ -1,0 +1,172 @@
+{
+  "acquisition_bundle_sha256": "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9",
+  "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+  "admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+  "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "country_authority_id": "sha256:e67d7e498df146bcdd65c398f67cdf2372298258288bcba9af734486fa2fe8d0",
+  "country_decisions_sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
+  "country_rows": [
+    {
+      "analysis_entities": 117786,
+      "analysis_values": 68705,
+      "country": "Sweden",
+      "country_code": "SE",
+      "dataset_membership_posture": "distinct_source_dataset_ids_linked_by_analysis_entities",
+      "datasets": 40703,
+      "decision_status": "assigned",
+      "discovered_sites": 1925,
+      "physical_samples": 28483,
+      "retrieved_sites": 1925,
+      "sample_groups": 3712,
+      "sites_with_sample_groups": 1103,
+      "source_unit_posture": "captured_source_relations_only_no_event_admission"
+    },
+    {
+      "analysis_entities": 4059,
+      "analysis_values": 0,
+      "country": "Denmark",
+      "country_code": "DK",
+      "dataset_membership_posture": "distinct_source_dataset_ids_linked_by_analysis_entities",
+      "datasets": 1874,
+      "decision_status": "assigned",
+      "discovered_sites": 59,
+      "physical_samples": 1520,
+      "retrieved_sites": 59,
+      "sample_groups": 504,
+      "sites_with_sample_groups": 59,
+      "source_unit_posture": "captured_source_relations_only_no_event_admission"
+    },
+    {
+      "analysis_entities": 7970,
+      "analysis_values": 0,
+      "country": "Norway",
+      "country_code": "NO",
+      "dataset_membership_posture": "distinct_source_dataset_ids_linked_by_analysis_entities",
+      "datasets": 722,
+      "decision_status": "assigned",
+      "discovered_sites": 45,
+      "physical_samples": 2257,
+      "retrieved_sites": 45,
+      "sample_groups": 177,
+      "sites_with_sample_groups": 45,
+      "source_unit_posture": "captured_source_relations_only_no_event_admission"
+    },
+    {
+      "analysis_entities": 103,
+      "analysis_values": 0,
+      "country": "Finland",
+      "country_code": "FI",
+      "dataset_membership_posture": "distinct_source_dataset_ids_linked_by_analysis_entities",
+      "datasets": 93,
+      "decision_status": "assigned",
+      "discovered_sites": 40,
+      "physical_samples": 48,
+      "retrieved_sites": 40,
+      "sample_groups": 39,
+      "sites_with_sample_groups": 38,
+      "source_unit_posture": "captured_source_relations_only_no_event_admission"
+    },
+    {
+      "analysis_entities": "",
+      "analysis_values": "",
+      "country": "",
+      "country_code": "REVIEW",
+      "dataset_membership_posture": "source_units_not_retrieved",
+      "datasets": "",
+      "decision_status": "review",
+      "discovered_sites": 103,
+      "physical_samples": "",
+      "retrieved_sites": 0,
+      "sample_groups": "",
+      "sites_with_sample_groups": "",
+      "source_unit_posture": "excluded_pending_country_review"
+    },
+    {
+      "analysis_entities": "",
+      "analysis_values": "",
+      "country": "",
+      "country_code": "UNASSIGNED",
+      "dataset_membership_posture": "source_units_not_retrieved",
+      "datasets": "",
+      "decision_status": "unassigned",
+      "discovered_sites": 23,
+      "physical_samples": "",
+      "retrieved_sites": 0,
+      "sample_groups": "",
+      "sites_with_sample_groups": "",
+      "source_unit_posture": "excluded_pending_country_review"
+    }
+  ],
+  "normalized_manifest_sha256": "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508",
+  "normalized_site_country_binding_sha256": "c6849b1321a5863098dc9e9b22bc794fcbc2467af592f0cd9bed5a77731032c8",
+  "normalized_source_key_set_sha256": "137a477c27bea227b3469d110a9535e00ad9fa0939b6e7856908fe37e28197f1",
+  "release_status": "refused",
+  "rows_csv_sha256": "b2d7c66c6b75571745feba0cfb037c4f813c3989f616bd16bebc050dc004cc00",
+  "schema_version": "sead-country-source-units.v1",
+  "scientific_admission": "none; source-unit accounting only",
+  "scope_id": "sha256:39bfff6abd80041dc01c554711b2a57daf6ee68e1757e3515668a18874ffb7d7",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "source_tables": [
+    {
+      "payload_sha256": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
+      "primary_key": "site_id",
+      "receipt_sha256": "2cc201892afd57a148c4a9359228c06e3f3265af6daff6b2669fdac3352361b4",
+      "row_count": 2069,
+      "table": "tbl_sites"
+    },
+    {
+      "payload_sha256": "aa7e68c8aaafb2b7499f6b163a4abeba4e5dffccd411a8158fad283b4fb15065",
+      "primary_key": "sample_group_id",
+      "receipt_sha256": "88025a5b3f1c10686a6a95fc3076d60cafc2c2d18019e08d7d3b9b6cebb42126",
+      "row_count": 4432,
+      "table": "tbl_sample_groups"
+    },
+    {
+      "payload_sha256": "591d9daa71af52f5772d50d888601ccef95db1a1e4ad87a82d922c85c15fe818",
+      "primary_key": "physical_sample_id",
+      "receipt_sha256": "b6a18a8b6da4710de66dc0dd0ab0d1071bd631c9cf9ef2c29329bdf06bd4dce0",
+      "row_count": 32308,
+      "table": "tbl_physical_samples"
+    },
+    {
+      "payload_sha256": "511208fed7e47db0eb166f56857092ab3a47390a03c743f32bce4ec6101705a5",
+      "primary_key": "analysis_entity_id",
+      "receipt_sha256": "fe8fe886d2d168f2d07ce64ac5fce0c82c33a976af1446f855b5d1f396091519",
+      "row_count": 129918,
+      "table": "tbl_analysis_entities"
+    },
+    {
+      "payload_sha256": "c8591339a40fd48134510f4ff2916e14c5abced87aa0f526953035602be0fd63",
+      "primary_key": "dataset_id",
+      "receipt_sha256": "894b0ebbe5de62f9982e93dfa77d3a55ab28c2cdd63635482970827c56c9ec93",
+      "row_count": 43392,
+      "table": "tbl_datasets"
+    },
+    {
+      "payload_sha256": "4cc48ca1836cd128e303b56920ee826bfb362771d578f8a019e7c8f0a3de4bbf",
+      "primary_key": "analysis_value_id",
+      "receipt_sha256": "2a2753a2583d1e01840cf9272ac3f55fa14237c378e160e13b515abb8addac8b",
+      "row_count": 68705,
+      "table": "tbl_analysis_values"
+    }
+  ],
+  "totals": {
+    "analysis_entities_without_dataset_id_by_country": {
+      "SE": 25
+    },
+    "analysis_entity_count": 129918,
+    "analysis_value_count": 68705,
+    "dataset_country_membership_count": 43392,
+    "dataset_distinct_count": 43392,
+    "datasets_in_multiple_countries": 0,
+    "decision_status_counts": {
+      "assigned": 2069,
+      "review": 103,
+      "unassigned": 23
+    },
+    "physical_sample_count": 32308,
+    "retrieved_site_count": 2069,
+    "sample_group_count": 4432,
+    "sites_with_sample_groups": 1245
+  }
+}

@@ -57,16 +57,16 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
         self.assertEqual(payload["row_count"], 1475)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 404)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 405)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 528)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 407)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 406)
         self.assertEqual(payload["precision_counts"]["contextual_interval"], 32)
-        self.assertEqual(payload["comparability_counts"]["numeric_interval"], 796)
+        self.assertEqual(payload["comparability_counts"]["numeric_interval"], 797)
         self.assertEqual(
             payload["comparability_counts"]["numeric_interval_with_caveat"], 136
         )
         self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 136)
-        self.assertEqual(payload["comparability_counts"]["unresolved"], 407)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 406)
         pig_rows = [
             row for row in payload["rows"] if row["project_accession"] == "PRJEB30282"
         ]
@@ -172,7 +172,7 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertFalse(payload["region_agnostic_contract_ready"])
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 170)
         self.assertEqual(payload["counts"]["mapped_sample_count"], 331)
-        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.2252)
+        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.2255)
         pig_points = [
             row
             for row in point_payload["rows"]
@@ -192,7 +192,7 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
                 ("Trelleborg", "SAMEA5160868", "archaeological_context"),
             },
         )
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 17)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)
         self.assertGreater(

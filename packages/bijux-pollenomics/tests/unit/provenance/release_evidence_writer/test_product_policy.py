@@ -268,7 +268,7 @@ def test_classification_reconciliation_uses_the_loaded_policy_bundle(
         row for row in artifacts if row["identity"] == "classification"
     )
     previous_path = classification["path"]
-    manifest_path = f"artifacts/execution-control/classification/selected-{bound_count}/manifest.json"
+    manifest_path = f"artifacts/release-verification/classification/selected-{bound_count}/manifest.json"
     classification["path"] = manifest_path
     for rule in policy_document["artifact_ownership"]:
         if rule["artifact_path_prefix"] == previous_path:
@@ -278,7 +278,7 @@ def test_classification_reconciliation_uses_the_loaded_policy_bundle(
     config.write_bytes(_canonical_json(policy_document) + b"\n")
     for directory, count in (
         (Path(manifest_path).parent, bound_count),
-        (Path("artifacts/execution-control/classification/neotoma-audit-5a932522"), 3),
+        (Path("artifacts/release-verification/classification/unselected-audit"), 3),
     ):
         path = tmp_path / directory / "observation_memberships.json"
         path.parent.mkdir(parents=True)

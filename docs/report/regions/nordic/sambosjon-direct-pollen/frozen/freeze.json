@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-10-01T08:02:22.239862+00:00",
+  "input_manifest_sha256": "4f161a235fd77953fc8a0411d2649ad2d7268144328e20f6acdc0df2c783f381",
+  "metadata_sha256": "367c4d6fa1eed47c64d7360f6898b457e68718a26ef86eb1aed82b3eea2909ba",
+  "prediction_rows": 66,
+  "predictions_sha256": "97a2b45ce51e2e42c851e64ba5b91ea721e887fac6c1e92e16f3938b428f4e65",
+  "protocol_sha256": "f5ddf56f67668382c769d1cf530e5a28491268ca70bfb9d51bae48537abe81ae",
+  "refused_bins": 0,
+  "schema_version": "sambosjon-direct-pollen-freeze.v1",
+  "target_observations_used_for_prediction": false,
+  "target_site_id": "neotoma:site:3398",
+  "training_sha256": "4ec0de377bba7ad501ca5bf141374b4a3bde97ea266e64b0135a639d309a8647"
+}

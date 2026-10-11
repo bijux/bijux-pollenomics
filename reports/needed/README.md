@@ -12,6 +12,7 @@ sources remain in their governed source store.
 | Independent vegetation observations | Critical for ecological accuracy | Measurement source owner and ecological pairing review. |
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
+| Neotoma acquisition and boundary authority | High for source reproducibility | Original capture custodian and country-boundary decision owner. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
 | Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
@@ -82,11 +83,13 @@ count. LandClim I's 25.50 ha and a conditional 285 m circle agree as modern
 site-area claims. The Neotoma calibrated chronology retains five dated
 controls and an assumed core top. The original authors explicitly excluded
 the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
-11,000 BP base; the control-selection question is settled. The exact resolver
-is the LandClim-selected age vector/uncertainty, dated basin geometry,
-eligible denominator, taxon/PPE use and rights for those 150 samples. We
-retain zero Finnish LRA
-admissions until that same-core packet is reviewed.
+11,000 BP base; the control-selection question is settled. The published
+LandClim II PPE/fall-speed table is also available under CC BY 4.0, but its
+exact application and covariance profile for `LAIH` are not bound. The exact
+resolver is the LandClim-selected age vector/uncertainty, dated basin geometry,
+eligible denominator, core-specific parameter use and pollen-source rights for
+those 150 samples. We retain zero Finnish LRA admissions until that same-core
+packet is reviewed.
 
 **Needed:** nominate a specific physical core and time window in each target
 country, then bind source sample selection, chronology and uncertainty,
@@ -120,6 +123,16 @@ vegetation compilation and unrounded 26-taxon output. A source owner and a
 qualified ecological reviewer must validate the pairing. Next action: score
 only the matched pairs, preserving the zero-pair status until then.
 
+For the ten-lake route, request one versioned packet from the study data
+custodian that binds each physical lake and surface sample to its raw integer
+pollen counts and denominator; lake/core identity, basin geometry and sampling
+date; the measured vegetation fractions and their source layers, survey dates,
+taxa, units and spatial footprint; full-precision 26-taxon REVEALS estimates,
+uncertainty and parameter/run selection; the pollen-to-vegetation taxon
+crosswalk; file digests and analytical/redistribution terms. A source reviewer
+must identify which physical samples and landscape footprints are genuinely
+paired before any repository vegetation score is calculated.
+
 **Already checked:** the southern-Sweden figure screen and EMPD2–NFI pairing
 found no admitted repository measurement pair; the original ten-lake inputs
 and unrounded outputs are not retained. **Reopen when:** a source owner
@@ -131,8 +144,31 @@ and the [companion parameter study](https://portal.research.lu.se/en/publication
 Their accessible publisher records describe the vegetation compilation and
 the PPE/sample-design comparison, but provide no bound, reusable table of
 the ten lake counts, measured vegetation and unrounded 26-taxon outputs.
+The [Lund study record](https://portal.research.lu.se/en/publications/the-reveals-model-a-new-tool-to-estimate-past-regional-plant-abun/)
+links to the DOI and Scopus, with no data-file link; the Wiley PDF could not be
+opened in this review. We have not established that no original data exist.
 The nine rounded labels already transcribed from a later figure remain a
 publication correspondence check, not a new matched validation cohort.
+
+### Separate local forest-composition lead
+
+We found a distinct [2019 Ecology data paper](https://onlinelibrary.wiley.com/doi/10.1002/ecy.2784)
+on 33 northeastern US small lakes with modern pollen paired to species-level
+forest composition and basal-area estimates in five distance bands from the
+lake margins. Its [indexed abstract](https://pubmed.ncbi.nlm.nih.gov/31183858/)
+permits research and teaching use with citation; it does not state general
+redistribution permission. The publisher lists a metadata PDF and
+`ecy2784-sup-0002-DataS1.zip` under [Supporting Information](https://onlinelibrary.wiley.com/doi/10.1002/ecy.2784/suppinfo),
+but file access was blocked in our current environment. We have not inspected
+their bytes, columns, raw count denominators or exact pollen–forest pairing.
+
+**Next action:** acquire those two original files through the publisher or
+source custodian, record content identities and permitted use, and inspect
+per-lake pollen counts, species-level basal-area rings, dates and taxon mapping.
+Only then declare a separate local tree basal-area prediction target and freeze
+site-group predictions before scoring. This source cannot fill the Swedish or
+four-country regional vegetation-cover denominator by citation alone; those
+paired measurements remain at zero.
 
 ## HYDE source semantics
 
@@ -174,6 +210,17 @@ questions. Next action:
 replay affected grid/window/taxon cells against exact source bytes before
 claiming full-paper correspondence.
 
+We can identify the public [author example code](https://github.com/rmfyfe/landclimII/tree/57ead2e2fcc493d099be4e5a3092fc396e1c3d3a),
+but it was committed in August 2021 and demonstrates two British grids. The
+[paper](https://essd.copernicus.org/articles/14/1581/2022/) dates its
+reconstructions to 2018–2020, while [PANGAEA.937075](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+identifies the published output as version June 2021. We therefore still need
+the dated, immutable pre-June-2021 production snapshot or source manifest:
+harmonized counts, selected ages, transformation code, all 1,128 sequence and
+grid memberships, parameter files and executable revision. Its DOI, commit or
+checksums would let us bind one named grid/window to the released output.
+The public example commit cannot establish that historical input identity.
+
 **Already checked:** 17 author raw-to-prepared examples, 14,074 R/Python
 values, exact TW2 archive differences, 79 Rootsi workbook candidates and
 10,500 ISTS/TBS mean rows. None authenticates the archive-producing source
@@ -211,7 +258,15 @@ screens and historical Swedish lake preparation reports. The Bjäresjö
 consumer finds 371 display intervals from 13 sites within 20 km and closes
 all 25 published window counts, but Neotoma site 28871 versus LandClim
 `BJARE` remains a refused physical-core identity. Modern registry matches for
-named lakes do not establish historical cores or a migration path.
+named lakes do not establish historical cores or a migration path. We also
+retain a complete [national RAA GeoPackage source candidate]
+(../../data/raa/raw/national_geopackage_source.json) in the private source
+store. Its 2,291,224,576 bytes and SHA-256 are verified; its analytical rights,
+feature semantics and relation to the current point layer are not yet reviewed.
+The Höje å report cited for Gullåkra and Vesums mossar also has an exact
+[private source identity](../../data/archaeology/raw/hojea_2003_source.json).
+Its project-area coordinates do not locate a pollen core or an independently
+qualified archaeological event.
 
 **Reopen when:** a source packet binds a candidate lake, its core and at least
 one independent context observation on compatible place
@@ -234,7 +289,11 @@ forward-time rules, then publish predictions and refusals before scoring.
 
 **Already checked:** the existing Swedish three-site result has 486
 site-bin/policy queries, 473 predictions and 13 refusals across same and
-adjacent nominal bins. **Reopen when:** calibrated age-model uncertainty and
+adjacent nominal bins. The [Sämbosjön source age-bound screen](../science/sambosjon-direct-pollen.md)
+finds 58/111 selected sample intervals crossing a 500-year boundary and at
+least one crossing in every scored bin. Its bound confidence level is unstated;
+it does not supply a joint age posterior or an adjusted pollen score.
+**Reopen when:** calibrated age-model uncertainty and
 eligible new cores are bound to those physical sites and windows; rerun an
 age-aware, group-excluded consumer rather than treating nominal bin shifts
 as chronology uncertainty.
@@ -252,8 +311,56 @@ metrics and failure rules before any target outcome is opened. A qualified
 source owner must establish cohort identity and permitted use. Next action:
 run and publish predictions first, then score all eligible/refused targets.
 
-**Already checked:** English author and Nordic target outcomes had been viewed
-before the present development protocols; no untouched eligible cohort is
-recorded. **Reopen when:** a cohort owner can freeze eligible source records,
+**Already checked:** English author and earlier Nordic target outcomes had
+been viewed before their present development protocols. Lilla Gloppsjön
+[froze predictions and scoring rules](../science/lilla-gloppsjon-direct-pollen.md)
+before this study interpreted its target counts, but an earlier shared
+source-validation screen parsed its observation partition. This provides a
+new-site descriptive result, not an untouched eligible confirmation cohort.
+The [metadata-only Swedish availability check](../../docs/report/source-relations/neotoma/swedish-cohort-availability/README.md)
+found 102 current Neotoma dataset records at 99 site IDs, all already retained.
+Two PANGAEA leads share core handles with existing Neotoma cores; the checked
+SAMBOTOT dated-control metadata does not provide a selected calibrated
+pollen-sample age model. These bounded screens found no eligible fresh cohort.
+The wider PANGAEA title screen found three named handles without an exact
+match among all retained Neotoma cores. Three other apparent leads are already
+retained under `UNASSIGNED` country decisions: HAKULLA5, NDRAKET and VUOLEPAL.
+The [LegacyAge site table](https://doi.org/10.1594/PANGAEA.933132) independently
+links HAKULLA5 to retained Neotoma site 3138/dataset 4082. None of the six
+occurs in the 37-event Swedish EPD final sample-age inventory. For GARASEL or
+another unmatched handle, obtain a physical-core, selected pollen-sample-age,
+sample-depth and use-rights binding before target pollen counts are opened.
+GARASEL's [pollen metadata](https://doi.org/10.1594/PANGAEA.739248) list
+depths and count parameters without sample ages; its
+[dated-control metadata](https://doi.org/10.1594/PANGAEA.740365) list raw
+radiocarbon dates without a selected calibrated pollen-sample vector. Both
+require login and declare unknown licensing. Request that exact vector, core
+identity and permitted use from the source owner; do not infer ages from the
+controls or open counts ahead of the frozen study.
+**Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.
+
+## Neotoma acquisition and boundary authority
+
+**Affected result:** the [source-scope reconciliation](../../docs/report/source-relations/neotoma/acquisition-scope/README.md)
+binds 206 retained inventory objects to 387 stored queried JSON objects and
+209 requested/downloaded dataset IDs to the nine-part manifest. Replaying the
+current country selector on the same stored rows yields 200 objects and 203
+dataset IDs. Six retained site/dataset pairs differ: 700/720, 3025/3941,
+3138/4082, 3221/4181, 3311/4298 and 13395/20058.
+
+**Needed:** the original capture's exact per-page request URL and parameters,
+response status and time, page body bytes and digest, pagination termination
+evidence, and each of the 209 download response byte digests; also the
+historical boundary version or decision that explains the six retained-only
+rows. The source custodian and boundary decision owner can resolve those
+facts. A new capture must have a new identity and its own complete receipts;
+it cannot certify the earlier capture retroactively.
+
+**Already checked:** retained objects are an ordered exact subset of the
+stored queried JSON and match the manifest request IDs; the pinned native and
+relational source payloads reconcile. These are serialized source products,
+not original HTTP receipts. **Reopen when:** original receipt and boundary
+authority arrives, or a separately identified capture with complete request
+and response custody is ready for its own source-bound replay.

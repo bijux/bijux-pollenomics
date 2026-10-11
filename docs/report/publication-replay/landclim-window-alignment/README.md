@@ -23,5 +23,5 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --output artifacts/landclim-window-alignment/replay
 ```
 
-The generated CSV uses CRLF line endings; the governed ledger uses LF with
-identical parsed rows.
+The producer writes LF line endings. A source-bound replay matches all three
+governed outputs byte for byte.

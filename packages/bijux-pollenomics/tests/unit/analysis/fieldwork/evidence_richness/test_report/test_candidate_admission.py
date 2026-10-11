@@ -7,6 +7,9 @@ from bijux_pollenomics.analysis import (
     build_sweden_lake_evidence_richness_report,
     render_lake_evidence_richness_markdown,
 )
+from bijux_pollenomics.collection.catalog.spatiotemporal import (
+    build_source_spatiotemporal_posture_payload,
+)
 
 from .support import (
     _locality,
@@ -50,6 +53,30 @@ def test_lake_evidence_refuses_orphaned_svar_review_subset() -> None:
         assert "contains `0` admitted candidates" in markdown
         assert "`governing_svar_registry_missing`" in markdown
         assert "No derived review subset is promoted" in markdown
+
+
+def test_malformed_svar_registry_is_refused_in_posture_and_lake_ranking() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        _write_json(root / "svar" / "normalized" / "sweden_lake_registry.geojson", {})
+
+        rows = build_source_spatiotemporal_posture_payload(root)["rows"]
+        assert isinstance(rows, list)
+        svar = next(row for row in rows if row["source_key"] == "svar")
+        assert svar["availability_status"] == "refused"
+        assert svar["record_count"] is None
+        assert svar["numeric_interval_record_count"] is None
+        assert svar["refusal_reasons"] == ("invalid_governing_normalized_registry",)
+
+        report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(),
+            animal_localities=(),
+        )
+        assert report.candidate_count == 0
+        assert report.methodology["candidate_source"] == "svar_registry_invalid"
+        assert report.methodology["availability_status"] == "blocked"
+        assert report.methodology["refusal_reason"] == "governing_svar_registry_invalid"
 
 
 def test_svar_lake_candidates_exclude_engineered_and_wetland_names() -> None:

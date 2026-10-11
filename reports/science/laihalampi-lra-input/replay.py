@@ -8,10 +8,12 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from typing import Any
 
 from bijux_pollenomics.collection.intake.workbooks import read_xlsx_sheet_rows
 from bijux_pollenomics.collection.sources.landclim.study_inventory import (
     read_landclim_study_inventory,
+    require_landclim_site_radius_metres,
 )
 from pyproj import Geod
 
@@ -49,7 +51,7 @@ def verified(path: Path, expected: str) -> Path:
     return path
 
 
-def one(rows: list[dict], **fields: str) -> dict:
+def one(rows: list[dict[str, Any]], **fields: str) -> dict[str, Any]:
     matches = [
         r for r in rows if all(r.get(key) == value for key, value in fields.items())
     ]
@@ -58,7 +60,7 @@ def one(rows: list[dict], **fields: str) -> dict:
     return matches[0]
 
 
-def produce(repository: Path) -> dict:
+def produce(repository: Path) -> dict[str, Any]:
     landclim = repository / "data/landclim/raw"
     verified(landclim / "landclim_i_land_cover_types.xlsx", LANDCLIM_I_SHA256)
     verified(landclim / "landclim_ii_site_metadata.xlsx", LANDCLIM_II_SHA256)
@@ -71,6 +73,7 @@ def produce(repository: Path) -> dict:
     if len(row_i) != 1 or row_i[0][6] != "25.50*":
         raise ValueError("LandClim I Laihalampi area changed")
     inventory = read_landclim_study_inventory(landclim)
+    require_landclim_site_radius_metres(landclim)
     row_ii = one(
         [{v.column: v.raw for v in record.values} for record in inventory.records],
         SiteName="Laihalampi",
@@ -195,8 +198,8 @@ def produce(repository: Path) -> dict:
         ),
         "landclim_ii_neotoma_point_separation_m": separation,
         "landclim_i_reported_area_ha": 25.5,
-        "landclim_ii_radius_unit_unstated": radius,
-        "conditional_area_if_radius_metres_ha": math.pi * radius**2 / 10000,
+        "landclim_ii_site_radius_m": radius,
+        "circle_area_from_site_radius_ha": math.pi * radius**2 / 10000,
         "lra_admitted_samples": 0,
         "reason": "The named physical core and 150-sample lineage agree, but the exact LandClim selected ages, historical basin geometry, LRA denominator/taxon/PPE use and analytical rights remain unqualified.",
     }

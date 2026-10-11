@@ -1,5 +1,20 @@
 # Neotoma source relationship validation
 
+The [acquisition scope receipt](acquisition-scope/README.md) binds retained
+inventory JSON rows and requested dataset IDs to the nine-part manifest. It
+records six differences in current country selection and the absent original
+HTTP pagination and response-byte authority.
+
+The [observation attribute trace](observation-attributes/README.md) follows one
+pinned raw datum through its normalized convenience fields and native parent
+IDs. It records source nulls and the absent denominator explicitly.
+The [native variable surface reconciliation](variable-surface/README.md)
+checks all 1,262 relational variable identities, names, source taxon groups,
+other source semantics and units against 370,936 native datum rows.
+The [compact sample summary derivation](compact-summary/README.md) checks a
+displayed site count against pinned relational samples and retains a reverse
+trace to one observation.
+
 The [Nordic lake-parameter review](lakeparameters/README.md) retains the exact
 five public source matches, the 54-site candidate denominator and a replay
 against the externally retained page capture. It admits zero historical basins
@@ -10,6 +25,13 @@ replays all 77 current Swedish prerequisite sites against 84 published
 LandClim sequences. It retains 34 same-name point leads, including 16 within
 10 m, while refusing source identity and radius transfer for every row. The
 older 37-site comparison is contained row for row in this wider cohort.
+
+The [Swedish pollen cohort availability result](swedish-cohort-availability/README.md)
+checks a current Neotoma metadata query and a bounded PANGAEA/EPD profile
+screen before target counts are opened. Its 99 queried Neotoma site IDs are all
+retained. Two PANGAEA leads collide with existing core handles; three more
+apparent leads are retained `UNASSIGNED` cores, while three named handles need
+core, age and rights review. It does not close independent confirmation.
 
 The [Abborrtjärnen core comparison](abbo-core-identity/README.md) retains a
 same-name, 107-sample and 0.334 m point lead but refuses to transfer the
@@ -38,6 +60,11 @@ and country ownership across the source graph, alongside manifested file hashes,
 row counts, stable ordering, country partitions and exact file membership. Its
 compact parent index does not retain the observation population. The atomic
 materializer uses the same reader before publishing its staging directory.
+
+The current refresh review at `data/neotoma/review/relational_refresh_review.md`
+compares the present pinned candidate with its governed baseline. It is a
+zero-difference fixed point at the same baseline identity; a changed candidate
+requires a new source-specific drift explanation and review before replacement.
 
 Unresolved chronology references remain explicit nulls; missing reference fields
 are refused. Source zeros remain unchanged, while corrected default conflict

@@ -36,8 +36,8 @@
   "neotoma_has_assumed_core_top_control": true,
   "landclim_ii_neotoma_point_separation_m": 0.37055112446540533,
   "landclim_i_reported_area_ha": 25.5,
-  "landclim_ii_radius_unit_unstated": 285.0,
-  "conditional_area_if_radius_metres_ha": 25.517586328783096,
+  "landclim_ii_site_radius_m": 285.0,
+  "circle_area_from_site_radius_ha": 25.517586328783096,
   "lra_admitted_samples": 0,
   "reason": "The named physical core and 150-sample lineage agree, but the exact LandClim selected ages, historical basin geometry, LRA denominator/taxon/PPE use and analytical rights remain unqualified."
 }

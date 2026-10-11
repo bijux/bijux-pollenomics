@@ -1,6 +1,6 @@
 {
   "schema_version": "lra-python-performance-measurement.v1",
-  "summary_producer_sha256": "bcef0a5328ebd04fdcf80474df7fe4ed81a9256175f0e44911d36d570277bd65",
+  "summary_producer_sha256": "ed5d36443a8d37e5d8c62b96803d5febc38c7241b0c64bf5c72408348c9a91a2",
   "raw_measurement_sha256": "667dbdd5d32f5df28679475d89ad61e796031e33e05c640dbc8126c7fa854bb2",
   "raw_measurement_bytes": 818695,
   "prospective_native_gate": {

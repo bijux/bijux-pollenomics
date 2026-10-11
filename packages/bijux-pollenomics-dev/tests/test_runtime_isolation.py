@@ -615,9 +615,36 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"PANGAEA_COUNTRY_CELL_COUNTS", "PANGAEA_DATASET_DOI"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/neotoma_acquisition_scope.py": {
+        "bijux_pollenomics.collection.sources.boundaries.store": frozenset(
+            {"load_repository_country_boundaries"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.collection": frozenset(
+            {
+                "build_neotoma_bbox_geojson",
+                "extract_neotoma_dataset_ids",
+                "filter_neotoma_dataset_inventory_rows",
+            }
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py": {
         "bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake": frozenset(
             {"parse_dataset_publications"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/neotoma_variable_surface.py": {
+        "bijux_pollenomics.collection.sources.neotoma.production": frozenset(
+            {"load_validated_neotoma_raw_archive"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.identifiers": frozenset(
+            {"digest"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
+            {"variable_id"}
+        ),
+        "bijux_pollenomics.core.text": frozenset({"clean_optional_text"}),
+        "bijux_pollenomics.evidence.sources.neotoma": frozenset(
+            {"validate_neotoma_relational_materialization"}
         ),
     },
     "bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py": {
@@ -688,9 +715,23 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             }
         ),
     },
+    "bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py": {
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {
+                "SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256",
+                "SEAD_GOVERNED_ADMISSION_SHA256",
+                "SEAD_GOVERNED_BUILD_ID",
+                "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_RUN_ID",
+                "SEAD_GOVERNED_PARENT_ADMISSION_SHA256",
+                "governed_sead_evidence_root",
+            }
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/sead_pollen_screen.py": {
         "bijux_pollenomics.evidence.sources.sead": frozenset(
             {
+                "SEAD_GOVERNED_ADMISSION_SHA256",
                 "SEAD_GOVERNED_BUILD_ID",
                 "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
                 "SEAD_GOVERNED_EVIDENCE_RUN_ID",
@@ -735,7 +776,7 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"read_xlsx_sheet_rows"}
         ),
         "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
-            {"read_landclim_study_inventory"}
+            {"read_landclim_study_inventory", "require_landclim_site_radius_metres"}
         ),
     },
     "bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py": {

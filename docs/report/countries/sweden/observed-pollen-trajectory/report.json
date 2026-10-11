@@ -43,6 +43,34 @@
     },
     "thresholds_are_sign_sensitivity_not_sampling_confidence_intervals": true
   },
+  "weighting_sensitivity": {
+    "equal_site_method": "arithmetic mean of the two site fractions within each common bin",
+    "pooled_count_method": "sum of named-taxon counts divided by the sum of the matching denominator counts within each common bin",
+    "denominator_count_weights": {
+      "all_native_nisp": "all native NISP counts at BUS and BOKE",
+      "closed_16_nisp": "closed 16-taxon NISP counts at BUS and BOKE"
+    },
+    "direction_classes": {
+      "1": "increase",
+      "0": "below threshold",
+      "-1": "decrease"
+    },
+    "matched_transition_count": 48,
+    "matched_denominator_comparison_count": 96,
+    "by_denominator": {
+      "all_native_nisp": {
+        "matched_transition_count": 48,
+        "direction_class_changed_count": 10,
+        "opposite_qualified_direction_count": 4
+      },
+      "closed_16_nisp": {
+        "matched_transition_count": 48,
+        "direction_class_changed_count": 9,
+        "opposite_qualified_direction_count": 4
+      }
+    },
+    "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
+  },
   "windows": [
     {
       "bin_index": -1,
@@ -108,6 +136,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 0,
               "distinct_site_count": 0
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 5,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 5292,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.04410031068107854,
+                "pooled_count_fraction": 0.030801209372637944
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.004530427963056324,
+                "pooled_count_fraction": 0.0045351473922902496
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 1602,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.09945893961547182,
+                "pooled_count_fraction": 0.1017478152309613
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.015390509550654042,
+                "pooled_count_fraction": 0.0149812734082397
+              }
             }
           }
         }
@@ -183,6 +243,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 16,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 13602,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.057472097948040354,
+                "pooled_count_fraction": 0.04624319952948096
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.016405959087333322,
+                "pooled_count_fraction": 0.01911483605352154
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 4204,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.1506417691878294,
+                "pooled_count_fraction": 0.14961941008563273
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.06054623782976533,
+                "pooled_count_fraction": 0.06184586108468126
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -250,6 +342,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 208,
               "distinct_site_count": 8
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 9,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 11135,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.06619417168197655,
+                "pooled_count_fraction": 0.05774584643017512
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.017032432337310385,
+                "pooled_count_fraction": 0.019398293668612482
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 3522,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.18133899609654186,
+                "pooled_count_fraction": 0.18256672345258376
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.06732778052669196,
+                "pooled_count_fraction": 0.06132879045996593
+              }
             }
           }
         }
@@ -325,6 +449,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 10,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 9827,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.11262999950459698,
+                "pooled_count_fraction": 0.11366642922560292
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.03198276798175315,
+                "pooled_count_fraction": 0.02991757403073166
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 5159,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.2157136853528035,
+                "pooled_count_fraction": 0.21651482845512696
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.06632131797794183,
+                "pooled_count_fraction": 0.05698778833107191
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -392,6 +548,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 0,
               "distinct_site_count": 0
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 9,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 9002,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.14235387968931756,
+                "pooled_count_fraction": 0.14541213063763608
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.02704226474227103,
+                "pooled_count_fraction": 0.02199511219728949
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 4802,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.2691528479732179,
+                "pooled_count_fraction": 0.2725947521865889
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0537257680122012,
+                "pooled_count_fraction": 0.04123281965847563
+              }
             }
           }
         }
@@ -467,6 +655,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 7,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 5748,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.13728887104120568,
+                "pooled_count_fraction": 0.14474599860821155
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.02419543931802685,
+                "pooled_count_fraction": 0.017745302713987474
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 2882,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.2776426332710683,
+                "pooled_count_fraction": 0.2886884108258154
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.052221221890940445,
+                "pooled_count_fraction": 0.03539208882720333
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -534,6 +754,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 0,
               "distinct_site_count": 0
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 5,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 5072,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.16850178018319903,
+                "pooled_count_fraction": 0.16896687697160884
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.03126563860627639,
+                "pooled_count_fraction": 0.041995268138801264
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 2692,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.3110077229696064,
+                "pooled_count_fraction": 0.31835066864784545
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.060863228699551575,
+                "pooled_count_fraction": 0.07912332838038633
+              }
             }
           }
         }
@@ -609,6 +861,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 5,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 4734,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.30325838414634143,
+                "pooled_count_fraction": 0.34664131812420784
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0037908214118198874,
+                "pooled_count_fraction": 0.004435994930291508
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 2756,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.5223876520804518,
+                "pooled_count_fraction": 0.5954281567489115
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.006546617448836656,
+                "pooled_count_fraction": 0.007619738751814224
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -676,6 +960,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 0,
               "distinct_site_count": 0
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 4,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 3720,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.3071961210539724,
+                "pooled_count_fraction": 0.38844086021505375
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0031421796095816535,
+                "pooled_count_fraction": 0.004032258064516129
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 1924,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.5780158977556109,
+                "pooled_count_fraction": 0.751039501039501
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0059265897755610975,
+                "pooled_count_fraction": 0.007796257796257797
+              }
             }
           }
         }
@@ -751,6 +1067,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 6,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 5709,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.3275400510649056,
+                "pooled_count_fraction": 0.3420914345769837
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0007930214115781126,
+                "pooled_count_fraction": 0.0007006480994920302
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 3617,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.5163156339876096,
+                "pooled_count_fraction": 0.5399502350013824
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0012586532410320957,
+                "pooled_count_fraction": 0.001105888858169754
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -818,6 +1166,38 @@
             "20km_neotoma_point": {
               "dated_feature_count": 0,
               "distinct_site_count": 0
+            }
+          }
+        }
+      },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 9,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 9500,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.33906422421539384,
+                "pooled_count_fraction": 0.3312631578947368
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.00170227651967104,
+                "pooled_count_fraction": 0.0016842105263157896
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 5942,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.5349152610396691,
+                "pooled_count_fraction": 0.5296196566812521
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.002703719689298982,
+                "pooled_count_fraction": 0.0026926960619320095
+              }
             }
           }
         }
@@ -893,6 +1273,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 10,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 10451,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.2879831670102966,
+                "pooled_count_fraction": 0.289733039900488
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0024967702894344197,
+                "pooled_count_fraction": 0.0024878002105061716
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 6263,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.49022974296428407,
+                "pooled_count_fraction": 0.48347437330352866
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.00414595834757174,
+                "pooled_count_fraction": 0.00415136516046623
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     },
@@ -964,6 +1376,38 @@
           }
         }
       },
+      "weighted_fractions": {
+        "site_count": 2,
+        "sample_count": 5,
+        "denominators": {
+          "all_native_nisp": {
+            "pooled_denominator_count": 5206,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.3007910168434186,
+                "pooled_count_fraction": 0.3213599692662313
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0,
+                "pooled_count_fraction": 0.0
+              }
+            }
+          },
+          "closed_16_nisp": {
+            "pooled_denominator_count": 3351,
+            "taxa": {
+              "Alnus": {
+                "equal_site_fraction": 0.46875097411995215,
+                "pooled_count_fraction": 0.4992539540435691
+              },
+              "Plantago lanceolata": {
+                "equal_site_fraction": 0.0,
+                "pooled_count_fraction": 0.0
+              }
+            }
+          }
+        }
+      },
       "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
       "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement"
     }
@@ -975,6 +1419,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.013371787266961817,
+          "pooled_count_delta_fraction": -0.015441990156843013,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.05118282957235758,
+          "pooled_count_delta_fraction": -0.047871594854671434,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -983,6 +1445,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.011875531124276998,
+          "pooled_count_delta_fraction": -0.014579688661231292,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.04515572827911129,
+          "pooled_count_delta_fraction": -0.046864587676441555,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -991,6 +1471,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0087220737339362,
+          "pooled_count_delta_fraction": -0.011502646900694163,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.03069722690871246,
+          "pooled_count_delta_fraction": -0.03294731336695103,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -999,6 +1497,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0006264732499770623,
+          "pooled_count_delta_fraction": -0.00028345761509094083,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.006781542696926629,
+          "pooled_count_delta_fraction": 0.0005170706247153295,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 0,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1007,6 +1523,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.04643582782262043,
+          "pooled_count_delta_fraction": -0.0559205827954278,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.03437468925626164,
+          "pooled_count_delta_fraction": -0.033948105002543194,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1015,6 +1549,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.014950335644442769,
+          "pooled_count_delta_fraction": -0.010519280362119177,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0010064625487501283,
+          "pooled_count_delta_fraction": 0.004341002128894017,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1023,6 +1575,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.02972388018472058,
+          "pooled_count_delta_fraction": -0.03174570141203316,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.05343916262041443,
+          "pooled_count_delta_fraction": -0.05607992373146195,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1031,6 +1601,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.004940503239482124,
+          "pooled_count_delta_fraction": 0.007922461833442168,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.01259554996574063,
+          "pooled_count_delta_fraction": 0.01575496867259628,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1039,6 +1627,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0050650086481118795,
+          "pooled_count_delta_fraction": 0.0006661320294245321,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 0,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.008489785297850383,
+          "pooled_count_delta_fraction": -0.016093658639226516,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1047,6 +1653,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0028468254242441787,
+          "pooled_count_delta_fraction": 0.004249809483302017,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0015045461212607539,
+          "pooled_count_delta_fraction": 0.005840730831272303,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1055,6 +1679,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.031212909141993345,
+          "pooled_count_delta_fraction": -0.024220878363397286,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.033365089698538075,
+          "pooled_count_delta_fraction": -0.029662257822030025,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1063,6 +1705,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.007070199288249538,
+          "pooled_count_delta_fraction": -0.02424996542481379,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.00864200680861113,
+          "pooled_count_delta_fraction": -0.043731239553183,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1071,6 +1731,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.1347566039631424,
+          "pooled_count_delta_fraction": -0.177674441152599,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.2113799291108454,
+          "pooled_count_delta_fraction": -0.277077488101066,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1079,6 +1757,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0274748171944565,
+          "pooled_count_delta_fraction": 0.037559273208509755,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.05431661125071492,
+          "pooled_count_delta_fraction": 0.0715035896285721,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1087,6 +1783,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.003937736907630995,
+          "pooled_count_delta_fraction": -0.04179954209084591,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.055628245675159116,
+          "pooled_count_delta_fraction": -0.15561134429058954,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1095,6 +1809,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0006486418022382339,
+          "pooled_count_delta_fraction": 0.00040373686577537937,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0006200276732755581,
+          "pooled_count_delta_fraction": -0.00017651904444357294,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1103,6 +1835,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.020343930010933153,
+          "pooled_count_delta_fraction": 0.04634942563807004,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.06170026376800131,
+          "pooled_count_delta_fraction": 0.21108926603811862,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1111,6 +1861,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.002349158198003541,
+          "pooled_count_delta_fraction": 0.003331609965024099,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.004667936534529002,
+          "pooled_count_delta_fraction": 0.0066903689380880425,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1119,6 +1887,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.01152417315048826,
+          "pooled_count_delta_fraction": 0.010828276682246896,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.01859962705205953,
+          "pooled_count_delta_fraction": 0.01033057832013029,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1127,6 +1913,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0009092551080929275,
+          "pooled_count_delta_fraction": -0.0009835624268237594,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.0014450664482668861,
+          "pooled_count_delta_fraction": -0.0015868072037622555,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1135,6 +1939,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "descriptive_contradiction",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.05108105720509726,
+          "pooled_count_delta_fraction": 0.04153011799424883,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.04468551807538507,
+          "pooled_count_delta_fraction": 0.046145283377723445,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1143,6 +1965,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0007944937697633796,
+          "pooled_count_delta_fraction": -0.000803589684190382,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.0014422386582727586,
+          "pooled_count_delta_fraction": -0.0014586690985342208,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1151,6 +1991,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.012807849833121998,
+          "pooled_count_delta_fraction": -0.031626929365743295,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.02147876884433192,
+          "pooled_count_delta_fraction": -0.015779580740040433,
+          "equal_site_direction": 1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1159,6 +2017,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.005,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0024967702894344197,
+          "pooled_count_delta_fraction": 0.0024878002105061716,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.00414595834757174,
+          "pooled_count_delta_fraction": 0.00415136516046623,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1167,6 +2043,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.013371787266961817,
+          "pooled_count_delta_fraction": -0.015441990156843013,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.05118282957235758,
+          "pooled_count_delta_fraction": -0.047871594854671434,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1175,6 +2069,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.011875531124276998,
+          "pooled_count_delta_fraction": -0.014579688661231292,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.04515572827911129,
+          "pooled_count_delta_fraction": -0.046864587676441555,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1183,6 +2095,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0087220737339362,
+          "pooled_count_delta_fraction": -0.011502646900694163,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.03069722690871246,
+          "pooled_count_delta_fraction": -0.03294731336695103,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1191,6 +2121,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0006264732499770623,
+          "pooled_count_delta_fraction": -0.00028345761509094083,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.006781542696926629,
+          "pooled_count_delta_fraction": 0.0005170706247153295,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1199,6 +2147,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.04643582782262043,
+          "pooled_count_delta_fraction": -0.0559205827954278,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.03437468925626164,
+          "pooled_count_delta_fraction": -0.033948105002543194,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1207,6 +2173,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.014950335644442769,
+          "pooled_count_delta_fraction": -0.010519280362119177,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0010064625487501283,
+          "pooled_count_delta_fraction": 0.004341002128894017,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1215,6 +2199,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "descriptive_agreement",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.02972388018472058,
+          "pooled_count_delta_fraction": -0.03174570141203316,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.05343916262041443,
+          "pooled_count_delta_fraction": -0.05607992373146195,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1223,6 +2225,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.004940503239482124,
+          "pooled_count_delta_fraction": 0.007922461833442168,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.01259554996574063,
+          "pooled_count_delta_fraction": 0.01575496867259628,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1231,6 +2251,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0050650086481118795,
+          "pooled_count_delta_fraction": 0.0006661320294245321,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.008489785297850383,
+          "pooled_count_delta_fraction": -0.016093658639226516,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1239,6 +2277,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0028468254242441787,
+          "pooled_count_delta_fraction": 0.004249809483302017,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0015045461212607539,
+          "pooled_count_delta_fraction": 0.005840730831272303,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1247,6 +2303,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.031212909141993345,
+          "pooled_count_delta_fraction": -0.024220878363397286,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.033365089698538075,
+          "pooled_count_delta_fraction": -0.029662257822030025,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1255,6 +2329,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.007070199288249538,
+          "pooled_count_delta_fraction": -0.02424996542481379,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.00864200680861113,
+          "pooled_count_delta_fraction": -0.043731239553183,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1263,6 +2355,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.1347566039631424,
+          "pooled_count_delta_fraction": -0.177674441152599,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.2113799291108454,
+          "pooled_count_delta_fraction": -0.277077488101066,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1271,6 +2381,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0274748171944565,
+          "pooled_count_delta_fraction": 0.037559273208509755,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.05431661125071492,
+          "pooled_count_delta_fraction": 0.0715035896285721,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1279,6 +2407,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.003937736907630995,
+          "pooled_count_delta_fraction": -0.04179954209084591,
+          "equal_site_direction": 0,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.055628245675159116,
+          "pooled_count_delta_fraction": -0.15561134429058954,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1287,6 +2433,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0006486418022382339,
+          "pooled_count_delta_fraction": 0.00040373686577537937,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.0006200276732755581,
+          "pooled_count_delta_fraction": -0.00017651904444357294,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1295,6 +2459,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.020343930010933153,
+          "pooled_count_delta_fraction": 0.04634942563807004,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.06170026376800131,
+          "pooled_count_delta_fraction": 0.21108926603811862,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1303,6 +2485,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.002349158198003541,
+          "pooled_count_delta_fraction": 0.003331609965024099,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.004667936534529002,
+          "pooled_count_delta_fraction": 0.0066903689380880425,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1311,6 +2511,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.01152417315048826,
+          "pooled_count_delta_fraction": 0.010828276682246896,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.01859962705205953,
+          "pooled_count_delta_fraction": 0.01033057832013029,
+          "equal_site_direction": -1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1319,6 +2537,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0009092551080929275,
+          "pooled_count_delta_fraction": -0.0009835624268237594,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.0014450664482668861,
+          "pooled_count_delta_fraction": -0.0015868072037622555,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1327,6 +2563,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "descriptive_contradiction",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.05108105720509726,
+          "pooled_count_delta_fraction": 0.04153011799424883,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.04468551807538507,
+          "pooled_count_delta_fraction": 0.046145283377723445,
+          "equal_site_direction": 1,
+          "pooled_count_direction": 1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1335,6 +2589,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.0007944937697633796,
+          "pooled_count_delta_fraction": -0.000803589684190382,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": -0.0014422386582727586,
+          "pooled_count_delta_fraction": -0.0014586690985342208,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1343,6 +2615,24 @@
       "taxon": "Alnus",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": -0.012807849833121998,
+          "pooled_count_delta_fraction": -0.031626929365743295,
+          "equal_site_direction": -1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.02147876884433192,
+          "pooled_count_delta_fraction": -0.015779580740040433,
+          "equal_site_direction": 1,
+          "pooled_count_direction": -1,
+          "direction_class_changed": true,
+          "opposite_qualified_direction": true
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     },
     {
@@ -1351,6 +2641,24 @@
       "taxon": "Plantago lanceolata",
       "minimum_change_fraction": 0.01,
       "pollen_site_direction_outcome": "cannot_conclude_denominator_or_effect_threshold",
+      "weighting_sensitivity": {
+        "all_native_nisp": {
+          "equal_site_delta_fraction": 0.0024967702894344197,
+          "pooled_count_delta_fraction": 0.0024878002105061716,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        },
+        "closed_16_nisp": {
+          "equal_site_delta_fraction": 0.00414595834757174,
+          "pooled_count_delta_fraction": 0.00415136516046623,
+          "equal_site_direction": 0,
+          "pooled_count_direction": 0,
+          "direction_class_changed": false,
+          "opposite_qualified_direction": false
+        }
+      },
       "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds"
     }
   ],

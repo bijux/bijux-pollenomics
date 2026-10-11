@@ -3,10 +3,37 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from pathlib import Path
 
 import pytest
 
-from bijux_pollenomics_dev.source_completion.galician_cattle_review import derive
+from bijux_pollenomics_dev.source_completion.galician_cattle_review import (
+    CAPTURE,
+    build,
+    derive,
+)
+
+ROOT = next(
+    parent
+    for parent in Path(__file__).parents
+    if (parent / "configs/pytest.ini").is_file()
+)
+
+
+def test_tracked_review_captures_reproduce_published_crosswalk(tmp_path: Path) -> None:
+    output = tmp_path / "galician-cattle-paper.json"
+    report = build(ROOT, ROOT / CAPTURE, output)
+    assert report["paper_specimen_rows"] == 18
+    assert report["archive_species_counts"] == {
+        "Bos primigenius": 3,
+        "Bos taurus": 8,
+    }
+    assert (
+        output.read_bytes()
+        == (
+            ROOT / "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+        ).read_bytes()
+    )
 
 
 @pytest.fixture(scope="module")

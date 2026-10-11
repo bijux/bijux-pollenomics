@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import csv
 import hashlib
+import io
 import json
 from pathlib import Path
 from typing import Any
@@ -19,6 +21,9 @@ from bijux_pollenomics.evidence.sources.sead import (
 
 RAW_BASE = Path("data/sead/raw/acquisitions") / SEAD_GOVERNED_EVIDENCE_RUN_ID
 PUBLIC_PATH = Path("data/sead/normalized/nordic_environmental_sites.geojson")
+TABLE_PATH = Path("data/sead/normalized/nordic_environmental_sites.csv")
+LINEAGE_PATH = Path("data/sead/normalized/source_lineage.json")
+MAP_PATH = Path("docs/report/regions/nordic/nordic_environmental_sites.geojson")
 TRACE_PATH = Path("docs/report/regions/nordic/nordic_point_traceability.json")
 COUNTRIES = {"Sweden": "SE", "Denmark": "DK", "Norway": "NO", "Finland": "FI"}
 
@@ -42,6 +47,7 @@ def reconcile(
     joins: list[dict[str, Any]],
     features: list[dict[str, Any]],
     trace_records: list[dict[str, Any]],
+    table_rows: list[dict[str, str]],
 ) -> dict[str, Any]:
     """Require lossless assigned-site identity and explicit excluded decisions."""
     if len(joins) != 86 or len({edge["edge"] for edge in joins}) != len(joins):
@@ -74,8 +80,11 @@ def reconcile(
         [feature["properties"] for feature in features], "record_id", "public site"
     )
     trace = _indexed(trace_records, "record_id", "map traceability site")
-    if set(public) != set(raw) or set(trace) != set(raw):
-        raise ValueError("Source, public and map-traceability site sets diverge")
+    table = _indexed(table_rows, "record_id", "tabular site")
+    if set(public) != set(raw) or set(trace) != set(raw) or set(table) != set(raw):
+        raise ValueError(
+            "Source, tabular, public and map-traceability site sets diverge"
+        )
     geometry_by_id = {
         str(feature["properties"]["record_id"]): feature["geometry"]
         for feature in features
@@ -83,11 +92,12 @@ def reconcile(
     countries: Counter[str] = Counter()
     bindings: list[tuple[str, str, str]] = []
     for site_id in sorted(raw, key=int):
-        source, decision, published, map_row = (
+        source, decision, published, map_row, tabular = (
             raw[site_id],
             assigned[site_id],
             public[site_id],
             trace[site_id],
+            table[site_id],
         )
         uuid_rows = [
             row["value"]
@@ -106,6 +116,11 @@ def reconcile(
             or map_row["country"] != country
             or published["name"] != map_row["title"]
             or published["source_url"] != f"https://browser.sead.se/site/{site_id}"
+            or tabular["site_uuid"] != source["site_uuid"]
+            or tabular["country"] != country
+            or tabular["source_url"] != published["source_url"]
+            or float(tabular["latitude"]) != round(source["latitude_dd"], 6)
+            or float(tabular["longitude"]) != round(source["longitude_dd"], 6)
             or geometry_by_id[site_id]["type"] != "Point"
             or geometry_by_id[site_id]["coordinates"]
             != [source["longitude_dd"], source["latitude_dd"]]
@@ -185,8 +200,26 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         != SEAD_GOVERNED_ADMISSION_SHA256
     ):
         raise ValueError("Governed SEAD admission changed after validation")
-    for path in (PUBLIC_PATH, TRACE_PATH):
+    for path in (PUBLIC_PATH, TABLE_PATH, LINEAGE_PATH, MAP_PATH, TRACE_PATH):
         selected[path.as_posix()] = (repository / path).read_bytes()
+    if selected[PUBLIC_PATH.as_posix()] != selected[MAP_PATH.as_posix()]:
+        raise ValueError("Nordic map SEAD source diverges from normalized GeoJSON")
+    lineage = json.loads(selected[LINEAGE_PATH.as_posix()])
+    if lineage["source_run_id"] != snapshot.admission["run_id"] or any(
+        lineage[key] != snapshot.admission[key]
+        for key in (
+            "acquisition_manifest_sha256",
+            "parent_admission_sha256",
+            "acquisition_bundle_sha256",
+        )
+    ):
+        raise ValueError("SEAD normalized lineage diverges from governed admission")
+    for path in (PUBLIC_PATH, TABLE_PATH):
+        relative = path.relative_to("data/sead").as_posix()
+        if lineage["normalized_surface_sha256"].get(relative) != _sha(
+            selected[path.as_posix()]
+        ):
+            raise ValueError(f"SEAD normalized lineage hash diverges: {path}")
     raw_sites = json.loads(selected[(RAW_BASE / "payloads/tbl_sites.json").as_posix()])[
         "rows"
     ]
@@ -197,6 +230,9 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         "edges"
     ]
     features = json.loads(selected[PUBLIC_PATH.as_posix()])["features"]
+    table_rows = list(
+        csv.DictReader(io.StringIO(selected[TABLE_PATH.as_posix()].decode("utf-8")))
+    )
     trace_document = json.loads(selected[TRACE_PATH.as_posix()])
     trace_layers = [
         layer
@@ -206,7 +242,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     if len(trace_layers) != 1 or trace_layers[0]["source_artifact"] != PUBLIC_PATH.name:
         raise ValueError("Map traceability SEAD source artifact changed")
     result = reconcile(
-        raw_sites, decisions, joins, features, trace_layers[0]["records"]
+        raw_sites, decisions, joins, features, trace_layers[0]["records"], table_rows
     )
     if trace_layers[0]["row_count"] != result["raw_and_public_site_count"]:
         raise ValueError("Map traceability count changed")
@@ -217,7 +253,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     result["inputs_sha256"] = {
         path: _sha(payload) for path, payload in sorted(selected.items())
     }
-    for path in (PUBLIC_PATH, TRACE_PATH):
+    for path in (PUBLIC_PATH, TABLE_PATH, LINEAGE_PATH, MAP_PATH, TRACE_PATH):
         if (
             _sha((repository / path).read_bytes())
             != result["inputs_sha256"][path.as_posix()]

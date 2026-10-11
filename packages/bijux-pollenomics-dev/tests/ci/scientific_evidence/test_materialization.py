@@ -121,7 +121,7 @@ def test_policy_path_must_bind_each_bundle_to_its_producer_digest(
         entry for entry in artifacts if entry["identity"] == "propagation"
     )
     propagation["path"] = (
-        "artifacts/execution-control/propagation/unbound/manifest.json"
+        "artifacts/release-verification/propagation/unbound/manifest.json"
     )
     (root / "configs/release_evidence_policy.json").write_text(
         json.dumps(policy), encoding="utf-8"

@@ -1,0 +1,58 @@
+# Swedish observed-pollen chronology block
+
+This development comparison asks whether fixed pollen predictors can predict a
+Swedish target age bin using source pollen from **exactly two 500 BP bins older**.
+For every target, the predictor excludes source bins at the target age and the
+immediately younger and older ages. It uses the already retained four-country
+training folds, which exclude the target physical site and group. The
+[preparation](prepared/prepare.json) declares this rule and binds the sealed
+outcome identity before scoring. The [prediction freeze](frozen/freeze.json)
+contains all predictions and refusals before the target counts are opened.
+
+The 31-taxon response is the retained closed observed-pollen subcomposition.
+Each source composition comes from one positive-count bin at the declared older
+age. Training mean, nearest site and inverse-distance-squared use fixed methods
+and site-center distances. Every one of the 54 target site bins had at least two
+eligible training groups: 21 at Abborrtjärnen, 20 at Bussjösjön and 13 at
+Bökesjön. There were 162 frozen method predictions, 54 scored bins and no
+refusals. The [coverage](coverage.csv), [scores](scores.csv), [paired scores](paired-scores.csv)
+and [machine report](report.json) retain those denominators and each source bin.
+
+The paired comparator is the previously retained same-bin, all-site predictor
+from the [support sensitivity study](../swedish-support-sensitivity/README.md).
+It uses the identical target bins and observed target counts. Equal-site MAE
+first averages bins within each of the three sites; sample-weighted MAE is a
+separate descriptive view. The [scientific interpretation](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-chronology-block.md)
+reports both the effect and its limits.
+
+This is a nominal source-bin separation on previously exposed data. It does
+not establish nonoverlap of true age distributions, propagate age-model
+uncertainty, provide independent confirmation, reconstruct LRA vegetation or
+measure vegetation accuracy.
+
+## Reproduce
+
+From the repository root, run the three stages into absent `artifacts/` paths:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.source_completion.swedish_chronology_block prepare \
+  --repository . --output artifacts/jobs/swedish-chronology-block/replay/prepared
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 \
+  .venv/bin/python -m \
+  bijux_pollenomics_dev.source_completion.swedish_chronology_block predict \
+  --repository . \
+  --prepared artifacts/jobs/swedish-chronology-block/replay/prepared \
+  --output artifacts/jobs/swedish-chronology-block/replay/frozen
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.source_completion.swedish_chronology_block score \
+  --repository . \
+  --prepared artifacts/jobs/swedish-chronology-block/replay/prepared \
+  --frozen artifacts/jobs/swedish-chronology-block/replay/frozen \
+  --freeze-sha256 8592b580600da80a76903c9fa68435619bc53039d4f958e7f5b826a361360c49 \
+  --output artifacts/jobs/swedish-chronology-block/replay/scored
+```
+
+The score stage authenticates the frozen predictions before reading target
+outcomes. Compare the replayed files byte for byte with the retained products.

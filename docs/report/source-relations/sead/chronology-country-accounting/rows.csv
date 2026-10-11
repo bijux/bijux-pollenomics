@@ -1,0 +1,17 @@
+country_code,country,claim_type,reviewed_age_basis,comparability_status,chronology_eligibility,claim_count,claim_site_count
+DK,Denmark,analysis_entity_age,analysis_entity_age_basis_unspecified,unresolved,refused,143,27
+DK,Denmark,geochronology,geochronology_calibration_posture_unknown,context_only,refused,48,3
+DK,Denmark,relative_period,relative_period_requires_governed_mapping,context_only,refused,1748,56
+FI,Finland,analysis_entity_age,analysis_entity_age_basis_unspecified,unresolved,refused,6,3
+FI,Finland,relative_period,relative_period_requires_governed_mapping,context_only,refused,53,29
+NO,Norway,analysis_entity_age,analysis_entity_age_basis_unspecified,unresolved,refused,32,10
+NO,Norway,geochronology,geochronology_calibration_posture_unknown,context_only,refused,7,2
+NO,Norway,relative_period,relative_period_requires_governed_mapping,context_only,refused,429,27
+SE,Sweden,analysis_entity_age,analysis_entity_age_basis_unspecified,unresolved,refused,460,76
+SE,Sweden,dating_range,ad_calendar_year_negative_bp_refused,refused,refused,32,7
+SE,Sweden,dating_range,ad_calendar_year_to_1950_bp,comparable,eligible,7345,370
+SE,Sweden,dendrochronology,ad_calendar_year_negative_bp_refused,refused,refused,28,4
+SE,Sweden,dendrochronology,ad_calendar_year_open_ended_from_context,context_only,refused,1094,221
+SE,Sweden,dendrochronology,ad_calendar_year_to_1950_bp,comparable,eligible,5825,364
+SE,Sweden,geochronology,geochronology_calibration_posture_unknown,context_only,refused,32,12
+SE,Sweden,relative_period,relative_period_requires_governed_mapping,context_only,refused,7827,366

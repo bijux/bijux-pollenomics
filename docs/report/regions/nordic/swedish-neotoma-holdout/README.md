@@ -28,6 +28,11 @@ three fixed methods predicted all 22 bins; target counts were absent from the
 predictor inputs. Scoring used that committed prediction file. The [score
 table](scores.csv), [coverage](coverage.csv), [site summary](site-scores.csv)
 and [taxon diagnostics](taxon-diagnostics.csv) preserve the matched denominator.
+The [producer used at the freeze](reference/prediction-producer.py.txt) is
+retained at its exact commit `a5e42998d` source hash. Later edits to the live
+command do not change that historical prediction identity. The
+[parallel-dataset review producer](reference/parallel-dataset-review-producer.py.txt)
+is likewise retained at its exact commit `955730853` source hash.
 
 | Fixed method | Scored bins | Site mean absolute fraction error | Site Hellinger distance |
 | --- | ---: | ---: | ---: |

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 
 import pytest
 
@@ -72,4 +73,50 @@ def test_scoped_acquisition_requires_an_explicit_disposition_for_every_bbox_site
             governed_country_by_site_id=assignments,
         )
 
+    assert not (tmp_path / "run-fixture-001").exists()
+
+
+@pytest.mark.parametrize(
+    "failure",
+    [
+        HTTPError("https://browser.sead.se", 403, "denied", {}, None),
+        URLError("source unavailable"),
+    ],
+)
+def test_linked_source_failure_preserves_site_input_without_publishing_dates(
+    tmp_path: Path, failure: Exception
+) -> None:
+    tables = _source_tables()
+    fetcher = _PostgrestFixture(tables)
+
+    def interrupted_fetch(endpoint: str, **kwargs: object) -> object:
+        if endpoint.endswith("/tbl_analysis_entity_ages"):
+            raise failure
+        return fetcher(endpoint, **kwargs)
+
+    with pytest.raises(SeadAcquisitionError) as raised:
+        _run(tmp_path.resolve(), interrupted_fetch, request_retries=1)
+
+    assert raised.value.result.table == "tbl_analysis_entity_ages"
+    assert raised.value.result.receipt["status"] == "failed"
+    assert raised.value.result.receipt["failure_reason"] == "terminal_request_failure"
+    assert len(tables["tbl_sites"]) == 6
+    assert not (tmp_path / "run-fixture-001").exists()
+
+
+def test_empty_bbox_response_cannot_replace_governed_site_inventory(
+    tmp_path: Path,
+) -> None:
+    tables = _source_tables()
+    fetcher = _PostgrestFixture(tables)
+
+    def empty_sites(endpoint: str, **kwargs: object) -> object:
+        if endpoint.endswith("/tbl_sites"):
+            return []
+        return fetcher(endpoint, **kwargs)
+
+    with pytest.raises(ValueError, match="must exactly cover bbox sites"):
+        _run(tmp_path.resolve(), empty_sites)
+
+    assert len(tables["tbl_sites"]) == 6
     assert not (tmp_path / "run-fixture-001").exists()

@@ -39,6 +39,13 @@ def _gpm_factor(inner: float, outer: float, fall_speed: float) -> float:
     return exp(-(inner**0.125) / attenuation) - exp(-(outer**0.125) / attenuation)
 
 
+def _retained_production_manifest(identity: JsonObject) -> JsonObject:
+    """Keep numerical provenance without editable SCM commit-distance drift."""
+    retained = dict(identity)
+    del retained["package_version"]
+    return retained
+
+
 def _consume(
     source: JsonObject,
     parameters: JsonObject,
@@ -151,6 +158,9 @@ def _consume(
     else:
         # A negative control must have a known nonzero effect before rounding.
         passed = passed and expected_truth_error > 2 * RECOVERY_TOLERANCE
+    production_manifest = _retained_production_manifest(
+        result.manifest.scientific_identity()
+    )
     case.update(
         status="scored",
         contract_status="passed" if passed else "failed",
@@ -158,7 +168,7 @@ def _consume(
         vegetation_mae_fraction=truth_error,
         calculation_max_abs_error_fraction=calculation_error,
         deposition_max_abs_error=deposition_error,
-        production_manifest=result.manifest.scientific_identity(),
+        production_manifest=production_manifest,
     )
     return case
 

@@ -4,7 +4,10 @@ The [source-bound screen](report.json) finds 95 dataset identities whose source
 name contains “pollen.” They contain 2,063 source-native abundance observations
 from 534 physical samples at 45 Swedish sites. The [sample-level export](sample-observations.csv)
 retains each observation's source value, taxon relation, dataset, analysis entity,
-physical sample, site, and chronology-link status. It does not label the values
+physical sample, site, and chronology-link status. It also names the raw
+`abundance` field and checks every candidate's source key, complete source row,
+value, and null state against the admitted `tbl_abundances` payload. The
+[report](report.json) records that payload's SHA-256. It does not label the values
 as pollen grain counts or assign a date to a sample.
 
 All 2,063 candidate observations lack an eligible chronology claim at their

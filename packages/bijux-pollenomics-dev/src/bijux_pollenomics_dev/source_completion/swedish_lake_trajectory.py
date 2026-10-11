@@ -15,6 +15,10 @@ SEAD = Path("data/sead/derived/sweden_archaeology_site_discovery.geojson")
 LINEAGE = Path("docs/report/countries/sweden/pollen-model-lineage/report.json")
 SITES = {"BUS": 53995, "BOKE": 54001}
 TAXA = ("Alnus", "Plantago lanceolata")
+DENOMINATORS = {
+    "all_native_nisp": "native_fraction",
+    "closed_16_nisp": "closed_16_fraction",
+}
 BUS_INVENTORY_POINT = (55.44559, 13.80172)
 
 
@@ -71,6 +75,67 @@ def _pollen_status(
     return (
         "descriptive_agreement" if signs[0] == signs[1] else "descriptive_contradiction"
     )
+
+
+def _weighted_fractions(observations: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Compare site means with count pooling within each declared composition."""
+    denominators = {
+        denominator: {
+            "pooled_denominator_count": sum(
+                observations[site][denominator] for site in SITES
+            ),
+            "taxa": {
+                taxon: {
+                    "equal_site_fraction": sum(
+                        observations[site]["taxa"][taxon][fraction] for site in SITES
+                    )
+                    / len(SITES),
+                    "pooled_count_fraction": sum(
+                        observations[site]["taxa"][taxon]["count"] for site in SITES
+                    )
+                    / sum(observations[site][denominator] for site in SITES),
+                }
+                for taxon in TAXA
+            },
+        }
+        for denominator, fraction in DENOMINATORS.items()
+    }
+    return {
+        "site_count": len(SITES),
+        "sample_count": sum(observations[site]["sample_count"] for site in SITES),
+        "denominators": denominators,
+    }
+
+
+def _weighted_transition(
+    older: dict[str, Any], younger: dict[str, Any], taxon: str, minimum: float
+) -> dict[str, Any]:
+    comparisons = {}
+    for denominator in DENOMINATORS:
+        older_taxon = older["weighted_fractions"]["denominators"][denominator]["taxa"][
+            taxon
+        ]
+        younger_taxon = younger["weighted_fractions"]["denominators"][denominator][
+            "taxa"
+        ][taxon]
+        equal_delta = (
+            younger_taxon["equal_site_fraction"] - older_taxon["equal_site_fraction"]
+        )
+        pooled_delta = (
+            younger_taxon["pooled_count_fraction"]
+            - older_taxon["pooled_count_fraction"]
+        )
+        equal_direction = _direction(0, equal_delta, minimum)
+        pooled_direction = _direction(0, pooled_delta, minimum)
+        comparisons[denominator] = {
+            "equal_site_delta_fraction": equal_delta,
+            "pooled_count_delta_fraction": pooled_delta,
+            "equal_site_direction": equal_direction,
+            "pooled_count_direction": pooled_direction,
+            "direction_class_changed": equal_direction != pooled_direction,
+            "opposite_qualified_direction": equal_direction * pooled_direction == -1,
+        }
+    return comparisons
 
 
 def publish(repository: Path, output: Path) -> dict[str, Any]:
@@ -163,6 +228,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
                 "lower_cal_bp": lower,
                 "upper_cal_bp_exclusive": upper,
                 "observations": observations,
+                "weighted_fractions": _weighted_fractions(observations),
                 "sead_to_pollen_outcome": "incomparable_no_qualified_ecological_proxy",
                 "land_use_outcome": "cannot_conclude_no_independent_vegetation_measurement",
             }
@@ -175,6 +241,9 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             "minimum_change_fraction": minimum,
             "pollen_site_direction_outcome": _pollen_status(
                 older["observations"], younger["observations"], taxon, minimum
+            ),
+            "weighting_sensitivity": _weighted_transition(
+                older, younger, taxon, minimum
             ),
             "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds",
         }
@@ -225,6 +294,22 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
         for younger, older in zip(broad_windows, broad_windows[1:], strict=False)
         for taxon in TAXA
     ]
+    weighting_summary = {
+        denominator: {
+            "matched_transition_count": len(transitions),
+            "direction_class_changed_count": sum(
+                row["weighting_sensitivity"][denominator]["direction_class_changed"]
+                for row in transitions
+            ),
+            "opposite_qualified_direction_count": sum(
+                row["weighting_sensitivity"][denominator][
+                    "opposite_qualified_direction"
+                ]
+                for row in transitions
+            ),
+        }
+        for denominator in DENOMINATORS
+    }
     report: dict[str, Any] = {
         "schema_version": "swedish-two-lake-observed-pollen-trajectory.v1",
         "question": "Do BUS and BOKE observed pollen fractions move together across common 500-cal-BP bins, and can dated independent context support a land-use conclusion?",
@@ -258,6 +343,24 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             },
             "thresholds_are_sign_sensitivity_not_sampling_confidence_intervals": True,
         },
+        "weighting_sensitivity": {
+            "equal_site_method": "arithmetic mean of the two site fractions within each common bin",
+            "pooled_count_method": "sum of named-taxon counts divided by the sum of the matching denominator counts within each common bin",
+            "denominator_count_weights": {
+                "all_native_nisp": "all native NISP counts at BUS and BOKE",
+                "closed_16_nisp": "closed 16-taxon NISP counts at BUS and BOKE",
+            },
+            "direction_classes": {
+                "1": "increase",
+                "0": "below threshold",
+                "-1": "decrease",
+            },
+            "matched_transition_count": len(transitions),
+            "matched_denominator_comparison_count": len(transitions)
+            * len(DENOMINATORS),
+            "by_denominator": weighting_summary,
+            "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds",
+        },
         "windows": windows,
         "transitions": transitions,
         "alternate_1000_year_windows": broad_windows,
@@ -268,12 +371,24 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
     (output / "report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    csv_rows = []
+    for transition in transitions:
+        row = {
+            key: value
+            for key, value in transition.items()
+            if key != "weighting_sensitivity"
+        }
+        for denominator, comparison in transition["weighting_sensitivity"].items():
+            row.update(
+                {f"{denominator}_{key}": value for key, value in comparison.items()}
+            )
+        csv_rows.append(row)
     with (output / "transitions.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(
-            stream, fieldnames=list(transitions[0]), lineterminator="\n"
+            stream, fieldnames=list(csv_rows[0]), lineterminator="\n"
         )
         writer.writeheader()
-        writer.writerows(transitions)
+        writer.writerows(csv_rows)
     return report
 
 

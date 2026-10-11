@@ -2,7 +2,7 @@
   "schema_version": "lra-python-isolated-worker-baseline.v1",
   "status": "measured",
   "baseline_path": "docs/report/numerical-performance/python-baseline/report.json",
-  "baseline_sha256": "a019574c3b0c0ac4a19dda721f844a5405b5321ca3243da150accbd894e608e7",
+  "baseline_sha256": "3f4006947d0b0830580ca06e9e44d8eebb5a10faa5381fb1c8986601d95f1da8",
   "source_sha256": {
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": "f17508e13662ce00d6826f661e9b96b528d0161d4e232f8587227e547ed49001",

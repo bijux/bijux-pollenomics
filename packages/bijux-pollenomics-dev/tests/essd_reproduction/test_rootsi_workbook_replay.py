@@ -1036,13 +1036,9 @@ def test_preexisting_and_racing_targets_are_never_replaced(
 )
 def test_real_retained_workbook_replay_is_opt_in(tmp_path: Path) -> None:
     repository = Path(__file__).resolve().parents[4]
-    review = repository / (
-        "artifacts/v2/sources/rootsi-cell-preparation/actual-002/all-79"
-    )
-    closure = repository / (
-        "artifacts/v3/landclim/rootsi-input-closure-841cf13b/"
-        "real-generation003/candidate-a"
-    )
+    private_root = Path(os.environ["BIJUX_LANDCLIM_SOURCE_ROOT"])
+    review = private_root / "rootsi-input-closure/typed-cell-review"
+    closure = repository / "data/landclim/review/rootsi-candidate-inputs"
     source = RootsiWorkbookReplayInput(
         typed_cell_review_dir=review,
         expected_cell_review_manifest_sha256=(
@@ -1050,16 +1046,8 @@ def test_real_retained_workbook_replay_is_opt_in(tmp_path: Path) -> None:
         ),
         native_inventory_path=review / "capture-inventory.json",
         expected_native_inventory_sha256=rootsi_workbook_replay.NATIVE_INVENTORY_SHA256,
-        workbook_directory=repository
-        / (
-            "artifacts/v2/sources/remaining-frontier/rootsi-lineage/"
-            "workbooks-001/private-workbooks"
-        ),
-        rootsi_metadata_path=repository
-        / (
-            "artifacts/v2/sources/remaining-frontier/rootsi-lineage/"
-            "intake-001/metadata.xlsx"
-        ),
+        workbook_directory=private_root / "rootsi-workbooks/rootsi",
+        rootsi_metadata_path=private_root / "rootsi-input-closure/metadata.xlsx",
         expected_rootsi_metadata_sha256=METADATA_SHA256,
         candidate_closure_dir=closure,
         expected_candidate_closure_manifest_sha256=(

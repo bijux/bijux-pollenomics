@@ -67,12 +67,10 @@ even under the 500-year maximum.
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.propagation_challenge \
-  --output docs/report/synthetic-validation/propagation/report.json
+  --output artifacts/jobs/synthetic-validation/propagation/report.json
+cmp docs/report/synthetic-validation/propagation/report.json \
+  artifacts/jobs/synthetic-validation/propagation/report.json
 ```
-
-Six direct consumer regressions, strict type checking and Ruff style/format
-checks passed; exact commands and input/output hashes are retained under
-`artifacts/jobs/synthetic-propagation/`.
 
 This challenge covers the declared whole-pollen positive profile and synthetic
 pairwise topology. It does not validate all threshold profiles, ecological/taxon
@@ -80,7 +78,7 @@ hierarchies, source admission, real regional borders, empirical threshold choice
 or causal spread. Country labels are annotations in the fixture, not coordinate
 claims about actual national territories.
 
-A separate focused [network consumer check](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py)
+A separate focused [network consumer check](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py)
 uses fabricated older/younger pairs in seven feature universes spanning whole
 pollen, group, subgroup, two roles and two taxa. The indexed network evaluates
 only the 14 within-feature oriented pairs and emits seven forward candidates;

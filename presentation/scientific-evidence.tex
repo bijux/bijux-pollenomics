@@ -2,7 +2,7 @@
 \title{Bijux Pollenomics: scientific evidence}
 \subtitle{Sources, method correspondence, predictions and model use}
 \author{Bijux Pollenomics}
-\date{30 September 2026}
+\date{1 October 2026}
 \begin{document}
 \frame{\titlepage}
 
@@ -34,6 +34,22 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
 \end{frame}
 
+\begin{frame}{SEAD is four-country chronology context}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Country & Assigned sites & Sites with claims & Chronology claims \\
+\midrule
+Sweden & 1,925 & 741 & 22,643 \\
+Denmark & 59 & 56 & 1,939 \\
+Norway & 45 & 27 & 468 \\
+Finland & 40 & 29 & 59 \\
+\bottomrule
+\end{tabular}
+\scope{The 25,109 rows are chronology claims at 853 distinct sites, not pollen observations or admitted ecological events. A further 103 country decisions require review and 23 remain unassigned. All claim propagation is refused.}
+\evidence{reports/science/source-cohorts.md; docs/report/source-relations/sead/chronology-country-accounting/report.json}
+\end{frame}
+
 \begin{frame}{Three further Swedish lake cores}
 \begin{itemize}
 \item Metadata-only selection added Gilltjarnen, Lake Avegol and Flinkasjon outside the original Swedish targets.
@@ -63,6 +79,38 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \end{itemize}
 \scope{Three exposed Swedish sites; site centers, no age posterior, LRA reconstruction or measured vegetation.}
 \evidence{reports/science/sweden-spatiotemporal-sensitivity.md; docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv}
+\end{frame}
+
+\begin{frame}{Swedish chronology-block pollen transfer}
+\begin{itemize}
+\item Hold out each target site; predict 54 target bins using training pollen exactly 1,000 nominal BP older, excluding the target and adjacent source bins.
+\item All 54 bins yielded three frozen predictions and matched same-bin scores; zero queries refused.
+\item Inverse-distance-squared equal-site pollen MAE changed from 0.023647 to 0.024023 on the same targets; nearest-site and training-mean changes were small and in the opposite direction.
+\end{itemize}
+\scope{Prior-exposed three-site development result; assigned age bins do not account for age-model uncertainty. No Nordic LRA or measured vegetation score follows.}
+\evidence{reports/science/sweden-chronology-block.md; docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv}
+\end{frame}
+
+\begin{frame}{A newly scored Swedish lake on a different pollen axis}
+\begin{itemize}
+\item Lake S\"ambosj\"on was absent from earlier targets; all 22 candidate bins received three fixed predictions and scores.
+\item Inverse-distance-squared equal-bin pollen MAE was 0.022991 on 16 exact source labels, covering 224,291 of 393,822 native pollen counts.
+\item Aggregate count support was screened before prediction; aggregate scores were viewed before a later protocol annotation correction. Prediction bytes did not change.
+\item Source age bounds place 58 of 111 samples across a nominal 500-year bin boundary; all 22 scored bins contain a crossing sample.
+\end{itemize}
+\scope{One-site descriptive development result. The 16-label error is not comparable to the 31-author-target error; no independent confirmation, LRA or measured vegetation score follows.}
+\evidence{reports/science/sambosjon-direct-pollen.md; docs/report/regions/nordic/sambosjon-direct-pollen/report.json; docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json}
+\end{frame}
+
+\begin{frame}{A second Swedish lake: fixed methods differ by metric}
+\begin{itemize}
+\item Lilla Gloppsj\"on site/core was excluded from 84 training sites; 23 bins received 69 predictions before target scoring.
+\item All 69 scores completed on 16 exact pollen labels: 55,638 of 127,027 native NISP counts lie on the closed response.
+\item Equal-bin MAE: training mean 0.016272, primary inverse-distance-squared 0.017295, nearest site 0.020000.
+\item Hellinger: nearest site 0.228724, inverse-distance-squared 0.237576, training mean 0.256392. No method was selected using this target.
+\end{itemize}
+\scope{One-site descriptive direct-pollen development; the earlier source-validation screen parsed the target partition. Two age-refused samples remain outside scores; no independent LRA or vegetation claim.}
+\evidence{reports/science/lilla-gloppsjon-direct-pollen.md; docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json}
 \end{frame}
 
 \begin{frame}{What reproduces numerically}

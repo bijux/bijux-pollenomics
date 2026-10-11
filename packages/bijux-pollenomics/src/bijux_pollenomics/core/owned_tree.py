@@ -91,7 +91,10 @@ def replace_output_tree(*, final_output_root: Path, staging_output_root: Path) -
     final_output_root = Path(final_output_root)
     staging_output_root = Path(staging_output_root)
     recovery_output_root = build_recovery_output_dir(final_output_root)
-    remove_output_tree(recovery_output_root)
+    if recovery_output_root.exists() or recovery_output_root.is_symlink():
+        raise FileExistsError(
+            f"Prior output recovery requires review: {recovery_output_root}"
+        )
 
     prior_state_exists = final_output_root.exists()
     if prior_state_exists:

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -32,7 +33,11 @@ def source_graph() -> tuple[list[dict[str, Any]], ...]:
         for layer in traceability["layers"]
         if layer["layer_key"] == "sead-sites"
     )
-    return sites, decisions, joins, features, records
+    with (ROOT / "data/sead/normalized/nordic_environmental_sites.csv").open(
+        newline=""
+    ) as handle:
+        table_rows = list(csv.DictReader(handle))
+    return sites, decisions, joins, features, records, table_rows
 
 
 def test_current_public_sites_reconcile_from_all_source_uuids(
@@ -57,32 +62,42 @@ def test_current_public_sites_reconcile_from_all_source_uuids(
 def test_public_uuid_drift_refuses(
     source_graph: tuple[list[dict[str, Any]], ...],
 ) -> None:
-    sites, decisions, joins, features, records = source_graph
+    sites, decisions, joins, features, records, table_rows = source_graph
     changed = deepcopy(features)
     popup = changed[0]["properties"]["popup_rows"]
     next(row for row in popup if row["label"] == "Site UUID")["value"] = "wrong"
     with pytest.raises(ValueError, match="binding diverges"):
-        reconcile(sites, decisions, joins, changed, records)
+        reconcile(sites, decisions, joins, changed, records, table_rows)
+
+
+def test_tabular_uuid_drift_refuses(
+    source_graph: tuple[list[dict[str, Any]], ...],
+) -> None:
+    sites, decisions, joins, features, records, table_rows = source_graph
+    changed = deepcopy(table_rows)
+    changed[0]["site_uuid"] = "wrong"
+    with pytest.raises(ValueError, match="binding diverges"):
+        reconcile(sites, decisions, joins, features, records, changed)
 
 
 def test_orphan_source_join_refuses(
     source_graph: tuple[list[dict[str, Any]], ...],
 ) -> None:
-    sites, decisions, joins, features, records = source_graph
+    sites, decisions, joins, features, records, table_rows = source_graph
     changed = deepcopy(joins)
     changed[0]["orphan_child_ids"].append("unmatched")
     with pytest.raises(ValueError, match="Unreconciled source relation"):
-        reconcile(sites, decisions, changed, features, records)
+        reconcile(sites, decisions, changed, features, records, table_rows)
 
 
 def test_excluded_country_decision_cannot_leak_to_public(
     source_graph: tuple[list[dict[str, Any]], ...],
 ) -> None:
-    sites, decisions, joins, features, records = source_graph
+    sites, decisions, joins, features, records, table_rows = source_graph
     changed = deepcopy(features)
     excluded = next(
         row for row in decisions if row["decision"]["decision_status"] != "assigned"
     )
     changed[0]["properties"]["record_id"] = str(excluded["site_id"])
     with pytest.raises(ValueError, match="site sets diverge"):
-        reconcile(sites, decisions, joins, changed, records)
+        reconcile(sites, decisions, joins, changed, records, table_rows)

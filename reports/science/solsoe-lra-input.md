@@ -16,9 +16,9 @@ The [source-lineage result](../../docs/report/countries/denmark/solsoe-source-li
 binds LandClim I's reported **2.5 ha** lake area, LandClim II's `Solsoe`
 record in grid 824, and Neotoma EPD site 3432. The LandClim II metadata name
 **79 pollen samples**, an authors chronology, an `R` access marker and a
-`siteradius` value of **89 with no stated unit**. If that value were metres,
-its circular area would be 2.488 ha, numerically close to the reported 2.5
-ha. The Neotoma site centroid is about 69 m from the LandClim II point.
+`siteradius` value of **89 m**, as defined in the workbook's `readme` sheet.
+A circle with that radius has area 2.488 ha, numerically close to the reported
+2.5 ha. The Neotoma site centroid is about 69 m from the LandClim II point.
 These comparisons support a common site lead; none dates a shoreline or binds
 the radius to a selected sample.
 

@@ -135,7 +135,7 @@ def build(
 
 
 def main() -> None:
-    """Publish native profile measurements bound to the reference baseline."""
+    """Write compact native profile measurements and their comparison."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-report", required=True, type=Path)
     parser.add_argument("--reference-baseline", required=True, type=Path)

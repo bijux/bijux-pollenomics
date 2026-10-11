@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-30
+last_reviewed: 2026-10-01
 ---
 
 # Results and model use
@@ -156,6 +156,76 @@ from 0.023151 to 0.029171. The
 show the site and bin effects. Three previously explored sites and nominal
 source-bin shifts cannot establish independent spatial skill, chronology
 uncertainty, LRA accuracy or vegetation accuracy.
+
+## Swedish chronology-block development result
+
+We also withheld each Swedish target site and predicted its 500 BP pollen bin
+using training pollen exactly 1,000 nominal BP older, excluding the target
+and adjacent source bins. All 54 target bins received three frozen predictions
+and matched same-bin scores, with no refusals. Inverse-distance-squared
+equal-site pollen MAE changed from 0.023647 to 0.024023; nearest-site and
+training-mean changes were small and in the opposite direction. The
+[chronology-block report](../../../report/regions/nordic/swedish-chronology-block/README.md)
+keeps the 162 paired rows and count denominators. These source-assigned bins
+do not establish nonoverlap of the cores' true age distributions. This is a
+prior-exposed observed-pollen development comparison, not a test of LRA or
+measured vegetation.
+
+## A newly scored Swedish lake
+
+We applied three fixed observed-pollen predictors to Lake Sämbosjön, a
+physical site absent from the earlier target studies. All 22 candidate
+500-year bins were predicted and scored. Inverse-distance-squared equal-bin
+MAE was 0.022991 on a closed 16-label pollen response containing 224,291 of
+393,822 native counts (56.95%). The [governed study](../../../report/regions/nordic/sambosjon-direct-pollen/README.md)
+keeps the source identity, frozen predictions, scores and count denominators.
+Aggregate target count support was inspected before prediction, and aggregate
+scores were inspected before a later protocol annotation correction. The
+prediction bytes stayed fixed; this one-site result is descriptive development
+evidence, not independent confirmation or vegetation accuracy. A separate
+source age-bound screen finds that 58 of 111 sample intervals cross a nominal
+500-year bin boundary, with at least one crossing in each scored bin. The
+published MAE remains a point-age-bin result, not an age-uncertainty-adjusted
+score.
+
+## A second newly scored Swedish lake
+
+At [Lilla Gloppsjön](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md),
+three fixed methods predicted every one of 23 nominal 500-year pollen bins
+before the target counts were opened for scoring. All 69 method/bin scores
+completed. On the same 16-label closed pollen response, the prespecified
+inverse-distance-squared method has equal-bin MAE **0.017295** and Hellinger
+distance **0.237576**. Training mean has lower MAE (0.016272), while nearest
+site has lower Hellinger distance (0.228724); the method order depends on the
+metric at this lake. The [research report](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/lilla-gloppsjon-direct-pollen.md)
+and [score table](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv)
+give the denominators and per-bin results.
+
+Only 55,638 of 127,027 native pollen NISP counts lie on the exact 16-label
+axis (43.80%). Two of 86 source samples are excluded from age-bin scores due
+to negative source age bounds, with their counts retained separately. The
+training source-validation screen had previously parsed this target's source
+partition, so this is descriptive new-site development evidence, not an
+untouched independent confirmation. It does not evaluate vegetation or LRA.
+
+## What two lake pollen series can and cannot say
+
+We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at
+Bussjösjön and Bökesjön in 13 common 500-cal-BP bins. The
+[lake trajectory report](../../../report/countries/sweden/observed-pollen-trajectory/README.md)
+retains each site's source counts, age support and 48 taxon/threshold/interval
+comparisons. Some site changes agree in direction and others contradict. A
+1000-year binning and alternate nearby-site circles expose time and location
+sensitivity. Giving both lakes equal weight versus pooling their pollen counts
+changes 10 of 48 all-native direction classes and 9 of 48 closed-16 classes;
+four comparisons in each denominator reverse between a qualified increase and
+decrease. The matching count denominator is used for each composition.
+
+Independent dated SEAD records describe nearby archaeological context, but
+their feature counts are not vegetation or land-use measurements. The
+LandClim model grid includes these pollen sites and cannot independently
+validate them. The supported answer is a bounded description of two pollen
+series; whether local land use caused their changes remains unresolved.
 
 ## Parameters and next experiments
 

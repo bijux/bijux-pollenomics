@@ -31,7 +31,7 @@ def _build_hyde_row() -> SourceSpatiotemporalPostureRecord:
         availability_status="refused",
         refusal_reasons=("hyde_35_native_release_admission_unimplemented",),
         record_count=None,
-        numeric_interval_record_count=0,
+        numeric_interval_record_count=None,
         detail_metrics={"native_cell_count": None, "admitted_country_count": None},
         caveats=(
             "Local file presence is distinct from native release admission.",

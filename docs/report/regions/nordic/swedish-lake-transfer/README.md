@@ -58,4 +58,4 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/regions/nordic/swedish-lake-transfer/verify.py
 ```
 
-The score command must use the committed prediction file. The [report manifest](manifest.json) binds retained evidence bytes, and `verify.py` checks the freeze, source denominator, score coverage and site-macro arithmetic. The private author lookup is authenticated by digest and is not copied here.
+The score command must use the committed prediction file. The [report manifest](manifest.json) binds retained evidence bytes, and `verify.py` checks the freeze, current Neotoma relational source identity, source denominator, score coverage and site-macro arithmetic. If that published source changes, this comparison requires a reviewed refresh before it can pass. The private author lookup is authenticated by digest and is not copied here.

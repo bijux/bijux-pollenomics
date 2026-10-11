@@ -1,0 +1,16 @@
+{
+  "source_family": "Riksantikvarieämbetet national archaeological remains",
+  "source_role": "unadmitted source candidate",
+  "private_source_root_relative_path": "raa/lamningar-v1/lamningar_sverige.gpkg",
+  "download_url": "https://pub.raa.se/nedladdning/datauttag/lamningar_v1/l%c3%a4mningar_sverige.gpkg",
+  "captured_at_utc": "2026-09-13T01:14:04.983494+00:00",
+  "byte_count": 2291224576,
+  "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+  "http_etag": "\"88915000-65b4170a61517\"",
+  "http_last_modified": "Sat, 12 Sep 2026 04:14:41 GMT",
+  "source_custody": "Exact source bytes and original request, response, capture and provider-metadata records are retained in the private data store under raa/lamningar-v1/.",
+  "rights_status": "provider material retained; analytical and redistribution terms require source-specific review",
+  "scientific_admission": false,
+  "canonical_adoption": false,
+  "remaining_decision": "Compare this complete national GeoPackage with the existing archaeological point source and declared spatial/temporal support before using it for lake context or field rankings."
+}

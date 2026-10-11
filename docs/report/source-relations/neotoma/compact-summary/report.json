@@ -1,0 +1,54 @@
+{
+  "authority": "relational_samples",
+  "compact_field": {
+    "displayed_value": "135",
+    "json_pointer": "/features/3/properties/popup_rows",
+    "label": "Samples",
+    "path": "data/neotoma/normalized/nordic_pollen_sites.geojson"
+  },
+  "compact_role": "derived_display_only",
+  "compact_sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+  "derivation": {
+    "distinct_sample_id_count": 135,
+    "operation": "count_distinct_sample_id_where_site_id_equals_site",
+    "relational_sample_count": 135,
+    "sample_id_set_sha256": "1a6fd8c5c7407d7cb1b70a8cc9b2491844e2332dde91808bfcb00a5f6fdee4a1",
+    "sample_surface_paths": [
+      "data/neotoma/relational/surfaces/samples/part-00001.json"
+    ]
+  },
+  "relational_materialization_sha256": "7d9bf04538f6fc9db0582a85656defc3b262b86b782d99bf310d2fec4ae96406",
+  "reverse_trace": {
+    "observation_id": "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+    "observation_locator": {
+      "identity_field": "observation_id",
+      "identity_value": "neotoma:observation:355236:046ac6b2c625f8fa1483:1",
+      "json_pointer": "/rows/45398",
+      "parent_identities": {
+        "collection_unit_id": "neotoma:collection-unit:12",
+        "dataset_id": "neotoma:dataset:12",
+        "sample_id": "neotoma:sample:355236",
+        "site_id": "neotoma:site:12"
+      },
+      "path": "data/neotoma/relational/surfaces/observations/part-00002.json"
+    },
+    "observation_parent_sample_id": "neotoma:sample:355236",
+    "sample_id": "neotoma:sample:355236",
+    "sample_locator": {
+      "identity_field": "sample_id",
+      "identity_value": "neotoma:sample:355236",
+      "json_pointer": "/rows/3291",
+      "parent_identities": {
+        "collection_unit_id": "neotoma:collection-unit:12",
+        "dataset_id": "neotoma:dataset:12",
+        "sample_id": "neotoma:sample:355236",
+        "site_id": "neotoma:site:12"
+      },
+      "path": "data/neotoma/relational/surfaces/samples/part-00001.json"
+    }
+  },
+  "schema_version": "neotoma-compact-sample-derivation.v1",
+  "site_id": "neotoma:site:12",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "status": "matched"
+}

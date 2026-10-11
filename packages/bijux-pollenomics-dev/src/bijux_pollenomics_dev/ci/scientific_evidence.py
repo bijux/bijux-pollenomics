@@ -320,11 +320,11 @@ def _artifact_manifest_root(
     relative = _safe_relative_path(artifact.get("path"), f"{identity} artifact path")
     if relative.name != "manifest.json":
         _refuse("invalid_evidence_policy", f"{identity} artifact is not a manifest")
-    expected_prefix = Path("artifacts/execution-control") / identity
+    expected_prefix = Path("artifacts/release-verification") / identity
     if relative.parent.parent != expected_prefix:
         _refuse(
             "unsafe_evidence_path",
-            f"{identity} bundle is outside its execution-control namespace",
+            f"{identity} bundle is outside its release-verification namespace",
         )
     if not relative.parent.name.endswith(f"-{producer_digest[:8]}"):
         _refuse(

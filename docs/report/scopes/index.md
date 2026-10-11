@@ -28,5 +28,5 @@ governed publication system, not separate products with unrelated truth rules.
 
 ## Current Counts
 
-- total scope artifacts: `692`
+- total scope artifacts: `729`
 - country-family artifacts: `107`

@@ -148,6 +148,59 @@ def test_capability_presence_drift_is_a_failed_accounting_check(
     )
 
 
+def test_missing_registered_fact_authority_fails_accounting(repository: Path) -> None:
+    write_json(
+        repository,
+        "data/source_fact_ownership_registry.json",
+        {
+            "rows": [
+                {
+                    "fact_key": "pollen_source",
+                    "governing_surface_path": "data/pollen/raw/missing.json",
+                    "supporting_surface_paths": ["data/pollen/raw/input.json"],
+                }
+            ]
+        },
+    )
+    result = build_source_audit(repository)
+    assert result["accounting_checks_pass"] is False
+    assert {
+        (issue["reason_code"], issue["path"], issue["fact_key"])
+        for issue in result["accounting_findings"]
+    } == {
+        (
+            "source_fact_ownership_path_missing",
+            "data/pollen/raw/missing.json",
+            "pollen_source",
+        )
+    }
+
+
+def test_unresolved_registered_fact_pattern_fails_accounting(repository: Path) -> None:
+    write_json(
+        repository,
+        "data/source_fact_ownership_registry.json",
+        {
+            "rows": [
+                {
+                    "fact_key": "pollen_source",
+                    "governing_surface_path": "data/pollen/raw/<release>/input.json",
+                    "supporting_surface_paths": [],
+                }
+            ]
+        },
+    )
+    result = build_source_audit(repository)
+    assert result["accounting_checks_pass"] is False
+    assert result["accounting_findings"] == [
+        {
+            "reason_code": "source_fact_ownership_pattern_unresolved",
+            "path": "data/pollen/raw/<release>/input.json",
+            "fact_key": "pollen_source",
+        }
+    ]
+
+
 def test_missing_country_is_visible_without_fabricating_zero(repository: Path) -> None:
     path = repository / "data/country_dimension_coverage.json"
     payload = json.loads(path.read_text())

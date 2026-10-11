@@ -1,0 +1,7 @@
+country_code,country,decision_status,discovered_sites,retrieved_sites,sites_with_sample_groups,sample_groups,physical_samples,analysis_entities,datasets,analysis_values,dataset_membership_posture,source_unit_posture
+SE,Sweden,assigned,1925,1925,1103,3712,28483,117786,40703,68705,distinct_source_dataset_ids_linked_by_analysis_entities,captured_source_relations_only_no_event_admission
+DK,Denmark,assigned,59,59,59,504,1520,4059,1874,0,distinct_source_dataset_ids_linked_by_analysis_entities,captured_source_relations_only_no_event_admission
+NO,Norway,assigned,45,45,45,177,2257,7970,722,0,distinct_source_dataset_ids_linked_by_analysis_entities,captured_source_relations_only_no_event_admission
+FI,Finland,assigned,40,40,38,39,48,103,93,0,distinct_source_dataset_ids_linked_by_analysis_entities,captured_source_relations_only_no_event_admission
+REVIEW,,review,103,0,,,,,,,source_units_not_retrieved,excluded_pending_country_review
+UNASSIGNED,,unassigned,23,0,,,,,,,source_units_not_retrieved,excluded_pending_country_review

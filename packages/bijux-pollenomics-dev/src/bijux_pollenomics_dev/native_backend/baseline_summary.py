@@ -86,7 +86,7 @@ def build(raw_bytes: bytes) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Publish a compact native baseline measurement from the raw report."""
+    """Write a compact summary of the reference workload measurements."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-report", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

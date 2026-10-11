@@ -318,11 +318,11 @@ def test_ignored_release_bundles_do_not_overstate_clean_root_materialization() -
         output_root = repository_root / "data"
         for relative_path in (
             (
-                "artifacts/execution-control/classification/"
+                "artifacts/release-verification/classification/"
                 "neotoma-audit-f0e5a830/manifest.json"
             ),
             (
-                "artifacts/execution-control/propagation/"
+                "artifacts/release-verification/propagation/"
                 "neotoma-pollen-release-refusal-87ac6d28/manifest.json"
             ),
         ):

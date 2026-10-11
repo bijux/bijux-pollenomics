@@ -115,7 +115,7 @@ def build_product_gate_specification(
     inputs.update(tests)
     for pattern in _GATE_GLOBS[gate_id]:
         inputs.update(path.relative_to(root).as_posix() for path in root.glob(pattern))
-    artifacts_directory = "artifacts/execution-control/gates"
+    artifacts_directory = "artifacts/release-verification/gates"
     junit_path = f"{artifacts_directory}/{gate_id}.junit.xml"
     if gate_id == "doc-counts":
         return _doc_count_specification(
