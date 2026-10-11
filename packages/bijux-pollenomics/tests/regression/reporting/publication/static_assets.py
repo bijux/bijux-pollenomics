@@ -16,7 +16,9 @@ def read_static_atlas_payload_text(output_dir: Path, slug: str) -> str:
     )
     payloads: list[str] = []
     for row in normalize_asset_inventory(manifest["assets"]):
-        script = (output_dir / row["path"]).read_text(encoding="utf-8")
+        asset_path = row["path"]
+        assert isinstance(asset_path, str)
+        script = (output_dir / asset_path).read_text(encoding="utf-8")
         envelope = json.loads(script[script.index(".push(") + 6 : -3])
         payloads.append(
             gzip.decompress(base64.b64decode(envelope["payload_gzip_base64"])).decode(

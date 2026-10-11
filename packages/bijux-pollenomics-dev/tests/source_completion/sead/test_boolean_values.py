@@ -28,11 +28,16 @@ def test_source_false_and_null_have_distinct_states() -> None:
 
 @pytest.mark.parametrize("value", [True, False, None])
 def test_parent_display_is_preserved_without_boolean_coercion(value: object) -> None:
-    parent = {"analysis_value_id": 2, "analysis_value": "source display"}
+    parent = {
+        "analysis_value_id": 2,
+        "analysis_entity_id": 17,
+        "analysis_value": "source display",
+    }
     component = {"analysis_boolean_value_id": 1, "analysis_value_id": 2, "value": value}
     observation: dict[str, object] = {
         "source_table": "tbl_analysis_values",
         "source_record_id": "2",
+        "entity_relation_id": "sead-analysis-entity:17",
         "source_payload_sha256": "parent-digest",
         "source_row": parent.copy(),
         "source_value_field": "analysis_value",
@@ -59,6 +64,45 @@ def test_parent_display_is_preserved_without_boolean_coercion(value: object) -> 
     changed = {**observation, "event_eligibility": "eligible"}
     with pytest.raises(ValueError, match="source refusal changed"):
         _reconcile_component(changed, parent, [component], "parent-digest")
+
+
+def test_boolean_parent_entity_relation_must_match_raw_parent() -> None:
+    parent = {
+        "analysis_value_id": 2,
+        "analysis_entity_id": 17,
+        "analysis_value": "source display",
+    }
+    component = {"analysis_boolean_value_id": 1, "analysis_value_id": 2, "value": True}
+    observation = {
+        "source_table": "tbl_analysis_values",
+        "source_record_id": "2",
+        "entity_relation_id": "sead-analysis-entity:17",
+        "source_payload_sha256": "parent-digest",
+        "source_row": parent.copy(),
+        "source_value_field": "analysis_value",
+        "source_value": "source display",
+        "source_value_state": "reported",
+        "source_components": {"tbl_analysis_boolean_values": [component.copy()]},
+        "event_eligibility": "refused",
+        "event_refusal_reason_codes": ["source_classification_not_accepted"],
+    }
+    _reconcile_component(observation, parent, [component], "parent-digest")
+    for relation in ("sead-analysis-entity:999", "sead-analysis-entity:017", None):
+        with pytest.raises(ValueError, match="parent observation differs"):
+            _reconcile_component(
+                {**observation, "entity_relation_id": relation},
+                parent,
+                [component],
+                "parent-digest",
+            )
+    for entity_id in (True, 0, -17, "17"):
+        with pytest.raises(ValueError, match="parent entity key is invalid"):
+            _reconcile_component(
+                observation,
+                {**parent, "analysis_entity_id": entity_id},
+                [component],
+                "parent-digest",
+            )
 
 
 def test_report_destination_cannot_overwrite_or_escape(tmp_path: Path) -> None:

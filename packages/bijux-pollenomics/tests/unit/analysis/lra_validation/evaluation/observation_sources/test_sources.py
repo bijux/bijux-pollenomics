@@ -102,6 +102,7 @@ def _source_payloads(
     vegetation.update(field_method="fixture-field-survey", taxa=taxa, units=[])
     pollen.update(counting_method="fixture-grain-count", taxa=taxa, units=[])
     for index, site in enumerate(scope.sites):
+        assert site.support is not None
         common = {
             "record_id": site.record_id,
             "site_id": site.site_id,
@@ -135,7 +136,7 @@ def _source_payloads(
             }
         )
         if index == 0:
-            pollen_values = {taxa[0]: 0, taxa[1]: 0}
+            pollen_values: dict[str, int | None] = {taxa[0]: 0, taxa[1]: 0}
             pollen_status, pollen_reason, effort = "available", None, 0
         elif index == 1:
             pollen_values = {taxa[0]: None, taxa[1]: 2}

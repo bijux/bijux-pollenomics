@@ -13,6 +13,9 @@ from zipfile import ZipFile
 import pytest
 
 from bijux_pollenomics.collection.sources.landclim import time_windows
+from bijux_pollenomics.collection.sources.landclim.time_windows.landclim_ii import (
+    _merge_landclim_ii_time_windows,
+)
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip
 
@@ -48,7 +51,7 @@ def _write_published_pair(
 
 
 def _merge_published_pair(path: Path) -> None:
-    time_windows._merge_landclim_ii_time_windows(
+    _merge_landclim_ii_time_windows(
         {},
         path,
         quality_by_grid={"GC001": {"0-100 BP": "high"}},
@@ -144,7 +147,7 @@ def test_in_scope_landclim_ii_row_requires_joined_quality(
             "GC001:0-100 BP"
         ),
     ):
-        time_windows._merge_landclim_ii_time_windows(
+        _merge_landclim_ii_time_windows(
             {},
             archive_path,
             quality_by_grid={},
@@ -169,7 +172,7 @@ def test_valid_quality_row_preserves_true_numeric_zero(tmp_path: Path) -> None:
     )
     features: dict[tuple[str, str, str], dict[str, object]] = {}
 
-    time_windows._merge_landclim_ii_time_windows(
+    _merge_landclim_ii_time_windows(
         features,
         archive_path,
         quality_by_grid={"GC001": {"0-100 BP": "high"}},
@@ -267,7 +270,7 @@ def test_landclim_ii_validates_then_excludes_paired_published_missing_coordinate
     )
     features: dict[tuple[str, str, str], dict[str, object]] = {}
 
-    time_windows._merge_landclim_ii_time_windows(
+    _merge_landclim_ii_time_windows(
         features,
         archive_path,
         quality_by_grid={},
@@ -343,7 +346,7 @@ def test_landclim_ii_preserves_finite_published_negative_mean(
     )
     features: dict[tuple[str, str, str], dict[str, object]] = {}
 
-    time_windows._merge_landclim_ii_time_windows(
+    _merge_landclim_ii_time_windows(
         features,
         archive_path,
         quality_by_grid={"GC001": {"0-100 BP": "high"}},

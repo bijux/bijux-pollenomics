@@ -10,6 +10,7 @@ from bijux_pollenomics.analysis.review.fieldwork import (
     build_candidate_sites_json_payload,
     render_candidate_site_sensitivity_markdown,
 )
+from tests.unit.analysis.fieldwork.payload_views import require_mapping
 
 
 def test_ranking_engine_manifest_states_future_lake_selection_requirements() -> None:
@@ -44,9 +45,13 @@ def test_candidate_site_sensitivity_markdown_renders_table() -> None:
 def test_candidate_sites_payload_carries_species_aware_evidence_boundary() -> None:
     payload = build_candidate_sites_json_payload([])
 
-    species_boundary = payload["species_evidence_boundary"]
+    species_boundary = require_mapping(payload["species_evidence_boundary"])
 
-    assert species_boundary["animal_adna"].startswith(
+    animal_adna = species_boundary["animal_adna"]
+    proximity_refusal = species_boundary["proximity_refusal"]
+    assert isinstance(animal_adna, str)
+    assert isinstance(proximity_refusal, str)
+    assert animal_adna.startswith(
         "Non-human ancient-DNA support is contextual review evidence"
     )
-    assert "atlas proximity" in species_boundary["proximity_refusal"]
+    assert "atlas proximity" in proximity_refusal

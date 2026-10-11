@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 from unittest.mock import patch
 
@@ -24,24 +25,37 @@ from bijux_pollenomics.governance.repository_truth.metrics.filesystem import (
     _count_geojson_features,
 )
 
-from .support import RepositoryTruthTestCase
+from .support import (
+    RepositoryTruthTestCase,
+    require_integer,
+    require_mapping,
+    require_rows,
+    require_string,
+    require_strings,
+)
 
 
 class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
     def test_published_sead_population_agrees_across_truth_surfaces(self) -> None:
-        def report(stem):  # type: ignore[no-untyped-def]
-            return json.loads((self.report_root / f"{stem}.json").read_text())
+        def report(stem: str) -> Mapping[str, object]:
+            return require_mapping(
+                json.loads((self.report_root / f"{stem}.json").read_text())
+            )
 
         matrix = report("repository_source_family_matrix")
         atlas = report("repository_atlas_input_audit")
         cross_domain = report("repository_cross_domain_evidence_matrix")
         posture = report("repository_truth_posture")
         claim = report("repository_claim_audit")
-        source_row = next(row for row in matrix["rows"] if row["source_key"] == "sead")
-        atlas_row = next(row for row in atlas["rows"] if row["input_key"] == "sead")
+        source_row = next(
+            row for row in require_rows(matrix["rows"]) if row["source_key"] == "sead"
+        )
+        atlas_row = next(
+            row for row in require_rows(atlas["rows"]) if row["input_key"] == "sead"
+        )
         archaeology = next(
             row
-            for row in cross_domain["rows"]
+            for row in require_rows(cross_domain["rows"])
             if row["domain_key"] == "archaeology_context"
         )
         published = _count_geojson_features(
@@ -52,11 +66,15 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         )
         assert published == 2069
         assert source_row["visible_count"] == published
-        assert atlas_row["metrics"]["site_count"] == published
-        assert archaeology["tracked_metrics"]["sead_site_count"] == published
+        assert require_mapping(atlas_row["metrics"])["site_count"] == published
+        assert (
+            require_mapping(archaeology["tracked_metrics"])["sead_site_count"]
+            == published
+        )
         for truth in (posture, claim):
-            assert truth["counts"]["tracked_sead_site_count"] == published
-            assert truth["counts"]["sead_source_bbox_site_count"] == 2195
+            counts = require_mapping(truth["counts"])
+            assert counts["tracked_sead_site_count"] == published
+            assert counts["sead_source_bbox_site_count"] == 2195
 
     def test_published_sead_site_denominator_must_match_normalized_layer(self) -> None:
         published = (
@@ -110,19 +128,23 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             queue_payload["schema_version"], "repository-source-acquisition-queue.v1"
         )
         self.assertEqual(matrix_payload["row_count"], 8)
-        self.assertGreaterEqual(queue_payload["row_count"], 1)
+        self.assertGreaterEqual(require_integer(queue_payload["row_count"]), 1)
         raa_row = next(
-            row for row in matrix_payload["rows"] if row["source_key"] == "raa"
+            row
+            for row in require_rows(matrix_payload["rows"])
+            if row["source_key"] == "raa"
         )
         self.assertEqual(raa_row["visible_count"], 0)
         sead_row = next(
-            row for row in matrix_payload["rows"] if row["source_key"] == "sead"
+            row
+            for row in require_rows(matrix_payload["rows"])
+            if row["source_key"] == "sead"
         )
         self.assertEqual(sead_row["visible_count"], 2069)
         self.assertEqual(
             raa_row["acquisition_posture"], "refused_not_publication_ready"
         )
-        self.assertIn("missing_raw_inventory", raa_row["main_gap"])
+        self.assertIn("missing_raw_inventory", require_string(raa_row["main_gap"]))
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
         self.assertIn("animal_adna", queue_markdown)
         self.assertNotIn("sead_temporal_reference_capture", queue_markdown)
@@ -143,21 +165,33 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             docs_root=self.docs_root,
             report_root=self.report_root,
         )
-        counts = posture["counts"]
+        counts = require_mapping(posture["counts"])
         self.assertEqual(counts["tracked_paper_count"], 18)
         self.assertEqual(counts["papers_with_archived_supplements"], 18)
         animal_row = next(
-            row for row in matrix["rows"] if row["source_key"] == "animal_adna"
+            row
+            for row in require_rows(matrix["rows"])
+            if row["source_key"] == "animal_adna"
         )
         self.assertEqual(
             animal_row["acquisition_posture"],
             "all_tracked_supplements_archived",
         )
-        self.assertIn("all tracked animal papers", animal_row["main_gap"])
-        self.assertIn("animal_sample_site_extraction", posture["incomplete_programs"])
-        self.assertEqual(queue["rows"][0]["queue_key"], "animal_adna_sample_extraction")
+        self.assertIn(
+            "all tracked animal papers", require_string(animal_row["main_gap"])
+        )
+        self.assertIn(
+            "animal_sample_site_extraction",
+            require_strings(posture["incomplete_programs"]),
+        )
+        self.assertEqual(
+            require_rows(queue["rows"])[0]["queue_key"], "animal_adna_sample_extraction"
+        )
         self.assertTrue(
-            any("extract sample-owned" in row for row in posture["recovery_priorities"])
+            any(
+                "extract sample-owned" in row
+                for row in require_strings(posture["recovery_priorities"])
+            )
         )
 
     def test_source_explainer_atlas_input_and_cross_domain_packets_keep_pollen_first(
@@ -197,43 +231,62 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             matrix_payload["schema_version"],
             "repository-cross-domain-evidence-matrix.v2",
         )
-        self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 16)
         self.assertEqual(
-            explainer_payload["status_counts"]["restoration_plan_required"], 0
+            require_mapping(explainer_payload["status_counts"])["present_useful_form"],
+            16,
+        )
+        self.assertEqual(
+            require_mapping(explainer_payload["status_counts"])[
+                "restoration_plan_required"
+            ],
+            0,
         )
         self.assertEqual(atlas_payload["row_count"], 6)
         pollen_row = next(
             row
-            for row in matrix_payload["rows"]
+            for row in require_rows(matrix_payload["rows"])
             if row["domain_key"] == "pollen_context"
         )
-        self.assertEqual(pollen_row["tracked_metrics"]["landclim_site_count"], 490)
-        self.assertEqual(pollen_row["tracked_metrics"]["neotoma_site_count"], 200)
+        self.assertEqual(
+            require_mapping(pollen_row["tracked_metrics"])["landclim_site_count"], 490
+        )
+        self.assertEqual(
+            require_mapping(pollen_row["tracked_metrics"])["neotoma_site_count"], 200
+        )
         raa_input = next(
-            row for row in atlas_payload["rows"] if row["input_key"] == "raa"
+            row
+            for row in require_rows(atlas_payload["rows"])
+            if row["input_key"] == "raa"
         )
         sead_input = next(
-            row for row in atlas_payload["rows"] if row["input_key"] == "sead"
+            row
+            for row in require_rows(atlas_payload["rows"])
+            if row["input_key"] == "sead"
         )
-        self.assertEqual(sead_input["metrics"]["site_count"], 2069)
-        self.assertEqual(sead_input["metrics"]["source_bounding_box_site_count"], 2195)
+        self.assertEqual(require_mapping(sead_input["metrics"])["site_count"], 2069)
         self.assertEqual(
-            raa_input["metrics"]["publication_status"],
+            require_mapping(sead_input["metrics"])["source_bounding_box_site_count"],
+            2195,
+        )
+        self.assertEqual(
+            require_mapping(raa_input["metrics"])["publication_status"],
             "refused_not_publication_ready",
         )
-        self.assertIsNone(raa_input["metrics"]["published_site_count"])
+        self.assertIsNone(require_mapping(raa_input["metrics"])["published_site_count"])
         self.assertNotIn(
             "docs/report/regions/nordic/sweden_archaeology_density.geojson",
-            raa_input["published_paths"],
+            require_strings(raa_input["published_paths"]),
         )
         archaeology_row = next(
             row
-            for row in matrix_payload["rows"]
+            for row in require_rows(matrix_payload["rows"])
             if row["domain_key"] == "archaeology_context"
         )
         self.assertEqual(archaeology_row["coverage_posture"], "raa_density_refused")
         self.assertIsNone(
-            archaeology_row["tracked_metrics"]["raa_published_site_count"]
+            require_mapping(archaeology_row["tracked_metrics"])[
+                "raa_published_site_count"
+            ]
         )
         self.assertIn("Repository source explainer audit", explainer_markdown)
         self.assertIn("Repository atlas input audit", atlas_markdown)
@@ -254,16 +307,20 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         )
         self.assertEqual(payload["row_count"], 2)
         sead_row = next(
-            row for row in payload["rows"] if row["ecosystem_key"] == "sead"
+            row
+            for row in require_rows(payload["rows"])
+            if row["ecosystem_key"] == "sead"
         )
         palaeopen_row = next(
-            row for row in payload["rows"] if row["ecosystem_key"] == "palaeopen"
+            row
+            for row in require_rows(payload["rows"])
+            if row["ecosystem_key"] == "palaeopen"
         )
         self.assertEqual(sead_row["ecosystem_role"], "direct_source_infrastructure")
         self.assertEqual(palaeopen_row["ecosystem_role"], "open_data_network")
         self.assertIn(
             "temporal resolution and reference visibility remain uneven",
-            " ".join(sead_row["limits"]),
+            " ".join(require_strings(sead_row["limits"])),
         )
         self.assertIn("Repository source ecosystem review", markdown)
         self.assertIn("PalaeOpen", markdown)
@@ -282,11 +339,13 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             payload["schema_version"], "repository-scientific-progress-audit.v1"
         )
         self.assertEqual(payload["overall_progress_posture"], "data_recovery_required")
-        self.assertIn("checked-in JSON file count", payload["anti_measures"])
+        self.assertIn(
+            "checked-in JSON file count", require_strings(payload["anti_measures"])
+        )
         self.assertTrue(
             any(
                 "all 18 tracked papers now ship archived supplementary material" in row
-                for row in payload["findings"]
+                for row in require_strings(payload["findings"])
             )
         )
         self.assertIn("Do Not Use These As Progress", markdown)

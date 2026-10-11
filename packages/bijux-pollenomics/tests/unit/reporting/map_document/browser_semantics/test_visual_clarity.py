@@ -110,7 +110,7 @@ def test_narrow_search_is_a_locally_bounded_popover_outside_topbar_flow() -> Non
     assert "top: auto;" in results_rule
     assert "right: auto;" in results_rule
     assert "width: 100%;" in results_rule
-    assert "max-height: min(14vh, 96px);" in results_rule
+    assert "max-height: min(14vh, 88px);" in results_rule
 
 
 def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:

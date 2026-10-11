@@ -163,7 +163,9 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
         self.assertEqual(layer["propagation_status"], "refused")
         self.assertEqual(layer["edge_count"], 0)
         self.assertFalse(layer["applies_time_filter"])
-        self.assertIn("degraded historical context", layer["description"])
+        description = layer["description"]
+        assert isinstance(description, str)
+        self.assertIn("degraded historical context", description)
         self.assertEqual(
             layer["display_warning_codes"],
             ["retained_density_metadata_count_mismatch"],
@@ -179,8 +181,10 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 "reconciled": False,
             },
         )
-        self.assertIn("339,412 summed cell counts", layer["density_count_label"])
-        self.assertIn("318,265 metadata", layer["density_count_label"])
+        density_count_label = layer["density_count_label"]
+        assert isinstance(density_count_label, str)
+        self.assertIn("339,412 summed cell counts", density_count_label)
+        self.assertIn("318,265 metadata", density_count_label)
         self.assertEqual(status["atlas_input_status"], "degraded")
         self.assertEqual(
             status["reason_codes"],

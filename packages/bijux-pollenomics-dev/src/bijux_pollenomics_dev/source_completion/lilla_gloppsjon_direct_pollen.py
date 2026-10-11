@@ -408,7 +408,7 @@ def predict(repository: Path, prepared: Path, output: Path) -> None:
 
 
 def main() -> None:
-    """Prepare metadata and freeze target-free Lilla Gloppsjön predictions."""
+    """Prepare age metadata and freeze target-free Lilla Gloppsjön predictions."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict"))
     parser.add_argument("--repository", type=Path, required=True)

@@ -14,7 +14,7 @@ from bijux_pollenomics_lra.api import (
     fit_homogeneous_likelihood,
     forward_deposition,
 )
-from bijux_pollenomics_lra.reconstruction.homogeneous_likelihood import (
+from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
     homogeneous_cover_to_mixture,
     homogeneous_vertices,
 )

@@ -254,7 +254,7 @@ def analyze(repository: Path, output: Path) -> None:
 
 
 def main() -> None:
-    """Publish source-bound Sämbosjön age limits without admitting outcomes."""
+    """Measure source age-bound overlap with fixed Sämbosjön bins without outcomes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

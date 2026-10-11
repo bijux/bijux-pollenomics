@@ -7,7 +7,12 @@ from bijux_pollenomics.governance import (
     render_repository_truth_posture_markdown,
 )
 
-from .support import RepositoryTruthTestCase
+from .support import (
+    RepositoryTruthTestCase,
+    require_mapping,
+    require_rows,
+    require_strings,
+)
 
 
 class RepositoryPostureTests(RepositoryTruthTestCase):
@@ -26,16 +31,23 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
             payload["primary_domains"],
             ["pollen_context", "environmental_context"],
         )
-        self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
+        self.assertEqual(require_mapping(payload["counts"])["tracked_paper_count"], 18)
         self.assertEqual(
-            payload["counts"]["papers_with_local_reference_supplements"], 0
+            require_mapping(payload["counts"])["papers_with_archived_supplements"], 18
         )
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 170)
+        self.assertEqual(
+            require_mapping(payload["counts"])[
+                "papers_with_local_reference_supplements"
+            ],
+            0,
+        )
+        self.assertEqual(
+            require_mapping(payload["counts"])["published_atlas_point_count"], 170
+        )
         self.assertTrue(
             any(
                 "unresolved" in row or "refused" in row
-                for row in payload["claim_freeze_reasons"]
+                for row in require_strings(payload["claim_freeze_reasons"])
             )
         )
         self.assertIn("# Repository truth posture", markdown)
@@ -54,12 +66,12 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
         self.assertEqual(payload["schema_version"], "repository-recovery-review.v2")
         animal_row = next(
             row
-            for row in payload["rows"]
+            for row in require_rows(payload["rows"])
             if row["surface_key"] == "ancient_dna_context"
         )
         docs_row = next(
             row
-            for row in payload["rows"]
+            for row in require_rows(payload["rows"])
             if row["surface_key"] == "documentation_architecture"
         )
         self.assertEqual(payload["overall_recovery_posture"], "recovery_required")

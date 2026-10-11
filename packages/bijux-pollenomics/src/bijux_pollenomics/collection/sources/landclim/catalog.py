@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 import re
+from typing import TypedDict
 from zipfile import ZipFile
 
 from ....core.http import fetch_binary, fetch_text
@@ -49,7 +50,16 @@ LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME = {
     "LandClimII_metadata.xlsx": "landclim_ii_site_metadata.xlsx",
     "Taxa_to_PFT_PPE_and_FSP_values.csv": "landclim_ii_taxa_pft_ppe_fsp_values.csv",
 }
-LANDCLIM_DATASET_METADATA = {
+
+
+class _LandClimDatasetMetadata(TypedDict):
+    label: str
+    doi: str
+    citation: str
+    publication_year: int
+
+
+LANDCLIM_DATASET_METADATA: dict[str, _LandClimDatasetMetadata] = {
     "900966": {
         "label": "Marquer et al. 2019 REVEALS taxa grid cells",
         "doi": "https://doi.org/10.1594/PANGAEA.900966",

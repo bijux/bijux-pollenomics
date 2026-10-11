@@ -127,12 +127,15 @@ def test_assemble_decodes_partition_roots_and_rejects_absolute_publication_root(
 ) -> None:
     observed: dict[str, object] = {}
 
+    def assert_owner_input_root(expected: Path | None) -> None:
+        assert observed["owner_input_root"] == expected
+
     def assemble(**kwargs: object) -> SimpleNamespace:
         observed.update(kwargs)
         return SimpleNamespace(output_root=kwargs["output_root"])
 
     monkeypatch.setattr(command, "assemble_report_partitions", assemble)
-    request = {
+    request: dict[str, object] = {
         "schema_version": "published-report-partition-command.v1",
         "operation": "assemble",
         "version_dir": str(tmp_path / "data/aadr/v66"),
@@ -152,12 +155,12 @@ def test_assemble_decodes_partition_roots_and_rejects_absolute_publication_root(
     assert status == 0
     assert json.loads(stdout)["result"] == {"output_root": str(tmp_path / "output")}
     assert observed["partition_roots"] == {"world": tmp_path / "world"}
-    assert observed["owner_input_root"] == tmp_path / "owner-input"
+    assert_owner_input_root(tmp_path / "owner-input")
 
     request["owner_input_root"] = None
     status, _, _ = _invoke(monkeypatch, capsys, json.dumps(request))
     assert status == 0
-    assert observed["owner_input_root"] is None
+    assert_owner_input_root(None)
 
     request["owner_input_root"] = "owner-input"
     status, stdout, stderr = _invoke(monkeypatch, capsys, json.dumps(request))

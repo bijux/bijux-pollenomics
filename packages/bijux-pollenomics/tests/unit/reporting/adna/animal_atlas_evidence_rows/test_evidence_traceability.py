@@ -18,7 +18,7 @@ from .support import _write_json
 
 
 def test_atlas_source_lookup_requires_exact_project_locality() -> None:
-    lookup = {
+    lookup: dict[tuple[str, str], dict[str, object]] = {
         ("PRJTEST", "Site One"): {"source_locator": "row one"},
     }
 

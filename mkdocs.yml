@@ -118,7 +118,9 @@ nav:
       - Overview: public/pollenomics/index.md
       - Scientific Evidence:
           - Overview: public/pollenomics/science/index.md
+          - Scientific Concepts: public/pollenomics/science/glossary.md
           - Papers and Evidence Roles: public/pollenomics/science/papers.md
+          - Use the Atlas: public/pollenomics/interfaces/atlas-walkthrough.md
           - Country Evidence Status: public/pollenomics/science/country-status.md
           - Reports and Presentations: public/pollenomics/science/downloads.md
           - Sources and Scope: public/pollenomics/science/sources.md

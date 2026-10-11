@@ -27,7 +27,7 @@ from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.normalizati
 from .support import fixture_authority, fixture_payload
 
 
-def _available_authority():  # type: ignore[no-untyped-def]
+def _available_authority() -> ExportFileAuthority:
     return next(
         authority
         for authority in FILE_AUTHORITIES
@@ -49,7 +49,7 @@ def _write_fixture(
     ),
     malformed_first_row: bool = False,
     duplicate_second_coordinate: bool = False,
-):  # type: ignore[no-untyped-def]
+) -> ExportFileAuthority:
     authority = _available_authority()
     payload = fixture_payload(
         authority,

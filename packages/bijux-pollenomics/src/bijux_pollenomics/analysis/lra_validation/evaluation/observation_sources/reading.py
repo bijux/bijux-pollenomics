@@ -525,8 +525,8 @@ def _read_heldout_pollen_source(
                 support,
                 status,
                 reason,
-                cast(int | None, effort),
-                cast(bool, row["all_zero_count"]),
+                effort,
+                row["all_zero_count"],
                 tuple((taxon, parsed[taxon]) for taxon in taxa),
             )
         )

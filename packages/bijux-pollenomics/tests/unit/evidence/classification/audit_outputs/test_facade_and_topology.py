@@ -75,11 +75,13 @@ def test_legacy_facade_preserves_public_and_private_imports() -> None:
         "classification_producer_id",
         "classification_producer_version",
         "classification_producer_digest",
+        "before_commit",
     )
     assert all(
         signature.parameters[name].kind is inspect.Parameter.KEYWORD_ONLY
         for name in tuple(signature.parameters)[1:]
     )
+    assert signature.parameters["before_commit"].default is None
 
 
 def test_audit_output_modules_have_bounded_intent_ownership() -> None:

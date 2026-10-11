@@ -211,6 +211,8 @@ The other two sites retain point ages, and the intervals do not provide a
 joint age posterior. This sparse, previously exposed 16-label pollen study
 does not establish a better chronology, independent accuracy or LRA inputs.
 
+A [conditional membership account](../../../report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md) also bounds the fraction of all native pollen counts represented by the selected 16 taxa, using the same 107 samples. Its four per-bin lower and upper bounds are separate limits. A [joint-membership check](../../../report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json) finds that none of the 16 combinations of those endpoints can occur together when each sample has one possible age within its reported interval. The individual bounds remain valid, but combining their endpoints would imply incompatible sample assignments. These conditional count-fraction checks supply neither age probabilities nor reconstructed vegetation.
+
 For the Norwegian Dalmutladdo core, a separate
 [age-interval support check](../../../report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
 keeps only two of 72 pollen samples: their full reported LegacyAge 95%

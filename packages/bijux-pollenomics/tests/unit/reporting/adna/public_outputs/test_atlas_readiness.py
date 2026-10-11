@@ -157,7 +157,7 @@ def test_readiness_markdown_keeps_a_rectangular_table() -> None:
 
 
 def _valid_accounting_payloads() -> tuple[dict[str, object], dict[str, object]]:
-    readiness = {
+    readiness: dict[str, object] = {
         "rows": [
             {
                 "species_latin_name": "Ovis aries",
@@ -186,7 +186,7 @@ def _valid_accounting_payloads() -> tuple[dict[str, object], dict[str, object]]:
             "unresolved_sample_count": 1,
         },
     }
-    honesty = {
+    honesty: dict[str, object] = {
         "rows": [
             {
                 "species_latin_name": "Ovis aries",
@@ -287,8 +287,10 @@ def test_readiness_equations_fail_closed_under_payload_drift(
         payload = mutated_readiness if target == "readiness" else mutated_honesty
         section = payload[container]
         if isinstance(section, list):
+            assert isinstance(section[0], dict)
             section[0][field] = value
         else:
+            assert isinstance(section, dict)
             section[field] = value
         with pytest.raises(ValueError, match="reconcile"):
             _build_stubbed_readiness(
@@ -328,8 +330,10 @@ def test_readiness_posture_counts_refuse_negative_values(
     readiness, honesty = _valid_accounting_payloads()
     section = readiness[container]
     if isinstance(section, list):
+        assert isinstance(section[0], dict)
         section[0][field] = -1
     else:
+        assert isinstance(section, dict)
         section[field] = -1
 
     with pytest.raises(ValueError, match="nonnegative"):

@@ -84,7 +84,12 @@ def test_plan_derives_exact_model_free_target_specific_denominator(
         for protocol in product.protocols
     }
     for assignment in plan.assignments:
-        site = scopes[assignment.protocol_id][assignment.record_id]
+        if assignment.protocol_id == "grouped_outer":
+            scope = scopes["grouped_outer"]
+        else:
+            assert assignment.protocol_id == "spatial_block"
+            scope = scopes["spatial_block"]
+        site = scope[assignment.record_id]
         expected = (
             site.vegetation_observation_id
             if assignment.target == "vegetation_cover"

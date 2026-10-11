@@ -43,8 +43,9 @@ def build_scientific_signals() -> list[JsonObject]:
 
 def build_scientific_point_layers() -> list[JsonObject]:
     layers = build_point_layers()
-    layer = layers[0]
+    layer = dict(layers[0])
     layer["scientific_selection_enabled"] = True
+    layers[0] = layer
     features = layer["features"]
     assert isinstance(features, list)
     for index, feature in enumerate(features):

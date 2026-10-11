@@ -35,6 +35,9 @@ def test_explicit_bp_windows_keep_valid_bounds_and_mean(
 
     assert chronology.time_start_bp == start_bp
     assert chronology.time_end_bp == end_bp
+    assert chronology.time_start_bp is not None
+    assert chronology.time_mean_bp is not None
+    assert chronology.time_end_bp is not None
     assert chronology.time_start_bp <= chronology.time_mean_bp <= chronology.time_end_bp
 
 

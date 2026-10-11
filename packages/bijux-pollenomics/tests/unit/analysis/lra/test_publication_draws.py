@@ -179,10 +179,12 @@ def test_unselected_member_mutation_after_first_inventory_is_refused(
     pin = _pin(root)
     selected_bin = publication_draws._selected_bin
 
-    def mutate_after_inventory(*args: object) -> object:
+    def mutate_after_inventory(
+        source_root: Path, manifest: dict[str, object], selected_bin_id: str
+    ) -> object:
         unselected = root / "site-0" / "cover.csv"
         unselected.write_text(unselected.read_text() + "changed\n")
-        return selected_bin(*args)
+        return selected_bin(source_root, manifest, selected_bin_id)
 
     monkeypatch.setattr(publication_draws, "_selected_bin", mutate_after_inventory)
     monkeypatch.setattr(

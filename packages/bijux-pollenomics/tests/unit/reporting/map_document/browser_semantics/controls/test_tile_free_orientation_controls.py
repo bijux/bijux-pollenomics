@@ -29,8 +29,9 @@ def test_narrow_status_retains_center_and_basemap_with_clear_map_controls() -> N
     assert ".map-status .status-pill:nth-child(1)," in narrow_css
     assert ".map-status .status-pill:nth-child(3) {" in narrow_css
     assert ".map-status .status-pill:nth-child(-n + 3)" not in narrow_css
+    assert "grid-template-columns: repeat(3, minmax(0, 1fr));" in narrow_css
     assert (
-        "grid-column: 1 / -1;"
+        "grid-column: auto;"
         in narrow_css.split(".map-status .status-pill:nth-child(5) {", 1)[1].split(
             "}", 1
         )[0]

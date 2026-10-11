@@ -49,7 +49,7 @@ def _checked_preparation(repository: Path, prepared: Path) -> dict[str, Any]:
         or receipt["baseline_scores_sha256"] != BASELINE_SHA256
     ):
         raise ValueError("chronology-block preparation or source changed")
-    return receipt
+    return dict(receipt)
 
 
 def prepare(repository: Path, output: Path) -> None:

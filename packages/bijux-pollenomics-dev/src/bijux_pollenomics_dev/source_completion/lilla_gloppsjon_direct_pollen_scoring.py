@@ -34,9 +34,14 @@ from .nordic_direct_pollen import (
     _sha,
 )
 
+SCORING_PROTOCOL = PROTOCOL.parent / "scoring-protocol.json"
+SCORING_PROTOCOL_SHA256 = (
+    "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51"
+)
 
-class SampleCounts(TypedDict):
-    """Retain observed pollen mass and direct source-row accounting."""
+
+class _SampleCounts(TypedDict):
+    """Count mass and source-row accounting for one declared target sample."""
 
     native_nisp: int
     counts: dict[str, int]
@@ -44,19 +49,13 @@ class SampleCounts(TypedDict):
     other_observation_rows: int
 
 
-class BinCounts(TypedDict):
-    """Close source sample membership and pollen mass within one age bin."""
+class _BinCounts(TypedDict):
+    """Selected sample membership and observed pollen mass for one fixed bin."""
 
     sample_ids: list[str]
     native_nisp: int
     counts: dict[str, int]
     missing_sample_ids: list[str]
-
-
-SCORING_PROTOCOL = PROTOCOL.parent / "scoring-protocol.json"
-SCORING_PROTOCOL_SHA256 = (
-    "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51"
-)
 
 
 def _verify_scoring_source(
@@ -69,7 +68,7 @@ def _verify_scoring_source(
         raise ValueError("scoring Neotoma source drift: manifest.json")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if not isinstance(manifest, dict):
-        raise ValueError("scoring Neotoma manifest must be an object")
+        raise ValueError("scoring Neotoma source manifest must be an object")
     recorded = {
         **scoring_protocol["source_surface_sha256"],
         **scoring_protocol["source_additional_metadata_sha256"],
@@ -167,9 +166,9 @@ def _verify_scoring_inputs(
 
 def _target_sample_counts(
     relational: Path, manifest: dict[str, Any], sample_ids: list[str]
-) -> dict[str, SampleCounts]:
+) -> dict[str, _SampleCounts]:
     """Read target count rows once, after source and prediction verification."""
-    sample_counts: dict[str, SampleCounts] = {
+    sample_counts: dict[str, _SampleCounts] = {
         sample_id: {
             "native_nisp": 0,
             "counts": dict.fromkeys(TAXA, 0),
@@ -203,7 +202,7 @@ def _score_records(
     scoring: dict[str, Any],
     metadata: dict[str, Any],
     predictions: dict[str, Any],
-    sample_counts: dict[str, SampleCounts],
+    sample_counts: dict[str, _SampleCounts],
 ) -> tuple[
     list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]
 ]:
@@ -219,7 +218,7 @@ def _score_records(
         or len(refused) != scoring["refused_age_sample_count"]
     ):
         raise ValueError("target 86-sample age/count denominator changed")
-    bins: dict[int, BinCounts] = {
+    bins: dict[int, _BinCounts] = {
         bin_id: {
             "sample_ids": [],
             "native_nisp": 0,
@@ -488,7 +487,7 @@ def score(
 
 
 def main() -> None:
-    """Score verified Lilla Gloppsjön counts against the frozen predictions."""
+    """Score verified Lilla Gloppsjön counts against the committed prediction freeze."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--prepared", type=Path, required=True)

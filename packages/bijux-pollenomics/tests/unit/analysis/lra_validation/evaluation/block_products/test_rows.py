@@ -145,18 +145,21 @@ def test_adapter_freezes_fitted_and_training_mean_vegetation_rows(
     by_method = {row.model_id: row for row in rows}
     baseline = by_method[BLOCK_BASELINE_METHOD]
     fitted = by_method[FITTED_METHOD]
+    assert baseline.source_model is not None
     assert (baseline.model_id, baseline.source_model.kind) == (
         BLOCK_BASELINE_METHOD,
         "admitted_reconstruction_training_mean",
     )
     assert baseline.fitted_model_sha256 is None
+    assert fitted.source_model is not None
     assert (fitted.model_id, fitted.source_model.kind) == (
         FITTED_METHOD,
         "fitted_spatial",
     )
     assert fitted.fitted_model_sha256 == "f" * 64
     assert all(
-        row.observed_pollen is row.observation is row.interval is None for row in rows
+        row.observed_pollen is None and row.observation is None and row.interval is None
+        for row in rows
     )
     assert all(
         validate_frozen_prediction(row) == "pollenomics-evaluation-prediction.v2"
@@ -169,7 +172,7 @@ def test_parent_refusal_preserves_denominator_without_values(
 ) -> None:
     fold = _scope().folds[0]
     fitted = _parent(FITTED_METHOD)
-    failure = {
+    failure: dict[str, object] = {
         "fold_id": fold.fold_id,
         "record_id": "p2",
         "method": BLOCK_BASELINE_METHOD,
@@ -189,7 +192,8 @@ def test_parent_refusal_preserves_denominator_without_values(
     model = by_method[FITTED_METHOD]
     assert baseline.status == "prediction_failed"
     assert baseline.reason == "parent_not_run:experiment_interrupted"
-    assert baseline.prediction is baseline.source_model is None
+    assert baseline.prediction is None
+    assert baseline.source_model is None
     assert model.status == "predicted"
 
 

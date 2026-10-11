@@ -36,12 +36,21 @@ def test_source_fixture_prepare_reopen_and_score(tmp_path: Path) -> None:
         for row in training
     )
     for (fold_id, _), row in predictions.items():
-        lineage = row["prediction_manifest"]["input_lineage"]
+        manifest = row["prediction_manifest"]
+        assert isinstance(manifest, dict)
+        lineage = manifest["input_lineage"]
+        assert isinstance(lineage, dict)
         regional = next(
             key for key in lineage if key.startswith("experiment-regional:")
         )
-        assert set(lineage[regional]) == set(folds[fold_id]["train_record_ids"])
-        assert not set(lineage[regional]) & set(folds[fold_id]["test_record_ids"])
+        regional_ids = lineage[regional]
+        train_ids = folds[fold_id]["train_record_ids"]
+        test_ids = folds[fold_id]["test_record_ids"]
+        assert isinstance(regional_ids, list)
+        assert isinstance(train_ids, list)
+        assert isinstance(test_ids, list)
+        assert set(regional_ids) == set(train_ids)
+        assert not set(regional_ids) & set(test_ids)
     inventory = {
         "schema_version": "lra-source-pollen-outcomes.v1",
         "data_kind": "source_observations",

@@ -2,14 +2,20 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from ..adna import (
+    AdnaArchiveIntegrityReport,
+    AdnaSpeciesDatasetReview,
     build_archive_integrity_report,
     build_species_dataset_review,
     build_species_manifest,
     build_species_normalization_bundle,
     build_species_runtime_manifest,
 )
+
+if TYPE_CHECKING:
+    from ..analysis.fieldwork.ranking import CandidateSensitivityReport
 
 __all__ = ["ReleaseReadinessReport", "build_release_readiness_report"]
 
@@ -95,7 +101,10 @@ def _source_identity_ok(species_name: str) -> bool:
     )
 
 
-def _curation_integrity_ok(dataset_review, integrity) -> bool:
+def _curation_integrity_ok(
+    dataset_review: AdnaSpeciesDatasetReview,
+    integrity: AdnaArchiveIntegrityReport,
+) -> bool:
     if integrity.duplicates:
         return False
     if integrity.access_findings:
@@ -231,37 +240,41 @@ def _atlas_bundle_contract_ok() -> bool:
         report,
         plan=build_published_geography_plan(("Sweden",)),
     )
+    summary_artifacts = _object_fields(summary.get("artifacts"))
+    manifest_artifacts = _object_fields(manifest.get("artifacts"))
+    map_contract = _object_fields(summary.get("map_publication_contract"))
+    if summary_artifacts is None or manifest_artifacts is None or map_contract is None:
+        return False
     return (
         summary.get("schema_version") == "geographic-evidence-surface-summary.v1"
         and manifest.get("schema_version") == "geographic-evidence-surface-manifest.v1"
-        and manifest["artifacts"]["candidate_sites_json"]
+        and manifest_artifacts.get("candidate_sites_json")
         == paths.candidate_sites_json_path.name
-        and manifest["artifacts"]["candidate_site_sensitivity_json"]
+        and manifest_artifacts.get("candidate_site_sensitivity_json")
         == paths.candidate_site_sensitivity_json_path.name
-        and manifest["artifacts"]["candidate_ranking_engine_manifest"]
+        and manifest_artifacts.get("candidate_ranking_engine_manifest")
         == paths.candidate_ranking_engine_manifest_path.name
-        and summary["artifacts"]["map_publication_contract_json"]
+        and summary_artifacts.get("map_publication_contract_json")
         == paths.map_publication_contract_json_path.name
-        and summary["artifacts"]["map_publication_contract_markdown"]
+        and summary_artifacts.get("map_publication_contract_markdown")
         == paths.map_publication_contract_markdown_path.name
-        and summary["artifacts"]["evidence_surface_json"]
+        and summary_artifacts.get("evidence_surface_json")
         == paths.evidence_surface_json_path.name
-        and summary["artifacts"]["evidence_surface_markdown"]
+        and summary_artifacts.get("evidence_surface_markdown")
         == paths.evidence_surface_markdown_path.name
-        and summary["artifacts"]["scientific_review_json"]
+        and summary_artifacts.get("scientific_review_json")
         == paths.scientific_review_json_path.name
-        and summary["artifacts"]["scientific_review_markdown"]
+        and summary_artifacts.get("scientific_review_markdown")
         == paths.scientific_review_markdown_path.name
-        and manifest["artifacts"]["evidence_surface_json"]
+        and manifest_artifacts.get("evidence_surface_json")
         == paths.evidence_surface_json_path.name
-        and manifest["artifacts"]["evidence_surface_markdown"]
+        and manifest_artifacts.get("evidence_surface_markdown")
         == paths.evidence_surface_markdown_path.name
-        and manifest["artifacts"]["scientific_review_json"]
+        and manifest_artifacts.get("scientific_review_json")
         == paths.scientific_review_json_path.name
-        and manifest["artifacts"]["scientific_review_markdown"]
+        and manifest_artifacts.get("scientific_review_markdown")
         == paths.scientific_review_markdown_path.name
-        and summary["map_publication_contract"]["schema_version"]
-        == "map-publication-contract.v1"
+        and map_contract.get("schema_version") == "map-publication-contract.v1"
         and evidence_surface.schema_version == "atlas-evidence-surface.v2"
         and evidence_surface.layers[0].layer_key == "homo_sapiens_direct"
         and scientific_review.schema_version == "scientific-review-surface.v3"
@@ -269,6 +282,18 @@ def _atlas_bundle_contract_ok() -> bool:
         in scientific_review.descriptive_scope
         and published.get("schema_version") == "published-reports-summary.v1"
     )
+
+
+def _object_fields(value: object) -> dict[str, object] | None:
+    """Admit only string-keyed payload maps before checking publication fields."""
+    if not isinstance(value, dict):
+        return None
+    fields: dict[str, object] = {}
+    for key, member in value.items():
+        if not isinstance(key, str):
+            return None
+        fields[key] = member
+    return fields
 
 
 def _ranking_provenance_ok() -> bool:
@@ -283,18 +308,21 @@ def _ranking_provenance_ok() -> bool:
         _build_candidate_sensitivity_stub()
     )
     engine_manifest = build_ranking_engine_manifest()
+    profile = _object_fields(payload.get("profile"))
+    if profile is None:
+        return False
     return (
         payload.get("schema_version") == "candidate-site-ranking.v2"
         and "explicit evidence and missingness signals"
         in str(payload.get("evidence_boundary"))
-        and payload.get("profile", {}).get("profile_name") == "atlas_exploration"
+        and profile.get("profile_name") == "atlas_exploration"
         and sensitivity_payload.get("schema_version") == "candidate-site-sensitivity.v1"
         and engine_manifest.schema_version == "candidate-ranking-engine-manifest.v1"
         and isinstance(payload.get("rows"), list)
     )
 
 
-def _build_candidate_sensitivity_stub():
+def _build_candidate_sensitivity_stub() -> CandidateSensitivityReport:
     from ..analysis.fieldwork.ranking import CandidateSensitivityReport
 
     return CandidateSensitivityReport(

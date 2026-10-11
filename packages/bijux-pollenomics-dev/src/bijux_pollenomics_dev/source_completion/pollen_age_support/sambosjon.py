@@ -387,7 +387,7 @@ def produce(repository: Path, output: Path) -> None:
 
 
 def main() -> None:
-    """Prepare and score age-supported pollen accounts with source refusals."""
+    """Rescore frozen Sämbosjön predictions on contained intervals with source refusals."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

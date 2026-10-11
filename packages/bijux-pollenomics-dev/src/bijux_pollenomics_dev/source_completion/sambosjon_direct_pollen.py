@@ -475,7 +475,7 @@ def score(
 
 
 def main() -> None:
-    """Prepare, freeze or score source-bound Sämbosjön pollen accounts."""
+    """Prepare source accounts, freeze predictions, or score the Sämbosjön core."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path, required=True)

@@ -144,7 +144,7 @@ def _generate(request: dict[str, object]) -> dict[str, object]:
         "partition_id",
         "scope_input_root",
     }
-    if set(request) != expected:
+    if frozenset(request) != expected:
         raise ValueError("generate request fields are not exact")
     common = _common(request)
     raw_scope = request["scope_input_root"]
@@ -167,7 +167,7 @@ def _assemble(request: dict[str, object]) -> dict[str, object]:
         "partition_roots",
         "owner_input_root",
     }
-    if set(request) != expected:
+    if frozenset(request) != expected:
         raise ValueError("assemble request fields are not exact")
     roots = _mapping(request["partition_roots"], "partition_roots")
     if not roots:

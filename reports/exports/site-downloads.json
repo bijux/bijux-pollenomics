@@ -3,9 +3,9 @@
   "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
   "inputs": {
     "reports/science/paper-accounts.csv": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
-    "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
-    "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
-    "presentation/source-lock.json": "fa96743643634f1d50d2023ff9b26758d0bb2a5399bc4fd9eaffaf1da8fcaf80"
+    "reports/exports/papers/manifest.json": "c2291891ba69d1e4539454d29bd9a1885a116f6aa6bfb58b97658a5bae4fd759",
+    "reports/exports/papers/visual-review.json": "4778250e5c0f5004e290ef883f623b7b827c1174260879da891a3b9b551d0596",
+    "presentation/source-lock.json": "1e9c3b8cae38306f68085f4932033f8fbcac9ac65112f7846bae2a4955726d85"
   },
   "files": [
     {

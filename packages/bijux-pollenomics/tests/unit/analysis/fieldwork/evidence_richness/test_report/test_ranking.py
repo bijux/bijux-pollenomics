@@ -11,6 +11,7 @@ from bijux_pollenomics.analysis import (
     write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_registry_csv,
 )
+from tests.unit.analysis.fieldwork.payload_views import require_mapping, require_string
 
 from .support import (
     _admit_raa_density_fixture,
@@ -182,9 +183,14 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
                 },
             ),
         )
-        assert refused_report.methodology["raa_density_authority"]["admitted"] is False
         assert (
-            "RAÄ density is excluded" in refused_report.methodology["archaeology_note"]
+            require_mapping(refused_report.methodology["raa_density_authority"])[
+                "admitted"
+            ]
+            is False
+        )
+        assert "RAÄ density is excluded" in require_string(
+            refused_report.methodology["archaeology_note"]
         )
         assert all(
             score.raa_density_site_count is None
@@ -235,7 +241,9 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
             "density_feature_count": 2,
             "reviewer_id": "test-reviewer",
         }
-        assert "RAÄ contributes coarse" in report.methodology["archaeology_note"]
+        assert "RAÄ contributes coarse" in require_string(
+            report.methodology["archaeology_note"]
+        )
         assert top.candidate.lake_label == "Alpha"
         assert top.candidate.ambiguity_flags == ()
         assert top.candidate.coordinate_resolution_method == "source_coordinate_medoid"
@@ -427,7 +435,10 @@ def test_build_sweden_lake_evidence_richness_report_prefers_svar_lakes() -> None
         assert top.candidate.lake_sampling_posture == "sampling_lake_candidate"
         assert top.candidate.lake_sampling_fit == 1.0
         assert top.aggregate_score > report.assessments[1].aggregate_score
-        assert report.methodology["score_components"]["human_adna_signal"] == 0.59
+        assert (
+            require_mapping(report.methodology["score_components"])["human_adna_signal"]
+            == 0.59
+        )
         assert "ranking_decision_rule" in report.methodology
 
         registry_csv_path = root / "sweden_lake_evidence_registry.csv"

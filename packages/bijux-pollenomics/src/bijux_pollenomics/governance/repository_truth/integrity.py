@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
+from typing import cast
 
 from .metrics import (
     SCORE_MAX,
@@ -18,6 +20,23 @@ __all__ = [
     "render_repository_governance_artifact_review_markdown",
     "render_repository_recovery_review_markdown",
 ]
+
+
+def _required_count(counts: Mapping[str, object], field: str) -> int:
+    value = counts[field]
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise ValueError(f"Repository recovery {field} must be an integer")
+    return value
+
+
+def _required_rows(payload: Mapping[str, object]) -> list[dict[str, object]]:
+    value = payload["rows"]
+    if not isinstance(value, list) or not all(
+        isinstance(row, dict) and all(isinstance(key, str) for key in row)
+        for row in value
+    ):
+        raise ValueError("Repository review rows must be records")
+    return cast(list[dict[str, object]], value)
 
 
 def build_repository_recovery_review(
@@ -82,13 +101,15 @@ def build_repository_recovery_review(
             "ancient_dna_context",
             "Ancient DNA context",
             data_completeness=_ratio_score(
-                counts["papers_with_archived_supplements"],
-                counts["tracked_paper_count"],
+                _required_count(counts, "papers_with_archived_supplements"),
+                _required_count(counts, "tracked_paper_count"),
             ),
             provenance_clarity=(
                 _ratio_score(
-                    counts["published_atlas_point_count"],
-                    counts["animal_coordinate_mappable_provenance_count"],
+                    _required_count(counts, "published_atlas_point_count"),
+                    _required_count(
+                        counts, "animal_coordinate_mappable_provenance_count"
+                    ),
                 )
                 if counts["animal_sample_database_review_available"]
                 and counts["animal_map_readiness_available"]
@@ -130,8 +151,8 @@ def build_repository_recovery_review(
             "Publication outputs",
             data_completeness=(
                 _ratio_score(
-                    counts["animal_mapped_sample_count"],
-                    counts["animal_tracked_sample_count"],
+                    _required_count(counts, "animal_mapped_sample_count"),
+                    _required_count(counts, "animal_tracked_sample_count"),
                 )
                 if counts["animal_sample_database_review_available"]
                 else None
@@ -174,10 +195,10 @@ def build_repository_recovery_review(
     )
     score_values = {
         dimension: [
-            int(row[dimension])
+            score
             for row in rows
-            if isinstance(row.get(dimension), int)
-            and not isinstance(row.get(dimension), bool)
+            if isinstance((score := row.get(dimension)), int)
+            and not isinstance(score, bool)
         ]
         for dimension in dimensions
     }
@@ -211,7 +232,7 @@ def render_repository_recovery_review_markdown(payload: dict[str, object]) -> st
         "| Surface | Data completeness | Provenance clarity | Documentation clarity | Output honesty |",
         "| --- | ---: | ---: | ---: | ---: |",
     ]
-    for row in payload["rows"]:
+    for row in _required_rows(payload):
         lines.append(
             f"| {row['display_name']} | {_score_label(row['data_completeness'])} | "
             f"{_score_label(row['provenance_clarity'])} | {_score_label(row['documentation_clarity'])} | "
@@ -319,7 +340,7 @@ def render_repository_governance_artifact_review_markdown(
         "| Artifact | Action | Surface kind | Reason |",
         "| --- | --- | --- | --- |",
     ]
-    for row in payload["rows"]:
+    for row in _required_rows(payload):
         lines.append(
             f"| `{row['artifact_path']}` | `{row['action']}` | `{row['surface_kind']}` | {row['reason']} |"
         )

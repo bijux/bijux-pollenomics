@@ -8,9 +8,12 @@ from hashlib import sha256
 import json
 from pathlib import Path
 from statistics import mean
+from types import SimpleNamespace
+from unittest.mock import patch
 
 import pytest
 
+from bijux_pollenomics_dev.source_completion import swedish_chronology_block
 from bijux_pollenomics_dev.source_completion.swedish_chronology_block import score
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -118,3 +121,26 @@ def test_changed_prediction_freeze_is_refused_before_target_scoring(
             tmp_path / "scored",
         )
     assert not (tmp_path / "scored").exists()
+
+
+def test_nonobject_preparation_is_refused(tmp_path: Path) -> None:
+    prepared = tmp_path / "prepared"
+    prepared.mkdir()
+    (prepared / "prepare.json").write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError, match="preparation must be an object"):
+        swedish_chronology_block._checked_preparation(ROOT, prepared)
+
+
+def test_unavailable_score_is_refused_before_publication(tmp_path: Path) -> None:
+    freeze_sha256 = sha256((RESULT / "frozen/freeze.json").read_bytes()).hexdigest()
+    output = tmp_path / "scores"
+    with (
+        patch.object(
+            swedish_chronology_block,
+            "score_pollen",
+            return_value=SimpleNamespace(mae_fraction=None),
+        ),
+        pytest.raises(ValueError, match="target score is unavailable"),
+    ):
+        score(ROOT, RESULT / "prepared", RESULT / "frozen", freeze_sha256, output)
+    assert not output.exists()

@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1944,
+  "surface_count": 1945,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1038,
+    "maintenance": 1039,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 772
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1040,
+    "maintainer_diagnostic": 1041,
     "public_reading_surface": 781,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 496,
     "norway": 14,
-    "report_root": 1087,
+    "report_root": 1088,
     "sweden": 49,
     "world": 172
   },
@@ -9146,7 +9146,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
-      "content_sha256": "c54411e5b9a6830ba8deb5a1302c4d7944cc24d8a63ec8dac88b527cca68a1a4",
+      "content_sha256": "dc856349eedbedb956388695a55ede89b69a1dfb9985fb88399abfb899b88578",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -12677,7 +12677,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/author-target-pollen/README.md",
-      "content_sha256": "fd891802a4a8df1e10a9626157c14692ba1b173c6a852328f3965194205ea25e",
+      "content_sha256": "cc17fa2a995961d6fd5703a4c156250fb85839e035ecfdcc4c1a60c764e21e3e",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -23655,6 +23655,18 @@
       "caution_level": "medium",
       "explanation": "Reader-facing portal page for navigating the report tree.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     }
   ]
 }

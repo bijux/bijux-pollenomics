@@ -18,7 +18,11 @@ from bijux_pollenomics.governance import (
 )
 from tests.support.repository import REPOSITORY_ROOT
 
-from .support import RepositoryTruthTestCase
+from .support import (
+    RepositoryTruthTestCase,
+    require_rows,
+    require_strings,
+)
 
 
 def test_extension_review_uses_release_criteria_before_report_file_exists(
@@ -31,7 +35,7 @@ def test_extension_review_uses_release_criteria_before_report_file_exists(
     )
     scientific_row = next(
         row
-        for row in payload["rows"]
+        for row in require_rows(payload["rows"])
         if row["dimension_key"] == "scientific_misread_resistance"
     )
     assert scientific_row["score"] == 4
@@ -89,7 +93,7 @@ class RepositoryProductPostureTests(RepositoryTruthTestCase):
         )
         extraction_row = next(
             row
-            for row in credibility_payload["rows"]
+            for row in require_rows(credibility_payload["rows"])
             if row["dimension_key"] == "extraction_completeness"
         )
         self.assertEqual(extraction_row["score"], 2)
@@ -107,8 +111,12 @@ class RepositoryProductPostureTests(RepositoryTruthTestCase):
             refusal_payload["schema_version"], "repository-final-release-refusal.v1"
         )
         self.assertFalse(refusal_payload["final_release_language_allowed"])
-        self.assertIn("data_recovery", refusal_payload["blocking_dimensions"])
-        self.assertIn("sead_treatment", refusal_payload["blocking_dimensions"])
+        self.assertIn(
+            "data_recovery", require_strings(refusal_payload["blocking_dimensions"])
+        )
+        self.assertIn(
+            "sead_treatment", require_strings(refusal_payload["blocking_dimensions"])
+        )
         self.assertIn(
             "# Repository product model",
             render_repository_product_model_markdown(product_payload),

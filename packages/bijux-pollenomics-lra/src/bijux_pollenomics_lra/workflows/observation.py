@@ -37,6 +37,11 @@ def _integer(value: int, name: str, minimum: int, maximum: int) -> int:
     return integer(value, name, minimum)
 
 
+def _real_scalar(value: object) -> bool:
+    """Accept numeric scalars while keeping booleans outside the domain."""
+    return not isinstance(value, (bool, np.bool_)) and isinstance(value, Real)
+
+
 def _probabilities(values: Mapping[str, float]) -> tuple[tuple[str, ...], np.ndarray]:
     """Validate named pollen fractions and return them in sorted taxon order.
 
@@ -148,7 +153,7 @@ def sample_pollen_observations(
     effort = _integer(effort, "effort", 1, 2**31 - 1)
     repeats = _integer(repeats, "repeats", 2, 10_000)
     seed = _integer(seed, "seed", 0, 2**32 - 1)
-    if isinstance(coverage, (bool, np.bool_)) or not isinstance(coverage, Real):
+    if not _real_scalar(coverage):
         raise ValidationError("Coverage must be a finite numeric scalar")
     try:
         level = float(coverage)

@@ -103,6 +103,7 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
         unresolved = discovery.map_records[1]
         self.assertEqual(unresolved.site_uuid, "uuid-20")
         self.assertIsNone(unresolved.time_start_bp)
+        assert unresolved.temporal_semantics is not None
         self.assertEqual(
             unresolved.temporal_semantics["comparability_posture"], "unresolved"
         )
@@ -110,9 +111,9 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
             discovery.site_rows[1]["current_activity_status"],
             "not_captured_by_repository_sources",
         )
-        self.assertIn(
-            "never changes rank", discovery.ranking_contract["raa_density_role"]
-        )
+        density_role = discovery.ranking_contract["raa_density_role"]
+        assert isinstance(density_role, str)
+        self.assertIn("never changes rank", density_role)
 
     def test_discovery_writes_complete_companion_products(self) -> None:
         discovery = build_sweden_archaeology_site_discovery(

@@ -68,7 +68,7 @@ def validate_galician_archive_samples(
     accessions = [sample.archive_native_sample_id for sample in samples]
     if (
         len(accessions) != len(_EXPECTED_ACCESSIONS)
-        or set(accessions) != _EXPECTED_ACCESSIONS
+        or frozenset(accessions) != _EXPECTED_ACCESSIONS
     ):
         raise ValueError(
             "Galician cattle BioSample population differs from reviewed capture"
@@ -142,7 +142,7 @@ def build_galician_sample_species_review(
     if master.species_latin_name != "Bos taurus" or len(master.rows) != 11:
         raise ValueError("Galician project identity or sample count changed")
     by_accession = {row.archive_native_sample_id: row for row in master.rows}
-    if set(by_accession) != _EXPECTED_ACCESSIONS:
+    if frozenset(by_accession) != _EXPECTED_ACCESSIONS:
         raise ValueError(
             "Galician sample-master accession set differs from ENA capture"
         )

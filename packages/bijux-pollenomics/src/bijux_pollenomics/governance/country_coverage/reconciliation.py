@@ -20,7 +20,7 @@ def _validate_cells(
     cells: list[dict[str, object]], schema: Mapping[str, object]
 ) -> None:
     try:
-        from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
+        from jsonschema import Draft202012Validator
     except ImportError as error:
         raise CountryCoverageError("jsonschema is required") from error
     Draft202012Validator.check_schema(schema)

@@ -36,7 +36,7 @@ def _installed() -> tuple[SimpleNamespace, StubAPI]:
         ],
     )
     api = StubAPI(discovery.API_MODULE)
-    descriptor = {
+    descriptor: dict[str, object] = {
         "schema_version": "1.0.0",
         "distribution": discovery.DISTRIBUTION,
         "version": "0.2.0",
@@ -46,7 +46,7 @@ def _installed() -> tuple[SimpleNamespace, StubAPI]:
         "extension_target": discovery.TARGET,
         "numerical_backend": "python-numpy-scipy",
     }
-    api.extension_descriptor = lambda: descriptor
+    api.__dict__["extension_descriptor"] = lambda: descriptor
     for name in discovery.OPERATIONS:
         setattr(api, name, lambda *args: None)
     return distribution, api
@@ -164,10 +164,10 @@ def test_old_descriptor_retains_default_contract_but_refuses_selected_feature(
 def test_multisite_capability_requires_actual_callable_and_typed_facade() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [MULTISITE_PUBLICATION_CAPABILITY]
-    api.run_reveals_multisite = lambda *args: None
-    api.MultisiteRevealsInput = type("MultisiteRevealsInput", (), {})
-    api.PublicationRevealsConfig = type("PublicationRevealsConfig", (), {})
-    api.MultisiteRevealsResult = type(
+    api.__dict__["run_reveals_multisite"] = lambda *args: None
+    api.__dict__["MultisiteRevealsInput"] = type("MultisiteRevealsInput", (), {})
+    api.__dict__["PublicationRevealsConfig"] = type("PublicationRevealsConfig", (), {})
+    api.__dict__["MultisiteRevealsResult"] = type(
         "MultisiteRevealsResult", (), {"write": lambda self, path: path}
     )
     _selected(distribution, api, MULTISITE_PUBLICATION_CAPABILITY)
@@ -184,14 +184,14 @@ def test_multisite_capability_requires_actual_callable_and_typed_facade() -> Non
 def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [MULTISITE_DRAW_LOVE_CAPABILITY]
-    api.RegionalCoverDrawSource = type(
+    api.__dict__["RegionalCoverDrawSource"] = type(
         "RegionalCoverDrawSource",
         (),
         {"from_verified_member": classmethod(lambda cls, **kwargs: cls())},
     )
-    api.RegionalDrawLoveConfig = _DrawLoveConfig
-    api.run_love_from_regional_draws = lambda *args: None
-    api.publication_bin_bounds_sha256 = lambda bounds: "0" * 64
+    api.__dict__["RegionalDrawLoveConfig"] = _DrawLoveConfig
+    api.__dict__["run_love_from_regional_draws"] = lambda *args: None
+    api.__dict__["publication_bin_bounds_sha256"] = lambda bounds: "0" * 64
     _selected(distribution, api, MULTISITE_DRAW_LOVE_CAPABILITY)
     for invalid in (
         None,
@@ -202,7 +202,7 @@ def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
         if invalid is None:
             delattr(api, "RegionalDrawLoveConfig")
         else:
-            api.RegionalDrawLoveConfig = invalid
+            api.__dict__["RegionalDrawLoveConfig"] = invalid
         with (
             patch.object(metadata, "distribution", return_value=distribution),
             patch.object(discovery, "import_module", return_value=api),
@@ -210,7 +210,7 @@ def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
         ):
             load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
         assert raised.value.reason_code == "lra_extension_capability_invalid"
-    api.RegionalDrawLoveConfig = _DrawLoveConfig
+    api.__dict__["RegionalDrawLoveConfig"] = _DrawLoveConfig
     delattr(api, "publication_bin_bounds_sha256")
     with (
         patch.object(metadata, "distribution", return_value=distribution),
@@ -291,8 +291,8 @@ class _RevisedLoveConfig:
 def test_revised_optimized_capability_requires_a_typed_profile_facade() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [OPTIMIZED_RING_TAXON_CAPABILITY]
-    api.LoveConfig = _RevisedLoveConfig
-    api.OptimizedLoveProfile = _RevisedProfile
+    api.__dict__["LoveConfig"] = _RevisedLoveConfig
+    api.__dict__["OptimizedLoveProfile"] = _RevisedProfile
     _selected(distribution, api, OPTIMIZED_RING_TAXON_CAPABILITY)
     delattr(api, "OptimizedLoveProfile")
     with (
@@ -327,10 +327,10 @@ def _draw_aware_love(*args: object, regional_cover_draws: object) -> None:
 def test_named_love_capability_requires_profile_aware_configuration() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
-    api.LoveConfig = _NamedLoveConfig
-    api.run_love = _draw_aware_love
+    api.__dict__["LoveConfig"] = _NamedLoveConfig
+    api.__dict__["run_love"] = _draw_aware_love
     _selected(distribution, api, LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
-    api.LoveConfig = type("OldLoveConfig", (), {})
+    api.__dict__["LoveConfig"] = type("OldLoveConfig", (), {})
     with (
         patch.object(metadata, "distribution", return_value=distribution),
         patch.object(discovery, "import_module", return_value=api),
@@ -343,14 +343,14 @@ def test_named_love_capability_requires_profile_aware_configuration() -> None:
 def test_broken_advertised_named_profile_is_structured_refusal() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
-    api.run_love = _draw_aware_love
+    api.__dict__["run_love"] = _draw_aware_love
 
     @dataclass
     class BrokenConfig(_NamedLoveConfig):
         def as_dict(self) -> dict[str, object]:
             raise RuntimeError("broken optional configuration")
 
-    api.LoveConfig = BrokenConfig
+    api.__dict__["LoveConfig"] = BrokenConfig
     with (
         patch.object(metadata, "distribution", return_value=distribution),
         patch.object(discovery, "import_module", return_value=api),
@@ -363,7 +363,7 @@ def test_broken_advertised_named_profile_is_structured_refusal() -> None:
 def test_named_love_capability_refuses_missing_regional_draw_keyword() -> None:
     distribution, api = _installed()
     api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
-    api.LoveConfig = _NamedLoveConfig
+    api.__dict__["LoveConfig"] = _NamedLoveConfig
     with (
         patch.object(metadata, "distribution", return_value=distribution),
         patch.object(discovery, "import_module", return_value=api),

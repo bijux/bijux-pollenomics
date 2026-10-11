@@ -109,12 +109,14 @@ def test_metadata_claims_remain_unadmitted_and_source_native(
     assert claim.coordinate_status == "unadmitted_conflicting_claims"
     assert claim.chronology_status == "not_present_in_metadata"
     assert claim.rights_status == "per_sequence_unresolved"
-    assert claim.source_archive_sha256 == normalization.ARCHIVE_SHA256
+    assert claim.source_archive_sha256 == authority.ARCHIVE_SHA256
     assert claim.source_member.endswith("Metadata table_SWE_climate.xlsx")
     assert claim.unsupported_values == (("Q", "review note"),)
     assert not claim.public_release_allowed
     assert not claim.propagation_use_allowed
-    assert claim.as_dict()["source_values"]["nr_samples"] is None
+    source_values = claim.as_dict()["source_values"]
+    assert isinstance(source_values, dict)
+    assert source_values["nr_samples"] is None
     first = json.dumps(claim.as_dict(), sort_keys=True, separators=(",", ":"))
     second = json.dumps(claims[0].as_dict(), sort_keys=True, separators=(",", ":"))
     assert first == second

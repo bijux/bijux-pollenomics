@@ -243,24 +243,37 @@ def test_relabelled_multisite_result_tables_are_refused_before_writing(
         bootstrap_indices=draws(),
     )
     if field == "site_count":
-        changed = result.site_count.rename(index={"recent": "wrong"})
-    elif field == "availability":
-        changed = result.availability.rename(index={"recent": "wrong"})
-    elif field == "standard_error":
-        changed = result.standard_error.rename(columns={"A": "wrong"})
-    else:
-        changed = dict(
-            getattr(result, "site_cover" if field == "site_cover_keys" else field)
+        changed_result = replace(
+            result, site_count=result.site_count.rename(index={"recent": "wrong"})
         )
-        if field == "site_cover_keys":
-            changed["wrong"] = changed.pop("small")
-        else:
-            changed["small"] = changed["small"].rename(columns={"A": "wrong"})
+    elif field == "availability":
+        changed_result = replace(
+            result, availability=result.availability.rename(index={"recent": "wrong"})
+        )
+    elif field == "standard_error":
+        changed_result = replace(
+            result, standard_error=result.standard_error.rename(columns={"A": "wrong"})
+        )
+    elif field == "site_cover_keys":
+        changed = dict(result.site_cover)
+        changed["wrong"] = changed.pop("small")
+        changed_result = replace(result, site_cover=changed)
+    elif field == "site_cover":
+        changed = dict(result.site_cover)
+        changed["small"] = changed["small"].rename(columns={"A": "wrong"})
+        changed_result = replace(result, site_cover=changed)
+    elif field == "site_standard_error":
+        changed = dict(result.site_standard_error)
+        changed["small"] = changed["small"].rename(columns={"A": "wrong"})
+        changed_result = replace(result, site_standard_error=changed)
+    else:
+        assert field == "deposition"
+        changed = dict(result.deposition)
+        changed["small"] = changed["small"].rename(columns={"A": "wrong"})
+        changed_result = replace(result, deposition=changed)
     destination = tmp_path / field
     with pytest.raises(ValueError, match="axes|bins|sites"):
-        replace(
-            result, **{"site_cover" if field == "site_cover_keys" else field: changed}
-        ).write(destination)
+        changed_result.write(destination)
     assert not destination.exists()
 
 

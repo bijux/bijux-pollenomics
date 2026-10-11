@@ -10,7 +10,7 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.draws import rnorm_reveals
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
-from bijux_pollenomics_lra.reconstruction.homogeneous_likelihood import (
+from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
     HomogeneousLikelihoodFit,
     fit_homogeneous_likelihood,
 )

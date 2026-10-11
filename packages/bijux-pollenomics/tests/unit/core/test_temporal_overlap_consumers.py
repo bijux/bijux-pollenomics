@@ -32,6 +32,23 @@ from bijux_pollenomics.reporting.adna.public_outputs import (
 )
 
 
+def _mapping(value: object) -> dict[str, object]:
+    assert isinstance(value, dict)
+    assert all(isinstance(key, str) for key in value)
+    return value
+
+
+def _rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    return [_mapping(row) for row in value]
+
+
+def _strings(value: object) -> list[str]:
+    assert isinstance(value, (list, tuple))
+    assert all(isinstance(item, str) for item in value)
+    return list(value)
+
+
 def test_overlap_consumers_preserve_zero_and_closed_endpoint_touch() -> None:
     assert synthesis_intervals_overlap(0, 100, 100, 200)
     assert lake_intervals_overlap(0, 100, 100, 200)
@@ -107,16 +124,19 @@ def test_animal_comparison_contracts_are_exact_versioned_and_noncausal() -> None
     assert first == second
     assert first["schema_version"] == "animal-comparison-contract-registry.v1"
     assert first["contract_count"] == 2
-    contracts = {row["contract_id"]: row for row in first["contracts"]}
+    contracts = {row["contract_id"]: row for row in _rows(first["contracts"])}
     assert set(contracts) == {
         "animal-human-chronology-overlap",
         "animal-pollen-chronology-overlap",
     }
     for contract in contracts.values():
         assert contract["contract_version"] == "1.1.0"
-        assert contract["contract_digest"].startswith("sha256:")
+        digest = contract["contract_digest"]
+        assert isinstance(digest, str) and digest.startswith("sha256:")
         assert contract["qualified_scientific_review_required"] is True
-        assert any("causation" in claim for claim in contract["prohibited_claims"])
+        assert any(
+            "causation" in claim for claim in _strings(contract["prohibited_claims"])
+        )
 
 
 def test_human_overlap_is_implemented_unverified_until_qualified_review() -> None:
@@ -160,9 +180,11 @@ def test_pollen_overlap_refuses_unavailable_context_instead_of_claiming_zero() -
         contract_id="animal-pollen-chronology-overlap",
     )
 
-    disposition = payload["comparison_disposition"]
+    disposition = _mapping(payload["comparison_disposition"])
     assert disposition["status"] == "refused"
-    assert "required_comparison_dimension_unavailable" in disposition["reason_codes"]
+    assert "required_comparison_dimension_unavailable" in _strings(
+        disposition["reason_codes"]
+    )
 
 
 def test_comparison_contract_rejects_unreconciled_denominator() -> None:
@@ -184,7 +206,7 @@ def test_comparison_contract_rejects_unreconciled_denominator() -> None:
 
 
 def test_first_appearance_refuses_missing_chronology_without_coercing_zero() -> None:
-    common = {
+    common: dict[str, object] = {
         "species_latin_name": "Bos taurus",
         "species_common_name": "cattle",
         "animal_scope": "domesticated_core",
@@ -216,7 +238,7 @@ def test_first_appearance_refuses_missing_chronology_without_coercing_zero() -> 
     )
 
     assert _first_signal_bp(common) is None
-    assert payload["rows"][0]["first_signal_bp"] == 0
+    assert _rows(payload["rows"])[0]["first_signal_bp"] == 0
     assert payload["reconciliation"] == {
         "input_locality_count": 2,
         "dated_locality_count": 1,
@@ -226,7 +248,7 @@ def test_first_appearance_refuses_missing_chronology_without_coercing_zero() -> 
 
 
 def test_farming_scenario_selects_globally_oldest_signal_not_first_country() -> None:
-    first_appearance = {
+    first_appearance: dict[str, object] = {
         "rows": [
             {
                 "country": "Denmark",
@@ -253,7 +275,7 @@ def test_farming_scenario_selects_globally_oldest_signal_not_first_country() -> 
         first_appearance_payload=first_appearance,
     )
 
-    statement = scenario["support_statements"][0]
+    statement = _strings(scenario["support_statements"])[0]
     assert "Capra hircus" in statement
     assert "Sweden" in statement
     assert "PRJOLD" in statement

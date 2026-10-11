@@ -277,7 +277,7 @@ def derive(
 
 
 def build(repository: Path) -> tuple[bytes, dict[str, Any]]:
-    """Derive membership artifacts from checked inputs and recheck source identity."""
+    """Derive ABBO bin membership and bounds while rechecking source identity."""
     repository = repository.absolute()
     if not repository.is_dir() or repository.resolve(strict=True) != repository:
         raise ValueError("ABBO repository root must be a real directory")

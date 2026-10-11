@@ -10,7 +10,9 @@ from typing import cast
 import pytest
 
 from bijux_pollenomics.reporting.adna import build_animal_sample_chronology_context
-from bijux_pollenomics.reporting.bundles.atlas_bundle import contracts
+from bijux_pollenomics.reporting.bundles.atlas_bundle.animal_chronology_publication import (
+    build_animal_chronology_publication,
+)
 from bijux_pollenomics.reporting.geography import (
     GeographicScope,
     build_published_geography_plan,
@@ -95,7 +97,7 @@ def test_animal_chronology_publication_refuses_accountability_drift(
     )
 
     with pytest.raises(ValueError, match=message):
-        contracts._animal_chronology_publication(
+        build_animal_chronology_publication(
             contradictory,
             artifact_name="animal-context.json",
         )
@@ -137,7 +139,7 @@ def test_animal_chronology_publication_reconciles_denominators(
     )
 
     with pytest.raises(ValueError, match=message):
-        contracts._animal_chronology_publication(
+        build_animal_chronology_publication(
             contradictory,
             artifact_name="animal-context.json",
         )
@@ -161,7 +163,7 @@ def test_animal_chronology_publication_binds_exact_refusal_content() -> None:
     )
 
     with pytest.raises(ValueError, match="refusal content identity differs"):
-        contracts._animal_chronology_publication(
+        build_animal_chronology_publication(
             contradictory,
             artifact_name="animal-context.json",
         )
@@ -203,7 +205,7 @@ def test_scoped_publication_binds_global_denominators_to_corpus_identity() -> No
     )
 
     with pytest.raises(ValueError, match="source_counts differs from corpus identity"):
-        contracts._animal_chronology_publication(
+        build_animal_chronology_publication(
             contradictory,
             artifact_name="animal-context.json",
         )
@@ -225,7 +227,7 @@ def test_publication_requires_canonical_project_sample_feature_identity() -> Non
     )
 
     with pytest.raises(ValueError, match="feature identity format differs"):
-        contracts._animal_chronology_publication(
+        build_animal_chronology_publication(
             contradictory,
             artifact_name="animal-context.json",
         )
@@ -249,7 +251,7 @@ def test_world_plan_country_filters_do_not_reduce_global_chronology() -> None:
         corpus_identity=projection.corpus_identity,
     )
 
-    payload, _identity = contracts._animal_chronology_publication(
+    payload, _identity = build_animal_chronology_publication(
         production_shaped,
         artifact_name="animal-context.json",
     )

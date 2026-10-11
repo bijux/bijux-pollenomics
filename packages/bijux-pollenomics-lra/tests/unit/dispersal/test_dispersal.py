@@ -60,6 +60,7 @@ def test_independent_refit_against_stored_r_values(name: str) -> None:
 def test_scalar_vector_and_basin_forms(method: str) -> None:
     diameters = np.array([20.0, 60.0, 100.0])
     vector = DispersalFactorK(0.03, "peatland", diameters, method, 100_000)
+    assert isinstance(vector, np.ndarray)
     assert vector.shape == (3,)
     np.testing.assert_array_equal(
         vector,

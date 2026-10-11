@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from email.message import Message
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 
@@ -79,7 +80,7 @@ def test_scoped_acquisition_requires_an_explicit_disposition_for_every_bbox_site
 @pytest.mark.parametrize(
     "failure",
     [
-        HTTPError("https://browser.sead.se", 403, "denied", {}, None),
+        HTTPError("https://browser.sead.se", 403, "denied", Message(), None),
         URLError("source unavailable"),
     ],
 )
@@ -89,10 +90,16 @@ def test_linked_source_failure_preserves_site_input_without_publishing_dates(
     tables = _source_tables()
     fetcher = _PostgrestFixture(tables)
 
-    def interrupted_fetch(endpoint: str, **kwargs: object) -> object:
+    def interrupted_fetch(
+        endpoint: str,
+        *,
+        params: list[tuple[str, str]],
+        headers: dict[str, str],
+        timeout: float,
+    ) -> object:
         if endpoint.endswith("/tbl_analysis_entity_ages"):
             raise failure
-        return fetcher(endpoint, **kwargs)
+        return fetcher(endpoint, params=params, headers=headers, timeout=timeout)
 
     with pytest.raises(SeadAcquisitionError) as raised:
         _run(tmp_path.resolve(), interrupted_fetch, request_retries=1)
@@ -110,10 +117,16 @@ def test_empty_bbox_response_cannot_replace_governed_site_inventory(
     tables = _source_tables()
     fetcher = _PostgrestFixture(tables)
 
-    def empty_sites(endpoint: str, **kwargs: object) -> object:
+    def empty_sites(
+        endpoint: str,
+        *,
+        params: list[tuple[str, str]],
+        headers: dict[str, str],
+        timeout: float,
+    ) -> object:
         if endpoint.endswith("/tbl_sites"):
             return []
-        return fetcher(endpoint, **kwargs)
+        return fetcher(endpoint, params=params, headers=headers, timeout=timeout)
 
     with pytest.raises(ValueError, match="must exactly cover bbox sites"):
         _run(tmp_path.resolve(), empty_sites)

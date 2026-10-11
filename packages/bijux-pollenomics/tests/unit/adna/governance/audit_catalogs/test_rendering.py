@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import pytest
 
+from bijux_pollenomics.adna.governance.audit_catalogs.contracts import (
+    CoordinateCaveatRow,
+    CoordinateCaveatSurface,
+)
 from bijux_pollenomics.adna.governance.audit_catalogs.rendering import (
     render_coordinate_caveat_surface_markdown,
     render_coordinate_confidence_scale_markdown,
@@ -13,7 +17,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 def test_coordinate_rendering_exposes_each_evidence_posture() -> None:
-    common = {
+    common: CoordinateCaveatRow = {
         "species_latin_name": "Ovis aries",
         "project_accession": "PRJEB1",
         "site_label": "Direct site",
@@ -22,8 +26,11 @@ def test_coordinate_rendering_exposes_each_evidence_posture() -> None:
         "original_place_text": "Original place",
         "resolved_place_text": "Resolved place",
         "mapping_posture": "mappable_point",
+        "confidence_rationale": "Source coordinates",
+        "species_common_name": "sheep",
     }
-    payload = {
+    payload: CoordinateCaveatSurface = {
+        "schema_version": "adna-coordinate-caveat-surface.v1",
         "direct_coordinates": [common],
         "place_name_resolution": [
             {

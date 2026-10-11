@@ -47,9 +47,12 @@ def test_producer_identity_binds_complete_package_source_closure() -> None:
     assert source_files == _expected_source_files(package_root)
     assert len(source_files) > 1
     assert source_files[0]["module"] == "bijux_pollenomics.provenance.gates"
-    assert [item["module"] for item in source_files] == sorted(
-        item["module"] for item in source_files
-    )
+    modules: list[str] = []
+    for item in source_files:
+        module = item["module"]
+        assert isinstance(module, str)
+        modules.append(module)
+    assert modules == sorted(modules)
 
 
 def test_producer_identity_changes_with_any_owned_module(

@@ -201,7 +201,7 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
         not isinstance(excluded, list)
         or len(excluded) != len(EXCLUDED)
         or any(not isinstance(path, str) for path in excluded)
-        or set(excluded) != EXCLUDED
+        or frozenset(excluded) != EXCLUDED
     ):
         raise ReportPortalCheckError(
             "registry must exclude the four exact portal metadata files"
@@ -284,7 +284,7 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Check declared report portal coverage and source-bound reader routes."""
+    """Check the published report portal's file inventory and Markdown identity."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repository",

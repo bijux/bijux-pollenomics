@@ -6,17 +6,18 @@ import re
 import subprocess
 import sys
 
-from lra_oracle.cases import build_cases, r_literal
-from lra_oracle.prospective import (
-    EXPECTED_DECLARATION_SHA256,
-    load_prospective_optimized_declaration,
-)
-from lra_oracle.scope import R_COMPATIBLE_API
-from lra_oracle.stored import run_stored_parity
 import numpy as np
 import pytest
 
 from bijux_pollenomics_lra.dispersal.rounding import r_round
+
+from .lra_oracle.cases import build_cases, r_literal
+from .lra_oracle.prospective import (
+    EXPECTED_DECLARATION_SHA256,
+    load_prospective_optimized_declaration,
+)
+from .lra_oracle.scope import R_COMPATIBLE_API
+from .lra_oracle.stored import run_stored_parity
 
 
 @pytest.mark.parametrize("digits", [0, 2, 3, 4])

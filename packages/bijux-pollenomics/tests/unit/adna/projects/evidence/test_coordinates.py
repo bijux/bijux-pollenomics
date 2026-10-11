@@ -5,8 +5,12 @@ import unittest
 from bijux_pollenomics.adna import (
     ADNA_COORDINATE_PROVENANCE_CLASSES,
     ADNA_MAPPING_POSTURES,
+)
+from bijux_pollenomics.adna.projects.evidence.coordinates import (
     build_species_coordinate_provenance_rows,
     resolve_project_coordinate_provenance,
+)
+from bijux_pollenomics.adna.projects.evidence.sites import (
     resolve_project_site_evidence,
 )
 

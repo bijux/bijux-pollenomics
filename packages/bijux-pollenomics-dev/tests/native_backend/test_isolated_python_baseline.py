@@ -6,6 +6,7 @@ from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 import pytest
 
@@ -20,6 +21,42 @@ from bijux_pollenomics_dev.native_backend.isolated_python_baseline import (
 REPOSITORY = Path(__file__).resolve().parents[4]
 BASELINE = REPOSITORY / "docs/report/numerical-performance/python-baseline/report.json"
 GOVERNED = REPOSITORY / "docs/report/numerical-performance/python-isolated/report.json"
+RETAINED_COMMIT = "bf599b10a08781d85fb85b5b15d2501d498a2acf"
+RETAINED_REPORT_SHA256 = (
+    "1c5f2444bce9d941cf6e7fa45f8c61e0ed04afa067008ab085a3163007c2c17c"
+)
+RETAINED_SOURCE_MAP_SHA256 = (
+    "bd882930abfd71bd70058aa1d465eb187cd404169f49b6a7931f126a7256b240"
+)
+
+
+def _retained_source_sha256(relative: str) -> str:
+    path = Path(relative)
+    if path.is_absolute() or ".." in path.parts or path.as_posix() != relative:
+        raise ValueError("retained source path is not canonical and relative")
+    result = subprocess.run(
+        ["git", "show", f"{RETAINED_COMMIT}:{relative}"],
+        cwd=REPOSITORY,
+        check=True,
+        capture_output=True,
+        timeout=10,
+    )
+    return hashlib.sha256(result.stdout).hexdigest()
+
+
+def _verify_retained_source_map(source_sha256: dict[str, str]) -> None:
+    canonical = json.dumps(source_sha256, sort_keys=True, separators=(",", ":"))
+    if (
+        len(source_sha256) != 57
+        or hashlib.sha256(canonical.encode()).hexdigest() != RETAINED_SOURCE_MAP_SHA256
+    ):
+        raise ValueError("retained historical source map differs")
+
+
+def _verify_git_source_blobs(source_sha256: dict[str, str]) -> None:
+    for relative, digest in source_sha256.items():
+        if _retained_source_sha256(relative) != digest:
+            raise ValueError(f"historical source identity differs: {relative}")
 
 
 def test_scientific_digest_matches_retained_output() -> None:
@@ -79,14 +116,13 @@ def test_platform_peak_is_positive() -> None:
 def test_governed_workers_match_retained_scientific_outputs() -> None:
     baseline_bytes = BASELINE.read_bytes()
     baseline = json.loads(baseline_bytes)
-    report = json.loads(GOVERNED.read_bytes())
+    report_bytes = GOVERNED.read_bytes()
+    assert hashlib.sha256(report_bytes).hexdigest() == RETAINED_REPORT_SHA256
+    report = json.loads(report_bytes)
     assert report["baseline_sha256"] == hashlib.sha256(baseline_bytes).hexdigest()
     assert report["repetitions_per_workload"] == 5
     assert report["adoption_decision"].startswith("none")
-    assert all(
-        hashlib.sha256((REPOSITORY / path).read_bytes()).hexdigest() == digest
-        for path, digest in report["source_sha256"].items()
-    )
+    _verify_retained_source_map(report["source_sha256"])
     assert report["source_paths_changed_since_retained_baseline"] == []
     assert not any(
         path.endswith("/_build_version.py") for path in report["source_sha256"]
@@ -110,3 +146,48 @@ def test_governed_workers_match_retained_scientific_outputs() -> None:
             == actual["retained_nonfinite_semantics_sha256"]
             for item in actual["observations"]
         )
+
+
+def test_retained_provenance_refuses_source_repin() -> None:
+    report = json.loads(GOVERNED.read_bytes())
+    current_api = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py"
+    _verify_retained_source_map(report["source_sha256"])
+    report["source_sha256"][current_api] = "0" * 64
+    with pytest.raises(ValueError, match="retained historical source map differs"):
+        _verify_retained_source_map(report["source_sha256"])
+
+
+def test_retained_git_blobs_when_history_is_available() -> None:
+    """Full-history checkouts can authenticate the original source bytes too."""
+    try:
+        present = subprocess.run(
+            ["git", "cat-file", "-e", f"{RETAINED_COMMIT}^{{commit}}"],
+            cwd=REPOSITORY,
+            check=False,
+            capture_output=True,
+            timeout=10,
+        )
+    except FileNotFoundError:
+        pytest.skip("Git is unavailable; report/source-map pins still checked")
+    if present.returncode != 0:
+        pytest.skip("shallow checkout lacks retained commit; pins still checked")
+    report_bytes = GOVERNED.read_bytes()
+    retained_report = subprocess.run(
+        [
+            "git",
+            "show",
+            f"{RETAINED_COMMIT}:docs/report/numerical-performance/python-isolated/report.json",
+        ],
+        cwd=REPOSITORY,
+        check=True,
+        capture_output=True,
+        timeout=10,
+    ).stdout
+    assert report_bytes == retained_report
+    _verify_git_source_blobs(json.loads(report_bytes)["source_sha256"])
+
+
+@pytest.mark.parametrize("relative", ["../outside.py", "/absolute.py"])
+def test_retained_provenance_refuses_escaped_source_path(relative: str) -> None:
+    with pytest.raises(ValueError, match="canonical and relative"):
+        _retained_source_sha256(relative)

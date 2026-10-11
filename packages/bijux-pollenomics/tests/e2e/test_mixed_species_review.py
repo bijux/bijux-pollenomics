@@ -33,7 +33,9 @@ def test_report_multi_country_map_emits_mixed_species_scientific_review_artifact
         review_path = atlas_root / f"{DEFAULT_ATLAS_SLUG}_scientific_review.json"
 
         def fake_generate_multi_country_map(**kwargs: object) -> SimpleNamespace:
-            output_dir = Path(kwargs["output_dir"])
+            output_arg = kwargs["output_dir"]
+            assert isinstance(output_arg, (str, Path))
+            output_dir = Path(output_arg)
             output_dir.mkdir(parents=True, exist_ok=True)
             review_path.write_text(
                 json.dumps(

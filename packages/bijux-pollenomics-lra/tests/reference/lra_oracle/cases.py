@@ -12,7 +12,6 @@ import json
 from pathlib import Path
 import warnings
 
-from lra_oracle.prospective import load_prospective_optimized_declaration
 import numpy as np
 import pandas as pd
 
@@ -28,6 +27,8 @@ from bijux_pollenomics_lra.reconstruction.optimized import (
 )
 from bijux_pollenomics_lra.reconstruction.regional import REVEALS, REVEALSinR
 from bijux_pollenomics_lra.resources.examples import load_dataset, load_love_example
+
+from .prospective import load_prospective_optimized_declaration
 
 
 @dataclass(frozen=True, slots=True)
@@ -291,8 +292,12 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
         stochastic=False,
     )
     analytical_expected = {
-        key: analytical[key]
-        for key in ("Mean", "Q10", "Q90", "SD", "Outlier", "OutlierQant")
+        "Mean": analytical["Mean"],
+        "Q10": analytical["Q10"],
+        "Q90": analytical["Q90"],
+        "SD": analytical["SD"],
+        "Outlier": analytical["Outlier"],
+        "OutlierQant": analytical["OutlierQant"],
     }
     add(
         "LOVEr_deterministic",
@@ -317,7 +322,9 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
             optimizer=ReplayOptimizer(candidates),
         )
     optimized_expected = {
-        key: optimized[key] for key in ("cover", "pollenpercentages", "mBestValue")
+        "cover": optimized["cover"],
+        "pollenpercentages": optimized["pollenpercentages"],
+        "mBestValue": optimized["mBestValue"],
     }
     add(
         "LOVEoptim_candidate_replay",
@@ -434,8 +441,9 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
                 optimizer=ReplayOptimizer(declared.candidates),
             )
         wrapper_expected = {
-            key: prospective_result[key]
-            for key in ("cover", "pollenpercentages", "mBestValue")
+            "cover": prospective_result["cover"],
+            "pollenpercentages": prospective_result["pollenpercentages"],
+            "mBestValue": prospective_result["mBestValue"],
         }
         diagnostic_expected: list[float] = []
         for diagnostic in prospective_result["optimizers"]:

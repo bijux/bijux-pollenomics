@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from typing import TypedDict
 
 import pytest
 
@@ -40,7 +41,18 @@ EXPECTED_STORIES = (
     "pangaea-937075-metric-gl",
     "pangaea-937075-metric-al",
 )
-EXPECTED_PUBLIC_ROWS = {
+
+
+class ExpectedStory(TypedDict):
+    node_count: int | None
+    observation_denominator: int | None
+    frame_count: int
+    first_interval: tuple[float, float]
+    last_interval: tuple[float, float]
+    page_row: str
+
+
+EXPECTED_PUBLIC_ROWS: dict[str, ExpectedStory] = {
     "neotoma-source-sample-presence": {
         "node_count": 9988,
         "observation_denominator": 215903,
@@ -276,7 +288,7 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
         '<video controls preload="metadata" muted playsinline loop'
     ) == len(EXPECTED_STORIES)
     assert "autoplay" not in page
-    assert 'href="./chronology-playback/"' in atlas_index
+    assert "[Watch chronology playback](./chronology-playback/index.md)" in atlas_index
     assert "provides 25 pre-rendered views" in " ".join(atlas_index.split())
     for story in manifest["stories"]:
         expected = EXPECTED_PUBLIC_ROWS[story["story_id"]]

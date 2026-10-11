@@ -32,10 +32,13 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
         assert not sample_payload["pollen_propagation_eligible"]
         admitted_sample_count += sample_payload["admitted_sample_count"]
         refused_sample_count += sample_payload["refused_sample_count"]
-        atlas_admitted_sample_ids = {
-            row["identity"]["stable_token"]
-            for row in _atlas_admitted_sample_rows(tuple(sample_payload["samples"]))
-        }
+        atlas_admitted_sample_ids = set()
+        for row in _atlas_admitted_sample_rows(tuple(sample_payload["samples"])):
+            identity = row["identity"]
+            assert isinstance(identity, dict)
+            token = identity["stable_token"]
+            assert isinstance(token, str)
+            atlas_admitted_sample_ids.add(token)
         assert sample_payload["refused_sample_count"] == len(
             sample_payload["sample_refusals"]
         )

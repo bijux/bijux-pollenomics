@@ -9,16 +9,19 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from tests.support.neotoma import (
     download_row,
 )
+from tests.support.neotoma.relational_shapes import nested, rows
 
 
 class NeotomaRelationalDeterminismTests(unittest.TestCase):
     def test_output_is_invariant_to_download_row_order(self) -> None:
         first = download_row(201)
         second = download_row(202)
-        second["site"]["collectionunit"]["dataset"]["samples"][0]["sampleid"] = 9999
-        second["site"]["collectionunit"]["dataset"]["samples"][0]["analysisunitid"] = (
-            9302
-        )
+        rows(nested(second, "site", "collectionunit", "dataset")["samples"])[0][
+            "sampleid"
+        ] = 9999
+        rows(nested(second, "site", "collectionunit", "dataset")["samples"])[0][
+            "analysisunitid"
+        ] = 9302
 
         forward = build_neotoma_relational_snapshot(
             [first, second],

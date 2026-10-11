@@ -7,6 +7,7 @@ from collections import Counter
 import pytest
 
 from bijux_pollenomics.adna.projects.sample_master.tables.pig_panel import (
+    PigPanelJoinAuditRow,
     build_pig_panel_join_audit,
 )
 
@@ -20,7 +21,7 @@ from .support import (
 pytestmark = pytest.mark.generated_artifacts
 
 
-def _audit():  # type: ignore[no-untyped-def]
+def _audit() -> tuple[PigPanelJoinAuditRow, ...]:
     ancient_rows, modern_rows, archive_text = governed_inputs()
     return build_pig_panel_join_audit(
         source_path=WORKBOOK_SOURCE_PATH,

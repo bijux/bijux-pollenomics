@@ -48,6 +48,11 @@ from ...governance import (
     render_repository_source_family_matrix_markdown,
     render_repository_truth_posture_markdown,
 )
+from .repository_output_policy import (
+    _build_repository_generated_output_policy,
+    _render_repository_generated_output_policy_markdown,
+    _RepositoryOutputSpec,
+)
 from .sead_context_outputs import (
     build_repository_sead_legibility_review,
     render_repository_sead_legibility_review_markdown,
@@ -113,7 +118,7 @@ def _build_repository_output_specs(
     data_root: Path,
     docs_root: Path,
     report_root: Path,
-) -> list[dict[str, object]]:
+) -> list[_RepositoryOutputSpec]:
     return [
         _repository_output_spec(
             stem="repository_truth_posture",
@@ -417,7 +422,7 @@ def _repository_output_spec(
     coexistence_rule: str,
     docs_anchor: str,
     test_anchor: str,
-) -> dict[str, object]:
+) -> _RepositoryOutputSpec:
     return {
         "stem": stem,
         "payload": payload,
@@ -431,7 +436,7 @@ def _repository_output_spec(
     }
 
 
-def _validate_repository_output_specs(specs: list[dict[str, object]]) -> None:
+def _validate_repository_output_specs(specs: list[_RepositoryOutputSpec]) -> None:
     seen: set[str] = set()
     required_fields = {
         "stem",
@@ -455,69 +460,3 @@ def _validate_repository_output_specs(specs: list[dict[str, object]]) -> None:
         if stem in seen:
             raise ValueError(f"Duplicate repository truth output stem: {stem}")
         seen.add(stem)
-
-
-def _build_repository_generated_output_policy(
-    specs: list[dict[str, object]],
-) -> dict[str, object]:
-    rows = [
-        {
-            "stem": str(spec["stem"]),
-            "json_path": f"docs/report/{spec['stem']}.json",
-            "markdown_path": f"docs/report/{spec['stem']}.md",
-            "audience": str(spec["audience"]),
-            "information_role": str(spec["information_role"]),
-            "root_location": str(spec["root_location"]),
-            "coexistence_rule": str(spec["coexistence_rule"]),
-            "docs_anchor": str(spec["docs_anchor"]),
-            "test_anchor": str(spec["test_anchor"]),
-        }
-        for spec in specs
-    ]
-    rows.append(
-        {
-            "stem": "repository_generated_output_policy",
-            "json_path": "docs/report/repository_generated_output_policy.json",
-            "markdown_path": "docs/report/repository_generated_output_policy.md",
-            "audience": "maintainer_diagnostic",
-            "information_role": "generated-output publication policy",
-            "root_location": "docs/report",
-            "coexistence_rule": "coexists with the report portal and repository truth reviews as the rule that governs new root outputs",
-            "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
-            "test_anchor": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/test_assessments.py",
-        }
-    )
-    return {
-        "schema_version": "repository-generated-output-policy.v1",
-        "rule": (
-            "no generated root output may be published unless its audience, information role, root location, and coexistence rule are explicit in code, docs, and tests"
-        ),
-        "row_count": len(rows),
-        "rows": rows,
-    }
-
-
-def _render_repository_generated_output_policy_markdown(
-    payload: dict[str, object],
-) -> str:
-    rows = "\n".join(
-        f"| `{row['stem']}` | `{row['audience']}` | {row['information_role']} | `{row['root_location']}` | {row['coexistence_rule']} | `{row['docs_anchor']}` | `{row['test_anchor']}` |"
-        for row in payload["rows"]
-    )
-    return f"""# Repository generated output policy
-
-This policy exists to stop `docs/report/` from turning back into a root-level
-artifact spill. A new generated output is allowed only when its audience,
-information role, root location, and coexistence logic are explicit in the code
-that publishes it, in reader or maintainer documentation, and in tests that
-will fail if the contract drifts.
-
-- Rule: {payload["rule"]}
-- Governed outputs: `{payload["row_count"]}`
-
-## Governed Root Outputs
-
-| Stem | Audience | Information role | Root location | Coexistence rule | Docs anchor | Test anchor |
-| --- | --- | --- | --- | --- | --- | --- |
-{rows}
-"""

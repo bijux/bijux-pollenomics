@@ -11,7 +11,10 @@ from bijux_pollenomics.collection.sources.open_land import normalization
 from bijux_pollenomics.collection.sources.open_land.authority import (
     SOURCE_CITATION_DOI,
     SOURCE_DATA_LICENSE,
+    SOURCE_GRID_SHA256_BY_SLICE_BP,
     SOURCE_INTERVAL_BY_SLICE_BP,
+    SOURCE_ROW_COUNT_BY_SLICE_BP,
+    csv_member_path,
 )
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
 
@@ -67,7 +70,7 @@ def bind_fixture_archive(
     monkeypatch.setattr(
         normalization,
         "ADMITTED_CSV_MEMBERS",
-        (normalization.csv_member_path(50),),
+        (csv_member_path(50),),
     )
 
 
@@ -216,9 +219,7 @@ def test_source_time_windows_are_exact_and_irregular() -> None:
     assert SOURCE_INTERVAL_BY_SLICE_BP[1000] == (700, 1200)
     assert SOURCE_INTERVAL_BY_SLICE_BP[1500] == (1200, 1700)
     assert len(SOURCE_INTERVAL_BY_SLICE_BP) == 25
-    assert sum(normalization.SOURCE_ROW_COUNT_BY_SLICE_BP.values()) == 45_212
-    assert set(normalization.SOURCE_GRID_SHA256_BY_SLICE_BP) == set(
-        SOURCE_INTERVAL_BY_SLICE_BP
-    )
+    assert sum(SOURCE_ROW_COUNT_BY_SLICE_BP.values()) == 45_212
+    assert set(SOURCE_GRID_SHA256_BY_SLICE_BP) == set(SOURCE_INTERVAL_BY_SLICE_BP)
     assert SOURCE_CITATION_DOI == "https://doi.org/10.3389/fevo.2022.795794"
     assert SOURCE_DATA_LICENSE == "CC-BY-SA-4.0"

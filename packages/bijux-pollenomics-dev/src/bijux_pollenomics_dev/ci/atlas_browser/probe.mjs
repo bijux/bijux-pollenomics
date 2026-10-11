@@ -1637,13 +1637,30 @@ async function responsiveFacts(cdp, width) {
           || ['auto', 'scroll'].includes(getComputedStyle(sidebar).overflowY)
           || ['auto', 'scroll'].includes(getComputedStyle(sidebar.querySelector('.control-panel-body')).overflowY),
         body_open: document.body.classList.contains('has-mobile-panel-open'),
-        scrim_visible: scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'false' && visible(scrim),
+        scrim_visible: scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'true' && visible(scrim),
         close_visible: visible(close),
         close_uncovered: uncovered(close),
         scrim_catches_outside_panel: outsidePanelHit === scrim,
         topbar_non_overlapping: !boxesOverlap(box(sidebar), box(topbar)),
       };
       expandedPanel = expanded;
+      expanded.close_focused = document.activeElement === close;
+      scrim.click();
+      await settle();
+      expanded.scrim_dismisses_panel = sidebar.classList.contains('is-collapsed')
+        && !document.body.classList.contains('has-mobile-panel-open')
+        && document.activeElement === toggle && !visible(scrim);
+      toggle.click();
+      await settle();
+      document.dispatchEvent(new KeyboardEvent('keydown', {
+        key: 'Escape', code: 'Escape', bubbles: true, cancelable: true,
+      }));
+      await settle();
+      expanded.escape_dismisses_panel = sidebar.classList.contains('is-collapsed')
+        && !document.body.classList.contains('has-mobile-panel-open')
+        && document.activeElement === toggle && !visible(scrim);
+      toggle.click();
+      await settle();
       close.click();
       await settle();
       const closed = {
@@ -2505,6 +2522,9 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.expanded.close_visible
     && layout.mobile.expanded.close_uncovered
     && layout.mobile.expanded.scrim_catches_outside_panel
+    && layout.mobile.expanded.close_focused
+    && layout.mobile.expanded.scrim_dismisses_panel
+    && layout.mobile.expanded.escape_dismisses_panel
     && layout.mobile.expanded.topbar_non_overlapping
     && layout.mobile.closed.sidebar_collapsed
     && layout.mobile.closed.body_closed

@@ -15,6 +15,13 @@ from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal i
 )
 
 
+def _claim_rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    assert all(isinstance(row, dict) for row in value)
+    assert all(isinstance(key, str) for row in value for key in row)
+    return value
+
+
 class SeadChronologyAcquisitionTests(unittest.TestCase):
     def test_common_era_conversion_preserves_post_1950_source_value(self) -> None:
         self.assertEqual(_ce_year_to_bp(1950), 0)
@@ -32,7 +39,7 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
         ]
 
         def rows_by_ids(table_name: str, **_: object) -> list[dict[str, object]]:
-            return {
+            tables: dict[str, list[dict[str, object]]] = {
                 "tbl_sample_groups": [
                     {"sample_group_id": 10, "site_id": 6468},
                     {"sample_group_id": 11, "site_id": 6469},
@@ -82,10 +89,11 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
                 "tbl_sample_group_references": [],
                 "tbl_relative_age_refs": [],
                 "tbl_biblio": [],
-            }[table_name]
+            }
+            return tables[table_name]
 
         def all_rows(table_name: str, **_: object) -> list[dict[str, object]]:
-            return {
+            tables: dict[str, list[dict[str, object]]] = {
                 "tbl_analysis_entity_ages": [
                     {
                         "analysis_entity_age_id": 31,
@@ -133,7 +141,8 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
                         "relative_age_id": 80,
                     },
                 ],
-            }[table_name]
+            }
+            return tables[table_name]
 
         reader = Mock(spec=SeadTableReader)
         reader.rows_by_ids.side_effect = rows_by_ids
@@ -147,20 +156,24 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
             "geochronology_rows",
             "dendro_date_rows",
         ):
-            claim_row = site_rows[0][row_key][0]
+            claim_row = _claim_rows(site_rows[0][row_key])[0]
             self.assertEqual(claim_row["sample_group_id"], 10)
             self.assertEqual(claim_row["physical_sample_id"], 20)
             self.assertEqual(claim_row["analysis_entity_id"], 30)
             self.assertEqual(claim_row["dataset_id"], 40)
 
-        contextual_claim = site_rows[1]["relative_period_rows"][0]
+        contextual_claim = _claim_rows(site_rows[1]["relative_period_rows"])[0]
         self.assertEqual(contextual_claim["sample_group_id"], 11)
         self.assertEqual(contextual_claim["physical_sample_id"], 21)
         self.assertEqual(contextual_claim["analysis_entity_id"], 31)
         self.assertEqual(contextual_claim["dataset_id"], 41)
-        self.assertEqual(site_rows[0]["dating_range_rows"][0]["age_type_id"], 2)
-        self.assertEqual(site_rows[0]["dendro_date_rows"][0]["age_type_id"], 2)
-        post_1950_row = site_rows[1]["dating_range_rows"][0]
+        self.assertEqual(
+            _claim_rows(site_rows[0]["dating_range_rows"])[0]["age_type_id"], 2
+        )
+        self.assertEqual(
+            _claim_rows(site_rows[0]["dendro_date_rows"])[0]["age_type_id"], 2
+        )
+        post_1950_row = _claim_rows(site_rows[1]["dating_range_rows"])[0]
         self.assertEqual(post_1950_row["time_start_bp"], -54)
         self.assertEqual(post_1950_row["time_end_bp"], -54)
         self.assertIsNone(site_rows[1]["numeric_time_start_bp"])

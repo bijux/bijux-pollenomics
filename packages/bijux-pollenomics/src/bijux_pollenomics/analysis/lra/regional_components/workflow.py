@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, NoReturn
 
 from ..batches.models import LRABatchItem, LRABatchResult, canonical_json
 from ..engine.errors import LRARefusal
@@ -19,7 +19,7 @@ from .contracts import (
 from .publication import publish_regional_component_set
 
 
-def _refuse(reason: str, detail: str) -> None:
+def _refuse(reason: str, detail: str) -> NoReturn:
     raise LRARefusal(reason, detail)
 
 

@@ -10,7 +10,11 @@ from bijux_pollenomics.governance import (
     render_repository_governance_artifact_review_markdown,
 )
 
-from .support import RepositoryTruthTestCase
+from .support import (
+    RepositoryTruthTestCase,
+    require_mapping,
+    require_rows,
+)
 
 
 class RepositoryGovernanceTests(RepositoryTruthTestCase):
@@ -26,8 +30,10 @@ class RepositoryGovernanceTests(RepositoryTruthTestCase):
         self.assertEqual(
             payload["schema_version"], "repository-governance-artifact-review.v1"
         )
-        self.assertEqual(payload["summary"]["retire"], 1)
-        retired_row = next(row for row in payload["rows"] if row["action"] == "retire")
+        self.assertEqual(require_mapping(payload["summary"])["retire"], 1)
+        retired_row = next(
+            row for row in require_rows(payload["rows"]) if row["action"] == "retire"
+        )
         self.assertEqual(
             retired_row["artifact_path"],
             "docs/report/animal_output_audit.json",
@@ -50,9 +56,11 @@ class RepositoryGovernanceTests(RepositoryTruthTestCase):
                 report_root=report_root,
             )
 
-        self.assertEqual(payload["summary"], {"keep": 0, "reframe": 0, "retire": 1})
         self.assertEqual(
-            [row["artifact_path"] for row in payload["rows"]],
+            require_mapping(payload["summary"]), {"keep": 0, "reframe": 0, "retire": 1}
+        )
+        self.assertEqual(
+            [row["artifact_path"] for row in require_rows(payload["rows"])],
             ["docs/report/animal_output_audit.json"],
         )
 
@@ -68,10 +76,10 @@ class RepositoryGovernanceTests(RepositoryTruthTestCase):
 
         self.assertEqual(payload["schema_version"], "repository-claim-audit.v2")
         self.assertTrue(payload["overall_ok"])
-        self.assertTrue(all(row["passed"] for row in payload["checks"]))
+        self.assertTrue(all(row["passed"] for row in require_rows(payload["checks"])))
         docs_breadth_row = next(
             row
-            for row in payload["checks"]
+            for row in require_rows(payload["checks"])
             if row["check_id"]
             == "docs_scope_validation_keeps_repository_story_wide_enough"
         )

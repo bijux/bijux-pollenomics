@@ -13,11 +13,11 @@ def test_existing_import_surfaces_share_the_facade_constants() -> None:
     assert plans.SEAD_FULL_EVIDENCE_TABLE_PLANS is (
         full_tables.SEAD_FULL_EVIDENCE_TABLE_PLANS
     )
-    assert service.SEAD_FULL_EVIDENCE_TABLE_PLANS is (
+    assert vars(service)["SEAD_FULL_EVIDENCE_TABLE_PLANS"] is (
         full_tables.SEAD_FULL_EVIDENCE_TABLE_PLANS
     )
-    assert service._CORE_JOIN_PLANS is full_tables._CORE_JOIN_PLANS
-    assert service._LOOKUP_JOIN_PLANS is full_tables._LOOKUP_JOIN_PLANS
+    assert vars(service)["_CORE_JOIN_PLANS"] is full_tables._CORE_JOIN_PLANS
+    assert vars(service)["_LOOKUP_JOIN_PLANS"] is full_tables._LOOKUP_JOIN_PLANS
 
 
 def test_join_assembly_retains_the_compatibility_prefixes() -> None:

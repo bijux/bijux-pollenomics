@@ -156,5 +156,6 @@ def test_models_remain_frozen_and_pickle_through_the_legacy_module() -> None:
     coordinate = AdnaCoordinate(59.8586, 17.6389, "59.8586", "17.6389", "exact")
     assert type(coordinate).__module__ == "bijux_pollenomics.adna.domain.models"
     assert pickle.loads(pickle.dumps(coordinate, protocol=5)) == coordinate
+    field = "latitude"
     with pytest.raises(FrozenInstanceError):
-        coordinate.latitude = None
+        setattr(coordinate, field, None)

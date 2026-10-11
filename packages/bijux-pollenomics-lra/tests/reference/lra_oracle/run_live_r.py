@@ -25,13 +25,13 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path[:0] = [str(ROOT / "src"), str(ROOT / "tests/reference")]
+sys.path[:0] = [str(ROOT), str(ROOT / "src")]
 
-from lra_oracle.cases import build_cases, r_literal  # noqa: E402
-from lra_oracle.prospective import (  # noqa: E402
+from tests.reference.lra_oracle.cases import build_cases, r_literal  # noqa: E402
+from tests.reference.lra_oracle.prospective import (  # noqa: E402
     load_prospective_optimized_declaration,
 )
-from lra_oracle.scope import R_COMPATIBLE_API  # noqa: E402
+from tests.reference.lra_oracle.scope import R_COMPATIBLE_API  # noqa: E402
 
 ARCHIVE = ROOT / "vendor" / "disqover_0.9.14.tar.gz"
 

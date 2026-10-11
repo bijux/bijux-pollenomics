@@ -410,7 +410,7 @@ def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
     assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(220px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(14vh, 96px);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(14vh, 88px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(340px, 46vw);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(22vh, 220px);" in MAP_DOCUMENT_TEMPLATE
