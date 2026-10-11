@@ -1,0 +1,992 @@
+{
+  "schema_version": "1.0.0",
+  "source_tree": "received/bijux_pollenomics_lra-0.1.0",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "vendored_reference_matches_received": true,
+  "numerical_certification": "25-case exact-source oracle passed; broader scientific validation pending",
+  "files": [
+    {
+      "source": ".github/workflows/validation.yml",
+      "sha256": "02cd4728dab6d2983cb4eafb9aac8cc4cc8f8fae423e4d40a28f035d493e7dae",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "CHANGELOG.md",
+      "sha256": "4349266c3c7887bd5bff351207f6929c7f38dbcf0445c2800e649d6c9e4cb24e",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "CITATION.cff",
+      "sha256": "14e4fb470232cf54b9099ac5b6ac0931969ccca248c659a75c15e04e3640081d",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "CITATION.cff"
+      ]
+    },
+    {
+      "source": "LICENSE",
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "LICENSE"
+      ]
+    },
+    {
+      "source": "MANIFEST.in",
+      "sha256": "9474b9b6811eaaac66cd0d196632948d70126e2e84ddf7e3615ea1831ef1423f",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "NOTICE.md",
+      "sha256": "e1c3c41f0db4aaee87e56df4ddc30a247369bb6fe2838f44fc7d71672449ce26",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "NOTICE"
+      ]
+    },
+    {
+      "source": "PKG-INFO",
+      "sha256": "bcb464e02153881c53a6c7e253f2ca1334635466536886f05715df273f3fe846",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "README.md",
+      "sha256": "a73195945d34c69153c80e2cc1c59c5f861bac30797f32ebd422fcdba62775e0",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "RELEASE_MANIFEST.json",
+      "sha256": "c5adf028890c46dd66f6225f66b6e73e861d8c256818a9097d8f3d075e6cfd3f",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "docs/API.md",
+      "sha256": "6816a062bce88e425969ad4bd159cbe61efa41f6594ff0a4276dcfc5c8a303ce",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "docs/BIJUX_INTEGRATION.md",
+      "sha256": "bf81facc4de57982ce9ee3720979968102bcbd0fc9ba08d7ca076c499a6d10c4",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "docs/CLI.md",
+      "sha256": "4f2b1cc4bab8f6cafd9d0d3f42cbb551ea4655c3f3565e245cefabfe957fcb3a",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "docs/INPUT_CONTRACTS.md",
+      "sha256": "a9ca86fe58fabde61c22ed530628d7576a780c5eeba2ae7eb9f6faf6be262c89",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "docs/reference/input-contracts.md"
+      ]
+    },
+    {
+      "source": "docs/MONOREPO_INSTALL.md",
+      "sha256": "8a4a2098af4f3813f93fb2425c4e5270dc1937e23bbf456b37eaaacdef61f2f4",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "docs/PARITY.md",
+      "sha256": "bb148db7447a23502bbc6e1a7568ca5b66605e4c8908f173b932a9f8ed96b1d8",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "docs/reference/parity.md"
+      ]
+    },
+    {
+      "source": "docs/REFERENCE_SCOPE.md",
+      "sha256": "4f764cbc796134d8cce7edde5920cd51ad3b2cb24a900fe86581ddda08e1d3dd",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "docs/reference/reference-scope.md"
+      ]
+    },
+    {
+      "source": "docs/SOURCE_COMPATIBILITY.md",
+      "sha256": "7794019373fd9c67ce92bd7cc409e1dbd8ddfd6d98988ecd4dc8f0eb00ffe87b",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "docs/reference/source-compatibility.md"
+      ]
+    },
+    {
+      "source": "examples/host_product.py",
+      "sha256": "19451bac3e4a01a399c91c01820b8f3e9690ab0e908c8de3a1ebc0500b98262c",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "examples/native_lra.py",
+      "sha256": "d16f6f9600aab58f47515800747c41e932cc851d0e12c39f949ca4dafab669fb",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "examples/native_reveals.py",
+      "sha256": "0a76272adb134a4e77c047ea03754ce6aecd60f65c18f6ad5c3c273157f52b30",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "parity/README.md",
+      "sha256": "55c49d67762cf14a6ce49e728dc8d0ddd0c18e661c5cc5646fb737d4159eb720",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [],
+      "destinations": [
+        "tests/reference/lra_oracle/README.md"
+      ]
+    },
+    {
+      "source": "parity/cases.py",
+      "sha256": "edcd613d94c0dde9e4ce2f6fe46b4bc0f5195fe3b62a34854322226cb0b5615e",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "Case",
+        "r_literal",
+        "flatten",
+        "build_cases",
+        "variable",
+        "add"
+      ],
+      "destinations": [
+        "tests/reference/lra_oracle/cases.py"
+      ]
+    },
+    {
+      "source": "parity/install_reference.py",
+      "sha256": "fae3e3ddca4fb486d0e0b3afb48163516d3d884d1844ff9cfdfe1259658a4f1b",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "_description_fields",
+        "main"
+      ],
+      "destinations": [
+        "tests/reference/lra_oracle/install_reference.py"
+      ]
+    },
+    {
+      "source": "parity/r_support.R",
+      "sha256": "08aed82b5ed22b9d8cbfa2914fbcce77d3519ef8d756f2864f48890daf2126bb",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [],
+      "destinations": [
+        "tests/reference/lra_oracle/r_support.R"
+      ]
+    },
+    {
+      "source": "parity/run_live_r.py",
+      "sha256": "4cacd2e2db9c9d42d78c044df75c962e1a2cadd22b0927cf93e9e335bfdff961",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "_write_json",
+        "main",
+        "save_report"
+      ],
+      "destinations": [
+        "tests/reference/lra_oracle/run_live_r.py"
+      ]
+    },
+    {
+      "source": "pyproject.toml",
+      "sha256": "a4a233eee0432b96085f6ae6c646219d3d87f185ef20121b76bd79d26469bbb9",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "setup.cfg",
+      "sha256": "1c473cbaee8da5fc46e7f0158794af5cea4414c34a3cf3f180c2001f5e38bd3e",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/__init__.py",
+      "sha256": "d05550c55812171809ed367dbf38246b24b1f582694ec2c88931e8370f4a426e",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/__init__.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/_rounding.py",
+      "sha256": "4cb356549b12618d73378e19493dcf092ac269e11b55b198e03d8339baa96f1b",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "r_round"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/dispersal/rounding.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/_validation.py",
+      "sha256": "2b3b7a2c7fa460d7827686bf650766456b3e20bbb8445f7b967076ea847395ff",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "scalar",
+        "parameter_value",
+        "integer",
+        "finite_number",
+        "vector",
+        "matrix",
+        "frame",
+        "normalise_parameters",
+        "sample_counts",
+        "rng_from",
+        "ensure_same_taxa"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/models/validation.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/_version.py",
+      "sha256": "f812bbdd47eb01f83b5e25c6104938a9f5d75530b575c58b5716520c394ee99b",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/version.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/cli.py",
+      "sha256": "f7b6a5c68cee99e2eaa5500a5869991dcf979855057eb83084e58c3a47eb1b43",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "_add_common_reveals",
+        "_add_common_love",
+        "_reveals_config",
+        "_love_config",
+        "build_parser",
+        "_read_replay",
+        "_handle_describe",
+        "_handle_examples_list",
+        "_handle_examples_export",
+        "_handle_reveals",
+        "_handle_love",
+        "_handle_lra",
+        "_handle_parity_stored",
+        "_handle_parity_live",
+        "main"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/LOVEexampleParams.json",
+      "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/LOVEexamplePollen.json",
+      "sha256": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/LOVEexampleRings.json",
+      "sha256": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/Tiefer_See.json",
+      "sha256": "2118278c3d5417043d5f58032cfbf1cda4db01875986dd48b7274184fee0363e",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/Tiefer_See.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/lsm_models.npz",
+      "sha256": "b779f6fda16d370fdd6dc1ad958bf212b48c282b8bc001de149398973b7821e5",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/lsm_models.npz"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/data/upstream_data_manifest.json",
+      "sha256": "2e6c8cadbd6055b3df8adbf9b4d2eb0160bbd0aa70be211b16d02e4060c83efe",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/datasets.py",
+      "sha256": "fd999b7fc77ada52dce28c1152bfbb5d5020540d4bd98c7b6c254871f6444756",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "_decode",
+        "load_dataset",
+        "load_love_example"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/examples.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/dispersal.py",
+      "sha256": "8bda1e1898b437cfb92c483ff0e3394bd22a7cbe5eaec5c507ca0fe3bebe97c6",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "Loess1D",
+        "gpm_values",
+        "gpm",
+        "one_over_d_model",
+        "_lsm_data",
+        "lsm_model",
+        "_distance_model",
+        "lake_annulus_influx",
+        "_factor_scalar",
+        "dispersal_factor",
+        "DispersalFactorK",
+        "clear_dispersal_cache",
+        "__post_init__",
+        "predict",
+        "fit"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/dispersal/kernels.py",
+        "src/bijux_pollenomics_lra/dispersal/loess.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/errors.py",
+      "sha256": "a14a5c9a0bdd0e9ef621083fc51fb948abfba8eee56ed35f10dbf41cab9299f4",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "LRAError",
+        "ValidationError",
+        "ParityError",
+        "ReferenceUnavailableError",
+        "UpstreamUndefinedBehavior",
+        "NativeOptimizerWarning",
+        "SourceCompatibilityWarning"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/models/errors.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/integration.py",
+      "sha256": "626b0a43bb5bef5b02086aabb4b18eb3a7b75b26032f0a4638fd51668146c237",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "BijuxLRAProductEnvelope",
+        "extension_descriptor",
+        "build_product_envelope",
+        "write_host_ready_product",
+        "as_dict"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/api.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/io.py",
+      "sha256": "da8dea00b6c93c56d66c264bd27583932d83c73866e5df56d651c524cc306974",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "read_table",
+        "_safe_name",
+        "_write_frame",
+        "_write_series",
+        "_write_checksum_manifest",
+        "write_reveals_result",
+        "write_love_result",
+        "write_lra_result",
+        "write_lra_series_result"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/outputs/checksums.py",
+        "src/bijux_pollenomics_lra/outputs/serialization.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/love.py",
+      "sha256": "4ee731535fdf283d9108fa1d62b3d17c1e1a5a419df199b4b420ec6564bdaf6e",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "_fallspeeds",
+        "_prepare_inputs",
+        "_regional_cover",
+        "_summary_frames",
+        "lov",
+        "LOVEr",
+        "logeuclidean",
+        "love_pollen",
+        "tf",
+        "calK",
+        "LOVEoptim",
+        "objective"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/reconstruction/analytical.py",
+        "src/bijux_pollenomics_lra/reconstruction/inputs.py",
+        "src/bijux_pollenomics_lra/reconstruction/optimized.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/models.py",
+      "sha256": "66da90583cc57b05db276fdf3f9a57ffee9b1eb2a466e35e904539c27ab6b525",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "BasinType",
+        "DistanceWeighting",
+        "LoveMethod",
+        "_enum_value",
+        "_boolean",
+        "RevealsConfig",
+        "LoveConfig",
+        "LRAConfig",
+        "RevealsResult",
+        "LoveResult",
+        "LRAResult",
+        "LRASeriesResult",
+        "__post_init__",
+        "as_dict",
+        "__post_init__",
+        "as_dict",
+        "__post_init__",
+        "as_dict",
+        "write",
+        "write",
+        "write",
+        "write"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/models/configuration.py",
+        "src/bijux_pollenomics_lra/models/results.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/optimization.py",
+      "sha256": "c8772313ba79c95bc89ef4db428816010bcbce5d225c06a7b1f8897a2229de6f",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "OptimizationResult",
+        "ReplayOptimizer",
+        "optimize_box",
+        "warn_optimizer_nonparity",
+        "as_dict",
+        "__post_init__",
+        "solve",
+        "EvaluationBudgetReached",
+        "safe_objective"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/optimization/solver.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/parity/__init__.py",
+      "sha256": "9e0d62389812f9677f22dd7d0d53c269c3add7edb92ee680810249ebd1dd8584",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/parity/live.py",
+      "sha256": "04476042691e9627d722a1c59f051b4839008b6820f5084dbc426358b569acc7",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "r_available",
+        "run_live_r_parity"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/parity/stored.py",
+      "sha256": "1bc5f2eea19fcd431f12845e23788ac16b13bf81a5fdbf82d6ea4b012f1e53db",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "StoredParityReport",
+        "run_stored_parity",
+        "as_dict",
+        "write"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/pipeline.py",
+      "sha256": "9d4baa0205a95cac41c6154578e3e6e4649359f5e8f078eb2360df049b429164",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "_seed_from_sequence",
+        "_prepare_love_params",
+        "run_reveals",
+        "run_love",
+        "run_lra",
+        "run_lra_series"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/workflows/local.py",
+        "src/bijux_pollenomics_lra/workflows/paired.py",
+        "src/bijux_pollenomics_lra/workflows/regional.py",
+        "src/bijux_pollenomics_lra/workflows/series.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/provenance.py",
+      "sha256": "f1e39080d4f9f6342b82d22310ce7340ce355f0e853f48dd376a173e89cd5d33",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "_canonical",
+        "canonical_json",
+        "sha256_object",
+        "sha256_file",
+        "_version_or_unknown",
+        "RunManifest",
+        "build_manifest",
+        "as_dict",
+        "write"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/provenance/identity.py",
+        "src/bijux_pollenomics_lra/provenance/manifest.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/py.typed"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/reveals.py",
+      "sha256": "19e41a0419f7b54aca722f04ade32c4f9a6cfa9d5c57fb87b7f38f072a5e99f1",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "rnorm_reveals",
+        "multidraw",
+        "rmultinom_reveals",
+        "maher_counts",
+        "rMaher",
+        "reveals_cover",
+        "_normalise_ppe_table",
+        "REVEALS",
+        "checkREVEALS",
+        "_reconstruct_frame",
+        "REVEALSinR"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/reconstruction/draws.py",
+        "src/bijux_pollenomics_lra/reconstruction/regional.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/schemas/__init__.py",
+      "sha256": "036c022ba1c1267a41a36cb3d4626b77c12b5d8f2855ff837dbf40f38a5c5060",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [
+        "schema_path",
+        "load_schema"
+      ],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/schemas/__init__.py"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/schemas/bijux-product.schema.json",
+      "sha256": "00d99844bf3d3310a6a9a21fed49ed2a5662524564b22750085fa5b64477ebdb",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/schemas/extension-descriptor.schema.json",
+      "sha256": "e231be2ceb5f1d26cf56f619bc805b63d2c5d1bbaff5e29352a77083ef2bf481",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra/schemas/run-manifest.schema.json",
+      "sha256": "27589c2cda866f0c26d2983ac82fb696200c1fb34282e40795e51c727903b53d",
+      "disposition": "refactor-reviewed-domain-owner",
+      "reason": "Required numerical, facade, schema or model dependency",
+      "definitions": [],
+      "destinations": [
+        "src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json"
+      ]
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/PKG-INFO",
+      "sha256": "bcb464e02153881c53a6c7e253f2ca1334635466536886f05715df273f3fe846",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/SOURCES.txt",
+      "sha256": "236d43045679047f7ca61e0ea6b2eb328e8acd45220c019e8fcfaea84104972e",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/entry_points.txt",
+      "sha256": "aaf391df7d784d8e13ab34fee9fc19abdad30c510a99fef256443bd71a1c61a0",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/requires.txt",
+      "sha256": "750259febd9abde93b55776dfa5f3c45567715417c96ffe5f01633ce6424c906",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "src/bijux_pollenomics_lra.egg-info/top_level.txt",
+      "sha256": "ed67dcdb0448718bbb2d28f31bd0640c06c0e7aa6e7c871faec9ffb7cf1c9bdb",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [],
+      "destinations": []
+    },
+    {
+      "source": "tests/conftest.py",
+      "sha256": "5ba997605075969d8ec8cf0d8f65b72a5a7fc04ad2171807d40a371e62215da8",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "project_root"
+      ],
+      "destinations": [
+        "tests/conftest.py"
+      ]
+    },
+    {
+      "source": "tests/test_cli.py",
+      "sha256": "6acc5c80ab9bea50f374c8d03132a161dfa8da72099a702975d4e9919989ada4",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "_run",
+        "test_describe_and_examples",
+        "test_reveals_cli",
+        "test_lra_cli_with_replay",
+        "test_cli_stored_parity"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "tests/test_dispersal.py",
+      "sha256": "5116b20b8203534f7f00891efe856f6f21e5868d66479e7e1ec28acff5441aad",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "test_stored_r_model_evaluation",
+        "test_independent_refit_against_stored_r_values",
+        "test_scalar_vector_and_basin_forms",
+        "test_canonical_alias_matches_source_name",
+        "test_source_gpm_cutoff_convention",
+        "test_lsm_rounding_and_no_extrapolation",
+        "test_invalid_dispersal_inputs",
+        "test_loess_exact_quadratic_and_domain",
+        "test_cache_clear_is_safe"
+      ],
+      "destinations": [
+        "tests/unit/dispersal/test_dispersal.py"
+      ]
+    },
+    {
+      "source": "tests/test_love.py",
+      "sha256": "8bce5a6edaea6786e6c54f436ddc444f2dc7aab795fdc5fa42747572eeba47aa",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "_love_inputs",
+        "_source_params",
+        "test_lov_is_unbounded_and_matches_equation",
+        "test_forward_model_and_objective",
+        "test_calk_shape_and_finiteness",
+        "test_full_analytical_workflow",
+        "test_analytical_supplied_draw_shape_is_validated",
+        "test_optimized_candidate_replay",
+        "test_native_optimizer_executes_with_small_budget",
+        "test_typed_analytical_and_optimized_results",
+        "test_love_config_validation"
+      ],
+      "destinations": [
+        "tests/unit/reconstruction/test_love.py"
+      ]
+    },
+    {
+      "source": "tests/test_monorepo_install.py",
+      "sha256": "d93154d53044cac89cc422cf84ce771f1d7d4e2d17178338a7739a7b1f3abb42",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [
+        "_module",
+        "_fake_host",
+        "test_monorepo_installer_keeps_separate_distribution",
+        "test_monorepo_installer_refuses_overwrite_without_force"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "tests/test_parity.py",
+      "sha256": "d58398635fa405987f556b6a34e27f113b0ba4d538701a3dd4d1647e7b4cc0aa",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "test_r_round_handles_sign_and_nonfinite",
+        "test_r_round_is_not_numpy_shortcut",
+        "test_stored_parity_passes_and_reports_scope",
+        "test_live_oracle_preparation_covers_all_apis",
+        "test_r_literals_escape_and_encode_arrays",
+        "test_prepare_only_writes_explicit_nonexecution_report"
+      ],
+      "destinations": [
+        "tests/reference/test_parity.py"
+      ]
+    },
+    {
+      "source": "tests/test_pipeline.py",
+      "sha256": "22ec6dd67b4f4d2ec98eaf582b8c79ff919d34fe4b220d525c2f7b16c7eacbb9",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "_config",
+        "_inputs",
+        "test_complete_lra_uses_regional_draw_handoff",
+        "test_decoupled_lra_is_explicit",
+        "test_retained_samples_are_exposed",
+        "test_config_requires_stage_compatibility",
+        "test_lra_series_pairs_exact_coordinates",
+        "test_lra_series_rejects_missing_duplicate_or_taxon_mismatch",
+        "_verify_checksums",
+        "test_lra_bundle_and_host_product_contracts",
+        "test_extension_and_product_schemas"
+      ],
+      "destinations": [
+        "tests/integration/workflows/test_pipeline.py"
+      ]
+    },
+    {
+      "source": "tests/test_provenance.py",
+      "sha256": "7f947d57a7bd9de2c009f857c5bd708204142277ebfa741cb7820e383d131dc5",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "test_canonical_hash_is_stable_for_equivalent_frames",
+        "test_mapping_key_order_does_not_change_hash",
+        "test_file_hash_and_manifest_write"
+      ],
+      "destinations": [
+        "tests/unit/provenance/test_provenance.py"
+      ]
+    },
+    {
+      "source": "tests/test_reveals.py",
+      "sha256": "871e7d3e22ffa2b41b3899a4f778012f8fc392bbb6ba52433521ef165905e673",
+      "disposition": "retain-reference-tests",
+      "reason": "Focused scientific and oracle regression evidence",
+      "definitions": [
+        "test_source_compatible_api_is_complete",
+        "test_bundled_datasets_are_fresh",
+        "test_reveals_closed_form_and_scale_invariance",
+        "test_reveals_supplied_draws_and_sample_sd",
+        "test_single_draw_sd_and_callbacks",
+        "test_sampling_reproducibility_and_dimensions",
+        "test_full_bundled_record_and_parameter_reordering",
+        "test_typed_reveals_result_and_artifacts",
+        "test_reveals_config_validation"
+      ],
+      "destinations": [
+        "tests/unit/reconstruction/test_reveals.py"
+      ]
+    },
+    {
+      "source": "tools/build_release.py",
+      "sha256": "05f0e534be57376b4bec27ee4f7f6f0611ca5e398e29f66f77a29f61bb4fcbd2",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [
+        "sha256",
+        "source_files",
+        "write_source_manifest",
+        "run",
+        "build_wheel",
+        "build_sdist",
+        "build_source_zip",
+        "inspect_wheel",
+        "smoke_test_artifact",
+        "write_checksums",
+        "main"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "tools/install_into_bijux_repo.py",
+      "sha256": "1309961cf7eae0e7be3cd61b83e8e4af45d273bacceaefd1add9fe1f3eda78ac",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [
+        "_ignored",
+        "_require_host",
+        "_insert_once",
+        "patch_workspace_metadata",
+        "install",
+        "build_parser",
+        "main"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "tools/validate.py",
+      "sha256": "ef709972daf5037600aca283cb8ea84058ca2f8f639cb7b2a0ec9f3ee0a00972",
+      "disposition": "exclude-production-retain-received-reference",
+      "reason": "Standalone release, installer, generated metadata or unrelated tooling",
+      "definitions": [
+        "_run",
+        "_json",
+        "_pytest_count",
+        "main"
+      ],
+      "destinations": []
+    },
+    {
+      "source": "vendor/disqover_0.9.14.tar.gz",
+      "sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+      "disposition": "retain-reference",
+      "reason": "GPL lineage, scientific input contract and exact-source oracle",
+      "definitions": [],
+      "destinations": [
+        "vendor/disqover_0.9.14.tar.gz"
+      ]
+    }
+  ]
+}

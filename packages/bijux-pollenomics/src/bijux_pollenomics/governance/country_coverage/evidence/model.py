@@ -9,6 +9,7 @@ from ..constants import (
     _AUTHORITY_STATUS_VALUES,
     _STAGE_STATUS_VALUES,
     BOUNDARY_METHOD,
+    HYDE_ASSIGNMENT_NOT_APPLIED,
     PRODUCER_VERSION,
     PUBLICATION_METHOD,
     CountryCoverageError,
@@ -56,15 +57,21 @@ def _cell(
     country_code: str,
     evidence: Mapping[tuple[str, str, str], dict[str, int | None]],
     stage: Mapping[str, object],
-    snapshot_id: str,
+    snapshot_id: str | None,
     boundary_digest: str,
     config_digest: str,
     build_id: str,
 ) -> dict[str, object]:
-    counts = evidence.get((source_family, dimension, country_code))
+    counts = (
+        None
+        if source_family == "hyde"
+        else evidence.get((source_family, dimension, country_code))
+    )
     assignment_method = (
         None
         if dimension == "source_reported"
+        else HYDE_ASSIGNMENT_NOT_APPLIED
+        if source_family == "hyde"
         else BOUNDARY_METHOD
         if dimension == "governed_assignment"
         else PUBLICATION_METHOD
@@ -102,9 +109,11 @@ def _cell(
         "lifecycle_status": state.lifecycle,
         "counts": state.counts,
         "reason_codes": sorted(set(state.reasons)),
-        "source_snapshot_id": snapshot_id,
+        "source_snapshot_id": None if source_family == "hyde" else snapshot_id,
         "boundary_artifact_digest": (
-            None if dimension == "source_reported" else boundary_digest
+            None
+            if dimension == "source_reported" or source_family == "hyde"
+            else boundary_digest
         ),
         "config_digest": config_digest,
         "producer_version": PRODUCER_VERSION,
@@ -139,7 +148,15 @@ def _apply_source_policy(
     blocking: list[str],
     authority_reasons: list[str],
 ) -> None:
-    if source_family in {"raa", "svar"}:
+    if source_family == "hyde":
+        # Local archive custody is not a governed country projection.
+        state.counts = _empty_counts()
+        state.availability = "blocked"
+        state.lifecycle = "refused"
+        state.reasons.extend(
+            ["hyde_native_country_projection_unverified", *authority_reasons]
+        )
+    elif source_family in {"raa", "svar"}:
         state.counts = _empty_counts()
         if country_code == "SE":
             state.availability = "blocked"

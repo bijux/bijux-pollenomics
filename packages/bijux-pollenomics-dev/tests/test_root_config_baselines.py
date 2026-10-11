@@ -96,6 +96,8 @@ def test_root_pytest_configuration_matches_shared_python_baseline() -> None:
         "gpu: requires CUDA",
         "integration: integration tests",
         "live: live provider integration",
+        "live_r: exact-source R runtime comparison",
+        "reference: stored numerical reference comparison; not live R certification",
         "real: real local model tests (slow, manual, not for CI)",
         "real_local: requires local models or hardware",
         "regression: regression tests",

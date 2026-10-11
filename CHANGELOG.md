@@ -10,6 +10,11 @@ change contributor and maintainer workflows across the repository.
 
 ## Unreleased
 
+### Changed
+
+- Preserve validation, collection and LRA development history with accepted manual publication policy ([#217](https://github.com/bijux/bijux-pollenomics/pull/217)).
+
+
 ## 0.1.8 - 2026-09-08
 
 ### Added

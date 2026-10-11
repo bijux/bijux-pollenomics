@@ -13,6 +13,10 @@ class SurfaceMapUnitTests(unittest.TestCase):
         self.assertGreaterEqual(len(surface_map.runtime_surfaces), 3)
         self.assertGreaterEqual(len(surface_map.planned_engine_surfaces), 2)
         self.assertIn("atlas bundle publication", surface_map.runtime_surfaces)
+        self.assertIn(
+            "optional exploratory landscape reconstruction (LRA)",
+            surface_map.runtime_surfaces,
+        )
 
 
 if __name__ == "__main__":

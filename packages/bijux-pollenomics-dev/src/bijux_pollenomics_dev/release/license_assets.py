@@ -34,10 +34,35 @@ def _workspace_metadata(root: Path = REPO_ROOT) -> dict[str, Any]:
 
 def managed_assets(root: Path = REPO_ROOT) -> tuple[ManagedAsset, ...]:
     """Enumerate package license assets generated from root source files."""
-    packages = cast(list[str], _workspace_metadata(root)["packages"])
+    metadata = _workspace_metadata(root)
+    packages = cast(list[str], metadata["packages"])
+    package_owned = metadata.get("package_owned_legal_assets", [])
+    if (
+        not isinstance(package_owned, list)
+        or any(not isinstance(name, str) for name in package_owned)
+        or len(set(package_owned)) != len(package_owned)
+        or set(package_owned) - set(packages)
+    ):
+        raise ValueError(
+            "package_owned_legal_assets must name unique workspace packages"
+        )
     assets: list[ManagedAsset] = []
     for package_slug in packages:
         package_dir = root / "packages" / package_slug
+        if package_slug in package_owned:
+            # Independently licensed distributions own these assets. Refuse a
+            # missing asset; copying the host's license cannot repair it.
+            for filename in MANAGED_FILENAMES:
+                asset = package_dir / filename
+                if (
+                    asset.is_symlink()
+                    or not asset.is_file()
+                    or not asset.read_bytes().strip()
+                ):
+                    raise ValueError(
+                        f"package-owned legal asset must be a nonempty regular file: {asset}"
+                    )
+            continue
         for filename in MANAGED_FILENAMES:
             assets.append(
                 ManagedAsset(

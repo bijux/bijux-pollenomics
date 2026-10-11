@@ -6,14 +6,18 @@ import math
 from ....core.geospatial.geojson import JsonObject
 from ..coordinates import point_coordinate_pair
 from ..temporal_admission import (
+    calendar_profile_metadata,
     feature_interval,
     feature_temporal_admission,
     finite_number,
 )
 
 
-def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
+def build_indexes(
+    point_layers: Sequence[JsonObject], *, temporal_profile: str | None = None
+) -> dict[str, object]:
     """Build deterministic country, spatial, temporal, and signal indexes."""
+    profile_fields = calendar_profile_metadata(temporal_profile)
     countries: dict[str, dict[str, list[int]]] = {}
     spatial_cells: dict[str, dict[str, list[int]]] = {}
     time_intervals: list[list[object]] = []
@@ -42,13 +46,16 @@ def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
                 spatial_cells.setdefault(cell, {}).setdefault(layer_key, []).append(
                     feature_index
                 )
-            interval = feature_interval(feature)
+            interval = feature_interval(feature, temporal_profile=temporal_profile)
             if interval is not None:
                 time_intervals.append(
                     [interval[0], interval[1], layer_key, feature_index]
                 )
     return {
-        "schema_version": "atlas-static-indexes.v2",
+        "schema_version": "atlas-static-signed-indexes.v1"
+        if temporal_profile is not None
+        else "atlas-static-indexes.v2",
+        **profile_fields,
         "country_feature_indexes": _sorted_nested_indexes(countries),
         "spatial_degree_feature_indexes": _sorted_nested_indexes(spatial_cells),
         "time_interval_feature_indexes": sorted(

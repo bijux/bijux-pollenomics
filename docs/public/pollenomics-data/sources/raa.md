@@ -141,3 +141,21 @@ refused. Continue to
 [RAÄ exports](../publications/raa-exports.md) for the publication role and
 [source comparison](source-comparison.md) before combining RAÄ with another
 family.
+
+
+## Private Source Ownership Audit
+
+The RAÄ source package provides a private read-only ownership audit for the inspected national GeoPackage profile. Callers pin complete local source bytes, and saved inspection reconstructs every source row before returning lineage. Native records, included remains, direct/nested properties and separate point/line/polygon/positional-uncertainty rows retain their original identities and scalar values. Container-header accounting does not validate geometry or derive representative coordinates. This capability neither adopts a canonical source release nor changes the historical density authority, chronology, country assignments or scientific-review posture. Captured provider terms and HTTP custody remain explicit upstream evidence.
+
+Native GeoPackages and large row inventories remain in caller-selected local
+data directories. Git retains the audit implementation and compact contracts;
+a local raw capture does not by itself change public source admission.
+
+
+Legacy point/density validation requires explicit reconciled populations and a
+native identifier for every feature. It refuses missing, boolean or fractional
+counts, conflicting population aliases, omitted/malformed features, duplicate
+JSON keys and nonfinite values. Zero remains a valid declared count. Invalid
+density cells make the total unavailable instead of contributing a fabricated
+zero. These checks preserve the historical population discrepancy and source
+review requirements; they do not validate geometry or create source approval.

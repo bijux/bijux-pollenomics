@@ -47,6 +47,38 @@ pass. A product feature points back to its normalized member; the normalized
 member points back to captured evidence. Product-specific labels or geometry
 must not overwrite either earlier representation.
 
+## Rootsi Workbook Review
+
+Rootsi workbooks supplied for the LANDCLIM lineage can be prepared as a private,
+quarantined cell-review bundle through
+`bijux_pollenomics.collection.sources.rootsi.cells`. The optional
+`bijux-pollenomics[rootsi-review]` extra supplies the pinned XLS decoder.
+`read_rootsi_cell_review` reads a prepared bundle in the base package without
+that decoder; preparation and workbook replay require the extra.
+
+Preparation binds the retained capture inventory and the exact extracted
+workbook bytes. Selected-workbook scope names its members explicitly; complete
+retained-capture scope requires all 79 XLS workbooks. The metadata workbook and
+scratch R file remain separately accounted source members outside this XLS
+projection. Workbook replay checks decoding against those bound workbook bytes.
+The retained archive-membership receipt is identified separately and is not a
+fresh replay of the original 7z archive.
+
+Every sheet and decoded rectangle position retains its workbook, sheet, row and
+column locator. Empty cells, formatted blanks, text, numbers, date serials,
+Booleans and errors remain distinguishable. Zero and fractional values are
+preserved. Numeric binary64 values retain their exact hexadecimal representation;
+decimal display text is derived because the XLS decoder does not expose original
+numeric tokens. Source workbook bytes remain authoritative for unavailable
+formula and physical-record details.
+
+These outputs support review of age columns, units and taxon classifications.
+They do not select a chronology, round values into pollen counts, exclude zero
+rows, approve taxonomy or produce eligible LRA observations. Rootsi and LANDCLIM
+shared lineage also cannot supply independent measured vegetation truth merely
+by appearing in separate products. Keep native workbooks and generated private
+cell-review bundles outside tracked data and public atlas assets.
+
 ## Identity Before Shape
 
 The normalized database may render several families as rows or GeoJSON

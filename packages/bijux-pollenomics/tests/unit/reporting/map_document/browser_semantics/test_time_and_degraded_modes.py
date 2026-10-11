@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
+from bijux_pollenomics.reporting.map_document.template import (
+    MAP_DOCUMENT_TEMPLATE,
+)
 
 from .support import run_node_json, template_block
 

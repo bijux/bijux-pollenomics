@@ -18,6 +18,12 @@ from ...spatial import (
     geometry_to_representative_point,
     grid_cell_relevant,
 )
+from .inventory import (
+    declared_population,
+    native_feature_ids,
+    source_features,
+    validate_inventory,
+)
 
 RAA_WFS_URL = "https://karta.raa.se/geo/arkreg_v1.0/wfs"
 RAA_FEATURE_TYPE = "arkreg_v1.0:publicerade_lamningar_centrumpunkt"
@@ -189,31 +195,22 @@ def raa_density_counts_by_grid_cell(
 
 def iter_raa_features(feature_inventory: Mapping[str, object]) -> list[JsonObject]:
     """Return archived RAÄ features as a validated list."""
-    return feature_list(feature_inventory)
+    return source_features(feature_inventory)
 
 
 def build_raa_inventory_summary(
     feature_inventory: Mapping[str, object],
 ) -> dict[str, object]:
     """Summarize the archived RAÄ feature inventory for raw-audit use."""
-    features = iter_raa_features(feature_inventory)
-    feature_ids = [
-        clean_optional_text(properties.get("lamningsnummer"))
-        if properties is not None
-        else ""
-        for feature in features
-        for properties in (as_mapping(feature.get("properties")),)
-    ]
-    populated_feature_ids = [feature_id for feature_id in feature_ids if feature_id]
+    features = validate_inventory(feature_inventory)
+    feature_ids = native_feature_ids(features)
     return {
         "generated_on": str(date.today()),
         "source": "Riksantikvarieämbetet",
         "feature_type": RAA_FEATURE_TYPE,
-        "number_matched": int_or_default(
-            feature_inventory.get("numberMatched"), default=len(features)
-        ),
+        "number_matched": declared_population(feature_inventory),
         "archived_feature_count": len(features),
-        "identified_feature_count": len(populated_feature_ids),
+        "identified_feature_count": len(feature_ids),
         "heritage_site_count": count_raa_features(
             feature_inventory, heritage_statuses={"Fornlämning"}
         ),
@@ -227,21 +224,6 @@ def build_raa_inventory_summary(
 def format_count_label(count: int) -> str:
     """Render archaeology density counts in a compact human-readable form."""
     return f"{count:,}"
-
-
-def int_or_default(value: object, *, default: int) -> int:
-    """Convert one optional numeric payload field to an integer with fallback."""
-    if isinstance(value, int):
-        return value
-    if isinstance(value, float):
-        return int(value)
-    text = clean_optional_text(value)
-    if not text:
-        return default
-    try:
-        return int(text)
-    except ValueError:
-        return default
 
 
 __all__ = [

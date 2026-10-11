@@ -80,6 +80,29 @@ source-reported count, while the compact registry establishes only its 99
 reviewed members. Neither establishes the absent complete normalized registry
 or authorizes a source-wide SVAR publication denominator.
 
+## Capture And Offline Replay
+
+The collection adapter preserves exact WFS response bytes, request parameters,
+retrieval times and SHA-256 receipts. One hits response establishes the requested
+population; every page must reconcile its count and unique lake identities.
+Unsupported geometry, missing or conflicting CRS, incomplete pages and changed
+capture files refuse publication. Failed acquisition staging remains available
+for diagnosis.
+
+`collection.sources.svar.collection.replay_svar_data` produces a new family from
+a pinned capture without network access. The supported capture profile declares
+EPSG:3006 northing/easting and writes unrounded WGS84 longitude/latitude. XML
+decoding follows the source declaration. Each normalized feature also retains
+all occurrences of the ten consumed scalar fields as decoded native text and
+attributes. Absent elements, empty elements, nil attributes and numeric zero
+remain distinguishable. Raw XML retains lexical byte authority.
+
+Legacy display labels and the absent-country default remain explicitly labelled
+derivations; they do not become source-native assertions. Capturing and replaying
+a registry does not supply rights verification, scientific review, historical
+shoreline evidence or authority admission. The current governed capture and
+missing-registry posture above remain separate from this producer capability.
+
 ## Lake Identity Contract
 
 | Field | What it establishes | What it does not establish |

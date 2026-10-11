@@ -1,0 +1,33 @@
+# Source, authorship, and licence notices
+
+`bijux-pollenomics-lra` contains a native Python adaptation of the REVEALS and
+LOVE implementation distributed in the user-supplied `disqover` 0.9.14 source
+archive. The archive identifies Volkmar Liebscher, Martin Theuerkauf, and Triin
+Reitalu as package authors/maintainers and declares `GPL (>= 2)`. The original
+scientific methods remain attributable to their published authors; this package
+does not claim authorship of REVEALS, LOVE, the Gaussian plume model, or the
+Lagrangian stochastic model.
+
+Reference source:
+
+- package: `disqover`
+- version: `0.9.14`
+- archive SHA-256:
+  `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`
+- packaged timestamp reported by DESCRIPTION: `2026-01-22 10:02:31 UTC`
+- declared source licence: `GPL (>= 2)`
+
+The Python adaptation, converted R-fitted numerical assets, and parity fixtures
+are distributed under `GPL-2.0-or-later`. The unchanged source archive is
+retained under `vendor/` for provenance and live-reference installation.
+
+The package is intentionally a separate optional distribution from the
+Apache-2.0 `bijux-pollenomics` host project. Integrators must review the licence
+consequences of distribution and deployment; the package metadata does not
+assert that combining or redistributing the two projects creates no additional
+obligations.
+
+The stored LSM model assets originate from serialized models in the reference
+archive. Native LOESS evaluation and refitting code was developed to reproduce
+those numerical responses. The parity documentation states exactly what has and
+has not been executed.

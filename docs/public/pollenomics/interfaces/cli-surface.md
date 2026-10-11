@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-12
 ---
 
 # CLI Surface
@@ -31,6 +31,7 @@ flowchart LR
 | capability and ownership | `surface-map`, `product-scope`, `ownership-map`, `source-support` | read-only orientation |
 | animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
 | animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
+| landscape reconstruction | `validate-lra-input`, `run-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
 | validation | `validate-collection-summary` | validates an existing summary without recollection |
 | collection and contract refresh | `collect-data`, `refresh-aadr-source-accountability`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
@@ -39,6 +40,8 @@ flowchart LR
 
 | Form | Result |
 | --- | --- |
+| `validate-lra-input REQUEST --input-root ROOT` | schema, evidence-byte and installed-method configuration checks |
+| `run-lra REQUEST --input-root ROOT --output NEW_DIRECTORY` | one exploratory REVEALS, LOVE, paired or series bundle; existing destinations refused |
 | `collect-data <sources...>` | collect one or more source families, or `all` |
 | `adna-layout --species <name>` | canonical species evidence paths |
 | `adna-runtime-manifest --species <name>` | source bundles and analysis boundaries for one species |
@@ -178,3 +181,60 @@ operational documentation and system ownership use the canonical
 
 For Python imports, continue to the [API surface](api-surface.md). For safe
 operation sequences, continue to [operator workflows](operator-workflows.md).
+
+## Landscape reconstruction
+
+`validate-lra-input` and `run-lra` share `bijux_pollenomics.analysis.lra.api`. Requests declare
+counts, taxa and parameters, source identities, measured basin/ring geometry,
+typed age support, time-bin assumptions, a fixed random seed, exclusions and
+unpropagated uncertainties. A matching coordinate alone never supplies age
+support. The `lra-request.v1` schema is owned by the host input layer.
+
+Successful execution returns structured JSON and exit0. Missing/incompatible
+extensions, invalid inputs and numerical nonconvergence return exit2 with a
+stable reason and applicable diagnostics. Each output remains
+`generated_exploratory`; ecological accuracy and scientific admission are
+`not_evaluated`. See [LRA engine integration](../architecture/lra-engine.md)
+for numerical profiles, units, installation and publication boundaries.
+
+`run-lra-batch BATCH.json --input-root INPUTS --cache-root CACHE
+--report-root NEW_ATTEMPT --max-workers 2` runs independent requests with bounded
+spawned processes. `BATCH.json` is an object with `schema_version` equal to
+`lra-batch-request.v1` and an `items` array. Each item has a unique `item_id` and a
+`request` containing the complete existing `lra-request.v1` object. The default
+limit is 1,000 items and one worker; `--max-items` declares a different positive
+limit. All item evidence paths resolve under the same explicit input root.
+
+Before spawning, set `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`,
+`NUMEXPR_NUM_THREADS` and `VECLIB_MAXIMUM_THREADS` to `1`. Missing or different
+settings produce a thread-budget refusal. Resume by supplying the same requests
+and cache root with a fresh report directory. Completed cache entries must pass
+current source, implementation and saved-product checks before reuse. Every
+attempt records all items, including failures and items never submitted.
+
+The batch command returns the structured batch result: exit 0 when every item
+completed, exit 2 for refused or failed items, and exit 130 for cooperative
+interruption. These process outcomes do not confer scientific acceptance.
+Interruption stops submission and lets active work finish; it does not force-kill
+a numerical solver or delete a possibly active cache lock.
+
+`render-lra-report PRODUCT --expected-manifest-sha256 HASH --geometry GEOMETRY.json
+--expected-geometry-sha256 HASH --output NEW_REPORT` reopens a saved product and
+renders its native values and lineage without numerical execution or the LRA
+extra. Both hashes are required. Geometry declarations bind exact product and
+site identities; model pairing coordinates cannot supply map locations. The
+report contains original product downloads, estimate tables and explicit
+mapped/refused site accounting. Missing values stay missing and LOVE fractions
+remain distinct from REVEALS percentages. A successful report returns exit 0,
+including reports with declared map refusals; invalid inputs or an existing
+output return exit 2. Report generation does not confer scientific acceptance.
+
+`render-joint-lra-report PRODUCT --expected-manifest-sha256 HASH --output
+NEW_REPORT` reopens a retained joint-realization product without running the
+numerical engine. The report copies every verified product byte, exposes every
+draw/bin outcome, exact rational requested/success/refused/not-run mass, and the
+full ordered population covariance. Incomplete or interrupted products remain
+renderable with null moments and visible denominators; successful subsets are not
+renormalized. No geometry is accepted by this command, and a successful render is
+neither scientific acceptance nor publication authorization. Invalid or changed
+inputs and existing outputs return exit 2.

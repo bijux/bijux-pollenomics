@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Any
+
 from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from ..presentation.text import escape_html
@@ -18,6 +20,8 @@ def render_multi_country_map_html(
     polygon_layers: list[JsonObject],
     asset_base_path: str,
     static_assets: StaticAtlasAssets | None = None,
+    *,
+    native_lra: dict[str, Any] | None = None,
 ) -> str:
     """Render the standalone interactive map document."""
     rendered_document = MAP_DOCUMENT_TEMPLATE
@@ -32,6 +36,7 @@ def render_multi_country_map_html(
         asset_base_path=asset_base_path,
         escape_html_fn=escape_html,
         static_assets=static_assets,
+        native_lra=native_lra,
     ).items():
         rendered_document = rendered_document.replace(placeholder, value)
     if static_assets is not None:

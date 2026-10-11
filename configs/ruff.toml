@@ -7,6 +7,8 @@ src = [
   "packages/bijux-pollenomics/tests",
   "packages/bijux-pollenomics-dev/src",
   "packages/bijux-pollenomics-dev/tests",
+  "packages/bijux-pollenomics-lra/src",
+  "packages/bijux-pollenomics-lra/tests",
   "packages/pollenomics/src",
   "packages/pollenomics/tests",
 ]
@@ -43,6 +45,7 @@ force-sort-within-sections = true
 known-first-party = [
   "bijux_pollenomics",
   "bijux_pollenomics_dev",
+  "bijux_pollenomics_lra",
   "pollenomics",
   "tests",
 ]

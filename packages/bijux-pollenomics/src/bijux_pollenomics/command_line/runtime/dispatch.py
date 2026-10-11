@@ -27,6 +27,7 @@ from .handlers import (
     run_surface_map,
     run_validate_collection_summary,
 )
+from .lra import run_lra_command
 from .registry import build_command_handlers, resolve_handler
 
 __all__ = [
@@ -74,6 +75,7 @@ def run_command(args: argparse.Namespace, *, parser: argparse.ArgumentParser) ->
         run_adna_species=run_adna_species,
         run_adna_species_review=run_adna_species_review,
         run_collect_data=run_collect_data,
+        run_lra_command=run_lra_command,
         run_refresh_aadr_source_accountability=run_refresh_aadr_source_accountability,
         run_refresh_data_contract_surfaces=run_refresh_data_contract_surfaces,
         run_refresh_animal_adna_foundation=run_refresh_animal_adna_foundation,

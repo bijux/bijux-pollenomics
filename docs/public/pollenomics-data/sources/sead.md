@@ -125,6 +125,13 @@ flowchart TD
     Unresolved --> Reading
 ```
 
+Numbered CE/AD and BCE/BC dates cannot use year zero. The source parser
+refuses such an interval while retaining its original values and labels; an
+invalid endpoint cannot inherit the other endpoint. Genuine `0 BP` remains
+valid. Native dates after 1950 retain their signed BP conversion, while their
+admission to the current canonical timeline remains governed separately.
+
+
 ## How The Atlas Timeline Treats SEAD
 
 The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It

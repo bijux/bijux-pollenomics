@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 
 from bijux_pollenomics.analysis import (
     build_sweden_lake_candidate_registry,
@@ -99,23 +100,25 @@ def test_candidate_registry_resolves_pollen_lakes_and_named_targets() -> None:
             named_targets=("Lake Beta", "Missing marsh"),
         )
 
-        assert registry["selection"]["candidate_count"] == 2
-        alpha, beta = registry["features"]
-        assert alpha["properties"]["matched_pollen_records"] == [
+        selection = cast(dict[str, object], registry["selection"])
+        alpha, beta = cast(list[dict[str, object]], registry["features"])
+        alpha_properties = cast(dict[str, object], alpha["properties"])
+        beta_properties = cast(dict[str, object], beta["properties"])
+        named_targets = cast(list[dict[str, object]], review["named_targets"])
+        assert selection["candidate_count"] == 2
+        assert alpha_properties["matched_pollen_records"] == [
             "neotoma-pollen:pollen-alpha"
         ]
-        assert alpha["properties"]["sampling_area_screen"] == "compact_lake_review"
-        assert beta["properties"]["candidate_selection_reasons"] == [
-            "named_target_review"
-        ]
-        assert (
-            beta["properties"]["sampling_readiness_posture"] == "site_review_required"
-        )
-        assert len(beta["properties"]["sampling_missing_inputs"]) == 5
-        assert review["named_targets"][0]["registry_status"] == "matched"
-        assert review["named_targets"][1]["registry_status"] == (
-            "not_present_in_svar_lakes"
-        )
+        assert alpha_properties["sampling_area_screen"] == "compact_lake_review"
+        assert beta_properties["candidate_selection_reasons"] == ["named_target_review"]
+        assert beta_properties["sampling_readiness_posture"] == "site_review_required"
+        assert len(cast(list[str], beta_properties["sampling_missing_inputs"])) == 5
+        assert named_targets[0]["registry_status"] == "matched"
+        assert named_targets[1]["registry_status"] == ("not_present_in_svar_lakes")
+        assert review["schema_version"] == "sweden-lake-candidate-registry-review.v2"
+        assert review["source_lake_count"] == 2
+        assert review["screening_eligible_lake_count"] == 2
+        assert review["screening_excluded_lake_count"] == 0
 
         registry_path = root / "review" / "candidate_registry.geojson"
         review_path = root / "review" / "candidate_registry_review.json"

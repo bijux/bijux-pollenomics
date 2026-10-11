@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-12
 ---
 
 # API Surface
@@ -21,6 +21,7 @@ it does not imply that this repository operates a live HTTP service.
 | `bijux-pollenomics` | canonical command | inspection, collection, evidence review, and publication workflows | command help, exit status, and written contract surfaces |
 | `pollenomics` | compatibility command | the same workflows under the shorter distribution name | delegates to the canonical runtime |
 | `bijux_pollenomics` | Python facade | embedding collection, reporting, and product-scope operations | names exported by the package root and public API modules |
+| `bijux_pollenomics.analysis.lra.api` | optional exploratory reconstruction | validate explicit inputs or execute REVEALS/LOVE/paired/series requests | source-bound request and exploratory product manifest |
 | governed JSON, CSV, GeoJSON, Markdown, and HTML | persisted exchange and publication | inspection, reuse, review, and downstream analysis | the owning manifest or evidence contract |
 | OpenAPI v1 | future HTTP compatibility target | client design and schema review | pinned schema plus `schema.hash` |
 
@@ -175,3 +176,74 @@ A rename, removal, changed default scope, weakened refusal, or altered
 publication membership is not a cosmetic change. It requires an explicit
 compatibility decision and a migration path appropriate to the affected CLI,
 Python, file, or OpenAPI consumer.
+
+## Optional landscape reconstruction facade
+
+`validate_lra_inputs(payload, input_root=...)` returns an immutable
+`ValidatedRequest`. `run_lra_request(payload, input_root=..., destination=...)`
+returns an `LRAProduct` containing the new directory and byte/scientific content
+hashes. Both require the optional extension when checking numerical settings.
+`LRARefusal` carries a stable reason, detail and optional numerical diagnostics.
+Importing the host facade does not import the numerical extension.
+
+`read_lra_product(directory, expected_manifest_sha256=...)` reopens a complete
+bundle as `VerifiedLRAProduct`, without requiring the numerical extra. The digest
+argument is optional; without an independently retained digest the check proves
+internal byte consistency, not authorship. `run_lra_cached(payload,
+input_root=..., cache_root=...)` returns `CachedLRAProduct` with the product,
+lookup key and explicit `cache_hit` flag. Every reuse verifies source evidence,
+implementation identity and saved outputs; busy or corrupt entries refuse.
+
+For bounded execution, construct `LRABatchItem(item_id, payload)` values and call
+`run_lra_batch(items, input_root=..., cache_root=..., report_root=...,
+limits=LRABatchLimits(max_workers=2))`. Each attempt needs a new report directory.
+The returned `LRABatchResult` retains input order and separate completed, refused,
+failed, not-run and unobserved outcomes. Repeat the same items with the same cache
+and a fresh report directory to resume; prior attempt receipts do not authorize
+reuse. The callable `cancel_requested` option stops new submissions and drains
+bounded active work. It does not impose a deadline on individual calculations.
+Set the five numerical thread environment controls listed in the CLI contract to
+`1` before spawning. The numerical package owns neither batch scheduling nor
+report directories.
+
+The host service owns inputs, decisions and publication. Advanced numerical
+callers and reporting clients have separate boundaries. Saved-product reporting
+uses `bijux_pollenomics.reporting.lra_products.api.render_lra_report(product_directory,
+expected_manifest_sha256=..., geometry_path=..., expected_geometry_sha256=...,
+destination=...)`. Both supplied files are content-bound; an existing destination
+is refused. This function preserves the original product, native numerical tables
+and source lineage without importing or running the optional numerical engine.
+The result is exploratory and records mapped and refused site counts. A map
+anchor needs an explicit geometry declaration; a numerical pairing coordinate
+does not locate a site. Source-geography and unsupported temporal profiles remain
+explicit map refusals with their original data retained in downloads.
+
+Advanced numerical
+callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
+admitted host product. The request schema and unsupported assumptions are
+described in [LRA engine integration](../architecture/lra-engine.md).
+
+## Held-out prediction primitives
+
+`bijux_pollenomics.analysis.lra_validation` separates frozen prediction from
+vegetation and pollen scoring. `predict_spatial_baseline` requires exactly one
+admitted closed taxon composition per training-site group and verifies the
+complete dependency graph against the held-out fold. Its named methods are
+`training_mean`, `nearest_site`, and `inverse_distance_squared`.
+
+Distance methods require an unrounded admitted distance for every training
+group. Nearest-site ties are averaged. The fixed inverse-square method uses all
+training groups, except that exact zero-distance ties are averaged on their own.
+Its weights are scaled before normalization to avoid overflowing at small
+distances; distances and method remain part of the input identity. Neither the
+exponent nor the neighborhood is selected using held-out outcomes. These are
+deterministic baselines without predictive intervals or a fitted spatial model.
+
+`predict_withheld_site` passes the selected vegetation prediction and separately
+admitted regional, parameter, geometry and temporal inputs to the numerical
+forward callable. It accepts no held-out pollen count or count total. Its frozen
+result can subsequently be evaluated with `score_vegetation` and `score_pollen`;
+the latter conditions on the now-observed count total. Missing targets and
+incompatible taxon denominators remain explicit. These primitives do not
+materialize real source observations, choose a regional background, authenticate
+scientific review, or constitute a complete experiment runner.

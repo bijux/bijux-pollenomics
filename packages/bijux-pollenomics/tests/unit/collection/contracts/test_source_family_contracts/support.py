@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from typing import Any
 
 from bijux_pollenomics.collection.contracts.capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
@@ -71,3 +72,14 @@ def _write_full_sead_admission_fixture(
         encoding="utf-8",
     )
     return admission_path, payload_path
+
+
+def _object(value: object) -> dict[str, Any]:
+    assert isinstance(value, dict)
+    return value
+
+
+def _rows(value: object) -> list[dict[str, Any]]:
+    assert isinstance(value, list)
+    assert all(isinstance(row, dict) for row in value)
+    return value

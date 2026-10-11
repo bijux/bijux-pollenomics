@@ -79,7 +79,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
     )
     assert artifacts["classification"]["path"] == (
         "artifacts/execution-control/classification/"
-        "neotoma-audit-5a932522/manifest.json"
+        "neotoma-audit-visual-profile-5a932522/manifest.json"
     )
     assert artifacts["country-coverage"]["schema_version"] == (
         "country-dimension-coverage-ledger.v1"

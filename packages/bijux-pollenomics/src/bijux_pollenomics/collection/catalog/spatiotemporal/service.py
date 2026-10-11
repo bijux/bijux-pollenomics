@@ -6,6 +6,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .archaeology_sources import _build_raa_row, _build_sead_row
+from .land_use_sources import _build_hyde_row
 from .pollen_sources import _build_landclim_row, _build_neotoma_row
 from .reference_sources import _build_boundaries_row, _build_svar_row
 
@@ -24,6 +25,7 @@ def build_source_spatiotemporal_posture_payload(
         _build_raa_row(output_root),
         _build_svar_row(output_root),
         _build_boundaries_row(output_root),
+        _build_hyde_row(),
     )
     return {
         "schema_version": "source-spatiotemporal-posture-registry.v2",

@@ -1,0 +1,538 @@
+"""Target-specific forward preparation after actual training reconstructions."""
+
+from __future__ import annotations
+
+from collections.abc import Iterable
+import json
+from pathlib import Path
+from typing import Protocol, cast
+
+from ....core.geospatial.distance import wgs84_inverse_geodesic
+from ...lra.engine.discovery import EngineBinding, load_engine
+from ...lra.outputs.publication import LRAProduct
+from ..contracts import (
+    Fold,
+    TrainingAdmission,
+    ValidationRefusal,
+    finite_number,
+    manifest_sha256,
+)
+from ..metrics import closed_composition
+from ..prediction import ForwardInputs, ForwardModel, predict_withheld_site
+from .configuration import (
+    BLOCK_LOCAL_PROFILE,
+    LOCAL_EVALUATION_ROLES,
+    LOCAL_METHOD,
+    LOCAL_PROFILE,
+    ExperimentScope,
+    ExperimentSite,
+    ExperimentSpec,
+    LocalPollenSpec,
+    SpatialBlockLocalPollenSpec,
+    identity,
+    object_list,
+    object_mapping,
+)
+from .inputs import (
+    admitted_pollen_counts,
+    block_local_channel_evidence,
+    local_channel_evidence,
+    observation_channels,
+    read_geometry,
+)
+from .reconstruction import FoldFits, extract_reconstruction
+
+
+class PreparedGeometry(Protocol):
+    taxa: tuple[str, ...]
+    local_k: Iterable[Iterable[float]]
+    terrestrial_fraction: Iterable[float]
+    ppe: Iterable[float]
+    regional_deposition: Iterable[float]
+    full_k: Iterable[Iterable[float]]
+    full_terrestrial_fraction: Iterable[float]
+    ring_bounds_m: Iterable[Iterable[float]]
+    regional_cover: Iterable[float]
+    method_profile: str
+    preparation_profile: str
+    geometry_profile: str
+    regional_cutoff_m: float
+    deposition_units: str
+
+
+def _support(
+    spec: ExperimentScope,
+    geometry: dict[str, object],
+    anchor_geometry: dict[str, object],
+) -> str:
+    metadata = object_mapping(geometry["sample_metadata"], "sample_metadata")
+    anchor = object_mapping(anchor_geometry["sample_metadata"], "anchor_metadata")
+    for field in ("bin_id", "coordinate", "age_type"):
+        if metadata[field] != anchor[field]:
+            raise ValidationRefusal("incompatible_target_time", field)
+    coordinate = metadata["coordinate"]
+    finite_number(coordinate)
+    if isinstance(coordinate, int) and int(float(coordinate)) != coordinate:
+        raise ValidationRefusal(
+            "inexact_pairing_coordinate", "Target coordinate loses precision"
+        )
+    matching = object_mapping(spec.template()["temporal_matching"], "temporal_matching")
+    bins = object_list(matching["bins"], "bins")
+    if len(bins) != 1:
+        raise ValidationRefusal(
+            "unsupported_experiment_time", "Initial profile requires one declared bin"
+        )
+    bounds = object_mapping(bins[0], "bin")
+    if bounds["bin_id"] != metadata["bin_id"] or metadata["age_type"] not in {
+        "calendar_bp",
+        "radiocarbon_bp",
+    }:
+        raise ValidationRefusal(
+            "incompatible_target_time", "Target bin or chronology unit differs"
+        )
+    intervals = object_list(metadata["age_support_bp"], "age_support_bp")
+    if not intervals:
+        raise ValidationRefusal("incompatible_target_time", "Target support is empty")
+    for value in intervals:
+        pair = object_list(value, "age_interval")
+        if len(pair) != 2:
+            raise ValidationRefusal(
+                "incompatible_target_time", "Expected younger/older BP bounds"
+            )
+        younger, older = map(finite_number, pair)
+        if (
+            not finite_number(bounds["younger_bp"])
+            <= younger
+            <= older
+            <= finite_number(bounds["older_bp"])
+        ):
+            raise ValidationRefusal(
+                "incompatible_target_time", "Target support is outside the declared bin"
+            )
+    return identity(metadata["bin_id"])
+
+
+def predict_fold(
+    spec: ExperimentSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    fits: FoldFits,
+    group_by_record: dict[str, str],
+    *,
+    input_root: Path,
+    consumed_geometry: set[str] | None = None,
+) -> tuple[list[dict[str, object]], dict[str, object]]:
+    binding, prepared, geometry, bin_id = prepare_target_forward(
+        spec,
+        target,
+        fits.anchor,
+        fits.regional_cover,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
+    )
+    taxa = prepared.taxa
+    template = spec.template()
+    predictor_groups = tuple(
+        group_by_record[site.record.record_id] for site in fits.predictors
+    )
+    distances = {}
+    for site in fits.predictors:
+        other = read_geometry(
+            input_root, site, spec, consumed_geometry=consumed_geometry
+        )
+        distance = wgs84_inverse_geodesic(
+            longitude_a=finite_number(geometry["longitude"]),
+            latitude_a=finite_number(geometry["latitude"]),
+            longitude_b=finite_number(other["longitude"]),
+            latitude_b=finite_number(other["latitude"]),
+        )
+        distances[group_by_record[site.record.record_id]] = (
+            distance.distance_km_unrounded
+        )
+    regional_id = "experiment-regional:" + manifest_sha256(
+        {"anchor": fits.anchor.record.record_id, "fits": fits.fit_identities}
+    )
+    params_id = "experiment-parameters:" + manifest_sha256(
+        {"parameters": template["parameters"], "evidence": template["evidence"]}
+    )
+    geometry_id = "experiment-geometry:" + target.geometry.sha256
+    time_id = "experiment-time:" + manifest_sha256(
+        {
+            "metadata": geometry["sample_metadata"],
+            "matching": template["temporal_matching"],
+        }
+    )
+    graph: dict[str, tuple[str, ...]] = dict.fromkeys(fold.train_record_ids, ())
+    derived = {
+        regional_id: fold.train_record_ids,
+        params_id: (),
+        geometry_id: (),
+        time_id: (),
+    }
+    if set(graph) & set(derived) or len(derived) != 4:
+        raise ValidationRefusal("experiment_identity_collision", fold.fold_id)
+    graph.update(derived)
+    context = ForwardInputs(
+        taxa=taxa,
+        regional_deposition=tuple(prepared.regional_deposition),
+        local_k=tuple(tuple(row) for row in prepared.local_k),
+        terrestrial_fraction=tuple(prepared.terrestrial_fraction),
+        ppe=tuple(prepared.ppe),
+        regional_input_ids=(regional_id,),
+        parameter_input_ids=(params_id,),
+        geometry_input_ids=(geometry_id,),
+        temporal_support_id=time_id,
+        method_profile=prepared.method_profile,
+        engine_build_id=manifest_sha256(binding.as_dict()),
+    )
+    rows: list[dict[str, object]] = []
+    for method in spec.baselines:
+        prediction = predict_withheld_site(
+            fold,
+            group_by_record[target.record.record_id],
+            fits.compositions,
+            context,
+            cast(ForwardModel, binding.api.forward_deposition),
+            spatial_method=method,
+            training_input_ids=fold.train_record_ids,
+            dependency_graph=graph,
+            admitted_external_ids=tuple(derived),
+            distances_km=distances,
+            predictor_group_ids=predictor_groups,
+        )
+        rows.append(
+            {
+                "fold_id": fold.fold_id,
+                "record_id": target.record.record_id,
+                "bin_id": bin_id,
+                "baseline": method,
+                "vegetation_fraction": dict(prediction.vegetation_fraction),
+                "pollen_fraction": dict(prediction.pollen_fraction),
+                "prediction_manifest_sha256": prediction.prediction_manifest_sha256,
+                "prediction_manifest": object_mapping(
+                    json.loads(prediction.input_manifest_json), "prediction_manifest"
+                ),
+            }
+        )
+    details: dict[str, object] = {
+        "preparation_profile": prepared.preparation_profile,
+        "forward_method_profile": prepared.method_profile,
+        "geometry_profile": prepared.geometry_profile,
+        "deposition_units": prepared.deposition_units,
+        "full_k": [list(row) for row in prepared.full_k],
+        "full_terrestrial_fraction": list(prepared.full_terrestrial_fraction),
+        "ring_bounds_m": [list(row) for row in prepared.ring_bounds_m],
+        "regional_cutoff_m": prepared.regional_cutoff_m,
+        "regional_cover": list(prepared.regional_cover),
+        "forward_inputs": context.as_dict(),
+        "distances_km": distances,
+        "target_geometry_sha256": target.geometry.sha256,
+        "regional_anchor_record_id": fits.anchor.record.record_id,
+        "regional_value_source_record_ids": [fits.anchor.record.record_id],
+        "regional_identity_source_record_ids": fold.train_record_ids,
+        "regional_identity_policy": "conservative_all_training_fit_receipts",
+        "regional_anchor_group_id": group_by_record[fits.anchor.record.record_id],
+        "predictor_group_ids": predictor_groups,
+        "outer_fold": fold.as_dict(),
+        "support_profile": spec.support_profile,
+        "local_support_radius_m": spec.local_support_radius_m,
+        "declared_target_inversion_rings": geometry["inversion_rings"],
+        "declared_target_forward_rings": geometry["forward_rings"],
+    }
+    return rows, details
+
+
+def prepare_target_forward(
+    spec: ExperimentScope,
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+    regional_cover: tuple[float, ...],
+    *,
+    input_root: Path,
+    consumed_geometry: set[str] | None = None,
+) -> tuple[EngineBinding, PreparedGeometry, dict[str, object], str]:
+    geometry = read_geometry(
+        input_root, target, spec, consumed_geometry=consumed_geometry
+    )
+    anchor_geometry = read_geometry(
+        input_root, anchor, spec, consumed_geometry=consumed_geometry
+    )
+    bin_id = _support(spec, geometry, anchor_geometry)
+    binding, prepared = prepare_forward_geometry(
+        spec.template(),
+        geometry,
+        regional_cover,
+        local_ring_count=spec.local_ring_count,
+    )
+    return binding, prepared, geometry, bin_id
+
+
+def prepare_forward_geometry(
+    template: dict[str, object],
+    geometry: dict[str, object],
+    regional_cover: tuple[float, ...],
+    *,
+    local_ring_count: int,
+) -> tuple[EngineBinding, PreparedGeometry]:
+    import pandas as pd
+
+    parameters = [
+        object_mapping(row, "parameter")
+        for row in object_list(template["parameters"], "parameters")
+    ]
+    # Explicit host→engine field/unit map; neither aliases nor units are guessed.
+    params = pd.DataFrame(
+        {
+            "Taxon": [row["taxon"] for row in parameters],
+            "fallspeed": [row["fallspeed_m_s"] for row in parameters],
+            "ppe": [row["ppe"] for row in parameters],
+            "ppe.error": [row["ppe_sd"] for row in parameters],
+        }
+    )
+    ring_rows = [
+        object_mapping(row, "ring")
+        for row in object_list(geometry["forward_rings"], "forward_rings")
+    ]
+    rings = pd.DataFrame(
+        {
+            key: [row[source] for row in ring_rows]
+            for key, source in (
+                ("inner", "inner_m"),
+                ("outer", "outer_m"),
+                ("mean", "mean_m"),
+                ("ring", "ring_area_m2"),
+                ("terrestrial", "terrestrial_area_m2"),
+            )
+        }
+    )
+    basin = object_mapping(geometry["basin"], "basin")
+    if basin["site_type"] != "lake":
+        raise ValidationRefusal(
+            "unsupported_target_basin", "Initial local profile requires a lake"
+        )
+    love = object_mapping(
+        object_mapping(template["configuration"], "configuration")["love"], "love"
+    )
+    binding = load_engine()
+    for name in ("ForwardConfig", "prepare_forward_inputs", "forward_deposition"):
+        if not callable(getattr(binding.api, name, None)):
+            raise ValidationRefusal("forward_preparation_unavailable", name)
+    config = binding.api.ForwardConfig(
+        local_ring_count=local_ring_count,
+        local_basin_diameter_m=basin["diameter_m"],
+        distance_weighting=love.get("distance_weighting", "lsm unstable"),
+        regional_cover_profile="disqover-rounded-fractions",
+    )
+    prepared = cast(
+        PreparedGeometry,
+        binding.api.prepare_forward_inputs(params, rings, regional_cover, config),
+    )
+    taxa = tuple(str(value) for value in object_list(template["taxa"], "taxa"))
+    if prepared.taxa != taxa:
+        raise ValidationRefusal(
+            "taxon_denominator_mismatch",
+            "Prepared target and reconstruction order differ",
+        )
+    return binding, prepared
+
+
+def predict_assimilated_local(
+    spec: LocalPollenSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+    product: LRAProduct,
+    request: dict[str, object],
+    *,
+    input_root: Path,
+    consumed_geometry: set[str] | None = None,
+) -> dict[str, object]:
+    composition, regional, extracted = extract_reconstruction(product, request, spec)
+    binding, prepared, geometry, bin_id = prepare_target_forward(
+        spec,
+        target,
+        anchor,
+        regional,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
+    )
+    output = cast(ForwardModel, binding.api.forward_deposition)(
+        tuple(composition[taxon] for taxon in prepared.taxa),
+        tuple(prepared.regional_deposition),
+        tuple(tuple(row) for row in prepared.local_k),
+        tuple(prepared.terrestrial_fraction),
+        tuple(prepared.ppe),
+    )
+    if output.method_profile != prepared.method_profile:
+        raise ValidationRefusal("forward_profile_mismatch", output.method_profile)
+    values = tuple(output.pollen_fraction)
+    if len(values) != len(prepared.taxa):
+        raise ValidationRefusal(
+            "taxon_denominator_mismatch", "Forward output shape differs"
+        )
+    pollen = closed_composition(dict(zip(prepared.taxa, values, strict=True)))
+    local = object_mapping(request["local"], "local")
+    sample = object_mapping(object_list(local["samples"], "samples")[0], "sample")
+    counts = admitted_pollen_counts(
+        dict(zip(prepared.taxa, object_list(sample["counts"], "counts"), strict=True)),
+        prepared.taxa,
+    )
+    row: dict[str, object] = {
+        "profile": LOCAL_PROFILE,
+        "fold_id": fold.fold_id,
+        "record_id": target.record.record_id,
+        "group_id": fold.test_group_ids[0],
+        "bin_id": bin_id,
+        "method": LOCAL_METHOD,
+        "method_kind": "local_pollen_assimilation",
+        "evaluation_roles": LOCAL_EVALUATION_ROLES,
+        "pollen_eligible_for_heldout_acceptance": False,
+        "vegetation_fraction": composition,
+        "pollen_fraction": pollen,
+        "observed_pollen_count": counts,
+        "observed_pollen_unit": "count",
+        "channel_admission": local_channel_evidence(spec, fold, target, anchor),
+        "outer_fold": fold.as_dict(),
+        "observed_local_pollen_source": {
+            "record_id": target.record.record_id,
+            "group_id": fold.test_group_ids[0],
+            "path": target.raw.path,
+            "sha256": target.raw.sha256,
+            "role": "observed_local_pollen",
+        },
+        "regional_pollen_source": {
+            "record_id": anchor.record.record_id,
+            "path": anchor.raw.path,
+            "sha256": anchor.raw.sha256,
+            "role": "training_regional_pollen",
+        },
+        "unused_training_record_ids": [
+            record
+            for record in fold.train_record_ids
+            if record != anchor.record.record_id
+        ],
+        "request_sha256": manifest_sha256(request),
+        "numerical_product": extracted,
+        "target_geometry_sha256": target.geometry.sha256,
+        "support_profile": spec.support_profile,
+        "local_support_radius_m": spec.local_support_radius_m,
+        "preparation_profile": prepared.preparation_profile,
+        "forward_method_profile": output.method_profile,
+        "engine_build": binding.as_dict(),
+        "declared_inversion_rings": geometry["inversion_rings"],
+        "declared_forward_rings": geometry["forward_rings"],
+        "regional_cover": list(prepared.regional_cover),
+        "full_k": [list(row) for row in prepared.full_k],
+        "full_terrestrial_fraction": list(prepared.full_terrestrial_fraction),
+        "ring_bounds_m": [list(row) for row in prepared.ring_bounds_m],
+        "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+    }
+    return {**row, "prediction_manifest_sha256": manifest_sha256(row)}
+
+
+def predict_assimilated_block_local(
+    spec: SpatialBlockLocalPollenSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+    admission: TrainingAdmission,
+    product: LRAProduct,
+    request: dict[str, object],
+    *,
+    input_root: Path,
+    consumed_geometry: set[str] | None = None,
+) -> dict[str, object]:
+    channel = block_local_channel_evidence(spec, fold, target, anchor, admission)
+    composition, regional, extracted = extract_reconstruction(product, request, spec)
+    binding, prepared, geometry, bin_id = prepare_target_forward(
+        spec,
+        target,
+        anchor,
+        regional,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
+    )
+    output = cast(ForwardModel, binding.api.forward_deposition)(
+        tuple(composition[taxon] for taxon in prepared.taxa),
+        tuple(prepared.regional_deposition),
+        tuple(tuple(row) for row in prepared.local_k),
+        tuple(prepared.terrestrial_fraction),
+        tuple(prepared.ppe),
+    )
+    if output.method_profile != prepared.method_profile:
+        raise ValidationRefusal("forward_profile_mismatch", output.method_profile)
+    values = tuple(output.pollen_fraction)
+    if len(values) != len(prepared.taxa):
+        raise ValidationRefusal(
+            "taxon_denominator_mismatch", "Forward output shape differs"
+        )
+    pollen = closed_composition(dict(zip(prepared.taxa, values, strict=True)))
+    local = object_mapping(request["local"], "local")
+    sample = object_mapping(object_list(local["samples"], "samples")[0], "sample")
+    counts = admitted_pollen_counts(
+        dict(zip(prepared.taxa, object_list(sample["counts"], "counts"), strict=True)),
+        prepared.taxa,
+    )
+    target_owner = next(
+        row
+        for row in observation_channels(spec)
+        if row.record_id == target.record.record_id
+    )
+    criterion = object_mapping(json.loads(admission.criterion_json), "criterion")
+    supports = object_mapping(criterion["supports"], "supports")
+    row: dict[str, object] = {
+        "profile": BLOCK_LOCAL_PROFILE,
+        "fold_id": fold.fold_id,
+        "record_id": target.record.record_id,
+        "group_id": target_owner.group_id,
+        "bin_id": bin_id,
+        "method": LOCAL_METHOD,
+        "method_kind": "local_pollen_assimilation",
+        "evaluation_roles": LOCAL_EVALUATION_ROLES,
+        "pollen_eligible_for_heldout_acceptance": False,
+        "vegetation_fraction": composition,
+        "pollen_fraction": pollen,
+        "observed_pollen_count": counts,
+        "observed_pollen_unit": "count",
+        "channel_admission": channel,
+        "training_admission_sha256": manifest_sha256(admission.as_dict()),
+        "outer_fold": fold.as_dict(),
+        "observed_local_pollen_source": {
+            "record_id": target.record.record_id,
+            "group_id": target_owner.group_id,
+            "path": target.raw.path,
+            "sha256": target.raw.sha256,
+            "role": "observed_local_pollen",
+        },
+        "regional_pollen_source": {
+            "record_id": anchor.record.record_id,
+            "path": anchor.raw.path,
+            "sha256": anchor.raw.sha256,
+            "role": "buffer_admitted_training_regional_pollen",
+        },
+        "target_support": supports[target.record.record_id],
+        "regional_anchor_support": supports[anchor.record.record_id],
+        "unused_training_record_ids": [
+            record
+            for record in fold.train_record_ids
+            if record != anchor.record.record_id
+        ],
+        "request_manifest": request,
+        "request_sha256": manifest_sha256(request),
+        "numerical_product": extracted,
+        "target_geometry_sha256": target.geometry.sha256,
+        "support_profile": spec.support_profile,
+        "local_support_radius_m": spec.local_support_radius_m,
+        "preparation_profile": prepared.preparation_profile,
+        "forward_method_profile": output.method_profile,
+        "engine_build": binding.as_dict(),
+        "declared_inversion_rings": geometry["inversion_rings"],
+        "declared_forward_rings": geometry["forward_rings"],
+        "regional_cover": list(prepared.regional_cover),
+        "full_k": [list(value) for value in prepared.full_k],
+        "full_terrestrial_fraction": list(prepared.full_terrestrial_fraction),
+        "ring_bounds_m": [list(value) for value in prepared.ring_bounds_m],
+        "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+        "scientific_acceptance": "not_evaluated",
+    }
+    return {**row, "prediction_manifest_sha256": manifest_sha256(row)}

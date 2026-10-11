@@ -152,7 +152,7 @@ def test_generic_profile_has_an_exact_independent_verdict() -> None:
 
     assert summary["status"] == "PASS"
     assertions = cast(list[str], summary["assertions"])
-    assert set(assertions) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
+    assert frozenset(assertions) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
     assert "capture_frames_uncluttered" not in GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
     with pytest.raises(AtlasBrowserContractError, match="profile differs"):
         evaluate_browser_report(

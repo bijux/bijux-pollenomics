@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bijux.io/schemas/pollenomics-lra/run-manifest/1.0.0",
+  "title": "Bijux Pollenomics LRA run manifest",
+  "type": "object",
+  "required": [
+    "schema_version", "algorithm", "parameters", "inputs", "stochastic",
+    "seed", "compatibility_mode", "package", "package_version",
+    "reference_package", "reference_version", "reference_archive_sha256",
+    "generated_at_utc", "runtime"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "algorithm": {"type": "string", "minLength": 1},
+    "parameters": {"type": "object"},
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "stochastic": {"type": "boolean"},
+    "seed": {"type": ["integer", "null"], "minimum": 0},
+    "compatibility_mode": {"type": "string", "minLength": 1},
+    "package": {"const": "bijux-pollenomics-lra"},
+    "package_version": {"type": "string", "minLength": 1},
+    "reference_package": {"type": "string", "minLength": 1},
+    "reference_version": {"type": "string", "minLength": 1},
+    "reference_archive_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "generated_at_utc": {"type": "string", "format": "date-time"},
+    "runtime": {
+      "type": "object",
+      "required": ["python", "numpy", "scipy", "pandas", "platform"],
+      "additionalProperties": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

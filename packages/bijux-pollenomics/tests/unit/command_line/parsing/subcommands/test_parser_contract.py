@@ -61,6 +61,65 @@ _COMMAND_ACTIONS = {
         "context_root",
     ],
     "collect-data": ["help", "sources", "version", "output_root"],
+    "validate-lra-input": ["help", "request", "input_root"],
+    "run-lra": ["help", "request", "input_root", "output"],
+    "run-joint-lra": ["help", "request", "input_root", "output", "cache_root"],
+    "run-lra-batch": [
+        "help",
+        "request",
+        "input_root",
+        "cache_root",
+        "report_root",
+        "max_workers",
+        "max_items",
+    ],
+    "render-lra-report": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "geometry",
+        "expected_geometry_sha256",
+        "output",
+        "temporal_profile",
+    ],
+    "render-joint-lra-report": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "output",
+    ],
+    "prepare-lra-experiment": [
+        "help",
+        "request",
+        "input_root",
+        "cache_root",
+        "output",
+        "max_workers",
+    ],
+    "score-lra-experiment": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "outcome_root",
+        "outcome_inventory",
+        "output",
+    ],
+    "prepare-lra-observation-uncertainty": [
+        "help",
+        "predictions",
+        "plan",
+        "evidence_root",
+        "output",
+    ],
+    "score-lra-observation-coverage": [
+        "help",
+        "predictions",
+        "uncertainty",
+        "scores",
+        "expected_uncertainty_sha256",
+        "expected_scores_sha256",
+        "output",
+    ],
     "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
@@ -97,8 +156,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "7546a0e1edb4f99dc02db4ea115e00768d61b07d0fcf69cff51c0cad7ebe61f7"
+        == "ba52238e35a66f78de08203114c25c596b971c3c81adc51131ab1546208955e2"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "070037efc50cf3fedcdce8eb20f4ae3a19bdd15ea919be69ed97a251748c5ab5"
+        "9d583f73d007da5722aced886bd990991b8d38a39c238597284b48cd5b4f2804"
     )

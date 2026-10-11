@@ -24,6 +24,7 @@ authority, but cannot promote it.
 | Family | Governed unit | Product role | Strongest supported reading |
 | --- | --- | --- | --- |
 | LandClim | pollen site sequence and REVEALS grid cell | environmental context | time-aware pollen and vegetation-reconstruction coverage |
+| HYDE 3.5 | modeled variable, scenario, native grid cell and time | external model comparison | local custody pending native release and semantic admission; no independently measured vegetation truth |
 | Neotoma | pollen site | environmental context | site-level pollen coverage under explicit temporal posture |
 | SEAD | linked chronology claim for comparison; site row for spatial discovery | archaeology context | 25,109 claims include 14,264 comparable claims; the atlas carries 2,069 four-country site features and 9,727 Swedish chronology-discovery features |
 | RAÄ | published heritage record aggregated to density cells | archaeology context | Sweden-specific registry density under a declared classification |
@@ -42,9 +43,11 @@ separate:
 | --- | --- | --- |
 | seven collector-managed families | release, API, or registry capture into a family-owned tree | executable support is visible through `source-support`, but presence and fitness require separate state evidence |
 | animal ancient-DNA family | paper, archive, supplement, and sample-owned recovery | no synthetic collection adapter can replace project-by-project evidence lineage |
+| HYDE modeled context | external local file preparation and compact custody manifests | native data stays outside Git; byte custody does not establish source/scientific admission |
 
-This is why the eight-family portfolio has seven collection adapters. The
-difference is part of the scientific model, not an incomplete count.
+The nine-family portfolio has seven collection adapters. Animal evidence and
+external HYDE custody use their own intake paths; all families retain separate
+source-admission requirements.
 
 ## Comparison Requires A Bridge
 

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 from pathlib import Path
 import shutil
 import tempfile
@@ -154,9 +153,9 @@ def test_sead_admission_rejects_incomplete_declared_file_set() -> None:
 
 def test_sead_admission_rejects_payload_and_admission_rewrite() -> None:
     source_root = (REPO_ROOT / SEAD_ADMITTED_ACQUISITION_ADMISSION).parent
-    with tempfile.TemporaryDirectory(dir=REPO_ROOT / "artifacts") as temporary:
+    with tempfile.TemporaryDirectory() as temporary:
         destination = Path(temporary) / source_root.name
-        shutil.copytree(source_root, destination, copy_function=os.link)
+        shutil.copytree(source_root, destination)
         admission_path = destination / "admission.json"
         payload_path = destination / "payloads/tbl_sites.json"
         assert sead_validation._valid_sead_admission(admission_path)
@@ -186,7 +185,7 @@ def test_sead_admission_rejects_payload_and_admission_rewrite() -> None:
 def test_sead_normalized_evidence_rejects_raw_digest_divergence() -> None:
     normalized_source = REPO_ROOT / SEAD_NORMALIZED_EVIDENCE_MANIFEST
     raw_source = REPO_ROOT / SEAD_ADMITTED_ACQUISITION_ADMISSION
-    with tempfile.TemporaryDirectory(dir=REPO_ROOT / "artifacts") as temporary:
+    with tempfile.TemporaryDirectory() as temporary:
         data_root = Path(temporary) / "data"
         normalized_root = (
             data_root / SEAD_NORMALIZED_EVIDENCE_MANIFEST.removeprefix("data/")
@@ -194,10 +193,8 @@ def test_sead_normalized_evidence_rejects_raw_digest_divergence() -> None:
         raw_root = (
             data_root / SEAD_ADMITTED_ACQUISITION_ADMISSION.removeprefix("data/")
         ).parent
-        shutil.copytree(
-            normalized_source.parent, normalized_root, copy_function=os.link
-        )
-        shutil.copytree(raw_source.parent, raw_root, copy_function=os.link)
+        shutil.copytree(normalized_source.parent, normalized_root)
+        shutil.copytree(raw_source.parent, raw_root)
         manifest_path = normalized_root / "evidence_materialization_manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         assert sead_validation._valid_sead_normalized_admission_link(

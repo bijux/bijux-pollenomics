@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Cite the underlying REVEALS/LOVE methods and the exact software version used."
+title: "bijux-pollenomics-lra"
+type: software
+version: 0.1.0
+date-released: 2026-09-11
+license: GPL-2.0-or-later
+authors:
+  - family-names: "Mousavi"
+    given-names: "Bijan"
+    email: "bijan@bijux.io"
+preferred-citation:
+  type: article
+  title: "A matter of dispersal: REVEALSinR introduces state-of-the-art dispersal models to quantitative vegetation reconstruction"
+  authors:
+    - family-names: Theuerkauf
+      given-names: Martin
+    - family-names: Couwenberg
+      given-names: John
+    - family-names: Kuparinen
+      given-names: Anna
+    - family-names: Liebscher
+      given-names: Volkmar
+  year: 2016
+  journal: "Vegetation History and Archaeobotany"

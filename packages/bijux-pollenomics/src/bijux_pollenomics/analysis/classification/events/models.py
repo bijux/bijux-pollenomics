@@ -8,6 +8,31 @@ from .vocabulary import _CLASSIFICATION_CONTRACT_VERSION
 
 
 @dataclass(frozen=True)
+class ClassificationReviewContext:
+    """Review identity only; no detection, chronology, or LRA admission claim."""
+
+    source_family: str
+    classification_contract_version: str
+    mapping_version: str
+
+    def __post_init__(self) -> None:
+        for name in (
+            "source_family",
+            "classification_contract_version",
+            "mapping_version",
+        ):
+            value = getattr(self, name)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"{name} must be non-empty")
+            object.__setattr__(self, name, value.strip())
+        if self.classification_contract_version != _CLASSIFICATION_CONTRACT_VERSION:
+            raise ValueError("unsupported ecological classification contract version")
+
+    def as_dict(self) -> dict[str, str]:
+        return dict(self.__dict__)
+
+
+@dataclass(frozen=True)
 class ClassificationEventContext:
     """Pinned derivation identity shared by one classification event build."""
 

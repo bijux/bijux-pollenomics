@@ -5,6 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 import sys
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from bijux_pollenomics_dev.release.license_assets import (
@@ -42,3 +44,34 @@ def test_license_assets_match_repository_root_sources() -> None:
 
 def test_license_assets_are_synchronized() -> None:
     assert synchronize_license_assets(check=True) == []
+
+
+def test_independent_license_is_never_replaced_by_repository_license(
+    tmp_path: Path,
+) -> None:
+    (tmp_path / "pyproject.toml").write_text(
+        '[tool.bijux_pollenomics]\npackages = ["host", "engine"]\n'
+        'package_owned_legal_assets = ["engine"]\n'
+    )
+    engine = tmp_path / "packages" / "engine"
+    engine.mkdir(parents=True)
+    (engine / "LICENSE").write_text("Independent source license")
+    (engine / "NOTICE").write_text("Original source attribution")
+    assets = managed_assets(tmp_path)
+    assert {asset.target.parent.name for asset in assets} == {"host"}
+    assert (engine / "LICENSE").read_text() == "Independent source license"
+    (engine / "NOTICE").unlink()
+    with pytest.raises(ValueError, match="package-owned legal asset"):
+        managed_assets(tmp_path)
+
+
+@pytest.mark.parametrize("owned", ['["typo"]', '["host", "host"]', '"host"'])
+def test_independent_license_policy_rejects_unknown_or_ambiguous_owners(
+    tmp_path: Path, owned: str
+) -> None:
+    (tmp_path / "pyproject.toml").write_text(
+        '[tool.bijux_pollenomics]\npackages = ["host"]\n'
+        f"package_owned_legal_assets = {owned}\n"
+    )
+    with pytest.raises(ValueError, match="unique workspace packages"):
+        managed_assets(tmp_path)

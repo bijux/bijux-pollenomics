@@ -1,0 +1,540 @@
+{
+  "definition_owners": [
+    {
+      "original_module": "_rounding",
+      "definition": "r_round",
+      "destination": "dispersal.rounding"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "ensure_same_taxa",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "finite_number",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "frame",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "integer",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "matrix",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "normalise_parameters",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "parameter_value",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "rng_from",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "sample_counts",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "scalar",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_validation",
+      "definition": "vector",
+      "destination": "models.validation"
+    },
+    {
+      "original_module": "_version",
+      "definition": "COMPATIBILITY_MODE",
+      "destination": "version"
+    },
+    {
+      "original_module": "_version",
+      "definition": "NUMERICAL_BACKEND",
+      "destination": "version"
+    },
+    {
+      "original_module": "_version",
+      "definition": "REFERENCE_ARCHIVE_SHA256",
+      "destination": "version"
+    },
+    {
+      "original_module": "_version",
+      "definition": "REFERENCE_PACKAGE",
+      "destination": "version"
+    },
+    {
+      "original_module": "_version",
+      "definition": "REFERENCE_VERSION",
+      "destination": "version"
+    },
+    {
+      "original_module": "_version",
+      "definition": "__version__",
+      "destination": "version"
+    },
+    {
+      "original_module": "datasets",
+      "definition": "DATASETS",
+      "destination": "resources.examples"
+    },
+    {
+      "original_module": "datasets",
+      "definition": "_decode",
+      "destination": "resources.examples"
+    },
+    {
+      "original_module": "datasets",
+      "definition": "load_dataset",
+      "destination": "resources.examples"
+    },
+    {
+      "original_module": "datasets",
+      "definition": "load_love_example",
+      "destination": "resources.examples"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "BASIN_TYPES",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "DispersalFactorK",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "Loess1D",
+      "destination": "dispersal.loess"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "METHODS",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "_distance_model",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "_factor_scalar",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "_lsm_data",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "clear_dispersal_cache",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "dispersal_factor",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "gpm",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "gpm_values",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "lake_annulus_influx",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "lsm_model",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "dispersal",
+      "definition": "one_over_d_model",
+      "destination": "dispersal.kernels"
+    },
+    {
+      "original_module": "errors",
+      "definition": "LRAError",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "NativeOptimizerWarning",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "ParityError",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "ReferenceUnavailableError",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "SourceCompatibilityWarning",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "UpstreamUndefinedBehavior",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "errors",
+      "definition": "ValidationError",
+      "destination": "models.errors"
+    },
+    {
+      "original_module": "integration",
+      "definition": "extension_descriptor",
+      "destination": "api"
+    },
+    {
+      "original_module": "io",
+      "definition": "_safe_name",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "_write_checksum_manifest",
+      "destination": "outputs.checksums"
+    },
+    {
+      "original_module": "io",
+      "definition": "_write_frame",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "_write_series",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "write_love_result",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "write_lra_result",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "write_lra_series_result",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "io",
+      "definition": "write_reveals_result",
+      "destination": "outputs.serialization"
+    },
+    {
+      "original_module": "love",
+      "definition": "LOVEoptim",
+      "destination": "reconstruction.optimized"
+    },
+    {
+      "original_module": "love",
+      "definition": "LOVEr",
+      "destination": "reconstruction.analytical"
+    },
+    {
+      "original_module": "love",
+      "definition": "_fallspeeds",
+      "destination": "reconstruction.inputs"
+    },
+    {
+      "original_module": "love",
+      "definition": "_prepare_inputs",
+      "destination": "reconstruction.inputs"
+    },
+    {
+      "original_module": "love",
+      "definition": "_regional_cover",
+      "destination": "reconstruction.inputs"
+    },
+    {
+      "original_module": "love",
+      "definition": "_summary_frames",
+      "destination": "reconstruction.inputs"
+    },
+    {
+      "original_module": "love",
+      "definition": "calK",
+      "destination": "reconstruction.optimized"
+    },
+    {
+      "original_module": "love",
+      "definition": "logeuclidean",
+      "destination": "reconstruction.optimized"
+    },
+    {
+      "original_module": "love",
+      "definition": "lov",
+      "destination": "reconstruction.analytical"
+    },
+    {
+      "original_module": "love",
+      "definition": "love_pollen",
+      "destination": "reconstruction.optimized"
+    },
+    {
+      "original_module": "love",
+      "definition": "tf",
+      "destination": "reconstruction.optimized"
+    },
+    {
+      "original_module": "models",
+      "definition": "BasinType",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "DistanceWeighting",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "LRAConfig",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "LRAResult",
+      "destination": "models.results"
+    },
+    {
+      "original_module": "models",
+      "definition": "LRASeriesResult",
+      "destination": "models.results"
+    },
+    {
+      "original_module": "models",
+      "definition": "LoveConfig",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "LoveMethod",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "LoveResult",
+      "destination": "models.results"
+    },
+    {
+      "original_module": "models",
+      "definition": "RevealsConfig",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "RevealsResult",
+      "destination": "models.results"
+    },
+    {
+      "original_module": "models",
+      "definition": "_boolean",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "models",
+      "definition": "_enum_value",
+      "destination": "models.configuration"
+    },
+    {
+      "original_module": "optimization",
+      "definition": "Objective",
+      "destination": "optimization.solver"
+    },
+    {
+      "original_module": "optimization",
+      "definition": "OptimizationResult",
+      "destination": "optimization.solver"
+    },
+    {
+      "original_module": "optimization",
+      "definition": "ReplayOptimizer",
+      "destination": "optimization.solver"
+    },
+    {
+      "original_module": "optimization",
+      "definition": "optimize_box",
+      "destination": "optimization.solver"
+    },
+    {
+      "original_module": "optimization",
+      "definition": "warn_optimizer_nonparity",
+      "destination": "optimization.solver"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "_prepare_love_params",
+      "destination": "workflows.local"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "_seed_from_sequence",
+      "destination": "workflows.paired"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "run_love",
+      "destination": "workflows.local"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "run_lra",
+      "destination": "workflows.paired"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "run_lra_series",
+      "destination": "workflows.series"
+    },
+    {
+      "original_module": "pipeline",
+      "definition": "run_reveals",
+      "destination": "workflows.regional"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "RunManifest",
+      "destination": "provenance.manifest"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "_canonical",
+      "destination": "provenance.identity"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "_version_or_unknown",
+      "destination": "provenance.manifest"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "build_manifest",
+      "destination": "provenance.manifest"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "canonical_json",
+      "destination": "provenance.identity"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "sha256_file",
+      "destination": "provenance.identity"
+    },
+    {
+      "original_module": "provenance",
+      "definition": "sha256_object",
+      "destination": "provenance.identity"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "PPEFunction",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "PollenFunction",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "REVEALS",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "REVEALSinR",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "_normalise_ppe_table",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "_reconstruct_frame",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "checkREVEALS",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "maher_counts",
+      "destination": "reconstruction.draws"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "multidraw",
+      "destination": "reconstruction.draws"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "rMaher",
+      "destination": "reconstruction.draws"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "reveals_cover",
+      "destination": "reconstruction.regional"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "rmultinom_reveals",
+      "destination": "reconstruction.draws"
+    },
+    {
+      "original_module": "reveals",
+      "definition": "rnorm_reveals",
+      "destination": "reconstruction.draws"
+    }
+  ],
+  "excluded_production": [
+    "standalone CLI",
+    "host product envelopes",
+    "reference oracle runtime API"
+  ],
+  "preserved_original": "artifacts/v2/engine/architecture-reference"
+}

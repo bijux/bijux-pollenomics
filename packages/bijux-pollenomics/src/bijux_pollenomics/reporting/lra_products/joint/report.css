@@ -1,0 +1,62 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 96rem;
+  padding: 1.5rem;
+}
+
+section {
+  border-top: 1px solid currentColor;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.warning,
+.status.incomplete {
+  border-inline-start: 0.35rem solid #b35c00;
+  padding-inline-start: 0.75rem;
+}
+
+.status.complete {
+  border-inline-start: 0.35rem solid #26734d;
+  padding-inline-start: 0.75rem;
+}
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 42rem;
+}
+
+caption {
+  font-weight: 700;
+  padding: 0.5rem;
+  text-align: start;
+}
+
+th,
+td {
+  border: 1px solid currentColor;
+  padding: 0.4rem 0.55rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+pre {
+  max-height: 32rem;
+  overflow: auto;
+  white-space: pre-wrap;
+}

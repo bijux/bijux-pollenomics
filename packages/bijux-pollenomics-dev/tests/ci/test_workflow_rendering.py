@@ -1,11 +1,13 @@
-"""Keep generated workflow wrappers synchronized with their manifest authority."""
+"""Keep canonical source admission complete and fail closed for every package."""
 
 from __future__ import annotations
 
-import copy
 import importlib.util
+from itertools import product
 import json
+import os
 from pathlib import Path
+import subprocess
 from types import ModuleType
 from typing import Any, cast
 
@@ -31,42 +33,99 @@ def _load_workflow(document: str) -> dict[str, Any]:
     return cast(dict[str, Any], loaded)
 
 
-def test_manifest_renders_exact_bounded_workflow_wrappers() -> None:
+def test_manifest_renders_exact_source_admission_wrappers() -> None:
     renderer = _renderer()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    repository = renderer.find_repo_config(manifest, "bijux-pollenomics")
-    rendered_workflows: dict[str, dict[str, Any]] = {}
-
+    prepared = renderer.prepare_repo_files("bijux-pollenomics", manifest)
+    workflows: dict[str, dict[str, Any]] = {}
     for name in ("ci", "verify"):
-        definition = copy.deepcopy(repository["workflow_wrappers"][name])
-        definition = renderer.inject_dependabot_pull_request_skip(name, definition)
-        definition = renderer.normalize_workflow_wrapper(name, definition)
-        rendered = renderer.render_yaml_document(definition)
-        assert rendered.encode() == (WORKFLOWS / f"{name}.yml").read_bytes()
-        rendered_workflows[name] = _load_workflow(rendered)
+        relative = f".github/workflows/{name}.yml"
+        content = prepared[relative]
+        assert isinstance(content, bytes)
+        assert content == (REPOSITORY / relative).read_bytes()
+        workflows[name] = _load_workflow(content.decode())
 
-    ci = rendered_workflows["ci"]
-    verify = rendered_workflows["verify"]
+    ci, verify = workflows["ci"], workflows["verify"]
     assert set(ci["on"]) == {"workflow_call"}
+    assert set(ci["jobs"]) == {"checks"}
+    inputs = ci["on"]["workflow_call"]["inputs"]
+    assert json.loads(inputs["check_targets"]["default"]) == ["lint", "security"]
+    assert json.loads(inputs["api_toolchain_targets"]["default"]) == []
+    assert "test_python_versions" not in inputs and "post_test_targets" not in inputs
+    assert ci["jobs"]["checks"]["strategy"]["matrix"] == {
+        "target": "${{ fromJson(inputs.check_targets) }}"
+    }
     assert set(verify["on"]) == {
-        "push",
         "pull_request",
         "workflow_dispatch",
         "merge_group",
     }
-
-    package_rows = verify["jobs"]["package"]["strategy"]["matrix"]["include"]
-    pollenomics = next(
-        row for row in package_rows if row["package_slug"] == "bijux-pollenomics"
-    )
-    assert json.loads(pollenomics["test_shards"]) == list(range(8))
-    assert int(pollenomics["test_shard_count"]) == 8
-
-    runner_jobs = {
-        f"{workflow_name}:{job_name}": job
-        for workflow_name, workflow in rendered_workflows.items()
-        for job_name, job in workflow["jobs"].items()
-        if "runs-on" in job
+    assert set(verify["jobs"]) == {"repository", "package", "verification_ready"}
+    package = verify["jobs"]["package"]
+    assert package["needs"] == "repository"
+    assert package["uses"] == "./.github/workflows/ci.yml"
+    rows = package["strategy"]["matrix"]["include"]
+    assert {row["package_slug"] for row in rows} == {
+        "bijux-pollenomics",
+        "pollenomics",
+        "bijux-pollenomics-dev",
+        "bijux-pollenomics-lra",
     }
-    assert runner_jobs
-    assert all(int(job["timeout-minutes"]) == 10 for job in runner_jobs.values())
+    assert len(rows) == 4
+    for row in rows:
+        assert json.loads(row["check_targets"]) == ["lint", "security"]
+        assert json.loads(row["api_toolchain_targets"]) == []
+        assert (REPOSITORY / row["package_dir"] / "pyproject.toml").is_file()
+        assert "test_shards" not in row
+    ready = verify["jobs"]["verification_ready"]
+    assert "always()" in ready["if"]
+    assert "github.event.pull_request.user.login != 'dependabot[bot]'" in ready["if"]
+    assert ready["needs"] == ["repository", "package"]
+    assert all(
+        "github.event.pull_request.user.login != 'dependabot[bot]'" in job.get("if", "")
+        for job in verify["jobs"].values()
+    )
+    selected = next(
+        entry["workflow_execution_policy"]
+        for entry in manifest["repositories"]
+        if entry["name"] == "bijux-pollenomics"
+    )
+    assert selected["dependency_pull_requests"] == "notification-only"
+    assert selected["main_verification"] == "accepted-pull-request"
+    assert selected["dependency_merge"] == "owner-consolidation"
+    typed_verify = renderer.WORKFLOW_EXECUTION.parse_workflow(
+        prepared[".github/workflows/verify.yml"], "verify"
+    )
+    assert (
+        renderer.WORKFLOW_EXECUTION.project_dependency_pull_requests(
+            "verify", typed_verify, selected
+        )
+        == typed_verify
+    )
+
+
+def test_source_aggregate_rejects_every_incomplete_dependency_result() -> None:
+    workflow = _load_workflow((WORKFLOWS / "verify.yml").read_text())
+    steps = workflow["jobs"]["verification_ready"]["steps"]
+    assert len(steps) == 1
+    step = steps[0]
+    assert step["env"] == {
+        "REPOSITORY_RESULT": "${{ needs.repository.result }}",
+        "PACKAGE_RESULT": "${{ needs.package.result }}",
+    }
+    for repository, package in product(
+        ("success", "failure", "cancelled", "skipped", ""), repeat=2
+    ):
+        environment = dict(
+            os.environ, REPOSITORY_RESULT=repository, PACKAGE_RESULT=package
+        )
+        result = subprocess.run(
+            ["bash", "-c", step["run"]],
+            env=environment,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        assert (result.returncode == 0) == (
+            repository == "success" and package == "success"
+        ), (repository, package, result.stderr)

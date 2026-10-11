@@ -1,6 +1,6 @@
 {
   "schema_version": "source-family-evidence-stage-matrix.v2",
-  "row_count": 8,
+  "row_count": 9,
   "rows": [
     {
       "source_key": "landclim",
@@ -194,13 +194,43 @@
         "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing"
       ]
+    },
+    {
+      "source_key": "hyde",
+      "display_name": "HYDE 3.5 modeled land-use context",
+      "domain_group": "modelled_land_use_context",
+      "evidence_role": "external_model_comparison",
+      "primary_question": "How do separately admitted HYDE 3.5 modeled quantities compare at matched spatial and temporal support, with independent inputs audited?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "missing",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "refused_not_publication_ready",
+      "authority_status": "refused",
+      "authority_reasons": [
+        "hyde_35_native_release_admission_unimplemented"
+      ],
+      "coverage_metrics": {
+        "hyde_admitted_cell_count": null,
+        "hyde_admitted_country_count": null
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_review_surface",
+        "missing_published_surface",
+        "source_authority_refused",
+        "hyde_35_native_release_admission_unimplemented",
+        "unavailable_governed_coverage_metrics"
+      ]
     }
   ],
   "capability_materialization_audit": {
     "schema_version": "source-capability-materialization-audit.v1",
     "dimension_count": 17,
-    "source_count": 8,
-    "row_count": 136,
+    "source_count": 9,
+    "row_count": 153,
     "support_vocabulary": [
       "partial",
       "supported",
@@ -213,6 +243,413 @@
       "partial"
     ],
     "rows": [
+      {
+        "source_key": "hyde",
+        "dimension": "site_identity",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "coordinates",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "four_country_coverage",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/review/country_coverage.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/review/country_coverage.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "within_site_hierarchy",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "numeric_chronology",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/review/time_support.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/review/time_support.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "chronology_uncertainty",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "relative_chronology",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "taxon_identity",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "native_ecological_class",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "derived_pollen_group",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "derived_ecological_role",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "crop_cereal_resolution",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "quantitative_observation",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "observation_unit",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/raw/variable_inventory.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/raw/variable_inventory.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "dataset_provenance",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/raw/source_manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/raw/source_manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "pollen_propagation_event",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "hyde",
+        "dimension": "non_pollen_context",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/hyde/3.5/review/comparison_contract.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/hyde/3.5/review/comparison_contract.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "hyde_admitted_cell_count": null,
+          "hyde_admitted_country_count": null
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_review_surface",
+          "missing_published_surface",
+          "source_authority_refused",
+          "hyde_35_native_release_admission_unimplemented",
+          "unavailable_governed_coverage_metrics",
+          "qualified_hyde_35_source_review_missing"
+        ]
+      },
       {
         "source_key": "landclim",
         "dimension": "site_identity",

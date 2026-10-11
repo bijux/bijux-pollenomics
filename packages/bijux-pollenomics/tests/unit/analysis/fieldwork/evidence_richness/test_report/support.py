@@ -132,17 +132,27 @@ def _admit_raa_density_fixture(root: Path, *, heritage_site_count: int) -> None:
         {
             "type": "Feature",
             "geometry": {"type": "Point", "coordinates": [14.0, 57.0]},
-            "properties": {"antikvariskbedomningtyp_namn": "Fornlämning"},
+            "properties": {
+                "lamningsnummer": f"synthetic-heritage-{ordinal}",
+                "antikvariskbedomningtyp_namn": "Fornlämning",
+            },
         }
-        for _ in range(heritage_site_count)
+        for ordinal in range(heritage_site_count)
     ]
     _write_json(
         root / "raa" / "raw" / "publicerade_lamningar_centrumpunkt.geojson",
-        {"type": "FeatureCollection", "features": raw_features},
+        {
+            "type": "FeatureCollection",
+            "features": raw_features,
+            "numberMatched": heritage_site_count,
+        },
     )
     _write_json(
         root / "raa" / "raw" / "publicerade_lamningar_centrumpunkt_summary.json",
         {
+            "number_matched": heritage_site_count,
+            "identified_feature_count": heritage_site_count,
+            "heritage_or_possible_site_count": heritage_site_count,
             "archived_feature_count": heritage_site_count,
             "heritage_site_count": heritage_site_count,
         },
@@ -150,7 +160,11 @@ def _admit_raa_density_fixture(root: Path, *, heritage_site_count: int) -> None:
     _write_json(
         root / "raa" / "normalized" / "sweden_archaeology_layer.json",
         {
-            "counts": {"fornlamning": heritage_site_count},
+            "counts": {
+                "fornlamning": heritage_site_count,
+                "all_published_sites": heritage_site_count,
+                "fornlamning_or_possible": heritage_site_count,
+            },
             "density_feature_count": 2,
         },
     )

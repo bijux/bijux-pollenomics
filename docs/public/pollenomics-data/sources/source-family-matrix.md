@@ -18,6 +18,7 @@ of scientific importance.
 | Family | Domain | Evidence role | Normalized unit | Characteristic review | Published use |
 | --- | --- | --- | --- | --- | --- |
 | LandClim | pollen context | primary context | site sequence and grid cell | freshness, coverage, temporal posture | world and regional pollen layers |
+| HYDE 3.5 | modeled land use | external model comparison | variable, scenario, grid cell, and source-native time | release, rights, grid/time semantics, and shared-input review | no admitted comparison yet |
 | Neotoma | pollen context | primary context | pollen-site record | site-level temporal comparability | world and regional pollen layers |
 | SEAD | archaeology context | contextual domain | environmental-archaeology site | access, temporal, and normalization legibility | archaeology context layers |
 | RAÄ | archaeology context | contextual domain | Swedish registry record and density surface | coverage and spatial interpretation | Sweden-focused archaeology layers |
@@ -56,6 +57,7 @@ The current stage matrix reports this materialized state:
 | Family | Raw | Normalized | Reviewed | Published | Checked-in metric and interpretation |
 | --- | --- | --- | --- | --- | --- |
 | LandClim | present | present | present | present | 490 sequences, 77 model cells, and 2,515 temporal model features under source-specific review |
+| HYDE 3.5 | missing | missing | missing | missing | native files are external; contracted compact admission products are absent, authority is refused, and admitted cell/country quantities remain null |
 | Neotoma | present | present | present | present | 200 normalized points; temporal capability remains member-specific |
 | SEAD | present | present | present | present | 2,069 assigned site points and 25,109 chronology claims; review supports a contextual, not uniformly dated, role |
 | RAÄ | present | present | missing | refused | authority is refused; source-scale counts and density files remain excluded until raw inventory, summary, and scientific review reconcile |
@@ -113,6 +115,7 @@ keys.
 | Family | Stable member identity | Safe cross-domain relation | Unsafe shortcut |
 | --- | --- | --- | --- |
 | LandClim | governed site or grid-cell identity | explicit site/grid relation with stated temporal basis | treating a model cell as an observed pollen sequence |
+| HYDE 3.5 | captured release, file, archive occurrence, variable, scenario, cell, and time | reviewed category and support mapping with an input-overlap audit | treating modeled land use as measured vegetation or copying native grids into Git |
 | Neotoma | database and site/deposit identifiers | retained database identity plus reviewed site relation | joining on site name alone |
 | SEAD | SEAD site identifier | declared distance or containment from its reported point | interpreting proximity as sample association |
 | RAÄ | national registry identity | declared spatial relation within Swedish registry scope | replacing SEAD or specimen provenance with a nearby heritage record |

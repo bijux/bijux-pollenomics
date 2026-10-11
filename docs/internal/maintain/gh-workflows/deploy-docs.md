@@ -4,15 +4,15 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-11
 ---
 
 # Docs Deployment
 
 `deploy-docs.yml` converts one repository revision into a verified GitHub Pages
-bundle and deploys that exact bundle. It runs only by manual dispatch or
-`workflow_call`; a merge to `main` does not trigger it directly in this
-repository.
+bundle and deploys that exact bundle. It exposes only an admitted manual
+dispatch from `main`, carrying the immutable `accepted_commit` selected by
+Bijux IaC. A merge to `main` does not deploy documentation.
 
 `deploy-docs.yml` builds the strict MkDocs site before any Pages artifact is
 accepted. The workflow follows the shared Bijux docs contract: repository
@@ -76,10 +76,11 @@ broken link or unsupported claim in the checked-out revision.
 
 ## Ref Safety
 
-A manual dispatch is rejected unless it runs from `main`, `master`, or a `v*`
-tag. The reusable-call path can deploy when called by another workflow, so the
-caller owns ref selection. Maintainers must record both the source revision and
-the workflow run; the mutable Pages URL alone is not enough to identify what
+Admission requires dispatch from `main`, the authenticated publication actor,
+and the exact current accepted main commit. That commit must be bound to its
+verified human PR. Feature refs, tag refs, stale revisions and dependency notices
+do not establish publication authority. Maintainers retain both the immutable
+source revision and workflow run; the mutable Pages URL does not identify what
 was published.
 
 ## Evidence To Retain

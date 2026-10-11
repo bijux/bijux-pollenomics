@@ -179,6 +179,25 @@ record remains authoritative.
 - `docs/report/repository_truth_posture.json` records cross-repository claim
   posture.
 
+## Classification Visual Profile
+
+The ecological classification contract resolves its `normative_visual_profile`
+from the repository root to
+`configs/scientific-contracts/map-visual-profile.v1.yaml`. This profile preserves
+the original v1 contract bytes, palette definitions and uncertainty styles.
+Its `authority.human_explanation` value,
+`specs/MAP-INTERACTION-AND-COLOR-SYSTEM.md`, is a source-native locator in the
+original `zzz-bijux-pollenomics-backlogs-v1` control pack. It is explanatory
+provenance, not a resolved repository-relative runtime asset; consumers must
+not interpret it as an available local file.
+
+Reference closure establishes that the classification hierarchy and profile
+agree. It does not establish that a renderer implements the profile, that
+accessibility checks passed, or that any taxon mapping is scientifically
+accepted. Classification receipt pins and regenerated evidence must remain
+consistent when classification contract bytes change, including path-only
+changes.
+
 ## Safe Reuse
 
 Reuse begins with the owning contract, not with a visually convenient file.

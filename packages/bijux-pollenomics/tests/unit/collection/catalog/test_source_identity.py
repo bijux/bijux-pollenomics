@@ -12,9 +12,21 @@ class SourceIdentityUnitTests(unittest.TestCase):
     def test_source_identity_registry_covers_tracked_sources(self) -> None:
         self.assertEqual(
             tuple(SOURCE_IDENTITIES),
-            ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead", "svar"),
+            (
+                "aadr",
+                "boundaries",
+                "hyde",
+                "landclim",
+                "neotoma",
+                "raa",
+                "sead",
+                "svar",
+            ),
         )
         self.assertEqual(SOURCE_IDENTITIES["raa"].display_name, "RAÄ")
+        self.assertEqual(
+            resolve_source_identity("hyde").evidence_family, "modelled_land_use_context"
+        )
 
     def test_resolve_source_identity_rejects_unknown_key(self) -> None:
         with self.assertRaisesRegex(ValueError, "Unsupported source identity"):

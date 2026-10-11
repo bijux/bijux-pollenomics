@@ -17,6 +17,40 @@ def build_source_capability_profiles() -> tuple[SourceCapabilityProfile, ...]:
     """Declare source-native capability independently of repository state."""
     profiles = (
         _profile(
+            "hyde",
+            evidence_class="modelled_land_use_context",
+            allowed_role="external modeled context after native HYDE 3.5 admission",
+            unsupported={
+                "site_identity",
+                "within_site_hierarchy",
+                "chronology_uncertainty",
+                "relative_chronology",
+                "taxon_identity",
+                "native_ecological_class",
+                "derived_pollen_group",
+                "derived_ecological_role",
+                "crop_cereal_resolution",
+                "pollen_propagation_event",
+            },
+            partial={
+                "coordinates",
+                "four_country_coverage",
+                "numeric_chronology",
+                "quantitative_observation",
+                "observation_unit",
+                "dataset_provenance",
+                "non_pollen_context",
+            },
+            evidence_paths=_source_evidence_paths("hyde"),
+            prohibited_claims=(
+                "HYDE modeled land use is independently measured vegetation truth",
+                "cropland is cereal pollen or non-agricultural area is forest",
+                "scenario bounds are statistical confidence intervals",
+                "declared interchange fixtures establish native HYDE 3.5 admission",
+            ),
+            human_review_reason="qualified_hyde_35_source_review_missing",
+        ),
+        _profile(
             "landclim",
             evidence_class="modelled_vegetation_or_land_cover",
             allowed_role="modelled vegetation and land-cover context",
@@ -223,7 +257,9 @@ def build_source_capability_contract_payload() -> dict[str, object]:
             "source_count": len(_NORMATIVE_SOURCE_KEYS),
             "source_keys": list(_NORMATIVE_SOURCE_KEYS),
         },
-        "extension_sources": ["aadr"],
+        "extension_sources": ["aadr", "hyde"],
+        "source_release_by_key": {"hyde": "3.5"},
+        "source_admission_by_key": {"hyde": "native_release_unverified"},
         "dimensions": list(CAPABILITY_DIMENSIONS),
         "sources": [asdict(profile) for profile in profiles],
     }

@@ -19,7 +19,7 @@ from .support import (
 
 def test_compact_bootstrap_reconstructs_exact_rows_and_preserves_v1() -> None:
     normalizer = template_block(
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
         "function validateStaticAtlasBootstrap",
     )
     observed = run_node_json(
@@ -40,6 +40,19 @@ console.log(JSON.stringify({{
 """
     )
 
+    source_table = cast(dict[str, object], compact_bootstrap()["assets"])
+    source_rows = cast(list[list[object]], source_table["records"])
+    expected_node = dict(zip(ASSET_TABLE_FIELDS, source_rows[0], strict=True))
+    expected_node.update(
+        chronology_absent_record_count=None,
+        refused_chronology_record_count=None,
+        contextual_chronology_record_count=None,
+    )
+    expected_indexes = dict(
+        zip(ASSET_TABLE_FIELDS[:12], source_rows[1][:12], strict=True)
+    )
+    assert observed["node"] == expected_node
+    assert observed["indexes"] == expected_indexes
     assert observed["schema"] == "atlas-static-bootstrap.v2"
     assert observed["node"]["layer_key"] == "source-samples"
     assert observed["node"]["bounds"] == [55.0, 10.0, 70.0, 25.0]
@@ -51,10 +64,10 @@ console.log(JSON.stringify({{
 def test_derived_bootstrap_reconstructs_transport_metadata() -> None:
     integrity_helper = template_block(
         "function staticAtlasIntegrityFromHex",
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
     )
     normalizer = template_block(
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
         "function validateStaticAtlasBootstrap",
     )
     legacy_table = cast(dict[str, object], compact_bootstrap()["assets"])
@@ -111,10 +124,10 @@ console.log(JSON.stringify({{node:normalized.assets[0],indexes:normalized.assets
 def test_v3_bootstrap_requires_reconciled_chronology_split() -> None:
     integrity_helper = template_block(
         "function staticAtlasIntegrityFromHex",
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
     )
     normalizer = template_block(
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
         "function validateStaticAtlasBootstrap",
     )
     legacy_table = cast(dict[str, object], compact_bootstrap()["assets"])
@@ -182,7 +195,7 @@ def test_compact_bootstrap_rejects_schema_width_count_identity_and_type_tamper()
     None
 ):
     normalizer = template_block(
-        "function normalizeStaticAtlasBootstrap",
+        "function staticAtlasTemporalIdentity",
         "function validateStaticAtlasBootstrap",
     )
     observed = run_node_json(

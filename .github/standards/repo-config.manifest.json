@@ -52,6 +52,11 @@
         "id": "codecov",
         "source": "shared/bijux-gh/workflows/codecov.yml",
         "consumer_runtime": ".github/workflows/codecov.yml"
+      },
+      {
+        "id": "dependency-notice",
+        "source": "shared/bijux-gh/workflows/dependency-notice.yml",
+        "consumer_runtime": ".github/workflows/dependency-notice.yml"
       }
     ]
   },
@@ -342,7 +347,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "rustfmt"
@@ -372,7 +377,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "clippy"
@@ -402,7 +407,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -435,7 +440,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -467,9 +472,35 @@
         "release-artifacts",
         "release-crates",
         "release-ghcr",
-        "release-github"
+        "release-github",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59"
+      "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-crates": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-canon",
@@ -881,7 +912,7 @@
                 "check_targets": {
                   "required": false,
                   "type": "string",
-                  "default": "[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]"
+                  "default": "[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]"
                 },
                 "api_toolchain_targets": {
                   "required": false,
@@ -904,18 +935,175 @@
             "cancel-in-progress": true
           },
           "jobs": {
-            "package": {
-              "uses": "bijux/bijux-std/.github/workflows/reusable-ci-python-packages.yml@c240e0629f69cabe675d4bb43f75e8a072e69cec",
-              "with": {
-                "package_slug": "${{ inputs.package_slug }}",
-                "package_dir": "${{ inputs.package_dir }}",
-                "artifacts_dir": "${{ inputs.artifacts_dir }}",
-                "test_python_versions": "${{ inputs.test_python_versions }}",
-                "check_targets": "${{ inputs.check_targets }}",
-                "api_toolchain_targets": "${{ inputs.api_toolchain_targets }}",
-                "post_test_command": "${{ inputs.post_test_command }}"
-              }
+            "tests": {
+              "name": "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
+              "runs-on": "ubuntu-latest",
+              "strategy": {
+                "fail-fast": false,
+                "matrix": {
+                  "python-version": "${{ fromJson(inputs.test_python_versions) }}"
+                }
+              },
+              "steps": [
+                {
+                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+                },
+                {
+                  "uses": "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+                  "with": {
+                    "python-version": "${{ matrix.python-version }}"
+                  }
+                },
+                {
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+                  "with": {
+                    "enable-cache": true,
+                    "cache-dependency-glob": "uv.lock"
+                  }
+                },
+                {
+                  "name": "Install package toolchain",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
+                },
+                {
+                  "name": "Run tests",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test "
+                },
+                {
+                  "name": "Run post-test validation",
+                  "if": "${{ inputs.post_test_command != '' }}",
+                  "shell": "bash",
+                  "env": {
+                    "ARTIFACTS_DIR": "${{ inputs.artifacts_dir }}"
+                  },
+                  "run": "${{ inputs.post_test_command }}"
+                },
+                {
+                  "name": "Upload test artifacts",
+                  "if": "${{ always() }}",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+                  "with": {
+                    "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}",
+                    "path": "${{ inputs.artifacts_dir }}/test",
+                    "if-no-files-found": "ignore",
+                    "retention-days": 14
+                  }
+                }
+              ]
+            },
+            "checks": {
+              "name": "checks-${{ inputs.package_slug }}-${{ matrix.target }}",
+              "runs-on": "ubuntu-latest",
+              "strategy": {
+                "fail-fast": false,
+                "matrix": {
+                  "target": "${{ fromJson(inputs.check_targets) }}"
+                }
+              },
+              "steps": [
+                {
+                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+                },
+                {
+                  "uses": "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+                  "with": {
+                    "python-version": 3.11
+                  }
+                },
+                {
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+                  "with": {
+                    "enable-cache": true,
+                    "cache-dependency-glob": "uv.lock"
+                  }
+                },
+                {
+                  "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                  "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
+                  "with": {
+                    "node-version": "24.21.0"
+                  }
+                },
+                {
+                  "uses": "actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6",
+                  "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
+                  "with": {
+                    "distribution": "temurin",
+                    "java-version": 17
+                  }
+                },
+                {
+                  "name": "Install package toolchain",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
+                },
+                {
+                  "name": "Run ${{ matrix.target }}",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" ${{ matrix.target }} "
+                },
+                {
+                  "name": "Upload artifacts",
+                  "if": "${{ always() && hashFiles(format('{0}/{1}/**', inputs.artifacts_dir, matrix.target)) != '' }}",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+                  "with": {
+                    "name": "${{ inputs.package_slug }}-${{ matrix.target }}",
+                    "path": "${{ inputs.artifacts_dir }}/${{ matrix.target }}",
+                    "if-no-files-found": "ignore",
+                    "retention-days": 14
+                  }
+                }
+              ]
+            },
+            "lint": {
+              "name": "lint-${{ inputs.package_slug }}",
+              "runs-on": "ubuntu-latest",
+              "steps": [
+                {
+                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+                },
+                {
+                  "uses": "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+                  "with": {
+                    "python-version": 3.11
+                  }
+                },
+                {
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+                  "with": {
+                    "enable-cache": true,
+                    "cache-dependency-glob": "uv.lock"
+                  }
+                },
+                {
+                  "name": "Install package toolchain",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
+                },
+                {
+                  "name": "Run lint",
+                  "shell": "bash",
+                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" lint "
+                },
+                {
+                  "name": "Upload lint artifacts",
+                  "if": "${{ always() }}",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+                  "with": {
+                    "name": "${{ inputs.package_slug }}-lint",
+                    "path": "${{ inputs.artifacts_dir }}/lint",
+                    "if-no-files-found": "ignore",
+                    "retention-days": 14
+                  }
+                }
+              ]
             }
+          },
+          "env": {
+            "ARTIFACTS_DIR": "${{ inputs.artifacts_dir }}",
+            "PYTHONUNBUFFERED": "1"
           }
         },
         "verify": {
@@ -924,39 +1112,11 @@
             "push": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "pull_request": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "workflow_dispatch": null,
@@ -989,7 +1149,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -1013,7 +1173,7 @@
                       "package_slug": "bijux-canon-runtime",
                       "package_dir": "packages/bijux-canon-runtime",
                       "artifacts_dir": "artifacts/bijux-canon-runtime",
-                      "check_targets": "[\"quality\", \"security\", \"docs\", \"build\", \"sbom\", \"api\", \"openapi-drift\"]",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\", \"api\", \"openapi-drift\"]",
                       "api_toolchain_targets": "[\"api\", \"openapi-drift\"]",
                       "post_test_command": "set -euo pipefail && venv_python=\"${ARTIFACTS_DIR}/venv/bin/python\" && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" > /dev/null; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" --fail-under=65; fi && if [ -f \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" ]; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" --fail-under=60; fi && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" > /dev/null; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" --fail-under=75; fi"
                     },
@@ -1052,7 +1212,7 @@
                 "package_dir": "${{ matrix.package_dir }}",
                 "artifacts_dir": "${{ matrix.artifacts_dir }}",
                 "test_python_versions": "${{ matrix.test_python_versions || '[\"3.11\"]' }}",
-                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
+                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]' }}",
                 "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\"]' }}",
                 "post_test_command": "${{ matrix.post_test_command || '' }}"
               }
@@ -1099,7 +1259,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -1113,7 +1273,7 @@
                 {
                   "name": "Upload package test artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ matrix.package_slug }}-test-py${{ matrix.python-version }}",
                     "path": "artifacts/${{ matrix.package_slug }}/test",
@@ -1155,7 +1315,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -1169,7 +1329,7 @@
                 {
                   "name": "Upload installed-family artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "installed-family-${{ matrix.runner }}-py${{ matrix.python-version }}",
                     "path": "artifacts/installed-family/**/wheels/*.whl",
@@ -1199,7 +1359,7 @@
                     "SUPPORTED_PYTHON_RESULT": "${{ needs.supported_python.result }}",
                     "INSTALLED_FAMILY_RESULT": "${{ needs.installed_family.result }}"
                   },
-                  "run": "set -euo pipefail\n[[ \"${REPOSITORY_RESULT}\" == \"success\" ]]\n[[ \"${PACKAGE_RESULT}\" == \"success\" ]]\n[[ \"${SUPPORTED_PYTHON_RESULT}\" == \"success\" ]]\n[[ \"${INSTALLED_FAMILY_RESULT}\" == \"success\" ]]\n"
+                  "run": "set -euo pipefail\n[[ \"${REPOSITORY_RESULT}\" == \"success\" ]] || exit 1\n[[ \"${PACKAGE_RESULT}\" == \"success\" ]] || exit 1\n[[ \"${SUPPORTED_PYTHON_RESULT}\" == \"success\" ]] || exit 1\n[[ \"${INSTALLED_FAMILY_RESULT}\" == \"success\" ]] || exit 1\n"
                 }
               ]
             }
@@ -1213,9 +1373,35 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c"
+      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "dependency_pull_requests": "notification-only",
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-pypi": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-core",
@@ -1327,17 +1513,35 @@
           "type": "json",
           "value": [
             {
-              "package_slug": "bijux-cli"
+              "package_slug": "bijux-dag-core",
+              "artifact_name": "bijux-dag-release"
             },
             {
-              "package_slug": "bijux-dag"
+              "package_slug": "bijux-dag-artifacts",
+              "artifact_name": "bijux-dag-release"
+            },
+            {
+              "package_slug": "bijux-dag-runtime",
+              "artifact_name": "bijux-dag-release"
+            },
+            {
+              "package_slug": "bijux-dag-app",
+              "artifact_name": "bijux-dag-release"
+            },
+            {
+              "package_slug": "bijux-dag-cli",
+              "artifact_name": "bijux-dag-release"
+            },
+            {
+              "package_slug": "bijux-cli",
+              "artifact_name": "bijux-cli-release"
             }
           ]
         },
         {
           "key": "BIJUX_GHCR_RELEASE_ALLOWED_PACKAGES",
           "type": "string",
-          "value": "bijux-cli bijux-dag"
+          "value": "bijux-dag-core bijux-dag-artifacts bijux-dag-runtime bijux-dag-app bijux-dag-cli bijux-cli"
         },
         {
           "key": "BIJUX_PYPI_ENABLED",
@@ -1467,7 +1671,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "rustfmt"
@@ -1503,7 +1707,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "clippy"
@@ -1539,7 +1743,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -1578,7 +1782,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -1608,9 +1812,39 @@
         "release-crates",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "a44a4e85b09714ce8863c9573ef1059e843b5e8e"
+      "pinned_std_sha": "a44a4e85b09714ce8863c9573ef1059e843b5e8e",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-crates": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-pypi": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-genomics",
@@ -1704,7 +1938,6 @@
             "RUST_TOOLCHAIN_VERSION": "1.95.0",
             "CARGO_DENY_VERSION": "0.18.3",
             "CARGO_AUDIT_VERSION": "0.22.0",
-            "CARGO_NEXTEST_VERSION": "0.9.100",
             "SCCACHE_GHA_ENABLED": "true",
             "RUSTC_WRAPPER": "sccache"
           },
@@ -1720,7 +1953,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "rustfmt"
@@ -1758,7 +1991,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "clippy"
@@ -1792,7 +2025,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -1817,471 +2050,6 @@
                   "run": "make audit"
                 }
               ]
-            },
-            "test": {
-              "name": "test",
-              "runs-on": "ubuntu-24.04",
-              "timeout-minutes": 45,
-              "steps": [
-                {
-                  "name": "Check out the repository",
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "name": "Install Linux build dependencies",
-                  "run": "sudo apt-get update && sudo apt-get install --yes pkg-config libfontconfig1-dev libfreetype6-dev"
-                },
-                {
-                  "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "name": "Set up sccache",
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "name": "Restore the Rust cache",
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-test"
-                  }
-                },
-                {
-                  "name": "Install cargo-nextest",
-                  "run": "cargo install --locked cargo-nextest --version \"${{ env.CARGO_NEXTEST_VERSION }}\""
-                },
-                {
-                  "name": "Run repository test gate",
-                  "run": "make test"
-                }
-              ]
-            },
-            "ssot_policy": {
-              "name": "ssot-policy-fast",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "SSOT policy fast gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make ssot-policy-fast\n"
-                }
-              ]
-            },
-            "workspace_hygiene": {
-              "name": "workspace-hygiene",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Workspace formatting and lint gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make fmt\nmake lint-workspace\n"
-                }
-              ]
-            },
-            "unit_contract_fast": {
-              "name": "unit-contract-fast",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Unit and contract gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make _unit-contract-fast\n"
-                }
-              ]
-            },
-            "release_readiness": {
-              "name": "release-readiness",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Release readiness gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make _release-readiness\n"
-                }
-              ]
-            },
-            "fastq_container_readiness": {
-              "name": "fastq-container-readiness",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "FASTQ container readiness gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make _fastq-container-readiness\n"
-                }
-              ]
-            },
-            "profile_invariants": {
-              "name": "profile-invariants",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Profile invariants gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make _test-profile-invariants\n"
-                }
-              ]
-            },
-            "cargo_policy": {
-              "name": "cargo-policy",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "runs-on": "ubuntu-latest",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Cargo policy gate",
-                  "env": {
-                    "TZ": "UTC",
-                    "LC_ALL": "C"
-                  },
-                  "run": "make _policy-no-raw-cargo\n"
-                }
-              ]
-            },
-            "fast-tier": {
-              "if": "${{ always() && (github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]'))) }}",
-              "runs-on": "ubuntu-latest",
-              "needs": [
-                "fmt",
-                "lint",
-                "audit",
-                "test",
-                "ssot_policy",
-                "workspace_hygiene",
-                "unit_contract_fast",
-                "release_readiness",
-                "fastq_container_readiness",
-                "profile_invariants",
-                "cargo_policy"
-              ],
-              "steps": [
-                {
-                  "name": "Require fast CI lanes to pass",
-                  "shell": "bash",
-                  "env": {
-                    "FMT_RESULT": "${{ needs.fmt.result }}",
-                    "LINT_RESULT": "${{ needs.lint.result }}",
-                    "AUDIT_RESULT": "${{ needs.audit.result }}",
-                    "TEST_RESULT": "${{ needs.test.result }}",
-                    "SSOT_POLICY_RESULT": "${{ needs.ssot_policy.result }}",
-                    "WORKSPACE_HYGIENE_RESULT": "${{ needs.workspace_hygiene.result }}",
-                    "UNIT_CONTRACT_FAST_RESULT": "${{ needs.unit_contract_fast.result }}",
-                    "RELEASE_READINESS_RESULT": "${{ needs.release_readiness.result }}",
-                    "FASTQ_CONTAINER_READINESS_RESULT": "${{ needs.fastq_container_readiness.result }}",
-                    "PROFILE_INVARIANTS_RESULT": "${{ needs.profile_invariants.result }}",
-                    "CARGO_POLICY_RESULT": "${{ needs.cargo_policy.result }}"
-                  },
-                  "run": "set -euo pipefail\nfor result in \\\n  \"${FMT_RESULT}\" \\\n  \"${LINT_RESULT}\" \\\n  \"${AUDIT_RESULT}\" \\\n  \"${TEST_RESULT}\" \\\n  \"${SSOT_POLICY_RESULT}\" \\\n  \"${WORKSPACE_HYGIENE_RESULT}\" \\\n  \"${UNIT_CONTRACT_FAST_RESULT}\" \\\n  \"${RELEASE_READINESS_RESULT}\" \\\n  \"${FASTQ_CONTAINER_READINESS_RESULT}\" \\\n  \"${PROFILE_INVARIANTS_RESULT}\" \\\n  \"${CARGO_POLICY_RESULT}\"; do\n  [[ \"${result}\" == \"success\" ]]\ndone\n"
-                }
-              ]
-            },
-            "benchmark-active-scope": {
-              "runs-on": "ubuntu-latest",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Active benchmark readiness",
-                  "run": "make bench-active-fast\n"
-                }
-              ]
-            },
-            "parser-fixtures": {
-              "runs-on": "ubuntu-latest",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Parser fixtures",
-                  "run": "make bench-parser-fast\n"
-                }
-              ]
-            },
-            "adapter-rendering": {
-              "runs-on": "ubuntu-latest",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Adapter rendering",
-                  "run": "make bench-adapter-fast\n"
-                }
-              ]
-            },
-            "science-fixtures": {
-              "runs-on": "ubuntu-latest",
-              "if": "${{ github.event_name == 'workflow_dispatch' || github.event_name == 'merge_group' || (github.event_name == 'pull_request' && github.event.pull_request.user.type != 'Bot' && !endsWith(github.event.pull_request.user.login, '[bot]')) }}",
-              "env": {
-                "SCCACHE_GHA_ENABLED": "true",
-                "RUSTC_WRAPPER": "sccache"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
-                  "with": {
-                    "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
-                  }
-                },
-                {
-                  "uses": "mozilla/sccache-action@7d986dd989559c6ecdb630a3fd2557667be217ad"
-                },
-                {
-                  "uses": "Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
-                  "with": {
-                    "shared-key": "ci-build"
-                  }
-                },
-                {
-                  "name": "Science fixtures",
-                  "run": "make science-fixtures-fast\n"
-                }
-              ]
             }
           }
         }
@@ -2289,17 +2057,53 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "05d63cd12b4d96afe4b74dbda1cd1e27bee344e5"
+      "pinned_std_sha": "05d63cd12b4d96afe4b74dbda1cd1e27bee344e5",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-iac",
       "release_env": [],
       "workflow_allowlist": [
         "github-policy",
-        "pr-approval-policy"
-      ]
+        "pr-approval-policy",
+        "dependency-notice"
+      ],
+      "additional_required_status_checks": [
+        {
+          "context": "iac / contracts",
+          "workflow": "github-governance-plan"
+        },
+        {
+          "context": "iac / plan",
+          "workflow": "github-governance-plan"
+        },
+        {
+          "context": "iac / governance",
+          "workflow": "github-governance-plan"
+        }
+      ],
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {},
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-masterclass",
@@ -2396,9 +2200,23 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f"
+      "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "existing-events"
+      }
     },
     {
       "name": "bijux-phylogenetics",
@@ -2569,7 +2387,7 @@
                 "check_targets": {
                   "required": false,
                   "type": "string",
-                  "default": "[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]"
+                  "default": "[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]"
                 },
                 "api_toolchain_targets": {
                   "required": false,
@@ -2612,7 +2430,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -2640,7 +2458,7 @@
                 {
                   "name": "Upload test artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}",
                     "path": "${{ inputs.artifacts_dir }}/test",
@@ -2670,21 +2488,21 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
                   }
                 },
                 {
-                  "uses": "actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+                  "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
-                    "node-version": 20
+                    "node-version": "24.21.0"
                   }
                 },
                 {
-                  "uses": "actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95",
+                  "uses": "actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
                     "distribution": "temurin",
@@ -2704,7 +2522,7 @@
                 {
                   "name": "Upload artifacts",
                   "if": "${{ always() && hashFiles(format('{0}/{1}/**', inputs.artifacts_dir, matrix.target)) != '' }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-${{ matrix.target }}",
                     "path": "${{ inputs.artifacts_dir }}/${{ matrix.target }}",
@@ -2728,7 +2546,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -2747,7 +2565,7 @@
                 {
                   "name": "Upload lint artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-lint",
                     "path": "${{ inputs.artifacts_dir }}/lint",
@@ -2830,7 +2648,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -2882,7 +2700,7 @@
                 "package_dir": "${{ matrix.package_dir }}",
                 "artifacts_dir": "${{ matrix.artifacts_dir }}",
                 "test_python_versions": "${{ matrix.test_python_versions || '[\"3.11\"]' }}",
-                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
+                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]' }}",
                 "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}",
                 "post_test_command": "${{ matrix.post_test_command || '' }}"
               }
@@ -2917,9 +2735,35 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c"
+      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-pypi": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-pollenomics",
@@ -2985,6 +2829,11 @@
               "package_slug": "pollenomics"
             }
           ]
+        },
+        {
+          "key": "BIJUX_RELEASE_ARTIFACT_VERIFICATION_COMMAND",
+          "value": "test -n \"${RELEASE_TAG}\"; guard_python=\"${ARTIFACTS_DIR}/venv/bin/python\"; test -x \"${guard_python}\"; resolved_version=\"$(PYTHONPATH=\"${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src\" \"${guard_python}\" -m bijux_pollenomics_dev.release.publication_guard --pyproject \"${PACKAGE_DIR}/pyproject.toml\" --package-name \"${PACKAGE_SLUG}\" --dist-dir \"${DIST_DIR}\")\"; test \"${resolved_version}\" = \"${RELEASE_TAG#v}\"",
+          "type": "string"
         }
       ],
       "dependabot": {
@@ -3082,35 +2931,15 @@
                   "required": true,
                   "type": "string"
                 },
-                "test_python_versions": {
-                  "required": false,
-                  "type": "string",
-                  "default": "[\"3.11\"]"
-                },
                 "check_targets": {
                   "required": false,
                   "type": "string",
-                  "default": "[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]"
+                  "default": "[\"lint\", \"security\"]"
                 },
                 "api_toolchain_targets": {
                   "required": false,
                   "type": "string",
-                  "default": "[\"api\"]"
-                },
-                "post_test_command": {
-                  "required": false,
-                  "type": "string",
-                  "default": ""
-                },
-                "test_shards": {
-                  "required": false,
-                  "type": "string",
-                  "default": "[0]"
-                },
-                "test_shard_count": {
-                  "required": false,
-                  "type": "number",
-                  "default": 1
+                  "default": "[]"
                 }
               }
             }
@@ -3123,107 +2952,6 @@
             "cancel-in-progress": true
           },
           "jobs": {
-            "test-shards": {
-              "name": "test-shard-${{ inputs.package_slug }}-py${{ matrix.python-version }}-${{ matrix.shard }}",
-              "runs-on": "ubuntu-latest",
-              "strategy": {
-                "fail-fast": false,
-                "matrix": {
-                  "python-version": "${{ fromJson(inputs.test_python_versions) }}",
-                  "shard": "${{ fromJson(inputs.test_shards) }}"
-                }
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
-                  "with": {
-                    "python-version": "${{ matrix.python-version }}"
-                  }
-                },
-                {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
-                  "with": {
-                    "enable-cache": true,
-                    "cache-dependency-glob": "uv.lock"
-                  }
-                },
-                {
-                  "name": "Install package toolchain",
-                  "shell": "bash",
-                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
-                },
-                {
-                  "name": "Run tests",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nexport PYTHONPATH=\"${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src${PYTHONPATH:+:${PYTHONPATH}}\"\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename \"${PACKAGE_DIR}\").mk\"\nmake -f \"${makefile}\" -C \"${PACKAGE_DIR}\" test \\\n  PYTEST_ADDOPTS_EXTRA=\"-p bijux_pollenomics_dev.ci.test_shards.plugin --bijux-shard-count=${SHARD_COUNT} --bijux-shard-index=${SHARD_INDEX} --bijux-shard-receipt=${GITHUB_WORKSPACE}/${ARTIFACTS_DIR}/test/shard-receipt.json\"",
-                  "env": {
-                    "SHARD_INDEX": "${{ matrix.shard }}",
-                    "SHARD_COUNT": "${{ inputs.test_shard_count }}",
-                    "PACKAGE_DIR": "${{ inputs.package_dir }}",
-                    "ARTIFACTS_DIR": "${{ inputs.artifacts_dir }}"
-                  }
-                },
-                {
-                  "name": "Run post-test validation",
-                  "if": "${{ inputs.post_test_command != '' }}",
-                  "shell": "bash",
-                  "env": {
-                    "ARTIFACTS_DIR": "${{ inputs.artifacts_dir }}"
-                  },
-                  "run": "${{ inputs.post_test_command }}"
-                },
-                {
-                  "name": "Upload test artifacts",
-                  "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-                  "with": {
-                    "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}-shard-${{ matrix.shard }}",
-                    "path": "${{ inputs.artifacts_dir }}/test/junit.xml\n${{ inputs.artifacts_dir }}/test/coverage.xml\n${{ inputs.artifacts_dir }}/test/.coverage\n${{ inputs.artifacts_dir }}/test/shard-receipt.json",
-                    "if-no-files-found": "error",
-                    "retention-days": 14,
-                    "include-hidden-files": true
-                  }
-                }
-              ],
-              "timeout-minutes": 10
-            },
-            "tests": {
-              "name": "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
-              "needs": "test-shards",
-              "if": "${{ always() }}",
-              "runs-on": "ubuntu-latest",
-              "timeout-minutes": 10,
-              "strategy": {
-                "fail-fast": false,
-                "matrix": {
-                  "python-version": "${{ fromJson(inputs.test_python_versions) }}"
-                }
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
-                  "with": {
-                    "pattern": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}-shard-*",
-                    "path": "artifacts/test-shard-reconciliation"
-                  }
-                },
-                {
-                  "name": "Reconcile every test partition",
-                  "shell": "bash",
-                  "env": {
-                    "SHARDS_RESULT": "${{ needs.test-shards.result }}",
-                    "SHARD_COUNT": "${{ inputs.test_shard_count }}"
-                  },
-                  "run": "set -euo pipefail\ntest \"${SHARDS_RESULT}\" = success\nPYTHONPATH=packages/bijux-pollenomics-dev/src \\\n  python3 -m bijux_pollenomics_dev.ci.test_shards \\\n  --receipt-root artifacts/test-shard-reconciliation \\\n  --count \"${SHARD_COUNT}\" --revision \"${GITHUB_SHA}\""
-                }
-              ]
-            },
             "checks": {
               "name": "checks-${{ inputs.package_slug }}-${{ matrix.target }}",
               "runs-on": "ubuntu-latest",
@@ -3244,21 +2972,21 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
                   }
                 },
                 {
-                  "uses": "actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+                  "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
-                    "node-version": 20
+                    "node-version": "24.21.0"
                   }
                 },
                 {
-                  "uses": "actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95",
+                  "uses": "actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
                     "distribution": "temurin",
@@ -3278,7 +3006,7 @@
                 {
                   "name": "Upload artifacts",
                   "if": "${{ always() && hashFiles(format('{0}/{1}/**', inputs.artifacts_dir, matrix.target)) != '' }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-${{ matrix.target }}",
                     "path": "${{ inputs.artifacts_dir }}/${{ matrix.target }}",
@@ -3286,52 +3014,7 @@
                     "retention-days": 14
                   }
                 }
-              ],
-              "timeout-minutes": 10
-            },
-            "lint": {
-              "name": "lint-${{ inputs.package_slug }}",
-              "runs-on": "ubuntu-latest",
-              "steps": [
-                {
-                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
-                },
-                {
-                  "uses": "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
-                  "with": {
-                    "python-version": 3.11
-                  }
-                },
-                {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
-                  "with": {
-                    "enable-cache": true,
-                    "cache-dependency-glob": "uv.lock"
-                  }
-                },
-                {
-                  "name": "Install package toolchain",
-                  "shell": "bash",
-                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
-                },
-                {
-                  "name": "Run lint",
-                  "shell": "bash",
-                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" lint "
-                },
-                {
-                  "name": "Upload lint artifacts",
-                  "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-                  "with": {
-                    "name": "${{ inputs.package_slug }}-lint",
-                    "path": "${{ inputs.artifacts_dir }}/lint",
-                    "if-no-files-found": "ignore",
-                    "retention-days": 14
-                  }
-                }
-              ],
-              "timeout-minutes": 10
+              ]
             }
           }
         },
@@ -3341,39 +3024,11 @@
             "push": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "pull_request": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "workflow_dispatch": null,
@@ -3394,7 +3049,7 @@
             "repository": {
               "name": "repository-contracts",
               "runs-on": "ubuntu-latest",
-              "timeout-minutes": 10,
+              "timeout-minutes": 45,
               "steps": [
                 {
                   "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
@@ -3406,7 +3061,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -3435,21 +3090,29 @@
                       "package_slug": "bijux-pollenomics",
                       "package_dir": "packages/bijux-pollenomics",
                       "artifacts_dir": "artifacts/bijux-pollenomics",
-                      "check_targets": "[\"quality\", \"security\", \"api\", \"openapi-drift\", \"build\", \"sbom\"]",
-                      "test_shards": "[0,1,2,3,4,5,6,7]",
-                      "test_shard_count": 8
+                      "check_targets": "[\"lint\", \"security\"]",
+                      "api_toolchain_targets": "[]"
                     },
                     {
                       "package_slug": "pollenomics",
                       "package_dir": "packages/pollenomics",
                       "artifacts_dir": "artifacts/pollenomics",
-                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]"
+                      "check_targets": "[\"lint\", \"security\"]",
+                      "api_toolchain_targets": "[]"
                     },
                     {
                       "package_slug": "bijux-pollenomics-dev",
                       "package_dir": "packages/bijux-pollenomics-dev",
                       "artifacts_dir": "artifacts/bijux-pollenomics-dev",
-                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]"
+                      "check_targets": "[\"lint\", \"security\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "bijux-pollenomics-lra",
+                      "package_dir": "packages/bijux-pollenomics-lra",
+                      "artifacts_dir": "artifacts/bijux-pollenomics-lra",
+                      "check_targets": "[\"lint\", \"security\"]",
+                      "api_toolchain_targets": "[]"
                     }
                   ]
                 }
@@ -3459,13 +3122,29 @@
                 "package_slug": "${{ matrix.package_slug }}",
                 "package_dir": "${{ matrix.package_dir }}",
                 "artifacts_dir": "${{ matrix.artifacts_dir }}",
-                "test_python_versions": "${{ matrix.test_python_versions || '[\"3.11\"]' }}",
-                "test_shards": "${{ matrix.test_shards || '[0]' }}",
-                "test_shard_count": "${{ matrix.test_shard_count || 1 }}",
-                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
-                "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}",
-                "post_test_command": "${{ matrix.post_test_command || '' }}"
+                "check_targets": "${{ matrix.check_targets || '[\"lint\", \"security\"]' }}",
+                "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[]' }}"
               }
+            },
+            "verification_ready": {
+              "name": "verification-ready",
+              "if": "${{ always() }}",
+              "needs": [
+                "repository",
+                "package"
+              ],
+              "runs-on": "ubuntu-latest",
+              "steps": [
+                {
+                  "name": "Require repository and package verification success",
+                  "shell": "bash",
+                  "env": {
+                    "REPOSITORY_RESULT": "${{ needs.repository.result }}",
+                    "PACKAGE_RESULT": "${{ needs.package.result }}"
+                  },
+                  "run": "set -euo pipefail\n[[ \"${REPOSITORY_RESULT}\" == \"success\" ]] || exit 1\n[[ \"${PACKAGE_RESULT}\" == \"success\" ]] || exit 1\n"
+                }
+              ]
             }
           }
         }
@@ -3477,9 +3156,41 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c"
+      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
+      "additional_required_status_checks": [
+        {
+          "context": "verification-ready",
+          "workflow": "repo / verify"
+        }
+      ],
+      "workflow_execution_policy": {
+        "schema": 1,
+        "dependency_pull_requests": "notification-only",
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-pypi": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-proteomics",
@@ -3507,37 +3218,106 @@
               "package_slug": "agentic-proteins",
               "package_dir": "packages/agentic-proteins",
               "artifacts_dir": "artifacts/agentic-proteins",
-              "build_targets": "build sbom"
+              "build_targets": "build sbom",
+              "release_role": "compat"
             },
             {
-              "package_slug": "bijux-proteomics-foundation",
-              "package_dir": "packages/bijux-proteomics-foundation",
-              "artifacts_dir": "artifacts/bijux-proteomics-foundation",
-              "build_targets": "build sbom"
+              "package_slug": "bijux-proteomics",
+              "package_dir": "packages/bijux-proteomics",
+              "artifacts_dir": "artifacts/bijux-proteomics",
+              "build_targets": "build sbom",
+              "release_role": "compat"
             },
             {
               "package_slug": "bijux-proteomics-core",
               "package_dir": "packages/bijux-proteomics-core",
               "artifacts_dir": "artifacts/bijux-proteomics-core",
-              "build_targets": "build sbom"
+              "build_targets": "build sbom",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-foundation",
+              "package_dir": "packages/bijux-proteomics-foundation",
+              "artifacts_dir": "artifacts/bijux-proteomics-foundation",
+              "build_targets": "build sbom",
+              "release_role": "library"
             },
             {
               "package_slug": "bijux-proteomics-intelligence",
               "package_dir": "packages/bijux-proteomics-intelligence",
               "artifacts_dir": "artifacts/bijux-proteomics-intelligence",
-              "build_targets": "build sbom"
+              "build_targets": "build sbom",
+              "release_role": "library"
             },
             {
               "package_slug": "bijux-proteomics-knowledge",
               "package_dir": "packages/bijux-proteomics-knowledge",
               "artifacts_dir": "artifacts/bijux-proteomics-knowledge",
-              "build_targets": "build sbom"
+              "build_targets": "build sbom",
+              "release_role": "library"
             },
             {
               "package_slug": "bijux-proteomics-lab",
               "package_dir": "packages/bijux-proteomics-lab",
               "artifacts_dir": "artifacts/bijux-proteomics-lab",
-              "build_targets": "build sbom"
+              "build_targets": "build sbom",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-runtime",
+              "package_dir": "packages/bijux-proteomics-runtime",
+              "artifacts_dir": "artifacts/bijux-proteomics-runtime",
+              "build_targets": "build sbom",
+              "release_role": "runtime"
+            },
+            {
+              "package_slug": "proteomics",
+              "package_dir": "packages/proteomics",
+              "artifacts_dir": "artifacts/proteomics",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-core",
+              "package_dir": "packages/proteomics-core",
+              "artifacts_dir": "artifacts/proteomics-core",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-foundation",
+              "package_dir": "packages/proteomics-foundation",
+              "artifacts_dir": "artifacts/proteomics-foundation",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-intelligence",
+              "package_dir": "packages/proteomics-intelligence",
+              "artifacts_dir": "artifacts/proteomics-intelligence",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-knowledge",
+              "package_dir": "packages/proteomics-knowledge",
+              "artifacts_dir": "artifacts/proteomics-knowledge",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-lab",
+              "package_dir": "packages/proteomics-lab",
+              "artifacts_dir": "artifacts/proteomics-lab",
+              "build_targets": "build sbom",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-runtime",
+              "package_dir": "packages/proteomics-runtime",
+              "artifacts_dir": "artifacts/proteomics-runtime",
+              "build_targets": "build sbom",
+              "release_role": "compat"
             }
           ]
         },
@@ -3551,22 +3331,64 @@
           "type": "json",
           "value": [
             {
-              "package_slug": "agentic-proteins"
+              "package_slug": "agentic-proteins",
+              "release_role": "compat"
             },
             {
-              "package_slug": "bijux-proteomics-foundation"
+              "package_slug": "bijux-proteomics",
+              "release_role": "compat"
             },
             {
-              "package_slug": "bijux-proteomics-core"
+              "package_slug": "bijux-proteomics-core",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-intelligence"
+              "package_slug": "bijux-proteomics-foundation",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-knowledge"
+              "package_slug": "bijux-proteomics-intelligence",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-lab"
+              "package_slug": "bijux-proteomics-knowledge",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-lab",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-runtime",
+              "release_role": "runtime"
+            },
+            {
+              "package_slug": "proteomics",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-core",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-foundation",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-intelligence",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-knowledge",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-lab",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-runtime",
+              "release_role": "compat"
             }
           ]
         },
@@ -3575,22 +3397,64 @@
           "type": "json",
           "value": [
             {
-              "package_slug": "agentic-proteins"
+              "package_slug": "agentic-proteins",
+              "release_role": "compat"
             },
             {
-              "package_slug": "bijux-proteomics-foundation"
+              "package_slug": "bijux-proteomics",
+              "release_role": "compat"
             },
             {
-              "package_slug": "bijux-proteomics-core"
+              "package_slug": "bijux-proteomics-core",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-intelligence"
+              "package_slug": "bijux-proteomics-foundation",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-knowledge"
+              "package_slug": "bijux-proteomics-intelligence",
+              "release_role": "library"
             },
             {
-              "package_slug": "bijux-proteomics-lab"
+              "package_slug": "bijux-proteomics-knowledge",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-lab",
+              "release_role": "library"
+            },
+            {
+              "package_slug": "bijux-proteomics-runtime",
+              "release_role": "runtime"
+            },
+            {
+              "package_slug": "proteomics",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-core",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-foundation",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-intelligence",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-knowledge",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-lab",
+              "release_role": "compat"
+            },
+            {
+              "package_slug": "proteomics-runtime",
+              "release_role": "compat"
             }
           ]
         }
@@ -3746,7 +3610,7 @@
                 "check_targets": {
                   "required": false,
                   "type": "string",
-                  "default": "[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]"
+                  "default": "[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]"
                 },
                 "api_toolchain_targets": {
                   "required": false,
@@ -3789,7 +3653,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -3817,7 +3681,7 @@
                 {
                   "name": "Upload test artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}",
                     "path": "${{ inputs.artifacts_dir }}/test",
@@ -3847,21 +3711,21 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
                   }
                 },
                 {
-                  "uses": "actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+                  "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
-                    "node-version": 20
+                    "node-version": "24.21.0"
                   }
                 },
                 {
-                  "uses": "actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95",
+                  "uses": "actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
                     "distribution": "temurin",
@@ -3881,7 +3745,7 @@
                 {
                   "name": "Upload artifacts",
                   "if": "${{ always() && hashFiles(format('{0}/{1}/**', inputs.artifacts_dir, matrix.target)) != '' }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-${{ matrix.target }}",
                     "path": "${{ inputs.artifacts_dir }}/${{ matrix.target }}",
@@ -3905,7 +3769,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -3924,7 +3788,7 @@
                 {
                   "name": "Upload lint artifacts",
                   "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+                  "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
                   "with": {
                     "name": "${{ inputs.package_slug }}-lint",
                     "path": "${{ inputs.artifacts_dir }}/lint",
@@ -3942,39 +3806,11 @@
             "push": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "pull_request": {
               "branches": [
                 "main"
-              ],
-              "paths": [
-                ".github/workflows/**",
-                "apis/**",
-                "configs/**",
-                "docs/**",
-                "makes/**",
-                "packages/**",
-                "Makefile",
-                "mkdocs.shared.yml",
-                "mkdocs.yml",
-                "pyproject.toml",
-                "tox.ini",
-                "uv.lock"
               ]
             },
             "workflow_dispatch": null,
@@ -4007,7 +3843,7 @@
                   }
                 },
                 {
-                  "uses": "astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d",
+                  "uses": "astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
                   "with": {
                     "enable-cache": true,
                     "cache-dependency-glob": "uv.lock"
@@ -4033,14 +3869,21 @@
                       "artifacts_dir": "artifacts/agentic-proteins"
                     },
                     {
-                      "package_slug": "bijux-proteomics-foundation",
-                      "package_dir": "packages/bijux-proteomics-foundation",
-                      "artifacts_dir": "artifacts/bijux-proteomics-foundation"
+                      "package_slug": "bijux-proteomics",
+                      "package_dir": "packages/bijux-proteomics",
+                      "artifacts_dir": "artifacts/bijux-proteomics",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
                     },
                     {
                       "package_slug": "bijux-proteomics-core",
                       "package_dir": "packages/bijux-proteomics-core",
                       "artifacts_dir": "artifacts/bijux-proteomics-core"
+                    },
+                    {
+                      "package_slug": "bijux-proteomics-foundation",
+                      "package_dir": "packages/bijux-proteomics-foundation",
+                      "artifacts_dir": "artifacts/bijux-proteomics-foundation"
                     },
                     {
                       "package_slug": "bijux-proteomics-intelligence",
@@ -4058,10 +3901,65 @@
                       "artifacts_dir": "artifacts/bijux-proteomics-lab"
                     },
                     {
+                      "package_slug": "bijux-proteomics-runtime",
+                      "package_dir": "packages/bijux-proteomics-runtime",
+                      "artifacts_dir": "artifacts/bijux-proteomics-runtime"
+                    },
+                    {
+                      "package_slug": "proteomics",
+                      "package_dir": "packages/proteomics",
+                      "artifacts_dir": "artifacts/proteomics",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-core",
+                      "package_dir": "packages/proteomics-core",
+                      "artifacts_dir": "artifacts/proteomics-core",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-foundation",
+                      "package_dir": "packages/proteomics-foundation",
+                      "artifacts_dir": "artifacts/proteomics-foundation",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-intelligence",
+                      "package_dir": "packages/proteomics-intelligence",
+                      "artifacts_dir": "artifacts/proteomics-intelligence",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-knowledge",
+                      "package_dir": "packages/proteomics-knowledge",
+                      "artifacts_dir": "artifacts/proteomics-knowledge",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-lab",
+                      "package_dir": "packages/proteomics-lab",
+                      "artifacts_dir": "artifacts/proteomics-lab",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
+                      "package_slug": "proteomics-runtime",
+                      "package_dir": "packages/proteomics-runtime",
+                      "artifacts_dir": "artifacts/proteomics-runtime",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
+                    },
+                    {
                       "package_slug": "bijux-proteomics-dev",
                       "package_dir": "packages/bijux-proteomics-dev",
                       "artifacts_dir": "artifacts/bijux-proteomics-dev",
-                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]"
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "api_toolchain_targets": "[]"
                     }
                   ]
                 }
@@ -4072,7 +3970,7 @@
                 "package_dir": "${{ matrix.package_dir }}",
                 "artifacts_dir": "${{ matrix.artifacts_dir }}",
                 "test_python_versions": "${{ matrix.test_python_versions || '[\"3.11\"]' }}",
-                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
+                "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]' }}",
                 "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\"]' }}",
                 "post_test_command": "${{ matrix.post_test_command || '' }}"
               }
@@ -4093,7 +3991,7 @@
                     "REPOSITORY_RESULT": "${{ needs.repository.result }}",
                     "PACKAGE_RESULT": "${{ needs.package.result }}"
                   },
-                  "run": "set -euo pipefail\n[[ \"${REPOSITORY_RESULT}\" == \"success\" ]]\n[[ \"${PACKAGE_RESULT}\" == \"success\" ]]\n"
+                  "run": "set -euo pipefail\n[[ \"${REPOSITORY_RESULT}\" == \"success\" ]] || exit 1\n[[ \"${PACKAGE_RESULT}\" == \"success\" ]] || exit 1\n"
                 }
               ]
             }
@@ -4107,9 +4005,41 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c"
+      "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
+      "additional_required_status_checks": [
+        {
+          "context": "verification-ready",
+          "workflow": "repo / verify"
+        }
+      ],
+      "workflow_execution_policy": {
+        "schema": 1,
+        "dependency_pull_requests": "notification-only",
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-pypi": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-std",
@@ -4159,9 +4089,17 @@
       },
       "workflow_allowlist": [
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "5da4225aedcfc2af92bb431875243fa2db2b0ce9"
+      "pinned_std_sha": "5da4225aedcfc2af92bb431875243fa2db2b0ce9",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {},
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux-gnss",
@@ -4404,7 +4342,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "rustfmt"
@@ -4435,7 +4373,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}",
                     "components": "clippy"
@@ -4462,7 +4400,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -4496,7 +4434,7 @@
                 },
                 {
                   "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772",
+                  "uses": "dtolnay/rust-toolchain@e2a55d2ffb04f378e9626c28d38b36d230d1e12f",
                   "with": {
                     "toolchain": "${{ env.RUST_TOOLCHAIN_VERSION }}"
                   }
@@ -4525,9 +4463,35 @@
         "release-artifacts",
         "release-crates",
         "release-ghcr",
-        "release-github"
+        "release-github",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59"
+      "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          },
+          "release-crates": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-ghcr": {
+            "mode": "manual-only",
+            "controller": "iac"
+          },
+          "release-github": {
+            "mode": "manual-only",
+            "controller": "iac"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     },
     {
       "name": "bijux.github.io",
@@ -4564,9 +4528,23 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
-      "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f"
+      "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f",
+      "workflow_execution_policy": {
+        "schema": 1,
+        "publication_entrypoints": {
+          "deploy-docs": {
+            "mode": "manual-only",
+            "controller": "iac",
+            "refs": "main-only"
+          }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
+      }
     }
   ]
 }

@@ -37,6 +37,20 @@ from .collection_contracts import (
     build_refresh_data_contract_surfaces_parser,
     build_validate_collection_summary_parser,
 )
+from .lra import (
+    build_render_joint_lra_report_parser,
+    build_render_lra_report_parser,
+    build_run_joint_lra_parser,
+    build_run_lra_batch_parser,
+    build_run_lra_parser,
+    build_validate_lra_input_parser,
+)
+from .lra_validation import (
+    build_prepare_lra_experiment_parser,
+    build_prepare_lra_observation_uncertainty_parser,
+    build_score_lra_experiment_parser,
+    build_score_lra_observation_coverage_parser,
+)
 from .orientation import (
     build_ownership_map_parser,
     build_product_scope_parser,
@@ -64,15 +78,25 @@ __all__ = [
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_ownership_map_parser",
+    "build_prepare_lra_experiment_parser",
+    "build_prepare_lra_observation_uncertainty_parser",
     "build_product_scope_parser",
     "build_publish_reports_parser",
-    "build_refresh_animal_adna_foundation_parser",
     "build_refresh_aadr_source_accountability_parser",
+    "build_refresh_animal_adna_foundation_parser",
     "build_refresh_data_contract_surfaces_parser",
+    "build_render_joint_lra_report_parser",
+    "build_render_lra_report_parser",
     "build_report_country_parser",
+    "build_run_joint_lra_parser",
+    "build_run_lra_batch_parser",
+    "build_run_lra_parser",
+    "build_score_lra_experiment_parser",
+    "build_score_lra_observation_coverage_parser",
     "build_source_support_parser",
     "build_surface_map_parser",
     "build_validate_collection_summary_parser",
+    "build_validate_lra_input_parser",
     "register_subcommands",
 ]
 
@@ -97,6 +121,16 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_validate_lra_input_parser(subparsers)
+    build_run_lra_parser(subparsers)
+    build_run_joint_lra_parser(subparsers)
+    build_run_lra_batch_parser(subparsers)
+    build_render_lra_report_parser(subparsers)
+    build_render_joint_lra_report_parser(subparsers)
+    build_prepare_lra_experiment_parser(subparsers)
+    build_score_lra_experiment_parser(subparsers)
+    build_prepare_lra_observation_uncertainty_parser(subparsers)
+    build_score_lra_observation_coverage_parser(subparsers)
     build_refresh_aadr_source_accountability_parser(subparsers)
     build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)

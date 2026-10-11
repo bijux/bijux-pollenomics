@@ -14,7 +14,7 @@ from .identity import (
     _required_text,
     _source_taxon_identity,
 )
-from .models import ClassificationEventContext
+from .models import ClassificationEventContext, ClassificationReviewContext
 from .vocabulary import _ACCEPTED_STATUSES
 
 
@@ -37,7 +37,7 @@ class _ClassificationAuthorityReceipt:
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     manifest_sha256=(
-        "e66bbf8ed9b6b67ea94d7ce2c943794016c0ac5853ea6a723bfdb4c36a45c7bb"
+        "ea5eb4a75abaa7726a840c791aea76589d8cc7a785eb3a22cc1862678b910076"
     ),
     source_family="neotoma",
     source_snapshot_id=(
@@ -48,7 +48,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     ),
     contract_version="1.0.0",
     contract_digest=(
-        "sha256:3b61266d52b4a35ad8e808a730b5e433a0bfb37536ef458fb080263b80a5c671"
+        "sha256:311dbdb3f7ff4df9b1012d40e9ebc612c35775d4d391e10c4fa6564aab3dc772"
     ),
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
@@ -98,7 +98,8 @@ def _classification_authority_universe_reason(
 
 
 def _ambiguous_authorized_mapping_ids(
-    mappings: Sequence[Mapping[str, object]], context: ClassificationEventContext
+    mappings: Sequence[Mapping[str, object]],
+    context: ClassificationEventContext | ClassificationReviewContext,
 ) -> set[str]:
     """Return authority concepts that share one governed source identity."""
     concepts_by_source_identity: dict[str, set[str]] = defaultdict(set)
@@ -141,7 +142,8 @@ def _ambiguous_authorized_mapping_ids(
 
 
 def _mapping_is_authorized(
-    mapping: Mapping[str, object], context: ClassificationEventContext
+    mapping: Mapping[str, object],
+    context: ClassificationEventContext | ClassificationReviewContext,
 ) -> bool:
     authority = _CLASSIFICATION_AUTHORITY
     if not _valid_classification_authority_receipt(authority):

@@ -35,6 +35,11 @@ def build_ownership_map() -> tuple[OwnershipMapEntry, ...]:
             reason="scores and ranks candidates with explicit heuristics",
         ),
         OwnershipMapEntry(
+            concern="landscape_reconstruction_logic",
+            owner_module="bijux_pollenomics.analysis.lra.api",
+            reason="validates explicit inputs and publishes exploratory results from the optional numerical extension",
+        ),
+        OwnershipMapEntry(
             concern="publication_logic",
             owner_module="bijux_pollenomics.reporting",
             reason="builds atlas and country publication bundles",

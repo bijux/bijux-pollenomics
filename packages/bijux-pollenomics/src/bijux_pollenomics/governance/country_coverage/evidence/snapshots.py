@@ -18,9 +18,9 @@ def _source_snapshot_ids(
     collection: Mapping[str, object],
     documents: Mapping[str, Mapping[str, object]],
     input_bytes: Mapping[str, bytes],
-) -> dict[str, str]:
+) -> dict[str, str | None]:
     source_hashes = _object(collection.get("source_hashes"), "source hashes")
-    result = {
+    result: dict[str, str | None] = {
         source: _sha256_id_from_raw(
             _required_text(_object(source_hashes[source], source), "snapshot_sha256"),
             f"{source} source snapshot",
@@ -47,4 +47,6 @@ def _source_snapshot_ids(
         "SEAD acquisition bundle",
     )
     result["animal_adna"] = f"sha256:{_sha256(input_bytes[INPUT_PATHS[14]])}"
+    # No country projection exists; external archive custody remains separate.
+    result["hyde"] = None
     return result

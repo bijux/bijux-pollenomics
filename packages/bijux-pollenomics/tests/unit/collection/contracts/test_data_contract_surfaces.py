@@ -26,6 +26,7 @@ from bijux_pollenomics.collection.sources.aadr.materialization.accountability im
 from bijux_pollenomics.collection.sources.aadr.materialization.source_rows import (
     load_aadr_source_table,
 )
+from tests.unit.collection.contracts.test_source_family_contracts.support import _rows
 
 _AADR_TEST_HEADER = "\t".join(
     (
@@ -87,13 +88,14 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         payload = build_source_family_contract_payload()
 
         self.assertEqual(payload["schema_version"], "source-family-contracts.v1")
-        source_keys = {row["source_key"] for row in payload["rows"]}
+        source_keys = {row["source_key"] for row in _rows(payload["rows"])}
         self.assertEqual(
             source_keys,
             {
                 "aadr",
                 "animal_adna",
                 "boundaries",
+                "hyde",
                 "landclim",
                 "neotoma",
                 "raa",
@@ -181,7 +183,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 counts={"aadr_file_count": 1, "svar_lake_count": 1},
             )
 
-        rows = {row["source_key"]: row for row in payload["rows"]}
+        rows = {row["source_key"]: row for row in _rows(payload["rows"])}
         self.assertEqual(rows["aadr"]["normalized_status"], "missing")
         self.assertEqual(rows["aadr"]["reviewed_status"], "missing")
         self.assertEqual(rows["aadr"]["authority_status"], "review_required")
@@ -210,7 +212,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 counts={"aadr_file_count": 0},
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "aadr")
+        row = next(row for row in _rows(payload["rows"]) if row["source_key"] == "aadr")
         self.assertEqual(row["reviewed_status"], "present")
         self.assertEqual(row["authority_status"], "review_required")
         self.assertIn(
@@ -250,7 +252,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 version=version,
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "aadr")
+        row = next(row for row in _rows(payload["rows"]) if row["source_key"] == "aadr")
         self.assertEqual(row["reviewed_status"], "present")
         self.assertEqual(row["authority_status"], "review_required")
         self.assertIn(
@@ -276,7 +278,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 version="v70",
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "aadr")
+        row = next(row for row in _rows(payload["rows"]) if row["source_key"] == "aadr")
         self.assertEqual(row["authority_status"], "review_required")
         self.assertIn(
             "aadr_source_accountability_release_mismatch",
@@ -304,7 +306,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 version="v70",
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "aadr")
+        row = next(row for row in _rows(payload["rows"]) if row["source_key"] == "aadr")
         self.assertEqual(row["authority_status"], "review_required")
         self.assertIn(
             "stale_or_unverifiable_aadr_source_accountability_inputs",
@@ -345,7 +347,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 version="v70",
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "aadr")
+        row = next(row for row in _rows(payload["rows"]) if row["source_key"] == "aadr")
         self.assertIn(
             "stale_or_unverifiable_aadr_source_accountability_inputs",
             row["blocking_reasons"],

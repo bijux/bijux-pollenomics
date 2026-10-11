@@ -124,13 +124,16 @@ def _validated_command(command: tuple[str, ...]) -> tuple[str, ...]:
     discovered = str(requested) if requested.is_absolute() else shutil.which(command[0])
     if discovered is None:
         raise BoundedProcessError(f"process executable is unavailable: {command[0]}")
+    # Interpreter launch spelling is semantic: resolving a venv Python link
+    # before exec discards its pyvenv.cfg and selects the base environment.
+    executable = Path(os.path.abspath(discovered))
     try:
-        executable = Path(discovered).resolve(strict=True)
-    except OSError as error:
+        target = executable.resolve(strict=True)
+    except (OSError, RuntimeError) as error:
         raise BoundedProcessError(
             f"process executable is unavailable: {command[0]}"
         ) from error
-    if not executable.is_file() or not os.access(executable, os.X_OK):
+    if not target.is_file() or not os.access(target, os.X_OK):
         raise BoundedProcessError(
             f"process executable must be an executable file: {executable}"
         )

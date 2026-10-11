@@ -1,0 +1,53 @@
+{
+  "ERV_example_data.rda": {
+    "sha256": "4099a1129dca6ca7accc2fae221e654e815cc6efefdb8cec4c65499a2016babc",
+    "objects": [
+      "ERV_example_data"
+    ]
+  },
+  "LOVEexampleParams.rda": {
+    "sha256": "d874e79b63a89e582b6e3c9b3df5d70c2053c0289f7fc69c0b0dd26bda828fa8",
+    "objects": [
+      "LOVEexampleParams"
+    ]
+  },
+  "LOVEexamplePollen.rda": {
+    "sha256": "8cb09bdaeb3e40db95c9b4a7820edf331d5c9f9a604116215d1a816d53f8bbb6",
+    "objects": [
+      "LOVEexamplePollen"
+    ]
+  },
+  "LOVEexampleRings.rda": {
+    "sha256": "8881c3787f1a1501463e490098bb921791d2ddb408aacead25f8b00228469721",
+    "objects": [
+      "LOVEexampleRings"
+    ]
+  },
+  "MP_example.rda": {
+    "sha256": "6a4ffed9d0e733d800088450030da771d032264b13cfaeb2ecaf9f91295489d7",
+    "objects": [
+      "localMP",
+      "regionalMP",
+      "paramsMP",
+      "assignmentMP"
+    ]
+  },
+  "Tiefer_See.rda": {
+    "sha256": "58fa7cf2b0d85af7e32cfca4b7bce9fe74de0b2520b1adac4f17c532cfc13eac",
+    "objects": [
+      "paramsTS",
+      "pollenTS"
+    ]
+  },
+  "eda_tc17c.rda": {
+    "sha256": "f352390f6dba7c69816793e7812a5b16511b3716b9ce7b64efffcecd7635280c",
+    "objects": [
+      "eda_tc17c"
+    ]
+  },
+  "sysdata.rda": {
+    "sha256": "6f8b66d0273c868508f6d6772c79a37bb1ee4881f16f77add27b48b7c610bd38",
+    "model_count": 45,
+    "note": "vval coefficients and independent R-fitted responses retained separately"
+  }
+}

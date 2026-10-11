@@ -172,6 +172,7 @@ nav:
           - SEAD Handbook: public/pollenomics-data/sources/sead-handbook.md
           - AADR: public/pollenomics-data/sources/aadr.md
           - Boundaries: public/pollenomics-data/sources/boundaries.md
+          - HYDE 3.5: public/pollenomics-data/sources/hyde.md
           - LandClim: public/pollenomics-data/sources/landclim.md
           - Neotoma: public/pollenomics-data/sources/neotoma.md
           - RAÄ: public/pollenomics-data/sources/raa.md
@@ -216,3 +217,22 @@ nav:
       - Chronology Playback: public/nordic-atlas/chronology-playback/index.md
       - Sweden Lake Priorities: public/nordic-atlas/sweden-lake-priorities/index.md
       - Southern Sweden Land-Use Synthesis: public/nordic-atlas/southern-sweden-land-use/index.md
+
+extra_javascript:
+  - assets/javascripts/mermaid-init.js
+  - assets/javascripts/shell/theme-persistence.js
+  - assets/javascripts/shell/viewport-profile.js
+  - assets/javascripts/shell/nav-state.js
+  - assets/javascripts/shell/detail-tabs.js
+  - assets/javascripts/shell/nav-reveal.js
+  - assets/javascripts/shell/search-recovery.js
+  - assets/javascripts/shell/content-reflow.js
+  - assets/javascripts/external-links.js
+  - assets/javascripts/shell/bootstrap.js
+  - assets/javascripts/navigation-sync.js
+  - assets/javascripts/pollenomics/offsite-targets.js
+exclude_docs: |
+  /overrides/
+  /hooks/
+  /assets/styles/README.md
+  /assets/javascripts/shell/README.md

@@ -1,15 +1,13 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from collections.abc import Iterable, Sequence
+from collections.abc import Sequence
 import json
 from pathlib import Path
-import unicodedata
+from typing import TypedDict
 
-from ...collection.spatial.representative_points import (
-    geometry_to_representative_point,
-)
 from ...core import haversine_km
+from .candidate_accounting import LakeRow, normalize_name, read_screened_registry
 
 __all__ = [
     "SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS",
@@ -36,6 +34,18 @@ _SAMPLING_MISSING_INPUTS = (
 )
 
 
+class _CandidateFeature(TypedDict):
+    type: str
+    geometry: dict[str, object]
+    properties: dict[str, object]
+
+
+class _PollenPoint(TypedDict):
+    latitude: float
+    longitude: float
+    source_record: str
+
+
 def build_sweden_lake_candidate_registry(
     *,
     svar_geojson_path: Path,
@@ -44,8 +54,7 @@ def build_sweden_lake_candidate_registry(
     named_targets: Sequence[str] = SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
 ) -> tuple[dict[str, object], dict[str, object]]:
     """Derive a compact official registry for evidence-linked and named lakes."""
-    svar_features = _load_features(svar_geojson_path)
-    lake_rows = _lake_rows(svar_features)
+    lake_rows, accounting = read_screened_registry(svar_geojson_path)
     pollen_points = _load_pollen_points(pollen_geojson_paths)
     pollen_matches = _match_pollen_points(lake_rows, pollen_points)
     target_matches, unresolved_targets = _match_named_targets(lake_rows, named_targets)
@@ -56,13 +65,12 @@ def build_sweden_lake_candidate_registry(
     for lake_id in target_matches.values():
         selection_reasons[lake_id].add("named_target_review")
 
-    features = []
+    features: list[_CandidateFeature] = []
     for row in lake_rows:
         lake_id = row["lake_id"]
         if lake_id not in selection_reasons:
             continue
-        feature = row["feature"]
-        properties = dict(feature["properties"])
+        properties = dict(row["properties"])
         pollen_evidence = sorted(pollen_matches.get(lake_id, ()))
         sampling_screen = _sampling_area_screen(
             lake_name=str(properties.get("name", "")),
@@ -103,7 +111,7 @@ def build_sweden_lake_candidate_registry(
 
     features.sort(
         key=lambda feature: (
-            _normalize_name(str(feature["properties"].get("name", ""))),
+            normalize_name(str(feature["properties"].get("name", ""))),
             str(feature["properties"].get("sjoid", "")),
         )
     )
@@ -117,7 +125,7 @@ def build_sweden_lake_candidate_registry(
         }
         for target in named_targets
     ]
-    registry = {
+    registry: dict[str, object] = {
         "type": "FeatureCollection",
         "schema_version": "sweden-lake-candidate-registry.v1",
         "generated_on": generated_on,
@@ -134,11 +142,11 @@ def build_sweden_lake_candidate_registry(
         },
         "features": features,
     }
-    review = {
-        "schema_version": "sweden-lake-candidate-registry-review.v1",
+    review: dict[str, object] = {
+        "schema_version": "sweden-lake-candidate-registry-review.v2",
         "generated_on": generated_on,
         "source": "SMHI SVAR",
-        "source_lake_count": len(lake_rows),
+        **accounting,
         "candidate_count": len(features),
         "pollen_linked_lake_count": len(pollen_matches),
         "named_target_match_count": len(target_matches),
@@ -179,36 +187,8 @@ def _load_features(path: Path) -> list[dict[str, object]]:
     return [feature for feature in features if isinstance(feature, dict)]
 
 
-def _lake_rows(features: Iterable[dict[str, object]]) -> list[dict[str, object]]:
-    rows = []
-    for feature in features:
-        properties = feature.get("properties")
-        geometry = feature.get("geometry")
-        if not isinstance(properties, dict) or not isinstance(geometry, dict):
-            continue
-        representative_point = geometry_to_representative_point(geometry)
-        if representative_point is None:
-            continue
-        longitude, latitude, geometry_type = representative_point
-        lake_id = str(properties.get("sjoid") or properties.get("record_id") or "")
-        lake_name = str(properties.get("name", "")).strip()
-        if not lake_id or not lake_name:
-            continue
-        rows.append(
-            {
-                "lake_id": lake_id,
-                "name_key": _normalize_name(lake_name),
-                "latitude": round(latitude, 6),
-                "longitude": round(longitude, 6),
-                "source_geometry_type": geometry_type,
-                "feature": feature,
-            }
-        )
-    return rows
-
-
-def _load_pollen_points(paths: Sequence[Path]) -> list[dict[str, object]]:
-    points = []
+def _load_pollen_points(paths: Sequence[Path]) -> list[_PollenPoint]:
+    points: list[_PollenPoint] = []
     for path in paths:
         for feature in _load_features(path):
             properties = feature.get("properties")
@@ -236,10 +216,12 @@ def _load_pollen_points(paths: Sequence[Path]) -> list[dict[str, object]]:
 
 
 def _match_pollen_points(
-    lake_rows: Sequence[dict[str, object]],
-    pollen_points: Sequence[dict[str, object]],
+    lake_rows: Sequence[LakeRow],
+    pollen_points: Sequence[_PollenPoint],
 ) -> dict[str, list[tuple[float, str]]]:
     matches: dict[str, list[tuple[float, str]]] = defaultdict(list)
+    if not lake_rows:
+        return {}
     for point in pollen_points:
         nearest = min(
             (
@@ -262,7 +244,7 @@ def _match_pollen_points(
 
 
 def _match_named_targets(
-    lake_rows: Sequence[dict[str, object]],
+    lake_rows: Sequence[LakeRow],
     named_targets: Sequence[str],
 ) -> tuple[dict[str, str], tuple[str, ...]]:
     by_name: dict[str, list[str]] = defaultdict(list)
@@ -271,7 +253,7 @@ def _match_named_targets(
     matches: dict[str, str] = {}
     unresolved = []
     for target in named_targets:
-        target_key = _normalize_name(target)
+        target_key = normalize_name(target)
         candidate_keys = (target_key, *_TARGET_REGISTRY_ALIASES.get(target_key, ()))
         lake_ids = [
             lake_id for key in candidate_keys for lake_id in by_name.get(key, ())
@@ -284,7 +266,7 @@ def _match_named_targets(
 
 
 def _sampling_area_screen(*, lake_name: str, area_km2: float | None) -> str:
-    normalized_name = _normalize_name(lake_name)
+    normalized_name = normalize_name(lake_name)
     if any(term in normalized_name for term in ("mosse", "myr", "karr")):
         return "wetland_identity_review"
     if area_km2 is None:
@@ -296,11 +278,6 @@ def _sampling_area_screen(*, lake_name: str, area_km2: float | None) -> str:
     if area_km2 > 20:
         return "large_lake_site_selection_required"
     return "lake_area_screen_complete"
-
-
-def _normalize_name(value: str) -> str:
-    folded = unicodedata.normalize("NFKD", value.casefold())
-    return "".join(character for character in folded if character.isalnum())
 
 
 def _optional_float(value: object) -> float | None:

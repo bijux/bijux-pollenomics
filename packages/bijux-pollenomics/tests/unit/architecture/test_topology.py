@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -18,6 +19,22 @@ _UNIT_TEST_ROOT = REPOSITORY_ROOT / "packages/bijux-pollenomics/tests/unit"
 def test_repository_source_and_unit_test_trees_satisfy_topology_policy() -> None:
     assert audit_repository_topology(_SOURCE_ROOT, _UNIT_TEST_ROOT) == ()
     assert_repository_topology(_SOURCE_ROOT, _UNIT_TEST_ROOT)
+
+
+def test_optional_engine_uses_the_same_topology_limits_and_ownership_rules() -> None:
+    engine = REPOSITORY_ROOT / "packages/bijux-pollenomics-lra"
+    policy = replace(
+        repository_topology_policy(),
+        source_root_files=("__init__.py", "api.py", "version.py", "_build_version.py"),
+        package_facades=(),
+        unit_test_domains=(),
+    )
+    assert (
+        audit_repository_topology(
+            engine / "src/bijux_pollenomics_lra", engine / "tests/unit", policy=policy
+        )
+        == ()
+    )
 
 
 def test_topology_policy_keeps_public_facades_narrow_and_packages_bounded() -> None:

@@ -6,7 +6,6 @@ import re
 from typing import cast
 
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
-from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
 from ..browser_semantics.support import (
@@ -18,6 +17,10 @@ from .support import (
     compressed_node_asset,
     compressed_provenance_asset,
     sharded_index_payload,
+)
+
+_TEMPORAL_IDENTITY = template_block(
+    "function staticAtlasTemporalIdentity", "function normalizeStaticAtlasBootstrap"
 )
 
 
@@ -74,6 +77,7 @@ async function staticAtlasSha256(text){{
   const digest=await globalThis.crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
   return Array.from(new Uint8Array(digest)).map((value)=>value.toString(16).padStart(2,'0')).join('');
 }}
+{_TEMPORAL_IDENTITY}
 {helpers}
 const row={{asset_key:'indexes:1',record_count:4}};
 const payload={payload};
@@ -138,6 +142,7 @@ async function staticAtlasSha256(text){{
   const digest=await globalThis.crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
   return Array.from(new Uint8Array(digest)).map((value)=>value.toString(16).padStart(2,'0')).join('');
 }}
+{_TEMPORAL_IDENTITY}
 {helpers}
 async function refusal(payload,row){{
   try {{ await staticAtlasMergeIndexShards(row,payload); return null; }}
@@ -161,16 +166,28 @@ async function refusal(payload,row){{
 
 
 def test_index_runtime_retains_single_payload_compatibility() -> None:
-    assert (
-        "indexes: ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', "
-        "'atlas-static-indexes.v3']" in MAP_DOCUMENT_TEMPLATE
+    schemas = template_block(
+        "const STATIC_ATLAS_SCHEMAS", "function staticAtlasFailure"
     )
+    observed = run_node_json(
+        "function schemasFor(version) { const STATIC_ATLAS_BOOTSTRAP={schema_version:version};"
+        + schemas
+        + "return STATIC_ATLAS_SCHEMAS.indexes;} console.log(JSON.stringify({legacy:schemasFor('atlas-static-bootstrap.v2'),signed:schemasFor('atlas-static-bootstrap.v3')}));"
+    )
+    assert observed == {
+        "legacy": [
+            "atlas-static-indexes.v1",
+            "atlas-static-indexes.v2",
+            "atlas-static-indexes.v3",
+        ],
+        "signed": ["atlas-static-indexes.v4"],
+    }
     consume = template_block(
         "async function consumeStaticAtlasAsset", "function loadStaticAtlasAsset"
     )
     assert (
-        "row.domain === 'indexes' && payload.schema_version === "
-        "'atlas-static-indexes.v3'" in consume
+        "row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)"
+        in consume
     )
     assert ": payload;" in consume
     assert "STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload" in consume
@@ -283,6 +300,7 @@ function staticAtlasNonnegativeInteger(value,label){{
   if(!Number.isSafeInteger(numeric)||numeric<0) staticAtlasFailure(`${{label}} is invalid`);
   return numeric;
 }}
+{_TEMPORAL_IDENTITY}
 {runtime}
 async function refusal(row){{
   try {{ await consumeStaticAtlasAsset(row); return null; }}
@@ -352,6 +370,7 @@ function staticAtlasNonnegativeInteger(value,label){{
   if(!Number.isSafeInteger(numeric)||numeric<0) staticAtlasFailure(`${{label}} is invalid`);
   return numeric;
 }}
+{_TEMPORAL_IDENTITY}
 {runtime}
 (async()=>{{
   await consumeStaticAtlasAsset({json.dumps(row, separators=(",", ":"))});
