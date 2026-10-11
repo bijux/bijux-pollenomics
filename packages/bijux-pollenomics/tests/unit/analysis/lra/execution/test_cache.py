@@ -63,7 +63,9 @@ def test_cache_invalidation_and_refusals(tmp_path: Path, change: str) -> None:
         elif change == "runtime":
             stack.enter_context(patch.dict("os.environ", {"OMP_NUM_THREADS": "3"}))
         elif change == "corrupt":
-            (first.product.directory / "numerical/reconstruction.csv").write_text("corrupt")
+            (first.product.directory / "numerical/reconstruction.csv").write_text(
+                "corrupt"
+            )
         else:
             (root / f".{first.cache_key}.cache.lock").write_text("active owner")
         if change in {"code", "runtime"}:
