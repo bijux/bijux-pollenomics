@@ -4,8 +4,8 @@
   "inputs": [
     {
       "path": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
-      "bytes": 6239,
-      "sha256": "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e"
+      "bytes": 6737,
+      "sha256": "7f2f12b62645cf46f077304ca2cec06b3dd4bd361271e4e45237bd7fb74c3409"
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",

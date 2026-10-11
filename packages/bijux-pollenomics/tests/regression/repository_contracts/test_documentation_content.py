@@ -198,7 +198,7 @@ class DocumentationContentTests(unittest.TestCase):
             ).read_text(encoding="utf-8"),
         )
         self.assertIn(
-            'href="../../report/">Open the report portal</a>',
+            "[Open the report portal](../../report/index.md)",
             (REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md").read_text(
                 encoding="utf-8"
             ),
@@ -327,9 +327,9 @@ class DocumentationContentTests(unittest.TestCase):
             / "index.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn('href="../../report/"', atlas_text)
+        self.assertIn("[Open the report portal](../../report/index.md)", atlas_text)
         self.assertIn(
-            'href="../../report/regions/nordic/nordic_map.html"',
+            "[Open the Nordic evidence atlas](../../report/regions/nordic/nordic_map.html)",
             atlas_text,
         )
         self.assertIn(

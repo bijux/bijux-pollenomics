@@ -11,7 +11,7 @@ from bijux_pollenomics.analysis.propagation.candidates import (
 )
 
 from .errors import _invalid
-from .identity import _stable_id
+from .identity import _stable_digest, _stable_id
 from .models import (
     PROPAGATION_CONTRACT_VERSION,
     PhenomenonEvent,
@@ -206,4 +206,7 @@ def _build_refusal(
         feature_key=source.feature_key,
         scenario_id=scenario.scenario_id,
         reason_code=reason_code,
+        config_digest=_stable_digest(
+            scenario.scenario_id, source.config_digest, target.config_digest
+        ),
     )

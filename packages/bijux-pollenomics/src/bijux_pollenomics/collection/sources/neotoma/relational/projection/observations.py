@@ -40,7 +40,13 @@ def project_observations(
     occurrence_counts: Counter[str] = Counter()
     for datum in datum_rows:
         if not isinstance(datum, Mapping):
-            add_orphan(state.orphans, "sample", sample_id, "invalid_observation_row")
+            add_orphan(
+                state.orphans,
+                "sample",
+                sample_id,
+                "invalid_observation_row",
+                source_value=datum,
+            )
             continue
         datum_payload = copy.deepcopy(dict(datum))
         datum_digest = digest(datum_payload)

@@ -46,6 +46,11 @@ def validated_original_r_reference(
             _regular_confined_file(
                 repo_root, f"{report_root}/{_PREFIX}/{entry.path}", "original R source"
             )
+        validate_bundle(
+            bundle,
+            target_sha=certificate["source_commit"],
+            expected_lock_sha256=certificate["lock_sha256"],
+        )
     except (
         OSError,
         ValueError,

@@ -56,11 +56,21 @@ def forward_deposition(
     local, total = _deposition_components(
         cover, regional, kernels, fractions, productivity
     )
-    mass = total.sum()
-    if not np.isfinite(total).all() or not np.isfinite(mass) or mass <= 0:
+    if not np.isfinite(total).all():
         raise ValidationError("Forward deposition has nonfinite or zero total mass")
+    with np.errstate(over="ignore"):
+        mass = total.sum()
+    if mass <= 0:
+        raise ValidationError("Forward deposition has nonfinite or zero total mass")
+    if np.isfinite(mass):
+        pollen_fraction = total / mass
+    else:
+        # Finite taxon masses can overflow only their aggregate. A common unit
+        # change preserves composition and the inspectable original masses.
+        scaled = total / total.max()
+        pollen_fraction = scaled / scaled.sum()
     return ForwardResult(
-        pollen_fraction=np.array(total / mass, copy=True),
+        pollen_fraction=np.array(pollen_fraction, copy=True),
         local_deposition=np.array(local, copy=True),
         regional_deposition=np.array(regional, copy=True),
         total_deposition=np.array(total, copy=True),

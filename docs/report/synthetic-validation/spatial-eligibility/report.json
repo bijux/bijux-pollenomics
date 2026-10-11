@@ -1155,7 +1155,10 @@
         "target_country_code": "SE",
         "feature_key": "whole:pollen",
         "scenario_id": "rectangular_100km_100yr_v1",
-        "reason_code": "same_governed_site"
+        "reason_code": "same_governed_site",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1"
       },
       "status": "pair_refused",
       "contract_status": "passed"
@@ -1253,7 +1256,111 @@
         "target_country_code": "SE",
         "feature_key": "whole:pollen",
         "scenario_id": "rectangular_100km_100yr_v1",
-        "reason_code": "invalid_or_missing_coordinate"
+        "reason_code": "invalid_or_missing_coordinate",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1"
+      },
+      "status": "pair_refused",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "partial-coordinate",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:partial-coordinate",
+          "site_id": "site:partial-coordinate",
+          "observation_ids": [
+            "observation:partial-coordinate"
+          ],
+          "country_code": "SE",
+          "latitude": null,
+          "longitude": 13.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:partial-coordinate",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:partial-coordinate",
+          "input_digest": "6c307f90b5c324c2d32a722ff427b555355c539d4b880f3c53599ed8a2d72ba6",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:c54d591ffef8ca20a3da477a",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "invalid_or_missing_coordinate",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "pair_id": "pair-refusal:b9aa2a5137d0562cb68a2c91",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:c54d591ffef8ca20a3da477a",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "feature_key": "whole:pollen",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "reason_code": "invalid_or_missing_coordinate",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1"
       },
       "status": "pair_refused",
       "contract_status": "passed"
@@ -1799,17 +1906,6 @@
       "status": "ingestion_refused",
       "reason_code": "invalid_event_schema",
       "detail": "longitude is outside the valid EPSG:4326 range",
-      "contract_status": "passed"
-    },
-    {
-      "case_id": "partial-coordinate",
-      "inputs": {
-        "latitude": null,
-        "longitude": 13.0
-      },
-      "status": "ingestion_refused",
-      "reason_code": "invalid_event_schema",
-      "detail": "coordinates must either both be present or both be null",
       "contract_status": "passed"
     },
     {
@@ -3283,8 +3379,8 @@
     "requested_pair_attempts": 18,
     "attempted_pairs": 18,
     "evaluated": 12,
-    "pair_refused": 2,
-    "ingestion_refused": 3,
+    "pair_refused": 3,
+    "ingestion_refused": 2,
     "fixture_refused": 1,
     "contract_passed": 18,
     "regional_requested_neighbors": 3,
@@ -3295,6 +3391,6 @@
     "historical_routes": false,
     "country_only_display_context_verified": false,
     "coordinate_axis_detection": "declared_fixture_box_only",
-    "partial_coordinates": "refused_at_event_ingestion; paired_nulls_retained_in_pair_refusal_ledger"
+    "partial_coordinates": "missing_axes_retained_at_event_ingestion; incomplete_coordinates_retained_in_pair_refusal_ledger"
   }
 }

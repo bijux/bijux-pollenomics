@@ -100,6 +100,8 @@ def _classification_authority_universe_reason(
 def _ambiguous_authorized_mapping_ids(
     mappings: Sequence[Mapping[str, object]],
     context: ClassificationEventContext | ClassificationReviewContext,
+    *,
+    retain_context: bool = False,
 ) -> set[str]:
     """Return authority concepts that share one governed source identity."""
     concepts_by_source_identity: dict[str, set[str]] = defaultdict(set)
@@ -114,9 +116,16 @@ def _ambiguous_authorized_mapping_ids(
             or _optional_text(mapping.get("mapping_version")) != context.mapping_version
             or not _mapping_is_authorized(mapping, context)
             or _optional_text(mapping.get("source_variable_id")) is None
-            or not _source_taxon_identity(mapping.get("source_taxon_id"))
+            or (
+                not _source_taxon_identity(mapping.get("source_taxon_id"))
+                and not (retain_context and mapping.get("source_taxon_id") is None)
+            )
             or _optional_text(mapping.get("source_reported_name")) is None
-            or _optional_text(mapping.get("source_element_type")) != "pollen"
+            or (
+                not retain_context
+                and _optional_text(mapping.get("source_element_type")) != "pollen"
+            )
+            or _optional_text(mapping.get("source_element_type")) is None
         ):
             continue
         source_identity = _canonical(

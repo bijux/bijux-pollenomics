@@ -4,7 +4,7 @@ audience: reader
 type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-03
 ---
 
 # Installation And Setup
@@ -50,8 +50,9 @@ copying a newer data tree does not establish which runtime produced it.
 
 ## Reproduce The Repository Environment
 
-The source checkout requires Python 3.11, `uv`, `uv.lock`, and all three
-workspace packages. From the repository root:
+The source checkout requires Python 3.11, `uv`, `uv.lock`, and all four
+workspace packages: `bijux-pollenomics`, `bijux-pollenomics-lra`,
+`bijux-pollenomics-dev`, and `pollenomics`. From the repository root:
 
 ```bash
 python3.11 --version
@@ -201,7 +202,7 @@ A failed environment setup does not justify changing governed data or reports.
 Changing the lock is a dependency decision, not a recovery technique.
 
 If the console script exists but imports fail, verify that the script belongs
-to `artifacts/root/check-venv/` and that the checkout still contains all three
+to `artifacts/root/check-venv/` and that the checkout still contains all four
 workspace packages. Do not work around the package boundary by adding source
 directories to `PYTHONPATH`; that can conceal a broken installation and test a
 different import graph from the supported environment.

@@ -199,3 +199,117 @@ def test_symlink_evidence_path_escape_refuses(
     (root / "data/a.json").symlink_to(outside)
     with pytest.raises(ValueError, match="Unsafe capability evidence path"):
         derive(root, contract, stage)
+
+
+def _taxon_documents(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]],
+) -> tuple[Path, dict[str, Any], dict[str, Any]]:
+    root, contract, stage = deepcopy(documents)
+    capability = contract["capability_contract"]
+    capability["dimensions"][1] = "taxon_identity"
+    for source in capability["sources"]:
+        for field in ("support_by_dimension", "evidence_paths_by_dimension"):
+            source[field]["taxon_identity"] = source[field].pop("numeric_chronology")
+    for row in stage["capability_materialization_audit"]["rows"]:
+        if row["dimension"] == "numeric_chronology":
+            row["dimension"] = "taxon_identity"
+    return root, contract, stage
+
+
+@pytest.mark.parametrize("prior_reason", [False, True])
+def test_source_without_taxa_reports_absence_without_inventing_taxonomy(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]], prior_reason: bool
+) -> None:
+    root, contract, stage = _taxon_documents(documents)
+    broad_category = '{"source":"a","land_use_category":"Forest"}\n'
+    (root / "data/a.json").write_text(broad_category)
+    cell = stage["capability_materialization_audit"]["rows"][1]
+    cell["reason_codes"] = ["source_dimension_unsupported"]
+    if prior_reason:
+        cell["reason_codes"].append("not_provided_by_source")
+    original = deepcopy(stage)
+    report = derive(root, contract, stage)
+    absence = next(
+        row
+        for row in report["rows"]
+        if row["source_key"] == "a" and row["dimension"] == "taxon_identity"
+    )
+    assert absence["reason_codes"] == [
+        "source_dimension_unsupported",
+        "not_provided_by_source",
+    ]
+    assert absence["support"] == "unsupported"
+    assert absence["materialization"] == "not_applicable"
+    assert absence["coverage_metrics"] == {"records": None}
+    assert absence["present_evidence_paths"] == absence["missing_evidence_paths"] == []
+    assert not absence["human_review_required"]
+    assert stage == original
+    assert (root / "data/a.json").read_text() == broad_category
+    assert report["source_count"] == 2 and report["audit_row_count"] == 4
+    assert report["support_counts"] == {"partial": 2, "supported": 1, "unsupported": 1}
+    assert report["materialization_counts"] == {
+        "complete": 1,
+        "missing": 1,
+        "not_applicable": 1,
+        "partial": 1,
+    }
+    assert not {"accepted_taxon_concept_id", "source_taxon_id", "taxa"} & absence.keys()
+
+
+@pytest.mark.parametrize("support", ["supported", "partial"])
+def test_missing_taxon_files_do_not_report_source_absence(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]], support: str
+) -> None:
+    root, contract, stage = _taxon_documents(documents)
+    contract["capability_contract"]["sources"][1]["support_by_dimension"][
+        "taxon_identity"
+    ] = support
+    cell = stage["capability_materialization_audit"]["rows"][3]
+    cell["support"] = support
+    cell["coverage_metrics"] = {"records": None}
+    cell["reason_codes"] = ["governed_dimension_evidence_missing"]
+    report = derive(root, contract, stage)
+    missing = next(
+        row
+        for row in report["rows"]
+        if row["source_key"] == "b" and row["dimension"] == "taxon_identity"
+    )
+    assert missing["support"] == support
+    assert missing["materialization"] == "missing"
+    assert missing["coverage_metrics"] == {"records": None}
+    assert missing["reason_codes"] == ["governed_dimension_evidence_missing"]
+    assert missing["missing_evidence_paths"] == ["docs/missing.json"]
+    assert missing["human_review_required"]
+
+
+@pytest.mark.parametrize("support", ["supported", "partial"])
+def test_taxon_source_absence_cannot_be_asserted_for_capable_source(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]], support: str
+) -> None:
+    root, contract, stage = _taxon_documents(documents)
+    contract["capability_contract"]["sources"][1]["support_by_dimension"][
+        "taxon_identity"
+    ] = support
+    cell = stage["capability_materialization_audit"]["rows"][3]
+    cell["support"] = support
+    cell["reason_codes"] = ["not_provided_by_source"]
+    with pytest.raises(
+        ValueError, match="Taxon absence contradicts declared source capability"
+    ):
+        derive(root, contract, stage)
+
+
+def test_unsupported_non_taxon_dimension_keeps_its_own_reason(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]],
+) -> None:
+    root, contract, stage = documents
+    stage["capability_materialization_audit"]["rows"][1]["reason_codes"] = [
+        "source_dimension_unsupported"
+    ]
+    report = derive(root, contract, stage)
+    numeric = next(
+        row
+        for row in report["rows"]
+        if row["source_key"] == "a" and row["dimension"] == "numeric_chronology"
+    )
+    assert numeric["reason_codes"] == ["source_dimension_unsupported"]

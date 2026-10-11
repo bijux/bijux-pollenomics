@@ -408,7 +408,10 @@ def parse_coordinate(value: str) -> float | None:
         degrees, minutes, seconds = (float(part) for part in parts)
     except ValueError:
         return None
-    decimal = degrees + minutes / 60 + seconds / 3600
+    if parts[0].lstrip().startswith("-"):
+        decimal = degrees - minutes / 60 - seconds / 3600
+    else:
+        decimal = degrees + minutes / 60 + seconds / 3600
     if hemisphere in {"S", "W"}:
         decimal *= -1
     return decimal

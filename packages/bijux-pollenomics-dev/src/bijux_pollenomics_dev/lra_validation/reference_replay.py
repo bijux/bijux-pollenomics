@@ -86,6 +86,72 @@ def comparison_outcome(
         return {"status": "failed", "reason": str(error), "values": len(expected)}
 
 
+def _source_digest(path: Path, root: Path) -> str:
+    current = path
+    while current != root:
+        if current.is_symlink():
+            raise ValueError(f"Replay source symlink refused: {path}")
+        current = current.parent
+    if root.is_symlink() or not path.is_file():
+        raise ValueError(f"Replay source must be a regular file: {path}")
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _require_installed_replay_sources(repository: Path) -> None:
+    source_root = (
+        repository / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev"
+    )
+    installed_replay = Path(__file__).absolute()
+    installed_root = installed_replay.parent.parent
+    relative_replay = Path("lra_validation/reference_replay.py")
+    if _source_digest(installed_replay, installed_root) != _source_digest(
+        source_root / relative_replay, source_root
+    ):
+        raise ValueError("Installed replay source differs from repository")
+    reference_relative = Path("ci/lra_reference")
+    installed_paths = {
+        path.relative_to(installed_root)
+        for path in (installed_root / reference_relative).rglob("*.py")
+        if "__pycache__" not in path.parts
+    }
+    source_paths = {
+        path.relative_to(source_root)
+        for path in (source_root / reference_relative).rglob("*.py")
+        if "__pycache__" not in path.parts
+    }
+    if not source_paths or installed_paths != source_paths:
+        raise ValueError(
+            "Installed R validator source path set differs from repository"
+        )
+    for relative in sorted(source_paths):
+        if _source_digest(installed_root / relative, installed_root) != _source_digest(
+            source_root / relative, source_root
+        ):
+            raise ValueError(f"Installed R validator source differs: {relative}")
+
+
+def _replay_source_hashes(repository: Path) -> dict[str, str]:
+    _require_installed_replay_sources(repository)
+    lra = repository / "packages/bijux-pollenomics-lra/src"
+    oracle = repository / "packages/bijux-pollenomics-lra/tests/reference/lra_oracle"
+    development = (
+        repository / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev"
+    )
+    closure = sorted(
+        set(lra.rglob("*.py"))
+        | set(oracle.rglob("*"))
+        | set(lra.rglob("*.npz"))
+        | set(lra.rglob("*.json"))
+        | set((development / "ci/lra_reference").rglob("*.py"))
+        | {development / "lra_validation/reference_replay.py"}
+    )
+    return {
+        path.relative_to(repository).as_posix(): _source_digest(path, repository)
+        for path in closure
+        if (path.is_file() or path.is_symlink()) and "__pycache__" not in path.parts
+    }
+
+
 def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
     """Require unchanged R expressions before comparing every retained case."""
     repository, bundle, output = (p.resolve() for p in (repository, bundle, output))
@@ -93,6 +159,7 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
     if hashlib.sha256(certificate_path.read_bytes()).hexdigest() != CERTIFICATE_SHA256:
         raise ValueError("Retained R certificate differs from pinned original")
     certificate = json.loads(certificate_path.read_text())
+    hashes = _replay_source_hashes(repository)
     validate_bundle(
         bundle,
         target_sha=certificate["source_commit"],
@@ -101,19 +168,6 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
     if output.exists():
         raise ValueError("Replay output must be absent")
     reference = repository / "packages/bijux-pollenomics-lra/tests/reference"
-    closure = sorted(
-        set((repository / "packages/bijux-pollenomics-lra/src").rglob("*.py"))
-        | set((reference / "lra_oracle").rglob("*"))
-        | set((repository / "packages/bijux-pollenomics-lra/src").rglob("*.npz"))
-        | set((repository / "packages/bijux-pollenomics-lra/src").rglob("*.json"))
-        | set(Path(__file__).parent.parent.joinpath("ci/lra_reference").rglob("*.py"))
-        | {Path(__file__)}
-    )
-    hashes = {
-        p.relative_to(repository).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in closure
-        if p.is_file() and "__pycache__" not in p.parts
-    }
     output.mkdir(parents=True)
     sys.path.insert(0, str(reference))
     try:
@@ -200,9 +254,8 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
             )
     finally:
         sys.path.remove(str(reference))
-    for p, digest in hashes.items():
-        if hashlib.sha256((repository / p).read_bytes()).hexdigest() != digest:
-            raise ValueError(f"Replay dependency changed: {p}")
+    if _replay_source_hashes(repository) != hashes:
+        raise ValueError("Replay dependency closure changed")
     missing = [
         {"name": c.name, "api": c.api, "reason": "no_result_in_original_R_bundle"}
         for c in cases

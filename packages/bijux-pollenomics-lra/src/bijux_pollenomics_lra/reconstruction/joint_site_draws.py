@@ -22,6 +22,49 @@ class JointSiteDrawResult:
     profile: str = PROFILE
 
 
+def _closed_joint_draws(
+    sampled_counts: np.ndarray,
+    deposition: np.ndarray,
+    ppe: np.ndarray,
+) -> np.ndarray:
+    """Preserve ordinary pooled arithmetic and cancel unresolved common scales."""
+    calculation_dtype = np.result_type(
+        sampled_counts.dtype, deposition.dtype, ppe.dtype, np.float64
+    )
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        weights = (sampled_counts / deposition).sum(axis=1) / ppe
+        totals = weights.sum(axis=1)
+        closed = weights / totals[:, None]
+        unresolved = (
+            ~np.isfinite(weights).all(axis=1)
+            | ~np.isfinite(totals)
+            | (totals <= 0)
+            | np.any(
+                np.any(sampled_counts > 0, axis=1)
+                & (weights < np.finfo(weights.dtype).tiny),
+                axis=1,
+            )
+        )
+        if np.any(unresolved):
+            # A duplicated site retains the same count draw and geometry. Sum
+            # its positive contributions before applying the shared PPE draw.
+            closed = np.asarray(closed, dtype=calculation_dtype)
+            corrected = np.log(
+                np.asarray(sampled_counts[unresolved], dtype=calculation_dtype)
+            ) - np.log(np.asarray(deposition[unresolved], dtype=calculation_dtype))
+            logged = np.logaddexp.reduce(corrected, axis=1) - np.log(
+                np.asarray(ppe[unresolved], dtype=calculation_dtype)
+            )
+            scaled = np.exp(logged - logged.max(axis=1, keepdims=True))
+            closed[unresolved] = scaled / scaled.sum(axis=1, keepdims=True)
+    tolerance = max(1e-12, np.finfo(closed.dtype).eps * closed.shape[1])
+    if not np.isfinite(closed).all() or not np.allclose(
+        closed.sum(axis=1), 1, rtol=0, atol=tolerance
+    ):
+        raise ValidationError("Joint REVEALS corrected draw is numerically unresolved")
+    return np.asarray(closed)
+
+
 def joint_site_cover_draws(
     counts: np.ndarray,
     deposition: np.ndarray,
@@ -100,11 +143,7 @@ def joint_site_cover_draws(
             "Joint REVEALS count totals, PPE or site identities are invalid"
         )
     rows = np.arange(indices.shape[0])[:, None]
-    weights = (sampled[rows, indices] / k[indices]).sum(axis=1) / ppe
-    totals = weights.sum(axis=1)
-    if not np.isfinite(weights).all() or np.any(totals <= 0):
-        raise ValidationError("Joint REVEALS corrected draw is invalid")
-    closed = weights / totals[:, None]
+    closed = _closed_joint_draws(sampled[rows, indices], k[indices], ppe)
     mean = closed.mean(axis=0)
     covariance = np.cov(closed, rowvar=False, ddof=1)
     standard_error = np.sqrt(np.maximum(np.diag(covariance), 0))

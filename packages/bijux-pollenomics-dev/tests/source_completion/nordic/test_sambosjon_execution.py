@@ -72,7 +72,7 @@ def fixture_repository(tmp_path: Path) -> Path:
                 "sites": [
                     {
                         "site_id": execution.SITE,
-                        "candidate_bin_ids": list(range(1, 23)),
+                        "candidate_bin_ids": [str(bin_id) for bin_id in range(1, 23)],
                     }
                 ]
             }
@@ -314,3 +314,59 @@ def test_prediction_refuses_unverified_complete_stage(
     )
     assert len(stage_roots) == 1
     assert (stage_roots[0] / "complete-stage/freeze.json").is_file()
+
+
+def test_prediction_refuses_duplicate_bin_with_complete_row_counts(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = fixture_repository(tmp_path)
+    bind_origin(monkeypatch, repository)
+    payload = prediction_payload()
+    rows = payload["predictions"]
+    assert isinstance(rows, list)
+    rows[3]["bin_id"] = 1
+    protocol_path = repository / execution.PROTOCOL
+    protocol = json.loads(protocol_path.read_bytes())
+    protocol["pre_score_predictions_sha256"] = hashlib.sha256(
+        json.dumps(payload).encode()
+    ).hexdigest()
+    protocol_path.write_text(json.dumps(protocol))
+    manifest_path = repository / execution.PREPARED / "input-manifest.json"
+    manifest = json.loads(manifest_path.read_bytes())
+    manifest["protocol_sha256"] = sha(protocol_path)
+    manifest_path.write_text(json.dumps(manifest))
+
+    def fake_run(module: str, *, run_name: str) -> None:
+        stage = Path(sys.argv[-1])
+        fake_complete_stage(repository, stage)
+        predictions_path = stage / "predictions.json"
+        predictions_path.write_text(json.dumps(payload))
+        freeze_path = stage / "freeze.json"
+        freeze = json.loads(freeze_path.read_bytes())
+        freeze["predictions_sha256"] = sha(predictions_path)
+        freeze_path.write_text(json.dumps(freeze))
+
+    monkeypatch.setattr(runpy, "run_module", fake_run)
+    output = repository / "artifacts/source-products"
+    with pytest.raises(ValueError, match="prediction bin-method grid differs"):
+        predictions.run(repository, output)
+    assert not output.exists()
+
+
+def test_prediction_refuses_duplicate_candidate_bin_before_source(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = fixture_repository(tmp_path)
+    metadata_path = repository / execution.PREPARED / "metadata.json"
+    metadata = json.loads(metadata_path.read_bytes())
+    metadata["sites"][0]["candidate_bin_ids"][-1] = "21"
+    metadata_path.write_text(json.dumps(metadata))
+    manifest_path = repository / execution.PREPARED / "input-manifest.json"
+    manifest = json.loads(manifest_path.read_bytes())
+    manifest["metadata_sha256"] = sha(metadata_path)
+    manifest_path.write_text(json.dumps(manifest))
+    monkeypatch.setattr(
+        runpy, "run_module", lambda *a, **k: pytest.fail("source entered")
+    )
+    with pytest.raises(ValueError, match="candidate bin identities differ"):
+        predictions.run(repository, repository / "artifacts/source-products")

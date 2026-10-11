@@ -26,6 +26,8 @@ from bijux_pollenomics_dev.source_completion.nordic import (
     lilla_gloppsjon_scores as scores,
 )
 
+METHODS = ("training_mean", "nearest_site", "inverse_distance_squared")
+
 
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -34,6 +36,19 @@ def sha(path: Path) -> str:
 def write_json(path: Path, value: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, sort_keys=True))
+
+
+def prediction_rows() -> list[dict[str, Any]]:
+    return [
+        {
+            "bin_id": bin_id,
+            "method": method,
+            "site_id": execution.SITE,
+            "training_site_ids": ["other-site"],
+        }
+        for bin_id in range(23)
+        for method in METHODS
+    ]
 
 
 def fixture_repository(tmp_path: Path) -> Path:
@@ -49,7 +64,14 @@ def fixture_repository(tmp_path: Path) -> Path:
         path.write_text("# fixture source\n")
     study = repository / execution.STUDY
     protocol = study / "protocol.json"
-    write_json(protocol, {"target_site_id": execution.SITE})
+    write_json(
+        protocol,
+        {
+            "target_site_id": execution.SITE,
+            "candidate_bin_ids": list(range(23)),
+            "methods": list(METHODS),
+        },
+    )
     prepared = study / "inputs"
     write_json(prepared / "metadata.json", {"site_id": execution.SITE})
     write_json(
@@ -61,7 +83,10 @@ def fixture_repository(tmp_path: Path) -> Path:
         },
     )
     frozen = study / "frozen"
-    write_json(frozen / "predictions.json", {"predictions": [{}] * 69, "refusals": []})
+    write_json(
+        frozen / "predictions.json",
+        {"predictions": prediction_rows(), "refusals": []},
+    )
     write_json(
         frozen / "freeze.json",
         {
@@ -85,7 +110,10 @@ def fixture_repository(tmp_path: Path) -> Path:
 
 def fake_frozen(output: Path) -> None:
     output.mkdir(parents=True, exist_ok=False)
-    write_json(output / "predictions.json", {"predictions": [{}] * 69, "refusals": []})
+    write_json(
+        output / "predictions.json",
+        {"predictions": prediction_rows(), "refusals": []},
+    )
     write_json(
         output / "freeze.json",
         {
@@ -307,3 +335,69 @@ def test_reused_output_and_symlinked_parent_refused(tmp_path: Path) -> None:
         contained.main(
             ["--repository", str(repository), "--output", str(alias / "other")]
         )
+
+
+@pytest.mark.parametrize("route", ("fresh", "retained"))
+@pytest.mark.parametrize("tamper", ("duplicate_pair", "target_in_training"))
+def test_invalid_prediction_source_refused_before_success_or_scoring(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, route: str, tamper: str
+) -> None:
+    repository = fixture_repository(tmp_path)
+    output = repository / "artifacts/source-products"
+
+    def tamper_prediction(directory: Path) -> None:
+        predictions_path = directory / "predictions.json"
+        payload = json.loads(predictions_path.read_bytes())
+        if tamper == "duplicate_pair":
+            payload["predictions"][3]["bin_id"] = 0
+        else:
+            payload["predictions"][0]["training_site_ids"] = [execution.SITE]
+        write_json(predictions_path, payload)
+        freeze_path = directory / "freeze.json"
+        freeze = json.loads(freeze_path.read_bytes())
+        freeze["predictions_sha256"] = sha(predictions_path)
+        write_json(freeze_path, freeze)
+
+    if route == "fresh":
+        monkeypatch.setattr(
+            importlib.util,
+            "find_spec",
+            lambda module: SimpleNamespace(
+                origin=str(repository / execution.PREDICT_SOURCE)
+            ),
+        )
+
+        def fake_run(module: str, *, run_name: str) -> None:
+            stage = Path(sys.argv[-1])
+            fake_frozen(stage)
+            tamper_prediction(stage)
+
+        monkeypatch.setattr(runpy, "run_module", fake_run)
+        expected_error = (
+            "bin-method grid differs"
+            if tamper == "duplicate_pair"
+            else "source identity differs"
+        )
+        with pytest.raises(ValueError, match=expected_error):
+            predictions.main(["--repository", str(repository), "--output", str(output)])
+        assert (output / "predictions.json").is_file()
+    else:
+        tamper_prediction(repository / execution.STUDY / "frozen")
+        monkeypatch.setattr(
+            importlib.util,
+            "find_spec",
+            lambda module: SimpleNamespace(
+                origin=str(repository / execution.SCORE_SOURCE)
+            ),
+        )
+        monkeypatch.setattr(
+            runpy, "run_module", lambda *a, **k: pytest.fail("scoring source entered")
+        )
+        expected_error = (
+            "bin-method grid differs"
+            if tamper == "duplicate_pair"
+            else "source identity differs"
+        )
+        with pytest.raises(ValueError, match=expected_error):
+            scores.main(["--repository", str(repository), "--output", str(output)])
+        assert not output.exists()

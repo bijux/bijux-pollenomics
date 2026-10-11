@@ -51,7 +51,29 @@ or that a different budget would settle the refused sites.
 ## Source-bound result
 
 Our [retained report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json)
-binds the source, prediction and score manifests. We rotated all 15 sites as
+binds the source, prediction and score manifests. A source-qualified run of the
+[maintained ten-stage consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/constrained_author_lra.py)
+on a clean `3d6a963f1c5e37328d02260acc30a77c2496faca` checkout reproduced
+three of the eleven governed files byte for byte: the fold table, the direct
+prediction manifest and the direct prediction rows. The other eight changed
+only prediction or score identities and hashes derived from them. All numerical
+cells, denominators and refusal outcomes compared equal. The run used the
+qualified 193-file author snapshot, retained its complete native stages in
+ignored artifacts, checked source bytes before and after, and verified the
+installed producer origin. These are scoped source and numerical-correspondence
+checks; the eleven governed files as a set have **not** been reproduced byte
+for byte by this run.
+
+The fresh prediction manifest includes the installed LRA code inventory and
+runtime package version in its scientific identity. Its natural build version
+at that commit was `0.1.9.dev1213`; a later source commit changes that
+version and can change dependent manifest and report hashes without changing
+prediction fractions or scores. We preserve the historical governed bytes and
+their unresolved generated-output custody. We do not replace their identity
+fields with older values or infer independent vegetation accuracy from this
+recheck.
+
+We rotated all 15 sites as
 targets. Fourteen folds produced three predictions each. We refused the
 BECKHAM fold because training LOVE fits for CUTHILL2, HANGINGS and
 LONGBREACH did not converge: 192 of 195 training items completed and three

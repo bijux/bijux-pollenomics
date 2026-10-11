@@ -176,9 +176,15 @@ def _normalize_edges(
             raise ValueError(f"atlas edge {edge_id} signal is not accepted")
         source_country = _required_text(row, "source_country", "edge")
         target_country = _required_text(row, "target_country", "edge")
+        _validate_edge_direction(row, edge_id)
         normalized.append(
             {
                 **dict(row),
+                **(
+                    {"status": row["candidate_status"]}
+                    if "candidate_status" in row
+                    else {}
+                ),
                 "edge_id": edge_id,
                 "signal_id": signal_id,
                 "source_record_id": _required_text(row, "source_record_id", "edge"),
@@ -191,6 +197,37 @@ def _normalize_edges(
     normalized.sort(key=lambda item: str(item["edge_id"]))
     _require_unique(normalized, "edge_id", "edge")
     return normalized
+
+
+def _validate_edge_direction(row: Mapping[str, object], edge_id: str) -> None:
+    """Preserve legacy edges while enforcing native candidate direction contracts."""
+    native = "candidate_status" in row
+    status = row.get("candidate_status") if native else row.get("status")
+    directional_statuses = ("definite_candidate", "possible_candidate")
+    nondirectional_statuses = (
+        "indeterminate_order",
+        "unresolved",
+        "excluded_spatial",
+        "excluded_temporal_nonpositive",
+        "excluded_temporal_too_large",
+    )
+    if native:
+        if status not in (*directional_statuses, *nondirectional_statuses):
+            raise ValueError(f"atlas edge {edge_id} candidate status is invalid")
+        if "status" in row and row["status"] != status:
+            raise ValueError(f"atlas edge {edge_id} candidate statuses conflict")
+    if (native or "route_interpretation_allowed" in row) and row.get(
+        "route_interpretation_allowed"
+    ) is not False:
+        raise ValueError(f"atlas edge {edge_id} route interpretation is invalid")
+    if (native or "map_geometry_role" in row) and row.get(
+        "map_geometry_role"
+    ) != "endpoint_connection_only":
+        raise ValueError(f"atlas edge {edge_id} geometry role is invalid")
+    if native or "directional_arrow_allowed" in row:
+        expected = status in directional_statuses
+        if row.get("directional_arrow_allowed") is not expected:
+            raise ValueError(f"atlas edge {edge_id} directional arrow is invalid")
 
 
 def _normalize_sequences(

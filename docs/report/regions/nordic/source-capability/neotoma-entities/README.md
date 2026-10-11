@@ -25,9 +25,13 @@ use beyond the retained direct-pollen study.
 Replay from the repository root:
 
 ```sh
+mkdir -p artifacts/jobs/neotoma-entity-decisions
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_entity_decisions \
   --repository . --output artifacts/jobs/neotoma-entity-decisions/report.json
 ```
 
-Compare the replay file byte for byte with this directory's `report.json`.
+The destination must be absent. The producer reads each of its six declared
+source files once, then rechecks their byte identities before publishing the
+report atomically. Compare the replay file byte for byte with this directory's
+`report.json`.

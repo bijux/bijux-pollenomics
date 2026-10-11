@@ -16,7 +16,7 @@ result exactly equal to 100 km. This run needed zero adjustments. The constructi
 is explicit and does not establish independence from every WGS84 model assumption.
 
 All 18 requested pair/input attempts remain in the report: 12 evaluated pairs,
-two pair refusals, three event ingestion refusals, and one fixture range refusal.
+three pair refusals, two event ingestion refusals, and one fixture range refusal.
 All 18 contract checks passed. Four regional events produce 12 evaluated oriented
 pairs: three definite candidates and nine nonpositive temporal exclusions. The
 northern SE source finds all three declared NO, FI, and SE neighbors. Indexed and
@@ -48,7 +48,8 @@ and emit no arrow. Missing chronology retains null bounds and unresolved status.
 Lag 101 years is excluded; bounds `[90, 110]` retain possible candidate status.
 
 Missing paired coordinates produce `invalid_or_missing_coordinate` in the pair
-refusal output; a partially present coordinate is refused at event ingestion.
+refusal output. A partially present coordinate preserves its reported axis and
+null missing axis at ingestion, then produces the same pair refusal.
 Invalid latitude and longitude also fail ingestion. Two events from the same
 governed site produce `same_governed_site`, with no candidate. A legal numerical
 axis reversal fails the independently declared Nordic fixture box; general WGS84

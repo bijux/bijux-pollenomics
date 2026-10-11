@@ -1,0 +1,30 @@
+{
+  "eligible_event_count": 0,
+  "event_admission_status": "refused",
+  "grouped_row_count": 28,
+  "grouped_rows_sha256": "0ed363bae34ec4feef96cd79fbce88e95ddb2ca4a4468d7dfed9f1daec34afa3",
+  "interpretation": "Absent typed component, with source-declared class/type/method preserved; no measurement or ecological eligibility inferred.",
+  "raw_admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+  "schema_version": "sead-untyped-method-coverage.v1",
+  "source_method_counts": {
+    "10": 27451,
+    "175": 90
+  },
+  "source_readset_sha256": {
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_methods.json": "a47ab8d9d2952945e5e9ba64173ae31e85497f2a99702ae87b7752c0b3724da6",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json": "d27ceabc36428d29e915a64547210cb12c7f7f98464e4ecc09c2f39a0208dedb",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json": "58d4449d884ccafc65487a6e15ccd4f58c659d39e44a3d246cc9f3ae0eaf80e3",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json": "00842f92cab1c35cd56951ddbca421c67dd4db625572501ea10aa0ae4434b9de",
+    "docs/report/source-relations/sead/analysis-value-components/report.json": "b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f",
+    "docs/report/source-relations/sead/analysis-value-components/rows.csv": "c935541d8da42d7cdfd9308ec6343349380ef3b8e682912eed32f67ab2a92cce"
+  },
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "source_unit_linked_untyped_count": 12508,
+  "untyped_parent_count": 27541,
+  "upstream_census_report_sha256": "b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f",
+  "upstream_census_rows_sha256": "c935541d8da42d7cdfd9308ec6343349380ef3b8e682912eed32f67ab2a92cce",
+  "upstream_parent_count": 68705,
+  "upstream_row_count": 63
+}

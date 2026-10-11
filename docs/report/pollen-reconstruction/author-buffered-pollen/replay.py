@@ -6,15 +6,18 @@ import argparse
 import hashlib
 import json
 import os
+from pathlib import Path
 import shutil
 import subprocess
 import sys
-from pathlib import Path
-
 
 FAMILY = Path(__file__).resolve().parent
 REPOSITORY = FAMILY.parents[3]
-MODULE_ROOT = REPOSITORY / "packages/bijux-pollenomics-dev/src"
+SOURCE_ROOTS = (
+    REPOSITORY / "packages/bijux-pollenomics-dev/src",
+    REPOSITORY / "packages/bijux-pollenomics/src",
+    REPOSITORY / "packages/bijux-pollenomics-lra/src",
+)
 RUN = REPOSITORY / "docs/report/publication-replay/landclim-method-profile/reference"
 METHODS = (
     ("training-mean", "training_mean"),
@@ -107,7 +110,7 @@ def main() -> int:
     environment = os.environ.copy()
     environment.update(
         PYTHONDONTWRITEBYTECODE="1",
-        PYTHONPATH=str(MODULE_ROOT),
+        PYTHONPATH=os.pathsep.join(str(root) for root in SOURCE_ROOTS),
         OMP_NUM_THREADS="1",
         OPENBLAS_NUM_THREADS="1",
         MKL_NUM_THREADS="1",

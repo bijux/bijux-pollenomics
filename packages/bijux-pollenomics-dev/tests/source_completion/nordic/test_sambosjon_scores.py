@@ -67,7 +67,7 @@ def fixture_repository(tmp_path: Path) -> Path:
                 "sites": [
                     {
                         "site_id": execution.SITE,
-                        "candidate_bin_ids": list(range(1, 23)),
+                        "candidate_bin_ids": [str(bin_id) for bin_id in range(1, 23)],
                     }
                 ]
             }
@@ -229,3 +229,37 @@ def test_score_refuses_foreign_original_source_origin(
     )
     with pytest.raises(ValueError, match="origin differs"):
         scores.run(repository, repository / "artifacts/score-products")
+
+
+def test_score_refuses_duplicate_bin_before_target_counts(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = scoring_repository(tmp_path)
+    frozen = repository / scores.FROZEN
+    prediction_path = frozen / "predictions.json"
+    predictions = json.loads(prediction_path.read_bytes())
+    predictions["predictions"][3]["bin_id"] = 1
+    prediction_path.write_text(json.dumps(predictions))
+    protocol_path = repository / execution.PROTOCOL
+    protocol = json.loads(protocol_path.read_bytes())
+    protocol["pre_score_predictions_sha256"] = sha(prediction_path)
+    protocol_path.write_text(json.dumps(protocol))
+    manifest_path = repository / execution.PREPARED / "input-manifest.json"
+    manifest = json.loads(manifest_path.read_bytes())
+    manifest["protocol_sha256"] = sha(protocol_path)
+    manifest_path.write_text(json.dumps(manifest))
+    freeze_path = frozen / "freeze.json"
+    freeze = json.loads(freeze_path.read_bytes())
+    freeze["protocol_sha256"] = sha(protocol_path)
+    freeze["input_manifest_sha256"] = sha(manifest_path)
+    freeze["predictions_sha256"] = sha(prediction_path)
+    freeze_path.write_text(json.dumps(freeze))
+    original_freeze = sha(freeze_path)
+    monkeypatch.setattr(
+        runpy, "run_module", lambda *a, **k: pytest.fail("target counts entered")
+    )
+    output = repository / "artifacts/score-products"
+    with pytest.raises(ValueError, match="prediction bin-method grid differs"):
+        scores.run(repository, output)
+    assert not output.exists()
+    assert sha(freeze_path) == original_freeze

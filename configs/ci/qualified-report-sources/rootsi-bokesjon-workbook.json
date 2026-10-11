@@ -1,0 +1,17 @@
+{
+  "archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+  "historical_primary_input_authentication": "not_established",
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "dde88290dbdeca7a1047db74d5fb55a85c03a68daaef53795c5da9c1aebbd510",
+    "size": 13099
+  },
+  "schema_version": "qualified-rootsi-bokesjon-workbook.v1",
+  "source_id": "landclim/rootsi-workbooks",
+  "source_rights_status": "unapproved_for_analytical_reuse",
+  "workbook": {
+    "path": "rootsi/BOKE.xls",
+    "sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4",
+    "size": 68096
+  }
+}

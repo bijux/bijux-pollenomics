@@ -4,31 +4,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 from pathlib import Path
-import tempfile
 
 from .audit import build_source_audit, summarize_source_audit
 from .evidence import digest
 from .intake_custody import build_intake_custody_report
 from .intakes import audit_intakes, find_hyde_candidates
-
-
-def _write_new_json(path: Path, payload: dict[str, object]) -> None:
-    """Publish a content-bound result only at an absent destination."""
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", dir=path.parent, delete=False
-    ) as handle:
-        temporary = Path(handle.name)
-        try:
-            json.dump(payload, handle, indent=2, sort_keys=True)
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
-            os.link(temporary, path)
-        finally:
-            temporary.unlink(missing_ok=True)
+from .publication.json_outputs import publish_json_outputs
 
 
 def main() -> int:
@@ -52,9 +34,10 @@ def main() -> int:
     result["audit_sha256"] = digest(
         {key: value for key, value in result.items() if key != "audit_sha256"}
     )
-    _write_new_json(args.output, result)
+    outputs = [(args.output, result)]
     if args.summary_output is not None:
-        _write_new_json(args.summary_output, summarize_source_audit(result))
+        outputs.append((args.summary_output, summarize_source_audit(result)))
+    publish_json_outputs(outputs)
     print(
         json.dumps(
             {

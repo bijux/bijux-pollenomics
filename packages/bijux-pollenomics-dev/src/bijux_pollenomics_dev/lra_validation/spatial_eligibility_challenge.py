@@ -222,6 +222,14 @@ def build_spatial_eligibility_challenge() -> JsonObject:
             "invalid_or_missing_coordinate",
         )
     )
+    rows.append(
+        _pair(
+            "partial-coordinate",
+            source,
+            _event("partial-coordinate", latitude=None, longitude=13.0),
+            "invalid_or_missing_coordinate",
+        )
+    )
     for name, source_interval, target_interval, expected in (
         (
             "overlap-cross-border",
@@ -259,7 +267,6 @@ def build_spatial_eligibility_challenge() -> JsonObject:
     for name, latitude, longitude in (
         ("invalid-latitude", 91.0, 0.0),
         ("invalid-longitude", 0.0, 181.0),
-        ("partial-coordinate", None, 13.0),
     ):
         try:
             _event(name, latitude=latitude, longitude=longitude)
@@ -384,7 +391,7 @@ def build_spatial_eligibility_challenge() -> JsonObject:
             "historical_routes": False,
             "country_only_display_context_verified": False,
             "coordinate_axis_detection": "declared_fixture_box_only",
-            "partial_coordinates": "refused_at_event_ingestion; paired_nulls_retained_in_pair_refusal_ledger",
+            "partial_coordinates": "missing_axes_retained_at_event_ingestion; incomplete_coordinates_retained_in_pair_refusal_ledger",
         },
     }
 

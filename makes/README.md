@@ -35,6 +35,7 @@ makes/
 │   ├── package-catalog.mk
 │   └── package.mk
 ├── packages/
+├── workspace-dependency-audit.mk
 ├── api-freeze.mk
 ├── env.mk
 ├── packages.mk
@@ -146,3 +147,26 @@ Before adding a rule, ask three questions:
 
 Choose the highest honest layer. The best `makes/` tree is the one where each
 rule has one obvious home and no file exists just to repeat another one.
+
+## Workspace dependency auditing
+
+`workspace-dependency-audit.mk` owns the repository's locked public audit inputs
+and installed-version qualification. Package profiles declare selected extras
+and any additional workspace tooling distribution they actually install.
+The repository file entrypoint remains usable when the developer distribution
+is not installed. Public service pins omit workspace packages while their exact
+source identities remain in a separate account. The inherited Bandit and
+pip-audit targets retain their normal strict gates.
+
+The same local module exports locked public constraints with the ordinary
+configured Python before package installation. The inherited uv installer and
+pip fallback consume those constraints through their supported environment
+inputs. Audit publication must match the pre-install requirements byte for byte;
+the installed-version guard still refuses drift. Ordinary workspace source
+installation and natural VCS version generation remain owned by their normal
+build backends.
+
+When `PACKAGE_INSTALL_STAMP` is enabled, the lock export is an order-only
+prerequisite of the stamp writer. The stamp also depends on `uv.lock`, so an
+unchanged lock retains the ordinary cached install while a changed lock requires
+installation again.

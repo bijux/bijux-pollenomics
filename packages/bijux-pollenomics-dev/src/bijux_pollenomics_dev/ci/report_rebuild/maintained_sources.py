@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import ast
 import hashlib
+import json
+import math
 from pathlib import Path
 import subprocess
+from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import (
     InventoryEntry,
@@ -36,14 +39,42 @@ MAINTAINED_ROLE_PATHS = {
         "fe00aed84742364e74dfa0bc51425268e0e2ec657a891410530eaaebd19b8629",
     ),
     "maintained_editorial": (
-        176,
-        "937363cc28128034e74dd986a52d39201bddabc6abc2218ae9fef3ed032459ac",
+        180,
+        "1b5595b05026bb8020b23c626d7d0f3130cb965eada21223e7c378213629aaeb",
+    ),
+    "maintained_configuration": (
+        2,
+        "3b0f3edb6f831c629755e8b57e02ebc7ad9dd9970e59b92030de7af9ac13582e",
     ),
 }
 SOURCE_FORMATS = {
     "maintained_code": frozenset({".py", ".R"}),
     "maintained_editorial": frozenset({".md"}),
+    "maintained_configuration": frozenset({".json"}),
 }
+
+
+def _configuration_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ReportRebuildError(f"duplicate maintained configuration key: {key}")
+        result[key] = value
+    return result
+
+
+def _finite_json(value: object) -> bool:
+    if isinstance(value, float):
+        return math.isfinite(value)
+    if isinstance(value, dict):
+        return all(_finite_json(child) for child in value.values())
+    if isinstance(value, list):
+        return all(_finite_json(child) for child in value)
+    return True
+
+
+def _configuration_constant(value: str) -> None:
+    raise ReportRebuildError(f"nonfinite maintained configuration value: {value}")
 
 
 def _head_blob(repository: Path, path: str) -> bytes:
@@ -125,7 +156,24 @@ def validated_maintained_report_sources(
                     raise ReportRebuildError(f"maintained source contains NUL: {path}")
                 if source.suffix == ".py":
                     ast.parse(text, filename=path)
-            except (OSError, UnicodeError, SyntaxError, ReportOwnershipError) as error:
+                if role == "maintained_configuration":
+                    configuration = json.loads(
+                        text,
+                        object_pairs_hook=_configuration_object,
+                        parse_constant=_configuration_constant,
+                    )
+                    if not isinstance(configuration, dict) or not _finite_json(
+                        configuration
+                    ):
+                        raise ReportRebuildError(
+                            f"maintained configuration must be a finite object: {path}"
+                        )
+            except (
+                OSError,
+                SyntaxError,
+                ValueError,
+                RecursionError,
+            ) as error:
                 raise ReportRebuildError(
                     f"maintained source format invalid: {path}"
                 ) from error

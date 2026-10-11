@@ -6,6 +6,7 @@ from collections.abc import Mapping
 
 from ......core.bp_time import build_bp_interval_label, mean_bp_year_from_interval
 from ......core.temporal_semantics import build_temporal_semantics
+from ......core.text import clean_optional_text
 
 
 def build_sead_temporal_semantics(
@@ -86,7 +87,7 @@ def string_values_from_temporal_rows(rows: object, key: str) -> list[str]:
     for row in rows:
         if not isinstance(row, dict):
             continue
-        text = str(row.get(key, "")).strip()
+        text = clean_optional_text(row.get(key))
         if text and text not in values:
             values.append(text)
     return values
@@ -108,13 +109,13 @@ def collect_uncertainty_notes(row: Mapping[str, object]) -> list[str]:
         for item in rows:
             if not isinstance(item, dict):
                 continue
-            label = str(item.get("uncertainty_label", "")).strip()
-            description = str(item.get("uncertainty_description", "")).strip()
+            label = clean_optional_text(item.get("uncertainty_label"))
+            description = clean_optional_text(item.get("uncertainty_description"))
             note = ": ".join(part for part in (label, description) if part).strip(": ")
             if note and note not in notes:
                 notes.append(note)
             for qualifier_key in ("low_qualifier", "high_qualifier"):
-                qualifier = str(item.get(qualifier_key, "")).strip()
+                qualifier = clean_optional_text(item.get(qualifier_key))
                 if qualifier and qualifier not in notes:
                     notes.append(qualifier)
     return notes

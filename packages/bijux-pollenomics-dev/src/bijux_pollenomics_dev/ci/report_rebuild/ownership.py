@@ -28,6 +28,7 @@ ROLES = frozenset(
         "retained_source",
         "maintained_editorial",
         "maintained_code",
+        "maintained_configuration",
         "unresolved",
     }
 )
@@ -262,6 +263,12 @@ def check_report_ownership(
         ):
             raise ReportOwnershipError(
                 f"maintained editorial owner {owner_id} has non-Markdown path"
+            )
+        if role == "maintained_configuration" and any(
+            Path(path).suffix != ".json" for path in owned
+        ):
+            raise ReportOwnershipError(
+                f"maintained configuration owner {owner_id} has non-JSON path"
             )
         for path in (*producer_paths, *producer_inputs):
             _regular_confined_file(repository, path, f"owner {owner_id} source")

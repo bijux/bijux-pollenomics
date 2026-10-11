@@ -1,0 +1,64 @@
+country_code,component_kind,parent_value_state,value_class_id,value_class_name,value_type_id,value_type_name,source_unit_id,source_unit_name,unit_status,parent_count
+SE,boolean,reported,18,Not dated,3,Boolean,,,not_exposed_by_relation,1311
+SE,boolean,reported,23,Sapwood indicator,1,Count,,,not_exposed_by_relation,738
+SE,boolean,reported,5,EW/LW measurements,3,Boolean,,,not_exposed_by_relation,4777
+SE,boolean,reported,7,Bark (B),3,Boolean,,,not_exposed_by_relation,4777
+SE,categorical,reported,3,Earlywood/Latewood,12,Early/Latewood,,,not_exposed_by_relation,80
+SE,categorical,reported,35,SNP capture,15,SNP capture,,,not_exposed_by_relation,5
+SE,categorical,reported,36,Damage treatment(s),16,Damage treatment,,,not_exposed_by_relation,5
+SE,categorical,reported,37,Library preparation(s),14,Library preparation,,,not_exposed_by_relation,5
+SE,categorical,reported,44,Molecular sex - Ry,17,Molecular sex,,,not_exposed_by_relation,10
+SE,categorical,reported,8,Waney edge (W),13,Waney edge (W),,,not_exposed_by_relation,4695
+SE,integer,reported,10,Tree age ≥,5,Age in years,,,not_exposed_by_relation,2370
+SE,integer,reported,11,Tree age ≤,5,Age in years,,,not_exposed_by_relation,2387
+SE,integer,reported,12,Inferred growth year ≥,6,Year,8,Years,source_native_linked,2215
+SE,integer,reported,13,Inferred growth year ≤,6,Year,8,Years,source_native_linked,2215
+SE,integer,reported,2,Tree rings,1,Count,,,not_exposed_by_relation,4751
+SE,integer,reported,21,Non-measured tree rings,1,Count,,,not_exposed_by_relation,776
+SE,integer,reported,22,Non-measured sapwood rings,1,Count,,,not_exposed_by_relation,164
+SE,integer,reported,31,Endogenous reads (raw),2,BigCount,,,not_exposed_by_relation,5
+SE,integer,reported,32,Merged reads,1,Count,,,not_exposed_by_relation,5
+SE,integer,reported,4,Number of analysed radii.,1,Count,,,not_exposed_by_relation,4758
+SE,integer,reported,45,Y chromosome reads,1,Count,,,not_exposed_by_relation,10
+SE,integer,reported,46,X chromosome reads,2,BigCount,,,not_exposed_by_relation,10
+SE,integer,reported,47,mtDNA reads,2,BigCount,,,not_exposed_by_relation,10
+SE,integer,reported,52,Endogenous reads (filtered),1,Count,,,not_exposed_by_relation,10
+SE,integer,reported,6,Sapwood (Sp),1,Count,,,not_exposed_by_relation,2029
+SE,integer,reported,9,Pith (P),1,Count,,,not_exposed_by_relation,2986
+SE,numerical,reported,26,3’ damage,11,Measurement,,,not_exposed_by_relation,5
+SE,numerical,reported,27,5’ damage,11,Measurement,,,not_exposed_by_relation,5
+SE,numerical,reported,28,Short reads (%),4,Percentage,,,not_exposed_by_relation,5
+SE,numerical,reported,29,Duplicate reads (%),4,Percentage,,,not_exposed_by_relation,5
+SE,numerical,reported,30,Raw endogenous content (%) ,4,Percentage,,,not_exposed_by_relation,5
+SE,numerical,reported,48,Average depth of coverage - mtDNA (x),11,Measurement,,,not_exposed_by_relation,10
+SE,numerical,reported,49,Breadth of coverage - genome (%),4,Percentage,,,not_exposed_by_relation,5
+SE,numerical,reported,50,Average depth of coverage - genome (x),11,Measurement,,,not_exposed_by_relation,10
+SE,numerical,reported,51,Average read length,11,Measurement,,,not_exposed_by_relation,10
+SE,untyped_source_text,reported,1,Tree species,8,Label,,,not_exposed_by_relation,4777
+SE,untyped_source_text,reported,10,Tree age ≥,5,Age in years,,,not_exposed_by_relation,2407
+SE,untyped_source_text,reported,11,Tree age ≤,5,Age in years,,,not_exposed_by_relation,2390
+SE,untyped_source_text,reported,12,Inferred growth year ≥,6,Year,8,Years,source_native_linked,2562
+SE,untyped_source_text,reported,13,Inferred growth year ≤,6,Year,8,Years,source_native_linked,2562
+SE,untyped_source_text,reported,14,Estimated felling year,10,Year range,8,Years,source_native_linked,3472
+SE,untyped_source_text,reported,15,Possible estimated felling year,10,Year range,8,Years,source_native_linked,437
+SE,untyped_source_text,reported,16,Provenance,7,Note,,,not_exposed_by_relation,1414
+SE,untyped_source_text,reported,17,Outermost tree-ring date,10,Year range,8,Years,source_native_linked,3475
+SE,untyped_source_text,reported,19,Date note,7,Note,,,not_exposed_by_relation,49
+SE,untyped_source_text,reported,2,Tree rings,1,Count,,,not_exposed_by_relation,26
+SE,untyped_source_text,reported,20,Provenance comment,7,Note,,,not_exposed_by_relation,189
+SE,untyped_source_text,reported,21,Non-measured tree rings,1,Count,,,not_exposed_by_relation,1
+SE,untyped_source_text,reported,33,General library file name,9,Identifier,,,not_exposed_by_relation,5
+SE,untyped_source_text,reported,34,Metagenomics analysis,7,Note,,,not_exposed_by_relation,5
+SE,untyped_source_text,reported,4,Number of analysed radii.,1,Count,,,not_exposed_by_relation,19
+SE,untyped_source_text,reported,40,1st deg. relatives,9,Identifier,,,not_exposed_by_relation,6
+SE,untyped_source_text,reported,42,mtDNA haplogroup,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,reported,53,Reference genome assembly,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,reported,54,Organism genome mapped to,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,reported,6,Sapwood (Sp),1,Count,,,not_exposed_by_relation,1798
+SE,untyped_source_text,reported,8,Waney edge (W),13,Waney edge (W),,,not_exposed_by_relation,82
+SE,untyped_source_text,reported,9,Pith (P),1,Count,,,not_exposed_by_relation,1791
+SE,untyped_source_text,source_null,38,>2nd deg. relatives,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,source_null,39,2nd deg. relatives,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,source_null,40,1st deg. relatives,9,Identifier,,,not_exposed_by_relation,4
+SE,untyped_source_text,source_null,41,Y haplogroup,9,Identifier,,,not_exposed_by_relation,10
+SE,untyped_source_text,source_null,43,Molecular sex - Rx,17,Molecular sex,,,not_exposed_by_relation,10

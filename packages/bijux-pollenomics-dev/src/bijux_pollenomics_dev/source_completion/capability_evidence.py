@@ -143,6 +143,13 @@ def derive(
                 path_digests[name] = _digest(_safe_path(root, name))
         support_counts[support] += 1
         materialization_counts[materialization] += 1
+        reasons = list(row["reason_codes"])
+        if dimension == "taxon_identity":
+            if support == "unsupported":
+                if "not_provided_by_source" not in reasons:
+                    reasons.append("not_provided_by_source")
+            elif "not_provided_by_source" in reasons:
+                raise ValueError("Taxon absence contradicts declared source capability")
         findings.append(
             {
                 "source_key": row["source_key"],
@@ -152,7 +159,7 @@ def derive(
                 "present_evidence_paths": present,
                 "missing_evidence_paths": missing,
                 "coverage_metrics": row["coverage_metrics"],
-                "reason_codes": row["reason_codes"],
+                "reason_codes": reasons,
                 "human_review_required": row["human_review_required"],
             }
         )

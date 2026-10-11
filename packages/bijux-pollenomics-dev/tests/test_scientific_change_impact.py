@@ -397,6 +397,24 @@ def configured_owner_rows(
                 ),
                 (identity, Path(descriptor["run_path"]), descriptor["files"]),
             ]
+        elif schema == "qualified-neotoma-publication-link.v1":
+            packets = [
+                (
+                    identity,
+                    Path(),
+                    [descriptor["capture_manifest"], descriptor["response"]],
+                )
+            ]
+        elif schema == "qualified-pangaea-solsoe-age-table.v1":
+            assert descriptor["scientific_admission"] is False
+            packets = [(identity, Path(), [descriptor["table"]])]
+        elif schema == "qualified-rootsi-bokesjon-workbook.v1":
+            assert (
+                descriptor["source_rights_status"] == "unapproved_for_analytical_reuse"
+            )
+            packets = [
+                (identity, Path(), [descriptor["manifest"], descriptor["workbook"]])
+            ]
         else:
             raise AssertionError(f"Unreviewed synthetic source schema: {schema}")
         for source_id, prefix, specs in packets:
@@ -407,6 +425,23 @@ def configured_owner_rows(
                 inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
         if schema == "qualified-landclim-two-grid-packet.v1":
             assert len(inputs) == 265
+        if schema == "qualified-neotoma-publication-link.v1":
+            assert set(inputs) == {
+                descriptor_path.as_posix(),
+                f"external/{identity}/capture-manifest.json",
+                f"external/{identity}/responses/dataset-4200-publications.json",
+            }
+        if schema == "qualified-pangaea-solsoe-age-table.v1":
+            assert set(inputs) == {
+                descriptor_path.as_posix(),
+                f"external/{identity}/solsoe81-age-740759.txt",
+            }
+        if schema == "qualified-rootsi-bokesjon-workbook.v1":
+            assert set(inputs) == {
+                descriptor_path.as_posix(),
+                f"external/{identity}/manifest.json",
+                f"external/{identity}/rootsi/BOKE.xls",
+            }
         return QualifiedReportSources(directory, inputs, "a" * 64)
 
     # Identity checks share one checked schedule; no test mutates these rows.

@@ -269,7 +269,7 @@ assemble-report-rebuild: root-check-env ## Assemble one complete report tree fro
 		--partition-artifacts-root "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" \
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
 		--retain-maintained-report-sources \
-		--retain-original-r-reference \
+		--retain-original-r-reference --retain-native-r-reference \
 		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
 		$(if $(REBUILD_OWNER_ARTIFACTS_ROOT),--owner-artifacts-root "$(REBUILD_OWNER_ARTIFACTS_ROOT)")
@@ -283,7 +283,7 @@ verify-partitioned-report-rebuild: root-check-env ## Compare two complete partit
 		--reference-manifest "$(REBUILD_REFERENCE_MANIFEST)" \
 		--replay-manifest "$(REBUILD_REPLAY_MANIFEST)" \
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
-		--retain-original-r-reference \
+		--retain-original-r-reference --retain-native-r-reference \
 		--retain-maintained-report-sources \
 		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \

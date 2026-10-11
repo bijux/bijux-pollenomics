@@ -203,7 +203,10 @@ separate exposed development cohort; it does not close the matched Nordic
 vegetation need or provide an untouched confirmation set.
 Our [descriptive five-taxon radius comparison](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
 uses all ten sites at each publisher label. Its composition distances do not
-resolve area-ring semantics, measurement dates or a Nordic vegetation target.
+authenticate the ring-sector masks and area construction, measurement dates or
+a Nordic vegetation target. The [primary dataset series](https://doi.org/10.1594/PANGAEA.931037)
+already describes 100 m rings; exact masks and pixel construction remain
+unverified.
 
 ## HYDE source semantics
 

@@ -2,11 +2,19 @@
 
 [Theuerkauf and Couwenberg (2024)](https://doi.org/10.3390/quat7020018)
 describe analytical LOVEr and optimized LOVEoptim using a simulated landscape.
-We inspected an exact 1,097,851-byte article PDF retained in the private
-source store as `lra-reference/papers/love-method-2024/paper.pdf` (SHA-256
-`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`).
-This copy came from a public article mirror; its byte identity with the
-publisher's PDF is unestablished. The paper's
+The exact 1,097,851-byte article PDF (SHA-256
+`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`)
+was acquired from the [publisher PDF](https://mdpi-res.com/d_attachment/quaternary/quaternary-07-00018/article_deploy/quaternary-07-00018.pdf).
+It is byte-identical to the formerly retained mirror copy. The article prints
+copyright 2024 by Martin Theuerkauf and John Couwenberg and the
+[CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) on page 1.
+The public source packet under `data/love/paper/` binds the PDF and its
+separately native-qualified text derivative. The table producer derives 151
+numeric cells from printed page 6, including the wrapped Tilia header;
+the retained table is the genuine source-backed producer output, checked against all
+151 formerly transcribed constants. Ordinary configured-owner reference/replay
+proof remains a separate output-custody requirement.
+This establishes public article identity and printed constants only. The paper's
 data availability statement points to DISQOVER functions, without identifying
 a deposited simulation input bundle. No supplementary simulation bundle was
 identified in the accessible article. The [local source identity
@@ -15,18 +23,25 @@ DISQOVER 0.9.14 archive used by our R oracle; the article accessed DISQOVER in
 February 2024, whereas that archive was packaged in January 2026. Archive
 parity therefore does not establish the exact software version behind Figure 2.
 
-The [published parameter tables](paper-parameter-tables.json) transcribe all
-11 map-unit fractions from Table 1 and the ten taxon fall-speed, PPE and PPE SD
-values from Table 2 of the retained PDF (page 6). Each map-unit row sums to
+The retained [published parameter tables](paper-parameter-tables.json) are generated
+by `bijux_pollenomics_dev.source_completion.love.paper_tables` from the exact
+publisher PDF, its qualified text derivative and their source manifest. Its
+121 map-unit fractions from Table 1 and 30 fall-speed, PPE and PPE SD constants
+from Table 2 reproduce all 151 previously transcribed numeric cells on page 6.
+The retained source metadata now identifies the public article and the
+byte-authenticated extraction, rather than a private mirror transcription. Each map-unit row sums to
 one, and every printed PPE SD is 10% of its PPE. Table 2 does not state a
 fall-speed unit, so the transcription does not assign one. These constants
 resolve a bounded paper input; they do not identify the spatial extent of
 each map unit, the pond placements or the random realizations behind Figure 2.
 
-The [source-parameter comparison](source-parameter-correspondence.json) checks
-the ten published Table 2 rows against the pinned packaged DISQOVER
+The [source-parameter comparison](source-parameter-correspondence.json) is a
+fresh execution of the maintained verifier against that genuine public-source
+table and the pinned packaged DISQOVER
 `LOVEexampleParams.json`. All 30 fall-speed, PPE and PPE SD values agree
-exactly by row position. Nine labels agree exactly; the paper prints
+exactly by row position, with zero residuals. The refreshed report changes
+only its table input receipt; its comparison rows and scope are unchanged.
+Nine labels agree exactly; the paper prints
 `Grasses` where the package prints `Gras`. This is a numeric source
 correspondence with an explicit label difference, not evidence that the 2024
 simulation ran the later pinned package version. The pinned package example
@@ -36,7 +51,12 @@ artificial ponds or their realized pollen/draws. Check the producer output
 byte for byte against the governed JSON from the repository root with
 `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --check`.
 Use `--output artifacts/method-certification/love-paper-source-parameter-replay.json`
-instead when an isolated replay file is needed.
+instead when an isolated replay file is needed; the output must be absent.
+The configured comparison adapter
+`bijux_pollenomics_dev.source_completion.love.parameter_correspondence` invokes
+this same fixed verifier. Separate genuine reference/replay calls for both
+configured owners are required before output-ownership acceptance. Neither
+these constants nor their agreement supplies a Figure 2 simulation replay.
 
 The same pinned DISQOVER 0.9.14 archive's
 `disqover/man/LOVEexampleRings.Rd` (member SHA-256

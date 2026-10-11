@@ -9,8 +9,8 @@ TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"
 QUALITY_PATHS := src tests
-# Audit the installed third-party closure of the editable workspace packages.
-# The frozen-lock hook below also covers optional and platform registry versions.
+# Audit qualified installed workspace scopes and every frozen registry fork.
+# Scoped installation constraints and exhaustive optional coverage are complementary.
 SECURITY_EXTRA_TARGETS := security-locked-dependencies
 SECURITY_SELF_MAKE = $(MAKE) -f "$(MONOREPO_ROOT)/makes/packages/bijux-pollenomics-dev.mk"
 ENABLE_PYDOCSTYLE := 1
@@ -48,3 +48,6 @@ include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
 security-locked-dependencies: ## Audit every frozen optional and platform registry version.
 	@PYTHONPATH="$(MONOREPO_ROOT)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(VENV_PYTHON)" -m bijux_pollenomics_dev.security.locked_dependencies
 .PHONY: security-locked-dependencies
+
+WORKSPACE_AUDIT_EXTRAS := dev reports
+include $(MONOREPO_ROOT)/makes/workspace-dependency-audit.mk

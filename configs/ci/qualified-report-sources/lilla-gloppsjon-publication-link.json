@@ -1,0 +1,18 @@
+{
+  "schema_version": "qualified-neotoma-publication-link.v1",
+  "source_id": "neotoma/publication-links/2026-09-29",
+  "capture_manifest": {
+    "path": "capture-manifest.json",
+    "sha256": "d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da",
+    "size": 55327
+  },
+  "response": {
+    "path": "responses/dataset-4200-publications.json",
+    "sha256": "1a13124e576effcbd1f95d5db4b9b7cbda65baf92ab679381b161f209319d471",
+    "size": 1027
+  },
+  "dataset_id": 4200,
+  "publication_id": 16060,
+  "source_api": "https://api.neotomadb.org/v2.0/data/datasets/",
+  "response_count": 169
+}

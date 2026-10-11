@@ -91,6 +91,11 @@ def fit_shared_ppe_likelihood(
         variances = sds * sds
     if not np.isfinite(variances).all():
         raise ValidationError("PPE variances must be finite")
+    if np.any((sds > 0) & (variances == 0)):
+        raise ValidationError(
+            "Positive PPE variance underflows; rescale PPE and covariance units",
+            reason_code="ppe_variance_not_representable",
+        )
     try:
         covariance = np.asarray(ppe_covariance, dtype=float)
     except (TypeError, ValueError, OverflowError) as exc:
