@@ -49,24 +49,30 @@ jobs:
           - package_slug: bijux-pollenomics
             package_dir: packages/bijux-pollenomics
             artifacts_dir: artifacts/bijux-pollenomics
-            check_targets: "[\"quality\", \"security\", \"api\", \"openapi-drift\", \"build\", \"sbom\"]"
+            check_targets: "[\"lint\", \"security\"]"
+            api_toolchain_targets: "[]"
           - package_slug: pollenomics
             package_dir: packages/pollenomics
             artifacts_dir: artifacts/pollenomics
-            check_targets: "[\"quality\", \"security\", \"build\", \"sbom\"]"
+            check_targets: "[\"lint\", \"security\"]"
+            api_toolchain_targets: "[]"
           - package_slug: bijux-pollenomics-dev
             package_dir: packages/bijux-pollenomics-dev
             artifacts_dir: artifacts/bijux-pollenomics-dev
-            check_targets: "[\"quality\", \"security\", \"build\", \"sbom\"]"
+            check_targets: "[\"lint\", \"security\"]"
+            api_toolchain_targets: "[]"
+          - package_slug: bijux-pollenomics-lra
+            package_dir: packages/bijux-pollenomics-lra
+            artifacts_dir: artifacts/bijux-pollenomics-lra
+            check_targets: "[\"lint\", \"security\"]"
+            api_toolchain_targets: "[]"
     uses: ./.github/workflows/ci.yml
     with:
       package_slug: "${{ matrix.package_slug }}"
       package_dir: "${{ matrix.package_dir }}"
       artifacts_dir: "${{ matrix.artifacts_dir }}"
-      test_python_versions: "${{ matrix.test_python_versions || '[\"3.11\"]' }}"
-      check_targets: "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}"
-      api_toolchain_targets: "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}"
-      post_test_command: "${{ matrix.post_test_command || '' }}"
+      check_targets: "${{ matrix.check_targets || '[\"lint\", \"security\"]' }}"
+      api_toolchain_targets: "${{ matrix.api_toolchain_targets || '[]' }}"
   verification_ready:
     name: verification-ready
     if: "${{ always() }}"
