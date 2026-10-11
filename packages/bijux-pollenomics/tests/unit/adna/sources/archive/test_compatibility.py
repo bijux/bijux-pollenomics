@@ -47,10 +47,10 @@ class ArchiveCompatibilityTests(unittest.TestCase):
         payload = [row.as_dict() for row in archive.build_archive_project_catalog()]
         canonical = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
 
-        self.assertEqual(len(canonical), 46_489)
+        self.assertEqual(len(canonical), 46_591)
         self.assertEqual(
             hashlib.sha256(canonical).hexdigest(),
-            "fe2d370f55c904a74f907763a1ea712eaac3e513aebc1def411fdf3860a0ee49",
+            "86f997d21d8956deadf2a63597ada0211141551238b73387f7e21122a00c891c",
         )
 
 

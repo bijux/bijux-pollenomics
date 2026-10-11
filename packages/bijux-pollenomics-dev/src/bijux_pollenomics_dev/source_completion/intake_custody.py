@@ -192,7 +192,7 @@ def build_intake_custody_report(
 
 
 def main() -> int:
-    """Audit private intake receipts without promoting unadmitted sources."""
+    """Run the CLI to verify private intake custody without promoting historical source decisions."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--private-source-root", type=Path, required=True)

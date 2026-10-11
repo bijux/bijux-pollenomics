@@ -6,9 +6,9 @@
 - Project URL: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0
 - Paper DOI: `10.1111/mec.17274`
 - Paper download status: `archived`
-- Supplement download status: `missing`
+- Supplement download status: `archived`
 
-Paper-level evidence is required, and no publisher supplement is currently curated.
+Paper and supplementary materials are required to recover sample and site detail.
 
 ## Local artifacts
 
@@ -16,6 +16,8 @@ Paper-level evidence is required, and no publisher supplement is currently curat
 - `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx`
 - `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
+- `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip`
+- `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml.metadata.json`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml`

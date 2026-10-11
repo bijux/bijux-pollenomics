@@ -365,7 +365,7 @@ def build(
 
 
 def main() -> None:
-    """Run reviewed OpenLand source intake from the supplied command arguments."""
+    """Run the CLI to reconcile a private OpenLand archive with its pinned primary-source tree."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--archive", type=Path, required=True)

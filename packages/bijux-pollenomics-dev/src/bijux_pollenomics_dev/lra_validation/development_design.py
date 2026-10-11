@@ -54,7 +54,7 @@ class DevelopmentDesignError(ValueError):
     """A stable refusal for a malformed or out-of-design development trial."""
 
     def __init__(self, reason_code: str) -> None:
-        """Retain the stable refusal reason for an invalid development design."""
+        """Retain the explicit refusal reason for an invalid development design."""
         super().__init__(reason_code)
         self.reason_code = reason_code
 

@@ -315,7 +315,10 @@ def run(repository: Path, repetitions: int = 7) -> dict[str, Any]:
     paths = sorted(
         path
         for path in engine.rglob("*")
-        if path.is_file() and path.suffix in {".py", ".json", ".npz"}
+        if path.is_file()
+        and path.suffix in {".py", ".json", ".npz"}
+        # This ignored SCM version module changes on rebuild without changing the method.
+        and path.name != "_build_version.py"
     )
     paths.append(Path(__file__).resolve())
     identities = {
@@ -367,7 +370,7 @@ def run(repository: Path, repetitions: int = 7) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run native reconstruction performance profiling from the supplied command arguments."""
+    """Run the CLI to freeze public LRA workloads and retain repeated Python baseline measurements."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

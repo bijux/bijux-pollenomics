@@ -17,7 +17,7 @@
 
 ## Current Findings
 
-- only 17 of 18 tracked papers currently ship archived supplementary material
+- all 18 tracked papers now ship archived supplementary material, but sample-owned extraction still lags behind supplement recovery
 - the shipped animal atlas exposes 170 published animal point rows
-- 378 unresolved animal samples are a subset of 1139 blocked samples among 1470 tracked samples; 4 of 308 coordinate-provenance rows are refused from mapping
+- 378 unresolved animal samples are a subset of 1137 blocked samples among 1468 tracked samples; 4 of 308 coordinate-provenance rows are refused from mapping
 - collection_summary keeps non-aDNA counts visible

@@ -48,6 +48,26 @@ def named_registry_details(context_root: Path) -> dict[str, dict[str, object]]:
     return result
 
 
+def bind_named_registry_rows(
+    target_rows: list[dict[str, object]],
+    named_registry: dict[str, dict[str, object]] | None,
+) -> None:
+    """Bind reviewed named lake IDs without replacing conflicting target identities."""
+    if not named_registry:
+        return
+    for row in target_rows:
+        match = named_registry.get(str(row["requested_name"]))
+        if match is None:
+            continue
+        if row["registry_name"] != match["registry_name"] or (
+            row["registry_id"] and row["registry_id"] != match["registry_id"]
+        ):
+            raise ValueError("Named lake differs from governed SVAR match")
+        row["registry_id"] = match["registry_id"]
+        row["lake_area_km2"] = match["lake_area_km2"]
+        row["source_url"] = match["source_url"]
+
+
 def synthesis_targets(
     lake_report: Any,
     *,

@@ -1,0 +1,78 @@
+\input{presentation/shared.tex}
+\title{Bijux Pollenomics: implementation and verification}
+\subtitle{Developer briefing}
+\author{Bijux Pollenomics}
+\date{29 September 2026}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Distribution responsibilities}
+\begin{tabular}{p{.33\linewidth}p{.57\linewidth}}
+\toprule
+Distribution & Responsibility \\
+\midrule
+\texttt{bijux-pollenomics} & Canonical collection, evidence, review and publication runtime. \\
+\texttt{pollenomics} & Short-name compatibility facade. \\
+\texttt{bijux-pollenomics-lra} & Optional REVEALS/LOVE engine and extension entry point. \\
+\texttt{bijux-pollenomics-dev} & Repository checks, source consumers and report verification. \\
+\bottomrule
+\end{tabular}
+\scope{The optional LRA extra offers a one-command installation interface; built-package verification remains pending.}
+\evidence{docs/public/pollenomics/architecture/package-split.md; packages/bijux-pollenomics/pyproject.toml}
+\end{frame}
+
+\begin{frame}{Follow a claim through the system}
+\begin{center}
+Source member $\rightarrow$ custody receipt $\rightarrow$ normalized record $\rightarrow$ admission decision\\[1em]
+$\rightarrow$ sealed prediction or governed calculation $\rightarrow$ score $\rightarrow$ report/publication
+\end{center}
+\begin{itemize}
+\item Physical site, chronology, taxon concept, denominator and permissions are separate gates.
+\item Result manifests pin files and producer identity; refusal rows remain part of the product.
+\item Public text links a claim to its governed table and scope.
+\end{itemize}
+\evidence{reports/README.md; reports/science/english-lra-pollen-prediction.md}
+\end{frame}
+
+\begin{frame}{Three numerical checks with different reach}
+\begin{enumerate}
+\item Source-R calculation checks compare selected native algorithms and fixtures.
+\item Author-example correspondence compares Python with independent author R over 14,074 supported mean/SE values.
+\item Archive correspondence checks the exact shared 100--350 BP window and records genuine product gaps.
+\end{enumerate}
+\scope{A passing implementation check cannot authenticate historical source revisions or ecological truth.}
+\evidence{docs/report/method-certification/original-r-reference/README.md; reports/science/publication-correspondence.md}
+\end{frame}
+
+\begin{frame}{Prediction contract: freeze before scoring}
+\begin{itemize}
+\item Group by physical site or country before fitting; retain source identities and eligible support.
+\item Prepare predictors separately from target outcomes; publish prediction hash first.
+\item Score all eligible rows, record refused bins and report the same support for paired methods.
+\item Keep observed-pollen, LRA forward-pollen and vegetation targets in different result contracts.
+\end{itemize}
+\evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/english-lra-pollen-prediction.md}
+\end{frame}
+
+\begin{frame}{Reports and build ownership}
+\begin{itemize}
+\item \texttt{reports/} is the human-facing claim index and open-question register.
+\item \texttt{docs/report/} currently owns many governed numeric outputs and their producers; migrate by domain with all consumers.
+\item \texttt{docs/public/} carries curated, rights-safe explanations for the website.
+\item \texttt{presentation/} builds from locked report identities and refuses stale source changes.
+\end{itemize}
+\scope{A report path migration is complete only when producer, manifest, links, tests and strict docs agree.}
+\evidence{reports/README.md; presentation/README.md}
+\end{frame}
+
+\begin{frame}{Developer verification route}
+\begin{enumerate}
+\item Run the selected producer with a declared input root into \texttt{artifacts/}.
+\item Replay the specific report verifier and compare manifest identities.
+\item Run affected tests, type/style checks and strict website build for changed pages.
+\item Build all decks; a stale source lock must stop publication until reviewed.
+\end{enumerate}
+\scope{Source rights and missing ecological inputs are scientific gates, not test failures to suppress.}
+\evidence{docs/report/pollen-reconstruction/verify_report.py; presentation/build.py}
+\end{frame}
+\end{document}

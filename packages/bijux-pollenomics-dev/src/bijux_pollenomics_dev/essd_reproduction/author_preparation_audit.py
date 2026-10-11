@@ -298,7 +298,7 @@ def build(
 
 
 def main() -> None:
-    """Audit retained author preparation counts against exact source custody."""
+    """Run the CLI to recount the 17 author raw and prepared pollen examples from private sources."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)

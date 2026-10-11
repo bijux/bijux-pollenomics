@@ -22,7 +22,7 @@ flowchart LR
 - Product role: `domesticated_core`
 - Dataset bucket: `paper_pinned_core`
 - Curation class: `paper_pinned_core`
-- Curated sample rows: `33`
+- Curated sample rows: `31`
 - Curated projects: `2`
 - Curated site rows: `17`
 - Direct-coordinate rows: `0`

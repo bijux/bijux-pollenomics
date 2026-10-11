@@ -214,7 +214,7 @@ def compare_native_counts(
 
 
 def main() -> int:
-    """Run Abborrtjärn native count correspondence from the supplied command arguments."""
+    """Run the CLI to compare retained Abborrtjärnen workbook counts with Neotoma observations."""
     parser_ = argparse.ArgumentParser(description=__doc__)
     parser_.add_argument("--workbook", type=Path, required=True)
     parser_.add_argument("--raw-part", type=Path, required=True)

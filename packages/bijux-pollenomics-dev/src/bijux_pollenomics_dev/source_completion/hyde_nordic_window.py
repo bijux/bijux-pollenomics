@@ -166,7 +166,7 @@ class HydeNativeWindowInput:
     expected_manifest_sha256: str
 
     def __post_init__(self) -> None:
-        """Require the declared HYDE scenario and valid source authority digests."""
+        """Validate the selected scenario and source manifest digest."""
         if self.scenario not in SCENARIOS:
             raise IntakeRefusal("hyde_nordic_scenario_invalid", repr(self.scenario))
         digest(self.expected_manifest_sha256)
@@ -186,7 +186,7 @@ class HydeDeclarationParentInput:
     expected_conflict_report_sha256: str
 
     def __post_init__(self) -> None:
-        """Require the declared HYDE scenario and valid source authority digests."""
+        """Validate the four pinned source declaration digests."""
         values = {
             "file_inventory": self.expected_file_inventory_sha256,
             "inventory_report": self.expected_inventory_report_sha256,

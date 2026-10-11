@@ -4,21 +4,21 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `221`
+- Reviewed markdown pages: `268`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 102 |
-| `structured_reference` | 20 |
-| `thin_structure` | 99 |
+| `reader_ready` | 105 |
+| `structured_reference` | 19 |
+| `thin_structure` | 144 |
 
 ## Reviewed Pages
 
 | Path | Posture | Prose paragraphs | Link bullets | Sentence bullets | Table lines | Headings | Note |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1121 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
+| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1139 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_atlas_readiness.md` | `structured_reference` | 0 | 0 | 1 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_country_species_coverage.md` | `structured_reference` | 0 | 0 | 0 | 7 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_cross_surface_drift.md` | `structured_reference` | 0 | 0 | 0 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -28,7 +28,7 @@ link farms or coded operator notes.
 | `docs/report/animal_human_chronology_overlap.md` | `thin_structure` | 1 | 0 | 1 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/animal_intake_recovery_review.md` | `reader_ready` | 4 | 0 | 13 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_audit.md` | `reader_ready` | 2 | 0 | 2 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/animal_output_honesty.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
+| `docs/report/animal_output_honesty.md` | `thin_structure` | 1 | 0 | 1 | 11 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/animal_point_evidence_review.md` | `reader_ready` | 170 | 0 | 342 | 0 | 171 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_pollen_chronology_overlap.md` | `thin_structure` | 1 | 0 | 1 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/animal_project_publication_gap_review.md` | `structured_reference` | 0 | 0 | 1 | 33 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -42,13 +42,14 @@ link farms or coded operator notes.
 | `docs/report/atlas/desktop-zoom-controls/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/detail-focus/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/frame-url-replay/README.md` | `reader_ready` | 10 | 0 | 4 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/atlas/keyless-cache-matrix/README.md` | `thin_structure` | 4 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/atlas/map-keyboard-navigation/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/mobile-attribution/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/modeled-panel-browser/README.md` | `reader_ready` | 5 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/narrow-viewport-controls/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/nordic-source/README.md` | `reader_ready` | 8 | 0 | 0 | 6 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/playback-keyboard/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/atlas/provider-accessibility/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/atlas/provider-accessibility/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/source-detail/README.md` | `reader_ready` | 8 | 0 | 0 | 4 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/source-export/README.md` | `reader_ready` | 10 | 0 | 0 | 4 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/atlas/source-url-replay/README.md` | `reader_ready` | 10 | 0 | 5 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
@@ -58,9 +59,11 @@ link farms or coded operator notes.
 | `docs/report/countries/denmark/denmark_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/denmark_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/denmark_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/denmark/solsoe-source-lineage/README.md` | `thin_structure` | 9 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/countries/denmark/pollen-chronology-coverage/README.md` | `thin_structure` | 5 | 0 | 0 | 8 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/countries/denmark/solsoe-source-lineage/README.md` | `thin_structure` | 10 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/finland/README.md` | `reader_ready` | 7 | 0 | 21 | 15 | 8 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/finland/finland_aadr_v66_samples.md` | `structured_reference` | 0 | 0 | 0 | 34 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -73,6 +76,7 @@ link farms or coded operator notes.
 | `docs/report/countries/norway/norway_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/README.md` | `reader_ready` | 11 | 0 | 38 | 25 | 12 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/bjaresjo-context-screen/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/land-use-replay/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/observed-pollen-trajectory/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/pollen-model-lineage/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -86,10 +90,12 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 16 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/host-lra-distribution/README.md` | `reader_ready` | 8 | 0 | 0 | 11 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/lra-distribution/README.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 23 | 0 | 0 | 0 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 46 | 0 | 0 | 0 | 20 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md` | `reader_ready` | 7 | 0 | 0 | 6 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/source-request.md` | `thin_structure` | 7 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-profile-comparison/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-uncertainty/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -112,24 +118,44 @@ link farms or coded operator notes.
 | `docs/report/numerical-performance/python-baseline/README.md` | `reader_ready` | 8 | 0 | 0 | 9 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/numerical-performance/python-isolated/README.md` | `reader_ready` | 4 | 0 | 0 | 9 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/numerical-performance/runtime-metadata/README.md` | `reader_ready` | 7 | 0 | 0 | 9 | 2 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/pollen-reconstruction/README.md` | `reader_ready` | 24 | 0 | 11 | 28 | 8 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/pollen-reconstruction/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/README.md` | `thin_structure` | 7 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md` | `thin_structure` | 2 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md` | `thin_structure` | 2 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md` | `thin_structure` | 2 | 0 | 0 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md` | `thin_structure` | 2 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md` | `thin_structure` | 6 | 0 | 0 | 40 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-development-interpretation.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/pollen-reconstruction/author-lra-development/README.md` | `thin_structure` | 8 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/pollen-reconstruction/paper-correspondence.md` | `reader_ready` | 16 | 0 | 6 | 0 | 6 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/pollen-reconstruction/author-lra-constrained/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md` | `reader_ready` | 8 | 0 | 0 | 16 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/pollen-reconstruction/author-lra-development/README.md` | `thin_structure` | 9 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md` | `thin_structure` | 8 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/pollen-reconstruction/paper-correspondence.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md` | `reader_ready` | 9 | 0 | 0 | 14 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md` | `thin_structure` | 7 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/propagation/source-first-observed/README.md` | `reader_ready` | 5 | 0 | 0 | 4 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/propagation/governed-edge-ledger/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/propagation/source-first-observed/README.md` | `reader_ready` | 6 | 0 | 0 | 4 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-author-example-correspondence/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-example-reexecution/README.md` | `thin_structure` | 10 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-method-profile/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/README.md` | `reader_ready` | 14 | 0 | 0 | 5 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-pft-crosswalk/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md` | `thin_structure` | 3 | 0 | 2 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-published-window-provenance/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-published-window-provenance/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 10 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-published-window-uncertainty/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md` | `thin_structure` | 2 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-study-inputs/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-window-alignment/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-window-alignment/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 27 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_subset_validation.md` | `reader_ready` | 1 | 0 | 0 | 8 | 2 | Page explains its purpose before or alongside artifact links. |
@@ -141,10 +167,10 @@ link farms or coded operator notes.
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 196 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 309 | 38 | 14 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/author-target-pollen/README.md` | `thin_structure` | 5 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/author-target-pollen/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/author-taxonomy-mass/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/direct-pollen/RESULTS.md` | `reader_ready` | 9 | 0 | 0 | 19 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/hyde-country-cropland/README.md` | `thin_structure` | 5 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/hyde-country-cropland/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md` | `thin_structure` | 4 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/landclim-modeled-panels/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -153,11 +179,17 @@ link farms or coded operator notes.
 | `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 23 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 324 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/pollen-development/README.md` | `thin_structure` | 5 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/regions/nordic/selected-pollen-transfer/README.md` | `thin_structure` | 6 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/regions/nordic/source-capability/README.md` | `reader_ready` | 5 | 0 | 0 | 13 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/pollen-development/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/selected-pollen-transfer/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/source-capability/README.md` | `reader_ready` | 10 | 0 | 0 | 13 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/source-capability/neotoma-attribution/README.md` | `reader_ready` | 13 | 0 | 0 | 28 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/source-capability/neotoma-entities/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/swedish-author-target-pollen/README.md` | `thin_structure` | 6 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/swedish-author-target-pollen/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/swedish-lake-transfer/README.md` | `reader_ready` | 6 | 0 | 0 | 11 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/swedish-neotoma-holdout/README.md` | `reader_ready` | 6 | 0 | 0 | 5 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/swedish-support-sensitivity/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/regions/nordic/swedish-training-scope/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_atlas_input_audit.md` | `structured_reference` | 0 | 0 | 0 | 8 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_brutal_honesty_review.md` | `thin_structure` | 1 | 0 | 2 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_claim_audit.md` | `thin_structure` | 1 | 0 | 2 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -179,35 +211,47 @@ link farms or coded operator notes.
 | `docs/report/repository_source_ecosystem_review.md` | `reader_ready` | 3 | 0 | 6 | 4 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
-| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 22 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 21 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/README.md` | `reader_ready` | 5 | 0 | 0 | 6 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/galician-cattle-paper.md` | `reader_ready` | 5 | 0 | 0 | 5 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/galician-cattle-samples/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/dna-scope/obishir-v-chronology.md` | `thin_structure` | 2 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md` | `thin_structure` | 3 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/dna-scope/reindeer-published-appendix.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/hyde/provider-record/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/landclim/author-example-taxon-support/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/source-relations/neotoma/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/hyde/source-custody/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/landclim/author-example-taxon-support/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/landclim/author-preparation-audit/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/landclim/neotoma-chronology-witness/README.md` | `thin_structure` | 4 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/landclim/workbook-chronology/README.md` | `thin_structure` | 5 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/README.md` | `reader_ready` | 9 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/neotoma/abbo-age-controls/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/neotoma/abbo-native-correspondence/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/neotoma/abbo-profile/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/neotoma/abbo-core-identity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/abbo-native-correspondence/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/abbo-profile/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/neotoma/abbo-published-method/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/author-parameter-binding/README.md` | `thin_structure` | 3 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md` | `thin_structure` | 5 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md` | `reader_ready` | 7 | 0 | 0 | 9 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/neotoma/author-taxonomy-mass/README.md` | `thin_structure` | 7 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/boke-basin/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/boke-native-correspondence/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/bus-native-correspondence/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/bussjosjon-basin/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/lakeparameters/README.md` | `thin_structure` | 3 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/landclim-site-identity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/lra-prerequisites/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/parameter-candidates/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/parameter-correspondence/README.md` | `thin_structure` | 3 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/parameter-coverage/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/pollen-screen/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md` | `reader_ready` | 3 | 0 | 0 | 8 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/neotoma/taxon-priority/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/doi-lineage.md` | `thin_structure` | 2 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `reader_ready` | 11 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead-country-retrieval/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/sead/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead/chronology-claim-review/README.md` | `thin_structure` | 5 | 0 | 0 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -225,6 +269,9 @@ link farms or coded operator notes.
 | `docs/report/synthetic-validation/spatial-eligibility/README.md` | `reader_ready` | 8 | 0 | 0 | 9 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/taxa-review/README.md` | `reader_ready` | 10 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/validation/empd2-nfi-pairing/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/vegetation-reference/farskesjon/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/vegetation-reference/smaland-historical-maps/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/vegetation-reference/southern-sweden-figure/README.md` | `thin_structure` | 3 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/README.md` | `reader_ready` | 9 | 0 | 181 | 41 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |

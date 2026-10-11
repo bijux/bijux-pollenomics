@@ -1,7 +1,7 @@
 {
   "schema_version": "pollenomics-v5-scoped-study-report.v1",
   "status": "scoped_development_report_with_external_source_blockers",
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "confirmatory_result": false,
   "outcome_access_for_report": "previously exposed outcomes scored after frozen country predictions; no untouched confirmatory outcome",
   "primary_prediction_cohort": {
@@ -44,7 +44,7 @@
       "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
       "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
     },
-    "paper_correspondence": "docs/report/pollen-reconstruction/paper-correspondence.md",
+    "paper_correspondence": "reports/science/publication-correspondence.md",
     "swedish_source_questions": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
     "nordic_direct_pollen_producer": "bijux_pollenomics_dev.source_completion.nordic_direct_pollen",
     "nordic_direct_pollen_report": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
@@ -163,6 +163,19 @@
     "zero_local_positive_regional_taxon_cells": 134,
     "equation_max_abs_residual": 2.6645352591003757e-15
   },
+  "author_lra_forward_radius_sensitivity": {
+    "source": "previously exposed English author TW5 constrained LOVE predictions",
+    "report": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
+    "prediction_freeze_sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
+    "modeled_radius_factors": [0.8, 1.0, 1.2],
+    "eligible_sites": 15,
+    "scored_sites": 14,
+    "prediction_rows": 126,
+    "paired_report": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
+    "paired_rows": 126,
+    "aggregate_direct_lower_all_nine": true,
+    "claim": "fixed_LRA_vegetation_target_basin_forward_pollen_sensitivity_only"
+  },
   "nordic_selected_pollen_transfer": {
     "source_report": "docs/report/regions/nordic/selected-pollen-transfer/report.json",
     "freeze_sha256": "785148abb60b1b76a9568f3e723af1c449150534e2352d005dd8fe8864adae72",
@@ -229,7 +242,7 @@
     "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
   },
   "pft_uncertainty_bounds": {
-    "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
+    "report": "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json",
     "groups": 5,
     "grid_window_rows_per_group": 10500,
     "necessary_bound_violations": 0,
@@ -295,5 +308,49 @@
       "exact_tw_indices": ["2"],
       "status": "only_TW2_has_exact_shared_bounds"
     }
+  },
+  "swedish_training_scope": {
+    "report": "docs/report/regions/nordic/swedish-training-scope/report.json",
+    "source_response": "31-author-target closed observed-pollen composition",
+    "target_sites": 3,
+    "candidate_site_bins": 54,
+    "common_scored_site_bins": 39,
+    "prediction_freeze_sha256": "8ff7979c370465762b0903ed1551f1b78161dade7fda60e2ed5f2ceea3182f8b",
+    "sweden_only_training_sites_per_fold": 2,
+    "four_country_training_sites_per_fold": 83,
+    "sweden_only_support_refusals": 15,
+    "paired_method_scores": 117,
+    "status": "prior_exposed_matched_whole_site_observed_pollen_development; no temporal displacement, LRA or measured vegetation claim"
+  },
+  "swedish_support_sensitivity": {
+    "report": "docs/report/regions/nordic/swedish-support-sensitivity/report.json",
+    "source_response": "31-author-target closed observed-pollen composition",
+    "target_sites": 3,
+    "candidate_site_bins": 54,
+    "age_bin_width_bp": 500,
+    "nominal_shift_bins": [
+      -1,
+      0,
+      1
+    ],
+    "spatial_support_policies": [
+      "all",
+      "nearest_five",
+      "beyond_100_km"
+    ],
+    "attempted_site_policy_bins": 486,
+    "predicted_site_policy_bins": 473,
+    "refused_site_policy_bins": 13,
+    "prediction_freeze_sha256": "db5bd39b7e9630b48def3ea5082ad1d93358e1e2de75c297b75933584c8a08ed",
+    "status": "prior_exposed_whole_site_observed_pollen_sensitivity; nominal bin shifts and center distances, no age posterior, LRA or measured vegetation claim"
+  },
+  "bjaresjo_context_screen": {
+    "report": "reports/science/bjaresjo-context/report.json",
+    "official_lake_registry_id": "614958-137018",
+    "candidate_neotoma_site_id": "28871",
+    "nearby_sead_display_interval_features": 371,
+    "nearby_sead_sites": 13,
+    "published_window_count": 25,
+    "status": "modern_lake_and_display_context_bound; physical_core_and_ecological_event_join_refused"
   }
 }

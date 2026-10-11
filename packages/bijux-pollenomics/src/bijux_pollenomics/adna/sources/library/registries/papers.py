@@ -16,11 +16,13 @@ from ..models import (
     AdnaSourceArtifact,
     _empty_reference_stash_record,
 )
-from ..specifications import _doi_slug, _paper_source_spec
-from ..storage import (
+from ..reference_stash import (
     _local_reference_article_status,
     _local_reference_supplement_status,
     _reference_stash_records,
+)
+from ..specifications import _doi_slug, _paper_source_spec
+from ..storage import (
     _source_library_cache_key,
     build_source_artifact_index,
 )

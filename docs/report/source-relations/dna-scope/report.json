@@ -5,7 +5,7 @@
       "PRJNA705960"
     ],
     "foundation_missing_paper_link_rows": 11,
-    "foundation_sample_rows": 1450,
+    "foundation_sample_rows": 1468,
     "foundation_validation_overall_ok": false,
     "nordic_point_features": 8,
     "nordic_point_sample_ids": 12,
@@ -160,9 +160,9 @@
       "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049"
     },
     {
-      "bytes": 17520,
+      "bytes": 18126,
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "sha256": "c2cb47f71f62d6d1852acbd24edbca8abd61acfb3642d1f3f12e306979e48912"
+      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
     },
     {
       "bytes": 700614,
@@ -177,7 +177,7 @@
     {
       "bytes": 2099,
       "path": "docs/report/animal_foundation_validation.json",
-      "sha256": "fe788fce0c4dd5c2ddf0dd3eb63eb386ffa5fd110f4ad5aa047d792ea742b48b"
+      "sha256": "1dd272dbdb777b4b70b38fb057ac18fcfc5f48c55c40f30cf1a33b159ecf8d27"
     }
   ],
   "pollen_evidence_admitted": false,

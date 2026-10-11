@@ -561,8 +561,8 @@
         "sample_identifiers",
         "taxonomic_context"
       ],
-      "expected_sample_count_status": "not_yet_curated",
-      "sample_identifier_status": "manual_curation_required",
+      "expected_sample_count_status": "known_from_source_table",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
       "current_anchor_files": [
         "data/adna/governance/source_library/projects/PRJEB60484/bundle_manifest.json",
         "data/adna/governance/source_library/projects/PRJEB60484/intake_dossier.json",

@@ -6,8 +6,8 @@
 - Paper DOI: `10.1111/mec.17274`
 - Publication readiness: `complete`
 - Next required stage: `coordinate_derivation`
-- Exact expected sample count: `unknown`
-- Minimum expected sample count: `1`
+- Exact expected sample count: `20`
+- Minimum expected sample count: `20`
 - Final recovered sample rows: `20`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
@@ -16,7 +16,7 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `complete`
 - `chronology_recovery`: `complete`
@@ -34,6 +34,8 @@
 - `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx`
 - `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
+- `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip`
+- `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml.metadata.json`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml`

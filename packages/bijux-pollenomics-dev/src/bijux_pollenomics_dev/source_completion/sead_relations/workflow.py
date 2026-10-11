@@ -139,7 +139,7 @@ def write_source_relations(data_root: Path, output: Path) -> dict[str, Any]:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Run SEAD source relation exports from the supplied command arguments."""
+    """Run the CLI to bind a source-table export to independently replayed acquisition identities."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

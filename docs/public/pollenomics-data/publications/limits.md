@@ -67,8 +67,8 @@ The current governed state makes several limits measurable:
 
 | Surface | Current signal | Consequence |
 | --- | --- | --- |
-| Animal foundation preparation | 1,470 final rows: 557 fully grounded, 371 partially grounded, 11 blocked by metadata, 368 by location detail, and 163 by chronology | preparation depth is measurable, but grounding posture is not point eligibility |
-| Animal sample recovery | 1,475 recovered raw rows and 1,470 final rows across a 40-project registry; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
+| Animal foundation preparation | 1,468 final rows: 557 fully grounded, 371 partially grounded, 11 blocked by metadata, 367 by location detail, and 162 by chronology | preparation depth is measurable, but grounding posture is not point eligibility |
+| Animal sample recovery | 1,475 recovered raw rows and 1,468 final rows across a 40-project registry; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
 | Animal locality | 1,412 direct sample-site assignments and 63 unresolved among 1,475 raw review rows | unresolved samples cannot be described as exact sample sites; a place-name assignment alone does not admit map coordinates |
 | Animal publication points | 170 sample-backed locality features representing 331 samples; 117 domesticated-core and 53 wild/progenitor-context | the point subset is traceable but not a complete recovery census |
 | Neotoma time | 23,281 captured age claims: 11,526 comparable, 10,622 context-only, 294 refused, and 839 unresolved | sample-level temporal admission is separate from site-span context and accepted taxonomic classification |
@@ -80,7 +80,7 @@ constants. The applicable manifests and review surfaces remain authoritative
 when the data state changes.
 
 The animal counts cannot be placed into one percentage without changing their
-meaning. The 1,470-row foundation classifies final sample preparation, the
+meaning. The 1,468-row foundation classifies final sample preparation, the
 1,475-row raw sample master governs recovery before final admission, and the
 170-feature point surface governs locality-level product membership for 331
 samples. A publication limit must name which population is blocked and which

@@ -159,7 +159,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         bundles = build_tracked_animal_normalization_bundles()
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
-        self.assertEqual(len(samples), 1470)
+        self.assertEqual(len(samples), 1468)
         self.assertEqual(
             sum(
                 1
@@ -167,7 +167,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 for refusal in bundle.refusals
                 if refusal.record_kind == "sample_record"
             ),
-            23,
+            25,
         )
         camel = next(
             bundle
@@ -179,7 +179,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for sample in camel.sample_records
             if sample.project_accession == "SRP073444"
         ]
-        self.assertEqual(len(camel_sra_samples), 20)
+        self.assertEqual(len(camel_sra_samples), 18)
         self.assertTrue(
             all(
                 sample.taxon_alignment_status == "project_species_match"
@@ -203,9 +203,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(
             Counter(sample.inclusion_status for sample in samples),
             {
-                "site_curated": 1067,
-                "sample_context_blocked": 379,
-                "comparator_site_curated": 19,
+                "site_curated": 1065,
+                "sample_context_blocked": 378,
+                "comparator_site_curated": 20,
                 "nordic_lead_site_curated": 5,
             },
         )
@@ -214,7 +214,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
         self.assertEqual(
             sum(sample.locality is not None for sample in blocked_context),
-            320,
+            319,
         )
         for bundle in bundles:
             payload = bundle.as_dict()
@@ -273,8 +273,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for locality in camel.locality_records
             if "SRP073444" in locality.project_accessions
         ]
-        self.assertEqual(len(camel_localities), 8)
-        self.assertEqual(sum(len(row.sample_ids) for row in camel_localities), 20)
+        self.assertEqual(len(camel_localities), 7)
+        self.assertEqual(sum(len(row.sample_ids) for row in camel_localities), 18)
         self.assertTrue(all("Wadi" not in row.locality for row in camel_localities))
 
     def test_pig_site_localities_preserve_admitted_archaeological_basis(self) -> None:

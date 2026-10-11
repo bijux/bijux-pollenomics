@@ -265,7 +265,7 @@ def publish(
 
 
 def main() -> None:
-    """Export retained pollen lineage with explicit source correspondence."""
+    """Run the CLI to compare the primary Solsø 1981 pollen profile with Neotoma source rows."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)

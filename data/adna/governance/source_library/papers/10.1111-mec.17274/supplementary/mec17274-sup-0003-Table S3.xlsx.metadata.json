@@ -1,0 +1,15 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "artifact_kind": "supplementary_spreadsheet_member",
+  "paper_doi": "10.1111/mec.17274",
+  "project_accessions": [
+    "PRJEB60484"
+  ],
+  "source_archive": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip",
+  "source_archive_sha256": "179ce63b79122e62017c8df8433379929f8c160f399ff44969ef05917ad734c9",
+  "archive_member": "mec17274-sup-0003-Table S3.xlsx",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "byte_size": 60378,
+  "content_sha256": "81cc00377f5898004b8f4f724c0aa1b787fdb30d7df9874b31f1a27241268462",
+  "publisher_byte_parity": "unverified_publisher_download_http_403"
+}

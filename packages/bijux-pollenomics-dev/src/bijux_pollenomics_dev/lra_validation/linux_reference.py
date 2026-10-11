@@ -395,7 +395,7 @@ def execute(
 
 
 def main() -> int:
-    """Run Linux reconstruction reference evidence from the supplied command arguments."""
+    """Run the CLI to replay the locked R oracle in a recorded local Linux container."""
     parser = argparse.ArgumentParser(description=__doc__)
     for option in (
         "repository",

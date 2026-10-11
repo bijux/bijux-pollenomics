@@ -27,6 +27,24 @@
       "sample_ambiguity_note": "archive and workbook identifiers conflict by zero padding: archive BG5_DpS_AF_chrINT_q1.bam; workbook BG05",
       "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
       "sample_lineage_locator": "sample_accession:SAMEA120246599"
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "srp073444:samn04631877",
+      "preferred_sample_label": "Palm143",
+      "sample_ambiguity_note": "Distinct BioSample accessions share paper specimen label Palm143; physical specimen independence is not established.",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html || data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv || data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+      "sample_lineage_locator": "experiment_accession:SRX1711548;run_accession:SRR3400280;sample_accession:SAMN04631877;Table S1:row 12;paper_sample_label:Palm143"
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "srp073444:samn04631967",
+      "preferred_sample_label": "Palm143_II",
+      "sample_ambiguity_note": "Distinct BioSample accessions share paper specimen label Palm143; physical specimen independence is not established.",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html || data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv || data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+      "sample_lineage_locator": "experiment_accession:SRX1711558;run_accession:SRR3400290;sample_accession:SAMN04631967;Table S1:row 12;paper_sample_label:Palm143"
     }
   ]
 }

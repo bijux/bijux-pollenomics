@@ -33,7 +33,7 @@ flowchart LR
 - Projects with sample recovery gaps: `0`
 - Projects with site-recovery gaps: `0`
 - Projects with chronology gaps: `0`
-- Projects blocked before publication review: `0`
+- Projects blocked before publication review: `3`
 - Pending projects: `1`
 - Rejected projects: `3`
 

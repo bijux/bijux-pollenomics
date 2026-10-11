@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import cast
 
-from ....adna.governance.audit_catalogs.contracts import AnimalOutputHonesty
-
 
 def _render_country_species_coverage_markdown(payload: dict[str, object]) -> str:
     rows = [
@@ -176,28 +174,6 @@ def _format_nullable_share(value: object) -> str:
     if isinstance(value, (float, int, str)):
         return f"{float(value):.4f}"
     raise TypeError(f"Expected numeric share, got {type(value).__name__}")
-
-
-def _render_output_honesty_markdown(payload: AnimalOutputHonesty) -> str:
-    lines = [
-        "# Animal output honesty",
-        "",
-        f"- Tracked sample rows: `{payload['totals']['tracked_sample_count']}`",
-        f"- Mapped sample rows: `{payload['totals']['mapped_sample_count']}`",
-        f"- Blocked sample rows: `{payload['totals']['blocked_sample_count']}`",
-        f"- Unresolved sample rows: `{payload['totals']['unresolved_sample_count']}`",
-        "",
-        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples |",
-        "| --- | ---: | ---: | ---: | ---: | ---: |",
-    ]
-    for row in payload["rows"]:
-        lines.append(
-            f"| {row['species_latin_name']} | {row['tracked_sample_count']} | "
-            f"{row['mapped_sample_count']} | {row['blocked_sample_count']} | "
-            f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} |"
-        )
-    lines.append("")
-    return "\n".join(lines)
 
 
 def _render_animal_atlas_exclusion_report_markdown(payload: dict[str, object]) -> str:

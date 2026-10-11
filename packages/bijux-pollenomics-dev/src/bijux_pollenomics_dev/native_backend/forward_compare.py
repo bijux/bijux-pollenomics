@@ -31,7 +31,7 @@ class ForwardBatch:
         fractions: object,
         productivity: object,
     ) -> None:
-        """Retain the forward result and its native provenance as one binding."""
+        """Validate and retain the arrays consumed by one forward-model batch."""
         values = [
             np.require(value, dtype=np.float64, requirements=("C", "A"))
             for value in (cover, regional, kernels, fractions, productivity)
@@ -320,7 +320,7 @@ def run(
 
 
 def main() -> None:
-    """Run bounded native forward comparisons from the supplied command arguments."""
+    """Run the CLI to compare a private C++ forward batch with validated NumPy and an R equation."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

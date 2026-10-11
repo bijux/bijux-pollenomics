@@ -560,7 +560,7 @@ def _neotoma_candidates(
 
 
 def prepare(relational_root: Path, raw_root: Path, workdir: Path) -> None:
-    """Bind Swedish training sources and held-out Nordic metadata independently."""
+    """Prepare source-bound Nordic direct-pollen folds and input identities."""
     swedish, raw_hashes = _swedish_training(raw_root)
     (
         nordic,
@@ -634,7 +634,7 @@ def _coordinate(payload: dict[str, Any]) -> SiteCoordinate:
 
 
 def predict_country(workdir: Path, country: str) -> None:
-    """Predict a declared held-out country using retained training inputs."""
+    """Publish fixed-method predictions for one excluded Nordic country."""
     if country not in COUNTRIES:
         raise ValueError(f"unsupported held-out country: {country}")
     inputs = workdir / "inputs"
@@ -844,7 +844,7 @@ def _nordic_target_outcomes(
 
 
 def score(relational_root: Path, workdir: Path, publish_dir: Path) -> None:
-    """Score retained country predictions against separately bound observations."""
+    """Score frozen Nordic predictions on paired country support."""
     input_manifest = json.loads((workdir / "input-manifest.json").read_text())
     prediction_payloads: dict[str, dict[str, Any]] = {}
     prediction_hashes: dict[str, str] = {}
@@ -1263,7 +1263,7 @@ def _publish_results(
 
 
 def main() -> None:
-    """Run held-out Nordic pollen prediction evidence from the supplied command arguments."""
+    """Run a source-bound, country-held-out comparison of observed pollen counts."""
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     prepare_parser = commands.add_parser("prepare")

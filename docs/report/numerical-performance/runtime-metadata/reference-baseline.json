@@ -1,0 +1,57 @@
+{
+  "schema_version": "lra-runtime-metadata-reference-baseline.v1",
+  "source_commit": "3d6b04959",
+  "source_report_path": "docs/report/numerical-performance/python-baseline/report.json",
+  "source_report_sha256": "e9675d170fe8ca8c0fa6ff03d75b6786c560f3c4f6398cd392963f362adbf21f",
+  "workloads": [
+    {
+      "name": "reveals-interactive",
+      "warm_median_seconds": 0.00817791698500514,
+      "contract_sha256": "b72a057e877d59a332c31409fa15040e4f9282a8d2231aca993377fceb63a1e1",
+      "scientific_output_sha256": "fad2b2ddc60f55cfc91b0b799b1a92c1f020e1a65d77fdd7c93539a1ab8392bf",
+      "nonfinite_semantics_sha256": "e0af4f4b011b185c68cff16ce759752c7c787cdde1333c8bc4a0883ba296fe8c"
+    },
+    {
+      "name": "reveals-reference-series",
+      "warm_median_seconds": 0.028318124823272228,
+      "contract_sha256": "d7d699794b3ecd5865aec2fa5e6223d8fa4e1788b383fa0c09d0d95573f78b30",
+      "scientific_output_sha256": "e71ffcfbc95308ab367c0934676305ef22a89a58dacd14c2dc46f1f83600b29d",
+      "nonfinite_semantics_sha256": "e0af4f4b011b185c68cff16ce759752c7c787cdde1333c8bc4a0883ba296fe8c"
+    },
+    {
+      "name": "love-analytical",
+      "warm_median_seconds": 0.012790790759027004,
+      "contract_sha256": "13927458ab26cd6a4ccbef8a1e589fe1c3b259ba4bfcff6e48576eafad8910da",
+      "scientific_output_sha256": "07d9a39c0bf66e3e4367ea5d7806ee2a0881a3ced5f6aa3d7c5950c6901debc8",
+      "nonfinite_semantics_sha256": "bd59b40f664089391d6087ab8be09fcfe7e43bacc8951f88e39f43b5e7b2b3d9"
+    },
+    {
+      "name": "love-optimized-replay",
+      "warm_median_seconds": 0.02860987465828657,
+      "contract_sha256": "478b28478239789509a9dff15e0d6bb84d4428a363df5bf59eb3e26e16e16b2a",
+      "scientific_output_sha256": "943f8a50f97b78eccac6953f8735f1d1105a2c5a44227b9d0b413df0564e5249",
+      "nonfinite_semantics_sha256": "cd9e83cf83f6e03dbe14c30d8a71d2317babd38a83030e686df6a71c9d705237"
+    },
+    {
+      "name": "lra-replicated-series",
+      "warm_median_seconds": 0.21897187503054738,
+      "contract_sha256": "be6ac073b14ea5b248486aef9ebb230cfaef1d8e6389c6a94144a354a6c86f36",
+      "scientific_output_sha256": "a6f9bf4eedf2395bfbcc4da43c44688380ae81ce8e8a4232701963af9ee82a21",
+      "nonfinite_semantics_sha256": "abc249de6ef2e6a9d5bfa635299bbf5e3e3e97e8ef526d958e96d624b7c16739"
+    },
+    {
+      "name": "forward-validated",
+      "warm_median_seconds": 4.212465137243271e-05,
+      "contract_sha256": "c458151ef02596880438a5d29cca7eaff8241b2c95bfe8b2cda4cb4b522bc2ff",
+      "scientific_output_sha256": "c43d0c96d3118e665fcaa8b01f4049b32df7d23cbb56857ebc95959f9a301ac7",
+      "nonfinite_semantics_sha256": "e0af4f4b011b185c68cff16ce759752c7c787cdde1333c8bc4a0883ba296fe8c"
+    },
+    {
+      "name": "forward-dot-compute",
+      "warm_median_seconds": 5.084089934825897e-06,
+      "contract_sha256": "0c296bc607fb520d4b63647beb682481f937e03153978fd470000410e8f56751",
+      "scientific_output_sha256": "c5e7e9edfeedfd1a50285ab0a01ee4cc6f3865944cbb9770489317006af54068",
+      "nonfinite_semantics_sha256": "e0af4f4b011b185c68cff16ce759752c7c787cdde1333c8bc4a0883ba296fe8c"
+    }
+  ]
+}

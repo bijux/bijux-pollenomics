@@ -13,7 +13,7 @@ from .source import GRIDS, _study
 
 
 def main() -> int:
-    """Run held-out author pollen commands from the supplied command arguments."""
+    """Run the author spatial-block prediction or its separate scoring step."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=("predict", "score"))
     parser.add_argument("--author", type=Path, required=True)

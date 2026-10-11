@@ -1,11 +1,11 @@
 {
   "schema_version": "animal-manual-curation-worklist.v1",
-  "row_count": 27,
+  "row_count": 28,
   "counts": {
     "chronology_recovery": 12,
     "locality_string_resolution": 7,
     "site_resolution": 7,
-    "sample_identity_resolution": 1
+    "sample_identity_resolution": 2
   },
   "rows": [
     {
@@ -126,6 +126,18 @@
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/SRP073444/sample_chronology.json",
         "data/adna/governance/source_library/projects/SRP073444/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "work_unit_type": "sample_identity_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "Stable sample identity rows still carry unresolved ambiguity.",
+      "downstream_impact": "blocks trustworthy project-level sample recovery counts",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/SRP073444/sample_master.json"
       ]
     },
     {

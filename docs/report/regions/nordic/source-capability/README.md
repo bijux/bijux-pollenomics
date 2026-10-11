@@ -41,7 +41,8 @@ This is archaeological site context and country accountability. It does not
 admit a SEAD pollen series, an LRA cohort, or vegetation truth. The two linked
 entity ledgers therefore cover different scientific roles and denominators.
 
-LandClim's governed [sequence inventory](../../../../../data/landclim/normalized/nordic_pollen_site_sequences.csv)
+LandClim's governed sequence inventory at
+`data/landclim/normalized/nordic_pollen_site_sequences.csv`
 supplies 490 context rows: Sweden 198, Denmark 127, Norway 93 and Finland 72.
 These rows already feed the atlas and describe source site coverage, not
 authenticated historical counts. The separate [1,128-row LandClim II study
@@ -55,7 +56,7 @@ keeps two more entity populations distinct. AADR v66 has 51,005 annotation
 rows across its 1240K and HO captures, representing 27,755 Genetic IDs;
 these are human-source accountability units. The animal point surface has
 170 features backed by 331 distinct sample IDs, of which eight Nordic
-locality features represent 12 sample IDs. Its 1,450-row foundation still
+locality features represent 12 sample IDs. Its 1,468-row foundation still
 has eleven unresolved paper-link rows. Neither population supplies pollen
 counts or an independent vegetation reference, and the eight animal locality
 features are not a Nordic pollen cohort.

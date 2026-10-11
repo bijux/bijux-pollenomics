@@ -13,6 +13,7 @@ from bijux_pollenomics.adna.workflow.paths import (
 )
 from bijux_pollenomics.core.files import write_json, write_text
 
+from .artifact_types import _artifact_kind_from_filename, _content_type_from_filename
 from .audits import (
     build_cross_project_source_audit,
     build_missing_source_blockers,
@@ -21,6 +22,7 @@ from .audits import (
 )
 from .cache_control import _clear_source_library_caches
 from .models import SOURCE_LIBRARY_SCHEMA_VERSION
+from .reference_stash import _resolve_reference_stash_root
 from .registries import (
     _paper_manifest_rows,
     build_paper_registry,
@@ -39,12 +41,10 @@ from .rendering import (
 )
 from .specifications import _doi_slug, _paper_source_spec
 from .storage import (
-    _artifact_kind_from_filename,
-    _content_type_from_filename,
-    _resolve_reference_stash_root,
     build_source_artifact_index,
     build_source_storage_audit,
 )
+from .supplements.members import materialize_reindeer_published_table
 
 
 def materialize_source_library(output_root: Path) -> None:
@@ -54,6 +54,7 @@ def materialize_source_library(output_root: Path) -> None:
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
     _materialize_curated_local_supplements(output_root)
+    materialize_reindeer_published_table(output_root)
     from ...projects.sample_master.tables.baltic_sheep import (
         materialize_baltic_sheep_material_conflicts,
     )

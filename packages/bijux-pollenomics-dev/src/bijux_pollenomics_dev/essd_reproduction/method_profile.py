@@ -508,7 +508,7 @@ def build(repository: Path, private_root: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Run source-bound ESSD method profiles from the supplied command arguments."""
+    """Run the CLI to bind the LandClim author method and example inputs to a native profile."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--private-root", required=True, type=Path)

@@ -322,7 +322,7 @@ class RootsiWorkbookReplayInput:
     expected_candidate_closure_manifest_sha256: str
 
     def __post_init__(self) -> None:
-        """Require the exact digest bindings of all retained workbook source inputs."""
+        """Validate pinned workbook and candidate-closure digests."""
         for field, value in (
             ("cell review manifest", self.expected_cell_review_manifest_sha256),
             ("native inventory", self.expected_native_inventory_sha256),

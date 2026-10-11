@@ -16,7 +16,7 @@
     {
       "bytes": 18126,
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "sha256": "634ca941094b19220ecd1c8934c40611e2426e37003e6387b0a45c723a8a3452"
+      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
     },
     {
       "bytes": 166123,
@@ -29,9 +29,9 @@
       "sha256": "781559845a06ef9542bcef0d3d7954ee47e7e06d1806f8b247148d06651f34d1"
     },
     {
-      "bytes": 72125,
+      "bytes": 72247,
       "path": "data/adna/governance/source_library/project_registry.json",
-      "sha256": "9a0bd87ef85c0d1af3dc3b03079aac00cd177f92ab33bf29c0e3b378fc824441"
+      "sha256": "20aa1b33032253cc2100211f265d4cd935d467613f4ecb63c0e5414d7f354822"
     },
     {
       "bytes": 17675,
@@ -49,14 +49,14 @@
       "sha256": "a148554429f59a3108dde5a560b56a172760bc63a5a78774e5ead5fe2fa0ba41"
     },
     {
-      "bytes": 2132951,
+      "bytes": 2135244,
       "path": "data/adna/governance/source_library/sample_chronology_review.json",
-      "sha256": "56bf01641e85b3c489096d52ab1f8d0de0749cd3c21a3861bbab1dc2bff4fbde"
+      "sha256": "01f9e85b65900b277ac9d0f9fa2992fa14cfa02fbdc39087b1247844ec923e6e"
     },
     {
-      "bytes": 207443,
+      "bytes": 209278,
       "path": "data/adna/governance/source_library/source_artifact_index.json",
-      "sha256": "b698cbb44304c703083f71cdffdc53aeee637a37a728585f8ab8f104923efbd3"
+      "sha256": "54f68755bbef7ac8ba7fd49aa06e572213ed6b92b05957af76fa7836e18107ff"
     },
     {
       "bytes": 2228017,
@@ -71,7 +71,7 @@
     {
       "bytes": 373562,
       "path": "data/country_dimension_coverage.json",
-      "sha256": "c7b756a103d4fb8fac962167f1650cf9cc36bdbd5f1c343ffc55fab0e8e43c7c"
+      "sha256": "cbac852982a86ab21e10f81134936feff1384ee8233d81f3f110966dd68a160e"
     },
     {
       "bytes": 3891,
@@ -382,9 +382,9 @@
       "sha256": "c10a8e6ed2b2c477f8ed7c465b8596a46b3cd008177cd3a36687bcd78cc0b8b3"
     },
     {
-      "bytes": 178554,
+      "bytes": 177583,
       "path": "data/source_family_evidence_stage_matrix.json",
-      "sha256": "861d3970536060faca9d9839fada87a5bfb67a2509f9067dff341d41d902a922"
+      "sha256": "9b5a69dde1e5a422f55984208e9e142dbf0d0124ba2504ce4edfa91332bd6afb"
     }
   ],
   "materialization_counts": {
@@ -746,7 +746,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "chronology_uncertainty",
@@ -759,7 +759,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -769,7 +768,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "coordinates",
@@ -782,7 +781,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -792,7 +790,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "crop_cereal_resolution",
@@ -809,7 +807,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "dataset_provenance",
@@ -822,7 +820,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -832,7 +829,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "derived_ecological_role",
@@ -849,7 +846,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "derived_pollen_group",
@@ -866,7 +863,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "four_country_coverage",
@@ -879,7 +876,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -889,7 +885,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "native_ecological_class",
@@ -902,7 +898,6 @@
       "reason_codes": [
         "governed_dimension_evidence_missing",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -912,7 +907,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "non_pollen_context",
@@ -925,7 +920,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -935,7 +929,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "numeric_chronology",
@@ -948,7 +942,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -958,7 +951,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "observation_unit",
@@ -971,7 +964,6 @@
       "reason_codes": [
         "governed_dimension_evidence_missing",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -981,7 +973,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "pollen_propagation_event",
@@ -998,7 +990,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "quantitative_observation",
@@ -1011,7 +1003,6 @@
       "reason_codes": [
         "governed_dimension_evidence_missing",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -1021,7 +1012,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "relative_chronology",
@@ -1034,7 +1025,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -1044,7 +1034,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "site_identity",
@@ -1057,7 +1047,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -1067,7 +1056,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "taxon_identity",
@@ -1080,7 +1069,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],
@@ -1090,7 +1078,7 @@
     {
       "coverage_metrics": {
         "animal_project_count": 40,
-        "animal_sample_count": 1450,
+        "animal_sample_count": 1468,
         "animal_species_count": 10
       },
       "dimension": "within_site_hierarchy",
@@ -1103,7 +1091,6 @@
       "reason_codes": [
         "governed_dimension_evidence_complete",
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing",
         "qualified_animal_adna_source_review_missing"
       ],

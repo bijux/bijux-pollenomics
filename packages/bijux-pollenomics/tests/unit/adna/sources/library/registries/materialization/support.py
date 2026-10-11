@@ -115,6 +115,13 @@ def _fixture_downloader(url: str) -> tuple[bytes, str]:
             source_path.read_bytes(),
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
+    if "mec17274-sup-0001-Appendix+S1.zip" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/papers/10.1111-mec.17274/"
+            "supplementary/mec17274-sup-0001-Appendix S1.zip"
+        )
+        return (source_path.read_bytes(), "application/zip")
     if url.endswith("PMC11162877/fullTextXML"):
         source_path = (
             REPOSITORY_ROOT

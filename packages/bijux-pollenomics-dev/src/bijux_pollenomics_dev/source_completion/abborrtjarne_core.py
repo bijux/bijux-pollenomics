@@ -307,7 +307,7 @@ def compare_core(
 
 
 def main() -> int:
-    """Run Abborrtjärn core source correspondence from the supplied command arguments."""
+    """Run the CLI to compare one Swedish Neotoma core lead with published LandClim metadata."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in (
         "raw_part",

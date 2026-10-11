@@ -266,7 +266,7 @@ def compare_window(
 
 
 def main() -> int:
-    """Run published-window provenance evidence from the supplied command arguments."""
+    """Run the CLI to trace one published ESSD window through independent author R and installed LRA."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in (
         "author_csv",

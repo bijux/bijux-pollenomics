@@ -107,6 +107,28 @@ def _project_intake_expectation(
             ),
         )
 
+    if project.project_accession == "PRJEB60484":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=20,
+            expected_sample_count_status="known_from_source_table",
+            expected_sample_count_provenance=(
+                "The retained Molecular Ecology Appendix S1 Table S3 lists 20 "
+                "ancient specimens with PRJEB60484 in the project column; all "
+                "20 join distinct ENA BioSample aliases."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/"
+                "supplementary/mec17274-sup-0003-Table S3.xlsx"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve the exact Table S3 to ENA alias join and source-specific "
+                "chronology alternatives in the generated sample master."
+            ),
+        )
+
     if paper_spec is not None and _paper_sample_extractability(
         paper_spec,
         supplementary_download_status="missing",

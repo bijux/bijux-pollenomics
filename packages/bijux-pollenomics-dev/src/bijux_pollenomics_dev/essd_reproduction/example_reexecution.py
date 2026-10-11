@@ -380,7 +380,7 @@ def verify_report(
 
 
 def main() -> None:
-    """Run source-bound author example reexecution from the supplied command arguments."""
+    """Run the CLI to reexecute the pinned LandClim II author examples and retain bounded parity."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path)
     parser.add_argument("--private", type=Path)

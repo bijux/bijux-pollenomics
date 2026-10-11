@@ -198,7 +198,7 @@ def build(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Recheck bounded private source custody and publication refusal evidence."""
+    """Run the CLI to replay the bounded Amsoldingersee publication-input source refusal."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)

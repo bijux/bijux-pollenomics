@@ -154,7 +154,7 @@ def build(repository: Path, capture_root: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Review official DOI registry evidence for retained source datasets."""
+    """Run the CLI to compare official DOI registry records for used Nordic Neotoma datasets."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--capture-root", type=Path, required=True)

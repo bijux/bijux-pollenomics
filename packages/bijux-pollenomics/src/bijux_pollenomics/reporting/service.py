@@ -26,7 +26,10 @@ from .bundles.country_selection import normalize_requested_countries
 from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
-from .bundles.staging import publish_into_staging_dir
+from .bundles.staging import (
+    publish_into_staging_dir,
+    retain_existing_report_files,
+)
 from .bundles.summary_builders import (
     build_country_report_summary,
     build_multi_country_map_summary,
@@ -40,6 +43,7 @@ from .models import (
     MultiCountryMapReport,
     PublishedReportsReport,
 )
+from .presentation import publish_report_portal
 from .presentation.text import slugify
 from .rendering import (
     build_samples_geojson,
@@ -52,6 +56,9 @@ from .rendering import (
     write_samples_csv,
     write_samples_geojson,
     write_summary_json,
+)
+from .review.sustainability_outputs import (
+    publish_repository_output_sustainability_review,
 )
 
 
@@ -216,10 +223,20 @@ def generate_published_reports(
     if not normalized_countries:
         raise ValueError("At least one country is required to publish reports")
 
+    governed_markers = (
+        Path("pollen-reconstruction/manifest.json"),
+        Path("method-certification/original-r-reference/README.md"),
+        Path("source-relations/neotoma/README.md"),
+    )
+    retained_domains = [
+        marker.as_posix()
+        for marker in governed_markers
+        if (output_root / marker).exists()
+    ]
     atlas_slug = slugify(slug)
-    return publish_into_staging_dir(
-        output_root,
-        lambda staging_output_root: publish_published_reports_tree(
+
+    def publish(staging_output_root: Path) -> PublishedReportsReport:
+        result = publish_published_reports_tree(
             staging_output_root,
             version_dir=version_dir,
             output_root=output_root,
@@ -234,8 +251,22 @@ def generate_published_reports(
             generate_multi_country_map_fn=generate_multi_country_map,
             slugify_fn=slugify,
             write_summary_json_fn=write_summary_json,
-        ),
-    )
+        )
+        if retained_domains:
+            retain_existing_report_files(output_root, staging_output_root)
+            publish_repository_output_sustainability_review(
+                staging_output_root,
+                data_root=(
+                    Path(context_root)
+                    if context_root is not None
+                    else output_root.parents[1] / "data"
+                ),
+                docs_root=published_output_root.parent,
+            )
+            publish_report_portal(staging_output_root)
+        return result
+
+    return publish_into_staging_dir(output_root, publish)
 
 
 def refresh_animal_adna_foundation(

@@ -141,7 +141,7 @@ def _expected(
 
 
 def build_propagation_challenge() -> JsonObject:
-    """Build propagation challenge accounts from the declared event inputs."""
+    """Consume derived synthetic sample events through all propagation scenarios."""
     events: list[PhenomenonEvent] = []
     derivations: list[JsonObject] = []
     for spec in _EVENTS:
@@ -398,7 +398,7 @@ def build_propagation_challenge() -> JsonObject:
 
 
 def main() -> int:
-    """Run uncertainty propagation challenges from the supplied command arguments."""
+    """Run the CLI to consume derived synthetic sample events through all propagation scenarios."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

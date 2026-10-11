@@ -461,7 +461,7 @@ def build_inventory(
     max_entries: int = 2_000_000,
     max_seconds: float = 180,
 ) -> dict[str, Any]:
-    """Inventory bounded repository artifacts while preserving custody identities."""
+    """Inventory bounded artifacts while preserving unique evidence."""
     repository = repository.resolve(strict=True)
     artifact_root = repository / "artifacts"
     if output.exists():
@@ -578,7 +578,7 @@ def bind_native_cap_check(
 
 
 def main() -> int:
-    """Run repository artifact custody inventories from the supplied command arguments."""
+    """Run bounded artifact accounting and evidence-preserving retention review."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
