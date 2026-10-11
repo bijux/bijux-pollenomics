@@ -20,12 +20,37 @@ site `area` value without an established unit or historical basin meaning.
 The source pages came from live offset pagination, not a transactional snapshot;
 absence of a row is not certified.
 
-These are review leads. Chronology choice, taxon classification, a compatible
-pollen denominator, PPE/fall-speed binding, historical basin geometry and
-qualified returned decisions remain unresolved. The projection has **zero
+These are review leads. Chronology choice, taxon classification, count support,
+PPE/fall-speed binding, justified basin assumptions and qualified returned
+decisions remain unresolved. The projection has **zero
 accepted samples**, `scientific_acceptance=not_evaluated`, and no executable LRA
 request. It does not supersede the separate four-country observed-pollen
 prediction study.
+
+## Historical correspondence and a new reconstruction
+
+Reproducing LandClim requires its actual selected chronology, sample membership,
+geometry and parameters. A separately declared reconstruction can use a
+source-qualified alternative chronology and a justified static basin model.
+[Trondman et al. (2016)](https://link.springer.com/article/10.1007/s00334-015-0536-9)
+assumed constant present basin size and type where stratigraphic information was
+insufficient, with exceptions where evidence supported a change.
+[LandClim II](https://essd.copernicus.org/articles/14/1581/2022/) describes several
+chronology sources and circular radius approximations. These published choices
+support explicit modeling assumptions; they do not authenticate a particular
+site's past shoreline or the historical LandClim selection.
+
+A new profile must name its question, physical core and source rows, permitted
+use, chronology selection, taxon mask, count support, parameter units, geometry,
+pooling and weighting, sensitivity and evaluation target. Missing historical
+selection blocks historical correspondence, while a justified alternative can
+answer its separately stated question. An interval crossing a time-bin boundary
+can contribute to conditional set-based bounds without an invented probability
+distribution. Such bounds are distinct from a selected age model and joint
+confidence intervals. A common denominator cancels from a fixed-mask normalized
+REVEALS point estimate; original counts and taxon eligibility still govern
+sampling uncertainty and the reconstructed composition. None of these
+distinctions admits the presently unreviewed source rows automatically.
 
 To reproduce, run
 `python -m bijux_pollenomics_dev.taxa_review.lra_prerequisites` with the

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 import hashlib
 import json
@@ -118,6 +118,12 @@ class _MaterializationPolicy:
     propagation_producer: _ProducerPolicy
     propagation_contract_version: str
     propagation_contract_digest: str
+
+
+@dataclass(frozen=True)
+class _RelationalSourceReadset:
+    root: Path
+    entries: tuple[tuple[Path, str], ...]
 
 
 def _refuse(reason_code: str, detail: str) -> Never:
@@ -536,9 +542,81 @@ def _surface_rows(
     return rows
 
 
+def _relational_source_readset(
+    relational_root: Path,
+    manifest: Mapping[str, object],
+    manifest_sha256: str,
+) -> _RelationalSourceReadset:
+    surfaces = _mapping(manifest.get("surfaces"), "relational surfaces")
+    entries: list[tuple[Path, str]] = [(Path("manifest.json"), manifest_sha256)]
+    reconciliation = _mapping(
+        manifest.get("reconciliation"), "relational reconciliation"
+    )
+    reconciliation_path = _safe_relative_path(
+        reconciliation.get("path"), "relational reconciliation path"
+    )
+    reconciliation_digest = reconciliation.get("sha256")
+    if not isinstance(reconciliation_digest, str):
+        _refuse("invalid_relational_manifest", "reconciliation digest is missing")
+    entries.append((reconciliation_path, reconciliation_digest))
+    for surface_name in sorted(surfaces):
+        surface = _mapping(surfaces[surface_name], f"surface {surface_name}")
+        raw_parts = surface.get("parts")
+        if not isinstance(raw_parts, list):
+            _refuse(
+                "invalid_relational_manifest", f"surface parts missing: {surface_name}"
+            )
+        for raw_part in raw_parts:
+            part = _mapping(raw_part, f"surface part {surface_name}")
+            relative = _safe_relative_path(
+                part.get("path"), f"{surface_name} part path"
+            )
+            digest = part.get("sha256")
+            if not isinstance(digest, str):
+                _refuse(
+                    "invalid_relational_manifest",
+                    f"part digest is missing: {relative.as_posix()}",
+                )
+            entries.append((relative, digest))
+    if len({path for path, _ in entries}) != len(entries):
+        _refuse("invalid_relational_manifest", "relational input paths overlap")
+    return _RelationalSourceReadset(relational_root, tuple(sorted(entries)))
+
+
+def _verify_relational_source_readset(
+    repository_root: Path, readset: _RelationalSourceReadset
+) -> None:
+    for relative, expected_digest in readset.entries:
+        try:
+            actual = _sha256(
+                _read_regular_bytes(
+                    readset.root / relative, repository_root=repository_root
+                )
+            )
+        except ScientificEvidenceMaterializationError as error:
+            raise ScientificEvidenceMaterializationError(
+                "invalid_relational_manifest",
+                f"relational input became unsafe or unavailable: {relative.as_posix()}",
+            ) from error
+        if actual != expected_digest:
+            _refuse(
+                "invalid_relational_manifest",
+                f"relational input changed before publication: {relative.as_posix()}",
+            )
+
+
 def _classification_snapshot(
     repository_root: Path, relational_root: Path
-) -> JsonObject:
+) -> tuple[JsonObject, Callable[[], None]]:
+    manifest_path = relational_root / "manifest.json"
+    try:
+        manifest_bytes = _read_regular_bytes(
+            manifest_path, repository_root=repository_root
+        )
+    except ScientificEvidenceMaterializationError as error:
+        raise ScientificEvidenceMaterializationError(
+            "invalid_relational_manifest", "Neotoma relational manifest is unavailable"
+        ) from error
     try:
         manifest = read_validated_neotoma_relational_manifest(relational_root)
     except (OSError, TypeError, ValueError) as error:
@@ -546,7 +624,32 @@ def _classification_snapshot(
             "invalid_relational_manifest",
             "Neotoma relational materialization did not validate",
         ) from error
-    return {
+    try:
+        post_validation_bytes = _read_regular_bytes(
+            manifest_path, repository_root=repository_root
+        )
+    except ScientificEvidenceMaterializationError as error:
+        raise ScientificEvidenceMaterializationError(
+            "invalid_relational_manifest",
+            "Neotoma relational manifest became unavailable during validation",
+        ) from error
+    if post_validation_bytes != manifest_bytes:
+        _refuse(
+            "invalid_relational_manifest",
+            "relational manifest changed during validation",
+        )
+    try:
+        original_manifest = json.loads(manifest_bytes)
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        raise ScientificEvidenceMaterializationError(
+            "invalid_relational_manifest", "validated relational manifest is invalid"
+        ) from error
+    if original_manifest != manifest:
+        _refuse(
+            "invalid_relational_manifest",
+            "validated relational manifest does not match its original bytes",
+        )
+    snapshot = {
         "schema_version": manifest["relational_snapshot_schema_version"],
         "source_family": manifest["source_family"],
         "source_snapshot_id": manifest["source_snapshot_id"],
@@ -559,6 +662,10 @@ def _classification_snapshot(
             repository_root, relational_root, manifest, "observations"
         ),
     }
+    readset = _relational_source_readset(
+        relational_root, manifest, _sha256(manifest_bytes)
+    )
+    return snapshot, lambda: _verify_relational_source_readset(repository_root, readset)
 
 
 def materialize_scientific_evidence(
@@ -595,7 +702,7 @@ def materialize_scientific_evidence(
         repository_root=root,
     )
     relational_root = (root / _RELATIONAL_ROOT).absolute()
-    snapshot = _classification_snapshot(root, relational_root)
+    snapshot, verify_relational_source = _classification_snapshot(root, relational_root)
     accounting = build_neotoma_classification_accounting(snapshot)
     classification = materialize_classification_audit(
         accounting,
@@ -614,6 +721,7 @@ def materialize_scientific_evidence(
         classification_producer_digest=(
             f"sha256:{materialization_policy.classification_producer.digest}"
         ),
+        before_commit=verify_relational_source,
     )
     if (
         classification.manifest_sha256 != _CLASSIFICATION_AUTHORITY.manifest_sha256
@@ -652,6 +760,7 @@ def materialize_scientific_evidence(
         propagation_producer_digest=(
             materialization_policy.propagation_producer.digest
         ),
+        before_commit=verify_relational_source,
     )
     if materialization_policy.scenario_path != (
         propagation.output_root / "sensitivity_summary.json"

@@ -1,0 +1,1212 @@
+{
+  "schema_version": "configured-report-owner-execution.v1",
+  "owners": [
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.solsoe_source_lineage",
+      "source_paths": {
+        "report.json": "docs/report/countries/denmark/solsoe-source-lineage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 240
+    },
+    {
+      "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_screen_summary",
+      "source_paths": {
+        "summary.json": "docs/report/source-relations/neotoma/pollen-screen/summary.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--screen",
+          "path": "docs/report/source-relations/neotoma/pollen-screen/report.json"
+        }
+      ],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/sweden/pollen-model-lineage/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_model_lineage",
+      "source_paths": {
+        "report.json": "docs/report/countries/sweden/pollen-model-lineage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_entity_decisions",
+      "source_paths": {
+        "report.json": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-candidates/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/parameter-candidates/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-correspondence/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_parameter_correspondence",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/parameter-correspondence/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_lake_trajectory",
+      "source_paths": {
+        "report.json": "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
+        "transitions.csv": "docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/landclim-modeled-panels",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_modeled_panels",
+      "source_paths": {
+        "source-products/panels.csv": "docs/report/regions/nordic/landclim-modeled-panels/panels.csv",
+        "source-products/report.json": "docs/report/regions/nordic/landclim-modeled-panels/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_mass",
+      "source_paths": {
+        "bins.csv": "docs/report/source-relations/neotoma/parameter-coverage/bins.csv",
+        "report.json": "docs/report/source-relations/neotoma/parameter-coverage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/rootsi-landclim-overlap/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap",
+      "source_paths": {
+        "source-products/overlap.csv": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
+        "source-products/report.json": "docs/report/source-relations/rootsi-landclim-overlap/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-core-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.abborrtjarne_core",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-core-identity/report.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--raw-part",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json"
+        },
+        {
+          "flag": "--raw-manifest",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json"
+        },
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--workbook-receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--count-mass",
+          "path": "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_site_identity",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
+        "source-products/site-comparison.csv": "docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv"
+      },
+      "source_arguments": [
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        },
+        {
+          "flag": "--sites",
+          "path": "data/neotoma/relational/surfaces/sites/part-00001.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_lake_core_correspondence",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--raw-part",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+        },
+        {
+          "flag": "--raw-manifest",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json"
+        },
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--workbook-receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--count-mass",
+          "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.source_capability",
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/source-capability/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead-country-retrieval/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_retrieval",
+      "source_paths": {
+        "source-products/countries.csv": "docs/report/source-relations/sead-country-retrieval/countries.csv",
+        "source-products/report.json": "docs/report/source-relations/sead-country-retrieval/report.json",
+        "source-products/sites.csv": "docs/report/source-relations/sead-country-retrieval/sites.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_chronology_country_accounting",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/country-coverage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_coverage",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/country-coverage/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/country-coverage/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_source_units",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/source-unit-accounting/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/source-unit-accounting/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/chronology-claim-review/native-age-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.chronology_age_review",
+      "source_paths": {
+        "source-products/claims.csv": "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-claim-review/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/interval-sets/record-unions",
+      "module": "bijux_pollenomics_dev.source_completion.sead.record_intervals",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/interval-sets/report.json",
+        "source-products/sites.csv": "docs/report/source-relations/sead/interval-sets/sites.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "countries/denmark/pollen-chronology-coverage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark_pollen_chronology_coverage",
+      "source_paths": {
+        "report.json": "docs/report/countries/denmark/pollen-chronology-coverage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/compact-summary/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_compact_summary",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/compact-summary/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/acquisition-scope/retained-selection",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_acquisition_scope",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/acquisition-scope/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/dna-scope/galician-paper-crosswalk",
+      "module": "bijux_pollenomics_dev.source_completion.galician_cattle_review",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/dna-scope/source-posture",
+      "module": "bijux_pollenomics_dev.source_completion.dna_scope_review",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/dna-scope/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/source-capability-evidence/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.capability_evidence",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/source-capability-evidence/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/sead/public-custody/source-map-bindings",
+      "module": "bijux_pollenomics_dev.source_completion.sead_public_custody",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/public-custody/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/variable-surface/native-variable-reconciliation",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_variable_surface",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/variable-surface/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/landclim/map-export-lineage/derived-transport-ledger",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_map_export_lineage",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/landclim/map-export-lineage/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/landclim/map-export-lineage/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-numerical-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.numerical_values",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-numerical-values/report.json",
+        "source-products/values.csv": "docs/report/source-relations/sead/analysis-numerical-values/values.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.pollen_dataset_screen",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/pollen-named-dataset-screen/report.json",
+        "source-products/sample-observations.csv": "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
+      "module": "bijux_pollenomics_dev.source_completion.study_metadata.landclim",
+      "source_paths": {
+        "source-products/manifest.json": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
+        "source-products/primary-source-crosswalk.csv": "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv",
+        "source-products/records.jsonl": "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+        "source-products/refusals.csv": "docs/report/publication-replay/landclim-study-inputs/refusals.csv",
+        "source-products/report.json": "docs/report/publication-replay/landclim-study-inputs/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
+      "module": "bijux_pollenomics_dev.source_completion.love.parameter_correspondence",
+      "source_paths": {
+        "report.json": "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.integer_values",
+      "output_mode": "directory",
+      "owner_id": "source-relations/sead/analysis-integer-values/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-integer-values/report.json"
+      },
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.relational_summary",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/relational-summary",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/summary.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.relations",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/relational-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/summary.json": "docs/report/source-relations/sead/summary.json",
+        "source-products/tables.csv": "docs/report/source-relations/sead/tables.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.propagation.governed_edge_ledger",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "propagation/governed-edge-ledger/derived-report",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/edge-ledger.csv": "docs/report/propagation/governed-edge-ledger/edge-ledger.csv",
+        "source-products/report.json": "docs/report/propagation/governed-edge-ledger/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.swedish_native_sequences",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-native-sequences/source-tables",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/chronology-controls.json": "docs/report/pollen-reconstruction/swedish-native-sequences/chronology-controls.json",
+        "source-products/manifest.json": "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
+        "source-products/map-summary.geojson": "docs/report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
+        "source-products/observations.json": "docs/report/pollen-reconstruction/swedish-native-sequences/observations.json",
+        "source-products/samples.json": "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
+        "source-products/sites.json": "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.swedish_neotoma_duplicate_review",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/parallel-dataset-review",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/swedish-neotoma-holdout/parallel-dataset-review.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.essd.published_window_uncertainty",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/envelope-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
+        "source-products/report.json": "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
+        "source-products/taxon-envelopes.csv": "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_inputs",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/prepared-inputs",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json",
+        "source-products/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
+        "source-products/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz",
+        "source-products/sealed-outcomes/outcomes-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_prediction_freeze",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/dalmutladdo-author-target-age-interval/count-blind-freeze",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/predictions.json",
+        "source-products/protocol.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/protocol.json",
+        "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/sample-support.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/local-preparation",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/age-bin-support.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
+        "source-products/input-manifest.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
+        "source-products/prepared/dataset-19913.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_age_interval_freeze",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json",
+        "source-products/protocol.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/protocol.json",
+        "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/sample-support.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.author_lra.radius_paired_comparison",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired-comparison",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/paired-scores.csv": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/paired-scores.csv",
+        "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sambosjon_age_bounds",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/age-bounds/interval-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/bins.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/bins.csv",
+        "source-products/boundaries.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/boundaries.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/samples.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.native_roundtrip",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/native-roundtrip/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.change_time",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/change-time/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/change-time/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.spatial_eligibility",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/spatial-eligibility/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/spatial-eligibility/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.fixed_site_covariance",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/fixed-site-covariance/constructed-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/fixed-site-covariance/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.joint_site_draws",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/joint-site-draws/constructed-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/draws.json": "docs/report/method-certification/joint-site-draws/draws.json",
+        "source-products/joint-cover-draws.csv": "docs/report/method-certification/joint-site-draws/joint-cover-draws.csv",
+        "source-products/report.json": "docs/report/method-certification/joint-site-draws/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.propagation",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/propagation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/propagation/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.reconstruction",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/reconstruction/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/reconstruction/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.site_leakage",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/site-leakage/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/site-leakage/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.candidate_series",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/pollen-screen/candidate-series",
+      "source_arguments": [],
+      "source_paths": {
+        "agerods-mosse.sample-series.json": "docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.sample_decisions",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/pollen-screen/sample-decisions",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.concept_priority",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/taxon-priority/concept-priority",
+      "source_arguments": [],
+      "source_paths": {
+        "priority.json": "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.dataset_attribution",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/taxon-priority/dataset-attribution",
+      "source_arguments": [],
+      "source_paths": {
+        "dataset-attribution.json": "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/frozen-prediction",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_lake_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-lake-transfer/prediction-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-lake-transfer/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_core_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/prediction-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-neotoma-holdout/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/author-target-pollen/frozen-predictions",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_predictions",
+      "source_paths": {
+        "source-products/predictions-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
+        "source-products/predictions-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
+        "source-products/predictions-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_interval_sensitivity",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600,
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json",
+        "source-products/protocol.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/protocol.json",
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json",
+        "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv",
+        "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv"
+      }
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/author-target-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/author-target-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/author-target-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/author-target-pollen/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/author-target-pollen/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-author-target-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-author-target-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-author-target-pollen/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-author-target-pollen/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_lake_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-lake-transfer/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-lake-transfer/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-lake-transfer/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_core_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/dalmutladdo-age-interval-sensitivity/interval-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_interval_sensitivity",
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/predictions.json",
+        "source-products/protocol.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/protocol.json",
+        "source-products/report.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/report.json",
+        "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/sample-support.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/scores.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_preparation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/prepared-inputs",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/input-manifest.json",
+        "source-products/metadata.json": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/metadata.json",
+        "source-products/training.json.gz": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/frozen-predictions",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/predictions.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/scored-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_chronology_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-chronology-block/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-chronology-block/coverage.csv",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-chronology-block/frozen/freeze.json",
+        "source-products/frozen/predictions-13338.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-13338.json.gz",
+        "source-products/frozen/predictions-28869.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28869.json.gz",
+        "source-products/frozen/predictions-28872.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28872.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-chronology-block/prepared/prepare.json",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-chronology-block/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-chronology-block/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_support_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-support-sensitivity/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/freeze.json",
+        "source-products/frozen/predictions-13338.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-13338.json.gz",
+        "source-products/frozen/predictions-28869.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28869.json.gz",
+        "source-products/frozen/predictions-28872.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28872.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-support-sensitivity/prepared/prepare.json",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-support-sensitivity/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-support-sensitivity/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/swedish-training-scope/study-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_training_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
+        "source-products/frozen/four_country/13338/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/13338/predictions-SE.json.gz",
+        "source-products/frozen/four_country/28869/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28869/predictions-SE.json.gz",
+        "source-products/frozen/four_country/28872/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28872/predictions-SE.json.gz",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-training-scope/frozen/freeze.json",
+        "source-products/frozen/sweden_only/13338/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/13338/predictions-SE.json.gz",
+        "source-products/frozen/sweden_only/28869/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28869/predictions-SE.json.gz",
+        "source-products/frozen/sweden_only/28872/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28872/predictions-SE.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv",
+        "source-products/prepared/four_country/13338/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/input-manifest.json",
+        "source-products/prepared/four_country/13338/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/13338/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/training-SE.json.gz",
+        "source-products/prepared/four_country/28869/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/input-manifest.json",
+        "source-products/prepared/four_country/28869/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/28869/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/training-SE.json.gz",
+        "source-products/prepared/four_country/28872/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/input-manifest.json",
+        "source-products/prepared/four_country/28872/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/28872/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/training-SE.json.gz",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-training-scope/prepared/prepare.json",
+        "source-products/prepared/sweden_only/13338/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/input-manifest.json",
+        "source-products/prepared/sweden_only/13338/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/13338/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/training-SE.json.gz",
+        "source-products/prepared/sweden_only/28869/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/input-manifest.json",
+        "source-products/prepared/sweden_only/28869/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/28869/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/training-SE.json.gz",
+        "source-products/prepared/sweden_only/28872/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/input-manifest.json",
+        "source-products/prepared/sweden_only/28872/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/28872/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/training-SE.json.gz",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-training-scope/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-training-scope/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_contained_age",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-contained-age-support",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/samples.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/frozen-predictions",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/freeze.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
+        "source-products/predictions.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/predictions.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json",
+        "source-products/sample-counts.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/sample-counts.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "propagation/source-first-observed/readiness-report",
+      "module": "bijux_pollenomics_dev.source_completion.propagation.native_readiness",
+      "output_mode": "single_file",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/propagation/source-first-observed/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_direct_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/direct-pollen/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/RESULTS.md": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+        "source-products/cohort.csv": "docs/report/regions/nordic/direct-pollen/cohort.csv",
+        "source-products/coverage.csv": "docs/report/regions/nordic/direct-pollen/coverage.csv",
+        "source-products/manifest.json": "docs/report/regions/nordic/direct-pollen/manifest.json",
+        "source-products/predictions-DK.json": "docs/report/regions/nordic/direct-pollen/predictions-DK.json",
+        "source-products/predictions-FI.json": "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
+        "source-products/predictions-NO.json": "docs/report/regions/nordic/direct-pollen/predictions-NO.json",
+        "source-products/predictions.csv": "docs/report/regions/nordic/direct-pollen/predictions.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/direct-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/direct-pollen/site-scores.csv",
+        "source-products/training-sources.csv": "docs/report/regions/nordic/direct-pollen/training-sources.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_contained_age",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-contained-age-support",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/samples.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_development_replay",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/pollen-development/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/pollen-development/report.json",
+        "source-products/trial-scores.csv.gz": "docs/report/regions/nordic/pollen-development/trial-scores.csv.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_selected_transfer_replay",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/selected-pollen-transfer/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/freeze.json": "docs/report/regions/nordic/selected-pollen-transfer/freeze.json",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/selected-pollen-transfer/paired-scores.csv",
+        "source-products/predictions-DK.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-DK.json",
+        "source-products/predictions-FI.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-FI.json",
+        "source-products/predictions-NO.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-NO.json",
+        "source-products/report.json": "docs/report/regions/nordic/selected-pollen-transfer/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/legacyage.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.legacyage_depth_join",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/legacyage-chronology/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/legacyage-chronology/report.json",
+        "source-products/sample-depth-join.csv": "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv",
+        "source-products/unmatched-samples.csv": "docs/report/source-relations/neotoma/legacyage-chronology/unmatched-samples.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/legacyage.json",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_legacyage_depth_join",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-chronology/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/refused-samples.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv",
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json",
+        "source-products/sample-depth-join.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/legacyage-depth-allocation.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.legacyage_depth_allocation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+      "module": "bijux_pollenomics_dev.source_completion.vegetation.namibia_source_join",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "vegetation-reference/namibia-pollen-vegetation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/paired.csv": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
+        "source-products/report.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+      "module": "bijux_pollenomics_dev.source_completion.vegetation.namibia_radius_sensitivity",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "vegetation-reference/namibia-pollen-vegetation/radius-sensitivity",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/radius-sensitivity.csv": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
+        "source-products/radius-sensitivity.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-boolean-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.boolean_values",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/sead/analysis-boolean-values/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_membership",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 180,
+      "source_paths": {
+        "source-products/membership.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+        "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json"
+      }
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-categorical-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.categorical_values",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/sead/analysis-categorical-values/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.english_shared_ppe",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "source_paths": {
+        "source-products/diagnostics.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json"
+      }
+    }
+  ]
+}

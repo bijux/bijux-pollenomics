@@ -1,0 +1,132 @@
+{
+  "admission": "Development sensitivity only; no revised original interval-contained prediction, LRA reconstruction or scientific admission.",
+  "bounds": [
+    {
+      "bin_id": 3,
+      "closed16_fraction_lower_outer_bound": {
+        "denominator": 2203,
+        "numerator": 483
+      },
+      "closed16_fraction_upper_outer_bound": {
+        "denominator": 41,
+        "numerator": 14
+      },
+      "contained_closed16_fraction": {
+        "denominator": 9,
+        "numerator": 2
+      },
+      "empty_bin_possible": false,
+      "mandatory_closed16_pollen_mass": 252,
+      "mandatory_native_pollen_mass": 1134,
+      "mandatory_samples": 1,
+      "older_cal_bp_exclusive": 2000,
+      "optional_samples": 10,
+      "outside_samples": 96,
+      "possible_native_pollen_mass": 12564,
+      "possible_samples": 11,
+      "younger_cal_bp": 1500
+    },
+    {
+      "bin_id": 4,
+      "closed16_fraction_lower_outer_bound": {
+        "denominator": 6823,
+        "numerator": 2283
+      },
+      "closed16_fraction_upper_outer_bound": {
+        "denominator": 8958,
+        "numerator": 3847
+      },
+      "contained_closed16_fraction": {
+        "denominator": 3365,
+        "numerator": 1282
+      },
+      "empty_bin_possible": false,
+      "mandatory_closed16_pollen_mass": 1282,
+      "mandatory_native_pollen_mass": 3365,
+      "mandatory_samples": 3,
+      "older_cal_bp_exclusive": 2500,
+      "optional_samples": 12,
+      "outside_samples": 92,
+      "possible_native_pollen_mass": 17153,
+      "possible_samples": 15,
+      "younger_cal_bp": 2000
+    },
+    {
+      "bin_id": 5,
+      "closed16_fraction_lower_outer_bound": {
+        "denominator": 4979,
+        "numerator": 1895
+      },
+      "closed16_fraction_upper_outer_bound": {
+        "denominator": 11483,
+        "numerator": 5103
+      },
+      "contained_closed16_fraction": {
+        "denominator": 1925,
+        "numerator": 754
+      },
+      "empty_bin_possible": false,
+      "mandatory_closed16_pollen_mass": 1508,
+      "mandatory_native_pollen_mass": 3850,
+      "mandatory_samples": 3,
+      "older_cal_bp_exclusive": 3000,
+      "optional_samples": 12,
+      "outside_samples": 92,
+      "possible_native_pollen_mass": 18637,
+      "possible_samples": 15,
+      "younger_cal_bp": 2500
+    },
+    {
+      "bin_id": 9,
+      "closed16_fraction_lower_outer_bound": {
+        "denominator": 409,
+        "numerator": 167
+      },
+      "closed16_fraction_upper_outer_bound": {
+        "denominator": 7111,
+        "numerator": 3963
+      },
+      "contained_closed16_fraction": {
+        "denominator": 409,
+        "numerator": 167
+      },
+      "empty_bin_possible": false,
+      "mandatory_closed16_pollen_mass": 501,
+      "mandatory_native_pollen_mass": 1227,
+      "mandatory_samples": 1,
+      "older_cal_bp_exclusive": 5000,
+      "optional_samples": 15,
+      "outside_samples": 91,
+      "possible_native_pollen_mass": 19885,
+      "possible_samples": 16,
+      "younger_cal_bp": 4500
+    }
+  ],
+  "interpretation": "Per-bin outer extrema over independent optional sample inclusion; no joint age confidence statement, chronology/depth monotonicity, probability weighting, taxon-cover or vegetation inference.",
+  "membership_row_count": 428,
+  "membership_rule": "closed marginal age intervals against half-open 500-cal-BP study bins; mandatory if wholly contained, optional if overlapping, outside otherwise",
+  "membership_sha256": "6ca70c45e9c292b485ceea31aee3cda9aa92ffb5fdc404b9f6cc70158a62a2cc",
+  "membership_status_counts": {
+    "mandatory": 8,
+    "optional": 49,
+    "outside": 371
+  },
+  "quantity": "pooled closed 16-taxon NISP divided by all native pollen NISP among samples assigned to each selected bin",
+  "sample_count": 107,
+  "schema_version": "abbo-conditional-age-membership.v1",
+  "source": {
+    "age_source": "LegacyAge 1.0 S5 reported marginal 95% age bounds, PANGAEA.933132",
+    "config_sha256": "7488562b4878de2eb7ac14466c0732ce455711edb01ec80181aff91d74bbef9a",
+    "input_manifest_sha256": "29c59ac308596444ee7abae1a1e4fe81e530157ee073dce5adc593a3fc99f4f4",
+    "interval_helper_sha256": "0c61fb0d4b693f4ed65156fcf0ecea10535e31d515f5145407bccff55c15cfb1",
+    "original_source_sha256": {
+      "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+      "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79",
+      "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5",
+      "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520",
+      "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv": "00fb70fc6201b07873d2ec13ea59ec6018c656ae5f680f881c055d1a0a4b4ac6"
+    },
+    "sample_support_sha256": "26ca6dc862790c71a3a7821b027413307dd2334856080a1b07e186177cfb8e01",
+    "source_replay_sha256": "b01db6948389e33bad5e88afd4b08fa954ccaf3fd893d01e92a8d504c5e1a4f0"
+  }
+}

@@ -192,6 +192,44 @@ sites for 80%, 100% and 120% radius, respectively. We keep the difference in
 training information and prior outcome exposure visible; this does not
 select a model for Nordic cores.
 
+## Conditional shared-PPE sensitivity
+
+The [shared-PPE account](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md)
+asks how one previously exposed training pair's fitted local cover changes
+under the author-supplied diagonal PPE moments. It fixes the 30-taxon
+subcomposition, 699 regional and 553 local counts, geometry and transport.
+One nominal PPE vector anchors the result; 63 stochastic vectors use seed
+`20261002`. Each vector drives both regional cover and local/background
+deposition. The maintained producer rebuilds its source-bound request
+transiently and publishes compact summaries and per-draw numerical diagnostics.
+
+All 64 fits meet the declared `1e-7` likelihood gap tolerance; the largest gap
+is `9.959748226151532e-8`. The stochastic mean, sample SD and fifth/ninety-fifth
+percentiles exclude the nominal anchor. These quantify conditional numerical
+sensitivity under the supplied moments, without establishing field PPE
+covariance or historical vegetation confidence coverage. The source-compatible
+second local ring has zero weight, so identical prefix results cannot select
+an independent physical receiving radius.
+
+Reproduction requires an explicit source-store parent containing
+`landclim/author-reference`, the pinned descriptor and an absent output:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python -m \
+  bijux_pollenomics_dev.source_completion.pollen_reconstruction.english_shared_ppe \
+  --repository . --source-root /path/to/private-source-store \
+  --source-descriptor configs/ci/qualified-report-sources/landclim-author-snapshot.json \
+  --output artifacts/jobs/english-shared-ppe/source-products
+```
+
+The source qualifier authenticates exact snapshot identity. Source-use rights,
+physical basin suitability and independent scientific interpretation remain
+separate decisions. The circular receiver model documented in the
+[native geometry reference](../../packages/bijux-pollenomics-lra/docs/reference/circular-receiver-annulus.md)
+is a separately declared mathematical hypothesis and does not alter this
+source-compatible sensitivity result.
+
 ## Reproduce our result
 
 From the repository root, use the private author source capsule and an absent

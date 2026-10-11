@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry, inventory_r
 from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 from .contracts import JsonObject, ReportRebuildError
+from .ownership import ReportOwnershipError, _regular_confined_file
 
 _PREFIX = "method-certification/original-r-reference/reference-bundle"
 
@@ -21,9 +22,14 @@ def validated_original_r_reference(
     repo_root: Path, policy: JsonObject
 ) -> tuple[InventoryEntry, ...]:
     """Bind retained source bytes to the independently pinned R certificate."""
-    bundle = repo_root / cast(str, policy["tracked_report_root"]) / _PREFIX
-    certificate_path = bundle / "certificate.json"
+    report_root = cast(str, policy["tracked_report_root"])
+    bundle = repo_root / report_root / _PREFIX
     try:
+        certificate_path = _regular_confined_file(
+            repo_root,
+            f"{report_root}/{_PREFIX}/certificate.json",
+            "original R certificate",
+        )
         certificate_bytes = certificate_path.read_bytes()
         if hashlib.sha256(certificate_bytes).hexdigest() != CERTIFICATE_SHA256:
             raise ReportRebuildError(
@@ -36,7 +42,17 @@ def validated_original_r_reference(
             expected_lock_sha256=certificate["lock_sha256"],
         )
         inventory = inventory_reports(bundle, policy)
-    except (OSError, ValueError, KeyError, ReferenceRefusal) as error:
+        for entry in inventory:
+            _regular_confined_file(
+                repo_root, f"{report_root}/{_PREFIX}/{entry.path}", "original R source"
+            )
+    except (
+        OSError,
+        ValueError,
+        KeyError,
+        ReferenceRefusal,
+        ReportOwnershipError,
+    ) as error:
         raise ReportRebuildError(
             "original R retained source validation failed"
         ) from error

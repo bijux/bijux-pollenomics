@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 from pathlib import Path
 from typing import cast
@@ -324,7 +325,7 @@ def _required_count(payload: dict[str, object], field: str) -> int:
 
 
 def _required_rows(
-    payload: dict[str, object],
+    payload: Mapping[str, object],
     field: str,
 ) -> list[dict[str, object]]:
     value = payload.get(field)

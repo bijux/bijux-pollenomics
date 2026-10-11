@@ -186,7 +186,7 @@ def parse_owner_manifest(path: Path) -> JsonObject:
         raise ReportRebuildError("owner manifest fields or schema are invalid")
     parse_binding(record["binding"], "owner manifest binding")
     require_string(record["lane"], "owner manifest lane")
-    require_string(record["owner_id"], "owner manifest owner_id")
+    require_relative_path(record["owner_id"], "owner manifest owner_id")
     for field in ("producer_command", "producer_argv"):
         command = record[field]
         if (

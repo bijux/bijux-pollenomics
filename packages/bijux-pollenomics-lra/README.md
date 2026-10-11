@@ -49,3 +49,9 @@ explicitly supplied regional-cover draws use a separately checked path and can
 retain a single taxon.
 
 For outcome-free target geometry, see [forward preparation](docs/reference/forward-preparation.md).
+
+The [fixed-input homogeneous likelihood](docs/reference/homogeneous-likelihood.md)
+provides a separate convex point estimator with explicit numerical gap,
+conditioning and budget diagnostics. It requires declared local coefficients
+and regional deposition; it does not replace source-compatible LOVE or infer
+geometry and uncertainty from a successful fit.

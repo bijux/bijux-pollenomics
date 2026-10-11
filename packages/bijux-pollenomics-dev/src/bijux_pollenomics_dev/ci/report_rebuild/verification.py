@@ -23,6 +23,7 @@ from .contracts import (
     parse_binding,
     require_exact_binding,
     require_mapping,
+    require_relative_path,
     require_string,
     require_string_sequence,
     sha256_bytes,
@@ -36,8 +37,11 @@ from .evidence import (
     require_independent_owner_inputs,
     require_inventory_matches_tree,
 )
-from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA
-from .original_r_reference import validated_original_r_reference
+from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA, SOURCE_ASSEMBLY_SCHEMA
+from .maintained_sources import validated_maintained_report_sources
+from .original_r_reference import (
+    validated_original_r_reference,
+)
 from .planning import parse_plan, require_current_binding
 
 
@@ -55,11 +59,14 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
         "schema_version",
     }
     schema = manifest.get("schema_version")
-    if schema == OWNED_ASSEMBLY_SCHEMA:
+    if schema in {OWNED_ASSEMBLY_SCHEMA, SOURCE_ASSEMBLY_SCHEMA}:
         expected |= {"owner_paths", "owner_manifest_sha256"}
+    if schema == SOURCE_ASSEMBLY_SCHEMA:
+        expected.add("source_inputs")
     if set(manifest) != expected or schema not in {
         ASSEMBLY_SCHEMA,
         OWNED_ASSEMBLY_SCHEMA,
+        SOURCE_ASSEMBLY_SCHEMA,
     }:
         raise ReportRebuildError("assembly manifest fields or schema are invalid")
     parse_binding(manifest["binding"], "assembly manifest binding")
@@ -94,12 +101,14 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
         raise ReportRebuildError(
             "assembly path ownership is overlapping or does not cover its inventory"
         )
-    if schema == OWNED_ASSEMBLY_SCHEMA:
+    if schema in {OWNED_ASSEMBLY_SCHEMA, SOURCE_ASSEMBLY_SCHEMA}:
         owner_paths = require_mapping(manifest["owner_paths"], "assembly owner_paths")
         owner_digests = require_mapping(
             manifest["owner_manifest_sha256"], "assembly owner_manifest_sha256"
         )
-        if not owner_paths or set(owner_paths) != set(owner_digests):
+        if (schema == OWNED_ASSEMBLY_SCHEMA and not owner_paths) or set(
+            owner_paths
+        ) != set(owner_digests):
             raise ReportRebuildError("assembly owner manifest coverage is not exact")
         seen = set(claimed_paths)
         for owner_id, paths in owner_paths.items():
@@ -111,6 +120,15 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
                 if owner_path in seen:
                     raise ReportRebuildError("assembly owner path ownership overlaps")
                 seen.add(owner_path)
+    if schema == SOURCE_ASSEMBLY_SCHEMA:
+        source_evidence = require_mapping(
+            manifest["source_inputs"], "assembly source_inputs"
+        )
+        if not source_evidence or not set(source_evidence) <= {
+            "maintained_report_sources",
+            "original_r_reference",
+        }:
+            raise ReportRebuildError("assembly source evidence roles are invalid")
     return manifest
 
 
@@ -148,6 +166,31 @@ def _load_complete_lane(
     return manifest, inventory
 
 
+def _owner_manifest_paths(artifacts_root: Path) -> tuple[Path, ...]:
+    """Walk owner namespaces, stopping before each producer's payload trees."""
+    pending = list(artifacts_root.iterdir())
+    manifests: list[Path] = []
+    while pending:
+        owner_root = pending.pop()
+        if owner_root.is_symlink() or not owner_root.is_dir():
+            raise ReportRebuildError(f"invalid owner artifact directory: {owner_root}")
+        path = owner_root / "manifest.json"
+        if path.is_symlink():
+            raise ReportRebuildError(f"owner manifest must be a regular file: {path}")
+        if path.exists():
+            if not path.is_file():
+                raise ReportRebuildError(
+                    f"owner manifest must be a regular file: {path}"
+                )
+            manifests.append(path)
+            continue
+        children = list(owner_root.iterdir())
+        if not children:
+            raise ReportRebuildError(f"owner manifest is missing: {owner_root}")
+        pending.extend(children)
+    return tuple(sorted(manifests))
+
+
 def _load_owner_outputs(
     *,
     artifacts_root: Path | None,
@@ -156,6 +199,7 @@ def _load_owner_outputs(
     binding: RebuildBinding,
     policy: JsonObject,
     publisher_ids: set[str],
+    source_root: Path | None = None,
 ) -> dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]]:
     """Load every independent owner artifact for one lane."""
     if artifacts_root is None:
@@ -167,17 +211,17 @@ def _load_owner_outputs(
     ):
         raise ReportRebuildError("owner artifacts must be below repository artifacts")
     owners: dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]] = {}
-    for owner_root in sorted(artifacts_root.iterdir()):
-        if owner_root.is_symlink() or not owner_root.is_dir():
-            raise ReportRebuildError(f"invalid owner artifact directory: {owner_root}")
-        path = owner_root / "manifest.json"
-        if path.is_symlink() or not path.is_file():
-            raise ReportRebuildError(f"owner manifest is missing: {owner_root}")
+    for ancestor in (artifacts_root, *artifacts_root.parents):
+        if ancestor == repo_root / "artifacts":
+            break
+        if ancestor.is_symlink():
+            raise ReportRebuildError(f"invalid owner artifact directory: {ancestor}")
+    for path in _owner_manifest_paths(artifacts_root):
         manifest = parse_owner_manifest(path)
         if manifest["lane"] != lane:
             raise ReportRebuildError(f"owner manifest names the wrong lane: {path}")
-        owner_id = cast(str, manifest["owner_id"])
-        if owner_root.name != owner_id:
+        owner_id = require_relative_path(manifest["owner_id"], "owner identity")
+        if path.parent.relative_to(artifacts_root).as_posix() != owner_id:
             raise ReportRebuildError(
                 f"owner directory differs from identity: {owner_id}"
             )
@@ -193,15 +237,22 @@ def _load_owner_outputs(
             policy=policy,
             label=owner_id,
         )
-        _require_current_owner_inputs(manifest, repo_root, owner_id, policy)
+        _require_current_owner_inputs(
+            manifest, repo_root, owner_id, policy, source_root=source_root
+        )
         owners[owner_id] = (manifest, inventory, path)
     return owners
 
 
 def _require_current_owner_inputs(
-    manifest: JsonObject, repo_root: Path, owner_id: str, policy: JsonObject
+    manifest: JsonObject,
+    repo_root: Path,
+    owner_id: str,
+    policy: JsonObject,
+    *,
+    source_root: Path | None = None,
 ) -> None:
-    """Reject a producer receipt whose named source files changed or vanished."""
+    """Bind configured invocations and reject changed independent source bytes."""
     inputs = require_mapping(manifest["producer_inputs"], "owner producer_inputs")
     paths = {
         label: Path(
@@ -212,6 +263,35 @@ def _require_current_owner_inputs(
         )
         for label, value in inputs.items()
     }
+    # Every configured owner must retain its complete declared invocation.
+    # Independent owners absent from the configuration retain their receipt contract.
+    from .configured_owner import (
+        DEFAULT_CONFIGURATION,
+        _configuration_owner,
+        _read_object,
+        resolve_configured_owner,
+    )
+
+    if (repo_root / DEFAULT_CONFIGURATION).is_file():
+        configuration = _read_object(
+            repo_root, DEFAULT_CONFIGURATION.as_posix(), "owner configuration"
+        )
+        rows = configuration.get("owners")
+        if isinstance(rows, list) and any(
+            isinstance(row, dict) and row.get("owner_id") == owner_id for row in rows
+        ):
+            _configuration_owner(configuration, owner_id)
+            selected = resolve_configured_owner(
+                repo_root, owner_id, source_root=source_root
+            )
+            if (
+                producer_input_identity(selected.inputs, repo_root) != inputs
+                or selected.source_paths != manifest["source_paths"]
+                or list(selected.command) != manifest["producer_command"]
+            ):
+                raise ReportRebuildError(
+                    f"configured owner invocation or input declaration differs: {owner_id}"
+                )
     require_independent_owner_inputs(
         paths,
         tuple(cast(dict[str, str], manifest["source_paths"]).values()),
@@ -250,7 +330,9 @@ def verify_partitioned_rebuild(
     reference_owners_root: Path | None = None,
     replay_owners_root: Path | None = None,
     owner_ids: tuple[str, ...] = (),
+    source_root: Path | None = None,
     retain_original_r_reference: bool = False,
+    retain_maintained_report_sources: bool = False,
 ) -> JsonObject:
     """Verify two complete partitioned builds and the tracked report tree."""
     if evidence_root.exists() or evidence_root.is_symlink():
@@ -301,6 +383,7 @@ def verify_partitioned_rebuild(
         binding=binding,
         policy=policy,
         publisher_ids=publisher_ids,
+        source_root=source_root,
     )
     replay_owners = _load_owner_outputs(
         artifacts_root=replay_owners_root,
@@ -309,6 +392,7 @@ def verify_partitioned_rebuild(
         binding=binding,
         policy=policy,
         publisher_ids=publisher_ids,
+        source_root=source_root,
     )
     for lane, owners in (("reference", reference_owners), ("replay", replay_owners)):
         if set(owners) != set(owner_ids):
@@ -317,11 +401,27 @@ def verify_partitioned_rebuild(
         ("reference", reference_manifest, reference_owners),
         ("replay", replay_manifest, replay_owners),
     ):
-        if owners:
-            if assembly["schema_version"] != OWNED_ASSEMBLY_SCHEMA:
+        expected_schema = (
+            SOURCE_ASSEMBLY_SCHEMA
+            if retain_maintained_report_sources or retain_original_r_reference
+            else OWNED_ASSEMBLY_SCHEMA
+            if owners
+            else ASSEMBLY_SCHEMA
+        )
+        if assembly["schema_version"] != expected_schema:
+            if assembly["schema_version"] == SOURCE_ASSEMBLY_SCHEMA:
                 raise ReportRebuildError(
-                    f"{lane} assembly did not consume owner inputs"
+                    f"{lane} assembly claims unexpected checked-in source inputs"
                 )
+            if retain_maintained_report_sources or retain_original_r_reference:
+                raise ReportRebuildError(f"{lane} assembly source-input schema changed")
+            detail = (
+                "did not consume owner inputs"
+                if owners
+                else "claims unexpected owner inputs"
+            )
+            raise ReportRebuildError(f"{lane} assembly {detail}")
+        if owners or retain_maintained_report_sources or retain_original_r_reference:
             claimed_paths = require_mapping(
                 assembly["owner_paths"], "assembly owner_paths"
             )
@@ -336,8 +436,6 @@ def verify_partitioned_rebuild(
                 for identity, (_, _, path) in sorted(owners.items())
             }:
                 raise ReportRebuildError(f"{lane} assembly owner inputs changed")
-        elif assembly["schema_version"] != ASSEMBLY_SCHEMA:
-            raise ReportRebuildError(f"{lane} assembly claims unexpected owner inputs")
     for identity in reference_owners:
         for field in ("source_paths", "producer_command", "producer_inputs"):
             if (
@@ -347,23 +445,66 @@ def verify_partitioned_rebuild(
                 raise ReportRebuildError(f"owner {field} changed: {identity}")
     complete_reference = _merge_owned_inventories(reference, reference_owners)
     complete_replay = _merge_owned_inventories(replay, replay_owners)
+    tracked = inventory_reports(
+        repo_root / cast(str, policy["tracked_report_root"]), policy
+    )
     retained_reference = (
         validated_original_r_reference(repo_root, policy)
         if retain_original_r_reference
         else ()
     )
+    maintained, maintained_evidence = (
+        validated_maintained_report_sources(
+            repo_root, tracked, expected_repository=binding.repository
+        )
+        if retain_maintained_report_sources
+        else ((), {})
+    )
+    source_evidence: JsonObject = {
+        **(
+            {"maintained_report_sources": maintained_evidence}
+            if retain_maintained_report_sources
+            else {}
+        ),
+        **(
+            {
+                "original_r_reference": {
+                    "certificate_sha256": CERTIFICATE_SHA256,
+                    "inventory": inventory_json(retained_reference),
+                }
+            }
+            if retain_original_r_reference
+            else {}
+        ),
+    }
+    if source_evidence:
+        for lane, assembly in (
+            ("reference", reference_manifest),
+            ("replay", replay_manifest),
+        ):
+            if assembly["source_inputs"] != source_evidence:
+                raise ReportRebuildError(f"{lane} checked-in source inputs changed")
     generated_paths = {entry.path for entry in complete_reference}
     generated_paths.update(entry.path for entry in complete_replay)
-    if generated_paths.intersection(entry.path for entry in retained_reference):
+    retained_paths = {entry.path for entry in retained_reference}
+    maintained_paths = {entry.path for entry in maintained}
+    if generated_paths & retained_paths:
         raise ReportRebuildError("retained R reference overlaps generated output")
+    if generated_paths & maintained_paths or retained_paths & maintained_paths:
+        raise ReportRebuildError(
+            "maintained source overlaps generated or retained output"
+        )
     complete_reference = tuple(
-        sorted((*complete_reference, *retained_reference), key=lambda entry: entry.path)
+        sorted(
+            (*complete_reference, *retained_reference, *maintained),
+            key=lambda entry: entry.path,
+        )
     )
     complete_replay = tuple(
-        sorted((*complete_replay, *retained_reference), key=lambda entry: entry.path)
-    )
-    tracked = inventory_reports(
-        repo_root / cast(str, policy["tracked_report_root"]), policy
+        sorted(
+            (*complete_replay, *retained_reference, *maintained),
+            key=lambda entry: entry.path,
+        )
     )
     differences: list[JsonObject] = [
         {"comparison": "reference_vs_replay", **row}
@@ -392,7 +533,15 @@ def verify_partitioned_rebuild(
         )
     for owners in (reference_owners, replay_owners):
         for identity, (manifest, _, _) in owners.items():
-            _require_current_owner_inputs(manifest, repo_root, identity, policy)
+            _require_current_owner_inputs(
+                manifest, repo_root, identity, policy, source_root=source_root
+            )
+    if retain_maintained_report_sources:
+        maintained_after, evidence_after = validated_maintained_report_sources(
+            repo_root, tracked, expected_repository=binding.repository
+        )
+        if maintained_after != maintained or evidence_after != maintained_evidence:
+            raise ReportRebuildError("maintained sources changed during verification")
     report: JsonObject = {
         "schema_version": "reproducible-report-build-evidence.v3",
         "status": "PASS" if not differences else "FAIL",
@@ -432,16 +581,23 @@ def verify_partitioned_rebuild(
                 ("replay", replay_owners),
             )
         },
-        "retained_sources": (
-            {
-                "original_r_reference": {
-                    "certificate_sha256": CERTIFICATE_SHA256,
-                    "paths": [entry.path for entry in retained_reference],
+        "retained_sources": {
+            **(
+                {
+                    "original_r_reference": {
+                        "certificate_sha256": CERTIFICATE_SHA256,
+                        "paths": [entry.path for entry in retained_reference],
+                    }
                 }
-            }
-            if retain_original_r_reference
-            else {}
-        ),
+                if retain_original_r_reference
+                else {}
+            ),
+            **(
+                {"maintained_report_sources": maintained_evidence}
+                if retain_maintained_report_sources
+                else {}
+            ),
+        },
         "inventories": {
             "tracked": inventory_json(tracked),
             "reference": inventory_json(complete_reference),

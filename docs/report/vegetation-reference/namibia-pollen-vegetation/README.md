@@ -16,8 +16,10 @@ in [PANGAEA.931037](https://doi.org/10.1594/PANGAEA.931037). Both original TSV
 headers declare CC BY 4.0. The source rows use pollen counts and calculated
 vegetation area in square metres. The two fraction columns divide by the five
 listed taxa only; they do not estimate total terrestrial pollen or total land
-cover. We retain the publisher's ring-radius labels without assuming that the
-100 m subset is the right pollen-source radius. The tables do not state exact
+cover. The [parent PANGAEA description](https://doi.pangaea.de/10.1594/PANGAEA.931037)
+says mean cover was calculated by 100 m rings. We retain the publisher's
+ring-radius labels without assuming that the 100 m subset is the right
+pollen-source radius. The tables do not state exact
 soil-sampling or satellite-image dates.
 
 This is a source-row join for an out-of-domain modern development cohort. We
@@ -40,12 +42,18 @@ There are ten independent sites at each of the 15 labels; the same site pollen
 sample repeats across labels. Mean distance across those ten sites is **0.3664**
 at the 100 m label, **0.3427** at 400 m and **0.3777** at 1,500 m. The full
 report gives all 15 mean, median and site-range values, and the CSV preserves
-each of the 150 site-label distances. Those values do not choose an ecological
-pollen-source radius: pollen productivity and dispersal differ by taxon, and
-the source tables alone do not establish whether the area values represent
-cumulative disks or disjoint rings. Exact pollen-sampling and image dates are
-also absent from these tables. This cohort remains outside the Nordic lake
-target and is already exposed in development.
+each of the 150 site-label distances. The publisher describes 100 m rings;
+the exact paired areas contain nine decreases among 700 adjacent radius
+comparisons across 50 site–taxon series, affecting eight series. Such decreases
+cannot be cumulative nonnegative areas on the same fixed map. The JSON also
+reports the ratio of each site's five listed areas to a hypothetical full
+circular 100 m annulus for all 150 site–radius rows, treating each publisher
+radius label as the outer radius. These ratios are geometry diagnostics, not
+measured whole-cover fractions: exact ring-sector masks and taxon overlap are
+not established here. None of this chooses an ecological pollen-source radius.
+Pollen productivity and dispersal differ by taxon; exact pollen-sampling and
+image dates are absent from these tables. The cohort remains outside the
+Nordic lake target and is already exposed in development.
 
 To reproduce from the two original PANGAEA TSV files, place
 `PANGAEA.931033.tab` and `PANGAEA.931035.tab` in one source directory, then run

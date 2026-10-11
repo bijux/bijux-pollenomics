@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import copy
 from dataclasses import replace
 import hashlib
@@ -120,6 +121,7 @@ def _materialize(
     output_root: Path,
     allowed_output_parent: Path,
     paths: ClassificationAuditOutputPaths | None = None,
+    before_commit: Callable[[], None] | None = None,
 ) -> ClassificationAuditMaterializationResult:
     return materialize_classification_audit(
         accounting,
@@ -130,7 +132,59 @@ def _materialize(
         classification_producer_id="bijux-pollenomics.classification-audit",
         classification_producer_version="1",
         classification_producer_digest=f"sha256:{'b' * 64}",
+        before_commit=before_commit,
     )
+
+
+def test_source_callback_refuses_before_create_and_unchanged_reuse(
+    tmp_path: Path,
+) -> None:
+    output_root = tmp_path / "classification-audit"
+    accounting = _accounting()
+
+    def refuse() -> None:
+        raise RuntimeError("source changed")
+
+    with pytest.raises(RuntimeError, match="source changed"):
+        _materialize(
+            accounting,
+            output_root=output_root,
+            allowed_output_parent=tmp_path,
+            before_commit=refuse,
+        )
+    assert not output_root.exists()
+    assert not tuple(tmp_path.glob(".classification-audit.staging-*"))
+    assert not (tmp_path / ".classification-audit.materialization.lock").exists()
+
+    _materialize(accounting, output_root=output_root, allowed_output_parent=tmp_path)
+    original = {path.name: path.read_bytes() for path in output_root.iterdir()}
+    with pytest.raises(RuntimeError, match="source changed"):
+        _materialize(
+            accounting,
+            output_root=output_root,
+            allowed_output_parent=tmp_path,
+            before_commit=refuse,
+        )
+    assert {path.name: path.read_bytes() for path in output_root.iterdir()} == original
+    assert not (tmp_path / ".classification-audit.materialization.lock").exists()
+
+
+def test_source_callback_preserves_classification_bytes(tmp_path: Path) -> None:
+    accounting = _accounting()
+    plain = tmp_path / "plain"
+    checked = tmp_path / "checked"
+    called: list[str] = []
+    _materialize(accounting, output_root=plain, allowed_output_parent=tmp_path)
+    _materialize(
+        accounting,
+        output_root=checked,
+        allowed_output_parent=tmp_path,
+        before_commit=lambda: called.append("checked"),
+    )
+    assert called == ["checked"]
+    assert {path.name: path.read_bytes() for path in plain.iterdir()} == {
+        path.name: path.read_bytes() for path in checked.iterdir()
+    }
 
 
 def _read_json(path: Path) -> dict[str, Any]:

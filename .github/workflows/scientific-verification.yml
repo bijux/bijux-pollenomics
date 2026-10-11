@@ -325,6 +325,8 @@ jobs:
     timeout-minutes: 10
     outputs:
       scope_partitions: ${{ steps.plan.outputs.scope_partitions }}
+      owners: ${{ steps.plan.outputs.owners }}
+      owner_ids: ${{ steps.plan.outputs.owner_ids }}
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -418,6 +420,65 @@ jobs:
           path: artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/${{ matrix.partition }}
           if-no-files-found: error
 
+  rebuild-owners:
+    name: scientific / rebuild / ${{ matrix.lane }} / ${{ matrix.owner.artifact }}
+    needs:
+      - impact
+      - rebuild-plan
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        lane:
+          - reference
+          - replay
+        owner: "${{ fromJSON(needs.rebuild-plan.outputs.owners) }}"
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download report partition plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+
+      - name: Build fresh configured owner
+        shell: bash
+        env:
+          REBUILD_LANE: ${{ matrix.lane }}
+          REBUILD_OWNER_ID: ${{ matrix.owner.id }}
+          REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}
+        run: make build-report-rebuild-owner
+
+      - name: Upload owner output and diagnostics
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: report-owner-${{ matrix.lane }}-${{ matrix.owner.artifact }}
+          path: artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}
+          if-no-files-found: error
+
   rebuild-foundation:
     name: scientific / rebuild / ${{ matrix.lane }} / foundation
     needs:
@@ -493,6 +554,7 @@ jobs:
       - rebuild-plan
       - rebuild-scopes
       - rebuild-foundation
+      - rebuild-owners
     if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -536,11 +598,20 @@ jobs:
           pattern: report-rebuild-${{ matrix.lane }}-*
           path: artifacts/execution-control/report-rebuild-partition-input
 
+      - name: Download configured owner outputs ${{ matrix.lane }}
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: report-owner-${{ matrix.lane }}-*
+          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
+          merge-multiple: true
+
       - name: Assemble complete report tree
         shell: bash
         env:
           REBUILD_LANE: ${{ matrix.lane }}
           REBUILD_PARTITION_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-partition-input
+          REBUILD_OWNER_IDS: ${{ needs.rebuild-plan.outputs.owner_ids }}
+          REBUILD_OWNER_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
         run: make assemble-report-rebuild
 
@@ -601,12 +672,29 @@ jobs:
           name: report-rebuild-assembly-replay
           path: artifacts/execution-control/report-rebuild-assembly/replay
 
+      - name: Download configured owner outputs reference
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: report-owner-reference-*
+          path: artifacts/execution-control/report-rebuild-owner-input/reference
+          merge-multiple: true
+
+      - name: Download configured owner outputs replay
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: report-owner-replay-*
+          path: artifacts/execution-control/report-rebuild-owner-input/replay
+          merge-multiple: true
+
       - name: Verify two-build and tracked-tree equivalence
         shell: bash
         env:
           REBUILD_REFERENCE_MANIFEST: artifacts/execution-control/report-rebuild-assembly/reference/manifest.json
           REBUILD_REPLAY_MANIFEST: artifacts/execution-control/report-rebuild-assembly/replay/manifest.json
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/reproducible-report-build/evidence
+          REBUILD_OWNER_IDS: ${{ needs.rebuild-plan.outputs.owner_ids }}
+          REBUILD_REFERENCE_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/reference
+          REBUILD_REPLAY_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/replay
         run: make verify-partitioned-report-rebuild
 
       - name: Upload rebuild evidence

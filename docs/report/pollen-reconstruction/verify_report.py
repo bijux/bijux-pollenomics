@@ -97,7 +97,8 @@ def verify_author_radius_sensitivity() -> None:
         return row["record_id"], row["method"], float(row["radius_factor"])
 
     if (
-        len(predictions) != len(scores) != 126
+        len(predictions) != 126
+        or len(scores) != 126
         or len({key(row) for row in predictions}) != 126
         or {key(row) for row in predictions} != {key(row) for row in scores}
     ):
