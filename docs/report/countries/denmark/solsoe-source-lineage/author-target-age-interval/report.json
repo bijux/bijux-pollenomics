@@ -1,0 +1,48 @@
+{
+  "author_lookup_sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+  "comparable_boundary_crossing_samples": 76,
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "interpretation": "Prior-exposed Denmark country-held-out observed-pollen sensitivity on 31 author taxonomy targets. All strict-support LegacyAge intervals remain in their original Neotoma bins, so matched-sample nominal and strict-interval scores coincide. Full-bin differences reflect sample restriction, not age reassignment. No historical LandClim age selection, LRA, measured vegetation truth, joint age posterior, or independent-site uncertainty is inferred.",
+  "mean_scores_on_eight_bin_support": {
+    "inverse_distance_squared": {
+      "parent_full_bin_hellinger_on_same_bins": 0.40514313924493084,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.027081838431757814,
+      "strict_interval_hellinger": 0.40552345449206734,
+      "strict_interval_mae_fraction": 0.02723149146754645
+    },
+    "nearest_site": {
+      "parent_full_bin_hellinger_on_same_bins": 0.3560942441441726,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.02551284896903322,
+      "strict_interval_hellinger": 0.3571723606010109,
+      "strict_interval_mae_fraction": 0.025672721678680042
+    },
+    "training_mean": {
+      "parent_full_bin_hellinger_on_same_bins": 0.4909210707166005,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.03502306329081552,
+      "strict_interval_hellinger": 0.4916185216114123,
+      "strict_interval_mae_fraction": 0.034878361981270894
+    }
+  },
+  "neotoma_observation_part_sha256": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+  "parent_comparable_samples": 91,
+  "parent_scored_bins": 24,
+  "parent_scores_sha256": "6febc4c908470614571b0df3633cfaca218c098cea684929f75b82c56344c205",
+  "parent_sealed_outcomes_sha256": "63e816d1c5cfb695781f652dce1dc3667e6fb0efb19bb1f1a59622a13c336b46",
+  "protocol_sha256": "82f3774691e5447fc7b84c089ca8b9d02121a879b5f0f660b7ed52d6791c6eac",
+  "retained_by_core": {
+    "SOLSOE81": 14,
+    "SOLSOE83": 1
+  },
+  "retained_full_interval_samples": 15,
+  "retained_scored_bins": 8,
+  "reused_frozen_prediction_rows": 24,
+  "schema_version": "solsoe-author-target-age-interval-result.v1",
+  "scores_sha256": "fa726106e254b41ac60462dea6d1eeb69ce82b661970bcc9e24b85751b6d7405",
+  "source_age_refusals": 1,
+  "source_core_samples": 92,
+  "unsupported_bins": 16
+}

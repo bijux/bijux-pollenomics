@@ -1,53 +1,113 @@
 \input{presentation/shared.tex}
-\title{Bijux Pollenomics: evidence and open decisions}
-\subtitle{Nordic pollen, source custody and scientific limits}
+\title{What pollen can tell us about past landscapes}
+\subtitle{Bijux Pollenomics: results, limits and decisions for collaborators}
 \author{Bijux Pollenomics}
-\date{30 September 2026}
+\date{2 October 2026}
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}{What the project can answer today}
+\begin{frame}{The question: what grew around a dated sediment core?}
 \begin{itemize}
-\item Trace pollen, chronology, geography and other source records to governed outputs.
-\item Reproduce selected published author calculations and locate genuine archive differences.
-\item Test observed-pollen transfer for Denmark, Finland, Norway and Sweden on a declared taxon axis.
-\item Run a bounded English LRA reconstruction and forward-pollen prediction study.
+\item Sediment preserves grains from plants near and far. Their counts record pollen; we want to understand vegetation and landscape change.
+\item A useful result must identify the physical core, sample age, counted taxa and the landscape area represented. Those decisions determine whether past forest or farming change can be interpreted.
+\item The project traces those inputs, checks selected published calculations and tests predictions on declared pollen targets.
 \end{itemize}
-\scope{These are distinct evidence claims; none is an independent measured-vegetation accuracy result.}
-\evidence{reports/README.md}
+\scope{We currently have observed-pollen prediction and bounded calculation evidence. We have no independent measured-vegetation accuracy score for our Nordic predictions.}
+\evidence{reports/science/source-cohorts.md; reports/science/vegetation-reference.md}
 \end{frame}
 
-\begin{frame}{Four Nordic countries: observed pollen}
+\begin{frame}{Grain share and land-cover share are different quantities}
+\begin{center}
+\begin{tabular}{p{.40\linewidth}p{.47\linewidth}}
+\toprule
+What we observe & What a model tries to infer \\
+\midrule
+Pollen fraction: a taxon's grains divided by a declared grain count. & Vegetation fraction: a taxon's cover divided by a declared landscape area. \\
+\bottomrule
+\end{tabular}
+\end{center}
+Plants produce unequal quantities of pollen; grains travel and settle differently. A lake's size and type affect the incoming signal.
+\scope{Productivity and transport corrections connect these quantities under assumptions. A grain percentage alone is not a measured vegetation percentage.}
+\evidence{reports/science/landclim-paper.md; reports/science/loveoptim-paper.md}
+\end{frame}
+
+\begin{frame}{Regional and local reconstruction need different inputs}
+\begin{itemize}
+\item \textbf{REVEALS}: Regional Estimates of VEgetation Abundance from Large Sites. Large-site pollen informs regional cover under declared transport and basin assumptions.
+\item \textbf{LOVE}: LOcal Vegetation Estimates. Regional background and small-site pollen inform cover in a defined local area.
+\item Together they form the \textbf{Landscape Reconstruction Algorithm (LRA)}. Relative pollen productivity estimates (PPEs), fall speed, basin geometry and selected ages are inputs, not optional annotations.
+\end{itemize}
+\scope{A working implementation does not admit a new historical core. Its source identity, parameters, geometry, rights and physical interpretation need evidence.}
+\evidence{reports/science/reveals-theory-paper.md; reports/science/love-theory-paper.md}
+\end{frame}
+
+\begin{frame}{A concrete source-to-result example: one lake sample}
+\begin{enumerate}
+\item White Horse Hill (\texttt{WHH05}), depth 16: source age 1,320 calibrated years before 1950, with 301 grains in named source fields.
+\item Four explicitly excluded grains leave 297 on the author's declared axis. The age enters [1,250, 1,750), labelled 1,500 years BP.
+\item On this prepared example, author R and our implementation give modeled \textit{Calluna} cover 0.924883 and standard error 0.046807, in fraction units.
+\end{enumerate}
+\scope{The interval label is not a new date. This is a modeled site value, not 92.49\% of the grains or measured vegetation. Numerical agreement checks this calculation.}
+\evidence{reports/science/landclim-paper.md; reports/science/publication-correspondence/author-example-site-replay.md}
+\end{frame}
+
+\begin{frame}{Three checks answer three different questions}
+\begin{tabular}{p{.25\linewidth}p{.34\linewidth}p{.29\linewidth}}
+\toprule
+Check & Compare & Conclusion it can support \\
+\midrule
+Calculation & Our numbers and source R on identical inputs. & Selected numerical methods correspond. \\
+Pollen prediction & Frozen predictions and withheld observed pollen. & Pollen error on the tested cohort. \\
+Vegetation accuracy & Inferred cover and independent measured cover with matched support. & Ecological accuracy on admitted pairs. \\
+\bottomrule
+\end{tabular}
+\scope{The first two exist within bounded scopes. The third remains unavailable for our Nordic predictions; another model's cover is not an independent measurement.}
+\evidence{reports/science/method-correspondence.md; reports/science/pollen-prediction.md; reports/science/vegetation-reference.md}
+\end{frame}
+
+\begin{frame}{Nordic pollen predictions: coverage and error differ}
 \small
 \begin{tabular}{lrrrl}
 \toprule
-Target & Sites & Samples & Scored bins & Best fixed baseline, site-macro MAE \\
+Target & Sites & Samples & Bins & Lowest MAE; method \\
 \midrule
-Denmark & 1 & 91 & 24/24 & nearest: 0.023242 \\
-Finland & 28 & 1,797 & 435/435 & nearest: 0.017335 \\
-Norway & 52 & 3,544 & 1,084/1,178 & inverse-distance-squared: 0.019459 \\
-Sweden & 3 & 228 & 51/54 & inverse-distance-squared: 0.028740 \\
+Denmark & 1 & 91 & 24/24 & 0.023242; nearest \\
+Finland & 28 & 1,797 & 435/435 & 0.017335; nearest \\
+Norway & 52 & 3,544 & 1,084/1,178 & 0.019459; IDW \\
+Sweden & 3 & 228 & 51/54 & 0.028740; IDW \\
 \bottomrule
 \end{tabular}
-\scope{Country withheld from training; 31 author pollen targets. Previously viewed outcomes make this development evidence. Denmark has one site.}
+\par\medskip
+Bins show scored/attempted support. IDW weights training sites by inverse squared distance; nearest uses the nearest eligible site. The target country is excluded from training. MAE is mean absolute error in pollen fractions on 31 author targets, aggregated equally across sites; lower is better within this declared comparison. A value 0.02 is two percentage points of mean fraction error.
+\scope{Previously viewed development outcomes; method order is descriptive. Denmark has one site. Norway has 94 unsupported bins and Sweden three; these do not become zero-error successes.}
 \evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
 \end{frame}
 
-\begin{frame}{English LRA: a real reconstruction, bounded interpretation}
+\begin{frame}{Age support can change which observations are scored}
 \begin{itemize}
-\item 15 author sites, 1250--1750 BP, 30 pollen targets after a declared transport exclusion.
-\item 14 sites have three frozen forward-pollen predictions each; one fold refuses after three training optimizations fail.
-\item No measured vegetation target is available for reconstruction accuracy.
+\item At S\"ambosj\"on, the 16-label observed-pollen study scored 22 bins from 111 samples. Source age intervals cross bin boundaries for 58 samples.
+\item Keeping only contained intervals leaves 53 samples and 21 bins. On identical predictions, primary MAE is 0.023054 versus 0.022881 for original counts on those same bins.
+\item One bin has no contained sample and retains refused, null scores. Retained samples contribute 185,150 native grains, including 108,163 on the 16-label response.
 \end{itemize}
-\scope{This demonstrates an executable source-bound workflow, not a Nordic LRA validation.}
+\scope{One exposed core; the source bounds have no stated confidence level or joint age posterior. This sensitivity does not establish independent confirmation or vegetation accuracy.}
+\evidence{reports/science/sambosjon-direct-pollen.md; docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json}
+\end{frame}
+
+\begin{frame}{English LRA demonstrates a bounded executable workflow}
+\begin{itemize}
+\item Start from 15 author sites in the 1,250--1,750 BP interval, with 30 pollen targets after a declared transport exclusion.
+\item Hold out one site at a time, reconstruct with the remaining sites, and freeze three forward-pollen predictions for that target.
+\item Fourteen sites produce all three predictions. One fold refuses after three training optimizations fail.
+\end{itemize}
+\scope{This checks reconstruction-to-pollen prediction on English author examples. No independent measured cover is available, and this does not admit Nordic LRA inputs.}
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{On matched English pollen targets, direct methods score lower}
+\begin{frame}{On the same English targets, direct pollen error is lower}
 \small
 \begin{tabular}{lrrrr}
 \toprule
- & \multicolumn{2}{c}{Pollen MAE} & \multicolumn{2}{c}{Hellinger} \\
+ & \multicolumn{2}{c}{Pollen MAE} & \multicolumn{2}{c}{Hellinger distance} \\
 Method & Direct & LRA forward & Direct & LRA forward \\
 \midrule
 Training mean & .020496 & .026273 & .282082 & .360671 \\
@@ -55,27 +115,40 @@ Nearest site & .019552 & .021132 & .255767 & .286001 \\
 Inverse distance squared & .018579 & .021088 & .243673 & .285415 \\
 \bottomrule
 \end{tabular}
-\scope{14 paired sites, 30 taxa; site-macro development scores. Training information differs between routes. Lower pollen error does not establish better vegetation reconstruction.}
+\par\medskip
+Fourteen matched sites, 30 taxa; both metrics average equally across sites. Hellinger compares compositions on a 0--1 scale; zero means identical, and lower is better.
+\scope{Training information differs between routes and the outcomes are exposed development evidence. Lower pollen error does not establish a better vegetation reconstruction.}
 \evidence{reports/science/pollen-prediction.md; docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json}
 \end{frame}
 
-\begin{frame}{Published calculation and archived product are different questions}
+\begin{frame}{Matching author code does not reproduce the whole archive}
 \begin{itemize}
-\item Python matches independent author-R replay on 14,074 supported means/SE values; maximum fractional residuals $1.84\times10^{-13}$ and $7.16\times10^{-14}$.
-\item The exact 100--350 BP archive window differs from the author replay by up to 9.20 and 10.55 percentage points in the two grids.
-\item Only one of 25 window intervals matches exactly. Source revisions and PFT transformation remain unresolved.
+\item Selected LandClim examples: author R and our implementation agree on 14,074 supported means and standard errors. The largest fraction differences are $1.84\times10^{-13}$ and $7.16\times10^{-14}$.
+\item Only one of 25 time windows has identical boundaries in example and archive: 100--350 BP. Archived mean cover differs by up to 9.20 and 10.55 percentage points in the two grids.
+\item The released example has 17 sites; the paper selected 1,128 historical records. Their original input revisions and archive functional-type transformations remain unverified here.
 \end{itemize}
-\scope{Numerical correspondence is established for the selected author examples; full historical paper reconstruction is open.}
-\evidence{reports/science/publication-correspondence.md}
+\scope{The archive gap is retained, but its cause is not identified. Numerical parity, historical source identity and ecological accuracy are separate questions.}
+\evidence{reports/science/landclim-paper.md; reports/science/publication-correspondence/published-window-provenance.md}
 \end{frame}
 
-\begin{frame}{The next decisions need source evidence}
+\begin{frame}{Published vegetation references have useful limits}
+\begin{itemize}
+\item Historical Sm\aa land maps provide coverage and pollen anchors; the numerical class-area fractions needed for a new score are unavailable.
+\item A southern Swedish published figure supports nine rounded label comparisons. It does not recover all original taxa or score our model.
+\item Namibian observations join ten soil-pollen sites to 15 vegetation-radius labels. Repeated radius rows are not new pollen samples, and the population differs from Nordic lakes.
+\end{itemize}
+\scope{Our Nordic plot/pollen screen admits zero of 16 nearby leads. None of these distinct sources supplies independent measured cover for our current Nordic predictions.}
+\evidence{reports/science/vegetation-reference.md; reports/science/paper-accounts.md}
+\end{frame}
+
+\begin{frame}{What collaborators can inspect and decide}
 \begin{enumerate}
-\item Bind Swedish and other Nordic cores to selected ages, historical basin geometry, count denominators and permitted PPE use.
-\item Obtain a qualified independent vegetation reference before claiming ecological accuracy.
-\item Authenticate historical paper input revisions and the archive PFT/uncertainty transformation.
-\item Freeze a new cohort before viewing outcomes for independent confirmation.
+\item Read the canonical paper account: question, concepts, worked example, original findings and our separate result.
+\item Follow its exact table and source identities; use the reproduction route with lawful source access.
+\item Help resolve a named core/age/basin/count/parameter question, historical archive transformation, or matched vegetation reference.
+\item Review whether assumptions and spatial/time support justify the intended scientific conclusion. Actual reader feedback and qualified decisions remain open.
 \end{enumerate}
-\evidence{reports/needed/README.md}
+\scope{Local PDFs and source are review material. Scientific review, publication authority and a complete release certificate are not supplied by a successful build.}
+\evidence{reports/science/paper-accounts.md; reports/needed/README.md; docs/public/pollenomics/science/papers.md}
 \end{frame}
 \end{document}

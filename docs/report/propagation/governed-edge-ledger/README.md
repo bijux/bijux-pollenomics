@@ -11,3 +11,11 @@ Recompute and verify the retained ledger and source/evidence identities from the
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 docs/report/propagation/governed-edge-ledger/replay.py
 ```
+
+The same checked producer can write the CSV and JSON into a fresh artifact
+directory for an independent byte comparison:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 docs/report/propagation/governed-edge-ledger/replay.py \
+  --output-dir artifacts/jobs/governed-edge-ledger/reproduction
+```

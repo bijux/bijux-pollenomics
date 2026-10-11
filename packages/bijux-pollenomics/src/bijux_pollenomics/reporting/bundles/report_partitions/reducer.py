@@ -8,7 +8,7 @@ from pathlib import Path
 from ...models import PublishedReportsReport
 from ..paths import AtlasBundlePaths
 from .artifacts import scientific_artifact_inventory
-from .inventory import assemble_fragment_files
+from .inventory import assemble_fragment_files, copy_owner_inputs, remove_owner_inputs
 from .loading import load_scope_reports
 from .models import PublishedReportPartitionPlan
 from .publication import require_release_gate, require_repository_claim_gate
@@ -22,6 +22,7 @@ def assemble_report_partition_tree(
     version_dir: Path,
     published_output_root: Path,
     context_root: Path | None,
+    owner_input_root: Path | None = None,
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
     build_published_reports_summary_fn: Callable[..., dict[str, object]],
     looks_like_repository_publication_run_fn: Callable[..., bool],
@@ -49,6 +50,11 @@ def assemble_report_partition_tree(
         staging_output_root,
         plan=plan,
         partition_roots=partition_roots,
+    )
+    owner_input_paths = (
+        copy_owner_inputs(staging_output_root, owner_input_root=owner_input_root)
+        if owner_input_root is not None
+        else ()
     )
     scope_reports, _, country_reports_by_scope = load_scope_reports(
         staging_output_root,
@@ -112,4 +118,5 @@ def assemble_report_partition_tree(
         staging_output_root,
         enforce_release_gates=enforce_release_gates,
     )
+    remove_owner_inputs(staging_output_root, relative_paths=owner_input_paths)
     return generated_report

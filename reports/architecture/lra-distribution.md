@@ -19,45 +19,10 @@ checks the installed engine's distribution, version, entry point and API
 descriptor. Those are current package contracts, not a promise of a future
 public release.
 
-## What we built and observed
+## What we verified
 
-At clean product commit `46fcf43f5`, we built both wheels and installed them
-from local wheel directories into a fresh CPython 3.11 environment with one
-`bijux-pollenomics[lra]` command. The host loaded the installed engine from
-`site-packages`, verified its `lra` entry point and analytical LOVE capability,
-and the engine ran a deterministic REVEALS plus analytical LOVE example from
-bundled inputs without R on `PATH` or `R_HOME`.
-
-| Built wheel | Bytes | SHA-256 |
-| --- | ---: | --- |
-| `bijux_pollenomics-0.1.9.dev655-py3-none-any.whl` | 2,487,011 | `eb428cc0d8edbbc2c7060f847dd70c89d758402d1bf30b1f831eb1d0174d8eed` |
-| `bijux_pollenomics_lra-0.1.9.dev655-py3-none-any.whl` | 261,194 | `2ddcd766eef56090b7786957b4bf88c29da6e05b679a49cda3bec8aece3991f3` |
-
-The resulting environment had both `0.1.9.dev655` distributions and 16 other
-dependencies. Its result manifest named the `python-numpy-scipy` backend,
-installed version, original DISQOVER reference version `0.9.14` and archive
-SHA-256 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`.
-In a second fresh environment, we installed only the base host wheel. It had
-neither NumPy nor the engine package; `load_engine()` returned the declared
-`LRARefusal` with the extra-install instruction. The base installed CLI still
-exposed `run-lra` in its help.
-
-These checks establish a local, built-wheel installation path on this
-platform. We have not tested every operating system, final release versions or
-the hosted release pipeline. The generated wheel and
-run products were kept under `artifacts/jobs/lra-single-install/` during the
-check; the hashes above preserve the identity used for this decision.
-
-## Current candidate check on 1 October 2026
-
-We repeated the installed check using the host and engine wheels built by the
-complete 27-factor tox pass at `14d999d43`. The later report-only commit
-`e8f92b8d6` did not change either package or its dependency lock. The local
-host wheel `0.1.9.dev847` has SHA-256
-`dff0edf72feda924e6a42b558f719c92908bed7781880ca4c04584d9ab6ece2d`;
-the matching engine wheel has SHA-256
-`a2f2bb72fe34d25322a4003c38a1e0b389e008b7be6831f49d97fcf4a7489264`.
-We installed the host with its `lra` extra from those built wheels into a fresh
+On 1 October 2026, we installed the host with its `lra` extra from locally
+built `0.1.9.dev847` host and engine wheels at commit `14d999d43` into a fresh
 CPython 3.11 environment. The installed host discovered the `0.1.9.dev847`
 engine entry point from `site-packages`, then ran deterministic bundled REVEALS
 and analytical LOVE examples with R absent from `PATH` and `R_HOME` empty. The
@@ -66,8 +31,9 @@ REVEALS sample shape was 2 × 3 × 21; the LOVE mean cover shape was 10 × 10.
 In a second fresh environment we installed the base host wheel alone. NumPy,
 SciPy, pandas and the engine were absent; loading LRA returned the declared
 extra-install instruction. Both installed CLIs exposed `run-lra --help`. This
-renews the local one-install evidence on the current package closure. Public
-index availability and release rights remain separate gates.
+establishes one local install path on this platform. Public index availability,
+release rights, other operating systems and final release versions remain
+separate gates.
 
 ## Public index check on 30 September 2026
 

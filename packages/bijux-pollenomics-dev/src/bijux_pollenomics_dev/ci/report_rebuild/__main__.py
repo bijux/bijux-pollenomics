@@ -10,6 +10,7 @@ import sys
 from .contracts import ReportRebuildError
 from .workflow import (
     assemble_partition_lane,
+    build_owner_output,
     build_partition,
     build_partition_plan,
     verify_partitioned_rebuild,
@@ -44,6 +45,18 @@ def _parser() -> argparse.ArgumentParser:
     assemble.add_argument("--lane", choices=("reference", "replay"), required=True)
     assemble.add_argument("--partition-artifacts-root", type=Path, required=True)
     assemble.add_argument("--evidence-root", type=Path, required=True)
+    assemble.add_argument("--owner-id", action="append", default=[])
+    assemble.add_argument("--owner-artifacts-root", type=Path)
+
+    owner = commands.add_parser("owner")
+    _common(owner)
+    owner.add_argument("--plan", type=Path, required=True)
+    owner.add_argument("--lane", choices=("reference", "replay"), required=True)
+    owner.add_argument("--owner-id", required=True)
+    owner.add_argument("--source-path", action="append", required=True)
+    owner.add_argument("--producer-input", action="append", required=True)
+    owner.add_argument("--producer-argument", action="append", required=True)
+    owner.add_argument("--evidence-root", type=Path, required=True)
 
     verify = commands.add_parser("verify")
     _common(verify)
@@ -51,6 +64,10 @@ def _parser() -> argparse.ArgumentParser:
     verify.add_argument("--reference-manifest", type=Path, required=True)
     verify.add_argument("--replay-manifest", type=Path, required=True)
     verify.add_argument("--evidence-root", type=Path, required=True)
+    verify.add_argument("--owner-id", action="append", default=[])
+    verify.add_argument("--reference-owners-root", type=Path)
+    verify.add_argument("--replay-owners-root", type=Path)
+    verify.add_argument("--retain-original-r-reference", action="store_true")
     return parser
 
 
@@ -94,6 +111,34 @@ def main(argv: list[str] | None = None) -> int:
                 lane=args.lane,
                 partition_artifacts_root=args.partition_artifacts_root,
                 evidence_root=args.evidence_root,
+                owner_artifacts_root=args.owner_artifacts_root,
+                owner_ids=tuple(args.owner_id),
+            )
+        elif args.command == "owner":
+            source_paths = dict(
+                item.split("=", 1) if "=" in item else (item, "")
+                for item in args.source_path
+            )
+            if len(source_paths) != len(args.source_path):
+                raise ReportRebuildError("owner source paths must be unique")
+            producer_inputs = dict(
+                item.split("=", 1) if "=" in item else (item, "")
+                for item in args.producer_input
+            )
+            if len(producer_inputs) != len(args.producer_input):
+                raise ReportRebuildError("owner producer input labels must be unique")
+            build_owner_output(
+                repo_root=args.repo_root,
+                policy_path=args.policy,
+                plan_path=args.plan,
+                lane=args.lane,
+                owner_id=args.owner_id,
+                producer_command=tuple(args.producer_argument),
+                producer_inputs={
+                    label: Path(path) for label, path in producer_inputs.items()
+                },
+                source_paths=source_paths,
+                evidence_root=args.evidence_root,
             )
         else:
             report = verify_partitioned_rebuild(
@@ -103,6 +148,10 @@ def main(argv: list[str] | None = None) -> int:
                 reference_manifest_path=args.reference_manifest,
                 replay_manifest_path=args.replay_manifest,
                 evidence_root=args.evidence_root,
+                reference_owners_root=args.reference_owners_root,
+                replay_owners_root=args.replay_owners_root,
+                owner_ids=tuple(args.owner_id),
+                retain_original_r_reference=args.retain_original_r_reference,
             )
             return 0 if report["status"] == "PASS" else 1
     except ReportRebuildError as error:

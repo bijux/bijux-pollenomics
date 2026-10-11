@@ -22,6 +22,6 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --output artifacts/landclim-published-window-uncertainty/replay
 ```
 
-The current producer emits the governed LF CSV line endings. The historical
-manifest records the source revision that first produced this report; the
-current replay is checked separately against the retained outputs.
+The current producer emits the governed LF CSV line endings. The manifest
+pins that producer, both inputs and all three outputs, which replay byte for
+byte. The historical comparison remains a separate provenance record.

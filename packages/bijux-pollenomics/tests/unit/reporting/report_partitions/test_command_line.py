@@ -139,6 +139,7 @@ def test_assemble_decodes_partition_roots_and_rejects_absolute_publication_root(
         "countries": ["Sweden"],
         "output_root": str(tmp_path / "output"),
         "partition_roots": {"world": str(tmp_path / "world")},
+        "owner_input_root": str(tmp_path / "owner-input"),
         "published_output_root": "docs/report",
         "title": "Title",
         "slug": "world",
@@ -151,7 +152,20 @@ def test_assemble_decodes_partition_roots_and_rejects_absolute_publication_root(
     assert status == 0
     assert json.loads(stdout)["result"] == {"output_root": str(tmp_path / "output")}
     assert observed["partition_roots"] == {"world": tmp_path / "world"}
+    assert observed["owner_input_root"] == tmp_path / "owner-input"
 
+    request["owner_input_root"] = None
+    status, _, _ = _invoke(monkeypatch, capsys, json.dumps(request))
+    assert status == 0
+    assert observed["owner_input_root"] is None
+
+    request["owner_input_root"] = "owner-input"
+    status, stdout, stderr = _invoke(monkeypatch, capsys, json.dumps(request))
+    assert status == 2
+    assert stdout == ""
+    assert "owner_input_root must be an absolute path" in stderr
+
+    request["owner_input_root"] = None
     request["published_output_root"] = str(tmp_path / "docs/report")
     status, stdout, stderr = _invoke(monkeypatch, capsys, json.dumps(request))
     assert status == 2

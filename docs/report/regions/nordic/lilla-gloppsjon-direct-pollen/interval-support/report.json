@@ -1,0 +1,80 @@
+{
+  "attempted_method_bin_scores": 69,
+  "candidate_bins": 23,
+  "frozen_predictions_sha256": "844db7dd47a93eba5d0630719df992d211ced59464e917314e2b5ff131d36a17",
+  "interpretation": "Source-bound marginal interval containment on point-age bins; no joint age posterior, sample reassignment, retraining or independent vegetation result.",
+  "methods": {
+    "inverse_distance_squared": {
+      "contained_hellinger_distance": 0.24963175523180606,
+      "contained_mae_fraction": 0.019315604582769492,
+      "paired_bins": 20,
+      "parent_same_bin_hellinger_distance": 0.24221724293979258,
+      "parent_same_bin_mae_fraction": 0.018367312235517283
+    },
+    "nearest_site": {
+      "contained_hellinger_distance": 0.23068976561891552,
+      "contained_mae_fraction": 0.02078554631668331,
+      "paired_bins": 20,
+      "parent_same_bin_hellinger_distance": 0.22958536004285465,
+      "parent_same_bin_mae_fraction": 0.021198681932096078
+    },
+    "training_mean": {
+      "contained_hellinger_distance": 0.26319566026637303,
+      "contained_mae_fraction": 0.01749707925693606,
+      "paired_bins": 20,
+      "parent_same_bin_hellinger_distance": 0.25724059311538794,
+      "parent_same_bin_mae_fraction": 0.016489482654038493
+    }
+  },
+  "parent_score_report_sha256": "7bea12c4d1e3e7d4b7e8cb34331934d43f8b9071da9d488a6ae7e55a17389cea",
+  "prediction_freeze_sha256": "bc89f334d95b727d2a051efaa794a131f1d13eee0613f1c32f6e6ace67a6e997",
+  "refused_or_failed_bins": 3,
+  "sample_mass": {
+    "age_refused": {
+      "closed_nisp": 709,
+      "native_nisp": 3643,
+      "outside_axis_nisp": 2934
+    },
+    "contained": {
+      "closed_nisp": 28310,
+      "native_nisp": 61647,
+      "outside_axis_nisp": 33337
+    },
+    "crosses_boundary": {
+      "closed_nisp": 26619,
+      "native_nisp": 61737,
+      "outside_axis_nisp": 35118
+    }
+  },
+  "sample_statuses": {
+    "age_refused": 2,
+    "contained": 42,
+    "crosses_boundary": 42
+  },
+  "schema_version": "lilla-gloppsjon-interval-support.v1",
+  "scored_common_bin_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "scored_common_bins": 20,
+  "scoring_protocol_sha256": "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51",
+  "source_relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+}

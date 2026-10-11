@@ -22,7 +22,13 @@ did not propagate its age uncertainty. Our separate
 finds that 58 of 111 reported sample intervals cross a nominal 500-year bin
 boundary; every scored bin contains at least one crossing sample. The source
 does not state a confidence level for these bounds or provide a joint age
-posterior, so we cannot infer an uncertainty-adjusted pollen score. A nearby
+posterior. Our [contained-age sensitivity](../../docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md)
+keeps 53 samples in 21 bins. Primary MAE is **0.023054**, compared with
+**0.022881** for the original counts on those same bins; Hellinger distance
+is 0.185741 versus 0.183698. Bin 1 has no contained sample and retains null
+refused scores. The 185,150 retained native counts include 108,163 counts on
+the closed axis. This is a marginal-bound sensitivity using unchanged frozen
+predictions, rather than an age posterior or confidence interval. A nearby
 LandClim `SAM` point is
 3.316459 km away and remains an explicitly refused identity join. The source
 names Gunnar Digerfeldt and a 1982 primary report; the Neotoma dataset DOI is

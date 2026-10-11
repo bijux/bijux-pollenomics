@@ -1,0 +1,49 @@
+{
+  "candidate_samples": 72,
+  "exact_depth_joins": 71,
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared",
+    "clr_rbf_ridge"
+  ],
+  "interpretation": "Previously exposed development sensitivity of directly observed pollen on 16 literal source labels. Both retained full LegacyAge intervals occupy their original Neotoma bins, so matched-sample nominal and strict-interval scores coincide. Differences from parent full-bin scores reflect sample support restriction, not age reassignment. No LRA, measured vegetation truth, joint age posterior, or cross-site uncertainty is inferred.",
+  "mean_scores_on_two_bin_support": {
+    "clr_rbf_ridge": {
+      "parent_full_bin_hellinger_on_same_bins": 0.09498470303189346,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.0031018992565278033,
+      "strict_interval_hellinger": 0.10346619307811694,
+      "strict_interval_mae_fraction": 0.0031646421406952953
+    },
+    "inverse_distance_squared": {
+      "parent_full_bin_hellinger_on_same_bins": 0.14867400147486193,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.005698247767085647,
+      "strict_interval_hellinger": 0.15572381061276952,
+      "strict_interval_mae_fraction": 0.005701383214159112
+    },
+    "nearest_site": {
+      "parent_full_bin_hellinger_on_same_bins": 0.06656735233145289,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.0018309323620757244,
+      "strict_interval_hellinger": 0.07943167391298522,
+      "strict_interval_mae_fraction": 0.001745646583125336
+    },
+    "training_mean": {
+      "parent_full_bin_hellinger_on_same_bins": 0.34807848973435196,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.038960358100843834,
+      "strict_interval_hellinger": 0.35210267579361954,
+      "strict_interval_mae_fraction": 0.038758740268855285
+    }
+  },
+  "neotoma_observation_part_sha256": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+  "parent_nominal_bins": 22,
+  "parent_scores_sha256": "b85963e3b2e0386541dfcebf0e14530571d1bcc22f630f0720e43592e44ef2d8",
+  "protocol_sha256": "0cba3a75db2cbadf0b29b44c1f4c1443e242afc1292f76c7ab3545f5f444c5ab",
+  "refused_boundary_crossing_intervals": 69,
+  "refused_no_exact_depth": 1,
+  "retained_full_interval_samples": 2,
+  "retained_scored_bins": 2,
+  "reused_frozen_prediction_rows": 8,
+  "schema_version": "dalmutladdo-legacyage-interval-sensitivity-result.v1",
+  "scores_sha256": "17c345a98f2b475e869b666b23a4374173e1a7f01ec95ed67c3c7f10e1ecf353",
+  "unsupported_bins": 20
+}

@@ -1,246 +1,424 @@
 \input{presentation/shared.tex}
 \title{Bijux Pollenomics: scientific evidence}
-\subtitle{Sources, method correspondence, predictions and model use}
+\subtitle{What the methods estimate, what the receipts establish, and what remains open}
 \author{Bijux Pollenomics}
-\date{1 October 2026}
+\date{2 October 2026}
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}{Evidence ladder}
-\begin{enumerate}
-\item Archive/source custody and taxon-count mapping.
-\item Author-equation and numerical implementation parity.
-\item Observed-pollen held-out prediction.
-\item LRA reconstruction and forward-pollen prediction.
-\item Independent measured-vegetation validation: no admitted pair yet.
-\end{enumerate}
-\scope{Each rung answers a different question; a result at one rung does not imply the next.}
-\evidence{reports/README.md; reports/needed/README.md}
+\begin{frame}{Define the reconstruction terms before interpreting results}
+\begin{itemize}
+\item \textbf{REVEALS}: Regional Estimates of VEgetation Abundance from Large Sites; estimates regional vegetation fractions from large-site pollen.
+\item \textbf{LOVE}: LOcal Vegetation Estimates; uses regional background and small-site pollen to estimate local fractions.
+\item The \textbf{Landscape Reconstruction Algorithm (LRA)} combines them. \textbf{PPE} means relative pollen productivity estimate; production, fall speed and transport connect grains to cover.
+\end{itemize}
+\scope{A standard error (SE) describes the declared model calculation. It is not automatically a confidence interval or a measured-cover error.}
+\evidence{reports/science/reveals-theory-paper.md; reports/science/love-theory-paper.md}
 \end{frame}
 
-\begin{frame}{Four-country source and prediction accounting}
+\begin{frame}{Four quantities must not become one accuracy claim}
 \small
-\begin{tabular}{lrrrr}
+\begin{tabular}{p{0.23\textwidth}p{0.34\textwidth}p{0.33\textwidth}}
 \toprule
-Target & Sites & Samples & Assigned/native NISP & Scored/attempted bins \\
+Quantity & Denominator and unit & What tests it here? \\
 \midrule
-Denmark & 1 & 91 & 122,998/129,768 & 24/24 \\
-Finland & 28 & 1,797 & 1,229,019/1,260,281 & 435/435 \\
-Norway & 52 & 3,544 & 2,018,295/2,286,020 & 1,084/1,178 \\
-Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
+Observed pollen & Named grains / eligible grain sum & Withheld-site pollen score \\
+Regional REVEALS & Modeled taxon cover / regional target area & Author-code numerical replay \\
+Local LOVE & Modeled taxon cover / chosen local area & Declared R/native fixture checks \\
+Measured vegetation & Surveyed cover / matched landscape area & No admitted Nordic pair \\
 \bottomrule
 \end{tabular}
-\scope{Closed 31-target author pollen composition. Excluded/unmapped mass remains outside the score. Zero Nordic samples are admitted to LRA by this study.}
-\evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
+\scope{A low pollen error, a small R/native residual, and a small modeled SE answer different questions.}
+\evidence{reports/science/model-use.md}
 \end{frame}
 
-\begin{frame}{SEAD is four-country chronology context}
+\begin{frame}{LRA has a regional step and a local step}
+\small
+\begin{center}
+\fbox{Large-site pollen + PPE + transport + basin}\\[0.5em]
+$\downarrow$ REVEALS: regional cover over a declared area\\[0.7em]
+\fbox{Regional background + small-site pollen + local ring}\\[0.5em]
+$\downarrow$ LOVE: modeled cover within that ring
+\end{center}
+\begin{itemize}
+\item Sugita (2007a) tests regional REVEALS in POLLSCAPE simulations; the accessible abstract stresses sufficiently large, distributed lakes.
+\item Sugita (2007b) tests background subtraction and local LOVE in simulations; the relevant local source area remains hard to infer for a past landscape.
+\end{itemize}
+\scope{The two 2007 simulation papers are not reproduced by the later LandClim author example.}
+\evidence{reports/science/reveals-theory-paper.md; reports/science/love-theory-paper.md}
+\end{frame}
+
+\begin{frame}{A physical pollen-to-cover model needs more than counts}
+\small
+\begin{tabular}{p{0.26\textwidth}p{0.61\textwidth}}
+\toprule
+Input & Scientific role and failure if unspecified \\
+\midrule
+Age model and window & Assigns a dated depth to an interval; a bin label is not a sample date. \\
+Taxon mapping and count sum & Defines which grains enter the response denominator. \\
+PPE and fall speed & Correct unequal production and distance-dependent transport. \\
+Basin, atmosphere and ring & Set deposition geometry, regional reach and local estimand. \\
+Regional cohort & Supplies LOVE background; shared target sites can defeat independence. \\
+\bottomrule
+\end{tabular}
+\scope{Parameter parity under one profile does not qualify those inputs for a different core.}
+\evidence{reports/science/landclim-paper.md}
+\end{frame}
+
+\begin{frame}{WHH05: one count, age and denominator trace}
+\small
+\begin{tabular}{p{0.30\textwidth}p{0.57\textwidth}}
+\toprule
+Source step & Exact retained value \\
+\midrule
+Physical site & White Horse Hill 2005 lake; grid 512; 150 m radius. \\
+Raw depth 16 & 1320 cal BP; 301 grains across 30 named fields. \\
+Author preparation & Four named one-grain fields excluded; 297 grains on a 31-target vector; ten taxa positive. \\
+Age assignment & 1320 lies in $[1250,1750)$ cal BP; output interval labelled 1500 BP. \\
+\bottomrule
+\end{tabular}
+\scope{The 297-grain denominator belongs to this prepared example row; the 1500 BP label is not a new date.}
+\evidence{reports/science/publication-correspondence/author-example-site-replay.md}
+\end{frame}
+
+\begin{frame}{WHH05: a modeled site value is not measured cover}
+\small
+\begin{tabular}{lrr}
+\toprule
+1500 BP site estimate & Cover fraction & Model SE, fraction \\
+\midrule
+\emph{Calluna vulgaris} & 0.9248830793 & 0.0468069771 \\
+Poaceae & 0.0574176519 & 0.0154854693 \\
+\bottomrule
+\end{tabular}
+\begin{itemize}
+\item Author R and native code agree for the 31 WHH05 means and SEs: maxima $4.77\times10^{-15}$ and $8.90\times10^{-16}$ fraction.
+\item The nine site vectors enter grid 512's regional calculation; WHH05's site output is not the archived regional vector.
+\end{itemize}
+\scope{About 92.49\% modeled \emph{Calluna} cover is not 92.49\% of the 297 counted grains.}
+\evidence{reports/science/landclim-paper.md}
+\end{frame}
+
+\begin{frame}{The LandClim paper publishes regional modeled history}
+\small
+\begin{itemize}
+\item Githumbi et al. (2022) present 31 taxa, stated as 12 plant functional types (PFTs) and three land-cover types (LCTs) over 25 Holocene windows and European one-degree cells.
+\item Its 1,128 selected records yield 16,711 aggregated site/window counts, not 16,711 physical sediment depths.
+\item The authors' selected-window maps show modeled open-land increase from the mid-Holocene and declining modeled summer-green tree extent. These maps are not a measured-vegetation score or a single-cause attribution.
+\end{itemize}
+\scope{Original paper result: regional cover estimates with reported model uncertainty; our replay is a separate result.}
+\evidence{reports/science/landclim-paper.md}
+\end{frame}
+
+\begin{frame}{Author-code parity closes a bounded calculation}
+\small
+\begin{tabular}{p{0.45\textwidth}p{0.42\textwidth}}
+\toprule
+Bounded input population & Observed numerical correspondence \\
+\midrule
+17 example lakes; two grids; 25 bins; 31 taxa & 184/425 possible site-windows supported. \\
+Raw-to-prepared source replay & 17 files byte-identical; 871 raw rows; 15,028 prepared cells checked. \\
+Independent author-R/native execution & 14,074 supported mean/SE values; max residuals $1.84\times10^{-13}$ and $7.15\times10^{-14}$ fractions. \\
+\bottomrule
+\end{tabular}
+\scope{This checks formatting and arithmetic for the released examples, not the paper's 1,128 historical inputs or vegetation accuracy.}
+\evidence{reports/science/method-correspondence.md}
+\end{frame}
+
+\begin{frame}{The archive differs on its only exactly aligned window}
+\small
+\begin{tabular}{lrr}
+\toprule
+TW2, 100--350 BP; author R vs archive & Grid 512 & Grid 562 \\
+\midrule
+Largest taxon mean gap, percentage points & 9.19787 & 10.55270 \\
+Largest taxon SE gap, percentage points & 3.21615 & 4.25814 \\
+31-taxon total variation, cover fraction & 0.092406 & 0.110704 \\
+\bottomrule
+\end{tabular}
+\begin{itemize}
+\item Comparison: 31 means and 31 SEs per grid, author fractions converted to archive percentage-cover units; 124 paired values.
+\item Other author and archive intervals have different bounds, so they are not treated as identical-time rows.
+\end{itemize}
+\scope{These are two modeled products. Historical source revisions, preparation and chronology remain unverified; no causal diagnosis follows.}
+\evidence{reports/science/publication-correspondence/published-window-provenance.md}
+\end{frame}
+
+\begin{frame}{An SE envelope is not a validation interval}
+\small
+\begin{itemize}
+\item At TW2, corresponding mean $\pm$ one-SE envelopes overlap for all 31 taxa in both grids. Unknown dependence and source identity prevent a significance interpretation.
+\item Archived ISTS and TBS \emph{mean} sums close over 10,500 grid/window rows. The paper states 12 PFTs, deposit prose 11 and archive header 13 positions.
+\item Grouped SEs require their covariance/delta-method route; the archive-producing PFT/LCT code, ISTS meaning and deciduous-\emph{Quercus} mapping are not authenticated.
+\end{itemize}
+\scope{A matched R residual, a grouped mean identity and a reported SE leave biological interpretation open.}
+\evidence{reports/science/publication-correspondence/pft-crosswalk/README.md}
+\end{frame}
+
+\begin{frame}{The 2024 LOVE paper and our fixtures have different sites}
+\small
+\begin{itemize}
+\item \textbf{Original 2024 paper.} Eight artificial ponds in a simulated German landscape. LOVEr and LOVEoptim yield local-cover curves; the optimized method is slightly better for inner rings. The Figure 2 layout, generated pollen and random draws are unavailable here.
+\item \textbf{Our later DISQOVER fixture.} One local/regional pair and 36 rings. The printed parameters match 30/30 numeric cells by row and 9/10 names exactly. The packaged B\"UK300 example is not the paper's B\"UK200 simulation.
+\end{itemize}
+\scope{The paper's 100--500 m tendency belongs to its simulation; no Nordic source radius is selected.}
+\evidence{reports/science/loveoptim-paper.md}
+\end{frame}
+
+\begin{frame}{Finite LOVE output can be invalid vegetation}
+\small
+\begin{itemize}
+\item Constructed interface: 1,000 REVEALS draws $\times$ one 200--300 m ring $\times$ 31 taxa yield 31,000 finite LOVE cells; 8,312 are negative (minimum $-0.46953$).
+\item Separate packaged example: only 3/10 first rings satisfy its basin boundary; 16/30 valid taxon/ring cells are negative and six exceed one.
+\item The constructed local site also enters its regional cohort, so neither calculation is a held-out ecological comparison.
+\end{itemize}
+\scope{Negative or greater-than-one fractions remain visible as method diagnostics, never silently normalized into cover.}
+\evidence{reports/science/love-theory-paper.md}
+\end{frame}
+
+\begin{frame}{English forward pollen: direct baselines are lower here}
+\scriptsize
+\begin{tabular}{lrrrr}
+\toprule
+14 paired English sites, 30 taxa & \multicolumn{2}{c}{MAE, fraction} & \multicolumn{2}{c}{Hellinger} \\
+Method & Direct & LRA forward & Direct & LRA forward \\
+\midrule
+Training mean & .020496 & .026273 & .282082 & .360671 \\
+Nearest site & .019552 & .021132 & .255767 & .286001 \\
+Inverse distance squared (IDW) & .018579 & .021088 & .243673 & .285415 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\small MAE is mean absolute pollen-fraction error; Hellinger is composition distance from 0 (identical) to 1. Both average equally across sites; lower is better. Direct used all 14 training pollen sites; LRA used a regional anchor and 13 local reconstruction predictors. One of 15 outer folds was refused after three training fits failed. Predictions were frozen before target scoring, but sites were previously explored.
+\scope{The score is withheld \emph{pollen} composition, not vegetation reconstruction accuracy or a fair equal-information solver ranking.}
+\evidence{reports/science/pollen-prediction.md}
+\end{frame}
+
+\begin{frame}{Nordic observed-pollen transfer has support refusals}
 \small
 \begin{tabular}{lrrr}
 \toprule
-Country & Assigned sites & Sites with claims & Chronology claims \\
+31-target country exclusion & Physical sites & Scored/attempted bins & Refused bins \\
 \midrule
-Sweden & 1,925 & 741 & 22,643 \\
-Denmark & 59 & 56 & 1,939 \\
-Norway & 45 & 27 & 468 \\
-Finland & 40 & 29 & 59 \\
+Denmark & 1 & 24/24 & 0 \\
+Finland & 28 & 435/435 & 0 \\
+Norway & 52 & 1,084/1,178 & 94 \\
+Sweden & 3 & 51/54 & 3 \\
 \bottomrule
 \end{tabular}
-\scope{The 25,109 rows are chronology claims at 853 distinct sites, not pollen observations or admitted ecological events. A further 103 country decisions require review and 23 remain unassigned. All claim propagation is refused.}
-\evidence{reports/science/source-cohorts.md; docs/report/source-relations/sead/chronology-country-accounting/report.json}
+\scope{Four prior-exposed country cohorts; these are closed observed-pollen subcompositions, with zero Nordic LRA admissions. Denmark has one target site.}
+\evidence{reports/science/source-cohorts.md}
 \end{frame}
 
-\begin{frame}{Three further Swedish lake cores}
+\begin{frame}{The 16-label and 31-target scores have different denominators}
+\small
 \begin{itemize}
-\item Metadata-only selection added Gilltjarnen, Lake Avegol and Flinkasjon outside the original Swedish targets.
-\item We assigned 231,115 of 238,797 native pollen grains to the 31 author targets; excluded and unmapped counts remain visible.
-\item All 63 site-bins received three fixed predictions, yielding 189 matched scores with no training-support refusal.
-\item Equal-site pollen MAE: IDW 0.017334, nearest site 0.017932, training mean 0.020682. Nearest site wins at Lake Avegol.
+\item \textbf{31 author taxa.} The Swedish country cohort assigns 221,800/240,966 native grains. Error is measured within this closed author target set.
+\item \textbf{16 literal labels.} S\"ambosj\"on covers 224,291/393,822 native grains; Lilla Gloppsj\"on covers 55,638/127,027. Error is measured within each lake's exact-label subcomposition.
 \end{itemize}
-\scope{Three prior-exposed lake groups; direct observed pollen only, with no Nordic LRA or independent vegetation score.}
-\evidence{reports/science/sweden-lake-transfer.md; docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv}
+\scope{A lower MAE on one axis does not establish a better model on the other; excluded and unmapped grains are not zero.}
+\evidence{reports/science/pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{Swedish training scope on shared pollen targets}
+\begin{frame}{Independent Nordic vegetation validation is still empty}
+\small
 \begin{itemize}
-\item Hold out each Swedish site; train on the other two Swedish sites or those same two plus 81 DK/FI/NO sites.
-\item On 39 shared site-bins, inverse-distance-squared equal-site pollen MAE is 0.032846 versus 0.023226, favoring four-country training.
-\item Sweden-only refuses 15 of 54 candidate bins; four-country training predicts all 54.
+\item EMPD2--NFI screen: 16 nearby leads, zero admitted matched measured-vegetation pairs.
+\item Three Sm\aa land bogs have published historical maps and pollen anchors, but our retained packet lacks the full distance-weighted map-class fractions needed to score our prediction.
+\item A southern Swedish published figure yields 5.11 versus 17.33 percentage-point mean absolute differences on \emph{nine rounded printed labels}; it does not reproduce the original 26-taxon study or score this repository.
+\item LandClim archived modeled cover cannot serve as independent measured truth for a related input lake.
 \end{itemize}
-\scope{Three previously exposed sites; most mean gain comes from Abborrtjarnen. No LRA or independent vegetation accuracy follows.}
-\evidence{reports/science/sweden-training-scope.md; docs/report/regions/nordic/swedish-training-scope/paired-scores.csv}
+\scope{A validation pair needs one physical site, matched time, taxa, measured cover and spatial support.}
+\evidence{reports/science/vegetation-reference.md}
 \end{frame}
 
-\begin{frame}{Swedish source support changes the pollen score}
-\begin{itemize}
-\item We froze 1,419 method predictions across 473 supported queries; 13 of 486 site-bin/policy queries refused.
-\item Adjacent nominal 500-year source bins and a nearest-five cap changed IDW error slightly and differently by site.
-\item Excluding source centers within 100 km raised matched equal-site IDW MAE from 0.023151 to 0.029171 on 52 bins.
-\end{itemize}
-\scope{Three exposed Swedish sites; site centers, no age posterior, LRA reconstruction or measured vegetation.}
-\evidence{reports/science/sweden-spatiotemporal-sensitivity.md; docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv}
+\begin{frame}{Resolve source identity, then ask for qualified review}
+\small
+\begin{enumerate}
+\item For grids 512/562 at TW2, request exact historical sequence revisions, ages, count denominator, sites/basins, parameters and producing transformations. Confirm other window definitions and reuse terms.
+\item For one proposed Nordic core, bind selected chronology, dated basin geometry, taxon/PPE/fall-speed version and eligible count mass before LRA admission.
+\item Ask a palynology/landscape reviewer to assess the physical assumptions; ask a reference owner whether measured cover matches the same site, time, taxa and area.
+\item Freeze a new qualified cohort before target access; retain refusals and both direct-pollen and LRA-forward baselines.
+\end{enumerate}
+\scope{Requests are prepared but unsent. Human scientific reading and independent ecological endorsement remain open.}
+\evidence{reports/science/landclim-paper.md; reports/science/model-use.md}
 \end{frame}
 
-\begin{frame}{Swedish chronology-block pollen transfer}
-\begin{itemize}
-\item Hold out each target site; predict 54 target bins using training pollen exactly 1,000 nominal BP older, excluding the target and adjacent source bins.
-\item All 54 bins yielded three frozen predictions and matched same-bin scores; zero queries refused.
-\item Inverse-distance-squared equal-site pollen MAE changed from 0.023647 to 0.024023 on the same targets; nearest-site and training-mean changes were small and in the opposite direction.
-\end{itemize}
-\scope{Prior-exposed three-site development result; assigned age bins do not account for age-model uncertainty. No Nordic LRA or measured vegetation score follows.}
-\evidence{reports/science/sweden-chronology-block.md; docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv}
+\appendix
+\begin{frame}{Technical appendix: four-country source mass}
+\scriptsize
+\begin{tabular}{lrrr}
+\toprule
+31-author-target country & Samples & Assigned/native grains & Scored/attempted bins \\
+\midrule
+Denmark & 91 & 122,998/129,768 & 24/24 \\
+Finland & 1,797 & 1,229,019/1,260,281 & 435/435 \\
+Norway & 3,544 & 2,018,295/2,286,020 & 1,084/1,178 \\
+Sweden & 228 & 221,800/240,966 & 51/54 \\
+\bottomrule
+\end{tabular}
+\scope{NISP means number of identified specimens (grains here); counts and site-bin outcomes use different units. Assignment is a declared subcomposition, not a complete native flora.}
+\evidence{reports/science/source-cohorts.md}
 \end{frame}
 
-\begin{frame}{A newly scored Swedish lake on a different pollen axis}
+\begin{frame}{Technical appendix: membership is not prediction support}
+\small
 \begin{itemize}
-\item Lake S\"ambosj\"on was absent from earlier targets; all 22 candidate bins received three fixed predictions and scores.
-\item Inverse-distance-squared equal-bin pollen MAE was 0.022991 on 16 exact source labels, covering 224,291 of 393,822 native pollen counts.
-\item Aggregate count support was screened before prediction; aggregate scores were viewed before a later protocol annotation correction. Prediction bytes did not change.
-\item Source age bounds place 58 of 111 samples across a nominal 500-year bin boundary; all 22 scored bins contain a crossing sample.
+\item Neotoma join: 12,388 source sample IDs; 5,660 selected across 84 sites, 6,218 outside selected sites, 233 at selected sites but unselected, and 277 without assigned source country.
+\item All 233 same-site unselected samples fail the source pollen screen; six selected Swedish negative-BP samples also fail their source age screen and are not scored.
+\item SEAD: 25,109 chronology claims at 853 assigned-country sites. All claim propagation is refused; these are neither pollen observations nor ecological events.
 \end{itemize}
-\scope{One-site descriptive development result. The 16-label error is not comparable to the 31-author-target error; no independent confirmation, LRA or measured vegetation score follows.}
-\evidence{reports/science/sambosjon-direct-pollen.md; docs/report/regions/nordic/sambosjon-direct-pollen/report.json; docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json}
+\scope{A source row, selected sample, attempted site-bin and admitted prediction are distinct denominators.}
+\evidence{reports/science/neotoma-study-membership/README.md; reports/science/source-cohorts.md}
 \end{frame}
 
-\begin{frame}{A second Swedish lake: fixed methods differ by metric}
+\begin{frame}{Technical appendix: three further Swedish lakes}
+\small
 \begin{itemize}
-\item Lilla Gloppsj\"on site/core was excluded from 84 training sites; 23 bins received 69 predictions before target scoring.
-\item All 69 scores completed on 16 exact pollen labels: 55,638 of 127,027 native NISP counts lie on the closed response.
-\item Equal-bin MAE: training mean 0.016272, primary inverse-distance-squared 0.017295, nearest site 0.020000.
-\item Hellinger: nearest site 0.228724, inverse-distance-squared 0.237576, training mean 0.256392. No method was selected using this target.
+\item Gilltj\"arnen, Lake Avegol and Flinkasj\"on were metadata-only additions outside the original three Swedish targets.
+\item 231,115/238,797 native grains map to 31 author targets; 63/63 site-bins yield 189 fixed predictions.
+\item Equal-site MAE: IDW 0.017334, nearest 0.017932, training mean 0.020682. Nearest wins at Lake Avegol.
 \end{itemize}
-\scope{One-site descriptive direct-pollen development; the earlier source-validation screen parsed the target partition. Two age-refused samples remain outside scores; no independent LRA or vegetation claim.}
-\evidence{reports/science/lilla-gloppsjon-direct-pollen.md; docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json}
+\scope{Three prior-exposed lake groups; measured target is pollen, with no LRA or independent vegetation score.}
+\evidence{reports/science/sweden-lake-transfer.md}
 \end{frame}
 
-\begin{frame}{What reproduces numerically}
+\begin{frame}{Technical appendix: Swedish training and source support}
+\small
+\begin{tabular}{p{0.47\textwidth}p{0.39\textwidth}}
+\toprule
+Matched 31-target pollen comparison & IDW equal-site MAE \\
+\midrule
+Two Swedish training sites vs same two + 81 DK/FI/NO; 39 shared bins & 0.032846 vs 0.023226 \\
+Same-source policy vs excluding centers within 100 km; 52 shared bins & 0.023151 vs 0.029171 \\
+\bottomrule
+\end{tabular}
 \begin{itemize}
-\item Author raw-to-prepared replay: 17 example files, 871 raw sample rows, 15,028 matching prepared cells.
-\item WHH05: 301 raw grains map to 297 prepared; 31 paired means and SEs agree at 1500 BP.
-\item Reexecuted author R/native calculations on two grids (9+8 sites); 14,074 supported mean and SE values agree within declared tolerances.
-\item Archive TW2 differs: total variation 0.092/0.111; two taxa explain 73\%/94\% of each grid's L1 gap. Historical inputs remain unclosed.
-\item Archived ISTS and TBS mean arithmetic closes over all 10,500 grid-window rows, but biological classification and SE transformation remain open.
+\item Sweden-only refuses 15/54 bins; four-country predicts 54/54.
+\item Support-policy study produced 473/486 queries and refused 13; one-bin age shifts and nearest-five cap had smaller, site-dependent effects.
 \end{itemize}
-\evidence{reports/science/publication-correspondence.md; reports/science/publication-correspondence/published-window-provenance.md; reports/science/publication-correspondence/author-example-reexecution.md}
+\scope{These are three exposed Swedish sites, not a spatial population or calibrated source radius.}
+\evidence{reports/science/pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{LOVE 2024: paper inputs and unavailable output}
+\begin{frame}{Technical appendix: alternative age support changes eligibility}
+\small
 \begin{itemize}
-\item All 30 published fall-speed, PPE and PPE-SD values match the later DISQOVER example by row position; nine of ten taxon labels match exactly.
-\item The paper's eight simulated ponds, landscape extraction, ring geometry, pollen inputs and 100 random runs are not present in the retained example.
-\item Figure 2 RMSE and its 100--500 m tendency therefore remain a paper result, not a reproduced Nordic model setting.
+\item \textbf{ABB / DALMUT LegacyAge.} Joined 107/107 and 71/72 depths; DALMUT 4.5 cm is unmatched. ABB has eight strict samples in four bins; paired IDW MAE moves .060058 to .059762. DALMUT has two strict samples and 20/22 bins unsupported.
+\item \textbf{Sols\o{} LegacyAge.} Only 15/91 comparable samples fall in eight of 24 bins. On 16 labels, nearest MAE .032310 versus .032104 with parent-bin counts; a separate 31-target result is .025673.
+\item \textbf{Swedish 1,000 BP source block.} All 54/54 frozen target bins are scored; matched-bin IDW MAE moves .023647 to .024023.
 \end{itemize}
-\scope{Input correspondence is established; the eight-site numerical simulation is blocked on its original inputs.}
-\evidence{reports/science/publication-correspondence.md; docs/report/method-certification/love-paper-correspondence/README.md}
+\scope{Point ages, marginal ranges and nominal bins are not a joint age posterior or historical LandClim admission.}
+\evidence{reports/science/pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{LOVE optimizers: shared objectives, different searches}
+\begin{frame}{Technical appendix: two new Swedish pollen targets}
+\small
 \begin{itemize}
-\item We gave installed RcppDE and Python the same three declared pollen, deposition, background, PPE and bound profiles.
-\item Both attained objective gaps below $10^{-4}$ from independent optima; cross-evaluating selected candidates differed by less than $10^{-10}$.
-\item Python reported success after 29--40 iterations and 600--1,230 evaluations. R used its full 400-iteration cap in all three cases.
-\item One objective has different, equally good vegetation vectors; vector equality would misstate solution quality.
+\item \textbf{S\"ambosj\"on, 16 labels.} All 22/22 bins scored; IDW equal-bin MAE .022991. The 21 interval-contained bins yield .023054 versus original-count .022881. Labels contain 224,291/393,822 native grains; 53/111 samples are interval-contained. The score was inspected before protocol annotation correction.
+\item \textbf{Lilla Gloppsj\"on, 16 labels.} All 23/23 bins scored; mean MAE .016272 versus IDW .017295. Nearest Hellinger .228724 versus IDW .237576. Labels contain 55,638/127,027 grains; two samples are age-refused. The target partition was parsed in a prior validation screen.
 \end{itemize}
-\scope{Bounded objective and arithmetic checks; no identical random path, general global guarantee or ecological accuracy.}
-\evidence{reports/science/method-correspondence.md; docs/report/method-certification/optimizer-solution-quality/summary.csv}
+\scope{Two distinct one-site development results; different age support and no untouched confirmation.}
+\evidence{reports/science/sambosjon-direct-pollen.md; reports/science/lilla-gloppsjon-direct-pollen.md}
 \end{frame}
 
-\begin{frame}{English LOVE: declared model profile}
+\begin{frame}{Technical appendix: one-window R lineage}
+\small
 \begin{itemize}
-\item 15 source sites, 1250--1750 BP, 30 targets; published PPE and fall speeds held fixed for retained taxa.
-\item Regional REVEALS plus ring-taxon-preserving LOVE; closed, nonnegative local cover.
-\item Uniform-start SLSQP: 300 iterations, 16,000 evaluations, objective tolerance $10^{-8}$.
-\item 192/195 training fits complete; three failures also refused under a bounded 600-iteration check.
+\item Original 2016 REVEALS function and pinned later Petr Kune\v{s} source ran the same 225 BP input in four site configurations: one lake, unequal pair, six sites, nine-site grid.
+\item All 124 paired cover values and 124 SEs agree at retained CSV precision; full-grid bootstrap site indices were identical.
+\item Native historical profile agrees with later R on those fixed indices within declared tolerances.
 \end{itemize}
-\scope{These are source-specific development choices, not universally optimal LRA parameters or the original R optimizer.}
+\scope{One conditional lineage; distinct R function bodies and one window do not certify corrected uncertainty or ecological validity.}
+\evidence{reports/science/method-correspondence.md}
+\end{frame}
+
+\begin{frame}{Technical appendix: LOVE numerical correspondence}
+\scriptsize
+\begin{tabular}{p{0.26\textwidth}p{0.57\textwidth}}
+\toprule
+Declared source test & Result and limit \\
+\midrule
+Original/current R and Python & 43/43 core and 23/23 source-domain cases pass; 97 numeric CSVs byte-match native R; 48 original-R shared vectors agree. \\
+One fixed ten-taxon LOVEexample & Eight ring/repeat candidate selections agree; 40 finite cover and 40 pollen cells match exactly; max ring-factor/objective gaps $5.11\times10^{-15}$/$4.67\times10^{-15}$. \\
+Three shared optimized objectives & Both attain objective gaps $<10^{-4}$ from independent optima; cross-evaluated candidate gap $<10^{-10}$. Search paths and vectors need not match. \\
+\bottomrule
+\end{tabular}
+\scope{Declared arithmetic and objective quality, not the 2024 paper's eight-pond Figure 2 or real vegetation accuracy.}
+\evidence{reports/science/method-correspondence.md}
+\end{frame}
+
+\begin{frame}{Technical appendix: English LRA routes and refusals}
+\scriptsize
+\begin{tabular}{p{0.23\textwidth}p{0.29\textwidth}p{0.35\textwidth}}
+\toprule
+Route & Population & Retained disposition \\
+\midrule
+Analytical LOVE & 31 taxa; 15 English folds & 15/15 invalid compositions; all 54 local ring rows include negative cover. \\
+Differential evolution & 30 taxa; one pair, two requests & Both refused convergence; no held-out score. \\
+Constrained SLSQP & 30 taxa; 15 folds, 195 training items & 192/195 fits complete; BECKHAM outer fold refused; 14 folds yield 42 scored predictions. \\
+\bottomrule
+\end{tabular}
+\scope{SLSQP is sequential least-squares programming. The selected 1250--1750 BP profile excludes 159 Filipendula grains from 20,732 source NISP; routes do not form a paired solver ranking.}
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{English LOVE routes have different support}
+\begin{frame}{Technical appendix: target basin radius is a forward sensitivity}
 \small
-\begin{tabular}{p{0.26\textwidth}p{0.24\textwidth}p{0.40\textwidth}}
+\begin{tabular}{lrrr}
 \toprule
-Route & Source axis and attempts & Retained result \\
+English target radius factor & 80\% & 100\% & 120\% \\
 \midrule
-Analytical & 31 taxa; 15 folds & 15/15 invalid compositions; all 54 local ring rows include negative cover. \\
-Differential evolution & 30 taxa; one pair, two requests & Both requests refused convergence; no held-out score. \\
-Constrained SLSQP & 30 taxa; 15 folds & 14/15 folds predicted; BECKHAM had three training-fit refusals. \\
+IDW-vegetation forward pollen MAE & .021032 & .021088 & .021457 \\
 \bottomrule
 \end{tabular}
-\scope{Excluding 159 Filipendula counts changed the taxon response. These development runs are not a paired solver ranking or a vegetation-accuracy comparison.}
+\begin{itemize}
+\item All 42 baseline LRA pollen fractions replay exactly before scoring; 126 radius projections use the same 14 target sites.
+\item Vegetation, regional cover and PPE are fixed, so only the forward consumer's assumed lake radius changes.
+\end{itemize}
+\scope{The shift exposes geometry sensitivity; it does not calibrate a physical radius or admit a Nordic basin.}
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{Matched pollen comparison: result and limitation}
-\small
-\begin{tabular}{lrrrr}
+\begin{frame}{Technical appendix: tuning cannot be promoted across axes}
+\scriptsize
+\begin{tabular}{p{0.37\textwidth}p{0.42\textwidth}}
 \toprule
- & \multicolumn{2}{c}{MAE} & \multicolumn{2}{c}{Hellinger} \\
- & Direct & LRA & Direct & LRA \\
+Development search & Matched result \\
 \midrule
-Training mean & .020496 & .026273 & .282082 & .360671 \\
-Nearest & .019552 & .021132 & .255767 & .286001 \\
-Inverse distance squared & .018579 & .021088 & .243673 & .285415 \\
+17-site radial basis function (RBF) vs fixed IDW, 31 taxa & 174 common bins: MAE .017774 vs .018948; RBF covers 174/184 attempted vs IDW 178/184. \\
+Country-excluded 16-label inner-fold RBF selection & Finland selected .034871 vs IDW .034375; Norway .033942 vs IDW .027012; Denmark selected IDW .033022. \\
+Two-case synthetic PPE/transport sweep & Winner reflects a transport-law mismatch, not a real-core PPE recommendation. \\
 \bottomrule
 \end{tabular}
-\scope{14 paired English sites, 30 taxa; all three direct means remain lower after any one site is omitted. Prior exposure and unequal training information limit interpretation.}
-\evidence{docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json}
+\scope{Coverage, response axis and target exposure govern model use; no universal LRA parameter follows.}
+\evidence{reports/science/model-use.md}
 \end{frame}
 
-\begin{frame}{English basin radius: forward sensitivity only}
+\begin{frame}{Technical appendix: context cannot fill the reference gap}
+\small
 \begin{itemize}
-\item We replayed 42 frozen LRA vegetation estimates at 80\%, 100\% and 120\% of each assumed target-lake radius.
-\item The actual forward consumer reproduced all 42 original pollen predictions exactly before target scoring.
-\item Inverse-distance-squared site-macro pollen MAE: .021032, .021088 and .021457 across those radii.
-\item On matched targets, direct pollen retains lower mean MAE and Hellinger for every method and radius factor.
+\item HYDE modeled cropland: 84 country/year/scenario grid sums match retained source totals within $8.51\times10^{-11}$ km$^2$; rights/version and historical spatial semantics remain open.
+\item LandClim Nordic map: 1,875 normalized published-cell features are modeled estimates, not independent field vegetation.
+\item Named core gaps: Abborrtj\"arnen needs selected chronology/basin/denominator/PPE; Sols\o{}, Dalmutladdo and Laihalampi have source links but lack complete time-matched LRA input closure.
+\item The next ecological test still requires a separately governed measured-cover pair and qualified review.
 \end{itemize}
-\scope{14 prior-exposed English sites. Vegetation, regional cover and PPE were fixed; this does not calibrate basin geometry or admit Nordic LRA inputs.}
-\evidence{docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json; reports/science/english-lra-pollen-prediction.md}
+\scope{A clean map export or historical context layer does not add an admitted vegetation truth label.}
+\evidence{reports/science/source-cohorts.md; reports/science/model-use.md}
 \end{frame}
-
-\begin{frame}{Model selection follows the target and support}
-\begin{itemize}
-\item Fixed spatial baselines permit clear paired interpretation on observed pollen.
-\item A bounded RBF candidate improved one prior-exposed author comparison on common support but reduced coverage.
-\item Country-excluded tuning did not establish superiority over inverse-distance-squared in the Nordic development holdouts.
-\item A two-case synthetic PPE/transport winner reflects a transport-law mismatch and is not a real-core parameter recommendation.
-\item For LRA, input identity, chronology, basin geometry, PPE and denominator must be qualified before any parameter search is meaningful.
-\end{itemize}
-\evidence{reports/science/model-use.md; reports/science/synthetic-model-selection/README.md; reports/needed/README.md}
-\end{frame}
-
-\begin{frame}{HYDE and vegetation: retain the boundary}
-\begin{itemize}
-\item Four-country HYDE source cropland grid sums match 84 country/year/scenario totals within $8.51\times10^{-11}$ km$^2$.
-\item This checks modeled-source internal accounting, not pollen-model benefit.
-\item The retained release has conflicting rights and version declarations; formal CRS and historical calendar support remain unresolved.
-\item No independent vegetation measurement pair has been admitted for prediction accuracy.
-\end{itemize}
-\scope{Next experiments require source semantics and a matched ecological reference, with outcomes protected from model selection.}
-\evidence{reports/science/hyde-cropland-source-account.md; reports/needed/README.md}
-\end{frame}
-
-\begin{frame}{Why no vegetation-accuracy score exists yet}
-\begin{itemize}
-\item EMPD2--NFI screen: 16 nearby candidates, zero measured pairs admitted for our benchmark.
-\item F\"arskesj\"on: the measured 7 m forest plot is 427 m from the lake pollen point; five volume classes do not supply 31-taxon landscape cover.
-\item Three Sm\aa land bogs: historical-map coverage and pollen anchors are published, but full numerical vegetation fractions are absent.
-\item A published southern-Swedish figure favors its authors' REVEALS estimates on nine rounded printed labels; it does not score our predictions or recover the full 26-taxon study.
-\end{itemize}
-\scope{A physical-site, time, taxon and landscape-support match is still required before ecological validation.}
-\evidence{reports/science/vegetation-reference.md; docs/report/validation/empd2-nfi-pairing/report.json}
-\end{frame}
-
-\begin{frame}{Open source decisions}
-\begin{itemize}
-\item Abborrtjärnen: LandClim-selected age model, historical basin radius, eligible denominator, PPE use and rights.
-\item Bjäresjösjön: modern lake identity and nearby SEAD display intervals close; pollen-core identity and ecological event join remain refused.
-\item Sols\o: 79 LandClim II samples versus 92 Neotoma source samples; the published age span retains 90, and no historical basin series is bound to the selected rows.
-\item Dalmutladdo (Norway): 72 source samples and 11 radiocarbon controls align; published 7.2 ha versus LandClim 8 ha, with no dated basin series. Zero LRA admission.
-\item Laihalampi (Finland): one LAIH core and 150 depths align; modern area claims agree conditionally, but selected ages and dated basin remain unqualified.
-\item Historical publication: exact source revisions and authenticated PFT/uncertainty transformation.
-\item Independent confirmation: new qualified cohort frozen before target inspection.
-\end{itemize}
-\evidence{reports/needed/README.md; reports/science/solsoe-lra-input.md; reports/science/dalmutladdo-lra-input/README.md; reports/science/laihalampi-lra-input/README.md}
+\begin{frame}{Technical appendix: country inputs still missing}
+\small
+\begin{tabular}{p{0.14\textwidth}p{0.76\textwidth}}
+\toprule
+Country & Named-core acceptance still needed \\
+\midrule
+Denmark & Sols\o{}: original 79 input rows, selected chronology and dated basin. \\
+Finland & Laihalampi: selected age vector and historical basin for the 150-sample lead. \\
+Norway & Dalmutladdo: historical basin and qualified count/parameter/use closure despite matched source controls. \\
+Sweden & ABB/ABBO, BUS and BOKE: one jointly qualified core/window packet, including selected ages and basin history. \\
+\bottomrule
+\end{tabular}
+\scope{The 31-target country studies score 1,594/1,691 bins with 97 refusals. They admit zero LRA samples; no independent Nordic measured-cover benchmark or untouched confirmation follows.}
+\evidence{reports/science/country-evidence-status.md}
 \end{frame}
 \end{document}

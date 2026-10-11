@@ -1,0 +1,164 @@
+{
+  "schema_version": "namibia-five-taxon-radius-sensitivity.v1",
+  "question": "How does five-taxon pollen-to-vegetation composition distance vary across the publisher's radius labels at the same ten sites?",
+  "source": {
+    "citation": "Tabares et al. (2021), PANGAEA dataset series 10.1594/PANGAEA.931037",
+    "rights": "CC BY 4.0; cite both source datasets and parent series",
+    "pollen": {
+      "doi": "10.1594/PANGAEA.931033",
+      "sha256": "73c62c335a227283c27a224304b52fd21d1c674f95551d58a2e42dffa325a2e1"
+    },
+    "vegetation": {
+      "doi": "10.1594/PANGAEA.931035",
+      "sha256": "b2460910d5f72e234fef50a24c4ade08e57ab714bf482ba4afb3b4ed8e7b4f2a"
+    }
+  },
+  "input": {
+    "joined_source_sha256": "0ab77a3a9f74e0d91c9613ba84b37bc029b07d275a1816f37fffa75db8e1011d",
+    "site_distances_sha256": "393539f06d6771c8249704d4258ca746605b8e127c26b660cb98ee6430a59b74",
+    "pollen_event_count": 10,
+    "vegetation_site_radius_count": 150,
+    "five_taxon_pair_count": 750
+  },
+  "metric": {
+    "name": "Hellinger composition distance",
+    "formula": "sqrt(sum((sqrt(p_i)-sqrt(v_i))^2 for five taxa)/2)",
+    "p_i": "pollen count for taxon i divided by the five named pollen counts at one site",
+    "v_i": "calculated vegetation area for taxon i divided by the five named areas at one site and publisher radius label",
+    "range": [
+      0,
+      1
+    ],
+    "interpretation": "descriptive conditional-composition mismatch; not a prediction or model score"
+  },
+  "radius_summary": [
+    {
+      "ring_sector_radius_m": 100,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.36636009965,
+      "median_hellinger_distance": 0.341201082075,
+      "minimum_hellinger_distance": 0.197287732007,
+      "maximum_hellinger_distance": 0.593663125115
+    },
+    {
+      "ring_sector_radius_m": 200,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.354206264,
+      "median_hellinger_distance": 0.335834349155,
+      "minimum_hellinger_distance": 0.183044741284,
+      "maximum_hellinger_distance": 0.534688024181
+    },
+    {
+      "ring_sector_radius_m": 300,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.347772869562,
+      "median_hellinger_distance": 0.337762105675,
+      "minimum_hellinger_distance": 0.190490998695,
+      "maximum_hellinger_distance": 0.538720182312
+    },
+    {
+      "ring_sector_radius_m": 400,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.342668440403,
+      "median_hellinger_distance": 0.328127340157,
+      "minimum_hellinger_distance": 0.191168343755,
+      "maximum_hellinger_distance": 0.505789743526
+    },
+    {
+      "ring_sector_radius_m": 500,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.352528675804,
+      "median_hellinger_distance": 0.326355395104,
+      "minimum_hellinger_distance": 0.191784598398,
+      "maximum_hellinger_distance": 0.545679113522
+    },
+    {
+      "ring_sector_radius_m": 600,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.348649145958,
+      "median_hellinger_distance": 0.33045542552,
+      "minimum_hellinger_distance": 0.202348576459,
+      "maximum_hellinger_distance": 0.545256808392
+    },
+    {
+      "ring_sector_radius_m": 700,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.34883272361,
+      "median_hellinger_distance": 0.331595443036,
+      "minimum_hellinger_distance": 0.192447539194,
+      "maximum_hellinger_distance": 0.547855907842
+    },
+    {
+      "ring_sector_radius_m": 800,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.346538019816,
+      "median_hellinger_distance": 0.327738971478,
+      "minimum_hellinger_distance": 0.191119650606,
+      "maximum_hellinger_distance": 0.535991609534
+    },
+    {
+      "ring_sector_radius_m": 900,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.348465702026,
+      "median_hellinger_distance": 0.325440769892,
+      "minimum_hellinger_distance": 0.190889716411,
+      "maximum_hellinger_distance": 0.529429754784
+    },
+    {
+      "ring_sector_radius_m": 1000,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.355874753251,
+      "median_hellinger_distance": 0.330316821717,
+      "minimum_hellinger_distance": 0.193554178032,
+      "maximum_hellinger_distance": 0.531685812234
+    },
+    {
+      "ring_sector_radius_m": 1100,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.36145342192,
+      "median_hellinger_distance": 0.329685996353,
+      "minimum_hellinger_distance": 0.193155207695,
+      "maximum_hellinger_distance": 0.529233377327
+    },
+    {
+      "ring_sector_radius_m": 1200,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.370170010096,
+      "median_hellinger_distance": 0.333228224113,
+      "minimum_hellinger_distance": 0.192674959765,
+      "maximum_hellinger_distance": 0.539954580833
+    },
+    {
+      "ring_sector_radius_m": 1300,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.376854779956,
+      "median_hellinger_distance": 0.350039208862,
+      "minimum_hellinger_distance": 0.191282180787,
+      "maximum_hellinger_distance": 0.533461489007
+    },
+    {
+      "ring_sector_radius_m": 1400,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.377683640842,
+      "median_hellinger_distance": 0.359322899816,
+      "minimum_hellinger_distance": 0.191931127672,
+      "maximum_hellinger_distance": 0.517746032499
+    },
+    {
+      "ring_sector_radius_m": 1500,
+      "independent_site_count": 10,
+      "mean_hellinger_distance": 0.377735630763,
+      "median_hellinger_distance": 0.368624577972,
+      "minimum_hellinger_distance": 0.190687991953,
+      "maximum_hellinger_distance": 0.519614440956
+    }
+  ],
+  "independence": "Ten pollen sites are independent units for this description; each site's one pollen sample repeats across 15 radius labels.",
+  "ring_semantics": "Radius is the publisher's 'Ring sect radius [m]' label. These source tables do not establish whether areas describe cumulative disks or disjoint rings; this analysis does not reinterpret them.",
+  "limitations": [
+    "Five listed taxa only; neither total terrestrial pollen nor total vegetation cover.",
+    "Exact soil-sampling and satellite-image dates are not stated in these tables.",
+    "Pollen productivity and dispersal differ by taxon, so descriptive distance does not select an ecological pollen-source radius.",
+    "Out-of-domain Namibian soil samples do not validate Nordic lake predictions or establish an untouched confirmation cohort."
+  ]
+}

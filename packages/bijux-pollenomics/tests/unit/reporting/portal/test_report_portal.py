@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -114,6 +115,78 @@ class ReportPortalUnitTests(unittest.TestCase):
                 "maintainer_diagnostic",
             )
             self.assertIn("reader_ready", quality["quality_posture_counts"])
+
+    def test_inventory_binds_content_and_excludes_its_own_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / "study" / "README.md"
+            source.parent.mkdir()
+            source.write_text(
+                "# Study\n\nThis source explains a scoped result and its evidence boundary.\n"
+            )
+            (root / "machine.json").write_text('{"source": "domain manifest"}')
+            publish_report_portal(root)
+            registry = json.loads((root / "report_surface_registry.json").read_text())
+            excluded = set(registry["excluded_metadata_paths"])
+            indexed = {r["repository_path"] for r in registry["rows"]}
+            all_paths = {
+                f"docs/report/{p.relative_to(root).as_posix()}"
+                for p in root.rglob("*")
+                if p.is_file()
+            }
+            self.assertEqual(indexed | excluded, all_paths)
+            self.assertFalse(indexed & excluded)
+            self.assertEqual(len(excluded), 4)
+            for row in registry["rows"]:
+                relative = row["repository_path"].removeprefix("docs/report/")
+                if not relative.endswith(".md"):
+                    self.assertNotIn("content_sha256", row)
+                    continue
+                self.assertEqual(
+                    row["content_sha256"],
+                    hashlib.sha256((root / relative).read_bytes()).hexdigest(),
+                )
+            before = {
+                p.relative_to(root): p.read_bytes()
+                for p in root.rglob("*")
+                if p.is_file()
+            }
+            publish_report_portal(root)
+            self.assertEqual(
+                before,
+                {
+                    p.relative_to(root): p.read_bytes()
+                    for p in root.rglob("*")
+                    if p.is_file()
+                },
+            )
+            source.write_text(
+                "# Revised study\r\n\r\nThe interpretation now has a changed source boundary.\r\n"
+            )
+            publish_report_portal(root)
+            after = json.loads((root / "report_surface_registry.json").read_text())
+            row = next(
+                r
+                for r in after["rows"]
+                if r["repository_path"] == "docs/report/study/README.md"
+            )
+            self.assertNotEqual(
+                row["content_sha256"],
+                next(
+                    r
+                    for r in registry["rows"]
+                    if r["repository_path"] == row["repository_path"]
+                )["content_sha256"],
+            )
+            quality = json.loads(
+                (root / "report_narrative_quality_review.json").read_text()
+            )
+            review = next(
+                r
+                for r in quality["rows"]
+                if r["repository_path"] == row["repository_path"]
+            )
+            self.assertEqual(review["content_sha256"], row["content_sha256"])
 
 
 if __name__ == "__main__":

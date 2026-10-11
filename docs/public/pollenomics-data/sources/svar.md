@@ -37,6 +37,15 @@ This unavailable governed denominator is not a claim of zero lakes or zero
 scientific relevance. It prevents source-reported summary counts from being
 promoted into current analytical or publication coverage.
 
+Lantmäteriet publishes a separate [Hydrografi Nedladdning research-access
+license](https://www.lantmateriet.se/globalassets/geodata/geodataprodukter/licensvillkor-hydrografi-nedladdning.pdf).
+Eligible environmental research requires an approved application and accepted
+terms; reuse and redistribution are conditional. This provides a route to
+request a current official geometry layer. It does not grant this project
+access, establish rights for the older SMHI `ms:lakes` export, or reconcile
+their lake identities. The [source review](../../../report/source-relations/svar/normalized-export/README.md)
+records the exact outstanding comparison.
+
 ## Shipped And Declared Surfaces
 
 The source-family contract declares a normalized registry at

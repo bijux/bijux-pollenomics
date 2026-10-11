@@ -352,5 +352,19 @@
     "nearby_sead_sites": 13,
     "published_window_count": 25,
     "status": "modern_lake_and_display_context_bound; physical_core_and_ecological_event_join_refused"
+  },
+  "sambosjon_contained_age_support": {
+    "report": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
+    "producer": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
+    "source_samples": 111,
+    "contained_samples": 53,
+    "boundary_crossing_samples": 58,
+    "candidate_bins": 22,
+    "scored_common_bins": 21,
+    "refused_bins": 1,
+    "primary_method": "inverse_distance_squared",
+    "status": "one_site_exposed_direct_pollen_development_sensitivity",
+    "confirmatory_result": false,
+    "independent_vegetation_comparison": false
   }
 }

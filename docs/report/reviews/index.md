@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Evidence Reviews

@@ -8,6 +8,7 @@ import json
 import math
 from pathlib import Path
 import re
+import runpy
 from statistics import median
 
 
@@ -332,6 +333,32 @@ def verify_empd2_nfi_pairing() -> None:
 
 
 def main() -> None:
+    runpy.run_path(str(REPORTS / "exports/papers/verify.py"), run_name="__main__")
+    runpy.run_path(str(REPORTS / "needed/verify-claims.py"), run_name="__main__")
+    runpy.run_path(str(REPORTS / "needed/verify-review.py"), run_name="__main__")
+    portal_module = runpy.run_path(
+        str(
+            ROOT
+            / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/report_portal_check.py"
+        )
+    )
+    portal = portal_module["check_report_portal"](ROOT)
+    print(
+        f"verified {portal.registered_surface_count} report portal surfaces, "
+        f"{portal.markdown_page_count} Markdown identities and "
+        f"{portal.excluded_metadata_count} explicit metadata exclusions"
+    )
+    ownership_module = runpy.run_path(
+        str(
+            ROOT
+            / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/ownership.py"
+        )
+    )
+    ownership = ownership_module["check_report_ownership"](ROOT)
+    print(
+        f"verified {ownership.path_count} output ownership declarations; "
+        f"{ownership.unresolved_path_count} paths still require custody resolution"
+    )
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()

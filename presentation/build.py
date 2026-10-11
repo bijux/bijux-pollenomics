@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import signal
 import subprocess
 import sys
 
@@ -27,8 +28,14 @@ def main() -> int:
         return 1
     for relative, expected in lock["sources"].items():
         path = ROOT / relative
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
-            print(f"Review changed presentation source before rebuilding: {relative}", file=sys.stderr)
+        if (
+            not path.is_file()
+            or hashlib.sha256(path.read_bytes()).hexdigest() != expected
+        ):
+            print(
+                f"Review changed presentation source before rebuilding: {relative}",
+                file=sys.stderr,
+            )
             return 1
     latexmk = shutil.which("latexmk")
     if latexmk is None:
@@ -39,19 +46,41 @@ def main() -> int:
     for name in DECKS:
         output = ROOT / "artifacts" / "jobs" / "presentation" / name
         output.mkdir(parents=True, exist_ok=True)
-        result = subprocess.run(
-            [latexmk, "-pdf", "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", f"-outdir={output}", str(HERE / f"{name}.tex")],
+        with subprocess.Popen(
+            [
+                latexmk,
+                "-pdf",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "-file-line-error",
+                f"-outdir={output}",
+                str(HERE / f"{name}.tex"),
+            ],
             cwd=ROOT,
             env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
-            check=False,
-        )
-        (output / "build.log").write_text(result.stdout, encoding="utf-8")
-        if result.returncode:
+            start_new_session=True,
+        ) as process:
+            try:
+                transcript, _ = process.communicate(timeout=180)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                transcript, _ = process.communicate()
+                (output / "build.log").write_text(
+                    transcript + "\nBuild refused: compiler exceeded 180 seconds.\n",
+                    encoding="utf-8",
+                )
+                print(
+                    f"{name}: compiler timeout; inspect {output / 'build.log'}",
+                    file=sys.stderr,
+                )
+                return 124
+        (output / "build.log").write_text(transcript, encoding="utf-8")
+        if process.returncode:
             print(f"{name}: LaTeX failed; see {output / 'build.log'}", file=sys.stderr)
-            return result.returncode
+            return process.returncode
         pdf = output / f"{name}.pdf"
         if not pdf.is_file() or pdf.stat().st_size < 1000:
             print(f"{name}: PDF missing or empty", file=sys.stderr)

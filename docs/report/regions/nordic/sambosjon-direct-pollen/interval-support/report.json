@@ -1,0 +1,92 @@
+{
+  "attempted_method_bin_scores": 66,
+  "candidate_bins": 22,
+  "chronology_id": "neotoma:chronology:4262:30017",
+  "collection_unit_id": "neotoma:collection-unit:4262",
+  "containment_rule": "One positive-width overlap with the nominal bin; an older endpoint touch adds no support to the next bin, matching the existing source age-bound screen.",
+  "dataset_id": "neotoma:dataset:4403",
+  "input_sha256": {
+    "age-bounds/report.json": "6635c81d545db1114736814e1efcadc8f62c1ce0d6400f1d7f92de685b9a6223",
+    "age-bounds/samples.csv": "2a6596d6ac83e3e2aa5f1a1efc2874c9d5ddc80f168db576d1da032ddf31f372",
+    "coverage.csv": "5ee2a23aaeee9cc48646ff4e19810ab87b304ba4d1c149c28e6ab7fd3f0a1f53",
+    "frozen/freeze.json": "8337d7b6316295b2506dd2efff73d2c3e08a2ecd35d3690a5b2047280c3337ec",
+    "frozen/predictions.json": "97a2b45ce51e2e42c851e64ba5b91ea721e887fac6c1e92e16f3938b428f4e65",
+    "inputs/input-manifest.json": "4f161a235fd77953fc8a0411d2649ad2d7268144328e20f6acdc0df2c783f381",
+    "inputs/metadata.json": "367c4d6fa1eed47c64d7360f6898b457e68718a26ef86eb1aed82b3eea2909ba",
+    "protocol.json": "f5ddf56f67668382c769d1cf530e5a28491268ca70bfb9d51bae48537abe81ae",
+    "report.json": "410db1760454c74809fb3c60811db159c90e5e35c8bbdd1fb770c8435ff7f4c1",
+    "scores.csv": "600eeea46b6b21575cdccce54126208fbf4a95e617c478571015685d8d6e246d"
+  },
+  "interpretation": "Marginal source-bound containment; no reassignment, refitting, joint age posterior, confirmation, Nordic LRA or measured vegetation score.",
+  "methods": {
+    "inverse_distance_squared": {
+      "hellinger_distance": 0.18574098068796224,
+      "mae_fraction": 0.023054096373664474,
+      "paired_bins": 21,
+      "parent_same_bin_hellinger_distance": 0.1836983442247315,
+      "parent_same_bin_mae_fraction": 0.022880852870270307
+    },
+    "nearest_site": {
+      "hellinger_distance": 0.2383683811658429,
+      "mae_fraction": 0.02673117290570316,
+      "paired_bins": 21,
+      "parent_same_bin_hellinger_distance": 0.23590031425340213,
+      "parent_same_bin_mae_fraction": 0.026544525676575042
+    },
+    "training_mean": {
+      "hellinger_distance": 0.2855622261186824,
+      "mae_fraction": 0.037673293286030654,
+      "paired_bins": 21,
+      "parent_same_bin_hellinger_distance": 0.28441938032792885,
+      "parent_same_bin_mae_fraction": 0.03756195873841966
+    }
+  },
+  "primary_method": "inverse_distance_squared",
+  "producer_sha256": "5f28ef7015a00799384a9db5514ccf46a5702ac7574385abaa376ccba896bb1e",
+  "refused_or_failed_bins": 1,
+  "sample_mass": {
+    "contained": {
+      "closed_nisp": 108163,
+      "native_nisp": 185150,
+      "outside_axis_nisp": 76987
+    },
+    "crosses_boundary": {
+      "closed_nisp": 116128,
+      "native_nisp": 208672,
+      "outside_axis_nisp": 92544
+    }
+  },
+  "sample_statuses": {
+    "contained": 53,
+    "crosses_boundary": 58
+  },
+  "schema_version": "sambosjon-interval-support.v1",
+  "scored_common_bin_ids": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "scored_common_bins": 21,
+  "site_id": "neotoma:site:3398",
+  "source_bound_confidence_level": "not stated in retained source",
+  "source_relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "status": "one_site_exposed_direct_pollen_development_sensitivity"
+}

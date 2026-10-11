@@ -1499,7 +1499,6 @@
     "source-domains/S001-source-error.txt": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
     "source-domains/F007-R.csv": "fef6d206b1d1c188b7f753bef6bef07d131da2c6a6f86b0ad6b09bdf3fc308bd",
     "source-domains/F009-rings.csv": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
-    "source-domains/R_stderr.log": "3b88208c9b392fdd66cf328c200e0d4fac786d909e710bea31c2f91f109b44d3",
     "source-domains/F005-R.csv": "5ae76a007d4a6e221726bffffe3dba18eadbcea8d6185342dbc18e85b07bcdd5",
     "source-domains/S003-rings.csv": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
     "source-domains/F004-rings.csv": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
@@ -1511,7 +1510,6 @@
     "source-domains/run_source_domains.py": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
     "source-domains/source_domains.R": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
     "source-domains/F001-rings.csv": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
-    "source-domains/command.json": "a9f1eae66ab91b58325da2bbae0f1aea2b457b969f16ae1fa6581a1b27367c29",
     "source-domains/F012-R.csv": "871068b35c15ab674fe55bf02d2aa8816b5f434e875c7f343997d3c04f6a4b7f",
     "source-domains/S006-rings.csv": "231a76f4c410135dfe2e7a552b25fc9beb8960b01a985c8802ec6013508393cb",
     "source-domains/S009-R.csv": "54b0407af2ad72ba1b6090747189adc0e6034dcf37259cc51c970ccdb848570e",
@@ -1527,7 +1525,6 @@
     "source-domains/R_case_status.csv": "c1597120575fa44e08e1ab169741179b9224df4bff029262c8e4efae73955d3e",
     "source-domains/S004-legacy-output.csv": "4dcd25fc58a45be5389e08f7d763c8a41a66517de208d91c362340442e506488",
     "source-domains/F008-R.csv": "785b9b573e64322b3649e7bceb00fd26e378cdc64b056fb7103f7d2572beb68b",
-    "source-domains/R_stdout.log": "2368ed89fefd458ba0a7fc41b407efa3ab833d9e25dceb9f667665af8ac093f8",
     "source-domains/S001-rings.csv": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
     "source-domains/S008-R.csv": "5ec784f337251038bf796ffa6a4892076931b5041e072ac0c4337269b919e037",
     "source-domains/F006-rings.csv": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
@@ -1579,8 +1576,6 @@
     "oracle/C0000.csv": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
     "oracle/C0014.csv": "473b03f9c392250a2fecd8c5aa2b88d06e511e1475694269252eca661762b14b",
     "oracle/case_manifest.json": "50a554004835f56e6c5b9d9f013fce06389a026ca923cfb1c8b94c82d3d85f9e",
-    "oracle/R_stderr.log": "7b7c9190fe1eb05d85bf38bfe85078465a90d161fc06f95c96639659fcd0a20b",
-    "oracle/oracle.R": "c64197c74a797622f2c29241d2df8a04ef1199e4df9eaafaf1bbd6227a8abb6f",
     "oracle/C0040.csv": "03468b82e906acd09aadcf6a00cfa6ff318a3f94236eae5103d20a752a8f995b",
     "oracle/C0041.csv": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
     "oracle/C0042.csv": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
@@ -1597,7 +1592,6 @@
     "oracle/R_case_status.csv": "167b3ea2d2c5290256e846bc18d8f1ba82c1917d126adc0748fa9234cc4c5946",
     "oracle/C0023.csv": "902ba164a708c861b9ecea2d232b7d7542f3ed2c8253069b279b1c6685788eb5",
     "oracle/C0037.csv": "d14023aedeea3503339eaa63b95a0c6c8d05d45bef040f94f4f0f59d0135dde3",
-    "oracle/R_stdout.log": "ffc7ddee5bab18f8c56e2fce8385bf6233291959e5ce7d50eeb98a89493ed2cd",
     "oracle/C0036.csv": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
     "oracle/C0022.csv": "78e07b0aed2c01ff623c6814e295d8a6ea5b1a4c60204f36dd61bd6cfe114f58",
     "oracle/C0034.csv": "60eb4f42efe4ce232a64b13cb80f80857b9f1ec551cc470574367178e2f9cdc1",
@@ -1611,5 +1605,13 @@
     "native macOS reference execution is not the locked Linux release certificate",
     "optimizer trajectory excluded",
     "no ecological accuracy or measured vegetation truth"
-  ]
+  ],
+  "execution_warnings": {
+    "RcppDE_overrode_DEoptim_imports": true,
+    "simpleLoess_kd_tree_memory_warnings": {
+      "core": 4,
+      "source_domains": 48
+    },
+    "interpretation": "R execution completed and compared all declared cases despite these warnings; they do not establish optimizer convergence or ecological validity."
+  }
 }

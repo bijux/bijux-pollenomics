@@ -1,0 +1,47 @@
+{
+  "interpretation": "prior-exposed development sensitivity; S5 bounds select ABBO samples; no joint chronology posterior or LRA",
+  "methods": {
+    "clr_rbf_ridge": {
+      "delta_hellinger": -0.001214657726703594,
+      "delta_mae": -0.00030035023384496207,
+      "interval_contained_site_macro_hellinger": 0.43051074594716227,
+      "interval_contained_site_macro_mae": 0.058751107416023386,
+      "original_same_support_site_macro_hellinger": 0.43172540367386586,
+      "original_same_support_site_macro_mae": 0.05905145764986835,
+      "paired_site_bin_targets": 12
+    },
+    "inverse_distance_squared": {
+      "delta_hellinger": -0.0010042612937081752,
+      "delta_mae": -0.00029655349634030714,
+      "interval_contained_site_macro_hellinger": 0.43829760674776247,
+      "interval_contained_site_macro_mae": 0.05976175232550376,
+      "original_same_support_site_macro_hellinger": 0.43930186804147064,
+      "original_same_support_site_macro_mae": 0.060058305821844064,
+      "paired_site_bin_targets": 12
+    },
+    "nearest_site": {
+      "delta_hellinger": -0.0011109908612009778,
+      "delta_mae": -0.0003748092042729842,
+      "interval_contained_site_macro_hellinger": 0.4242553821541731,
+      "interval_contained_site_macro_mae": 0.05647713860726223,
+      "original_same_support_site_macro_hellinger": 0.42536637301537406,
+      "original_same_support_site_macro_mae": 0.056851947811535214,
+      "paired_site_bin_targets": 12
+    },
+    "training_mean": {
+      "delta_hellinger": -0.0014327990980377292,
+      "delta_mae": -0.000335887758156829,
+      "interval_contained_site_macro_hellinger": 0.42606989672324797,
+      "interval_contained_site_macro_mae": 0.06025782415387592,
+      "original_same_support_site_macro_hellinger": 0.4275026958212857,
+      "original_same_support_site_macro_mae": 0.06059371191203275,
+      "paired_site_bin_targets": 12
+    }
+  },
+  "prediction_sha256_before_target_scoring": {
+    "site-13338.json": "46235c8db2bfe6b0fefc3932a468556a978e28209267bb11f0276a9ff1deecd3",
+    "site-28869.json": "01d81be1c9757e530f38014a888a86d35edd53c6233a7e240d4d64c6962c47a4",
+    "site-28872.json": "9b4dc854f9ecaeaf8688765a096d6b61c5fddda7e45f2a30817979d1c47be7e5"
+  },
+  "schema_version": "abbo-interval-contained-paired-comparison.v1"
+}
