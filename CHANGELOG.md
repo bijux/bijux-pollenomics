@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind PDF downloads and retained native reports to source-qualified manual publication while preserving scientific inputs and historical producer identities. ([#231](https://github.com/bijux/bijux-pollenomics/pull/231)).
+
 - Preserve validation, collection and LRA development history with accepted manual publication policy ([#217](https://github.com/bijux/bijux-pollenomics/pull/217)).
 
 
