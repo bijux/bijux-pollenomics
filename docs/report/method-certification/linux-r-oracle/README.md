@@ -49,7 +49,7 @@ It also retains 130 acquisition, build and provision process files with
 individual hashes; unpacked R source and build intermediates are reproducible
 from the locked archive and are not part of that private copy.
 The DISQOVER source archive remains governed separately by the repository's
-[LRA NOTICE](../../../../packages/bijux-pollenomics-lra/NOTICE).
+[LRA NOTICE](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/NOTICE).
 
 Set `BIJUX_LRA_CUSTODY_ROOT` to the restored private `lra-reference/` directory.
 With the recorded container image available locally, run the
