@@ -43,12 +43,12 @@ absolute errors of **4.3355** and **4.4585 percentage points** against the same
 training local sample. The largest taxon error exceeded **62 percentage points**
 in each ring. The finite cover vectors have no negative entries, but that does
 not certify the search, make a held-out prediction, or replace the original
-31-taxon analytical result. The [diagnostic producer](finite_candidate.py)
+31-taxon analytical result. The [diagnostic producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py)
 checks the exact request digest and revalidates its source evidence after the
 calculation; it publishes no LRA product.
 
 [report.json](report.json) retains the request identities, count denominator,
-budgets and refusal outcomes. [prepare.py](prepare.py) rebuilds and validates
+budgets and refusal outcomes. [prepare.py](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py) rebuilds and validates
 both exact request bytes from the private 193-file author source capsule, without
 depending on an `artifacts/` cache. Its output request SHA-256 values must match
 the report. The source-backed preparation was replayed successfully. Numerical

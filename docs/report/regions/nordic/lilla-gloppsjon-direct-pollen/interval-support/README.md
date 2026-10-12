@@ -36,7 +36,7 @@ not a probabilistic age correction or a forward-time score. The target was
 already exposed in the original descriptive development study. This result
 does not measure vegetation, admit LRA inputs or rank methods generally.
 
-The [producer](replay.py) verifies the committed prediction and scoring
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/replay.py) verifies the committed prediction and scoring
 protocols, every declared Neotoma source part, selected source age-claim values
 and bounds, and byte-reproduces the original sample, score and coverage files
 before computing this sensitivity. The [machine report](report.json) retains

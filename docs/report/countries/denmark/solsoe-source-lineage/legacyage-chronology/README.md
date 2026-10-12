@@ -41,7 +41,7 @@ sample-age basin geometry, or admit LRA input. It can support a separately
 declared observed-pollen chronology sensitivity with its own fixed prediction
 and matched-support accounting.
 
-The [producer](replay.py) checks source hashes and core/sample ownership, then
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py) checks source hashes and core/sample ownership, then
 writes the sample ledger, refusal ledger and report. Replay from the repository
 root into an absent disposable output directory:
 

@@ -61,7 +61,7 @@ The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd
 checks the 17 site identities, exact 31 target and prepared axes, source-file
 membership, raw header identities and positive prepared rows without exact
 raw-name leads before retaining the result. The separate
-[R witness script](whh05_header_parity.R) checks the actual parsed names,
+[R witness script](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/landclim/author-example-taxon-support/whh05_header_parity.R) checks the actual parsed names,
 author lookup targets and source/prepared sums for the five `WHH05` rows.
 
 ## Full author formatting replay
@@ -72,7 +72,7 @@ author sites. It consumes 871 raw sample rows. All **17 prepared files** match
 the retained author files byte-for-byte; all **15,028 cells** match, including
 taxon labels, window values and the zero-filled rows. The comparison CSV has
 SHA-256 `13b26b7828ade00ba4037ac334207c9b865a5032f33c40ffe17dc951397321ba`.
-The [replay script](author_prepared_replay.R) transcribes the calculation with
+The [replay script](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/landclim/author-example-taxon-support/author_prepared_replay.R) transcribes the calculation with
 absolute source paths and per-site scratch files under `artifacts/`; it does not
 claim execution of the original Windows-path wrapper unmodified.
 

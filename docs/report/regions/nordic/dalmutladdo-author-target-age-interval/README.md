@@ -31,7 +31,7 @@ Their differences from the strict scores reflect sample exclusion, not age
 reassignment or a new fit. No independent-site uncertainty or model ranking
 can be inferred from this two-bin support.
 
-The [producer](replay.py) maps the original Neotoma observations through the
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/regions/nordic/dalmutladdo-author-target-age-interval/replay.py) maps the original Neotoma observations through the
 exact author taxonomy lookup after predictions are frozen. It verifies all
 22 reconstructed nominal bins against the parent's sealed author-target
 counts and excluded/unmapped mass. The [machine report](report.json) records

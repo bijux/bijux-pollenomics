@@ -44,7 +44,7 @@ original bin. The parent columns score the full original pollen composition
 in those same eight bins. Their small differences reflect **sample support
 restriction**, not an age-driven change in bin membership or a better fit.
 
-The [producer](replay.py) reconstructs all 24 parent bin counts from the
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/replay.py) reconstructs all 24 parent bin counts from the
 original Neotoma observation part after the predictions have been frozen. It
 checks each parent bin's sample, total NISP and 16-label count denominator.
 The [machine report](report.json) retains source hashes and denominators.

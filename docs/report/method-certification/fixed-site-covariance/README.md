@@ -1,6 +1,6 @@
 # Fixed-site REVEALS covariance example
 
-The [replay](replay.py) evaluates a separately named
+The [replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/fixed-site-covariance/replay.py) evaluates a separately named
 `reveals-fixed-site-delta-covariance-v1` profile for two synthetic sites with
 different basin types and radii. It uses the existing source-bound GPM
 deposition implementation for a 75 m peatland and a 300 m lake, then combines

@@ -69,10 +69,10 @@ cmp artifacts/jobs/namibia-pollen-vegetation-replay/report.json \
   docs/report/vegetation-reference/namibia-pollen-vegetation/report.json
 ```
 
-The [producer](replay.py) refuses any source bytes differing from the pinned
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py) refuses any source bytes differing from the pinned
 SHA-256 hashes. Its output is deterministic and contains no local file paths.
 
-The [radius sensitivity producer](radius_sensitivity.py) consumes those same
+The [radius sensitivity producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py) consumes those same
 pinned original tables through the source-row join. Reproduce its two governed
 outputs from the repository root into an absent directory under `artifacts/`:
 
