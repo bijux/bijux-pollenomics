@@ -37,6 +37,10 @@ labels, and provider failures cannot obscure or compete with the evidence.
   <a class="md-button" href="../../../gallery/nordic-atlas/chronology/publication-manifest.json">Inspect media provenance</a>
 </div>
 
+If playback is unavailable, each animation keeps its caption, direct video link,
+and static poster link available below the player. The poster shows one view;
+it does not replace the full chronology.
+
 ## What Each Animation Represents
 
 | Animation | Governed population | Temporal presentation |
@@ -106,252 +110,252 @@ taxon in that country; it does not mean absence in the past environment.
 
 ## All Neotoma Pollen Samples
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-sample-presence-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.poster.png" aria-labelledby="chronology-neotoma-source-sample-presence-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.mp4">Open the all-sample chronology video.</a>
   </video>
-  <figcaption>All admitted Neotoma sample-presence nodes, replayed from the oldest dated window toward the present.</figcaption>
+  <figcaption id="chronology-neotoma-source-sample-presence-caption">All admitted Neotoma sample-presence nodes, replayed from the oldest dated window toward the present.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.mp4">Open the all-sample chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-sample-presence.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## TRSH — Trees and Shrubs
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-code-trsh-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.poster.png" aria-labelledby="chronology-neotoma-source-code-trsh-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.mp4">Open the TRSH chronology video.</a>
   </video>
-  <figcaption>Source-native TRSH observations only. The sequence shows dated observation visibility, not inferred dispersal.</figcaption>
+  <figcaption id="chronology-neotoma-source-code-trsh-caption">Source-native TRSH observations only. The sequence shows dated observation visibility, not inferred dispersal.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.mp4">Open the TRSH chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-trsh.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## UPHE — Upland Herbs
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-code-uphe-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.poster.png" aria-labelledby="chronology-neotoma-source-code-uphe-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.mp4">Open the UPHE chronology video.</a>
   </video>
-  <figcaption>Source-native UPHE observations only, with the same interval rules and four-country filter controls as the atlas.</figcaption>
+  <figcaption id="chronology-neotoma-source-code-uphe-caption">Source-native UPHE observations only, with the same interval rules and four-country filter controls as the atlas.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.mp4">Open the UPHE chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## AQVP — Aquatic Vascular Plants
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-code-aqvp-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.poster.png" aria-labelledby="chronology-neotoma-source-code-aqvp-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.mp4">Open the AQVP chronology video.</a>
   </video>
-  <figcaption>Source-native AQVP observations only. Empty windows remain empty instead of being filled or interpolated.</figcaption>
+  <figcaption id="chronology-neotoma-source-code-aqvp-caption">Source-native AQVP observations only. Empty windows remain empty instead of being filled or interpolated.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.mp4">Open the AQVP chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-aqvp.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Avena Source-Label Preset
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-preset-avena-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.poster.png" aria-labelledby="chronology-neotoma-source-preset-avena-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.mp4">Open the Avena source-label chronology video.</a>
   </video>
-  <figcaption>All observations whose literal source labels belong to the governed Avena preset: 110 nodes and 110 observations. This is not an accepted taxonomic classification.</figcaption>
+  <figcaption id="chronology-neotoma-source-preset-avena-caption">All observations whose literal source labels belong to the governed Avena preset: 110 nodes and 110 observations. This is not an accepted taxonomic classification.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.mp4">Open the Avena source-label chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Hordeum Source-Label Preset
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-preset-hordeum-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.poster.png" aria-labelledby="chronology-neotoma-source-preset-hordeum-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.mp4">Open the Hordeum source-label chronology video.</a>
   </video>
-  <figcaption>All observations whose literal source labels belong to the governed Hordeum preset: 572 nodes and 572 observations. Ambiguous labels remain visibly ambiguous.</figcaption>
+  <figcaption id="chronology-neotoma-source-preset-hordeum-caption">All observations whose literal source labels belong to the governed Hordeum preset: 572 nodes and 572 observations. Ambiguous labels remain visibly ambiguous.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.mp4">Open the Hordeum source-label chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Triticum Source-Label Preset
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-preset-triticum-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.poster.png" aria-labelledby="chronology-neotoma-source-preset-triticum-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.mp4">Open the Triticum source-label chronology video.</a>
   </video>
-  <figcaption>All observations whose literal source labels belong to the governed Triticum preset: 375 nodes and 375 observations. The sequence does not infer movement.</figcaption>
+  <figcaption id="chronology-neotoma-source-preset-triticum-caption">All observations whose literal source labels belong to the governed Triticum preset: 375 nodes and 375 observations. The sequence does not infer movement.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.mp4">Open the Triticum source-label chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Secale Source-Label Preset
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-preset-secale-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.poster.png" aria-labelledby="chronology-neotoma-source-preset-secale-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.mp4">Open the Secale source-label chronology video.</a>
   </video>
-  <figcaption>All observations whose literal source labels belong to the governed Secale preset: 707 nodes and 707 observations. Exact and ambiguous labels stay independently inspectable.</figcaption>
+  <figcaption id="chronology-neotoma-source-preset-secale-caption">All observations whose literal source labels belong to the governed Secale preset: 707 nodes and 707 observations. Exact and ambiguous labels stay independently inspectable.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.mp4">Open the Secale source-label chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Cerealia Source-Label Preset
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-preset-cerealia-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.poster.png" aria-labelledby="chronology-neotoma-source-preset-cerealia-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.mp4">Open the Cerealia source-label chronology video.</a>
   </video>
-  <figcaption>All observations whose literal source labels belong to the governed Cerealia preset: 676 nodes and 676 observations. This source-label view remains separate from modeled cereal context.</figcaption>
+  <figcaption id="chronology-neotoma-source-preset-cerealia-caption">All observations whose literal source labels belong to the governed Cerealia preset: 676 nodes and 676 observations. This source-label view remains separate from modeled cereal context.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.mp4">Open the Cerealia source-label chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Avena*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-3915-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.poster.png" aria-labelledby="chronology-neotoma-source-taxon-3915-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.mp4">Open the exact <em>Avena</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 3915 (<em>Avena</em>): 7 nodes and 7 observations.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-3915-caption">Only Neotoma source taxon 3915 (<em>Avena</em>): 7 nodes and 7 observations.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.mp4">Open the exact <em>Avena</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Hordeum*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-3923-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.poster.png" aria-labelledby="chronology-neotoma-source-taxon-3923-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.mp4">Open the exact <em>Hordeum</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 3923 (<em>Hordeum</em>): 87 nodes and 87 observations.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-3923-caption">Only Neotoma source taxon 3923 (<em>Hordeum</em>): 87 nodes and 87 observations.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.mp4">Open the exact <em>Hordeum</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Triticum*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-969-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.poster.png" aria-labelledby="chronology-neotoma-source-taxon-969-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4">Open the exact <em>Triticum</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 969 (<em>Triticum</em>): 153 nodes and 153 observations.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-969-caption">Only Neotoma source taxon 969 (<em>Triticum</em>): 153 nodes and 153 observations.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4">Open the exact <em>Triticum</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Secale*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-967-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.poster.png" aria-labelledby="chronology-neotoma-source-taxon-967-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4">Open the exact <em>Secale</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 967 (<em>Secale</em>): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-967-caption">Only Neotoma source taxon 967 (<em>Secale</em>): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4">Open the exact <em>Secale</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — Poaceae (Cerealia)
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-416-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.poster.png" aria-labelledby="chronology-neotoma-source-taxon-416-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4">Open the exact Poaceae (Cerealia) chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 416, Poaceae (Cerealia): 28 nodes and 28 observations.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-416-caption">Only Neotoma source taxon 416, Poaceae (Cerealia): 28 nodes and 28 observations.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4">Open the exact Poaceae (Cerealia) chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Avena/Triticum*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-415-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.poster.png" aria-labelledby="chronology-neotoma-source-taxon-415-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.mp4">Open the exact <em>Avena/Triticum</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 415 (<em>Avena/Triticum</em>): 34 nodes and 34 observations. It is not resolved to either genus.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-415-caption">Only Neotoma source taxon 415 (<em>Avena/Triticum</em>): 34 nodes and 34 observations. It is not resolved to either genus.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.mp4">Open the exact <em>Avena/Triticum</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Hordeum/Secale*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-3924-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.poster.png" aria-labelledby="chronology-neotoma-source-taxon-3924-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4">Open the exact <em>Hordeum/Secale</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 3924 (<em>Hordeum/Secale</em>): 2 nodes and 2 observations. It is not merged into either genus.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-3924-caption">Only Neotoma source taxon 3924 (<em>Hordeum/Secale</em>): 2 nodes and 2 observations. It is not merged into either genus.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4">Open the exact <em>Hordeum/Secale</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Exact Taxon — *Secale cereale*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-neotoma-source-taxon-3926-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.poster.png" aria-labelledby="chronology-neotoma-source-taxon-3926-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.mp4">Open the exact <em>Secale cereale</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 3926 (<em>Secale cereale</em>): 191 nodes and 191 observations. This observed source category remains separate from the modeled PANGAEA metric below.</figcaption>
+  <figcaption id="chronology-neotoma-source-taxon-3926-caption">Only Neotoma source taxon 3926 (<em>Secale cereale</em>): 191 nodes and 191 observations. This observed source category remains separate from the modeled PANGAEA metric below.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.mp4">Open the exact <em>Secale cereale</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Modeled Cereal Type — Cerealia.t
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-cerealia-t-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.poster.png" aria-labelledby="chronology-pangaea-937075-metric-cerealia-t-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.mp4">Open the modeled cereal-type chronology video.</a>
   </video>
-  <figcaption>Cerealia.t modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. This surface is distinct from exact source-taxon observations and is not an abundance or propagation claim.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-cerealia-t-caption">Cerealia.t modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. This surface is distinct from exact source-taxon observations and is not an abundance or propagation claim.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.mp4">Open the modeled cereal-type chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Modeled *Secale cereale*
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-secale-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.poster.png" aria-labelledby="chronology-pangaea-937075-metric-secale-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.mp4">Open the modeled <em>Secale cereale</em> chronology video.</a>
   </video>
-  <figcaption><em>Secale cereale</em> modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is kept separate from Neotoma source taxon 967 and is not treated as an observed trajectory.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-secale-caption"><em>Secale cereale</em> modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is kept separate from Neotoma source taxon 967 and is not treated as an observed trajectory.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.mp4">Open the modeled <em>Secale cereale</em> chronology video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Open-Land Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-ol-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.poster.png" aria-labelledby="chronology-pangaea-937075-metric-ol-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.mp4">Open the open-land modeled-context video.</a>
   </video>
-  <figcaption>Open-land metric OL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows from 11,700 BP toward the present.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-ol-caption">Open-land metric OL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows from 11,700 BP toward the present.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.mp4">Open the open-land modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Evergreen-Tree Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-et-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.poster.png" aria-labelledby="chronology-pangaea-937075-metric-et-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.mp4">Open the evergreen-tree modeled-context video.</a>
   </video>
-  <figcaption>Evergreen-tree land-cover metric ET from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is context, not a source-observation or propagation layer.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-et-caption">Evergreen-tree land-cover metric ET from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is context, not a source-observation or propagation layer.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.mp4">Open the evergreen-tree modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Summer-Green-Tree Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-st-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.poster.png" aria-labelledby="chronology-pangaea-937075-metric-st-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.mp4">Open the summer-green-tree modeled-context video.</a>
   </video>
-  <figcaption>Summer-green-tree land-cover metric ST from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is not silently combined with ET or source pollen observations.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-st-caption">Summer-green-tree land-cover metric ST from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is not silently combined with ET or source pollen observations.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.mp4">Open the summer-green-tree modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Low-Shrub Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-lse-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.poster.png" aria-labelledby="chronology-pangaea-937075-metric-lse-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.mp4">Open the low-shrub modeled-context video.</a>
   </video>
-  <figcaption>Low shrub, broadleaved evergreen source PFT code LSE from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-lse-caption">Low shrub, broadleaved evergreen source PFT code LSE from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.mp4">Open the low-shrub modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Grassland Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-gl-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.poster.png" aria-labelledby="chronology-pangaea-937075-metric-gl-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.mp4">Open the grassland modeled-context video.</a>
   </video>
-  <figcaption>Grassland — all herbs source PFT code GL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-gl-caption">Grassland — all herbs source PFT code GL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.mp4">Open the grassland modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## PANGAEA Agricultural-Land Context
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.poster.png">
+<figure class="bijux-media-card" aria-labelledby="chronology-pangaea-937075-metric-al-caption">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.poster.png" aria-labelledby="chronology-pangaea-937075-metric-al-caption">
     <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.mp4">Open the agricultural-land modeled-context video.</a>
   </video>
-  <figcaption>Agricultural land — cereals source PFT code AL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It remains distinct from exact cereal-taxon evidence.</figcaption>
+  <figcaption id="chronology-pangaea-937075-metric-al-caption">Agricultural land — cereals source PFT code AL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It remains distinct from exact cereal-taxon evidence.</figcaption>
+  <p><a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.mp4">Open the agricultural-land modeled-context video.</a> <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.poster.png">Inspect the static poster.</a></p>
 </figure>
 
 ## Scientific Boundary

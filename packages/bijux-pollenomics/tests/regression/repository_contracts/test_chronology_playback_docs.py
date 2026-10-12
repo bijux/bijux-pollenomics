@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from html.parser import HTMLParser
 import json
 from typing import TypedDict
 
@@ -309,6 +310,83 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
             relative = f"media/{story_id}{suffix}"
             assert (PUBLICATION_ROOT / relative).is_file()
             assert f"../../../gallery/nordic-atlas/chronology/{relative}" in page
+
+
+class _MediaFigure(TypedDict):
+    container: dict[str, str | None]
+    video: dict[str, str | None]
+    caption: dict[str, str | None]
+    caption_text: str
+    links: list[str | None]
+
+
+class _MediaFigureParser(HTMLParser):
+    """Inspect authored native media names and links outside video fallback content."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.figures: list[_MediaFigure] = []
+        self.figure: _MediaFigure | None = None
+        self.in_video = False
+        self.in_caption = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "figure" and values.get("class") == "bijux-media-card":
+            self.figure = {
+                "container": values,
+                "video": {},
+                "caption": {},
+                "caption_text": "",
+                "links": [],
+            }
+            self.figures.append(self.figure)
+        if self.figure is None:
+            return
+        if tag == "video":
+            self.in_video = True
+            self.figure["video"] = values
+        elif tag == "figcaption":
+            self.in_caption = True
+            self.figure["caption"] = values
+        elif tag == "a" and not self.in_video:
+            self.figure["links"].append(values.get("href"))
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "video":
+            self.in_video = False
+        elif tag == "figcaption":
+            self.in_caption = False
+        elif tag == "figure":
+            self.figure = None
+
+    def handle_data(self, data: str) -> None:
+        if self.figure is not None and self.in_caption:
+            self.figure["caption_text"] += data
+
+
+def test_native_videos_have_specific_caption_names_and_visible_alternatives() -> None:
+    chronology = _MediaFigureParser()
+    chronology.feed(PAGE.read_text(encoding="utf-8"))
+    fieldwork = _MediaFigureParser()
+    fieldwork.feed(
+        (
+            REPO_ROOT / "docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md"
+        ).read_text(encoding="utf-8")
+    )
+    figures = chronology.figures + fieldwork.figures
+    assert len(chronology.figures) == len(EXPECTED_STORIES)
+    assert len(fieldwork.figures) == 1
+    names = [figure["caption"]["id"] for figure in figures]
+    assert len(set(names)) == len(names)
+    for figure in figures:
+        assert figure["container"]["aria-labelledby"] == figure["caption"]["id"]
+        assert figure["video"]["aria-labelledby"] == figure["caption"]["id"]
+        assert figure["caption_text"].strip()
+    for story_id, figure in zip(EXPECTED_STORIES, chronology.figures, strict=True):
+        prefix = f"../../../gallery/nordic-atlas/chronology/media/{story_id}"
+        assert prefix + ".mp4" in figure["links"]
+        assert prefix + ".poster.png" in figure["links"]
 
 
 def test_chronology_page_preserves_scientific_refusals() -> None:

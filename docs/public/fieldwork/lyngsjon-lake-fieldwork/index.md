@@ -83,12 +83,12 @@ visit validates the ranking.
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline>
+<figure class="bijux-media-card" aria-labelledby="lyngsjon-field-video-caption">
+  <video controls preload="metadata" muted playsinline aria-labelledby="lyngsjon-field-video-caption">
     <source src="../../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
     <a href="../../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
   </video>
-  <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts muted so the visit can be inspected without forcing audio.</figcaption>
+  <figcaption id="lyngsjon-field-video-caption">Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts muted so the visit can be inspected without forcing audio.</figcaption>
 </figure>
 
 ## Supported Interpretation
