@@ -35,7 +35,7 @@ Each metadata radius is interpreted as a fixed circular receiving disk:
 98 m for Abborrtjärnen, 80 m for Bökesjön, 69 m for Bussjösjön and 100 m for
 Tibetanus. The homogeneous land annulus extends from that disk edge to
 100 km. The maintained
-[physical receiver response](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py)
+[physical receiver response](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py)
 uses the source GPM convention with fall speed and wind in m/s, distance
 in metres, turbulence parameter 0.25 and empirical transport coefficient
 0.12. That coefficient is not an SI diffusivity in m²/s. Uniform disk
@@ -43,7 +43,7 @@ reception, stationary isotropic transport and a fixed basin are scenario
 assumptions. Tibetanus retains the metadata-versus-native elevation
 disagreement (161 versus 568 m) and approximately 398 m coordinate separation.
 
-The [conditional inverse correction](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py)
+The [conditional inverse correction](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py)
 closes weights proportional to each count divided by its physical response
 and PPE. Public LandClim PPE standard deviations supply a diagonal covariance
 with all off-diagonal covariances assumed zero. Conditional standard errors

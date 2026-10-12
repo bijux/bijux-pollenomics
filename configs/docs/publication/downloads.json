@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "scope": "retained-public-geojson-downloads",
+  "files": [
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+      "sha256": "36058f5e804239982eeae9e04e9a7e2239e9927632ee8dd82ef359d076f9bc20",
+      "bytes": 193169,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "a8df7213defbf00fc66be2fd46de430910c51313c488f3020718eca6cbd9c124",
+      "bytes": 193159,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+      "sha256": "d3dd75496c0137a26209fa371fd4e59a15459d67f030e47e312b141be6a90341",
+      "bytes": 193141,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+      "sha256": "450b575deb8ef811aecc0a486c85489252331a8d9a842f707580ddd08bf312e4",
+      "bytes": 193168,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+      "sha256": "a5bb4e04ce2b6835425d4638d6f25b8702dd4476374f8453dd5f73a528ea174b",
+      "bytes": 43626,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+      "sha256": "10aa32983dd623f7113fc9ee8d58d7efddffe5fca766ede663e0bfd391fb1b60",
+      "bytes": 43616,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "0fbaab676cffa139c00c09628cb4243d2077c8013df9f82a042d0fae42343f4b",
+      "bytes": 43598,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+      "sha256": "3f2aa17414a14cc19e79ba6df41c9a6b2af78791f2ba51918b7c3dcc18d76200",
+      "bytes": 43625,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+      "sha256": "36058f5e804239982eeae9e04e9a7e2239e9927632ee8dd82ef359d076f9bc20",
+      "bytes": 193169,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "a8df7213defbf00fc66be2fd46de430910c51313c488f3020718eca6cbd9c124",
+      "bytes": 193159,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+      "sha256": "d3dd75496c0137a26209fa371fd4e59a15459d67f030e47e312b141be6a90341",
+      "bytes": 193141,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+      "sha256": "450b575deb8ef811aecc0a486c85489252331a8d9a842f707580ddd08bf312e4",
+      "bytes": 193168,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+      "sha256": "a5bb4e04ce2b6835425d4638d6f25b8702dd4476374f8453dd5f73a528ea174b",
+      "bytes": 43626,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+      "sha256": "10aa32983dd623f7113fc9ee8d58d7efddffe5fca766ede663e0bfd391fb1b60",
+      "bytes": 43616,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "0fbaab676cffa139c00c09628cb4243d2077c8013df9f82a042d0fae42343f4b",
+      "bytes": 43598,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+      "source": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+      "sha256": "3f2aa17414a14cc19e79ba6df41c9a6b2af78791f2ba51918b7c3dcc18d76200",
+      "bytes": 43625,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/denmark/denmark_aadr_v66_samples.geojson",
+      "source": "docs/report/countries/denmark/denmark_aadr_v66_samples.geojson",
+      "sha256": "86ab0fbbe05da90937644d0ec020951dd59e5143fbfe9652117aa59a0ddf902e",
+      "bytes": 1007666,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/denmark/denmark_animal_adna_v66_localities.geojson",
+      "source": "docs/report/countries/denmark/denmark_animal_adna_v66_localities.geojson",
+      "sha256": "b6231c066a6e4e6aa9286e8cd1889f69f07ae3d523070b73f41766a94a8ef416",
+      "bytes": 21130,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/finland/finland_aadr_v66_samples.geojson",
+      "source": "docs/report/countries/finland/finland_aadr_v66_samples.geojson",
+      "sha256": "b03821a900243266f961bc7ab83749447a9307269aa4d8966f96a2b9137c2321",
+      "bytes": 46484,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/finland/finland_animal_adna_v66_localities.geojson",
+      "source": "docs/report/countries/finland/finland_animal_adna_v66_localities.geojson",
+      "sha256": "dc342ffe9ef9935b0a2b269d86ea8a98d77c227fab587c11089208a62eef957e",
+      "bytes": 5216,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/norway/norway_aadr_v66_samples.geojson",
+      "source": "docs/report/countries/norway/norway_aadr_v66_samples.geojson",
+      "sha256": "a2c62a17d88903e5d57f53996dabdd107447ab19535fd0b043b4d4aca312167c",
+      "bytes": 200062,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/norway/norway_animal_adna_v66_localities.geojson",
+      "source": "docs/report/countries/norway/norway_animal_adna_v66_localities.geojson",
+      "sha256": "887dc645502686530c572a9ff03ebb143f2377cc834516fe9df790318754dce6",
+      "bytes": 131,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/sweden/sweden_aadr_v66_samples.geojson",
+      "source": "docs/report/countries/sweden/sweden_aadr_v66_samples.geojson",
+      "sha256": "98143b32699722c784a1923db2ad38b91f9c859a04c231cb32971062604e3932",
+      "bytes": 644616,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/sweden/sweden_animal_adna_v66_localities.geojson",
+      "source": "docs/report/countries/sweden/sweden_animal_adna_v66_localities.geojson",
+      "sha256": "725903c1a792f73048b9880a7e2e9c4bb0bee7b4aea9c78fffdd8167f6cbd314",
+      "bytes": 15225,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/countries/sweden/sweden_lake_evidence_richness_v66.geojson",
+      "source": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.geojson",
+      "sha256": "9ecdafe2ce4c617b6be7420a06e6918223f34a6f429bfe957ee733c49d03be4d",
+      "bytes": 51,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
+      "source": "docs/report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
+      "sha256": "5439b70710442878bf66a9ea6e05431976a5ed4f23196f49d54e59100fd3b7f2",
+      "bytes": 1581,
+      "kind": "native-sequence-data",
+      "purpose": "Native Swedish sequence map runtime and data download."
+    },
+    {
+      "path": "report/regions/europe-plus/europe-plus_animal_localities.geojson",
+      "source": "docs/report/regions/europe-plus/europe-plus_animal_localities.geojson",
+      "sha256": "eb7da0f22d6929f3d51f95e8feaaf30c0081007698a326f7195778ff19f1f88c",
+      "bytes": 91475,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/europe-plus/europe-plus_comparator_animal_localities.geojson",
+      "source": "docs/report/regions/europe-plus/europe-plus_comparator_animal_localities.geojson",
+      "sha256": "b07a64375a1ec5bf9816fbb9c7371466f46bb19f1101f70a7e69d96fc9befba3",
+      "bytes": 300,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/europe-plus/europe-plus_domesticated_animal_localities.geojson",
+      "source": "docs/report/regions/europe-plus/europe-plus_domesticated_animal_localities.geojson",
+      "sha256": "a67a96dd55c1f3abfd9c594b81ec93908fcdf6601fb13ac56f2cdfe142b03301",
+      "bytes": 45518,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/europe-plus/europe-plus_progenitor_animal_localities.geojson",
+      "source": "docs/report/regions/europe-plus/europe-plus_progenitor_animal_localities.geojson",
+      "sha256": "d8ec5f88483ef22e3309f01a5091299e35421b59f37d5be83e6bb90e88c03714",
+      "bytes": 46591,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/europe-plus/europe-plus_samples.geojson",
+      "source": "docs/report/regions/europe-plus/europe-plus_samples.geojson",
+      "sha256": "6e2b35ac9e8c21a0f59ce3dd8c0f3c2d77c26de2d384c604f8dfec84de02204e",
+      "bytes": 1898498,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/europe-plus/nordic_country_boundaries.geojson",
+      "source": "docs/report/regions/europe-plus/nordic_country_boundaries.geojson",
+      "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "bytes": 2228017,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_animal_localities.geojson",
+      "source": "docs/report/regions/nordic/nordic_animal_localities.geojson",
+      "sha256": "eb7da0f22d6929f3d51f95e8feaaf30c0081007698a326f7195778ff19f1f88c",
+      "bytes": 91475,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_comparator_animal_localities.geojson",
+      "source": "docs/report/regions/nordic/nordic_comparator_animal_localities.geojson",
+      "sha256": "b07a64375a1ec5bf9816fbb9c7371466f46bb19f1101f70a7e69d96fc9befba3",
+      "bytes": 300,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_country_boundaries.geojson",
+      "source": "docs/report/regions/nordic/nordic_country_boundaries.geojson",
+      "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "bytes": 2228017,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_domesticated_animal_localities.geojson",
+      "source": "docs/report/regions/nordic/nordic_domesticated_animal_localities.geojson",
+      "sha256": "a67a96dd55c1f3abfd9c594b81ec93908fcdf6601fb13ac56f2cdfe142b03301",
+      "bytes": 45518,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_environmental_sites.geojson",
+      "source": "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+      "sha256": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
+      "bytes": 9022653,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_pollen_site_sequences.geojson",
+      "source": "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+      "sha256": "674f64d75a150424eacb47b2b777b03fff477c792cc5ff39f0425c21e58ca19e",
+      "bytes": 1583525,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_pollen_sites.geojson",
+      "source": "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+      "sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+      "bytes": 925942,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_progenitor_animal_localities.geojson",
+      "source": "docs/report/regions/nordic/nordic_progenitor_animal_localities.geojson",
+      "sha256": "d8ec5f88483ef22e3309f01a5091299e35421b59f37d5be83e6bb90e88c03714",
+      "bytes": 46591,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
+      "source": "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson",
+      "sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e",
+      "bytes": 17075784,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/nordic_samples.geojson",
+      "source": "docs/report/regions/nordic/nordic_samples.geojson",
+      "sha256": "6e2b35ac9e8c21a0f59ce3dd8c0f3c2d77c26de2d384c604f8dfec84de02204e",
+      "bytes": 1898498,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/sweden_archaeology_density.geojson",
+      "source": "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+      "sha256": "acac7a952dc31be8b988ecb35386c877628e2580fae427f32281310635489d20",
+      "bytes": 73719,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/regions/nordic/sweden_archaeology_site_discovery.geojson",
+      "source": "docs/report/regions/nordic/sweden_archaeology_site_discovery.geojson",
+      "sha256": "09ad82dfd7f24bdc9e4cd77239bc7e9357334526767a953c3a9cc76a29453686",
+      "bytes": 29641973,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/nordic_country_boundaries.geojson",
+      "source": "docs/report/world/nordic_country_boundaries.geojson",
+      "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "bytes": 2228017,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/world_animal_localities.geojson",
+      "source": "docs/report/world/world_animal_localities.geojson",
+      "sha256": "42d9874cd4c9d3e4f8a3bc8c68cab867175a0099372b8db5ed94a34410a4c46a",
+      "bytes": 1740594,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/world_comparator_animal_localities.geojson",
+      "source": "docs/report/world/world_comparator_animal_localities.geojson",
+      "sha256": "b07a64375a1ec5bf9816fbb9c7371466f46bb19f1101f70a7e69d96fc9befba3",
+      "bytes": 300,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/world_domesticated_animal_localities.geojson",
+      "source": "docs/report/world/world_domesticated_animal_localities.geojson",
+      "sha256": "139203c11619206bae0eb43508a11e49009f11514170c179df94ee3e088cb0b3",
+      "bytes": 1163318,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/world_progenitor_animal_localities.geojson",
+      "source": "docs/report/world/world_progenitor_animal_localities.geojson",
+      "sha256": "2059efcf581c60ec785fa6fc5282beb2a1d302d7406d94e95ec6e49ed84e279c",
+      "bytes": 582932,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    },
+    {
+      "path": "report/world/world_samples.geojson",
+      "source": "docs/report/world/world_samples.geojson",
+      "sha256": "6e2b35ac9e8c21a0f59ce3dd8c0f3c2d77c26de2d384c604f8dfec84de02204e",
+      "bytes": 1898498,
+      "kind": "geojson-download",
+      "purpose": "Retained source-bound map or browser-observation GeoJSON download; no new scientific computation."
+    }
+  ]
+}

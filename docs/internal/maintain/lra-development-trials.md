@@ -137,7 +137,7 @@ pollen. Local pollen cannot be scored as a held-out pollen target.
 
 Invoke the plan with `python -m bijux_pollenomics_dev.lra_validation.trial_runner
 PLAN.json` **as the command of a managed job**. The direct behavioral fixture is
-[`test_trial_runner.py`](../../../packages/bijux-pollenomics-dev/tests/lra_validation/test_trial_runner.py).
+[`test_trial_runner.py`](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/tests/lra_validation/test_trial_runner.py).
 Do not score final-test observations through this development runner. This
 mechanism records attempts; it does not admit source rows, certify a split,
 select parameters, establish ecological accuracy or replace qualified review.

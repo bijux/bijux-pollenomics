@@ -89,7 +89,7 @@ are separate from claim rows and ecological events.
 
 ## Handoff accounting
 
-The read-only [handoff verifier](verify_handoff_accounting.py) binds the raw
+The read-only [handoff verifier](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/sead/verify_handoff_accounting.py) binds the raw
 admission and manifest to the normalized materialization, source-key summary,
 86-edge public custody, age review, four-country chronology and observation
 accounts, and built map audit. It checks the owned input digests and shared
@@ -118,7 +118,7 @@ dataset screen, numerical values, integer values, country chronology, country
 coverage and country source units. Their producers reproduced all **11 governed
 JSON/CSV files byte for byte** from the admitted source and normalized inputs.
 All 15 local links in the six explanatory pages resolved. The
-[owner verifier](verify_report_owners.py) binds each producer to its exact output
+[owner verifier](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/sead/verify_report_owners.py) binds each producer to its exact output
 names and refuses an extra, missing or differing generated file. Run it from the
 repository root with a new destination:
 

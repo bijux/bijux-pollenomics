@@ -20,7 +20,7 @@ unresolved.
 The [result](report.json) binds the author source revision and private reference
 receipt to the scored denominators and method. The [prediction](predictions.csv)
 and [score](scores.csv) ledgers are the retained numeric outputs. The
-[family replay](replay.py) checks the private source identity, runs the existing
+[family replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py) checks the private source identity, runs the existing
 producer, normalizes its two CSV line endings and verifies all four tracked
 outputs. From the repository root, use an absent output directory under
 `artifacts/`:

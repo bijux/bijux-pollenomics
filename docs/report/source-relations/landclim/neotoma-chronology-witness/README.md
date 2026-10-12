@@ -1,6 +1,6 @@
 # FLINK and STAV chronology witnesses
 
-The [replay](replay.py) pairs two hash-bound private Rootsi workbooks with the
+The [replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py) pairs two hash-bound private Rootsi workbooks with the
 retained Neotoma/EPD source download. The [report](report.json) preserves source
 identities, depth joins, age comparisons, and count-cell status without copying
 the private workbook cells. The [Rootsi overlap ledger](../../rootsi-landclim-overlap/README.md)

@@ -1,8 +1,8 @@
 # LOVE optimizer solution quality on shared objectives
 
 The [three declared objectives](cases.json) are direct numerical calls to the
-DISQOVER 0.9.14 `tf` LOVE objective. The [R solver](solver.R) uses the actual
-source-installed `RcppDE::DEoptim`; the [Python replay](replay.py) uses the
+DISQOVER 0.9.14 `tf` LOVE objective. The [R solver](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/optimizer-solution-quality/solver.R) uses the actual
+source-installed `RcppDE::DEoptim`; the [Python replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/optimizer-solution-quality/replay.py) uses the
 engine's bounded `optimize_box`. Both receive identical deposition, regional
 background, pollen, PPE, box bounds and iteration cap. Each side also evaluates
 the other side's selected candidate. The retained [summary](summary.csv),

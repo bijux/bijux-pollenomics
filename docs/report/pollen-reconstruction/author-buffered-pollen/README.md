@@ -36,7 +36,7 @@ are redistributed here.
 The baseline and taxon comparison directories retain the same current v3
 comparison, including site, block and taxon diagnostics. The earlier v1
 baseline contained the same method summaries and score receipts but did not
-include those diagnostics. The [family replay](replay.py) rebuilds the local
+include those diagnostics. The [family replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-buffered-pollen/replay.py) rebuilds the local
 site mean, four methods on both grids, scores and five comparisons from the
 private author capsule. It checks the declared source and producer identities,
 then compares all 51 generated files to this tracked family. From the repository

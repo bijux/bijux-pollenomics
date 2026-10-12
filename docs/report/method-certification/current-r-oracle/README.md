@@ -79,7 +79,7 @@ The mapped output contains only `report.json` and `source-replay.json`. Its sibl
 
 ## Reproduction
 
-A new native execution uses the maintained `bijux_pollenomics_dev.lra_validation.live_reference` producer, the locked R runtime, Fortran toolchain and dependency archives. The [source lock](../../../../configs/ci/lra-r-source-lock.v1.json) identifies the exact archive bytes. The public acquisition metadata at `data/method-certification/native-r/public-acquisition.json` records fresh public retrieval; the producer's existing cache-path label does not establish historical private archive provenance. Toolchain, source, environment and input custody must be qualified for each new execution before its results can be admitted as a separate source packet. Historical captures remain immutable.
+A new native execution uses the maintained `bijux_pollenomics_dev.lra_validation.live_reference` producer, the locked R runtime, Fortran toolchain and dependency archives. The [source lock](https://github.com/bijux/bijux-pollenomics/blob/main/configs/ci/lra-r-source-lock.v1.json) identifies the exact archive bytes. The public acquisition metadata at `data/method-certification/native-r/public-acquisition.json` records fresh public retrieval; the producer's existing cache-path label does not establish historical private archive provenance. Toolchain, source, environment and input custody must be qualified for each new execution before its results can be admitted as a separate source packet. Historical captures remain immutable.
 
 A new run requires the qualified R, Rscript and Fortran executables. Set
 `BIJUX_R`, `BIJUX_RSCRIPT` and `BIJUX_FORTRAN` to their physical executable
@@ -112,4 +112,4 @@ python -m pytest -q \
 
 ## Scientific and release boundary
 
-The [source replay verifier](verify_source_replay.py) checks the retained numeric identities and current declared source closure. This verifier and the retained comparison provide separate evidence from fresh native execution. Neither supplies the locked Linux release certificate, provider rights, independent vegetation observations or full scientific acceptance.
+The [source replay verifier](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/current-r-oracle/verify_source_replay.py) checks the retained numeric identities and current declared source closure. This verifier and the retained comparison provide separate evidence from fresh native execution. Neither supplies the locked Linux release certificate, provider rights, independent vegetation observations or full scientific acceptance.

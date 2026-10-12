@@ -62,7 +62,7 @@ prediction bundle has different run metadata, but all 1,260 retained
 vegetation and forward-pollen values match the governed prediction table
 exactly. Its 126 radius scores are byte-identical to the governed scores;
 only the source and freeze identities in the new run report differ. The
-[producer](../radius_sensitivity.py) verifies the candidate bundle members
+[producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py) verifies the candidate bundle members
 and every numerical prediction cell against that retained table before it
 freezes the radius projections.
 

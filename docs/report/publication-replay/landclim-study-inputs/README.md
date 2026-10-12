@@ -12,7 +12,7 @@ declared evidence closure. Its source labels include 84 Swedish, 66 Danish,
 42 Norwegian and 31 Finnish rows; these are workbook strings, not admitted
 country assignments or independent pollen cohorts.
 
-The [records](records.jsonl) are publication metadata. A locator such as a
+The [records](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/publication-replay/landclim-study-inputs/records.jsonl) are publication metadata. A locator such as a
 workbook row, site name, CSV filename or restriction label does not supply the
 historical count table, age-model selection, source revision bridge or legal
 permission for that sequence. The crosswalk deliberately leaves the

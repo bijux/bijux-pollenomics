@@ -8,7 +8,7 @@ of 10, two deterministic repeats, and the same 32 fixed candidate vectors at
 each supported ring. Its contract SHA-256 is
 `478b28478239789509a9dff15e0d6bb84d4428a363df5bf59eb3e26e16e16b2a`.
 
-The [producer](compare.py) exports pollen, parameters, rings, and the candidate
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/numerical-performance/love-source-comparison/compare.py) exports pollen, parameters, rings, and the candidate
 matrix to one CSV input set. Each numeric CSV has a hexadecimal-float sidecar
 that preserves the exact binary values across R and Python decimal parsers.
 It checks the exported numbers against the packaged values and checks R's
@@ -16,7 +16,7 @@ parsed doubles and labels against Python's. Then **both** the current Python
 public `run_love` call and native source-R `LOVEoptim` read those same files.
 Without the sidecars, base R's decimal parser differs by one binary unit in
 some candidate and ring cells, despite identical CSV text.
-The [R replay](replay.R) uses the installed DISQOVER 0.9.14 source with R 4.6.0.
+The [R replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/numerical-performance/love-source-comparison/replay.R) uses the installed DISQOVER 0.9.14 source with R 4.6.0.
 Only regional/local random sampling and RcppDE's search are replaced by
 deterministic samplers and fixed-candidate evaluation, using the maintained
 source oracle support file. Each engine evaluates 32 candidates at each of eight active

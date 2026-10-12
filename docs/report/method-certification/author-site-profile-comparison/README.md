@@ -1,6 +1,6 @@
 # Historical and reviewed author-site REVEALS summaries
 
-This [replay](replay.py) uses the six released author example sites at grid 512,
+This [replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/author-site-profile-comparison/replay.py) uses the six released author example sites at grid 512,
 225 BP and the ten positive-at-every-site taxa in the [conditional author-site
 study](../author-site-uncertainty/README.md). It reads the same source-prepared
 counts, deposition factors and 1,024 retained draw identities. The first 1,000

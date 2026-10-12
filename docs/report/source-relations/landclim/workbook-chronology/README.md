@@ -1,6 +1,6 @@
 # Rootsi workbook age-column audit
 
-The [replay](replay.py) verifies the four private workbook hashes against the
+The [replay](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/landclim/workbook-chronology/replay.py) verifies the four private workbook hashes against the
 [79-sequence overlap ledger](../../rootsi-landclim-overlap/overlap.csv), then
 reads only the source-native age-column structure. Its [report](report.json)
 retains exact sheet-row locations and values for chronology reversals. The

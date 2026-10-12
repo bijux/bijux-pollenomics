@@ -46,7 +46,7 @@ retained sample changes bins. The parent columns use complete original pollen
 compositions in those same eight bins. Their differences reflect **sample
 support restriction**, not age reassignment or a new fit.
 
-The [producer](replay.py) maps the original Neotoma observation counts through
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/replay.py) maps the original Neotoma observation counts through
 the exact author taxonomy lookup after predictions are frozen. It checks all
 24 reconstructed parent bins against the sealed author-target counts and
 assigned, excluded and unmapped mass. The [machine report](report.json)

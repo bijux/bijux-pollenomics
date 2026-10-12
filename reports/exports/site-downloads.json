@@ -76,29 +76,29 @@
       "bytes": 176547,
       "canonical_source": "presentation/big-picture.tex",
       "path": "presentation/big-picture.pdf",
-      "sha256": "3131ed5daac8fc8395e3fb2cb6be95fd1c09ff7729dc44b6964a620f8bdd4ed6",
+      "sha256": "4933af24c4eba32acfb23b36b0d15ffe304b0a0a73fa5dca0e9fcb9a6f81648c",
       "site_uri": "assets/science/presentations/big-picture.pdf",
-      "source_sha256": "e73a8cd7a5518ad87cfcb2ef5c3ba5fe3494c69f4ededc952026a2591cac9995"
+      "source_sha256": "24fe37b4bc56f66a9c9305da0adf2b02164ae2257628bee56abe2bc337289609"
     },
     {
-      "bytes": 158936,
+      "bytes": 159027,
       "canonical_source": "presentation/developer.tex",
       "path": "presentation/developer.pdf",
-      "sha256": "277b0da32a57676238259c641ec4f7310000ad5d564866aa117d5d4f3dc17433",
+      "sha256": "3723c3d0b37177ab7d6cd83c9e2958b095c6751169477c294251afa94de73345",
       "site_uri": "assets/science/presentations/developer.pdf",
-      "source_sha256": "6bf7568a78ae966fae6554054e4ca536eedfc06a61468803e3775d0bc45806cf"
+      "source_sha256": "2be5a3802da2252affa40db019f3faf229eb8811714f7ab30f416d65390d4f53"
     },
     {
-      "bytes": 211180,
+      "bytes": 212688,
       "canonical_source": "presentation/scientific-evidence.tex",
       "path": "presentation/scientific-evidence.pdf",
-      "sha256": "3f5e143b06b50eaf6ce9ce3d8a6c3f70acc5f3fd44646fb251dc063335fc32b9",
+      "sha256": "9c79eb12e8502c46c66a27f0ffcdb0e6e740f6627fae87ac95fae165019fa570",
       "site_uri": "assets/science/presentations/scientific-evidence.pdf",
-      "source_sha256": "a8bee0b8f9f9a3a271357df53394ae587d0949c53bf45094aa9176890b5d9a29"
+      "source_sha256": "0e5f0430468f79b7832aa25258fe929a8bec482f40bd07f94d42440066a2dac6"
     }
   ],
   "inputs": {
-    "presentation/source-lock.json": "66c2740eeeb2d01b30df540819b002d26a2c507d3f8cafcdb856f852c8babbf6",
+    "presentation/source-lock.json": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
     "reports/exports/papers/manifest.json": "9faaaf74f85ced515c849facaf43944a2e545152f2a07eca8524f4c1173b0c50",
     "reports/exports/papers/visual-review.json": "5a0639e613ba00c9600ba613642f3d16eafe1eb131368185922b33f2f1869393",
     "reports/science/paper-accounts.csv": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9"

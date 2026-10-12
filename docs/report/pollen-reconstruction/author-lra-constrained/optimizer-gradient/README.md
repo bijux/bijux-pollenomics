@@ -11,7 +11,7 @@ fixed. No held-out target pollen is opened or scored.
 
 [baseline.json](baseline.json) freezes the original request SHA-256 and both
 ring diagnostics for each training item, plus the governed source experiment
-and private-source manifest identities. [replay.py](replay.py) checks those
+and private-source manifest identities. [replay.py](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py) checks those
 identities against fresh prepared inputs, rebuilds each training-only request,
 and requires the original finite-difference SLSQP to reproduce its stop
 message, iteration count, evaluation count and objective within `1e-10`. It

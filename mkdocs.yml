@@ -11,6 +11,7 @@ docs_dir: docs
 strict: true
 site_dir: artifacts/root/docs/site
 hooks:
+  - configs/docs/publish_site_assets.py
   - configs/docs/science_downloads.py
 watch:
   - docs
@@ -46,6 +47,13 @@ theme:
 extra:
   bijux:
     repository: bijux-pollenomics
+    interactive_report_owner: configs/docs/maps/report-owner.json
+    publication_adapter:
+      path: configs/docs/publication/admission.py
+      sha256: 8d37baba19863336fa98a721a9486c026999d005bb813c19e46fecbd9a13adfe
+    publication_downloads:
+      path: configs/docs/publication/downloads.json
+      sha256: 8eab4877e1f1a806ae1762005ef847f672b35b6d74931e28977a678fc59197f4
     docs_package: bijux-pollenomics-dev
     nav_mode: default
     theme_key: bijux:theme
@@ -264,6 +272,14 @@ extra_javascript:
   - assets/javascripts/navigation-sync.js
   - assets/javascripts/pollenomics/offsite-targets.js
 exclude_docs: |
+  /gallery/2026-02-26-data-collection.mov
+  /gallery/nordic-atlas/chronology/publication-manifest.sha256
+  /report/**/*.py
+  /report/**/*.R
+  /report/**/*.npz
+  /report/**/*.npy
+  /report/**/*.log
+  /report/publication-replay/landclim-study-inputs/records.jsonl
   /overrides/
   /hooks/
   /assets/styles/README.md

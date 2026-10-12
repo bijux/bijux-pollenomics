@@ -28,7 +28,7 @@ need source-specific qualification. The data are from Neotoma and its original
 contributors; the [source policy review](../../../../public/pollenomics-data/sources/neotoma.md)
 records attribution and use terms.
 
-The [replay reader](verify.py) verifies the capture manifest and every page,
+The [replay reader](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/source-relations/neotoma/lakeparameters/verify.py) verifies the capture manifest and every page,
 rebuilds all source joins through the production consumer, and compares the
 exact retained review bytes:
 
