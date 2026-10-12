@@ -73,7 +73,7 @@ fail-under = 32
 color = true
 
 [tool.bandit]
-skips = ["B404", "B311"]
+skips = []
 exclude_dirs = [".venv", "tests", "artifacts", ".pytest_cache", ".ruff_cache"]
 
 [tool.hatch.version]
