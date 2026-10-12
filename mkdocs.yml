@@ -13,6 +13,7 @@ site_dir: artifacts/root/docs/site
 hooks:
   - configs/docs/publish_site_assets.py
   - configs/docs/science_downloads.py
+  - configs/docs/report_provenance.py
 watch:
   - docs
   - docs/assets
