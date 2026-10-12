@@ -22,7 +22,11 @@ gh-docs-build: ## Build and qualify the exact production documentation artifact
 	  "$(DOCS_PUBLICATION_PYTHON)" "$(DOCS_PUBLICATION_SHARED)/tooling/scripts/project_bijux_docs.py" "$(CURDIR)" "$(CURDIR)/$(DOCS_PUBLICATION_SHARED)" --check; \
 	  SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "$(DOCS_PUBLICATION_BUILDER)" capture --standard-root "$$BIJUX_STD_ROOT" --site-url "$(DOCS_PUBLICATION_SITE_URL)" --site-dir "$(DOCS_PUBLICATION_SITE_DIR)" --config mkdocs.yml --build-command "make gh-docs-build" --verify-command "make gh-docs-verify"; \
 	  SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "$(DOCS_PUBLICATION_BUILDER)" render --config mkdocs.yml --site-url "$(DOCS_PUBLICATION_SITE_URL)" --site-dir "$(DOCS_PUBLICATION_SITE_DIR)" --interactive-report-owner "$(DOCS_PUBLICATION_REPORT_OWNER)"; \
-	  SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "$(DOCS_PUBLICATION_BUILDER)" admit --site-dir "$(DOCS_PUBLICATION_SITE_DIR)" --site-url "$(DOCS_PUBLICATION_SITE_URL)" --interactive-report-owner "$(DOCS_PUBLICATION_REPORT_OWNER)";'
+	  SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "configs/docs/publication/admission.py" admit;'
 
 gh-docs-verify: ## Reconstruct accepted source and verify the publication artifact
-	@SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "$(DOCS_PUBLICATION_BUILDER)" verify
+	@SITE_URL="$(DOCS_PUBLICATION_SITE_URL)" "$(DOCS_PUBLICATION_PYTHON)" "configs/docs/publication/admission.py" verify
+
+.PHONY: docs-publication-controls
+docs-publication-controls: ## Validate the finite public data download boundary
+	@"$(DOCS_PUBLICATION_PYTHON)" "configs/docs/publication/controls.py"

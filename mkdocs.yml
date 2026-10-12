@@ -48,6 +48,12 @@ extra:
   bijux:
     repository: bijux-pollenomics
     interactive_report_owner: configs/docs/maps/report-owner.json
+    publication_adapter:
+      path: configs/docs/publication/admission.py
+      sha256: 8d37baba19863336fa98a721a9486c026999d005bb813c19e46fecbd9a13adfe
+    publication_downloads:
+      path: configs/docs/publication/downloads.json
+      sha256: 8eab4877e1f1a806ae1762005ef847f672b35b6d74931e28977a678fc59197f4
     docs_package: bijux-pollenomics-dev
     nav_mode: default
     theme_key: bijux:theme
