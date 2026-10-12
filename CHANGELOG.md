@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Admit canonical checkout origins for source-bound native presentations through accepted shared standards; retain exact source/configuration checks and consistent catalogue and compact repository-link identities. ([#232](https://github.com/bijux/bijux-pollenomics/pull/232)).
+
 - Bind PDF downloads, fifty exact GeoJSON downloads and retained native reports to source-qualified manual publication; preserve scientific inputs and historical producer identities, and link source-only evidence to its committed repository owner. ([#231](https://github.com/bijux/bijux-pollenomics/pull/231)).
 
 - Preserve validation, collection and LRA development history with accepted manual publication policy ([#217](https://github.com/bijux/bijux-pollenomics/pull/217)).
