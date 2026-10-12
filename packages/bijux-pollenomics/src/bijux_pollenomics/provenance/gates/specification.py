@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import shutil
-import subprocess  # nosec B404
+import subprocess
 
 from ..release_evidence import ReleaseEvidenceError
 from .catalog import _GATE_FIXED_INPUTS, _GATE_GLOBS, _GATE_TESTS

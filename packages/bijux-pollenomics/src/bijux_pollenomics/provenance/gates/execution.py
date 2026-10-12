@@ -6,7 +6,7 @@ from collections.abc import Mapping, Sequence
 import os
 from pathlib import Path
 import shutil
-import subprocess  # nosec B404
+import subprocess
 import time
 
 from ..release_evidence import ReleaseEvidenceError

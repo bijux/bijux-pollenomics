@@ -6,7 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil as shutil  # noqa: PLC0414
-import subprocess as subprocess  # noqa: PLC0414  # nosec B404
+import subprocess as subprocess  # noqa: PLC0414
 from typing import cast
 
 from .contracts import AtlasMediaError, AtlasMediaPlan

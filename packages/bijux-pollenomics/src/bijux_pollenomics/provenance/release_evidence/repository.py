@@ -7,7 +7,7 @@ import hashlib
 import os
 from pathlib import Path, PurePosixPath
 import stat
-import subprocess  # nosec B404
+import subprocess
 from typing import cast
 
 from .codec import _digest_bytes, _digest_json

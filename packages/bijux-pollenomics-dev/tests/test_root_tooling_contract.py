@@ -28,7 +28,7 @@ def test_root_pyproject_declares_shared_quality_tooling() -> None:
 
     assert interrogate == {"fail-under": 32, "color": True}
     assert bandit == {
-        "skips": ["B404", "B311"],
+        "skips": [],
         "exclude_dirs": [
             ".venv",
             "tests",
