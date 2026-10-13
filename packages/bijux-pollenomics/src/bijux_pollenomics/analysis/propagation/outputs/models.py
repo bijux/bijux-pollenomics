@@ -22,6 +22,9 @@ _OUTPUT_NAMES = (
     "primary_scenario_reconciliation.json",
     "release_metadata.json",
     "sensitivity_summary.json",
+    "directed_candidates.geojson",
+    "indeterminate_pairs.geojson",
+    "lower_level_edge_union.json",
 )
 PROPAGATION_PRODUCER_ID = "bijux-pollenomics.propagation-output-materializer"
 PROPAGATION_PRODUCER_VERSION = "1"
@@ -52,6 +55,11 @@ PROPAGATION_PRODUCER_SOURCE_PATHS = (
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/rules.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/scoring.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/__init__.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/geojson.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/selection.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/service.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/union.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
 )
