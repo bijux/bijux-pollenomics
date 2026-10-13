@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
-      "bytes": 4580598
+      "sha256": "f614458e66ae3642593e347a8f7f4c6b2773e1a1e5e21d23ff9c7b1115d3b283",
+      "bytes": 4583152
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "0f1b662c253805e5d9f5da68dc1e350c496c8248ca50d38d1eea587d9c10bd9e",
-      "bytes": 148963
+      "sha256": "bc93d742e71439c18adb76e07f2c9fedc0c79a3f8e9083ad55e8cac1e95f09bd",
+      "bytes": 149442
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,8 +3766,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "5afba7bf25b983532e965b6484c0963768fcd52124d84c9fdb04642082b6bc44",
-      "bytes": 1015152
+      "sha256": "833a9d5818d04970f1c793de2ea9717647c11e79435eb92072e1eb6287adb00f",
+      "bytes": 1016715
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -8531,8 +8531,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
-      "bytes": 8650
+      "sha256": "50cd7f16f1cc598db8afe61ee3f1dcefc65650c1fe1ef85959658d54666b9e01",
+      "bytes": 9324
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

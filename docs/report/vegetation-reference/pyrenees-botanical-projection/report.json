@@ -1,0 +1,188 @@
+{
+  "claim": "Conditional botanical panel projection; independent vegetation accuracy not evaluated",
+  "candidate": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+  "source_populations": {
+    "declared_cases": 16,
+    "plot_contexts": 2000,
+    "axes_per_context": 17,
+    "scalar_axis_contexts": 34000,
+    "source_taxa": 208,
+    "source_nonzero_codes": 183,
+    "source_zero_codes": 25,
+    "source_positive_observations": 1757,
+    "positive_observation_accounts": 28112
+  },
+  "outcomes": {
+    "strict_unknown_source_blanks": {
+      "scenarios": 8,
+      "refused_plot_contexts": 1000,
+      "complete_vectors": 0
+    },
+    "declared_exhaustive_survey_zero": {
+      "scenarios": 8,
+      "refused_plot_contexts": 0,
+      "conditional_vectors": 1000
+    }
+  },
+  "original_plot_year_counts": {
+    "2020": 23,
+    "2015": 102
+  },
+  "original_plot_area_m2_counts": {
+    "400": 30,
+    "100": 62,
+    "25": 33
+  },
+  "map_classes": 8,
+  "field_classes": 9,
+  "source_positive_observation_repetitions_are_independent": false,
+  "review": {
+    "approved_for_conditional_botanical_source_projection": true,
+    "native_versions": 2,
+    "source_records": 208,
+    "reused_saved_native_routes": 720,
+    "new_name_association_routes": 112,
+    "source_positive_observations": 1757,
+    "complete_positive_loss_records": 28112,
+    "plot_contexts": 2000,
+    "raw_axis_cells_verified": 34000,
+    "closed_axis_cells_verified": 17000,
+    "class_operator_cells_verified": 11424,
+    "total_decimal_comparisons": 64424,
+    "max_absolute_difference": "1E-14",
+    "absolute_tolerance": "2e-13",
+    "source_name_vs_code_accepted_id_disagreements": [
+      {
+        "version": "3.00",
+        "row": 33,
+        "label": "Bromus erectus",
+        "code_accepted_id": "119570",
+        "name_accepted_id": "10518"
+      },
+      {
+        "version": "3.00",
+        "row": 69,
+        "label": "Deschampsia flexuosa",
+        "code_accepted_id": "119457",
+        "name_accepted_id": "8981"
+      },
+      {
+        "version": "3.00",
+        "row": 85,
+        "label": "Galium mollugo",
+        "code_accepted_id": "118896",
+        "name_accepted_id": "29078"
+      },
+      {
+        "version": "3.01",
+        "row": 33,
+        "label": "Bromus erectus",
+        "code_accepted_id": "119570",
+        "name_accepted_id": "10518"
+      },
+      {
+        "version": "3.01",
+        "row": 69,
+        "label": "Deschampsia flexuosa",
+        "code_accepted_id": "119457",
+        "name_accepted_id": "8981"
+      },
+      {
+        "version": "3.01",
+        "row": 85,
+        "label": "Galium mollugo",
+        "code_accepted_id": "118896",
+        "name_accepted_id": "29078"
+      }
+    ],
+    "method": "Independent native CSV retained/parent route + saved183chain identity, independent original stored-cell projection and Decimal50 subset sums/closure/refusal/class operators. No shared producer association/projection functions.",
+    "claims": "Conditional botanical source grouping only; no author116/full18/pollen matching or empirical model accuracy."
+  },
+  "missing_or_unadmitted": [
+    "Author116plot selection",
+    "Full18axis crosswalk including Cichorioideae",
+    "Authenticated original paper2015taxonomy bytes",
+    "Date/footprint/taxon matched local pollen",
+    "Mutually exclusive whole-landscape cover denominator",
+    "Source-owner/qualified scientific acceptance",
+    "Public redistribution of detailed taxonomy-derived/source observations"
+  ],
+  "vegetation_accuracy": {
+    "score": null,
+    "eligible_pollen_vegetation_pairs": 0,
+    "evaluated": false
+  },
+  "native_receipt": {
+    "artifact_path": "artifacts/science/pyrenees-botanical-projection/execution/terminal.json",
+    "sha256": "2ac81d07a1cf46a4d10c8873a591d76596f55521de60e7da3919c272b7f729a1",
+    "plan_sha256": "977976f4630a3d6b41cc51882909bc67beef7f6eb6c03c2b91d0d5b1e653c244",
+    "actual_argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/execution/bootstrap.py"
+    ],
+    "native_exit_code": 0,
+    "wall_seconds": 6.526187708019279,
+    "peak_rss_bytes": 202473472,
+    "output_bytes": 12291544,
+    "inputs_unchanged": true
+  },
+  "saved_preoracle_status": "Original projection summary retains independent_qualification_pending:true; subsequent independent review and consumer result passed, without rewriting original output.",
+  "maintained_replay": {
+    "candidate": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "terminal_artifact_path": "artifacts/science/pyrenees-botanical-projection/maintained-replay/terminal.json",
+    "terminal_sha256": "bbebea2c589b3cacdf92cf516cc6df802fd2526625cca64fcc2177f7efb8a321",
+    "plan_sha256": "6275c51bfa35b828fbfa5ce57386b3e3b5b2f59b97565298981faa4dfd23852d",
+    "actual_argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/proposal/reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py",
+      "--source-root",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/execution/inputs",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/maintained-replay/result"
+    ],
+    "native_exit_code": 0,
+    "wall_seconds": 3.8717549999710172,
+    "peak_rss_bytes": 203571200,
+    "output_bytes_including_private_source_copies": 43002224,
+    "native_scientific_outputs_byte_equal_to_frozen_consumer": {
+      "source-plot-metadata.json": true,
+      "conditional-panel-contexts.json": true,
+      "original-positive-cover-observations.json": true,
+      "projection-summary.json": true,
+      "source-class-comparisons.json": true,
+      "botanical-association-ledger.json": true
+    },
+    "independent_review_sha256": "4fab7a833d0a8ef7969b39a75e65922bd6840db12a69eb74ab673d14becb113c"
+  },
+  "canonical_replay": {
+    "candidate_before_integration": "094642f47b12f1dd01d90ab0f5a770585eb58adf",
+    "terminal_artifact_path": "artifacts/science/pyrenees-botanical-projection/canonical-terminal.json",
+    "terminal_sha256": "f4bbb532a5c62630cd411ab656df705f22da6a42fc734e49ab4f35cd17b1fa52",
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py",
+      "--source-root",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/execution/inputs",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pyrenees-botanical-projection/canonical-replay"
+    ],
+    "native_exit_code": 0,
+    "wall_seconds": 3.9660262080142274,
+    "source_before_after_unchanged": true,
+    "scientific_output_comparison": {
+      "botanical-association-ledger.json": "byte_identical",
+      "conditional-panel-contexts.json": "byte_identical",
+      "original-positive-cover-observations.json": "byte_identical",
+      "projection-summary.json": "Only clarified protocol metadata hash differs",
+      "source-class-comparisons.json": "byte_identical",
+      "source-plot-metadata.json": "byte_identical"
+    },
+    "protocol_sha256": "6e10e60137485dcfa54dd454afd66e4d4f11a77678fac23c33a895d031d31120"
+  }
+}
