@@ -1,0 +1,70 @@
+{
+  "inputs/current-attribution.json": {
+    "sha256": "b760890e945c1efdbd3a7c5a81f986d50da762945f8220136da7a4953d34ea58",
+    "bytes": 22532
+  },
+  "inputs/dataset-1438-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "inputs/dataset-53969-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "inputs/dataset-53970-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "native/capture-result.json": {
+    "sha256": "da1656e80122389a459cf42f8213240da26a2377d9daa52218feee85f4aeef41",
+    "bytes": 8737
+  },
+  "native/datacite-10.21233-2ers-re93.response": {
+    "sha256": "788b5e6d428e5a40757e749c7b62cc319c705898cd16b1981cb191e3d6d23dc3",
+    "bytes": 7762
+  },
+  "native/datacite-10.21233-ee03-qc13.response": {
+    "sha256": "71c50d8c9f47da947261ad579d53ed5962b77e02e14d5ddc58dfc671716a5a2c",
+    "bytes": 7762
+  },
+  "native/datacite-10.21233-n3h737.response": {
+    "sha256": "eba387046daec4e88ab801856de1ad16279eae9c9ab638d63ffe840d81178116",
+    "bytes": 11521
+  },
+  "native/datacite-10.21233-n3x640.response": {
+    "sha256": "7c2bed1603439a8db53f53451e2ca0179d5eca2cc0a3629ce4af988f8296ef59",
+    "bytes": 7281
+  },
+  "native/datacite-10.21233-spsk-yz98.response": {
+    "sha256": "f1052c8ed0cbeb8a53840beafa6e75d69373f935632b4a3421006b2f3f99ea78",
+    "bytes": 9245
+  },
+  "native/datacite-10.21233-vrwa-cw36.response": {
+    "sha256": "a4c602dd7da0a9ddf301d7234f3d2e5b275fc95b560d6c93269cd7dcaeb56e0a",
+    "bytes": 9245
+  },
+  "native/neotoma-dataset-1438-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "native/neotoma-dataset-53969-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "native/neotoma-dataset-53970-publications.response": {
+    "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+    "bytes": 63
+  },
+  "plan.json": {
+    "sha256": "76081171617470b3538dac3fad2d31ead8f17d63a879b2a1e75c195f05951719",
+    "bytes": 3111
+  },
+  "request-inventory.json": {
+    "sha256": "0c6ec79b210177b8e7bbc013d9d845518a8087dea0f6f64057f1263eff54845d",
+    "bytes": 2860
+  },
+  "terminal.json": {
+    "sha256": "1a60619cc67f37bfb8e990c7404bb1d65276052fc44b7169e48d752d81f04029",
+    "bytes": 2713
+  }
+}

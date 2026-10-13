@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2076,
-  "paths_sha256": "83040e4155695ac83cc0554ac06237e1130985255b0298e91ae14bac77301790",
+  "path_count": 2077,
+  "paths_sha256": "344669100f67cadedc04233cb48a0178a1d33204b0cb19a5d946e3050c3903fd",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46130,6 +46130,21 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Explain the recovered 125 plots and 17-axis conditional botanical grouping under declared taxonomy, parent-row and blank scenarios. Preserve eight strict scenarios with 1,000 refusals and eight declared zero alternatives with 1,000 conditional vectors. No author 116 selection, full 18-axis result, matched pollen, independent vegetation accuracy, field identity or qualified external decision is established."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough.json"
+      ],
+      "producer_paths": [
+        "reports/science/nordic-source-attribution/qualify.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_source_attribution.py",
+        "reports/science/nordic-source-attribution/source-custody.json"
+      ],
+      "verification": "Actual bounded offline CLI qualifies 17 captured files, exact native DOI/landing dataset identity and source rights/creator declarations; its native compact account matches the public file byte for byte. Original nine-request capture and current three empty primary relations remain their native authority. Direct source audit verifies 48 copied registration fields, two distinct native collection units and unchanged 16 available/three missing common-panel primary citations. No configured-owner certification, historical count/core/date/rights admission or whole source gate closure."
     }
   ]
 }

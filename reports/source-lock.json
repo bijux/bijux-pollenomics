@@ -79,7 +79,7 @@
     "configs/ci/qualified-report-sources/swedish-observed-common-panel.json": "1200eda7cfac24d1c4c1e16fcbc996106897b77b7135bbad79a26e10945efa4a",
     "configs/ci/qualified-report-sources/swedish-observed-lake-panels.json": "dbc7cb19e32dfca1bcfe8d76c89206a385d0cac3412c64a289da37b1e0be325a",
     "configs/ci/report-owner-execution.json": "9de6075d3d9fecf4d39cedfa298cd5078c2c73b3f123713fb03a66789d9733d9",
-    "configs/ci/report-ownership.json": "bc1311182581d2a91427500549f3945f8394dde04e52077d6a4dc7764931c81d",
+    "configs/ci/report-ownership.json": "330c6610886b5c1e06f41c7f51ad1e6f971bea628d44f1f89dca4aaa979aeb2f",
     "configs/docs/science_downloads.py": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
     "data/archaeology/raw/hojea_2003_source.json": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
@@ -267,7 +267,7 @@
     "docs/report/pollen-reconstruction/paper-correspondence.csv": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
     "docs/report/pollen-reconstruction/results.csv": "0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9",
     "docs/report/pollen-reconstruction/scope.json": "7c3190d229472e8459043298c5518d7856fb32cca50fc569a5f3a1350d6cdf03",
-    "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md": "57a73f95389fad8f4823dee800d685afc23df8bc446af17bf258e1ff53a9805e",
+    "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md": "d04dbe6cb7bce08d4963eb78296414b419dc7148d8e297c32b490166c6a8de8c",
     "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json": "b760890e945c1efdbd3a7c5a81f986d50da762945f8220136da7a4953d34ea58",
     "docs/report/pollen-reconstruction/swedish-observed-common-panel/physical-factor-qualification.json": "963119da1911603ecf4ae5df5cc65be619813905205be2110d673143c4156526",
     "docs/report/pollen-reconstruction/swedish-observed-common-panel/published-model-comparison.json": "7cfede17b61e33067c156927bb425c75eb733c5f203f63aa6bf9cf38db06f9fd",
@@ -434,8 +434,8 @@
     "docs/report/regions/nordic/swedish-training-scope/README.md": "4b462d34faefdb591524e55595333ecda0ab3ecb5529e48c54300190eb0de522",
     "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
     "docs/report/regions/nordic/swedish-training-scope/report.json": "d932e3dd65c6e2def9cb832e83ab28bcd7f620f992f8849b21eb16d33488ce58",
-    "docs/report/report_narrative_quality_review.json": "5ddae68d9e4b6bd177c11d750251c1e7a723c63a84bfd95f6424ab6a95613f7a",
-    "docs/report/report_surface_registry.json": "22ea95fd0f37eb8cd6db21c1897d7c60f360ce09198d8c0f0741ddab29be69e3",
+    "docs/report/report_narrative_quality_review.json": "12c08121f445843ebb0f2486d1bfd8083833e6548f646bf21b02da137abe3d05",
+    "docs/report/report_surface_registry.json": "d618b116621245f82aac55cc45e9e0b0e12e960de2d28f04d8579544750afead",
     "docs/report/report_surface_registry.md": "b83a2e3709d4563da4d3b266ea35f1b9ff2cc0bcb37e99960154c51418690953",
     "docs/report/source-relations/dna-scope/reindeer-published-appendix.md": "338f50c410c5c984bbdcca6c6ec2335476eabd996ed4d19ba3c46a99fb2172b7",
     "docs/report/source-relations/dna-scope/report.json": "b44651d55f6cb74e833fd2e508144f08647c164ae72931b0f8c19c695f598a81",
@@ -1045,6 +1045,10 @@
     "reports/science/vegetation-reference/pyrenees-botanical-projection/botanical_projection.py": "5a4b54dde2eaf591c21e89b01973ddad08bdc7a9065daa64d001aa03002989dd",
     "reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py": "7e04d9d37956bd3dba32952502b567dbfc7aa4354e9115ef5cda3b27f680210f",
     "reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json": "c46b404ccaab62a88adc9616f3c2e42aed8fc83e9055934379e08ab2e74d9be4",
-    "reports/science/vegetation-reference/pyrenees-botanical-projection/protocol.json": "6e10e60137485dcfa54dd454afd66e4d4f11a77678fac23c33a895d031d31120"
+    "reports/science/vegetation-reference/pyrenees-botanical-projection/protocol.json": "6e10e60137485dcfa54dd454afd66e4d4f11a77678fac23c33a895d031d31120",
+    "docs/report/pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough.json": "2ce966bc78ad5ce9fc04951bb6ccceb62e1d44d97f2330fefc81ed40d9be2b5c",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_source_attribution.py": "edd044ee3157f61936411a6c64514bb3d1691c63e9e3c93259e460407be2bc35",
+    "reports/science/nordic-source-attribution/qualify.py": "09221597e49227166a70a8971f5b2d79878d82a97062f1a45beacb4c5cb41505",
+    "reports/science/nordic-source-attribution/source-custody.json": "a6f6ad9bdae3bb04bc218372b8dad9b4f38eb196ded4e2325886c05271c49b04"
   }
 }
