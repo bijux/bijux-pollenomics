@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "owner": "bijux-pollenomics",
+  "reports": [
+    {
+      "path": "report/publication-replay/landclim-example-reexecution/report.json",
+      "source_sha256": "f210ece3b8055c189759f1e91555321b6ffa8fa92ae186a92ae62fe5831d0540",
+      "fields": [
+        {
+          "pointer": "/environment/python_executable",
+          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/original_r_receipt/command/2",
+          "value_sha256": "a4d74d90178032089d3d41cd715d9d05c69ce6172ffde7c21a6677a14b68fab3",
+          "kind": "repository-path-display",
+          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.R"
+        },
+        {
+          "pointer": "/original_r_receipt/command/3",
+          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/author"
+        },
+        {
+          "pointer": "/original_r_receipt/command/4",
+          "value_sha256": "8852df892423cb49ca1abed9c77ed22d7ebe01cf58e5644937714d5900f4007e",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/zipfr-library"
+        },
+        {
+          "pointer": "/original_r_receipt/command/5",
+          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/0",
+          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/1",
+          "value_sha256": "a642dd9b3ea287a337833be25a3d3d0c0424c57a627fa595ae56e8ff43a1d477",
+          "kind": "repository-path-display",
+          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/3",
+          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/author"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/5",
+          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/7",
+          "value_sha256": "5cccb174a5287b2cbff9756da56232bcbba37c4ce07355c2c80bab8fcb0cfdcf",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/comparison"
+        },
+        {
+          "pointer": "/runs/original_r/command/0",
+          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/runs/original_r/command/1",
+          "value_sha256": "72b00b53f024325c16e035962d0cee02efc3346b292e4bc63edb71ebd8528a8e",
+          "kind": "repository-path-display",
+          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.py"
+        },
+        {
+          "pointer": "/runs/original_r/command/3",
+          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/author"
+        },
+        {
+          "pointer": "/runs/original_r/command/5",
+          "value_sha256": "8852df892423cb49ca1abed9c77ed22d7ebe01cf58e5644937714d5900f4007e",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/zipfr-library"
+        },
+        {
+          "pointer": "/runs/original_r/command/7",
+          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+        }
+      ],
+      "public_sha256": "60228630e86e6c0e485232f6f1199bbac9518b20b39ecc29adc8f435161d0383"
+    },
+    {
+      "path": "report/method-certification/linux-r-oracle/report.json",
+      "source_sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+      "fields": [
+        {
+          "pointer": "/command/14",
+          "value_sha256": "5362880147222100850b7e6a4426560e5eb73bfa525601b774be99808de1c58f",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/repository"
+        },
+        {
+          "pointer": "/command/16",
+          "value_sha256": "a6e241767966e34fd93ac4e926bc1dfc6d509d531739f28ec45cde65f33038bf",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/r-runtime-library"
+        },
+        {
+          "pointer": "/command/18",
+          "value_sha256": "fdb6692ecd1ccb2f90d2d635d7a7692d0f42cb24fac04694dc309f3f26265a92",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/r-provision"
+        },
+        {
+          "pointer": "/command/20",
+          "value_sha256": "ea8d65b5a72455c2ec9b1c7c15ec8e700573857857f088aeec6cc539b62b7e50",
+          "kind": "retained-source-path-display",
+          "display": "artifacts/jobs/linux-r-oracle/source-closed-run"
+        }
+      ],
+      "public_sha256": "13811c2de39c5191976407ed5d980fb3720a8d45ed2b624094bf95d2932872b5"
+    },
+    {
+      "path": "report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json",
+      "source_sha256": "cb8111b4ee4d660a2633e967cf561af551a69ed5838df045af8dab87f90e0c0f",
+      "fields": [
+        {
+          "pointer": "/actual_command/0",
+          "value_sha256": "960e8baed7b28cae0c89b481779c94cae26ab0e5525b42abac25cef4542f1072",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/actual_command/2",
+          "value_sha256": "92cfe74cd2cfea037b6d9bc0784092f2ed545d3466c4a4013876f3c7366b5939",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/swedish-landclim-neotoma-recovery/tibetanus-chronology-point-sensitivity/consume.py"
+        }
+      ],
+      "public_sha256": "a6c9c9abf568c57b26d3c8279535be13be611168976ecd4ba12af196f195b442"
+    },
+    {
+      "path": "report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-cell-encoding-refusal.json",
+      "source_sha256": "9cf87176f9314c5639e3915e712af1215b8b96095729ba5157076a90cdbaaa1b",
+      "fields": [
+        {
+          "pointer": "/actual_command/2",
+          "value_sha256": "16921f1abb8a4d618b9cf17afa88d9ab02b9fb87d91fff0b66460fe23b4ce6d7",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/swedish-landclim-neotoma-recovery/arctic-native-source-receipt-comparison/compare.py"
+        }
+      ],
+      "public_sha256": "dd797c6ef86ede82a5ad939a5d56df28a2f8201b9991e6fdfbe074abbca051af"
+    },
+    {
+      "path": "report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-census-status-refusal.json",
+      "source_sha256": "e2ea1061e13c09c44dce7f2908d044388ff0fff6a12475d03c2148009f494646",
+      "fields": [
+        {
+          "pointer": "/actual_command/2",
+          "value_sha256": "a2e1ea52cfafe8e19d1ac245bc6696593bca240718b23f0ac299838fc759d39d",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/swedish-landclim-neotoma-recovery/arctic-native-chronology-comparison/compare.py"
+        }
+      ],
+      "public_sha256": "40f3253906297123ed8c58eaa115b96f56567a7bfc7b646f58ab3e19fef1e5a9"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census-terminal.json",
+      "source_sha256": "4cf58a39d738f04c40e806b5f2ed716d7cf7327fe0003a2bceebbf4fe071af6f",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "5864582dc48b50aba44489a1a8c9b1be65805c076023d488077d7500768c9f9a",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-core-metadata-bound-feasibility/consume.py"
+        }
+      ],
+      "public_sha256": "d645ba47cb6c9b8b2684ecbe7f214ec3e12befc7a35331ff029ea024a15d551e"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-terminal.json",
+      "source_sha256": "419854788e096ef9dfa7a0e9c650df5cea762164331e1a0034aa18897464f7c8",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "5db76ac46cd4c54483bde91180052ac7ffc6883800520a5489f13f5c97a8de70",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-independent-physical-factors/review.py"
+        }
+      ],
+      "public_sha256": "ee9894cc677bced85d0d8e0bfa3261663778d212e3a1ad44073ee908a9aad9d2"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-scalar-terminal.json",
+      "source_sha256": "fc844afa08fe802f8800e6dd2ba2b4357896e36f67d1a1f4a412a003d3db384e",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "50de2d01667928f45a1a3e3a24ae9283219a2aad28762ef74c0301e37653398f",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-independent-scalar-covariance/review.py"
+        }
+      ],
+      "public_sha256": "6be7dbce5a09e82223f719f4a0d1b33718c87793fe77b61d8429d92987388df7"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/acquisition-terminal.json",
+      "source_sha256": "e5c3ef1e2fd56050bf2e67fd4676c42cdeb4b24745e677aa5715ce16a63f18e8",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "853d4860bdfdee9f47af44ad4cd18f2ccfefad043026a8e51c1190eb4f55833b",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-primary-publication-source-receipt/acquire.py"
+        }
+      ],
+      "public_sha256": "ed16d4e8bab86c7b2f2b4f6257cf8fda13b1d4056c708a9d57682047b634d95d"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification-terminal.json",
+      "source_sha256": "49043fd1e075d7c823a0c3c404324ad75ac9cd3a8ff53222439b39a9a9e055a7",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "538a2b450c66a58d0b19fbe989e588c45a9d090a257ddab6a68682d17650168d",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-primary-publication-attribution-qualification/qualify.py"
+        }
+      ],
+      "public_sha256": "f7cd75171bbbab6e075511eba0f45d61e7beebcfa7233bb60d7f0be350e98342"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/native-terminal.json",
+      "source_sha256": "b00ad8785bacb49d6e48e3060acd9229e31e2ea26e356b6057bc82b6f924577c",
+      "fields": [
+        {
+          "pointer": "/actual_command/0",
+          "value_sha256": "e4b412ba5b82cff965c3da9e12f9a2f15d7a411d2c63297c88d1d3a4e70b1d3d",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/actual_command/2",
+          "value_sha256": "1f6a086778661120b8426892a47cef9906b1958329b40d9ca29e6bd5a8ef2f35",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-static-basin-reconstruction/consume.py"
+        }
+      ],
+      "public_sha256": "1b39802dc6fe21a4e13c2d0d1135d6c66ddb5952bf04eafa223341a0df03baf0"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census.json",
+      "source_sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+      "fields": [
+        {
+          "pointer": "/actual_native_count_helper_origin",
+          "value_sha256": "9d52394679f633836efe519b973b4961cdd7080ef025d8407f191cab80602f36",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/nordic-core-metadata-bound-feasibility/candidate/native_sources.py"
+        }
+      ],
+      "public_sha256": "5fdceb8d15d6491a3ebc1b419b0f00ee3ceb2082c98a63b6fd23a187385ca6f8"
+    },
+    {
+      "path": "report/pollen-reconstruction/nordic-static-basin-scenarios/verification/primary-policy-native-terminal.json",
+      "source_sha256": "bb27d6224c2616d380dc1e9ba3a6f439f9e9e53be1fe57d9ae238ab20a1557bd",
+      "fields": [
+        {
+          "pointer": "/actual_command/3",
+          "value_sha256": "5006b026257e1e2e7983300d3032c8a6e3163796bd37f8fedb37a5262242fcbd",
+          "kind": "artifact-path-display",
+          "display": "artifacts/jobs/neotoma-public-data-use-policy-acquisition/fetch.py"
+        }
+      ],
+      "public_sha256": "9033e39f0184f3ac8cd62b85e9edb0991a18fd3ff4b3010bf75e240a68086281"
+    }
+  ]
+}

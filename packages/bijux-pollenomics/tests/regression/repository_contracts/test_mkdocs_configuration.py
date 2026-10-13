@@ -109,7 +109,17 @@ class MkDocsConfigurationTests(unittest.TestCase):
             (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
         )
 
-        self.assertEqual(config["exclude_docs"].strip(), "badges.md\ninternal/**")
+        required_exclusions = {
+            "badges.md",
+            "internal/**",
+            "/overrides/",
+            "/hooks/",
+            "/assets/styles/README.md",
+            "/assets/javascripts/shell/README.md",
+        }
+        self.assertTrue(
+            required_exclusions <= set(config["exclude_docs"].strip().splitlines())
+        )
 
     def test_shared_mkdocs_keeps_generic_shell_defaults(self) -> None:
         config = yaml.unsafe_load(
@@ -220,11 +230,15 @@ class MkDocsConfigurationTests(unittest.TestCase):
             nav_state_text,
         )
         self.assertIn(
-            "[data-bijux-detail-path][aria-current='page']",
+            "a[data-bijux-detail-path][aria-current]",
+            detail_tabs_text,
+        )
+        self.assertIn(
+            'activeLink.path === currentPath ? "page" : "location"',
             detail_tabs_text,
         )
 
-    def test_shared_nav_hides_scoped_sidebar_on_section_overview_homepages(
+    def test_shared_nav_preserves_complete_authored_navigation(
         self,
     ) -> None:
         nav_override = (
@@ -237,8 +251,9 @@ class MkDocsConfigurationTests(unittest.TestCase):
         docs_make = (REPO_ROOT / "makes" / "bijux-docs.mk").read_text(encoding="utf-8")
 
         self.assertFalse((REPO_ROOT / "configs" / "docs-shell").exists())
-        self.assertIn("current_page.parent.children", nav_override)
-        self.assertIn("landing_home_page", nav_override)
+        self.assertIn('data-bijux-nav-variant="complete"', nav_override)
+        self.assertIn("{% for nav_item in nav %}", nav_override)
+        self.assertIn("item.render(nav_item", nav_override)
         self.assertEqual(nav_override, shared_nav)
         self.assertNotIn("bijux-docs-apply-repo-overrides", root_make)
         self.assertNotIn("bijux-docs-apply-repo-overrides", docs_make)
