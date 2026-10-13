@@ -1,0 +1,98 @@
+{
+  "schema_version": "rootsi-age-formula-operator-source.v1",
+  "actual_terminal": {
+    "candidate": "523ddf594252a3e63c0fc3439346a4e326ce545c",
+    "plan_sha256": "5cd196e119e436f4c09eb86d5485286d58aa638a6f2c7889654dce87269b6866",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-age-formula-lineage/run.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-age-formula-lineage/consume.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.061244667042046785,
+        "stdout": "{\"schema_version\": \"rootsi-age-formula-operator-inspection.v1\", \"candidate\": \"523ddf594252a3e63c0fc3439346a4e326ce545c\", \"plan_sha256\": \"5cd196e119e436f4c09eb86d5485286d58aa638a6f2c7889654dce87269b6866\", \"source_workbook_artifact_payloads\": 2, \"captured_FORMULA_records\": 63, \"native_token_bytes\": 1131, \"canonical_original_workbooks_read\": 0, \"BIFF_record_censuses_repeated\": 0, \"cached_cell_grids_loaded\": 0, \"source_header_literal\": \"Sample age (cal AD/BC)\", \"source_token_primitive_operator_counts\": {\"multiply\": 27, \"add\": 27}, \"literal_1950_token_occurrences\": 0, \"strict_pure_affine_templates_accepted\": 0, \"strict_template_counts\": {}, \"refused_formula_records\": 63, \"refusal_reason_occurrences\": {\"conditional_attribute_not_qualified\": 27, \"expression_stack_not_closed\": 27, \"operator_outside_qualified_template_multiply\": 27, \"shared_definition_not_supplied\": 36}, \"shared_definitions_supplied\": false, \"native_source_field_interpretation\": \"Literal/control/operator presence alone is not a qualified affine relation. Shared definitions, source reference values, functions and conditional semantics are unresolved when refused. Even a recognized1950template does not establish source epoch/scale or calibration validity.\", \"formula_evaluations\": 0, \"cached_age_values_decoded\": 0, \"source_ages_converted\": 0, \"scientific_or_rights_admission\": false}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-age-formula-lineage/verify_preflight.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.05227391701191664,
+        "stdout": "{\"native_exit\": 0, \"synthetic_controls\": 12, \"rows\": [{\"grammar\": 50, \"case\": \"simple_difference\", \"expected_accepted\": true, \"passed\": true}, {\"grammar\": 50, \"case\": \"shared_pointer\", \"expected_accepted\": false, \"passed\": true}, {\"grammar\": 50, \"case\": \"product_outside_template\", \"expected_accepted\": false, \"passed\": true}, {\"grammar\": 70, \"case\": \"simple_difference\", \"expected_accepted\": true, \"passed\": true}, {\"grammar\": 70, \"case\": \"shared_pointer\", \"expected_accepted\": false, \"passed\": true}, {\"grammar\": 70, \"case\": \"product_outside_template\", \"expected_accepted\": false, \"passed\": true}, {\"grammar\": 80, \"case\": \"simple_difference\", \"expected_accepted\": true, \"passed\": true}, {\"grammar\": 80, \"case\": \"shared_pointer\", \"expected_accepted\": false, \"passed\": true}, {\"grammar\": 80, \"case\": \"product_outside_template\", \"expected_accepted\": false, \"passed\": true}, {\"case\": \"truncated_integer\", \"expected_refusal\": \"truncated_token_payload\", \"passed\": true}, {\"case\": \"stack_underflow\", \"expected_refusal\": \"binary_operand_underflow\", \"passed\": true}, {\"case\": \"unsupported_class\", \"expected_refusal\": \"unsupported_token_class\", \"passed\": true}], \"producer_sha256\": \"07fb6f11cb2d43df580e25323fb21a9ad391180bec7809a84a38e470a8521805\", \"native_source_payloads_consumed\": 0, \"formula_evaluations\": 0, \"source_age_conversions\": 0, \"scope\": \"Source-pinned token-size DATA table only; xlrd decompile/evaluation functions are not called. Shared/functions/control/unknown operands refuse strict affine admission.\"}\n",
+        "stderr": ""
+      }
+    ],
+    "exception": null,
+    "native_exit": 0,
+    "source_pins_unchanged": true,
+    "source_pin_count": 28,
+    "runtime_pin_count": 1,
+    "wall_seconds": 0.11433320899959654,
+    "child_peak_rss_bytes": 24903680,
+    "output_bytes": 107227,
+    "scope": "Exact63captured FORMULA locators/1131operatorbytes in two already-owned artifact workbook payloads HAGG/KYLL. CFB stream extraction+exactrecordslice/hash only, no originalprivate source store reading, 79BIFF census, cached grid or agevalue decoding. Source-pinned xlrd token-size DATA tables only; no decompile/evaluation functions. Strict pureAdd/Sub literal/reference1950templates mayqualify symbolically; shareddefinitions/functions/control/nonaffine/unknown refuse. Source headercalADBC preserved, no epoch/scale/calibration/ageconversion/source-rights admission. Twelve synthetic fixtures rerun; no ordinarytests.",
+    "scientific_or_rights_admission": false
+  },
+  "actual_terminal_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/execution/terminal.json",
+    "sha256": "fd71f0eb567f070b79e9e5f13b4a495e794625c92e405b8fa27d9b61a68a1bbf",
+    "bytes": 5037
+  },
+  "actual_plan_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/plan.json",
+    "sha256": "5cd196e119e436f4c09eb86d5485286d58aa638a6f2c7889654dce87269b6866",
+    "bytes": 7501
+  },
+  "original_native_report_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/native/report.json",
+    "sha256": "3beaf8311e89176bcc285519d5447e6031d49eae173368cf11a39f2fabe9feb1",
+    "bytes": 1438
+  },
+  "private_token_packet_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/native/private-formula-token-packets.jsonl",
+    "sha256": "72d500c3585914669bb8da133baeb9eb85e2abeaa5b6e6bccc334689415d6eba",
+    "bytes": 100987
+  },
+  "source_raw_qualification_terminal": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/inputs/raw-source-terminal.json",
+    "sha256": "92ec7bb2dac07012f42db1e7f9cc2333ade0c5e24fe61ffc65097ddabfb21e65",
+    "bytes": 6868
+  },
+  "symbolic_producer_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/symbolic.py",
+    "sha256": "07fb6f11cb2d43df580e25323fb21a9ad391180bec7809a84a38e470a8521805",
+    "bytes": 5955
+  },
+  "packet_slice_consumer_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/consume.py",
+    "sha256": "6a89a98ecfff139de044aded25a0b1cfe0803dc0447100b51ad22a9527923c0b",
+    "bytes": 4606
+  },
+  "synthetic_preflight_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/execution/synthetic-preflight.json",
+    "sha256": "837ed15f880e810c64e6fd3459569d2de1995ff37a633ad48c83685b5ab0976a",
+    "bytes": 1927
+  },
+  "lexical_attribute_correction": {
+    "raw_selector_reason": "conditional_attribute_not_qualified",
+    "source_flag": 64,
+    "native_attribute_occurrences": 78,
+    "field_interpretation": "Source flag0x40 is a formatting/space attribute. The original selector refused all attributes conservatively; its reason name does not establish conditional logic. No pinned original report or receipt was rewritten."
+  },
+  "source_dependencies": "Two previously copied artifact workbook byte payloads plus exact63formula record locators/hashes; pinned xlrd token-size data tables. No canonical original input, grid decoding, shared definition extraction or source numerical evaluation.",
+  "result_limits": "All63strict1950templates refused under narrow selector;36shared definitions unsupplied and27multiplication/addition expressions outside its qualified scope. No1950literal in inspected individual packets; no general impossibility or calibration claim. Formatting flags are not conditional evidence.",
+  "scientific_admission": false,
+  "source_rights_admission": false,
+  "formula_evaluation_or_age_conversion": false
+}

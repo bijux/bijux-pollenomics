@@ -65,6 +65,14 @@ A second source-pinned implementation uses xlrd's on-demand workbook-global pars
 
 The maintained boundary is `bijux_pollenomics.collection.sources.rootsi.cells.biff.physical_biff_structure`. It accepts the pinned source bytes and pinned `xlrd.compdoc.CompDoc` decoder, returning a private record sidecar. For one already bound `WorkbookInput`, use `read_bytes(item.path, item.sha256, item.byte_count)` and pass those bytes to `physical_biff_structure`; this performs no cell-grid decoding. Keep that result in an owned private artifact destination. Original archive intake and scientific interpretation remain separate: this account assigns no taxonomy, pollen-count denominator, PPE, chronology probability, historical study membership or analytical-use rights.
 
+## Source age formula operators
+
+A [retained-token inspection](age-formula-operators.json) slices the 63 previously located FORMULA records from two already owned artifact byte payloads. It inspects 1,131 formula-token bytes, reads no canonical original workbook and loads no cached cell grid. All **63 strict 1950-template qualifications remain refused**: 36 formulas refer to shared definitions that were not supplied to this inspection, while 27 contain multiplication and addition outside its qualified literal/reference Add/Sub scope. The inspected individual packets contain no literal 1950 token. This does not establish that a 1950 transformation is impossible or absent from the unresolved shared definitions.
+
+The 27 multiplication/addition expressions also carry 78 native `0x40` formatting/space attributes. The initial selector conservatively refused attributes using an over-specific internal reason name; the derived account corrects that description. These bytes supply no evidence of conditional logic. No native function calls were observed or executed. Multiplication can form an affine model, so refusal by this restricted selector is not proof that the source equations are non-affine.
+
+The [token source account](age-formula-operators-source.json) preserves the exact original native report, private packet hashes, actual exit zero and twelve synthetic controls. All source/runtime pins remained unchanged. No formula, source age or calibration model was evaluated; no source age was converted. Qualifying the source equations requires their shared definitions and an appropriate symbolic grammar, followed by independent review of reference meaning, calibration, calendar conventions and intended use. The native `Sample age (cal AD/BC)` header remains a source assertion.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
@@ -73,7 +81,7 @@ The maintained boundary is `bijux_pollenomics.collection.sources.rootsi.cells.bi
 
 **Unsupported claim.** Fresh original-archive intake/determinism, formula equation/calibration interpretation, all-CFB-stream security, external-target resolution, historical input authenticity, grain-count observations, scientific source or analytical-rights admission.
 
-**Actual verification performed.** Original selected-cell stage0 and retained focused checks unchanged. Raw79-source successor native0; independent on-demand workbook-global name/visibility/type/BOF/CODEPAGE checks load0cached sheets;38guards,Ruff/format,strict2 pass;1530+85+runtime pins unchanged. Initial mixed-BOF refusal after48books preserved.
+**Actual verification performed.** Original selected-cell stage0 and retained focused checks unchanged. Raw79-source successor native0; independent on-demand workbook-global name/visibility/type/BOF/CODEPAGE checks load0cached sheets;38guards,Ruff/format,strict2 pass;1530+85+runtime pins unchanged. Initial mixed-BOF refusal after48books preserved. Retained63packet/1131token-byte inspection native0 and12synthetic controls; all63strict1950templates refused, no formula evaluation or cached age conversion.
 
 **Remaining input or review.** The complete retained79-workbook physical record layout and formula locations are now preserved. Source-age equations/calibration, archive intake, feature units, taxonomy, chronology interpretation, analytical rights and historical primary membership remain unresolved. Resolver: LandClim workbook source custodian and independent archive, chronology and pollen-count reviewer Reopen when: Source-qualified original archive and formula/derived-age semantics, authenticated row population, taxa/units/chronology and intended-use authority.
 
@@ -81,16 +89,16 @@ The maintained boundary is `bijux_pollenomics.collection.sources.rootsi.cells.bi
 
 **Consequence.** Retain physical formula provenance in source age fields and each substream header; source preservation alone cannot qualify calibration, native equations, grain counts, original study population or source-use authority.
 
-**Precise next acceptance route.** Authenticate the original archive intake and formula-derived source age semantics/calibration, then qualify row populations, units/taxa/chronology, historical membership and rights. Reuse unchanged cached-cell receipts.
+**Precise next acceptance route.** Supply shared formula definitions and qualify a symbolic grammar/reference meaning for native source-age equations; independently review calibration/calendar conventions, archive intake and intended-use authority. Reuse unchanged cached-cell and raw-record receipts.
 
-**Negative or refused result.** Original KRO_ny alias refusal and selected-oracle/test failures retained. Full raw predecessor refused RANV mixed BOF; supported local/global headers now preserved independently, unsupported grammar/type/offset still refuses.63formula-derived source-age values remain uninterpreted; no source-age conversion or rights decision.
+**Negative or refused result.** Original KRO_ny alias refusal and selected-oracle/test failures retained. Full raw predecessor refused RANV mixed BOF; supported local/global headers now preserved independently, unsupported grammar/type/offset still refuses.63formula-derived source-age values remain uninterpreted; no source-age conversion or rights decision. Token scope retains36unresolved shared definitions and27multiplication/addition expressions outside initial grammar. No literal1950 observed in individual packets;0x40attributes are formatting, not conditional evidence. No general transform impossibility claimed.
 
 **Matched denominator.** 79original4,466,176byte XLS inputs;107visible worksheet tabs;62BIFF5/7+17BIFF8 globals;2mixed-header books;54,419physical records;63FORMULA records in2source-age columns.0cached cells recounted. Original four-book27,325cells/8sheets/16fields and retained5170−17=5153 partition remain separate.
 
-Retained evidence: [docs/report/source-relations/landclim/worksheet-layout/report.json](report.json), [docs/report/source-relations/landclim/worksheet-layout/source-account.json](source-account.json), [docs/report/source-relations/landclim/worksheet-layout/physical-biff.json](physical-biff.json), [docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json](physical-biff-source.json).
+Retained evidence: [docs/report/source-relations/landclim/worksheet-layout/report.json](report.json), [docs/report/source-relations/landclim/worksheet-layout/source-account.json](source-account.json), [docs/report/source-relations/landclim/worksheet-layout/physical-biff.json](physical-biff.json), [docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json](physical-biff-source.json), [docs/report/source-relations/landclim/worksheet-layout/age-formula-operators.json](age-formula-operators.json), [docs/report/source-relations/landclim/worksheet-layout/age-formula-operators-source.json](age-formula-operators-source.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: 14d5064c2eca17eff537f90c991fd7a104e91b54747f4894243051e46cf7aeca -->
-<!-- scientific-authored-source-sha256: 7a94456651bd269154a81697fc48363b16d74c85ad1f89f7bb2a90baa9fcd0ef -->
+<!-- scientific-claim-semantic-sha256: 829e7c0ceb47c91d6f14006c673c7e598c6bf2786097477313178a1419b7c6ca -->
+<!-- scientific-authored-source-sha256: 186e46a7ee1989c523e385002c4c62244b56bfd093767abd7544a35b1aa1e107 -->
 <!-- scientific-verification-and-limits:end -->

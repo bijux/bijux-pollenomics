@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2084,
-  "paths_sha256": "078df697a3fd1fed83824cc3131aa01f21fca5ddd07e8fad896be8907c8595da",
+  "path_count": 2086,
+  "paths_sha256": "5aabcfb6a2f5b052ec82ac029eba40a859ceb561a52adf7160f86fa7d39479ec",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -48283,6 +48283,19 @@
         "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py"
       ],
       "verification": "Exact79originals/107worksheet tabs/raw54419records;63formula source-age origins and2mixed BOFs retained; independent globals loads0cached sheets,38guards/strict/Ruff. No original7z intake, formula evaluation/age conversion, target resolution, malware or source/rights admission."
+    },
+    {
+      "owner_id": "source-relations/landclim/worksheet-layout/age-formula-operators",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/source-relations/landclim/worksheet-layout/age-formula-operators-source.json",
+        "docs/report/source-relations/landclim/worksheet-layout/age-formula-operators.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json"
+      ],
+      "verification": "Actual63retainedFORMULA token packets/1131bytes, native0/12fixtures. All63strict1950templates refused;0x40formatting distinction corrected. No formula evaluation, age conversion, shareddefinition/calibration/epoch/source-rights admission. Retained source scope: exact artifact selector and actual CLI receipt are bound in source account; no current maintained general formula evaluator or report regeneration recipe is claimed."
     }
   ]
 }
