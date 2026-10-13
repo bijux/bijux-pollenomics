@@ -4,6 +4,14 @@ All notable changes for `pollenomics` are recorded here.
 
 ## Unreleased
 
+### Changed
+
+- Forward the canonical runtime's explicit chronology, propagation-selection and
+  scientific refusal behavior through the existing compatibility imports and CLI.
+  The compatibility distribution owns no separate reconstruction algorithm.
+- Keep the optional LRA engine in its own distribution and facade; forwarding
+  runtime imports does not install or qualify the numerical engine.
+
 ## 0.1.8 - 2026-09-08
 
 ### Changed
