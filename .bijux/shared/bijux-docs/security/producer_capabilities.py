@@ -21,6 +21,7 @@ HOOKS = {
     '4f04c4736adc9b9ff801bb2e2214e4bb622b8858aac16a9f6ae88b49ff2f7e84':'root-icons',
     'bda022ee3efa9393f03cda2d49684ba186d67714a362f4225890b8d4b15583d5':'source-assets-and-root-icons',
     '3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906':'scientific-pdf-downloads',
+    '6007e8ae8a101b74102df0385dd0a9bb93efe85bf0edc9962ee3cff346a0b5bf':'retained-scientific-pdf-downloads',
     'f714e9c71a7213f573007baf2f54aab1f5ec3375b7481bb48b64f2d06923a88b':'root-icons-and-custom-domain',
 }
 ICONS=('favicon.ico','apple-touch-icon.png','apple-touch-icon-precomposed.png')
@@ -33,6 +34,24 @@ PDF_VERIFIER = 'reports/exports/papers/verify.py'
 PDF_VERIFIER_SHA256 = {
     '87a4e621c498572cbc6060b7be2b3ce0b296523245bddc0878bd6bcb5986e758',
     'b6c60e27d9b53de7900017121c0d98b9bee4342aee252875cdbcda66a3f8c9a2',
+}
+
+
+RETAINED_DECK_CONTEXT_PATH = 'presentation/retained-source-context.json'
+RETAINED_DECK_CONTEXT_SHA256 = '14f1d06e8f1470e5810865f4ae6d56b8d7cd08e30f3b73ad07d43fdda9bd0818'
+RETAINED_DECK_CONTEXT = {
+    'schema': 'retained-deck-source-context.v1',
+    'source_revision': '11079034b7dc0c1a0d94d26c97c70ec59fcf27f7',
+    'source_lock_sha256': '42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b',
+    'security_metadata': {
+        'revision': '5f3fe303ef3e5cf1f4cf2b5e29da2b934844a331',
+        'path': 'pyproject.toml',
+        'historical_sha256': '9cc54d64c3f76f62bf16e7d2552d02c390d99c82387f0617782c880ba92acecd',
+        'current_sha256': 'a3d3d57eceaba706062cc94626bbc9f41c4bc0894f574d29b098d9abd332af04',
+        'toml_path': ['tool', 'bandit', 'skips'],
+        'historical_value': ['B404', 'B311'],
+        'current_value': [],
+    },
 }
 
 
@@ -74,7 +93,7 @@ def reviewed_hook_functions(hook, source, path):
                 'Producer capability: loaded callback differs from reviewed source')
 
 
-def scientific_downloads(hook, root, path, source):
+def scientific_downloads(hook, root, path, source, *, retained=False):
     """Preserve the reviewed finite PDF exports and all of their source inputs."""
     import runpy
     from pathlib import PurePosixPath
@@ -90,6 +109,31 @@ def scientific_downloads(hook, root, path, source):
             'Producer capability: scientific download dependency binding changed')
     require(digest(regular(root, root/PDF_VERIFIER)) in PDF_VERIFIER_SHA256,
             'Producer capability: scientific export verifier differs from reviewed source')
+    retained_context = None
+    if retained:
+        import io
+        import tomllib
+        require(hook.RETAINED_CONTEXT_PATH == RETAINED_DECK_CONTEXT_PATH
+                and hook.RETAINED_CONTEXT == RETAINED_DECK_CONTEXT
+                and hook.RETAINED_CONTEXT_SHA256 == RETAINED_DECK_CONTEXT_SHA256
+                and hook.subprocess is subprocess and hook.tomllib is tomllib and hook.io is io,
+                'Producer capability: retained deck context or dependency binding changed')
+        context_source = regular(root, root/RETAINED_DECK_CONTEXT_PATH)
+        require(digest(context_source) == RETAINED_DECK_CONTEXT_SHA256
+                and json.loads(context_source) == RETAINED_DECK_CONTEXT,
+                'Producer capability: retained deck context differs from reviewed lineage')
+        retained_context = hook.retained_deck_sources(root)
+        deck_sources = json.loads(regular(root, root/'presentation/source-lock.json'))['sources']
+        require(len(deck_sources) == 98,
+                'Producer capability: retained deck source population differs')
+        expected_context = {
+            'context': RETAINED_DECK_CONTEXT,
+            'historical_inputs': [{'path':name,'sha256':value} for name,value in sorted(deck_sources.items())],
+            'current_inputs': [{'path':name,'sha256':digest(regular(root,root/name))}
+                               for name in sorted(deck_sources)],
+        }
+        require(retained_context == expected_context,
+                'Producer capability: retained and current deck source authority differ')
     # The original callback performs this same exact population and byte validation
     # before creating native MkDocs files; the admission independently freezes it.
     frozen=hook.download_bytes(root)
@@ -101,6 +145,8 @@ def scientific_downloads(hook, root, path, source):
     names={hook.MANIFEST,PDF_VERIFIER,'presentation/source-lock.json',
            'reports/exports/papers/manifest.json','reports/exports/papers/visual-review.json',
            'reports/science/paper-accounts.csv',paper_manifest['inventory']}
+    if retained:
+        names.add(RETAINED_DECK_CONTEXT_PATH)
     names.update(manifest['inputs'])
     names.update(deck_lock['sources'])
     names.update(paper_manifest['producer_sha256'])
@@ -114,9 +160,12 @@ def scientific_downloads(hook, root, path, source):
                 and all(part not in {'','.','..'} for part in name.split('/')) and '\\' not in name,
                 'Producer capability: canonical scientific source path required')
         inputs.append({'path':name,'sha256':digest(regular(root,root/name))})
-    return {'source':path.relative_to(root).as_posix(),'source_sha256':digest(source),
-            'recipe':'scientific-pdf-downloads','inputs':inputs,
-            'outputs':{name:digest(value) for name,value in sorted(frozen.items())}}
+    record = {'source':path.relative_to(root).as_posix(),'source_sha256':digest(source),
+              'recipe':'retained-scientific-pdf-downloads' if retained else 'scientific-pdf-downloads',
+              'inputs':inputs,'outputs':{name:digest(value) for name,value in sorted(frozen.items())}}
+    if retained:
+        record['retained_source_context'] = retained_context
+    return record
 
 
 CORE_CONTRACT_ASSETS = (
@@ -185,8 +234,9 @@ def hooks(configuration,root,*,publication=False):
         if recipe=='core-contract-assets':
             records.append(core_contract_assets(hook,configuration,root,path,source,publication=publication))
             continue
-        if recipe=='scientific-pdf-downloads':
-            records.append(scientific_downloads(hook,root,path,source))
+        if recipe in {'scientific-pdf-downloads', 'retained-scientific-pdf-downloads'}:
+            records.append(scientific_downloads(hook,root,path,source,
+                                                retained=recipe=='retained-scientific-pdf-downloads'))
             continue
         require(tuple(hook.ROOT_ICON_FILENAMES)==ICONS,'Producer capability: loaded icon contract changed')
         docs=Path(configuration.docs_dir).absolute();assets=docs/'assets'
