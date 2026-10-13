@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind the Nordic atlas parent identity to its native render with the accepted Material search runtime.
+
 - Bind public report privacy to owned configuration and admit immutable scientific downloads from accepted publication authority without regenerating scientific results ([#236](https://github.com/bijux/bijux-pollenomics/pull/236)).
 
 - Adopt accepted reader preference recovery, inert native search, truthful clipboard feedback, patched publication dependencies and authenticated workflow actions; add native media names/fallbacks and source-qualified public report path projection without changing scientific receipts ([#235](https://github.com/bijux/bijux-pollenomics/pull/235)).
