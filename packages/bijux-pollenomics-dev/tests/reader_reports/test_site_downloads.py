@@ -1,10 +1,11 @@
+from collections.abc import Callable
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import subprocess
 from types import SimpleNamespace
-from typing import NotRequired, TypedDict
+from typing import NotRequired, Protocol, TypedDict, cast
 
 import pytest
 
@@ -36,11 +37,21 @@ class _DownloadManifest(TypedDict):
     files: list[_DownloadFile]
 
 
+class _GitSourceReader(Protocol):
+    """Bind the dynamically loaded Git reader, including its request keyword."""
+
+    def __call__(
+        self, root: Path, *arguments: str, request: bytes | None = None
+    ) -> bytes:
+        """Read exact original Git bytes with an optional request body."""
+        ...
+
+
 @pytest.fixture
 def synthetic_pdf_sources(monkeypatch: pytest.MonkeyPatch) -> None:
     """Keep PDF boundary fixtures strict; historical authority uses real Git tests."""
 
-    def current_sources(root: Path) -> dict:
+    def current_sources(root: Path) -> dict[str, object]:
         lock = json.loads(HOOK._read(root, "presentation/source-lock.json"))
         for relative, expected in lock["sources"].items():
             if hashlib.sha256(HOOK._read(root, relative)).hexdigest() != expected:
@@ -209,7 +220,7 @@ def test_retained_deck_context_admits_original_history_and_exact_current_inputs(
 def test_retained_deck_context_substitution_refuses(
     monkeypatch: pytest.MonkeyPatch, mutation: str
 ) -> None:
-    read = HOOK._read
+    read = cast(Callable[[Path, str], bytes], HOOK._read)
     context = json.loads(read(ROOT, HOOK.RETAINED_CONTEXT_PATH))
     if mutation == "unknown":
         context["unreviewed"] = True
@@ -237,7 +248,7 @@ def test_retained_deck_context_substitution_refuses(
 def test_retained_deck_current_source_drift_refuses(
     monkeypatch: pytest.MonkeyPatch, relative: str
 ) -> None:
-    read = HOOK._read
+    read = cast(Callable[[Path, str], bytes], HOOK._read)
 
     def changed(root: Path, name: str) -> bytes:
         value = read(root, name)
@@ -251,7 +262,7 @@ def test_retained_deck_current_source_drift_refuses(
 def test_retained_deck_missing_original_history_refuses(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    command = HOOK._git
+    command = cast(_GitSourceReader, HOOK._git)
 
     def missing(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
         if arguments[0] == "merge-base":
@@ -266,7 +277,9 @@ def test_retained_deck_missing_original_history_refuses(
 def test_retained_deck_historical_source_blob_substitution_refuses(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    committed = HOOK._committed_inputs
+    committed = cast(
+        Callable[[Path, str, list[str]], dict[str, bytes]], HOOK._committed_inputs
+    )
 
     def changed(root: Path, revision: str, paths: list[str]) -> dict[str, bytes]:
         values = committed(root, revision, paths)
@@ -282,7 +295,7 @@ def test_retained_deck_historical_source_blob_substitution_refuses(
 def test_retained_deck_nonregular_git_source_refuses(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    command = HOOK._git
+    command = cast(_GitSourceReader, HOOK._git)
 
     def nonregular(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
         value = command(root, *arguments, request=request)
@@ -300,7 +313,7 @@ def test_retained_deck_nonregular_git_source_refuses(
 def test_retained_context_duplicate_json_keys_refuse(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    read = HOOK._read
+    read = cast(Callable[[Path, str], bytes], HOOK._read)
 
     def duplicate(root: Path, relative: str) -> bytes:
         value = read(root, relative)
@@ -343,7 +356,7 @@ def test_retained_source_nonregular_or_linked_paths_refuse(
 def test_retained_source_physical_executable_mode_substitution_refuses(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    command = HOOK._git
+    command = cast(_GitSourceReader, HOOK._git)
 
     def changed(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
         value = command(root, *arguments, request=request)
