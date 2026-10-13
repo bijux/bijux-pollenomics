@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-10-13
+last_reviewed: 2026-10-14
 ---
 
 # Release Support
@@ -23,7 +23,9 @@ itself and does not turn a green software build into scientific readiness.
 Both can pass, both can fail, or they can disagree. A technically publishable
 wheel may accompany a product that must retain qualified language. A strong
 evidence release can still be blocked by a version mismatch or malformed
-distribution.
+distribution. Archive checks read bounded regular members without extracting
+or executing them; source-distribution metadata and wheel file records do not
+replace independent build and installed API/CLI checks.
 
 ```mermaid
 flowchart LR
@@ -41,7 +43,7 @@ flowchart LR
 | Module or route | Establishes | Does not establish |
 | --- | --- | --- |
 | `release.version_resolver` | version derived from package metadata and Git identity | that artifacts were built from the intended revision |
-| `release.publication_guard` | requested artifacts carry a publishable matching version | external publication success |
+| `release.publication_guard` | filenames and embedded Name/Version match the requested publishable version; wheel RECORD hashes, sizes and complete member inventory agree | installed behavior, platform compatibility or external publication success |
 | `release.license_assets check` | package legal copies match root authorities | a new licensing decision |
 | `docs.badge_sync check` | managed badge blocks match declared metadata | package availability on an external registry |
 | package build and smoke routes | wheel and source distribution build and install under their declared checks | scientific evidence sufficiency |
@@ -181,9 +183,11 @@ Before executing the post-merge publication sequence:
 
 After those conditions are met, the release operator can dispatch the existing
 workflows. Dispatch release workflows **from `v0.1.8`**, not from a later moving
-`main`, and supply `release_tag=v0.1.8` and `enabled=true`. The earlier preparation selected the host and alias. Current configuration
-also selects the optional engine for GitHub artifacts and PyPI; GHCR retains
-the host and alias. Keep `bijux-pollenomics-dev` out of the public package set. The individual dispatches
+`main`, and supply `release_tag=v0.1.8` and `enabled=true`. The earlier preparation selected the host and alias. The current generated
+configuration still selects the host and alias for GitHub artifacts, PyPI and
+GHCR. The optional engine needs the upstream acceptance and downstream refresh
+described above before it enters the artifact-build and PyPI sets. Keep
+`bijux-pollenomics-dev` out of the public package set. The individual dispatches
 are `release-pypi.yml` (with `mode=artifact`), `release-ghcr.yml`, and
 `release-github.yml`. Record each
 run and its built wheel, source distribution, SBOM, and destination identities.
