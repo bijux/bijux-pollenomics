@@ -12,9 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- Adopt source-qualified reader recovery, inert search markup, truthful clipboard feedback, authenticated workflow actions, and patched publication dependencies from accepted shared standards.
-
-- Project the finite public report path metadata through source-reviewed publication admission, preserve immutable scientific receipts and numerical tokens, and distinguish portable displayed paths from executed commands.
+- Adopt accepted reader preference recovery, inert native search, truthful clipboard feedback, patched publication dependencies and authenticated workflow actions; add native media names/fallbacks and source-qualified public report path projection without changing scientific receipts ([#235](https://github.com/bijux/bijux-pollenomics/pull/235)).
 
 - Preserve the admitted reader, native report and finite download authorities while adopting the bounded manual publication workflow and complete paired source verification ([#233](https://github.com/bijux/bijux-pollenomics/pull/233)).
 
