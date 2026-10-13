@@ -23,7 +23,7 @@ def test_compound_formula_gets_own_line_with_unchanged_function_and_operands(
     result = renderer(tmp_path).render(
         f"Prediction loss is `{value}`; all outcomes remain."
     )
-    assert r"\linebreak[4]" + _inline_code(value) + r"\linebreak[4]" in result.latex
+    assert r"\linebreak[4]" + _inline_code(value) + r";\linebreak[4]" in result.latex
     assert "sum((sqrt(predicted)" in result.latex
     assert result.latex.replace(r"\linebreak[4]", "").replace(r"\allowbreak{}", "") == (
         "Prediction loss is "

@@ -162,10 +162,12 @@ class ReportRenderer:
             raise RenderError("missing inline content")
         output: list[str] = []
         link_depth = 0
-        for token in children:
+        punctuation_prefix = 0
+        for index, token in enumerate(children):
             kind = token.type
             if kind == "text":
-                output.append(_inline_text(token.content))
+                output.append(_inline_text(token.content[punctuation_prefix:]))
+                punctuation_prefix = 0
             elif kind == "code_inline":
                 code = _inline_code(token.content)
                 if (
@@ -175,7 +177,20 @@ class ReportRenderer:
                     and token.content.count(")") > 1
                     and re.search(r"\s[+*/−-]\s", token.content)
                 ):
-                    code = r"\linebreak[4]" + code + r"\linebreak[4]"
+                    punctuation = ""
+                    if index + 1 < len(children):
+                        following = children[index + 1]
+                        if following.type == "text":
+                            match = re.match(r"[.,;:!?]+", following.content)
+                            if match is not None:
+                                punctuation = match[0]
+                                punctuation_prefix = len(punctuation)
+                    code = (
+                        r"\linebreak[4]"
+                        + code
+                        + escape_latex(punctuation)
+                        + r"\linebreak[4]"
+                    )
                 output.append(code)
             elif kind == "strong_open":
                 output.append(r"\textbf{")
