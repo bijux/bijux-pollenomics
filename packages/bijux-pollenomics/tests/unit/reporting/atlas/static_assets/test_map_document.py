@@ -447,3 +447,43 @@ def test_static_document_budget_refuses_one_extra_utf8_byte() -> None:
     document = "é" * (ATLAS_DOCUMENT_MAX_BYTES // 2) + "x"
     with pytest.raises(ValueError, match="exceeds 524288 bytes: 524289"):
         validate_static_atlas_document(document)
+
+
+@pytest.mark.parametrize(
+    ("source", "expected"),
+    [
+        (
+            "a:hover, b:hover { color: rgba(1, 2, 3, 0.2); }",
+            "a:hover, b:hover{color:rgba(1,2,3,0.2);}",
+        ),
+        (
+            ".a { --palette: rgba(1, 2, 3, 0.2); background:linear-gradient( red , rgba(1, 2, 3, 0.2) , blue ); }",
+            ".a{--palette: rgba(1, 2, 3, 0.2);background:linear-gradient(red,rgba(1,2,3,0.2),blue);}",
+        ),
+        (
+            "@supports (color: rgba(1, 2, 3, 0.2)) { .a { color:rgba( calc(1 +  2), 3, 4, 0.2 ); } }",
+            "@supports (color: rgba(1, 2, 3, 0.2)){.a{color:rgba(calc(1 +  2),3,4,0.2);}}",
+        ),
+        (
+            '.a { background:linear-gradient("a , b", url("a , b"), var(--colors, red , blue), calc(1px +  2px)); }',
+            '.a{background:linear-gradient("a , b",url("a , b"),var(--colors, red , blue),calc(1px +  2px));}',
+        ),
+        (
+            ".a { background:linear-gradient(red, /* comma , spaces */  blue); }",
+            ".a{background:linear-gradient(red,/* comma , spaces */  blue);}",
+        ),
+        (
+            r".a { background:linear-gradient(\31 red,blue); }",
+            r".a{background:linear-gradient(\31 red,blue);}",
+        ),
+    ],
+)
+def test_color_and_gradient_layout_preserves_nonlayout_tokens(
+    source: str,
+    expected: str,
+) -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets.stylesheet import (
+        compact_stylesheet,
+    )
+
+    assert compact_stylesheet(source) == expected
