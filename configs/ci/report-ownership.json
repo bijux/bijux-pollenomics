@@ -46547,7 +46547,10 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/__init__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/recovery_evidence.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/recovery_evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/synthetic_recovery_evidence.py"
       ],
       "producer_inputs": [
         "data/synthetic-validation/finite-count-coverage/actual-multinomial-draws.jsonl",

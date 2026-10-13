@@ -1921,7 +1921,7 @@
     },
     {
       "owner_id": "synthetic-validation/recovery-evidence/report-products",
-      "module": "bijux_pollenomics_dev.lra_validation.recovery_evidence",
+      "module": "bijux_pollenomics_dev.source_completion.model_validation.synthetic_recovery_evidence",
       "output_mode": "single_file",
       "source_arguments": [],
       "source_paths": {

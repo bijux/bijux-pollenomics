@@ -78,8 +78,8 @@
     "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json": "2ff98f09588265a5f58711bd109bcc6c3b8c6066b81425214d2b3d6a0314aab8",
     "configs/ci/qualified-report-sources/swedish-observed-common-panel.json": "1200eda7cfac24d1c4c1e16fcbc996106897b77b7135bbad79a26e10945efa4a",
     "configs/ci/qualified-report-sources/swedish-observed-lake-panels.json": "dbc7cb19e32dfca1bcfe8d76c89206a385d0cac3412c64a289da37b1e0be325a",
-    "configs/ci/report-owner-execution.json": "7522f510fb9d407a8d03b7154a520c3d0eebe4897023c39cb889f837010abfa2",
-    "configs/ci/report-ownership.json": "bbd903d91a2fb197f6f586e63b1eba2e07fe354f70b782dcb0a8559e462e3383",
+    "configs/ci/report-owner-execution.json": "d98836813570c38787383c03eab8785b393906d325288e39a5ddb47474fb3b58",
+    "configs/ci/report-ownership.json": "9223d859765e472ddf1981235df043b73ca95222666212a14b3935339bbade4c",
     "configs/docs/science_downloads.py": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
     "data/archaeology/raw/hojea_2003_source.json": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
@@ -235,7 +235,7 @@
     "docs/report/pollen-reconstruction/english-receiver-annulus/README.md": "9c0b516668fe94d6696a4ef8b113ae6ac95942fcaa27c00ccb0a235874b8b6ed",
     "docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json": "0b36f844b2bba7b243ecdff7aa6eda724191088d970e6fa8396b8549a288b677",
     "docs/report/pollen-reconstruction/english-receiver-annulus/report.json": "55d6a85df0d2f087b6a8254be74a82fa351b6b5f2ecaf02d9df7f3750caa4a64",
-    "docs/report/pollen-reconstruction/manifest.json": "d666a59f89b791b19ce6e84b08a2f64978b2b53a310f7574d0b04a15423fa1c5",
+    "docs/report/pollen-reconstruction/manifest.json": "ab601c8ef1c166b65900b3ecebf5b756203eee1a634d51a31081e2cfe2ecbd29",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md": "0b2bec48ce4014d2bb77fead52a35752586a16b7429c1b8a340d22b045488096",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json": "70911e6f14d2afb3ed54ec5d12f27b074514243ec525fd35222eca5b21cb77c5",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
@@ -1470,6 +1470,8 @@
     "data/model-development/english-retained-score-audit/ledger/training_mean.site-fold-3.ab96554a1c4d/start.json": "51e234cd38d3cb6e8e1e8660f990810b9a43e191df065dd05106ba273fa2dbec",
     "data/model-development/english-retained-score-audit/manifest.json": "4a7542e19ba5503ededfa5a8536283e4e23d847418f9962e1b4bc42e9b8b05bb",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_development/__init__.py": "4463766146e7d75e8adc381fa5ca0cce421958f7a67afac8e833fb8a81dcae38",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_development/english_retained_score_audit.py": "759e7638c6f6ad3fcfcf9b91d04d9efb842236ab9610fd8d94b6f4abd5bb9194"
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_development/english_retained_score_audit.py": "759e7638c6f6ad3fcfcf9b91d04d9efb842236ab9610fd8d94b6f4abd5bb9194",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/__init__.py": "be7ec0b9b8431eada7784f830069441118db85528b278cb2fc9373935b283847",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/synthetic_recovery_evidence.py": "400102d8cfcad878fa9e0e366bb732172c6bbf9615799eee7b2cefb8c8c4839c"
   }
 }
