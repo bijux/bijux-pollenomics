@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "f6be7d1e4f2f004357672d135a0e172547d3fdf160281a846c88c87352ffa89d",
-      "bytes": 4587297
+      "sha256": "0fd99ad0b5f67ddbd80b6ecd0352d08e9a02c6dc3c277ec5994b8fa8d43b197c",
+      "bytes": 4589167
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2251,8 +2251,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "sha256": "d04dbe6cb7bce08d4963eb78296414b419dc7148d8e297c32b490166c6a8de8c",
-      "bytes": 9502
+      "sha256": "32a83a5a4eb829c556fe0e51f3a0b06b93663b07245d38fb599c60e46d437c8c",
+      "bytes": 10280
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "dd5f9cf15b938d60541569864e61b3a83436186ade17d0d6a05c275bd876d4ba",
-      "bytes": 149435
+      "sha256": "d3459256cf030b1848486a02736b050cccccb734ade6c490d6a91542fd324228",
+      "bytes": 149919
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,8 +3766,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "69d45d6f25fed78b5edeab74c57a9682e53ce441708cca7217be98146b0b8c59",
-      "bytes": 1017733
+      "sha256": "61f5642d2dc2e206d7ff11ec4c3377823cb17ed6c33a37fbca49ab5fc02dfc43",
+      "bytes": 1018809
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -8943,6 +8943,36 @@
       "path": "reports/science/nordic-chronology-admission/source-custody.json",
       "sha256": "6ca012be0c30addc3097a19b5102cb12c5d7f6335b05187d79f4e9ca014ec2ec",
       "bytes": 802
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "sha256": "65eb96777eb5a7b6b479701b07635cd68de9298265bca5855979b99d0987e84a",
+      "bytes": 5366
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json",
+      "sha256": "27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a",
+      "bytes": 125409
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_swedish_native_chronology_contrast.py",
+      "sha256": "06bc2a1f677e26ca92a4835a4d76d2ad6af88263cc44fc3ccc08c12983901272",
+      "bytes": 3127
+    },
+    {
+      "path": "reports/science/swedish-native-chronology-contrast/protocol.json",
+      "sha256": "0a946428c5bbe139e3f58d38d5977b0597c56f302b02fde84ac6c41b42d9d503",
+      "bytes": 1219
+    },
+    {
+      "path": "reports/science/swedish-native-chronology-contrast/qualify.py",
+      "sha256": "4d06db4ce402507800deed94b91cebc0f929e66ae8d8c8f0239014267e65b779",
+      "bytes": 16869
+    },
+    {
+      "path": "reports/science/swedish-native-chronology-contrast/source-custody.json",
+      "sha256": "108ac1c7483501df7e3eb5261ca776b20f3cb98b3dcd2911474c1e4431ea1531",
+      "bytes": 1429
     }
   ]
 }

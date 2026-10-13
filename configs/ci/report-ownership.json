@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2078,
-  "paths_sha256": "db3c32ee74aaad69c1982fff73e6b62c15bc5fda1f462c3380c6e27ec0d1fa5e",
+  "path_count": 2080,
+  "paths_sha256": "8475129ffdaccef750d3d80d2db701b09151dc8a1f98e39e16b0c3495e21f73a",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46168,6 +46168,32 @@
         "reports/science/nordic-chronology-admission/source-custody.json"
       ],
       "verification": "Bounded actual source reader emits the public aggregate byte for byte against six retained source inputs. It accounts for100corewindows/225casewindows, preserves182actual numerical results and nulls all20absentcore/43absentcase windows without zero vegetation. It matches1064saved support/count scalars. Separate Decimal enumeration verifies313sourcepoint assignments/306pooled count cells and independently classifies222missing/66crossing/2outdomain/23contained rawbounds. Original pending native source-capture status remains intact. No model/physical/chronology fit, probability allocation, historical/rights/accuracy/wholegate or configured-owner certification is established."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-native-chronology-contrast/reader",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain complete125slot source-bound native chronology contrast, original two-taxon conditional estimand and same-core source/model identities, differing cohorts/refusals and missing joint covariance; no chronology/vegetation accuracy claim."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-native-chronology-contrast/aggregate",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json"
+      ],
+      "producer_paths": [
+        "reports/science/swedish-native-chronology-contrast/qualify.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_swedish_native_chronology_contrast.py",
+        "reports/science/swedish-native-chronology-contrast/protocol.json",
+        "reports/science/swedish-native-chronology-contrast/source-custody.json"
+      ],
+      "verification": "Actual bounded reader reproduces aggregate27ab3800 against original native/schema/receipt-bound source packet and fixed protocol:125slots,106matched/5referenceonly/4alternativeonly/10neither,449source samples/898age-side memberships,76windowmigrations/3cohortdifferences/17bothrefused. Separate Decimal50 scalar quotient/source-membership/count audit checks663pooledsupportcells/442covers/212contrasts withmax2.04e-16<=2e-13. AllpairedSEnull without cross-profile count/shared-PPE covariance. No new models/physics/calibration, historical/countrights/accuracy/wholegate or configured-owner certification."
     }
   ]
 }

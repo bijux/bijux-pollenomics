@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 315,
+  "page_count": 316,
   "quality_posture_counts": {
-    "reader_ready": 123,
+    "reader_ready": 124,
     "structured_reference": 20,
     "thin_structure": 172
   },
@@ -1439,8 +1439,8 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "content_sha256": "d04dbe6cb7bce08d4963eb78296414b419dc7148d8e297c32b490166c6a8de8c",
-      "prose_paragraph_count": 15,
+      "content_sha256": "32a83a5a4eb829c556fe0e51f3a0b06b93663b07245d38fb599c60e46d437c8c",
+      "prose_paragraph_count": 16,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 3,
@@ -3469,6 +3469,17 @@
       "bullet_sentence_count": 0,
       "heading_count": 6,
       "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "content_sha256": "65eb96777eb5a7b6b479701b07635cd68de9298265bca5855979b99d0987e84a",
+      "prose_paragraph_count": 9,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 5,
+      "table_line_count": 7,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     }
