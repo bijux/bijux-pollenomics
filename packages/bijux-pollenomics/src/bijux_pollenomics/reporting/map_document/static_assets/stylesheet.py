@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 _CSS_WHITESPACE = " \t\n\r\f"
 _HEX_DIGITS = "0123456789abcdefABCDEF"
 
@@ -31,12 +33,16 @@ def compact_stylesheet(stylesheet: str) -> str:
     Strings, comments, escapes and parenthesized or bracketed content remain
     verbatim. Outside those boundaries whitespace keeps a single separator;
     braces and declaration terminators do not need a following separator.
+    Ordinary declaration colons also omit separator whitespace; custom-property
+    token streams retain it for substitution and CSSOM consumers.
     """
     chunks: list[str] = []
     nesting: list[str] = []
     index = 0
     pending_space = False
     previous_boundary = False
+    declaration_start = 0
+    compact_colon = False
     while index < len(stylesheet):
         char = stylesheet[index]
         if char in _CSS_WHITESPACE and not nesting:
@@ -45,9 +51,16 @@ def compact_stylesheet(stylesheet: str) -> str:
             continue
         start = index
         boundary = not nesting and char in "{};"
-        if pending_space and chunks and not previous_boundary and char not in "{}":
+        if (
+            pending_space
+            and chunks
+            and not previous_boundary
+            and not compact_colon
+            and char not in "{}"
+        ):
             chunks.append(" ")
         pending_space = False
+        compact_colon = False
         if stylesheet.startswith("/*", index):
             closing = stylesheet.find("*/", index + 2)
             index = len(stylesheet) if closing < 0 else closing + 2
@@ -72,7 +85,14 @@ def compact_stylesheet(stylesheet: str) -> str:
             elif nesting and char == nesting[-1]:
                 nesting.pop()
             index += 1
+        if not nesting and char == ":":
+            property_name = "".join(chunks[declaration_start:]).strip()
+            compact_colon = (
+                re.fullmatch(r"[A-Za-z][A-Za-z0-9-]*", property_name) is not None
+            )
         chunks.append(stylesheet[start:index])
+        if boundary:
+            declaration_start = len(chunks)
         previous_boundary = boundary
     return "".join(chunks)
 
