@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2082,
+  "surface_count": 2084,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1184,
+    "maintenance": 1186,
     "maps": 88,
     "portal": 2,
     "reviews": 38,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1186,
+    "maintainer_diagnostic": 1188,
     "public_reading_surface": 769,
     "scientific_review_surface": 127
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1237,
+    "report_root": 1239,
     "sweden": 49,
     "world": 160
   },
@@ -25327,6 +25327,31 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-operators.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/classification/source-custody/README.md",
+      "content_sha256": "e7b59b1a720decdc073b65e588f99b5ae93fdf9b0b1ab720798052c544299406",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/classification/source-custody/native-captures.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

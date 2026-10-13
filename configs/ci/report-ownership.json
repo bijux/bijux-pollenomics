@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2086,
-  "paths_sha256": "5aabcfb6a2f5b052ec82ac029eba40a859ceb561a52adf7160f86fa7d39479ec",
+  "path_count": 2088,
+  "paths_sha256": "bd513a395893ad62803e453daca9bbfdc150422b4025e8e3a02e7412faf310e0",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -48296,6 +48296,28 @@
         "docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json"
       ],
       "verification": "Actual63retainedFORMULA token packets/1131bytes, native0/12fixtures. All63strict1950templates refused;0x40formatting distinction corrected. No formula evaluation, age conversion, shareddefinition/calibration/epoch/source-rights admission. Retained source scope: exact artifact selector and actual CLI receipt are bound in source account; no current maintained general formula evaluator or report regeneration recipe is claimed."
+    },
+    {
+      "owner_id": "classification/source-custody/native-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/classification/source-custody/native-captures.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain this immutable compact account of actual historical/current native classification captures, explicit metadata-only18-source derivative and guarded consumer execution. Source candidates and receipts are historical identities, not current generated producer certification. Full scientific/source payloads remain local governed artifacts; accepted mappings0 and refusal scope are preserved."
+    },
+    {
+      "owner_id": "classification/source-custody/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/classification/source-custody/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/classification/source-custody/native-captures.json"
+      ],
+      "verification": "Maintain this authored source-custody account against its immutable native-captures JSON. Distinguish actual17-declaration native accounting from18-source metadata-only adoption; no scientific admission or publication-rights claim."
     }
   ]
 }

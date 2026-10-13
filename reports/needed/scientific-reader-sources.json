@@ -256,6 +256,11 @@
       "reader_path": "docs/report/scopes/index.md",
       "classification": "navigation_or_governance",
       "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/classification/source-custody/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Native execution/source-hash custody and guarded release-authority identity reconciliation for an unchanged zero-admission accounting snapshot. This account distinguishes17-declaration native captures from18-source metadata-only publication; counts identify preserved bytes and do not introduce a scientific model, reviewed mapping, inference or ecological outcome."
     }
   ]
 }
