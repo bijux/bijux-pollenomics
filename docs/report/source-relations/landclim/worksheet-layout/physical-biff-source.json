@@ -1,0 +1,686 @@
+{
+  "schema_version": "rootsi-physical-biff-source.v1",
+  "source_scope": "Existing exact quarantined originals; no new archive acquisition or cell-grid capture. Prepared source overlay at recorded04dd base plus exact producer/test hashes; later documentation commits not claimed consumed.",
+  "actual_terminal": {
+    "candidate": "04dd2d01abf75537b0076545f77d5496dbb03991",
+    "plan_sha256": "10751bc66cc2130fa909324d33dbcaeea6da3c4c02b04d38f7085c62bf55afef",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/run-substream-bof.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/consume-substream-bof.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.9290414589922875,
+        "stdout": "{\"schema_version\": \"rootsi-physical-biff-custody.v1\", \"candidate\": \"04dd2d01abf75537b0076545f77d5496dbb03991\", \"plan_sha256\": \"10751bc66cc2130fa909324d33dbcaeea6da3c4c02b04d38f7085c62bf55afef\", \"archive_sha256\": \"f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c\", \"workbooks\": 79, \"all_native_boundsheet_tabs\": 107, \"worksheet_tabs_matched_existing_capture\": 107, \"biff_grammar_counts\": {\"BIFF5_or_7\": 62, \"BIFF8\": 17}, \"mixed_global_sheet_bof_workbooks\": 2, \"mixed_bof_posture\": \"Native global-versus-sheet versions are retained independently; name grammar uses globals, physical record-address bounds use each local BOF. Mixed versions do not certify source cached interpretation.\", \"all_sheet_visibility_code_counts\": {\"0\": 107}, \"all_sheet_type_code_counts\": {\"0\": 107}, \"physical_BIFF_records\": 54419, \"formula_record_occurrences\": 63, \"reference_record_occurrences_by_code\": {}, \"cached_cell_rectangles_redecoded\": 0, \"cached_cells_recounted\": 0, \"independent_globals_oracle_cached_sheets_loaded\": 0, \"retained_cached_census\": {\"identity\": \"2e5b5a3a10cec59fc8086c0c99db56bb394e9d1f180bbd5571c1098c262c9179\", \"workbooks\": 79, \"sheets\": 107, \"empty_sheets\": 28, \"rectangle_positions\": 547330, \"cached_type_counts\": {\"0\": 12642, \"1\": 7498, \"2\": 527072, \"6\": 118}, \"source_numeric_values_not_pollen_counts\": true, \"newly_recomputed\": false}, \"retained_merged_ranges\": {\"sheets_with_ranges\": 0, \"newly_recomputed\": false}, \"formula_posture\": \"Physical FORMULA row/column/record hash retained privately; no token interpretation, evaluation, cache recalculation or scientific derived-cell admission.\", \"reference_posture\": \"Physical reference records may denote internal/external/add-in or DDE/OLE associations. No target decoding/resolution, external access, link absence or security certification.\", \"native_stream_scope\": \"Only one exact root Workbook or Book CFB3 stream and its BIFF5/7/8 globals plus bounded declared substreams; no all-CFB-stream or malware/macros absence certification.\", \"original_archive_intake_replayed\": false, \"scientific_admission\": \"refused\", \"source_rights_admission\": false, \"historical_input_identity_authenticated\": false}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "pytest",
+          "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py",
+          "-q",
+          "-o",
+          "addopts=",
+          "-o",
+          "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/execution-substream-bof/pytest-cache",
+          "--basetemp=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/execution-substream-bof/test-products"
+        ],
+        "native_exit": 0,
+        "seconds": 1.2808809999842197,
+        "stdout": "......................................                                   [100%]\n38 passed in 0.82s\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "--config",
+          "configs/ruff.toml",
+          "--no-cache",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+          "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.08049937500618398,
+        "stdout": "All checks passed!\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "--config",
+          "configs/ruff.toml",
+          "--no-cache",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+          "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.038400082965381444,
+        "stdout": "2 files already formatted\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "mypy",
+          "--config-file",
+          "configs/mypy.ini",
+          "--strict",
+          "--cache-dir",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/execution-substream-bof/mypy-cache",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+          "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py"
+        ],
+        "native_exit": 0,
+        "seconds": 3.4807909579831176,
+        "stdout": "Success: no issues found in 2 source files\n",
+        "stderr": ""
+      }
+    ],
+    "exception": null,
+    "native_exit": 0,
+    "source_pins_unchanged": true,
+    "source_pin_count": 1530,
+    "external_source_pin_count": 85,
+    "runtime_pin_count": 1,
+    "wall_seconds": 5.813184500031639,
+    "child_peak_rss_bytes": 332709888,
+    "output_bytes": 22817708,
+    "scope": "Exact79 retained original XLS physical CFB3/BIFF5-or7/8 record custody only. Raw all BOUNDSHEET tabs/name/order/type/visibility, native BOF/CODEPAGE, FORMULA locators/hash and reference-record presence. Pinned xlrd independent on-demand globals confirms no cached worksheet loaded; preserve retained107worksheet/547330cached-position corpus, no rectangle recapture/census. Native79original4.47MB source bytes; no original7z intake or formula/source supplied code execution. Scientific/rights/historical/units/PPE/chronology remain refused. New38focused source guards plus strict source+test/Ruff. Successor preserves actual RANV mixed globalsBOF0x0500/sheetBOF0x0600 separately, rather than assuming identity; retain predecessor refusal48workbooks. Global name grammar/local address bounds source-native; unsupported local grammar/type/offset still refuses.",
+    "scientific_or_rights_admission": false
+  },
+  "terminal_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/execution-substream-bof/terminal.json",
+    "sha256": "92ec7bb2dac07012f42db1e7f9cc2333ade0c5e24fe61ffc65097ddabfb21e65",
+    "bytes": 6868
+  },
+  "predecessor_terminal": {
+    "candidate": "04dd2d01abf75537b0076545f77d5496dbb03991",
+    "plan_sha256": "9c6c2d9d81a138a464df4bec752fbdbb56000584c7f9b41d8557512ad36013af",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/run.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/consume.py"
+        ],
+        "native_exit": 1,
+        "seconds": 0.5316688329912722,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/consume.py\", line 25, in <module>\n    payload=read_bytes(item.path,item.sha256,item.byte_count);row=physical_biff_structure(payload,cast(CompoundDecoder,CompDoc));old=oldby[item.archive_member];expected=oldsheets[old['workbook_id']];works=[s for s in row['all_boundsheets'] if s['sheet_type_code']==0]\n                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/repository/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py\", line 291, in physical_biff_structure\n    result = parse_biff_stream(stream)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/repository/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py\", line 191, in parse_biff_stream\n    require(\n  File \"/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-physical-biff-custody/repository/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py\", line 66, in require\n    raise ValueError(\"native_biff_\" + reason)\nValueError: native_biff_mixed_bof_version\n"
+      }
+    ],
+    "exception": null,
+    "native_exit": 1,
+    "source_pins_unchanged": true,
+    "source_pin_count": 1525,
+    "external_source_pin_count": 85,
+    "runtime_pin_count": 1,
+    "wall_seconds": 0.5320933330222033,
+    "child_peak_rss_bytes": 93306880,
+    "output_bytes": 83694,
+    "scope": "Exact79 retained original XLS physical CFB3/BIFF5-or7/8 record custody only. Raw all BOUNDSHEET tabs/name/order/type/visibility, native BOF/CODEPAGE, FORMULA locators/hash and reference-record presence. Pinned xlrd independent on-demand globals confirms no cached worksheet loaded; preserve retained107worksheet/547330cached-position corpus, no rectangle recapture/census. Native79original4.47MB source bytes; no original7z intake or formula/source supplied code execution. Scientific/rights/historical/units/PPE/chronology remain refused. New35focused source guards plus strict source+test/Ruff.",
+    "scientific_or_rights_admission": false
+  },
+  "predecessor_terminal_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/execution/terminal.json",
+    "sha256": "2ae5ff68905e794a3e2ad2603fe28ff2b834febd00efbaad57113575d452f1a5",
+    "bytes": 3022
+  },
+  "predecessor_partial_record_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/native/private-physical-records.jsonl",
+    "sha256": "a132ba99aa09f5b4937aa0d89d244e9e9d1fe5d54e43eeb57fc6a70291417281",
+    "bytes": 82287
+  },
+  "protocol_plan": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/plan-substream-bof.json",
+    "sha256": "10751bc66cc2130fa909324d33dbcaeea6da3c4c02b04d38f7085c62bf55afef",
+    "bytes": 487312
+  },
+  "native_aggregate_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/native-substream-bof/report.json",
+    "sha256": "6ca0acd8c0f441cf7f1f0eb3ed6a5c420d1edc4c777c9561defed1555500d422",
+    "bytes": 2335
+  },
+  "private_physical_record_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/native-substream-bof/private-physical-records.jsonl",
+    "sha256": "3a90a678a13cfe9cf30d50e6bc2f622c4956c6e5bfd7bad5bd2465c394aef0f4",
+    "bytes": 130572
+  },
+  "independent_global_audit_identity": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/native-substream-bof/independent-globals-audit.json",
+    "sha256": "2c63b4ac74095579a51adde62477e6e6fdea28a9f55e6d577dc42b9fc053e955",
+    "bytes": 21176
+  },
+  "independent_global_checks": {
+    "worksheet_name_fields": 107,
+    "worksheet_visibility_fields": 107,
+    "all_tab_counts": 79,
+    "BOF_fields": 79,
+    "CODEPAGE_fields": 79,
+    "cached_sheets_loaded": 0,
+    "same_container_source_interpreter_limit": true
+  },
+  "retained_typed_capture_manifest": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/inputs/manifest.json",
+    "sha256": "2e5b5a3a10cec59fc8086c0c99db56bb394e9d1f180bbd5571c1098c262c9179",
+    "bytes": 13250
+  },
+  "retained_accounting": {
+    "cell_types": {
+      "0": 12642,
+      "1": 7498,
+      "2": 527072,
+      "6": 118
+    },
+    "empty_sheets": 28,
+    "numeric_cells_not_pollen_counts": {
+      "finite_cells": 527072,
+      "integer_valued_cells": 511366,
+      "negative_cells": 625,
+      "number_cells": 527072,
+      "zero_cells": 351850
+    },
+    "rectangle_positions": 547330,
+    "refused_cell_representations": {},
+    "scientifically_admitted_observations": 0,
+    "sheets": 107,
+    "workbooks": 79
+  },
+  "raw_source_custody": {
+    "schema_version": "rootsi-external-source-custody.v1",
+    "archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+    "workbook_count": 79,
+    "total_workbook_bytes": 4466176,
+    "source_rights_status": "unapproved_for_analytical_reuse",
+    "historical_primary_input_authentication": "not_established",
+    "members": [
+      {
+        "archive_member": "rootsi/ABB.xls",
+        "bytes": 74240,
+        "sha256": "205e7f77adde19b2c590d222acdd526d472e76ac22d0b8f27f7728acf451fa49"
+      },
+      {
+        "archive_member": "rootsi/AGE.xls",
+        "bytes": 59904,
+        "sha256": "0c222bb5005482ea24b2cf66dd5f4cb9057fae7023ecfcd3fdfcececd666452b"
+      },
+      {
+        "archive_member": "rootsi/ALAN.xls",
+        "bytes": 41984,
+        "sha256": "6bd6f4cb859ff006855190761b76366a8d3510a6e5518f231951365190df1296"
+      },
+      {
+        "archive_member": "rootsi/AVEG.xls",
+        "bytes": 59392,
+        "sha256": "f6e40811551b9755b1746f9c0fb4d4f7ab60d5403dd2bb378bc37f6c77569514"
+      },
+      {
+        "archive_member": "rootsi/BAD.xls",
+        "bytes": 24064,
+        "sha256": "676feecec924e2cff71da190371203088371e7bcf468abdd874ecbc8be029007"
+      },
+      {
+        "archive_member": "rootsi/BJARA.xls",
+        "bytes": 54272,
+        "sha256": "309382c96924c79f595819978ae2b1a66287931357121cae39cf4a44e52297e3"
+      },
+      {
+        "archive_member": "rootsi/BJARE.xls",
+        "bytes": 84480,
+        "sha256": "c0ffc9ea8656e46f08666608b18d47b987f520de9523ffff1515b9d933394679"
+      },
+      {
+        "archive_member": "rootsi/BJARS.xls",
+        "bytes": 74240,
+        "sha256": "6aa9c8f51882525e61bfeb682b0cc3d056f6809bf321ee1a61ad5e32e67bca25"
+      },
+      {
+        "archive_member": "rootsi/BOCK1.xls",
+        "bytes": 76800,
+        "sha256": "82a2081293929463789a39b370e84689b828632d57de7e8b1839edc11182eeb7"
+      },
+      {
+        "archive_member": "rootsi/BOKE.xls",
+        "bytes": 68096,
+        "sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4"
+      },
+      {
+        "archive_member": "rootsi/BUS.xls",
+        "bytes": 59904,
+        "sha256": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e"
+      },
+      {
+        "archive_member": "rootsi/DAG.xls",
+        "bytes": 87040,
+        "sha256": "b91a3f992f724c76a591d179a7cdb0575180b8fd4c1650825cd63846a6e380ac"
+      },
+      {
+        "archive_member": "rootsi/DJAK.xls",
+        "bytes": 19456,
+        "sha256": "01e06b0ffb2d048a9661712bc15956fe2b77a1abe608df940c1a8335e3cd3842"
+      },
+      {
+        "archive_member": "rootsi/EKE.xls",
+        "bytes": 27648,
+        "sha256": "f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e"
+      },
+      {
+        "archive_member": "rootsi/ERIK.xls",
+        "bytes": 26624,
+        "sha256": "da99458240c8d93291da86a48cdb324b69aac33d64f04af07ae4e681da10fb1f"
+      },
+      {
+        "archive_member": "rootsi/EXHU.xls",
+        "bytes": 155136,
+        "sha256": "7448daf13d2b40eab5bf2cacd12a706e9c9a65b830c50bdd6816300fbc54fbe3"
+      },
+      {
+        "archive_member": "rootsi/FARAR.xls",
+        "bytes": 64000,
+        "sha256": "7a65e8ed4718faee61749c1556b880fa4a76ff8d57adf892d84674d7c2fc4cad"
+      },
+      {
+        "archive_member": "rootsi/FARSK.xls",
+        "bytes": 149504,
+        "sha256": "7b2474135531f3d3df967ba4309230150d8d9222acece58ad9a98a98458eb252"
+      },
+      {
+        "archive_member": "rootsi/FJALLNAS.xls",
+        "bytes": 50176,
+        "sha256": "708d2240686b3378324a5708458b2c067bbb5094e84fb090d130b8b898c4d4fd"
+      },
+      {
+        "archive_member": "rootsi/FLA.xls",
+        "bytes": 54784,
+        "sha256": "68b9f61f63e4113fb4c8d84b6f587009a765d77d53b752b98a55cb78ace6624e"
+      },
+      {
+        "archive_member": "rootsi/FLAH.xls",
+        "bytes": 68096,
+        "sha256": "865d10338ee684111280e5b9992717e02046b1406cb0aebb17275f2528a4a649"
+      },
+      {
+        "archive_member": "rootsi/FLINK.xls",
+        "bytes": 135680,
+        "sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195"
+      },
+      {
+        "archive_member": "rootsi/GARASEL.xls",
+        "bytes": 19968,
+        "sha256": "fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797"
+      },
+      {
+        "archive_member": "rootsi/GIL.xls",
+        "bytes": 159232,
+        "sha256": "8803c91e4d1ccde5a1f4778a62860173e5637e5223736b762079fa19a7ea526d"
+      },
+      {
+        "archive_member": "rootsi/GLA.xls",
+        "bytes": 44544,
+        "sha256": "f0348ab11bd11fc225e0b0169f54c96e70a135d368e5311b1795ce48dcc106ab"
+      },
+      {
+        "archive_member": "rootsi/GRIS.xls",
+        "bytes": 47616,
+        "sha256": "c6ba0675a9926e66092438fc487084173d0d3e4e0a4c16c170da092a2d5f5df2"
+      },
+      {
+        "archive_member": "rootsi/HAGG.xls",
+        "bytes": 41472,
+        "sha256": "6b0f69b4de78c08d6b7b4dce3fd23522ea7948ba3f6d656bb26ad2dca175b81e"
+      },
+      {
+        "archive_member": "rootsi/HALL.xls",
+        "bytes": 26624,
+        "sha256": "b97c1259b45555907be87d1e75d0fabca860293d86a07d57cfffbc7ca29853f3"
+      },
+      {
+        "archive_member": "rootsi/HOL.xls",
+        "bytes": 70144,
+        "sha256": "b13ec476c28de86cda8823e51ae0cd4cccfb7ef1684d860204291ceab10c4c27"
+      },
+      {
+        "archive_member": "rootsi/HOLK.xls",
+        "bytes": 39936,
+        "sha256": "d0f781973de3ec66e59bc16ca856b637309ae131424cae4bb55693ded5e34060"
+      },
+      {
+        "archive_member": "rootsi/IRE_V.xls",
+        "bytes": 27136,
+        "sha256": "279667b7fc149318b870468b22ca47d2870ade360fac549fe7d5f0de4e5a6a82"
+      },
+      {
+        "archive_member": "rootsi/KALV.xls",
+        "bytes": 35840,
+        "sha256": "bd0726ab618f9f466d12d165a740205864b2980dcbcf68bed351fafbc9d65f52"
+      },
+      {
+        "archive_member": "rootsi/KAN.xls",
+        "bytes": 31232,
+        "sha256": "cb01c4fe6913393bdd84c4e4820f392392600962e8957db2fbe2944f2af4903e"
+      },
+      {
+        "archive_member": "rootsi/KASSJON.xls",
+        "bytes": 48640,
+        "sha256": "a114db500ccbc3b5cd76a950b1f1c7548492f96c33eabc8cd6acf5a36a405f21"
+      },
+      {
+        "archive_member": "rootsi/KLO.xls",
+        "bytes": 87040,
+        "sha256": "237f864799d9ee12a47de652d7490e58393bf11c849545cade7590c41c5180a5"
+      },
+      {
+        "archive_member": "rootsi/KRA.xls",
+        "bytes": 93184,
+        "sha256": "29e0503544e0cf3744296eb1248d4893973e3f51c786d8270d9567182bba81aa"
+      },
+      {
+        "archive_member": "rootsi/KRO_NY.xls",
+        "bytes": 21504,
+        "sha256": "81c950ca0881c5f17bdcffbc3e0b9804511af5fb6befce83fbd64dcdc7eb9d17"
+      },
+      {
+        "archive_member": "rootsi/KULL.xls",
+        "bytes": 64000,
+        "sha256": "025cb1aa083fff0565fe3db83897029043d4306dd8b57b11022263e7238532c7"
+      },
+      {
+        "archive_member": "rootsi/KYLL.xls",
+        "bytes": 32768,
+        "sha256": "73843b2f9b17f2b6c21d8cbb2259f5d228f3f7e555aaa8caa4f57c82df8eda7a"
+      },
+      {
+        "archive_member": "rootsi/LEVEANIE.xls",
+        "bytes": 18944,
+        "sha256": "625db4d016958622f3c6b05f330a79c82d75658f47e6641e2a930c9dce6eb3ec"
+      },
+      {
+        "archive_member": "rootsi/LJU_NY.xls",
+        "bytes": 81408,
+        "sha256": "907e7fe600d5f1888e5cf0b55c1e2ec1ad7a684d6b18ef402fa30a5de0da5c4b"
+      },
+      {
+        "archive_member": "rootsi/MABO.xls",
+        "bytes": 101376,
+        "sha256": "bcadb0bb5345c72174414ea363c3a6e41bfb4312092100d19362ee98bd13bfba"
+      },
+      {
+        "archive_member": "rootsi/MATT.xls",
+        "bytes": 78336,
+        "sha256": "08baf9be5f235c79c243558ab1370f5406e0c37fa3f0e6af52c7a3e1a87ec135"
+      },
+      {
+        "archive_member": "rootsi/MOC.xls",
+        "bytes": 51200,
+        "sha256": "b906a8de305c350c2b188fc6c7cb65025a93bb0b51141765bb5b45c696266eea"
+      },
+      {
+        "archive_member": "rootsi/OSIN.xls",
+        "bytes": 39936,
+        "sha256": "48e03f2d271a12339a8fe6b57128adc65c50cf539fac46d5b52dfb60ac7bd95e"
+      },
+      {
+        "archive_member": "rootsi/OSUT.xls",
+        "bytes": 33792,
+        "sha256": "d1bfc0eb85df87cee9637546a0dbb355e7d841915047846530764fa64e287d65"
+      },
+      {
+        "archive_member": "rootsi/OVRE_NY.xls",
+        "bytes": 20992,
+        "sha256": "ce19feec7508b8bfe7480eed670fbd7e94acc8b42a8bc26c4d7bbcfbab9eb631"
+      },
+      {
+        "archive_member": "rootsi/O_RING.xls",
+        "bytes": 57344,
+        "sha256": "05a24f3ff7d38cae053ec196e6ac893c1e08d61f517987b7afdadf561cd24134"
+      },
+      {
+        "archive_member": "rootsi/RANV.xls",
+        "bytes": 60416,
+        "sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed"
+      },
+      {
+        "archive_member": "rootsi/RASH.xls",
+        "bytes": 40960,
+        "sha256": "33bc384d8c508fa9f79162be61ee3cd289328be74fe20999b553c8a4285e2d1c"
+      },
+      {
+        "archive_member": "rootsi/ROGB.xls",
+        "bytes": 74752,
+        "sha256": "100ba89f5c07b2fcf57ea473dfab4cef7a61ee6f96d69011c2993d294c8aa3f1"
+      },
+      {
+        "archive_member": "rootsi/SAMBOTOT.xls",
+        "bytes": 75776,
+        "sha256": "0671f8a9d8f095e3afed26d084453e20ee0068112536b3a538a7aefe5ae7c8b3"
+      },
+      {
+        "archive_member": "rootsi/SIGG.xls",
+        "bytes": 91648,
+        "sha256": "c3f1b13ae88ff13fa3702679952015f2f7151e97d5bdc60df742dbd62e9c6a21"
+      },
+      {
+        "archive_member": "rootsi/SKAR.xls",
+        "bytes": 36864,
+        "sha256": "37fc0db34253fecfa74bd8a18abe9121ecde04af7e301765b86e6bb57bccaae7"
+      },
+      {
+        "archive_member": "rootsi/SKE.xls",
+        "bytes": 56832,
+        "sha256": "7139447c11f9b8c30db0359f926bfaea8794649541091a695b830de6c88d2700"
+      },
+      {
+        "archive_member": "rootsi/STAV.xls",
+        "bytes": 49152,
+        "sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e"
+      },
+      {
+        "archive_member": "rootsi/STE.xls",
+        "bytes": 15872,
+        "sha256": "89c5715fd510035e39c1b17593682e2cefd70a71b8a4fa14c2ff36756f800c79"
+      },
+      {
+        "archive_member": "rootsi/STF_NY.xls",
+        "bytes": 39936,
+        "sha256": "933040a90a650884c744be215b2a4639f8115e4ab9b33cdc1bb4fccbdb036e8a"
+      },
+      {
+        "archive_member": "rootsi/STMO.xls",
+        "bytes": 24064,
+        "sha256": "f02291be6b83bf3217e609fcf1477f780e06cd885adf2038263b6d9bd2353d17"
+      },
+      {
+        "archive_member": "rootsi/STO.xls",
+        "bytes": 99840,
+        "sha256": "3e2eab83200667b875b9dadfd7cec0dbf374976dac3a7a9bebec5ff5e27350f6"
+      },
+      {
+        "archive_member": "rootsi/STOB.xls",
+        "bytes": 87552,
+        "sha256": "99b285daf8c49f6d97a4c979cc369930c49fd0fee89694d6b7e526bda3572bf3"
+      },
+      {
+        "archive_member": "rootsi/STOR.xls",
+        "bytes": 27648,
+        "sha256": "7d6a039bfbbe605e46efe0e301f52225569c45014ebbf293579977e72234ab77"
+      },
+      {
+        "archive_member": "rootsi/STORA.xls",
+        "bytes": 46080,
+        "sha256": "f8d12765e197b2abc3d50e54b8e8d1a2965a29a164f468e6cf57c7b82085ed4a"
+      },
+      {
+        "archive_member": "rootsi/STORN_NY.xls",
+        "bytes": 70144,
+        "sha256": "9e9958991e5af5a81df3f82457987d002ec381b06c2dc0d60fca7210115d3368"
+      },
+      {
+        "archive_member": "rootsi/SVA.xls",
+        "bytes": 27136,
+        "sha256": "defb3d93c9091998131b70eb48ba7ace97009da8bb17860cb3cba35a62c83229"
+      },
+      {
+        "archive_member": "rootsi/TIB.xls",
+        "bytes": 25088,
+        "sha256": "0f01d211e6e1b1774782f40c151c8f0d14092395c4aab282e3a19f4197db2d3a"
+      },
+      {
+        "archive_member": "rootsi/TOR1.xls",
+        "bytes": 50176,
+        "sha256": "814df8c2f0fef300ed185e74cfc67e0fc8a6c4b27ac3c6b5cccfc59543498af1"
+      },
+      {
+        "archive_member": "rootsi/TOR7.xls",
+        "bytes": 21504,
+        "sha256": "f4cd03bcfce77e4eda47d4ececd7aad123521e988906ef73233cf5136359c09f"
+      },
+      {
+        "archive_member": "rootsi/TORU.xls",
+        "bytes": 35840,
+        "sha256": "27ec3ec678bc663e2772cf06de188f5e67c28fddbef328875bc11ca7bded5623"
+      },
+      {
+        "archive_member": "rootsi/TRAL.xls",
+        "bytes": 55808,
+        "sha256": "4b525897cf80e8f22e3798fdda4f4e13c0d060d40945e2659e6535139908bcc9"
+      },
+      {
+        "archive_member": "rootsi/TRE.xls",
+        "bytes": 146432,
+        "sha256": "05ee3bfbb08a8675cf4702bdb7f967893211d9ae014f7b80bd9fdb894068ed76"
+      },
+      {
+        "archive_member": "rootsi/TRU.xls",
+        "bytes": 40960,
+        "sha256": "59e07d62bc3908112dc2af0933192ac3d7ce04df28a31047c220c23f0893b7e5"
+      },
+      {
+        "archive_member": "rootsi/TRY_NY.xls",
+        "bytes": 26624,
+        "sha256": "a5d4cd764df8655c9c037ca1666df45b7936585cfa1f5c13cf74688155da6ac7"
+      },
+      {
+        "archive_member": "rootsi/UDDA.xls",
+        "bytes": 75264,
+        "sha256": "c50991b3cf7f9b4534e6fd101d884dba1f1637baf3328a5a7913780d8ced4d7b"
+      },
+      {
+        "archive_member": "rootsi/UND.xls",
+        "bytes": 23040,
+        "sha256": "2c3053639bb310df8952f15f9515b65df3ff498d7b1541c948e67c202a03d8eb"
+      },
+      {
+        "archive_member": "rootsi/VASA.xls",
+        "bytes": 26112,
+        "sha256": "0aa4bc641b0c15402d406989fabc5bfd5eda97b72f02b3d0ce25cf65f241a5bc"
+      },
+      {
+        "archive_member": "rootsi/VONJ.xls",
+        "bytes": 19456,
+        "sha256": "18ec828fd19464a6c316dc48baefc7167a5728c532916dc887751460a91e0459"
+      },
+      {
+        "archive_member": "rootsi/VOUS.xls",
+        "bytes": 59904,
+        "sha256": "3869b53bc195fc2edc440a1f9519f661afdc0c18836b55e5290c3411db3eefbd"
+      },
+      {
+        "archive_member": "rootsi/V_UTM.xls",
+        "bytes": 45568,
+        "sha256": "4453af285ddd37cdd8ea2c2d0deb9856357bf67e31bfebdcfd1995fd2033a52d"
+      }
+    ]
+  },
+  "producer": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/proposal/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+    "sha256": "7e028d95b06135ee5e669b4ec958596845111527fd338837a9dae6adf5c56e16",
+    "bytes": 12018
+  },
+  "focused_tests": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/proposal/packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py",
+    "sha256": "09a4b86a9a34ef3f19e9204a351aedc9f8df0150d5d33a7afddc6a1ad44727fd",
+    "bytes": 10412
+  },
+  "raw_consumer": {
+    "path": "artifacts/science/rootsi-physical-biff-custody/consume-substream-bof.py",
+    "sha256": "4744f32c196ad7e662b36eaada20548488877778704e809965cab3dfb63603b4",
+    "bytes": 7172
+  },
+  "exact_bof_contradiction_audit": {
+    "source_sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed",
+    "member": "rootsi/RANV.xls",
+    "globals": {
+      "offset": 0,
+      "record_size": 8,
+      "version_kind_build_year": [
+        1280,
+        5,
+        14103,
+        1997
+      ]
+    },
+    "substreams": [
+      {
+        "offset": 7075,
+        "visibility": 0,
+        "kind": 0,
+        "record_code": 2057,
+        "record_size": 8,
+        "version_kind_build_year": [
+          1536,
+          16,
+          14103,
+          1997
+        ]
+      }
+    ],
+    "scope": "Exact native BOF fields only after actual mixed-BOF refusal; no cached cells or formulas decoded."
+  },
+  "formula_source_field_account": {
+    "formula_records": 63,
+    "native_column_0based": 1,
+    "source_books": {
+      "rootsi/HAGG.xls": 36,
+      "rootsi/KYLL.xls": 27
+    },
+    "retained_header_literal": "Sample age (cal AD/BC)",
+    "header_authority": {
+      "path": "artifacts/science/rootsi-physical-biff-custody/inputs/capture-inventory.json",
+      "sha256": "3353156471c2d04f2dce4138d29ad1a4891896d223c2c37dd5c531ba51c17b5a",
+      "bytes": 7818076
+    },
+    "formula_tokens_interpreted": false,
+    "source_age_values_evaluated_or_converted": false,
+    "calibration_or_equation_admission": false
+  },
+  "publication_scope": "Derived aggregate structural and provenance fields only. Raw formula bytes/locations, source ages, counts, sample associations and original workbook archives remain private.",
+  "full_archive_and_parser_acceptance": false,
+  "original_7z_intake_replayed": false,
+  "formula_semantics": "unreviewed",
+  "external_reference_targets": "unresolved",
+  "all_CFB_stream_or_macro_security_certified": false,
+  "scientific_admission": "refused",
+  "source_rights_admission": false
+}

@@ -3518,11 +3518,11 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "content_sha256": "a98917a5c46e3728cedcc054fc5c42f4038864a966ba5189616086c1a82eb80e",
-      "prose_paragraph_count": 21,
+      "content_sha256": "63b6cdc7885fa5bc1b237d9f82a37ecf01e4d227e6a065529dd79bdb1fa06d24",
+      "prose_paragraph_count": 27,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 5,
+      "heading_count": 6,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

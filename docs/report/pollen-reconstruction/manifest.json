@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "335ae0b9c089cf74079f13a8db41000eda1a6259889657a809adaca831c5e52c",
-      "bytes": 4881278
+      "sha256": "5d45ab027fe154faff7bbd471445170b5db8693588861df1b7faa5e5aba7a9a8",
+      "bytes": 4882170
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "2f79ac7e77c3ed78335c8567b7b5e7ac7214bfdc39b584fbee30d901fdace011",
+      "sha256": "464e29a428ac38661837e82418c057d7f83e4ddca6bc8da6f3fdc83e9ee5a03a",
       "bytes": 150261
     },
     {
@@ -3766,12 +3766,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "fc08f9fc66458b9bde88597794969e887dd24f373db670d709c74d822caf06cf",
-      "bytes": 1020902
+      "sha256": "917170ada65a51e32ae432faf410d3f3e6694f08f6f15f1e106223c7d644c687",
+      "bytes": 1021889
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "e3a16b6f406fee841007eed9b2a780b5869f11878dcb1ae6405a8e3376e8d98c",
+      "sha256": "24e3aec19a448e6c3a92c8911490946b341a6f2a55604b84c401949eaa341d9d",
       "bytes": 1078
     },
     {
@@ -8071,13 +8071,13 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "12961007f5756d59da42faf3e133faf5bda2ab7c04598fa0210f47a99e05aa5d",
-      "bytes": 114140
+      "sha256": "4283e5c1f6e485b659315382dd76c03eda1f945c3df47aefd7de359b11e25993",
+      "bytes": 115042
     },
     {
       "path": "reports/needed/report-claims.md",
-      "sha256": "c3f2b41b07442f75c7ed519eeaeca17ef2056886ec29bd3dd607d92e066e5fd3",
-      "bytes": 32477
+      "sha256": "6fd7024e818a129ca1ea28a90626a2bf9cf061fb698f824d17be6853a8aa0768",
+      "bytes": 32619
     },
     {
       "path": "reports/needed/review-decision.md",
@@ -8086,12 +8086,12 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "683b69f04f39754bc40df1fa67676887830e120da8855f82f8fe43a158163b00",
+      "sha256": "d9e3e2120beee35c3d8b93a1945e8f9e2fbb946194c980ae675e87e55cd97366",
       "bytes": 65254
     },
     {
       "path": "reports/needed/scientific-review.md",
-      "sha256": "c64d3cc56639009027e2cc888cedd609572518ff553a02b3ab129f2a1e7a1f03",
+      "sha256": "5af796211106c5b9cdcc3f83716f6822883c506876e5f775e7c0dddb01ec8906",
       "bytes": 14708
     },
     {
@@ -10086,8 +10086,8 @@
     },
     {
       "path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "sha256": "a98917a5c46e3728cedcc054fc5c42f4038864a966ba5189616086c1a82eb80e",
-      "bytes": 8307
+      "sha256": "63b6cdc7885fa5bc1b237d9f82a37ecf01e4d227e6a065529dd79bdb1fa06d24",
+      "bytes": 12777
     },
     {
       "path": "docs/report/source-relations/landclim/worksheet-layout/report.json",

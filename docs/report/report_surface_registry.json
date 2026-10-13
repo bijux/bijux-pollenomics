@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2078,
+  "surface_count": 2080,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1180,
+    "maintenance": 1182,
     "maps": 88,
     "portal": 2,
     "reviews": 38,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1182,
+    "maintainer_diagnostic": 1184,
     "public_reading_surface": 769,
     "scientific_review_surface": 127
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1233,
+    "report_root": 1235,
     "sweden": 49,
     "world": 160
   },
@@ -25206,7 +25206,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "content_sha256": "a98917a5c46e3728cedcc054fc5c42f4038864a966ba5189616086c1a82eb80e",
+      "content_sha256": "63b6cdc7885fa5bc1b237d9f82a37ecf01e4d227e6a065529dd79bdb1fa06d24",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25279,6 +25279,30 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/physical-biff.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
