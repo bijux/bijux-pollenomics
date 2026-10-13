@@ -119,24 +119,24 @@ The prominent animal counts describe different database contracts:
 | --- | ---: | --- |
 | sample-foundation truth | 1,468 final sample rows | which curated source rows are fully grounded, partly grounded, or blocked by metadata, locality, or chronology? |
 | project sample master | 1,475 recovered raw rows; 1,468 final rows | which source rows resolve to stable project-owned sample identities? |
-| point publication | 170 locality features representing 331 samples | which admitted sample-backed localities satisfy the spatial product contract? |
-| coordinate publication accounting | 304 mappable rows: 170 published and 134 not materialized | which coordinate-ready localities also satisfy sample, locality, scope, and chronology admission? |
+| point publication | 165 locality features representing 322 samples | which admitted sample-backed localities satisfy the spatial product contract? |
+| coordinate publication accounting | 304 mappable rows: 165 published and 139 not materialized | which coordinate-ready localities also satisfy sample, locality, scope, and chronology admission? |
 
-The foundation contains 557 fully grounded rows, 371 partially grounded rows,
+The foundation contains 323 fully grounded rows, 355 partially grounded rows,
 11 blocked for missing metadata, 367 blocked for missing location detail, and
-162 blocked for weak chronology. Those classes measure evidence preparation;
-they are not publication decisions. The 170-member point surface is a locality
-projection over 331 distinct admitted samples, so neither number can be divided
+412 blocked for weak chronology. Those classes measure evidence preparation;
+they are not publication decisions. The 165-member point surface is a locality
+projection over 322 distinct admitted samples, so neither number can be divided
 mechanically by the raw-recovery, final-foundation, or coordinate denominators.
 
 ```mermaid
 flowchart LR
     Inventory["40 tracked projects"] --> Raw["1,475 recovered raw rows"]
     Raw --> Foundation["1,468 final foundation rows<br/>grounding and blockers"]
-    Foundation --> Samples["331 distinct admitted samples"]
-    Samples --> Product["170 published locality features"]
+    Foundation --> Samples["322 distinct admitted samples"]
+    Samples --> Product["165 published locality features"]
     Mappable["304 mappable coordinate rows"] --> Product
-    Mappable --> Excluded["134 not materialized"]
+    Mappable --> Excluded["139 not materialized"]
 ```
 
 The arrows express governed relations, not guaranteed one-to-one attrition.

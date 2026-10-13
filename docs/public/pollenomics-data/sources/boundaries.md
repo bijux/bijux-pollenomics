@@ -26,8 +26,8 @@ the normalized GeoJSON SHA-256 is
 The collector snapshot label `v66` belongs to a different inventory layer and
 does not identify the Natural Earth release.
 
-The country decision review at `data/boundaries/review/manifest.json`
-evaluates 3,048 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
+The current machine country decision review at `data/boundaries/review/manifest.json`
+evaluates 3,043 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
 147 point reviews. Qualified inclusion review is still pending, so the
 boundary review release posture is `blocked_pending_qualified_boundary_review`.
 The point decisions and polygons are reusable with this qualification; they do
@@ -35,12 +35,20 @@ not constitute final boundary suitability approval.
 
 | Source point population | Rows | Assigned | Review | Unassigned | `UNASSIGNED` country partition |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| animal aDNA | 170 | 6 | 1 | 163 | 164 |
+| animal aDNA | 165 | 6 | 1 | 158 | 159 |
 | LandClim | 490 | 470 | 18 | 2 | 16 |
 | Neotoma | 193 | 193 | 0 | 0 | 0 |
 | SEAD | 2,195 | 2,069 | 103 | 23 | 126 |
 
-These are two different partitions of the same 3,048 source points: decision
+The maintained reviewer regenerated the current animal input after the horse
+elapsed-age refusal. Five retired publication candidates leave 165 animal
+localities; the remaining animal country decisions and source-native rows are
+unchanged. LandClim, Neotoma and SEAD decision ledgers and the polygon review
+are byte-identical to their preceding products. The 147 point reviews and
+qualified boundary approval remain pending; machine correspondence does not
+supply that approval.
+
+These are two different partitions of the same 3,043 source points: decision
 status and governed country. A review status can retain a source country
 without receiving a governed assignment, so `UNASSIGNED` is not simply the
 sum of every row labeled review or unassigned. Inspect the source-specific

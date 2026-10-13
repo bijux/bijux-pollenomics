@@ -4,7 +4,7 @@
 - Sample rows: `1468`
 - Site evidence rows: `553`
 - Coordinate rows: `308`
-- Atlas rows: `170`
+- Atlas rows: `165`
 
 | Check | Passed | Finding count |
 | --- | --- | ---: |

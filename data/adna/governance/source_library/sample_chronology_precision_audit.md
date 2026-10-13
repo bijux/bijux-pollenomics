@@ -1,12 +1,12 @@
 # Sample chronology precision audit
 
 - Rows audited: `1475`
-- Precise point rows: `468`
-- Precise interval rows: `329`
+- Precise point rows: `308`
+- Precise interval rows: `239`
 - Approximate or modeled rows: `200`
 - Contextual rows: `32`
 - Broad period rows: `40`
-- Unresolved rows: `406`
+- Unresolved rows: `656`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -15,14 +15,264 @@
 | PRJEB44430 | prjeb44430:samea9533361 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
 | PRJEB44430 | prjeb44430:samea9533362 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
 | PRJEB44430 | prjeb44430:samea9533363 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB31613 | prjeb31613:batagai_5155 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5155 |
+| PRJEB31613 | prjeb31613:cgg_1_010022 | unresolved | unresolved | text_only_unparsed | Age (years ago): 42758 |
+| PRJEB31613 | prjeb31613:cgg_1_010023 | unresolved | unresolved | text_only_unparsed | Age (years ago): 16056 |
+| PRJEB31613 | prjeb31613:cgg_1_010397 | unresolved | unresolved | text_only_unparsed | Age (years ago): 192 |
+| PRJEB31613 | prjeb31613:cgg_1_016168 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016169 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016171 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016172 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016173 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016174 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016175 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016176 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016177 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016178 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016179 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB31613 | prjeb31613:cgg_1_016984 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2117-2217 |
+| PRJEB31613 | prjeb31613:cgg_1_016987 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
 | PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved | unresolved | unresolved |  |
 | PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017001 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4000-5000 |
+| PRJEB31613 | prjeb31613:cgg_1_017002 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4000-5000 |
 | PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved | unresolved | unresolved |  |
 | PRJEB31613 | prjeb31613:cgg_1_017007 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017010 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4692 |
 | PRJEB31613 | prjeb31613:cgg_1_017023 | unresolved | unresolved | unresolved |  |
 | PRJEB31613 | prjeb31613:cgg_1_017027 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017036 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3550-3604 |
+| PRJEB31613 | prjeb31613:cgg_1_017037 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3550-3604 |
+| PRJEB31613 | prjeb31613:cgg_1_017038 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4023 |
+| PRJEB31613 | prjeb31613:cgg_1_017079 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| PRJEB31613 | prjeb31613:cgg_1_017084 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2667 |
+| PRJEB31613 | prjeb31613:cgg_1_017086 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2667 |
+| PRJEB31613 | prjeb31613:cgg_1_017088 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| PRJEB31613 | prjeb31613:cgg_1_017089 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2717-2817 |
+| PRJEB31613 | prjeb31613:cgg_1_017098 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3817-4217 |
+| PRJEB31613 | prjeb31613:cgg_1_017099 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2217-2867 |
+| PRJEB31613 | prjeb31613:cgg_1_017139 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1979 |
+| PRJEB31613 | prjeb31613:cgg_1_018029 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217 |
+| PRJEB31613 | prjeb31613:cgg_1_018031 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217 |
+| PRJEB31613 | prjeb31613:cgg_1_018038 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1177-1406 |
+| PRJEB31613 | prjeb31613:cgg_1_018049 | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| PRJEB31613 | prjeb31613:cgg_1_018050 | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| PRJEB31613 | prjeb31613:cgg_1_018057 | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| PRJEB31613 | prjeb31613:cgg_1_018059 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2007 |
+| PRJEB31613 | prjeb31613:cgg_1_018060 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1993 |
+| PRJEB31613 | prjeb31613:cgg_1_018061 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2011 |
+| PRJEB31613 | prjeb31613:cgg_1_018062 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1988-2011 |
+| PRJEB31613 | prjeb31613:cgg_1_018063 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2011 |
+| PRJEB31613 | prjeb31613:cgg_1_018064 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1988 |
+| PRJEB31613 | prjeb31613:cgg_1_018073 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018075 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018076 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018077 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018078 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018079 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3120 |
+| PRJEB31613 | prjeb31613:cgg_1_018080 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018081 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3080 |
+| PRJEB31613 | prjeb31613:cgg_1_018115 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018120 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3123 |
+| PRJEB31613 | prjeb31613:cgg_1_018122 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039 |
+| PRJEB31613 | prjeb31613:cgg_1_018123 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3117 |
+| PRJEB31613 | prjeb31613:cgg_1_018125 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| PRJEB31613 | prjeb31613:cgg_1_018150 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1373 |
+| PRJEB31613 | prjeb31613:cgg_1_018151 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1863 |
+| PRJEB31613 | prjeb31613:cgg_1_018154 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1192 |
+| PRJEB31613 | prjeb31613:cgg_1_018157 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4974 |
+| PRJEB31613 | prjeb31613:cgg_1_018161 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5012 |
+| PRJEB31613 | prjeb31613:cgg_1_018165 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4978 |
+| PRJEB31613 | prjeb31613:cgg_1_018167 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4977 |
+| PRJEB31613 | prjeb31613:cgg_1_018171 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5015 |
+| PRJEB31613 | prjeb31613:cgg_1_018173 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018174 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018175 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018176 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018177 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018178 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_018337 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3757-4042 |
+| PRJEB31613 | prjeb31613:cgg_1_018375 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3617-4217 |
+| PRJEB31613 | prjeb31613:cgg_1_018376 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3617-4217 |
+| PRJEB31613 | prjeb31613:cgg_1_018386 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4077 |
+| PRJEB31613 | prjeb31613:cgg_1_018388 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3017-3517 |
+| PRJEB31613 | prjeb31613:cgg_1_018389 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3574 |
+| PRJEB31613 | prjeb31613:cgg_1_018391 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4496-4861 |
+| PRJEB31613 | prjeb31613:cgg_1_018394 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3604 |
+| PRJEB31613 | prjeb31613:cgg_1_018396 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2820 |
+| PRJEB31613 | prjeb31613:cgg_1_018397 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317-2417 |
+| PRJEB31613 | prjeb31613:cgg_1_018398 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317-2417 |
+| PRJEB31613 | prjeb31613:cgg_1_018468 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2817 |
+| PRJEB31613 | prjeb31613:cgg_1_018469 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2817 |
+| PRJEB31613 | prjeb31613:cgg_1_018473 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1184 |
+| PRJEB31613 | prjeb31613:cgg_1_018474 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1017 |
+| PRJEB31613 | prjeb31613:cgg_1_018487 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217-1417 |
+| PRJEB31613 | prjeb31613:cgg_1_018490 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217-1417 |
+| PRJEB31613 | prjeb31613:cgg_1_018495 | unresolved | unresolved | text_only_unparsed | Age (years ago): 89 |
+| PRJEB31613 | prjeb31613:cgg_1_018497 | unresolved | unresolved | text_only_unparsed | Age (years ago): 105 |
 | PRJEB31613 | prjeb31613:cgg_1_018522 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_018529 | unresolved | unresolved | text_only_unparsed | Age (years ago): 31750 |
 | PRJEB31613 | prjeb31613:cgg_1_018533 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_018540 | unresolved | unresolved | text_only_unparsed | Age (years ago): 35870 |
+| PRJEB31613 | prjeb31613:cgg_1_018577 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1143 |
+| PRJEB31613 | prjeb31613:cgg_1_018579 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1557 |
+| PRJEB31613 | prjeb31613:cgg_1_018580 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1694 |
+| PRJEB31613 | prjeb31613:cgg_1_018706 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1289 |
+| PRJEB31613 | prjeb31613:cgg_1_018707 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1430 |
+| PRJEB31613 | prjeb31613:cgg_1_018708 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1396 |
+| PRJEB31613 | prjeb31613:cgg_1_018711 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156 |
+| PRJEB31613 | prjeb31613:cgg_1_018712 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018716 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018736 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018737 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1689 |
+| PRJEB31613 | prjeb31613:cgg_1_018738 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1695 |
+| PRJEB31613 | prjeb31613:cgg_1_018739 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018741 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018742 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018747 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018759 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018760 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1360 |
+| PRJEB31613 | prjeb31613:cgg_1_018795 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018809 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| PRJEB31613 | prjeb31613:cgg_1_018909 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2312 |
+| PRJEB31613 | prjeb31613:cgg_1_018919 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317 |
+| PRJEB31613 | prjeb31613:cgg_1_018920 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2217-2417 |
+| PRJEB31613 | prjeb31613:cgg_1_019154 | unresolved | unresolved | text_only_unparsed | Age (years ago): 14450 |
+| PRJEB31613 | prjeb31613:cgg_1_019160 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2500 |
+| PRJEB31613 | prjeb31613:cgg_1_019162 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2500 |
+| PRJEB31613 | prjeb31613:cgg_1_019164 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3318 |
+| PRJEB31613 | prjeb31613:cgg_1_019166 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3350 |
+| PRJEB31613 | prjeb31613:cgg_1_019169 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1817-2217 |
+| PRJEB31613 | prjeb31613:cgg_1_019185 | unresolved | unresolved | text_only_unparsed | Age (years ago): 830 |
+| PRJEB31613 | prjeb31613:cgg_1_019186 | unresolved | unresolved | text_only_unparsed | Age (years ago): 659 |
+| PRJEB31613 | prjeb31613:cgg_1_019189 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2677 |
+| PRJEB31613 | prjeb31613:cgg_1_019192 | unresolved | unresolved | text_only_unparsed | Age (years ago): 23789 |
+| PRJEB31613 | prjeb31613:cgg_1_019195 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1446 |
+| PRJEB31613 | prjeb31613:cgg_1_019246 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019259 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019262 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019267 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019284 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019286 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019294 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019301 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019305 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019306 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019311 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019314 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019318 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019333 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019339 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019369 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019370 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019373 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019380 | unresolved | unresolved | text_only_unparsed | Age (years ago): 317-517 |
+| PRJEB31613 | prjeb31613:cgg_1_019381 | unresolved | unresolved | text_only_unparsed | Age (years ago): 617-817 |
+| PRJEB31613 | prjeb31613:cgg_1_019382 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2143 |
+| PRJEB31613 | prjeb31613:cgg_1_019384 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1872 |
+| PRJEB31613 | prjeb31613:cgg_1_019387 | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019388 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019389 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019392 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019403 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019405 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019408 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087 |
+| PRJEB31613 | prjeb31613:cgg_1_019409 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019414 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| PRJEB31613 | prjeb31613:cgg_1_019419 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1144 |
+| PRJEB31613 | prjeb31613:cgg_1_019435 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1717 |
+| PRJEB31613 | prjeb31613:cgg_1_019442 | unresolved | unresolved | text_only_unparsed | Age (years ago): 117-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019443 | unresolved | unresolved | text_only_unparsed | Age (years ago): 117-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019444 | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019445 | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019446 | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019447 | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| PRJEB31613 | prjeb31613:cgg_1_019521 | unresolved | unresolved | text_only_unparsed | Age (years ago): 485 |
+| PRJEB31613 | prjeb31613:cgg_1_019559 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3117 |
+| PRJEB31613 | prjeb31613:cgg_1_019703 | unresolved | unresolved | text_only_unparsed | Age (years ago): 317-517 |
+| PRJEB31613 | prjeb31613:cgg_1_019707 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019709 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019714 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| PRJEB31613 | prjeb31613:cgg_1_019765 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
+| PRJEB31613 | prjeb31613:cgg_1_019773 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1767 |
+| PRJEB31613 | prjeb31613:cgg_1_019775 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1817 |
+| PRJEB31613 | prjeb31613:cgg_1_019816 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2250 |
+| PRJEB31613 | prjeb31613:cgg_1_019857 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2127 |
+| PRJEB31613 | prjeb31613:cgg_1_019858 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2312 |
+| PRJEB31613 | prjeb31613:cgg_1_019859 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2302 |
+| PRJEB31613 | prjeb31613:cgg_1_019860 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2319 |
+| PRJEB31613 | prjeb31613:cgg_1_019861 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2253 |
+| PRJEB31613 | prjeb31613:cgg_1_019871 | unresolved | unresolved | text_only_unparsed | Age (years ago): 467-517 |
+| PRJEB31613 | prjeb31613:cgg_1_019877 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1817-2017 |
+| PRJEB31613 | prjeb31613:cgg_1_019925 | unresolved | unresolved | text_only_unparsed | Age (years ago): 417-517 |
+| PRJEB31613 | prjeb31613:cgg_1_019986 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| PRJEB31613 | prjeb31613:cgg_1_019988 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| PRJEB31613 | prjeb31613:cgg_1_019992 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2886 |
+| PRJEB31613 | prjeb31613:cgg_1_019994 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2896 |
+| PRJEB31613 | prjeb31613:cgg_1_019995 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| PRJEB31613 | prjeb31613:cgg_1_019996 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| PRJEB31613 | prjeb31613:cgg_1_019997 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2808 |
+| PRJEB31613 | prjeb31613:cgg_1_019998 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2682 |
+| PRJEB31613 | prjeb31613:cgg_1_020003 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2930 |
+| PRJEB31613 | prjeb31613:cgg_1_020032 | unresolved | unresolved | text_only_unparsed | Age (years ago): 817-1217 |
+| PRJEB31613 | prjeb31613:cgg_1_020179 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020181 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020182 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020183 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020185 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020186 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020187 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020188 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020189 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020192 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020194 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020195 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020196 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020198 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020200 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020204 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020205 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020207 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020208 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020209 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020210 | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| PRJEB31613 | prjeb31613:cgg_1_020254 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2853 |
+| PRJEB31613 | prjeb31613:cgg_1_02026 | unresolved | unresolved | text_only_unparsed | Age (years ago): 17-617 |
+| PRJEB31613 | prjeb31613:cgg_1_020438 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1187 |
+| PRJEB31613 | prjeb31613:cgg_1_020439 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1187 |
+| PRJEB31613 | prjeb31613:cgg_1_020441 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1308 |
+| PRJEB31613 | prjeb31613:cgg_1_020443 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1305 |
+| PRJEB31613 | prjeb31613:cgg_1_020446 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1694 |
+| PRJEB31613 | prjeb31613:cgg_1_020484 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4058 |
+| PRJEB31613 | prjeb31613:cgg_1_020485 | unresolved | unresolved | text_only_unparsed | Age (years ago): 3993 |
+| PRJEB31613 | prjeb31613:cgg_1_020499 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| PRJEB31613 | prjeb31613:cgg_1_020505 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
+| PRJEB31613 | prjeb31613:cgg_1_020506 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1677-1887 |
+| PRJEB31613 | prjeb31613:cgg_1_020509 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1717 |
+| PRJEB31613 | prjeb31613:cgg_1_020512 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-2017 |
+| PRJEB31613 | prjeb31613:cgg_1_020949 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| PRJEB31613 | prjeb31613:cgg_1_020950 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1417 |
+| PRJEB31613 | prjeb31613:cgg_1_020952 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1017-1217 |
+| PRJEB31613 | prjeb31613:cgg_1_020955 | unresolved | unresolved | text_only_unparsed | Age (years ago): 917-1217 |
+| PRJEB31613 | prjeb31613:cgg_1_020957 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| PRJEB31613 | prjeb31613:cgg_1_020959 | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| PRJEB31613 | prjeb31613:cgg_1_020961 | unresolved | unresolved | text_only_unparsed | Age (years ago): 917-1217 |
+| PRJEB31613 | prjeb31613:cgg_1_020962 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2672 |
+| PRJEB31613 | prjeb31613:cgg_1_020989 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4791 |
+| PRJEB31613 | prjeb31613:przewalski_paratype_118 | unresolved | unresolved | text_only_unparsed | Age (years ago): 118 |
+| PRJEB19970 | prjeb19970:cgg_1_016168 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016169 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016171 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016172 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016173 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016174 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016175 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016176 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016177 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_016179 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| PRJEB19970 | prjeb19970:cgg_1_017038 | unresolved | unresolved | text_only_unparsed | Age (years ago): 4023 |
+| PRJEB19970 | prjeb19970:cgg_1_017079 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| PRJEB19970 | prjeb19970:cgg_1_017088 | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
 | PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved |  |
 | PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved |  |
 | PRJEB36540 | prjeb36540:bh 45 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | - |

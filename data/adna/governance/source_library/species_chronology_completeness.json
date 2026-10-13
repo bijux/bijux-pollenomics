@@ -64,14 +64,14 @@
     {
       "species_latin_name": "Equus caballus",
       "recovered_sample_row_count": 550,
-      "normalized_row_count": 540,
-      "exact_sample_date_count": 535,
+      "normalized_row_count": 290,
+      "exact_sample_date_count": 285,
       "modeled_or_approximate_sample_date_count": 5,
       "contextual_date_count": 0,
       "broad_label_count": 0,
-      "text_only_unparsed_count": 5,
-      "unresolved_count": 10,
-      "chronology_completeness_ratio": 0.9818
+      "text_only_unparsed_count": 255,
+      "unresolved_count": 260,
+      "chronology_completeness_ratio": 0.5273
     },
     {
       "species_latin_name": "Felis catus",

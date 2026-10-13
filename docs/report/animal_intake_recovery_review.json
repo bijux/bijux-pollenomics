@@ -104,9 +104,9 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 539,
-    "sample_with_site_and_chronology": 372,
-    "sample_with_site_chronology_and_coordinates": 557
+    "sample_with_site": 789,
+    "sample_with_site_and_chronology": 356,
+    "sample_with_site_chronology_and_coordinates": 323
   },
   "sample_evidence_depth_accounting": {
     "partition": "mutually_exclusive",

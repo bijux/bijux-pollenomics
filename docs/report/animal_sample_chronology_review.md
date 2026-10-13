@@ -1,17 +1,17 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1475`
-- Normalized intervals: `405`
-- Normalized points: `528`
-- Text-only rows: `136`
+- Normalized intervals: `315`
+- Normalized points: `368`
+- Text-only rows: `386`
 - Unresolved rows: `406`
-- Direct radiocarbon rows: `823`
+- Direct radiocarbon rows: `573`
 - Modeled rows: `6`
 - Contextual rows: `117`
 - Broad period rows: `1`
-- Numeric interval rows: `797`
+- Numeric interval rows: `547`
 - Numeric rows with caveat: `136`
-- Context-only rows: `136`
+- Context-only rows: `386`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -269,19 +269,19 @@
 | Capra hircus | PRJNA1328209 | prjna1328209:dc40 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
 | Capra hircus | PRJNA1328209 | prjna1328209:dc47_4he | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
 | Capra hircus | PRJNA1328209 | prjna1328209:dc48-1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016168 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016169 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016171 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016172 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016173 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016174 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016175 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016176 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016177 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016179 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017038 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4023 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017079 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017088 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016168 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016169 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016171 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016172 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016173 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016174 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016175 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016176 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016177 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016179 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017038 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4023 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017079 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017088 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
 | Equus caballus | PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_017139 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1979 BP |
@@ -326,251 +326,251 @@
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020208 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020209 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020210 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:batagai_5155 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5155 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010022 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 42758 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010023 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 16056 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010397 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 192 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016168 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016169 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016171 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016172 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016173 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016174 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016175 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016176 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016177 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016178 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016179 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016984 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2117-2217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016987 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1817 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:batagai_5155 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5155 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010022 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 42758 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010023 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 16056 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010397 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 192 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016168 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016169 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016171 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016172 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016173 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016174 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016175 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016176 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016177 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016178 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016179 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016984 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2117-2217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016987 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved | unresolved | unresolved | unresolved |  |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017001 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4000-5000 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017002 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4000-5000 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017001 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4000-5000 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017002 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4000-5000 |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017007 | unresolved | unresolved | unresolved | unresolved |  |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017010 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4692 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017010 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4692 |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017023 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017027 | unresolved | unresolved | unresolved | unresolved |  |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017036 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3550-3604 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017037 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3550-3604 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017038 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4023 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017079 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017084 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2617-2667 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017086 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2617-2667 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017088 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017089 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2717-2817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017098 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3817-4217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017099 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2217-2867 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017139 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1979 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018029 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018031 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018038 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1177-1406 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018049 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 649-811 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018050 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 649-811 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018057 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 649-811 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018059 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2007 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018060 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1993 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018061 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2011 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018062 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1988-2011 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018063 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2011 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018064 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1988 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018073 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018075 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018076 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018077 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018078 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018079 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3120 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018080 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018081 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3080 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018115 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018120 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3123 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018122 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3039 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018123 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3117 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018125 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3039-3130 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018150 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1373 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018151 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1863 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018154 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1192 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018157 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4974 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018161 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5012 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018165 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4978 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018167 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4977 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018171 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5015 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018173 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018174 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018175 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018176 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018177 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018178 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018337 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3757-4042 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018375 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3617-4217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018376 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3617-4217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018386 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4077 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018388 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3017-3517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018389 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3574 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018391 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4496-4861 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018394 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3604 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018396 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2820 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018397 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2317-2417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018398 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2317-2417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018468 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2617-2817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018469 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2617-2817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018473 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1184 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018474 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1017 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018487 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1217-1417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018490 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1217-1417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018495 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 89 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018497 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 105 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017036 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3550-3604 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017037 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3550-3604 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017038 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4023 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017079 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017084 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2667 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017086 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2667 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017088 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017089 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2717-2817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017098 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3817-4217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017099 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2217-2867 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017139 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1979 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018029 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018031 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018038 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1177-1406 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018049 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018050 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018057 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 649-811 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018059 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2007 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018060 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1993 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018061 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2011 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018062 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1988-2011 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018063 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2011 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018064 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1988 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018073 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018075 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018076 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018077 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018078 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018079 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3120 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018080 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018081 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3080 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018115 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018120 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3123 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018122 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018123 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3117 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018125 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3039-3130 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018150 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1373 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018151 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1863 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018154 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1192 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018157 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4974 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018161 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5012 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018165 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4978 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018167 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4977 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018171 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5015 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018173 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018174 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018175 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018176 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018177 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018178 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018337 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3757-4042 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018375 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3617-4217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018376 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3617-4217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018386 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4077 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018388 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3017-3517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018389 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3574 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018391 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4496-4861 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018394 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3604 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018396 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2820 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018397 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317-2417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018398 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317-2417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018468 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018469 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2617-2817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018473 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1184 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018474 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1017 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018487 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217-1417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018490 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1217-1417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018495 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 89 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018497 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 105 |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018522 | unresolved | unresolved | unresolved | unresolved |  |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 31750 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018529 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 31750 |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018533 | unresolved | unresolved | unresolved | unresolved |  |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018540 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 35870 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018577 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1143 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018579 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1557 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018580 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1694 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018706 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1289 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018707 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1430 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018708 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1396 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018711 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1156 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018712 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018716 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018736 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018737 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1689 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018738 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1695 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018739 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018741 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018742 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018747 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018759 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018760 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1360 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018795 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018809 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1156-1730 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018909 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2312 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018919 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018920 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2217-2417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019154 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 14450 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019160 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019162 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019164 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3318 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019166 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3350 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019169 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1817-2217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019185 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 830 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019186 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 659 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019189 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2677 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019192 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 23789 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019195 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1446 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019246 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019259 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019262 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019267 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019284 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019286 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019294 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019301 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019305 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019306 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019311 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019314 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019318 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019333 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019339 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019369 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019370 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019373 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019380 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 317-517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019381 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 617-817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019382 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2143 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019384 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1872 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019387 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 217-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019388 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019389 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019392 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019403 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019405 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019408 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1087 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019409 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019414 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1087-1189 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019419 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1144 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019435 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1717 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019442 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 117-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019443 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 117-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019444 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 217-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019445 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 217-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019446 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 217-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019447 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 217-317 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019521 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 485 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019559 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3117 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019703 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 317-517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019707 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019709 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019714 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019765 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019773 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1767 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019775 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019816 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2250 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019857 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2127 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019858 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2312 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019859 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2302 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019860 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2319 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019861 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2253 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019871 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 467-517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019877 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1817-2017 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019925 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 417-517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019986 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2417-2287 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019988 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2417-2287 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019992 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2886 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019994 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2896 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019995 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2417-2287 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019996 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2417-2287 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019997 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2808 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019998 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2682 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020003 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2930 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020032 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 817-1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020179 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020181 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020182 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020183 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020185 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020186 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020187 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020188 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020189 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020192 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020194 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020195 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020196 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020198 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020200 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020204 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020205 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020207 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020208 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020209 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020210 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020254 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2853 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_02026 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 17-617 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020438 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1187 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020439 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1187 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020441 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1308 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020443 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1305 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020446 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1694 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020484 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4058 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020485 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3993 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020499 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-1917 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020505 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020506 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1677-1887 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020509 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1717 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020512 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1717-2017 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020949 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1317-1517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020950 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1317-1417 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020952 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1017-1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020955 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 917-1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020957 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1317-1517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020959 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1317-1517 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020961 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 917-1217 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020962 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2672 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020989 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4791 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:przewalski_paratype_118 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 118 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018540 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 35870 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018577 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1143 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018579 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1557 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018580 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1694 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018706 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1289 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018707 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1430 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018708 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1396 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018711 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018712 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018716 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018736 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018737 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1689 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018738 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1695 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018739 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018741 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018742 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018747 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018759 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018760 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1360 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018795 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018809 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1156-1730 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018909 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2312 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018919 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018920 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2217-2417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019154 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 14450 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019160 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019162 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019164 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3318 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019166 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3350 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019169 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1817-2217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019185 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 830 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019186 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 659 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019189 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2677 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019192 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 23789 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019195 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1446 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019246 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019259 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019262 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019267 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019284 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019286 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019294 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019301 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019305 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019306 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019311 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019314 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019318 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019333 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019339 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019369 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019370 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019373 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019380 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 317-517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019381 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 617-817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019382 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2143 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019384 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1872 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019387 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019388 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019389 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019392 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019403 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019405 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019408 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019409 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019414 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1087-1189 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019419 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1144 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019435 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1717 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019442 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 117-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019443 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 117-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019444 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019445 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019446 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019447 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 217-317 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019521 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 485 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019559 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3117 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019703 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 317-517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019707 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019709 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019714 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019765 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019773 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1767 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019775 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019816 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2250 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019857 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2127 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019858 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2312 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019859 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2302 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019860 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2319 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019861 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2253 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019871 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 467-517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019877 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1817-2017 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019925 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 417-517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019986 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019988 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019992 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2886 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019994 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2896 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019995 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019996 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2417-2287 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019997 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2808 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_019998 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2682 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020003 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2930 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020032 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 817-1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020179 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020181 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020182 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020183 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020185 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020186 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020187 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020188 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020189 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020192 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020194 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020195 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020196 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020198 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020200 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020204 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020205 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020207 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020208 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020209 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020210 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 5500 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020254 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2853 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_02026 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 17-617 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020438 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1187 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020439 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1187 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020441 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1308 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020443 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1305 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020446 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1694 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020484 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4058 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020485 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 3993 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020499 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-1917 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020505 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1817 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020506 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1677-1887 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020509 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1617-1717 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020512 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1717-2017 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020949 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020950 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1417 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020952 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1017-1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020955 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 917-1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020957 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020959 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 1317-1517 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020961 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 917-1217 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020962 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2672 |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020989 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 4791 |
+| Equus caballus | PRJEB31613 | prjeb31613:przewalski_paratype_118 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 118 |
 | Equus caballus | PRJEB44430 | prjeb44430:car05_hun_m2458 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4408 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533171 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2538 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533172 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2240 BP |

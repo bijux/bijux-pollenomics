@@ -55,9 +55,9 @@ flowchart LR
     Release -. "does not erase" .-> Member
 ```
 
-This is why the 170 sample-backed animal locality features remain usable under
+This is why the 165 sample-backed animal locality features remain usable under
 their product contracts while the repository refuses final-release language.
-They represent 331 distinct admitted samples. Reuse cites the narrowest passing
+They represent 322 distinct mapped samples. Reuse cites the narrowest passing
 decision and carries every broader blocker that limits the proposed
 interpretation.
 
@@ -67,10 +67,10 @@ The current governed state makes several limits measurable:
 
 | Surface | Current signal | Consequence |
 | --- | --- | --- |
-| Animal foundation preparation | 1,468 final rows: 557 fully grounded, 371 partially grounded, 11 blocked by metadata, 367 by location detail, and 162 by chronology | preparation depth is measurable, but grounding posture is not point eligibility |
+| Animal foundation preparation | 1,468 final rows: 323 fully grounded, 355 partially grounded, 11 blocked by metadata, 367 by location detail, and 412 by chronology | preparation depth is measurable, but grounding posture is not point eligibility |
 | Animal sample recovery | 1,475 recovered raw rows and 1,468 final rows across a 40-project registry; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
 | Animal locality | 1,412 direct sample-site assignments and 63 unresolved among 1,475 raw review rows | unresolved samples cannot be described as exact sample sites; a place-name assignment alone does not admit map coordinates |
-| Animal publication points | 170 sample-backed locality features representing 331 samples; 117 domesticated-core and 53 wild/progenitor-context | the point subset is traceable but not a complete recovery census |
+| Animal publication points | 165 sample-backed locality features representing 322 samples; 117 domesticated-core and 48 wild/progenitor-context | the point subset is traceable but not a complete recovery census |
 | Neotoma time | 23,281 captured age claims: 11,526 comparable, 10,622 context-only, 294 refused, and 839 unresolved | sample-level temporal admission is separate from site-span context and accepted taxonomic classification |
 | SEAD time | 25,109 claims: 13,170 comparable, 11,238 context-only, 60 explicitly refused, and 641 unresolved | use comparable interval overlap as archaeology context; never infer same-period support from ineligible claims |
 | RAÄ scope | Sweden-specific density source | do not generalize its coverage to the Nordic region |
@@ -82,7 +82,7 @@ when the data state changes.
 The animal counts cannot be placed into one percentage without changing their
 meaning. The 1,468-row foundation classifies final sample preparation, the
 1,475-row raw sample master governs recovery before final admission, and the
-170-feature point surface governs locality-level product membership for 331
+165-feature point surface governs locality-level product membership for 322
 samples. A publication limit must name which population is blocked and which
 stronger claim the blocker prevents.
 
@@ -153,7 +153,7 @@ reason is `no_admitted_sample_backed_locality_candidate`.
 | claim exact excavation location | not supported | source-supplied or otherwise defensible site-level coordinate provenance |
 | infer an independent biological observation | not supported | final sample identity and evidence separating the observation from project context |
 
-This explicit exclusion is not a reason to discard the 170 admitted locality
+This explicit exclusion is not a reason to discard the 165 admitted locality
 features. It is also not a license to average the missing evidence away.
 Downstream work must keep the context outside the published feature population
 until its admission reason changes.

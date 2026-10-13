@@ -1,7 +1,7 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `170`
-- Fully accountable rows: `170`
+- Candidate rows: `165`
+- Fully accountable rows: `165`
 - Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
@@ -55,11 +55,6 @@
 | Capra hircus | PRJEB90261 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90261 | true | true | true | true | true | true |
 | Capra hircus | PRJNA1328209 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |

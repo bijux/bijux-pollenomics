@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0fd99ad0b5f67ddbd80b6ecd0352d08e9a02c6dc3c277ec5994b8fa8d43b197c",
-      "bytes": 4589167
+      "sha256": "4f9e06e9f9794052ae69f443284e5163ed503241ca18c7b4b52b42309c18001f",
+      "bytes": 4625297
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1001,7 +1001,7 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/animal-source-intake.md",
-      "sha256": "acc8717107e6fb9026a2b60e1aa49a1731c1a29685ebdf2ff47fa481df2f931c",
+      "sha256": "e25055afa2a7648eec300a3f601e267c6d1c6448396654136679e78313ad7505",
       "bytes": 22137
     },
     {
@@ -2726,13 +2726,13 @@
     },
     {
       "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-      "sha256": "34d265fb326b10e85f2a6c5407f6d9534886eb3df5552fc52fdeb842ca738a56",
-      "bytes": 442456
+      "sha256": "c8078b9c5e81921108d3b15b3a5626fe3ba43821aea8e3ab3bd30c0b35f4000a",
+      "bytes": 442621
     },
     {
       "path": "docs/report/regions/nordic/README.md",
-      "sha256": "884762fee0ec86933e093e7c38ed064af3a5ece5470247ebe7e0fb9420868740",
-      "bytes": 40547
+      "sha256": "2e2103c0c2f073b6349721860d266ef8dd5088ac788625f8ad8529acf09520ff",
+      "bytes": 40425
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/README.md",
@@ -3091,8 +3091,8 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "sha256": "91a9e092f9e6f6840994a199141ec010c290af6907d0d94f39f1ccde45148ce3",
-      "bytes": 523780
+      "sha256": "aaa96b85ad38b8e33ac2f5689f356b85dde857b1704a3ca8cf81adfe120d16f7",
+      "bytes": 523944
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
@@ -3756,22 +3756,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "d3459256cf030b1848486a02736b050cccccb734ade6c490d6a91542fd324228",
-      "bytes": 149919
+      "sha256": "21bdec852ab4c5d3b90a7771572fb25b9bc53bf6bcbf6f6be8b7f12c68b1a334",
+      "bytes": 150950
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "9e7b5ba8d525aa6f834d03c849c4643d0a6f7a0a5e6edab28f2acdd3a3606fd1",
+      "sha256": "7657d211c1995ccbfb67dd41f1c23f76a9f639a82b0809cdd4c8001ba55ddb33",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "61f5642d2dc2e206d7ff11ec4c3377823cb17ed6c33a37fbca49ab5fc02dfc43",
-      "bytes": 1018809
+      "sha256": "dd0af7320ee5681a63aa9e5293348257c2143f626a008c68f0fa264f658ef15a",
+      "bytes": 1015242
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "b83a2e3709d4563da4d3b266ea35f1b9ff2cc0bcb37e99960154c51418690953",
+      "sha256": "8773b9b8c848b41bdddc1715769474a138723b6683b8e0c52a65a40ea6736925",
       "bytes": 1078
     },
     {
@@ -3821,7 +3821,7 @@
     },
     {
       "path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
-      "sha256": "d9d2c25e213de87b73a7e9cef3c7a02d08ca6064f302631dc59598fdccb975cb",
+      "sha256": "d620dab202ff00693e8b31b8fc18f0fa5b6d7dcfee8b95b0ef59e05e60e074ca",
       "bytes": 5230
     },
     {
@@ -4231,8 +4231,8 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "ad5a41f1dcfe3866655a0219841726871cee0eff7b9e89029bbb7b808631b872",
-      "bytes": 473032
+      "sha256": "511364f310abf83732d7b1aa0813a59ea387ac3a648772dfd9ad0af9203c7169",
+      "bytes": 469984
     },
     {
       "path": "makes/README.md",
@@ -7231,8 +7231,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_chronology.py",
-      "sha256": "2233f0c824cca88778675bc755aad9dd3e44eb391b29849de1609bebde229677",
-      "bytes": 19418
+      "sha256": "f859b7e7de406ac9f6fe8e3b6f3b89389034d5de52088fe77912820fef1a3d2a",
+      "bytes": 19673
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_coordinates.py",
@@ -8141,7 +8141,7 @@
     },
     {
       "path": "reports/science/animal-entity-capability/README.md",
-      "sha256": "df13bdc01ec9c55bc8e41eb8570e9109bedec4672f808ff8fb20e7b631dfca23",
+      "sha256": "68331c3bf2948657db84c89e0a54eeba3ec0c00a02bd330b48705efe9df72358",
       "bytes": 2024
     },
     {
@@ -8151,7 +8151,7 @@
     },
     {
       "path": "reports/science/animal-entity-capability/report.json",
-      "sha256": "c9ad08f758b914f0a881652126a907b41afb8aaa8d485003168637364b17e1c2",
+      "sha256": "fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780",
       "bytes": 3542
     },
     {
@@ -8471,7 +8471,7 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "40f91c53180dcf28d66b2f0520463da65f98add1708f5bfb71cb7b7a514b68ff",
+      "sha256": "0982c02c10e4ba72f4feb307d127b1dd0a24da288ed5cca5a466a5bfcce79c9d",
       "bytes": 12336
     },
     {

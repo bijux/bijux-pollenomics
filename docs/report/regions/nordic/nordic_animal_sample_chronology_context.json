@@ -15,12 +15,12 @@
     },
     "input_identity": {
       "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-      "combined_sha256": "cbbaf6ae61822903b94c4369ad1884003aabda9ca909c224edb86126a19553da",
+      "combined_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
       "family_sha256": {
         "project_registry.json": "a916105b46e0b1a0420ed90939e5a5990bd6d0afa38884b57b8e2c90eabee39d",
-        "sample_chronology.json": "fa2cfc017f348142093f01a7d03b565c14a4c9f0153fc2e29938ae7332ceb387",
-        "sample_master.json": "dfad182eb0da72a5aad63c534c49250909e3083300bdd885bb07d7661b431e7a",
-        "sample_sites.json": "f17c31107c27be2235a56affd4aedae23d35b28664747dbc52fa358f8631b1a5"
+        "sample_chronology.json": "48db16d450ab61f0bdb2ee2085578243b8368036d2ae0673298d6bca10fa3687",
+        "sample_master.json": "a4a7a629eb9f2a29ffe9c6aeaad93e9865624ee3257552ac1eb035703f23d83e",
+        "sample_sites.json": "5ddc2be83564b1e9e4646f5e4187544fb32b8c74adeeb8ead3ad1a1293ab8f30"
       },
       "artifact_count": 121,
       "artifacts": [
@@ -76,18 +76,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_chronology.json",
-          "byte_count": 21497,
-          "sha256": "f630b3a05ba51eda8551e75bacddbc5f81cd9b6d9ca548105fd19fcc792626af"
+          "byte_count": 21419,
+          "sha256": "c6307e580d9545f2a4b77afdaa5db035a250927baf2de5bbc3144536d9d9febe"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_master.json",
-          "byte_count": 23820,
-          "sha256": "d0e0308fe39f926eecc51db555a75f83f6f40f65d195d83eab1a99bc2a278589"
+          "byte_count": 24002,
+          "sha256": "497534e46cb1b1b24db0d8f6f8f5dc0e45694358cee0fdf2718196eedf72c0c7"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_sites.json",
-          "byte_count": 20503,
-          "sha256": "2f3e13c420856db6e1208a26cf469b729dba0568935a5d2874ba42e5c801c205"
+          "byte_count": 20685,
+          "sha256": "68c650d076cb6ea98dfd2af1bf3b4c75ee784fef35697a13b7f16a2ad49b090e"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB22390/sample_chronology.json",
@@ -121,18 +121,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
-          "byte_count": 373401,
-          "sha256": "4933b589da8a3b71a3ac70f2ff2228f23dd137f97a98853a52abc639b5b2c3e2"
+          "byte_count": 371497,
+          "sha256": "691ee665ab814ab9392723ff71d56ccd4e81ccb99c9335b0909fda317f40e92c"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_master.json",
-          "byte_count": 404643,
-          "sha256": "0f8dea875671bc3fc1d0c7abc15187c233fa9ac691557e4efa62e2aacf42de3d"
+          "byte_count": 407961,
+          "sha256": "67a660fd4b3c3157297f1863cb5933fd66293f22f41d1ce7d77aa10881595118"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_sites.json",
-          "byte_count": 374196,
-          "sha256": "241defda5f3265c3d94d131b57cd30ded89f66029bca72684c7f21d27a995fe6"
+          "byte_count": 377514,
+          "sha256": "ac95857a9777848380b2dcb4e7271a6fa538257288015f8478628252de619a99"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB31621/sample_chronology.json",
@@ -636,32 +636,31 @@
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1475,
       "sample_site_row_count": 1475,
-      "admitted_node_count": 557,
-      "refused_master_row_count": 918
+      "admitted_node_count": 323,
+      "refused_master_row_count": 1152
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 0,
       "sample_identity_not_final": 7,
-      "source_chronology_not_comparable": 539,
-      "source_coordinate_not_mappable": 372,
+      "source_chronology_not_comparable": 789,
+      "source_coordinate_not_mappable": 356,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "refusal_count": 918,
-    "refusal_rows_sha256": "e981de170d754361e3ed2ef25e7e69f09ba4fdf7df8b74ad88d57a2c8d9265e6",
-    "global_admitted_node_count": 557,
-    "projected_node_count": 14,
-    "excluded_by_scope_count": 543,
+    "refusal_count": 1152,
+    "refusal_rows_sha256": "fb10eacd991fdce1ee2b5d74e60c80db687f74118d6dc9474b6c778056c720fe",
+    "global_admitted_node_count": 323,
+    "projected_node_count": 13,
+    "excluded_by_scope_count": 310,
     "species_counts": {
       "Bos taurus": 5,
-      "Equus caballus": 3,
+      "Equus caballus": 2,
       "Ovis aries": 4,
       "Sus scrofa domesticus": 2
     },
     "project_counts": {
       "PRJEB30282": 2,
-      "PRJEB31613": 1,
       "PRJEB44430": 2,
       "PRJEB59481": 4,
       "PRJEB75467": 5
@@ -669,24 +668,24 @@
     "precision_counts": {
       "contextual_interval": 1,
       "sample_approximate_or_modeled": 4,
-      "sample_precise_interval": 7,
+      "sample_precise_interval": 6,
       "sample_precise_point": 2
     },
     "coordinate_basis_counts": {
       "archive_coordinates": 4,
       "named_site_geocoding": 2,
       "supplementary_proximal_site_coordinates": 5,
-      "supplementary_table_coordinates": 3
+      "supplementary_table_coordinates": 2
     },
     "coordinate_confidence_counts": {
       "approximate": 7,
-      "exact": 3,
+      "exact": 2,
       "source_reported_two_decimal_degrees": 4
     },
     "source_native_taxonomy": {
       "available_count": 11,
-      "unavailable_count": 3,
-      "denominator": 14
+      "unavailable_count": 2,
+      "denominator": 13
     },
     "time_min_bp": 340,
     "time_max_bp": 9657,
@@ -705,9 +704,9 @@
       },
       {
         "country_name": "Belgium",
-        "node_count": 3,
+        "node_count": 1,
         "time_min_bp": 1820,
-        "time_max_bp": 35870
+        "time_max_bp": 1989
       },
       {
         "country_name": "Britain",
@@ -723,15 +722,9 @@
       },
       {
         "country_name": "China",
-        "node_count": 6,
-        "time_min_bp": 2820,
+        "node_count": 5,
+        "time_min_bp": 3480,
         "time_max_bp": 3580
-      },
-      {
-        "country_name": "Croatia",
-        "node_count": 3,
-        "time_min_bp": 1187,
-        "time_max_bp": 1305
       },
       {
         "country_name": "Czech Republic",
@@ -747,9 +740,9 @@
       },
       {
         "country_name": "Estonia",
-        "node_count": 9,
-        "time_min_bp": 1017,
-        "time_max_bp": 2817
+        "node_count": 5,
+        "time_min_bp": 2604,
+        "time_max_bp": 2650
       },
       {
         "country_name": "Finland",
@@ -759,19 +752,13 @@
       },
       {
         "country_name": "France",
-        "node_count": 56,
-        "time_min_bp": 217,
+        "node_count": 19,
+        "time_min_bp": 2567,
         "time_max_bp": 23605
       },
       {
-        "country_name": "Georgia",
-        "node_count": 2,
-        "time_min_bp": 17,
-        "time_max_bp": 3604
-      },
-      {
         "country_name": "Germany",
-        "node_count": 17,
+        "node_count": 13,
         "time_min_bp": 320,
         "time_max_bp": 68764
       },
@@ -783,21 +770,15 @@
       },
       {
         "country_name": "Hungary",
-        "node_count": 2,
-        "time_min_bp": 4077,
+        "node_count": 1,
+        "time_min_bp": 4408,
         "time_max_bp": 4408
       },
       {
-        "country_name": "Iceland",
-        "node_count": 2,
-        "time_min_bp": 917,
-        "time_max_bp": 1217
-      },
-      {
         "country_name": "Iran",
-        "node_count": 18,
-        "time_min_bp": 485,
-        "time_max_bp": 3117
+        "node_count": 4,
+        "time_min_bp": 2718,
+        "time_max_bp": 3052
       },
       {
         "country_name": "Italy",
@@ -807,56 +788,44 @@
       },
       {
         "country_name": "Kazakhstan",
-        "node_count": 97,
-        "time_min_bp": 1143,
+        "node_count": 48,
+        "time_min_bp": 2243,
         "time_max_bp": 12408
       },
       {
-        "country_name": "Kyrgyzstan",
-        "node_count": 2,
-        "time_min_bp": 1217,
-        "time_max_bp": 1217
-      },
-      {
-        "country_name": "Lithuania",
-        "node_count": 9,
-        "time_min_bp": 1087,
-        "time_max_bp": 1189
-      },
-      {
         "country_name": "Moldova",
-        "node_count": 4,
-        "time_min_bp": 3017,
+        "node_count": 3,
+        "time_min_bp": 3200,
         "time_max_bp": 4013
       },
       {
         "country_name": "Mongolia",
-        "node_count": 50,
-        "time_min_bp": 649,
-        "time_max_bp": 3130
+        "node_count": 22,
+        "time_min_bp": 2608,
+        "time_max_bp": 3095
       },
       {
         "country_name": "Poland",
-        "node_count": 12,
+        "node_count": 11,
         "time_min_bp": 2599,
         "time_max_bp": 5751
       },
       {
         "country_name": "Portugal",
-        "node_count": 5,
-        "time_min_bp": 817,
+        "node_count": 4,
+        "time_min_bp": 910,
         "time_max_bp": 4509
       },
       {
         "country_name": "Romania",
-        "node_count": 6,
-        "time_min_bp": 3574,
+        "node_count": 5,
+        "time_min_bp": 5745,
         "time_max_bp": 36751
       },
       {
         "country_name": "Russia",
-        "node_count": 115,
-        "time_min_bp": 192,
+        "node_count": 89,
+        "time_min_bp": 2530,
         "time_max_bp": 44950
       },
       {
@@ -867,27 +836,21 @@
       },
       {
         "country_name": "Slovakia",
-        "node_count": 2,
-        "time_min_bp": 1217,
+        "node_count": 1,
+        "time_min_bp": 3633,
         "time_max_bp": 3633
       },
       {
         "country_name": "Spain",
-        "node_count": 18,
-        "time_min_bp": 1617,
+        "node_count": 11,
+        "time_min_bp": 2267,
         "time_max_bp": 9474
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
-      },
-      {
-        "country_name": "Switzerland",
-        "node_count": 6,
-        "time_min_bp": 1617,
-        "time_max_bp": 2017
       },
       {
         "country_name": "Tunisia",
@@ -897,7 +860,7 @@
       },
       {
         "country_name": "Turkey",
-        "node_count": 33,
+        "node_count": 16,
         "time_min_bp": 550,
         "time_max_bp": 9899
       },
@@ -909,20 +872,14 @@
       },
       {
         "country_name": "United Kingdom",
-        "node_count": 16,
-        "time_min_bp": 117,
+        "node_count": 4,
+        "time_min_bp": 2424,
         "time_max_bp": 14616
       },
       {
-        "country_name": "Uzbekistan",
-        "node_count": 1,
-        "time_min_bp": 2853,
-        "time_max_bp": 2853
-      },
-      {
         "country_name": null,
-        "node_count": 5,
-        "time_min_bp": 317,
+        "node_count": 4,
+        "time_min_bp": 3833,
         "time_max_bp": 13316
       }
     ],
@@ -947,8 +904,8 @@
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
       }
     ],
@@ -1040,67 +997,67 @@
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016168",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016169",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016171",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016172",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016173",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016174",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016175",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016176",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016177",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_016179",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_017038",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_017079",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
       "repo_stable_sample_id": "prjeb19970:cgg_1_017088",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB19970",
@@ -3029,12 +2986,107 @@
     },
     {
       "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:batagai_5155",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_010022",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_010023",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_010397",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016168",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016169",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016171",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016172",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016173",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016174",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016175",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016176",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016177",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016178",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016179",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016984",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_016987",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_016994",
       "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_016996",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017001",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017002",
       "reason_code": "source_chronology_not_comparable"
     },
     {
@@ -3049,6 +3101,11 @@
     },
     {
       "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017010",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_017023",
       "reason_code": "source_chronology_not_comparable"
     },
@@ -3059,17 +3116,357 @@
     },
     {
       "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017036",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017037",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017038",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017079",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017084",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017086",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017088",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017089",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017098",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017099",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_017139",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018029",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018031",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018038",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018049",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018050",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018057",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018059",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018060",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018061",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018062",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018063",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018064",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018073",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018075",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018076",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018077",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018078",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018079",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018080",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018081",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018115",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018120",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018122",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018123",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018125",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018150",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018151",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018154",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018157",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018161",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018165",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018167",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018171",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018173",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018174",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018175",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018176",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018177",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018178",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018337",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018375",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018376",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018386",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018388",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018389",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018391",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018394",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018396",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018397",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018398",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018468",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018469",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018473",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018474",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018487",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018490",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_018495",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_018497",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:cgg_1_018522",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018529",
       "reason_code": "source_chronology_not_comparable"
     },
     {
@@ -3079,8 +3476,738 @@
     },
     {
       "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018540",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018577",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018579",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018580",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018706",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018707",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018708",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018711",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018712",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018716",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018736",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018737",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018738",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018739",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018741",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018742",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018747",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018759",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018760",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018795",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018809",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018909",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018919",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_018920",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019154",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019160",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019162",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019164",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019166",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019169",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019185",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019186",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019189",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019192",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019195",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019246",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019259",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019262",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019267",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019284",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019286",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019294",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019301",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019305",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019306",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019311",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019314",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019318",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019333",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019339",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019369",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019370",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019373",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019380",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019381",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019382",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019384",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019387",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019388",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019389",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019392",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019403",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019405",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019408",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019409",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019414",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019419",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019435",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019442",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019443",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019444",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019445",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019446",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019447",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019521",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019559",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019703",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019707",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019709",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019714",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019765",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019773",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019775",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019816",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019857",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019858",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019859",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019860",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019861",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019871",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019877",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019925",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019986",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019988",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019992",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019994",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019995",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019996",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019997",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_019998",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020003",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020032",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020179",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020181",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020182",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020183",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020185",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020186",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020187",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020188",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020189",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020192",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020194",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020195",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020196",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020198",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020200",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020204",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020205",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020207",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020208",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020209",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020210",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020254",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_02026",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020438",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020439",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020441",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020443",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020446",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020484",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020485",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020499",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020505",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020506",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020509",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020512",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020949",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020950",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020952",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020955",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020957",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020959",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020961",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020962",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "repo_stable_sample_id": "prjeb31613:cgg_1_020989",
+      "reason_code": "source_chronology_not_comparable"
+    },
+    {
+      "project_accession": "PRJEB31613",
       "repo_stable_sample_id": "prjeb31613:przewalski_paratype_118",
-      "reason_code": "source_coordinate_not_mappable"
+      "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB31621",
@@ -5555,12 +6682,12 @@
   ],
   "input_identity": {
     "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-    "combined_sha256": "cbbaf6ae61822903b94c4369ad1884003aabda9ca909c224edb86126a19553da",
+    "combined_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
     "family_sha256": {
       "project_registry.json": "a916105b46e0b1a0420ed90939e5a5990bd6d0afa38884b57b8e2c90eabee39d",
-      "sample_chronology.json": "fa2cfc017f348142093f01a7d03b565c14a4c9f0153fc2e29938ae7332ceb387",
-      "sample_master.json": "dfad182eb0da72a5aad63c534c49250909e3083300bdd885bb07d7661b431e7a",
-      "sample_sites.json": "f17c31107c27be2235a56affd4aedae23d35b28664747dbc52fa358f8631b1a5"
+      "sample_chronology.json": "48db16d450ab61f0bdb2ee2085578243b8368036d2ae0673298d6bca10fa3687",
+      "sample_master.json": "a4a7a629eb9f2a29ffe9c6aeaad93e9865624ee3257552ac1eb035703f23d83e",
+      "sample_sites.json": "5ddc2be83564b1e9e4646f5e4187544fb32b8c74adeeb8ead3ad1a1293ab8f30"
     },
     "artifact_count": 121,
     "artifacts": [
@@ -5616,18 +6743,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_chronology.json",
-        "byte_count": 21497,
-        "sha256": "f630b3a05ba51eda8551e75bacddbc5f81cd9b6d9ca548105fd19fcc792626af"
+        "byte_count": 21419,
+        "sha256": "c6307e580d9545f2a4b77afdaa5db035a250927baf2de5bbc3144536d9d9febe"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_master.json",
-        "byte_count": 23820,
-        "sha256": "d0e0308fe39f926eecc51db555a75f83f6f40f65d195d83eab1a99bc2a278589"
+        "byte_count": 24002,
+        "sha256": "497534e46cb1b1b24db0d8f6f8f5dc0e45694358cee0fdf2718196eedf72c0c7"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB19970/sample_sites.json",
-        "byte_count": 20503,
-        "sha256": "2f3e13c420856db6e1208a26cf469b729dba0568935a5d2874ba42e5c801c205"
+        "byte_count": 20685,
+        "sha256": "68c650d076cb6ea98dfd2af1bf3b4c75ee784fef35697a13b7f16a2ad49b090e"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB22390/sample_chronology.json",
@@ -5661,18 +6788,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
-        "byte_count": 373401,
-        "sha256": "4933b589da8a3b71a3ac70f2ff2228f23dd137f97a98853a52abc639b5b2c3e2"
+        "byte_count": 371497,
+        "sha256": "691ee665ab814ab9392723ff71d56ccd4e81ccb99c9335b0909fda317f40e92c"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_master.json",
-        "byte_count": 404643,
-        "sha256": "0f8dea875671bc3fc1d0c7abc15187c233fa9ac691557e4efa62e2aacf42de3d"
+        "byte_count": 407961,
+        "sha256": "67a660fd4b3c3157297f1863cb5933fd66293f22f41d1ce7d77aa10881595118"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_sites.json",
-        "byte_count": 374196,
-        "sha256": "241defda5f3265c3d94d131b57cd30ded89f66029bca72684c7f21d27a995fe6"
+        "byte_count": 377514,
+        "sha256": "ac95857a9777848380b2dcb4e7271a6fa538257288015f8478628252de619a99"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB31621/sample_chronology.json",
@@ -6173,27 +7300,27 @@
   },
   "corpus_identity": {
     "schema_version": "animal-sample-chronology-corpus-identity.v1",
-    "input_identity_sha256": "cbbaf6ae61822903b94c4369ad1884003aabda9ca909c224edb86126a19553da",
-    "admitted_rows_sha256": "3f8b3533b1cd31497dc60a62d7328050de2bb986610ce2d989e52105e60599d2",
-    "refusal_rows_sha256": "e981de170d754361e3ed2ef25e7e69f09ba4fdf7df8b74ad88d57a2c8d9265e6",
+    "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
+    "admitted_rows_sha256": "6089510179cba789c24d52f8f925e75701de75000b6451d34bf893e3ace5749b",
+    "refusal_rows_sha256": "fb10eacd991fdce1ee2b5d74e60c80db687f74118d6dc9474b6c778056c720fe",
     "source_counts": {
       "project_count": 40,
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1475,
       "sample_site_row_count": 1475,
-      "admitted_node_count": 557,
-      "refused_master_row_count": 918
+      "admitted_node_count": 323,
+      "refused_master_row_count": 1152
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 0,
       "sample_identity_not_final": 7,
-      "source_chronology_not_comparable": 539,
-      "source_coordinate_not_mappable": 372,
+      "source_chronology_not_comparable": 789,
+      "source_coordinate_not_mappable": 356,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "global_admitted_node_count": 557,
+    "global_admitted_node_count": 323,
     "country_rows": [
       {
         "country_name": "Armenia",
@@ -6209,9 +7336,9 @@
       },
       {
         "country_name": "Belgium",
-        "node_count": 3,
+        "node_count": 1,
         "time_min_bp": 1820,
-        "time_max_bp": 35870
+        "time_max_bp": 1989
       },
       {
         "country_name": "Britain",
@@ -6227,15 +7354,9 @@
       },
       {
         "country_name": "China",
-        "node_count": 6,
-        "time_min_bp": 2820,
+        "node_count": 5,
+        "time_min_bp": 3480,
         "time_max_bp": 3580
-      },
-      {
-        "country_name": "Croatia",
-        "node_count": 3,
-        "time_min_bp": 1187,
-        "time_max_bp": 1305
       },
       {
         "country_name": "Czech Republic",
@@ -6251,9 +7372,9 @@
       },
       {
         "country_name": "Estonia",
-        "node_count": 9,
-        "time_min_bp": 1017,
-        "time_max_bp": 2817
+        "node_count": 5,
+        "time_min_bp": 2604,
+        "time_max_bp": 2650
       },
       {
         "country_name": "Finland",
@@ -6263,19 +7384,13 @@
       },
       {
         "country_name": "France",
-        "node_count": 56,
-        "time_min_bp": 217,
+        "node_count": 19,
+        "time_min_bp": 2567,
         "time_max_bp": 23605
       },
       {
-        "country_name": "Georgia",
-        "node_count": 2,
-        "time_min_bp": 17,
-        "time_max_bp": 3604
-      },
-      {
         "country_name": "Germany",
-        "node_count": 17,
+        "node_count": 13,
         "time_min_bp": 320,
         "time_max_bp": 68764
       },
@@ -6287,21 +7402,15 @@
       },
       {
         "country_name": "Hungary",
-        "node_count": 2,
-        "time_min_bp": 4077,
+        "node_count": 1,
+        "time_min_bp": 4408,
         "time_max_bp": 4408
       },
       {
-        "country_name": "Iceland",
-        "node_count": 2,
-        "time_min_bp": 917,
-        "time_max_bp": 1217
-      },
-      {
         "country_name": "Iran",
-        "node_count": 18,
-        "time_min_bp": 485,
-        "time_max_bp": 3117
+        "node_count": 4,
+        "time_min_bp": 2718,
+        "time_max_bp": 3052
       },
       {
         "country_name": "Italy",
@@ -6311,56 +7420,44 @@
       },
       {
         "country_name": "Kazakhstan",
-        "node_count": 97,
-        "time_min_bp": 1143,
+        "node_count": 48,
+        "time_min_bp": 2243,
         "time_max_bp": 12408
       },
       {
-        "country_name": "Kyrgyzstan",
-        "node_count": 2,
-        "time_min_bp": 1217,
-        "time_max_bp": 1217
-      },
-      {
-        "country_name": "Lithuania",
-        "node_count": 9,
-        "time_min_bp": 1087,
-        "time_max_bp": 1189
-      },
-      {
         "country_name": "Moldova",
-        "node_count": 4,
-        "time_min_bp": 3017,
+        "node_count": 3,
+        "time_min_bp": 3200,
         "time_max_bp": 4013
       },
       {
         "country_name": "Mongolia",
-        "node_count": 50,
-        "time_min_bp": 649,
-        "time_max_bp": 3130
+        "node_count": 22,
+        "time_min_bp": 2608,
+        "time_max_bp": 3095
       },
       {
         "country_name": "Poland",
-        "node_count": 12,
+        "node_count": 11,
         "time_min_bp": 2599,
         "time_max_bp": 5751
       },
       {
         "country_name": "Portugal",
-        "node_count": 5,
-        "time_min_bp": 817,
+        "node_count": 4,
+        "time_min_bp": 910,
         "time_max_bp": 4509
       },
       {
         "country_name": "Romania",
-        "node_count": 6,
-        "time_min_bp": 3574,
+        "node_count": 5,
+        "time_min_bp": 5745,
         "time_max_bp": 36751
       },
       {
         "country_name": "Russia",
-        "node_count": 115,
-        "time_min_bp": 192,
+        "node_count": 89,
+        "time_min_bp": 2530,
         "time_max_bp": 44950
       },
       {
@@ -6371,27 +7468,21 @@
       },
       {
         "country_name": "Slovakia",
-        "node_count": 2,
-        "time_min_bp": 1217,
+        "node_count": 1,
+        "time_min_bp": 3633,
         "time_max_bp": 3633
       },
       {
         "country_name": "Spain",
-        "node_count": 18,
-        "time_min_bp": 1617,
+        "node_count": 11,
+        "time_min_bp": 2267,
         "time_max_bp": 9474
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
-      },
-      {
-        "country_name": "Switzerland",
-        "node_count": 6,
-        "time_min_bp": 1617,
-        "time_max_bp": 2017
       },
       {
         "country_name": "Tunisia",
@@ -6401,7 +7492,7 @@
       },
       {
         "country_name": "Turkey",
-        "node_count": 33,
+        "node_count": 16,
         "time_min_bp": 550,
         "time_max_bp": 9899
       },
@@ -6413,20 +7504,14 @@
       },
       {
         "country_name": "United Kingdom",
-        "node_count": 16,
-        "time_min_bp": 117,
+        "node_count": 4,
+        "time_min_bp": 2424,
         "time_max_bp": 14616
       },
       {
-        "country_name": "Uzbekistan",
-        "node_count": 1,
-        "time_min_bp": 2853,
-        "time_max_bp": 2853
-      },
-      {
         "country_name": null,
-        "node_count": 5,
-        "time_min_bp": 317,
+        "node_count": 4,
+        "time_min_bp": 3833,
         "time_max_bp": 13316
       }
     ],
@@ -6451,14 +7536,14 @@
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
       }
     ],
-    "time_min_bp": 17,
+    "time_min_bp": 320,
     "time_max_bp": 68764,
-    "content_sha256": "7fd60970cc622b9eef9f067fad252aa89f171cdab57e51ad02b9dd1dac1a382c"
+    "content_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834"
   },
-  "content_sha256": "097b5fe7135c71fc3b0a02b204052f70a156adef0b8483c6c594b9eb74d1f36c"
+  "content_sha256": "14074f49c97a1ee61cfffe1cf058318e9cda8d8ebe438499610c2e05dbe1224c"
 }

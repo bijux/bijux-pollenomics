@@ -14,12 +14,12 @@
     "published_points_still_depend_on_named_site_geocoding"
   ],
   "counts": {
-    "published_point_count": 170,
+    "published_point_count": 165,
     "direct_coordinate_point_count": 300,
     "geocoded_point_count": 4,
     "unresolved_sample_count": 378,
     "coordinate_provenance_refusal_count": 4,
-    "blocked_project_count": 31
+    "blocked_project_count": 32
   },
   "validation_overall_ok": false,
   "drift_detected": false,

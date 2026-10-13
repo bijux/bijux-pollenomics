@@ -243,7 +243,7 @@
       "label": "Horse source-sample chronology",
       "source_name": "Governed animal project sample chronology",
       "coverage_label": "",
-      "count": 3,
+      "count": 2,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -469,7 +469,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 266334
+        "record_count": 266333
       },
       "edges": {
         "status": "unavailable",
@@ -498,15 +498,15 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 265971
+        "record_count": 265970
       }
     }
   },
   "animal_sample_chronology_context": {
     "artifact": "nordic_animal_sample_chronology_context.json",
-    "content_sha256": "097b5fe7135c71fc3b0a02b204052f70a156adef0b8483c6c594b9eb74d1f36c",
-    "input_identity_sha256": "cbbaf6ae61822903b94c4369ad1884003aabda9ca909c224edb86126a19553da",
-    "corpus_identity_sha256": "7fd60970cc622b9eef9f067fad252aa89f171cdab57e51ad02b9dd1dac1a382c",
+    "content_sha256": "14074f49c97a1ee61cfffe1cf058318e9cda8d8ebe438499610c2e05dbe1224c",
+    "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
+    "corpus_identity_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834",
     "scope": {
       "key": "nordic",
       "kind": "region",
@@ -517,10 +517,10 @@
         "Denmark"
       ]
     },
-    "global_admitted_node_count": 557,
-    "projected_node_count": 14,
-    "excluded_by_scope_count": 543,
-    "refusal_count": 918,
+    "global_admitted_node_count": 323,
+    "projected_node_count": 13,
+    "excluded_by_scope_count": 310,
+    "refusal_count": 1152,
     "governed_country_rows": [
       {
         "country_name": "Denmark",
@@ -542,8 +542,8 @@
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
       }
     ]

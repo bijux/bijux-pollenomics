@@ -79,8 +79,8 @@ The current stage matrix reports this materialized state:
 | Swedish NFI | missing | missing | present | missing | compact governed access and reference review covers four country leads; only the contracted Swedish source has local plot-row custody, with zero admitted pollen–plot pairs and no area-cover authority |
 
 The animal lifecycle count is the population of final species-owned foundation
-rows, not the 1,475 recovered raw project sample-master rows or the 170
-published locality features representing 331 samples. Each quantity is valid
+rows, not the 1,475 recovered raw project sample-master rows or the 165
+published locality features representing 322 samples. Each quantity is valid
 only with its governing unit. The corrected metric no longer reports zero
 merely because it was reading a field name that the foundation summary does
 not own.

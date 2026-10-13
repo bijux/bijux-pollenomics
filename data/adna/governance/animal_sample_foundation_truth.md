@@ -3,17 +3,17 @@
 - Tracked species: `10`
 - Tracked projects: `22`
 - Sample rows: `1468`
-- Fully grounded rows: `557`
-- Partially grounded rows: `371`
+- Fully grounded rows: `323`
+- Partially grounded rows: `355`
 - Blocked by missing metadata: `11`
 - Blocked by missing location detail: `367`
-- Blocked by weak chronology: `162`
+- Blocked by weak chronology: `412`
 
 ## Species rows
 
 | Species | Sample rows | Fully grounded | Missing metadata | Missing location detail | Weak chronology |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Equus caballus | 550 | 476 | 0 | 2 | 13 |
+| Equus caballus | 550 | 242 | 0 | 2 | 263 |
 | Sus scrofa domesticus | 343 | 2 | 0 | 341 | 0 |
 | Ovis aries | 200 | 4 | 0 | 1 | 26 |
 | Bos taurus | 132 | 31 | 11 | 22 | 2 |

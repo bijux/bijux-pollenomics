@@ -72,13 +72,8 @@
     "animal_adna": [
       {
         "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-        "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc",
-        "bytes": 700614
-      },
-      {
-        "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-        "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29",
-        "bytes": 81103
+        "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6",
+        "bytes": 681283
       },
       {
         "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
@@ -138,7 +133,7 @@
     "NO",
     "FI"
   ],
-  "point_count": 3048,
+  "point_count": 3043,
   "point_review_count": 147,
   "point_surface_scope": {
     "denominator_policy": "Enumerate each source-owned point once from its most complete governed local surface; do not recount publication derivatives.",
@@ -173,26 +168,26 @@
   },
   "source_summaries": {
     "animal_adna": {
-      "row_count": 170,
+      "row_count": 165,
       "country_counts": {
         "SE": 2,
         "DK": 4,
         "NO": 0,
         "FI": 0,
-        "UNASSIGNED": 164
+        "UNASSIGNED": 159
       },
       "decision_status_counts": {
         "assigned": 6,
         "review": 1,
-        "unassigned": 163
+        "unassigned": 158
       },
       "decision_method_counts": {
         "boundary_proximity": 1,
-        "no_boundary_containment": 163,
+        "no_boundary_containment": 158,
         "strict_boundary_containment": 6
       },
       "review_requirement_counts": {
-        "no_point_review_required": 169,
+        "no_point_review_required": 164,
         "qualified_review_required": 1
       }
     },
@@ -272,8 +267,8 @@
     },
     {
       "path": "data/boundaries/review/country-decisions/animal_adna.json",
-      "sha256": "e77dd526ef217414fb19da2c0d9e92ab6be3e6a6f9abac4a91572235c653bb7c",
-      "bytes": 380963
+      "sha256": "f1e494bbd903471da3ed487d332da08eeec1fe48e5faa2657255b63f21407be5",
+      "bytes": 369814
     },
     {
       "path": "data/boundaries/review/country-decisions/landclim.json",

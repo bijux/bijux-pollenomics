@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 170,
+      "feature_count": 165,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -136,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 170,
+      "feature_count": 165,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -404,7 +404,7 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 78,
+      "mapped_direct_record_count": 73,
       "curated_project_count": 4,
       "study_summary_count": 8,
       "chronology_posture": "mapped_locality_bp_windows_available",

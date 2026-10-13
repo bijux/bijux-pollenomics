@@ -3,14 +3,14 @@
   "title": "Europe-plus Evidence Surface",
   "scope_key": "europe_plus",
   "scope_label": "Europe-plus",
-  "row_count": 1253,
+  "row_count": 1252,
   "layer_counts": {
     "aadr": 1231,
     "animal-bos-taurus-wild-or-progenitor-context": 4,
     "animal-ovis-aries": 2,
     "animal-source-chronology-bos-taurus": 5,
     "animal-source-chronology-capra-hircus": 0,
-    "animal-source-chronology-equus-caballus": 3,
+    "animal-source-chronology-equus-caballus": 2,
     "animal-source-chronology-felis-catus": 0,
     "animal-source-chronology-ovis-aries": 4,
     "animal-source-chronology-sus-scrofa-domesticus": 2,
@@ -7593,23 +7593,16 @@
       "source_name": "Governed animal project sample chronology",
       "source_artifact": "europe-plus_animal_sample_chronology_context.json",
       "source_reference": "",
-      "row_count": 3,
+      "row_count": 2,
       "field_counts": {
-        "title": 3,
-        "country": 3,
-        "source_url": 3,
+        "title": 2,
+        "country": 2,
+        "source_url": 2,
         "species_latin_name": 0,
         "animal_scope": 0,
-        "coordinate_confidence": 3
+        "coordinate_confidence": 2
       },
       "records": [
-        {
-          "record_id": "animal-source-chronology:PRJEB31613:prjeb31613:cgg_1_018490",
-          "title": "Uppsala_Upps02_1317",
-          "country": "Sweden",
-          "source_url": "https://doi.org/10.1016/j.cell.2019.03.049",
-          "coordinate_confidence": "exact"
-        },
         {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533224",
           "title": "DJM130x6_Dan_m3011",

@@ -31,7 +31,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Pig aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Cattle source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `5` |
 | Goat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
-| Horse source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `3` |
+| Horse source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `2` |
 | Cat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
 | Sheep source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `4` |
 | Pig source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `2` |
