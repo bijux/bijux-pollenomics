@@ -7,6 +7,12 @@ from pathlib import Path
 import re
 import tomllib
 
+from .distribution_archives import (
+    assert_distribution_archive,
+)
+from .distribution_archives import (
+    canonical_project as _canonical_project,
+)
 from .version_resolver import resolve_version
 
 
@@ -55,13 +61,6 @@ def artifact_versions(dist_dir: Path) -> dict[str, str]:
     for path in sorted(dist_dir.glob("*.whl")) + sorted(dist_dir.glob("*.tar.gz")):
         versions[path.name] = _artifact_version(path)
     return versions
-
-
-def _canonical_project(name: str) -> str:
-    """Compare the distribution spelling used by wheels and source archives."""
-    if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9_.-]*[A-Za-z0-9])?", name):
-        raise ValueError(f"invalid distribution name: {name!r}")
-    return re.sub(r"[-_.]+", "-", name).lower()
 
 
 def _assert_project_metadata(pyproject: Path, package_name: str) -> None:
@@ -164,6 +163,8 @@ def assert_artifacts_match_version(
         kinds.add("wheel" if archive_identity.startswith("wheel:") else "sdist")
     if kinds != {"wheel", "sdist"}:
         raise ValueError("publish artifacts require at least one wheel and one sdist")
+    for name in versions:
+        assert_distribution_archive(dist_dir / name, expected_project, version)
 
 
 def main() -> int:
