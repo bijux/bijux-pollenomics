@@ -1,8 +1,8 @@
 import hashlib
 import importlib.util
 import json
-import subprocess
 from pathlib import Path
+import subprocess
 from types import SimpleNamespace
 from typing import NotRequired, TypedDict
 
