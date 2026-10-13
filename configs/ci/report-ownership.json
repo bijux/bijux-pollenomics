@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2080,
-  "paths_sha256": "8475129ffdaccef750d3d80d2db701b09151dc8a1f98e39e16b0c3495e21f73a",
+  "path_count": 2082,
+  "paths_sha256": "beac3a99945e1630bf233153f74b9769559e919682f2aa92759b3ab2bcad3d0a",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46194,6 +46194,43 @@
         "reports/science/swedish-native-chronology-contrast/source-custody.json"
       ],
       "verification": "Actual bounded reader reproduces aggregate27ab3800 against original native/schema/receipt-bound source packet and fixed protocol:125slots,106matched/5referenceonly/4alternativeonly/10neither,449source samples/898age-side memberships,76windowmigrations/3cohortdifferences/17bothrefused. Separate Decimal50 scalar quotient/source-membership/count audit checks663pooledsupportcells/442covers/212contrasts withmax2.04e-16<=2e-13. AllpairedSEnull without cross-profile count/shared-PPE covariance. No new models/physics/calibration, historical/countrights/accuracy/wholegate or configured-owner certification."
+    },
+    {
+      "owner_id": "synthetic-validation/recovery-evidence/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/synthetic-validation/recovery-evidence/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/recovery_evidence.py"
+      ],
+      "producer_inputs": [
+        "data/synthetic-validation/finite-count-coverage/actual-multinomial-draws.jsonl",
+        "data/synthetic-validation/finite-count-coverage/execution-custody.json",
+        "data/synthetic-validation/finite-count-coverage/historical-manifest.json",
+        "data/synthetic-validation/finite-count-coverage/independent-review.json",
+        "data/synthetic-validation/finite-count-coverage/maintained-independent-review.json",
+        "data/synthetic-validation/finite-count-coverage/maintained-report.json",
+        "data/synthetic-validation/finite-count-coverage/manifest.json",
+        "data/synthetic-validation/finite-count-coverage/protocol.json",
+        "data/synthetic-validation/finite-count-coverage/replicate-taxon-results.csv",
+        "data/synthetic-validation/finite-count-coverage/report.json",
+        "data/synthetic-validation/finite-count-coverage/source-author-uncertainty.json",
+        "docs/report/synthetic-validation/reconstruction/report.json"
+      ],
+      "verification": "Execute maintained recovery_evidence retained-account consumer into two absent ordinary lane destinations; exactcompare currentgeneratedreport. Scientificproducer performs no simulations. Immutable sourcepacket binds historical/fresh numerical executions and preserves all inverse-crime/mismatch/coverage negatives; current full inventory resolution and originalscientific acceptance remain separate."
+    },
+    {
+      "owner_id": "synthetic-validation/recovery-evidence/reader",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/synthetic-validation/recovery-evidence/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain the independent forward challenge, conditional multinomial coverage denominators, preserved misspecification failures and distinct historical/fresh execution custody. No empirical accuracy or coverage certification."
     }
   ]
 }

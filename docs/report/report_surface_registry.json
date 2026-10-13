@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2076,
+  "surface_count": 2078,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1168,
+    "maintenance": 1170,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1170,
+    "maintainer_diagnostic": 1172,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1217,
+    "report_root": 1219,
     "sweden": 49,
     "world": 172
   },
@@ -25251,6 +25251,31 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here",
+      "content_sha256": "925bb1fd1efc622050ddf7752b2a2f89da81e8b9841ac0ce7e6626e088367a1d"
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

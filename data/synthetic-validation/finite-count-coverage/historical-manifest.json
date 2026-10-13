@@ -1,0 +1,27 @@
+{
+  "schema_version": "synthetic-counting-source-packet.v1",
+  "candidate": "2b076418e86577058f70db216783ae3b2b74040b",
+  "files": {
+    "protocol.json": {
+      "sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+      "bytes": 8212
+    },
+    "report.json": {
+      "sha256": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd",
+      "bytes": 42591
+    },
+    "actual-multinomial-draws.jsonl": {
+      "sha256": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3",
+      "bytes": 1030536
+    },
+    "replicate-taxon-results.csv": {
+      "sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+      "bytes": 5308787
+    },
+    "independent-review.json": {
+      "sha256": "aad55dcb279a33c23ef8fd046e502a1501eb5fe24011ba814494ec46ea0225ce",
+      "bytes": 859
+    }
+  },
+  "source_scope": "Immutable actual synthetic counting diagnostic; retained after original execution without new simulation. No observed count, field vegetation, PPE uncertainty or coverage certification."
+}

@@ -1,0 +1,1841 @@
+{
+  "claims": {
+    "conditional_counting_coverage_diagnostics": true,
+    "coverage_certified": false,
+    "different_forward_model_mismatches_preserved": true,
+    "empirical_ecological_accuracy": false,
+    "global_method_certification": false,
+    "independent_forward_generator": true,
+    "matched_method_controls_are_inverse_crime": true
+  },
+  "counting_cases": [
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "source_fixed_deposition",
+        "name": "uniform_matched_counting",
+        "seed": 2026101301,
+        "truth": "uniform_ten_taxa"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          115,
+          54,
+          2,
+          2,
+          17,
+          7,
+          37,
+          14,
+          8,
+          33
+        ],
+        [
+          129,
+          42,
+          6,
+          6,
+          11,
+          6,
+          37,
+          13,
+          7,
+          36
+        ],
+        [
+          925,
+          335,
+          48,
+          49,
+          92,
+          51,
+          312,
+          152,
+          66,
+          193
+        ],
+        [
+          1096,
+          418,
+          47,
+          61,
+          135,
+          64,
+          427,
+          178,
+          61,
+          299
+        ],
+        [
+          1704,
+          648,
+          93,
+          86,
+          196,
+          96,
+          628,
+          271,
+          96,
+          433
+        ],
+        [
+          235,
+          95,
+          8,
+          11,
+          20,
+          19,
+          75,
+          31,
+          12,
+          56
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": 5.500719584450309e-05,
+          "coverage": 0.956,
+          "coverage_monte_carlo_standard_error": 0.006485676526007139,
+          "covered": 956,
+          "empirical_variance": 5.057588911074443e-06,
+          "mean_plugin_counting_variance": 5.205541216038399e-06,
+          "rmse": 0.002248456607043606,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 2.342805430491368e-05,
+          "coverage": 0.946,
+          "coverage_monte_carlo_standard_error": 0.0071473071852271785,
+          "covered": 946,
+          "empirical_variance": 9.522718011923704e-06,
+          "mean_plugin_counting_variance": 9.289370561632993e-06,
+          "rmse": 0.0030844357940538,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 2.972777888812783e-06,
+          "coverage": 0.934,
+          "coverage_monte_carlo_standard_error": 0.007851369307324675,
+          "covered": 934,
+          "empirical_variance": 4.7022650678755456e-05,
+          "mean_plugin_counting_variance": 4.4391455495047166e-05,
+          "rmse": 0.006853877505871043,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 1.8538004704457545e-05,
+          "coverage": 0.947,
+          "coverage_monte_carlo_standard_error": 0.007084560677981384,
+          "covered": 947,
+          "empirical_variance": 5.0680407560114525e-05,
+          "mean_plugin_counting_variance": 4.9454174137384035e-05,
+          "rmse": 0.00711548106667236,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00015204124891127213,
+          "coverage": 0.948,
+          "coverage_monte_carlo_standard_error": 0.007021111023192843,
+          "covered": 948,
+          "empirical_variance": 2.286097513538611e-05,
+          "mean_plugin_counting_variance": 2.2321294956130035e-05,
+          "rmse": 0.004781341935233373,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0002408984498784017,
+          "coverage": 0.944,
+          "coverage_monte_carlo_standard_error": 0.007270763371201131,
+          "covered": 944,
+          "empirical_variance": 4.634539747605491e-05,
+          "mean_plugin_counting_variance": 4.601436362613778e-05,
+          "rmse": 0.006808603685171628,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0001673468671788414,
+          "coverage": 0.951,
+          "coverage_monte_carlo_standard_error": 0.006826346021115546,
+          "covered": 951,
+          "empirical_variance": 8.73315492242761e-06,
+          "mean_plugin_counting_variance": 9.1044408900371e-06,
+          "rmse": 0.002958450057286713,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -1.6198108899467822e-05,
+          "coverage": 0.963,
+          "coverage_monte_carlo_standard_error": 0.005969170796685251,
+          "covered": 963,
+          "empirical_variance": 1.682650940611329e-05,
+          "mean_plugin_counting_variance": 1.8348804633241086e-05,
+          "rmse": 0.004099993326267629,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00016214974776530833,
+          "coverage": 0.959,
+          "coverage_monte_carlo_standard_error": 0.006270486424512857,
+          "covered": 959,
+          "empirical_variance": 4.3009160851379526e-05,
+          "mean_plugin_counting_variance": 4.45510330326645e-05,
+          "rmse": 0.006556862377023671,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 1.0306396537415607e-05,
+          "coverage": 0.959,
+          "coverage_monte_carlo_standard_error": 0.006270486424512857,
+          "covered": 959,
+          "empirical_variance": 1.161286354408588e-05,
+          "mean_plugin_counting_variance": 1.2079885954940704e-05,
+          "rmse": 0.0034060764674844544,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          0.4285874204736708,
+          0.15022828909858088,
+          0.020109542337104082,
+          0.014112959827601515,
+          0.04897909330487781,
+          0.01992560953817369,
+          0.14421660920424015,
+          0.05922071043734052,
+          0.02070193198771293,
+          0.0939178337906976
+        ],
+        [
+          0.42488163956070135,
+          0.14961850518533723,
+          0.0204996839738367,
+          0.014978224175027772,
+          0.048857004637647576,
+          0.020206854772230436,
+          0.14526580296603595,
+          0.059454688249426985,
+          0.020994134828291364,
+          0.09524346165146456
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.4090542832005005,
+          0.1468624975813158,
+          0.022192266589428886,
+          0.01920928319544594,
+          0.0482745942798029,
+          0.021401780442709576,
+          0.14953650306651423,
+          0.06035752335988019,
+          0.022235616044373584,
+          0.10087565224002833
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.43128371318011344,
+          0.15066338623183997,
+          0.01982736604898553,
+          0.013511167330236643,
+          0.04906449730418455,
+          0.019720808027973383,
+          0.1434421595192482,
+          0.059045233594572144,
+          0.02048915119789442,
+          0.0929525175649517
+        ]
+      ]
+    },
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "source_fixed_deposition",
+        "name": "rare_alnus_matched_counting",
+        "seed": 2026101302,
+        "truth": "rare_alnus"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          0,
+          76,
+          15,
+          5,
+          21,
+          5,
+          83,
+          36,
+          7,
+          41
+        ],
+        [
+          0,
+          74,
+          12,
+          9,
+          22,
+          8,
+          79,
+          36,
+          6,
+          47
+        ],
+        [
+          0,
+          547,
+          65,
+          71,
+          185,
+          85,
+          586,
+          217,
+          90,
+          377
+        ],
+        [
+          0,
+          670,
+          100,
+          89,
+          224,
+          111,
+          759,
+          281,
+          97,
+          455
+        ],
+        [
+          0,
+          977,
+          147,
+          146,
+          368,
+          162,
+          1115,
+          445,
+          152,
+          739
+        ],
+        [
+          0,
+          139,
+          16,
+          14,
+          50,
+          26,
+          131,
+          67,
+          25,
+          94
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": -5.168766867528374e-07,
+          "coverage": 0.427,
+          "coverage_monte_carlo_standard_error": 0.015641962792437524,
+          "covered": 427,
+          "empirical_variance": 1.721364927037548e-10,
+          "mean_plugin_counting_variance": 1.79774676353529e-10,
+          "rmse": 1.3123700610740846e-05,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 525,
+          "zero_standard_error_replicates": 525
+        },
+        {
+          "accepted": 1000,
+          "bias": -5.9511913318557874e-05,
+          "coverage": 0.943,
+          "coverage_monte_carlo_standard_error": 0.007331507348424336,
+          "covered": 943,
+          "empirical_variance": 7.511254295725068e-06,
+          "mean_plugin_counting_variance": 7.138419773840727e-06,
+          "rmse": 0.0027399424645886596,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00017780566919543828,
+          "coverage": 0.948,
+          "coverage_monte_carlo_standard_error": 0.007021111023192843,
+          "covered": 948,
+          "empirical_variance": 3.1124697655519335e-05,
+          "mean_plugin_counting_variance": 3.220297270231487e-05,
+          "rmse": 0.005578995233360739,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0002726737221201564,
+          "coverage": 0.962,
+          "coverage_monte_carlo_standard_error": 0.006046155803483734,
+          "covered": 962,
+          "empirical_variance": 3.062049927946542e-05,
+          "mean_plugin_counting_variance": 3.5679429380835725e-05,
+          "rmse": 0.0055375292088548685,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0001541218173169573,
+          "coverage": 0.953,
+          "coverage_monte_carlo_standard_error": 0.00669260786241059,
+          "covered": 953,
+          "empirical_variance": 1.589591267168873e-05,
+          "mean_plugin_counting_variance": 1.6432743414016288e-05,
+          "rmse": 0.003987953145861938,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.00017688822635754387,
+          "coverage": 0.949,
+          "coverage_monte_carlo_standard_error": 0.006956938982052382,
+          "covered": 949,
+          "empirical_variance": 3.478535241951676e-05,
+          "mean_plugin_counting_variance": 3.3313088729522574e-05,
+          "rmse": 0.0058976144763557715,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -3.1639710034642166e-05,
+          "coverage": 0.952,
+          "coverage_monte_carlo_standard_error": 0.006759881655768837,
+          "covered": 952,
+          "empirical_variance": 6.449259391703124e-06,
+          "mean_plugin_counting_variance": 7.02045076361004e-06,
+          "rmse": 0.0025384663093219293,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -1.3304077479153742e-05,
+          "coverage": 0.95,
+          "coverage_monte_carlo_standard_error": 0.006892024376045114,
+          "covered": 950,
+          "empirical_variance": 1.429745167013429e-05,
+          "mean_plugin_counting_variance": 1.3588713284612647e-05,
+          "rmse": 0.0037793294665776004,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0003365679990134929,
+          "coverage": 0.96,
+          "coverage_monte_carlo_standard_error": 0.00619677335393187,
+          "covered": 960,
+          "empirical_variance": 3.06277877712901e-05,
+          "mean_plugin_counting_variance": 3.228748569914385e-05,
+          "rmse": 0.005541699919833151,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.00011396095952907748,
+          "coverage": 0.941,
+          "coverage_monte_carlo_standard_error": 0.007451107300260817,
+          "covered": 941,
+          "empirical_variance": 9.649349558320895e-06,
+          "mean_plugin_counting_variance": 9.117006335579538e-06,
+          "rmse": 0.0031068774209903043,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          6.7500526313616e-05,
+          0.26288911723736014,
+          0.03519030846167409,
+          0.02469670374965041,
+          0.08571002624915906,
+          0.034868438782987426,
+          0.2523690931458939,
+          0.10363214799594517,
+          0.036226949384922005,
+          0.16434971446609412
+        ],
+        [
+          6.648577091266895e-05,
+          0.26013524862847387,
+          0.035641917293140826,
+          0.026041993033931975,
+          0.08494556895160378,
+          0.03513278777690109,
+          0.25256739281664736,
+          0.10337130484450796,
+          0.036501597690286845,
+          0.16559570319359362
+        ],
+        [
+          6.151077919764361e-05,
+          0.24628226980411375,
+          0.03791577387929718,
+          0.0338942821855899,
+          0.0810561490514354,
+          0.03641317652986368,
+          0.2530468076237306,
+          0.10186744095445975,
+          0.03783187171933888,
+          0.17163071747297318
+        ],
+        [
+          6.229499459600119e-05,
+          0.24850564884058235,
+          0.03755147637330404,
+          0.032503977958046784,
+          0.08168531498230838,
+          0.036213896827639515,
+          0.2530303265428295,
+          0.10213080774179795,
+          0.037624827872872225,
+          0.17069142786602323
+        ],
+        [
+          6.151077919764361e-05,
+          0.24628226980411375,
+          0.03791577387929718,
+          0.0338942821855899,
+          0.0810561490514354,
+          0.03641317652986368,
+          0.2530468076237306,
+          0.10186744095445975,
+          0.03783187171933888,
+          0.17163071747297318
+        ],
+        [
+          6.824716324879392e-05,
+          0.26490028046416103,
+          0.03486099017554059,
+          0.02375568547006091,
+          0.0862664740371064,
+          0.03467363709422601,
+          0.25220373202393626,
+          0.10381486391926455,
+          0.036024558019975075,
+          0.16343153163248034
+        ]
+      ]
+    },
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "multiply_only_Alnus_column_by_1.5",
+        "name": "uniform_alnus_transport_misspecified",
+        "seed": 2026101303,
+        "truth": "uniform_ten_taxa"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          122,
+          48,
+          5,
+          5,
+          11,
+          12,
+          40,
+          19,
+          4,
+          23
+        ],
+        [
+          137,
+          35,
+          7,
+          8,
+          11,
+          9,
+          44,
+          14,
+          4,
+          24
+        ],
+        [
+          905,
+          306,
+          39,
+          49,
+          111,
+          51,
+          352,
+          130,
+          57,
+          223
+        ],
+        [
+          1117,
+          367,
+          56,
+          61,
+          144,
+          65,
+          441,
+          187,
+          60,
+          288
+        ],
+        [
+          1782,
+          602,
+          92,
+          100,
+          197,
+          91,
+          639,
+          232,
+          94,
+          422
+        ],
+        [
+          265,
+          79,
+          10,
+          7,
+          25,
+          14,
+          75,
+          32,
+          8,
+          47
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": -0.030951302160679012,
+          "coverage": 0.0,
+          "coverage_monte_carlo_standard_error": 0.0,
+          "covered": 0,
+          "empirical_variance": 2.467253892947065e-06,
+          "mean_plugin_counting_variance": 2.6534890137851114e-06,
+          "rmse": 0.03099109375418537,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0036319872543302822,
+          "coverage": 0.793,
+          "coverage_monte_carlo_standard_error": 0.012812142677944232,
+          "covered": 793,
+          "empirical_variance": 1.007899983545108e-05,
+          "mean_plugin_counting_variance": 1.01045423752513e-05,
+          "rmse": 0.004822888372255078,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0034628180768074696,
+          "coverage": 0.93,
+          "coverage_monte_carlo_standard_error": 0.008068457101577721,
+          "covered": 930,
+          "empirical_variance": 4.9178770928e-05,
+          "mean_plugin_counting_variance": 4.736618278992841e-05,
+          "rmse": 0.0078179729591587,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0033298487132232685,
+          "coverage": 0.936,
+          "coverage_monte_carlo_standard_error": 0.007739767438366605,
+          "covered": 936,
+          "empirical_variance": 5.3201107301968025e-05,
+          "mean_plugin_counting_variance": 5.2688406626806656e-05,
+          "rmse": 0.008014723865961986,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0035937040231066725,
+          "coverage": 0.893,
+          "coverage_monte_carlo_standard_error": 0.009775019181566856,
+          "covered": 893,
+          "empirical_variance": 2.4425038992089723e-05,
+          "mean_plugin_counting_variance": 2.3939909890418123e-05,
+          "rmse": 0.0061086268963483755,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0031604636449142215,
+          "coverage": 0.917,
+          "coverage_monte_carlo_standard_error": 0.008724161850859943,
+          "covered": 917,
+          "empirical_variance": 5.266081796565963e-05,
+          "mean_plugin_counting_variance": 4.904101126015422e-05,
+          "rmse": 0.007911806847902603,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0035271245911486643,
+          "coverage": 0.803,
+          "coverage_monte_carlo_standard_error": 0.012577400367325513,
+          "covered": 803,
+          "empirical_variance": 1.0043395014387316e-05,
+          "mean_plugin_counting_variance": 9.917595325448686e-06,
+          "rmse": 0.004740670785960414,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0036499391912265255,
+          "coverage": 0.882,
+          "coverage_monte_carlo_standard_error": 0.01020176455325254,
+          "covered": 882,
+          "empirical_variance": 1.9201322169850816e-05,
+          "mean_plugin_counting_variance": 1.9735487681884977e-05,
+          "rmse": 0.005701243456241134,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0033251928296465783,
+          "coverage": 0.919,
+          "coverage_monte_carlo_standard_error": 0.008627803892068941,
+          "covered": 919,
+          "empirical_variance": 4.9059177897065174e-05,
+          "mean_plugin_counting_variance": 4.740575983782658e-05,
+          "rmse": 0.00775029199924113,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00327022383627526,
+          "coverage": 0.85,
+          "coverage_monte_carlo_standard_error": 0.011291589790636216,
+          "covered": 850,
+          "empirical_variance": 1.3426452102745367e-05,
+          "mean_plugin_counting_variance": 1.301954136431987e-05,
+          "rmse": 0.004909927656288383,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          0.4285874204736708,
+          0.15022828909858088,
+          0.020109542337104082,
+          0.014112959827601515,
+          0.04897909330487781,
+          0.01992560953817369,
+          0.14421660920424015,
+          0.05922071043734052,
+          0.02070193198771293,
+          0.0939178337906976
+        ],
+        [
+          0.42488163956070135,
+          0.14961850518533723,
+          0.0204996839738367,
+          0.014978224175027772,
+          0.048857004637647576,
+          0.020206854772230436,
+          0.14526580296603595,
+          0.059454688249426985,
+          0.020994134828291364,
+          0.09524346165146456
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.4090542832005005,
+          0.1468624975813158,
+          0.022192266589428886,
+          0.01920928319544594,
+          0.0482745942798029,
+          0.021401780442709576,
+          0.14953650306651423,
+          0.06035752335988019,
+          0.022235616044373584,
+          0.10087565224002833
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.43128371318011344,
+          0.15066338623183997,
+          0.01982736604898553,
+          0.013511167330236643,
+          0.04906449730418455,
+          0.019720808027973383,
+          0.1434421595192482,
+          0.059045233594572144,
+          0.02048915119789442,
+          0.0929525175649517
+        ]
+      ]
+    }
+  ],
+  "counting_source": {
+    "candidate": "2b076418e86577058f70db216783ae3b2b74040b",
+    "execution_custody": {
+      "fresh_eight_case_execution": {
+        "byte_identical_to_original_governed_reconstruction_report": true,
+        "native_exit": 0,
+        "plan_sha256": "08175c7d3427ee8d27d06d5f140c2f57c974797a7199470754b6c9e3f6250760",
+        "report_sha256": "5023c8d46e58680492ce3bc821d1db6ff10af1c0ad7f7bb75907aa3562e19e84",
+        "source_candidate": "0179bc4fe37e4928776eb07a793f769aef680da2",
+        "source_pins_unchanged": true,
+        "terminal_sha256": "dd7c4a658812a1fb4016d99036041232f664f7889294a43333db7a277861b9b7",
+        "wall_seconds": 3.5971728750155307
+      },
+      "limits": [
+        "No new source R capture or R covariance parity.",
+        "Original sample supports/deposition/PPE are retained conditional development fixture inputs, not measured vegetation truth.",
+        "RSS/process/storage maxima were not measured.",
+        "Historical protocol preparatory metadata and local source locator remain unmodified raw provenance; maintained code uses explicit repository/protocol arguments.",
+        "No ecological accuracy, uncertainty coverage certification or release acceptance."
+      ],
+      "maintained_parity_execution": {
+        "native_exit": 0,
+        "numerical_source_candidate": "159d541e7b86442728b9d540ebec93588eba54eb",
+        "numerical_source_closure": [
+          {
+            "bytes": 1837,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+            "sha256": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa"
+          },
+          {
+            "bytes": 539,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+            "sha256": "84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5"
+          },
+          {
+            "bytes": 5401,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+            "sha256": "b3eceb04eb2ba5dd4a63ab95d699b0fffb6e287dda682638dfcb08c225e98771"
+          },
+          {
+            "bytes": 78,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+            "sha256": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066"
+          },
+          {
+            "bytes": 9757,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+            "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d"
+          },
+          {
+            "bytes": 5972,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+            "sha256": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4"
+          },
+          {
+            "bytes": 1645,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+            "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89"
+          },
+          {
+            "bytes": 7383,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py",
+            "sha256": "9aeae845a11540abcddf77dd9f09a418aed8838e52ba516a7eb058efbeff5563"
+          },
+          {
+            "bytes": 1614,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+            "sha256": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231"
+          },
+          {
+            "bytes": 75,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+            "sha256": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a"
+          },
+          {
+            "bytes": 15450,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+            "sha256": "8b99c3c9c13f37527a4841dfc318f896dbbd3d329511b34a4c8b7a289693c3d0"
+          },
+          {
+            "bytes": 1526,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+            "sha256": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e"
+          },
+          {
+            "bytes": 10216,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+            "sha256": "ba15436199128f43ac32967db0cfa7bc9bd19a73d0539fb06906eeb2c02d3479"
+          },
+          {
+            "bytes": 8490,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+            "sha256": "3793aee7e8dc6f837cc0337a3e218abc3f982ecc1afff1c67933ae4b707b0585"
+          },
+          {
+            "bytes": 7820,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/regional_draw_source.py",
+            "sha256": "5bf348137efc831390d7f049f985021ba48638c1aad31665e60cfb3cec4937e4"
+          },
+          {
+            "bytes": 4816,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+            "sha256": "5b4e709b2d1d4ce2ea1e98eec9d481716740fdc723b6d3606ae9a50b1245d2be"
+          },
+          {
+            "bytes": 9306,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+            "sha256": "1c7584947d3248b522151045210f2c9056e41ac3732a5c25dd88eabb6c954414"
+          },
+          {
+            "bytes": 81,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+            "sha256": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5"
+          },
+          {
+            "bytes": 14851,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+            "sha256": "0b21d9ade1bfb83ca2e31577093059ef8c7dd0fcc86f5af00cbe65e544d02600"
+          },
+          {
+            "bytes": 76,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py",
+            "sha256": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52"
+          },
+          {
+            "bytes": 940,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py",
+            "sha256": "95e100ecd0a9f112830aaa9346abed077b4e2e61ff840deafda7b102547aad01"
+          },
+          {
+            "bytes": 7402,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py",
+            "sha256": "74a15a49d4cddc9e526160274a6561b767a6d457641403dd12ca417756b63e8b"
+          },
+          {
+            "bytes": 7726,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py",
+            "sha256": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52"
+          },
+          {
+            "bytes": 79,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+            "sha256": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4"
+          },
+          {
+            "bytes": 2958,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+            "sha256": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff"
+          },
+          {
+            "bytes": 3363,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+            "sha256": "304317faa6c89dfd43bbdb7b1f1dc82d9226cc1b2fb9ffba08bc7b03c2277ed6"
+          },
+          {
+            "bytes": 0,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "bytes": 83,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+            "sha256": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf"
+          },
+          {
+            "bytes": 15237,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+            "sha256": "8c1fd09287191b9fdb30499c57f82fc2711ed34979ecec852b227cb1dfdf50eb"
+          },
+          {
+            "bytes": 4143,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+            "sha256": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d"
+          },
+          {
+            "bytes": 5910,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+            "sha256": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4"
+          },
+          {
+            "bytes": 3300,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+            "sha256": "f33c781841c10f1776a7e6e41ef3a93f2e4ac6ca0282d93fe7620ad09cbd9567"
+          },
+          {
+            "bytes": 10071,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+            "sha256": "e0fce6132380512fefa7254e52a8802a6c84ab92c247089b8990b890ec4887eb"
+          },
+          {
+            "bytes": 12022,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_fixed_site_covariance.py",
+            "sha256": "d6c00766235d71c7efc78be128519919455e132a022a6f49b30591f93ec50697"
+          },
+          {
+            "bytes": 5871,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+            "sha256": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814"
+          },
+          {
+            "bytes": 73,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
+            "sha256": "052e01d49482a524a781f4c582a131cb39873eebcc2a659570023828ecf4f902"
+          },
+          {
+            "bytes": 10548,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+            "sha256": "7fd29a03f7995f9a97070c740033c57391d19dd703533bea3bcfc3b7f55816ef"
+          },
+          {
+            "bytes": 8681,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
+            "sha256": "5e877038da521a461ce168f2b078a59e4dcc0143668aaf7403b1555b2e31f678"
+          },
+          {
+            "bytes": 12488,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+            "sha256": "6a21e37c0a49b1ec944a45acb5fcbfaa08a6e72648e6352a32be285da28b7700"
+          },
+          {
+            "bytes": 3025,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+            "sha256": "a2585b7eb9fcfa2587bbf60a0bdd7579fcb903626e2a5e9b2c91698ed99f0f27"
+          },
+          {
+            "bytes": 4200,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+            "sha256": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03"
+          },
+          {
+            "bytes": 18010,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+            "sha256": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed"
+          },
+          {
+            "bytes": 78,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
+            "sha256": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe"
+          },
+          {
+            "bytes": 1103,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+            "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430"
+          },
+          {
+            "bytes": 284,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+            "sha256": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc"
+          },
+          {
+            "bytes": 2407,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+            "sha256": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445"
+          },
+          {
+            "bytes": 4037,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json",
+            "sha256": "2118278c3d5417043d5f58032cfbf1cda4db01875986dd48b7274184fee0363e"
+          },
+          {
+            "bytes": 247591,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz",
+            "sha256": "b779f6fda16d370fdd6dc1ad958bf212b48c282b8bc001de149398973b7821e5"
+          },
+          {
+            "bytes": 1398,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json",
+            "sha256": "2e6c8cadbd6055b3df8adbf9b4d2eb0160bbd0aa70be211b16d02e4060c83efe"
+          },
+          {
+            "bytes": 2041,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+            "sha256": "fd04e18fde65c23e0c65e1c8301b32d7cde3a1662f1661dfc390b913cbb47f0f"
+          },
+          {
+            "bytes": 1107,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+            "sha256": "c248ca31dbf060d45dba161e711faeaa232c1eca972a3c808f8536c219755369"
+          },
+          {
+            "bytes": 1574,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json",
+            "sha256": "6554d7704de5d79b695347b3752e3aeae52f940561256fd237ed8642c67a8973"
+          },
+          {
+            "bytes": 1489,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json",
+            "sha256": "27589c2cda866f0c26d2983ac82fb696200c1fb34282e40795e51c727903b53d"
+          },
+          {
+            "bytes": 601,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+            "sha256": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d"
+          },
+          {
+            "bytes": 78,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+            "sha256": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab"
+          },
+          {
+            "bytes": 7204,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+            "sha256": "ef05a86be898f4903a63edea9a2dddf35fba2d097bf24f430c72a123b368a4be"
+          },
+          {
+            "bytes": 17295,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+            "sha256": "6a66342a06ff47cb1240349bab0303ab54053e3f82dd8213d9b56a25de6740b8"
+          },
+          {
+            "bytes": 9031,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+            "sha256": "6fd244753ce97bcdb93ae9514392d1196b1dc39cd2fad2047953dcdde35c44a4"
+          },
+          {
+            "bytes": 10743,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+            "sha256": "9b6a6131ad99be28abdf4c9ecc7c2cbc0bb5de00da98c4115d9a3a41d9fdf122"
+          },
+          {
+            "bytes": 3694,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+            "sha256": "7a1c9d287aa5d874a61e7fd0a5f915e1fe6bfb54123393ef0e6ad1c6a4510dc2"
+          },
+          {
+            "bytes": 1846,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+            "sha256": "bd6e26ead910ba59f47d2f151e93ca323be24381ff9b0c39aa11baf1114c94e8"
+          },
+          {
+            "bytes": 5701,
+            "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+            "sha256": "9b05be03acf62ff02d466993066108f8f9a00989138020c085227747cb1819df"
+          }
+        ],
+        "parity": {
+          "actual-multinomial-draws.jsonl": {
+            "exact": true,
+            "fresh_sha256": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3",
+            "original_sha256": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3"
+          },
+          "replicate-taxon-results.csv": {
+            "exact": true,
+            "fresh_sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+            "original_sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b"
+          },
+          "report.json": {
+            "actual_differences": {
+              "candidate": {
+                "fresh": "159d541e7b86442728b9d540ebec93588eba54eb",
+                "original": "2b076418e86577058f70db216783ae3b2b74040b"
+              },
+              "plan_sha256": {
+                "fresh": "b6925e0d232c2f20d22d46dbac28b7ae43b83650fca61192a096740827c2720a",
+                "original": "392ccbe855c2501674ec432a90c45ad506e27aee1b447e0cc2a6851e9eb8afb2"
+              }
+            },
+            "exact_scientific_fields": true
+          },
+          "review": {
+            "draws_reviewed": 3000,
+            "marginals_reviewed": 30000,
+            "max_cover_absolute_difference": 5.551115123125783e-17,
+            "max_variance_absolute_difference": 5.421010862427522e-20,
+            "native_exit": 0,
+            "poor_outcomes_preserved": true,
+            "scalar_cover_and_variance_comparisons": 60000,
+            "scope": "Independent scalar review of retained synthetic counting diagnostics; no empirical truth or coverage certification.",
+            "source_pins_unchanged": {
+              "products/actual-multinomial-draws.jsonl": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3",
+              "products/replicate-taxon-results.csv": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+              "products/report.json": "2648d797eb1d9d9b6e9385422516b763b026dda6ac563d4cbff72a121b6ea147",
+              "protocol.json": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e"
+            }
+          }
+        },
+        "plan_sha256": "b6925e0d232c2f20d22d46dbac28b7ae43b83650fca61192a096740827c2720a",
+        "prepared_producer_overlay": "The maintained producer/verifier were executed from owned artifact copies at these exact hashes; they were not yet tracked in the numerical baseline commit.",
+        "prepared_producer_sources": [
+          {
+            "bytes": 12887,
+            "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/counting_coverage.py",
+            "sha256": "051fbd3e17c5b9ba712acda884318fe58068a6a92690c4c3db0e3e6c92514a6c"
+          },
+          {
+            "bytes": 7350,
+            "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/counting_coverage_verification.py",
+            "sha256": "66fdea49d8df4b84192347f9a16de2ff8f8c551ad5f56ec6b8596e8aa7d85e88"
+          }
+        ],
+        "source_pins_unchanged": true,
+        "stages": [
+          {
+            "argv_template_semantics": "Original absolute repository prefix replaced by $REPOSITORY; literal raw argv remains bound by terminal SHA.",
+            "id": "maintained-3000-draw-consumer",
+            "native_exit": 0,
+            "native_logs": {
+              "stderr": {
+                "bytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout": {
+                "bytes": 177,
+                "sha256": "7c70ae33a3ed3ccc6dbb8d514b6ec3ee2cae27cc115709910c2dfd262304912d"
+              }
+            },
+            "recorded_argv_repository_template": [
+              "$REPOSITORY/artifacts/science/runtime/environment/bin/python",
+              "-B",
+              "-c",
+              "import sys;sys.path.insert(0,sys.argv.pop(1));from pathlib import Path;import importlib.util;import bijux_pollenomics_lra.reconstruction.fixed_site_covariance as covariance;assert Path(covariance.__file__).is_relative_to(Path(sys.path[0]));module=sys.argv.pop(1);assert Path(importlib.util.find_spec(module).origin).is_relative_to(Path(sys.path[0]));import runpy;runpy.run_module(module,run_name='__main__')",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/source",
+              "bijux_pollenomics_dev.lra_validation.counting_coverage",
+              "--repository",
+              "$REPOSITORY",
+              "--protocol",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/publication/data/synthetic-validation/finite-count-coverage/protocol.json",
+              "--output",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/maintained-counting-parity/products",
+              "--source-candidate",
+              "159d541e7b86442728b9d540ebec93588eba54eb",
+              "--plan-sha256",
+              "b6925e0d232c2f20d22d46dbac28b7ae43b83650fca61192a096740827c2720a"
+            ],
+            "timeout": false,
+            "wall_seconds": 7.57752462499775
+          },
+          {
+            "argv_template_semantics": "Original absolute repository prefix replaced by $REPOSITORY; literal raw argv remains bound by terminal SHA.",
+            "id": "maintained-60000-scalar-verification",
+            "native_exit": 0,
+            "native_logs": {
+              "stderr": {
+                "bytes": 0,
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout": {
+                "bytes": 396,
+                "sha256": "2c4a13069b9ff002887a787baf01e1b5f461399ea274f0313e14eacb193af90a"
+              }
+            },
+            "recorded_argv_repository_template": [
+              "$REPOSITORY/artifacts/science/runtime/environment/bin/python",
+              "-B",
+              "-c",
+              "import sys;sys.path.insert(0,sys.argv.pop(1));from pathlib import Path;import importlib.util;module=sys.argv.pop(1);assert Path(importlib.util.find_spec(module).origin).is_relative_to(Path(sys.path[0]));import runpy;runpy.run_module(module,run_name='__main__')",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/source",
+              "bijux_pollenomics_dev.lra_validation.counting_coverage_verification",
+              "--repository",
+              "$REPOSITORY",
+              "--protocol",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/publication/data/synthetic-validation/finite-count-coverage/protocol.json",
+              "--products",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/maintained-counting-parity/products",
+              "--output",
+              "$REPOSITORY/artifacts/science/independent-reconstruction-recovery/maintained-counting-parity/independent-review.json"
+            ],
+            "timeout": false,
+            "wall_seconds": 0.9345254999934696
+          }
+        ],
+        "terminal_sha256": "edad159098271013978741c7611deab0b496b9490d06f241c65d011fd797f27c",
+        "wall_seconds": 8.533931709011085
+      },
+      "original_execution": {
+        "candidate": "2b076418e86577058f70db216783ae3b2b74040b",
+        "historical_manifest_sha256": "ab01db90693839bf45d5ce6287bcf31791b6f6826d22cb89dab4bdb0072c7e7d",
+        "historical_protocol_sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+        "native_exit": 0,
+        "plan_sha256": "392ccbe855c2501674ec432a90c45ad506e27aee1b447e0cc2a6851e9eb8afb2",
+        "report_sha256": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd",
+        "terminal_sha256": "4c2949f3eaa2ea441028f3597ac333daccd0cd39a54c6b1ca2dffd53f487bb32"
+      },
+      "schema_version": "synthetic-counting-execution-custody.v1"
+    },
+    "files": {
+      "actual-multinomial-draws.jsonl": {
+        "bytes": 1030536,
+        "sha256": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3"
+      },
+      "execution-custody.json": {
+        "bytes": 22680,
+        "sha256": "a99c15d2502ff5fa54f5fc2c0e13c56a368c04af2ffbf2b0e958f5bf6fd833c1"
+      },
+      "historical-manifest.json": {
+        "bytes": 1060,
+        "sha256": "ab01db90693839bf45d5ce6287bcf31791b6f6826d22cb89dab4bdb0072c7e7d"
+      },
+      "independent-review.json": {
+        "bytes": 859,
+        "sha256": "aad55dcb279a33c23ef8fd046e502a1501eb5fe24011ba814494ec46ea0225ce"
+      },
+      "maintained-independent-review.json": {
+        "bytes": 859,
+        "sha256": "4c5672887f66777e0be2f06e63184950fe463f79110d537bed8340c2f44d61b0"
+      },
+      "maintained-report.json": {
+        "bytes": 42591,
+        "sha256": "2648d797eb1d9d9b6e9385422516b763b026dda6ac563d4cbff72a121b6ea147"
+      },
+      "protocol.json": {
+        "bytes": 8212,
+        "sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e"
+      },
+      "replicate-taxon-results.csv": {
+        "bytes": 5308787,
+        "sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b"
+      },
+      "report.json": {
+        "bytes": 42591,
+        "sha256": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd"
+      },
+      "source-author-uncertainty.json": {
+        "bytes": 10125,
+        "sha256": "7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8"
+      }
+    },
+    "independent_review": {
+      "draws_reviewed": 3000,
+      "marginals_reviewed": 30000,
+      "max_cover_absolute_difference": 5.551115123125783e-17,
+      "max_variance_absolute_difference": 5.421010862427522e-20,
+      "native_exit": 0,
+      "poor_outcomes_preserved": true,
+      "scalar_cover_and_variance_comparisons": 60000,
+      "scope": "Independent scalar review of retained synthetic counting diagnostics; no empirical truth or coverage certification.",
+      "source_pins_unchanged": {
+        "products/actual-multinomial-draws.jsonl": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3",
+        "products/replicate-taxon-results.csv": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+        "products/report.json": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd",
+        "protocol.json": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e"
+      }
+    },
+    "manifest_sha256": "e26177ae94110418f011a9a3a821ed1a5735dedeb3ec524be36baa8f1d8bdbbc",
+    "original_plan_sha256": "392ccbe855c2501674ec432a90c45ad506e27aee1b447e0cc2a6851e9eb8afb2",
+    "path": "data/synthetic-validation/finite-count-coverage",
+    "protocol": {
+      "cases": [
+        {
+          "assumed_deposition": "source_fixed_deposition",
+          "name": "uniform_matched_counting",
+          "seed": 2026101301,
+          "truth": "uniform_ten_taxa"
+        },
+        {
+          "assumed_deposition": "source_fixed_deposition",
+          "name": "rare_alnus_matched_counting",
+          "seed": 2026101302,
+          "truth": "rare_alnus"
+        },
+        {
+          "assumed_deposition": "multiply_only_Alnus_column_by_1.5",
+          "name": "uniform_alnus_transport_misspecified",
+          "seed": 2026101303,
+          "truth": "uniform_ten_taxa"
+        }
+      ],
+      "consumer": "Maintained fixed_site_cover_covariance with exact measured-true boolean mask for generated synthetic axes, zero PPE covariance for counting-only uncertainty, all six fixed supports retained.",
+      "excluded": [
+        "PPE randomness/estimated-source-PPE coverage",
+        "shared PPE/site resampling",
+        "chronology/geometry uncertainty",
+        "human source rights or reviewer acceptance"
+      ],
+      "fixed_deposition": [
+        [
+          19697.793347904288,
+          18339.921595783282,
+          11552.456601874306,
+          4754.975395106912,
+          17853.218817833324,
+          12903.655937886977,
+          14837.620244422344,
+          15842.349465023848,
+          12903.655937886977,
+          12903.655937886977
+        ],
+        [
+          9334.766676246496,
+          8731.491001514392,
+          5629.588757131664,
+          2412.3917844173093,
+          8513.143811147807,
+          6255.430811387033,
+          7144.464886139002,
+          7603.077688058784,
+          6255.430811387033,
+          6255.430811387033
+        ],
+        [
+          125.43902335979212,
+          120.06848527712796,
+          86.98456867823093,
+          45.604399381609404,
+          117.98909886850846,
+          94.16941149311899,
+          103.96806586468591,
+          108.82570846689205,
+          94.16941149311899,
+          94.16941149311899
+        ],
+        [
+          269.8722336828375,
+          257.3687215366045,
+          183.00919967966914,
+          92.90528715632848,
+          252.59428553927256,
+          198.9528502683416,
+          220.84892706690397,
+          231.7802832602072,
+          198.9528502683416,
+          198.9528502683416
+        ],
+        [
+          125.43902335979212,
+          120.06848527712796,
+          86.98456867823093,
+          45.604399381609404,
+          117.98909886850846,
+          94.16941149311899,
+          103.96806586468591,
+          108.82570846689205,
+          94.16941149311899,
+          94.16941149311899
+        ],
+        [
+          33368.25100460947,
+          30963.190616884207,
+          19174.736835477943,
+          7663.290162893673,
+          30106.85348133317,
+          21498.99175392076,
+          24843.799455418342,
+          26590.28853200607,
+          21498.99175392076,
+          21498.99175392076
+        ]
+      ],
+      "fixed_panel_totals": [
+        289,
+        293,
+        2223,
+        2786,
+        4251,
+        562
+      ],
+      "generator": "Independent standard-library Random(seed).choices on native integer site totals; probability q_si = K_si * PPE_i * truth_i / sum_j(K_sj * PPE_j * truth_j). No production forward/inverse/uncertainty routines in generator.",
+      "interpretation": "Marginal normal-approximation diagnostic under a fixed conditional count model; closure constraints mean not simultaneous intervals. Positive controls use same inverse model and are inverse-crime numerical controls. Named transport misspecification is deliberate numerical sensitivity, not observed transport error. No accepted coverage threshold, fitted source model, parameter optimization, interval certification, historical replay, vegetation truth or release acceptance.",
+      "next": "Write owned maintained-consumer CLI and independent scalar quotient/Jacobian spot checks; freeze source+protocol+generator+controls in a registered plan before actual draws. Do not rerun source R/physical quadrature or general matrices.",
+      "replicates_per_case": 1000,
+      "reported_metrics": [
+        "all_attempts/refusals by immutable case/replicate",
+        "bias and RMSE of each closed taxon",
+        "95% marginal unclipped Wald interval coverage using fixed z=1.959963984540054",
+        "empirical variance versus mean plug-in counting variance",
+        "zero-observed-axis and zero-SE frequencies",
+        "simulation Monte Carlo uncertainty on reported coverage",
+        "closure and total-count conservation",
+        "misspecification errors and rare-axis poor coverage retained without tuning"
+      ],
+      "resources": {
+        "max_output_bytes": 20971520,
+        "max_processes": 1,
+        "max_rss_bytes": 536870912,
+        "max_threads": 1,
+        "wall_seconds": 60
+      },
+      "schema_version": "fixed-source-count-coverage-design.v1",
+      "site_ids": [
+        "BROADOWN",
+        "HANGINGS",
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WINDMILL",
+        "WINNEYS"
+      ],
+      "source_pins": [
+        {
+          "bytes": 772,
+          "path": "author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+          "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+        },
+        {
+          "bytes": 2977,
+          "path": "author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+          "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918"
+        },
+        {
+          "bytes": 192,
+          "path": "author/run.REVEALS.files/site.list.512.csv",
+          "sha256": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7"
+        },
+        {
+          "bytes": 930,
+          "path": "reference/taxon-name-crosswalk.csv",
+          "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+        },
+        {
+          "bytes": 2476,
+          "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+          "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+        },
+        {
+          "bytes": 2452,
+          "path": "author/run.REVEALS.files/LRAready_CUTHILL2.csv",
+          "sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+        },
+        {
+          "bytes": 2474,
+          "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+          "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+        },
+        {
+          "bytes": 2367,
+          "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+          "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+        },
+        {
+          "bytes": 2370,
+          "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+          "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+        },
+        {
+          "bytes": 2309,
+          "path": "author/run.REVEALS.files/LRAready_WHH05.csv",
+          "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+        },
+        {
+          "bytes": 2341,
+          "path": "author/run.REVEALS.files/LRAready_WHH11.csv",
+          "sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+        },
+        {
+          "bytes": 2350,
+          "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+          "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+        },
+        {
+          "bytes": 2507,
+          "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+          "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+        }
+      ],
+      "source_ppe": [
+        13.562,
+        5.10571,
+        1.085,
+        1.85,
+        1.71,
+        0.9625,
+        6.05833,
+        2.33,
+        1.0,
+        4.53667
+      ],
+      "source_profile_scope": "Six source author example site supports, ten post-source-read positive axes, own synthetic common landscape truths. Synthetic grains are not observed original source counts or independent vegetation measurements.",
+      "source_report_sha256": "7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8",
+      "source_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/author-source",
+      "status": "prepared_protocol_not_executed",
+      "taxon_axis": [
+        "Alnus.glutinosa",
+        "Betula",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Corylus.avellana",
+        "Cyperaceae",
+        "Pinus",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.deciduous"
+      ],
+      "truths": [
+        {
+          "name": "uniform_ten_taxa",
+          "vector": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "name": "rare_alnus",
+          "vector": [
+            1e-05,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111,
+            0.11111
+          ]
+        }
+      ]
+    },
+    "protocol_sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+    "scope": "Marginal normal-approximation diagnostic under a fixed conditional count model; closure constraints mean not simultaneous intervals. Positive controls use same inverse model and are inverse-crime numerical controls. Named transport misspecification is deliberate numerical sensitivity, not observed transport error. No accepted coverage threshold, fitted source model, parameter optimization, interval certification, historical replay, vegetation truth or release acceptance."
+  },
+  "reconstruction_cases": [
+    {
+      "calculation_max_abs_error_fraction": 5.551115123125783e-17,
+      "case_id": "peatland-350m-5km-matched_parameters",
+      "contract_status": "passed",
+      "control": "matched_parameters",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "matched_method_calculation_control",
+      "inverse_crime_control": true,
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.0
+    },
+    {
+      "calculation_max_abs_error_fraction": 4.395604395357466e-06,
+      "case_id": "peatland-350m-5km-ppe_misspecification",
+      "contract_status": "passed",
+      "control": "ppe_misspecification",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.03626333333333331
+    },
+    {
+      "calculation_max_abs_error_fraction": 4.864424231990072e-06,
+      "case_id": "peatland-350m-5km-taxon_label_shuffle",
+      "contract_status": "passed",
+      "control": "taxon_label_shuffle",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "source_case_sha256": "612bb2c558dc173d9702ff2799c078221276da50057262e9891a746856a5aec7",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.4681866666666667
+    },
+    {
+      "calculation_max_abs_error_fraction": 5.551115123125783e-17,
+      "case_id": "peatland-200m-8km-matched_parameters",
+      "contract_status": "passed",
+      "control": "matched_parameters",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "matched_method_calculation_control",
+      "inverse_crime_control": true,
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.0
+    },
+    {
+      "calculation_max_abs_error_fraction": 4.5248868778546836e-06,
+      "case_id": "peatland-200m-8km-ppe_misspecification",
+      "contract_status": "passed",
+      "control": "ppe_misspecification",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.03674
+    },
+    {
+      "calculation_max_abs_error_fraction": 3.970451564277999e-06,
+      "case_id": "peatland-200m-8km-taxon_label_shuffle",
+      "contract_status": "passed",
+      "control": "taxon_label_shuffle",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "negative_control_on_identical_synthetic_support",
+      "inverse_crime_control": true,
+      "source_case_sha256": "82e4fd17ad956c916a8dd3a7cee8c8725b2025da80f08e884a2ff81e6e6e92cb",
+      "source_profile": "independent-gpm-neutral-peatland-annuli-v1",
+      "source_report_sha256": "95a168a518ae4a5c370cf312b0c5e48ee2460dc653ae3a7c80b30329af0ff569",
+      "status": "scored",
+      "transport_matched": true,
+      "vegetation_mae_fraction": 0.38176000000000004
+    },
+    {
+      "calculation_max_abs_error_fraction": 4.820180488640524e-06,
+      "case_id": "homogeneous-noise-free-transport_mismatch",
+      "contract_status": "passed",
+      "control": "transport_mismatch",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "transport_and_support_mismatch_challenge",
+      "inverse_crime_control": false,
+      "source_case_sha256": "4831c3f588f9fa428e931795ffbfcee08ed6a7986f0d244c55e2436e9281d864",
+      "source_profile": "independent-finite-cell-known-landscape-v1",
+      "source_report_sha256": "1bd4997dfe82490a05182ca2f211f8496a1c68312f8449ee39a5f140958ad551",
+      "status": "scored",
+      "transport_matched": false,
+      "vegetation_mae_fraction": 0.0674633333333333
+    },
+    {
+      "calculation_max_abs_error_fraction": 1.1861058610007635e-06,
+      "case_id": "heterogeneous-noise-free-transport_mismatch",
+      "contract_status": "passed",
+      "control": "transport_mismatch",
+      "deposition_max_abs_error": 5.551115123125783e-17,
+      "interpretation": "transport_and_support_mismatch_challenge",
+      "inverse_crime_control": false,
+      "source_case_sha256": "cd2ff4ef0d198ddcbc05dd17571821c9b45315d53a83891738e60b7664922c13",
+      "source_profile": "independent-finite-cell-known-landscape-v1",
+      "source_report_sha256": "1bd4997dfe82490a05182ca2f211f8496a1c68312f8449ee39a5f140958ad551",
+      "status": "scored",
+      "transport_matched": false,
+      "vegetation_mae_fraction": 0.07989669750321703
+    }
+  ],
+  "reconstruction_source": {
+    "denominators": {
+      "attempted": 8,
+      "contract_failed": 0,
+      "contract_passed": 8,
+      "predicted": 8,
+      "refused": 0,
+      "requested": 8,
+      "scored": 8
+    },
+    "path": "docs/report/synthetic-validation/reconstruction/report.json",
+    "prospective_contract": {
+      "deposition_absolute_tolerance": 1e-12,
+      "interval_calibration": "not_evaluated",
+      "iterations_per_reconstruction": 1,
+      "ppe_misspecification_rule": "broadleaf_nominal_ppe_times_0.8",
+      "production_reconstructions": 8,
+      "recovery_tolerance_basis": "half_unit_of_source_three_decimal_percent_rounding",
+      "recovery_tolerance_fraction": 5e-06,
+      "requested_cases": 8,
+      "shuffle_rule": "cyclic_shift_pollen_taxon_values_once_keep_truth_and_parameters_fixed",
+      "stochastic": false
+    },
+    "sha256": "5023c8d46e58680492ce3bc821d1db6ff10af1c0ad7f7bb75907aa3562e19e84"
+  },
+  "schema_version": "synthetic-recovery-evidence.v1"
+}
