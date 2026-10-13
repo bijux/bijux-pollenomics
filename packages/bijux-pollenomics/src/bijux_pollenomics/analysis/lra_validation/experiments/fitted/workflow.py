@@ -27,6 +27,7 @@ from ..outputs import (
     write_json,
 )
 from ..reconstruction import reconstruct_fold
+from ..split_authority import freeze_experiment_split
 from ..workflow import _implementation
 from .model import (
     FittedTrainingState,
@@ -87,6 +88,7 @@ def prepare_fitted_spatial_predictions(
     binding = load_engine()
     engine_identity = capture_code_identity(binding)
     stage = stage_directory(destination)
+    split_authority = freeze_experiment_split(stage, folds)
     predictions: list[dict[str, object]] = []
     failures: list[dict[str, object]] = []
     operations: list[dict[str, object]] = []
@@ -94,6 +96,7 @@ def prepare_fitted_spatial_predictions(
     consumed_pollen: set[str] = set()
     consumed_geometry: set[str] = set()
     for index, fold in enumerate(folds):
+        split_authority.verify()
         try:
             if interrupted:
                 raise ValidationRefusal(
@@ -136,6 +139,7 @@ def prepare_fitted_spatial_predictions(
             continue
         state: FittedTrainingState | None = None
         fit_failure: BaseException | None = None
+        split_authority.verify()
         try:
             state = fit_reconstructed_training(
                 spec,
@@ -287,7 +291,6 @@ def prepare_fitted_spatial_predictions(
         },
     )
     for name, value in (
-        ("folds.json", fold_rows),
         ("predictions.json", predictions),
         ("failures.json", failures),
         ("operations.json", operations),
@@ -300,6 +303,7 @@ def prepare_fitted_spatial_predictions(
         geometry_record_ids=consumed_geometry,
         template_used=bool(consumed_pollen),
     )
+    split_authority.verify()
     return publish_phase(
         stage,
         destination,

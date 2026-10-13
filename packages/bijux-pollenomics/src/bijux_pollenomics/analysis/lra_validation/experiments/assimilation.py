@@ -51,6 +51,7 @@ from .outputs import (
     write_json,
 )
 from .prediction import predict_assimilated_local
+from .split_authority import freeze_experiment_split
 from .workflow import _implementation
 
 ROLES = LOCAL_EVALUATION_ROLES
@@ -75,6 +76,7 @@ def prepare_local_pollen_predictions(
     code = capture_code_identity(binding)
     implementation = _implementation()
     stage = stage_directory(destination)
+    split_authority = freeze_experiment_split(stage, folds)
     admitted: dict[
         str, tuple[Fold, ExperimentSite, ExperimentSite, dict[str, object]]
     ] = {}
@@ -84,6 +86,7 @@ def prepare_local_pollen_predictions(
     consumed_pollen: set[str] = set()
     consumed_geometry: set[str] = set()
     for fold in folds:
+        split_authority.verify()
         if interrupted:
             failures.append(not_run(fold))
             continue
@@ -132,6 +135,7 @@ def prepare_local_pollen_predictions(
     if interrupted:
         failures.extend(not_run(fold) for fold, _, _, _ in admitted.values())
     if items and not interrupted:
+        split_authority.verify()
         batch = run_lra_batch(
             items,
             input_root=input_root,
@@ -200,7 +204,6 @@ def prepare_local_pollen_predictions(
     }
     for name, value in (
         ("predictions.json", predictions),
-        ("folds.json", scientific["folds"]),
         ("failures.json", failures),
         ("operations.json", operations),
     ):
@@ -238,6 +241,7 @@ def prepare_local_pollen_predictions(
         geometry_record_ids=consumed_geometry,
         template_used=bool(consumed_pollen),
     )
+    split_authority.verify()
     return publish_phase(
         stage,
         destination,

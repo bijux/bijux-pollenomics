@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2078,
-  "paths_sha256": "9f35ebb27b00984c0038c2e10b41e611ad30f608a94559dbf1d8e20c094605a0",
+  "path_count": 2080,
+  "paths_sha256": "d548ab99bd1eb6aa99d475cb190867a22ee6196b6cb13ed4663ee6676f56f714",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45162,7 +45162,7 @@
       "producer_inputs": [],
       "producer_paths": [],
       "role": "maintained_editorial",
-      "verification": "Review authored scope, figures, and reproduction commands against the linked five governed report.json files and the current source modules. These Markdown explanations are maintained editorially, not producer-generated; numerical comparison alone does not certify scientific interpretation."
+      "verification": "Review authored scope, figures, and reproduction commands against the linked five governed report.json files and the current source modules. These Markdown explanations are maintained editorially, not producer-generated; numerical comparison alone does not certify scientific interpretation. The site-leakage reader also distinguishes retained development experiment intake evidence in two development-input-isolation sidecars; those source-bound capture accounts do not regenerate or alter the original five deterministic report.json products."
     },
     {
       "owner_id": "synthetic-validation/reconstruction/report-products",
@@ -46881,6 +46881,17 @@
         "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_layout.py"
       ],
       "verification": "Retained actual native source-bound four-workbook layout and27325cachedcell/eight-sheet comparison with independent16rawBOUNDSHEET checks. Prior failed oracle and later test-only stricttyping failure retained; final9guards/types2/lint passed. No all79census or source/taxon/unit/rights/science admission."
+    },
+    {
+      "owner_id": "synthetic-validation/site-leakage/development-input-isolation",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/synthetic-validation/site-leakage/development-input-isolation.json",
+        "docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Source-bound retained development evaluator qualification and independent numerical audit. Native failed predecessor captures remain recorded; no declaration of regeneration, empirical accuracy, untouched confirmation or source admission. Review bound source, commands, receipts, denominators and negative results before replacement."
     }
   ]
 }
