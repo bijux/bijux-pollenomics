@@ -17,6 +17,9 @@ from bijux_pollenomics_dev.lra_validation.native_reference.capture_selection imp
 from bijux_pollenomics_dev.lra_validation.native_reference.count_domain_capture import (
     CountDomainCapture,
 )
+from bijux_pollenomics_dev.lra_validation.native_reference.finite_covariance_capture import (
+    FiniteCovarianceCapture,
+)
 from bijux_pollenomics_dev.lra_validation.native_reference.source_replay import (
     build_source_replay,
 )
@@ -34,10 +37,10 @@ def sha256(path: Path) -> str:
 
 def _require_retained_comparison(
     repository: Path, report: dict[str, Any], replay: dict[str, Any]
-) -> AnnulusCapture | CountDomainCapture:
+) -> AnnulusCapture | CountDomainCapture | FiniteCovarianceCapture:
     """Authenticate retained capture and present consumer bytes without rerunning R."""
     profile = report.get("native_capture_profile")
-    if profile not in ("annulus", "count-domain"):
+    if profile not in ("annulus", "count-domain", "finite-covariance"):
         raise ValueError("Retained comparison native capture profile differs")
     selected_profile = cast(CaptureProfile, profile)
     capture = validated_current_capture(repository, profile=selected_profile)

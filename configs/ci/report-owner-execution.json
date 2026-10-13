@@ -1614,7 +1614,7 @@
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison",
-      "native_capture_profile": "count-domain",
+      "native_capture_profile": "finite-covariance",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "owner_id": "method-certification/current-r-oracle/report-products",

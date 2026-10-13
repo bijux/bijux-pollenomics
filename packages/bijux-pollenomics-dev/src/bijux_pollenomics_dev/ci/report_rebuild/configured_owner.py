@@ -187,7 +187,8 @@ def _configuration_owner(
             or row["module"]
             != "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison"
             or not isinstance(row["native_capture_profile"], str)
-            or row["native_capture_profile"] not in {"annulus", "count-domain"}
+            or row["native_capture_profile"]
+            not in {"annulus", "count-domain", "finite-covariance"}
         ):
             raise ReportRebuildError(
                 "native capture profile is outside the maintained owner"

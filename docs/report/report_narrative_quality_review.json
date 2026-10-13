@@ -845,11 +845,11 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "259f83c4b7ea12b40e0ab3b12f50ded589bc642d49f2d71628917f1491278298",
-      "prose_paragraph_count": 17,
+      "content_sha256": "01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753",
+      "prose_paragraph_count": 21,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 8,
+      "heading_count": 9,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

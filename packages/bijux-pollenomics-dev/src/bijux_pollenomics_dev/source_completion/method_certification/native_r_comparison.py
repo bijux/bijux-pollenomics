@@ -88,9 +88,9 @@ def _consumer_inputs(
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 98
+        or len(code) != 99
         or len(set(code)) != len(code)
-        or len(data) != 280
+        or len(data) != 287
         or len(set(data)) != len(data)
         or _POLICY not in data
         or selected_manifest not in data
@@ -209,7 +209,9 @@ def main() -> None:
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
-        "--capture-profile", choices=("annulus", "count-domain"), default="annulus"
+        "--capture-profile",
+        choices=("annulus", "count-domain", "finite-covariance"),
+        default="annulus",
     )
     args = parser.parse_args()
     build(args.repository, args.output, capture_profile=args.capture_profile)

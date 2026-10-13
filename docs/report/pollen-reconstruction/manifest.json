@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "9de6075d3d9fecf4d39cedfa298cd5078c2c73b3f123713fb03a66789d9733d9",
-      "bytes": 110737
+      "sha256": "8469dcb63f083e1d6d2e640c439e33f259677d4e3b981883d92609a02fdd285b",
+      "bytes": 110742
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "330c6610886b5c1e06f41c7f51ad1e6f971bea628d44f1f89dca4aaa979aeb2f",
-      "bytes": 4584367
+      "sha256": "07912015cfb47ab96d9db21eae2247b6f6d71a333bb3628f101bab6271a57e62",
+      "bytes": 4586005
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1256,18 +1256,18 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
-      "sha256": "98a19d9e29ba8e53296131c7b3bb8fe9db8667cfa51ba474008f8ff492640ffd",
-      "bytes": 9085
+      "sha256": "01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753",
+      "bytes": 11446
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "1acee89e0b4b8ac58632be56c6ee0e32df0d266bb74350cd1d2952324bdaec77",
-      "bytes": 90851
+      "sha256": "a607c455de5e07bc1787a2d4af194e0667f2eff05961aa25741fb9f034fbb0d0",
+      "bytes": 93424
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/verify_source_replay.py",
-      "sha256": "b0d9cdaa20bfcdea291755a0a14fcd02a078107caf464113f9595ad749aac1b5",
-      "bytes": 7609
+      "sha256": "1a10a99427c45fb2d67ff7f89efabc86c17b33a4759436f97b4cb5d4bb247f55",
+      "bytes": 7781
     },
     {
       "path": "docs/report/method-certification/love-paper-correspondence/README.md",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "12c08121f445843ebb0f2486d1bfd8083833e6548f646bf21b02da137abe3d05",
-      "bytes": 149435
+      "sha256": "ef90143dfe3882c8132f0fc440a52ecf5c341d4fe2654909d6bade0c462f6e5e",
+      "bytes": 149447
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "d618b116621245f82aac55cc45e9e0b0e12e960de2d28f04d8579544750afead",
+      "sha256": "f71119fbf9ebf57b89db3491d4dfb3f7e17663ed3d3c23b128a2d981a6419247",
       "bytes": 1017234
     },
     {
@@ -4351,8 +4351,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
-      "sha256": "6d1870fe7d50c50a57fc3312040b872cd3b3d621859b11ff51575c8daaa2c41e",
-      "bytes": 20272
+      "sha256": "f59966d6b9e93182f67e641c4e0d196eae85fe30a6a93a9dfa44912d23d3aab0",
+      "bytes": 20305
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
@@ -4566,8 +4566,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture_selection.py",
-      "sha256": "a5a726d5f318af4760fe5c512a9b4f98d1ae583aee66e1ff8f79e933e6bcd3e0",
-      "bytes": 850
+      "sha256": "b908664435e9e0c695faa2432ea03709711b0a6a8e9d9e827383c32306464b1a",
+      "bytes": 1148
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/count_domain_capture.py",
@@ -6426,8 +6426,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
-      "sha256": "a601fa80dc38fd40df5c4d1f7a0f5efc7dad9fcc65a1535c20a3a9aed01e2818",
-      "bytes": 55109
+      "sha256": "b119bf96a05b3e56e7bf93297797542d8203a55b37a6f8b93b1d74b2be1aa386",
+      "bytes": 55036
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_landclim_two_grid_packet.py",
