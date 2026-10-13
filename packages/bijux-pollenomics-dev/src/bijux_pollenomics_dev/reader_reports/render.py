@@ -81,9 +81,9 @@ def _inline_code(value: str) -> str:
     if len(value) <= 28:
         return r"\texttt{" + escape_latex(value) + "}"
     pieces: list[str] = []
-    for part in re.split(r"(\s+|[/=*,;])", value):
+    for part in re.split(r"(\s+|[/=*,;)])", value):
         escaped = escape_latex(part)
-        if part in {"/", "=", "*", ",", ";"}:
+        if part in {"/", "=", "*", ",", ";", ")"}:
             pieces.append(escaped + r"\allowbreak{}")
         elif (
             len(part) > 28
@@ -96,6 +96,19 @@ def _inline_code(value: str) -> str:
         else:
             pieces.append(escaped)
     return r"\texttt{" + "".join(pieces) + "}"
+
+
+def _inline_text(value: str) -> str:
+    """Offer path delimiter breaks without splitting ordinary prose or numbers."""
+    result: list[str] = []
+    for part in re.split(r"(\s+)", value):
+        escaped = escape_latex(part).replace("/", r"/\allowbreak{}")
+        if "/" in part and re.search(r"\.[A-Za-z]{1,12}[.,;:!?)}\]]*\Z", part):
+            escaped = escaped.replace("-", r"-\allowbreak{}").replace(
+                r"\_", r"\_\allowbreak{}"
+            )
+        result.append(escaped)
+    return "".join(result)
 
 
 def _url_argument(value: str) -> str:
@@ -150,9 +163,7 @@ class ReportRenderer:
         for token in children:
             kind = token.type
             if kind == "text":
-                output.append(
-                    escape_latex(token.content).replace("/", r"/\allowbreak{}")
-                )
+                output.append(_inline_text(token.content))
             elif kind == "code_inline":
                 output.append(_inline_code(token.content))
             elif kind == "strong_open":
