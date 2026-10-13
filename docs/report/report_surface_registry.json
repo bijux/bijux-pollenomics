@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2076,
+  "surface_count": 2078,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1177,
+    "maintenance": 1179,
     "maps": 88,
     "portal": 2,
     "reviews": 39,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1179,
+    "maintainer_diagnostic": 1181,
     "public_reading_surface": 769,
     "scientific_review_surface": 128
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1231,
+    "report_root": 1233,
     "sweden": 49,
     "world": 160
   },
@@ -11613,7 +11613,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "content_sha256": "0cf4060d62c1ad08259b433a2f022d1764e670e5f3030100913b1e7f92d7a425",
+      "content_sha256": "472ead0f15f2b84f7ec2b016ac51c01a377466f840a40014e15ef0152d1affa0",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -20536,6 +20536,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "content_sha256": "2075d2019e5bdcb8968e25d745afd439a2d8d7c1a0b47f80d5eec8848666914d",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -20544,8 +20545,7 @@
       "geography": "report_root",
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
-      "reader_route": "start_here",
-      "content_sha256": "5cdc9ab0d530b3bb746f0fb9b85ec446959a7b787e0400549405a038193dfde6"
+      "reader_route": "start_here"
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
@@ -25255,6 +25255,30 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/site-leakage/development-input-isolation.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

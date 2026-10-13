@@ -1,0 +1,1286 @@
+{
+  "schema_version": "krageholm-paired-static-geometry-covariance.v1",
+  "native_dataset_id": 23013,
+  "native_collection_unit_id": 16622,
+  "native_chronology_id": 13366,
+  "profile": "reveals-joint-fixed-site-delta-covariance",
+  "protocol_sha256": "184ca490822dcd396d4eed0a1546e292541bb41dc48c1d4e4a30aecb5f13fee4",
+  "original_samples": 96,
+  "selected_samples": 95,
+  "window_domain_count": 25,
+  "paired_windows": 24,
+  "refused_windows": 1,
+  "conditional_result_vectors": 48,
+  "result_axes": 96,
+  "distinct_count_supports": 24,
+  "shared_literal_parameter_axes": 2,
+  "marginals_match_previous_configuration": true,
+  "window_rows": [
+    {
+      "window_index": 0,
+      "status": "refused_no_source_samples",
+      "paired_standard_error": null
+    },
+    {
+      "window_index": 1,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        0,
+        1
+      ],
+      "alternative_minus_reference_cover": [
+        0.0002219674435022037,
+        -0.0002219674435021135
+      ],
+      "counting_paired_covariance": [
+        [
+          1.3070080832374006e-10,
+          -1.3070080832374006e-10
+        ],
+        [
+          -1.3070080832374006e-10,
+          1.3070080832374006e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          1.374283862606168e-10,
+          -1.374283862606168e-10
+        ],
+        [
+          -1.374283862606168e-10,
+          1.374283862606168e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.6812919458435685e-10,
+          -2.6812919458435685e-10
+        ],
+        [
+          -2.6812919458435685e-10,
+          2.681291945809687e-10
+        ]
+      ],
+      "paired_standard_error": [
+        1.637465097595539e-05,
+        1.6374650975851935e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.006092952308259001,
+        0.006092952308259001
+      ]
+    },
+    {
+      "window_index": 2,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        2,
+        3
+      ],
+      "alternative_minus_reference_cover": [
+        0.0002535793951770893,
+        -0.00025357939517711703
+      ],
+      "counting_paired_covariance": [
+        [
+          1.4156576865117772e-10,
+          -1.4156576865117772e-10
+        ],
+        [
+          -1.4156576865117772e-10,
+          1.4156576865117772e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          1.7265522555897457e-10,
+          -1.7265522555897457e-10
+        ],
+        [
+          -1.7265522555897457e-10,
+          1.7265522555897457e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.1422099421184635e-10,
+          -3.1422099421184635e-10
+        ],
+        [
+          -3.1422099421184635e-10,
+          3.1422099421184635e-10
+        ]
+      ],
+      "paired_standard_error": [
+        1.7726279762314663e-05,
+        1.7726279762314663e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.006722739899967041,
+        0.006722739899967042
+      ]
+    },
+    {
+      "window_index": 3,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        4,
+        5
+      ],
+      "alternative_minus_reference_cover": [
+        0.00041788349371392475,
+        -0.0004178834937139664
+      ],
+      "counting_paired_covariance": [
+        [
+          2.0876455372623257e-10,
+          -2.0876455372623257e-10
+        ],
+        [
+          -2.0876455372623257e-10,
+          2.0876455372623257e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          3.742417284272395e-10,
+          -3.742417284272395e-10
+        ],
+        [
+          -3.742417284272395e-10,
+          3.742417284272395e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          5.830062821534721e-10,
+          -5.830062821466958e-10
+        ],
+        [
+          -5.830062821466958e-10,
+          5.830062821399196e-10
+        ]
+      ],
+      "paired_standard_error": [
+        2.4145523025055225e-05,
+        2.4145523024774583e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.010249909621175954,
+        0.010249909621175954
+      ]
+    },
+    {
+      "window_index": 4,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        6,
+        7
+      ],
+      "alternative_minus_reference_cover": [
+        0.0002748462675825625,
+        -0.0002748462675826735
+      ],
+      "counting_paired_covariance": [
+        [
+          1.0852425050598231e-10,
+          -1.0852425050428824e-10
+        ],
+        [
+          -1.0852425050598231e-10,
+          1.0852425050598231e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          1.975306726590938e-10,
+          -1.9753067265739974e-10
+        ],
+        [
+          -1.9753067265739974e-10,
+          1.9753067265570567e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.0605492316846425e-10,
+          -3.06054923161688e-10
+        ],
+        [
+          -3.060549231650761e-10,
+          3.06054923161688e-10
+        ]
+      ],
+      "paired_standard_error": [
+        1.7494425488379554e-05,
+        1.7494425488185885e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.00672321236454985,
+        0.00672321236454985
+      ]
+    },
+    {
+      "window_index": 5,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        8,
+        9
+      ],
+      "alternative_minus_reference_cover": [
+        0.0003069593354933925,
+        -0.00030695933549340637
+      ],
+      "counting_paired_covariance": [
+        [
+          2.227144294758099e-10,
+          -2.227144294758099e-10
+        ],
+        [
+          -2.2271442947242176e-10,
+          2.2271442947242176e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          2.3640575337507464e-10,
+          -2.3640575337507464e-10
+        ],
+        [
+          -2.3640575337507464e-10,
+          2.3640575337507464e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          4.5912018285088453e-10,
+          -4.5912018285088453e-10
+        ],
+        [
+          -4.5912018285088453e-10,
+          4.591201828576608e-10
+        ]
+      ],
+      "paired_standard_error": [
+        2.142708992959344e-05,
+        2.1427089929751563e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.008406583482934785,
+        0.008406583482934783
+      ]
+    },
+    {
+      "window_index": 6,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        10,
+        11
+      ],
+      "alternative_minus_reference_cover": [
+        0.0003030209798537825,
+        -0.00030302097985368537
+      ],
+      "counting_paired_covariance": [
+        [
+          2.5631936394747033e-10,
+          -2.5631936393730593e-10
+        ],
+        [
+          -2.563193639440822e-10,
+          2.5631936394747033e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          2.3157120291423736e-10,
+          -2.3157120291084922e-10
+        ],
+        [
+          -2.3157120291423736e-10,
+          2.3157120291084922e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          4.878905668549314e-10,
+          -4.878905668413789e-10
+        ],
+        [
+          -4.878905668549314e-10,
+          4.87890566868484e-10
+        ]
+      ],
+      "paired_standard_error": [
+        2.2088244992641028e-05,
+        2.208824499294781e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.008643629697899575,
+        0.008643629697899575
+      ]
+    },
+    {
+      "window_index": 7,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        12,
+        13
+      ],
+      "alternative_minus_reference_cover": [
+        0.00031531080247516885,
+        -0.00031531080247515497
+      ],
+      "counting_paired_covariance": [
+        [
+          2.326174704722346e-10,
+          -2.3261747046545832e-10
+        ],
+        [
+          -2.3261747046545832e-10,
+          2.3261747046884646e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          2.4670582525989e-10,
+          -2.4670582525989e-10
+        ],
+        [
+          -2.4670582525989e-10,
+          2.4670582525989e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          4.793232957355127e-10,
+          -4.793232957219602e-10
+        ],
+        [
+          -4.793232957219602e-10,
+          4.793232957219602e-10
+        ]
+      ],
+      "paired_standard_error": [
+        2.1893453262003067e-05,
+        2.1893453261693554e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.008637099311287906,
+        0.008637099311287904
+      ]
+    },
+    {
+      "window_index": 8,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        14,
+        15
+      ],
+      "alternative_minus_reference_cover": [
+        0.0003532857660223099,
+        -0.0003532857660222266
+      ],
+      "counting_paired_covariance": [
+        [
+          3.643535373583362e-10,
+          -3.643535373583362e-10
+        ],
+        [
+          -3.643535373583362e-10,
+          3.643535373583362e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          2.940754683156458e-10,
+          -2.940754683156458e-10
+        ],
+        [
+          -2.940754683156458e-10,
+          2.940754683156458e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          6.58429005673982e-10,
+          -6.58429005673982e-10
+        ],
+        [
+          -6.584290056807583e-10,
+          6.58429005673982e-10
+        ]
+      ],
+      "paired_standard_error": [
+        2.5659871505406686e-05,
+        2.5659871505406686e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.010388567005121106,
+        0.010388567005121105
+      ]
+    },
+    {
+      "window_index": 9,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        16,
+        17
+      ],
+      "alternative_minus_reference_cover": [
+        0.00048140115943615114,
+        -0.0004814011594361789
+      ],
+      "counting_paired_covariance": [
+        [
+          1.3467749221884266e-09,
+          -1.3467749221884266e-09
+        ],
+        [
+          -1.3467749221884266e-09,
+          1.3467749221884266e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          4.4810304556839545e-10,
+          -4.4810304556839545e-10
+        ],
+        [
+          -4.4810304556839545e-10,
+          4.4810304556839545e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          1.7948779677703745e-09,
+          -1.7948779677432695e-09
+        ],
+        [
+          -1.7948779677703745e-09,
+          1.7948779677432695e-09
+        ]
+      ],
+      "paired_standard_error": [
+        4.236600013891298e-05,
+        4.236600013859309e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.01893388942627949,
+        0.018933889426279483
+      ]
+    },
+    {
+      "window_index": 10,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        18,
+        19
+      ],
+      "alternative_minus_reference_cover": [
+        0.0005227646039195066,
+        -0.0005227646039194234
+      ],
+      "counting_paired_covariance": [
+        [
+          2.3741279552100952e-09,
+          -2.3741279553185154e-09
+        ],
+        [
+          -2.3741279552643053e-09,
+          2.3741279552643053e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          4.911305671775456e-10,
+          -4.911305671775456e-10
+        ],
+        [
+          -4.911305671775456e-10,
+          4.911305671775456e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.8652585223605358e-09,
+          -2.865258522468956e-09
+        ],
+        [
+          -2.865258522414746e-09,
+          2.865258522468956e-09
+        ]
+      ],
+      "paired_standard_error": [
+        5.352810964680647e-05,
+        5.352810964781921e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.024813824745877563,
+        0.02481382474587756
+      ]
+    },
+    {
+      "window_index": 11,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        20,
+        21
+      ],
+      "alternative_minus_reference_cover": [
+        0.0006414879941658569,
+        -0.0006414879941658569
+      ],
+      "counting_paired_covariance": [
+        [
+          2.8314659227283642e-09,
+          -2.8314659227283642e-09
+        ],
+        [
+          -2.8314659227283642e-09,
+          2.8314659227283642e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.783924678993187e-10,
+          -5.783924679128713e-10
+        ],
+        [
+          -5.783924678993187e-10,
+          5.783924679128713e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.409858390654788e-09,
+          -3.409858390654788e-09
+        ],
+        [
+          -3.409858390654788e-09,
+          3.409858390600578e-09
+        ]
+      ],
+      "paired_standard_error": [
+        5.8393992761711266e-05,
+        5.839399276124709e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.03060900992804032,
+        0.030609009928040314
+      ]
+    },
+    {
+      "window_index": 12,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        22,
+        23
+      ],
+      "alternative_minus_reference_cover": [
+        0.0008322360696826903,
+        -0.0008322360696826347
+      ],
+      "counting_paired_covariance": [
+        [
+          2.5874254521709647e-09,
+          -2.5874254520625445e-09
+        ],
+        [
+          -2.5874254521709647e-09,
+          2.5874254521709647e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.377298529683164e-10,
+          -5.377298529954215e-10
+        ],
+        [
+          -5.377298529683164e-10,
+          5.377298529954215e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.125155305112176e-09,
+          -3.125155305003756e-09
+        ],
+        [
+          -3.125155305112176e-09,
+          3.125155305112176e-09
+        ]
+      ],
+      "paired_standard_error": [
+        5.590308851138885e-05,
+        5.590308851138885e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.03942791406617419,
+        0.03942791406617419
+      ]
+    },
+    {
+      "window_index": 13,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        24,
+        25
+      ],
+      "alternative_minus_reference_cover": [
+        0.000852946047305847,
+        -0.0008529460473059025
+      ],
+      "counting_paired_covariance": [
+        [
+          3.206258500452336e-09,
+          -3.206258500452336e-09
+        ],
+        [
+          -3.206258500560756e-09,
+          3.206258500560756e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.151280676974831e-10,
+          -5.151280676974831e-10
+        ],
+        [
+          -5.151280676974831e-10,
+          5.151280676974831e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.7213865680413988e-09,
+          -3.7213865680413988e-09
+        ],
+        [
+          -3.7213865680413988e-09,
+          3.7213865682582392e-09
+        ]
+      ],
+      "paired_standard_error": [
+        6.100316850821274e-05,
+        6.100316850999003e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.04505259871737317,
+        0.04505259871737317
+      ]
+    },
+    {
+      "window_index": 14,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        26,
+        27
+      ],
+      "alternative_minus_reference_cover": [
+        0.0007014601332356873,
+        -0.0007014601332356873
+      ],
+      "counting_paired_covariance": [
+        [
+          3.0317179269432823e-09,
+          -3.031717926889072e-09
+        ],
+        [
+          -3.0317179269432823e-09,
+          3.031717926889072e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.942602537579176e-10,
+          -5.942602537579176e-10
+        ],
+        [
+          -5.942602537579176e-10,
+          5.942602537579176e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.6259781806876473e-09,
+          -3.6259781806876473e-09
+        ],
+        [
+          -3.6259781806876473e-09,
+          3.625978180579227e-09
+        ]
+      ],
+      "paired_standard_error": [
+        6.021609569448726e-05,
+        6.0216095693587e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.034051090547759434,
+        0.034051090547759434
+      ]
+    },
+    {
+      "window_index": 15,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        28,
+        29
+      ],
+      "alternative_minus_reference_cover": [
+        0.000672764916301527,
+        -0.000672764916301416
+      ],
+      "counting_paired_covariance": [
+        [
+          3.7038303271836118e-09,
+          -3.7038303270751916e-09
+        ],
+        [
+          -3.7038303271836118e-09,
+          3.7038303270751916e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.894746186671258e-10,
+          -5.894746186535732e-10
+        ],
+        [
+          -5.894746186671258e-10,
+          5.894746186535732e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          4.2933049458236325e-09,
+          -4.293304945715212e-09
+        ],
+        [
+          -4.2933049458236325e-09,
+          4.293304945715212e-09
+        ]
+      ],
+      "paired_standard_error": [
+        6.552331604721813e-05,
+        6.552331604639079e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.03568046314557319,
+        0.03568046314557318
+      ]
+    },
+    {
+      "window_index": 16,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        30,
+        31
+      ],
+      "alternative_minus_reference_cover": [
+        0.0006791880787703486,
+        -0.0006791880787704319
+      ],
+      "counting_paired_covariance": [
+        [
+          2.2754851343020216e-09,
+          -2.2754851343020216e-09
+        ],
+        [
+          -2.2754851343020216e-09,
+          2.2754851343020216e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.910110063698419e-10,
+          -5.910110063562894e-10
+        ],
+        [
+          -5.910110063562894e-10,
+          5.910110063562894e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.866496140658311e-09,
+          -2.866496140658311e-09
+        ],
+        [
+          -2.866496140604101e-09,
+          2.866496140658311e-09
+        ]
+      ],
+      "paired_standard_error": [
+        5.353966885084657e-05,
+        5.353966885084657e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.029394885515625975,
+        0.029394885515625975
+      ]
+    },
+    {
+      "window_index": 17,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        32,
+        33
+      ],
+      "alternative_minus_reference_cover": [
+        0.0007829893379086295,
+        -0.0007829893379086572
+      ],
+      "counting_paired_covariance": [
+        [
+          1.6853476262138067e-09,
+          -1.6853476261595966e-09
+        ],
+        [
+          -1.6853476261595966e-09,
+          1.6853476261595966e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.755597253952107e-10,
+          -5.755597253952107e-10
+        ],
+        [
+          -5.755597253952107e-10,
+          5.755597253952107e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.2609073516361225e-09,
+          -2.2609073516361225e-09
+        ],
+        [
+          -2.2609073515819124e-09,
+          2.2609073515277023e-09
+        ]
+      ],
+      "paired_standard_error": [
+        4.754899948091571e-05,
+        4.754899947977562e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.030496897680412437,
+        0.030496897680412433
+      ]
+    },
+    {
+      "window_index": 18,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        34,
+        35
+      ],
+      "alternative_minus_reference_cover": [
+        0.0008595669160536001,
+        -0.0008595669160536001
+      ],
+      "counting_paired_covariance": [
+        [
+          1.8429577770557454e-09,
+          -1.8429577770557454e-09
+        ],
+        [
+          -1.8429577770557454e-09,
+          1.8429577770557454e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.070207426919205e-10,
+          -5.070207426919205e-10
+        ],
+        [
+          -5.070207426919205e-10,
+          5.070207426919205e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.349978519720561e-09,
+          -2.349978519720561e-09
+        ],
+        [
+          -2.349978519720561e-09,
+          2.349978519720561e-09
+        ]
+      ],
+      "paired_standard_error": [
+        4.8476577021491116e-05,
+        4.8476577021491116e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.0363665633478356,
+        0.0363665633478356
+      ]
+    },
+    {
+      "window_index": 19,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        36,
+        37
+      ],
+      "alternative_minus_reference_cover": [
+        0.0008536398512272725,
+        -0.000853639851227217
+      ],
+      "counting_paired_covariance": [
+        [
+          2.6736668948691006e-09,
+          -2.6736668948691006e-09
+        ],
+        [
+          -2.6736668947606804e-09,
+          2.6736668947606804e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.142988234721133e-10,
+          -5.142988234721133e-10
+        ],
+        [
+          -5.142988234450082e-10,
+          5.142988234450082e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          3.187965718341214e-09,
+          -3.187965718341214e-09
+        ],
+        [
+          -3.1879657182327936e-09,
+          3.1879657182327936e-09
+        ]
+      ],
+      "paired_standard_error": [
+        5.6462073273492304e-05,
+        5.646207327253219e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.04176641852576529,
+        0.04176641852576529
+      ]
+    },
+    {
+      "window_index": 20,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        38,
+        39
+      ],
+      "alternative_minus_reference_cover": [
+        0.0009970227273769505,
+        -0.000997022727376784
+      ],
+      "counting_paired_covariance": [
+        [
+          8.333368649001208e-10,
+          -8.333368647917005e-10
+        ],
+        [
+          -8.333368649001208e-10,
+          8.333368647917005e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          2.3144907911336506e-10,
+          -2.3144907911336506e-10
+        ],
+        [
+          -2.3144907911336506e-10,
+          2.3144907911336506e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          1.0647859439863808e-09,
+          -1.0647859438779606e-09
+        ],
+        [
+          -1.0647859438779606e-09,
+          1.0647859438779606e-09
+        ]
+      ],
+      "paired_standard_error": [
+        3.2631057966090844e-05,
+        3.263105796442954e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.042025386594468805,
+        0.042025386594468805
+      ]
+    },
+    {
+      "window_index": 21,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        40,
+        41
+      ],
+      "alternative_minus_reference_cover": [
+        0.001020325451655979,
+        -0.00102032545165609
+      ],
+      "counting_paired_covariance": [
+        [
+          7.559317896036616e-10,
+          -7.559317896036616e-10
+        ],
+        [
+          -7.559317896036616e-10,
+          7.559317896036616e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          1.6237532938232282e-10,
+          -1.6237532935521777e-10
+        ],
+        [
+          -1.6237532938232282e-10,
+          1.6237532935521777e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          9.183071189317743e-10,
+          -9.183071189317743e-10
+        ],
+        [
+          -9.183071189317743e-10,
+          9.183071189317743e-10
+        ]
+      ],
+      "paired_standard_error": [
+        3.030358260885624e-05,
+        3.030358260885624e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.04768434953244244,
+        0.04768434953244243
+      ]
+    },
+    {
+      "window_index": 22,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        42,
+        43
+      ],
+      "alternative_minus_reference_cover": [
+        0.0010518009310355736,
+        -0.001051800931035629
+      ],
+      "counting_paired_covariance": [
+        [
+          1.7494142050787642e-10,
+          -1.7494142061629664e-10
+        ],
+        [
+          -1.7494142050787642e-10,
+          1.7494142050787642e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.769304576175999e-11,
+          -5.7693045815970095e-11
+        ],
+        [
+          -5.7693045815970095e-11,
+          5.7693045815970095e-11
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          2.3263446637805663e-10,
+          -2.3263446637805663e-10
+        ],
+        [
+          -2.3263446637805663e-10,
+          2.326344662696364e-10
+        ]
+      ],
+      "paired_standard_error": [
+        1.5252359370866418e-05,
+        1.5252359367312207e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.04150610475684668,
+        0.04150610475684668
+      ]
+    },
+    {
+      "window_index": 23,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        44,
+        45
+      ],
+      "alternative_minus_reference_cover": [
+        0.0008732979975294985,
+        -0.0008732979975295541
+      ],
+      "counting_paired_covariance": [
+        [
+          5.017373560622495e-10,
+          -5.017373560622495e-10
+        ],
+        [
+          -5.017373560622495e-10,
+          5.017373560622495e-10
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          4.888074611416639e-10,
+          -4.888074611416639e-10
+        ],
+        [
+          -4.888074611416639e-10,
+          4.888074611416639e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          9.905448172310184e-10,
+          -9.905448172310184e-10
+        ],
+        [
+          -9.905448172310184e-10,
+          9.905448172310184e-10
+        ]
+      ],
+      "paired_standard_error": [
+        3.147292196843214e-05,
+        3.147292196843214e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.024430596924665163,
+        0.024430596924665163
+      ]
+    },
+    {
+      "window_index": 24,
+      "status": "paired_conditional_results",
+      "result_indices": [
+        46,
+        47
+      ],
+      "alternative_minus_reference_cover": [
+        0.0006099073409291667,
+        -0.0006099073409291389
+      ],
+      "counting_paired_covariance": [
+        [
+          1.1347313918304205e-09,
+          -1.1347313918304205e-09
+        ],
+        [
+          -1.1347313918575255e-09,
+          1.1347313918575255e-09
+        ]
+      ],
+      "ppe_paired_covariance": [
+        [
+          5.615942716560244e-10,
+          -5.615942716560244e-10
+        ],
+        [
+          -5.615942716560244e-10,
+          5.615942716560244e-10
+        ]
+      ],
+      "total_paired_covariance": [
+        [
+          1.6963256634864449e-09,
+          -1.6963256634864449e-09
+        ],
+        [
+          -1.69632566351355e-09,
+          1.69632566351355e-09
+        ]
+      ],
+      "paired_standard_error": [
+        4.118647427841384e-05,
+        4.1186474278742895e-05
+      ],
+      "independence_counterfactual_standard_error": [
+        0.020831046723050327,
+        0.02083104672305033
+      ]
+    }
+  ],
+  "negative_controls": [
+    {
+      "control": "same_support_changed_counts",
+      "status": "refused",
+      "reason": "Identical native support has different panel/count bytes"
+    },
+    {
+      "control": "same_support_different_panel",
+      "status": "refused",
+      "reason": "Identical native support has different panel/count bytes"
+    },
+    {
+      "control": "different_support_reused_digest",
+      "status": "refused",
+      "reason": "Same count-source digest has different native support"
+    },
+    {
+      "control": "overlapping_same_unit_windows",
+      "status": "refused",
+      "reason": "Same-unit count support overlap is unresolved"
+    },
+    {
+      "control": "alternate_chronology_same_unit",
+      "status": "refused",
+      "reason": "Same-unit count support overlap is unresolved"
+    },
+    {
+      "control": "disjoint_count_independence_undeclared",
+      "status": "refused",
+      "reason": "Disjoint-window counting independence is undeclared"
+    },
+    {
+      "control": "foreign_parameter_identity",
+      "status": "refused",
+      "reason": "Joint literal panel parameter axis differs"
+    },
+    {
+      "control": "unmeasured_axis",
+      "status": "refused",
+      "reason": "Joint count/deposition/measured axes differ"
+    },
+    {
+      "control": "noninteger_counts",
+      "status": "refused",
+      "reason": "Joint count/deposition values are invalid"
+    },
+    {
+      "control": "zero_panel_total",
+      "status": "refused",
+      "reason": "Joint count/deposition values are invalid"
+    }
+  ],
+  "ppe_covariance_authority": "Explicit analyst-declared conditional delta-method scenario reusing exactly the prior retained diagonal marginal configuration. Values0.303 and0 are retained source input magnitudes; no new estimated PPE,source uncertainty calibration or taxon correlation is inferred. The zero-variance axis forces zero cross-covariance for PSD consistency. One common PPE latent parameter spans all windows/geometries by declared working model.",
+  "geometry_uncertainty_distribution_supplied": false,
+  "chronology_joint_posterior_supplied": false,
+  "empirical_interval_coverage_claimed": false,
+  "historical_basin_authenticated": false,
+  "scientific_admission": false,
+  "source_rights_admission": false,
+  "global_shared_ppe_cross_window_covariance_retained": true,
+  "full_count_covariance_reuses_same_source_between_geometries": true
+}

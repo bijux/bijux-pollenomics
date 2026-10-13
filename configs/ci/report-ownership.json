@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2080,
-  "paths_sha256": "d548ab99bd1eb6aa99d475cb190867a22ee6196b6cb13ed4663ee6676f56f714",
+  "path_count": 2082,
+  "paths_sha256": "cf370f0f619052cb44cbef214d209def2e1d55694efd1a1c9579b2133fc77304",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46892,6 +46892,23 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Source-bound retained development evaluator qualification and independent numerical audit. Native failed predecessor captures remain recorded; no declaration of regeneration, empirical accuracy, untouched confirmation or source admission. Review bound source, commands, receipts, denominators and negative results before replacement."
+    },
+    {
+      "owner_id": "pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json"
+      ],
+      "producer_paths": [
+        "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py"
+      ],
+      "producer_inputs": [
+        "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json",
+        "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-custody.json",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+      ],
+      "verification": "Actual public joint covariance preserves shared native counts and declared global PPE covariance; 39552 Decimal50 comparisons <=2.43e-15, maintained byte equality, seven custody tests and strict checks. No empirical covariance/coverage, chronology or geometry distribution, historical basin, human/rights admission."
     }
   ]
 }
