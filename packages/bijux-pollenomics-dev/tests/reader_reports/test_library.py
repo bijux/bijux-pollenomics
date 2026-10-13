@@ -11,6 +11,7 @@ import pytest
 class _PaperManifest(TypedDict):
     schema_version: str
     repository_revision: str
+    producer_revision: str
     inventory: str
     inventory_sha256: str
     build_receipt_sha256: str
@@ -74,7 +75,17 @@ def _source_revision_library(
     inventory = source.with_name("paper-accounts.csv")
     inventory.write_text("paper_id,canonical_report\npaper,reports/science/paper.md\n")
     source.write_text("# Retained account\n")
-    for args in (["init", "--quiet"], ["add", "reports/science"]):
+    producer_relative = (
+        "packages/bijux-pollenomics-dev/src/"
+        "bijux_pollenomics_dev/reader_reports/render.py"
+    )
+    producer = root / producer_relative
+    producer.parent.mkdir(parents=True)
+    producer.write_text('"""Stable renderer identity fixture."""\n')
+    for args in (
+        ["init", "--quiet"],
+        ["add", "reports/science", producer_relative],
+    ):
         subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
 
     def commit() -> str:
@@ -129,11 +140,12 @@ def _source_revision_library(
     manifest: _PaperManifest = {
         "schema_version": "canonical-paper-pdf-library.v1",
         "repository_revision": retained_revision,
+        "producer_revision": retained_revision,
         "inventory": "reports/science/paper-accounts.csv",
         "inventory_sha256": digest(inventory),
         "build_receipt_sha256": "a" * 64,
         "papers": [row],
-        "producer_sha256": {},
+        "producer_sha256": {producer_relative: digest(producer)},
     }
     visual: dict[str, object] = {
         "paper_id": "paper",
