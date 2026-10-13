@@ -102,7 +102,7 @@ def _finite_mapping(value: object, field: str) -> dict[str, object]:
 
 @dataclass(frozen=True)
 class FrozenDevelopmentDesign:
-    """Validated canonical bytes and the exact prospective design payload."""
+    """Canonical design authority with a decoded snapshot checked before use."""
 
     canonical_design_json: str
     design_sha256: str
@@ -310,7 +310,12 @@ def validate_attempt_against_design(
     executable_descriptor: int | None = None,
 ) -> tuple[str, ...]:
     """Refuse any trial choice not enumerated by the frozen design."""
-    payload = design.payload
+    authoritative = validate_development_design(
+        design.canonical_design_json, design.design_sha256
+    )
+    if canonical_json(design.payload) != authoritative.canonical_design_json:
+        raise DevelopmentDesignError("frozen_design_payload_mismatch")
+    payload = authoritative.payload
     binding = attempt["evaluation_binding"]
     if not isinstance(binding, dict):
         raise DevelopmentDesignError("invalid_evaluation_binding")
