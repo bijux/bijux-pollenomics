@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-10-02
+last_reviewed: 2026-10-13
 ---
 
 # Release Support
@@ -47,13 +47,19 @@ flowchart LR
 | package build and smoke routes | wheel and source distribution build and install under their declared checks | scientific evidence sufficiency |
 | documentation strict build | configured site renders from the revision | deployed Pages identity or claim truth |
 
-The configured GitHub artifact build and PyPI publication sets contain
-`bijux-pollenomics`, `pollenomics` and `bijux-pollenomics-lra`. The GHCR package
-set contains the host and alias only. The authoritative selection is
+The configured GitHub artifact build, PyPI publication and GHCR sets contain
+`bijux-pollenomics` and `pollenomics`. The authoritative selection is
 [the generated release configuration](https://github.com/bijux/bijux-pollenomics/blob/main/.github/release.env), consumed
 by the managed release workflows. `bijux-pollenomics-dev` is verified as a
 repository component and remains outside all three public publication sets.
 Configuration is not evidence that a distribution has been published.
+
+`bijux-pollenomics-lra` is absent from the current artifact-build and PyPI
+matrices. An official engine release therefore requires adding it through
+the upstream `bijux-std` configuration, accepting that source revision and
+refreshing the generated downstream configuration. Editing the generated
+copy locally does not establish this release route. The host's optional
+dependency and local engine installation proof do not close this gap.
 
 The host extra `bijux-pollenomics[lra]` requires a separately installed engine.
 The [distribution account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/architecture/lra-distribution.md)
