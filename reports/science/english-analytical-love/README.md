@@ -68,3 +68,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.essd_reprodu
 We treat the result as a negative numerical development finding on previously
 exposed English source. It supplies no vegetation accuracy, Swedish or Nordic
 LRA admission, or general spatial-transfer estimate.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Analytical LOVE on the declared English author profile returns an explicit all-fold invalid-composition refusal.
+
+**Unsupported claim.** A held-out prediction, local vegetation score or valid local cover from this analytical route.
+
+**Actual verification performed.** Retained 15-fold products and independent equation replay are reported; index did not rerun.
+
+**Remaining input or review.** All 15 analytical LOVE folds return invalid negative local-cover compositions; valid local cover requires an admitted constraint, basin profile and refusal-aware solver rather than clipping. Resolver: LOVE method/solver owner and qualified physical-basin reviewer Reopen when: A declared source-compatible constrained method yields valid cover on authenticated fold inputs and retains failures.
+
+**Cause category.** algorithm/numerical|assumption
+
+**Consequence.** Do not clip invalid fractions or convert all-fold refusal into zero error.
+
+**Precise next acceptance route.** A declared source-compatible constrained method yields valid cover on authenticated fold inputs and retains failures. Then update reports/science/english-lra-pollen-prediction.md.
+
+**Negative or refused result.** 15/15 folds refused invalid_composition; 54/54 local ring rows contain negative cover and 19 exceed one.
+
+**Matched denominator.** 15 sites, 31 taxa, 20,732 counts; 195 training items completed, 168 cache hits and 27 unique products.
+
+Retained evidence: [reports/science/english-analytical-love/report.json](report.json), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md](../../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 2c72b1891caf27397a07a2a8bd84782fc3cef851a151cca4488d61ffde516d14 -->
+<!-- scientific-authored-source-sha256: 31fa30a7660c24ec32842b34a9facce527f8987b7d3c53fa0424b492bf1e712d -->
+<!-- scientific-verification-and-limits:end -->

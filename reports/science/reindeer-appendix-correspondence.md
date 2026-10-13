@@ -62,3 +62,33 @@ specimens. We used the retained Table S3 and FASTA bytes with the hashes
 above, counting populated Table S3 rows and FASTA `>` headers.
 The `B16` and `B-16` alignment strings differ at 2,863 of 16,362 positions;
 neither extra header duplicates another complete sequence in this file.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Published reindeer appendix Table S3 can be joined to retained ENA BioSamples for named specimens.
+
+**Unsupported claim.** Unqualified specimen history or ecological movement from header-level correspondences.
+
+**Actual verification performed.** Retained appendix/version comparison and BioSample one-to-one join are reported; index did not reacquire ZIP.
+
+**Remaining input or review.** Appendix version comparison supports specimen IDs but selected header correspondences do not prove every sample-to-source provenance or independent ecological interpretation. Resolver: Reindeer study data custodian and qualified specimen reviewer Reopen when: Versioned row-level specimen and accession authority resolves ambiguous source associations before propagation.
+
+**Cause category.** data|qualified review
+
+**Consequence.** Use the appendix for specimen identity only until provenance and scientific interpretation are reviewed.
+
+**Precise next acceptance route.** Versioned row-level specimen and accession authority resolves ambiguous source associations before propagation. Then update reports/science/source-cohorts.md.
+
+**Negative or refused result.** Wiley direct ZIP HTTP 403; no claim that all header correspondences establish sample origin.
+
+**Matched denominator.** 110 populated rows: 90 modern and 20 ancient; 20 ancient rows join one-to-one to retained ENA BioSamples.
+
+Retained evidence: [docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md](../../docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 4c2e4a83e4a467be73950df6508f07a72596124207c92859aa46890baebb549d -->
+<!-- scientific-authored-source-sha256: 84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd -->
+<!-- scientific-verification-and-limits:end -->

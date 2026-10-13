@@ -52,3 +52,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/neotoma-study-membership/replay.py \
   --repository . --output artifacts/jobs/neotoma-study-membership-replay
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Every selected 31-target study sample is assigned one governed source membership and source-screen status.
+
+**Unsupported claim.** Original site-selection rationale, country assignment for all rows or vegetation/LRA admission.
+
+**Actual verification performed.** Retained 12,388-row ledger and producer source-screen join are reported; index did not rerun.
+
+**Remaining input or review.** The 12,388-ID membership ledger closes, but 277 rows lack assigned source country; the 233 same-site refusals have screen reasons rather than proven original selection rationale, and membership is not scored prediction support. Resolver: Neotoma source/country decision owner and original study selector Reopen when: Versioned country authority and selection decisions resolve rows before changing study membership or scores.
+
+**Cause category.** data|comparability
+
+**Consequence.** Do not treat source membership or refused negative-BP samples as scored predictions.
+
+**Precise next acceptance route.** Versioned country authority and selection decisions resolve rows before changing study membership or scores. Then update reports/science/source-cohorts.md.
+
+**Negative or refused result.** 277 unassigned-country rows; 233 same-site nonselected rows fail source screen; six selected negative-BP Swedish rows are not scored.
+
+**Matched denominator.** 12,388 samples =5,660 selected +6,218 outside selected sites +233 same-site unselected +277 unassigned.
+
+Retained evidence: [reports/science/neotoma-study-membership/decisions.csv](decisions.csv), [reports/science/neotoma-study-membership/report.json](report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: ed4364a71f864d140fca52f47e784b57a9cdae6d50032b1b7dee883a352b2dd7 -->
+<!-- scientific-authored-source-sha256: a0a7b86ba0395a6e40e7a24c4b384ced7b39e7afde096d7f13c98296488f88c4 -->
+<!-- scientific-verification-and-limits:end -->

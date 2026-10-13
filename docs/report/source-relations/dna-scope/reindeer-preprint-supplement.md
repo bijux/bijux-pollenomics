@@ -11,3 +11,16 @@ The workbook has one sheet. Rows 3–20 contain 18 distinct ancient specimen IDs
 | `M68`, `R36`, `R25a`, `R29a`, `MB60`, `R20` have `NA` median | 15–20 | Do not attribute the medians in later secondary rows to the preprint. |
 
 The workbook gives UTM easting and northing, but no UTM zone. It provides no source-qualified WGS84 point, so no coordinate is projected from these values. Its first-published field and 90 modern rows are source evidence, not additional ancient project samples. The governed producer checks the exact workbook bytes, receipt, 18 ancient IDs and their age intervals before using B20 row 5. The existing published PDF and secondary workbook remain separate source roles.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/reindeer-appendix-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reindeer-appendix-correspondence.md) (source SHA-256 `57d8dfbf72caf3741d04231feb20cd89b044a2e55661aefff0909ab5ddaa779a`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

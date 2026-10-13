@@ -7,6 +7,11 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 
+from bijux_pollenomics_dev.reader_reports.scientific_limits import validate_report
+from bijux_pollenomics_dev.reader_reports.scientific_routes import (
+    validate_reader_routes,
+)
+
 ROOT = Path(__file__).resolve().parents[2]
 CATEGORIES = {
     "data",
@@ -93,6 +98,7 @@ def validate(root: Path, rows: list[dict[str, str]], packet_ids: set[str]) -> No
         path = root / row["report_path"]
         if hashlib.sha256(path.read_bytes()).hexdigest() != row["source_report_sha256"]:
             raise ValueError(f"Scientific claim report changed: {row['report_path']}")
+        validate_report(path.read_bytes(), row)
         for field in ("retained_evidence_paths", "existing_consumer_paths"):
             for relative in row[field].split(";"):
                 native = PurePosixPath(relative)
@@ -111,6 +117,8 @@ def validate(root: Path, rows: list[dict[str, str]], packet_ids: set[str]) -> No
             and not set(row["packet_reference"].split(";")) <= packet_ids
         ):
             raise ValueError("Scientific claim references an unknown request packet")
+
+    validate_reader_routes(root, rows)
 
 
 def main() -> None:

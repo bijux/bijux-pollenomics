@@ -43,3 +43,33 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 The producer authenticates the consumed source files and rejects a **999-draw** input before accepting the 1,000-draw tensor. This route replays our interface only, not the Sugita simulations. [Replay method](reveals-love-interface/README.md).
 
 The **unsent source request** is for a lawful full Sugita (2007b) paper and original POLLSCAPE scenario definitions, target and regional basin identities/geometries, pollen counts, regional truth/REVEALS vectors, PPE and fall-speed tables, background-pollen terms, relevant-source-area search rule, local vegetation truth and uncertainty/error rows, plus usable source permissions. The **unsent qualified-review request** is to decide for each proposed historical target whether its regional cohort is independent and temporally comparable, its basin and local-area geometry are defensible, its taxon/parameter support is adequate, and a measured local vegetation reference exists before any accuracy claim. No independent review, original figure reproduction or colleague reading outcome is claimed.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Sugita 2007b abstract-level local-background theory and separate 1,000-draw constructed interface are accounted for.
+
+**Unsupported claim.** Original POLLSCAPE numerical replication or independent local-cover accuracy.
+
+**Actual verification performed.** Retained publisher abstract and later interface/ring receipts are described; index did not rerun 2007 simulation.
+
+**Remaining input or review.** Original Sugita 2007b full paper/scenario rows are not retained; constructed later interface and packaged rings cannot reproduce the original POLLSCAPE experiment or validate local vegetation. Resolver: Original paper/scenario custodian and qualified LOVE method reviewer Reopen when: Lawful original scenario/count/geometry/parameter/truth packet allows exact experiment account and separate ecological comparison.
+
+**Cause category.** data|access/rights|comparability
+
+**Consequence.** Do not present constructed fixture as Sugita 2007b result or normalize invalid cover into ecological truth.
+
+**Precise next acceptance route.** Lawful original scenario/count/geometry/parameter/truth packet allows exact experiment account and separate ecological comparison. Then update reports/science/paper-accounts.md.
+
+**Negative or refused result.** Constructed interface has 8,312 negative of 31,000 finite cells; original experiment error values not available.
+
+**Matched denominator.** Later interface: 1,000 regional draws × one ring ×31 taxa; original abstract has no exact scenario rows.
+
+Retained evidence: [reports/science/reveals-love-interface/report.json](reveals-love-interface/report.json), [reports/science/analytical-love-ring-sensitivity/report.json](analytical-love-ring-sensitivity/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 77dafd427441a48732795e1a0e3c7d9105781ee8fda4958b8703f98a8f964503 -->
+<!-- scientific-authored-source-sha256: c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f -->
+<!-- scientific-verification-and-limits:end -->

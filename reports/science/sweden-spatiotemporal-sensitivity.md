@@ -107,3 +107,33 @@ they change, inspect and retain the new predictions before scoring. Compare
 replayed result bytes to the governed files cited above. We still need
 source-qualified age-model ensembles, independent spatial groups and real
 Nordic LRA inputs before making stronger temporal or ecological claims.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Frozen adjacent-bin and distance-support pollen comparisons are scored on matched bins.
+
+**Unsupported claim.** Independent temporal or spatial skill and historical basin-radius calibration.
+
+**Actual verification performed.** Retained prepare, freeze, coverage and paired-score receipts are cited; index did not rerun.
+
+**Remaining input or review.** Adjacent-bin and 100-km center rules are nominal probes on three exposed correlated sites; age uncertainty, historical basin distances and independent time/spatial generalization are untested. Resolver: Core chronology/basin source owner and independent spatial-temporal reviewer Reopen when: Joint age support and new grouped spatial/temporal targets are source-qualified before predeclared prediction.
+
+**Cause category.** assumption|comparability|qualified review
+
+**Consequence.** Keep +0.006020 IDW MAE change as this cohort’s support sensitivity, not causal distance law.
+
+**Precise next acceptance route.** Joint age support and new grouped spatial/temporal targets are source-qualified before predeclared prediction. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** 13 of 486 site-bin/policy queries refused for insufficient groups.
+
+**Matched denominator.** Three exposed sites; 473/486 supported queries, 1,419 method predictions; 52 matched bins for 100-km exclusion.
+
+Retained evidence: [docs/report/regions/nordic/swedish-support-sensitivity/report.json](../../docs/report/regions/nordic/swedish-support-sensitivity/report.json), [docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv](../../docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: cc0b4bb6be6cca6c6c9718579312c5bc97a97969b580243d47ecafb6e15f8b8c -->
+<!-- scientific-authored-source-sha256: 8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de -->
+<!-- scientific-verification-and-limits:end -->

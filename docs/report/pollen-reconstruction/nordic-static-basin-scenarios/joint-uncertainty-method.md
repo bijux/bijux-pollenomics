@@ -15,3 +15,16 @@ Each C_ng is positive semidefinite by the multinomial variance identity. If C_P 
 An independently expressed route uses the panel fractions directly. Its derivative L_r = B_r diag(a_r)/sum_i(a_ri f_i) equals N J_r, and C_fg = [diag(f_g) − f_g f_gᵀ]/N_g. Consequently L_r C_fg L_tᵀ = J_r C_ng J_tᵀ. The retained independent Decimal50 consumer uses this fraction route and quotient differentiation for PPE, rather than calling the producer's count derivative implementation.
 
 These are first-order conditional delta covariances at the observed plug-in fractions. Positive semidefiniteness, closure and scalar parity do not establish a calibrated confidence interval, joint posterior, empirical coverage, independent vegetation accuracy or historical reconstruction. A zero boundary plug-in covariance is not proof of absence.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

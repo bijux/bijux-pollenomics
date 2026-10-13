@@ -133,3 +133,33 @@ We retain the WHH05 chain as an author-example calculation witness and the
 17-site table as its declared numerical support. We keep the broader
 publication reproduction and Nordic LRA admission open until their own
 source evidence is available.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** WHH05 raw depth 16 is traced through 1500 BP preparation to a site estimate; all released example sites are checked.
+
+**Unsupported claim.** That site’s exact historical archive membership or measured vegetation fraction.
+
+**Actual verification performed.** Retained one-site source-to-estimate ledger and 17-site replay are reported; index did not rerun.
+
+**Remaining input or review.** WHH05 and 17 example sites have count-to-estimate traces; historical sequence membership, selected chronology/basin, full source rights and ecological parameter approval are still unbound. Resolver: LandClim source producer and qualified chronology/basin/taxon reviewer Reopen when: Versioned production row with sample ages, basin, parameter profile and rights binds the same published cell.
+
+**Cause category.** data|assumption|access/rights
+
+**Consequence.** Keep 0.924883 modeled Calluna cover distinct from the 297-grain count fraction.
+
+**Precise next acceptance route.** Versioned production row with sample ages, basin, parameter profile and rights binds the same published cell. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** Four one-grain fields excluded from WHH05 prepared row; zero independent vegetation check.
+
+**Matched denominator.** WHH05 301 raw grains/30 named fields to 297 prepared grains/31 targets; 17 example sites across two grids.
+
+Retained evidence: [docs/report/publication-replay/landclim-example-reexecution/report.json](../../../docs/report/publication-replay/landclim-example-reexecution/report.json), [docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv](../../../docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: f46644c7bef8a16f5051c3ae397fcd4e1efa9b88e5bed7e3e154883b1c589459 -->
+<!-- scientific-authored-source-sha256: 6472d5b3b1d10d6d183972a6592c7386a7fb74c97b37a4ccde76436b5eebebe1 -->
+<!-- scientific-verification-and-limits:end -->

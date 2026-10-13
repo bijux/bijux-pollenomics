@@ -28,3 +28,18 @@ The actual native collector exited 0 with 15 source controls. An independent Dec
 The original numerical report's pending flag is retained unchanged because it preceded the oracle. Separate later review and native-terminal hashes establish the scoped numerical qualification. The maintained writer replays this retained account and does not rerun the model. Native per-sample counts, age bounds and identifiers stay in the private qualified source store. Rights, qualified external review, two independent training families, full taxon panels, historical reproduction, vegetation accuracy and untouched validation remain open.
 
 Producer module: `bijux_pollenomics_dev.source_completion.pollen_reconstruction.norwegian_one_family_forward.producer`. Its pinned source descriptor is `configs/ci/qualified-report-sources/norwegian-one-family-forward.json`; the ordinary artifact output contains only report.json, comparisons.json, assumptions.json and source-account.json.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

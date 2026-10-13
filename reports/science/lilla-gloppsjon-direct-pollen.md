@@ -61,3 +61,33 @@ were committed. This is therefore a new-site descriptive development result,
 not an untouched independent confirmation. It evaluates direct observed
 pollen only: no LRA reconstruction, measured vegetation accuracy, or general
 Swedish method ranking follows from it.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Frozen three-method direct-pollen score for one new physical site on a 16-label axis.
+
+**Unsupported claim.** Untouched confirmation, joint-age temporal score or vegetation accuracy.
+
+**Actual verification performed.** Retained freeze, scoring protocol, 69 score rows and contained-age sensitivity are cited; index did not rerun.
+
+**Remaining input or review.** The one-site 16-label score uses point-age bins; interval confidence/joint posterior are unknown, earlier source screening parsed target partitions, and no independent vegetation or untouched confirmation follows. Resolver: Chronology source owner and independent cohort/vegetation reviewer Reopen when: Selected joint ages and a fresh source-qualified cohort or matched measured-cover reference are available before scoring.
+
+**Cause category.** assumption|comparability|qualified review
+
+**Consequence.** Interpret MAE 0.016272 training mean, 0.017295 IDW and Hellinger rankings as one-site pollen development only.
+
+**Precise next acceptance route.** Selected joint ages and a fresh source-qualified cohort or matched measured-cover reference are available before scoring. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Two samples age-refused; contained-age sensitivity scores 20/23 bins and refuses three.
+
+**Matched denominator.** 23/23 point-age bins × three methods =69 scores; 55,638/127,027 native NISP on 16 labels; 42/84 selected samples interval-contained.
+
+Retained evidence: [docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json](../../docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json), [docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md](../../docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: c0a3774b769d5f4094546f08bbc00727c05da75fe91ae8a0a74d165ace9a25d1 -->
+<!-- scientific-authored-source-sha256: c4c87bd66630805bde44fe939a89e6cac77b632f89fd6ad67fa97652cd37b5eb -->
+<!-- scientific-verification-and-limits:end -->

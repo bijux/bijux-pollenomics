@@ -420,3 +420,16 @@ Generated on `2026-09-28`. Total Homo sapiens aDNA samples: `416`.
 | RISE207.SG | 9522 | Sweden_BA | Ängamöllan (Skåne län, Kristianstad) | 55.997 | 14.104 | AllentoftWillerslevNature2015 | 1495-1301 calBCE (3130±27 BP, OxA-29651) | Shotgun | M | 1240k,ho |
 | RISE210.SG | 9523 | Sweden_BA | Ängamöllan (Skåne län, Kristianstad) | 55.997 | 14.104 | AllentoftWillerslevNature2015 | 1436-1286 calBCE (3105±28 BP, OxA-29654) | Shotgun | F | 1240k,ho |
 | NEO46.SG | 46570 | Sweden_EN | Ängdala (Skåne län, Malmö) | 55.588 | 13.113 | AllentoftWillerslevNature2024 | 3768-3639 calBCE (4913±32 BP, UBA-39935) | Shotgun | F | 1240k,ho |
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `714f2e896dc3ceec86e9b986cf97defe08f9fbb26fb25dd908368dc65c2f5eac`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

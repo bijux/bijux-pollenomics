@@ -276,3 +276,33 @@ exposed 17-site author cohort, exploratory Swedish and other Nordic
 observed-pollen transfer, source-bound English LRA forward-pollen prediction
 and bounded paper numerical correspondence. We do not certify completion
 of the full Nordic LRA and vegetation-validation objective.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results.
+
+**Unsupported claim.** Full historical LandClim reproduction, Nordic LRA/vegetation accuracy or causal multi-evidence history.
+
+**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them.
+
+**Remaining input or review.** The broad synthesis retains zero admitted Nordic LRA inputs, no independent Nordic vegetation pairs, unresolved historical LandClim inputs, selective source rights and prior-exposed pollen outcomes despite bounded numeric receipts. Resolver: Country core/archive/reference custodians and qualified scientific reviewers Reopen when: Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Keep modeled maps, aDNA/SEAD context and observed pollen in separate evidence units.
+
+**Precise next acceptance route.** Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation. Then update reports/science/model-use.md.
+
+**Negative or refused result.** Zero historical authenticated primary inputs, zero admitted Nordic LRA cores and zero measured-cover pairs; country bins include refusals.
+
+**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins.
+
+Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 1a79981a6b699666668f0cc51b98b8c6a93025fec062d4071963aa374cc763df -->
+<!-- scientific-authored-source-sha256: 129aea46d28373b14741f7b4f7f81d81a5825893ff8ad1e5407218324cbba6b9 -->
+<!-- scientific-verification-and-limits:end -->

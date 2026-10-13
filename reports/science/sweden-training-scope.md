@@ -76,3 +76,33 @@ result bytes with this directory. We fixed an age-bin match in this study;
 our separate [age and distance sensitivity](sweden-spatiotemporal-sensitivity.md)
 probes adjacent nominal bins and near-site removal on the same exposed cohort.
 Real Nordic LRA and independent vegetation pairing remain separate work.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Matched Swedish-only versus four-country training comparison on closed author-target pollen.
+
+**Unsupported claim.** Causal country effect or population-wide Swedish skill.
+
+**Actual verification performed.** Retained prepared/frozen/coverage/paired-score receipts are cited; index did not rerun.
+
+**Remaining input or review.** Adding Nordic sites changes training density and geography together on three prior-exposed Swedish sites, so the matched pollen gain cannot isolate a causal country effect or population skill. Resolver: Independent Swedish cohort and spatial-design reviewer Reopen when: A fresh grouped matched-support design separates site density from geography before stronger transfer claims.
+
+**Cause category.** comparability|qualified review
+
+**Consequence.** Training geography and density change together; report matched pollen, not vegetation.
+
+**Precise next acceptance route.** A fresh grouped matched-support design separates site density from geography before stronger transfer claims. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Sweden-only refuses 15/54 bins; four-country predicts 54/54.
+
+**Matched denominator.** Three exposed sites; 39 shared bins ×three methods =117 paired rows; IDW 0.032846 vs 0.023226 equal-site MAE.
+
+Retained evidence: [docs/report/regions/nordic/swedish-training-scope/report.json](../../docs/report/regions/nordic/swedish-training-scope/report.json), [docs/report/regions/nordic/swedish-training-scope/paired-scores.csv](../../docs/report/regions/nordic/swedish-training-scope/paired-scores.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 971e7d70bd2ebef212c71ab1540e9f38470bf6cda948402b8a80485328fa38ee -->
+<!-- scientific-authored-source-sha256: f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246 -->
+<!-- scientific-verification-and-limits:end -->

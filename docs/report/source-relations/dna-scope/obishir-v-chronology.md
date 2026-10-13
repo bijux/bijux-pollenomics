@@ -11,3 +11,18 @@ The governed [radiocarbon supplement](https://github.com/bijux/bijux-pollenomics
 | `SAMEA8022723` | `OB21-06` | — | — | — | No direct specimen date found |
 
 Table 2 reports an unlabelled tooth at lab `AA-114469` with 6989 ± 45 14C BP and 5976–5764 cal BCE. Its context does not identify `OB20-01`. A web rendering of the [published article](https://doi.org/10.1038/s41562-021-01083-y) has also been observed with 5983–5751 cal BCE for that measurement; that rendering has not been captured as a governed source artifact. The source-to-specimen link and differing calibration must be resolved before assigning either interval to `OB20-01`. No site coordinates are supplied by these dates. The Obishir V site attribution comes separately from the paper reporting summary, page 3.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

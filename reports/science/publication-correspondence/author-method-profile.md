@@ -78,3 +78,33 @@ also checks publisher-table differences without private data. Set
 checks. We use the resulting profile for source-specific numerical
 correspondence; a new core still needs its own chronology, basin geometry,
 eligible count denominator, PPE and rights decision.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Author example executable, geometry, 31-taxon PPE/covariance and 25-bin profile are named.
+
+**Unsupported claim.** Transfer of lake gamma, missing-support or covariance choices to an unreviewed Nordic core.
+
+**Actual verification performed.** Retained 193-member private capsule manifest and method crosswalk are reported; index did not rerun.
+
+**Remaining input or review.** The released 17-site PPE/covariance profile is bound, but the lake gamma comment, missing-support semantics and historical source/profile identity do not authorize transfer to other cores. Resolver: Author method/profile owner and qualified transport reviewer Reopen when: Source owner identifies the historical parameter, missing-support and basin choices for a named core/window.
+
+**Cause category.** data|assumption
+
+**Consequence.** Do not convert author NA-to-zero handling into an observed zero or assume physical basin validity.
+
+**Precise next acceptance route.** Source owner identifies the historical parameter, missing-support and basin choices for a named core/window. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** No example-profile mismatch reported; unsupported historical cores remain refused.
+
+**Matched denominator.** 17 lake rows: grid 512 nine and grid 562 eight; 26 boundaries/25 bins; 1,000 site-resampling draws in author source.
+
+Retained evidence: [docs/report/publication-replay/landclim-method-profile/report.json](../../../docs/report/publication-replay/landclim-method-profile/report.json), [docs/report/publication-replay/landclim-method-profile/method_crosswalk.csv](../../../docs/report/publication-replay/landclim-method-profile/method_crosswalk.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: dfce74d19c417ae815fd3b8050c41cd7390340a6fae42362f0ec6abae403b6b1 -->
+<!-- scientific-authored-source-sha256: 641962fde0f2acda85ffbc89f71ef6381da40ce5cb28ba7c18eced1b8bfbbe9f -->
+<!-- scientific-verification-and-limits:end -->

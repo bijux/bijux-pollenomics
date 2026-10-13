@@ -33,3 +33,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/animal-entity-capability/replay.py \
   --repository . --output artifacts/jobs/animal-entity-capability-replay
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Every normalized animal sample ID has one point-map membership or exclusion decision.
+
+**Unsupported claim.** Scientific animal/ecological admission or source-country authority.
+
+**Actual verification performed.** Actual current 13-input SHA-bound reconciliation retained the exact disjoint 1,468-ID partition after source-age qualification. All 322 mapped IDs and 1,146 excluded IDs are distinct; source chronology has its separate 1,475-row denominator. This index refresh reruns no source model.
+
+**Remaining input or review.** The 1,468-ID point-map partition is closed, but 1,146 exclusions include unresolved locality, coordinate provenance and chronology; eleven paper links and biological/country authority remain open. Resolver: Animal source custodian and qualified provenance/biological reviewer Reopen when: Source-backed locality, coordinates, chronology, paper links and admission are decided per sample.
+
+**Cause category.** data|qualified review
+
+**Consequence.** Map candidates and product zeros cannot be read as biological distribution or pollen context.
+
+**Precise next acceptance route.** Source-backed locality, coordinates, chronology, paper links and admission are decided per sample. Then update reports/science/source-cohorts.md.
+
+**Negative or refused result.** 1,146 excluded: 378 locality, 409 coordinate provenance, 333 point contract and 26 chronology; 11 paper links unresolved.
+
+**Matched denominator.** 1,468 IDs = 322 mapped sample IDs in 165 point features + 1,146 excluded; separate Nordic subset: 12 mapped IDs in eight features.
+
+Retained evidence: [reports/science/animal-entity-capability/report.json](report.json), [docs/report/animal_atlas_exclusion_report.json](../../../docs/report/animal_atlas_exclusion_report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: bdd9a277249c043debe0510c3bb104c30bf007c62ee475d6479b48b3d67255c5 -->
+<!-- scientific-authored-source-sha256: 68331c3bf2948657db84c89e0a54eeba3ec0c00a02bd330b48705efe9df72358 -->
+<!-- scientific-verification-and-limits:end -->

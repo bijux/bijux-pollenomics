@@ -125,3 +125,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   -m bijux_pollenomics_dev.essd_reproduction.pft_uncertainty_bounds \
   --repository . --output artifacts/jobs/landclim-pft-se-bounds-replay
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Archived LCT/PFT and ISTS/TBS mean arithmetic closes on pinned output.
+
+**Unsupported claim.** Biological ISTS classification or grouped SE production.
+
+**Actual verification performed.** Retained output ledgers and taxon arithmetic/uncertainty-bound reports are cited; index did not rerun.
+
+**Remaining input or review.** All archived ISTS/TBS mean sums close, but the archive-producing PFT/LCT transform, deciduous Quercus assignment and grouped covariance/delta-method SE route remain unauthenticated. Resolver: Archive producer and qualified taxonomy/uncertainty reviewer Reopen when: Versioned producing transform and covariance inputs reproduce a named archived grid/window mean and SE.
+
+**Cause category.** data|algorithm/numerical|qualified review
+
+**Consequence.** Mean equality cannot be applied to SE columns or repair paper/archive classification difference.
+
+**Precise next acceptance route.** Versioned producing transform and covariance inputs reproduce a named archived grid/window mean and SE. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** No mean-sum mismatch above declared tolerance; exact covariance and producer remain unevaluated.
+
+**Matched denominator.** 10,500 archived grid/window rows; 31 taxon means, 13 PFT positions and three LCT columns; 12 parameter-table PFT codes.
+
+Retained evidence: [reports/science/publication-correspondence/pft-crosswalk/report.json](report.json), [reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json](uncertainty-bounds/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 497f56fc7f34818379a5bd1025d32f258869413280292560f3709ec8c38edc92 -->
+<!-- scientific-authored-source-sha256: 602b391d4a811c4a58c6418a81d22da6e7cd11a4d384a5105be9def5f8b0c592 -->
+<!-- scientific-verification-and-limits:end -->

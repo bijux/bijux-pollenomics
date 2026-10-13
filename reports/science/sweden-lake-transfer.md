@@ -94,3 +94,33 @@ the repository root with:
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/regions/nordic/swedish-lake-transfer/verify.py
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Three fixed 31-target direct-pollen baselines transfer to three additional Swedish lake cores.
+
+**Unsupported claim.** Untouched national skill, LRA reconstruction or measured vegetation accuracy.
+
+**Actual verification performed.** Retained protocol, committed freeze, verifier and byte-matched replay are reported; index did not rerun.
+
+**Remaining input or review.** Three additional 31-target lake scores are exposed development evidence; basin, PPE, source-qualified LRA ages and independent vegetation remain unavailable for stronger claims. Resolver: Core/reference custodians and independent Swedish cohort reviewer Reopen when: A fresh grouped cohort or same-core LRA/reference packet is qualified and frozen before outcome access.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Interpret IDW equal-site MAE 0.017334 as three-site pollen development, not Swedish cover accuracy.
+
+**Precise next acceptance route.** A fresh grouped cohort or same-core LRA/reference packet is qualified and frozen before outcome access. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Zero training-support refusals in this bounded 63-bin transfer; five source samples outside selection.
+
+**Matched denominator.** 268/273 samples selected; 231,115/238,797 native counts assigned; 63/63 bins ×three methods =189 scores.
+
+Retained evidence: [docs/report/regions/nordic/swedish-lake-transfer/report.json](../../docs/report/regions/nordic/swedish-lake-transfer/report.json), [docs/report/regions/nordic/swedish-lake-transfer/scores.csv](../../docs/report/regions/nordic/swedish-lake-transfer/scores.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 7de0ad188e0bd0c47e66fbcdb05fc674e8a65d3028766c9a054a56eeb51bb6a6 -->
+<!-- scientific-authored-source-sha256: 22d55a4925d728ecfdda4735234087130729948fc3105664677542f40f85cd6e -->
+<!-- scientific-verification-and-limits:end -->

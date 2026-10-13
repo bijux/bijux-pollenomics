@@ -106,3 +106,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --predictions artifacts/jobs/nordic-author-target-pollen-predictions-replay \
   --output artifacts/jobs/nordic-author-target-pollen-scored-replay
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Fixed 31-author-target observed-pollen country-held-out predictions and score/refusal accounting.
+
+**Unsupported claim.** Between-site Danish or Nordic vegetation skill.
+
+**Actual verification performed.** Retained sealed prediction hashes, source taxonomy ledger and score report are cited; index did not rerun prediction.
+
+**Remaining input or review.** 31-target country-held-out pollen scores are development evidence; Denmark has one target site, source age bins and closed taxon mass do not validate LRA or measured vegetation. Resolver: Independent cohort owner and qualified pollen/vegetation reviewer Reopen when: A fresh site-grouped cohort and independently matched measured cover are qualified before target outcomes are opened.
+
+**Cause category.** comparability|qualified review
+
+**Consequence.** Do not pool this 31-target denominator with the 16-label study or interpret pollen error as cover accuracy.
+
+**Precise next acceptance route.** A fresh site-grouped cohort and independently matched measured cover are qualified before target outcomes are opened. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** 94 Norway bins refused; zero LRA or measured-vegetation scores evaluated.
+
+**Matched denominator.** DK 1 site/24 of 24 bins; FI 28/435 of 435; NO 52/1,084 of 1,178; assigned/native NISP recorded per country.
+
+Retained evidence: [docs/report/regions/nordic/author-target-pollen/report.json](../../docs/report/regions/nordic/author-target-pollen/report.json), [docs/report/regions/nordic/author-taxonomy-mass/README.md](../../docs/report/regions/nordic/author-taxonomy-mass/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 48d076306e9ded340024a797d269f2c8541ddc22d075152117c6cb59d86ce036 -->
+<!-- scientific-authored-source-sha256: 392ab7a45887311d27d4ba407962114b02c80d44d57d3faa91a1a6ee78416769 -->
+<!-- scientific-verification-and-limits:end -->

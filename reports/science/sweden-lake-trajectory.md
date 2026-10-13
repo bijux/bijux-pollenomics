@@ -94,3 +94,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 Compare those two generated files byte for byte with the linked governed
 outputs. New age, basin or ecological evidence requires a new qualified
 comparison.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** BUS/BOKE Alnus and Plantago pollen changes are classified on both native and closed-16 denominators.
+
+**Unsupported claim.** Regional vegetation trajectory or causal archaeological land-use interpretation.
+
+**Actual verification performed.** Retained 48 transition rows, equal-lake/pooled and SEAD proximity checks are cited; index did not rerun.
+
+**Remaining input or review.** BUS/BOKE pollen transitions have distinct denominators and uncertain ages/catchments; BUS coordinate/basin and nearby SEAD feature meaning remain unresolved, so no causal land-use trajectory follows. Resolver: BUS/BOKE core and SEAD owners plus independent palaeoecological reviewer Reopen when: Dated core/basin and permitted event packets support a reviewer decision on comparable transitions and contradictions.
+
+**Cause category.** data|assumption|comparability|qualified review
+
+**Consequence.** Keep eight agreement/two contradiction classifications descriptive and nonindependent.
+
+**Precise next acceptance route.** Dated core/basin and permitted event packets support a reviewer decision on comparable transitions and contradictions. Then update reports/needed/README.md.
+
+**Negative or refused result.** 38 of 48 classifications cannot give a qualified joint direction; one distinct Alnus contradiction survives declared thresholds, not age/basin review.
+
+**Matched denominator.** 13 common 500-year bins; 24 taxon transitions × two thresholds =48 classifications across two lakes.
+
+Retained evidence: [docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv](../../docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv), [docs/report/source-relations/neotoma/bussjosjon-basin/README.md](../../docs/report/source-relations/neotoma/bussjosjon-basin/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 77617c0fe237db52a0a803ad2c06c35e44e0cbebb952b5b814918bb51fefe4bf -->
+<!-- scientific-authored-source-sha256: 6397cb5c3b80cf314570bebeee07edbfd7f619fe82a42111024638eeece228c9 -->
+<!-- scientific-verification-and-limits:end -->

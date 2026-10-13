@@ -253,3 +253,33 @@ rights, formal CRS and historical time support still need resolution.
 - Rootsi source boundary and workbook replay summary: `docs/public/pollenomics-data/sources/landclim.md` and `swedish-source-questions.csv`.
 - Independent vegetation review: `docs/public/pollenomics-data/sources/empd2-nfi-review.md` and `nordic-nfi-reference-access.md`.
 - HYDE country totals and native grid reconciliation: `docs/report/regions/nordic/hyde-country-cropland/`; source limitations: `docs/public/pollenomics-data/sources/hyde.md`.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained.
+
+**Unsupported claim.** Full ESSD paper reproduction, source-causal diagnosis or ecological accuracy.
+
+**Actual verification performed.** Retained author replay, archive-window and PFT ledgers are synthesized; index did not rerun.
+
+**Remaining input or review.** Two-grid example parity is strong, but 1,128 historical inputs, archive PFT/covariance producer, nonmatching windows, source rights and independent ecological comparison remain open. Resolver: LandClim paper/archive producer and qualified taxon, chronology and ecology reviewers Reopen when: A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing.
+
+**Cause category.** data|algorithm/numerical|comparability|access/rights|qualified review
+
+**Consequence.** Do not infer Python/R failure from archive mismatch or publish private workbook rights by citation.
+
+**Precise next acceptance route.** A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing. Then update reports/science/landclim-paper.md.
+
+**Negative or refused result.** Zero authenticated historical primary inputs; TW2 archive gaps and 12/11/13 PFT statements unresolved.
+
+**Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows.
+
+Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 07e2d414d4b734949652f39ffd6d99896cecc02075723e42cef1e5cb67fc5fa2 -->
+<!-- scientific-authored-source-sha256: 4c1fa674d15992f16b11ba9567d0c0414bb7006364d499023a79d2c2be177cb5 -->
+<!-- scientific-verification-and-limits:end -->

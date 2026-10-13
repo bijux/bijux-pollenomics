@@ -92,3 +92,22 @@ records no new measured outcomes or qualified decisions.
 | [docs/report/vegetation-reference/pyrenees-botanical-projection/README.md](../../docs/report/vegetation-reference/pyrenees-botanical-projection/README.md) | The recovered source supports 17-axis botanical composition under all sixteen declared taxonomy, parent and blank alternatives; every positive native observation has a preserved scenario account. | 125 recovered plots, 208 taxon rows, 1,757 positive observations; sixteen scenarios create 2,000 repeated plot contexts and 34,000 raw axis cells, not additional independent observations. | data, assumption, comparability, access/rights, qualified review |
 | [docs/report/taxa-review/README.md](../../docs/report/taxa-review/README.md) | The private source projection and three maintained intake routes preserve exact source identities and full taxon, parameter and prerequisite denominators; controlled unresolved returns exercise intent validation. | 10,908 review rows: 1,351 Neotoma, 1,975 SEAD, 7,459 workbook columns, 31 LandClim, 81 LRA, ten animal and one AADR. Parameter authority has 72 rows from 112 source rows; 1,006 concepts, 10,637 prerequisite samples and 163 sites remain separate populations. | data, assumption, comparability, access/rights, qualified review |
 | [docs/report/source-relations/landclim/worksheet-layout/README.md](../../docs/report/source-relations/landclim/worksheet-layout/README.md) | Four original source workbooks preserve eight worksheet layouts,27325cachedcell values/types and historical sheet hashes; independent16rawBOUNDSHEET fields agree under actual legacyBIFF5/7 andBIFF8 encodings. | Four originals/eight sheets,all8observedvisible,27325cachedcells,16name/visibilityfields; selected0merged/errorcells. RetainedEKE42mechanicalrows=25positive+17zero;5170−17=5153 mechanicalpopulation,notgrain/samplescience. | data, assumption, access/rights, qualified review |
+
+
+## On-page verification and source-bound reading routes
+
+All 61 primary scientific accounts now expose nine verification fields directly under “Scientific verification and limits.” The maintained renderer preserves their authored prose and binds the claim semantics separately from the full report hash. A source change, partial block or altered denominator refuses validation.
+
+The complete physical prose inventory also includes 266 scientific, method, source and context wrappers. Their managed reading routes name exact canonical account revisions and preserve each wrapper’s original source population and interpretation. These routes direct readers to the nine canonical verification fields; they do not substitute another study’s denominator or establish that every wrapper-specific scientific assertion has received independent review. Seventeen engineering/browser readers and 34 navigation or governance pages have explicit separate dispositions in [the reading authority](scientific-reader-sources.json). New or unclassified Markdown refuses the coverage check.
+
+The actual [reader verification account](scientific-reader-verification.json) records both successful executions, the containment refusal, 79 focused guards, 6,469 independent custody/coverage checks and nine paper token preflights. No source acquisition, scientific model, LaTeX compilation or qualified review was rerun. All 36 precise scientific questions and their `not_received` decisions remain unchanged; only verified report/support/register hashes were rebound. Machine JSON/CSV/binary products keep their own manifests, and paper PDF exports require their own source-qualified rebuild when canonical prose changes.
+
+Reproduce primary prose into an absent artifact directory using the exact current claim-register SHA-256:
+
+```sh
+python -m bijux_pollenomics_dev.reader_reports.scientific_limits \
+  --repository . --output artifacts/jobs/scientific-verification-prose \
+  --expected-claims-sha256 <current-claim-register-sha256>
+```
+
+The public portal publisher applies the packaged scientific wrapper routes before computing content hashes. Run `python reports/needed/verify-claims.py` and `python reports/needed/verify-review.py` against the resulting coherent candidate. Build success and source lists remain separate from scientific validity.

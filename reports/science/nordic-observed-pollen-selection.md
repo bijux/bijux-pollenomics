@@ -69,3 +69,33 @@ manifest byte identities, and we verify each country-excluded training file.
 We apply [Neotoma source terms and attribution](../../docs/public/pollenomics-data/sources/neotoma.md)
 to the source counts. We used no basin dimensions, PPE, LRA vegetation
 estimates, HYDE or independent measured vegetation truth in this search.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Training-only inner-fold search chose one direct-pollen predictor per excluded country.
+
+**Unsupported claim.** Untouched target-country confirmation or spatially independent generalization.
+
+**Actual verification performed.** Retained 40,932-attempt score ledger and report are cited; index did not rerun search.
+
+**Remaining input or review.** Training-only inner-fold selection is exact but target-country outcomes were previously inspected; physical-site folds are not spatial blocks or untouched confirmation. Resolver: Independent cohort owner and spatial/pollen reviewer Reopen when: A new spatially qualified cohort and protocol are frozen before its target pollen is opened.
+
+**Cause category.** comparability|qualified review
+
+**Consequence.** Inner-fold improvements are development scores, not held-out country outcomes.
+
+**Precise next acceptance route.** A new spatially qualified cohort and protocol are frozen before its target pollen is opened. Then update reports/science/nordic-observed-pollen-transfer.md.
+
+**Negative or refused result.** No candidate failure on eligible inner bins; earlier target-outcome exposure remains.
+
+**Matched denominator.** DK 83 training sites/1,656 eligible inner bins; FI 56/1,245; NO 32/510; 12 fixed choices in each search.
+
+Retained evidence: [docs/report/regions/nordic/pollen-development/report.json](../../docs/report/regions/nordic/pollen-development/report.json), [docs/report/regions/nordic/pollen-development/trial-scores.csv.gz](../../docs/report/regions/nordic/pollen-development/trial-scores.csv.gz).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 986229ecb409cb0409e52ccc8285d9b7faf907640c6ad846f50573952f525092 -->
+<!-- scientific-authored-source-sha256: 9ea2ea231ecc32a218f76c5221bdae4017daf4f03c5735dc1476568ed0cadc60 -->
+<!-- scientific-verification-and-limits:end -->

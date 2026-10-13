@@ -48,3 +48,33 @@ cmp artifacts/jobs/southern-sweden-figure/reproduction/report.json \
 This produces the nine-label ledger and summary, without changing the existing results or supplying missing raw observations. A reader can inspect the retained rows and open article without the local source capsule.
 
 The precise **unsent** request is for the underlying study's full unrounded pollen, REVEALS and independently observed cover vectors, landscape/taxon denominators, original survey and sample collection times, physical lake memberships and basin settings, PPE/fall-speed versions and uncertainty inputs, plus reuse terms. A qualified reviewer should verify the nine printed-label transcriptions and decide whether a proposed new landscape comparison shares the original estimand and independent observation route. No reviewer feedback or collaborator comprehension exercise is recorded here.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Gaillard Figure 6 PDF and nine rounded printed region/taxon rows support bounded arithmetic.
+
+**Unsupported claim.** Original Hellman 26-taxon validation or independent repository vegetation accuracy.
+
+**Actual verification performed.** Retained authenticated PDF hash, manual transcription and calculation report are cited; index did not rerun.
+
+**Remaining input or review.** Nine rounded Figure 6 labels from two regions cannot reconstruct original Hellman ten-lake 26-taxon results or score repository predictions; raw matched survey/count vectors are absent. Resolver: Original study custodian and qualified vegetation/palynology reviewer Reopen when: Unrounded paired original rows and survey support are acquired and reviewed before any new score.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Do not treat nine labels as nine independent landscapes or infer unrounded error.
+
+**Precise next acceptance route.** Unrounded paired original rows and survey support are acquired and reviewed before any new score. Then update reports/science/vegetation-reference.md.
+
+**Negative or refused result.** No original ten-lake raw vector or new repository matched pair evaluated.
+
+**Matched denominator.** Nine labels = five Skåne plus four Småland across two regional compositions; 5.11 vs 17.33 percentage-point means.
+
+Retained evidence: [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json), [reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv](vegetation-reference/southern-sweden-figure/printed-labels.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 5d841105c10a334ce60ed8a25396ab460f4de56bb50255615dc9876cf5e14823 -->
+<!-- scientific-authored-source-sha256: d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d -->
+<!-- scientific-verification-and-limits:end -->

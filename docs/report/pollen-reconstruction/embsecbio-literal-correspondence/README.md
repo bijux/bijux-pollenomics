@@ -13,3 +13,16 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 ```
 
 Create the output's parent directory first; the output directory must be absent. The private source-store parent contains `embsecbio/literal-count-percentage-correspondence` and its exact sorted-spec snapshot manifest. The atomic producer refuses changed source/control bytes, unsettled terminal custody, upgraded attribution/mapping claims, incomplete attempted populations and nonfinite diagnostic values. A publication replay is distinct from the original diagnostic, independent source review and future configured-owner qualification.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

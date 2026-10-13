@@ -41,3 +41,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 The producer checks the PDF against SHA-256 `46bd92497d03169735b9a4665d71214c5dd8ff52ceddf39c577f0a4495fe73bd` before writing the selected-label table and summary. [Retained data and method](vegetation-reference/southern-sweden-figure/compare.py). It cannot rerun Hellman et al. (2008a).
 
 The precise **unsent source request** is for a lawful copy of the full 2008a article and any supplementary tables; the 10 lake identifiers, basin sizes and region memberships; surface-sediment sample dates and pollen counts; the full 26-taxon mapping and unrounded REVEALS and vegetation-cover vectors; reference-map boundaries and compilation dates; PPE, fall-speed and dispersal versions; uncertainty inputs; and permitted reuse terms for those materials. A **qualified reviewer request**, also unsent, is to check the model-to-survey spatial and temporal match, the selected Figure 6 transcription, and whether proposed new vegetation data actually provide independent cover for the same estimand. No independent review or reader exercise is recorded here.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Publisher abstract describes original ten-lake validation; later Gaillard nine-label figure transcription gives bounded rounded comparison.
+
+**Unsupported claim.** Full Hellman 2008a 26-taxon error or validation of repository models.
+
+**Actual verification performed.** Retained primary citation/abstract and figure transcription/producer are examined in the account; index did not obtain full paper or rerun model.
+
+**Remaining input or review.** Accessible citation/abstract and nine rounded later-figure labels do not supply the original ten-lake counts, measured survey vectors, unrounded 26-taxon outputs or site/time/area pairing. Resolver: Original study custodian and independent vegetation/palynology reviewer Reopen when: Lawful complete ten-lake packet and qualified pairing/terms permit a new exact score.
+
+**Cause category.** data|access/rights|comparability|qualified review
+
+**Consequence.** Keep 5.11 vs 17.33 percentage-point figure differences attributed to the nine rounded labels only.
+
+**Precise next acceptance route.** Lawful complete ten-lake packet and qualified pairing/terms permit a new exact score. Then update reports/science/vegetation-reference.md.
+
+**Negative or refused result.** Original ten-lake inputs and unrounded outputs unavailable; zero new repository vegetation pair.
+
+**Matched denominator.** Original: 10 lakes and 26 taxa; local figure check: five Skåne plus four Småland printed labels, two regional compositions.
+
+Retained evidence: [reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv](vegetation-reference/southern-sweden-figure/printed-labels.csv), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: b31bdb698b79c945c5b6ba3c154c565ec3c15f71d335031d2f2e95edcdb5d845 -->
+<!-- scientific-authored-source-sha256: 12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1 -->
+<!-- scientific-verification-and-limits:end -->

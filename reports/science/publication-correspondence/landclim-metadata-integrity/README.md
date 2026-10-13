@@ -69,3 +69,33 @@ table still needs its own source review before drawing a causal conclusion.
 Retain the raw workbook values and these scoped discrepancies. No deduplication,
 renormalization or inferred missing-taxon value was applied. Standard errors
 have their own uncertainty meaning and were not tested for compositional closure.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Retained metadata integrity and refusal identities pass; separate source observations identify repeated grid ID 522 and a 0.0055566 PFT closure deficit without correcting source values.
+
+**Unsupported claim.** Historical pollen input reproduction or present reader-code identity inferred from old run.
+
+**Actual verification performed.** Existing verifier confirms the five retained output identities; its original result records eight checks and nine adversarial edits. A separate all-32-tab stored-cell audit and independent Decimal grid audit agree on the repeated IDs and maximum PFT deficit.
+
+**Remaining input or review.** The retained 1,128-row metadata integrity check passes in its original scope. A separate stored-cell audit of all 32 workbook tabs retains repeated grid IDs at distinct locations and an unexplained PFT mean-composition deficit; historical primary inputs remain outside the metadata check. Resolver: Metadata bundle owner Reopen when: A changed workbook, inventory, reader or claim scope requires a new integrity and refusal challenge.
+
+**Cause category.** data
+
+**Consequence.** Preserve the original metadata-check scope and raw values; use workbook/sheet/row/spatial identity, and obtain the published taxon-to-PFT classification before inferring a correction.
+
+**Precise next acceptance route.** Review the cited publication classification and source-producer explanation for the PFT discrepancy and repeated identifiers. Historical pollen input admission remains a separate source/core/chronology/rights decision.
+
+**Negative or refused result.** 4,512 original metadata requirement refusals and zero authenticated historical pollen counts or chronologies in that check; repeated IDs cannot serve as unique spatial keys, and the PFT deficit has no established causal explanation.
+
+**Matched denominator.** Original integrity scope: 1,128 metadata rows and five retained outputs. Separate stored-cell audit: 32 tabs; each of 20 LandClim I result tabs has 230 grid rows and 229 distinct project IDs.
+
+Retained evidence: [reports/science/publication-correspondence/landclim-metadata-integrity/result.json](result.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: cb3d57b1c2037636215bfd5f14266377086f06657dad1cc15c44d5e08612f73b -->
+<!-- scientific-authored-source-sha256: 30067b30d61bbebf330471bee50586d9ea3a738a8f2b15158d6bb881385251ac -->
+<!-- scientific-verification-and-limits:end -->

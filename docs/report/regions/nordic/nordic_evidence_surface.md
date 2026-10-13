@@ -57,3 +57,20 @@ Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA 
 | Rangifer tarandus | mapped_animal_chronology_requires_caution | Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims. |
 | Rangifer tarandus | mapped_animal_geography_requires_caution | Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings. |
 | Sus scrofa domesticus | mapped_animal_geography_requires_caution | Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings. |
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

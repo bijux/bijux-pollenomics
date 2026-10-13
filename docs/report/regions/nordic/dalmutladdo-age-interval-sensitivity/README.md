@@ -68,3 +68,16 @@ PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
 The source does not identify these LegacyAge ages as the historical LandClim
 ages. Two supported samples cannot establish Nordic transfer quality or
 chronology robustness over the other 20 bins.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/dalmutladdo-lra-input/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/dalmutladdo-lra-input/README.md) (source SHA-256 `93fb8bf7334d3919fbf25d2cc0d7a5f062bfe67fa23dfb0e69d0940494964702`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

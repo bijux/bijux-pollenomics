@@ -41,3 +41,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 The [producer](vegetation-reference/southern-sweden-figure/compare.py) authenticates the PDF SHA-256 `46bd92497d03169735b9a4665d71214c5dd8ff52ceddf39c577f0a4495fe73bd` and writes the printed-label calculation; it does not implement the Hellman sensitivity scenarios.
 
 The precise **unsent source request** is for lawful full text and supplements of this 2008b paper; the 25-sample ledger identifying the five excluded outliers and the four retained samples, with lake IDs and sampling dates; scenario-specific pollen counts and 26-taxon mapping; both survey boundaries and cover vectors; Swedish and Danish PPE tables and taxon crosswalks; fall-speed, basin and dispersal settings; per-scenario estimated cover and error values and their calculation method; and permitted reuse terms. An **unsent qualified-review request** is to examine whether those scenario definitions and uncertainty measures are comparable to any proposed repository run and whether a different site or PPE set would require new sensitivity analysis. No reviewer verdict or colleague reading outcome is claimed.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Publisher abstract supports a bounded original sensitivity summary and separates it from later figure arithmetic.
+
+**Unsupported claim.** Scenario-level Hellman 2008b numerical reproduction or transferred parameter advice.
+
+**Actual verification performed.** Retained primary publisher/university records and later figure check are described; index did not access full scenario data.
+
+**Remaining input or review.** Abstract-level 25/20/four-sample findings lack original scenario membership, counts, PPE alternatives, survey areas and numeric errors; the nine rounded later labels cannot reproduce them. Resolver: Original study custodian and qualified REVEALS/survey-design reviewer Reopen when: Lawful versioned scenario tables and parameter/output rows allow scenario-by-scenario reproduction and transfer review.
+
+**Cause category.** data|access/rights|comparability|qualified review
+
+**Consequence.** Do not treat nine rounded figure labels as the 25/20/four-sample sensitivity or recommend a PPE set from them.
+
+**Precise next acceptance route.** Lawful versioned scenario tables and parameter/output rows allow scenario-by-scenario reproduction and transfer review. Then update reports/science/vegetation-reference.md.
+
+**Negative or refused result.** Scenario-specific errors and uncertainty widths not evaluated locally.
+
+**Matched denominator.** Original scenarios compare 25, 20 and four samples; 25 to 20 excludes five outliers, not five independent landscapes.
+
+Retained evidence: [reports/science/hellman-sampling-design-paper.md](hellman-sampling-design-paper.md), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: ddd396173ad47abd92208cad938032a31e237bda4fc04f35a5524b0d499a4365 -->
+<!-- scientific-authored-source-sha256: 6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456 -->
+<!-- scientific-verification-and-limits:end -->

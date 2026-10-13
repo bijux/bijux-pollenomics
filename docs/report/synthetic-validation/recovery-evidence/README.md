@@ -127,3 +127,33 @@ and marginal multinomial quadratic form from the retained counts, rather than
 calling the production inverse or covariance code. The full draw and marginal
 rows make numerical and missingness counterexamples available to tracked-only
 readers without rebuilding an unrelated source capture.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Eight independent synthetic generation cases and three fixed-site multinomial counting studies preserve noise-free calculation contracts, explicit forward mismatch and all noisy coverage outcomes.
+
+**Unsupported claim.** Certified interval coverage, ecological accuracy, general model validity, PPE or site-bootstrap uncertainty, chronology calibration, historical reproduction or release approval.
+
+**Actual verification performed.** Fresh eight public REVEALS attempts match the retained challenge bytes. Complete independent scalar review checks all 3,000 draws and 60,000 cover/variance quantities; maintained reproduction preserves every draw and 30,000 marginal rows exactly.
+
+**Remaining input or review.** Independent generation and exact numerical contracts are established, while empirical marginal coverage fails for rare counts and misspecified transport; finite-cell forward truth is not recovered by the different inverse model. Resolver: Independent statistical uncertainty and transport-model reviewer Reopen when: A new frozen known-truth protocol qualifies the intended count, support, parameter and transport population before outcomes are evaluated.
+
+**Cause category.** assumption|algorithm/numerical|comparability
+
+**Consequence.** A passed calculation contract preserves truth errors and poor coverage; conditional marginal normal intervals cannot be promoted into simultaneous or ecological certification.
+
+**Precise next acceptance route.** Specify the intended inference and independently freeze new support, truth, parameters and simulation choices. Evaluate noisy coverage and misspecification without hiding rare-count or zero-standard-error failures.
+
+**Negative or refused result.** Rare Alnus intervals cover 427/1,000; 525 zero-count draws have zero standard error. Misspecified Alnus deposition gives 0/1,000 coverage. Two distinct finite-cell forward cases retain truth MAEs 0.0674633333333333 and 0.07989669750321703.
+
+**Matched denominator.** Eight reconstruction attempts: six same-equation controls and two distinct finite-cell models. Three counting cases each have 1,000 draws, six fixed synthetic sites and ten taxa; 30,000 marginal rows and 60,000 independent scalar comparisons.
+
+Retained evidence: [docs/report/synthetic-validation/recovery-evidence/report.json](report.json), [data/synthetic-validation/finite-count-coverage/manifest.json](../../../../data/synthetic-validation/finite-count-coverage/manifest.json), [data/synthetic-validation/finite-count-coverage/independent-review.json](../../../../data/synthetic-validation/finite-count-coverage/independent-review.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 6bb80e8da9b148505289781c1e8b3f994ae24945144ff8e0b1c5d4b161011621 -->
+<!-- scientific-authored-source-sha256: 925bb1fd1efc622050ddf7752b2a2f89da81e8b9841ac0ce7e6626e088367a1d -->
+<!-- scientific-verification-and-limits:end -->

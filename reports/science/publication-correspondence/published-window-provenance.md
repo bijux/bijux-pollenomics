@@ -70,3 +70,33 @@ binds the upstream ledgers, private crosswalk and producer. The producer now
 writes LF CSV, and all three governed outputs match a source-checked replay
 byte for byte. This owner replay does not authenticate the missing historical
 raw inputs behind the published archive.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Author R/native TW2 pairing is exact numerically within their profile; archive is compared on sole interval match.
+
+**Unsupported claim.** A source-causal diagnosis of the archived difference or retrospective alignment of other windows.
+
+**Actual verification performed.** Retained 124-row TW2 ledger, window alignment and uncertainty-envelope report are cited; index did not rerun.
+
+**Remaining input or review.** Only TW2 is exact interval support; author R and archive means/SEs differ there, but source revisions and producing steps are unknown, so neither mismatched windows nor code failure explain the gap. Resolver: LandClim archive/source producer and qualified chronology reviewer Reopen when: Exact historical TW2 input rows, chronology, transformation and other-window definitions are authenticated and replayed.
+
+**Cause category.** data|comparability|algorithm/numerical
+
+**Consequence.** Report differences as two modeled products; overlapping one-SE envelopes are not a significance test.
+
+**Precise next acceptance route.** Exact historical TW2 input rows, chronology, transformation and other-window definitions are authenticated and replayed. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** Archive mean/SE gaps remain: grid 512 maxima 9.19787/3.21615 and grid 562 10.55270/4.25814 percentage points.
+
+**Matched denominator.** TW2 100–350 BP; 31 means +31 SEs per grid × two grids =124 paired values; 25 windows screened for alignment.
+
+Retained evidence: [docs/report/publication-replay/landclim-published-window-provenance/report.json](../../../docs/report/publication-replay/landclim-published-window-provenance/report.json), [docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv](../../../docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 521b5f83ce096982214d0967acee116bc473697d926e96a2a50b796a803264e8 -->
+<!-- scientific-authored-source-sha256: 4cf28ee1c5f7c2813ea40da6e26c1f4ab51fe9ef3612f93d43a548284b0aa35b -->
+<!-- scientific-verification-and-limits:end -->

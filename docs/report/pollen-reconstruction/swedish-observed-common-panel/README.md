@@ -49,3 +49,16 @@ A distinct published-model comparator qualified all 75 exact grid/window mean an
 These discrepancies are retained results. Exact historical selected membership, chronology, basin geometry, source cohort and weighting have not been authenticated by this comparison. Original taxon-specific standard errors are retained; a published two-taxon ratio standard error is left uncomputed because cross-taxon covariance was not supplied. Generic published Pinus cannot silently authenticate the source token Pinus sylvestris.
 
 Actual full-domain terminal: 10b9117c9a7d7e60a2feb662c7e58790bd0f9423c20092d6b59badfacf9e239d; domain product 6b7a87a19da09538f97a5160a67d149a36b5e8ac96add07944873e39dbb2c2ee; exit 0 in 0.30754687497392297 s. Actual published-grid comparison terminal: 3dfa912d17d4a6d689888a5c1e843653c52cbaa27b929d207398dce8344e94cb; product 8b91f61aafb336826fe663e63f3e69f532a00eaeddc1e7c5da3c28485e8cc4cd; exit 0 in 0.6001230420079082 s.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

@@ -48,3 +48,33 @@ can check the retained result and source identities but cannot rerun the
 source-backed calculation. The historical multi-site profile preserves its
 documented bootstrap and PPE-uncertainty limitations; this interface check
 does not correct them.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Constructed author REVEALS draw tensor enters analytical LOVE and enforces shape/identity.
+
+**Unsupported claim.** Physical local vegetation estimate or independent held-out evaluation.
+
+**Actual verification performed.** Retained replay validates source hashes, 999-draw refusal and output tensor; index did not rerun.
+
+**Remaining input or review.** The constructed 1,000-draw regional-to-local interface returns finite but partly negative cover, reuses a site in its regional cohort, and requires private author bytes whose redistribution terms are unresolved. Resolver: Author source custodian and qualified LOVE/ecological reviewer Reopen when: Admissible independent regional/local cohort, physical basin and use rights enable a real measured-cover comparison.
+
+**Cause category.** assumption|comparability|access/rights
+
+**Consequence.** Treat negative cover as visible diagnostic, not a physically admissible composition.
+
+**Precise next acceptance route.** Admissible independent regional/local cohort, physical basin and use rights enable a real measured-cover comparison. Then update reports/science/love-theory-paper.md.
+
+**Negative or refused result.** 8,312 of 31,000 finite cells negative; local site overlaps regional cohort.
+
+**Matched denominator.** 1,000 regional draws × one 200–300 m ring ×31 taxa =31,000 local cells; five pollen-supported regional sites.
+
+Retained evidence: [reports/science/reveals-love-interface/report.json](report.json), [reports/science/reveals-love-interface/taxon-summary.csv](taxon-summary.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 4ff2a7faa2cabe6bde8b4b3370f2d337c4b9cdd30cc7c6a7a99d2f14c0ae7973 -->
+<!-- scientific-authored-source-sha256: c36f4b9c91b5a4dd4c65afa31e84836b07719f942d48efb8650a96e4c2feea77 -->
+<!-- scientific-verification-and-limits:end -->

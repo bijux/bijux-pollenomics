@@ -7,3 +7,18 @@ Across 17 author site IDs and 2 adjacent blocks, 184 site-bin targets have obser
 The fitted model adds 0.5 to every named training taxon count before CLR closure, uses a per-bin median positive training-centre distance scale and ridge penalty 0.01. No target count enters fitting; the zero policy and scale rule were declared before scoring.
 
 This is a development comparison on author-prepared pollen, not a Swedish cohort, LRA vegetation reconstruction, or measured vegetation accuracy. The 20 km basin-edge buffer is a declared diagnostic rule; the broader pollen source footprints and cross-database site aliases are not independently closed. Two adjacent blocks cannot establish general spatial-transfer uncertainty. Author-prepared 31-taxon counts do not certify a full raw-core pollen denominator or publication rights.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

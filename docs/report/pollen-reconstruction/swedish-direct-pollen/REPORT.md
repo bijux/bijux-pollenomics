@@ -47,3 +47,18 @@ six-name intersection.
 ## Reproduction
 
 The source and configuration hashes are recorded in `input-manifest.json`. From the repository root, reproduce into a new local output directory with `.venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_direct_pollen prepare --data-root data/neotoma/raw/neotoma_pollen_dataset_downloads --workdir artifacts/swedish-direct-pollen --config docs/report/pollen-reconstruction/swedish-direct-pollen/config.json`; run `predict --target-dataset-id 19913`, `53995`, and `54001` with the same workdir and config; then run `score --workdir artifacts/swedish-direct-pollen`. The source files are EPD datasets accessed through Neotoma and identified by DOI and contributors in `cohort.csv`. The tracked cohort, prepared site profiles, frozen predictions, score tables and exclusion rows in this directory preserve the published result independently of that local output directory.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

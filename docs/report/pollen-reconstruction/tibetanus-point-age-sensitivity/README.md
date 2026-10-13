@@ -26,3 +26,16 @@ Two earlier source-comparison captures exited one: the first rejected the census
 Both age sequences remain point scenarios with unknown sample-age error bounds. Counting and assumed PPE delta standard errors do not include chronology uncertainty, taxonomy, basin-history uncertainty or ecological model discrepancy. A zero plug-in standard error at a zero observed or hypothesized count is not an interval establishing absence. Larger estimated cover changes do not identify which chronology is more accurate. Historical LandClim selection/preparation, taxonomic and sparse-zero assumptions, measured vegetation accuracy, and raw-source redistribution rights remain unresolved.
 
 The [assumptions](assumptions/protocol.json), [aggregate report](report.json) and [exact native capture](execution/native-capture.json) belong to this account. Individual sample/depth/age associations and actual source-label masks remain in the separately retained local support capsule; they are not published as raw observations here.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

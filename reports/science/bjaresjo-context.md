@@ -79,3 +79,33 @@ Compare its three output files byte for byte with the governed result directory.
 The [machine report](bjaresjo-context/report.json)
 pins every source SHA-256, the official lake and refused core decision, the
 SEAD release posture and the exact output hashes.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Modern Bjäresjö lake identity and nearby dated SEAD display context are source bound.
+
+**Unsupported claim.** A joined BJARE/Neotoma historical pollen core or measured land-use event at the lake.
+
+**Actual verification performed.** Retained lake, core-proximity, SEAD and window consumer checks are reported; index did not rerun.
+
+**Remaining input or review.** The modern lake and nearby SEAD intervals are identified, but Neotoma 28871 versus LandClim BJARE core identity, dated basin and independent event meaning are refused. Resolver: Lake/core and SEAD source owners plus qualified spatial/chronology reviewer Reopen when: One physical core and an independent permitted context observation are matched on site and time support.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Keep archaeological counts as proximity context, not independent vegetation or causal history.
+
+**Precise next acceptance route.** One physical core and an independent permitted context observation are matched on site and time support. Then update reports/needed/README.md.
+
+**Negative or refused result.** Core-linked pollen and event propagation refused.
+
+**Matched denominator.** 25 published windows and 371 SEAD display intervals from 13 sites within 20 km; Neotoma 28871 and BJARE 1.02697 km apart.
+
+Retained evidence: [reports/science/bjaresjo-context/report.json](bjaresjo-context/report.json), [docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv](../../docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 16048a08a12886f1827bf82bde9c589d048c7e9548e9d62407315b2687854475 -->
+<!-- scientific-authored-source-sha256: a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1 -->
+<!-- scientific-verification-and-limits:end -->

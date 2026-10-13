@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import csv
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 import re
 
@@ -10,11 +12,43 @@ from markdown_it import MarkdownIt
 from markdown_it.token import Token
 
 from .diagram import mermaid_to_dot
-from .source import portable_link
+from .scientific_limits import validate_report
+from .source import portable_link, repository_file
 
 
 class RenderError(ValueError):
     """Markdown contains a construct outside the report PDF grammar."""
+
+
+def _verified_scientific_comments(markdown: str, root: Path, source: Path) -> str:
+    """Suppress only four custody comments in a fully bound scientific block."""
+    if "scientific-verification-and-limits:" not in markdown:
+        return markdown
+    try:
+        authority = repository_file(root, "reports/needed/report-claims.csv")
+        with authority.open(newline="") as handle:
+            matches = [
+                row
+                for row in csv.DictReader(handle)
+                if root / row["report_path"] == source
+            ]
+        raw = markdown.encode("utf-8")
+        if (
+            len(matches) != 1
+            or hashlib.sha256(raw).hexdigest() != matches[0]["source_report_sha256"]
+        ):
+            raise ValueError("Scientific report source or claim authority differs")
+        validate_report(raw, matches[0])
+        pattern = re.compile(
+            r"^<!-- (?:scientific-verification-and-limits:(?:begin|end)|scientific-(?:claim-semantic|authored-source)-sha256: [a-f0-9]{64}) -->\n",
+            re.MULTILINE,
+        )
+        result, count = pattern.subn("", markdown)
+        if count != 4:
+            raise ValueError("Scientific custody comment count differs")
+        return result
+    except (ValueError, OSError, KeyError) as error:
+        raise RenderError(str(error)) from error
 
 
 _ESCAPE = {
@@ -270,6 +304,7 @@ class ReportRenderer:
     def render(self, markdown: str) -> RenderedReport:
         """Render supported Markdown and count links, diagrams, and code blocks."""
         pieces: list[str] = []
+        markdown = _verified_scientific_comments(markdown, self.root, self.source)
         tokens = self.parser.parse(markdown)
         index = 0
         pending_heading: str | None = None

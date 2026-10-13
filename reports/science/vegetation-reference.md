@@ -125,3 +125,33 @@ source data or another independently matched cohort could meet that need.
 We will freeze the benchmark and predictions before viewing its outcomes.
 The [open research need](../needed/README.md) records the requested source
 packet and resolver.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Source-bound plot/map/printed-figure screens, modeled-input dependence and modern Namibia descriptive comparisons preserve separate populations. Actual Pyrenees 17-axis botanical projection retains all 16 declared scenarios and their source/refusal/conditional assumptions without a matched pollen cohort or vegetation score.
+
+**Unsupported claim.** Nordic repository measured-vegetation accuracy, independent validation by LandClim/HYDE modeled cover, full Pyrenees 18-axis or 116-plot paper reproduction, or vegetation accuracy inferred from botanical projection or Namibia descriptive distances.
+
+**Actual verification performed.** Original plot/map/nine-label/Namibia sources and modeled LandClim dependency checks are synthesized from retained producer outputs. Pyrenees actual native/maintained/canonical captures retain 54 guards and 64424 independent Decimal comparisons at 2e-13 tolerance; new code/name, parent and blank alternatives preserve positive source mass and ambiguity. This index refresh performs no source reacquisition, numerical model or qualified human review.
+
+**Remaining input or review.** Nordic EMPD2-NFI, historical-map and printed-figure leads yield zero admitted site/time/taxon/footprint/units/rights matched prediction-reference pairs. Namibia modern observed subcompositions have distinct savanna soil-pollen support. Pyrenees botanical vectors are conditional on taxonomy, parent-row and zero-for-blank scenarios; recovered 125 plots differ from the unrecovered paper 116 selection and lack Cichorioideae/full 18-axis reproduction. Resolver: Measurement and pollen source custodians plus independent landscape/palynology/taxonomy and rights reviewers Reopen when: A source-owner-reviewed original vegetation/pollen packet supplies genuinely matched physical sites, dates, taxa, landscape support, units, uncertainty and terms; freeze benchmark and predictions before previously unopened outcomes.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Keep all source and model roles separate, null vegetation metrics unchanged and original 125/author 116/full 18-axis panel populations distinct. Publish aggregate qualified accounts while private detailed botanical/taxonomy and plot records retain their source-specific rights limits.
+
+**Precise next acceptance route.** Acquire original measured fractions and pollen counts with linked physical cores, dates, taxon crosswalk, compatible landscape footprint/units/uncertainty and intended-use rights; obtain independent pairing/benchmark decisions, freeze predictions before new outcomes, then score eligible channels and update model-use. Pyrenees historical reproduction separately needs the author 116 plot selection, complete 18-axis mapping and source-qualified taxonomy/blank/rights decisions.
+
+**Negative or refused result.** Zero of 16 nearby EMPD2-NFI candidates admitted; Färskesjön footprint/volume/date mismatch and missing historical-map numeric fractions remain. Pyrenees 8 strict unknown-blank scenarios refuse 1000 complete vectors; eight declared-zero alternatives yield 1000 conditional vectors. Missing Cichorioideae, Potentilla genus proxy and 25 original zero-code analyst associations remain explicit; Nordic vegetation score stays unavailable.
+
+**Matched denominator.** 16 nearby Nordic leads;three Småland bogs with shared modern pollen anchors;nine printed labels across two published regional figures;ten Namibian soil sites/150 radius rows/750 five-taxon pairs. Separate Pyrenees 125 recovered plots/208 taxa/1757 positive observations:16 scenarios,2000 plot contexts,34000 raw axis cells;1000 strict refusals and 1000 conditional 17-axis vectors. None is a pooled independent accuracy population.
+
+Retained evidence: [reports/science/vegetation-reference/farskesjon/report.json](vegetation-reference/farskesjon/report.json), [reports/science/vegetation-reference/smaland-historical-maps/coverage.json](vegetation-reference/smaland-historical-maps/coverage.json), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/report.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: d824910f2463ef9e0fa8cde5852b8778b4d85ca66e985f51bf06286283bbeb86 -->
+<!-- scientific-authored-source-sha256: 50cd7f16f1cc598db8afe61ee3f1dcefc65650c1fe1ef85959658d54666b9e01 -->
+<!-- scientific-verification-and-limits:end -->

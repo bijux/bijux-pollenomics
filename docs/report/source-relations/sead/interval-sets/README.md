@@ -43,3 +43,16 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -c \
 Compare the generated `report.json` and `sites.csv` byte-for-byte with the
 governed files in this directory. The focused review and fieldwork tests passed
 18 cases; mypy and Ruff passed for the four affected Python files.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

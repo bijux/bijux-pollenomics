@@ -31,3 +31,33 @@ Original lake chronology and regional vegetation-history papers support their pa
 HYDE country/gridded source records have their own [source account](hyde-cropland-source-account.md); they are modeled land-use context, rather than independent vegetation truth or a reproduced main-paper experiment. Animal/aDNA appendices and archaeology source publications remain in their [owned evidence accounts](../README.md), since they do not validate REVEALS/LOVE or pollen-to-vegetation accuracy. Conditional archaeological country scope remains conditional.
 
 Expand this inventory when a new scientific conclusion depends on an additional primary paper; add its citation, role, actual source release and canonical account before using it as a headline. Preserve partial source access explicitly. Obtain the exact missing full text, data and qualified decisions before expanding a report's reproduction or validation status.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Nine canonical citation/account links cover the declared main scientific paper set.
+
+**Unsupported claim.** Automatic reproduction or full-text access for every listed paper.
+
+**Actual verification performed.** Retained paper-accounts.csv and nine linked accounts form the inventory; index checked paths, not primary literature anew.
+
+**Remaining input or review.** The nine-paper citation/account inventory is complete for its declared current claim set; partial primary-text/data access is explicitly stated within the individual accounts, not an unresolved inventory enumeration. Resolver: Paper-account owner Reopen when: A new headline scientific claim depends on another primary paper or a canonical account/source status changes.
+
+**Cause category.** none within stated scope
+
+**Consequence.** Use each paper account’s access boundary rather than presenting the inventory as scientific endorsement.
+
+**Precise next acceptance route.** A new headline scientific claim depends on another primary paper or a canonical account/source status changes. Then update reports/science/paper-accounts.md.
+
+**Negative or refused result.** No missing canonical account within declared nine-paper inventory; individual source gaps are reported in those accounts.
+
+**Matched denominator.** Nine main-paper accounts in the CSV and Markdown inventory.
+
+Retained evidence: [reports/science/paper-accounts.csv](paper-accounts.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 677614c4d7d222e2d944d88816be9d052d6c012178488f1de2e3ac25f125c983 -->
+<!-- scientific-authored-source-sha256: f74276a45fc6e0e49816999310b4726a321f9dde0e38df1904c82bff75136c06 -->
+<!-- scientific-verification-and-limits:end -->

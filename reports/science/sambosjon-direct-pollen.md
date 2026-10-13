@@ -45,3 +45,33 @@ prediction bytes did not change. This is descriptive development evidence,
 not independent confirmation. One site supplies no between-site uncertainty
 estimate. The result does not admit LRA reconstruction or validate predictions
 against measured vegetation.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Frozen 16-label direct-pollen result for one Swedish core and completed interval-contained sensitivity are reported.
+
+**Unsupported claim.** Untouched general Swedish skill or age-posterior/vegetation accuracy.
+
+**Actual verification performed.** Retained frozen 66 predictions, point-age scoring, age-bound and completed contained-age rescoring receipts are cited; index did not rerun.
+
+**Remaining input or review.** One-site 16-label pollen score uses nominal ages; 58/111 intervals cross a bin, bound confidence and joint posterior are unknown, and prior source exposure prevents untouched confirmation. Resolver: Core chronology custodian and independent cohort/vegetation reviewer Reopen when: Selected joint chronology and a new cohort or measured-cover pair are qualified before stronger temporal/ecological claims.
+
+**Cause category.** assumption|comparability|qualified review
+
+**Consequence.** Keep 0.022991 IDW point-bin MAE, 0.023054 contained-bin MAE and 0.022881 original-count matched-bin MAE in their distinct supports.
+
+**Precise next acceptance route.** If a source-qualified joint age posterior becomes available, rerun age-aware scoring against the unchanged prediction freeze and preserve the 22-bin nominal and 21-bin contained baselines; require a fresh qualified cohort or measured cover separately before broader skill or ecology claims.
+
+**Negative or refused result.** One of 22 nominal bins lacks contained-age support; 58/111 source age intervals cross nominal bin edges; zero LRA admission.
+
+**Matched denominator.** One site, 111 samples, 22/22 nominal point-age bins; 224,291/393,822 native NISP on 16 labels; 53/111 samples in 21/22 contained-age bins, 21 scored and one refused.
+
+Retained evidence: [docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md](../../docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md), [docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md](../../docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: e4c9e4f0b1e68ec9cf404b599bfdb55f0d715537644395baa672f0387eed2f0a -->
+<!-- scientific-authored-source-sha256: d606179c2a6d67c91aa7355c814873306175a9fc25c280a32def53325a1ebe4e -->
+<!-- scientific-verification-and-limits:end -->

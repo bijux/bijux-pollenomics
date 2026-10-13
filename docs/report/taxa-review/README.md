@@ -187,3 +187,33 @@ aggregate account is public.
 
 The old 3,538-sample, 58-dataset projection used an earlier source screen and
 is not the current cohort.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** The private source projection and three maintained intake routes preserve exact source identities and full taxon, parameter and prerequisite denominators; controlled unresolved returns exercise intent validation.
+
+**Unsupported claim.** Accepted taxonomic or PFT mapping, executable LRA inputs, genuine received human review, scientific or rights admission, publication of restricted source rows, or equivalence to the older 3,538-sample screen.
+
+**Actual verification performed.** Actual source-bound qualification passes 94 focused tests and 104,617 independent structural checks with exact private bundle, priority/provenance and prerequisite hashes. These checks authenticate structure, not scientific decisions.
+
+**Remaining input or review.** All source mappings and controlled return decisions remain unresolved. Structural intake authenticates file and denominator identities but cannot grant biological authority, reviewer authentication, source rights, basin/chronology acceptance or canonical import. Resolver: Source custodians and independent palynology, productivity, fall-speed, chronology, basin and rights reviewers Reopen when: Qualified source-bound reviewer returns identify exact current bundle and native authorities, complete decision populations and supported evidence; rights and scientific authority are decided separately.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** No structural success or parseable parameter candidate can establish accepted scientific authority. Retain private detailed rows and all source, biological and rights refusals.
+
+**Precise next acceptance route.** Receive and authenticate complete source-bound reviewer returns, assess evidence and independent qualifications, decide source-specific rights, and rerun only the exact affected admission consumer before canonical interpretation changes.
+
+**Negative or refused result.** Zero human decisions received; all controlled decisions unresolved. Stale bundles, duplicate taxon identities and incomplete parameter/chronology populations refuse. An earlier exact attribution binding remains unavailable and its strict replay refusal is preserved.
+
+**Matched denominator.** 10,908 review rows: 1,351 Neotoma, 1,975 SEAD, 7,459 workbook columns, 31 LandClim, 81 LRA, ten animal and one AADR. Parameter authority has 72 rows from 112 source rows; 1,006 concepts, 10,637 prerequisite samples and 163 sites remain separate populations.
+
+Retained evidence: [docs/report/taxa-review/readiness.json](readiness.json), [docs/report/taxa-review/source-account.json](source-account.json), [docs/report/source-relations/neotoma/lra-prerequisites/README.md](../source-relations/neotoma/lra-prerequisites/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: f65863a01c9d73b63fdffc4bcece22e0c1fb1c79d760849a5d92e4d7f71e994a -->
+<!-- scientific-authored-source-sha256: 2dca3c7b1a15b0e6c4df560ec022f530e31a1ef797565e42f4f6ba54ed44a591 -->
+<!-- scientific-verification-and-limits:end -->

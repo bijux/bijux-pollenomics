@@ -63,3 +63,16 @@ Nonnegative integration proves `0 <= K <= 1`; disjoint concentric annuli conserv
 The source GPM coefficient is an empirical metre-based convention. In physical notation the exponent is `a * (distance / one_metre)^beta`; it must be dimensionless. An equivalent length unit with `u` metres per unit requires coefficient `a_new = a * u^beta` when using that unit's numerical distance. Rescaling distances alone changes the model. The source value `0.12` is not an SI diffusivity inferred by this calculation; the dimensional requirement on the exponent does not authenticate its physical derivation, wind regime or transfer between taxa/sites. In the finite-disk implementation `a=-log(S(1))` recovers the existing curve's coefficient and refuses an unresolved rounded survival, rather than fitting a separate law.
 
 The law's normalization and these geometric identities establish the bounded conditional mathematical response. They do not establish the historical lake algorithm, a measured basin radius, independent vegetation accuracy or empirical uncertainty coverage. The original numerical capture and its failed predecessors remain unchanged.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

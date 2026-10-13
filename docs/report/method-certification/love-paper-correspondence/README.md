@@ -108,3 +108,18 @@ geometry, pollen simulation inputs or code, and stochastic settings. The
 article tables alone cannot determine those numerical outputs; digitizing the
 figure would not establish a simulation replay. This paper-example obligation
 remains open with that exact source input requirement.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/love-theory-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/love-theory-paper.md) (source SHA-256 `affd894dfe758395f7b93d60a1f39818bee3499c14047548871f24ac5ddca732`).
+
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

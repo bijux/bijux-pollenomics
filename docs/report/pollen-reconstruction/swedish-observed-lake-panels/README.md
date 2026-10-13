@@ -33,3 +33,16 @@ A distinct model comparator checked Betula/(Betula + Ulmus) against the exact pu
 These model discrepancies remain measured outcomes. They do not establish independent vegetation accuracy or authenticate historical source membership, chronology, geometry or weighting. Published marginal standard errors supply no cross-taxon covariance; their panel-ratio standard error remains uncomputed. No physical fits, model distances or native R calculation were repeated for this comparison.
 
 Actual independent integration terminal 9eeaa5f127fdf9e19dd02ac2298fe907c3475985b6f2817fa29a1506b69624d0 and review 160c8a6ddee227cafd659af17920446b9a0adebf201990e58160002d5e0de920: exit 0 in 1.0674115419969894 s, all 3,485 frozen members unchanged. Actual publication qualification terminal 24b0c305a2a8d142a1fcdd47615b98d9cd169f89d1b6d5b73aaac9838a241a67 and product 80e1e9d6654fb9f4928a748b83d1a9c8a7a2d5dedbb339dab3d4f95f86aae1bb: exit 0 in 0.3394797910004854 s, all 3,500 members unchanged. Actual Betula/Ulmus comparator terminal 0c6037e7f481bdfa0b24e33edc6e43b4124fc5c72183a2097e83e02d83433ff8 and product ff30b1079a4e74d741a5a8a44e8417d5a04f9bb18a6d2690dbc381cc0ca67e11: exit 0 in 0.7129722919780761 s, all 3,486 members unchanged. No owned survivors were observed in any of these jobs.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

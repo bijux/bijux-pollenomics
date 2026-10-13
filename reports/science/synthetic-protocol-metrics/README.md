@@ -68,3 +68,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 Compare `scores.csv` and `report.json` with the governed files beside this
 page. The original private archive is held outside the repository and is not
 a public download.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Six historical synthetic protocol tables have exact scored-row arithmetic and failure counts.
+
+**Unsupported claim.** Current-reader acceptance of old spatial-block profile or real vegetation skill.
+
+**Actual verification performed.** Retained byte-bound source tables and row-summing producer are reported; index did not rerun.
+
+**Remaining input or review.** Six historical synthetic score tables have closed row arithmetic, but the current reader rejects an old spatial-block product profile; protocol supports differ and eight partial-block failures forbid a pooled accuracy claim. Resolver: Reader/profile owner and qualified protocol reviewer Reopen when: A versioned historical reader/profile is authenticated for its own product or a new current-profile run is separately identified.
+
+**Cause category.** algorithm/numerical|comparability
+
+**Consequence.** Do not pool protocol supports or treat one successful partial-block row as nine attempts succeeded.
+
+**Precise next acceptance route.** A versioned historical reader/profile is authenticated for its own product or a new current-profile run is separately identified. Then update reports/science/model-use.md.
+
+**Negative or refused result.** Eight partial-spatial-block failures per target; current reader refuses historical profile/roles/numerical table.
+
+**Matched denominator.** 16 historical score rows; 39 requested and 31 scored units per target across heterogeneous protocols.
+
+Retained evidence: [reports/science/synthetic-protocol-metrics/report.json](report.json), [reports/science/synthetic-protocol-metrics/scores.csv](scores.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 09498b5976ba6db8a22908d90bad69ea03c47f831325d00164355bb9c112a83c -->
+<!-- scientific-authored-source-sha256: 1e0d333000f3ac9ece34ebf1a773b5a510ac8f1c45f28e96b9096c38b189e348 -->
+<!-- scientific-verification-and-limits:end -->

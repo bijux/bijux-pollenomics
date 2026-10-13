@@ -44,3 +44,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 cmp artifacts/jobs/published-inventory-source-account/replay.json \
   reports/science/publication-correspondence/published-inventory/report.json
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Pinned archive modeled-product row structure, signs and coordinate-refusal counts are authenticated.
+
+**Unsupported claim.** Original 1,128 pollen inputs or archive-producing REVEALS/PFT code.
+
+**Actual verification performed.** Retained current reader and two independent structure/inventory challenges agree; index did not rerun.
+
+**Remaining input or review.** The published archive row/column structure, signed mean tokens and coordinate refusals are counted and independently checked; original pollen and producer identity lie outside this modeled-product inventory. Resolver: Published archive reader owner Reopen when: Archive bytes, schema or the inventory claim changes; stronger historical claims require separate source packets.
+
+**Cause category.** none within stated scope
+
+**Consequence.** Keep coordinate refusals and negative source tokens while avoiding a measured-vegetation claim.
+
+**Precise next acceptance route.** Archive bytes, schema or the inventory claim changes; stronger historical claims require separate source packets. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** 150 rows from six cell IDs lack usable coordinates; three negative means are retained; no negative SE.
+
+**Matched denominator.** 25 mean +25 SE members; 10,500 paired rows ×47 variables =493,500 paired values; 10,350 coordinate-usable rows.
+
+Retained evidence: [reports/science/publication-correspondence/published-inventory/report.json](report.json), [reports/science/publication-correspondence/published-inventory/independent-inventory.json](independent-inventory.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: c9c2fa6ef7c585bd2e1134d58b2ee03c245712ed5fb9da851b377d4112cba2d0 -->
+<!-- scientific-authored-source-sha256: 1031200454c014c655c8687fae623594d8f0de4431f68f32f80c47d848c94bec -->
+<!-- scientific-verification-and-limits:end -->

@@ -115,3 +115,33 @@ validation. Our [English LRA development study](english-lra-pollen-prediction.md
 provides a distinct real reconstruction and withheld forward-pollen test;
 we summarize its matched direct-pollen scores and model conditions in the
 [prediction report](pollen-prediction.md).
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Declared original-R/native and fixed candidate numerical cases agree within retained tolerances.
+
+**Unsupported claim.** Global optimizer convergence, identical stochastic paths, historical publication source identity or ecological validity.
+
+**Actual verification performed.** Retained 14,074 author example values, 17 byte-identical prepared files and R/oracle comparisons are reported; index did not rerun.
+
+**Remaining input or review.** Declared R/native cells and fixed-candidate objectives agree; random search paths, global convergence outside tested cases, full historical input identity and ecological accuracy are not established. Resolver: Method implementation/optimizer owner and independent scientific reviewer Reopen when: New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately.
+
+**Cause category.** algorithm/numerical|comparability
+
+**Consequence.** Use parity only for the named profile, not a different core or vegetation accuracy.
+
+**Precise next acceptance route.** New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** No mismatch within declared paired numeric tolerances; untested stochastic/global cases are not zero error.
+
+**Matched denominator.** 17 sites, 184 supported site-windows, 31 taxa and 14,074 author mean/SE values; separate four-case one-window R lineage: 124 cover values plus 124 standard errors.
+
+Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 7bbac7cfcbb5b97a10f1ae51ab3d387ebfbb21dbbbe29335b6177918da119d40 -->
+<!-- scientific-authored-source-sha256: 0054b30a143268f0ae5779bd454c4d3d423e13a8d0b6599a3998717222e04885 -->
+<!-- scientific-verification-and-limits:end -->

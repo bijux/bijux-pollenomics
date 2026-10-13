@@ -131,3 +131,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 The output directory must be absent. Compare its `report.json` byte for byte
 with the governed result beside this page. The original paper is cited for
 independent context; this machine replay does not claim paper-PDF byte parity.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** LAIH physical site, 150-depth Neotoma/LandClim lead and original author Hela-4421 control exclusion are documented.
+
+**Unsupported claim.** Selected historical Finnish LRA input or rights-qualified reconstruction.
+
+**Actual verification performed.** Retained core machine result, original paper/control review and published parameter table are described; index did not rerun.
+
+**Remaining input or review.** 150 LAIH depths and parameter-table availability are known; selected LandClim age vector/uncertainty, dated basin, eligible denominator, core-specific PPE/covariance and R-marked source rights remain open. Hela-4421 exclusion is settled. Resolver: LAIH core/LandClim custodians and qualified chronology/basin/taxon reviewer Reopen when: Same-core 150-row selected age/window, geometry, count, parameter and permitted-use packet is authenticated.
+
+**Cause category.** data|assumption|access/rights|qualified review
+
+**Consequence.** Do not substitute modern 25.50 ha/285 m circle, alternative age rows or generic published PPE for core-specific historical support.
+
+**Precise next acceptance route.** Authenticate the selected LAIH 150-row chronology, dated basin, denominator, PPE/covariance and rights; rerun docs/report/source-relations/neotoma/lra-prerequisites/README.md before revising this account or admitting LRA rows.
+
+**Negative or refused result.** Zero LAIH LRA samples admitted; LegacyAge S5/S6 contain no dataset 52082 row.
+
+**Matched denominator.** 150 distinct source depths and 24 LandClim windows; observed-pollen ledger maps 84,078/85,303 native counts to 24 author targets.
+
+Retained evidence: [reports/science/laihalampi-lra-input/report.json](report.json), [data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv](../../../data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 067d3e03591af86fa5e53b8314e1120864c3f7740c5b73c8dfd911001f666377 -->
+<!-- scientific-authored-source-sha256: 899dc6613e7fac5a2853643287b57dd3370e1f09ab791d001cc518825e9d8c97 -->
+<!-- scientific-verification-and-limits:end -->

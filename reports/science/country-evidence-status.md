@@ -20,3 +20,33 @@ Across these declared populations, **1,594 of 1,691 attempted site-bins** were s
 | Country boundaries and source authority | The pinned Natural Earth point assignments are computational evidence, while the [named-island and near-border queue](../../data/boundaries/review/review_queue.json) retains **147 flagged point decisions** and four country-boundary suitability items pending qualified review. The [review question](../needed/scientific-review.md) also separates six Neotoma retained-only site/dataset pairs from present selector decisions. AADR country-product rows and animal map labels remain context, not scientifically admitted country observations ([cohort account](source-cohorts.md#context-and-validation-sources)). No cross-border ecological conclusion is promoted from a coordinate alone. |
 
 The [source requests](../needed/source-requests.md) remain unsent. The [qualified-review matrix](../needed/scientific-review.csv) contains **36 bounded questions, zero received decisions and no assigned reviewer**; it does not turn source checks or model scores into approval. The next acceptance route is a versioned, use-permitted packet for one named core or reference pair, followed by the corresponding source consumer and an independent decision scoped to that claim. This page reconciles retained reports and machine rows; it records no new scientific run or reviewer judgment.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Four-country 31-target development populations, count mass, score/refusal support and distinct source/review gaps are reconciled from retained machine rows.
+
+**Unsupported claim.** Accepted Nordic LRA reconstruction, independent vegetation accuracy, full original paper replay, untouched confirmation or four-country scientific release approval.
+
+**Actual verification performed.** Read-only result/coverage/taxonomy reconciliation, 21 HYDE rows per country, 36 unreceived review questions, 147 flagged boundary decisions and local links; no scientific study rerun.
+
+**Remaining input or review.** Previously exposed direct-pollen country results do not supply jointly admitted LRA cores, authenticated original paper inputs, matched measured vegetation or qualified country scientific approval. Resolver: Named core and reference custodians; independent chronology, basin, boundary and scientific reviewers Reopen when: A versioned same-core/window packet, independent measured reference or qualified decision changes one country claim; replay only that affected consumer.
+
+**Cause category.** data|comparability|access/rights|qualified review
+
+**Consequence.** Country display and direct-pollen transfer remain development/context evidence with separate input, vegetation and scientific acceptance gates.
+
+**Precise next acceptance route.** Bind one named core or independent reference to lawful source bytes and the full age/basin/count/parameter support; obtain an independent scoped decision, then consume only its accepted fields.
+
+**Negative or refused result.** 94 Norwegian and 3 Swedish bins refused; zero LRA samples admitted in these studies, zero admitted Nordic measured-cover pairs and zero received qualified decisions.
+
+**Matched denominator.** 84 selected sites; 5,660 samples; 31 author targets; 1,594/1,691 scored/attempted bins; 97 refused; 4,782 method rows across three fixed methods.
+
+Retained evidence: [reports/science/country-evidence-status.csv](country-evidence-status.csv), [docs/report/regions/nordic/author-target-pollen/report.json](../../docs/report/regions/nordic/author-target-pollen/report.json), [docs/report/regions/nordic/swedish-author-target-pollen/report.json](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [data/boundaries/review/review_queue.json](../../data/boundaries/review/review_queue.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 044bcdb7df0198875d783a1f238a56c512616df254585aba795be28ea5b8fbc2 -->
+<!-- scientific-authored-source-sha256: e83af60b43578107a5253ae19681b79e69eb88e73d79533a2c1077d3adee9473 -->
+<!-- scientific-verification-and-limits:end -->

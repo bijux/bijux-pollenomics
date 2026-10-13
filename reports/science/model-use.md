@@ -163,3 +163,33 @@ as explicit refusals. We freeze predictions before outcome access, score
 every eligible or refused fold, and report site/country/taxon support beside
 the metric. For the Swedish ABB candidate, our [research-needs
 register](../needed/README.md) names the fields still preventing LRA use.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Current method-use rules distinguish observed-pollen, modeled cover and independent vegetation targets.
+
+**Unsupported claim.** A universal LRA parameter winner or Nordic measured-vegetation accuracy.
+
+**Actual verification performed.** Retained model/score/source reports are synthesized; index did not run a new model comparison.
+
+**Remaining input or review.** No admitted Nordic LRA core or measured-cover pair supports ecological ranking; available scores use different pollen axes, exposed cohorts and conditional basin/transport assumptions. Resolver: Core/reference owners and qualified landscape/palynology reviewer Reopen when: A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison.
+
+**Cause category.** data|assumption|comparability|qualified review
+
+**Consequence.** Keep direct-pollen and LRA-forward baselines, refusals and source assumptions visible in any new comparison.
+
+**Precise next acceptance route.** A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison. Then update reports/needed/README.md.
+
+**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope.
+
+**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes.
+
+Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 03e0f95e89009fe8ac05698efafd7781942349a7d10f107787741e6bc8eb8420 -->
+<!-- scientific-authored-source-sha256: 4ea6e0fa43622bec2ad34ee2601aea8c92a1cbe9bc67f5cf2e945c2d149a60b9 -->
+<!-- scientific-verification-and-limits:end -->

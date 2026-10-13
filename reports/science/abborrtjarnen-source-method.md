@@ -104,3 +104,33 @@ describes the basin at every sample age, or that a circular ABB source profile
 has been approved. The paper's 3 m/s wind, 100 km regional extent and neutral
 atmosphere are named LandClimII REVEALS settings, not missing ABB core evidence
 or automatically transferable LOVE parameters.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Published 2005 percentage method is distinguished from later ABBO/ABB exports; 107 depths and six radiocarbon controls correspond.
+
+**Unsupported claim.** Historical ABB LRA input or a fixed 500-grain denominator.
+
+**Actual verification performed.** Retained core/count/control reports compare 107 depths, 2,183 same-label counts and six controls; index did not rerun those checks.
+
+**Remaining input or review.** 107-depth ABBO correspondence and six dated controls do not identify LandClim-selected ages, time-specific basin, eligible pollen/spore denominator, reviewed taxon/PPE profile or Rootsi workbook use rights. Resolver: ABB core/author custodian and qualified chronology, basin and palynology reviewer Reopen when: One source-bound ABB sample/window packet supplies selected age, dated geometry, denominator, parameters and permitted use.
+
+**Cause category.** data|assumption|access/rights|qualified review
+
+**Consequence.** Do not import a modern 98 m radius, published polynomial or alternative LegacyAge into historical LRA.
+
+**Precise next acceptance route.** Authenticate one ABB same-core/window age, basin, count denominator, PPE and rights packet; rerun docs/report/source-relations/neotoma/lra-prerequisites/README.md before revising this source-method account or admitting an LRA row.
+
+**Negative or refused result.** Zero ABB LRA samples admitted; candidate sample 173174 denominator remains 1,219 or 1,215 under alternate indeterminable treatment.
+
+**Matched denominator.** 107 source depths; 1,206 pollen NISP for sample 173174; 1,190 mapped to 13 author targets, 16 excluded.
+
+Retained evidence: [docs/report/source-relations/neotoma/abbo-native-correspondence/README.md](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md), [docs/report/source-relations/neotoma/abbo-age-controls/README.md](../../docs/report/source-relations/neotoma/abbo-age-controls/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 4cbc7998ecaff5219ae36d3fc2ce98a2351dccf07895bc9db55fa554df3ddfb6 -->
+<!-- scientific-authored-source-sha256: ec1cea41eac2ad913e4c9227a491325f4471bec28a8fd313226f0776970683b1 -->
+<!-- scientific-verification-and-limits:end -->

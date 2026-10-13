@@ -66,3 +66,18 @@ The [CAA2007 paper, printed p.388](https://proceedings.caaconference.org/files/2
 `report.json` projects the aggregate denominators, all signed scenarios, covariance components and independent checks. `source-proof.json` binds the exact 14 original external capture members, source descriptor, scientific candidate, failed model envelope, accepted oracle envelope and current projection-module hashes. The supplied qualified author snapshot uses a dictionary of sorted filename→SHA256 identities and a complete sorted descriptor list. Its manifest is a newly authored transport record; original model/oracle bytes are unchanged.
 
 The projection authenticates source bytes before parsing and before/after atomic publication. It executes no count acquisition, chronology fitting, physical model or numerical oracle. Raw capture/source masks remain external. Identity transport is not new data-use permission or formal external review; historical workbook restriction flags, author-copy rights and qualified reader/scientific reviews remain separate gates. The declared use is a conditional analytical development result, with no independent vegetation, untouched, full scientific acceptance or release-ready claim.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

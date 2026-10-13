@@ -40,3 +40,33 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
 A fresh R/native reexecution requires the separately identified lawful author snapshot and pinned R dependency, as specified in the [reexecution instructions](publication-correspondence/author-example-reexecution.md). It cannot rerun the 2007 simulation.
 
 The **unsent source request** is for a lawful full Sugita (2007a) paper, its original POLLSCAPE landscape and atmospheric scenario definitions, basin sizes and positions, taxon/PPE/fall-speed inputs, regional truth vectors, REVEALS outputs and error/SE calculations, plus usable source permissions. The **unsent qualified-review request** is to assess whether a proposed pollen cohort has sufficiently large and appropriately distributed sites, matched taxa and support, and a defensible parameter/uncertainty profile for its target region. No independent scientific endorsement, original figure reproduction or colleague reading outcome is recorded here.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Sugita 2007a abstract-level REVEALS theory is distinguished from a later exact WHH05 author-code trace.
+
+**Unsupported claim.** Original 2007 POLLSCAPE simulation reproduction or historical Nordic vegetation accuracy.
+
+**Actual verification performed.** Retained primary indexed abstract and author-example receipts are described; index did not access full original paper.
+
+**Remaining input or review.** Only indexed publisher abstract is directly available for Sugita 2007a; original POLLSCAPE scenario inputs/output and full lawful article are absent, and later LandClim replay is a different population. Resolver: Original theory-paper/scenario custodian and qualified REVEALS reviewer Reopen when: Lawful original scenarios, parameter/truth vectors and rights permit a separate 2007 experiment account.
+
+**Cause category.** data|access/rights|comparability
+
+**Consequence.** Do not attribute later author-code parity to the 2007 simulation.
+
+**Precise next acceptance route.** Lawful original scenarios, parameter/truth vectors and rights permit a separate 2007 experiment account. Then update reports/science/paper-accounts.md.
+
+**Negative or refused result.** Original scenario counts/errors not locally evaluated; later example is not original experiment.
+
+**Matched denominator.** Original abstract names large lakes approximately 100–500 ha; later example has 17 sites, 184/425 supported site-bins, 31 taxa.
+
+Retained evidence: [reports/science/reveals-theory-paper.md](reveals-theory-paper.md), [reports/science/publication-correspondence/author-example-site-replay.md](publication-correspondence/author-example-site-replay.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 1b1abd0b0b2fecdec6ca16aabafd8c5326d1181e7fcbb63b6faaf018d5cd13a0 -->
+<!-- scientific-authored-source-sha256: 02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4 -->
+<!-- scientific-verification-and-limits:end -->

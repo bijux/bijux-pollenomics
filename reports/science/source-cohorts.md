@@ -174,3 +174,33 @@ We use that result as modeled context, not as observed vegetation or measured
 pollen-model benefit. Our [independent vegetation screen](../../docs/report/validation/empd2-nfi-pairing/README.md)
 admits zero source-measurement pairs. We will score vegetation accuracy only
 after matching measured targets and their sampling design.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Four-country 31-target observed-pollen source population and related context/refusal decisions are documented. Animal context separately retains 1,468 normalized IDs, 322 mapped IDs in 165 locality features and 1,146 explicit exclusions; twelve Nordic mapped IDs do not mean thirteen temporal nodes.
+
+**Unsupported claim.** Nordic LRA cohort, independent measured vegetation or joint multi-source causal explanation.
+
+**Actual verification performed.** Retained country score, capability, registry and reference reports are synthesized; index did not rerun.
+
+**Remaining input or review.** Observed-pollen cohort membership and modeled context do not supply admitted Nordic LRA inputs, independent measured vegetation, complete cross-domain identities or all source rights. Resolver: Country core/reference/registry source owners and qualified source reviewers Reopen when: Specific physical site/window or observation gains matched chronology, geometry, denominator, rights and review; rerun only affected consumer.
+
+**Cause category.** data|comparability|access/rights|qualified review
+
+**Consequence.** Keep country pollen and contextual archives separate from historical core admission.
+
+**Precise next acceptance route.** Specific physical site/window or observation gains matched chronology, geometry, denominator, rights and review; rerun only affected consumer. Then update reports/science/nordic-pollen-study.md.
+
+**Negative or refused result.** NO 94/1,178 bins and SE 3/54 bins refused; zero qualified Nordic LRA inputs and zero measured-cover pairs.
+
+**Matched denominator.** DK 1 site/91 samples/24 bins; FI 28/1,797/435; NO 52/3,544/1,084; SE 3/228/51 scored on 31 targets. Separate animal context: 1,468 normalized IDs = 322 mapped + 1,146 excluded; 165 locality features; 12 Nordic mapped IDs.
+
+Retained evidence: [docs/report/regions/nordic/source-capability/README.md](../../docs/report/regions/nordic/source-capability/README.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/animal-entity-capability/report.json](animal-entity-capability/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 2637deac32eb20e9b3b5c0e5acabf89361c3744cf269e6b1f7782c20b3227437 -->
+<!-- scientific-authored-source-sha256: 0982c02c10e4ba72f4feb307d127b1dd0a24da288ed5cca5a466a5bfcce79c9d -->
+<!-- scientific-verification-and-limits:end -->

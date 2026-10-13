@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "scope": "Every physical docs/report Markdown surface has an explicit scientific reading route, primary claim account or concrete engineering/navigation/governance disposition. Machine files and PDF export provenance remain in their domain manifests.",
+  "non_scientific_readers": [
+    {
+      "reader_path": "docs/report/atlas/boundary-orientation/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/cross-border-neighbor/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/desktop-zoom-controls/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/detail-focus/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/frame-url-replay/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/keyless-cache-matrix/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/map-keyboard-navigation/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/mobile-attribution/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/modeled-panel-browser/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/narrow-viewport-controls/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/nordic-source/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/playback-keyboard/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/provider-accessibility/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/source-detail/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/source-export/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/source-url-replay/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/atlas/tile-free-orientation-controls/README.md",
+      "classification": "engineering_reader",
+      "scope_reason": "Browser/runtime/performance behavior rather than scientific input, inference or ecological outcome; source/estimation limits remain in scientific accounts."
+    },
+    {
+      "reader_path": "docs/report/caveats/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/how-to-read.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/maintenance/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/maps/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/publication_country_onboarding_contract.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/publication_geography_registry.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/publication_geography_subset_validation.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/report_narrative_quality_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/report_surface_registry.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_atlas_input_audit.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_brutal_honesty_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_claim_audit.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_credibility_dashboard.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_cross_domain_evidence_matrix.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_docs_recovery_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_docs_restoration_ledger.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_docs_scope_validation.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_extension_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_final_release_refusal.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_generated_output_policy.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_governance_artifact_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_output_sustainability_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_product_model.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_recovery_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_scientific_progress_audit.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_sead_legibility_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_source_acquisition_queue.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_source_ecosystem_review.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_source_explainer_audit.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_source_family_matrix.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/repository_truth_posture.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/reviews/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    },
+    {
+      "reader_path": "docs/report/scopes/index.md",
+      "classification": "navigation_or_governance",
+      "scope_reason": "Report navigation, generated output governance or release posture, not a new scientific data/model account."
+    }
+  ]
+}

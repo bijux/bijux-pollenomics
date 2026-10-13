@@ -77,3 +77,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --predictions artifacts/jobs/swedish-author-target-predictions-replay \
   --output artifacts/jobs/swedish-author-target-scored-replay
 ```
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Swedish 31-author-target whole-site-held-out fixed baseline pollen scores are reported.
+
+**Unsupported claim.** Untouched Swedish confirmation, measured-cover accuracy or Swedish LRA reconstruction.
+
+**Actual verification performed.** Retained freeze, source count and score ledgers are cited; index did not rerun.
+
+**Remaining input or review.** Three Swedish site-held-out 31-target pollen results are previously explored development observations; no fresh cohort, measured vegetation or LRA input is qualified. Resolver: Independent Swedish cohort/reference owner and qualified ecology reviewer Reopen when: New grouped Swedish targets and same-estimand measured cover are frozen and reviewed before scoring.
+
+**Cause category.** comparability|qualified review
+
+**Consequence.** Keep the three-site equal-site MAE as pollen development only.
+
+**Precise next acceptance route.** New grouped Swedish targets and same-estimand measured cover are frozen and reviewed before scoring. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Three bin −1 cases refused for inadequate positive foreign training groups.
+
+**Matched denominator.** Three sites/228 selected samples; 51/54 scored bins ×three methods =153 rows; 221,800/240,966 native NISP assigned.
+
+Retained evidence: [docs/report/regions/nordic/swedish-author-target-pollen/report.json](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: 8881aee0fdaf5aa8744892367710e83db38d272a01da14cf2751e8ea33a8ea6d -->
+<!-- scientific-authored-source-sha256: bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a -->
+<!-- scientific-verification-and-limits:end -->

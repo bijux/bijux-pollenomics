@@ -15,16 +15,16 @@ files themselves; its count is a scoped subset of the complete report tree.
 | Family | Count |
 | --- | ---: |
 | [Scientific caveats](caveats/index.md) | 10 |
-| [Maintainer truth surfaces](maintenance/index.md) | 1179 |
+| [Maintainer truth surfaces](maintenance/index.md) | 1180 |
 | [Map surfaces](maps/index.md) | 88 |
 | [Portal guidance](index.md) | 2 |
-| [Evidence reviews](reviews/index.md) | 39 |
+| [Evidence reviews](reviews/index.md) | 38 |
 | [Scope-filtered outputs](scopes/index.md) | 760 |
 
 ## Audience counts
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1181 |
+| Maintainer diagnostic | 1182 |
 | Public reading surface | 769 |
-| Scientific review surface | 128 |
+| Scientific review surface | 127 |

@@ -50,3 +50,33 @@ with (destination / "worksheet-layout.jsonl").open("wb") as stream:
 ```
 
 The resulting private sidecar must match the `worksheet-layout.jsonl` hash in the custody account. The command makes no scientific or source-use decision.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Four original source workbooks preserve eight worksheet layouts,27325cachedcell values/types and historical sheet hashes; independent16rawBOUNDSHEET fields agree under actual legacyBIFF5/7 andBIFF8 encodings.
+
+**Unsupported claim.** All79workbook census, native formula/external-link interpretation, original historical input authenticity, genuine pollen grain counts, scientific source admission or analytical-use rights.
+
+**Actual verification performed.** Actual selected native scientific stage0;55source/security/layout and2header controls; final9layout controls,strict2filetypes andRuff. Both prior overallnative1 attempts preserved and distinguished from actualnative0stage.
+
+**Remaining input or review.** Selected native worksheet layouts and cached values are preserved; formula origin, full79workbook physical census, feature units, taxonomy, chronology, analytical rights and historical primary membership remain unresolved. Resolver: LandClim workbook source custodian and independent archive, chronology and pollen-count reviewer Reopen when: Exact full archive/cached-versus-formula lineage and all79workbook row population are authenticated with units, chronology, taxa and intended-use authority.
+
+**Cause category.** data|assumption|access/rights|qualified review
+
+**Consequence.** Source-preserving parser evidence cannot establish native formula semantics, grain counts, original study population or source permissions.
+
+**Precise next acceptance route.** Authenticate full archive and native derived/formula semantics; qualify all79row/visibility populations, taxa/units/chronology/historical membership and rights. Reuse unchanged selected-cell receipts.
+
+**Negative or refused result.** Exactcase aliasKRO_ny refuses; nativeformulaorigin unavailable and external links notinspected; originaloraclelegacyname mismatch and later redundant-test-cast typing failure retained.
+
+**Matched denominator.** Four originals/eight sheets,all8observedvisible,27325cachedcells,16name/visibilityfields; selected0merged/errorcells. RetainedEKE42mechanicalrows=25positive+17zero;5170−17=5153 mechanicalpopulation,notgrain/samplescience.
+
+Retained evidence: [docs/report/source-relations/landclim/worksheet-layout/report.json](report.json), [docs/report/source-relations/landclim/worksheet-layout/source-account.json](source-account.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-claim-semantic-sha256: c2be4496807fa4748836a496a4d4c6618a5c5d0c123d4154c4ae312ed68f8050 -->
+<!-- scientific-authored-source-sha256: c9c07858406c3691f9fdc70f4bf58c2efecf19cd08155719e9db2dd9f03b815a -->
+<!-- scientific-verification-and-limits:end -->
