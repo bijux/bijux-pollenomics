@@ -39,6 +39,10 @@ def fixed_site_cover_covariance(
     covariance of the shared PPE vector. Sites and PPE are assumed independent.
     Each site's integer count total must be below 2**53 so its fixed
     multinomial denominator remains exactly representable in binary64.
+    Every binary64 reciprocal deposition/PPE factor must remain finite and
+    positive, including zero-count axes used by the covariance derivative.
+    Overflow of the parameter product refuses even when an alternate
+    evaluation could represent its reciprocal.
     Site selection, chronology, geometry and transport uncertainty are held
     fixed; no site bootstrap or empirical vegetation accuracy is represented.
     Declared PPE variances must be nonnegative, with no covariance for a
@@ -105,7 +109,12 @@ def fixed_site_cover_covariance(
     ):
         raise ValidationError("Invalid fixed-site PPE covariance")
 
-    factors = 1 / (k * p[None, :])
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        factors = 1 / (k * p[None, :])
+    if not np.isfinite(factors).all() or np.any(factors <= 0):
+        raise ValidationError(
+            "Fixed-site correction factors are not finite and positive"
+        )
     weights = (n * factors).sum(axis=0)
     total = weights.sum()
     if not np.isfinite(total) or total <= 0:

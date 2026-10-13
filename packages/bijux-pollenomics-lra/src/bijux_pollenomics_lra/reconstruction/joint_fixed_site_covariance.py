@@ -102,6 +102,10 @@ def joint_fixed_site_covariance(
 ) -> JointFixedSiteCovariance:
     """Propagate shared PPE and reused counts; hold all source support fixed.
 
+    Every binary64 reciprocal deposition/PPE factor must remain finite and
+    positive, including zero-count axes of the returned count derivative.
+    Overflow of the parameter product refuses even when an alternate
+    evaluation could represent its reciprocal.
     Counts on identical support are one multinomial latent observation, even
     across geometry alternatives. Same-unit distinct windows are independent
     only under the explicit fixed-point/disjoint-window working assumption.
@@ -183,7 +187,14 @@ def joint_fixed_site_covariance(
         ):
             raise ValidationError("Joint count/deposition values are invalid")
         columns = [index[key] for key in item.parameter_ids]
-        a = 1 / (k * p[columns])
+        with np.errstate(
+            over="ignore", under="ignore", divide="ignore", invalid="ignore"
+        ):
+            a = 1 / (k * p[columns])
+        if not np.isfinite(a).all() or np.any(a <= 0):
+            raise ValidationError(
+                "Joint correction factors are not finite and positive"
+            )
         w = n * a
         W = float(w.sum())
         if not np.isfinite(W) or W <= 0:
