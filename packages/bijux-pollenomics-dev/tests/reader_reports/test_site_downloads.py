@@ -1,6 +1,7 @@
 import hashlib
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 from types import SimpleNamespace
 from typing import NotRequired, TypedDict
@@ -33,6 +34,20 @@ class _DownloadManifest(TypedDict):
     schema_version: str
     inputs: dict[str, str]
     files: list[_DownloadFile]
+
+
+@pytest.fixture
+def synthetic_pdf_sources(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Keep PDF boundary fixtures strict; historical authority uses real Git tests."""
+
+    def current_sources(root: Path) -> dict:
+        lock = json.loads(HOOK._read(root, "presentation/source-lock.json"))
+        for relative, expected in lock["sources"].items():
+            if hashlib.sha256(HOOK._read(root, relative)).hexdigest() != expected:
+                raise ValueError(f"Scientific download deck source changed: {relative}")
+        return {}
+
+    monkeypatch.setattr(HOOK, "retained_deck_sources", current_sources)
 
 
 def _fixture(root: Path) -> _DownloadManifest:
@@ -97,7 +112,9 @@ def _fixture(root: Path) -> _DownloadManifest:
     return manifest
 
 
-def test_downloads_freeze_pdf_bytes_without_writing_sources(tmp_path: Path) -> None:
+def test_downloads_freeze_pdf_bytes_without_writing_sources(
+    tmp_path: Path, synthetic_pdf_sources: None
+) -> None:
     _fixture(tmp_path)
     before = {p: p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
     result = HOOK.download_bytes(tmp_path)
@@ -111,7 +128,9 @@ def test_downloads_freeze_pdf_bytes_without_writing_sources(tmp_path: Path) -> N
 @pytest.mark.parametrize(
     "relative", ["presentation/developer.pdf", "presentation/developer.tex"]
 )
-def test_changed_pdf_or_deck_source_refuses(tmp_path: Path, relative: str) -> None:
+def test_changed_pdf_or_deck_source_refuses(
+    tmp_path: Path, relative: str, synthetic_pdf_sources: None
+) -> None:
     _fixture(tmp_path)
     (tmp_path / relative).write_bytes(b"unreviewed replacement")
     with pytest.raises(ValueError, match="changed"):
@@ -120,7 +139,7 @@ def test_changed_pdf_or_deck_source_refuses(tmp_path: Path, relative: str) -> No
 
 @pytest.mark.parametrize("mutation", ["missing", "duplicate", "route", "closure"])
 def test_missing_population_duplicate_route_and_closure_refuse(
-    tmp_path: Path, mutation: str
+    tmp_path: Path, mutation: str, synthetic_pdf_sources: None
 ) -> None:
     manifest = _fixture(tmp_path)
     if mutation == "missing":
@@ -136,7 +155,9 @@ def test_missing_population_duplicate_route_and_closure_refuse(
         HOOK.download_bytes(tmp_path)
 
 
-def test_escaping_input_and_symlink_refuse(tmp_path: Path) -> None:
+def test_escaping_input_and_symlink_refuse(
+    tmp_path: Path, synthetic_pdf_sources: None
+) -> None:
     root = tmp_path / "repository"
     manifest = _fixture(root)
     outside = tmp_path / "private-source"
@@ -161,3 +182,187 @@ def test_collision_refuses_before_inserting_any_file(
     with pytest.raises(ValueError, match="collides"):
         HOOK.on_files(files, None)
     assert len(files) == 1
+
+
+def test_retained_deck_context_admits_original_history_and_exact_current_inputs() -> (
+    None
+):
+    retained = HOOK.retained_deck_sources(ROOT)
+    assert retained["context"] == HOOK.RETAINED_CONTEXT
+    assert len(retained["historical_inputs"]) == len(retained["current_inputs"]) == 98
+    historical = {row["path"]: row["sha256"] for row in retained["historical_inputs"]}
+    current = {row["path"]: row["sha256"] for row in retained["current_inputs"]}
+    assert set(historical) == set(current)
+    assert [name for name in current if current[name] != historical[name]] == [
+        "pyproject.toml"
+    ]
+    before = (ROOT / "presentation/source-lock.json").read_bytes()
+    frozen = HOOK.download_bytes(ROOT)
+    assert len(frozen) == 12
+    manifest = json.loads((ROOT / HOOK.MANIFEST).read_bytes())
+    for row in manifest["files"]:
+        assert frozen[row["site_uri"]] == (ROOT / row["path"]).read_bytes()
+    assert before == (ROOT / "presentation/source-lock.json").read_bytes()
+
+
+@pytest.mark.parametrize("mutation", ["missing", "unknown", "revision", "metadata"])
+def test_retained_deck_context_substitution_refuses(
+    monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    read = HOOK._read
+    context = json.loads(read(ROOT, HOOK.RETAINED_CONTEXT_PATH))
+    if mutation == "unknown":
+        context["unreviewed"] = True
+    elif mutation == "revision":
+        context["source_revision"] = "0" * 40
+    elif mutation == "metadata":
+        context["security_metadata"]["current_value"] = ["B404"]
+
+    def changed(root: Path, relative: str) -> bytes:
+        if relative == HOOK.RETAINED_CONTEXT_PATH:
+            if mutation == "missing":
+                raise ValueError("Scientific download source unavailable")
+            return json.dumps(context).encode()
+        return read(root, relative)
+
+    monkeypatch.setattr(HOOK, "_read", changed)
+    with pytest.raises(ValueError):
+        HOOK.retained_deck_sources(ROOT)
+
+
+@pytest.mark.parametrize(
+    "relative",
+    ["presentation/source-lock.json", "pyproject.toml", "presentation/developer.tex"],
+)
+def test_retained_deck_current_source_drift_refuses(
+    monkeypatch: pytest.MonkeyPatch, relative: str
+) -> None:
+    read = HOOK._read
+
+    def changed(root: Path, name: str) -> bytes:
+        value = read(root, name)
+        return value + b"\n# changed owning input\n" if name == relative else value
+
+    monkeypatch.setattr(HOOK, "_read", changed)
+    with pytest.raises(ValueError, match="changed|differs"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_deck_missing_original_history_refuses(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    command = HOOK._git
+
+    def missing(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
+        if arguments[0] == "merge-base":
+            raise subprocess.CalledProcessError(1, ["git", *arguments])
+        return command(root, *arguments, request=request)
+
+    monkeypatch.setattr(HOOK, "_git", missing)
+    with pytest.raises(subprocess.CalledProcessError):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_deck_historical_source_blob_substitution_refuses(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    committed = HOOK._committed_inputs
+
+    def changed(root: Path, revision: str, paths: list[str]) -> dict[str, bytes]:
+        values = committed(root, revision, paths)
+        if revision == HOOK.RETAINED_CONTEXT["source_revision"]:
+            values["presentation/source-lock.json"] += b"\n"
+        return values
+
+    monkeypatch.setattr(HOOK, "_committed_inputs", changed)
+    with pytest.raises(ValueError, match="source lock differs"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_deck_nonregular_git_source_refuses(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    command = HOOK._git
+
+    def nonregular(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
+        value = command(root, *arguments, request=request)
+        return (
+            value.replace(b"100644 blob", b"120000 blob", 1)
+            if arguments[0] == "ls-tree"
+            else value
+        )
+
+    monkeypatch.setattr(HOOK, "_git", nonregular)
+    with pytest.raises(ValueError, match="regular source blobs"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_context_duplicate_json_keys_refuse(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    read = HOOK._read
+
+    def duplicate(root: Path, relative: str) -> bytes:
+        value = read(root, relative)
+        if relative == HOOK.RETAINED_CONTEXT_PATH:
+            return value.replace(
+                b"{", b'{"schema":"retained-deck-source-context.v1",', 1
+            )
+        return value
+
+    monkeypatch.setattr(HOOK, "_read", duplicate)
+    with pytest.raises(ValueError, match="duplicate source keys"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+@pytest.mark.parametrize("alias", ["pyproject.toml", "./pyproject.toml"])
+def test_retained_source_duplicate_or_aliased_paths_refuse(alias: str) -> None:
+    with pytest.raises(ValueError, match="population|canonical source paths"):
+        HOOK._committed_inputs(
+            ROOT, HOOK.RETAINED_CONTEXT["source_revision"], ["pyproject.toml", alias]
+        )
+
+
+@pytest.mark.parametrize("kind", ["hardlink", "symlink", "directory"])
+def test_retained_source_nonregular_or_linked_paths_refuse(
+    tmp_path: Path, kind: str
+) -> None:
+    source = tmp_path / "source"
+    source.write_bytes(b"retained source")
+    alias = tmp_path / "alias"
+    if kind == "hardlink":
+        alias.hardlink_to(source)
+    elif kind == "symlink":
+        alias.symlink_to(source)
+    else:
+        alias.mkdir()
+    with pytest.raises(ValueError, match="unavailable"):
+        HOOK._read(tmp_path, "alias")
+
+
+def test_retained_source_physical_executable_mode_substitution_refuses(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    command = HOOK._git
+
+    def changed(root: Path, *arguments: str, request: bytes | None = None) -> bytes:
+        value = command(root, *arguments, request=request)
+        if arguments[0] == "ls-tree":
+            return value.replace(b"100644 blob", b"100755 blob", 1)
+        return value
+
+    monkeypatch.setattr(HOOK, "_git", changed)
+    with pytest.raises(ValueError, match="physical mode"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_git_reads_disable_replace_objects(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def observe(arguments: list[str], **kwargs: object) -> SimpleNamespace:
+        assert arguments[:4] == ["git", "--no-replace-objects", "-C", str(ROOT)]
+        assert kwargs["check"] is True and kwargs["timeout"] == 30
+        return SimpleNamespace(stdout=b"exact committed source")
+
+    monkeypatch.setattr(HOOK.subprocess, "run", observe)
+    assert HOOK._git(ROOT, "rev-parse", "HEAD") == b"exact committed source"

@@ -1,0 +1,21 @@
+{
+  "schema": "retained-deck-source-context.v1",
+  "source_revision": "11079034b7dc0c1a0d94d26c97c70ec59fcf27f7",
+  "source_lock_sha256": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
+  "security_metadata": {
+    "revision": "5f3fe303ef3e5cf1f4cf2b5e29da2b934844a331",
+    "path": "pyproject.toml",
+    "historical_sha256": "9cc54d64c3f76f62bf16e7d2552d02c390d99c82387f0617782c880ba92acecd",
+    "current_sha256": "a3d3d57eceaba706062cc94626bbc9f41c4bc0894f574d29b098d9abd332af04",
+    "toml_path": [
+      "tool",
+      "bandit",
+      "skips"
+    ],
+    "historical_value": [
+      "B404",
+      "B311"
+    ],
+    "current_value": []
+  }
+}
