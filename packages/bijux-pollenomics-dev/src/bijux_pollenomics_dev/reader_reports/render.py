@@ -155,7 +155,9 @@ class ReportRenderer:
         self.code_blocks = 0
         self.parser = MarkdownIt("commonmark").enable("table")
 
-    def _inline(self, children: list[Token] | None) -> str:
+    def _inline(
+        self, children: list[Token] | None, *, compound_lines: bool = False
+    ) -> str:
         if children is None:
             raise RenderError("missing inline content")
         output: list[str] = []
@@ -165,7 +167,16 @@ class ReportRenderer:
             if kind == "text":
                 output.append(_inline_text(token.content))
             elif kind == "code_inline":
-                output.append(_inline_code(token.content))
+                code = _inline_code(token.content)
+                if (
+                    compound_lines
+                    and len(token.content) > 28
+                    and token.content.count("(") > 1
+                    and token.content.count(")") > 1
+                    and re.search(r"\s[+*/−-]\s", token.content)
+                ):
+                    code = r"\linebreak[4]" + code + r"\linebreak[4]"
+                output.append(code)
             elif kind == "strong_open":
                 output.append(r"\textbf{")
             elif kind == "strong_close":
@@ -333,7 +344,13 @@ class ReportRenderer:
                 if pending_heading is not None:
                     raise RenderError("heading is missing inline text")
             elif kind == "inline":
-                body = self._inline(token.children)
+                body = self._inline(
+                    token.children, compound_lines=pending_heading is None
+                )
+                if pending_heading is None and token.content.startswith(
+                    "Retained evidence: "
+                ):
+                    body = body.replace(r"}, \href", r"}, \par\noindent\href")
                 if pending_heading:
                     if pending_heading == "h1":
                         pieces.append(
