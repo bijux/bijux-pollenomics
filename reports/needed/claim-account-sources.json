@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "supplemental_report_paths": [
+    "docs/report/synthetic-validation/recovery-evidence/README.md",
+    "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+    "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
+    "docs/report/taxa-review/README.md"
+  ]
+}

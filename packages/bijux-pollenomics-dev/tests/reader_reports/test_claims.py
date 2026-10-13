@@ -38,3 +38,54 @@ def test_claim_accounting_refuses_incomplete_or_stale_evidence(corruption: str) 
         rows[0]["packet_reference"] = "unknown-request"
     with pytest.raises(ValueError):
         verifier.validate(ROOT, rows, packets)
+
+
+@pytest.mark.parametrize(
+    "corruption", ["duplicate", "missing", "escape", "non_markdown", "foreign_surface"]
+)
+def test_supplemental_account_authority_refuses_unowned_sources(
+    tmp_path: Path, corruption: str
+) -> None:
+    import json
+
+    spec = importlib.util.spec_from_file_location(
+        "scientific_account_authority", ROOT / "reports/needed/verify-claims.py"
+    )
+    assert spec is not None and spec.loader is not None
+    verifier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(verifier)
+    primary = tmp_path / "reports/science/primary.md"
+    primary.parent.mkdir(parents=True)
+    primary.write_text("Primary research account")
+    supplemental = tmp_path / "docs/report/aggregate/README.md"
+    supplemental.parent.mkdir(parents=True)
+    supplemental.write_text("Supplemental primary scientific account")
+    authority = tmp_path / "reports/needed/claim-account-sources.json"
+    authority.parent.mkdir(parents=True)
+    source = "docs/report/aggregate/README.md"
+
+    def save(paths: list[str]) -> None:
+        authority.write_text(
+            json.dumps({"schema_version": 1, "supplemental_report_paths": paths})
+        )
+
+    save([source])
+    assert verifier.expected_report_paths(tmp_path) == {
+        "reports/science/primary.md",
+        source,
+    }
+    if corruption == "duplicate":
+        paths = [source, source]
+    elif corruption == "missing":
+        paths = ["docs/report/missing.md"]
+    elif corruption == "escape":
+        paths = ["docs/report/../../../outside.md"]
+    elif corruption == "non_markdown":
+        other = tmp_path / "docs/report/aggregate/report.json"
+        other.write_text("{}")
+        paths = ["docs/report/aggregate/report.json"]
+    else:
+        paths = ["reports/science/primary.md"]
+    save(paths)
+    with pytest.raises(ValueError):
+        verifier.expected_report_paths(tmp_path)
