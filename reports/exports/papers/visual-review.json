@@ -396,7 +396,7 @@
     }
   ],
   "repository_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
-  "review_scope": "Eight unchanged baseline page-review records plus one separately inspected ten-page LandClim successor. Baseline global receipt/evidence identity remains unchanged; new paper row binds actual successor evidence.",
+  "review_scope": "Seven unchanged baseline page-review records plus separately inspected ten-page LandClim and four-page Namibia successors. Each successor binds its actual source, build and page evidence; baseline production and review identities remain historical.",
   "scientific_or_release_admission": false,
   "source_date_epoch": 1790812800,
   "library_scope": "Seven unchanged baseline paper exports plus separately produced LandClim and Namibia accounts. Per-paper source, producer, build and layout identities retain their own actual revision; current inventory binds the complete nine-paper library."

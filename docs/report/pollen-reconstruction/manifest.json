@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "8f84822233ed985f5ed80557e18da90afa3ee136e7e3bb181dc033c6ba7d5dce",
-      "bytes": 148962
+      "sha256": "0f1b662c253805e5d9f5da68dc1e350c496c8248ca50d38d1eea587d9c10bd9e",
+      "bytes": 148963
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,8 +3766,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "747c1af296b036ba59d662673bb01c0a6fb85b6ea5754dc042e3c4ea0bb2821a",
-      "bytes": 1015151
+      "sha256": "5afba7bf25b983532e965b6484c0963768fcd52124d84c9fdb04642082b6bc44",
+      "bytes": 1015152
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -8016,13 +8016,13 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "9faaaf74f85ced515c849facaf43944a2e545152f2a07eca8524f4c1173b0c50",
-      "bytes": 16805
+      "sha256": "89ea6a0fed12f3fbbb1b312081a615b74024b0efc473db5f2f7e3eaa78294ac3",
+      "bytes": 19711
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
-      "bytes": 66530
+      "sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
+      "bytes": 69631
     },
     {
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
@@ -8056,8 +8056,8 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "5a0639e613ba00c9600ba613642f3d16eafe1eb131368185922b33f2f1869393",
-      "bytes": 21103
+      "sha256": "e6a108afcb97fb70f942e0df7752237effca5511073d740211facf9548ad047a",
+      "bytes": 22754
     },
     {
       "path": "reports/exports/site-downloads.json",
@@ -8291,8 +8291,8 @@
     },
     {
       "path": "reports/science/namibia-pollen-vegetation-paper.md",
-      "sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
-      "bytes": 10024
+      "sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
+      "bytes": 12701
     },
     {
       "path": "reports/science/neotoma-study-membership/README.md",
@@ -8331,8 +8331,8 @@
     },
     {
       "path": "reports/science/paper-accounts.csv",
-      "sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
-      "bytes": 6872
+      "sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
+      "bytes": 6891
     },
     {
       "path": "reports/science/paper-accounts.md",
