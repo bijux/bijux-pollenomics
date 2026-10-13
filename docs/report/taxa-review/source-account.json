@@ -1,0 +1,293 @@
+{
+  "schema_version": "taxon-ppe-basin-review-source-account.v1",
+  "scope": "Completed source-bound structural review and controlled return-intent paths; received biological decisions, reviewer authentication and source rights are outside this account.",
+  "published_surface": "Aggregate counts, source identities and execution receipts only; source rows, private CSV, native observations, taxonomy/PPE details and controlled returns are retained privately.",
+  "candidate_baseline": "26a87699cabeed843a3f0da31beae55c8bf5f412",
+  "working_source_lineage": "The full retained source package was rebuilt from a hash-pinned stable working-source overlay against the candidate baseline, including uncommitted animal source code. The successful successor reused those immutable completed products and frozen resource-qualified source trees; it did not reread mutable animal/SEAD/aDNA inputs or claim the overlay was committed.",
+  "completed_review": {
+    "bundle_sha256": "74df58ba0befcf51b3d78937dc9c8ec2f3b078552c8026c1477a0316e79a76f5",
+    "physical_json_sha256": "d4f56ef2128fa395d91d422e80dbf0d40533e487c392561b49fa6f356bdcff26",
+    "completion_sha256": "f7a6ccd9c32864998b2cd61a3aa0dbc509c5ac10636c9c158f926c73d87585b2",
+    "row_count": 10908,
+    "source_row_counts": {
+      "aadr": 1,
+      "animal_adna": 10,
+      "landclim": 31,
+      "lra_reference_resources": 81,
+      "neotoma": 1351,
+      "rootsi_private_quarantine": 7459,
+      "sead": 1975
+    },
+    "source_observation_counts": {
+      "neotoma": 370936,
+      "sead": 177763
+    },
+    "input_file_count": 60,
+    "all_rows_needs_discussion": true,
+    "inventory_location_affects_bundle_identity": true
+  },
+  "root_workbook_inventory": {
+    "source_store_relative_path": "landclim/rootsi-workbooks/header-review-inventory.json",
+    "sha256": "15a8a0d333c9b0a3928aa0f8e66efbf870860fdc27b8179465a0bee6d2059196",
+    "bytes": 5418089,
+    "workbooks": 79,
+    "sheets": 107,
+    "column_rows": 7459,
+    "header_candidates_retained": 6,
+    "headers_selected": false,
+    "workbook_rescan_performed": false,
+    "analytical_admission": false
+  },
+  "native_priority_sha256": "fce4fd4d80397df99210f7fc48357029239f0a3afe2965daaf5068bc3712be7d",
+  "native_attribution_sha256": "afc74c40713040f1429468c3dea66d76af857b80d2a1ac93affad85a8b5d180d",
+  "parameter_file_binding": {
+    "bound_files": {
+      "priority.json": {
+        "bytes": 505375,
+        "sha256": "715a34feb209cd9581cbf5e268e1243a9cda3e6de05fd86d8cdc6ec2f30572c8"
+      },
+      "provenance.json": {
+        "bytes": 1360812,
+        "sha256": "5b84016b4802aee1eb53af04cad4c466cb4dd274b06df819568583fcfceb4d64"
+      }
+    },
+    "canonical_import_allowed": false,
+    "publication_allowed": false,
+    "schema_version": "neotoma-lra-parameter-file-bindings.v1",
+    "scientific_acceptance": "not_evaluated",
+    "scope": "Physical artifact and native semantic bindings only; no taxon/PPE acceptance, reviewer authentication or source rights assigned.",
+    "source_files": {
+      "completed_review": "d4f56ef2128fa395d91d422e80dbf0d40533e487c392561b49fa6f356bdcff26",
+      "native_priority": "fce4fd4d80397df99210f7fc48357029239f0a3afe2965daaf5068bc3712be7d",
+      "native_provenance": "afc74c40713040f1429468c3dea66d76af857b80d2a1ac93affad85a8b5d180d"
+    }
+  },
+  "parameter_denominators": {
+    "candidate_pollen_observations": 228323,
+    "candidate_samples": 10637,
+    "candidate_taxon_concepts": 1006,
+    "full_review_rows": 10908,
+    "parameter_authority_capability_counts": {
+      "fall_speed": 70,
+      "ppe": 62
+    },
+    "parameter_authority_rows": 72,
+    "projected_review_rows": 1078
+  },
+  "native_prerequisite": {
+    "projection_sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809",
+    "projection_bytes": 22907955,
+    "actual_native_rebuild_byte_identical": true,
+    "chronology_rows": 10637,
+    "basin_rows": 163,
+    "lakeparameter_capture_sha256": "0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd",
+    "scale_selection": "No basin scale or source age selected by controlled unresolved returns."
+  },
+  "publication_citations": {
+    "capture_manifest_sha256": "d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da",
+    "retained_response_count": 169,
+    "citation_report_sha256": "ee7938ed84e97f2f208bb6e720c1f0bdef697c5b76de1bd0482c00c4fdbcb1e9",
+    "linked_record_count": 223,
+    "link_status_counts": {
+      "multiple_source_primary_publications": 7,
+      "no_publication_link": 11,
+      "no_source_primary_flag": 2,
+      "one_source_primary_publication": 149
+    },
+    "publication_doi_null_count": 172,
+    "original_recorded_attribution_sha256": "9bb1bebdf9155fa8ba2ebb7afb5b743258730aad967201fba6c0bdef13a5eb63",
+    "original_attribution_bytes_replayed": false,
+    "qualification": "Exact169 retained responses independently reclosed to current native dataset identities and parsed links; original full-review attribution bytes absent, recorded historical attribution digest is lineage only. No fresh acquisition or original-publication verification.",
+    "strict_original_attribution_replay_refusal_preserved": true,
+    "fresh_requests": 0,
+    "original_primary_papers_verified": false,
+    "rights_review_status": "not_evaluated"
+  },
+  "actual_execution": {
+    "plan_sha256": "6026bf18694bcefaf6d7ab39697f4039f933dd8c902d4e743ef58df290879e5c",
+    "writer_sha256": "6837eaaf9530bd142039a3a06f87745612419668f6ba607f8f57b3e98303ad1a",
+    "runner_sha256": "31a57b45cbff7cb7396d217ccd80f316bc8286466186345ac97f5f8627899c49",
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/taxon-ppe-basin-review-admission/parameter-binding-admission/qualify.py"
+    ],
+    "native_exit_code": 0,
+    "wall_seconds": 203.2800167920068,
+    "measured_child_peak_rss_bytes": 2118041600,
+    "declared_max_rss_bytes": 8589934592,
+    "scientific_payload_output_bytes": 42896264,
+    "declared_resources": {
+      "wall_seconds": 360,
+      "max_rss_bytes": 8589934592,
+      "max_output_bytes": 536870912,
+      "max_log_bytes": 1048576,
+      "max_children": 1,
+      "network_requests": 0,
+      "threads": 1
+    },
+    "source_inputs_before_after_unchanged": true,
+    "runtime_binary_before_after_unchanged": true,
+    "controls_count": 2729,
+    "controls_bytes": 890417883,
+    "source_views": "Owned immutable copies bound to failed predecessor capture; no canonical source hold needed.",
+    "terminal_sha256": "5f61cfaa66dfb357bc858303918c7fcb295afa35b6cdb2aefc1365dc50214ee0",
+    "outputs": {
+      "native/private-controlled-parameter-import.json": {
+        "sha256": "479833a90cb0acd138209f8b2112ffb93118f7b2a9571c61e083bf59c3a6e098",
+        "bytes": 625586
+      },
+      "native/private-controlled-parameter-return.json": {
+        "sha256": "7f17d288894e7ffaa20937ca0cec8187dfdf60826675cdb89c18082c976891ee",
+        "bytes": 624933
+      },
+      "native/private-controlled-prerequisite-import.json": {
+        "sha256": "db33f4eecda512a92b01ca047aa98449720f336eff340d6364772774718983fc",
+        "bytes": 560
+      },
+      "native/private-controlled-prerequisite-return.json": {
+        "sha256": "14d862329432070a0017ec2535f71c550ffb4d54ea4a8fc3f2339e9156421e46",
+        "bytes": 5005662
+      },
+      "native/private-controlled-taxon-import.json": {
+        "sha256": "830242ec1f60ea2c9e017fd5c911239bfa8d2d034028fedf46420ef00d10ac20",
+        "bytes": 6152604
+      },
+      "native/private-controlled-taxon-return.json": {
+        "sha256": "cbee11575cfd11de35af98590906bfcf78e41ed16d57ce32f5c1e1aa50f0f5b0",
+        "bytes": 3965231
+      },
+      "native/private-parameter-bindings/completion.json": {
+        "sha256": "057507ccd8901237a7e64d15912e4f3470c8c47a96a3bc49a0aa42b884c955b4",
+        "bytes": 812
+      },
+      "native/private-parameter-bindings/priority.json": {
+        "sha256": "715a34feb209cd9581cbf5e268e1243a9cda3e6de05fd86d8cdc6ec2f30572c8",
+        "bytes": 505375
+      },
+      "native/private-parameter-bindings/provenance.json": {
+        "sha256": "5b84016b4802aee1eb53af04cad4c466cb4dd274b06df819568583fcfceb4d64",
+        "bytes": 1360812
+      },
+      "native/private-prerequisite-review.json": {
+        "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809",
+        "bytes": 22907955
+      },
+      "native/private-taxon-parameter-review.json": {
+        "sha256": "27e7679b6dd0dba37eb4d28153a14dd138daaad336af08b0ebcbd8bba2754d14",
+        "bytes": 1741965
+      },
+      "native/readiness.json": {
+        "sha256": "b27d2a5d3480633539fe61b609bd64a508b207fdf4c1c2007e9c74aa34a2111b",
+        "bytes": 4769
+      }
+    }
+  },
+  "preserved_failures": [
+    {
+      "plan_sha256": "7a83c2821e89d78f8403bdd4e963986bdf726f81b4ebbbe8e6bcf9a629e08258",
+      "native_exit_code": 1,
+      "terminal_sha256": "e81246a5adff86b71459f44b5afc51b4e8215f718bcafe541e99dcc37cb76e66",
+      "scope": "Python-only source overlay missed required template resources; no scientific products admitted."
+    },
+    {
+      "plan_sha256": "3f0b05bab2963c4251fb152a1ca9a2340fda1242af5bfeb8f5d72b84d78055aa",
+      "native_exit_code": 1,
+      "terminal_sha256": "b98310e4b6fd2ae1061d0c0e5be1eba1d5e290f6b15b18e8c29165c3ef3e1a5c",
+      "scope": "Full completed taxon package, native priority, dataset attribution and citations succeeded, then parameter intake refused missing physical file bindings. Seven successful payloads were separately hash-verified and reused; failed whole capture remains failed.",
+      "full_review_rebuilt_in_successor": false
+    }
+  ],
+  "returned_decision_imports": {
+    "basin_rows": 163,
+    "chronology_rows": 10637,
+    "parameter_rows": 1006,
+    "taxon_rows": 10908
+  },
+  "controlled_fixture_scope": "All returns are controlled complete unresolved intent, not received qualified human decisions; no invented reviewer acceptance.",
+  "full_denominator_negative_controls": [
+    {
+      "case": "full_taxon_stale_bundle",
+      "native_error": "Returned decisions target a stale or unsupported bundle",
+      "status": "refused"
+    },
+    {
+      "case": "full_taxon_duplicate_identity",
+      "native_error": "Unknown or duplicate decision identity",
+      "status": "refused"
+    },
+    {
+      "case": "full_taxon_stale_source",
+      "native_error": "Decision source identity is stale",
+      "status": "refused"
+    },
+    {
+      "case": "full_parameter_incomplete_denominator",
+      "native_error": "Returned decisions do not close the candidate denominator",
+      "status": "refused"
+    },
+    {
+      "case": "full_parameter_stale_source",
+      "native_error": "Returned decision targets stale source evidence",
+      "status": "refused"
+    },
+    {
+      "case": "full_prerequisite_incomplete_chronology_denominator",
+      "native_error": "Chronology decisions do not canonically close the denominator",
+      "status": "refused"
+    }
+  ],
+  "checks": {
+    "focused_taxa_tests": 94,
+    "new_intake_tests": 8,
+    "strict_mypy_source_and_test": {
+      "scope": "Maintained adapter source and focused tests; not the artifact qualification writer",
+      "source_files": {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_parameters/intake.py": "d65369a26a220d1bc476ae1b3d380025b737465d9e867b0ef6f602d3043747c0",
+        "packages/bijux-pollenomics-dev/tests/taxa_review/lra_parameters/test_intake.py": "77efb957c654f4c343d6552c404bc83f317062bc43c3ba6a183a85fac6563a42"
+      },
+      "strict_mypy_source_and_test": "passed2files",
+      "ruff_check": "passed",
+      "ruff_format": "passed",
+      "pytest": {
+        "native_exit": 0,
+        "passed": 8,
+        "config": "configs/pytest.ini",
+        "import_mode": "importlib",
+        "log_sha256": "31bf122c812d50de13828d3b593d44d2f2e09b962d9186d6e9e7bddef6bc4a60"
+      }
+    },
+    "actual_pytest_xml_sha256": "7108bdc02b1f1627f38fafafdbe1673eb97fbf423b6d447f02c96b72c9eabcfd",
+    "independent_producer_free_audit": {
+      "status": "passed",
+      "scope": "Independent standard-library receipt, CSV/JSON, exact source/denominator and controlled-return identity audit; no producer import, model rerun or human/biological/rights acceptance.",
+      "checks": 104617,
+      "source_rows": 10908,
+      "candidate_concepts": 1006,
+      "chronology_rows": 10637,
+      "basin_rows": 163,
+      "parameter_authority_rows": 72,
+      "linked_publications": 223,
+      "publication_doi_null": 172,
+      "all_returns_unresolved": true,
+      "governed_prerequisite_byte_identity": true,
+      "terminal_sha256": "5f61cfaa66dfb357bc858303918c7fcb295afa35b6cdb2aefc1365dc50214ee0",
+      "audit_source_sha256": "5387f2b3b20f791c42f31169475988e71d42fa266e09269fbd8694c45fc469cf"
+    },
+    "independent_audit_sha256": "7c45a4412ddfeb93a11c803d124ccd3440cca42a0049d839c5e69b7d7f4658a4"
+  },
+  "maintained_adaptation": {
+    "source_path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_parameters/intake.py",
+    "source_sha256": "d65369a26a220d1bc476ae1b3d380025b737465d9e867b0ef6f602d3043747c0",
+    "test_path": "packages/bijux-pollenomics-dev/tests/taxa_review/lra_parameters/test_intake.py",
+    "test_sha256": "77efb957c654f4c343d6552c404bc83f317062bc43c3ba6a183a85fac6563a42",
+    "scope": "Typed physical source IO adapter; preserves native producer reports and exact semantic checks, creates distinct receipt-bound priority/provenance files, and refuses changed or malformed custody."
+  },
+  "scientific_acceptance": "not_evaluated",
+  "rights_admission": "not_evaluated",
+  "received_human_decisions": 0,
+  "accepted_samples": 0,
+  "canonical_import_allowed": false,
+  "publication_allowed": false
+}

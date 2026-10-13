@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2067,
+  "surface_count": 2069,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -14,13 +14,13 @@
     "maintenance": 1173,
     "maps": 88,
     "portal": 2,
-    "reviews": 34,
+    "reviews": 36,
     "scopes": 760
   },
   "audience_counts": {
     "maintainer_diagnostic": 1175,
     "public_reading_surface": 769,
-    "scientific_review_surface": 123
+    "scientific_review_surface": 125
   },
   "geography_counts": {
     "denmark": 49,
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1222,
+    "report_root": 1224,
     "sweden": 49,
     "world": 160
   },
@@ -19574,7 +19574,7 @@
     },
     {
       "repository_path": "docs/report/taxa-review/README.md",
-      "content_sha256": "458c2341938bdc1b06499bd6d600b657671eee2f4e4b61c721023a0e29dddd4f",
+      "content_sha256": "2dca3c7b1a15b0e6c4df560ec022f530e31a1ef797565e42f4f6ba54ed44a591",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -25154,6 +25154,30 @@
       "caution_level": "medium",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/taxa-review/readiness.json",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
+      "reader_route": "evidence_review"
+    },
+    {
+      "repository_path": "docs/report/taxa-review/source-account.json",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
+      "reader_route": "evidence_review"
     }
   ]
 }

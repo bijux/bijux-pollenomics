@@ -3210,12 +3210,12 @@
     },
     {
       "repository_path": "docs/report/taxa-review/README.md",
-      "content_sha256": "458c2341938bdc1b06499bd6d600b657671eee2f4e4b61c721023a0e29dddd4f",
-      "prose_paragraph_count": 10,
+      "content_sha256": "2dca3c7b1a15b0e6c4df560ec022f530e31a1ef797565e42f4f6ba54ed44a591",
+      "prose_paragraph_count": 17,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 3,
-      "table_line_count": 9,
+      "heading_count": 4,
+      "table_line_count": 14,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },

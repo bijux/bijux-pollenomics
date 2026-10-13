@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2071,
-  "paths_sha256": "619c135b263f70568a2f2fbcc14954dae59aeb75c87a8dd8c208f70d3a4202ad",
+  "path_count": 2073,
+  "paths_sha256": "39bdcbcf8630a59acac23130a7d1ed197e85e49dd4698262cb1310f289565e40",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45355,7 +45355,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Review the authored page and links to governed taxa-review receipts. The private bundle and Rootsi inventory remain outside this owner; no reviewer return or taxonomic admission is implied."
+      "verification": "Explain current complete taxon/PPE/basin review, exact physical source IO binding, native chronology and basin missingness,72authority-versus112source-row denominator, three returned-intent validator paths and explicit controlledunresolved/nohumanacceptance status; distinguish current169-response identity reclosure from unavailable original attribution replay and retain strict refusal."
     },
     {
       "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
@@ -46601,6 +46601,27 @@
         "reports/science/krageholm-static-geometry-sensitivity/source-custody.json"
       ],
       "verification": "Actual bounded fixed-cohort geometry consumer and independent lens-factor/Decimal audit:96source rows,95selected,24paired+one empty window; four factor differences<=7.13e-11 and816 scalar comparisons<=1.44e-16 against2e-13. Original source/raw bounds remain private; single-scenario covariance does not admit pairedSE or basin/accuracy/rights/release certification."
+    },
+    {
+      "owner_id": "taxa-review/structural-readiness-capture",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/taxa-review/readiness.json",
+        "docs/report/taxa-review/source-account.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/decisions.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_parameters/decisions.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_parameters/intake.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_parameters/projection.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/decisions.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/workflow.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-dev/tests/taxa_review/lra_parameters/test_intake.py"
+      ],
+      "verification": "Actual complete source-bound package and private native authority readers:10908taxon/1006parameter/10637chronology/163basin controlledunresolved imports,72parameterauthorityrows,169datasets223publicationlinks. Original old attribution capture replay refusal retained. Native0 bounded203.280s receipt plus producer-free104617checks; all accepted/human/rights/canonical gates false. Public surfaces are aggregate retainedcapture evidence; raw source/review rows remain private."
     }
   ]
 }

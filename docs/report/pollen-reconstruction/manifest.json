@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "4f9e06e9f9794052ae69f443284e5163ed503241ca18c7b4b52b42309c18001f",
-      "bytes": 4625297
+      "sha256": "1d9ba100224da4d76c216fb600c54743213cc26b6b80cb7afda148461e5f8ea1",
+      "bytes": 4627123
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "21bdec852ab4c5d3b90a7771572fb25b9bc53bf6bcbf6f6be8b7f12c68b1a334",
-      "bytes": 150950
+      "sha256": "fed4687b98084011d19dd39fee1472a63687a2950a1eb249e3a5dd8bec2c9930",
+      "bytes": 150951
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,12 +3766,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "dd0af7320ee5681a63aa9e5293348257c2143f626a008c68f0fa264f658ef15a",
-      "bytes": 1015242
+      "sha256": "2e905d3523bff8162f1599ce44f561456ce542f07125e2462dd1639a048a3407",
+      "bytes": 1016215
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "8773b9b8c848b41bdddc1715769474a138723b6683b8e0c52a65a40ea6736925",
+      "sha256": "06f9af976f32c36d4e47ef98a3740b12d72c3ee9356b2fe7685b0c90bfbb81f4",
       "bytes": 1078
     },
     {
