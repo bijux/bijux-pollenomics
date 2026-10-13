@@ -1,9 +1,9 @@
 {
   "defects": [],
   "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b",
-  "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
+  "inventory_sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
   "overall_status": "layout_pass",
-  "page_count": 31,
+  "page_count": 32,
   "page_evidence_sha256": "da4ff8c5cc723f284f3efedc67cf132ded9931dfbf7235d904ca6a2999d3a957",
   "paper_count": 9,
   "papers": [
@@ -140,7 +140,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -170,7 +172,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -200,7 +204,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -230,7 +236,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -260,7 +268,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -290,7 +300,9 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "all_fonts_embedded": true,
@@ -334,48 +346,58 @@
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
       "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
-      "all_fonts_embedded": true,
+      "paper_id": "namibia-modern-pollen-vegetation-reference",
       "input_pdf": "namibia-modern-pollen-vegetation-reference.pdf",
-      "input_pdf_sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
-      "page_count": 3,
+      "input_pdf_sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
+      "source_sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
+      "source_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
+      "input_receipt_sha256": "9b931e98926e1e1952d6b5584c3989e5a79a51e4ae384662ffef5a0ddb215600",
+      "review_status": "layout_pass",
+      "all_fonts_embedded": true,
+      "embedded_font_count": 8,
+      "page_count": 4,
+      "page_evidence_sha256": "da30a3bc0d7b000d8a315b1d6e31d7673e508fe9e1f2264aaacfe7c76062a638",
       "pages": [
         {
-          "image": "page-1.png",
-          "observation": "2021 citation and abstract-only calibration scope visible;931033/931035/931037 identifiers,CCBY4.0 and grain/area distinction readable.",
           "page": 1,
-          "png_sha256": "efdf70a54a7a938e4e29dad1a79fe7a387275df180f64b3bd57880fdef9d22cc",
+          "image": "page-1.png",
+          "png_sha256": "a7e763fc5b88bdfed1305c06a0169ae06d423233e068a89df5b80110abdc3242",
+          "observation": "Citation/source identity and descriptive versus fitted-development scope readable; no clipping or footer overlap.",
           "visual_status": "readable"
         },
         {
-          "image": "page-2.png",
-          "observation": "Entire diagram including dashed calibration limit readable;750rows/50series/9declines/700comparisons and64.621\u201393.534% annuli visible. All T1 counts, conditional fractions and full sqrt Hellinger expression intact.",
           "page": 2,
-          "png_sha256": "ce1f671f791220c91730f0693177af584ab8d106975335dab705492a0d62c1e7",
+          "image": "page-2.png",
+          "png_sha256": "d1af4bf6ed436a8d2d4b609fcbb4bb539f1881300dd2a8a97c00d338d8f31318",
+          "observation": "All source-flowchart labels and ring-area/count trace readable; equation continues intact onto next page.",
           "visual_status": "readable"
         },
         {
-          "image": "page-3.png",
-          "observation": "Continuation defines v correctly;100/400/1500m three-row distances table readable; precise unsent source-request slash list wraps within right margin.",
           "page": 3,
-          "png_sha256": "1c731445c0fa7576ce752389eff4d3d91ecbbf29e6953e9127b0beb01e18f2b5",
+          "image": "page-3.png",
+          "png_sha256": "a58c6810e375291752d13d67bd3a39a50f7bd5eb6d88e4c009c97a619d729564",
+          "observation": "Complete development section, squared-loss distinction, all110poorer outcomes and uncertainty/accuracy limits readable; table and URLs fit.",
+          "visual_status": "readable"
+        },
+        {
+          "page": 4,
+          "image": "page-4.png",
+          "png_sha256": "289c7fa0cf729f4c8db7d1a7989c3fb27247b7b6a29c1a87a172d4ac9dce9733",
+          "observation": "Nordic refusal, source/reproduction route and exact unsent input request readable; no independent endorsement claim.",
           "visual_status": "readable"
         }
       ],
-      "paper_id": "namibia-modern-pollen-vegetation-reference",
-      "primary_source_url_annotated": true,
-      "repository_revision_in_annotations": true,
-      "review_status": "layout_pass",
-      "source_hash_and_citation_year_on_page_one": true,
-      "source_path_in_each_page_footer": true,
-      "source_sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "limitations": "Model layout/text/font check only; untaggedPDF, no qualified human/scientific review."
     }
   ],
-  "repository_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+  "repository_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
   "review_scope": "Eight unchanged baseline page-review records plus one separately inspected ten-page LandClim successor. Baseline global receipt/evidence identity remains unchanged; new paper row binds actual successor evidence.",
   "scientific_or_release_admission": false,
-  "source_date_epoch": 1790812800
+  "source_date_epoch": 1790812800,
+  "library_scope": "Seven unchanged baseline paper exports plus separately produced LandClim and Namibia accounts. Per-paper source, producer, build and layout identities retain their own actual revision; current inventory binds the complete nine-paper library."
 }

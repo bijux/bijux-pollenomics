@@ -5,16 +5,16 @@
   "inventory_report_hashes": {
     "reports/science/hellman-regional-validation-paper.md": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
     "reports/science/hellman-sampling-design-paper.md": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
-    "reports/science/landclim-paper.md": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
+    "reports/science/landclim-paper.md": "fe7a731caeb02d8577a5490d68f8aa39fcddb998978b5b194db510a3db6e4076",
     "reports/science/love-theory-paper.md": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
     "reports/science/loveoptim-paper.md": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
-    "reports/science/namibia-pollen-vegetation-paper.md": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
+    "reports/science/namibia-pollen-vegetation-paper.md": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
     "reports/science/reveals-theory-paper.md": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
     "reports/science/smaland-historical-maps-paper.md": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
     "reports/science/southern-sweden-validation-paper.md": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d"
   },
-  "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
-  "library_scope": "Eight unchanged baseline paper exports plus one separately reproduced ten-page LandClim account including Nordic/Tibetanus evidence. Per-paper source/build/tool metadata identifies the successor; baseline global production metadata remains its original authority.",
+  "inventory_sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
+  "library_scope": "Seven unchanged baseline paper exports plus separately produced LandClim and Namibia accounts. Per-paper source, producer, build and layout identities retain their own actual revision; current inventory binds the complete nine-paper library.",
   "papers": [
     {
       "account_status": "full_paper_account_scientific_gates_open",
@@ -100,7 +100,9 @@
       "pdf": "love-optimized-local-inference.pdf",
       "pdf_bytes": 84073,
       "pdf_sha256": "cd04def7764d2d72534fae9161f0c7e3bb23af8997d89b6cf8d49a02fb174d1e",
-      "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c"
+      "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "partial_primary_text_account",
@@ -127,7 +129,9 @@
       "pdf": "regional-reveals-theory.pdf",
       "pdf_bytes": 46574,
       "pdf_sha256": "dfc61dbe4329f600f47b4a44ca249560baa022029e605d25af48f160435ed04f",
-      "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4"
+      "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "partial_primary_text_account",
@@ -154,7 +158,9 @@
       "pdf": "local-love-theory.pdf",
       "pdf_bytes": 45960,
       "pdf_sha256": "6ba154e83cd7c8a3f1858d20450d2a85e0c9d96bc575e45f09d6f60882396f57",
-      "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f"
+      "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "partial_primary_text_account",
@@ -181,7 +187,9 @@
       "pdf": "southern-sweden-regional-validation.pdf",
       "pdf_bytes": 48346,
       "pdf_sha256": "7f279ef718b889080ad7efd1b21ebeefa7f68a5c5f3a80f3c1ecc4b6d7bfc6b7",
-      "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1"
+      "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "partial_primary_text_account",
@@ -208,7 +216,9 @@
       "pdf": "southern-sweden-sampling-design.pdf",
       "pdf_bytes": 49082,
       "pdf_sha256": "6fee1371a5e3334f9adf8954a1b254f6a9eb874e696d3420a94c72c483533f35",
-      "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456"
+      "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "bounded_figure_account_full_pdf_available",
@@ -230,7 +240,9 @@
       "pdf": "southern-sweden-validation-synthesis.pdf",
       "pdf_bytes": 44238,
       "pdf_sha256": "db84fa8b5d085db16eb35afa49f94b376bbaf5e369f2c451262bf8abb41db75d",
-      "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d"
+      "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "full_paper_account_numeric_reference_open",
@@ -262,7 +274,9 @@
       "pdf": "smaland-historical-map-reference.pdf",
       "pdf_bytes": 75391,
       "pdf_sha256": "ab3cb9fb5d3ce33e4c8dfb82a22aa36f1fab4b7b21c9928562aed982fb83d9a1",
-      "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5"
+      "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
+      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+      "build_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
     },
     {
       "account_status": "partial_primary_text_complete_modern_data_account",
@@ -283,13 +297,35 @@
       "code_blocks": 0,
       "diagrams": 1,
       "external_links": 8,
-      "latex_sha256": "48bba5bdac923c02218b835da6418f88fc07a298638958804bbde0eb5ae0631b",
-      "local_repository_links": 15,
+      "latex_sha256": "1182312461ec8a48caf3387cd85caea27b8bdd44f8b88877b04f4f4919d765a1",
+      "local_repository_links": 20,
       "paper_id": "namibia-modern-pollen-vegetation-reference",
       "pdf": "namibia-modern-pollen-vegetation-reference.pdf",
-      "pdf_bytes": 66530,
-      "pdf_sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
-      "source_sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1"
+      "pdf_bytes": 69631,
+      "pdf_sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
+      "source_sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
+      "source_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
+      "build_receipt_sha256": "9b931e98926e1e1952d6b5584c3989e5a79a51e4ae384662ffef5a0ddb215600",
+      "producer_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
+      "producer_sha256": {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "5b089e9318f726bb0689b5677e97bd41919053bdc4125ba24e076865948319d4",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "f04da19ae799fd5dc41721fb53b431223786a44e8a90e93c9387d40b54402c1d",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "c3d5aba6cc5211d49fe05ba39df5b2fcf7257074068de09d14b90da06fdc8a22",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
+      },
+      "repository_link_base": "https://github.com/bijux/bijux-pollenomics/blob/46289be052e0250c3b72cef77cf0520075e13fb5/",
+      "repository_links_verified_online": false,
+      "source_date_epoch": 1790812800,
+      "tools": {
+        "dot": "dot - graphviz version 13.1.0 (20250701.0955)",
+        "latexmk": "Latexmk, John Collins, 31 Jan. 2024. Version 4.83",
+        "xelatex": "XeTeX 3.141592653-2.6-0.999996 (TeX Live 2024)"
+      },
+      "python_dependencies": {
+        "markdown-it-py": "4.0.0"
+      }
     }
   ],
   "producer_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
@@ -308,7 +344,7 @@
   "repository_link_base": "https://github.com/bijux/bijux-pollenomics/blob/16c24efd53d91d5ae7aa02e820622cd581a6926f/",
   "repository_link_status": "Local source paths are resolved and encoded; remote availability awaits authorized publication.",
   "repository_links_verified_online": false,
-  "repository_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
+  "repository_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
   "schema_version": "canonical-paper-pdf-library.v1",
   "source_date_epoch": 1790812800,
   "tools": {
