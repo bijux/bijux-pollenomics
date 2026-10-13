@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2073,
+  "surface_count": 2074,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1165,
+    "maintenance": 1166,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1167,
+    "maintainer_diagnostic": 1168,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1214,
+    "report_root": 1215,
     "sweden": 49,
     "world": 172
   },
@@ -10753,7 +10753,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "content_sha256": "85122e601bc6bf26d586acf8bada6725f813c64f1becd9d8511730a310ac4161",
+      "content_sha256": "0b2bec48ce4014d2bb77fead52a35752586a16b7429c1b8a340d22b045488096",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25214,6 +25214,18 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/window-domain.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

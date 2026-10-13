@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "07912015cfb47ab96d9db21eae2247b6f6d71a333bb3628f101bab6271a57e62",
-      "bytes": 4586005
+      "sha256": "f6be7d1e4f2f004357672d135a0e172547d3fdf160281a846c88c87352ffa89d",
+      "bytes": 4587297
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1976,8 +1976,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "sha256": "85122e601bc6bf26d586acf8bada6725f813c64f1becd9d8511730a310ac4161",
-      "bytes": 15472
+      "sha256": "0b2bec48ce4014d2bb77fead52a35752586a16b7429c1b8a340d22b045488096",
+      "bytes": 17202
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "ef90143dfe3882c8132f0fc440a52ecf5c341d4fe2654909d6bade0c462f6e5e",
-      "bytes": 149447
+      "sha256": "dd5f9cf15b938d60541569864e61b3a83436186ade17d0d6a05c275bd876d4ba",
+      "bytes": 149435
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,8 +3766,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "f71119fbf9ebf57b89db3491d4dfb3f7e17663ed3d3c23b128a2d981a6419247",
-      "bytes": 1017234
+      "sha256": "69d45d6f25fed78b5edeab74c57a9682e53ce441708cca7217be98146b0b8c59",
+      "bytes": 1017733
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -8923,6 +8923,26 @@
       "path": "reports/science/nordic-source-attribution/source-custody.json",
       "sha256": "a6f6ad9bdae3bb04bc218372b8dad9b4f38eb196ded4e2325886c05271c49b04",
       "bytes": 2541
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/window-domain.json",
+      "sha256": "445cdd970ab434c66273ad0e1dc7d4b3372b70494cefd1688973ece8c3154b31",
+      "bytes": 125704
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_chronology_admission.py",
+      "sha256": "016d1f8b18105e6c9d63d2ad747dd04d82d715136fa2151982b7663246908595",
+      "bytes": 2136
+    },
+    {
+      "path": "reports/science/nordic-chronology-admission/qualify.py",
+      "sha256": "9bafa7dc055f9deff011c9274f8371d50fd4d3604050b52ece8b0d359ff26ab4",
+      "bytes": 14235
+    },
+    {
+      "path": "reports/science/nordic-chronology-admission/source-custody.json",
+      "sha256": "6ca012be0c30addc3097a19b5102cb12c5d7f6335b05187d79f4e9ca014ec2ec",
+      "bytes": 802
     }
   ]
 }
