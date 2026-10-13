@@ -1,0 +1,11 @@
+{
+  "minimum_own_scored_bin_coverage": 0.8,
+  "support": "intersection_of_scored_fold_site_bin_keys_across_all_12_candidates",
+  "aggregation": "equal_weight_site_mean_then_equal_weight_site_macro_across_all_three_folds",
+  "primary": "minimum_common_support_site_macro_mae",
+  "ties": [
+    "greater_own_coverage",
+    "historical_candidate_id"
+  ],
+  "purpose": "reconcile_retained_exposed_selection_not_new_model_selection"
+}

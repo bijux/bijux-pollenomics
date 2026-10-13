@@ -25,6 +25,12 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     reopen_cohort_admission,
 )
 
+from .development_cohort import (
+    PROFILE as DEVELOPMENT_COHORT_PROFILE,
+)
+from .development_cohort import (
+    validate_development_cohort,
+)
 from .development_design import (
     DevelopmentDesignError,
     validate_attempt_against_design,
@@ -340,12 +346,27 @@ def _evaluation_binding(value: object, hashes: dict[str, object]) -> None:
     cohort_sha256 = _sha256(
         binding["cohort_admission_sha256"], "cohort_admission_sha256"
     )
+    scope_sha256 = _sha256(binding["scope_sha256"], "scope_sha256")
     try:
-        admission = reopen_cohort_admission(canonical, cohort_sha256)
+        declared: object = json.loads(canonical)
+        if (
+            isinstance(declared, dict)
+            and declared.get("profile") == DEVELOPMENT_COHORT_PROFILE
+        ):
+            admitted_scope = validate_development_cohort(
+                canonical,
+                cohort_sha256,
+                experiment=binding["experiment"],
+                target=binding["target"],
+                input_hashes=hashes,
+            )
+        else:
+            admitted_scope = reopen_cohort_admission(
+                canonical, cohort_sha256
+            ).scope_sha256
     except ValueError as exc:
         raise ExperimentLedgerError("invalid_cohort_admission") from exc
-    scope_sha256 = _sha256(binding["scope_sha256"], "scope_sha256")
-    if admission.scope_sha256 != scope_sha256:
+    if admitted_scope != scope_sha256:
         raise ExperimentLedgerError("cohort_scope_mismatch")
     split_sha256 = _sha256(binding["split_manifest_sha256"], "split_manifest_sha256")
     if hashes.get("split_manifest") != split_sha256:

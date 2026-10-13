@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2069,
+  "surface_count": 2071,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1173,
+    "maintenance": 1175,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1175,
+    "maintainer_diagnostic": 1177,
     "public_reading_surface": 769,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1224,
+    "report_root": 1226,
     "sweden": 49,
     "world": 160
   },
@@ -25178,6 +25178,31 @@
       "caution_level": "medium",
       "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
+    },
+    {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here",
+      "content_sha256": "af0233317884b38ffc4df4fa508da3ccb9466f6d7a40d2da847d02859d6a5848"
+    },
+    {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 318,
+  "page_count": 319,
   "quality_posture_counts": {
-    "reader_ready": 125,
     "structured_reference": 20,
+    "reader_ready": 126,
     "thin_structure": 173
   },
   "rows": [
@@ -3504,6 +3504,17 @@
       "table_line_count": 0,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "content_sha256": "af0233317884b38ffc4df4fa508da3ccb9466f6d7a40d2da847d02859d6a5848",
+      "prose_paragraph_count": 8,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains prior exposure, immutable design, all attempted and refused outcomes, runtime failures and limits of the retained-score audit."
     }
   ]
 }
