@@ -1,0 +1,40 @@
+{
+  "schema_version": "krageholm-static-geometry-protocol.v1",
+  "native_dataset_id": 23013,
+  "native_collection_unit_id": 16622,
+  "native_chronology_id": 13366,
+  "native_cal_bp_reference": "AD1950 per Neotoma manual7.5; selected Giesecke2014MADCAP chronology, not original CAA uncalibrated radiocarbon chronology. Publication/collection year never resets BPzero.",
+  "original_native_samples": 96,
+  "fixed_selected_samples": 95,
+  "full_window_domain": 25,
+  "paired_occupied_windows": 24,
+  "selection": "Exact named calibrated point ages and two unique literal count fields; half-open original0<=CalBP<11700 bins. Preserve one outside-domain sample, all raw younger/older bounds including two negative younger bounds. No interval posterior or certainty conversion.",
+  "axis": [
+    "Betula",
+    "Poaceae"
+  ],
+  "parameter_and_geometry_scope": "Source native PPE5.106/1.0, SD.303/0 shared and independent counting model, GPMneutral diffusion.12/turbulence.25/wind3m/s, disk receiver with shore-contiguous land annulus to100km. All fixed except declared static radius.",
+  "geometry_scenarios": {
+    "workbook_static_circle": {
+      "radius_m": 837.0,
+      "metadata_code": "KRA",
+      "publication_row": 1004,
+      "sample_claim": "96",
+      "historical_restriction": "NR",
+      "historical_identity_authenticated": false
+    },
+    "paper_area_declared_circle": {
+      "area_ha": 186.0,
+      "circle_radius_rule": "sqrt(186*10000/pi)",
+      "paper": "Sugita et alCAA2007 printedp388",
+      "primary_documentary_url": "https://proceedings.caaconference.org/files/2007/125_Sugita_et_al_CAA2007.pdf",
+      "documentary_scope": "186ha named-lake statement previously checked in packSCIENCE.md; originalPDFnot restored here. Explicit analyst static-area transfer scenario, no sampled-core/date/shoreline match or source historical reconstruction admission."
+    }
+  },
+  "comparison": "Alternative minus reference two-taxon conditional cover in all24paired windows; one empty slot has both refusals and nullvalues. Conditional single-scenario counting/shared-PPE covariance shown separately.",
+  "paired_uncertainty": "No cross-geometry covariance/age/basin uncertainty distribution supplied; paired standard error null, no significance/coverage/accuracy inference.",
+  "source_count_populations": "96original native samples and96workbook sample claim are distinct identity assertions;95selected conditional samples exclude one native point outside fixeddomain. Equal original row count does not authenticate paper input selection.",
+  "source_rights": "Reuse existing retained native captures for local declared consumer. Private individual depths/ages/counts and original workbook/taxonomy remain private; no extension of historical NRscope or new redistribution rights. Prospective aggregate account may publish conditional outputs with attribution separately.",
+  "verification": "Four maintained circular_receiver_annulus factors independently checked by analytical disk-lens one-dimensional scalar integration at2e-8absolute+2e-8relative; pooledcounts/ages and fixed-site cover/counting/PPE/totalcovariance/SE/pairedcontrast via independently implemented Decimal50 at2e-13absolute. Same Python/SciPy runtime limitation preserved.",
+  "release_scope": "No originalR/full historical reproduction, source basin truth, entire31taxon vegetation, Nordic measured accuracy, reviewerdecision or gateclosure."
+}

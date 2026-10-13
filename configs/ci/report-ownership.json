@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2082,
-  "paths_sha256": "beac3a99945e1630bf233153f74b9769559e919682f2aa92759b3ab2bcad3d0a",
+  "path_count": 2085,
+  "paths_sha256": "d74313f4f06ffd387f3746d7516dbe0ef10e2462bbc99c1c33cebf1c068db82c",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46231,6 +46231,33 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Explain the independent forward challenge, conditional multinomial coverage denominators, preserved misspecification failures and distinct historical/fresh execution custody. No empirical accuracy or coverage certification."
+    },
+    {
+      "owner_id": "pollen-reconstruction/krageholm-static-geometry-sensitivity/reader",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain native 96/95 sample selection, 25/24 full window domain, analyst-declared 186ha circle versus workbook837m static geometry; no authenticated historical basin or measured accuracy."
+    },
+    {
+      "owner_id": "pollen-reconstruction/krageholm-static-geometry-sensitivity/aggregate",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json"
+      ],
+      "producer_paths": [
+        "reports/science/krageholm-static-geometry-sensitivity/qualify.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_krageholm_static_geometry_sensitivity.py",
+        "reports/science/krageholm-static-geometry-sensitivity/protocol.json",
+        "reports/science/krageholm-static-geometry-sensitivity/source-custody.json"
+      ],
+      "verification": "Actual bounded fixed-cohort geometry consumer and independent lens-factor/Decimal audit:96source rows,95selected,24paired+one empty window; four factor differences<=7.13e-11 and816 scalar comparisons<=1.44e-16 against2e-13. Original source/raw bounds remain private; single-scenario covariance does not admit pairedSE or basin/accuracy/rights/release certification."
     }
   ]
 }

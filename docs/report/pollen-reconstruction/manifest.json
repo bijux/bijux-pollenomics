@@ -2251,8 +2251,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "sha256": "32a83a5a4eb829c556fe0e51f3a0b06b93663b07245d38fb599c60e46d437c8c",
-      "bytes": 10280
+      "sha256": "0cf4060d62c1ad08259b433a2f022d1764e670e5f3030100913b1e7f92d7a425",
+      "bytes": 10762
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
@@ -8973,6 +8973,41 @@
       "path": "reports/science/swedish-native-chronology-contrast/source-custody.json",
       "sha256": "108ac1c7483501df7e3eb5261ca776b20f3cb98b3dcd2911474c1e4431ea1531",
       "bytes": 1429
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "sha256": "5cdc9ab0d530b3bb746f0fb9b85ec446959a7b787e0400549405a038193dfde6",
+      "bytes": 3016
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
+      "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7",
+      "bytes": 68449
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json",
+      "sha256": "bb4d8f0f0c536375aa3db087346d174d1f25b52b2ec543cf4244a9c65cf1e33f",
+      "bytes": 17334
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_krageholm_static_geometry_sensitivity.py",
+      "sha256": "eece4ad7c3eb7c9fce6310c3a70360b4ff59f87ab3720bb7ffee88aeb5b29991",
+      "bytes": 1962
+    },
+    {
+      "path": "reports/science/krageholm-static-geometry-sensitivity/protocol.json",
+      "sha256": "b19bd79c31e9491868fa56b4911e611be9f035888b3bf04bc36b9cf8cd36242d",
+      "bytes": 3426
+    },
+    {
+      "path": "reports/science/krageholm-static-geometry-sensitivity/qualify.py",
+      "sha256": "d482e7f04e942b73c50652e3fd6f7e0dccf39790a6a8b72f19850d92d3916bc6",
+      "bytes": 12739
+    },
+    {
+      "path": "reports/science/krageholm-static-geometry-sensitivity/source-custody.json",
+      "sha256": "0abd87a5a74335501b538c238cd04f7cc5300b7d0da708d4b3bdcc5b27ce8b54",
+      "bytes": 719
     }
   ]
 }

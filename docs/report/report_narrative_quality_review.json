@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 317,
+  "page_count": 318,
   "quality_posture_counts": {
     "reader_ready": 125,
     "structured_reference": 20,
-    "thin_structure": 172
+    "thin_structure": 173
   },
   "rows": [
     {
@@ -1439,8 +1439,8 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "content_sha256": "32a83a5a4eb829c556fe0e51f3a0b06b93663b07245d38fb599c60e46d437c8c",
-      "prose_paragraph_count": 16,
+      "content_sha256": "0cf4060d62c1ad08259b433a2f022d1764e670e5f3030100913b1e7f92d7a425",
+      "prose_paragraph_count": 17,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 3,
@@ -3493,6 +3493,17 @@
       "table_line_count": 5,
       "quality_posture": "reader_ready",
       "note": "Page explains independent generation, complete noisy coverage denominators, failures, immutable custody and numerical reproduction."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "content_sha256": "5cdc9ab0d530b3bb746f0fb9b85ec446959a7b787e0400549405a038193dfde6",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     }
   ]
 }
