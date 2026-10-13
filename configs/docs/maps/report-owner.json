@@ -3,9 +3,9 @@
   "site_url": "https://bijux.io/bijux-pollenomics/",
   "config": {
     "path": "mkdocs.yml",
-    "sha256": "af66e7eea17944eff0bbd370ff5b8166b6037d762b1f1692a3016ba36262713a"
+    "sha256": "7c37ec024927d38dd0f6579efa3f72d59d0e31916be4f79e589728f0dffac324"
   },
-  "resolved_config_sha256": "1507629e5f75c49d66d8c698e2d1985e18ffe475847bbaf30f265ae0a84f9c8c",
+  "resolved_config_sha256": "2a6ad016d5f2e1f671f8f7980a3ec5a45c67ce0b3997b96d0b8f0d81cb6a27b6",
   "producer_inputs": [
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py",

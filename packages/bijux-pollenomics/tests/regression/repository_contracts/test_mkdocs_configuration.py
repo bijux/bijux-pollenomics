@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+import hashlib
+import json
 import unittest
 
 import pytest
@@ -15,6 +17,18 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class MkDocsConfigurationTests(unittest.TestCase):
+    def test_interactive_report_owner_binds_root_configuration(self) -> None:
+        config_bytes = (REPO_ROOT / "mkdocs.yml").read_bytes()
+        config = yaml.load(config_bytes, Loader=MkDocsLoader)
+        owner_path = config["extra"]["bijux"]["interactive_report_owner"]
+        descriptor = json.loads((REPO_ROOT / owner_path).read_bytes())
+
+        self.assertEqual(
+            descriptor["config"],
+            {"path": "mkdocs.yml", "sha256": hashlib.sha256(config_bytes).hexdigest()},
+        )
+        self.assertIn("configs/docs/report_provenance.py", config["hooks"])
+
     def test_root_mkdocs_redirect_targets_exist(self) -> None:
         config = yaml.load(
             (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8"),
