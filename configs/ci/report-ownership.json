@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2075,
-  "paths_sha256": "e3bc68b48f9851b8663b9fee3280934bc52d08e02cf66129ef706714616b3193",
+  "path_count": 2078,
+  "paths_sha256": "9f35ebb27b00984c0038c2e10b41e611ad30f608a94559dbf1d8e20c094605a0",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46856,6 +46856,31 @@
         "data/model-development/english-retained-score-audit/manifest.json"
       ],
       "verification": "Run the maintained development_evidence retained-account reader into two absent ordinary lane destinations and compare each output byte-for-byte with the governed report. This verifies immutable previously exposed development custody without refitting, reselecting, source acquisition or confirmatory ecological claims."
+    },
+    {
+      "owner_id": "source-relations/landclim/worksheet-layout/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/worksheet-layout/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain actual selected4workbook/eight-sheet observations and native-stage/check-stage distinction; formula origin, fullcensus, rights and scienceadmission remain unresolved."
+    },
+    {
+      "owner_id": "source-relations/landclim/worksheet-layout/native-capture",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/source-relations/landclim/worksheet-layout/report.json",
+        "docs/report/source-relations/landclim/worksheet-layout/source-account.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/layout.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_layout.py"
+      ],
+      "verification": "Retained actual native source-bound four-workbook layout and27325cachedcell/eight-sheet comparison with independent16rawBOUNDSHEET checks. Prior failed oracle and later test-only stricttyping failure retained; final9guards/types2/lint passed. No all79census or source/taxon/unit/rights/science admission."
     }
   ]
 }

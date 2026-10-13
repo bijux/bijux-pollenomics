@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "9223d859765e472ddf1981235df043b73ca95222666212a14b3935339bbade4c",
-      "bytes": 4654368
+      "sha256": "b2a9a163f6a8333d68b396a0167c33ea42f445043485e53b827d8d8095c2ef06",
+      "bytes": 4655766
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,22 +3756,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "4df653438c4ad87c67d7be7361cff69a33fc8a30ef160939a49f441255e84be7",
-      "bytes": 151504
+      "sha256": "3d1c94c4df17ad038cf96cfce809ee8ccfd01414e8ef31a12dd56591714732e9",
+      "bytes": 152052
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "6f68e04d292df4185e9aeb397a1a5617f957dffa8a3cbe2faacab21d022850b4",
+      "sha256": "44e55efffa04ba60d00666509f2f816d9362e542755a67fa0a94389626943b62",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "2aa17390e859f2da5a643a2cfa5c11ce21270237a641e9a3dbd28aa462555ab9",
-      "bytes": 1017271
+      "sha256": "049ae123c81e97df2bcc1090557d74afe5c9f1c6c8c6f13d4c4265b26678606d",
+      "bytes": 1018865
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "5313211d6fb50c4594ee10cd5f4af6e3a8c950af05402828692fe0462a03204a",
+      "sha256": "9d92fa93ab5e771c08243e5466e0010bf12cabb557131f3b4519e4c73d4f8d75",
       "bytes": 1078
     },
     {
@@ -8071,13 +8071,13 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "ca5a8c9c81322d66d214b7ca8bf3fe8d0e821c26663cf0a9c5244607da75790d",
-      "bytes": 109675
+      "sha256": "57da87ab1f12a413eb9d2b34f939c73717fd0324bb07c4167749c909cf22e704",
+      "bytes": 112043
     },
     {
       "path": "reports/needed/report-claims.md",
-      "sha256": "820dc1cb9aaaa6e787339c72c58158676b2f401f323e722dc040581f290ad70a",
-      "bytes": 28814
+      "sha256": "52cfbfb3c8bf7b1e93bdb32bda902384af8c9695e497815bb733b17e572f3009",
+      "bytes": 29446
     },
     {
       "path": "reports/needed/review-decision.md",
@@ -8086,13 +8086,13 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "e7db2455049f8f4dc5bb810bda59d87de67386340d87cd542bb16358c01d8dbc",
+      "sha256": "e8d589a56b9e243cfe7f8a9405c5f420119a1d6e7890c2590ba11b12d42addc7",
       "bytes": 65254
     },
     {
       "path": "reports/needed/scientific-review.md",
-      "sha256": "63642f02f768a461efaaeeacca6a5ac089dbd78192de21bcdf090c87e770bb4c",
-      "bytes": 14442
+      "sha256": "906a3856e2e032c5d7e4e9100cbf7c2b27b98a6d2eea68851b2283093c45354e",
+      "bytes": 14708
     },
     {
       "path": "reports/needed/source-requests.csv",
@@ -10083,6 +10083,36 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/synthetic_recovery_evidence.py",
       "sha256": "400102d8cfcad878fa9e0e366bb732172c6bbf9615799eee7b2cefb8c8c4839c",
       "bytes": 217
+    },
+    {
+      "path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "sha256": "c9c07858406c3691f9fdc70f4bf58c2efecf19cd08155719e9db2dd9f03b815a",
+      "bytes": 5434
+    },
+    {
+      "path": "docs/report/source-relations/landclim/worksheet-layout/report.json",
+      "sha256": "79617da3ca0a1ace919fb509c5be244727073ffc50661a84d7bc457f4458c5e0",
+      "bytes": 2409
+    },
+    {
+      "path": "docs/report/source-relations/landclim/worksheet-layout/source-account.json",
+      "sha256": "692f99c7cb0f9063635526ff43cc605b528b0ad740795752d2b717bd50485e23",
+      "bytes": 5109
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/layout.py",
+      "sha256": "cfda990ae91ec2a9b6686ac2b7ec26d54d67d3f4a83ba62b27cc8782c64c23e4",
+      "bytes": 4778
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_layout.py",
+      "sha256": "47151f91aa4291b4dabe49fcee9b3dcdef27d76c2f2fb79909b26f05dc2fffbd",
+      "bytes": 3009
+    },
+    {
+      "path": "reports/needed/claim-account-sources.json",
+      "sha256": "bb232242b0abe9f098f8731e289668cd4fdf2961ccff88458ebc45d25fb8ba77",
+      "bytes": 413
     }
   ]
 }

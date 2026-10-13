@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2071,
+  "surface_count": 2074,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,25 +11,25 @@
   ],
   "family_counts": {
     "caveats": 10,
+    "reviews": 39,
     "maintenance": 1175,
+    "scopes": 760,
     "maps": 88,
-    "portal": 2,
-    "reviews": 36,
-    "scopes": 760
+    "portal": 2
   },
   "audience_counts": {
+    "scientific_review_surface": 128,
     "maintainer_diagnostic": 1177,
-    "public_reading_surface": 769,
-    "scientific_review_surface": 125
+    "public_reading_surface": 769
   },
   "geography_counts": {
+    "report_root": 1229,
     "denmark": 49,
-    "europe_plus": 62,
     "finland": 14,
-    "nordic": 497,
     "norway": 14,
-    "report_root": 1226,
     "sweden": 49,
+    "europe_plus": 62,
+    "nordic": 497,
     "world": 160
   },
   "rows": [
@@ -25203,6 +25203,43 @@
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "content_sha256": "c9c07858406c3691f9fdc70f4bf58c2efecf19cd08155719e9db2dd9f03b815a",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/report.json",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
+      "reader_route": "evidence_review"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/source-account.json",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "scientific_review_surface",
+      "audience_label": "Scientific review surface",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
+      "reader_route": "evidence_review"
     }
   ]
 }
