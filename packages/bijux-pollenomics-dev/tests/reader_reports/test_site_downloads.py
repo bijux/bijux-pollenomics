@@ -460,6 +460,8 @@ def test_retained_build_historical_source_substitution_refuses(
     [
         "unknown_leaf",
         "build_leaf",
+        "build_count_float",
+        "epoch_count_float",
         "epoch_leaf",
         "source_path",
         "source_hash",
@@ -478,6 +480,10 @@ def test_committed_source_context_has_strict_finite_schema(mutation: str) -> Non
         context["unknown"] = True
     elif mutation == "build_leaf":
         context["retained_build"]["unknown"] = True
+    elif mutation == "build_count_float":
+        context["retained_build"]["source_count"] = 121.0
+    elif mutation == "epoch_count_float":
+        context["previous_deck_epoch"]["source_count"] = 98.0
     elif mutation == "epoch_leaf":
         context["previous_deck_epoch"]["unknown"] = True
     elif mutation == "source_path":

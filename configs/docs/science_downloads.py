@@ -275,8 +275,10 @@ def _validated_current_deck_context(raw: bytes) -> dict[str, Any]:
             "qualification",
         }
         or context["schema_version"] != CURRENT_DECK_CONTEXT_SCHEMA
-        or context["retained_build"] != CURRENT_DECK_BUILD
-        or context["previous_deck_epoch"] != CURRENT_DECK_PREVIOUS_EPOCH
+        or json.dumps(context["retained_build"], sort_keys=True)
+        != json.dumps(CURRENT_DECK_BUILD, sort_keys=True)
+        or json.dumps(context["previous_deck_epoch"], sort_keys=True)
+        != json.dumps(CURRENT_DECK_PREVIOUS_EPOCH, sort_keys=True)
         or not isinstance(context["current_source_sha256"], dict)
         or not isinstance(context["reviewed_deltas"], list)
         or not isinstance(context["qualification"], str)
