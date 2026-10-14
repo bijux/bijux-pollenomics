@@ -10,11 +10,24 @@ from pathlib import Path
 import subprocess
 import sys
 
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+    load_routes,
+    render_route,
+    verified_authored_reader,
+)
 
 FAMILY = Path(__file__).resolve().parent
 REPOSITORY = FAMILY.parents[3]
 ARTIFACTS = REPOSITORY / "artifacts"
-MODULE_ROOT = REPOSITORY / "packages/bijux-pollenomics-dev/src"
+SOURCE_ROOTS = tuple(
+    REPOSITORY / "packages" / name / "src"
+    for name in (
+        "bijux-pollenomics",
+        "bijux-pollenomics-dev",
+        "bijux-pollenomics-lra",
+        "pollenomics",
+    )
+)
 RUN = REPOSITORY / "docs/report/publication-replay/landclim-method-profile/reference"
 BUFFERED_MANIFEST = (
     REPOSITORY
@@ -57,9 +70,28 @@ def _check_inputs(source: Path) -> None:
         )
 
 
+def _render_report(output: Path) -> None:
+    """Authenticate generated prose and publish its exact governed reader route."""
+    relative = FAMILY.relative_to(REPOSITORY).as_posix() + "/REPORT.md"
+    route = load_routes()[relative]
+    retained = (FAMILY / "REPORT.md").read_bytes()
+    verified_authored_reader(retained, route)
+    path = output / "REPORT.md"
+    if path.is_symlink() or not path.is_file():
+        raise ValueError("generated reader must be a regular file")
+    generated = path.read_bytes()
+    verified_authored_reader(generated, route)
+    rendered = render_route(generated, route)
+    if rendered != retained:
+        raise ValueError("generated reader differs from its governed route")
+    path.write_bytes(rendered)
+
+
 def _check_output(output: Path) -> None:
     actual = {item.name for item in output.iterdir()}
-    if actual != FILES or any(not (output / name).is_file() for name in FILES):
+    if actual != FILES or any(
+        (output / name).is_symlink() or not (output / name).is_file() for name in FILES
+    ):
         raise ValueError(f"generated file set differs: {sorted(actual)}")
     differences = [
         name
@@ -90,7 +122,7 @@ def main() -> int:
     environment = os.environ.copy()
     environment.update(
         PYTHONDONTWRITEBYTECODE="1",
-        PYTHONPATH=str(MODULE_ROOT),
+        PYTHONPATH=os.pathsep.join(str(path) for path in SOURCE_ROOTS),
         OMP_NUM_THREADS="1",
         OPENBLAS_NUM_THREADS="1",
         MKL_NUM_THREADS="1",
@@ -122,6 +154,7 @@ def main() -> int:
         path = producer_output / name
         data = path.read_bytes()
         path.write_bytes(data.replace(b"\r\n", b"\n"))
+    _render_report(producer_output)
     _check_output(producer_output)
     for name in sorted(FILES):
         (producer_output / name).rename(output / name)
