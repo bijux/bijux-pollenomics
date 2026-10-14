@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2099,
-  "paths_sha256": "5442a70c71f03886634afabce7f19a5b509a3c37a96a3d45732ca66afd492d4c",
+  "path_count": 2101,
+  "paths_sha256": "5555fdc848da6316a46f59c2f78092ee0be3cb87e669301ca872cb5844f2b80e",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -59530,6 +59530,20 @@
         "reports/science/swedish-conditional-love-identifiability/protocol.json"
       ],
       "verification": "Actual registered retained-source consumer native0 on selected owned candidate69: 91 independent exact rational scalar comparisons across eight affine family points, three original signed cases, exact feasible endpoint inequalities and rank-one/null certificates. The feasible abundance-density ratio domain is [0,0.9963006187153608] on exact serialized source constants; positive ratios exclude zero. All 30,398 protected inputs remained unchanged. The original 29 samples, 7,396 panel grains, 27,940 reported NISP, 20 unknown age bounds, report, source proof and three marginal covariance products remain unchanged. Original ratios 1 and 2 retain maintained-model negative-cover refusals despite an analytical pollen closure identity. Complete historical/current writer maps bind three specifically reviewed documentation/import changes without rewriting historical hashes. Source-only 27 focused contracts, strict four-file checks and configured Ruff/format passed. No model, quadrature, fitting, acquisition, ratio posterior, interval coverage, ecological or historical accuracy, source-rights or external review admission."
+    },
+    {
+      "owner_id": "source-relations/landclim/worksheet-layout/archive-member-layout",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/source-relations/landclim/worksheet-layout/archive-member-layout-source.json",
+        "docs/report/source-relations/landclim/worksheet-layout/archive-member-layout.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json",
+        "docs/report/source-relations/landclim/worksheet-layout/source-account.json"
+      ],
+      "verification": "Exact known original7z native0:82entries/81regular/79XLS streamed twice with byte/hash equality;107worksheet layout/error records matched. Source account preserves actual161commands, pinned maintained decoder/optionalxlrd/systemtar/runtime and failed missingdependency predecessor. This is immutable native-source evidence, not new generation or general adversarial archive/scientific/rights acceptance."
     }
   ]
 }

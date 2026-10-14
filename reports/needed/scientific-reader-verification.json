@@ -1720,5 +1720,18 @@
       "authored_source_sha256": "1faa83b145d53a785ccb74401f11f9e0c48df6e7f4ae1847ca8b02a7c539772b",
       "rendered_sha256": "14a32c561a2d279f544113dab6fb0317b4b7c1c4edaf2f06ea47ab44486fdd44"
     }
+  ],
+  "subsequent_primary_reader_adoptions": [
+    {
+      "report_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "authored_source_sha256": "215015afb7bfac0bb5e45a121c51a6ea2eb0d38a370c0ca900949edc8712c080",
+      "rendered_sha256": "1dbc5e8f860a96f074a96abdac1ec4fcc6ebb05ec533c4fae1c04296eccef6a3",
+      "claim_semantic_sha256": "7f4780aaf3d3e95520b23a619ccbfc1264def395336002af05411ed692344f63",
+      "current_native_source_account": "docs/report/source-relations/landclim/worksheet-layout/archive-member-layout-source.json",
+      "current_native_source_account_sha256": "bcc0366617413a2c07e5fe457a4b4828b06abc94094e419cd3333115250157e6",
+      "actual_native_terminal_sha256": "70b05535acaa2e8f5c1f953d0e4fc605b0895bdb97665d00c5071e89f49b83f4",
+      "prior_readability_execution_preserved": true,
+      "scope": "Current primary reader adopted after exact archive/member/layout execution; no rerun or relabelling of original327-reader readability receipt."
+    }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "schema_version": "rootsi-original-archive-member-layout.v1",
+  "candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "plan_sha256": "0d1faa7ffc8f629572432149593f22394f2d770f39bacd67ea62957153a1f3fc",
+  "archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+  "archive_bytes": 509919,
+  "native_tar_version": "bsdtar 3.5.3 - libarchive 3.7.4 zlib/1.2.12 liblzma/5.4.3 bz2lib/1.0.8",
+  "native_archive_entries": 82,
+  "native_regular_entries": 81,
+  "native_directory_entries": 1,
+  "workbooks_streamed_per_lane": 79,
+  "native_stream_lanes": 2,
+  "workbook_bytes_per_lane": 4466176,
+  "workbook_stream_identities_equal_roster": true,
+  "member_stream_passes_equal": true,
+  "extra_non_workbook_members": [
+    "rootsi/Metadata table_SWE_climate.xlsx",
+    "rootsi/r_rootsi.R"
+  ],
+  "extra_member_bytes_inspected": false,
+  "file_extraction_to_filesystem": false,
+  "supplied_code_executed": false,
+  "worksheets": 107,
+  "empty_worksheets": 28,
+  "decoded_rectangle_positions_scanned_for_errors": 547330,
+  "native_visibility_counts": {
+    "visible": 107
+  },
+  "worksheets_with_merged_ranges": 0,
+  "merged_range_count": 0,
+  "cached_error_code_counts": {},
+  "source_codepage_counts": {
+    "1252": 62,
+    "1200": 45
+  },
+  "retained_layout_and_error_counts_equal": true,
+  "scope": "Two actual native streams of79known XLS members from exact retained7z plus maintained all79worksheet-layout/error scan. No observed-sample, grain-count, formula-evaluation or source-age conversion claim.",
+  "archive_security_scope": "Known SHA-bound original only; native list/path/type checks and stdout member streams avoid filesystem extraction. This is not a general7z security implementation, malware/source-signature certification or adversarial parser qualification.",
+  "original_historical_receipts_unchanged": true,
+  "scientific_admission": "refused",
+  "source_rights_admission": false,
+  "historical_input_identity_authenticated": false
+}
