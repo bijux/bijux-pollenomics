@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from .support import run_node_json, template_block
@@ -74,8 +76,19 @@ console.log(JSON.stringify(activeBounds()));
 
 
 def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
-    assert ".map-stage {\n        position: relative;" in MAP_DOCUMENT_TEMPLATE
-    assert "min-height: 100vh;\n        overflow: hidden;" in MAP_DOCUMENT_TEMPLATE
+    match = re.search(
+        r"^\s*\.map-stage\s*\{([^}]*)\}", MAP_DOCUMENT_TEMPLATE, re.MULTILINE
+    )
+    assert match is not None
+    declarations = re.findall(r"([a-z-]+)\s*:\s*([^;]+);", match.group(1))
+    assert declarations == [
+        ("position", "relative"),
+        ("display", "grid"),
+        ("grid-template-rows", "minmax(0, 1fr) auto"),
+        ("height", "100vh"),
+        ("height", "100dvh"),
+        ("overflow", "hidden"),
+    ]
     assert (
         ".map-topbar .eyebrow,\n      .map-topbar .topbar-note {\n"
         "        display: none;"
