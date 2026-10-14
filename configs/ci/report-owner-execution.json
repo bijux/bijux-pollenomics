@@ -2186,6 +2186,30 @@
         "source-products/retained-vector-review.json": "docs/report/method-certification/current-r-oracle/retained-vector-review.json"
       },
       "timeout_seconds": 60
+    },
+    {
+      "owner_id": "scientific-readers/public-source-files",
+      "module": "bijux_pollenomics_dev.source_completion.scientific_readers.source_files",
+      "output_mode": "directory",
+      "source_paths": {
+        "atlas/source-files/capture.json": "docs/report/atlas/source-files/capture.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json",
+        "synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json": "docs/report/synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt",
+        "vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json",
+        "vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt"
+      },
+      "source_arguments": [],
+      "timeout_seconds": 40
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

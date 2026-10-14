@@ -4269,7 +4269,7 @@
       ],
       "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
       "qualification": {
-        "authored_reader_sha256": "9ebb8437660cd4ee9aa93e5e74091175ea36834b38e2feaaf76216f5ea9a5e4b",
+        "authored_reader_sha256": "b30a024bf83d1f946fe5d1aade264d1fdc1982593b529187fc276c2620e6610c",
         "fields": {
           "supported_claim": "The original deterministic comparison retains all 125 chronology/window combinations. A separate model of counting error per aliquot and shared PPE uncertainty now gives conditional joint covariance on 442 axes and 212 matched contrast axes. Its point estimates agree with the retained comparison.",
           "unsupported_claim": "An age-model probability distribution, better chronology or vegetation accuracy, environmental independence, calibrated interval coverage, historical LandClim reproduction or empirically estimated shared-PPE covariance. The new counting model does not replace the original pooled-window marginal errors.",

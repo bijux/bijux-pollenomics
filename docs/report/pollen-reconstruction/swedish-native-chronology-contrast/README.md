@@ -48,13 +48,13 @@ These standard errors are conditional first-order delta quantities on fixed chro
 
 This model conditions on each sample's observed composition, while the earlier counting model conditions on one pooled-window composition. The pooled count covariance minus the sum of per-sample count covariances equals the positive semidefinite weighted between-sample composition term. The actual new marginal counting variances therefore do not exceed the original pooled marginals; the largest decrease is 3.706 × 10⁻⁵ in squared cover-fraction units. Shared-PPE marginals retain numerical parity. The smaller counting variance follows the changed conditioning assumption and establishes no accuracy or interval-coverage gain. Neither scenario models age-error distributions, dating/calibration uncertainty, historical basin change, site bootstrap, ecological dependence or measured whole-vegetation accuracy.
 
-The [source and execution account](paired-uncertainty-source.json) binds the actual producer/API/independent-oracle code, source and protocol identities and successful native receipt, while retaining the earlier typing failure. The maintained [joint consumer](../../../../reports/science/swedish-native-chronology-contrast/paired_uncertainty.py) and [frozen aliquot protocol](../../../../reports/science/swedish-native-chronology-contrast/aliquot-protocol.json) reproduce these derived aggregates from the same qualified private packet. Full sample associations, Jacobians and covariance matrices remain private. No source acquisition, physical quadrature, age fit or historical/rights admission was performed.
+The [source and execution account](paired-uncertainty-source.json) binds the actual producer/API/independent-oracle code, source and protocol identities and successful native receipt, while retaining the earlier typing failure. The maintained [joint consumer](source-files/paired_uncertainty.py.txt) and [frozen aliquot protocol](source-files/aliquot-protocol.json) reproduce these derived aggregates from the same qualified private packet. Full sample associations, Jacobians and covariance matrices remain private. No source acquisition, physical quadrature, age fit or historical/rights admission was performed.
 
 ## Source attribution and retained evidence
 
 The [common-panel source attribution](../swedish-observed-common-panel/attribution.json) retains native dataset DOIs, original investigator and EPD credit, and source publication relationships for these exact datasets. Current public analytical-use attribution remains distinct from historical/private-author-copy permissions and redistribution decisions. This account publishes aggregate derived comparisons; it does not redistribute individual source sample/depth/age associations or original archives.
 
-The [aggregate report](report.json) retains every pair/window slot, model identity, source-custody hashes, cohort/refusal totals and scientific limitations. The maintained [source reader](../../../../reports/science/swedish-native-chronology-contrast/qualify.py) and [frozen comparison protocol](../../../../reports/science/swedish-native-chronology-contrast/protocol.json) consume the exact retained source packet to reproduce the aggregate. The completed [Tibetanus TP/native sensitivity](../tibetanus-point-age-sensitivity/README.md) is a separate study and was not rerun here.
+The [aggregate report](report.json) retains every pair/window slot, model identity, source-custody hashes, cohort/refusal totals and scientific limitations. The maintained [source reader](source-files/qualify.py.txt) and [frozen comparison protocol](source-files/protocol.json) consume the exact retained source packet to reproduce the aggregate. The completed [Tibetanus TP/native sensitivity](../tibetanus-point-age-sensitivity/README.md) is a separate study and was not rerun here.
 
 
 <!-- scientific-account-route:begin -->
@@ -80,7 +80,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Matched denominator.** 449 source samples supply 432 selected counting primitives across five native same-dataset chronology pairs and 25 windows: 125 combinations, 106 matched and 19 unpaired. The 221 occupied profile windows produce 442 joint axes and 212 matched contrast axes. Of the shared selected samples, 76 migrate windows. Each sample uses a fixed total over two literal taxa; unparameterized NISP is excluded.
 
-Qualified authored reader SHA-256: `9ebb8437660cd4ee9aa93e5e74091175ea36834b38e2feaaf76216f5ea9a5e4b`.
+Qualified authored reader SHA-256: `b30a024bf83d1f946fe5d1aade264d1fdc1982593b529187fc276c2620e6610c`.
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json](report.json) (SHA-256 `27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a`).
 

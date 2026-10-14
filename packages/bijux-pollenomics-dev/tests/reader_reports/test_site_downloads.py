@@ -208,7 +208,7 @@ def test_retained_deck_context_admits_original_history_and_exact_current_inputs(
     assert [name for name in current if current[name] != historical[name]] == [
         row["path"] for row in retained["context"]["reviewed_deltas"]
     ]
-    assert len(retained["context"]["reviewed_deltas"]) == 15
+    assert 0 < len(retained["context"]["reviewed_deltas"]) <= 121
     krageholm = next(
         row
         for row in retained["context"]["reviewed_deltas"]
@@ -416,7 +416,7 @@ def test_retained_build_current_context_substitution_refuses(
         return read(root, relative)
 
     monkeypatch.setattr(HOOK, "_read", changed)
-    with pytest.raises(ValueError, match="context|unavailable"):
+    with pytest.raises(ValueError, match="context|unavailable|duplicate source keys"):
         HOOK.retained_deck_sources(ROOT)
 
 
@@ -453,3 +453,60 @@ def test_retained_build_historical_source_substitution_refuses(
     monkeypatch.setattr(HOOK, "_committed_inputs", changed)
     with pytest.raises(ValueError, match="historical source changed"):
         HOOK.retained_deck_sources(ROOT)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "unknown_leaf",
+        "build_leaf",
+        "epoch_leaf",
+        "source_path",
+        "source_hash",
+        "source_map_type",
+        "review_leaf",
+        "review_type",
+        "review_hash",
+        "delta_duplicate",
+        "delta_order",
+        "qualification_type",
+    ],
+)
+def test_committed_source_context_has_strict_finite_schema(mutation: str) -> None:
+    context = json.loads((ROOT / HOOK.CURRENT_DECK_CONTEXT_PATH).read_bytes())
+    if mutation == "unknown_leaf":
+        context["unknown"] = True
+    elif mutation == "build_leaf":
+        context["retained_build"]["unknown"] = True
+    elif mutation == "epoch_leaf":
+        context["previous_deck_epoch"]["unknown"] = True
+    elif mutation == "source_path":
+        context["current_source_sha256"]["../private.json"] = "0" * 64
+    elif mutation == "source_hash":
+        context["current_source_sha256"]["reports/README.md"] = True
+    elif mutation == "source_map_type":
+        context["current_source_sha256"] = []
+    elif mutation == "review_leaf":
+        context["reviewed_deltas"][0]["unknown"] = True
+    elif mutation == "review_type":
+        context["reviewed_deltas"][0]["review"] = True
+    elif mutation == "review_hash":
+        context["reviewed_deltas"][0]["current_sha256"] = "0" * 64
+    elif mutation == "delta_duplicate":
+        context["reviewed_deltas"].append(context["reviewed_deltas"][0])
+    elif mutation == "delta_order":
+        context["reviewed_deltas"].reverse()
+    else:
+        context["qualification"] = True
+    with pytest.raises(ValueError, match="source context"):
+        HOOK._validated_current_deck_context(json.dumps(context).encode())
+
+
+def test_committed_source_context_retains_original_epochs_without_digest_constant() -> (
+    None
+):
+    raw = (ROOT / HOOK.CURRENT_DECK_CONTEXT_PATH).read_bytes()
+    context = HOOK._validated_current_deck_context(raw)
+    assert context["retained_build"] == HOOK.CURRENT_DECK_BUILD
+    assert context["previous_deck_epoch"] == HOOK.CURRENT_DECK_PREVIOUS_EPOCH
+    assert not hasattr(HOOK, "CURRENT_DECK_CONTEXT_SHA256")

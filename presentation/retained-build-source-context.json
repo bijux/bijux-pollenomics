@@ -34,7 +34,7 @@
     "docs/report/method-certification/love-paper-correspondence/README.md": "153f0f5f660e8915e7943c1a5cc11b32896cf4286ee4cc87c6deb9e5889a434c",
     "docs/report/method-certification/optimizer-solution-quality/summary.csv": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
     "docs/report/method-certification/original-r-reference/README.md": "1d901359ca6fe432e5df1de97578de51844ed9796395872870da8133ba22f390",
-    "docs/report/method-certification/petrkunes-r-comparison/README.md": "24134277e2843a7127839685b687d6a2028893293024912e5accb96a9086b65d",
+    "docs/report/method-certification/petrkunes-r-comparison/README.md": "fc9a6888b20bd245e61e7f9f09a83a77cd714fcfe7b6d5df1b7a94b1494e1fa1",
     "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv": "1515f0b680e066bfc1810b0ce691e70dea56856076bf9a149c70d00f4efb9a45",
     "docs/report/method-certification/petrkunes-r-comparison/native-report.json": "273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995",
     "docs/report/method-certification/petrkunes-r-comparison/summary.csv": "5f7957d2d318518e96959a286b74a9a183a9b23655aef3216d61dfd38137541a",
@@ -69,7 +69,7 @@
     "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
     "docs/report/source-relations/neotoma/legacyage-chronology/report.json": "544020c69762d5b86a0c6f9cd4e06b10894c8e4139058f988e28d2970edd0a74",
     "docs/report/source-relations/sead/chronology-country-accounting/report.json": "2f3b2bbfc27f8392d92ca00b1d9c9002612b8be2351844365aebb5f3efe4d80e",
-    "docs/report/synthetic-validation/recovery-evidence/README.md": "1e3fb210f9bbb9a9b0a2da8e50ff5b145d4fe0c5fbe40cdf386e7ef3206ab037",
+    "docs/report/synthetic-validation/recovery-evidence/README.md": "0977fb5c5261f0009cfdf08f9456220e93d2f73f879db3ca3cf08b935906086e",
     "docs/report/synthetic-validation/recovery-evidence/report.json": "a44df59d9cf381ac91dcffa2ef6af7b23bc7c658f4bed6ec4295cc6908a7535e",
     "docs/report/synthetic-validation/site-leakage/README.md": "a6459a24bcc4635234b4238fb91fa07324712a1eba68bd2506c91839cc54db00",
     "docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json": "2c2d103a1cfbd4e68aa024ef6d49843e0cce9dcc30ec2354dfdefa39695a4f0d",
@@ -83,7 +83,7 @@
     "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md": "b3568a8d00b1d70276ebe6a5343c6952a8f09b2086b721757e32268b3cea286a",
     "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json": "a19f533e08c589507698cc9bfa89d97f2ac210f5c85db6eed3f7967b32d2b499",
     "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json": "00c21f87b989dfce82e7a74fe7bb6fd89a4b7b3e52de072e83b0d224addab2b7",
-    "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md": "e4ddaffeeff76b406de7911c2dc6ee33dd17bb7ec3c4ce36d53eaac8c75b4e2a",
+    "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md": "e9bd193b902a1cc5fcaf9eb241d0fded8c8f6ea9f4c683ca9e787f55ea8c833f",
     "docs/report/vegetation-reference/pyrenees-botanical-projection/report.json": "b87fe33cdd11a6ba777b255435ebd30c5634f164abcd24e35a597fa96047d31f",
     "docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json": "36feb0d84dabdc2b72edf0e0941a16d8661969a46d57937190b662a02cc92692",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/README.md": "91061e6c1f3e72ec98e36434be03d46a8ab93102cbb620736ece3aa2557f4f43",
@@ -161,8 +161,8 @@
     {
       "path": "docs/report/method-certification/petrkunes-r-comparison/README.md",
       "retained_sha256": "f2d860d54752aa9d4d9e993825c43aa2ca4c23856f67a00e475e8d76252cda11",
-      "current_sha256": "24134277e2843a7127839685b687d6a2028893293024912e5accb96a9086b65d",
-      "review": "Individual source-specific nine-field qualification replaces generic routing prose and binds original native denominators/negative outcomes/rights and source limits. Retained mathematical/scientific result tables and original slides remain unchanged; this is reader qualification, not a numerical rerun."
+      "current_sha256": "fc9a6888b20bd245e61e7f9f09a83a77cd714fcfe7b6d5df1b7a94b1494e1fa1",
+      "review": "Individual source-specific nine-field qualification replaces generic routing prose and binds original native denominators/negative outcomes/rights and source limits. Retained mathematical/scientific result tables and original slides remain unchanged; this is reader qualification, not a numerical rerun. The current reader explicitly distinguishes selected v0.1.2 author-code comparison from the unauthenticated exact executable used in2022; original native numerical artifacts remain unchanged. This claim restriction is from committed39e08b6beae1fe8f455bdfa359e48e00ff26e6ad, not a new native R execution."
     },
     {
       "path": "docs/report/model-development/english-retained-score-audit/README.md",
@@ -174,7 +174,7 @@
       "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
       "retained_sha256": "ad61e39b3ef43b2ad2cfcd0d170017cf776924d55f261e4ae0c56e155de785e5",
       "current_sha256": "1c0f54e44c03f7c9792366e04dce9d5dda663b8e535db0582a462f23cd20c052",
-      "review": "Adds the separately qualified analyst-declared wind scenario to the existing static geometry account, retaining original geometry result/paired SE and all no-historical-wind/accuracy qualifications. Deck geometry result remains unchanged; new wind outcomes are not retroactively attributed to retained slides. The current reader also adds95 individual measured Betula/Poaceae aliquot fixed-response/PPE pair-relative binomial confidence requests, conditional on each observed70\u2013558grain pair total. It preserves the omitted PPE uncertainty, no pooling/simultaneous95-sample guarantee, unchanged original24window points/SEs, native-controller resource refusal and cache-free observer correction. These new counting outcomes are not historical slide inputs or ecological coverage evidence."
+      "review": "Adds the separately qualified analyst-declared wind scenario to the existing static geometry account, retaining original geometry result/paired SE and all no-historical-wind/accuracy qualifications. Deck geometry result remains unchanged; new wind outcomes are not retroactively attributed to retained slides. The current reader also adds95 individual measured Betula/Poaceae aliquot fixed-response/PPE pair-relative binomial confidence requests, conditional on each observed70\u2013558grain pair total. It preserves the omitted PPE uncertainty, no pooling/simultaneous95-sample guarantee, unchanged original24window points/SEs, native-controller resource refusal and cache-free observer correction. These new counting outcomes are not historical slide inputs or ecological coverage evidence. Only repository-relative source hyperlink destinations now select exact site-local first-party attachments. Link labels, scientific prose, results, original source archive restrictions and retained PDF bytes are unchanged. The final authored-byte identity and managed source-only projection are rebound after site source-link rendering; scientific qualification fields remain unchanged."
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
@@ -191,8 +191,8 @@
     {
       "path": "docs/report/synthetic-validation/recovery-evidence/README.md",
       "retained_sha256": "09ee85ad714e486bd9d64d0c325b6db2dab5e3e9ba0f25013ff67c1a40055c64",
-      "current_sha256": "1e3fb210f9bbb9a9b0a2da8e50ff5b145d4fe0c5fbe40cdf386e7ef3206ab037",
-      "review": "Current authored recovery reader adds the bounded conditional fixed-response two-measured-taxon counting interval and exact10809-interval directed-Decimal/rational verification. Original ten-taxon synthetic poor coverage and zero-width failures remain unchanged. This source is reviewed current prose only; historical retained PDFs did not consume the new interval. Current maintained consumer ownership moves into reconstruction/uncertainty with operation bytes unchanged; only the managed claim semantic digest changes. This is not a new historical deck input or numerical execution."
+      "current_sha256": "0977fb5c5261f0009cfdf08f9456220e93d2f73f879db3ca3cf08b935906086e",
+      "review": "Current authored recovery reader adds the bounded conditional fixed-response two-measured-taxon counting interval and exact10809-interval directed-Decimal/rational verification. Original ten-taxon synthetic poor coverage and zero-width failures remain unchanged. This source is reviewed current prose only; historical retained PDFs did not consume the new interval. Current maintained consumer ownership moves into reconstruction/uncertainty with operation bytes unchanged; only the managed claim semantic digest changes. This is not a new historical deck input or numerical execution. Only repository-relative source hyperlink destinations now select exact site-local first-party attachments. Link labels, scientific prose, results, original source archive restrictions and retained PDF bytes are unchanged. The final authored-byte identity and managed source-only projection are rebound after site source-link rendering; scientific qualification fields remain unchanged."
     },
     {
       "path": "docs/report/synthetic-validation/site-leakage/README.md",
@@ -217,6 +217,12 @@
       "retained_sha256": "e76072b28390279475b40c89fec377ca09e03ed8b0cfff80d81671f63420b12e",
       "current_sha256": "b3568a8d00b1d70276ebe6a5343c6952a8f09b2086b721757e32268b3cea286a",
       "review": "Individual source-specific nine-field qualification replaces generic routing prose and binds original native denominators/negative outcomes/rights and source limits. Retained mathematical/scientific result tables and original slides remain unchanged; this is reader qualification, not a numerical rerun."
+    },
+    {
+      "path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
+      "retained_sha256": "e4ddaffeeff76b406de7911c2dc6ee33dd17bb7ec3c4ce36d53eaac8c75b4e2a",
+      "current_sha256": "e9bd193b902a1cc5fcaf9eb241d0fded8c8f6ea9f4c683ca9e787f55ea8c833f",
+      "review": "The current reader preserves all original scientific results and qualifications. Only repository-relative source hyperlink destinations now select exact site-local first-party attachments. Link labels, scientific prose, results, original source archive restrictions and retained PDF bytes are unchanged. The final authored-byte identity and managed source-only projection are rebound after site source-link rendering; scientific qualification fields remain unchanged."
     },
     {
       "path": "reports/README.md",

@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2111,
-  "paths_sha256": "f2cb2a237e46827632e7dd3995af2ceb9816a9bc9269532a52ebc7e68873bceb",
+  "path_count": 2126,
+  "paths_sha256": "ae8d3f01370506b5812321c0641445ae5420f787afa22dc0b3335bb14d329283",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -61027,6 +61027,53 @@
         "data/method-certification/native-r-finite-covariance/capture/capture.json"
       ],
       "verification": "Immutable original protocol/execution/history evidence for the maintained generated residual account. The source account retains actual original diagnostic and complete scalar observer identities, including their distinct source epochs and original successful execution. Lock marker selection and missing historical PythonBLAS are explicit; cached inputs and uncertainty about the2022Petr executable are not relabelled as fresh provenance. These four evidence records have no current regeneration claim; the separate generated owner rebuilds only report/review."
+    },
+    {
+      "owner_id": "scientific-readers/public-source-files",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/atlas/source-files/capture.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json",
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json",
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt",
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json",
+        "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt",
+        "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json",
+        "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json",
+        "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json",
+        "docs/report/synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json",
+        "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json",
+        "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/scientific_readers/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/scientific_readers/source_files.py"
+      ],
+      "producer_inputs": [
+        "configs/docs/scientific-source-files.json",
+        "data/atlas/source-view-capture/capture.json",
+        "data/synthetic-validation/finite-count-coverage/execution-custody.json",
+        "data/synthetic-validation/finite-count-coverage/independent-review.json",
+        "data/synthetic-validation/finite-count-coverage/manifest.json",
+        "data/synthetic-validation/two-taxon-counting/manifest.json",
+        "reports/science/krageholm-static-geometry-sensitivity/counting-protocol.json",
+        "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json",
+        "reports/science/krageholm-static-geometry-sensitivity/source-custody.json",
+        "reports/science/krageholm-static-geometry-sensitivity/wind-protocol.json",
+        "reports/science/swedish-native-chronology-contrast/aliquot-protocol.json",
+        "reports/science/swedish-native-chronology-contrast/paired_uncertainty.py",
+        "reports/science/swedish-native-chronology-contrast/protocol.json",
+        "reports/science/swedish-native-chronology-contrast/qualify.py",
+        "reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json",
+        "reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py"
+      ],
+      "verification": "Run the finite maintained source-files producer through the configured-owner directory recipe in two separate absent artifact destinations and compare every exact public attachment to its fixed source path/hash/blob. Fifteen first-party code/protocol/custody/derived-manifest files only; no referenced native raw members, acquisition, numerical model, scientific/right/human admission or hosted Git commit is inferred."
     }
   ]
 }

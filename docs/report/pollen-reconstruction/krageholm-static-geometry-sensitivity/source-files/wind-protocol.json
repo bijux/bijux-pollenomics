@@ -1,0 +1,102 @@
+{
+  "schema_version": "krageholm-fixed-radius-wind-sensitivity-protocol.v1",
+  "native_dataset_id": 23013,
+  "native_collection_unit_id": 16622,
+  "native_chronology_id": 13366,
+  "age_epoch": "AD1950 source-qualified Neotoma calibrated-BP point ages; original CAA uncalibrated radiocarbon profile is distinct",
+  "domain_slots": 25,
+  "expected_occupied_windows": 24,
+  "original_samples": 96,
+  "selected_samples": 95,
+  "literal_axis": [
+    "Betula",
+    "Poaceae"
+  ],
+  "ppe": [
+    5.106,
+    1.0
+  ],
+  "ppe_sd_input_magnitudes": [
+    0.303,
+    0.0
+  ],
+  "ppe_covariance": [
+    [
+      0.091809,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "ppe_covariance_authority": "Explicit analyst-declared conditional delta-method scenario reusing exactly the prior retained diagonal marginal configuration. Values0.303 and0 are retained source input magnitudes; no new estimated PPE,source uncertainty calibration or taxon correlation is inferred. The zero-variance axis forces zero cross-covariance for PSD consistency. One common PPE latent parameter spans all windows/geometries by declared working model.",
+  "count_ppe_cross_covariance": "zero under declared working independence; not observed",
+  "counting_model": "One pooled eligible literal-panel multinomial per occupied fixed-point window; same actual counts/membership reused across three wind scenarios with fixed837m receiving geometry. Distinct half-open windows assumed counting-independent, not environmentally independent.",
+  "count_support_digest": "SHA256 of canonical native dataset/unit/chronology/window/sample membership/count vector and original sample-capture hash; per-window derived source digest, identical across geometry alternatives.",
+  "full_result_axis": 144,
+  "distinct_count_supports": 24,
+  "deposition": "Reuse only two exact source-bound workbook_static_circle baseline factors at3m/s, verifying original source/factor/native profile identities and original marginals. Compute exactly4new circular_receiver_annulus response tuples at1.5/6m/s for2nativefall speeds. Independent circle-lens/survival-density integrals verify those4newresponses; no baseline quadrature, radius scenario or unaffected source/model rerun.",
+  "contrast": "Two alternative-minus3m/s reference contrasts on both closed axes for24occupied windows, with global shared-count/PPE covariance; all25slots retained, oneemptyrefusal. Fixed winds are scenarios, not random wind draws; no probabilistic transport uncertainty inferred.",
+  "independent_math": "Decimal50 independent two-taxon quotient Jacobians and fixed-total multinomial covariance; all144x144 count/PPE/total matrices,96x96 contrast matrices, covers/Jacobians/conditionalSE. No engine or NumPy import. Source numbers/interpreter remain shared; this is not source authentication.",
+  "absolute_tolerance": 2e-13,
+  "negative_controls": [
+    "same_support_changed_counts",
+    "same_support_different_panel",
+    "different_support_reused_digest",
+    "overlapping_same_unit_windows",
+    "alternate_chronology_same_unit",
+    "disjoint_count_independence_undeclared",
+    "foreign_parameter_identity",
+    "unmeasured_axis",
+    "noninteger_counts",
+    "zero_panel_total",
+    "zero_wind_refused",
+    "negative_wind_refused",
+    "nonfinite_wind_refused"
+  ],
+  "limits": [
+    "No empirical covariance or interval coverage calibration.",
+    "No geometry/chronology uncertainty distributions or joint age posterior.",
+    "No observed field vegetation,historical basin reproduction,paired significance or rights/human admission.",
+    "Earlier source restrictions and empty-window refusal preserved.",
+    "No estimated historical wind, wind distribution, wind selection, geometry change, new validation cohort or target-outcome scoring.",
+    "Twofold wind scenarios are analyst choices declared before execution; all effect directions and poor results retained.",
+    "Advance only conditional transport sensitivity ofLCI-030; physical/historical/input/rights/review acceptance remainsopen."
+  ],
+  "wind_scenarios": [
+    {
+      "id": "nominal_wind_3",
+      "wind_speed_m_s": 3.0,
+      "authority": "Retained previously qualified analyst-assumed baseline, not measured historical wind."
+    },
+    {
+      "id": "slow_wind_1_5",
+      "wind_speed_m_s": 1.5,
+      "authority": "Prospectively declared analyst2-fold lower sensitivity scenario, not measured historical wind."
+    },
+    {
+      "id": "fast_wind_6",
+      "wind_speed_m_s": 6.0,
+      "authority": "Prospectively declared analyst2-fold higher sensitivity scenario, not measured historical wind."
+    }
+  ],
+  "receiver_radius_m": 837.0,
+  "inner_radius_m": 837.0,
+  "outer_radius_m": 100000.0,
+  "diffusion_coefficient": 0.12,
+  "diffusion_units": "Source empirical metre-based GPM coefficient, not m2/s SI diffusivity.",
+  "turbulence_parameter": 0.25,
+  "conditional_result_vectors": 72,
+  "contrast_axes": 96,
+  "physical_tolerances": {
+    "maintained_absolute": 1e-09,
+    "maintained_relative": 1e-08,
+    "maintained_subdivision_limit": 100,
+    "independent_absolute": 1e-11,
+    "independent_relative": 1e-10,
+    "independent_subdivision_limit": 400,
+    "comparison_absolute": 2e-08,
+    "comparison_relative": 2e-08
+  }
+}

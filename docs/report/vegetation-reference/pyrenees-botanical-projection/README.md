@@ -84,7 +84,7 @@ binds candidate, exact command, source custody, native exit and audit.
 
 ## Reproduction
 
-The maintained [replay producer](../../../../reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py)
+The maintained [replay producer](source-files/replay.py.txt)
 requires the exact retained 16-file source packet. From the repository root:
 
 ```sh
@@ -129,5 +129,5 @@ Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projecti
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-claim-semantic-sha256: d85276f7c30483c86f43c7f0b8e567ba3a15bcf2253578a2d7e3b7b22b0240ca -->
-<!-- scientific-authored-source-sha256: 4f31c30279a40e02f3043b8b01ceca9047733307524ce2479f532aa331f43846 -->
+<!-- scientific-authored-source-sha256: 4e65366e121ba9681cb48cf6aeebfbe3a33f5a9516ef4092b690bd47a942573b -->
 <!-- scientific-verification-and-limits:end -->

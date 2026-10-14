@@ -1821,5 +1821,139 @@
       "prior_readability_execution_preserved": true,
       "scope": "Retained numerical residual and source-version reporting only. Original327-reader execution and historical report_prose hashes remain unchanged; no new native R, model execution or scientific admission."
     }
+  ],
+  "subsequent_source_link_adoptions": [
+    {
+      "report_path": "docs/report/atlas/frame-url-replay/README.md",
+      "prior_reader_sha256": "807bad75ab2245a7189c22c8859a3725cef0cc72b5cfb568791b8560be6e26c1",
+      "authored_source_sha256": "e0536a1338cadb3cf11cbd1248f06f6ede81d8549b3fe6e850f8b43d79b48c2c",
+      "rendered_sha256": "e0536a1338cadb3cf11cbd1248f06f6ede81d8549b3fe6e850f8b43d79b48c2c",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/keyless-cache-matrix/README.md",
+      "prior_reader_sha256": "25de02cea6efcc801b5d4a1b4dce959c2a9955b255bbcfb05d99a1e64cc996cc",
+      "authored_source_sha256": "235749c6f98fc851a4a58daa98474bba4423f6fa54506231a4f75f5e8b5c9e22",
+      "rendered_sha256": "235749c6f98fc851a4a58daa98474bba4423f6fa54506231a4f75f5e8b5c9e22",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/modeled-panel-browser/README.md",
+      "prior_reader_sha256": "eacd793c60513b6e8f36a4ae62b1879357fb854fdd4f44d3298ca5a77f99b93e",
+      "authored_source_sha256": "82956c77997d8d899234f05db879eee48915be96835abd5bb1149dbe62a8f922",
+      "rendered_sha256": "82956c77997d8d899234f05db879eee48915be96835abd5bb1149dbe62a8f922",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/nordic-source/README.md",
+      "prior_reader_sha256": "4594904615406c6f916bf6d4f8a0239b0b0b35aa96a56b9a75308b3a5cf095d5",
+      "authored_source_sha256": "ebe6f2c3956b50c80e33527a23cde1a68ed10b4bd38356d7af53092670e01ed3",
+      "rendered_sha256": "ebe6f2c3956b50c80e33527a23cde1a68ed10b4bd38356d7af53092670e01ed3",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/provider-accessibility/README.md",
+      "prior_reader_sha256": "66e038313bbbe77f928ad45374afb272be451b25c277dd10ecc544578a03db8d",
+      "authored_source_sha256": "3dd0b984fb7e1eeb775559f56200a449a7276b7a0822f15346260a00a27d4016",
+      "rendered_sha256": "3dd0b984fb7e1eeb775559f56200a449a7276b7a0822f15346260a00a27d4016",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/source-detail/README.md",
+      "prior_reader_sha256": "b1b3fba3abeb35e73c31a89396a1d6a152c53f2760bb68bb06a5cbd361ce511a",
+      "authored_source_sha256": "d99cdaee4a83a19577bd82b9b353f93b5ff8a481a83755d8426b40a86660941c",
+      "rendered_sha256": "d99cdaee4a83a19577bd82b9b353f93b5ff8a481a83755d8426b40a86660941c",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/source-export/README.md",
+      "prior_reader_sha256": "e2024466b56ac71c0620971c3d9790c054cae64e5789af69343711a3f188660b",
+      "authored_source_sha256": "cd1ce4ada02299ce89a3a2451003970e2eb0c6367e6ae57dae721616669440f1",
+      "rendered_sha256": "cd1ce4ada02299ce89a3a2451003970e2eb0c6367e6ae57dae721616669440f1",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/atlas/source-url-replay/README.md",
+      "prior_reader_sha256": "fe5304e0bd856f6e9b9d2d08bcb643dde07b37fed1a135e5f30fe25d8ae0078e",
+      "authored_source_sha256": "b8f2d1f15a621e766d3fdfa66375281d20281f5c8ed7dc62211f38fa211bfa07",
+      "rendered_sha256": "b8f2d1f15a621e766d3fdfa66375281d20281f5c8ed7dc62211f38fa211bfa07",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "prior_reader_sha256": "1c0f54e44c03f7c9792366e04dce9d5dda663b8e535db0582a462f23cd20c052",
+      "authored_source_sha256": "df0f71c947ff83ff3162ce3273376993e94bf538ae213d10296ae07ab415143d",
+      "rendered_sha256": "1c0f54e44c03f7c9792366e04dce9d5dda663b8e535db0582a462f23cd20c052",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "prior_reader_sha256": "20942c7c6fae951b17e72a555a31444b8daef2a06cf0a1f4ea8d394f035d31b7",
+      "authored_source_sha256": "b30a024bf83d1f946fe5d1aade264d1fdc1982593b529187fc276c2620e6610c",
+      "rendered_sha256": "1634904bea2e3478d541f63313730f34749a33184cf7fc72765f0f76869241bf",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+      "prior_reader_sha256": "1e3fb210f9bbb9a9b0a2da8e50ff5b145d4fe0c5fbe40cdf386e7ef3206ab037",
+      "authored_source_sha256": "b22dbfe30480c1c421743d95291e3d95a571863bb1fbd9c7ea94bf3205a4a39c",
+      "rendered_sha256": "0977fb5c5261f0009cfdf08f9456220e93d2f73f879db3ca3cf08b935906086e",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    },
+    {
+      "report_path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
+      "prior_reader_sha256": "e4ddaffeeff76b406de7911c2dc6ee33dd17bb7ec3c4ce36d53eaac8c75b4e2a",
+      "authored_source_sha256": "4e65366e121ba9681cb48cf6aeebfbe3a33f5a9516ef4092b690bd47a942573b",
+      "rendered_sha256": "e9bd193b902a1cc5fcaf9eb241d0fded8c8f6ea9f4c683ca9e787f55ea8c833f",
+      "source_attachment_manifest": "configs/docs/scientific-source-files.json",
+      "source_attachment_manifest_sha256": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
+      "prior_readability_execution_preserved": true,
+      "claim_semantics_unchanged": true,
+      "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
+    }
   ]
 }
