@@ -1395,11 +1395,11 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
-      "content_sha256": "a01ca30b07147dc353a82b173d361ec97abb4c826613caf0a7b32001742996b3",
-      "prose_paragraph_count": 31,
-      "link_bullet_count": 5,
+      "content_sha256": "cf38acd9b8f62e6fec33115260eaf303af281e5ecd5233ac59bfbb358ae97cdd",
+      "prose_paragraph_count": 36,
+      "link_bullet_count": 7,
       "bullet_sentence_count": 0,
-      "heading_count": 7,
+      "heading_count": 8,
       "table_line_count": 11,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -3408,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "37873a2286bb5832c2c46dd36f0caad7b7ddca0781136e073953aac50fb9e18e",
+      "content_sha256": "07845937377529118927ddde3b8f68124aa03bf2737f2c57926f8c7741124511",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3419,7 +3419,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "adafe711bd4c7eb86867056aed411b9e4834fda5d0fdca068e65a2203f2e463e",
+      "content_sha256": "46fe72f4bfa5289b3312e6e86771ab05c6b7a3faa0e3514e3b99bfe65166fea4",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

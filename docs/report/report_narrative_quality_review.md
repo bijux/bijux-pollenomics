@@ -14,6 +14,6 @@ layout signal does not record an actual reader or qualified scientific review.
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 303 |
+| `reader_ready` | 304 |
 | `structured_reference` | 8 |
-| `thin_structure` | 10 |
+| `thin_structure` | 9 |

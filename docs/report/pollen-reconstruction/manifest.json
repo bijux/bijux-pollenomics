@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b16a5059466e8595561e9cf7affc3163b06b502ac2adbec5c124adf12aed3b36",
-      "bytes": 5097567
+      "sha256": "e14b4ea572b7b0892b838616a8c9769639b3de25bcf2d40f0dc1cff8ae4882ae",
+      "bytes": 6434895
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,22 +3756,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "3db506164798edbc4bb7420ee904c2990b87eec92684f8cfc0ad838f5b437252",
-      "bytes": 150927
+      "sha256": "5541b8afdbd1f9b37c3dc4e9936e51df092a9517bde265558912703c5c919f98",
+      "bytes": 150923
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "a95e52f278b71272af19a9e716c3ba1b0fc395f516d478fdfc26bf621095f9a8",
-      "bytes": 752
+      "sha256": "24db11a7536fe49aa976636e96e504e1df42fe0368df10efb44d1bd9bd94a635",
+      "bytes": 751
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "c696817d2eeda2e43555381049175bd653f84fca153852a8ed0c19bfd8336f15",
-      "bytes": 1027393
+      "sha256": "6beddce546c0e6ee38b90f44ead41bee2841a5b947a305fc2452549719c32784",
+      "bytes": 1029367
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "40dc27286ee60bb78e0f699b8e4929c3e30c5fcea4b28b14b220b54701579792",
+      "sha256": "a7f787d475d47673d4346a9ec6acfbb81b64ea77ec36d39f5dacb36064e1c9bf",
       "bytes": 1078
     },
     {
@@ -8776,8 +8776,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
-      "sha256": "a01ca30b07147dc353a82b173d361ec97abb4c826613caf0a7b32001742996b3",
-      "bytes": 14102
+      "sha256": "cf38acd9b8f62e6fec33115260eaf303af281e5ecd5233ac59bfbb358ae97cdd",
+      "bytes": 17700
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",

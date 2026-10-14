@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2097,
-  "paths_sha256": "ea0736d72675bc72d0133373ad23e3b49136c714351d4dde4cc44d0dcb8e7a41",
+  "path_count": 2099,
+  "paths_sha256": "5442a70c71f03886634afabce7f19a5b509a3c37a96a3d45732ca66afd492d4c",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -59501,6 +59501,35 @@
         "reports/science/swedish-native-chronology-contrast/source-custody.json"
       ],
       "verification": "Actual fa783 source-overlay consumer native0:83focused contracts/strict5files/Ruff,all28456pins unchanged. A new declared per-sample fixed-panel counting/global sharedPPE model preserves449source/432primitive/76migration/3loss/125slot/19unpaired populations and original125nullSE report. IndependentDecimal50 scalar quotient/intersection oracle compares1105676scalars including720924fulljoint/contrast covariance cells with frozen scale-aware bounds;221outputs442axes/106pairs212axes,22identical-support+response cancellations. Pooled-minus-aliquot count covariancePSD explains narrower conditional marginals; no intervalcoverage,chronology posterior/accuracy,ecological/historical/rights admission."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-conditional-love/ratio-identifiability",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability-source-account.json",
+        "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/algebra.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/independent.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/swedish-conditional-love.json",
+        "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
+        "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_conditional_love_identifiability.py",
+        "reports/architecture/library-source-correspondence.json",
+        "reports/science/swedish-conditional-love-identifiability/protocol.json"
+      ],
+      "verification": "Actual registered retained-source consumer native0 on selected owned candidate69: 91 independent exact rational scalar comparisons across eight affine family points, three original signed cases, exact feasible endpoint inequalities and rank-one/null certificates. The feasible abundance-density ratio domain is [0,0.9963006187153608] on exact serialized source constants; positive ratios exclude zero. All 30,398 protected inputs remained unchanged. The original 29 samples, 7,396 panel grains, 27,940 reported NISP, 20 unknown age bounds, report, source proof and three marginal covariance products remain unchanged. Original ratios 1 and 2 retain maintained-model negative-cover refusals despite an analytical pollen closure identity. Complete historical/current writer maps bind three specifically reviewed documentation/import changes without rewriting historical hashes. Source-only 27 focused contracts, strict four-file checks and configured Ruff/format passed. No model, quadrature, fitting, acquisition, ratio posterior, interval coverage, ecological or historical accuracy, source-rights or external review admission."
     }
   ]
 }

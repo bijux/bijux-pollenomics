@@ -4114,7 +4114,6 @@
       }
     },
     {
-      "reader_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
       "canonical_accounts": [
         {
           "report_path": "reports/science/source-cohorts.md",
@@ -4125,20 +4124,8 @@
           "source_sha256": "2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0"
         }
       ],
-      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
       "qualification": {
-        "authored_reader_sha256": "c7efbda9b66eb34ee184d692f6c19d17bccff1584cc7c5ae4132da8182f57890",
-        "fields": {
-          "supported_claim": "One exposed B\u00f6kesj\u00f6n window supports a signed analytical local/regional mixture under 3 declared abundance-density ratios. Ratio 0.5 yields feasible two-taxon cover; ratios 1/2 retain negative Poaceae and Betula above one as infeasible outcomes.",
-          "unsupported_claim": "Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel.",
-          "actual_verification_performed": "The reader, aggregate report and source proof were inspected. Original model stage passed 40 source controls but its overall oracle envelope failed; a separate oracle-only successor reused 7 outputs, passed 47 guards and checked 4 physical factors plus 48 cover/covariance/SE cells. No model or oracle is rerun by this qualification.",
-          "remaining_input_or_review": "20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.",
-          "cause_category": "data | assumption | algorithm/numerical | comparability | access/rights | qualified review",
-          "consequence": "Keep the signed infeasible cases and original failed overall envelope. Marginal conditional SEs do not rehabilitate negative cover or form a joint scenario posterior; three ratios reuse the same samples/PPE rather than independent experiments.",
-          "precise_next_acceptance_route": "Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.",
-          "negative_or_refused_result": "At ratio 1 Poaceae is\u22120.00165398 and at ratio 2 it is\u22120.44875096; both maintained forward calls refuse negative cover. Ratio 0.5 is feasible with Betula 0.77810549/Poaceae 0.22189451. An earlier finite-depth oracle failure remains preserved separately from the later accepted numerical checks.",
-          "matched_denominator": "One[100,350) calibrated-BP window;3 cores and 29 samples: BOKE 5, KRAG 9, BJARE 15. Literal Betula/Poaceae panel 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts.20 bounds unknown;3 scenarios reuse these 29 samples and shared PPE. Each exported 2\u00d72 covariance is marginal, not cross-scenario joint covariance."
-        },
+        "authored_reader_sha256": "954442ceccad2fbecd1947d9af0ec91f257add096201a8568051f39767cc7ff2",
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
@@ -4151,9 +4138,30 @@
           {
             "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
             "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json",
+            "sha256": "2541362623d0428ccddd51a9ba4cc6293316c553f02c623d1124ebf768cdff2f"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability-source-account.json",
+            "sha256": "0aaaaca4ff820358ddba2b80b6285589fbe52999125d92d80d2c5c40b54d3009"
           }
-        ]
-      }
+        ],
+        "fields": {
+          "actual_verification_performed": "The actual retained-source consumer passed with 91 independent exact rational scalar comparisons, eight family points, all three original signed-case comparisons, endpoint inequalities and rank/null certificates. Its 27 focused source contracts, strict checks of four files and configured Ruff checks passed. No model, quadrature, acquisition or fit was run. The original overall failed envelope remains distinct from its passed model stage and later accepted oracle-only successor.",
+          "cause_category": "data | assumption | algorithm/numerical | comparability | access/rights | qualified review",
+          "consequence": "Retain the feasible continuum and both original negative-cover cases. The point observation cannot select local composition and abundance ratio simultaneously. Marginal conditional SEs remain the original products; they do not turn the family into a posterior or give coverage to its feasible domain.",
+          "matched_denominator": "One [100,350) calibrated-BP window; three cores and 29 samples: BOKE 5, KRAG 9 and BJARE 15. The literal Betula/Poaceae panel has 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts; 20 age bounds remain unknown. Eight deterministic family controls reuse these sources and the fixed shared PPE, including the three unchanged original scenarios. No independent scenario experiments or ratio probabilities are implied.",
+          "negative_or_refused_result": "The original ratios 1 and 2 still give negative Poaceae cover and are refused by the maintained forward model. A continuum of feasible covers gives the same pollen, so a forward roundtrip cannot identify the ratio. Exact endpoint checks preserve any signed binary64 rounding difference without clipping. The original overall oracle failure remains retained.",
+          "precise_next_acceptance_route": "Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.",
+          "remaining_input_or_review": "20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.",
+          "supported_claim": "The original three conditional scenarios are retained. A new fixed-response affine family shows structural non-identifiability: the same local pollen supports every nonnegative ratio from zero through approximately 0.996300618715; the response Jacobian has rank one. This domain is conditional on the fixed regional proxy, physical responses and literal two-taxon panel.",
+          "unsupported_claim": "Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel."
+        }
+      },
+      "reader_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
     },
     {
       "reader_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",

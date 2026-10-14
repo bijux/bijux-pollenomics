@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2093,
+  "surface_count": 2095,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1196,
+    "maintenance": 1198,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 761
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1198,
+    "maintainer_diagnostic": 1200,
     "public_reading_surface": 770,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1247,
+    "report_root": 1249,
     "sweden": 49,
     "world": 160
   },
@@ -11261,7 +11261,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
-      "content_sha256": "a01ca30b07147dc353a82b173d361ec97abb4c826613caf0a7b32001742996b3",
+      "content_sha256": "cf38acd9b8f62e6fec33115260eaf303af281e5ecd5233ac59bfbb358ae97cdd",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "37873a2286bb5832c2c46dd36f0caad7b7ddca0781136e073953aac50fb9e18e",
+      "content_sha256": "07845937377529118927ddde3b8f68124aa03bf2737f2c57926f8c7741124511",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20373,7 +20373,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "adafe711bd4c7eb86867056aed411b9e4834fda5d0fdca068e65a2203f2e463e",
+      "content_sha256": "46fe72f4bfa5289b3312e6e86771ab05c6b7a3faa0e3514e3b99bfe65166fea4",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -25460,6 +25460,30 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability-source-account.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
