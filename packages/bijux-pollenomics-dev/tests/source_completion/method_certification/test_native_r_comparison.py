@@ -40,12 +40,15 @@ def comparison(
         for row in policy["owners"]
         if row["owner_id"] == "method-certification/current-r-oracle/report-products"
     )
-    assert len(declaration["producer_paths"]) == 99
-    assert len(declaration["producer_inputs"]) == 287
+    assert len(declaration["producer_paths"]) == 100
+    assert len(declaration["producer_inputs"]) == 291
     assert {name for name in declaration["producer_paths"] if name.endswith(".R")} == {
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
     }
+    assert not set(declaration["producer_paths"]) & set(declaration["producer_inputs"])
+    assert set(declaration["producer_paths"]) >= producer._LAYOUT_CODE_INPUTS
+    assert set(declaration["producer_inputs"]) >= producer._LAYOUT_STATIC_DATA
     # Exercise the default historical profile independently of the configured
     # current-owner profile; both contracts declare their actual selected packet.
     declaration["producer_inputs"] = [
@@ -123,7 +126,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         )
         assert "consumer_source_revision" not in report
         assert "source_revision" not in report
-        assert len(report["consumer_inputs"]["code_sha256"]) == 99
+        assert len(report["consumer_inputs"]["code_sha256"]) == 100
         assert (
             report["consumer_inputs"]["capture_manifest_sha256"]
             == source.manifest_sha256
@@ -345,6 +348,8 @@ def test_protected_consumer_mutation_refuses_publication(
         "data-count",
         "alias",
         "escape",
+        "layout-code-role",
+        "layout-data-role",
     ],
 )
 def test_consumer_contract_refuses_before_comparison(
@@ -368,6 +373,16 @@ def test_consumer_contract_refuses_before_comparison(
         row["producer_inputs"].remove("configs/ci/report-ownership.json")
     elif condition == "data-count":
         row["producer_inputs"].pop()
+    elif condition == "layout-code-role":
+        source = next(iter(producer._LAYOUT_CODE_INPUTS))
+        row["producer_paths"][row["producer_paths"].index(source)] = (
+            "packages/unrelated.py"
+        )
+    elif condition == "layout-data-role":
+        source = next(iter(producer._LAYOUT_STATIC_DATA))
+        row["producer_inputs"][row["producer_inputs"].index(source)] = (
+            "data/unrelated.json"
+        )
     elif condition == "escape":
         row["producer_inputs"][1] = "../outside"
     else:

@@ -18,6 +18,22 @@ from bijux_pollenomics_dev.lra_validation.native_reference.capture_selection imp
 
 _OWNER = "method-certification/current-r-oracle/report-products"
 _POLICY = "configs/ci/report-ownership.json"
+# These are declared consumer source and authenticated witness roles, rather than
+# a claim about every module that Python imports incidentally.
+_LAYOUT_CODE_INPUTS = frozenset(
+    [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+    ]
+)
+_LAYOUT_STATIC_DATA = frozenset(
+    [
+        "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+        "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
+    ]
+)
 _OUTPUTS = {
     "docs/report/method-certification/current-r-oracle/report.json",
     "docs/report/method-certification/current-r-oracle/source-replay.json",
@@ -88,9 +104,11 @@ def _consumer_inputs(
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 99
+        or len(code) != 100
+        or not set(code) >= _LAYOUT_CODE_INPUTS
         or len(set(code)) != len(code)
-        or len(data) != 287
+        or len(data) != 291
+        or not set(data) >= _LAYOUT_STATIC_DATA
         or len(set(data)) != len(data)
         or _POLICY not in data
         or selected_manifest not in data
