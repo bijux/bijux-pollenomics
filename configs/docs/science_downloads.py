@@ -231,7 +231,7 @@ def _previous_deck_sources(root: Path) -> dict[str, object]:
 
 CURRENT_DECK_CONTEXT_PATH = "presentation/retained-build-source-context.json"
 CURRENT_DECK_CONTEXT_SHA256 = (
-    "3d569d55f47273985e53b5bc8c4b4fddb1ae216eec0ff3d1d18ef6ca87004619"
+    "1ad22d57414a717c243d03f8a94c23374aca9c9dff0d1d2ff650a11eaf57ebd7"
 )
 CURRENT_DECK_SOURCE_LOCK_SHA256 = (
     "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"

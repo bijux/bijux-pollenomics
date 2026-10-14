@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
+from bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws import (
     PROFILE,
     joint_site_cover_draws,
 )

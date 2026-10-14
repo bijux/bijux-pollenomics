@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import os
 from pathlib import Path
 
-from ..contracts import Fold, ValidationRefusal, canonical_json, manifest_sha256
+from ...contracts import Fold, ValidationRefusal, canonical_json, manifest_sha256
 
 
 @dataclass(frozen=True)

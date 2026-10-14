@@ -218,6 +218,6 @@ Retained evidence: [docs/report/synthetic-validation/recovery-evidence/report.js
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: d33e3c2c2d6c007f84a98c71d900f599e7ffef629e8ffee4fc9c98e83698c810 -->
+<!-- scientific-claim-semantic-sha256: 9c23330b06105acc10d6c1f5262c7efe7084836a22aee24e38f08ea78282bb87 -->
 <!-- scientific-authored-source-sha256: 8caa206b73c0ed6f0bff3855030d0c582ec20234ef4cba030b92021d7e192bdc -->
 <!-- scientific-verification-and-limits:end -->

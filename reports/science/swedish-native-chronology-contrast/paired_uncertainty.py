@@ -93,7 +93,7 @@ def qualify(source_root: Path, output_root: Path) -> JsonMap:
     )
     require(
         api.joint_aliquot_covariance.__module__
-        == "bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance",
+        == "bijux_pollenomics_lra.reconstruction.uncertainty.joint_aliquot_covariance",
         "Public aliquot API origin differs",
     )
     params = tuple(protocol["literal_axis"])

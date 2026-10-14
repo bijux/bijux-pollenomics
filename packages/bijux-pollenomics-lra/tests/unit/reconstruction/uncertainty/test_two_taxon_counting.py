@@ -14,8 +14,10 @@ import pytest
 import bijux_pollenomics_lra as lra
 from bijux_pollenomics_lra import api
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.reconstruction import two_taxon_counting as interval_module
-from bijux_pollenomics_lra.reconstruction.two_taxon_counting import (
+from bijux_pollenomics_lra.reconstruction.uncertainty import (
+    two_taxon_counting as interval_module,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting import (
     PROFILE,
     fixed_two_taxon_counting_interval,
 )

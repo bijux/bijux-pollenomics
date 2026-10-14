@@ -45,7 +45,7 @@ class FiniteCovarianceCapture:
 
 
 def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCapture:
-    """Require reviewed physical bytes and the exact current scientific source closure."""
+    """Require original native bytes and exact bytes or named source/API custody."""
     repository = repository.resolve(strict=True)
     manifest_path = f"{CAPTURE_ROOT}/capture/capture.json"
     payload = _file(repository, manifest_path)
@@ -187,11 +187,18 @@ def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCap
         physical.add(path.relative_to(repository).as_posix())
     if physical != set(inputs):
         raise ValueError("Native source packet has extra/missing members")
+    from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+    from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+        validate_current_native_source,
+    )
+
     for name, digest in science.items():
-        if hashlib.sha256(_file(repository, name)).hexdigest() != digest:
+        try:
+            validate_current_native_source(repository, name, digest)
+        except (OSError, ValueError, ReportRebuildError) as error:
             raise ValueError(
                 "Current protected source differs from finite covariance capture"
-            )
+            ) from error
     certificate = "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json"
     if hashlib.sha256(_file(repository, certificate)).hexdigest() != CERTIFICATE_SHA256:
         raise ValueError("Original R certificate changed")

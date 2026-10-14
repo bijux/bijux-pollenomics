@@ -19,10 +19,10 @@ from bijux_pollenomics.analysis.lra_validation.splits import (
     grouped_leave_one_out,
 )
 
-from .fitted.test_admission import block_local_payload, block_payload
-from .fitted.test_model import payload as fitted_payload
-from .test_assimilation import local_payload
-from .test_inputs import fixture_inputs
+from ..fitted.test_admission import block_local_payload, block_payload
+from ..fitted.test_model import payload as fitted_payload
+from ..test_assimilation import local_payload
+from ..test_inputs import fixture_inputs
 
 _CASES = (
     ("workflow", "prepare_experiment_predictions", "reconstruct_fold", False, False),

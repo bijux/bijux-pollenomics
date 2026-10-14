@@ -46,21 +46,11 @@ from bijux_pollenomics_lra.reconstruction.fixed_site_covariance import (
     fixed_site_cover_covariance,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
-from bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance import (
-    AliquotCountInput,
-    AliquotResultInput,
-    JointAliquotCovariance,
-    joint_aliquot_covariance,
-)
 from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
     ConditionalResultInput,
     CountSupport,
     JointFixedSiteCovariance,
     joint_fixed_site_covariance,
-)
-from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
-    JointSiteDrawResult,
-    joint_site_cover_draws,
 )
 from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
     HomogeneousLikelihoodFit,
@@ -70,7 +60,17 @@ from bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood impor
     SharedPpeLikelihoodResult,
     fit_shared_ppe_likelihood,
 )
-from bijux_pollenomics_lra.reconstruction.two_taxon_counting import (
+from bijux_pollenomics_lra.reconstruction.uncertainty.joint_aliquot_covariance import (
+    AliquotCountInput,
+    AliquotResultInput,
+    JointAliquotCovariance,
+    joint_aliquot_covariance,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws import (
+    JointSiteDrawResult,
+    joint_site_cover_draws,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting import (
     TwoTaxonCountingInterval,
     fixed_two_taxon_counting_interval,
 )

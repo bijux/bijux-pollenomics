@@ -24,7 +24,25 @@ def repository(tmp_path: Path) -> Path:
         *record["source_context"]["protected_science_sha256"],
         "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json",
     ]
+    from bijux_pollenomics_dev.lra_validation.native_reference import (
+        source_layout_adoption as layout,
+    )
+
     for name in names:
+        current = layout.RELOCATIONS.get(name, name)
+        target = root / current
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(maintained / current, target)
+    extra = [
+        layout.PROOF_PATH,
+        layout.PREIMAGE_PATH,
+        *layout.RELOCATIONS.values(),
+        "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
+        "data/atlas/source-view-capture/source/" + layout.API_PATH,
+        "data/atlas/source-view-capture/source/" + layout.ROOT_API_PATH,
+    ]
+    for name in extra:
         target = root / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(maintained / name, target)

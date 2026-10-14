@@ -209,6 +209,13 @@ def test_retained_deck_context_admits_original_history_and_exact_current_inputs(
         row["path"] for row in retained["context"]["reviewed_deltas"]
     ]
     assert len(retained["context"]["reviewed_deltas"]) == 15
+    krageholm = next(
+        row
+        for row in retained["context"]["reviewed_deltas"]
+        if row["path"].endswith("krageholm-static-geometry-sensitivity/README.md")
+    )
+    assert "95 individual measured Betula/Poaceae" in krageholm["review"]
+    assert krageholm["current_sha256"] == current[krageholm["path"]]
     before = (ROOT / "presentation/source-lock.json").read_bytes()
     frozen = HOOK.download_bytes(ROOT)
     assert len(frozen) == 12

@@ -194,6 +194,11 @@ def _api_without_adoptions(raw: bytes, proof: dict[str, Any]) -> str:
 
 
 def _validate_api_adoption(repository: Path, captured: Path, current: Path) -> None:
+    from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+        api_adoption_preimage,
+    )
+
+    current = api_adoption_preimage(repository, current)
     proof_path = _regular_confined_file(
         repository, API_ADOPTION_PATH, "atlas source API adoption"
     )
@@ -357,9 +362,11 @@ def validated_atlas_source_views(repository: Path) -> ValidatedAtlasCapture:
     for name, expected in packet["source_footprint"].items():
         captured = members[_relative(packet["source_members"][name])]
         _require(_sha(captured) == expected, "captured source bytes differ: " + name)
-        source = _regular_confined_file(
-            repository, _relative(name), "atlas source footprint"
+        from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+            captured_source_path,
         )
+
+        source = captured_source_path(repository, _relative(name))
         if _sha(source) != expected:
             if name == API_PATH:
                 _validate_api_adoption(repository, captured, source)

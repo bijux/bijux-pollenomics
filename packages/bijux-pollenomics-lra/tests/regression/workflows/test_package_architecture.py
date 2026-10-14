@@ -28,7 +28,11 @@ def test_named_domains_bound_source_size_and_dependency_direction(
     assert not (source / "integration.py").exists()
     for path in source.rglob("*.py"):
         assert len(path.read_text().splitlines()) <= 540, path
-        if path.parent.name not in {"reconstruction", "dispersal", "optimization"}:
+        if path.relative_to(source).parts[0] not in {
+            "reconstruction",
+            "dispersal",
+            "optimization",
+        }:
             continue
         tree = ast.parse(path.read_text())
         for node in ast.walk(tree):
