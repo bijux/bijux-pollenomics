@@ -1,10 +1,12 @@
 """Preserve native point support and missing/boundary age semantics."""
 
 from __future__ import annotations
+
 import importlib.util
 from pathlib import Path
 from types import ModuleType
 from typing import Any
+
 import pytest
 
 PRODUCER = (

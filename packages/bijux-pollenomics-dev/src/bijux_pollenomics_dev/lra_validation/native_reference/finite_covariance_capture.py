@@ -91,7 +91,7 @@ def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCap
 
     raw = record["raw_members"]
     reports = record["report_source_members"]
-    if set(raw) != RAW_MEMBERS or tuple(reports) != REPORT_SOURCE_MEMBERS:
+    if frozenset(raw) != RAW_MEMBERS or tuple(reports) != REPORT_SOURCE_MEMBERS:
         raise ValueError("Exact native numeric/raw membership differs")
     raw_digests = {}
     for name, identity in raw.items():

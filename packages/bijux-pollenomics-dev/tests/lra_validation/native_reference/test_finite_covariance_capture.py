@@ -1,8 +1,8 @@
 """Refuse changed scientific inputs, physical aliases and incomplete native custody."""
 
-from pathlib import Path
 import json
 import os
+from pathlib import Path
 import shutil
 
 import pytest

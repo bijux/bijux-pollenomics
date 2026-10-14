@@ -7,7 +7,6 @@ from typing import Literal
 
 from .annulus_capture import AnnulusCapture, validated_annulus_capture
 from .count_domain_capture import CountDomainCapture, validated_count_domain_capture
-
 from .finite_covariance_capture import (
     FiniteCovarianceCapture,
     validated_finite_covariance_capture,
