@@ -1,0 +1,12 @@
+{
+  "schema_version": "retained-oracle-diagnostics-independent-review.v1",
+  "status": "passed",
+  "case_rows": 74,
+  "scalar_pairs": 6076,
+  "report_sha256": "aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f",
+  "native_capture_sha256": "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b",
+  "stdlib_only": true,
+  "fresh_R_executed": false,
+  "model_executed": false,
+  "scope": "Independent standard-library NPY decoder and scalar residual/threshold review of original saved vectors. No source models, new draws, historical execution or scientific admission."
+}

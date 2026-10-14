@@ -81,7 +81,8 @@ five exact cached public dependency archives and their original acquisition meta
 These cached bytes do not establish fresh downloads. Historical native, annulus and
 count-domain packets remain unchanged and retain their original scope.
 
-The current producer declares 99 code inputs and 287 data inputs. Its configured
+The retained mapped report records 99 code inputs and 287 data inputs for its
+original consumer epoch. Its configured
 owner selects `finite-covariance`; direct calls retain `annulus` as the default and
 must select `finite-covariance` explicitly for this mapped comparison. An unknown,
 missing, unauthenticated or scientifically stale selected packet refuses without
@@ -96,6 +97,41 @@ not establish ecological accuracy, statistical coverage, a Linux release certifi
 external scientific approval or release readiness. Declared RSS, process and storage
 budgets were not measured during this local execution.
 
+## Retained-vector residual diagnostics
+
+The [retained diagnostics](retained-vector-diagnostics.json) compare the saved R and Python vectors from the finite-covariance packet and the saved original/tagged Petr/Kuneš R tables. A separate [standard-library scalar review](retained-vector-review.json) checks every difference, original threshold outcome, nonfinite mask, zero-reference difference and comparison type against those source bytes. These are new observations of retained outputs; neither command executes R, regenerates Python expectations or fits a model.
+
+| Retained population | Report rows | Ordered entries | Nonidentical entries | Maximum absolute residual | Maximum relative residual |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Native core vectors | 43 | 5,542 | 1,186 | 2.4868995751603507e-14 | 1.0 |
+| Native source-domain vectors | 23 | 286 | 222 | 5.551115123125783e-16 | 4.662807432015074e-15 |
+| Four Petr/Kuneš cases, mean and SE | 8 | 248 | 0 | 0 | 0 |
+| Total | 74 | 6,076 | 1,408 | 2.4868995751603507e-14 | 1.0 |
+
+All 1,408 nonidentical entries satisfy their original case thresholds. The 6,076 entries include 169 ordered labels and 5,907 numeric pairs: 4,113 finite pairs and 1,794 matching NaN pairs. There are no unequal zero-reference entries or nonfinite mismatches. Matching NaNs are retained source outcomes, not finite residuals or evidence of a successful computation. The report lists every nonidentical coordinate, both values, its residual and original acceptance outcome.
+
+Relative residuals use the absolute saved Python reference and exclude zero and nonfinite reference values. The maximum **1.0** occurs in core case `C0016`, `REVEALSinR_deterministic_3`, at coordinates 63 and 74: retained R is zero while the saved Python references are approximately 1.0878e-15 and 2.1756e-15. Their absolute differences satisfy the unchanged case tolerance. A small absolute residual therefore does not imply a small relative residual near zero. Petr/Kuneš equality is at the retained CSV precision; it is separate from the full-precision native results described in that reader.
+
+The [protocol](retained-vector-protocol.json) preserves all original per-case tolerances and exact-coordinate requirements, including the source-domain relative 1e-10 and absolute 3e-10 thresholds. Its conditioning and source-rounding rationale was written after the historical native execution and frozen before this retained comparison. It is a retrospective explanation of unchanged thresholds, not evidence that this rationale was preregistered for the original run or that the thresholds cover every ill-conditioned input.
+
+The [source account](retained-vector-source.json) distinguishes the actual native source, diagnostic producer, independent observer and their execution receipts. The exact [historical environment record](retained-vector-historical-environment.json) and [frozen lock](retained-vector-historical-uv.lock) identify Python 3.11.13 with the below-3.12 NumPy 2.4.6/SciPy 1.17.1 marker branch and Pandas 2.3.3. The lock's NumPy 2.5.3/SciPy 1.18.1 branch applies to Python 3.12 or later. The actual R session records R 4.6.0 on aarch64 macOS with libRblas/libRlapack and LAPACK 3.12.1. A historical Python BLAS configuration was not recorded; the frozen sync receipt and lock are dependency-provenance evidence rather than a backdated `show_config` measurement.
+
+To compare these same retained inputs from an installed development environment, use absent destinations below `artifacts/`:
+
+```sh
+python -m bijux_pollenomics_dev.lra_validation.native_reference.diagnostics \
+  --repository . \
+  --protocol docs/report/method-certification/current-r-oracle/retained-vector-protocol.json \
+  --output artifacts/jobs/retained-vector-diagnostics/report.json
+python -m bijux_pollenomics_dev.lra_validation.native_reference.diagnostics_verification \
+  --repository . \
+  --protocol docs/report/method-certification/current-r-oracle/retained-vector-protocol.json \
+  --report artifacts/jobs/retained-vector-diagnostics/report.json \
+  --output artifacts/jobs/retained-vector-diagnostics/independent-review.json
+```
+
+These diagnostics add zero native R cases and preserve the original missing historical 18-case inventory. They do not compare stochastic optimizer trajectories, establish convergence or a global optimum, extend R parity to fixed/joint covariance APIs, authenticate the executable used in a 2022 analysis, or establish ecological accuracy, calibrated uncertainty, hosted Linux certification or release readiness. The native case modes, failed convergence and source refusals retain their original meanings.
+
 ## Recompute the retained comparison
 
 From an installed development environment at the repository root, choose an absent destination below `artifacts/` whose parent is named `producer-output`:
@@ -109,6 +145,17 @@ python -m bijux_pollenomics_dev.source_completion.method_certification.native_r_
 ```
 
 The mapped output contains only `report.json` and `source-replay.json`. Its sibling `native-comparison/` preserves the ordinary comparison output, including all 138 raw members and its actual execution revision. The command authenticates the native packet before and after, validates the original reference and checks the captured scientific source hashes against the physical repository. It never consumes the tracked comparison JSONs as producer input. The configured report owner runs the same producer in independent reference and replay lanes.
+
+The ordinary configured retained-vector owner invokes a separate maintained writer:
+
+```sh
+mkdir -p artifacts/jobs/retained-vector-owner/producer-output
+python -m bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics \
+  --repository . \
+  --output artifacts/jobs/retained-vector-owner/producer-output/source-products
+```
+
+This writer regenerates only `retained-vector-diagnostics.json` and `retained-vector-review.json`. The frozen protocol, historical environment/lock and actual execution source account are retained evidence. Two actual source-confined recipe lanes emitted byte-identical copies of the original report and independently reviewed masks; full canonical configured-owner resolution remains a distinct repository gate.
 
 ## Reproduction
 
@@ -153,29 +200,35 @@ The [source replay verifier](https://github.com/bijux/bijux-pollenomics/blob/695
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-**Supported claim.** The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations.
+**Supported claim.** The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations. Retained-vector diagnostics separately account for 74 rows and 6076 ordered entries under the unchanged case tolerances.
 
 **Unsupported claim.** A local macOS source export is not hosted same-revision Linux certification, a complete clean Git checkout, parity for new fixed/joint covariance extensions or independent ecological accuracy.
 
-**Actual verification performed.** Two actual ordinary configured retained-comparison producers returned zero on current source and emitted identical report/source-replay bytes. Independent comparison proves only the whole-owner-policy digest and aggregate consumer-input digest changed; every scientific value, native capture identity and other 99-code/287-data binding is exact. All 68 protected mathematical inputs match the original native capture. Old tracked-byte checkers refused those two metadata strings. No R or fresh Python numerical expectations were executed.
+**Actual verification performed.** The actual original native capture passed 43 core, 23 source-domain and 48 historical-vector comparisons. A later maintained retained-only producer and strengthened independent standard-library observer checked 6076 entry pairs, every 1408 nonidentical entry, all nonfinite masks, zero-reference differences, comparison kinds and unchanged threshold outcomes. Two additional source-confined maintained recipe lanes reproduced the original report and complete review byte for byte. Maximum relative residual 1.0 occurs at two saved references near zero, with absolute residuals below 2.18e-15. These new observations execute no R, source model, optimizer, draws or Python expectations. Earlier two-string mapped-report metadata correspondence retains its original consumer epoch.
 
-**Remaining input or review.** Adopt the actual reviewed current-policy mapping through its governed output contract. Official publication still requires actual admitted same-revision hosted Linux/R and native-parity artifacts; existing macOS native capture scope remains unchanged.
+**Remaining input or review.** Resolve the newly declared generated owner against the complete canonical Git inventory and its exact output checkers; any changed native mapped-owner code/data/policy needs its own retained comparison mapping. Historical Python BLAS was not physically recorded, and the exact 2022 Petr executable remains unauthenticated. Official release still requires separately admitted same-revision hosted Linux/R and native-parity evidence.
 
 **Cause category.** Historical native numerical correspondence with separately scoped deterministic mapping and release admission.
 
 **Consequence.** The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope.
 
-**Precise next acceptance route.** Bind the reviewed current mapped reports while preserving native 43+23 cases and 48 historical comparisons. Re-execute these deterministic consumers if their owner-policy/code/data bytes change, and qualify hosted artifacts at the actual release source revision.
+**Precise next acceptance route.** Run ordinary configured retained-vector reference/replay consumers when their declared source inputs change, preserve original 43+23 native cases and 48 historical comparisons, and keep current mapped-report custody separate. Resolve historical provenance only with authentic evidence; qualify hosted release artifacts at their actual source revision.
 
-**Negative or refused result.** The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list.
+**Negative or refused result.** The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list. The 1794 matching NaN pairs remain nonfinite source outcomes; a historical Python BLAS measurement and authenticated 2022 Petr executable remain unavailable.
 
-**Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases.
+**Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases. The residual account has 43 core + 23 domain + 8 Petr quantity rows: 6076 entries, 169 labels, 5907 numeric pairs, 1408 nonidentical entries and 0 threshold failures.
 
-Qualified authored reader SHA-256: `01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753`.
+Qualified authored reader SHA-256: `d06fd1f492e826de53f583284e1749ad0a84b946aaaaa260ca142b0bd6f7a96f`.
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `56206c69a22d7d7bd52e727819aacc9bf83b58ef6f46f3612ecb28b9cf89cd16`).
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `1b2ccc680a59768bc62c211333cb53d6ca71d9b0cda3721cf4eff42f4110ebd3`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json](retained-vector-diagnostics.json) (SHA-256 `aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-review.json](retained-vector-review.json) (SHA-256 `c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-source.json](retained-vector-source.json) (SHA-256 `74c6657e79c94255c75c0ceec89c91ae67b7bd7a2339d6bfc31d4127e7c5401e`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

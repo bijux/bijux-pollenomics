@@ -845,12 +845,12 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "3a81ddb51b1693a421e53a5894e623a55c767087d59bf1e02d826a9385eac62b",
-      "prose_paragraph_count": 32,
-      "link_bullet_count": 4,
+      "content_sha256": "43a12dfea7e237f52d4268cb5ad938f08f5fc63bc680082551340417568ad6f3",
+      "prose_paragraph_count": 41,
+      "link_bullet_count": 7,
       "bullet_sentence_count": 0,
-      "heading_count": 10,
-      "table_line_count": 0,
+      "heading_count": 11,
+      "table_line_count": 6,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -955,7 +955,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/petrkunes-r-comparison/README.md",
-      "content_sha256": "24134277e2843a7127839685b687d6a2028893293024912e5accb96a9086b65d",
+      "content_sha256": "fc9a6888b20bd245e61e7f9f09a83a77cd714fcfe7b6d5df1b7a94b1494e1fa1",
       "prose_paragraph_count": 17,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -3408,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "c6b728d0f3c8fb02b47670891d478959a63c0d94f0fcdccd8690584d384a8f29",
+      "content_sha256": "175f40258169e4f6dca20bd033d70293d6c5de50e84c1bacd9e90fa52b539330",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3419,7 +3419,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "a717420f5158df2b4410f27161cf3470274b94cd53ba837f2d2d120c842e6447",
+      "content_sha256": "c770ea6a85daedc388266e32bc22dcb88e43feea577c1807c17aeb9b8b3b6555",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

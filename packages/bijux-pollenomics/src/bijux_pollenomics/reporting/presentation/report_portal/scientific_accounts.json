@@ -2221,17 +2221,17 @@
       ],
       "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.",
       "qualification": {
-        "authored_reader_sha256": "01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753",
+        "authored_reader_sha256": "d06fd1f492e826de53f583284e1749ad0a84b946aaaaa260ca142b0bd6f7a96f",
         "fields": {
-          "supported_claim": "The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations.",
+          "supported_claim": "The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations. Retained-vector diagnostics separately account for 74 rows and 6076 ordered entries under the unchanged case tolerances.",
           "unsupported_claim": "A local macOS source export is not hosted same-revision Linux certification, a complete clean Git checkout, parity for new fixed/joint covariance extensions or independent ecological accuracy.",
-          "actual_verification_performed": "Two actual ordinary configured retained-comparison producers returned zero on current source and emitted identical report/source-replay bytes. Independent comparison proves only the whole-owner-policy digest and aggregate consumer-input digest changed; every scientific value, native capture identity and other 99-code/287-data binding is exact. All 68 protected mathematical inputs match the original native capture. Old tracked-byte checkers refused those two metadata strings. No R or fresh Python numerical expectations were executed.",
-          "remaining_input_or_review": "Adopt the actual reviewed current-policy mapping through its governed output contract. Official publication still requires actual admitted same-revision hosted Linux/R and native-parity artifacts; existing macOS native capture scope remains unchanged.",
+          "actual_verification_performed": "The actual original native capture passed 43 core, 23 source-domain and 48 historical-vector comparisons. A later maintained retained-only producer and strengthened independent standard-library observer checked 6076 entry pairs, every 1408 nonidentical entry, all nonfinite masks, zero-reference differences, comparison kinds and unchanged threshold outcomes. Two additional source-confined maintained recipe lanes reproduced the original report and complete review byte for byte. Maximum relative residual 1.0 occurs at two saved references near zero, with absolute residuals below 2.18e-15. These new observations execute no R, source model, optimizer, draws or Python expectations. Earlier two-string mapped-report metadata correspondence retains its original consumer epoch.",
+          "remaining_input_or_review": "Resolve the newly declared generated owner against the complete canonical Git inventory and its exact output checkers; any changed native mapped-owner code/data/policy needs its own retained comparison mapping. Historical Python BLAS was not physically recorded, and the exact 2022 Petr executable remains unauthenticated. Official release still requires separately admitted same-revision hosted Linux/R and native-parity evidence.",
           "cause_category": "Historical native numerical correspondence with separately scoped deterministic mapping and release admission.",
           "consequence": "The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope.",
-          "precise_next_acceptance_route": "Bind the reviewed current mapped reports while preserving native 43+23 cases and 48 historical comparisons. Re-execute these deterministic consumers if their owner-policy/code/data bytes change, and qualify hosted artifacts at the actual release source revision.",
-          "negative_or_refused_result": "The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list.",
-          "matched_denominator": "43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases."
+          "precise_next_acceptance_route": "Run ordinary configured retained-vector reference/replay consumers when their declared source inputs change, preserve original 43+23 native cases and 48 historical comparisons, and keep current mapped-report custody separate. Resolve historical provenance only with authentic evidence; qualify hosted release artifacts at their actual source revision.",
+          "negative_or_refused_result": "The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list. The 1794 matching NaN pairs remain nonfinite source outcomes; a historical Python BLAS measurement and authenticated 2022 Petr executable remain unavailable.",
+          "matched_denominator": "43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases. The residual account has 43 core + 23 domain + 8 Petr quantity rows: 6076 entries, 169 labels, 5907 numeric pairs, 1408 nonidentical entries and 0 threshold failures."
         },
         "evidence_pins": [
           {
@@ -2241,6 +2241,18 @@
           {
             "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
             "sha256": "1b2ccc680a59768bc62c211333cb53d6ca71d9b0cda3721cf4eff42f4110ebd3"
+          },
+          {
+            "path": "docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json",
+            "sha256": "aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f"
+          },
+          {
+            "path": "docs/report/method-certification/current-r-oracle/retained-vector-review.json",
+            "sha256": "c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22"
+          },
+          {
+            "path": "docs/report/method-certification/current-r-oracle/retained-vector-source.json",
+            "sha256": "74c6657e79c94255c75c0ceec89c91ae67b7bd7a2339d6bfc31d4127e7c5401e"
           }
         ]
       }
@@ -2597,12 +2609,12 @@
       ],
       "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.",
       "qualification": {
-        "authored_reader_sha256": "ab85bac0aada4c6e5a2288b5ee8364f00d04a9e4e61b01eab70d3272d0f18cf4",
+        "authored_reader_sha256": "40e8db800986bc0673b6ef7ad79298d22c09f53f9f7626c4d8ae0a7dddcf5dcc",
         "fields": {
           "supported_claim": "The retained Petr/Kuneš author-R correspondence matches selected mean and SE outputs and a same-index bootstrap on shared prepared author data, keeping code/data lineage explicit.",
           "unsupported_claim": "Agreement on these shared inputs is not independent empirical derivation, full 25-window random-stream reproduction, scientific source admission or measured vegetation accuracy.",
           "actual_verification_performed": "Reviewed the retained native report and mean/SE summary, case support and numerical tolerances and bound their public bytes. This qualification ran no author-R program, bootstrap or native Python model.",
-          "remaining_input_or_review": "Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement.",
+          "remaining_input_or_review": "Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement. The selected tagged v0.1.2 source is not authenticated as the exact executable used in 2022; that historical version identity remains uncertain.",
           "cause_category": "Author-code arithmetic correspondence on shared prepared input lineage.",
           "consequence": "The comparison qualifies a named computational route and selected population; it does not independently validate the historical observations or all author scenarios.",
           "precise_next_acceptance_route": "Replay the maintained selected-case owner with exact author inputs and indices, preserve its tolerance and scope, and resolve the named source/rights questions before any scientific or redistribution admission.",

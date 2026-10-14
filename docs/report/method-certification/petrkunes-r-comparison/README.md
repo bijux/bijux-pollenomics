@@ -6,6 +6,7 @@ October 2016 `LRA-REVEALS-release.R` and Petr Kuneš's [LRA v0.1.2 source](https
 at commit `d29075692ed730e3934bc461eb9081c404aef59b`. The tagged source
 tarball is retained outside the product repository with SHA-256
 `3292d4726e3cb0204d6f8326c5ce9208aecf3e064c180846adab3be7fa03a353`.
+The selected v0.1.2 commit is a version comparison target. It has not been authenticated as the executable version used in the 2022 analysis; that publication-specific version remains uncertain.
 Its `REVEALS.R`, `KPf.R` and `DESCRIPTION` SHA-256 values are respectively
 `50353523cd1e1cb85b3fc572d55320771bdc4bf6b03b7b98ba7fa6c3b321d72d`,
 `bebe75561016cfe12138d9bf49326da760d475afa762e3c15ad7150d51938247`,
@@ -100,7 +101,7 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Actual verification performed.** Reviewed the retained native report and mean/SE summary, case support and numerical tolerances and bound their public bytes. This qualification ran no author-R program, bootstrap or native Python model.
 
-**Remaining input or review.** Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement.
+**Remaining input or review.** Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement. The selected tagged v0.1.2 source is not authenticated as the exact executable used in 2022; that historical version identity remains uncertain.
 
 **Cause category.** Author-code arithmetic correspondence on shared prepared input lineage.
 
@@ -112,7 +113,7 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Matched denominator.** Four selected site cases by 31 taxa at 225 BP give 124 mean and 124 SE pairs; one full grid has nine sites, six active and 1,000 shared indices. Native residual maxima are 1.21958e-13 for 31 means and 2.86438e-14 for 31 SEs.
 
-Qualified authored reader SHA-256: `ab85bac0aada4c6e5a2288b5ee8364f00d04a9e4e61b01eab70d3272d0f18cf4`.
+Qualified authored reader SHA-256: `40e8db800986bc0673b6ef7ad79298d22c09f53f9f7626c4d8ae0a7dddcf5dcc`.
 
 - [Retained qualification evidence: docs/report/method-certification/petrkunes-r-comparison/native-report.json](native-report.json) (SHA-256 `273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995`).
 

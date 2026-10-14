@@ -2174,6 +2174,18 @@
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
       },
       "timeout_seconds": 60
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/current-r-oracle/retained-vector-comparisons",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/retained-vector-diagnostics.json": "docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json",
+        "source-products/retained-vector-review.json": "docs/report/method-certification/current-r-oracle/retained-vector-review.json"
+      },
+      "timeout_seconds": 60
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

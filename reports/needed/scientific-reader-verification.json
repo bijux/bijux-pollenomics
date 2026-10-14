@@ -1797,5 +1797,29 @@
       "prior_readability_execution_preserved": true,
       "scope": "One actual fixed-pair counting result and exact saved-product qualification. Original aggregate typing-cache output-budget failure remains recorded. No new source rights, empirical coverage, full vegetation interval or qualified scientist review."
     }
+  ],
+  "subsequent_wrapper_reader_adoptions": [
+    {
+      "report_path": "docs/report/method-certification/current-r-oracle/README.md",
+      "authored_source_sha256": "d06fd1f492e826de53f583284e1749ad0a84b946aaaaa260ca142b0bd6f7a96f",
+      "rendered_sha256": "43a12dfea7e237f52d4268cb5ad938f08f5fc63bc680082551340417568ad6f3",
+      "current_retained_vector_source_account": "docs/report/method-certification/current-r-oracle/retained-vector-source.json",
+      "current_retained_vector_source_account_sha256": "74c6657e79c94255c75c0ceec89c91ae67b7bd7a2339d6bfc31d4127e7c5401e",
+      "actual_diagnostics_terminal_sha256": "4154760bfae6ecf94410abec83008eeae7cd6caaed0de7f7118e18761c112a10",
+      "actual_complete_scalar_review_terminal_sha256": "67b6ab1fee1a41e0acc5f15d0dd783a5523ce7cdf90c8aae16f7b823a3c18fda",
+      "prior_readability_execution_preserved": true,
+      "scope": "Retained numerical residual and source-version reporting only. Original327-reader execution and historical report_prose hashes remain unchanged; no new native R, model execution or scientific admission."
+    },
+    {
+      "report_path": "docs/report/method-certification/petrkunes-r-comparison/README.md",
+      "authored_source_sha256": "40e8db800986bc0673b6ef7ad79298d22c09f53f9f7626c4d8ae0a7dddcf5dcc",
+      "rendered_sha256": "fc9a6888b20bd245e61e7f9f09a83a77cd714fcfe7b6d5df1b7a94b1494e1fa1",
+      "current_retained_vector_source_account": "docs/report/method-certification/current-r-oracle/retained-vector-source.json",
+      "current_retained_vector_source_account_sha256": "74c6657e79c94255c75c0ceec89c91ae67b7bd7a2339d6bfc31d4127e7c5401e",
+      "actual_diagnostics_terminal_sha256": "4154760bfae6ecf94410abec83008eeae7cd6caaed0de7f7118e18761c112a10",
+      "actual_complete_scalar_review_terminal_sha256": "67b6ab1fee1a41e0acc5f15d0dd783a5523ce7cdf90c8aae16f7b823a3c18fda",
+      "prior_readability_execution_preserved": true,
+      "scope": "Retained numerical residual and source-version reporting only. Original327-reader execution and historical report_prose hashes remain unchanged; no new native R, model execution or scientific admission."
+    }
   ]
 }
