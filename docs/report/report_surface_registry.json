@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2086,
+  "surface_count": 2088,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1188,
+    "maintenance": 1190,
     "maps": 88,
     "portal": 2,
     "reviews": 38,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1190,
+    "maintainer_diagnostic": 1192,
     "public_reading_surface": 769,
     "scientific_review_surface": 127
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1241,
+    "report_root": 1243,
     "sweden": 49,
     "world": 160
   },
@@ -20536,7 +20536,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "content_sha256": "ad61e39b3ef43b2ad2cfcd0d170017cf776924d55f261e4ae0c56e155de785e5",
+      "content_sha256": "dcea699e6a6740d0124a93047753459f4fd49b2d9ebde633cf852cdb1521da16",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25376,6 +25376,30 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-affine-structure.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b8a134f998493b03c8a236e80c29dc37349a0c545c37d82a58949b5a8a94474c",
-      "bytes": 4885411
+      "sha256": "d3d0b0c944ebadc0e4b14c4cc48b63637fce918562a96b6c4c9eebc6e3cbf21c",
+      "bytes": 4886759
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "1e8d2a84e1db0a5e1b63df2de36e8deeb29ae10d57c17c76de6b110e6c3f1b08",
+      "sha256": "b8e61b18d4967ae098c33a518b7bf3b290fb228a09fe169402368b72479716b2",
       "bytes": 150726
     },
     {
@@ -3766,12 +3766,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "f1137dd26ae1c978b70bdd3956fc61bc97b7114a55810e6afa2aef3946df0830",
-      "bytes": 1024940
+      "sha256": "2cceffc7dded8f25e135e215e33752cb920ac831f79abcdd118c9cff877dea7c",
+      "bytes": 1025967
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "312b399142dc48737b7cfc158f595a5be2de4558ee3c2b21369028895b5132db",
+      "sha256": "f919d691a0de359c24ab88bd93e7b9f016eeca2a5685ade7148ce06290c8b8e0",
       "bytes": 1078
     },
     {
@@ -8071,13 +8071,13 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "a16368accba46a68c17f1f0640962506892f9156a4ce5996d19b8552afcf322e",
-      "bytes": 116542
+      "sha256": "de75741b5335b9dfd3df1b439be11744b1c31b3c5c5c91a350b886095f824470",
+      "bytes": 118355
     },
     {
       "path": "reports/needed/report-claims.md",
-      "sha256": "6c38bc1a88febb54e45df18cda1762c68f2cc0d6c679f4fa8c10629490785286",
-      "bytes": 32913
+      "sha256": "78e253ff773f9b795e2fd1324367df8b56687ea21ecaad482d2589d6d5fb28c6",
+      "bytes": 33352
     },
     {
       "path": "reports/needed/review-decision.md",
@@ -8086,12 +8086,12 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "b9eb28c225183b91c7bf53697286ac79085e9d4ac4b0fa93b0aaa9272cdd5ca1",
+      "sha256": "18224175e138a7940529593d88954ba5abf68a4ac2985c521b8d23c8482ae8ed",
       "bytes": 65254
     },
     {
       "path": "reports/needed/scientific-review.md",
-      "sha256": "6867155850299ea5e2803785772def8515765296f984b2d6457094150d452f7a",
+      "sha256": "5502979b1124e62080e694f1ba18f1886e3419b50e6eb1cc0a767569d35ec897",
       "bytes": 14708
     },
     {
@@ -8976,8 +8976,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "sha256": "ad61e39b3ef43b2ad2cfcd0d170017cf776924d55f261e4ae0c56e155de785e5",
-      "bytes": 10256
+      "sha256": "dcea699e6a6740d0124a93047753459f4fd49b2d9ebde633cf852cdb1521da16",
+      "bytes": 16676
     },
     {
       "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
