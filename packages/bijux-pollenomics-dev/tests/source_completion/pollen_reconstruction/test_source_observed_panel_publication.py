@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.source_observed_panels.account import (
+    _module_origin_count,
     retained,
     support,
 )
@@ -117,3 +118,31 @@ def test_boolean_deposition_is_not_a_physical_measurement() -> None:
     """Verify boolean deposition is not a physical measurement."""
     with pytest.raises(ValueError, match="finite numeric"):
         scalar_covariance([[1, 1]], [[True, 1]], [1, 1], [0, 0])
+
+
+def test_native_import_origins_are_module_to_path_mapping() -> None:
+    """Preserve the captured module identity denominator rather than array length."""
+    origins = {
+        "example.first": "/retained/first.py",
+        "example.second": "/retained/second.py",
+    }
+    assert _module_origin_count(origins) == 2
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        [],
+        ["example.first"],
+        {},
+        {"": "/retained/source.py"},
+        {"example": None},
+        {"example": ""},
+    ],
+)
+def test_invalid_import_origin_mapping_refuses(value: object) -> None:
+    """Retain literal module names and nonempty path provenance in origin counts."""
+    with pytest.raises(
+        ValueError, match="capture must be a JSON object|module-origin mapping"
+    ):
+        _module_origin_count(value)
