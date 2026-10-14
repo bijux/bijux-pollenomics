@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2097,
+  "surface_count": 2099,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1200,
+    "maintenance": 1202,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 761
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1202,
+    "maintainer_diagnostic": 1204,
     "public_reading_surface": 770,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1251,
+    "report_root": 1253,
     "sweden": 49,
     "world": 160
   },
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "6f2174ba4281c933d90a6af0ffb1122b8e10396eb4feea68bb691ea823c8fa81",
+      "content_sha256": "368a5575669359bce49934f9f5e06a9a25c78e4c1af553a3ae0c51063747c46b",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20373,7 +20373,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "f5d31b32d1c4fb23fcfcd8c15df2775654585feb70b33b3c18e5a0e5671f7574",
+      "content_sha256": "eba541d9548f3752679e61f94318836ebe010df48f1b8b3ae5a20881c912ada7",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -20511,7 +20511,7 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
-      "content_sha256": "09ee85ad714e486bd9d64d0c325b6db2dab5e3e9ba0f25013ff67c1a40055c64",
+      "content_sha256": "8a0fbf39266a78a25847dfca438ba6d4246d4d5986ee3be85daa4df42f0b140b",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25508,6 +25508,30 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/archive-member-layout-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting-source.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

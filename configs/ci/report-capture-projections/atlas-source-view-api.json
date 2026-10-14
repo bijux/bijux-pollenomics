@@ -1,26 +1,35 @@
 {
   "schema_version": "atlas-captured-api-additive-adoption.v1",
   "captured_source_candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
-  "adopted_source_candidate": "e8ef0305e520792dea97d7f76d54d68c42ef30ba",
+  "adopted_source_candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
   "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
   "captured_sha256": "b3eceb04eb2ba5dd4a63ab95d699b0fffb6e287dda682638dfcb08c225e98771",
-  "adopted_sha256": "171f340b3770535af3d9c3001d7b727cb5169e02d9654590914d3cad103bf86e",
+  "adopted_sha256": "6c3359cba2d080f0e5f97dd231f5732389cca1adbfec3cc303b38e90cbec0e3b",
   "additional_imports": {
     "bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance": [
       "AliquotCountInput",
       "AliquotResultInput",
       "JointAliquotCovariance",
       "joint_aliquot_covariance"
+    ],
+    "bijux_pollenomics_lra.reconstruction.two_taxon_counting": [
+      "TwoTaxonCountingInterval",
+      "fixed_two_taxon_counting_interval"
     ]
   },
   "additional_exports": [
     "AliquotCountInput",
     "AliquotResultInput",
     "JointAliquotCovariance",
-    "joint_aliquot_covariance"
+    "joint_aliquot_covariance",
+    "TwoTaxonCountingInterval",
+    "fixed_two_taxon_counting_interval"
   ],
   "additional_capabilities": [
-    "lra.reveals.multisite.joint-aliquot-delta-covariance"
+    "lra.reveals.multisite.joint-aliquot-delta-covariance",
+    "lra.reveals.two-taxon.fixed-response-binomial-interval"
   ],
-  "scope": "Exact captured API source is preserved. All original executable AST nodes, imports and exports remain; only these named import/exports/capability are added. This static compatibility witness is not a new browser or mathematical execution."
+  "scope": "Exact captured original API AST remains after removing only these named Aliquot and interval imports/exports/capabilities. Reviewed overlay postimages and actual source candidate are separate identities. This static compatibility witness executes no browser or mathematical study.",
+  "adopted_source_kind": "exact reviewed overlay on recorded source candidate; not a claim these postimages existed at that Git commit",
+  "reviewed_overlay_plan_sha256": "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f"
 }

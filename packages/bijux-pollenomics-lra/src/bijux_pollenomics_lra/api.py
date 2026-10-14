@@ -70,6 +70,10 @@ from bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood impor
     SharedPpeLikelihoodResult,
     fit_shared_ppe_likelihood,
 )
+from bijux_pollenomics_lra.reconstruction.two_taxon_counting import (
+    TwoTaxonCountingInterval,
+    fixed_two_taxon_counting_interval,
+)
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import (
     run_love,
@@ -115,6 +119,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.love.homogeneous-shared-ppe-conditional-draws",
             "lra.forward.prepare-target-geometry",
             "lra.observation.conditional-multinomial",
+            "lra.reveals.two-taxon.fixed-response-binomial-interval",
         ],
         "extension_group": "bijux_pollenomics.extensions",
         "extension_name": "lra",
@@ -157,6 +162,8 @@ __all__ = [
     "RevealsResult",
     "SharedPpeLikelihoodResult",
     "ValidationError",
+    "TwoTaxonCountingInterval",
+    "fixed_two_taxon_counting_interval",
     "extension_descriptor",
     "forward_deposition",
     "fixed_site_cover_covariance",

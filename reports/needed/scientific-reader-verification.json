@@ -1732,6 +1732,18 @@
       "actual_native_terminal_sha256": "70b05535acaa2e8f5c1f953d0e4fc605b0895bdb97665d00c5071e89f49b83f4",
       "prior_readability_execution_preserved": true,
       "scope": "Current primary reader adopted after exact archive/member/layout execution; no rerun or relabelling of original327-reader readability receipt."
+    },
+    {
+      "report_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+      "authored_source_sha256": "8caa206b73c0ed6f0bff3855030d0c582ec20234ef4cba030b92021d7e192bdc",
+      "rendered_sha256": "8a0fbf39266a78a25847dfca438ba6d4246d4d5986ee3be85daa4df42f0b140b",
+      "claim_semantic_sha256": "d33e3c2c2d6c007f84a98c71d900f599e7ffef629e8ffee4fc9c98e83698c810",
+      "current_native_source_account": "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting-source.json",
+      "current_native_source_account_sha256": "401c2939a827ee691641fb1a15f40006756cbedd7df1eb31d73f0469d22e08b9",
+      "actual_native_terminal_sha256": "b4ef5f89e7f22fb220fcb57624976cd15062ed54b867cae2dc8f83f42f9a2a7c",
+      "exact_capture_api_compatibility_terminal_sha256": "7366e3b4a50d4383ab12d61727ff9d6fd25c37be78ea2ea777ff30507a0d038a",
+      "prior_readability_execution_preserved": true,
+      "scope": "Separate conditional exactly-two-taxon fixed-response/counting profile; original ten-taxon rare-count/misspecified-response failures and original327reader execution remain unchanged. No general uncertainty, ecological or release certification."
     }
   ]
 }

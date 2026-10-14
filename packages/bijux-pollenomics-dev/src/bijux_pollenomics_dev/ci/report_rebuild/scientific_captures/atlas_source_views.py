@@ -18,7 +18,14 @@ CAPTURE_SHA256 = "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daed
 SOURCE_CANDIDATE = "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67"
 API_PATH = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py"
 API_ADOPTION_PATH = "configs/ci/report-capture-projections/atlas-source-view-api.json"
-API_ADOPTION_SHA256 = "c9cb001de9b7f21149b9c82d1cb50b7d29a1187b1b988631ab8eeb453a945e4e"
+API_ADOPTION_SHA256 = "65ecb927d8d8220c76830d091a9d953dba5909e532535caed308ee74881c1c4e"
+ROOT_API_PATH = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py"
+ROOT_API_ADOPTION_PATH = (
+    "configs/ci/report-capture-projections/atlas-source-view-root-api.json"
+)
+ROOT_API_ADOPTION_SHA256 = (
+    "ff0d3d8b14b522313aae5fb49d8a117950f8d8217fa4c0171686ad4d76c24c18"
+)
 OWNER_IDS = frozenset(
     {
         "atlas/frame-url-replay/browser-verification",
@@ -209,6 +216,88 @@ def _validate_api_adoption(repository: Path, captured: Path, current: Path) -> N
     )
 
 
+def _root_api_without_adoptions(raw: bytes, proof: dict[str, Any]) -> str:
+    """Remove only two reviewed interval aliases from the existing package API."""
+    tree = ast.parse(raw)
+    names = set(proof["additional_import_names"])
+    exports = set(proof["additional_exports"])
+    _require(
+        names
+        == exports
+        == {"TwoTaxonCountingInterval", "fixed_two_taxon_counting_interval"},
+        "root API named additions differ",
+    )
+    imported: set[str] = set()
+    exported: set[str] = set()
+    body = []
+    for original in tree.body:
+        node = copy.deepcopy(original)
+        if isinstance(node, ast.ImportFrom) and node.module == "api":
+            _require(node.level == 1, "root API import level differs")
+            remaining = []
+            for alias in node.names:
+                if alias.name in names:
+                    _require(
+                        alias.asname is None and alias.name not in imported,
+                        "root API added alias differs",
+                    )
+                    imported.add(alias.name)
+                else:
+                    remaining.append(alias)
+            node.names = remaining
+        if (
+            isinstance(node, ast.Assign)
+            and len(node.targets) == 1
+            and isinstance(node.targets[0], ast.Name)
+            and node.targets[0].id == "__all__"
+            and isinstance(node.value, ast.List)
+        ):
+            remaining_exports = []
+            for item in node.value.elts:
+                if (
+                    isinstance(item, ast.Constant)
+                    and isinstance(item.value, str)
+                    and item.value in exports
+                ):
+                    _require(item.value not in exported, "duplicate root API addition")
+                    exported.add(item.value)
+                else:
+                    remaining_exports.append(item)
+            node.value.elts = remaining_exports
+        body.append(node)
+    _require(
+        imported == names and exported == exports, "root API additions are incomplete"
+    )
+    tree.body = body
+    return ast.dump(tree, include_attributes=False)
+
+
+def _validate_root_api_adoption(
+    repository: Path, captured: Path, current: Path
+) -> None:
+    proof_path = _regular_confined_file(
+        repository, ROOT_API_ADOPTION_PATH, "atlas source root API adoption"
+    )
+    _require(
+        _sha(proof_path) == ROOT_API_ADOPTION_SHA256,
+        "root API adoption certificate differs",
+    )
+    proof = read_object(proof_path)
+    _require(
+        proof["schema_version"] == "atlas-captured-root-api-additive-adoption.v1"
+        and proof["captured_source_candidate"] == SOURCE_CANDIDATE
+        and proof["path"] == ROOT_API_PATH
+        and proof["captured_sha256"] == _sha(captured)
+        and proof["adopted_sha256"] == _sha(current),
+        "root API adoption source identity differs",
+    )
+    _require(
+        _root_api_without_adoptions(current.read_bytes(), proof)
+        == ast.dump(ast.parse(captured.read_bytes()), include_attributes=False),
+        "original root API semantics changed",
+    )
+
+
 @dataclass(frozen=True)
 class ValidatedAtlasCapture:
     """An immutable packet with independently checked native execution lineage."""
@@ -272,8 +361,12 @@ def validated_atlas_source_views(repository: Path) -> ValidatedAtlasCapture:
             repository, _relative(name), "atlas source footprint"
         )
         if _sha(source) != expected:
-            _require(name == API_PATH, "source footprint differs: " + name)
-            _validate_api_adoption(repository, captured, source)
+            if name == API_PATH:
+                _validate_api_adoption(repository, captured, source)
+            elif name == ROOT_API_PATH:
+                _validate_root_api_adoption(repository, captured, source)
+            else:
+                _require(False, "source footprint differs: " + name)
     for name, expected in packet["verifier_sources"].items():
         source = _regular_confined_file(
             repository, _relative(name), "atlas verifier source"

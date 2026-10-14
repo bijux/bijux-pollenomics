@@ -1,0 +1,146 @@
+{
+  "schema": "fixed-two-taxon-binomial-counting-protocol.v1",
+  "profile": "fixed-two-taxon-binomial-equal-tail-v1",
+  "scope": "One fixed-N aliquot and exactly two measured taxa with fixed positive known deposition/PPE; conditional counting inference only, no unknown-response/PPE/chronology/basin/repeated-sample/general-multinomial/field coverage or historical-R equivalence.",
+  "counting_totals": [
+    1,
+    2,
+    5,
+    10,
+    25,
+    50,
+    100,
+    1000
+  ],
+  "confidence_levels": [
+    0.8,
+    0.95,
+    0.99
+  ],
+  "fixed_responses": [
+    {
+      "id": "equal-response",
+      "deposition": [
+        1.0,
+        1.0
+      ],
+      "ppe": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "unequal-fixed-response",
+      "deposition": [
+        0.5,
+        4.0
+      ],
+      "ppe": [
+        2.0,
+        0.5
+      ]
+    },
+    {
+      "id": "alternate-fixed-response",
+      "deposition": [
+        2.0,
+        1.0
+      ],
+      "ppe": [
+        1.0,
+        3.0
+      ]
+    }
+  ],
+  "true_pollen_probabilities": [
+    "0",
+    "0.00000001",
+    "0.00001",
+    "0.001",
+    "0.01",
+    "0.025",
+    "0.1",
+    "0.5",
+    "0.9",
+    "0.975",
+    "0.99",
+    "0.999",
+    "0.99999",
+    "0.99999999",
+    "1"
+  ],
+  "absolute_tolerance": "2e-13",
+  "theory": {
+    "count_model": "K ~ Binomial(N,p), fixed N, q=(p,1-p)",
+    "factors": "a_i=1/(K_i*PPE_i), fixed positive finite values; K_i denotes deposition, never the observed count",
+    "transform": "g(p)=a1*p/(a1*p+a2*(1-p)); derivative a1*a2/(a1*p+a2*(1-p))**2 > 0",
+    "lower": "0 if k=0; otherwise BetaInverse(alpha/2;k,N-k+1)",
+    "upper": "1 if k=N; otherwise BetaComplementInverse(alpha/2;k+1,N-k)",
+    "coverage": "The exact equal-tail binomial construction has coverage at least confidence for every p under this declared fixed response model; monotonicity transfers its one-dimensional confidence set to complementary cover. Numerical endpoints and tested finite grid are separately qualified, not an arbitrary-precision runtime theorem.",
+    "floating_point": "SciPy supplies inverse seeds only. Every accepted probability endpoint certifies its binomial tail with directed Decimal80 interval arithmetic against a directed lower bound on exact Fraction confidence tail. Positive powers use directed multiplication; every recurrence multiply/divide/sum is directed. Exact1200-digit complemented binary64 points trap Inexact. Decimal exponent bounds \u00b110000000 and range-loss traps protect N<=10000. Outward binary64 integer-lattice bracketing/bisection certifies a final endpoint within128tail evaluations, else refuses. Exact rational response/PPE transforms and comparison-directed binary64 conversion separately enclose both covers and complements. Independent Decimal80/220-bisection observer and1e-65 containment precision remain unchanged; finite tested grid is distinct from conditional analytic binomial coverage.",
+    "not_independent": "The two taxa are complementary; their intervals are one joint one-dimensional set, not independent tests or a general simultaneous multinomial construction."
+  },
+  "independent_oracle": {
+    "precision": 80,
+    "bisection_steps": 220,
+    "endpoint_domain": "Every k for N<=50, and k={0,1,5,N//2,N-5,N-1,N} for larger N, at all three confidence levels and three response cases.",
+    "coverage_domain": "All k=0..N at every N/confidence/scenario/probability grid cell, Decimal positive binomial recurrence and cumulative-tail acceptance; implementation must retain all ideal accepted counts. No production interval helper, NumPy or SciPy imported by oracle.",
+    "numerical_containment": "Check both pollen bounds and all four complementary cover bounds against independently bisected endpoints;1e-65 is observer precision, not tolerance permitting a binary64 ULP error."
+  },
+  "sources": [
+    {
+      "title": "SciPy1.17 Clopper-Pearson method definition and original1934 bibliographic reference",
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.stats._result_classes.BinomTestResult.proportion_ci.html"
+    },
+    {
+      "title": "SciPy1.17 inverse regularized incomplete beta",
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.special.betaincinv.html"
+    },
+    {
+      "title": "SciPy1.17 inverse complemented regularized incomplete beta",
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.special.betainccinv.html"
+    }
+  ],
+  "preserved_negative_evidence": {
+    "path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+    "sha256": "09ee85ad714e486bd9d64d0c325b6db2dab5e3e9ba0f25013ff67c1a40055c64",
+    "scope": "Original10taxon study remains427/1000 rareAlnus coverage,525zero-count/zero-SE draws and0/1000 misspecified-response coverage; these are not reinterpreted as a two-taxon population.",
+    "historical_reader_sha256": "09ee85ad714e486bd9d64d0c325b6db2dab5e3e9ba0f25013ff67c1a40055c64",
+    "frozen_copy": "preserved-negative-account.md"
+  },
+  "oracle_containment_tolerance": "1e-65",
+  "numerical_work_bounds": {
+    "max_total_count": 10000,
+    "cdf_positive_terms_per_evaluation": "at most floor(N/2)+1 by binomial symmetry",
+    "decimal_precision": 80,
+    "exact_complement_precision": 1200,
+    "Emin": -10000000,
+    "Emax": 10000000,
+    "traps": [
+      "InvalidOperation",
+      "DivisionByZero",
+      "Overflow",
+      "Underflow",
+      "Subnormal"
+    ],
+    "probability_bound_cache_maxsize": 4096,
+    "max_tail_evaluations_per_endpoint": 128,
+    "search": "Outward exponential bracket then binary64 integer-lattice bisection; at most126evaluations from62-bit lattice, each returned endpoint independently tail-certified"
+  },
+  "numerical_certificate": "certificate.md",
+  "predecessors": [
+    {
+      "plan_sha256": "87db075d1ed11cab03943f8fd00cd05f6ec3d9863dae9d74283713eb5fae5fbf",
+      "terminal_sha256": "e6aa762dfff3c1bbaea6df995e22e190bf58352e9fd6ac057f05a0071de2ffd7",
+      "status": "native1 independent root-containment failure after42guards and10809producer rows",
+      "diagnostic": "predecessor-difference.json",
+      "diagnostic_sha256": "5adf709342ebc9d03621ec76cd3c44524da0a8dcb348eae49191e4b4e4011792"
+    },
+    {
+      "plan_sha256": "079fd0c7931a3b31d4bc6b05fa7113ab45cee138be0773eeb4cca86d451987b0",
+      "terminal_sha256": "6e73c05effc554f7db20a4e0efc396a999c8a88596be67afd1631430e510622e",
+      "status": "native1 upper seed refused after128outward floats at N1000/k494/level0.8; independent observer not launched",
+      "diagnostic_sha256": "46d086583eedc191934f7677244266a0c0819e96ae65417ae54fed6ff43dafe5"
+    }
+  ]
+}

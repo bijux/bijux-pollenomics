@@ -417,3 +417,66 @@ def test_changed_adopted_api_without_exact_certificate_is_refused(
     root, _, _ = packet
     with pytest.raises((ReportRebuildError, ValueError)):
         capture._validate_api_adoption(root, root / "source.txt", root / "source.txt")
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        "valid",
+        "existing_body",
+        "old_export",
+        "alias",
+        "missing",
+        "duplicate",
+        "nonstring",
+    ],
+)
+def test_root_api_adoption_preserves_existing_semantics(change: str) -> None:
+    import ast
+
+    original = b"from .api import Existing\ndef original():\n    return 1\n__all__ = ['Existing']\n"
+    added = b"from .api import Existing, TwoTaxonCountingInterval, fixed_two_taxon_counting_interval\ndef original():\n    return 1\n__all__ = ['Existing', 'TwoTaxonCountingInterval', 'fixed_two_taxon_counting_interval']\n"
+    proof = {
+        "additional_import_names": [
+            "TwoTaxonCountingInterval",
+            "fixed_two_taxon_counting_interval",
+        ],
+        "additional_exports": [
+            "TwoTaxonCountingInterval",
+            "fixed_two_taxon_counting_interval",
+        ],
+    }
+    expected = ast.dump(ast.parse(original), include_attributes=False)
+    if change == "existing_body":
+        added = added.replace(b"return 1", b"return 2")
+    elif change == "old_export":
+        added = added.replace(b"['Existing',", b"['Changed',")
+    elif change == "nonstring":
+        added = added.replace(b"['Existing',", b"['Existing', None,")
+    elif change == "alias":
+        added = added.replace(
+            b"Existing, TwoTaxonCountingInterval,",
+            b"Existing, TwoTaxonCountingInterval as Changed,",
+        )
+    elif change == "missing":
+        added = added.replace(b"'TwoTaxonCountingInterval', ", b"")
+    elif change == "duplicate":
+        added = added.replace(
+            b"['Existing',", b"['TwoTaxonCountingInterval', 'Existing',"
+        )
+    if change in {"alias", "missing", "duplicate"}:
+        with pytest.raises((ReportRebuildError, ValueError)):
+            capture._root_api_without_adoptions(added, proof)
+    else:
+        stripped = capture._root_api_without_adoptions(added, proof)
+        assert (stripped == expected) is (change == "valid")
+
+
+def test_root_api_changed_source_without_exact_certificate_is_refused(
+    packet: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    root, _, _ = packet
+    with pytest.raises((ReportRebuildError, ValueError)):
+        capture._validate_root_api_adoption(
+            root, root / "source.txt", root / "source.txt"
+        )

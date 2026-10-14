@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2101,
-  "paths_sha256": "5555fdc848da6316a46f59c2f78092ee0be3cb87e669301ca872cb5844f2b80e",
+  "path_count": 2103,
+  "paths_sha256": "6e121f544ac185bad2c591e2db33d346409d3041cccca323e9aaf3c80089c424",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -116,6 +116,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/frame-url-replay-browser-verification.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -1205,6 +1206,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-browser-receipt.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -2251,6 +2253,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-candidate-identity.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -3377,6 +3380,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/modeled-panel-browser-browser-evidence.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -4423,6 +4427,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/modeled-panel-browser-candidate-generation.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -5504,6 +5509,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/nordic-source-browser-evidence.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -6595,6 +6601,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/provider-accessibility-browser-evidence.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -7641,6 +7648,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/provider-accessibility-candidate-generation.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -8697,6 +8705,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/source-detail-browser-evidence.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -9754,6 +9763,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/source-export-browser-downloads.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -10800,6 +10810,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/source-export-browser-verification.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -11856,6 +11867,7 @@
       ],
       "producer_inputs": [
         "configs/ci/report-capture-projections/atlas-source-view-api.json",
+        "configs/ci/report-capture-projections/atlas-source-view-root-api.json",
         "configs/ci/report-capture-projections/atlas-source-views/source-url-replay-browser-evidence.json",
         "configs/scientific-contracts/country-coverage.schema.json",
         "configs/scientific-contracts/ecological-classification.v1.yaml",
@@ -59544,6 +59556,27 @@
         "docs/report/source-relations/landclim/worksheet-layout/source-account.json"
       ],
       "verification": "Exact known original7z native0:82entries/81regular/79XLS streamed twice with byte/hash equality;107worksheet layout/error records matched. Source account preserves actual161commands, pinned maintained decoder/optionalxlrd/systemtar/runtime and failed missingdependency predecessor. This is immutable native-source evidence, not new generation or general adversarial archive/scientific/rights acceptance."
+    },
+    {
+      "owner_id": "synthetic-validation/recovery-evidence/two-taxon-counting",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting-source.json",
+        "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting_verification.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/two_taxon_counting.py"
+      ],
+      "producer_inputs": [
+        "data/synthetic-validation/two-taxon-counting/independent-review.json",
+        "data/synthetic-validation/two-taxon-counting/intervals.json.gz",
+        "data/synthetic-validation/two-taxon-counting/manifest.json",
+        "data/synthetic-validation/two-taxon-counting/preserved-negative-account.md",
+        "data/synthetic-validation/two-taxon-counting/protocol.json"
+      ],
+      "verification": "Actual declared first-party synthetic profile: 10,809 intervals, 4,068 numeric comparisons, 6,102 root-containment checks, 1,080 all-k coverage populations and 49 API guards, native exit zero. Complete immutable native packet and executed maintained producer/oracle identities retained; retention infers no fresh study. Conditional fixed two-taxon/N/response domain only; general uncertainty and ecological/release admission remain unqualified."
     }
   ]
 }
