@@ -123,6 +123,11 @@ def _build_point_feature(
         "coordinate_confidence": row.coordinate_confidence,
         "sample_count": row.sample_count,
         "sample_record_ids": list(row.sample_record_ids),
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": list(row.sample_ids),
+        "sample_chronologies": [
+            support.as_dict() for support in row.sample_chronologies
+        ],
         "sample_group_ids": list(row.sample_group_ids),
         "source_native_taxon_labels": list(row.source_native_taxon_labels),
         "source_native_tax_ids": list(row.source_native_tax_ids),

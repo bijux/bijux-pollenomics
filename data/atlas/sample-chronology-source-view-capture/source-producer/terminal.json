@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "candidate": "dc3fe6f99b29c16f78e939164ad2d0609ac588bb",
+  "source_scope": "Complete owned selected-source packages/configuration/data/resources plus exact reviewed chronology/intake/relation overlays. Original2699 sample wire is retained historical input; new549 locality products execute current maintained serialization. This is not a clean current canonical checkout.",
+  "plan_sha256": "7fcc69fc53a94eff26a3fffc0a920ea5db7ff41b37229f069be2a725f220c943",
+  "actual_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/run.py",
+    "--registered-plan-sha256",
+    "7fcc69fc53a94eff26a3fffc0a920ea5db7ff41b37229f069be2a725f220c943"
+  ],
+  "native_exit_code": 1,
+  "status": "failed",
+  "stages": [
+    {
+      "name": "maintained-source-owned-locality-wire-products",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/bootstrap.py",
+        "produce_locality_exports.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.321450625022408
+    },
+    {
+      "name": "actual-public-sample-and-locality-reader-parity",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/bootstrap.py",
+        "qualify_export_readers.py"
+      ],
+      "native_exit_code": 1,
+      "timed_out": false,
+      "seconds": 14.443104207981378
+    }
+  ],
+  "exception": null,
+  "protected_inputs_unchanged": true,
+  "protected_input_count": 34011,
+  "elapsed_seconds": 40.29133312503109,
+  "peak_child_rss_bytes": 338837504,
+  "output_bytes": 59903669,
+  "resource_scope": "Per-stage and total process-group wall time enforced; completed-child RSS and execution/source-artifact bytes qualified afterward. No OS address-space/filesystem quota or aggregate concurrent-process memory claim.",
+  "scope": "Actual2699 source-bound preferred sample JSON/CSV/GeoJSONv2 and explicit legacyv1 through current generic Python, context/external point and production JavaScript. New547 animal plus2 selected human locality products execute maintained current serializers; every advertised standalone JSON/CSV and wrapper route with actual coordinates also passes external mapping, one typed context record and maintained derived GeoJSON/CSV export, with exact native locality identity/political source projection and explicit geometry refusals; source vectors/nativeCSV/logicalJSON and original55 human models must equal prior witnesses. Retained547 localityv1 JSON/CSV retain contextual/refusal limits and native text syntax. Source-record precision/refusal/provenance/native identity, owned components and exact complete route membership are preserved. No whole Article4/D001 closure, global null-to-zero source join, scientific source authentication, age reinterpretation/calibration, ecology, physical model/R, human review or release qualification."
+}

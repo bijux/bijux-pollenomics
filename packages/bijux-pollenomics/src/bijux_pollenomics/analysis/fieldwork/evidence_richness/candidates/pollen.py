@@ -7,6 +7,9 @@ from collections.abc import Iterable
 from typing import TypedDict
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    occurrence_support_intervals,
+)
 
 from ..metrics import _weighted_average
 from ..models import (
@@ -183,8 +186,12 @@ def _derive_lake_candidates(
                 "time_aware_direct_pollen_records": sum(
                     1
                     for source_point in points
-                    if source_point.point.time_start_bp is not None
-                    and source_point.point.time_end_bp is not None
+                    if occurrence_support_intervals(
+                        temporal_semantics=source_point.point.temporal_semantics,
+                        occurrence_supports=source_point.point.occurrence_supports,
+                        time_start_bp=source_point.point.time_start_bp,
+                        time_end_bp=source_point.point.time_end_bp,
+                    )
                 ),
                 "pollen_sources": pollen_sources,
                 "supporting_pollen_names": supporting_names,

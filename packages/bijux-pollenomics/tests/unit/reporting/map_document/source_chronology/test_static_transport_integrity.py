@@ -179,6 +179,7 @@ def test_index_runtime_retains_single_payload_compatibility() -> None:
             "atlas-static-indexes.v1",
             "atlas-static-indexes.v2",
             "atlas-static-indexes.v3",
+            "atlas-static-indexes.v5",
         ],
         "signed": ["atlas-static-indexes.v4"],
     }
@@ -186,7 +187,7 @@ def test_index_runtime_retains_single_payload_compatibility() -> None:
         "async function consumeStaticAtlasAsset", "function loadStaticAtlasAsset"
     )
     assert (
-        "row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)"
+        "row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)"
         in consume
     )
     assert ": payload;" in consume

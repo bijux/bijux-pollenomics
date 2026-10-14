@@ -1,0 +1,438 @@
+{
+  "schema_version": "atlas-nordic-source-browser-verification.v1",
+  "status": "PASS",
+  "country_filters": [
+    {
+      "width": 1440,
+      "selection": "all",
+      "visible_source_sites": 8,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 1440,
+      "selection": "Denmark",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 1440,
+      "selection": "Finland",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 1440,
+      "selection": "Norway",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 1440,
+      "selection": "Sweden",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 1440,
+      "selection": "none_then_all",
+      "zero_visible": true,
+      "all_visible": 8
+    },
+    {
+      "width": 390,
+      "selection": "all",
+      "visible_source_sites": 8,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 390,
+      "selection": "Denmark",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 390,
+      "selection": "Finland",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 390,
+      "selection": "Norway",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 390,
+      "selection": "Sweden",
+      "visible_source_sites": 2,
+      "visible_governed_candidates": 0
+    },
+    {
+      "width": 390,
+      "selection": "none_then_all",
+      "zero_visible": true,
+      "all_visible": 8
+    }
+  ],
+  "record_navigation": [
+    {
+      "width": 1440,
+      "country": "Denmark",
+      "record_id": "neotoma:site:27349",
+      "next_record_id": "sead:site:3797",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Denmark",
+      "record_id": "sead:site:3797",
+      "next_record_id": "neotoma:site:27349",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Finland",
+      "record_id": "neotoma:site:2966",
+      "next_record_id": "sead:site:5070",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Finland",
+      "record_id": "sead:site:5070",
+      "next_record_id": "neotoma:site:2966",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Norway",
+      "record_id": "neotoma:site:26128",
+      "next_record_id": "sead:site:5119",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Norway",
+      "record_id": "sead:site:5119",
+      "next_record_id": "neotoma:site:26128",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Sweden",
+      "record_id": "neotoma:site:12",
+      "next_record_id": "sead:site:6468",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 1440,
+      "country": "Sweden",
+      "record_id": "sead:site:6468",
+      "next_record_id": "neotoma:site:12",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Denmark",
+      "record_id": "neotoma:site:27349",
+      "next_record_id": "sead:site:3797",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Denmark",
+      "record_id": "sead:site:3797",
+      "next_record_id": "neotoma:site:27349",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Finland",
+      "record_id": "neotoma:site:2966",
+      "next_record_id": "sead:site:5070",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Finland",
+      "record_id": "sead:site:5070",
+      "next_record_id": "neotoma:site:2966",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Norway",
+      "record_id": "neotoma:site:26128",
+      "next_record_id": "sead:site:5119",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Norway",
+      "record_id": "sead:site:5119",
+      "next_record_id": "neotoma:site:26128",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Sweden",
+      "record_id": "neotoma:site:12",
+      "next_record_id": "sead:site:6468",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    },
+    {
+      "width": 390,
+      "country": "Sweden",
+      "record_id": "sead:site:6468",
+      "next_record_id": "neotoma:site:12",
+      "exact_url_identity": true,
+      "classification_refusal_preserved": true,
+      "relation_refusal_preserved": true,
+      "source_build_visible": true
+    }
+  ],
+  "chronology_tables": [
+    {
+      "width": 1440,
+      "record_id": "neotoma:site:27349",
+      "rows": 38,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"unresolved\",\"unresolved\",null]": 38
+      },
+      "numeric_null_count": 38
+    },
+    {
+      "width": 1440,
+      "record_id": "sead:site:3797",
+      "rows": 12,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 12
+      },
+      "numeric_null_count": 12
+    },
+    {
+      "width": 1440,
+      "record_id": "neotoma:site:2966",
+      "rows": 138,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"calibrated\",\"comparable\",null]": 46,
+        "[\"uncalibrated\",\"context_only\",null]": 92
+      },
+      "numeric_null_count": 92
+    },
+    {
+      "width": 1440,
+      "record_id": "sead:site:5070",
+      "rows": 1,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+      },
+      "numeric_null_count": 1
+    },
+    {
+      "width": 1440,
+      "record_id": "neotoma:site:26128",
+      "rows": 165,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"uncalibrated\",\"context_only\",null]": 110,
+        "[\"calibrated\",\"comparable\",null]": 54,
+        "[\"calibrated\",\"refused\",null]": 1
+      },
+      "numeric_null_count": 111
+    },
+    {
+      "width": 1440,
+      "record_id": "sead:site:5119",
+      "rows": 2,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"unknown\",\"unresolved\",\"refused\"]": 1,
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+      },
+      "numeric_null_count": 2
+    },
+    {
+      "width": 1440,
+      "record_id": "neotoma:site:12",
+      "rows": 270,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"uncalibrated\",\"context_only\",null]": 135,
+        "[\"calibrated\",\"comparable\",null]": 131,
+        "[\"calibrated\",\"refused\",null]": 4
+      },
+      "numeric_null_count": 139
+    },
+    {
+      "width": 1440,
+      "record_id": "sead:site:6468",
+      "status": "unavailable",
+      "reason_code": "sead_site_numeric_chronology_not_available",
+      "source_null_not_zero": true
+    },
+    {
+      "width": 390,
+      "record_id": "neotoma:site:27349",
+      "rows": 38,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"unresolved\",\"unresolved\",null]": 38
+      },
+      "numeric_null_count": 38
+    },
+    {
+      "width": 390,
+      "record_id": "sead:site:3797",
+      "rows": 12,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 12
+      },
+      "numeric_null_count": 12
+    },
+    {
+      "width": 390,
+      "record_id": "neotoma:site:2966",
+      "rows": 138,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"calibrated\",\"comparable\",null]": 46,
+        "[\"uncalibrated\",\"context_only\",null]": 92
+      },
+      "numeric_null_count": 92
+    },
+    {
+      "width": 390,
+      "record_id": "sead:site:5070",
+      "rows": 1,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+      },
+      "numeric_null_count": 1
+    },
+    {
+      "width": 390,
+      "record_id": "neotoma:site:26128",
+      "rows": 165,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"uncalibrated\",\"context_only\",null]": 110,
+        "[\"calibrated\",\"comparable\",null]": 54,
+        "[\"calibrated\",\"refused\",null]": 1
+      },
+      "numeric_null_count": 111
+    },
+    {
+      "width": 390,
+      "record_id": "sead:site:5119",
+      "rows": 2,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"unknown\",\"unresolved\",\"refused\"]": 1,
+        "[\"not_calibrated\",\"context_only\",\"refused\"]": 1
+      },
+      "numeric_null_count": 2
+    },
+    {
+      "width": 390,
+      "record_id": "neotoma:site:12",
+      "rows": 270,
+      "all_source_cells_equal": true,
+      "status_counts": {
+        "[\"uncalibrated\",\"context_only\",null]": 135,
+        "[\"calibrated\",\"comparable\",null]": 131,
+        "[\"calibrated\",\"refused\",null]": 4
+      },
+      "numeric_null_count": 139
+    },
+    {
+      "width": 390,
+      "record_id": "sead:site:6468",
+      "status": "unavailable",
+      "reason_code": "sead_site_numeric_chronology_not_available",
+      "source_null_not_zero": true
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@b01cdf43be4b4d5559bf7e58229e666e24454f5",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "d02668ca0de9f52f2b4a067d72d9447466b41f4429042f7bd9bab35a602d5101",
+    "nordic-source.atlas-details.0009.e4b1948334c0b0ac.js": "e4b1948334c0b0ac27515025ab417bfe19c972c989dddd00a934cd2c526b3986",
+    "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": "616412a6d2c998b2ffa59e81a8ca0aaf9e02ca326f98fef17c01473fefe0d3f1",
+    "nordic-source.atlas-indexes.0012.b85c8937582b8a48.js": "b85c8937582b8a48ba88d39fc2b5ccf3614e574b23dfa590e3c77fb5398b35d3",
+    "nordic-source.atlas-nodes.0001.1447f39e6a66baf2.js": "1447f39e6a66baf2eb8f5ac7bf3289eef6365f9060a11f174420b87e04deac58",
+    "nordic-source.atlas-nodes.0002.77c7e342901b7a7c.js": "77c7e342901b7a7ce44eda70e89d7e8d7b6ae46bd91aa4678610b7f561bd27f7",
+    "nordic-source.atlas-nodes.0003.b6f3d598a8c93aae.js": "b6f3d598a8c93aaec762f0b81e0bb0219437f1ee27d971ea57de4d8dd6d217ac",
+    "nordic-source.atlas-nodes.0004.92d041c1d633210d.js": "92d041c1d633210d5ffb40fcdd200c10a01cb59133e413db8dc14c4a9b7da0b4",
+    "nordic-source.atlas-nodes.0005.cff0e4eb52487930.js": "cff0e4eb524879302ef865be8cb5b2bb299436cce8f853de6aea4c32afc0bdda",
+    "nordic-source.atlas-nodes.0006.0cd63937eac79294.js": "0cd63937eac79294f53a1b8d0e1fd14ee2bc2eb2545946d32ea1228717ba67a1",
+    "nordic-source.atlas-nodes.0007.3c3727616489cfd8.js": "3c3727616489cfd8764e08c4536e82c131770be96ef3a69a2010d50e993c07c6",
+    "nordic-source.atlas-nodes.0008.97f86eadfb4b2256.js": "97f86eadfb4b2256fed90e8ffcbe7edb949452722ada25ba7227f33b38154427",
+    "nordic-source.atlas-provenance.0000.9349a52b7633a210.js": "9349a52b7633a210afa6bb41a47e1741ae813096de596f50cdb9f9f730ba8135",
+    "nordic-source.atlas-sequences.0011.9ad125061a96796f.js": "9ad125061a96796fb9cab775c3c2cbbe36eba70505f897619d0315995d370543"
+  },
+  "verifier_sha256": "a72ecfe8cdd2985594094fa6f3ccb64b25066da0fa746c38bde35912e7eb5c81"
+}

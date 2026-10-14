@@ -8,8 +8,10 @@ from bijux_pollenomics.adna.domain.models import (
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
+    AdnaSampleRecord,
 )
 
+from ...domain.models.localities import AdnaSampleChronologySupport
 from ...projects.evidence.chronology import build_project_sample_chronology_rows
 from ...projects.registry.context import AdnaProjectContext, resolve_project_context
 from ...projects.registry.localities import build_species_project_locality_leads
@@ -25,6 +27,7 @@ from .chronology import _aggregate_locality_chronology
 from .models import AdnaNormalizationRefusal, AdnaProjectSummary
 from .primitives import normalize_coordinate_resolution
 from .samples import (
+    _build_sample_records,
     _default_data_root,
     _locality_identity_token,
     _normalize_sample_label,
@@ -76,6 +79,8 @@ def _nordic_locality_reason(
 def build_species_project_locality_records(
     species_name: str,
     project_summaries: tuple[AdnaProjectSummary, ...],
+    *,
+    sample_records: tuple[AdnaSampleRecord, ...] | None = None,
 ) -> tuple[tuple[AdnaLocalitySummary, ...], tuple[AdnaNormalizationRefusal, ...]]:
     """Build curated non-human project locality rows and explicit locality refusals."""
     species = resolve_species_definition(species_name)
@@ -109,6 +114,9 @@ def build_species_project_locality_records(
         }
         for project_accession in project_index
     }
+    if sample_records is None:
+        sample_records, _ = _build_sample_records(species_name, project_summaries)
+    sample_index = {sample.master_id: sample for sample in sample_records}
     locality_records: list[AdnaLocalitySummary] = []
     refusals: list[AdnaNormalizationRefusal] = []
 
@@ -235,6 +243,22 @@ def build_species_project_locality_records(
                 sample_ids=tuple(row.stable_sample_id for row in matched_sample_rows),
                 datasets=(project.summary_token,),
                 chronology=chronology,
+                sample_chronologies=tuple(
+                    AdnaSampleChronologySupport(
+                        sample_id=row.stable_sample_id,
+                        chronology=sample.chronology,
+                        source_release=sample.source_release,
+                        provenance_path=sample.chronology_provenance_path,
+                        provenance_locator=sample.chronology_provenance_locator,
+                        provenance_excerpt=sample.chronology_provenance_text,
+                        provenance_kind=sample.chronology_provenance_kind,
+                        chronology_strength=sample.chronology_strength,
+                        normalization_status=sample.chronology_normalization_status,
+                        conflict_note=sample.chronology_conflict_note,
+                    )
+                    for row in matched_sample_rows
+                    if (sample := sample_index.get(row.stable_sample_id)) is not None
+                ),
                 sample_namespace=f"{species.slug}:sample_locality",
                 project_accessions=(lead.project_accession,),
                 original_location_text=lead.locality_text,

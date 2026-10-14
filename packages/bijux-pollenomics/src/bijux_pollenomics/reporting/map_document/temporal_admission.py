@@ -5,7 +5,18 @@ from __future__ import annotations
 from collections.abc import Mapping
 import math
 
+from ...adna.domain.locality import (
+    mapping_sample_chronologies,
+    mapping_sample_intervals,
+)
 from ...core.calendar_support import SIGNED_CALENDAR_PROFILE, SignedCalendarSupport
+from .adna_exports import (
+    LOCALITY_SCHEMA,
+    NUMERIC_POSTURES,
+    exported_record_semantics,
+    validate_locality_export_identity,
+    validate_public_geojson_schemas,
+)
 
 
 def feature_temporal_admission(
@@ -22,13 +33,91 @@ def feature_temporal_admission(
             return ("refused", None)
     if "source_calendar_support" in feature or "declared_calendar_support" in feature:
         return ("refused", None)
+    if feature.get("type") == "FeatureCollection":
+        return ("refused", None)
+    if feature.get("type") == "Feature":
+        try:
+            validate_public_geojson_schemas({}, [feature])
+        except ValueError:
+            return ("refused", None)
+        properties = feature.get("properties")
+        return (
+            feature_temporal_admission(properties)
+            if isinstance(properties, Mapping)
+            else ("refused", None)
+        )
+    if "schema_version" in feature and not isinstance(feature["schema_version"], str):
+        return ("refused", None)
     temporal_semantics = feature.get("temporal_semantics")
     posture = ""
     if isinstance(temporal_semantics, Mapping):
+        if any(
+            key in temporal_semantics and not isinstance(temporal_semantics[key], str)
+            for key in (
+                "schema_version",
+                "comparability_posture",
+                "refusal_reason_code",
+            )
+        ):
+            return ("refused", None)
+        if (
+            "schema_version" in temporal_semantics
+            and temporal_semantics["schema_version"] != "temporal-semantics.v1"
+        ):
+            return ("refused", None)
         posture = str(temporal_semantics.get("comparability_posture", "")).strip()
         refusal_reason = str(temporal_semantics.get("refusal_reason_code", "")).strip()
         if posture == "refused" or refusal_reason:
             return ("refused", None)
+    if "temporal_semantics" in feature:
+        if not isinstance(temporal_semantics, Mapping):
+            return ("refused", None)
+        if posture not in NUMERIC_POSTURES:
+            return ("contextual", None)
+    exported_semantics = exported_record_semantics(feature)
+    if exported_semantics is not None:
+        if (
+            exported_semantics.get("refusal_reason_code")
+            or exported_semantics.get("comparability_posture") == "refused"
+        ):
+            return ("refused", None)
+        if exported_semantics.get("comparability_posture") not in NUMERIC_POSTURES:
+            return ("contextual", None)
+        start = finite_number(exported_semantics.get("time_start_bp"))
+        end = finite_number(exported_semantics.get("time_end_bp"))
+        return (
+            ("admitted", (start, end))
+            if start is not None and end is not None and start <= end
+            else ("refused", None)
+        )
+    if feature.get("schema_version") == LOCALITY_SCHEMA and (
+        "sample_chronologies" not in feature or "localities" in feature
+    ):
+        return ("refused", None)
+    if feature.get("schema_version") == LOCALITY_SCHEMA:
+        try:
+            validate_locality_export_identity(feature)
+        except ValueError:
+            return ("refused", None)
+    if "sample_chronology" in feature:
+        return ("refused", None)
+    if "sample_chronologies" in feature:
+        if feature.get("chronology_role") != "locality_sample_coverage_hull":
+            return ("refused", None)
+        try:
+            mapping_sample_chronologies(feature)
+        except (TypeError, ValueError):
+            return ("refused", None)
+        intervals = tuple(
+            (interval.younger_bp, interval.older_bp)
+            for _, interval in mapping_sample_intervals(feature)
+        )
+        if not intervals:
+            return ("contextual", None)
+        return (
+            "admitted",
+            (min(pair[0] for pair in intervals), max(pair[1] for pair in intervals)),
+        )
     interval: tuple[float, float] | None = None
     declaration_status = "absent"
     if "time_start_bp" in feature or "time_end_bp" in feature:
@@ -54,7 +143,7 @@ def feature_temporal_admission(
     if declaration_status == "refused":
         return ("refused", None)
     if declaration_status == "admitted":
-        if posture and posture not in {
+        if posture not in {
             "numeric_interval",
             "numeric_interval_with_caveat",
             "mixed_interval_and_context",
@@ -75,7 +164,7 @@ def feature_temporal_admission(
 def feature_interval(
     feature: Mapping[str, object], *, temporal_profile: str | None = None
 ) -> tuple[float, float] | None:
-    """Return an admitted nonnegative point or interval age for a feature."""
+    """Return admitted display/navigation extent; use components for selection."""
     status, interval = feature_temporal_admission(
         feature, temporal_profile=temporal_profile
     )
@@ -83,12 +172,14 @@ def feature_interval(
 
 
 def finite_number(value: object) -> float | None:
-    """Normalize a nonnegative finite scalar without treating booleans as numbers."""
-    if value is None or isinstance(value, bool):
+    """Read a canonical numeric scalar without source-text or boolean coercion."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
     try:
-        number = float(value) if isinstance(value, (int, float, str)) else math.nan
-    except (TypeError, ValueError, OverflowError):
+        number = float(value)
+    except OverflowError:
+        return None
+    if isinstance(value, int) and number != value:
         return None
     return number if math.isfinite(number) and number >= 0 else None
 
@@ -176,3 +267,33 @@ __all__ = [
     "feature_temporal_admission",
     "finite_number",
 ]
+
+
+def feature_occurrence_intervals(
+    feature: Mapping[str, object], *, temporal_profile: str | None = None
+) -> tuple[tuple[float, float], ...]:
+    """Return disjoint source-owned supports for temporal selection/indexing.
+
+    The existing single-interval function provides navigation/display extent only
+    when a feature owns multiple sample supports.
+    """
+    status, interval = feature_temporal_admission(
+        feature, temporal_profile=temporal_profile
+    )
+    if status != "admitted":
+        return ()
+    if feature.get("type") == "Feature":
+        properties = feature.get("properties")
+        return (
+            feature_occurrence_intervals(properties)
+            if isinstance(properties, Mapping)
+            else ()
+        )
+    if temporal_profile is None and "sample_chronologies" in feature:
+        if feature.get("chronology_role") != "locality_sample_coverage_hull":
+            return ()
+        return tuple(
+            (interval.younger_bp, interval.older_bp)
+            for _, interval in mapping_sample_intervals(feature)
+        )
+    return () if interval is None else (interval,)

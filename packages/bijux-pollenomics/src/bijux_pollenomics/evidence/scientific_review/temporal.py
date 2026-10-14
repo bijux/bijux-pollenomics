@@ -5,6 +5,7 @@ from __future__ import annotations
 from ...adna import AdnaLocalitySummary
 from ...adna.domain.locality import locality_sample_intervals
 from ...collection.contracts.models import ContextPointRecord
+from ...collection.contracts.occurrence_chronology import occurrence_support_intervals
 from ...core.temporal_semantics import (
     BpInterval,
     InvalidBpIntervalError,
@@ -38,12 +39,11 @@ def _locality_overlaps_point(
     point: ContextPointRecord,
 ) -> bool:
     locality_intervals = _locality_intervals(locality)
-    point_interval = _context_point_interval(point)
-    if point_interval is None:
-        return False
+    point_intervals = _context_point_intervals(point)
     return any(
         closed_bp_intervals_overlap(interval, point_interval)
         for interval in locality_intervals
+        for point_interval in point_intervals
     )
 
 
@@ -59,8 +59,19 @@ def _locality_intervals(locality: AdnaLocalitySummary) -> tuple[BpInterval, ...]
     )
 
 
+def _context_point_intervals(point: ContextPointRecord) -> tuple[BpInterval, ...]:
+    return occurrence_support_intervals(
+        temporal_semantics=point.temporal_semantics,
+        time_start_bp=point.time_start_bp,
+        time_end_bp=point.time_end_bp,
+        occurrence_supports=point.occurrence_supports,
+    )
+
+
 def _context_point_interval(point: ContextPointRecord) -> BpInterval | None:
-    return _validated_interval(point.time_start_bp, point.time_end_bp)
+    """Return one actual interval only when admitted supports have one extent."""
+    intervals = _context_point_intervals(point)
+    return intervals[0] if len(intervals) == 1 else None
 
 
 def _validated_interval(

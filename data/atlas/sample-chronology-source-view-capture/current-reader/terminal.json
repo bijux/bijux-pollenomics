@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "candidate": "dc3fe6f99b29c16f78e939164ad2d0609ac588bb",
+  "source_scope": "Shared immutable selected base92 plus93 reviewed source paths from original7fcc; current reader/observer outputs are separate. No source changes, normalization or locality producer rerun.",
+  "plan_sha256": "ab3b5ead69c88baf3c15139cb1dff4869eb3b1c7feb8d86bdcc2724004ebe594",
+  "actual_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/run.py",
+    "--registered-plan-sha256",
+    "ab3b5ead69c88baf3c15139cb1dff4869eb3b1c7feb8d86bdcc2724004ebe594"
+  ],
+  "native_exit_code": 0,
+  "status": "passed",
+  "stages": [
+    {
+      "name": "actual-declared-public-reader-transport",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/bootstrap.py",
+        "qualify_export_readers.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 29.54518099996494
+    },
+    {
+      "name": "independent-original-membership-reader-observer",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/observe_reader_products.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 2.2936612920020707
+    }
+  ],
+  "exception": null,
+  "protected_inputs_unchanged": true,
+  "protected_input_count": 34133,
+  "elapsed_seconds": 48.12792341696331,
+  "peak_child_rss_bytes": 930463744,
+  "output_bytes": 75252127,
+  "resource_scope": "Per-stage and total process-group wall deadline enforced; completed-child RSS and own execution/products/import receipt bytes qualified afterward. No OS memory/storage quota or aggregate process-tree claim.",
+  "scope": "Correct only the observer assumption that unowned schema-less CSV promotes ADNA flat fields top-level. Named/owned-support routes retain strict top-level metadata; all routes retain exact literal source_record, source types, original geography/native identity, contextual/refused/null/zero and Python/production-JS parity. Complete actual2699 sample/549 locality membership and typed/derived writer identities are requalified. Preserve original7fcc failed whole job/native producer0 and genuine549 products unchanged; no source or producer rerun, no scientific age/rights/calibration/ecology/R/human/release acceptance."
+}

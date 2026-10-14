@@ -46,7 +46,15 @@ def test_coordinate_admission_preserves_zero_and_rejects_missing_or_impossible()
 
 
 def test_golden_zero_bp_and_missing_age_remain_distinct_in_map_data() -> None:
-    dated = {"time_start_bp": 0, "time_end_bp": 0}
+    dated = {
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "temporal_semantics": {
+            "comparability_posture": "numeric_interval",
+            "evidence_class": "controlled_numeric_fixture",
+            "precision_posture": "controlled_point",
+        },
+    }
     missing = {"time_start_bp": None, "time_end_bp": None}
 
     assert feature_temporal_admission(dated) == ("admitted", (0.0, 0.0))
@@ -108,6 +116,11 @@ def test_null_interval_uses_valid_mean_age_across_state_and_static_metadata() ->
         "time_start_bp": None,
         "time_end_bp": None,
         "time_mean_bp": 123.25,
+        "temporal_semantics": {
+            "comparability_posture": "numeric_interval_with_caveat",
+            "evidence_class": "controlled_numeric_fixture",
+            "precision_posture": "controlled_fractional_point",
+        },
     }
     state = build_map_document_state(
         policy=_policy(),

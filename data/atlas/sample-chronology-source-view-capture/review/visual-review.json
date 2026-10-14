@@ -1,0 +1,127 @@
+{
+  "schema_version": "sample-chronology-actual-browser-image-review.v1",
+  "capture_plan_sha256": "6c819d768c6e54d6944ea11749fca379643ed611e54c0a5317db9da7b0053ad0",
+  "capture_terminal_sha256": "6b68fd15a7c4ae1d3d058eb7aeeaa323ab1db03b252edb513f800640923f0342",
+  "qualified_image_inspection_count": 12,
+  "actual_visual_tool_image_count": 4,
+  "byte_identical_prior_actual_image_inspection_count": 8,
+  "image_reviews": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/1440-blocked_provider.png",
+      "sha256": "bebd2a7bcfd6d4b7c275847a50c2f449b76e628b210dc840c6fb38819352364b",
+      "bytes": 84849,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/modeled-panel-browser/1440-blocked_provider.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Colored modeled cells and pale unavailable cells are visible at both viewports; overlay/footer/legend remain bounded. Numerical/source equality belongs to the independent native observer."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/1440-no_basemap.png",
+      "sha256": "5e1c2b018276fe09640b71f574312f38494c3dd71ea5996741334e202f21c069",
+      "bytes": 82706,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/modeled-panel-browser/1440-no_basemap.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Colored modeled cells and pale unavailable cells are visible at both viewports; overlay/footer/legend remain bounded. Numerical/source equality belongs to the independent native observer."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/320-blocked_provider.png",
+      "sha256": "9ec1c3d00d8f103b4e701e64d014965717c663f9263c8badf95840921cc480e2",
+      "bytes": 64921,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/modeled-panel-browser/320-blocked_provider.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Actual native screenshot viewed. Source points or modeled cells remain visible; controls, legend, scale and wrapped status fit this desktop/mobile viewport. Blocked-provider and explicit no-basemap states identify the degraded basemap and retain evidence visibility. Mobile long chronology labels use an ellipsis. This is no live-provider availability or human scientific review claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/320-no_basemap.png",
+      "sha256": "001454b8c5dff5a9083ef6c4dd365d834fa41a4ca417866a55037761ddcce59b",
+      "bytes": 62000,
+      "inspected_with": "view_image",
+      "finding": "Narrow modeled viewport retains controls, overlay, legend, scale and explicit no-basemap degraded status; no visible horizontal overflow."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/1440-provider-failure.png",
+      "sha256": "f6aa07796eccadb3e2411bdc4bb701cc6da32ac8486602732f55a1554f599e39",
+      "bytes": 88127,
+      "inspected_with": "view_image",
+      "finding": "Wide Nordic view retains eight source points, controls, legend and explicit provider degradation with evidence data unaffected."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/1440-tile-free.png",
+      "sha256": "6f9ae3a1aafe2e4174a696934c86818db0607ccadcf6895fd73360eb4a042bfd",
+      "bytes": 86597,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/provider-accessibility/1440-tile-free.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Source points and legend/footer remain visible at desktop/mobile; provider-denied and explicit tile-free states are labeled. No live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/390-provider-failure.png",
+      "sha256": "d0d2ecf748de8b4d7cecb4f365c80eb677e8533355d0703187797b9f16ff6b89",
+      "bytes": 70772,
+      "inspected_with": "view_image",
+      "finding": "Narrow Nordic view retains eight source points, controls, legend and readable wrapped provider degradation status."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/390-tile-free.png",
+      "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed",
+      "bytes": 68407,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/provider-accessibility/390-tile-free.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Actual native screenshot viewed. Source points or modeled cells remain visible; controls, legend, scale and wrapped status fit this desktop/mobile viewport. Blocked-provider and explicit no-basemap states identify the degraded basemap and retain evidence visibility. Mobile long chronology labels use an ellipsis. This is no live-provider availability or human scientific review claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/1440-dated-source-component-1.png",
+      "sha256": "502d0df28ba4803a71406489c22df01bfac60ceb1c0e4aca1cabee7661ba2e1d",
+      "bytes": 81528,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/sample-owned-chronology-components/1440-dated-source-component-1.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Gap screenshots show zero visible points and empty state; positive-component screenshots show one blue source point at both viewports. Other components and null export behavior belong to native controls/independent reconstruction."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/1440-disjoint-source-gap.png",
+      "sha256": "98fb904a7397bb7c3522dec58c9368f14356005dd2de2914b4977973fc486db5",
+      "bytes": 100564,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/sample-owned-chronology-components/1440-disjoint-source-gap.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Gap screenshots show zero visible points and empty state; positive-component screenshots show one blue source point at both viewports. Other components and null export behavior belong to native controls/independent reconstruction."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/390-dated-source-component-1.png",
+      "sha256": "2a444df56ef655fc402cadc8c7df018475e97bd627be773bb8e75aac737669c5",
+      "bytes": 64396,
+      "inspected_with": "view_image",
+      "finding": "Narrow dated-source component view displays one selected point, controls, legend, scale and explicit no-basemap status."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/390-disjoint-source-gap.png",
+      "sha256": "decdd1ebc8cc303840768f0297845625fad5dfedc75716cc5dbcc6dfafc88282",
+      "bytes": 79321,
+      "inspected_with": "retained view_image inspection of byte-identical fresh PNG",
+      "prior_image_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/sample-admission-browser-capture/execution/observations/sample-owned-chronology-components/390-disjoint-source-gap.png",
+      "prior_review_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/visual-review/canonical-source-images.json",
+      "prior_review_sha256": "6df5941e353b8f285c1e1a57170ce7d40b8c52209ec5a6353a5900c81597b678",
+      "finding": "Gap screenshots show zero visible points and empty state; positive-component screenshots show one blue source point at both viewports. Other components and null export behavior belong to native controls/independent reconstruction."
+    }
+  ],
+  "reviewer_kind": "model",
+  "independent_human_scientific_review": false,
+  "new_scientific_or_source_rights_admission": false,
+  "independent_source_observer_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-source-review/execution/terminal.json",
+    "sha256": "6687fa7e09531ae5206024f99644528ff2a1ec03cd024956c6ba919d781f73d9",
+    "native_exit": 0
+  },
+  "scope": "Actual four changed PNGs viewed with view_image; eight fresh PNGs reuse exact physical byte-identical prior model inspections. Twelve named native browser screenshots only, no human scientific, accessibility user exercise, rights, ecology or release acceptance."
+}

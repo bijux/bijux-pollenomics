@@ -7,9 +7,8 @@ from dataclasses import dataclass
 from statistics import fmean
 from typing import TYPE_CHECKING
 
+from ....adna.domain.locality import locality_sample_intervals
 from ....core.temporal_semantics import (
-    InvalidBpIntervalError,
-    canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
 from .context import CandidateSiteContext
@@ -175,7 +174,7 @@ def _build_chronology_alignment_signal(candidate: CandidateSiteContext) -> float
     chronology_rows = [
         locality
         for locality in candidate.direct_evidence
-        if locality.time_start_bp is not None and locality.time_end_bp is not None
+        if locality_sample_intervals(locality)
     ]
     direct_signal = 1.0 if chronology_rows else 0.0
     cross_species_signal = 0.0
@@ -228,7 +227,7 @@ def _build_contextual_support_signal(candidate: CandidateSiteContext) -> float:
 def _build_warning_flags(candidate: CandidateSiteContext) -> tuple[str, ...]:
     flags: list[str] = []
     if all(
-        locality.time_start_bp is None or locality.time_end_bp is None
+        not locality_sample_intervals(locality)
         for locality in candidate.direct_evidence
     ):
         flags.append("missing_direct_chronology")
@@ -266,7 +265,7 @@ def _build_recommendation_blockers(
     if profile.profile_name != "fieldwork_triage":
         blockers.append("profile_is_not_fieldwork_triage")
     if profile.requires_direct_chronology and all(
-        locality.time_start_bp is None or locality.time_end_bp is None
+        not locality_sample_intervals(locality)
         for locality in candidate.direct_evidence
     ):
         blockers.append("direct_chronology_required_for_fieldwork")
@@ -353,20 +352,11 @@ def _build_rationale(
 
 
 def _windows_overlap(left: LocalitySummary, right: LocalitySummary) -> bool:
-    try:
-        left_interval = canonical_bp_interval(
-            left.time_start_bp,
-            left.time_end_bp,
-        )
-        right_interval = canonical_bp_interval(
-            right.time_start_bp,
-            right.time_end_bp,
-        )
-    except InvalidBpIntervalError:
-        return False
-    if left_interval is None or right_interval is None:
-        return False
-    return closed_bp_intervals_overlap(left_interval, right_interval)
+    return any(
+        closed_bp_intervals_overlap(left_interval, right_interval)
+        for _, left_interval in locality_sample_intervals(left)
+        for _, right_interval in locality_sample_intervals(right)
+    )
 
 
 def _review_strength_weight(value: str) -> float:

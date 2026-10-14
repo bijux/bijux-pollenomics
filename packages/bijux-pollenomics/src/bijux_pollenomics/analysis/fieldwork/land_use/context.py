@@ -5,6 +5,7 @@ from typing import Any
 
 from bijux_pollenomics.adna.domain.locality import locality_sample_intervals
 
+from ....adna.domain.locality import mapping_sample_intervals
 from .models import _Target as Target
 
 
@@ -81,25 +82,23 @@ def overlapping_animal_context(
     intervals_overlap: Callable[..., bool],
     number: Callable[[Any], float],
 ) -> dict[str, int]:
-    matched = []
+    matched_localities = 0
+    matched_samples = 0
     for locality in localities:
-        chronology = locality.get("chronology", {})
         if not within_radius(
             target,
             latitude=number(locality.get("latitude")),
             longitude=number(locality.get("longitude")),
         ):
             continue
-        if intervals_overlap(
-            time_start_bp,
-            time_end_bp,
-            chronology.get("time_start_bp"),
-            chronology.get("time_end_bp"),
-        ):
-            matched.append(locality)
-    return {
-        "locality_count": len(matched),
-        "sample_count": sum(
-            int(locality.get("sample_count", 0)) for locality in matched
-        ),
-    }
+        sample_ids = {
+            support.sample_id
+            for support, interval in mapping_sample_intervals(locality)
+            if intervals_overlap(
+                time_start_bp, time_end_bp, interval.younger_bp, interval.older_bp
+            )
+        }
+        if sample_ids:
+            matched_localities += 1
+            matched_samples += len(sample_ids)
+    return {"locality_count": matched_localities, "sample_count": matched_samples}

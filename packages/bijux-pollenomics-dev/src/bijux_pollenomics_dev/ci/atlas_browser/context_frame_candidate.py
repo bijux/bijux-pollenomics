@@ -28,6 +28,8 @@ from bijux_pollenomics.reporting.modeled_context.publication_projection import (
     project_modeled_context_layers,
 )
 
+from .source_custody import observed_source_inputs
+
 COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
 LAYER_KEY = "landclim-reveals-temporal-grid"
 PROFILE: Literal["calendar-bp1950-signed.v1"] = "calendar-bp1950-signed.v1"
@@ -256,6 +258,7 @@ def generate_context_frame_candidates(
             != checksum
         ):
             raise ValueError("frozen source input mutated during generation")
+    inputs.update(observed_source_inputs(repository))
     receipt = {
         "schema_version": "atlas-retained-context-frame-candidate.v1",
         "inputs_sha256": inputs,

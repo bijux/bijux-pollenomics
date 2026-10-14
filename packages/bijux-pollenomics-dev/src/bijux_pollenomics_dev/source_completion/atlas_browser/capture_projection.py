@@ -21,9 +21,16 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.atlas_source_vi
     read_object,
     validated_atlas_source_views,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.sample_chronology_capture import (
+    CURRENT_CAPTURE_PATH,
+    CURRENT_CAPTURE_SHA256,
+    validated_sample_chronology_capture,
+)
 
 SELECTOR_SCHEMA = "atlas-source-view-capture-projection.v1"
 SELECTOR_ROOT = Path("configs/ci/report-capture-projections/atlas-source-views")
+CURRENT_SELECTOR_SCHEMA = "atlas-source-view-capture-projection.v2"
+CURRENT_PROFILE = "sample-owned-chronology"
 
 
 def _json(value: object) -> bytes:
@@ -49,9 +56,13 @@ def _generation(capture: ValidatedAtlasCapture, name: str) -> dict[str, Any]:
 
 
 def _source(capture: ValidatedAtlasCapture) -> dict[str, Any]:
+    current = (
+        capture.document["schema_version"]
+        == "atlas-sample-chronology-source-capture.v2"
+    )
     return {
-        "capture_path": CAPTURE_PATH,
-        "capture_sha256": CAPTURE_SHA256,
+        "capture_path": CURRENT_CAPTURE_PATH if current else CAPTURE_PATH,
+        "capture_sha256": CURRENT_CAPTURE_SHA256 if current else CAPTURE_SHA256,
         "source_candidate": capture.document["source_candidate"],
         "operation": "retained byte transport and metadata projection",
         "browser_executed_by_this_projection": False,
@@ -182,14 +193,24 @@ def build_capture_products(repository: Path, selector: Path) -> dict[str, bytes]
             repository, relative.as_posix(), "atlas capture selector"
         )
     )
-    if (
-        set(selected) != {"schema_version", "owner_id", "capture_sha256"}
-        or selected["schema_version"] != SELECTOR_SCHEMA
-        or selected["capture_sha256"] != CAPTURE_SHA256
-        or selected["owner_id"] not in OWNER_IDS
-    ):
-        raise ReportRebuildError("Atlas projection selector differs")
-    capture = validated_atlas_source_views(repository)
+    if selected.get("schema_version") == CURRENT_SELECTOR_SCHEMA:
+        if (
+            set(selected) != {"schema_version", "profile", "owner_id", "capture_sha256"}
+            or selected["profile"] != CURRENT_PROFILE
+            or selected["capture_sha256"] != CURRENT_CAPTURE_SHA256
+            or selected["owner_id"] not in OWNER_IDS
+        ):
+            raise ReportRebuildError("Current atlas projection selector differs")
+        capture = validated_sample_chronology_capture(repository)
+    else:
+        if (
+            set(selected) != {"schema_version", "owner_id", "capture_sha256"}
+            or selected["schema_version"] != SELECTOR_SCHEMA
+            or selected["capture_sha256"] != CAPTURE_SHA256
+            or selected["owner_id"] not in OWNER_IDS
+        ):
+            raise ReportRebuildError("Atlas projection selector differs")
+        capture = validated_atlas_source_views(repository)
     products = {}
     builders = {
         "keyless-identity": _keyless_identity,

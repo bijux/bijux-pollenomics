@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from types import SimpleNamespace
 
 import pytest
@@ -13,6 +14,8 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness.temporal import (
     _extract_human_points,
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+
+from ..ranking_examples import _locality
 
 
 def _point(
@@ -63,21 +66,19 @@ def test_explicitly_refused_chronology_cannot_enter_interval_analysis() -> None:
     legacy = _point(record_count=1, temporal_semantics=None)
 
     assert not _context_point_has_numeric_interval(refused)
-    assert _context_point_has_numeric_interval(legacy)
+    assert not _context_point_has_numeric_interval(legacy)
 
 
 def test_context_analysis_refuses_boolean_adna_cardinalities() -> None:
+    assert (
+        _extract_human_points(
+            [SimpleNamespace(latitude=59, longitude=18, sample_count=True)]
+        )
+        == ()
+    )
     with pytest.raises(ValueError, match="sample_count"):
         _extract_human_points(
-            [
-                SimpleNamespace(
-                    latitude=59,
-                    longitude=18,
-                    sample_count=True,
-                    locality_token="human-1",
-                    locality="Human one",
-                )
-            ]
+            [replace(_locality("controlled", 59, 18), sample_count=True)]
         )
     with pytest.raises(ValueError, match="sample_count"):
         _extract_animal_points(

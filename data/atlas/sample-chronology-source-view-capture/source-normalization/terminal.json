@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "candidate": "dc3fe6f99b29c16f78e939164ad2d0609ac588bb",
+  "source_scope": "Complete owned first-party packages/resources/tests/configuration and retained original data copied byte-for-byte from the final coherent sample-component/metadata source export. Exact source preparation manifest and all physical source files pinned; not a clean Git checkout or current canonical qualification.",
+  "plan_sha256": "4db6369e35950ba5787b0f71518eea3e04600f8c34ab37f9c016a2a858904229",
+  "actual_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/run.py",
+    "--registered-plan-sha256",
+    "4db6369e35950ba5787b0f71518eea3e04600f8c34ab37f9c016a2a858904229"
+  ],
+  "native_exit_code": 0,
+  "status": "passed",
+  "stages": [
+    {
+      "name": "native-sample-identity-control-regressions",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/bootstrap.py",
+        "test_source_membership.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.09071291697910056
+    },
+    {
+      "name": "actual-four-country-and-ten-animal-standalone-exports",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/bootstrap.py",
+        "actual_export_probe.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.327234166965354
+    },
+    {
+      "name": "independent-source-record-cross-format-observer",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/independent_export_observer.py"
+      ],
+      "native_exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.29048204101854935
+    }
+  ],
+  "exception": null,
+  "protected_inputs_unchanged": true,
+  "protected_input_count": 34823,
+  "elapsed_seconds": 13.757577500015032,
+  "peak_child_rss_bytes": 201080832,
+  "output_bytes": 53616803,
+  "resource_scope": "Per-stage and total process-group wall time enforced; completed-child RSS and execution/source-artifact bytes qualified afterward. No address-space/filesystem quota or aggregate concurrent-process memory claim.",
+  "scope": "Actual 1,231 retained four-country human source-export rows preserving existing published identities and reconstructing chronology through the existing canonical AADR parser; all endpoints/mean/date basis/original labels must match published source rows exactly and 1,468 ten-species original animal normalized SampleRecords. Preserve source chronology/provenance/native identity across preferred JSON/CSV/GeoJSONv2; explicit legacyv1 equals the exact prior serializer/CSV/GeoJSON bytes. Independently inspect saved products against pre-export original records, including null/zero/refusal/native identities and 547 actual animal sample-owned chronology postures. No fresh AADR acquisition, age-system reinterpretation, new calibration/model/R/browser/scientific/rights or whole Article4 acceptance. Source epoch/type/calibration fields not declared in the published inputs remain unknown."
+}

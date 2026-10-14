@@ -218,7 +218,9 @@ def test_context_chronology_requires_comparable_interval_for_ranking() -> None:
     )
     valid = replace(
         _point("comparable", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500),
-        temporal_semantics={"comparability_posture": "numeric_interval"},
+        temporal_semantics=_point(
+            "comparable", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500
+        ).temporal_semantics,
     )
     points = (
         contextual,

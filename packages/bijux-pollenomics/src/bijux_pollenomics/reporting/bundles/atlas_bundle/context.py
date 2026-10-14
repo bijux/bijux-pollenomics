@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import Any
 
+from ....adna.domain.locality import mapping_sample_chronologies
 from ....collection.contracts.cardinality import resolve_declared_count
+from ....collection.contracts.occurrence_chronology import ContextOccurrenceSupport
 from ...context.time import feature_time_payload
+from ...map_document.temporal_admission import feature_temporal_admission
 from .layers import is_animal_chronology_context
 
 
@@ -34,7 +38,49 @@ def extract_context_points(
             ):
                 continue
             time_payload = feature_time_payload(raw_point)
-            temporal_semantics = time_payload["temporal_semantics"]
+            temporal_semantics = time_payload.get("temporal_semantics")
+            source_record = raw_point.get("source_record")
+            occurrence_supports: tuple[ContextOccurrenceSupport, ...] | None = None
+            if "sample_chronologies" in raw_point:
+                occurrence_supports = ()
+            if (
+                "sample_chronologies" in raw_point
+                and feature_temporal_admission(raw_point)[0] == "admitted"
+            ):
+                occurrence_supports = tuple(
+                    ContextOccurrenceSupport(
+                        support_id=support.sample_id,
+                        time_start_bp=support.chronology.time_start_bp,
+                        time_end_bp=support.chronology.time_end_bp,
+                        temporal_semantics={
+                            **support.chronology.as_temporal_semantics(
+                                source_family=str(raw_point.get("source_family", "")),
+                                provenance_path=support.provenance_path,
+                                provenance_locator=support.provenance_locator,
+                                provenance_excerpt=support.provenance_excerpt,
+                            ),
+                            **{
+                                key: support.as_dict()[key]
+                                for key in (
+                                    "reference_epoch",
+                                    "age_type",
+                                    "calibration_status",
+                                    "model",
+                                )
+                            },
+                        },
+                    )
+                    for support in mapping_sample_chronologies(raw_point)
+                )
+            native_record_id = raw_point.get("evidence_row_id")
+            record_id = str(raw_point.get("title", ""))
+            if (
+                raw_point.get("schema_version")
+                in ("adna-sample-record-export.v2", "adna-locality-summary-export.v2")
+                and isinstance(native_record_id, str)
+                and native_record_id.strip()
+            ):
+                record_id = native_record_id
             records.append(
                 surface.ContextPointRecord(
                     source=str(layer.get("source_name", "")),
@@ -42,7 +88,7 @@ def extract_context_points(
                     layer_label=str(layer.get("label", "")),
                     category=str(raw_point.get("subtitle", "")),
                     country=str(raw_point.get("country", "")),
-                    record_id=str(raw_point.get("title", "")),
+                    record_id=record_id,
                     name=str(raw_point.get("title", "")),
                     latitude=float(latitude),
                     longitude=float(longitude),
@@ -67,9 +113,13 @@ def extract_context_points(
                     time_label=str(time_payload["time_label"]),
                     temporal_semantics=(
                         temporal_semantics
-                        if isinstance(temporal_semantics, dict) and temporal_semantics
+                        if isinstance(temporal_semantics, dict)
                         else None
                     ),
+                    occurrence_supports=occurrence_supports,
+                    source_record=deepcopy(source_record)
+                    if isinstance(source_record, dict)
+                    else None,
                     site_uuid=(
                         str(raw_point["site_uuid"]).strip()
                         if isinstance(raw_point.get("site_uuid"), str)

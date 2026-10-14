@@ -2554,7 +2554,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         details: ['atlas-details-chunk.v1'],
         edges: ['atlas-edges-chunk.v1'],
         sequences: ['atlas-sequences-chunk.v1'],
-        indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3'],
+        indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3', 'atlas-static-indexes.v5'],
       };
       function staticAtlasFailure(message) {
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
@@ -2684,7 +2684,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const payloadEncoding = row.payload_encoding || 'json';
           if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
           if (payloadEncoding === 'gzip_base64' && !['provenance', 'nodes', 'details'].includes(row.domain)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
-          const requiresDecodedByteCount = ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema) || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
+          const requiresDecodedByteCount = ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema) || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
           if (requiresDecodedByteCount && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count is invalid`);
           if (row.decoded_byte_count !== undefined && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0 || row.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count exceeds its byte budget`);
           const recordCount = staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key || 'unknown asset'} record count`);
@@ -2801,7 +2801,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function staticAtlasIndexShardEnvelopes(row, payload) {
         const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
         staticAtlasTemporalIdentity(payload, signed);
-        if (payload.shard_schema !== (signed ? 'atlas-static-index-shard.v2' : 'atlas-static-index-shard.v1') || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
+        const components = payload.schema_version === 'atlas-static-indexes.v5';
+        if (components ? signed || payload.component_time_support !== true : Object.hasOwn(payload, 'component_time_support')) staticAtlasFailure(`${row.asset_key} component time declaration is invalid`);
+        if (payload.shard_schema !== (signed ? 'atlas-static-index-shard.v2' : components ? 'atlas-static-index-shard.v3' : 'atlas-static-index-shard.v1') || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
         if (!Number.isSafeInteger(payload.shard_count) || payload.shard_count <= 0) staticAtlasFailure(`${row.asset_key} shard count is invalid`);
         if (!Number.isSafeInteger(payload.reference_count) || payload.reference_count < 0) staticAtlasFailure(`${row.asset_key} reference count is invalid`);
         const shardCount = payload.shard_count;
@@ -2826,7 +2828,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (STATIC_ATLAS_INDEX_KINDS.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
         return payload.shards;
       }
-      async function staticAtlasDecodeIndexShard(row, shard) {
+      async function staticAtlasDecodeIndexShard(row, shard, components = false) {
         const label = `${row.asset_key} shard ${shard.shard_number}`;
         const payloadJson = await staticAtlasBoundedGunzip(shard.payload_gzip_base64, shard.decoded_byte_count, label);
         if (await staticAtlasSha256(payloadJson) !== shard.payload_sha256) staticAtlasFailure(`${label} payload integrity mismatch`);
@@ -2837,7 +2839,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           staticAtlasFailure(`${label} payload JSON is invalid`);
         }
         const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
-        if (!decoded || decoded.schema_version !== (signed ? 'atlas-static-index-shard.v2' : 'atlas-static-index-shard.v1') || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
+        if (!decoded || decoded.schema_version !== (signed ? 'atlas-static-index-shard.v2' : components ? 'atlas-static-index-shard.v3' : 'atlas-static-index-shard.v1') || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
+        if (components ? decoded.component_time_support !== true : Object.hasOwn(decoded, 'component_time_support')) staticAtlasFailure(`${label} component time declaration is invalid`);
         staticAtlasTemporalIdentity(decoded, signed);
         if (decoded.entries.length !== shard.record_count) staticAtlasFailure(`${label} record count mismatch`);
         return decoded;
@@ -2860,13 +2863,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       async function staticAtlasMergeIndexShards(row, payload) {
         const envelopes = staticAtlasIndexShardEnvelopes(row, payload);
+        const components = payload.schema_version === 'atlas-static-indexes.v5';
         const decodedShards = [];
         for (const shard of envelopes) {
-          decodedShards.push(await staticAtlasDecodeIndexShard(row, shard));
+          decodedShards.push(await staticAtlasDecodeIndexShard(row, shard, components));
         }
         const merged = {
           schema_version: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? 'atlas-static-signed-indexes.v1' : 'atlas-static-indexes.v2',
           ...(STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? {temporal_profile:payload.temporal_profile,temporal_axis:payload.temporal_axis} : {}),
+          ...(components ? {component_time_support:true} : {}),
           scope_slug: payload.scope_slug,
           version: payload.version,
           build_id: payload.build_id,
@@ -2879,6 +2884,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           detail_record_asset_keys: Object.create(null),
         };
         const previousKeys = new Map();
+        const componentEnds = new Map();
         const featureReferences = new Map([
           ['country_feature_indexes', new Set()],
           ['spatial_degree_feature_indexes', new Set()],
@@ -2911,7 +2917,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               if (entry.length !== 4 || (signed ? !nativeCalendarNumber(entry[0]) || !nativeCalendarNumber(entry[1]) : !Number.isFinite(entry[0]) || entry[0] < 0 || !Number.isFinite(entry[1])) || entry[1] < entry[0] || typeof entry[2] !== 'string' || !entry[2] || !Number.isSafeInteger(entry[3]) || entry[3] < 0) staticAtlasFailure(`${label} is malformed`);
               assertOrderedUnique(kind, entry, label);
               const reference = `${entry[2]}\u0000${entry[3]}`;
-              if (featureReferences.get(kind).has(reference)) staticAtlasFailure(`${label} feature reference overlaps another shard`);
+              if (featureReferences.get(kind).has(reference) && (!components || entry[0] <= componentEnds.get(reference))) staticAtlasFailure(`${label} feature reference overlaps another shard`);
+              componentEnds.set(reference, entry[1]);
               featureReferences.get(kind).add(reference);
               merged.time_interval_feature_indexes.push([...entry]);
             } else if (kind === 'signal_layer_indexes') {
@@ -2950,7 +2957,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
-        if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
+        if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
       }
       async function consumeStaticAtlasAsset(row) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
@@ -2981,7 +2988,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }
         validateStaticAtlasPayload(row, payload);
-        const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)
+        const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)
           ? await staticAtlasMergeIndexShards(row, payload)
           : payload;
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
@@ -6132,11 +6139,7 @@ __URL_STATE_CONTROLLER__
         return '#fee2e2';
       }
       function finiteTimeValue(value) {
-        if (value === null || value === undefined || typeof value === 'boolean') return null;
-        if (typeof value === 'string' && !value.trim()) return null;
-        if (typeof value !== 'number' && typeof value !== 'string') return null;
-        const numeric = Number(value);
-        return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
+        return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
       }
       function valueIsAvailable(value) {
         return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
@@ -6172,21 +6175,52 @@ __URL_STATE_CONTROLLER__
         const count = finiteCountValue(value);
         return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
+      function localityExportRecords(payload) {
+        if (!payload || !['adna-locality-summary-export.v1','adna-locality-summary-export.v2'].includes(payload.schema_version) || !Array.isArray(payload.localities)) throw new Error('Unsupported locality export wrapper');
+        return payload.localities.map(row=>{
+          if (!row || typeof row !== 'object' || Array.isArray(row) || (Object.prototype.hasOwnProperty.call(row,'schema_version') && row.schema_version !== payload.schema_version)) throw new Error('Locality wrapper and record schemas disagree');
+          const view = {...structuredClone(row),schema_version:payload.schema_version};
+          if (row.chronology && typeof row.chronology === 'object' && !Array.isArray(row.chronology)) {
+            for (const key of ['time_start_bp','time_end_bp','time_mean_bp']) {
+              if (Object.prototype.hasOwnProperty.call(view,key) && view[key] !== row.chronology[key]) throw new Error('Locality display projection disagrees with source hull');
+              view[key] = view.chronology[key] ?? null;
+            }
+            if (!Object.prototype.hasOwnProperty.call(view,'time_label')) view.time_label = row.chronology.original_text ?? '';
+          }
+          return view;
+        });
+      }
       function featureTimeAdmission(feature) {
         if (typeof signedNativeTime !== 'undefined' && signedNativeTime !== null) {
           try {
             if (Object.prototype.hasOwnProperty.call(feature,'temporal_semantics')) return {status:'refused',window:null};
             const source = nativeCalendarSupport(feature.source_calendar_support, 'closed_age_support');
             const window = nativeCalendarSupport(feature.declared_calendar_support, 'declared_stationarity_envelope');
-            if (feature.age_type !== 'calendar_bp' || feature.time_start_bp !== window[0] || feature.time_end_bp !== window[1]
+            if (feature.data_kind !== 'synthetic' || feature.evidence_role !== 'model_output' || feature.scientific_acceptance !== 'not_evaluated'
+                || feature.age_type !== 'calendar_bp' || feature.time_start_bp !== window[0] || feature.time_end_bp !== window[1]
                 || JSON.stringify(feature.source_age_support_bp) !== JSON.stringify([source])
                 || source[0] < window[0] || source[1] > window[1]) return {status:'refused',window:null};
             return {status:'valid',window:{start:window[0],end:window[1]}};
           } catch(error) {return {status:'refused',window:null};}
         }
+        if (Object.prototype.hasOwnProperty.call(feature,'source_calendar_support') || Object.prototype.hasOwnProperty.call(feature,'declared_calendar_support')) return {status:'refused',window:null};
+        if (feature?.type === 'FeatureCollection') return {status:'refused',window:null};
+        if (feature?.type === 'Feature') {
+          const versions = {'adna-sample-geojson.v1':'adna-sample-record-export.v1','adna-sample-geojson.v2':'adna-sample-record-export.v2'};
+          const properties = feature.properties;
+          if (!properties || typeof properties !== 'object' || Array.isArray(properties)) return {status:'refused',window:null};
+          const sample = typeof properties.schema_version === 'string' && properties.schema_version.startsWith('adna-sample-record-export.');
+          if (Object.prototype.hasOwnProperty.call(feature,'schema_version') && typeof feature.schema_version !== 'string') return {status:'refused',window:null};
+          const reservedSchema = typeof feature.schema_version === 'string' && ['adna-sample-record-export.','adna-locality-summary-export.','adna-sample-geojson.','adna-sample-geojson-collection.'].some(prefix=>feature.schema_version.startsWith(prefix));
+          if (Object.prototype.hasOwnProperty.call(feature,'schema_version') && (sample || reservedSchema) && versions[feature.schema_version] !== properties.schema_version) return {status:'refused',window:null};
+          return featureTimeAdmission(properties);
+        }
+        if (Object.prototype.hasOwnProperty.call(feature,'schema_version') && typeof feature.schema_version !== 'string') return {status:'refused',window:null};
         const semantics = feature?.temporal_semantics;
         let posture = '';
         if (semantics && typeof semantics === 'object' && !Array.isArray(semantics)) {
+          if (['schema_version','comparability_posture','refusal_reason_code'].some(key=>Object.prototype.hasOwnProperty.call(semantics,key) && typeof semantics[key] !== 'string')) return {status:'refused',window:null};
+          if (Object.prototype.hasOwnProperty.call(semantics,'schema_version') && semantics.schema_version !== 'temporal-semantics.v1') return {status:'refused',window:null};
           posture = typeof semantics.comparability_posture === 'string'
             ? semantics.comparability_posture.trim()
             : '';
@@ -6194,6 +6228,86 @@ __URL_STATE_CONTROLLER__
             ? semantics.refusal_reason_code.trim()
             : '';
           if (posture === 'refused' || refusalReason) return { status: 'refused', window: null };
+        }
+        if (Object.prototype.hasOwnProperty.call(feature,'temporal_semantics')) {
+          if (!semantics || typeof semantics !== 'object' || Array.isArray(semantics)) return {status:'refused',window:null};
+          if (!['numeric_interval','numeric_interval_with_caveat','mixed_interval_and_context'].includes(posture)) return {status:'contextual',window:null};
+        }
+        const exportSchema = feature.schema_version;
+        if (['adna-sample-record-export.v1','adna-locality-summary-export.v1'].includes(exportSchema)) return {status:'contextual',window:null};
+        if (exportSchema === 'adna-sample-record-export.v2') {
+          const support = feature.sample_chronology, identity = feature.sample_identity;
+          if (!support || typeof support !== 'object' || Array.isArray(support) || support.schema_version !== 'adna-sample-chronology-support.v1' || !identity || typeof identity !== 'object' || Array.isArray(identity)) return {status:'refused',window:null};
+          const identifier = feature.genetic_id, namespace = feature.sample_namespace;
+          if (typeof identifier !== 'string' || !identifier.trim() || typeof namespace !== 'string' || !namespace.trim() || support.sample_id !== identifier || identity.stable_token !== identifier || identity.namespace !== namespace || (Object.prototype.hasOwnProperty.call(feature,'sample_id') && feature.sample_id !== identifier)) return {status:'refused',window:null};
+          for (const key of ['master_id','group_id','accession_lineage']) {
+            if (!Object.prototype.hasOwnProperty.call(feature,key) || !Object.prototype.hasOwnProperty.call(identity,key) || JSON.stringify(feature[key]) !== JSON.stringify(identity[key])) return {status:'refused',window:null};
+          }
+          if (['master_id','group_id'].some(key=>typeof feature[key] !== 'string')) return {status:'refused',window:null};
+          for (const [key,value] of Object.entries(identity)) {
+            if (!['namespace','stable_token','accession_lineage'].includes(key) && Object.prototype.hasOwnProperty.call(feature,key) && (typeof feature[key] !== typeof value || JSON.stringify(feature[key]) !== JSON.stringify(value))) return {status:'refused',window:null};
+          }
+          if (!Array.isArray(identity.accession_lineage) || identity.accession_lineage.some(value=>typeof value !== 'string') || typeof feature.source_family !== 'string') return {status:'refused',window:null};
+          const supportText = ['source_release','provenance_path','provenance_locator','provenance_excerpt','provenance_kind','chronology_strength','normalization_status','conflict_note','reference_epoch','age_type','calibration_status','model'];
+          if (supportText.some(key=>Object.prototype.hasOwnProperty.call(support,key) && typeof support[key] !== 'string')) return {status:'refused',window:null};
+          const chronology = support.chronology;
+          if (!chronology || typeof chronology !== 'object' || Array.isArray(chronology)) return {status:'refused',window:null};
+          const textFields = ['original_text','date_stddev_bp','source_mean_bp_text','dating_basis','evidence_class','precision_posture','refusal_reason_code'];
+          if (textFields.some(key=>!Object.prototype.hasOwnProperty.call(chronology,key) || typeof chronology[key] !== 'string')) return {status:'refused',window:null};
+          for (const key of ['time_start_bp','time_end_bp','time_mean_bp']) {
+            const value = chronology[key];
+            if (!Object.prototype.hasOwnProperty.call(chronology,key) || (value !== null && !Number.isSafeInteger(value)) || !Object.prototype.hasOwnProperty.call(feature,key) || feature[key] !== value) return {status:'refused',window:null};
+          }
+          if (chronology.refusal_reason_code) return {status:'refused',window:null};
+          if (chronology.time_start_bp === null && chronology.time_end_bp === null) return {status:'contextual',window:null};
+          const start = finiteTimeValue(chronology.time_start_bp), end = finiteTimeValue(chronology.time_end_bp);
+          if (start === null || end === null || start > end || (chronology.time_mean_bp !== null && chronology.time_mean_bp < 0)) return {status:'refused',window:null};
+          if (!['sample_precise_point','sample_precise_interval','sample_approximate_or_modeled','contextual_interval'].includes(chronology.precision_posture)) return {status:'contextual',window:null};
+          return {status:'valid',window:{start,end}};
+        }
+        if (typeof exportSchema === 'string' && ['adna-sample-record-export.','adna-locality-summary-export.','adna-sample-geojson.','adna-sample-geojson-collection.'].some(prefix=>exportSchema.startsWith(prefix)) && exportSchema !== 'adna-locality-summary-export.v2') return {status:'refused',window:null};
+        if (exportSchema === 'adna-locality-summary-export.v2' && (!Object.prototype.hasOwnProperty.call(feature,'sample_chronologies') || Object.prototype.hasOwnProperty.call(feature,'localities'))) return {status:'refused',window:null};
+        if (exportSchema === 'adna-locality-summary-export.v2') {
+          const identities = ['identity','locality_identity'].filter(key=>Object.prototype.hasOwnProperty.call(feature,key)).map(key=>feature[key]);
+          for (const identity of identities) {
+            if (!identity || typeof identity !== 'object' || Array.isArray(identity) || ['namespace','stable_token'].some(key=>typeof identity[key] !== 'string' || !identity[key].trim()) || typeof identity.locality_text !== 'string' || (identity.political_entity !== null && typeof identity.political_entity !== 'string') || !Array.isArray(identity.source_anchor_tokens) || identity.source_anchor_tokens.some(value=>typeof value !== 'string')) return {status:'refused',window:null};
+            for (const [outer,inner] of [['locality_namespace','namespace'],['locality_token','stable_token'],['political_entity','political_entity']]) {
+              if (Object.prototype.hasOwnProperty.call(feature,outer) && feature[outer] !== identity[inner] && !(outer === 'political_entity' && feature[outer] === '' && identity[inner] === null)) return {status:'refused',window:null};
+            }
+          }
+          if (identities.length === 2 && ['namespace','stable_token','locality_text','political_entity','source_anchor_tokens'].some(key=>JSON.stringify(identities[0][key]) !== JSON.stringify(identities[1][key]))) return {status:'refused',window:null};
+          if (Object.prototype.hasOwnProperty.call(feature,'political_entity') && feature.political_entity !== null && typeof feature.political_entity !== 'string') return {status:'refused',window:null};
+        }
+        if (Object.prototype.hasOwnProperty.call(feature,'sample_chronology')) return {status:'refused',window:null};
+        if (Object.prototype.hasOwnProperty.call(feature, 'sample_chronologies')) {
+          if (feature.chronology_role !== 'locality_sample_coverage_hull' || !Array.isArray(feature.sample_chronologies)) return {status:'refused',window:null};
+          const identifiers = feature.sample_ids || feature.sample_record_ids;
+          if (!Array.isArray(identifiers) || identifiers.some(value => typeof value !== 'string' || !value.trim()) || new Set(identifiers).size !== identifiers.length) return {status:'refused',window:null};
+          if (feature.sample_count !== undefined && feature.sample_count !== null && (!Number.isSafeInteger(feature.sample_count) || feature.sample_count !== identifiers.length)) return {status:'refused',window:null};
+          const allowed = new Set(identifiers);
+          const seen = new Set();
+          const windows = [];
+          for (const support of feature.sample_chronologies) {
+            if (!support || support.schema_version !== 'adna-sample-chronology-support.v1' || !allowed.has(support.sample_id) || seen.has(support.sample_id)) return {status:'refused',window:null};
+            seen.add(support.sample_id);
+            const supportTextFields = ['source_release','provenance_path','provenance_locator','provenance_excerpt','provenance_kind','chronology_strength','normalization_status','conflict_note','reference_epoch','age_type','calibration_status','model'];
+            if (supportTextFields.some(key=>Object.prototype.hasOwnProperty.call(support,key) && typeof support[key] !== 'string')) return {status:'refused',window:null};
+            const chronology = support.chronology;
+            if (!chronology || typeof chronology !== 'object' || Array.isArray(chronology)) return {status:'refused',window:null};
+            const chronologyTextFields = ['original_text','date_stddev_bp','source_mean_bp_text','dating_basis','evidence_class','precision_posture','refusal_reason_code'];
+            if (chronologyTextFields.some(key=>Object.prototype.hasOwnProperty.call(chronology,key) && typeof chronology[key] !== 'string')) return {status:'refused',window:null};
+            if (['time_start_bp','time_end_bp','time_mean_bp'].some(key=>chronology[key] !== null && chronology[key] !== undefined && !Number.isSafeInteger(chronology[key]))) return {status:'refused',window:null};
+            if (chronology.refusal_reason_code) continue;
+            if ((chronology.time_start_bp === null || chronology.time_start_bp === undefined) && (chronology.time_end_bp === null || chronology.time_end_bp === undefined)) continue;
+            const start = finiteTimeValue(chronology.time_start_bp);
+            const end = finiteTimeValue(chronology.time_end_bp);
+            if (start === null || end === null || start > end) return {status:'refused',window:null};
+            const numericPostures = ['sample_precise_point','sample_precise_interval','sample_approximate_or_modeled','contextual_interval'];
+            if (!numericPostures.includes(chronology.precision_posture)) continue;
+            windows.push({start,end,sample_id:support.sample_id});
+          }
+          if (!windows.length) return {status:'contextual',window:null};
+          return {status:'valid',window:{start:Math.min(...windows.map(value=>value.start)),end:Math.max(...windows.map(value=>value.end))},windows};
         }
         const startDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_start_bp');
         const endDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_end_bp');
@@ -6206,7 +6320,7 @@ __URL_STATE_CONTROLLER__
             const start = finiteTimeValue(rawStart);
             const end = finiteTimeValue(rawEnd);
             if (start === null || end === null || start > end) return { status: 'refused', window: null };
-            if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
+            if (!['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
             return { status: 'valid', window: { start, end } };
           }
         }
@@ -6216,7 +6330,7 @@ __URL_STATE_CONTROLLER__
           if (rawValue === null || rawValue === undefined) continue;
           const value = finiteTimeValue(rawValue);
           if (value === null) return { status: 'refused', window: null };
-          if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
+          if (!['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
           return { status: 'valid', window: { start: value, end: value } };
         }
         if (semantics && typeof semantics === 'object' && !Array.isArray(semantics) && Object.keys(semantics).length) {
@@ -6238,7 +6352,8 @@ __URL_STATE_CONTROLLER__
         }
         const featureWindow = admission.window;
         const activeWindow = { start: timeStartBp, end: timeWindowEndBp() };
-        return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
+        const occurrenceWindows = admission.windows || [featureWindow];
+        return occurrenceWindows.some(window => window.end >= activeWindow.start && window.start <= activeWindow.end);
       }
       function featureTimeLabel(feature) {
         const admission = featureTimeAdmission(feature);

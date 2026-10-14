@@ -1,0 +1,29 @@
+{
+  "native_exit": 0,
+  "actual_original_samples": 2699,
+  "reader_cases": 31884,
+  "typed_locality_exports": 909,
+  "typed_sample_exports": 1897,
+  "distinct_operational_identity_count": 2200,
+  "explicit_geometry_refusals": 2342,
+  "csv_nullable_flat_text_projection_counts": {
+    "sample:locality": 118,
+    "sample:political_entity": 118
+  },
+  "all_reader_cases_joined_to_exact_source_membership": true,
+  "counts": {
+    "typed_sample_exports": 1897,
+    "actual_external_geometry_refusals": 2342,
+    "locality_geometry_refusals": 738,
+    "new_localities": 549,
+    "typed_locality_exports": 909,
+    "retained_locality_records": 547,
+    "javascript_status:admitted": 13466,
+    "javascript_status:contextual": 16117,
+    "javascript_status:refused": 2301
+  },
+  "reader_proof_sha256": "c9d87c30db5fcea66349a352f8c71a442e127f6b27e1dc3dae0354a235227190",
+  "locality_producer_sha256": "832f1079ff7048cc292ce1e8a6dde8f0cf4def09c3b51a0360c469ae677cd201",
+  "original_sample_producer_sha256": "b6ae2e5f1ab212b814275f80d0674e74e862ac9cd3c6e24f229f2f3ee38911bd",
+  "scope": "Independent stdlib-only source chronology/native membership and complete saved route accounting. Actual2699 sample exporters are retained unchanged. New549 locality products remain explicitly newly produced. No null-to-zero global proof, external scientific/human decision, model or release qualification."
+}

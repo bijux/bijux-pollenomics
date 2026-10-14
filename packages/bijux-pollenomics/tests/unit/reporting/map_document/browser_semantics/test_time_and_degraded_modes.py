@@ -44,8 +44,8 @@ timeStartBp=200; timeIntervalYears=100;
 const layer={applies_time_filter:true};
 const sourceLayer={applies_time_filter:true,semantic_role:'source_chronology_context'};
 const narrowUntimed=featureInTimeWindow(layer,{time_mean_bp:null});
-const touching=featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200});
-const outside=featureInTimeWindow(layer,{time_start_bp:0,time_end_bp:99});
+const touching=featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200,temporal_semantics:{comparability_posture:'numeric_interval'}});
+const outside=featureInTimeWindow(layer,{time_start_bp:0,time_end_bp:99,temporal_semantics:{comparability_posture:'numeric_interval'}});
 const reversed=featureInTimeWindow(layer,{time_start_bp:300,time_end_bp:200});
 timeStartBp=0; timeIntervalYears=1000;
 console.log(JSON.stringify({
@@ -64,7 +64,7 @@ console.log(JSON.stringify({
   objectDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:{},time_end_bp:100}),
   partialDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:null}),
   genuinelyUntimedFullExtent:featureInTimeWindow(layer,{}),
-  nullIntervalMeanFallback:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,time_mean_bp:123}),
+  nullIntervalMeanFallback:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,time_mean_bp:123,temporal_semantics:{comparability_posture:'numeric_interval'}}),
   refusedSemantics:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,temporal_semantics:{comparability_posture:'refused',refusal_reason_code:'negative_bp'}}),
   refusedNumericSemantics:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200,temporal_semantics:{comparability_posture:'refused',refusal_reason_code:'source_age_system_not_comparable'}}),
   absentStatus:featureTimeAdmission({}).status,
@@ -163,7 +163,7 @@ let timeStartBp=0,timeIntervalYears=0;
 function timeWindowEndBp(){return 0}
 function timeFilterUsesFullExtent(){return false}
 const layer={applies_time_filter:true,semantic_role:'source_chronology_context'};
-const dated={time_start_bp:0,time_end_bp:0};
+const dated={time_start_bp:0,time_end_bp:0,temporal_semantics:{comparability_posture:'numeric_interval'}};
 const missing={time_start_bp:null,time_end_bp:null};
 const uncalibrated={time_start_bp:null,time_end_bp:null,time_label:'5600 BP',temporal_semantics:{comparability_posture:'context_only'}};
 """

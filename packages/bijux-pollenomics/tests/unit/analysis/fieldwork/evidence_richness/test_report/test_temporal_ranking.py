@@ -142,7 +142,7 @@ def test_svar_lake_candidates_prefer_direct_pollen_when_human_context_is_similar
         assert report.assessments[1].candidate.direct_pollen_source_count == 0
 
 
-def test_svar_lake_candidates_prefer_direct_pollen_with_human_chronology_overlap() -> (
+def test_svar_lake_candidates_do_not_promote_raw_pollen_bounds_as_human_overlap() -> (
     None
 ):
     with tempfile.TemporaryDirectory() as tmp:
@@ -226,7 +226,7 @@ def test_svar_lake_candidates_prefer_direct_pollen_with_human_chronology_overlap
         assert report.assessments[1].candidate.lake_name == "Beta"
         assert (
             report.assessments[0].candidate.direct_pollen_signal
-            > report.assessments[1].candidate.direct_pollen_signal
+            == report.assessments[1].candidate.direct_pollen_signal
         )
 
 

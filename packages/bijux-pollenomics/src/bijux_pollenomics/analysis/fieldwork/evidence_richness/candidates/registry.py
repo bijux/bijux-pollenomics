@@ -6,6 +6,9 @@ from collections import Counter
 from collections.abc import Sequence
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    occurrence_support_intervals,
+)
 from bijux_pollenomics.core import haversine_km
 
 from ..metrics import _weighted_average
@@ -18,7 +21,6 @@ from ..models import (
 from ..temporal import (
     _human_context_overlap_ratio,
     _time_aware_ratio,
-    _validated_interval,
 )
 from .matching import _is_direct_lake_pollen_match
 from .naming import _clean_lake_name_display, _resolve_basin_posture
@@ -195,8 +197,12 @@ def _derive_svar_lake_candidates(
                 "time_aware_direct_pollen_records": sum(
                     1
                     for point in direct_pollen_points
-                    if _validated_interval(point.time_start_bp, point.time_end_bp)
-                    is not None
+                    if occurrence_support_intervals(
+                        temporal_semantics=point.temporal_semantics,
+                        occurrence_supports=point.occurrence_supports,
+                        time_start_bp=point.time_start_bp,
+                        time_end_bp=point.time_end_bp,
+                    )
                 ),
                 "pollen_sources": pollen_sources,
                 "supporting_pollen_names": supporting_pollen_names,

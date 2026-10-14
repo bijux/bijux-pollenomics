@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.core.temporal_semantics import InvalidBpIntervalError
 from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
     MEMBERSHIP_SEMANTICS,
     NEOTOMA_SOURCE_LABEL_PRESETS,
@@ -235,3 +236,54 @@ def test_source_label_preset_authority_rejects_declared_aggregate_drift() -> Non
         bind_source_label_preset_authority(
             authority, catalog=catalog, accountability=accountability
         )
+
+
+@pytest.mark.parametrize(
+    ("window", "expected"),
+    [
+        ((0, 0), (1, 1, 2)),
+        ((1, 1), (0, 0, 0)),
+        ((2.5, 4.5), (2, 2, 8)),
+        ((3, 3), (1, 1, 3)),
+        ((4.5, 4.5), (2, 2, 8)),
+        ((6, 6), (1, 1, 5)),
+        ((6.25, 7), (0, 0, 0)),
+        ((0, 6), (3, 2, 10)),
+    ],
+)
+def test_source_authority_preserves_gap_boundaries_and_distinct_denominators(
+    window: tuple[float, float], expected: tuple[int, int, int]
+) -> None:
+    authority = SourceFacetAuthority(
+        selector_kind="source_taxon",
+        selector_value="owned",
+        label="Owned",
+        site_count=2,
+        node_count=3,
+        observation_denominator=10,
+        time_min_bp=0,
+        time_max_bp=6,
+        intervals=((0, 0), (2.5, 4.5), (4.5, 6)),
+        site_intervals=(("a", 0, 0), ("a", 2.5, 4.5), ("b", 4.5, 6)),
+        observation_intervals=((2, 0, 0), (3, 2.5, 4.5), (5, 4.5, 6)),
+    )
+    assert (
+        authority.visible_count(*window),
+        authority.visible_site_count(*window),
+        authority.visible_observation_count(*window),
+    ) == expected
+
+
+@pytest.mark.parametrize(
+    "window",
+    [(-1, 0), (0, -1), (2, 1), (float("nan"), 1), (0, float("inf")), (True, 1)],
+)
+@pytest.mark.parametrize(
+    "method", ["visible_count", "visible_site_count", "visible_observation_count"]
+)
+def test_source_authority_refuses_noncanonical_query_frames(
+    window: tuple[float, float], method: str
+) -> None:
+    authority = next(iter(_preset_contract()[0].facets.values()))
+    with pytest.raises(InvalidBpIntervalError):
+        getattr(authority, method)(*window)

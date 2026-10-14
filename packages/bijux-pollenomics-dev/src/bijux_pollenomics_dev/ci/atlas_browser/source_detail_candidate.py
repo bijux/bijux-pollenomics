@@ -27,6 +27,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 )
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
+from .source_custody import observed_source_inputs
+
 SITE_IDS = ("neotoma:site:12", "neotoma:site:3009")
 
 
@@ -208,6 +210,7 @@ def generate_source_detail_candidate(
                 ).hexdigest(),
             }
         )
+    inputs.update(observed_source_inputs(repository))
     receipt = {
         "schema_version": "atlas-retained-source-detail-candidate.v1",
         "source_atlas_build_id": manifest["build_id"],

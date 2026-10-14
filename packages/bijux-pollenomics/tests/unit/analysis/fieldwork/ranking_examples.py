@@ -8,7 +8,9 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 
 
 def _locality(
@@ -57,6 +59,24 @@ def _locality(
             time_end_bp=3500,
             time_mean_bp=3000,
             dating_basis="bp_window",
+            precision_posture="sample_precise_interval",
+            evidence_class="controlled_numeric_sample_date",
+        ),
+        sample_chronologies=tuple(
+            AdnaSampleChronologySupport(
+                sample_id=f"S{index}",
+                chronology=AdnaChronology(
+                    original_text="3000 BP",
+                    time_start_bp=2500,
+                    time_end_bp=3500,
+                    time_mean_bp=3000,
+                    dating_basis="bp_window",
+                    precision_posture="sample_precise_interval",
+                    evidence_class="controlled_numeric_sample_date",
+                ),
+                source_release="v66",
+            )
+            for index in range(sample_count)
         ),
         sample_namespace="shared:sample",
     )
@@ -91,4 +111,12 @@ def _point(
         time_end_bp=time_end_bp,
         time_mean_bp=3000 if time_start_bp is not None else None,
         time_label="3000 BP" if time_start_bp is not None else "",
+        temporal_semantics=build_temporal_semantics(
+            source_family="controlled_source",
+            evidence_class="controlled_context_date",
+            precision_posture="controlled_source_interval",
+            comparability_posture="numeric_interval",
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+        ).as_dict(),
     )

@@ -73,6 +73,11 @@ class ExternalLayerTests(unittest.TestCase):
                         "properties": {
                             "layer_key": "mean-only",
                             "layer_label": "Mean-only chronology",
+                            "temporal_semantics": {
+                                "comparability_posture": "numeric_interval",
+                                "evidence_class": "controlled_numeric_fixture",
+                                "precision_posture": "controlled_source_interval",
+                            },
                             "time_start_bp": None,
                             "time_end_bp": None,
                             "time_mean_bp": 123,
@@ -199,7 +204,7 @@ class ExternalLayerTests(unittest.TestCase):
         self.assertEqual(semantics["comparability_posture"], "refused")
         self.assertEqual(semantics["uncertainty_notes"], ["negative_bp"])
 
-    def test_external_point_layers_enable_time_filter_when_temporal_properties_exist(
+    def test_external_point_layers_enable_time_filter_with_declared_numeric_support(
         self,
     ) -> None:
         layer = build_external_point_layer(
@@ -215,6 +220,11 @@ class ExternalLayerTests(unittest.TestCase):
                             "country": "Sweden",
                             "name": "Lake One",
                             "category": "Pollen sequence",
+                            "temporal_semantics": {
+                                "comparability_posture": "numeric_interval",
+                                "evidence_class": "controlled_numeric_fixture",
+                                "precision_posture": "controlled_source_interval",
+                            },
                             "time_start_bp": 0,
                             "time_end_bp": 700,
                         },
@@ -235,7 +245,9 @@ class ExternalLayerTests(unittest.TestCase):
             "Recent and historical (0-1000 BP)",
         )
 
-    def test_external_temporal_sead_layer_is_time_filterable_by_default(self) -> None:
+    def test_external_temporal_sead_fixture_is_time_filterable_with_declared_numeric_support(
+        self,
+    ) -> None:
         layer = build_external_point_layer(
             {
                 "type": "FeatureCollection",
@@ -250,6 +262,11 @@ class ExternalLayerTests(unittest.TestCase):
                             "site_uuid": "site-uuid-1",
                             "name": "Dated chronology",
                             "category": "Environmental archaeology chronology",
+                            "temporal_semantics": {
+                                "comparability_posture": "numeric_interval",
+                                "evidence_class": "controlled_numeric_fixture",
+                                "precision_posture": "controlled_source_interval",
+                            },
                             "time_start_bp": 1200,
                             "time_end_bp": 1800,
                         },
@@ -338,7 +355,7 @@ class ExternalLayerTests(unittest.TestCase):
         self.assertFalse(layer["applies_time_filter"])
         self.assertFalse(layer["default_enabled"])
 
-    def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
+    def test_external_polygon_layers_enable_time_filter_with_declared_numeric_support(
         self,
     ) -> None:
         layer = build_external_polygon_layer(
@@ -363,6 +380,11 @@ class ExternalLayerTests(unittest.TestCase):
                             "layer_key": "landclim-reveals-grid",
                             "layer_label": "LandClim REVEALS grid cells",
                             "country": "Sweden",
+                            "temporal_semantics": {
+                                "comparability_posture": "numeric_interval",
+                                "evidence_class": "controlled_numeric_fixture",
+                                "precision_posture": "controlled_source_interval",
+                            },
                             "time_start_bp": 100,
                             "time_end_bp": 1200,
                         },

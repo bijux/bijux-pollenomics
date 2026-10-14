@@ -35,6 +35,30 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"read_only_database"}
         ),
     },
+    "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": {
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.indexes": frozenset(
+            {"build_indexes"}
+        ),
+        "bijux_pollenomics.reporting.map_document.temporal_admission": frozenset(
+            {"feature_occurrence_intervals"}
+        ),
+        "bijux_pollenomics.reporting.map_publication": frozenset({"MapScopePolicy"}),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/source_rows.py": {
+        "bijux_pollenomics.adna.domain.models": frozenset({"AdnaChronology"}),
+        "bijux_pollenomics.adna.domain.models.localities": frozenset(
+            {"AdnaSampleChronologySupport"}
+        ),
+        "bijux_pollenomics.adna.species.homo_sapiens.records": frozenset(
+            {"_parse_sample_row"}
+        ),
+    },
     "bijux_pollenomics_dev/reader_reports/scientific_routes.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
             {"Route", "load_routes", "render_route"}
@@ -65,6 +89,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/ci/atlas_media/source_authority.py": {
+        "bijux_pollenomics.core.temporal_semantics": frozenset(
+            {"BpInterval", "closed_bp_intervals_overlap"}
+        ),
         "bijux_pollenomics.reporting.source_chronology.source_label_presets": frozenset(
             {
                 "MEMBERSHIP_SEMANTICS",
@@ -1125,6 +1152,14 @@ def test_dev_package_uses_only_reviewed_host_imports() -> None:
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
     """An admitted source import must not authorize sibling files or symbols."""
     approved = {
+        "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": (
+            "bijux_pollenomics.reporting.map_document",
+            "render_multi_country_map_html",
+        ),
+        "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/source_rows.py": (
+            "bijux_pollenomics.adna.species.homo_sapiens.records",
+            "_parse_sample_row",
+        ),
         "bijux_pollenomics_dev/reader_reports/scientific_routes.py": (
             "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts",
             "Route",
