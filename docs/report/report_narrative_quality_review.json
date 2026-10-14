@@ -3023,12 +3023,12 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
-      "content_sha256": "4a4ce6cc495e3ecdb9874c18d19f3861a065281d97dda2a0d7a3c0a2c088b16d",
-      "prose_paragraph_count": 16,
-      "link_bullet_count": 3,
+      "content_sha256": "c7746bf128307610283951982e4cb399d2c5c175833c30602a7f4ef1fc4c6b03",
+      "prose_paragraph_count": 21,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 9,
+      "heading_count": 3,
+      "table_line_count": 15,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -3408,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "b06063e48f953187fc53418c24f227e4fa32fb21db75f9ba440d18c37406a6f8",
+      "content_sha256": "e434ca17215cc6fa23c59fed7526e0bd893f80045e76b7a44b8412e27471e5a4",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3419,7 +3419,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "5cafd81194c1d0eac4cb4e8601842d23e442ced50200ee0762f03392cbd7b1d7",
+      "content_sha256": "18b02d6539dc7c583095a311bad4aef120c4cb0821fbc5c7e7d7e02dc7bbd396",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

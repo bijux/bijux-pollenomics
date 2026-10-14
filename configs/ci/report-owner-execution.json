@@ -2210,6 +2210,18 @@
       },
       "source_arguments": [],
       "timeout_seconds": 40
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.chronology_annotations.cli",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/chronology-claim-review/native-annotation-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-claim-review/native-annotations.json"
+      },
+      "timeout_seconds": 60,
+      "artifact_output_flag": "--retained-artifacts-root"
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

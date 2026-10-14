@@ -1820,6 +1820,16 @@
       "actual_complete_scalar_review_terminal_sha256": "67b6ab1fee1a41e0acc5f15d0dd783a5523ce7cdf90c8aae16f7b823a3c18fda",
       "prior_readability_execution_preserved": true,
       "scope": "Retained numerical residual and source-version reporting only. Original327-reader execution and historical report_prose hashes remain unchanged; no new native R, model execution or scientific admission."
+    },
+    {
+      "report_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
+      "authored_source_sha256": "7467f2ab794ba4580c4a112ab756ad6100d7ac9299ccc4e6b8b1f81bc5d88e9e",
+      "rendered_sha256": "c7746bf128307610283951982e4cb399d2c5c175833c30602a7f4ef1fc4c6b03",
+      "native_annotation_source_account": "docs/report/source-relations/sead/chronology-claim-review/native-annotations-source.json",
+      "native_annotation_source_account_sha256": "9c252ea5104c0c79de757b659db60db9c59e43d8deadc501e0ca4be5a821311e",
+      "actual_two_lane_terminal_sha256": "2242beedbba62e42dc238a325a56fd4e60fac16a16963cf920b0906870f64c45",
+      "prior_readability_execution_preserved": true,
+      "scope": "Native typed-annotation/source custody and independently verified deterministic report replay. Original327-reader execution/report_prose remains historical; no new scientific, dating, rights or human review admission."
     }
   ],
   "subsequent_source_link_adoptions": [

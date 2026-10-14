@@ -1,0 +1,134 @@
+{
+  "schema_version": "sead-native-age-annotation-custody.v1",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "claim_count": 25109,
+  "selected_native_table_count": 17,
+  "source_native_table_row_counts": {
+    "tbl_analysis_dating_ranges": 7377,
+    "tbl_dendro_dates": 6947,
+    "tbl_relative_dates": 10057,
+    "tbl_geochronology": 87,
+    "tbl_analysis_entity_ages": 641,
+    "tbl_analysis_values": 68705,
+    "tbl_analysis_entities": 129918,
+    "tbl_physical_samples": 32308,
+    "tbl_sample_groups": 4432,
+    "tbl_sites": 2069,
+    "tbl_datasets": 43392,
+    "tbl_methods": 41,
+    "tbl_biblio": 1114,
+    "tbl_dating_uncertainty": 6,
+    "tbl_site_references": 747,
+    "tbl_sample_group_references": 925,
+    "tbl_relative_age_refs": 8
+  },
+  "all_captured_date_rows_accounted": true,
+  "chronology_eligibility_counts": {
+    "eligible": 13170,
+    "refused": 11939
+  },
+  "native_field_cells_compared": 202546,
+  "all_raw_annotations_preserved_in_sidecar": true,
+  "native_field_comparison_counts": {
+    "exact": 186797,
+    "null_to_empty_string": 14230,
+    "numeric_representation_changed_equal_value": 1519
+  },
+  "native_lookup_comparison_counts": {
+    "exact": 11923,
+    "null_to_empty_string": 47070
+  },
+  "raw_unknown_flag_count": 0,
+  "stored_unknown_flags_changed_to_nonnull_count": 0,
+  "stored_unknown_flags_omitted_count": 0,
+  "claims_with_stored_native_differences": 8678,
+  "native_source_null_field_cells": 56721,
+  "claim_type_counts": {
+    "analysis_entity_age": 641,
+    "dating_range": 7377,
+    "dendrochronology": 6947,
+    "geochronology": 87,
+    "relative_period": 10057
+  },
+  "uncertainty_label_counts": {
+    ">": 12,
+    "?": 28,
+    "Ca.": 84,
+    "From": 1097,
+    "From ca.": 141,
+    "None": 23745,
+    "To": 2
+  },
+  "dataset_method_counts": {
+    "10": 14326,
+    "130": 1,
+    "134": 19,
+    "137": 20,
+    "139": 8,
+    "14": 5,
+    "142": 109,
+    "144": 7,
+    "148": 5,
+    "151": 18,
+    "155": 129,
+    "158": 562,
+    "171": 8430,
+    "172": 755,
+    "174": 641,
+    "175": 5,
+    "176": 5,
+    "38": 64
+  },
+  "bibliography_status_counts": {
+    "linked": 21428,
+    "source_null": 3681
+  },
+  "calibration_status_counts": {
+    "not_applicable": 14324,
+    "not_calibrated": 10057,
+    "unknown": 728
+  },
+  "claim_witness_sha256": "eecfc2cff5071f3dce144bfadef8e32a1f8de591d1c5a902b53b9e6169a68ffe",
+  "reference_link_occurrences_by_role": {
+    "dataset": 21428,
+    "site": 15950,
+    "sample_group": 0,
+    "relative_age": 565
+  },
+  "null_reference_occurrences_by_role": {
+    "dataset": 0,
+    "site": 0,
+    "sample_group": 0,
+    "relative_age": 0
+  },
+  "source_inputs_sha256": {
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json": "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json": "94d23e550507a99f56dc80c0cefa697c0a8c299537ef55779b1e73756f85d829",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json": "3ef1c9fd7ce62c7ff6f15524b5d8de70106c71ece825bc0db16061d5fd332ee2",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json": "d0f404fee3b0e125c1b7584a901ce4be74d2f4137dc4ac1ec8a3baff29d857eb",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json": "2d702ed777d0a5586e0d8d0c3e5a481516c844029023170797fad0a93920659f",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json": "532f8cc2c4e8c95f1943499bdc60b26c566dc1fe4f0647f75ba0c09ef14b685e",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json": "4cc48ca1836cd128e303b56920ee826bfb362771d578f8a019e7c8f0a3de4bbf",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entities.json": "511208fed7e47db0eb166f56857092ab3a47390a03c743f32bce4ec6101705a5",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json": "591d9daa71af52f5772d50d888601ccef95db1a1e4ad87a82d922c85c15fe818",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json": "aa7e68c8aaafb2b7499f6b163a4abeba4e5dffccd411a8158fad283b4fb15065",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_datasets.json": "c8591339a40fd48134510f4ff2916e14c5abced87aa0f526953035602be0fd63",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_methods.json": "a47ab8d9d2952945e5e9ba64173ae31e85497f2a99702ae87b7752c0b3724da6",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_biblio.json": "2ef1e49385185b4aee49edfa46d37b9d05025b3a0afb76e4f36ef12f12231846",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json": "c26d76957028ac747fa26b77c0af6d038cbda10ed08599430f1f0f1a97d33503",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_site_references.json": "72c7003e749286973d8118247f16ba9f9e679356d600d50143c448b0324b63f8",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_references.json": "68e55bcac462a9d66d9b1a671baf79e99806c4c4904e3b149b522d7b66c35fcf",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_age_refs.json": "91231584adc2f570b0376ab32dd7883e45c2bb7a20db59531f43380ca4f7e1a7",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json": "d8f789b05966c07e7435159d96ee30de715133787556f18686f7011cecdba860",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json": "b3d3b749eff439f92e9e39915682522b40d21ee6ae9156ba24a2ac5a42c93cbf",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json": "56aea4298888e1aa74cf8e155b8cf7a2f2e149f06b11451f75177b219aff8bb8",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json": "2202cec94d5d43eaaa91b2366620f41deb325a98b89b086f20b08a687ff3af11",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json": "88272c0f4cea6b6c5123fcb2729abf8498bb451e5f0db36fb8badfdb508b1274",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json": "6f3d502ec3f1df6d339e7da946bf20e4179b1272ddddb0d68ba87df58295c26a"
+  },
+  "eligible_event_count": 0,
+  "scientific_admission": false,
+  "limits": "Original raw typed annotations are preserved in the private sidecar; every difference or omission in stored normalized fields is explicit and is not approved as harmless. Native field/owner/lookup comparison only. Null methods or references stay null, model chronology IDs remain unresolved when no source authority is captured, calibration and unknown bases are unchanged. No qualified age/event/rights approval, date conversion, model or ecological inference."
+}

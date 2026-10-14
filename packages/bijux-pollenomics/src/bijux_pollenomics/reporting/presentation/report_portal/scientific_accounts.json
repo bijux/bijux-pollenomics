@@ -8515,17 +8515,17 @@
       ],
       "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.",
       "qualification": {
-        "authored_reader_sha256": "dbd34aebcdd2a18090d6b8608b9647a778344af81cbf71face671a2dc96ffa8a",
+        "authored_reader_sha256": "7467f2ab794ba4580c4a112ab756ad6100d7ac9299ccc4e6b8b1f81bc5d88e9e",
         "fields": {
-          "supported_claim": "All 25,109 captured chronology claims retain a native-age review with explicit display-only eligibility and refusal bases.",
+          "supported_claim": "All 25,109 captured chronology claims retain a native-age review and an independent comparison of 202,546 original typed fields, physical ownership and method/reference relations; display and propagation refusals remain explicit.",
           "unsupported_claim": "Synthetic calibrated-BP/BCE branch tests do not certify native SEAD rows, and display eligibility is not ecological/scientific chronology admission.",
-          "actual_verification_performed": "Read all age-basis totals and seven native-backed gold examples in report.json plus per-claim decision schema; no calibration or chronology replay.",
-          "remaining_input_or_review": "Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty and qualified scientific use remain unresolved.",
+          "actual_verification_performed": "Actual source-bound producer and independent all-row/type/ownership/aggregate verifier passed; 83 annotation, runtime-isolation, receipt and result-schema guards, configured strict typing and lint passed. No calibration, age-model fit or new event admission. Two actual maintained configured reference/replay commands independently reproduced the public aggregate and private witness byte-for-byte; 71 producer/public-private isolation guards and strict10/source lint passed. Canonical ownership and reader validation are separate.",
+          "remaining_input_or_review": "Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty, scientific equivalence of stored representations and qualified scientific use remain unresolved.",
           "cause_category": "Source-backed AD conversion is narrower than chronology/event approval.",
           "consequence": "13,170 display-eligible claims cannot become 13,170 propagated events.",
           "precise_next_acceptance_route": "Obtain source-specific age/calibration/uncertainty decisions and classification authority before changing claim or propagation admission.",
-          "negative_or_refused_result": "11,939 claims not display eligible; all 25,109 propagation statuses refused; 1,094 From dates lack bounded intervals.",
-          "matched_denominator": "25,109 claims: 13,170 bounded nonnegative AD conversions, 1,094 open-ended, 60 negative BP, 10,057 periods, 87 radiometric, 641 modelled unresolved; 1 native AD type."
+          "negative_or_refused_result": "8,678 claims differ in stored representation: 14,230 native null field cells become empty strings and 1,519 numeric representations change at equal exact value. No harmlessness approval; all 25,109 propagation statuses remain refused, including 1,094 unbounded dendrochronology From claims.",
+          "matched_denominator": "25,109 claims / 202,546 native field cells across five date kinds and 17 source tables; 186,797 exact cells, 14,230 null-to-empty and 1,519 numeric-type changes. Original age-basis totals and 13,170 display-only claims remain unchanged."
         },
         "evidence_pins": [
           {
@@ -8535,6 +8535,14 @@
           {
             "path": "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
             "sha256": "e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546"
+          },
+          {
+            "path": "docs/report/source-relations/sead/chronology-claim-review/native-annotations.json",
+            "sha256": "09940763f6124591f1696fa253d52b259ff410d79798abcb82d56d4868e3f240"
+          },
+          {
+            "path": "docs/report/source-relations/sead/chronology-claim-review/native-annotations-source.json",
+            "sha256": "9c252ea5104c0c79de757b659db60db9c59e43d8deadc501e0ca4be5a821311e"
           }
         ]
       }
