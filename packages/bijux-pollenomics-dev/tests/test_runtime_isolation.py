@@ -14,6 +14,27 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    # The native RAA support producer verifies the governed GeoPackage profile and
+    # retains its read-only SQL policy; these private bindings are not host API exports.
+    "bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/native.py": {
+        "bijux_pollenomics.collection.sources.raa.materialization.contracts": frozenset(
+            {"GEOMETRY_TYPES", "SOURCE_COLUMNS"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.reading": frozenset(
+            {"_authorize", "quote_identifier"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/producer.py": {
+        "bijux_pollenomics.collection.sources.raa.geometry.binary": frozenset(
+            {"describe_geometry"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.contracts": frozenset(
+            {"GEOMETRY_TYPES"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.reading": frozenset(
+            {"read_only_database"}
+        ),
+    },
     "bijux_pollenomics_dev/reader_reports/scientific_routes.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
             {"Route", "load_routes", "render_route"}
@@ -1166,3 +1187,39 @@ def test_scientific_evidence_binding_stays_symbol_and_reader_specific() -> None:
         (f"__import__({module!r})", path),
     ):
         assert host_import_violations(statement, reader)
+
+
+def test_raa_native_bindings_remain_file_module_and_symbol_specific() -> None:
+    """Read-only source verification authorizes no neighboring host capability."""
+    owner = "bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/"
+    bindings = (
+        ("native.py", "materialization.contracts", "GEOMETRY_TYPES"),
+        ("native.py", "materialization.contracts", "SOURCE_COLUMNS"),
+        ("native.py", "materialization.reading", "_authorize"),
+        ("native.py", "materialization.reading", "quote_identifier"),
+        ("producer.py", "geometry.binary", "describe_geometry"),
+        ("producer.py", "materialization.contracts", "GEOMETRY_TYPES"),
+        ("producer.py", "materialization.reading", "read_only_database"),
+    )
+    for filename, suffix, symbol in bindings:
+        path = owner + filename
+        module = "bijux_pollenomics.collection.sources.raa." + suffix
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for source, reader in (
+            (statement, owner + "cli.py"),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+        ):
+            assert host_import_violations(source, reader)
+    assert host_import_violations(
+        "from bijux_pollenomics.collection.sources.raa.materialization.contracts import SOURCE_COLUMNS",
+        owner + "producer.py",
+    )
+    assert host_import_violations(
+        "from bijux_pollenomics.collection.sources.raa.materialization.reading import read_only_database",
+        owner + "native.py",
+    )
