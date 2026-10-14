@@ -2299,7 +2299,7 @@
       ],
       "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.",
       "qualification": {
-        "authored_reader_sha256": "006e8d4e9e631df6ccdc3c6b01e56992ae3a7b71dd2c0249c457f1bf46c8e5d8",
+        "authored_reader_sha256": "f00bdd8e4966c41337c14be3ad864472e38b35554311632ffdbe726a83475cd9",
         "fields": {
           "supported_claim": "The retained source-identity account distinguishes DISQOVER 0.9.14 and its archive/member identity from the software provenance of the 2024 LOVE publication; three retained copies agree byte for byte.",
           "unsupported_claim": "Matching archives and DESCRIPTION metadata do not establish the historical 2024 software build, paper-result reproduction, data-use rights or independent numerical accuracy.",
@@ -2309,7 +2309,7 @@
           "consequence": "Readers can identify the retained 2026 package precisely without treating it as the package actually used by the 2024 study.",
           "precise_next_acceptance_route": "Obtain and authenticate the paper's original software/version/source packet and match its declared inputs and outputs before claiming historical publication reproduction.",
           "negative_or_refused_result": "The DESCRIPTION date 22 January 2026 and LOVEr/LOVEoptim additions in 0.9.12 prevent an automatic identity inference from the paper's 23 February 2024 access date.",
-          "matched_denominator": "One retained archive,80 regular members and 13 R files; three byte-identical local copies; zero new model cases or independent scientific checks."
+          "matched_denominator": "One retained archive,80 regular members and 12 R files; three byte-identical local copies; zero new model cases or independent scientific checks."
         },
         "evidence_pins": [
           {

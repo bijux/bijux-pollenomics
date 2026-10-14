@@ -2003,5 +2003,31 @@
       "claim_semantics_unchanged": true,
       "scope": "Finite first-party source hyperlink delivery and exact-byte projection only. Original readability receipts/decisions, numerical values and nine scientific qualification fields remain historical and unchanged. No new scientific or human review admission."
     }
+  ],
+  "subsequent_source_provenance_adoptions": [
+    {
+      "reader_path": "docs/report/method-certification/disqover-source-identity/README.md",
+      "prior_reader_sha256": "72986f23e26b067a311fa78a29f93c6bdeb4a7d0f595fb227d27c60b85328447",
+      "authored_reader_sha256": "f00bdd8e4966c41337c14be3ad864472e38b35554311632ffdbe726a83475cd9",
+      "output_reader_sha256": "4c40558cfaaae6bcb8422ba85fa7f2c76ce56ee89e5b53a3a83a02bbc03039ed",
+      "authority_path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+      "authority_sha256": "de4e4434e3fc3e6975ab34a13a911bd219d66581d3ed0fc06f7c89bc5d0c6d76",
+      "actual_source_audit": {
+        "plan_sha256": "fd222b5bf9363f19e862255bed2ce51a89ce0654eb6a9365e56069f4c8e4f949",
+        "terminal_sha256": "ab8c1d646ed71dc020faeb0be4e0d972f81ef7d72837600774f16875543c169f",
+        "product_sha256": "61199a8a408e2b6425b0fd00b1befd16a95f41092c3b6388210fccdd9effa944",
+        "native_exit": 0,
+        "archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "regular_members": 80,
+        "R_source_members": 12,
+        "received_owner_bindings": 105,
+        "current_owner_bindings": 106
+      },
+      "prior_readability_execution_preserved": true,
+      "prior_wrapper_native_execution_preserved": true,
+      "human_review_decisions_added": 0,
+      "fresh_model_or_R_execution": false,
+      "scope": "Finite source-provenance correction: exact archive R-file count and received-versus-introduced backend ownership. Current authored and rendered reader digests are newly bound; original readability/native/R receipts and human-review decisions remain historical and unchanged. No numerical, ecological, historical-paper, installed-package or release acceptance added."
+    }
   ]
 }
