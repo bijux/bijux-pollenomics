@@ -2,7 +2,7 @@
   "schema_version": "atlas-keyless-cache-matrix.v1",
   "status": "PASS",
   "candidate_build_id": "atlas-ee0c85dd860bce72123c877990bc3bf54a39795dfa77735379ffe5b6350de6ee",
-  "generation_sha256": "b0574a49969d8c4c2d71342ec23672d71f5f664ead20091fd48dcd7a4752baea",
+  "generation_sha256": "a0904569d0971de312648a533b6951f266bb3548d1d3e673271b9b547e195433",
   "scenarios": [
     {
       "width": 1440,
@@ -19,7 +19,7 @@
         ],
         "basemap": "none",
         "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "center": "64.437, 19.500"
+        "center": "64.435, 19.512"
       },
       "local_server_requests": 17,
       "browser_cache_events": 1,
@@ -42,7 +42,7 @@
         ],
         "basemap": "none",
         "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "center": "64.437, 19.500"
+        "center": "64.435, 19.512"
       },
       "local_server_requests": 0,
       "browser_cache_events": 1,
@@ -146,10 +146,10 @@
   "runtime_errors": [],
   "browser": {
     "protocolVersion": "1.3",
-    "product": "Chrome/153.0.8010.53",
-    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
-    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
-    "jsVersion": "15.3.76.13"
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@b01cdf43be4b4d5559bf7e58229e666e24454f5",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
   },
   "served_files": {
     "_map_assets/leaflet/leaflet.css": {
@@ -174,7 +174,7 @@
     },
     "index.html": {
       "count": 2,
-      "sha256": "c1502cfc696eefbbcf4f59e83bb73db77a01f722c1ab7726d9db0e2a31836957"
+      "sha256": "3ba800559bf6f9ec66adb0764c61ef37ca94145c893b438bb1f1dd3102d1ef71"
     },
     "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": {
       "count": 2,

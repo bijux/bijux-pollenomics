@@ -1,0 +1,209 @@
+{
+  "schema_version": "current-browser-owner-reviewed-evidence.v1",
+  "scope": "Independent read-only SHA/custody/native source-table audit and model inspection of8actual PNGs. Six original successful probes plus two successful declared successor probes; predecessor fulljob native1 remains preserved. Not independent new browser/model execution, ecological accuracy, human scientific review, provider availability or release certification.",
+  "candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+  "canonical_source_overlay": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+    "canonical_sha256": "1638c4a80ed08d4f1274513b3b4dd828e7f7af06dd0e6f1af675477c02d0e0f5",
+    "proposed_source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+    "proposed_sha256": "a37e8b178e492e441c07e462af2f047e2f761247445b700d5c4dc84efc7ce5af"
+  },
+  "predecessor_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/terminal.json",
+    "sha256": "e5f502c89fb8af180ff62b9eef6e30f3e53704955b57f3490c1902347c4f5035",
+    "native_exit": 1
+  },
+  "successor_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/terminal.json",
+    "sha256": "5e676e9a4b0c27eddd78a774018807751ebc77a8967a18a8b2be1cacf2b055c9",
+    "native_exit": 0
+  },
+  "counts": {
+    "successful_probes": 8,
+    "served_file_digests_checked": 134,
+    "download_or_screenshot_hashes_checked": 88,
+    "source_table_full_equalities": 90,
+    "live_DOM_negative_refusals": 4,
+    "visually_inspected_PNGs": 8,
+    "original_output_files_unchanged": 255,
+    "retained_candidate_files_unchanged": 48
+  },
+  "checks": [
+    {
+      "stage": "capture-source-detail",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/source-detail/receipt.json",
+      "sha256": "df3f0114be43c780b36d290bbb466ccd344bc9659553f55470b681ce6995985d",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "77e3bd4f3ae0bf2b04ea4002aed29705ad9caeba74cd4fd89f4b1c128da04b1f",
+      "served_files_checked": 12,
+      "output_payload_hashes_checked": 0,
+      "observation_populations": {
+        "assertions": 34,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-source-export",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/source-export/receipt.json",
+      "sha256": "5c898db3cf4fdaa9744935906e9b83a851543d32f9a20b8a257f98a0c8833304",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "d1fb93dc0a3405eed39b7fc6c198563eb49bdef16a6e69cead877c68e904c32e",
+      "served_files_checked": 12,
+      "output_payload_hashes_checked": 6,
+      "observation_populations": {
+        "downloads": 6,
+        "url_replays": 4,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-source-url-replay",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/source-url-replay/receipt.json",
+      "sha256": "35466db1ad9812112e6bc512fad6db519d0a49d2c50538dc3c0308791b920dde",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "4b24e834ff8470dac1c77c07e583e108541c95dad89c78eb58c11ee401abb374",
+      "served_files_checked": 19,
+      "output_payload_hashes_checked": 0,
+      "observation_populations": {
+        "baseline_states": 16,
+        "hash_replays": 16,
+        "history_replays": 28,
+        "internal_writes": 2,
+        "stale_writers": 2,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-nordic-source",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/nordic-source/receipt.json",
+      "sha256": "ea22323984a1cd254fc21e97c28ad55998a4fa2f5fef8492a0370570db696280",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "a72ecfe8cdd2985594094fa6f3ccb64b25066da0fa746c38bde35912e7eb5c81",
+      "served_files_checked": 19,
+      "output_payload_hashes_checked": 0,
+      "observation_populations": {
+        "country_filters": 12,
+        "record_navigation": 16,
+        "chronology_tables": 16,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-keyless-cache-matrix",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/keyless-cache-matrix/receipt.json",
+      "sha256": "04dcaaca5c41b5e509ef7d44b4f7fd2314b02aafd286aa86d64cc9b5191698d1",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "f1996ea483808a1de40743c251ee4f1ce7537a1194a346d24d7bbe92a1b5be39",
+      "served_files_checked": 17,
+      "output_payload_hashes_checked": 0,
+      "observation_populations": {
+        "scenarios": 6,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-provider-accessibility",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility/receipt.json",
+      "sha256": "f2bc81beec71d2b113e4aea8ee68b30125d8dd5aead2df81b317839ff04f1087",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "a37e8b178e492e441c07e462af2f047e2f761247445b700d5c4dc84efc7ce5af",
+      "served_files_checked": 19,
+      "output_payload_hashes_checked": 8,
+      "observation_populations": {
+        "provider_fallbacks": 2,
+        "tile_free_modes": 2,
+        "keyboard_routes": 4,
+        "downloads": 4,
+        "layout_observations": 4,
+        "layout_negative_controls": 4,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-modeled-panel-browser",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/modeled-panel-browser/receipt.json",
+      "sha256": "41f285ea31b3cc2bdabf2a197c09e2b17ba5fbd83cb32a6f25e8507a2e60caad",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "9f5434d32b0a34dd505166859d2a3cbbf46347fa6e16ee6ffca8f6b3bda5b4eb",
+      "served_files_checked": 11,
+      "output_payload_hashes_checked": 16,
+      "observation_populations": {
+        "scenarios": 16,
+        "runtime_errors": 0
+      }
+    },
+    {
+      "stage": "capture-frame-url-replay",
+      "receipt": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/observations/frame-url-replay/receipt.json",
+      "sha256": "f8dce39a7e497da5431a5c4b8cabb981cd81d5fd9c3f2021d787733167a967d4",
+      "status": "PASS",
+      "browser": "Chrome/155.0.8059.40",
+      "verifier_sha256": "99387f169108bd5cb840d2896fa879e79ae8e84a9d4e6e5db5d587a72e96c6e7",
+      "served_files_checked": 25,
+      "output_payload_hashes_checked": 58,
+      "observation_populations": {
+        "modeled_frames": 28,
+        "native_selections": 30,
+        "hash_replays": 16,
+        "history_replays": 24,
+        "native_refusals": 2,
+        "runtime_errors": 0
+      }
+    }
+  ],
+  "visual_inspections": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/modeled-panel-browser/1440-blocked_provider.png",
+      "sha256": "bebd2a7bcfd6d4b7c275847a50c2f449b76e628b210dc840c6fb38819352364b",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/modeled-panel-browser/1440-no_basemap.png",
+      "sha256": "5e1c2b018276fe09640b71f574312f38494c3dd71ea5996741334e202f21c069",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/modeled-panel-browser/320-blocked_provider.png",
+      "sha256": "9ec1c3d00d8f103b4e701e64d014965717c663f9263c8badf95840921cc480e2",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/modeled-panel-browser/320-no_basemap.png",
+      "sha256": "001454b8c5dff5a9083ef6c4dd365d834fa41a4ca417866a55037761ddcce59b",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility/1440-provider-failure.png",
+      "sha256": "f6aa07796eccadb3e2411bdc4bb701cc6da32ac8486602732f55a1554f599e39",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility/1440-tile-free.png",
+      "sha256": "6f9ae3a1aafe2e4174a696934c86818db0607ccadcf6895fd73360eb4a042bfd",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility/390-provider-failure.png",
+      "sha256": "d0d2ecf748de8b4d7cecb4f365c80eb677e8533355d0703187797b9f16ff6b89",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility/390-tile-free.png",
+      "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed",
+      "review": "Model visually inspected actual capture: scale/zoom in separate visible footer; status and navigation remain readable within shown viewport. No human accessibility certification or live provider availability claim."
+    }
+  ],
+  "limitations": [
+    "All browser sessions are local macOS/Brave155-CDP Chrome155 with configured denial; no OS network-sandbox or hosted Linux/browser certificate.",
+    "RAM/process maxima are declared, not measured. Storage bounds are checked after stages.",
+    "Actual outputs and raw source-bearing downloads remain private owned artifacts; tracked historical owner records have not been rewritten or automatically reclassified.",
+    "Fulljob1 is failed, followed by a registered scope-limited2probe success; no invented all8single-native0job."
+  ]
+}

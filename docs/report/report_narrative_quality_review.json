@@ -2,9 +2,9 @@
   "schema_version": "report-narrative-quality-review.v1",
   "page_count": 321,
   "quality_posture_counts": {
-    "reader_ready": 303,
+    "reader_ready": 304,
     "structured_reference": 8,
-    "thin_structure": 10
+    "thin_structure": 9
   },
   "rows": [
     {
@@ -262,25 +262,25 @@
     },
     {
       "repository_path": "docs/report/atlas/frame-url-replay/README.md",
-      "content_sha256": "264286f281f0e8925159573f4e7c403db552c4bcfa1609587a829b85f592b006",
-      "prose_paragraph_count": 10,
+      "content_sha256": "807bad75ab2245a7189c22c8859a3725cef0cc72b5cfb568791b8560be6e26c1",
+      "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 4,
-      "heading_count": 5,
+      "heading_count": 6,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/atlas/keyless-cache-matrix/README.md",
-      "content_sha256": "c56a5ffbfe2c8b2658ed06bd999a538e5f924bce7664785eb6e04f2ca77aa6e0",
-      "prose_paragraph_count": 4,
+      "content_sha256": "25de02cea6efcc801b5d4a1b4dce959c2a9955b255bbcfb05d99a1e64cc996cc",
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 1,
+      "heading_count": 2,
       "table_line_count": 4,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/atlas/map-keyboard-navigation/README.md",
@@ -306,11 +306,11 @@
     },
     {
       "repository_path": "docs/report/atlas/modeled-panel-browser/README.md",
-      "content_sha256": "c9c8d228f5db2f9fb10b0d52f063d486e00bcf9b5fd4b4b77aa756a94f3e4fe0",
-      "prose_paragraph_count": 5,
+      "content_sha256": "eacd793c60513b6e8f36a4ae62b1879357fb854fdd4f44d3298ca5a77f99b93e",
+      "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 3,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -328,11 +328,11 @@
     },
     {
       "repository_path": "docs/report/atlas/nordic-source/README.md",
-      "content_sha256": "310edf897c1cf62172c7bb625afa05e49bb20c8534a5131907d8fa2de81c1062",
-      "prose_paragraph_count": 8,
+      "content_sha256": "4594904615406c6f916bf6d4f8a0239b0b0b35aa96a56b9a75308b3a5cf095d5",
+      "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 5,
+      "heading_count": 6,
       "table_line_count": 6,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -350,30 +350,19 @@
     },
     {
       "repository_path": "docs/report/atlas/provider-accessibility/README.md",
-      "content_sha256": "31fc3abb77d2d43eba22efa2331242ca15134402119fc3c0bfa494be9b9e6245",
-      "prose_paragraph_count": 7,
+      "content_sha256": "66e038313bbbe77f928ad45374afb272be451b25c277dd10ecc544578a03db8d",
+      "prose_paragraph_count": 10,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/atlas/source-detail/README.md",
-      "content_sha256": "983b2413351c98d03e7cb3bbe484fc46bcdb98ff866828559c548e1257d4d0e1",
-      "prose_paragraph_count": 8,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 4,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/atlas/source-export/README.md",
-      "content_sha256": "eb6057dc0205edb2bf824a7534585929a447a6395ed43aee041dbc57c7f9d870",
-      "prose_paragraph_count": 10,
+      "content_sha256": "b1b3fba3abeb35e73c31a89396a1d6a152c53f2760bb68bb06a5cbd361ce511a",
+      "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 3,
@@ -382,12 +371,23 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/atlas/source-export/README.md",
+      "content_sha256": "e2024466b56ac71c0620971c3d9790c054cae64e5789af69343711a3f188660b",
+      "prose_paragraph_count": 13,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 4,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/atlas/source-url-replay/README.md",
-      "content_sha256": "9dfe9d448906635b18db83e39792dc47c4d6a6d9f21b4e40455450213cbf2043",
-      "prose_paragraph_count": 10,
+      "content_sha256": "fe5304e0bd856f6e9b9d2d08bcb643dde07b37fed1a135e5f30fe25d8ae0078e",
+      "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 5,
-      "heading_count": 5,
+      "heading_count": 6,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

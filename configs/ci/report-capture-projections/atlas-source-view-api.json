@@ -1,0 +1,26 @@
+{
+  "schema_version": "atlas-captured-api-additive-adoption.v1",
+  "captured_source_candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+  "adopted_source_candidate": "e8ef0305e520792dea97d7f76d54d68c42ef30ba",
+  "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+  "captured_sha256": "b3eceb04eb2ba5dd4a63ab95d699b0fffb6e287dda682638dfcb08c225e98771",
+  "adopted_sha256": "171f340b3770535af3d9c3001d7b727cb5169e02d9654590914d3cad103bf86e",
+  "additional_imports": {
+    "bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance": [
+      "AliquotCountInput",
+      "AliquotResultInput",
+      "JointAliquotCovariance",
+      "joint_aliquot_covariance"
+    ]
+  },
+  "additional_exports": [
+    "AliquotCountInput",
+    "AliquotResultInput",
+    "JointAliquotCovariance",
+    "joint_aliquot_covariance"
+  ],
+  "additional_capabilities": [
+    "lra.reveals.multisite.joint-aliquot-delta-covariance"
+  ],
+  "scope": "Exact captured API source is preserved. All original executable AST nodes, imports and exports remain; only these named import/exports/capability are added. This static compatibility witness is not a new browser or mathematical execution."
+}
