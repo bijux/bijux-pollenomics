@@ -2177,22 +2177,22 @@
       ],
       "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.",
       "qualification": {
-        "authored_reader_sha256": "1aebaa86dc88b25680710f08c10e19acde1e891ec10f80ee641522ead6f55bb8",
+        "authored_reader_sha256": "2e2859463d995cf4a045c65bac46fc3e7dcbe29dadf3432c15ce79cc6bfca019",
         "fields": {
           "supported_claim": "For the retained six-site 225 BP author example and ten selected taxa, the same first 1,000 paired indices compare ratio-of-unclosed-means with arithmetic mean-of-closed-vectors; the largest retained mean difference is 0.0016233449666228639 fraction.",
           "unsupported_claim": "This compares two aggregation definitions on shared prepared inputs; it establishes neither independent field vegetation accuracy, an exact new ten-taxon historical R reproduction nor additive uncertainty components.",
-          "actual_verification_performed": "Reviewed the authored explanation and retained report, checked the report's physical identity and selected/total support; no author R execution, bootstrap or model fit was rerun for this reader qualification.",
-          "remaining_input_or_review": "Current-source owner replay and independent interpretation of the selected taxon population remain required; a new ecological claim also needs a matched measured vegetation target and justified source assumptions.",
-          "cause_category": "Conditional aggregation semantics on shared author-derived data.",
-          "consequence": "A mean-profile discrepancy can follow closure order even with shared draws; it cannot identify which profile is ecologically more accurate.",
-          "precise_next_acceptance_route": "Replay the named profile-comparison owner against the qualified current author-site account, retain the same 1,000 indices and distinguish definition correspondence from any later measured-target comparison.",
+          "actual_verification_performed": "Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed.",
+          "remaining_input_or_review": "Current-source owner replay and its reader/report references are reconciled. Independent interpretation of the selected taxon population, justified chronology and geometry, source rights and any matched measured vegetation target remain separate scientific acceptance.",
+          "cause_category": "Current-source conditional aggregation comparison on shared author-derived data, with authenticated upstream uncertainty and unchanged paired scientific values.",
+          "consequence": "The current calculation and reader now bind the same source report and code epoch. The retained mean discrepancy still follows closure order even with shared draws and cannot identify which profile is ecologically more accurate.",
+          "precise_next_acceptance_route": "Use this source-bound comparison alongside the adopted conditional uncertainty account; distinguish the two definitions on the preserved 1,000 paired indices from any later independent measured-target, chronology, geometry or scientific-release assessment.",
           "negative_or_refused_result": "The nonzero mean discrepancy is retained; the near-zero maximum standard-error difference 2.55351295663786e-15 does not establish equivalence of the two mean definitions.",
           "matched_denominator": "Six sites in one grid and window; ten selected taxa from 31 prepared targets, 10,404 selected counts from 10,747 author-target counts; first 1,000 of 1,024 paired draws."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/author-site-profile-comparison/report.json",
-            "sha256": "4fa285302a1d19b3122d1e3ea2ec318f0a635e1abd1140b3f247faf5bd66ccdf"
+            "sha256": "73649b9d5e5c3b4699840148140b4b0edab8fd939e82b357852e2e162792dde4"
           }
         ]
       }

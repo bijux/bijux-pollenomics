@@ -3349,7 +3349,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/author-site-profile-comparison/README.md",
-      "content_sha256": "d86470aabc5f34fe893b5059342d9a57d1496a78899bc4a6b46706b3f20164a7",
+      "content_sha256": "73805263fd66b55ec25ed9bbc2ea9ac4f94b47c9ca356beb451b39515a4544e2",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
