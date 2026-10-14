@@ -50,14 +50,17 @@ def test_preparation_has_exact_source_and_output_boundary() -> None:
     assert len(code_paths) == 1019
     assert len(source_paths) == 12
     assert DESCRIPTOR in source_paths
-    assert protocols["role"] == "unresolved"
+    # Reviewed configuration custody does not admit predictions or scores.
+    assert protocols["role"] == "maintained_configuration"
+    assert protocols["producer_paths"] == []
+    assert protocols["producer_inputs"] == []
     assert set(protocol_paths) == {
         "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/protocol.json",
         "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scoring-protocol.json",
     }
     assert not set(protocol_paths) & PREPARED
     result = check_report_ownership(REPOSITORY)
-    assert PROTOCOL_OWNER in result.unresolved_owner_ids
+    assert PROTOCOL_OWNER not in result.unresolved_owner_ids
     assert OWNER not in result.unresolved_owner_ids
 
 
