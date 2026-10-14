@@ -37820,20 +37820,13 @@
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/method-certification/author-site-profile-comparison/report.json"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/author-site-profile-comparison/replay.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py"
-      ],
-      "producer_inputs": [
-        "docs/report/method-certification/author-site-uncertainty/draws.json",
-        "docs/report/method-certification/author-site-uncertainty/report.json"
-      ],
-      "verification": "Run the documented replay with --repository ., --source-root bound to the authenticated author release and an absent artifacts output; compare report.json. Six private LRAready site-count tables listed in input_identities must close with exact lawful custody first. Retained author-site-uncertainty report/draw inputs do not replace those original table bytes or qualify empirical ecology."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Exact maintained retained author-site evaluation source capture authenticates original completed Python uncertainty/profile/site-ID holdout execution epochs, complete first-party source/input custody, external193-member private authority and eight current native report products. Managed holdout footer is a separately verified authored-body-preserving publication projection. Transport executes no model/R/optimizer; no independent ecological, Nordic, rights, historical R or human release admission."
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/source-code",
@@ -37872,13 +37865,9 @@
         "docs/report/method-certification/author-site-uncertainty/report.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "docs/report/method-certification/author-site-uncertainty/replay.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py"
-      ],
-      "role": "unresolved",
-      "verification": "The replay reads pinned external LandClim author-example prepared files, PPE/covariance, crosswalk, site list and lineage receipt. Their private source-root closure is not a repository-owned input. Reproduce into an absent artifacts directory and compare exact outputs only after that custody is restored; no independent vegetation accuracy follows."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Exact maintained retained author-site evaluation source capture authenticates original completed Python uncertainty/profile/site-ID holdout execution epochs, complete first-party source/input custody, external193-member private authority and eight current native report products. Managed holdout footer is a separately verified authored-body-preserving publication projection. Transport executes no model/R/optimizer; no independent ecological, Nordic, rights, historical R or human release admission."
     },
     {
       "owner_id": "method-certification/author-site-uncertainty/source-code",
@@ -44264,26 +44253,16 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
-      ],
-      "producer_inputs": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
-        "reports/needed/report-claims.csv",
-        "reports/needed/scientific-reader-sources.json"
-      ],
-      "verification": "The replay requires the private author/reference source capsule and executed baseline. Existing byte comparisons do not make those inputs repository-contained. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before content hashes. Retain original authored/scientific body bytes and domain machine manifests. Validate all canonical account hashes and complete prose coverage with reports/needed/verify-claims.py; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Exact maintained retained author-site evaluation source capture authenticates original completed Python uncertainty/profile/site-ID holdout execution epochs, complete first-party source/input custody, external193-member private authority and eight current native report products. Managed holdout footer is a separately verified authored-body-preserving publication projection. Transport executes no model/R/optimizer; no independent ecological, Nordic, rights, historical R or human release admission."
     },
     {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/source-code",
@@ -81683,6 +81662,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",

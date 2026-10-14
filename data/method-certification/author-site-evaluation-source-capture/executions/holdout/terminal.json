@@ -1,0 +1,144 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+  "plan_sha256": "5686bb075723611f3830cfe567374546110be0750fe40f5934a80d104a880e74",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 2.1745084999711253,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/plan.json",
+    "--registered-plan-sha256",
+    "5686bb075723611f3830cfe567374546110be0750fe40f5934a80d104a880e74"
+  ],
+  "canonical_before": {
+    "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "status": "",
+    "tracked_inventory_sha256": "f2c46c298ce74c0ed2175ba6f8ee90bf298c97c42d23790c37a0c27d2fd07394"
+  },
+  "canonical_after": {
+    "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "status": "",
+    "tracked_inventory_sha256": "f2c46c298ce74c0ed2175ba6f8ee90bf298c97c42d23790c37a0c27d2fd07394"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-managed-reader-family-replay",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
+        "--source-root",
+        "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products"
+      ],
+      "timeout_seconds": 120,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 1.1675405830028467,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stderr",
+      "stdout_sha256": "fdc94367f9f2f42dd9aaa53253d2519d41ef51555fe0ea1c473ae66632df4035",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 66748416
+    },
+    {
+      "id": "independent-complete-source-numerical-reader-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.7728526669670828,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/independent-complete-source-numerical-reader-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/independent-complete-source-numerical-reader-observer.stderr",
+      "stdout_sha256": "7b364af4749688fd579878f03b6b85407882bc86604a2fb33c44975134b90e64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 69189632
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/independent-author-holdout-review.json",
+      "sha256": "fde90b06321c9d1daf83f6d48b1df09b90505ad7961382e77ea5a82bea0202c2",
+      "bytes": 5048
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/independent-complete-source-numerical-reader-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/independent-complete-source-numerical-reader-observer.stdout",
+      "sha256": "7b364af4749688fd579878f03b6b85407882bc86604a2fb33c44975134b90e64",
+      "bytes": 235
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stdout",
+      "sha256": "fdc94367f9f2f42dd9aaa53253d2519d41ef51555fe0ea1c473ae66632df4035",
+      "bytes": 826
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/plan.json",
+      "sha256": "5686bb075723611f3830cfe567374546110be0750fe40f5934a80d104a880e74",
+      "bytes": 1107252
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/REPORT.md",
+      "sha256": "7781b39aa732ecab3748f5f59dfb9cb3056848c4ada1c7c04487dd757d254403",
+      "bytes": 5496
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/predictions.csv",
+      "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d",
+      "bytes": 630499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/report.json",
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+      "bytes": 7853
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/scores.csv",
+      "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797",
+      "bytes": 35032
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/stage-progress.json",
+      "sha256": "6de593fac33accbee616f5581a0f99dabc61dce4f52c5e140b2169c04690f4c4",
+      "bytes": 2418
+    }
+  ],
+  "output_bytes": 1794659,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "concurrency": 1,
+    "numerical_threads": 1
+  },
+  "scope": "Actual maintained family replay CLI wrapping the unchanged observed-pollen site-ID holdout on original193-member prior-exposed English author capsule;17sites/2grids/31taxa. Reuses original authenticated reference receipts without newR. All four final family outputs must be byte-exact, including the fully rendered managed REPORT and normalized CSV. Source count/zero-unavailable/site-denominator/refusal limits unchanged. No vegetation accuracy/Nordic cohort/rights or human/scientific release acceptance. Source-qualified replay is not itself complete same-candidate mixedreport gate.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

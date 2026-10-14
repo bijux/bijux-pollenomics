@@ -1,0 +1,16 @@
+{
+  "candidate": "0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b",
+  "plan_sha256": "7c638aeacc285efaf098097102d573c292ade5dfb0a80e3f462b6f0dc84ce5c3",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/terminal.json",
+    "sha256": "0ba7d9d54a7370262a27e57439fc66abc75b860fab4c7858ad72718fa0e488be"
+  },
+  "common_actual_exit": 0,
+  "completed_child_peak_rss_bytes_macos": 167591936,
+  "output_bytes_before_receipt": 847675,
+  "storage_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Completed-child RSS and regular logical output bytes qualify declared bounds; 16KiB own receipt reserve included. Unchanged common runner controls exact candidate/input before-after and each actual stage, plus process-group timeouts. No OS quota or full descendant process census."
+}

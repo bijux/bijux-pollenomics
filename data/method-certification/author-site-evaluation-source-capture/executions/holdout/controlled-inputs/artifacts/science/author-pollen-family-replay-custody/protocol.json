@@ -1,0 +1,29 @@
+{
+  "schema_version": "source-author-pollen-family-replay.v1",
+  "required_source_proposal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/guarded-source-proposal.json",
+    "sha256": "cdbd3a326d148f67ede3d537b4b2e560b75935bd30d1586a90d989a41563e526"
+  },
+  "candidate": "Explicit future clean main after replay source adoption",
+  "scope": "Genuine maintained advertised family replay CLI then independent complete exact fourproduct/source/reader observer. Source193pins,17sites,2grids,31taxa,184observed/177scored/7refused unchanged. No newR, vegetation model, independent scientific/rights/human admission.",
+  "resources": {
+    "overall_seconds": 240,
+    "stage_seconds": [
+      120,
+      60
+    ],
+    "completed_child_RSS_bytes": 2147483648,
+    "output_bytes": 67108864,
+    "receipt_reserve_bytes": 16384
+  },
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/prepare.py",
+    "--candidate",
+    "FUTURE_CLEAN_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay"
+  ],
+  "no_actual_prepare_plan_native_executed": true
+}

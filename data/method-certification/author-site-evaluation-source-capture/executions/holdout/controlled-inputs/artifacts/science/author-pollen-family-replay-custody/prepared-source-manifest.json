@@ -1,0 +1,52 @@
+{
+  "schema_version": "reviewed-author-pollen-family-replay-controls.v1",
+  "files": [
+    {
+      "path": "prepare.py",
+      "sha256": "44ecfb0b182e0e2a741f4d127017e1f67f4ed6b3e1291abbe5e63bfc49a32b29",
+      "bytes": 9508
+    },
+    {
+      "path": "observe.py",
+      "sha256": "9ba78a81b5c75748c05f88251e27e9cda1c6b4a90fe797d5b84920a353db8076",
+      "bytes": 4049
+    },
+    {
+      "path": "input_custody.py",
+      "sha256": "3c2e742b176ebe20e5553a4da333ff9e6411c9c86d5223fa22dbb282885a157b",
+      "bytes": 4077
+    },
+    {
+      "path": "run.py",
+      "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+      "bytes": 3690
+    },
+    {
+      "path": "comparison.py",
+      "sha256": "ac30d41291cae3cf10ba3fdf7bbb6772f1c63ab689fc90a811e8ad89e48e8a8e",
+      "bytes": 1191
+    },
+    {
+      "path": "check_boundaries.py",
+      "sha256": "250f17f7a826566b18e79d2a2febee4c2322f813401c39f4878282b5fcc595dd",
+      "bytes": 1444
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "d73cb667aad50facd47856543a7d877b6d433ba697b42c161df941b8d64df179",
+      "bytes": 1327
+    },
+    {
+      "path": "source-lineage.json",
+      "sha256": "e1a512b7d36264e69c4384696c329d336d5651c668a888ec207d3ca269bfa2ae",
+      "bytes": 1788
+    },
+    {
+      "path": "preflight/receipt.json",
+      "sha256": "96b4139126c96490492d9978be846e82a2a51d8b0eaf50a327d6fb39c482cf30",
+      "bytes": 3960
+    }
+  ],
+  "actual_job_prepared": false,
+  "actual_wrapper_or_producer_executed": false
+}

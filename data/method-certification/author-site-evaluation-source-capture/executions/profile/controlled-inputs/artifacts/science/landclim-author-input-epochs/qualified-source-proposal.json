@@ -1,0 +1,35 @@
+{
+  "schema_version": "guarded-author-replay-origin-proposal.v1",
+  "base_candidate": "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36",
+  "paths": [
+    {
+      "path": "docs/report/method-certification/author-site-uncertainty/replay.py",
+      "preimage_sha256": "7394219759d112d69272e4a18d42fad5efb872b0d2798be209d2fc100ec4b760",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-site-custody/proposal/docs/report/method-certification/author-site-uncertainty/replay.py",
+      "proposed_sha256": "2803daf31997eb360de257fdc92d046fbc68e68939b1bec48089a338c1e86e0a",
+      "source_only_delta": "Emitted code-input identity resolves actual imported public joint-site function physical owner. Existing relative-to-repository identity validation rejects foreign imports; numerical function/call/data semantics remain unchanged. Existing equivalent positive-count generator is written as a set comprehension to satisfy configured C401; selected positive members/denominator are unchanged."
+    },
+    {
+      "path": "docs/report/method-certification/author-site-profile-comparison/replay.py",
+      "preimage_sha256": "4591e8129a0f3d893d9a8839a8dc013bfc05554891c20eae161862d29098488d",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-site-custody/proposal/docs/report/method-certification/author-site-profile-comparison/replay.py",
+      "proposed_sha256": "0c86df8b7c4964eea0f01e445361a73782495a199a71974631d39430915ec51f",
+      "source_only_delta": "Emitted code-input identity resolves actual imported public joint-site function physical owner. Existing relative-to-repository identity validation rejects foreign imports; numerical function/call/data semantics remain unchanged."
+    }
+  ],
+  "source_lock_existing_key_delta": [],
+  "source_lock_reason": "Neither replay path is a current source-lock key; no new key or unrelated leaf introduced. Original report embedded code provenance remains at its historical epoch until actual current replay.",
+  "scope": "Two source-origin metadata-only fixes for maintained LandClim author replays. No numerical expression, source data, runtime, historical report/hash/epoch or canonical/native action.",
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-site-custody/preflight/receipt.json",
+    "sha256": "d4efd1c231874e936884c1faa81542859ac5c048fb6e76c59bdec76731f5c92d"
+  },
+  "source_contract": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-site-custody/check_source_contract.py",
+    "sha256": "de3511b07e314ed44b1b237f5fa8318f9964fbe226888bb06d83e13e1ae6eb84"
+  },
+  "source_footprint": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-site-custody/source-footprint.json",
+    "sha256": "79628b8f31d0ed0971e99dc76de2844f3c41dfca4330f86abb891d5d0f32382d"
+  }
+}

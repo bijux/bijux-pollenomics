@@ -1,0 +1,132 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b",
+  "plan_sha256": "7c638aeacc285efaf098097102d573c292ade5dfb0a80e3f462b6f0dc84ce5c3",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 2.555997291987296,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/plan.json",
+    "--registered-plan-sha256",
+    "7c638aeacc285efaf098097102d573c292ade5dfb0a80e3f462b6f0dc84ce5c3"
+  ],
+  "canonical_before": {
+    "candidate": "0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b",
+    "status": "",
+    "tracked_inventory_sha256": "e5446e1fd7bf44fe016a281ea435f2f72a56e2d5f76c60eafe582a109c58ab73"
+  },
+  "canonical_after": {
+    "candidate": "0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b",
+    "status": "",
+    "tracked_inventory_sha256": "e5446e1fd7bf44fe016a281ea435f2f72a56e2d5f76c60eafe582a109c58ab73"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "current-original-source-author-site-profile-comparison",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/author-site-profile-comparison/replay.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics",
+        "--source-root",
+        "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/author-site-profile-comparison"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.144606666988693,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/current-original-source-author-site-profile-comparison.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/current-original-source-author-site-profile-comparison.stderr",
+      "stdout_sha256": "616bddf9979a4c02f250f7fe8a7e024b6ea5b0d781a8593d514d6c6ab080e63d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 167591936
+    },
+    {
+      "id": "independent-original-source-numerical-output-review",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-input-epochs/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.20884408301208168,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/independent-original-source-numerical-output-review.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/independent-original-source-numerical-output-review.stderr",
+      "stdout_sha256": "866d9c9d806010483e4062256843074d2119bf6492a4e3a7053d029e03c93a7f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 167591936
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/author-site-profile-comparison/report.json",
+      "sha256": "73649b9d5e5c3b4699840148140b4b0edab8fd939e82b357852e2e162792dde4",
+      "bytes": 7174
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/current-original-source-author-site-profile-comparison.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/current-original-source-author-site-profile-comparison.stdout",
+      "sha256": "616bddf9979a4c02f250f7fe8a7e024b6ea5b0d781a8593d514d6c6ab080e63d",
+      "bytes": 68
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/independent-author-review.json",
+      "sha256": "baee780d11c9dd4beaf0a68330c46f7bcafdcbec2002c3c52652dd238003961c",
+      "bytes": 10071
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/independent-original-source-numerical-output-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/independent-original-source-numerical-output-review.stdout",
+      "sha256": "866d9c9d806010483e4062256843074d2119bf6492a4e3a7053d029e03c93a7f",
+      "bytes": 223
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/plan.json",
+      "sha256": "7c638aeacc285efaf098097102d573c292ade5dfb0a80e3f462b6f0dc84ce5c3",
+      "bytes": 820063
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-profile/stage-progress.json",
+      "sha256": "f4f6d351e47b06401879bce7633b1544b18ba4aa97f7a6d3f3ffc6df81003b2b",
+      "bytes": 2526
+    }
+  ],
+  "output_bytes": 840125,
+  "resources": {
+    "overall_timeout_seconds": 180,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "sequential_stage_count": 2,
+    "numerical_threads": 1
+  },
+  "scope": "One genuine maintained current Python author-site replay on exact original193-member private prior-exposed author capsule. Uncertainty owns three products and1024 conditional joint draws; profile runs only after those genuine successful outputs are adopted at canonical input paths and owns one report using1000 identical retained paired draws. Exact original typed scientific values, six sites/ten positive taxa, source/chronology/geometry/PPE/rights caveats preserved. Only authenticated actual code provenance and exact actual upstream documentation input identities may change. No R/optimizer/ecological validation, private redistribution or human/scientific release claim. Separate candidate epochs remain explicit.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

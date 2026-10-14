@@ -1,0 +1,90 @@
+{
+  "source_only": true,
+  "no_actual_prepare_wrapper_model": true,
+  "commands": [
+    {
+      "id": "guards",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/check_boundaries.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "id": "strict-helper",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "mypy",
+        "--config-file",
+        "configs/mypy.ini",
+        "--strict",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/preflight/mypy",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/comparison.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "id": "lint",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/preflight/ruff",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/input_custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/comparison.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/check_boundaries.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "id": "format",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "configs/ruff.toml",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/input_custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/comparison.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/check_boundaries.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "id": "help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-family-replay-custody/prepare.py",
+        "--help"
+      ],
+      "actual_exit": 0
+    }
+  ],
+  "source_sha256": {
+    "prepare.py": "44ecfb0b182e0e2a741f4d127017e1f67f4ed6b3e1291abbe5e63bfc49a32b29",
+    "observe.py": "9ba78a81b5c75748c05f88251e27e9cda1c6b4a90fe797d5b84920a353db8076",
+    "input_custody.py": "3c2e742b176ebe20e5553a4da333ff9e6411c9c86d5223fa22dbb282885a157b",
+    "run.py": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+    "comparison.py": "ac30d41291cae3cf10ba3fdf7bbb6772f1c63ab689fc90a811e8ad89e48e8a8e",
+    "check_boundaries.py": "250f17f7a826566b18e79d2a2febee4c2322f813401c39f4878282b5fcc595dd"
+  }
+}

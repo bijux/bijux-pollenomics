@@ -1,0 +1,28 @@
+{
+  "source_git_commit": "44ef3ff84587d4f04cfd71ac860f0774690f1c4a",
+  "path": "docs/report/method-certification/author-site-uncertainty/report.json",
+  "original_sha256": "415185927514de10a71b6a7ba6c26d7bc1fd3ed8cc140760ec2e3e9f58f1c243",
+  "current_sha256": "7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8",
+  "differences": [
+    {
+      "path": "$.repository_code_inputs[1].bytes",
+      "old": 4505,
+      "current": 5910
+    },
+    {
+      "path": "$.repository_code_inputs[1].sha256",
+      "old": "9118edf5239f5b0179018ea476afb63916cc0af8ace501182198ff192d42effd",
+      "current": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4"
+    },
+    {
+      "path": "$.repository_code_inputs[2].bytes",
+      "old": 4145,
+      "current": 5871
+    },
+    {
+      "path": "$.repository_code_inputs[2].sha256",
+      "old": "368d6fa8d4f6c02e80719c5fb8233f9b6e31fdc4c2d6a69569ed11b02df98ac2",
+      "current": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814"
+    }
+  ]
+}
