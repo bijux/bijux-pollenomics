@@ -345,7 +345,7 @@
     },
     "data_sha256": {
       "configs/ci/lra-r-source-lock.v1.json": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
-      "configs/ci/report-ownership.json": "07912015cfb47ab96d9db21eae2247b6f6d71a333bb3628f101bab6271a57e62",
+      "configs/ci/report-ownership.json": "b16a5059466e8595561e9cf7affc3163b06b502ac2adbec5c124adf12aed3b36",
       "data/method-certification/native-r-finite-covariance/capture/capture.json": "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b",
       "data/method-certification/native-r-finite-covariance/capture/oracle/C0000.csv": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
       "data/method-certification/native-r-finite-covariance/capture/oracle/C0001.csv": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
@@ -635,7 +635,7 @@
     "owner_row_sha256": "b676dc79a0ab9f18754868c69b61c0f795def1b949cfbe792b5042ff4bea9531",
     "capture_manifest_sha256": "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b",
     "capture_profile": "finite-covariance",
-    "sha256": "d3ea16f4191e5c4c9a3a9f4de5a8294955279cf56964f9cdcaa93efb380572f3"
+    "sha256": "216d2c44263cb31bedbd952efcb23bef56030fd44ee65b31d4d6ea0a798f1853"
   },
   "native_source_acquisition": "retained_public_locked_archive_acquisition"
 }

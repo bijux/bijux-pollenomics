@@ -845,7 +845,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "df26b4a1305e2b8c9d34ee532f61e3299a670bcecc9cee967016a2de22f88ddc",
+      "content_sha256": "3a81ddb51b1693a421e53a5894e623a55c767087d59bf1e02d826a9385eac62b",
       "prose_paragraph_count": 32,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1417,7 +1417,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
-      "content_sha256": "195324261cb52f053f79301574efdc36baacbb5747ee8f04c5990269e13214db",
+      "content_sha256": "876a294c4d2d0c684bc0bfe7beee58d3b3fa8f859735d45f2b14cecb849bad1b",
       "prose_paragraph_count": 22,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2044,7 +2044,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/source-capability/README.md",
-      "content_sha256": "12c808d22f8d3e834c8f953bb872c2c004ce0387fce9f66d078a6dbf96570c55",
+      "content_sha256": "e2c7c7476d9345e5a2d92b34d3bac7f18b61fa9d642932b7afc0968d101a28f9",
       "prose_paragraph_count": 22,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -2396,8 +2396,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/README.md",
-      "content_sha256": "408470a2f8db8aac1fa46e86f9b32a08719c7cee316dcb500338fd4a905c88b7",
-      "prose_paragraph_count": 16,
+      "content_sha256": "23fee4d52f8b92aa06517f9e101f60db07ec1a92c10e1fe628e684cc92a9d008",
+      "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
@@ -3111,7 +3111,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "content_sha256": "ee61dfeabf5192d3855b2ad987b2ed24b0e08d85d7f2d4b35d8b30a9a1b239fd",
+      "content_sha256": "8413b925d82fbf593780df850f2552294301a16ae55e031f2e95d2eb5005646f",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,

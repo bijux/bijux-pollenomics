@@ -5,9 +5,9 @@
     "__init__.py": "7e64f6fcd2e9beec24e9f6f1473ab178d7bc46de9714be948db71c0373c3cfc5",
     "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
     "authority.py": "b1fc26a0402f9e58d2345794994e0589570e557e3bf5e8d2de4b02e7d9b36606",
-    "producer.py": "fe4cb0838034fe583f652dcaaa49c3f7b7a9be4a1eea4724e377b6cf084e34bb",
-    "sources.py": "970fd4603a27d906d57bf7279a628ab7af91ead1beaf15cc9bdfd6048724607b",
-    "summary.py": "1ae1bc2e7996e61d47bd7099444ade8108b628d15a1e8f0a82b1cb3f870852d8"
+    "producer.py": "1cb5f187fc120de9252bc1184f1bfb727a589c4096445f832ca0323c73b0aae5",
+    "sources.py": "96d5e038d896cbe1a4214fc5501a6988158a610fef4a9ba117d751e6300bf552",
+    "summary.py": "294f19bc21292ef5e47945e8bf28acac98ea5c4fa3d7e8ff7f9512473dcb51fb"
   },
   "operation": "New saved-loss projection, not transport attributed to the original model run",
   "original_capture_sha256": {

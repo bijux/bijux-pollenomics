@@ -31,7 +31,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** A present file or complete materialization does not approve semantics, rights, source coverage or scientific admission.
 
-**Actual verification performed.** Read exact support/materialization/human-review totals and missing-path counts in the retained report; no current whole-source audit replay.
+**Actual verification performed.** Two actual ordinary maintained evidence producers returned zero and emitted identical current outputs. Independent comparison verifies all 74 present evidence-file bytes; only four evidence identities/byte counts changed following source chronology corrections. Every support, materialization, missingness and human-review value is unchanged. Old tracked-byte checkers correctly refused the new evidence metadata; no acquisition or scientific source review was performed.
 
 **Remaining input or review.** 126 human review rows and missing/partial supported evidence require source-specific decisions rather than hash stamping.
 
@@ -39,7 +39,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Consequence.** Unsupported taxon identity remains not_provided_by_source; missing evidence never becomes an observed zero.
 
-**Precise next acceptance route.** Resolve each source-dimension missing materialization and qualified review requirement, then rerun its own current evidence consumer.
+**Precise next acceptance route.** Resolve each source-dimension missing materialization and qualified review requirement independently; rerun this evidence consumer when its declared physical evidence bytes or source capability contracts change.
 
 **Negative or refused result.** 61 unsupported cells/49 missing materializations/30 missing paths retained; scientific admission unchanged.
 
@@ -47,7 +47,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 Qualified authored reader SHA-256: `d29b724520011b6ef56e95c13fb86662a68d17b96a14384fbb593c325c304920`.
 
-- [Retained qualification evidence: docs/report/source-relations/source-capability-evidence/report.json](report.json) (SHA-256 `c075105112d69c6276ecdf9825e51a61ac9ff2846c2040bed1b88ef5066479ec`).
+- [Retained qualification evidence: docs/report/source-relations/source-capability-evidence/report.json](report.json) (SHA-256 `6d6e1bd14823d292ef8d1a2c990eb40d6af20ecd9309a499473fe1a10f58cde9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

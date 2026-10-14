@@ -66,7 +66,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** Independent 210-observation evidence, identified PPE, independent vegetation accuracy, calibrated interval coverage, historical LandClim reproduction, untouched confirmation or validated basin/chronology/parameter transfer.
 
-**Actual verification performed.** The reader and compact ledger/source proof were inspected. Retained numerical review independently checks 1,890 score values and each prediction’s count/K then target-K equation route. The maintained writer authenticates saved source/result/review bytes and aggregates without physical integration, predictions or scoring; this qualification also runs no scientific model.
+**Actual verification performed.** Two actual ordinary maintained source-account publishers returned zero. All reported scores, attempt/refusal counts and captured source values remain byte-exact; only three current writer-module SHA strings changed in the source proof, matching physical producer.py, sources.py and summary.py. Old tracked-byte checkers refused that metadata change. Original independent review of 1,890 score values and count/K then target-K routes retains its own scope. No fresh fit, physical integration, prediction, scoring or untouched evaluation was run.
 
 **Remaining input or review.** Only 21 distinct target windows from 3 native units are scored, all in declared grid 779. Most declared attempts lack 2 permitted dependency groups, source chronologies/geometry are fixed, targets were already exposed and native deduplication is not empirical independence. Shared PPE cancels from final pollen prediction under this pooling rule.
 
@@ -84,7 +84,7 @@ Qualified authored reader SHA-256: `23398a214715e620c8d0eb780c1939b5d4de0acde49e
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json](report.json) (SHA-256 `a87afba1ba06736efdc8d7f1d9b8212acf6aaaa634c9a56435f2889e081c6439`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json](source-proof.json) (SHA-256 `e238f358db02e135d7b15bc294d4248f01c8e6ab56fecbb6fe3a1c801e1e5b7f`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json](source-proof.json) (SHA-256 `b2ff8e0b3f8d27e8abedb644b338e6238a8534bdad220270c2808e5d7f527559`).
 
 - [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
 

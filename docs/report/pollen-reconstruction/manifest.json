@@ -1256,12 +1256,12 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
-      "sha256": "df26b4a1305e2b8c9d34ee532f61e3299a670bcecc9cee967016a2de22f88ddc",
-      "bytes": 14950
+      "sha256": "3a81ddb51b1693a421e53a5894e623a55c767087d59bf1e02d826a9385eac62b",
+      "bytes": 15371
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "a607c455de5e07bc1787a2d4af194e0667f2eff05961aa25741fb9f034fbb0d0",
+      "sha256": "1b2ccc680a59768bc62c211333cb53d6ca71d9b0cda3721cf4eff42f4110ebd3",
       "bytes": 93424
     },
     {
@@ -3246,8 +3246,8 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/README.md",
-      "sha256": "12c808d22f8d3e834c8f953bb872c2c004ce0387fce9f66d078a6dbf96570c55",
-      "bytes": 10985
+      "sha256": "e2c7c7476d9345e5a2d92b34d3bac7f18b61fa9d642932b7afc0968d101a28f9",
+      "bytes": 11122
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "a74899ef87b8e920d0bfc0547e2f3dea2f32b17bc9535524ad1e5ed5aa061b40",
+      "sha256": "3db506164798edbc4bb7420ee904c2990b87eec92684f8cfc0ad838f5b437252",
       "bytes": 150927
     },
     {
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "14ee8e1282412712aa6f317399fec212fcd00691838921a55fa16697eda4ef48",
+      "sha256": "c696817d2eeda2e43555381049175bd653f84fca153852a8ed0c19bfd8336f15",
       "bytes": 1027393
     },
     {
@@ -4151,12 +4151,12 @@
     },
     {
       "path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "sha256": "ee61dfeabf5192d3855b2ad987b2ed24b0e08d85d7f2d4b35d8b30a9a1b239fd",
-      "bytes": 5266
+      "sha256": "8413b925d82fbf593780df850f2552294301a16ae55e031f2e95d2eb5005646f",
+      "bytes": 5675
     },
     {
       "path": "docs/report/source-relations/source-capability-evidence/report.json",
-      "sha256": "c075105112d69c6276ecdf9825e51a61ac9ff2846c2040bed1b88ef5066479ec",
+      "sha256": "6d6e1bd14823d292ef8d1a2c990eb40d6af20ecd9309a499473fe1a10f58cde9",
       "bytes": 140403
     },
     {
@@ -8086,7 +8086,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "4d9d09b0584942d33227844aefec9f3ca736abf40e4b5c229abd7e5961a9cafb",
+      "sha256": "61a655772d04644895545bf06eeaf4e7312c518774a16e39f938a4cab4d7660b",
       "bytes": 65254
     },
     {
@@ -8586,8 +8586,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
-      "sha256": "195324261cb52f053f79301574efdc36baacbb5747ee8f04c5990269e13214db",
-      "bytes": 11365
+      "sha256": "876a294c4d2d0c684bc0bfe7beee58d3b3fa8f859735d45f2b14cecb849bad1b",
+      "bytes": 11535
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json",
@@ -8596,7 +8596,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json",
-      "sha256": "e238f358db02e135d7b15bc294d4248f01c8e6ab56fecbb6fe3a1c801e1e5b7f",
+      "sha256": "b2ff8e0b3f8d27e8abedb644b338e6238a8534bdad220270c2808e5d7f527559",
       "bytes": 2124
     },
     {

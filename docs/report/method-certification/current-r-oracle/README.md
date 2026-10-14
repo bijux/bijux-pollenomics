@@ -157,15 +157,15 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Unsupported claim.** A local macOS source export is not hosted same-revision Linux certification, a complete clean Git checkout, parity for new fixed/joint covariance extensions or independent ecological accuracy.
 
-**Actual verification performed.** Reviewed the retained report's native-capture/source revision and its separate fresh-R-for-this-comparison=false flag. Bound the report bytes; this reader qualification performed no R execution and no regeneration of Python expectations.
+**Actual verification performed.** Two actual ordinary configured retained-comparison producers returned zero on current source and emitted identical report/source-replay bytes. Independent comparison proves only the whole-owner-policy digest and aggregate consumer-input digest changed; every scientific value, native capture identity and other 99-code/287-data binding is exact. All 68 protected mathematical inputs match the original native capture. Old tracked-byte checkers refused those two metadata strings. No R or fresh Python numerical expectations were executed.
 
-**Remaining input or review.** The two mapped reports require final current-owner-policy replay, and official publication requires the actual admitted same-revision hosted Linux/R and native-parity artifacts.
+**Remaining input or review.** Adopt the actual reviewed current-policy mapping through its governed output contract. Official publication still requires actual admitted same-revision hosted Linux/R and native-parity artifacts; existing macOS native capture scope remains unchanged.
 
 **Cause category.** Historical native numerical correspondence with separately scoped deterministic mapping and release admission.
 
 **Consequence.** The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope.
 
-**Precise next acceptance route.** Replay only the final mapped-report consumers after ownership settles, retain native 43+23 and 48 comparison evidence, then qualify hosted artifacts through the publication gate at the actual release source revision.
+**Precise next acceptance route.** Bind the reviewed current mapped reports while preserving native 43+23 cases and 48 historical comparisons. Re-execute these deterministic consumers if their owner-policy/code/data bytes change, and qualify hosted artifacts at the actual release source revision.
 
 **Negative or refused result.** The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list.
 
@@ -173,9 +173,9 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 Qualified authored reader SHA-256: `01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753`.
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `3d2eb9fb27d5f08a8b0dc8c4e83ce9d250169a5b43e233fd4d6e3dea47bf8f3a`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `56206c69a22d7d7bd52e727819aacc9bf83b58ef6f46f3612ecb28b9cf89cd16`).
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `a607c455de5e07bc1787a2d4af194e0667f2eff05961aa25741fb9f034fbb0d0`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `1b2ccc680a59768bc62c211333cb53d6ca71d9b0cda3721cf4eff42f4110ebd3`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 
