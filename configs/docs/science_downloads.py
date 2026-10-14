@@ -127,7 +127,7 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
-def retained_deck_sources(root: Path) -> dict:
+def _previous_deck_sources(root: Path) -> dict:
     """Keep original deck context and one reviewed security metadata delta distinct."""
     context_bytes = _read(root, RETAINED_CONTEXT_PATH)
     context = json.loads(context_bytes, object_pairs_hook=_json_object)
@@ -227,6 +227,109 @@ def retained_deck_sources(root: Path) -> dict:
         "historical_inputs": historical_inputs,
         "current_inputs": current_inputs,
     }
+
+
+CURRENT_DECK_CONTEXT_PATH = "presentation/retained-build-source-context.json"
+CURRENT_DECK_CONTEXT_SHA256 = (
+    "0c15e691d437c8bc6dc4fd58b0215fd93cdb4ad000de42d688b28e71e967f1d0"
+)
+CURRENT_DECK_SOURCE_LOCK_SHA256 = (
+    "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"
+)
+CURRENT_DECK_ACCEPTED_REVISION = "4ec5f1f614ba2e0e1c8b16f3e9b3aa1abd73c3c3"
+
+
+def _current_deck_sources(root: Path) -> dict:
+    """Authenticate retained slide inputs and separately reviewed current bytes."""
+    raw = _read(root, CURRENT_DECK_CONTEXT_PATH)
+    if hashlib.sha256(raw).hexdigest() != CURRENT_DECK_CONTEXT_SHA256:
+        raise ValueError("Retained deck current-source context changed")
+    context = json.loads(raw, object_pairs_hook=_json_object)
+    previous_raw = _read(root, RETAINED_CONTEXT_PATH)
+    previous_context = json.loads(previous_raw, object_pairs_hook=_json_object)
+    if (
+        hashlib.sha256(previous_raw).hexdigest() != RETAINED_CONTEXT_SHA256
+        or previous_context != RETAINED_CONTEXT
+    ):
+        raise ValueError("Retained deck original context differs")
+    previous_revision = RETAINED_CONTEXT["source_revision"]
+    for revision in (previous_revision, CURRENT_DECK_ACCEPTED_REVISION):
+        _git(root, "merge-base", "--is-ancestor", revision, "HEAD")
+    previous_lock_raw = _committed_inputs(
+        root, previous_revision, ["presentation/source-lock.json"]
+    )["presentation/source-lock.json"]
+    if (
+        hashlib.sha256(previous_lock_raw).hexdigest()
+        != RETAINED_CONTEXT["source_lock_sha256"]
+    ):
+        raise ValueError("Retained deck original source lock differs")
+    previous_lock = json.loads(previous_lock_raw, object_pairs_hook=_json_object)
+    if previous_lock["decks"] != list(DECKS) or len(previous_lock["sources"]) != 98:
+        raise ValueError("Retained deck original source population differs")
+    source_lock_raw = _read(root, "presentation/source-lock.json")
+    if hashlib.sha256(source_lock_raw).hexdigest() != CURRENT_DECK_SOURCE_LOCK_SHA256:
+        raise ValueError("Retained deck source lock changed")
+    lock = json.loads(source_lock_raw, object_pairs_hook=_json_object)
+    paths = sorted(lock["sources"])
+    if lock["decks"] != list(DECKS) or len(paths) != 121:
+        raise ValueError("Retained deck source population differs")
+    historical = _committed_inputs(
+        root, CURRENT_DECK_ACCEPTED_REVISION, paths + ["presentation/source-lock.json"]
+    )
+    if historical["presentation/source-lock.json"] != source_lock_raw:
+        raise ValueError("Retained deck source lock differs from accepted build")
+    expected_current = context["current_source_sha256"]
+    if set(expected_current) != set(paths):
+        raise ValueError("Retained deck reviewed current population differs")
+    modes = _git(
+        root, "ls-tree", "-r", "-z", CURRENT_DECK_ACCEPTED_REVISION, "--", *paths
+    )
+    for record in modes.split(b"\0"):
+        if record:
+            metadata, name = record.split(b"\t", 1)
+            physical = (
+                b"100755"
+                if (root / name.decode()).stat().st_mode & 0o100
+                else b"100644"
+            )
+            if metadata.split()[0] != physical:
+                raise ValueError("Retained deck physical mode differs")
+    historical_inputs, current_inputs, differences = [], [], []
+    for relative in paths:
+        original = historical[relative]
+        current = _read(root, relative)
+        original_hash, current_hash = (
+            hashlib.sha256(original).hexdigest(),
+            hashlib.sha256(current).hexdigest(),
+        )
+        if original_hash != lock["sources"][relative]:
+            raise ValueError("Retained deck historical source changed")
+        if current_hash != expected_current[relative]:
+            raise ValueError(
+                f"Retained deck reviewed current source changed: {relative}"
+            )
+        historical_inputs.append({"path": relative, "sha256": original_hash})
+        current_inputs.append({"path": relative, "sha256": current_hash})
+        if original != current:
+            differences.append(relative)
+    if differences != [row["path"] for row in context["reviewed_deltas"]]:
+        raise ValueError("Retained deck reviewed delta population differs")
+    for relative, expected in context["retained_build"]["pdf_sha256"].items():
+        if hashlib.sha256(_read(root, relative)).hexdigest() != expected:
+            raise ValueError("Retained deck original PDF changed")
+    return {
+        "context": context,
+        "historical_inputs": historical_inputs,
+        "current_inputs": current_inputs,
+    }
+
+
+def retained_deck_sources(root: Path) -> dict:
+    """Keep the original and later retained deck epochs distinct."""
+    source_lock = _read(root, "presentation/source-lock.json")
+    if hashlib.sha256(source_lock).hexdigest() == CURRENT_DECK_SOURCE_LOCK_SHA256:
+        return _current_deck_sources(root)
+    return _previous_deck_sources(root)
 
 
 def download_bytes(root: Path) -> dict[str, bytes]:

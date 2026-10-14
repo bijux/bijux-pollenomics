@@ -199,14 +199,16 @@ def test_retained_deck_context_admits_original_history_and_exact_current_inputs(
     None
 ):
     retained = HOOK.retained_deck_sources(ROOT)
-    assert retained["context"] == HOOK.RETAINED_CONTEXT
-    assert len(retained["historical_inputs"]) == len(retained["current_inputs"]) == 98
+    assert retained["context"]["retained_build"]["source_count"] == 121
+    assert retained["context"]["previous_deck_epoch"]["source_count"] == 98
+    assert len(retained["historical_inputs"]) == len(retained["current_inputs"]) == 121
     historical = {row["path"]: row["sha256"] for row in retained["historical_inputs"]}
     current = {row["path"]: row["sha256"] for row in retained["current_inputs"]}
     assert set(historical) == set(current)
     assert [name for name in current if current[name] != historical[name]] == [
-        "pyproject.toml"
+        row["path"] for row in retained["context"]["reviewed_deltas"]
     ]
+    assert len(retained["context"]["reviewed_deltas"]) == 12
     before = (ROOT / "presentation/source-lock.json").read_bytes()
     frozen = HOOK.download_bytes(ROOT)
     assert len(frozen) == 12
@@ -379,3 +381,68 @@ def test_retained_git_reads_disable_replace_objects(
 
     monkeypatch.setattr(HOOK.subprocess, "run", observe)
     assert HOOK._git(ROOT, "rev-parse", "HEAD") == b"exact committed source"
+
+
+@pytest.mark.parametrize(
+    "mutation", ["missing", "unknown", "revision", "current_hash", "duplicate"]
+)
+def test_retained_build_current_context_substitution_refuses(
+    monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    read = cast(Callable[[Path, str], bytes], HOOK._read)
+    raw = read(ROOT, HOOK.CURRENT_DECK_CONTEXT_PATH)
+    context = json.loads(raw)
+    if mutation == "unknown":
+        context["unreviewed"] = True
+    elif mutation == "revision":
+        context["retained_build"]["accepted_revision"] = "0" * 40
+    elif mutation == "current_hash":
+        context["current_source_sha256"]["reports/README.md"] = "0" * 64
+
+    def changed(root: Path, relative: str) -> bytes:
+        if relative == HOOK.CURRENT_DECK_CONTEXT_PATH:
+            if mutation == "missing":
+                raise ValueError("Scientific download source unavailable")
+            if mutation == "duplicate":
+                return raw.replace(b"{", b'{"schema_version":"duplicate",', 1)
+            return json.dumps(context).encode()
+        return read(root, relative)
+
+    monkeypatch.setattr(HOOK, "_read", changed)
+    with pytest.raises(ValueError, match="context|unavailable"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+@pytest.mark.parametrize(
+    "relative", ["reports/README.md", "presentation/big-picture.pdf"]
+)
+def test_retained_build_current_byte_or_pdf_drift_refuses(
+    monkeypatch: pytest.MonkeyPatch, relative: str
+) -> None:
+    read = cast(Callable[[Path, str], bytes], HOOK._read)
+
+    def changed(root: Path, name: str) -> bytes:
+        value = read(root, name)
+        return value + b"unreviewed bytes" if name == relative else value
+
+    monkeypatch.setattr(HOOK, "_read", changed)
+    with pytest.raises(ValueError, match="source changed|PDF changed"):
+        HOOK.retained_deck_sources(ROOT)
+
+
+def test_retained_build_historical_source_substitution_refuses(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    committed = cast(
+        Callable[[Path, str, list[str]], dict[str, bytes]], HOOK._committed_inputs
+    )
+
+    def changed(root: Path, revision: str, paths: list[str]) -> dict[str, bytes]:
+        values = committed(root, revision, paths)
+        if revision == HOOK.CURRENT_DECK_ACCEPTED_REVISION:
+            values["reports/README.md"] += b"unreviewed historical bytes"
+        return values
+
+    monkeypatch.setattr(HOOK, "_committed_inputs", changed)
+    with pytest.raises(ValueError, match="historical source changed"):
+        HOOK.retained_deck_sources(ROOT)

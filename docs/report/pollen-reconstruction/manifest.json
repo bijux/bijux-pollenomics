@@ -71,8 +71,8 @@
     },
     {
       "path": "configs/docs/science_downloads.py",
-      "sha256": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
-      "bytes": 4288
+      "sha256": "76ed7c1067d35574b0cbd1e3e1c75fb7c3024eab4adbb8774b7b3d9ef8eacaf4",
+      "bytes": 17988
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5851,8 +5851,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_site_downloads.py",
-      "sha256": "fef636aa663f0ffb6955f33cdcad27b87041dee5028b352e5f36ae7fc0206202",
-      "bytes": 5752
+      "sha256": "95106ee196007fb7dd3fd10cdebdefa8a66c83f27d780fd4bdac43aac84e6531",
+      "bytes": 16850
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/adna/__init__.py",
@@ -7976,7 +7976,7 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "f25789861279ac09c4d02b4cfe411ab726be75649584c788dd150426c4abf005",
+      "sha256": "6ef5f7438cc06b3492cc62d2395ec10f3d91340d07a324599c8c9c6efa584f01",
       "bytes": 11023
     },
     {
@@ -8061,8 +8061,8 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "b1a7e92a193143235ecf362b38989219afeb92b22f76d6f78a2e96bffcb0faf1",
-      "bytes": 5775
+      "sha256": "c2f2f7674f795a242bf742534cdf117f6bf8cdfcdf4cefdc3ad09cc3d3c086bf",
+      "bytes": 5898
     },
     {
       "path": "reports/needed/README.md",
