@@ -10,6 +10,11 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.analysis.propagation.event_estimation import GovernedSample
+from bijux_pollenomics.core.temporal_relations import (
+    TemporalRelationKind,
+    bp_interval_relation_kind,
+)
+from bijux_pollenomics.core.temporal_semantics import BpInterval
 from bijux_pollenomics_dev.source_completion.propagation.neotoma_exports import (
     validate_neotoma_export_custody,
 )
@@ -392,7 +397,15 @@ def _screen_inventory(
         if (
             older["comparability_status"] == "comparable"
             and younger["comparability_status"] == "comparable"
-            and cast(float, older["younger_bp"]) <= cast(float, younger["older_bp"])
+            and bp_interval_relation_kind(
+                BpInterval(
+                    cast(float, older["younger_bp"]), cast(float, older["older_bp"])
+                ),
+                BpInterval(
+                    cast(float, younger["younger_bp"]), cast(float, younger["older_bp"])
+                ),
+            )
+            is not TemporalRelationKind.LEFT_OLDER
         ):
             blockers.add("chronology_order_indeterminate")
     if variable["source_reported_name"] is None:

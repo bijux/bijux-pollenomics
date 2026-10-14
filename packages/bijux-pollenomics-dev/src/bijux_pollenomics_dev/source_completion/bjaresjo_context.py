@@ -10,6 +10,10 @@ from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.core.temporal_semantics import (
+    BpInterval,
+    closed_bp_intervals_overlap,
+)
 
 from .nordic_direct_pollen import _coordinate, _json_write
 
@@ -41,6 +45,20 @@ def _csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+
+
+def _display_interval_members(
+    records: list[dict[str, Any]], window: dict[str, Any]
+) -> list[dict[str, Any]]:
+    """Select closed overlaps after the source-bound display gates have passed."""
+    interval = BpInterval(window["time_start_bp"], window["time_end_bp"])
+    return [
+        row
+        for row in records
+        if closed_bp_intervals_overlap(
+            BpInterval(row["time_start_bp"], row["time_end_bp"]), interval
+        )
+    ]
 
 
 def produce(repository: Path, output: Path) -> None:
@@ -166,12 +184,7 @@ def produce(repository: Path, output: Path) -> None:
         raise ValueError("published Bjäresjösjön window denominator changed")
     overlap_rows: list[dict[str, Any]] = []
     for window in sorted(windows, key=lambda row: row["time_start_bp"]):
-        members = [
-            row
-            for row in nearby
-            if row["time_start_bp"] <= window["time_end_bp"]
-            and row["time_end_bp"] >= window["time_start_bp"]
-        ]
+        members = _display_interval_members(nearby, window)
         sites = {row["site_uuid"] for row in members}
         if (
             len(members) != window["sead_temporal_record_count_20km"]

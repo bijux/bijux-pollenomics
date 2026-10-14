@@ -822,6 +822,10 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py": {
+        "bijux_pollenomics.core.temporal_semantics": frozenset({"BpInterval"}),
+        "bijux_pollenomics.core.temporal_relations": frozenset(
+            {"TemporalRelationKind", "bp_interval_relation_kind"}
+        ),
         "bijux_pollenomics.analysis.propagation.event_estimation": frozenset(
             {"GovernedSample"}
         ),
@@ -876,6 +880,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/bjaresjo_context.py": {
+        "bijux_pollenomics.core.temporal_semantics": frozenset(
+            {"BpInterval", "closed_bp_intervals_overlap"}
+        ),
         "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
             {"distance_km"}
         ),
@@ -1258,3 +1265,44 @@ def test_raa_native_bindings_remain_file_module_and_symbol_specific() -> None:
         "from bijux_pollenomics.collection.sources.raa.materialization.reading import read_only_database",
         owner + "native.py",
     )
+
+
+def test_temporal_producer_bindings_remain_file_module_and_symbol_specific() -> None:
+    """Pair algebra grants neither source admission nor neighboring host access."""
+    bindings = (
+        ("source_completion/bjaresjo_context.py", "temporal_semantics", "BpInterval"),
+        (
+            "source_completion/bjaresjo_context.py",
+            "temporal_semantics",
+            "closed_bp_intervals_overlap",
+        ),
+        (
+            "lra_validation/neotoma_first_observed.py",
+            "temporal_semantics",
+            "BpInterval",
+        ),
+        (
+            "lra_validation/neotoma_first_observed.py",
+            "temporal_relations",
+            "TemporalRelationKind",
+        ),
+        (
+            "lra_validation/neotoma_first_observed.py",
+            "temporal_relations",
+            "bp_interval_relation_kind",
+        ),
+    )
+    for suffix, owner, symbol in bindings:
+        path = "bijux_pollenomics_dev/" + suffix
+        module = "bijux_pollenomics.core." + owner
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for source, reader in (
+            (statement, path + ".other"),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+        ):
+            assert host_import_violations(source, reader)
