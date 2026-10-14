@@ -3171,8 +3171,8 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
-      "sha256": "c2106d830196f69a703c55a69a10af030e44740da3442142a90c5d255265b4ec",
-      "bytes": 7291
+      "sha256": "40cfc454f6bdfd43e7c73f7e8ba2f2eb8a4f858c97de1bc8178ce61b52b7037f",
+      "bytes": 7635
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
@@ -3181,7 +3181,7 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
-      "sha256": "01ca16cc78426ab658abd40dd1a1e2e41d8cfa75ce2cc055b8d2535a3fb1eb1e",
+      "sha256": "89d33e6a2a0f5a352764093972c02e29f4c7d9eef1988fbff3fb3029a71326dc",
       "bytes": 3414
     },
     {
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "76595371af4d3ed5da1fe9d0212f50dc38bb2498feae4fcbfaca6ca1c391ea6f",
+      "sha256": "363b0600d3c9c40a81669ebfbb55e46d1481f7a908b605bc6a26f7aea490a8fa",
       "bytes": 150927
     },
     {
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "65d987db125d114fd30a84fe2631cd9f9111ba6b7478d0a45ba0eba52d7ed35e",
+      "sha256": "bcdf3d52d3f7c1b7ecaf4057045c92adc3f81e66419ba2c44324f97646aecf08",
       "bytes": 1025967
     },
     {
@@ -5176,8 +5176,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
-      "sha256": "02bfa94a1fe33a526b0089d52c525b1c743b9badf192fcef5027601977a9fdd5",
-      "bytes": 17278
+      "sha256": "a9543747920168d0a5d0dc3df4abb7fd963b6f468ae4f1d9b209657fc934708a",
+      "bytes": 17285
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_parameters/__init__.py",
@@ -6026,8 +6026,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sambosjon_report_mean.py",
-      "sha256": "a7723562640e4454f1d5848ddf360323e9781d9f776c14ff7c576b77fc2157c0",
-      "bytes": 3603
+      "sha256": "9524deecf474bec5676168422e2f930f6a80982ac51baeae4388dc41fc2d718c",
+      "bytes": 3858
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sambosjon_scores.py",
@@ -8086,7 +8086,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "63749bed7c875086ff1ebb0b3846efb266a3bed7be4620684255aa5868f0879c",
+      "sha256": "4d9d09b0584942d33227844aefec9f3ca736abf40e4b5c229abd7e5961a9cafb",
       "bytes": 65254
     },
     {

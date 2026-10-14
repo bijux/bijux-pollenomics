@@ -44,15 +44,15 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** It is not an age posterior, refit, independent confirmation, NordicLRA or measured vegetation comparison; the original22-bin score answers a different support question.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** Executed the maintained source-owned contained-age replay without refitting on the frozen source candidate. All 111 native sample IDs and 66 frozen predictions were reaggregated; all three CSV files and every report scientific value match the retained account exactly. Only the producer identity changed. The maintained verifier accepted the fresh result and refused a 1e-9 summary alteration and incorrect producer hash. No chronology model, fit, ecological validation or human scientific review was performed.
 
-**Remaining input or review.** The historical producer binding needs the named maintained owner replay before current-source correspondence is claimed; scientific chronology and collaborator review remain outstanding.
+**Remaining input or review.** Current-source contained-age correspondence is established for the frozen inputs; scientific chronology qualification and collaborator review remain outstanding.
 
-**Cause category.** Conditional marginal age support with a historical producer binding.
+**Cause category.** Conditional marginal age support; chronology and qualified review remain unresolved.
 
 **Consequence.** Withholding crossing samples alters count composition and slightly worsens the fixed primary paired score without implying a model-selection result.
 
-**Precise next acceptance route.** Replay the maintained contained-age owner against the111source samples and66frozen predictions, preserve all refusals and compare the four numeric products before source-custody refresh.
+**Precise next acceptance route.** Obtain source-qualified chronology support and qualified review of the same-bin comparison. If source samples, frozen predictions or producer behavior change, repeat the named contained-age consumer and preserve all refusals before changing the claim.
 
 **Negative or refused result.** 58crossing samples remain excluded; bin1has three refused/null method rows, rather than zero error or omitted failure.
 
@@ -60,7 +60,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 Qualified authored reader SHA-256: `f310296f6d26888737c96f14c4848d91518980f34105a12ba0056bdee7ed6fb2`.
 
-- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json](report.json) (SHA-256 `01ca16cc78426ab658abd40dd1a1e2e41d8cfa75ce2cc055b8d2535a3fb1eb1e`).
+- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json](report.json) (SHA-256 `89d33e6a2a0f5a352764093972c02e29f4c7d9eef1988fbff3fb3029a71326dc`).
 
 - [Canonical scientific account: reports/science/sambosjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sambosjon-direct-pollen.md) (source SHA-256 `7de581e27ffefb4ac8d99403a1ac6d8fedf97971ab5886e4f28a63a954e0366a`).
 
