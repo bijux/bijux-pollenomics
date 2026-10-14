@@ -220,9 +220,9 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 Qualified authored reader SHA-256: `d06fd1f492e826de53f583284e1749ad0a84b946aaaaa260ca142b0bd6f7a96f`.
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `55f8b562c7758eebb2c0c73959c818b72c585b87bc42a9898cdc0ee0547d4ce5`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `a5238a9499c9bdc5289b2d8ac3c270f61388725df867d935c205b13517141881`).
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `af63b447920cd78269e39d119808d5d8b985b33d2cddc6f62ab929acbdce2532`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `bd07ea13e3224052f781c4652a0c4b4d8023e66d85f797a9197bf6d60ee2a033`).
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json](retained-vector-diagnostics.json) (SHA-256 `aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f`).
 
