@@ -1768,6 +1768,21 @@
       "actual_transport_terminal_sha256": "7c7ca967afd179618c07ac88cec882efda050f9df9dd363a2fa8150ebb3b243e",
       "prior_readability_execution_preserved": true,
       "scope": "Actual source/country metadata lifecycle qualification only; two original authored prefixes and all affected wrapper authored bytes/individual fields retained. No source-rights,map,biological or empirical classification admission."
+    },
+    {
+      "report_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "authored_source_sha256": "df0f71c947ff83ff3162ce3273376993e94bf538ae213d10296ae07ab415143d",
+      "rendered_sha256": "1c0f54e44c03f7c9792366e04dce9d5dda663b8e535db0582a462f23cd20c052",
+      "claim_semantic_sha256": "cff022cab3747972592a85ab674b5a5300f3b0d5a845079cd7056ee2772ca2c6",
+      "current_native_source_account": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/counting-intervals-source.json",
+      "current_native_source_account_sha256": "735808f647fcd41d85f2ac38224fd8801e9f9b4a86df802bed719d9cbbe43c3d",
+      "actual_native_terminal_sha256": "41bb6bda860d26ff11ce728d96e3d30362f1b825d09a8f4c969ebc18d23507a8",
+      "original_controller_native_exit": 1,
+      "all_five_computational_stages_native_zero": true,
+      "retained_product_observer_terminal_sha256": "512e7ec30ef99bf877ecce70f698ebbb0ceaedfe8340083bc2b2702f6d41b090",
+      "retained_product_observer_native_exit": 0,
+      "prior_readability_execution_preserved": true,
+      "scope": "One actual fixed-pair counting result and exact saved-product qualification. Original aggregate typing-cache output-budget failure remains recorded. No new source rights, empirical coverage, full vegetation interval or qualified scientist review."
     }
   ]
 }

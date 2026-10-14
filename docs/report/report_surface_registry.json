@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2099,
+  "surface_count": 2101,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1202,
+    "maintenance": 1204,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 761
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1204,
+    "maintainer_diagnostic": 1206,
     "public_reading_surface": 770,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1253,
+    "report_root": 1255,
     "sweden": 49,
     "world": 160
   },
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "368a5575669359bce49934f9f5e06a9a25c78e4c1af553a3ae0c51063747c46b",
+      "content_sha256": "c6b728d0f3c8fb02b47670891d478959a63c0d94f0fcdccd8690584d384a8f29",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20373,7 +20373,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "eba541d9548f3752679e61f94318836ebe010df48f1b8b3ae5a20881c912ada7",
+      "content_sha256": "a717420f5158df2b4410f27161cf3470274b94cd53ba837f2d2d120c842e6447",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -20536,7 +20536,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "content_sha256": "dcea699e6a6740d0124a93047753459f4fd49b2d9ebde633cf852cdb1521da16",
+      "content_sha256": "1c0f54e44c03f7c9792366e04dce9d5dda663b8e535db0582a462f23cd20c052",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25532,6 +25532,30 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/counting-intervals-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/counting-intervals.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

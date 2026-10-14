@@ -1,0 +1,226 @@
+{
+  "schema_version": "native-pair-counting-source-account.v1",
+  "purpose": "Individual measured native Betula/Poaceae pair intervals conditional on fixed response and PPE.",
+  "source_candidate": "e643986a963f903f987b1e75753a617d9114e7eb",
+  "captured_source_scope": "Complete tracked LRA source/resources at this candidate with explicitly overlaid maintained counting producer, exact oracle and focused tests; neither complete worktree nor installed distribution.",
+  "captured_engine": {
+    "path": "artifacts/science/krageholm-native-pair-counting-intervals/source-code-custody.json",
+    "sha256": "564e8a459d565fb33e9cc13e1678eb669bff73afdffcac1bc69aa4023f3c0506",
+    "bytes": 13961
+  },
+  "frozen_native_plan": {
+    "path": "artifacts/science/krageholm-native-pair-counting-intervals/plan.json",
+    "sha256": "acdab71af8d4be7b5978ff6a4c343f323058aebc84150f47139f071f2e120668",
+    "bytes": 8022002
+  },
+  "native_report": {
+    "path": "artifacts/science/krageholm-native-pair-counting-intervals/execution/native/report.json",
+    "sha256": "7063e157b62d8d41433d174eac399cf2b1fddd3861f229519ed4f06afce6e0af",
+    "bytes": 4575
+  },
+  "native_report_public_sha256": "7063e157b62d8d41433d174eac399cf2b1fddd3861f229519ed4f06afce6e0af",
+  "original_controller": {
+    "terminal": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/execution/terminal.json",
+      "sha256": "41bb6bda860d26ff11ce728d96e3d30362f1b825d09a8f4c969ebc18d23507a8",
+      "bytes": 10344
+    },
+    "native_exit": 1,
+    "status": "failed",
+    "reason": "All five computational stages exited zero, but the complete run including typing caches exceeded its declared 16 MiB output bound. This original refusal and all files are preserved.",
+    "declared_output_limit_bytes": 16777216,
+    "actual_output_bytes": 38931678,
+    "wall_seconds": 14.147992666985374,
+    "observed_child_peak_rss_bytes": 442056704,
+    "stages": [
+      {
+        "name": "qualified-api-origin",
+        "actual_argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/bootstrap.py",
+          "imports"
+        ],
+        "native_exit": 0,
+        "timed_out": false,
+        "wall_seconds": 1.2827807500143535
+      },
+      {
+        "name": "focused-source-boundaries",
+        "actual_argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/bootstrap.py",
+          "pytest",
+          "-q",
+          "-c",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/configs/pytest.ini",
+          "-o",
+          "addopts=",
+          "--rootdir",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source",
+          "--import-mode=importlib",
+          "-p",
+          "pytest_asyncio.plugin",
+          "-p",
+          "pytest_timeout",
+          "-o",
+          "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/execution/pytest-cache",
+          "--basetemp",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/execution/pytest-temp",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_native_pair_counting_intervals.py"
+        ],
+        "native_exit": 0,
+        "timed_out": false,
+        "wall_seconds": 1.2814388750120997
+      },
+      {
+        "name": "strict-source-types",
+        "actual_argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/bootstrap.py",
+          "types",
+          "--strict",
+          "--config-file",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/configs/mypy.ini",
+          "--cache-dir",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/execution/mypy-cache",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/reports/science/krageholm-static-geometry-sensitivity/counting_oracle.py",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_native_pair_counting_intervals.py"
+        ],
+        "native_exit": 0,
+        "timed_out": false,
+        "wall_seconds": 4.490105500037316
+      },
+      {
+        "name": "configured-source-lint",
+        "actual_argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "-m",
+          "ruff",
+          "check",
+          "--config",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/configs/ruff.toml",
+          "--cache-dir",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/execution/ruff-cache",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/reports/science/krageholm-static-geometry-sensitivity/counting_oracle.py",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_native_pair_counting_intervals.py"
+        ],
+        "native_exit": 0,
+        "timed_out": false,
+        "wall_seconds": 0.04861541697755456
+      },
+      {
+        "name": "native-pair-intervals-and-exact-oracle",
+        "actual_argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/bootstrap.py",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/source/reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py",
+          "--repository",
+          "/Users/bijan/bijux/bijux-pollenomics",
+          "--source-root",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/inputs",
+          "--output",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-native-pair-counting-intervals/execution/native"
+        ],
+        "native_exit": 0,
+        "timed_out": false,
+        "wall_seconds": 1.326464916986879
+      }
+    ]
+  },
+  "scientific_stage": {
+    "native_exit": 0,
+    "native_requests": 95,
+    "wall_seconds": 1.326464916986879,
+    "exact_tail_inequalities": 190,
+    "exact_complementary_cover_enclosures": 380,
+    "individual_point_checks": 190,
+    "old_pooled_point_checks_only": 48,
+    "maximum_individual_point_absolute_difference": 0.0,
+    "maximum_old_pooled_point_absolute_difference": 1.1102230246251565e-16
+  },
+  "retained_product_qualification": {
+    "plan": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/retained-output-qualification/plan.json",
+      "sha256": "f8d3e3dadf3986f602f8dfce03c60c3c489b299b3cb26ad47d02d0af467bdc82",
+      "bytes": 8024624
+    },
+    "terminal": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/retained-output-qualification/execution/terminal.json",
+      "sha256": "512e7ec30ef99bf877ecce70f698ebbb0ceaedfe8340083bc2b2702f6d41b090",
+      "bytes": 3653
+    },
+    "native_exit": 0,
+    "correspondence": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/retained-output-qualification/execution/correspondence.json",
+      "sha256": "23cf679e8a0520e977b07d39728d50c0d0fa77b5584472057ee15e8d9fcd5ae6",
+      "bytes": 1046
+    },
+    "projected_products": 12,
+    "projected_product_bytes": 310059,
+    "actual_output_bytes": 322441,
+    "native_api_requests_repeated": 0,
+    "scope": "New cache-free source/output observer verifies all original inputs/products and repeats exact saved-value checks. It does not reclassify the original resource failure as a passed native job."
+  },
+  "maintained_controls": {
+    "reports/science/krageholm-static-geometry-sensitivity/counting-protocol.json": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/proposal/reports/science/krageholm-static-geometry-sensitivity/counting-protocol.json",
+      "sha256": "6462917728217efebdd832da111e0c9ea24120aa0638a36653847c67de03a425",
+      "bytes": 5789
+    },
+    "reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/proposal/reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py",
+      "sha256": "61311094cedb504b916890bd1e1a100f2929c30b86f9bc85c9aaf440a78fd475",
+      "bytes": 12889
+    },
+    "reports/science/krageholm-static-geometry-sensitivity/counting_oracle.py": {
+      "path": "artifacts/science/krageholm-native-pair-counting-intervals/proposal/reports/science/krageholm-static-geometry-sensitivity/counting_oracle.py",
+      "sha256": "89779dac2af4c6c124ea7e97db525cfbb383b605ea5903179937093971841542",
+      "bytes": 4646
+    }
+  },
+  "focused_controls": {
+    "tests": 20,
+    "strict_files": 3,
+    "ruff_and_format_passed": true,
+    "intake_refusals": "Missing measured taxon, duplicate native identity or literal datum, changed native code, invalid grain total/count, changed chronology/window and absent directed tail certificate. Separate synthetic guards are not actual zero-count source observations."
+  },
+  "source_custody": {
+    "dataset-23013-sample-eligibility.json": {
+      "sha256": "b3cc484f4d9e427cfa46cbae6a1b567cf30e7cad03d232c54b0e4a05b24a7d2c",
+      "bytes": 182173
+    },
+    "native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "interpretation": "The 95 source aliquots belong to one core/lake, not 95 independent validation sites. Two complementary bounds define one pair-relative interval per aliquot. Grains are assumed independent Bernoulli trials conditional on that measured pair and its total, fixed response/PPE. No simultaneous/temporal independence, estimated-PPE, chronology, geometry or ecology coverage is supplied.",
+  "scientific_admission": false,
+  "source_rights_decision": false,
+  "empirical_coverage_verified": false,
+  "old_conditional_outputs_replaced": false
+}

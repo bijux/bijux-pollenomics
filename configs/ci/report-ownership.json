@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2103,
-  "paths_sha256": "6e121f544ac185bad2c591e2db33d346409d3041cccca323e9aaf3c80089c424",
+  "path_count": 2105,
+  "paths_sha256": "a13f6a867975fb24cbf2ef253d8eb3ad9c17dec255ad0ff6ccadd3798e708232",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -60634,6 +60634,24 @@
         "data/synthetic-validation/two-taxon-counting/protocol.json"
       ],
       "verification": "Actual declared first-party synthetic profile: 10,809 intervals, 4,068 numeric comparisons, 6,102 root-containment checks, 1,080 all-k coverage populations and 49 API guards, native exit zero. Complete immutable native packet and executed maintained producer/oracle identities retained; retention infers no fresh study. Conditional fixed two-taxon/N/response domain only; general uncertainty and ecological/release admission remain unqualified."
+    },
+    {
+      "owner_id": "pollen-reconstruction/krageholm-static-geometry-sensitivity/individual-counting",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/counting-intervals-source.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/counting-intervals.json"
+      ],
+      "producer_paths": [
+        "reports/science/krageholm-static-geometry-sensitivity/counting-protocol.json",
+        "reports/science/krageholm-static-geometry-sensitivity/counting_intervals.py",
+        "reports/science/krageholm-static-geometry-sensitivity/counting_oracle.py"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json",
+        "reports/science/krageholm-static-geometry-sensitivity/source-custody.json"
+      ],
+      "verification": "Actual 95 native fixed-pair API requests and exact independent tail/quotient checks passed. Five native computational stages exited zero; original aggregate typing-cache output-budget refusal is preserved. A separate bounded source/output observer accepted the unchanged scientific products without repeating native requests. No ordinary configured owner, pooled confidence interval, empirical field coverage, historical identity, source-rights or scientific admission is claimed."
     }
   ]
 }
