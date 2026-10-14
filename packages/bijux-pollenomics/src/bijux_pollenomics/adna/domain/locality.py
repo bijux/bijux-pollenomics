@@ -17,9 +17,19 @@ from ...core.bp_time import (
     merge_bp_intervals,
     midpoint_bp_year,
 )
+from ...core.temporal_semantics import (
+    BpInterval,
+    InvalidBpIntervalError,
+    canonical_bp_interval,
+)
 from ..species.definitions import resolve_species_definition
+from .models.localities import AdnaSampleChronologySupport
 
-__all__ = ["build_locality_identity", "summarize_sample_localities"]
+__all__ = [
+    "build_locality_identity",
+    "locality_sample_intervals",
+    "summarize_sample_localities",
+]
 
 
 def build_locality_identity(
@@ -105,9 +115,8 @@ def summarize_sample_localities(
                 sample_ids=sample_ids,
                 datasets=datasets,
                 chronology=AdnaChronology(
-                    original_text=build_bp_interval_label(
-                        time_interval[0], time_interval[1]
-                    )
+                    original_text="Sample coverage hull (display only): "
+                    + build_bp_interval_label(time_interval[0], time_interval[1])
                     if time_interval is not None
                     else "",
                     time_start_bp=time_interval[0]
@@ -115,9 +124,22 @@ def summarize_sample_localities(
                     else None,
                     time_end_bp=time_interval[1] if time_interval is not None else None,
                     time_mean_bp=_mean_bp_from_interval(time_interval),
-                    dating_basis=records[0].dating_basis,
+                    dating_basis="locality_sample_coverage",
+                    evidence_class="locality_sample_coverage_hull",
+                    precision_posture="display_coverage_only",
                 ),
                 sample_namespace=records[0].sample_namespace,
+                sample_chronologies=tuple(
+                    AdnaSampleChronologySupport(
+                        sample_id=record.genetic_id,
+                        chronology=record.chronology,
+                        source_release=record.source_release,
+                        provenance_path=record.chronology_provenance_path,
+                        provenance_locator=record.chronology_provenance_locator,
+                        provenance_excerpt=record.chronology_provenance_text,
+                    )
+                    for record in sorted(records, key=lambda item: item.genetic_id)
+                ),
             )
         )
 
@@ -136,3 +158,44 @@ def _mean_bp_from_interval(interval: tuple[int, int] | None) -> int | None:
     if interval is None:
         return None
     return midpoint_bp_year(interval[0], interval[1])
+
+
+def locality_sample_intervals(
+    locality: AdnaLocalitySummary,
+) -> tuple[tuple[str, BpInterval], ...]:
+    """Return source-owned sample supports, never an aggregate locality hull.
+
+    Legacy single-sample summaries have the same support as their sole sample.
+    Older multi-sample summaries lack occurrence ownership and remain unresolved.
+    Missing, refused, reversed and negative source bounds never become zero.
+    """
+    supports = locality.sample_chronologies
+    if not supports and locality.sample_count == 1 and len(locality.sample_ids) == 1:
+        supports = (
+            AdnaSampleChronologySupport(locality.sample_ids[0], locality.chronology),
+        )
+    allowed = set(locality.sample_ids)
+    seen: set[str] = set()
+    result: list[tuple[str, BpInterval]] = []
+    for support in supports:
+        if support.sample_id not in allowed or support.sample_id in seen:
+            return ()
+        seen.add(support.sample_id)
+        if support.chronology.refusal_reason_code:
+            continue
+        endpoints = (support.chronology.time_start_bp, support.chronology.time_end_bp)
+        if any(
+            value is not None
+            and (isinstance(value, bool) or not isinstance(value, int))
+            for value in endpoints
+        ):
+            continue
+        try:
+            interval = canonical_bp_interval(
+                support.chronology.time_start_bp, support.chronology.time_end_bp
+            )
+        except InvalidBpIntervalError:
+            continue
+        if interval is not None:
+            result.append((support.sample_id, interval))
+    return tuple(result)

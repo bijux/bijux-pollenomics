@@ -30,7 +30,12 @@ def test_period_bins_preserve_zero_and_exact_boundaries(
     mean_bp: int | None,
     expected: str,
 ) -> None:
-    assert _period_label_for(locality(mean_bp=mean_bp)) == expected
+    assert (
+        _period_label_for(
+            locality(younger_bp=mean_bp, older_bp=mean_bp, mean_bp=mean_bp)
+        )
+        == expected
+    )
 
 
 def test_closed_bp_intervals_overlap_at_a_shared_endpoint() -> None:

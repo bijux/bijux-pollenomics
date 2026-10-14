@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable, Mapping
 from typing import Any
 
+from bijux_pollenomics.adna.domain.locality import locality_sample_intervals
+
 from .models import _Target as Target
 
 
@@ -48,27 +50,25 @@ def overlapping_human_context(
     within_radius: Callable[..., bool],
     intervals_overlap: Callable[..., bool],
 ) -> dict[str, int]:
-    matched = []
+    matched_localities = 0
+    matched_samples = 0
     for locality in localities:
         coordinates = locality.coordinates
-        chronology = locality.chronology
         if not within_radius(
-            target,
-            latitude=coordinates.latitude,
-            longitude=coordinates.longitude,
+            target, latitude=coordinates.latitude, longitude=coordinates.longitude
         ):
             continue
-        if intervals_overlap(
-            time_start_bp,
-            time_end_bp,
-            chronology.time_start_bp,
-            chronology.time_end_bp,
-        ):
-            matched.append(locality)
-    return {
-        "locality_count": len(matched),
-        "sample_count": sum(locality.sample_count for locality in matched),
-    }
+        sample_ids = {
+            sample_id
+            for sample_id, interval in locality_sample_intervals(locality)
+            if intervals_overlap(
+                time_start_bp, time_end_bp, interval.younger_bp, interval.older_bp
+            )
+        }
+        if sample_ids:
+            matched_localities += 1
+            matched_samples += len(sample_ids)
+    return {"locality_count": matched_localities, "sample_count": matched_samples}
 
 
 def overlapping_animal_context(
