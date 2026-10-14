@@ -48288,6 +48288,9 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
       ],
       "producer_inputs": [
+        "data/atlas/sample-chronology-source-view-capture/capture.json",
+        "data/atlas/sample-chronology-source-view-capture/observations/source-export/1440-next/neotoma-site-3009.pollen-series.json",
+        "data/atlas/sample-chronology-source-view-capture/observations/source-export/1440-selected/neotoma-site-12.pollen-series.json",
         "data/atlas/source-view-capture/capture.json",
         "data/atlas/source-view-capture/products/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
         "data/atlas/source-view-capture/products/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json",
@@ -48306,6 +48309,7 @@
         "data/neotoma/relational/surfaces/samples/part-00001.json",
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "data/neotoma/source-selection-reference/browser-selection-custody.json",
         "data/neotoma/source-selection-reference/neotoma-site-12.pollen-series.json.gz",
         "data/neotoma/source-selection-reference/neotoma-site-3009.pollen-series.json.gz",
         "data/neotoma/source-selection-reference/readiness-report.json.gz",
@@ -48313,7 +48317,7 @@
         "docs/report/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
         "docs/report/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json"
       ],
-      "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_named_export_custody_preserves_refusals_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows. The named physical historical/current/captured export certificate permits only the two declared shared_url changes; the retained historical report remains byte-bound and every scientific readiness field must match after exactly two declared export-digest substitutions."
+      "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_named_export_custody_preserves_refusals_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows. Both named physical custody certificates bind the original compressed exports and immutable preceding browser epoch separately from the current source-owned browser epoch; only each exact declared shared_url leaf may differ; the retained historical report remains byte-bound and every scientific readiness field must match after exactly two declared export-digest substitutions."
     },
     {
       "owner_id": "publication-replay/landclim-amsoldingersee-source-review/reader-account",

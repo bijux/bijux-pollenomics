@@ -124,10 +124,10 @@ accuracy is established. Those channels remain unadmitted and unscored.
 
 **Matched denominator.** 125 recovered plots, 208 taxon rows, 1,757 positive observations; sixteen scenarios create 2,000 repeated plot contexts and 34,000 raw axis cells, not additional independent observations.
 
-Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](source-account.json), [reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json](../../../../reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json).
+Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](source-account.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json](source-files/input-custody.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: d85276f7c30483c86f43c7f0b8e567ba3a15bcf2253578a2d7e3b7b22b0240ca -->
+<!-- scientific-claim-semantic-sha256: b683b0540b5a3d2f5ceffa5f3befdfa70b4e38c7be25b2ef9fac52dd9f479fce -->
 <!-- scientific-authored-source-sha256: 4e65366e121ba9681cb48cf6aeebfbe3a33f5a9516ef4092b690bd47a942573b -->
 <!-- scientific-verification-and-limits:end -->

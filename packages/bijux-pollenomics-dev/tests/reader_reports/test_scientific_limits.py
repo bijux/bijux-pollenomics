@@ -192,3 +192,49 @@ def test_render_refuses_before_publishing_partial_accounts(
         api.render_accounts(tmp_path, output, authority)
     if change != "existing":
         assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "report_path,attachment_count",
+    [
+        (
+            "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+            4,
+        ),
+        ("docs/report/synthetic-validation/recovery-evidence/README.md", 3),
+        ("docs/report/vegetation-reference/pyrenees-botanical-projection/README.md", 1),
+    ],
+)
+def test_primary_reader_evidence_uses_sealed_public_attachments(
+    report_path: str, attachment_count: int
+) -> None:
+    """First-party source custody remains downloadable inside the documentation site."""
+    api = module()
+    with (ROOT / "reports/needed/report-claims.csv").open() as handle:
+        claim = next(
+            row for row in csv.DictReader(handle) if row["report_path"] == report_path
+        )
+    raw = (ROOT / report_path).read_bytes()
+    api.validate_report(raw, claim)
+    manifest = json.loads(
+        (ROOT / "configs/docs/scientific-source-files.json").read_bytes()
+    )
+    sources = {row["source"] for row in manifest["files"]}
+    evidence = claim["retained_evidence_paths"].split(";")
+    assert not sources.intersection(evidence)
+    public = {row["destination"]: row for row in manifest["files"]}
+    selected = [path for path in evidence if path in public]
+    assert len(selected) == attachment_count
+    for path in selected:
+        pin = public[path]
+        attachment = (ROOT / path).read_bytes()
+        assert attachment == (ROOT / pin["source"]).read_bytes()
+        assert len(attachment) == pin["bytes"]
+        assert hashlib.sha256(attachment).hexdigest() == pin["sha256"]
+        assert (
+            hashlib.sha1(
+                b"blob " + str(len(attachment)).encode() + b"\0" + attachment,
+                usedforsecurity=False,
+            ).hexdigest()
+            == pin["git_blob"]
+        )
