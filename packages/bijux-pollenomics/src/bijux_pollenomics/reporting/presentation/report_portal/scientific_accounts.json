@@ -4616,7 +4616,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/propagation/source-first-observed/report.json",
-            "sha256": "e6fca4919948723ae635d488b783985b9287e19ab48374265ed4ea3e8d77ef82"
+            "sha256": "9d399326f4c9a476df31a062a7f97aeb9f97570dbbf0477449e29d840c75cb45"
           }
         ]
       }

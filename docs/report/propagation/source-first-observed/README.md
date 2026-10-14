@@ -86,7 +86,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 Qualified authored reader SHA-256: `d2cee2a8542f37336a1c1065367579787e6751f095cd295475309c0cac000fa6`.
 
-- [Retained qualification evidence: docs/report/propagation/source-first-observed/report.json](report.json) (SHA-256 `e6fca4919948723ae635d488b783985b9287e19ab48374265ed4ea3e8d77ef82`).
+- [Retained qualification evidence: docs/report/propagation/source-first-observed/report.json](report.json) (SHA-256 `9d399326f4c9a476df31a062a7f97aeb9f97570dbbf0477449e29d840c75cb45`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
