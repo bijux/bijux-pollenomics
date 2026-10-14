@@ -68,11 +68,20 @@ def test_composite_helpers_resolve_facade_helpers(
             SimpleNamespace(
                 coordinates=SimpleNamespace(latitude=0.0, longitude=0.0),
                 chronology=SimpleNamespace(time_start_bp=0, time_end_bp=100),
+                source_family="AADR",
                 sample_count=2,
                 sample_ids=("one", "two"),
                 sample_chronologies=tuple(
                     AdnaSampleChronologySupport(
-                        sample_id, AdnaChronology("source", 0, 100, 50)
+                        sample_id,
+                        AdnaChronology(
+                            "source",
+                            0,
+                            100,
+                            50,
+                            evidence_class="direct_numeric_sample_date",
+                            precision_posture="sample_precise_interval",
+                        ),
                     )
                     for sample_id in ("one", "two")
                 ),

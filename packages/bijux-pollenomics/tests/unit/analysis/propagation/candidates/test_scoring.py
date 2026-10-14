@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     CandidateSiteContext,
     resolve_ranking_profile,
@@ -97,3 +99,20 @@ def test_fieldwork_triage_can_clear_recommendation_gate_with_cross_species_evide
     assert score.sampling_recommendation_ready is True
     assert score.species_diversity_signal >= 0.6
     assert not score.recommendation_blockers
+
+
+def test_valid_display_hull_without_member_chronology_remains_downgraded() -> None:
+    source = replace(locality(4), sample_chronologies=())
+    candidate = CandidateSiteContext(
+        locality=source,
+        nearby_context_points=8,
+        nearby_context_layer_count=3,
+        time_aware_context_points=5,
+        temporal_overlap_points=3,
+        nearest_context_distance_km=5.0,
+    )
+    score = score_candidate_site(candidate)
+    assert score.ranking_status == "downgraded"
+    assert "missing_direct_chronology" in score.warning_flags
+    assert score.sampling_recommendation_ready is False
+    assert source.sample_count == 4 and source.time_start_bp == 2500

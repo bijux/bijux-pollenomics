@@ -8,7 +8,7 @@ import pytest
 
 from bijux_pollenomics.reporting.map_document.temporal_admission import finite_number
 
-from .support import run_node_json, template_block
+from ..support import run_node_json, template_block
 
 
 @pytest.mark.parametrize(

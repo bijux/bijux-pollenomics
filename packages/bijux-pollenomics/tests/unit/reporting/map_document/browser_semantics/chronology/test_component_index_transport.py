@@ -24,8 +24,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
     decode_chunk_script,
 )
 
-from .support import run_node_json, template_block
-from .test_sample_occurrence_time import _feature
+from ..support import run_node_json, template_block
+from .support import _feature
 
 
 def _logical() -> dict[str, Any]:

@@ -15,7 +15,7 @@ from bijux_pollenomics.reporting.map_document.temporal_admission import (
     feature_temporal_admission,
 )
 
-from .support import run_node_json, template_block
+from ..support import run_node_json, template_block
 
 
 def _feature(precision: str, refusal: str = "") -> dict[str, Any]:

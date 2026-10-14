@@ -8,6 +8,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from bijux_pollenomics.adna import AdnaChronology
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows import service
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows.source_records import (
     _load_project_animal_scope_lookup,
@@ -421,9 +422,14 @@ def test_atlas_builder_propagates_the_matched_samples_project_scope(
         },
         "project_accessions": ["PRJEB75467"],
         "sample_count": 1,
+        "sample_ids": ["bos_taurus:sample:PRJEB75467:one"],
     }
     sample = {
         "identity": {"stable_token": "bos_taurus:sample:PRJEB75467:one"},
+        "master_id": "bos_taurus:sample:PRJEB75467:one",
+        "chronology": AdnaChronology(
+            original_text="", time_start_bp=None, time_end_bp=None, time_mean_bp=None
+        ).as_dict(),
         "locality_identity": {"stable_token": site_token},
         "project_accession": "PRJEB75467",
         "source_native_scientific_name": "Bos primigenius",
@@ -457,3 +463,8 @@ def test_atlas_builder_propagates_the_matched_samples_project_scope(
     assert rows[0].primary_project_accession == "PRJEB75467"
     assert rows[0].source_native_scientific_names == ("Bos primigenius",)
     assert rows[0].animal_scope == "wild_or_progenitor_context"
+    assert len(rows[0].sample_chronologies) == 1
+    support = rows[0].sample_chronologies[0]
+    assert support.sample_id == sample["master_id"]
+    assert support.chronology.time_start_bp is None
+    assert support.chronology.time_end_bp is None

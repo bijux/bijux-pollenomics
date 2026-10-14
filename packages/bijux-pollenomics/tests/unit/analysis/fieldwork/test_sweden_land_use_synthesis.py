@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+from bijux_pollenomics.adna.domain.models.chronology import AdnaChronology
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.analysis import build_sweden_land_use_synthesis
 from tests.unit.analysis.fieldwork.payload_views import require_rows
 
@@ -114,11 +116,42 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
         coordinates=SimpleNamespace(latitude=56.133926, longitude=13.703841),
         chronology=SimpleNamespace(time_start_bp=1100, time_end_bp=1400),
         sample_count=2,
+        source_family="AADR",
+        sample_ids=("one", "two"),
+        sample_chronologies=tuple(
+            AdnaSampleChronologySupport(
+                sample_id,
+                AdnaChronology(
+                    "1100-1400 BP",
+                    1100,
+                    1400,
+                    1250,
+                    evidence_class="direct_numeric_sample_date",
+                    precision_posture="sample_precise_interval",
+                ),
+            )
+            for sample_id in ("one", "two")
+        ),
     )
     animal = {
         "latitude": 56.133926,
         "longitude": 13.703841,
         "sample_count": 1,
+        "source_family": "ENA",
+        "sample_ids": ["animal-one"],
+        "sample_chronologies": [
+            AdnaSampleChronologySupport(
+                "animal-one",
+                AdnaChronology(
+                    "1150-1350 BP",
+                    1150,
+                    1350,
+                    1250,
+                    evidence_class="direct_numeric_sample_date",
+                    precision_posture="sample_precise_interval",
+                ),
+            ).as_dict()
+        ],
         "chronology": {"time_start_bp": 1150, "time_end_bp": 1350},
     }
 
