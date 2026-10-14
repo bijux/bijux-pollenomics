@@ -1256,12 +1256,12 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
-      "sha256": "27b2454c0dbd001284b8749b361b5af3373d6e97a2180c92b5d0d1e864850557",
+      "sha256": "052b6d80cb38d145717176192389f6e3532afc4b0fb9303965df41bded614c3b",
       "bytes": 22470
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "ef33eaee7d8bf1766864fd97b2fc57f0104184c927e2e2bfc614d23a5e35a3ff",
+      "sha256": "af63b447920cd78269e39d119808d5d8b985b33d2cddc6f62ab929acbdce2532",
       "bytes": 94295
     },
     {
