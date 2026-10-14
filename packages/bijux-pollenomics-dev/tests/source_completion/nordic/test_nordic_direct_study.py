@@ -226,11 +226,56 @@ def test_country_or_output_drift_refused(
     assert sys.argv is original
 
 
-def test_retained_publication_names_current_original_producer() -> None:
-    """Documentation edits must not leave published source custody stale."""
+def test_retained_prediction_origin_and_current_source_qualification() -> None:
+    """Keep historical prediction origin separate from current source qualification."""
     repository = Path(__file__).resolve().parents[5]
     root = repository / "docs/report/regions/nordic/direct-pollen"
     report = json.loads((root / "manifest.json").read_bytes())
-    assert report["input_identity"]["runner_sha256"] == sha(repository / study.SOURCE)
+    correspondence = json.loads((root / "source-correspondence.json").read_bytes())
+    assert (
+        correspondence["schema_version"] == "nordic-retained-producer-correspondence.v1"
+    )
+    assert correspondence["status"] == (
+        "qualified_source_preparation_and_retained_prediction_rescoring"
+    )
+    historical = correspondence["historical_prediction_producer"]
+    current = correspondence["qualified_current_preparation_and_scoring_producer"]
+    assert historical["path"] == current["path"] == study.SOURCE.as_posix()
+    assert report["input_identity"]["runner_sha256"] == historical["sha256"]
+    assert current["sha256"] == sha(repository / study.SOURCE)
+    assert historical["sha256"] != current["sha256"]
+    assert correspondence["new_prediction_or_fit_calls"] == 0
+    assert correspondence["actual_stages"] == [
+        "historical_prepare",
+        "current_prepare",
+        "current_score_with_unchanged_retained_predictions",
+    ]
+    assert (
+        correspondence["preparation"][
+            "historical_input_identity_equals_retained_publication"
+        ]
+        is True
+    )
+    assert (
+        correspondence["preparation"]["byte_identical_training_and_metadata_products"]
+        == 7
+    )
+    assert correspondence["execution"]["native_exit_code"] == 0
+    retained = correspondence["retained_publication"]
+    assert retained["manifest_sha256"] == sha(root / "manifest.json")
+    assert retained["prediction_counts"] == report["prediction_counts"]
+    assert retained["prediction_sha256"] == report["prediction_sha256"]
+    assert retained["scored_rows"] == report["scored_rows"] == 6172
     for country, expected in report["prediction_sha256"].items():
         assert sha(root / f"predictions-{country}.json") == expected
+    for name, expected in retained["matched_product_sha256"].items():
+        raw = (root / name).read_bytes()
+        if name == "RESULTS.md":
+            from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+                load_routes,
+                verified_authored_reader,
+            )
+
+            relative = (root / name).relative_to(repository).as_posix()
+            raw = verified_authored_reader(raw, load_routes()[relative])
+        assert hashlib.sha256(raw).hexdigest() == expected

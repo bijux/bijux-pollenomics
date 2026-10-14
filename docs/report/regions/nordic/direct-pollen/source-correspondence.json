@@ -1,0 +1,101 @@
+{
+  "actual_stages": [
+    "historical_prepare",
+    "current_prepare",
+    "current_score_with_unchanged_retained_predictions"
+  ],
+  "execution": {
+    "consumer_sha256": "557dce2588d0bc32c704094481bef2da777a4a7140d77dc91395c1d681a310e5",
+    "elapsed_seconds": 102.43227954098256,
+    "memory_budget_bytes": 3221225472,
+    "memory_enforcement": "postrun_getrusage_qualification_not_runtime_limit",
+    "native_correspondence_sha256": "5f710a55d249bc1cca745847b9211ad61f621c83ddb1042dca4af64acfd6061d",
+    "native_exit_code": 0,
+    "owned_source_module_origins": 1002,
+    "peak_child_rss_bytes": 2326331392,
+    "plan_sha256": "ef9fa8d9c9469625df7feed58aca882593462b93a0b9172af0459b0935c54221",
+    "source_snapshot_sha256": "256847968e3deea77d273e9d6ade02d9bfd9ba622206d3f4286ab17f865c1c4c",
+    "terminal_sha256": "656814caced4ee0bc3e8c4ca9f5eefd1eb9ea7fd62df43d9b3dbaa389d6d1b5f",
+    "unchanged_protected_inputs": 30396,
+    "wrapper_sha256": "038176370c2c5567f37b3209c7cb49bf48136a0f6838e4b4f26f3c9b068e6d10"
+  },
+  "historical_prediction_producer": {
+    "identity_role": "Actual original retained publication and prediction source; retained attribution is unchanged.",
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+    "sha256": "59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77",
+    "source_commit": "0d778cfe91582a50a67bdaac046ff2e98d308896"
+  },
+  "method_scope": "The old source was recovered from its exact retained Git revision. Both source versions ran against the same frozen current host/dev source export, runtime and existing raw/relational Neotoma snapshot. The old historical dependency environment is not reconstructed. Fitting and prediction entrypoints were replaced with refusing guards only in the owning comparison process; actual original prepare and score implementations were used.",
+  "new_prediction_or_fit_calls": 0,
+  "preparation": {
+    "allowed_manifest_difference": [
+      "runner_sha256"
+    ],
+    "byte_identical_training_and_metadata_products": 7,
+    "current_input_manifest_sha256": "987adedb8099de5deaa428a62929d81d8228a3c3823aa8a7c4da3877d797cb18",
+    "historical_input_identity_equals_retained_publication": true,
+    "historical_input_manifest_sha256": "4a2539af99d73e771b70874dc6d5b7781b2532f5feaf357b62905ad39c6ecc76",
+    "shared_file_sha256": {
+      "inputs/metadata-DK.json": "b4a5a7a9b51e9e47f936d4a8acdc0311a3ee377e75217ac22bb427adc14ca6b1",
+      "inputs/metadata-FI.json": "c6faf842ea9163737e6b10233dd34195187219f7e8931a67f56ddcbe739b000a",
+      "inputs/metadata-NO.json": "5ec869fc2876b1a05862bdeee911de1457922076e63e1f1b40b1ee7976f6b3a4",
+      "inputs/training-DK.json": "def96acd422e9a4975ee8fff3b79a2127c4d1747b3345d2d24296b9670070700",
+      "inputs/training-FI.json": "908f2868c5b8020878119329cb0de3c941ac680f54fdb4ca073a83776920793f",
+      "inputs/training-NO.json": "c16fd213650f022076ad157a4b3f09c96c4c9d6bfd889c06180e068dceae305f",
+      "target-metadata.json": "5390eb600eecea32546867525b702db2a2483a50cdfe5aa3cacab7a73b335dc2"
+    }
+  },
+  "prospective_current_manifest": {
+    "adopted_as_historical_prediction_origin": false,
+    "adopted_into_retained_publication": false,
+    "changed_fields": [
+      "input_identity.runner_sha256"
+    ],
+    "sha256": "7e0a5817081e8783a7a444ce826cb648f14eca3203e89a939ba8bb70bc87c840"
+  },
+  "qualified_current_preparation_and_scoring_producer": {
+    "candidate": "8849b2116caf612720a0b41e87229d22a13f251d",
+    "identity_role": "Actual current preparation/scoring source, not an assertion that historical predictions were rerun.",
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+    "sha256": "7a814e97338ae4f66d32e5052662b49a77449bc1ea1619a60674e31d6589a1a3"
+  },
+  "retained_publication": {
+    "manifest_path": "docs/report/regions/nordic/direct-pollen/manifest.json",
+    "manifest_sha256": "43ec4aa62c1c93c0b3af0da2733706eb68a9685bd3f37b18a3041d22e7382573",
+    "markdown_comparison": "RESULTS.md original authored bytes are compared before its terminal scientific-account route. The new publication writer produced exactly the manifest-bound original authored body.",
+    "matched_product_sha256": {
+      "RESULTS.md": "be05e7fdaf846dfb1f049964cd72e64975b7e04f7d40858c75d876bcb4adcff4",
+      "cohort.csv": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32",
+      "coverage.csv": "634a78011031e180290304d9843e42a36e3d59c24f4a1c396b41dcf7a96df9a1",
+      "predictions-DK.json": "ab637ecd8dfaaf672e5f5a496059a9aaa516d28d76cdef1aabac2dacb23aeee8",
+      "predictions-FI.json": "f3727dc8111ef2c8794f93f32cc21b452785e1ebcf6b14117c6534b79dd19e5a",
+      "predictions-NO.json": "4b4e5d15a43af53691943eb3e39f301b56a986f7711464e52e1ff016131d28b1",
+      "predictions.csv": "f1997cfe75185b7d672c8ad9c409b16c6d9568eb789a851ac2ae0ec7deb04696",
+      "scores.csv": "b85963e3b2e0386541dfcebf0e14530571d1bcc22f630f0720e43592e44ef2d8",
+      "site-scores.csv": "60381b7e2d07f7ff1f9e58554b0439ce40fb8933093357eea70388ffbd298d0c",
+      "training-sources.csv": "df901240f952fadccd2977553382709134f11c43cb5f3163c84f195ce863321a"
+    },
+    "original_runner_sha256": "59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77",
+    "prediction_counts": {
+      "DK": 96,
+      "FI": 1740,
+      "NO": 4336
+    },
+    "prediction_sha256": {
+      "DK": "ab637ecd8dfaaf672e5f5a496059a9aaa516d28d76cdef1aabac2dacb23aeee8",
+      "FI": "f3727dc8111ef2c8794f93f32cc21b452785e1ebcf6b14117c6534b79dd19e5a",
+      "NO": "4b4e5d15a43af53691943eb3e39f301b56a986f7711464e52e1ff016131d28b1"
+    },
+    "scored_rows": 6172
+  },
+  "schema_version": "nordic-retained-producer-correspondence.v1",
+  "scientific_limits": "Previously exposed 16-label observed-pollen development only. All existing source/chronology/count-mask, independence, LRA, vegetation-reference, rights and human-review restrictions remain unchanged.",
+  "source_change": {
+    "description": "The current reader returns fresh dictionary copies instead of a typing.cast, changes the malformed-row error message, and removes the unused cast import. Prediction, scoring and other top-level function ASTs match exactly.",
+    "only_changed_function": "_read_rows",
+    "unchanged_top_level_function_asts": 16
+  },
+  "status": "qualified_source_preparation_and_retained_prediction_rescoring",
+  "supported_claim": "The historical and current original study producers prepare identical training and target metadata on the same governed Neotoma inputs under the admitted runtime. The current scorer reproduces all retained scores and publication products using the unchanged historical predictions.",
+  "unsupported_claim": "No current prediction rerun, new model fit, independently untouched holdout, LRA reconstruction, vegetation accuracy, original historical runtime reproduction, source-rights decision or qualified human scientific approval is established."
+}

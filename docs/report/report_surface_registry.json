@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2088,
+  "surface_count": 2089,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -15,18 +15,18 @@
     "maps": 88,
     "portal": 2,
     "reviews": 38,
-    "scopes": 760
+    "scopes": 761
   },
   "audience_counts": {
     "maintainer_diagnostic": 1192,
-    "public_reading_surface": 769,
+    "public_reading_surface": 770,
     "scientific_review_surface": 127
   },
   "geography_counts": {
     "denmark": 49,
     "europe_plus": 62,
     "finland": 14,
-    "nordic": 497,
+    "nordic": 498,
     "norway": 14,
     "report_root": 1243,
     "sweden": 49,
@@ -25409,6 +25409,18 @@
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/direct-pollen/source-correspondence.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
     }
   ]
 }

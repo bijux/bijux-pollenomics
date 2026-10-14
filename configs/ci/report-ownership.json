@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2092,
-  "paths_sha256": "378ab9dd43f110cfdd0b235021fefcbb9544ac87ae938ce3204ac3da9a4eeefd",
+  "path_count": 2093,
+  "paths_sha256": "c9ac1e7b5b4f0366291063e222c7fdce8ef3aa5629c18f7ac121985bae8b4b7c",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -48521,6 +48521,24 @@
         "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json"
       ],
       "verification": "Actual original plus two maintained isolated-source CLI runs0; all3products byte-identical.4newwindtuples independently lens-checked and97,392Decimal comparisons pass;13API/source/windnegativecontrols/7custodytests/strict2/Ruff-format0. Retained source packet and exact receipts bound; no ordinary configured SOURCE_RUNTIME owner or new empirical/source-rights/historical admission is claimed."
+    },
+    {
+      "owner_id": "regions/nordic/direct-pollen/source-correspondence",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/regions/nordic/direct-pollen/source-correspondence.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/nordic_direct_study.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py"
+      ],
+      "producer_inputs": [
+        "docs/report/regions/nordic/direct-pollen/manifest.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-DK.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-NO.json"
+      ],
+      "verification": "Retained bounded source-correspondence receipt: actual historical/current prepare and current score using unchanged historical predictions; all10 publication products match,7 prepared products match and only runner identity differs. Current producer hash does not reattribute original predictions. This is not an ordinary configured full-study or new model qualification; a changed original source requires a fresh correspondence decision."
     }
   ]
 }
