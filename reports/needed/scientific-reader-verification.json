@@ -1830,6 +1830,16 @@
       "actual_two_lane_terminal_sha256": "2242beedbba62e42dc238a325a56fd4e60fac16a16963cf920b0906870f64c45",
       "prior_readability_execution_preserved": true,
       "scope": "Native typed-annotation/source custody and independently verified deterministic report replay. Original327-reader execution/report_prose remains historical; no new scientific, dating, rights or human review admission."
+    },
+    {
+      "report_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
+      "authored_source_sha256": "3431f89c97c9a57e3c4302cfd3d6598881359a33a37fd9b7f7535e4fdd009a6f",
+      "rendered_sha256": "2000c54a6b1067a7f6ed8e3aa93bf64e91b0bc22c44ac19ae46fdffcb4850d1f",
+      "native_geodesic_source_account": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-source.json",
+      "native_geodesic_source_account_sha256": "3e35a8df5fb9875bf99f863a569ae7decb42bf0987327df25a75902cd9e20b11",
+      "actual_publication_terminal_sha256": "87cef562d25810b77b1c0623e40865a5896a0b01360dd4c6453a6ed38e12fa22",
+      "prior_readability_execution_preserved": true,
+      "scope": "Actual finite geodesic context sensitivity and exact aggregate transport; original327reader execution/report_prose stays historical. No human reader/ecological/rights/release admission."
     }
   ],
   "subsequent_source_link_adoptions": [

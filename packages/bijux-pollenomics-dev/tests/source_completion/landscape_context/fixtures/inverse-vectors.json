@@ -1,0 +1,163 @@
+{
+  "source_url": "https://raw.githubusercontent.com/geographiclib/geographiclib-python/v2.1/geographiclib/test/test_geodesic.py",
+  "source_sha256": "3d7dc6af79eb9c6e8a1834bc6212eac3c24f78f82631568194044b13c6b9c4d0",
+  "source_execution": false,
+  "source_field_positions": [
+    "lat1",
+    "lon1",
+    "azi1",
+    "lat2",
+    "lon2",
+    "azi2",
+    "s12_m",
+    "a12",
+    "m12",
+    "M12",
+    "M21",
+    "S12"
+  ],
+  "vectors": [
+    {
+      "latitude_1": 35.60777,
+      "longitude_1": -139.44815,
+      "latitude_2": -11.17491,
+      "longitude_2": -69.95921,
+      "expected_metres": 8935244.56048183
+    },
+    {
+      "latitude_1": 55.52454,
+      "longitude_1": 106.05087,
+      "latitude_2": 77.03196,
+      "longitude_2": 197.18234,
+      "expected_metres": 4105086.171392441
+    },
+    {
+      "latitude_1": -21.97856,
+      "longitude_1": 142.59065,
+      "latitude_2": 41.84138,
+      "longitude_2": 98.56635,
+      "expected_metres": 8394328.894657671
+    },
+    {
+      "latitude_1": -66.99028,
+      "longitude_1": 112.2363,
+      "latitude_2": -12.70631,
+      "longitude_2": 285.90344,
+      "expected_metres": 11150344.231208025
+    },
+    {
+      "latitude_1": -17.42761,
+      "longitude_1": 173.34268,
+      "latitude_2": -15.84784,
+      "longitude_2": 5.93557,
+      "expected_metres": 16076603.163118068
+    },
+    {
+      "latitude_1": 32.84994,
+      "longitude_1": 48.28919,
+      "latitude_2": -56.28556,
+      "longitude_2": 202.29132,
+      "expected_metres": 16727068.943816446
+    },
+    {
+      "latitude_1": 6.96833,
+      "longitude_1": 52.74123,
+      "latitude_2": -7.39675,
+      "longitude_2": 206.17291,
+      "expected_metres": 17102477.249695837
+    },
+    {
+      "latitude_1": -50.56724,
+      "longitude_1": -16.30485,
+      "latitude_2": -33.56571,
+      "longitude_2": -94.97412,
+      "expected_metres": 6455670.511866869
+    },
+    {
+      "latitude_1": -58.93002,
+      "longitude_1": -8.90775,
+      "latitude_2": -8.91104,
+      "longitude_2": 133.13503,
+      "expected_metres": 11756066.021986462
+    },
+    {
+      "latitude_1": -68.82867,
+      "longitude_1": -74.28391,
+      "latitude_2": -50.63005,
+      "longitude_2": -8.36685,
+      "expected_metres": 3956936.926063544
+    },
+    {
+      "latitude_1": -10.62672,
+      "longitude_1": -32.0898,
+      "latitude_2": 5.883,
+      "longitude_2": -134.31681,
+      "expected_metres": 11470869.386456301
+    },
+    {
+      "latitude_1": -21.76221,
+      "longitude_1": 166.90563,
+      "latitude_2": 48.72884,
+      "longitude_2": 213.97627,
+      "expected_metres": 9098627.398655491
+    },
+    {
+      "latitude_1": -19.79938,
+      "longitude_1": -174.47484,
+      "latitude_2": -11.99349,
+      "longitude_2": -154.35109,
+      "expected_metres": 2319004.860116939
+    },
+    {
+      "latitude_1": -11.95887,
+      "longitude_1": -116.94513,
+      "latitude_2": 4.57352,
+      "longitude_2": 7.16501,
+      "expected_metres": 13834722.580140138
+    },
+    {
+      "latitude_1": -87.85331,
+      "longitude_1": 85.66836,
+      "latitude_2": 66.48646,
+      "longitude_2": 16.09921,
+      "expected_metres": 17286615.314714465
+    },
+    {
+      "latitude_1": 1.74708,
+      "longitude_1": 128.32011,
+      "latitude_2": -11.16617,
+      "longitude_2": 11.87109,
+      "expected_metres": 12942901.124134742
+    },
+    {
+      "latitude_1": -25.72959,
+      "longitude_1": -144.90758,
+      "latitude_2": -57.70581,
+      "longitude_2": -269.17879,
+      "expected_metres": 9413446.745245311
+    },
+    {
+      "latitude_1": -41.22777,
+      "longitude_1": 122.32875,
+      "latitude_2": -7.57291,
+      "longitude_2": 130.37946,
+      "expected_metres": 3812686.035106021
+    },
+    {
+      "latitude_1": 11.01307,
+      "longitude_1": 138.25278,
+      "latitude_2": 6.62726,
+      "longitude_2": 247.05981,
+      "expected_metres": 11911190.819018409
+    },
+    {
+      "latitude_1": -29.47124,
+      "longitude_1": 95.14681,
+      "latitude_2": -27.46601,
+      "longitude_2": -69.15955,
+      "expected_metres": 13487015.838114548
+    }
+  ],
+  "tolerance_metres": 1e-05,
+  "attribution": "Charles F. F. Karney, GeographicLib Python v2.1 official test vectors; original copyright/license retained in captured source. Only numerical reference data is used, never executed."
+}

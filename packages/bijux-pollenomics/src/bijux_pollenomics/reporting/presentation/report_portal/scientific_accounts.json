@@ -1735,17 +1735,17 @@
       ],
       "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.",
       "qualification": {
-        "authored_reader_sha256": "670a2fffa686eee20f1b97b01521d0ad409154014e4a0b02133cdab286ed6263",
+        "authored_reader_sha256": "3431f89c97c9a57e3c4302cfd3d6598881359a33a37fd9b7f7535e4fdd009a6f",
         "fields": {
-          "supported_claim": "This stable citation points to the retained BUS/BOKE observed-pollen comparison and producer-owned transition table; it adds zero fits or independent checks.",
+          "supported_claim": "The retained two-lake trajectory is supplemented by an actual source-bound spherical/WGS84 context-membership sensitivity: 8,799 features, three prespecified coordinates and 156 method/window cells. Twenty-nine spatial memberships differ; only two dated BOKE 20 km bins change.",
           "unsupported_claim": "The pointer and descriptive two-lake agreement cannot validate land use or vegetation: LandClim shares these input sites and SEAD lacks a qualified comparable ecological measurement.",
-          "actual_verification_performed": "Read the pointer,retained report and transition ledger and pinned their current bytes; no pollen aggregation,bootstrap,window sensitivity or independent model was run.",
+          "actual_verification_performed": "Actual 26,397 feature–centre distance comparisons reproduced all 78 original sphere cells. Independent source/ID/bin/count reconstruction and scalar distance checks passed; 57 published distance/boundary controls retained. Two public aggregate products exactly reproduce qualified private outputs; no source chronology or pollen model was refitted.",
           "remaining_input_or_review": "Qualified independent ecological measurements and source-compatible chronology are required before interpreting concordance as a land-use trajectory.",
           "cause_category": "Citation routing to descriptive observed-pollen trajectories with dependent modeled context.",
           "consequence": "Apparent agreement or contradiction remains source-local description; no independent land-use/vegetation conclusion follows.",
-          "precise_next_acceptance_route": "Inspect the canonical two-lake research account and retained 500/1000 year contrasts; qualify independent field support before a predeclared accuracy or land-use comparison.",
-          "negative_or_refused_result": "The retained answer explicitly refuses an independent land-use conclusion; source/window sensitivity and mismatched directions must remain visible.",
-          "matched_denominator": "Own new experiment population 0; linked 2 lakes×2 taxa over 13 common 500 calBP bins with 48 contrasts;alternate 6×1000 yearbins/20 contrasts are sensitivity support,not extra independent sites."
+          "precise_next_acceptance_route": "Inspect the geodesic report/window ledger and original trajectory separately; qualify source-compatible event chronology, historical basin/core support, independent measurements and rights before any land-use/vegetation interpretation.",
+          "negative_or_refused_result": "WGS84 removes 14 features from one BOKE 20 km site in each 0–500 and 500–1,000 BP bin; claim deltas are −18 and −16. The 1,555 undated features remain unresolved. No best coordinate, archaeological event or causal land-use conclusion is selected.",
+          "matched_denominator": "Original two lakes × two taxa / 13 bins / 48 threshold contrasts remain historical. Separate geography scenario:8,799 features = 7,244 numeric + 1,555 unresolved; three centres × two radii × 13 bins × two distance methods = 156 cells; repeated windows/features/sites are not independent observations."
         },
         "evidence_pins": [
           {
@@ -1755,6 +1755,18 @@
           {
             "path": "docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv",
             "sha256": "33db69418a84da79a0adfa9091d4ccb7e2f5a6f75d3c93c540ae184d6c287cb6"
+          },
+          {
+            "path": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-sensitivity.json",
+            "sha256": "401b87113160a052538c9f764c72f642c40bd4b8ea0d3f952ca7d952723e0745"
+          },
+          {
+            "path": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv",
+            "sha256": "a4fd3ea9ebae58fc415a2f83806f9792f783df94b11a8251c2e1459cdc23135c"
+          },
+          {
+            "path": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-source.json",
+            "sha256": "3e35a8df5fb9875bf99f863a569ae7decb42bf0987327df25a75902cd9e20b11"
           }
         ]
       }

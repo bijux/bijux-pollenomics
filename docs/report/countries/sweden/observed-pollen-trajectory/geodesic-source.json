@@ -1,0 +1,91 @@
+{
+  "schema_version": "landscape-geodesic-source.v1",
+  "scientific_source_candidate": "22499eadfdf25afc44ccb46968c6ecdce7c77324",
+  "publication_source_candidate": "410ab4bf928fb0ed8e5d6f0147615df9c8c65b78",
+  "scientific_plan_sha256": "fb9d536f2fdf5b3d73e6a9d61dd5f7bfebe654af9a949c42d3fdd5620e13aea5",
+  "scientific_terminal": {
+    "path": "artifacts/science/landscape-geodesic-artifact-parent/execution/terminal.json",
+    "sha256": "9d2e7a2ca8ca811975fb8a6cfb1a88d2e5f534199f4a4c6facf026c407d9e934",
+    "native_exit": 0
+  },
+  "aggregate_projection_terminal": {
+    "path": "artifacts/science/landscape-geodesic-publication/execution/terminal.json",
+    "sha256": "87cef562d25810b77b1c0623e40865a5896a0b01360dd4c6453a6ed38e12fa22",
+    "native_exit": 0
+  },
+  "private_product_identity": {
+    "feature-distances.csv": "56611824f7721cf05eb9b23b96a1053ab1b76f191805b925d80ad64cca5b179f",
+    "membership-changes.csv": "8e897ae20f2cb753f360f2c7ec02181b16996bd72c44a5c39dcde2a968dff739",
+    "report.json": "401b87113160a052538c9f764c72f642c40bd4b8ea0d3f952ca7d952723e0745",
+    "window-cells.csv": "a4fd3ea9ebae58fc415a2f83806f9792f783df94b11a8251c2e1459cdc23135c"
+  },
+  "public_products": {
+    "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-sensitivity.json": "401b87113160a052538c9f764c72f642c40bd4b8ea0d3f952ca7d952723e0745",
+    "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv": "a4fd3ea9ebae58fc415a2f83806f9792f783df94b11a8251c2e1459cdc23135c"
+  },
+  "maintained_source_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/geodesic.py": "8c6705850f5339a4f05b57e8b3e60a9e5e899fb4af954c0139c0a162e0f29ea2",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/__init__.py": "82dafb413a6b13f61ec24c71e505b625810a09597dfe9d2c61e47a52f349c36d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/publication.py": "f01aed263c59f194ea3dd15a2747786dce3be59755f49f49fe146dbc49fca65e",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/membership.py": "8b76351e66ca7c607d73701f79873f1ce474fd579690447a5ef0ae248c84ba9b",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/source.py": "e7b26cadc809959dbfcb744daf588fca5688ce026630c4dee5edf8ac99e3fbf7",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landscape_context/report.py": "12a38761e48d2fdd034e8e3f1e1f524740f1f6d49093a9d1a10e3e276fcfa41c"
+  },
+  "reused_57_distance_controls": {
+    "plan": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/plan.json",
+    "plan_sha256": "8296af5535146f6f2d4930f69dc5427b4df41db31b1ff45235a8456cf81ac54a",
+    "terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/execution/terminal.json",
+    "terminal_sha256": "ad712ab6da95919b750d4e4fca41a31e643ab58c5710c4aabe21f46168364f6f",
+    "native_exit": 1,
+    "source_feature_consumer_read_inputs": false,
+    "controls_reused": {
+      "id": "published-distance-boundary-and-source-support-controls",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/bootstrap.py",
+        "pytest",
+        "-q",
+        "-c",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/source-view/configs/pytest.ini",
+        "--rootdir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/source-view",
+        "--import-mode=importlib",
+        "-p",
+        "pytest_asyncio.plugin",
+        "-p",
+        "pytest_timeout",
+        "--strict-config",
+        "-o",
+        "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/execution/pytest-cache",
+        "--basetemp",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/execution/pytest",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/source-view/packages/bijux-pollenomics-dev/tests/source_completion/landscape_context"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 0.439875292009674,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/execution/logs/published-distance-boundary-and-source-support-controls.stdout",
+      "stdout_sha256": "6a8eda4240c9667f5b2f0095fbbedb0684bc27fb5239fb3ac4b45b912cf7fcc9",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landscape-geodesic-canonical-reference/execution/logs/published-distance-boundary-and-source-support-controls.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "maintained_sources_and_fixtures_all_byte_identical": true,
+    "correction": "Materialize real owned source-view/artifacts parent before frozen plan. Existing guarded writer and all numerical sources unchanged."
+  },
+  "preserved_predecessors": [
+    "Original unrolled-reference-longitude control refusal; fixture adapter normalized equivalent reference longitude only.",
+    "Actual57controls then passed; missing artifactparent refused writer before native feature read.",
+    "Qualified actual feature consumer and independent all-ID/distance/bin observer then passed; no source guard or tolerance changed."
+  ],
+  "source_scope": "8799 original source features,26397feature-centre distances,3prespecified coordinates,10/20km and13fixed half-open bins. All78original spherical cells reproduce;156method/window cells,29spatial membershipchanges and2dated BOKE20km changes. Native uncertainty/qualifier fields remain separate; shared LandClim779lineage is not independent evidence.",
+  "independent_verification_scope": "Independent source IDs/counts/bin support reconstructed; Python haversine crosschecked by PROJ zero-flattening sphere and published reference controls. Scalar WGS84 verification shares PROJ backend; no independent ellipsoid implementation claimed.",
+  "private_details_redistributed": false,
+  "ecological_event_admission": false,
+  "rights_admission": false,
+  "chronology_refit": false,
+  "untouched_confirmation": false,
+  "whole_requirement_closed": false
+}

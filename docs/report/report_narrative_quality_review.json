@@ -702,11 +702,11 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
-      "content_sha256": "9cd4129fba02f0407d2cd5d0b2448137b2b8e91957920a7ce8f57410a9068aec",
-      "prose_paragraph_count": 12,
-      "link_bullet_count": 4,
+      "content_sha256": "2000c54a6b1067a7f6ed8e3aa93bf64e91b0bc22c44ac19ae46fdffcb4850d1f",
+      "prose_paragraph_count": 15,
+      "link_bullet_count": 7,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 3,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -3408,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "e434ca17215cc6fa23c59fed7526e0bd893f80045e76b7a44b8412e27471e5a4",
+      "content_sha256": "c54b943e88cd431a52c852463032136b40734e09333e56f6d92b1caa3a661f92",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3452,7 +3452,7 @@
     },
     {
       "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "4a30abe508db327909986a1785b8f1869bf03fe8199d978a005236f68abda668",
+      "content_sha256": "81d83683dc8e04502acc66d2a75743d23d04d008af90eb4d5ec9fc34858511d8",
       "prose_paragraph_count": 3,
       "link_bullet_count": 4,
       "bullet_sentence_count": 4,

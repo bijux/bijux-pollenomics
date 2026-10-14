@@ -2222,6 +2222,18 @@
       },
       "timeout_seconds": 60,
       "artifact_output_flag": "--retained-artifacts-root"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.landscape_context.publication",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "countries/sweden/observed-pollen-trajectory/geodesic-context",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/geodesic-sensitivity.json": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-sensitivity.json",
+        "source-products/geodesic-window-cells.csv": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv"
+      },
+      "timeout_seconds": 120
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"
