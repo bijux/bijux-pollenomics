@@ -2063,17 +2063,17 @@
       ],
       "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.",
       "qualification": {
-        "authored_reader_sha256": "e0c8a3ded551018f53d28ce17d9256beae3f61ff7f720499be4094eee9825e30",
+        "authored_reader_sha256": "09e785195cde3ed5f34a85a64d7495bb8cd919d2830476efbfd1d787fb0d7c2e",
         "fields": {
-          "supported_claim": "This preparation reader declares identity,sampling-fit,human-context and interoperability rules but retains zero reviewed lake rows.",
-          "unsupported_claim": "Declared shortlist rules and a no-reviewed-lakes placeholder do not establish a viable coring location,reviewed priority or final sampling recommendation.",
-          "actual_verification_performed": "Read the methodology and machine row_count 0/emptyrows; distinguished the rendered placeholder from a real candidate. No fieldwork screen,source review or sampling assessment was executed.",
-          "remaining_input_or_review": "Admitted governing lake candidates,physical identity,basin/sample suitability,source-compatible human/SEAD context and qualified field review are still required.",
-          "cause_category": "Downstream preparation blocked by absent admitted lake population.",
-          "consequence": "No lake obtains a fieldwork rank or preparation endorsement; declared thresholds remain conditional design rules.",
-          "precise_next_acceptance_route": "Resolve the governingSVARregistry and candidate admission,then apply identity/near-context/sampling rules to actual reviewed lakes and record required actions before fieldwork decisions.",
-          "negative_or_refused_result": "No reviewed lakes;0 real preparation rows. The placeholder carries neither a registry identity nor a recommendation.",
-          "matched_denominator": "0 candidate preparation rows;displayed no-reviewed-lakes placeholder contributes 0 observations,0 ranks and 0 sampling recommendations."
+          "supported_claim": "This reader retains zero reviewed lake rows and declared fieldwork rules. A separate finite native archaeology comparison covers four source-brief coordinates, with 48,219 geometry occurrences, 21,467 source-record UUIDs and 58,936 candidate links; the fifth physical study object is unresolved.",
+          "unsupported_claim": "Native source support and declared shortlist rules do not establish archaeological event dates, independent site density, an admitted lake cohort, an authenticated historical basin, a viable coring location or field access.",
+          "actual_verification_performed": "Read the empty preparation table and source-bound native aggregate. The original read-only indexed consumer preserved typed native fields and geometry roles; an independent Decimal50 check compared 235,744 saved point/envelope bounds. The current maintained configured owner is qualified separately by its native reference and replay receipts.",
+          "remaining_input_or_review": "Admitted governing lake candidates, physical study identity, historical WFS/source-population correspondence, qualified event chronology and geometry interpretation, indirect attributes, basin suitability and field access remain unresolved.",
+          "cause_category": "Native local context is available, while governing lake admission, chronology and field decisions remain unresolved.",
+          "consequence": "No lead obtains a fieldwork rank, event interval, sampling endorsement or access permission. Positional-uncertainty polygons and repeated lead links cannot be counted as independent sites.",
+          "precise_next_acceptance_route": "Resolve governing lake and study-object identities, reconcile native archaeology classes and historical populations, qualify event dating and geometry use, then obtain source-specific review and field decisions before applying the declared sampling rules.",
+          "negative_or_refused_result": "Uppåkra/Lund has no qualified coordinate and was not queried. Line/polygon envelope overlap can remain ambiguous. All archaeological event intervals are null; the original 106-cell refusal branch and 40 unanswered field questions remain unchanged.",
+          "matched_denominator": "Zero reviewed lake rows and zero governed field candidates; four queried modern-reference leads and one identity refusal. The native comparison has 48,219 geometry occurrences, 21,467 UUIDs and 58,936 lead links, with separate geometry roles; these are not independent events."
         },
         "evidence_pins": [
           {
@@ -2083,6 +2083,14 @@
           {
             "path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
             "sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596"
+          },
+          {
+            "path": "docs/report/source-relations/raa/native-lead-support/report.json",
+            "sha256": "a9dd9a4d646fca094c1bf6af3e64e2f516804016fcaeb4cd76f0acedd397def7"
+          },
+          {
+            "path": "docs/report/source-relations/raa/native-lead-support/source-account.json",
+            "sha256": "d6d4b5a780d142157707c5adbd6be97637789d80852cd4f78fcd95f3bd5d75bb"
           }
         ]
       }

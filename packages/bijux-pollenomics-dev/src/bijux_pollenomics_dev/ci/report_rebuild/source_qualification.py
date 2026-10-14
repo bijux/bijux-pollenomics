@@ -93,4 +93,8 @@ def validated_external_report_sources(
         )
 
         return validated_pair_counting_capture(repository, source_root, descriptor_path)
+    if schema == "qualified-raa-native-geopackage.v1":
+        from .source_contracts.raa_native_geopackage import validated_raa_geopackage
+
+        return validated_raa_geopackage(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")

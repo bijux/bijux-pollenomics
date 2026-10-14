@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2130,
+  "surface_count": 2132,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1227,
+    "maintenance": 1229,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 767
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1229,
+    "maintainer_diagnostic": 1231,
     "public_reading_surface": 776,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1278,
+    "report_root": 1280,
     "sweden": 55,
     "world": 160
   },
@@ -3286,7 +3286,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
-      "content_sha256": "f4c5ef3692a8998d565194fc2676b01c49e38051fa9bfbc087a4c9d1afbe88ef",
+      "content_sha256": "780c8080518644e4d4a2093067d84bc531bef7fae1c4b026e8ae9010bddf569b",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "b206c3b45e2488ea8dd644611d503ba3f04af824472370d501a3d3f7810c9fc9",
+      "content_sha256": "57a312cefb50b71bc0aa4eee876f52ebd60a7f31717b1dff575fe7d66bd4f67a",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20373,7 +20373,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "18b02d6539dc7c583095a311bad4aef120c4cb0821fbc5c7e7d7e02dc7bbd396",
+      "content_sha256": "041c159f4bde909c0f8005154404412e5aaa733e09e7e511e86f23c8baf91ea7",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -25914,6 +25914,30 @@
       "caution_level": "medium",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/source-relations/raa/native-lead-support/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/raa/native-lead-support/source-account.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     }
   ]
 }

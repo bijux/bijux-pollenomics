@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2134,
-  "paths_sha256": "c09e69e2a6cb7eab0192efe6dcaaad9d9892961d7d7d65fdd4a05a9470d1661a",
+  "path_count": 2136,
+  "paths_sha256": "68d5b866776b595d4c6beb0ce11fadab461190f55eb5a8c545070939e210a0b0",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -63306,6 +63306,58 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Preserve the exact scientific protocol/method account read before original native data analysis: all-source121 allocation, fixed conditional sampling/response assumptions, selected-subset scope and increasing-BP contrast direction. No external scientific review, ecological accuracy or rights admission."
+    },
+    {
+      "owner_id": "source-relations/raa/native-lead-support/products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/raa/native-lead-support/report.json",
+        "docs/report/source-relations/raa/native-lead-support/source-account.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/raa_native_geopackage.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/cli.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/geometry.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/independent.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/native.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/report.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/archaeology/native_lead_support/streams.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/authority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/collection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/binary.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/crs.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/rows.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/geometry/service.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/inventory.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/inspection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/materialization/service.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/outputs.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/raa-native-lead-support.json",
+        "data/raa/raw/national_geopackage_source.json",
+        "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+        "reports/needed/field-decisions.json",
+        "reports/science/archaeology-native-lead-support/protocol.json",
+        "reports/science/archaeology-native-lead-support/source-custody.json"
+      ],
+      "verification": "Maintained finite read-only national-source consumer and independent saved-stream Decimal verification. Exact reference/replay execution is recorded separately; no event chronology, historical density, field permission, rights or scientific admission."
     }
   ]
 }

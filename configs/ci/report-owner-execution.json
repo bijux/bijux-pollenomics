@@ -2246,6 +2246,20 @@
       "output_mode": "directory",
       "external_source_descriptor": "configs/ci/report-sources/swedish-literal-pair-counting.json",
       "timeout_seconds": 60
+    },
+    {
+      "owner_id": "source-relations/raa/native-lead-support/products",
+      "module": "bijux_pollenomics_dev.source_completion.archaeology.native_lead_support.cli",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/raa-native-lead-support.json",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/raa/native-lead-support/report.json",
+        "source-products/source-account.json": "docs/report/source-relations/raa/native-lead-support/source-account.json"
+      },
+      "artifact_output_flag": "--retained-artifacts-root",
+      "timeout_seconds": 180
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

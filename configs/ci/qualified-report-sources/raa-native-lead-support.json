@@ -1,0 +1,31 @@
+{
+  "schema_version": "qualified-raa-native-geopackage.v1",
+  "source_id": "raa/lamningar-v1",
+  "files": [
+    {
+      "path": "capture.json",
+      "sha256": "59d93f455e61db0f697ae5dc7023709e2cae4ea00a55f2958e4a97cbd3e51171",
+      "size": 4187
+    },
+    {
+      "path": "lamningar_sverige.gpkg",
+      "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+      "size": 2291224576
+    },
+    {
+      "path": "report.json",
+      "sha256": "4bcb263c21e372025b0e4ea14898ae27acb00aaba4c8792158dee2a1ced45af2",
+      "size": 383
+    },
+    {
+      "path": "request.json",
+      "sha256": "f02d1882a28bf11fac0530cb1be23ba22fd51726404b06367d3809c931484281",
+      "size": 792
+    },
+    {
+      "path": "response.json",
+      "sha256": "ede125e0c23872c20f49fdecc7c6ce5f58c55971b7a44ffb1eb565a244d36c90",
+      "size": 1684
+    }
+  ]
+}
