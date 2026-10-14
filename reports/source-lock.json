@@ -8,6 +8,7 @@
     "reports/evidence-index.md",
     "reports/exports/papers/README.md",
     "reports/needed/README.md",
+    "reports/needed/field-decisions.md",
     "reports/needed/report-claims.md",
     "reports/needed/review-decision.md",
     "reports/needed/scientific-review.md",
@@ -842,7 +843,7 @@
     "reports/exports/papers/verify.py": "b6c60e27d9b53de7900017121c0d98b9bee4342aee252875cdbcda66a3f8c9a2",
     "reports/exports/papers/visual-review.json": "75daac87ad3c30c2700ebed03b438029672662c6470da40eb166a86c7cd13da4",
     "reports/exports/site-downloads.json": "c2f2f7674f795a242bf742534cdf117f6bf8cdfcdf4cefdc3ad09cc3d3c086bf",
-    "reports/needed/README.md": "afa27b5ea097b644dbcc693fe5dde1f147b005214ef3f11f12ed6d7a97d28cd8",
+    "reports/needed/README.md": "ff9ffebc96f66d9e026de3f2e9c629bf3afb9dc357f8e17338b73ef649baa625",
     "reports/needed/report-claims.csv": "c6e3d1d6d8379366fdea95857f328c604f6019b85bbbce49365c5bc2f8341f30",
     "reports/needed/report-claims.md": "3bad2af0de03347497ec0dbe6f7c2ce7b2f759e9471aaea2f849a25284e594e0",
     "reports/needed/review-decision.md": "97a7a55c533e65bae50a3baf319f495332b22d6030f99fa2317bcd81ef23671a",
@@ -1757,6 +1758,10 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py": "1f22b37d077a27f80ff3918fad5adb4ee56dc1160c4c473173f7ad57aa9b400e",
     "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_atlas_source_capture.py": "d7dddc839f798163409452f01947760669cee4dbbf71adbef2bdf8cc91e14b85",
     "configs/ci/report-capture-projections/atlas-source-view-api.json": "65ecb927d8d8220c76830d091a9d953dba5909e532535caed308ee74881c1c4e",
-    "configs/ci/report-capture-projections/atlas-source-view-root-api.json": "ff0d3d8b14b522313aae5fb49d8a117950f8d8217fa4c0171686ad4d76c24c18"
+    "configs/ci/report-capture-projections/atlas-source-view-root-api.json": "ff0d3d8b14b522313aae5fb49d8a117950f8d8217fa4c0171686ad4d76c24c18",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/field_decisions.py": "7ca655179be6415c740d8e17f4e356ae9ab8786aa0047e9d1c429a79578f03f9",
+    "packages/bijux-pollenomics-dev/tests/reader_reports/test_field_decisions.py": "780536dad8d79fd5f36c64e67805b4b20b5fa0d21ee84b341c2a4a12167a5412",
+    "reports/needed/field-decisions.json": "b6d4ff3b4d76ed61364d388c960292f64d864d3ebc3123bb356d301a57b3cf54",
+    "reports/needed/field-decisions.md": "c0f876430165df40deb86f8d44894661c1f725d5e8f4b21daf9a047a54b5dd10"
   }
 }

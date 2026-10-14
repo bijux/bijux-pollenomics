@@ -288,6 +288,8 @@ the full IDs before admitting a named lake or recalculating a field rank.
 
 ## Swedish lake and archaeology context joins
 
+The [named field-question dossier](field-decisions.md) preserves forty unsent questions for the five proposed leads. Each names the exact retained or unresolved study identity, requested fact, external resolver role and reopening condition. The leads remain unranked: access, landowner identity, permits, conservation, hazards and the overall field decision have no received qualified answer.
+
 **Affected result:** current lake, archaeology, SEAD, aDNA and pollen products
 cannot yet support a joint source-qualified movement or land-use explanation
 for the user's proposed Finjasjön, Östra Ringsjön, Havgårdssjön,
