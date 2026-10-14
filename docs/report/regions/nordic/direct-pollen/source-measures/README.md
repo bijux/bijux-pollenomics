@@ -35,15 +35,15 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Native unit labels do not admit all count rows, convert concentration/influx to counts, approve taxa, establish absence or supply LRA/vegetation evidence.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** Read the retained 22-stratum literal-unit account and inspected the actual original/current study source correspondence. Historical and current preparation match on seven products, and current rescoring of unchanged historical predictions reproduces 6,172 score rows and all ten publication products. The source-measure consumer itself was not rerun, and no prediction, fit, numerical oracle or source acquisition was repeated.
 
-**Remaining input or review.** The source owner must reconcile the historical published-producer binding with the current producer before current-source replay is claimed; scientific admission remains separate.
+**Remaining input or review.** The historical 59f6 producer attribution is preserved, and its relation to current 7a814 preparation/scoring is now qualified. A fresh source-measure owner execution is not claimed; native unit/classification, chronology uncertainty and scientific admission remain separate.
 
 **Cause category.** Native observation accounting with retained historical producer identity.
 
 **Consequence.** Unique sample/site counts within unit strata can overlap and cannot be added as independent observations; unlike measures remain unlike.
 
-**Precise next acceptance route.** Replay the configured source-measure consumer against exact study/source inputs and review the changed producer relation, preserving the22strata and first-refusal reasons.
+**Precise next acceptance route.** For a fresh source-measure owner receipt, replay the configured consumer against its exact study/source inputs while preserving all 22 strata and first-refusal reasons. No study refit is needed to establish the already qualified source correspondence; any changed measures or biological use still need source-specific review.
 
 **Negative or refused result.** 58,243of174,970observations fail the predicate, including all2,057concentration and160influx rows; these are refusals rather than inferred missing pollen.
 
@@ -52,6 +52,8 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 Qualified authored reader SHA-256: `27c03037403edbf549ce6c51b26e3e545c3c7e137854708708a9b71d49cd5830`.
 
 - [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-measures/report.json](report.json) (SHA-256 `535c33015411abfbe3222c035c8977becc4f9c6c158068aa93726fdff67b8d50`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-correspondence.json](../source-correspondence.json) (SHA-256 `6918782578b1ab62808464ca43fae6796bd276d366c23e24e439aed3c8a0bd14`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

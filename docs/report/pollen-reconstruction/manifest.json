@@ -2961,8 +2961,8 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/source-measures/README.md",
-      "sha256": "930ed7408a72c77f8b929a4778de56e8ba753fbec033949d3e15c2b0683da94f",
-      "bytes": 5841
+      "sha256": "1210a15b53d34d6beb091c7fc1e1fbea595b331c9ab8b63709ed0c35aa97a95d",
+      "bytes": 6509
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/source-measures/report.json",
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "363b0600d3c9c40a81669ebfbb55e46d1481f7a908b605bc6a26f7aea490a8fa",
+      "sha256": "7e54cbb785360d91704d55ccf846b736592c7765c74facdb664280799abc76b4",
       "bytes": 150927
     },
     {
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "66b8e752b1f9828bd929cf9145c16c3bd6a6e15ed858a92f2dd192196572982e",
+      "sha256": "d5a4578414c553f825084e8e00d8cac6d582051c571d3d1bd3d1e8492adbc7c5",
       "bytes": 1026417
     },
     {
