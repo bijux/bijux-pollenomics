@@ -889,11 +889,11 @@
     },
     {
       "repository_path": "docs/report/method-certification/linux-r-oracle/README.md",
-      "content_sha256": "b852bd9f54db46c6db71cbd0f40bf40f519630993c32ce9a1f9195b0a468ebb2",
-      "prose_paragraph_count": 19,
+      "content_sha256": "7fd7310667ac5053394a1b4adf979231302b04daffe90c39ae295d9456b402a8",
+      "prose_paragraph_count": 20,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

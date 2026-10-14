@@ -1,60 +1,22 @@
 # Local Linux R oracle execution
 
-The [source-bound report](report.json) records an actual Linux ARM64 execution
-of source-built R 4.6.0 and the locked DISQOVER 0.9.14 private library. The
-[core raw results](oracle/report.json) passed **43/43 cases**, including the 18
-prospectively declared optimized LOVE cases. The [source-domain raw
-results](source-domains/report.json) passed **23/23 cases**. Both raw directories
-include executed R scripts, case manifests, source inputs, individual R vectors,
-R completion statuses, and R session information. The report binds their
-complete byte inventory to the exact source lock and 1,661 captured executable
-source files.
+The [source-bound report](report.json) records a fresh local Linux ARM64 execution of source-built R 4.6.0 and the locked DISQOVER 0.9.14 library. All **43 core cases**, including 18 declared optimized LOVE cases, and **23 source-domain cases** passed. A separate observer decoded the saved R and Python vectors and compared all 66 cases with Decimal arithmetic and the original case tolerances. This is numerical correspondence evidence; it is not an ecological accuracy score or a hosted release certificate.
 
-The run reused a previously source-built Linux R prefix and its private
-source-provisioned package library. Before execution, the producer verified the
-38 locked source archives, the R build and provisioning receipts, **1,227 R
-runtime files**, **2,784 private library files**, the installed package-version
-closure, and the DISQOVER archive. It mounted the source, runtime, and library
-read-only into a container with one CPU, 4 GiB memory, and no execution network.
-The container ran Python 3.11.16, NumPy 2.4.6, Pandas 2.3.3, SciPy 1.17.1,
-and R 4.6.0 on `aarch64-unknown-linux-gnu`. Its exact image ID and pinned
-Python base digest are in the report. The producer checked the governed source
-hashes again after both R runners and copied raw results to this directory only
-after the complete 43 + 23 gate and byte verification passed.
+The [retained execution capture](../../../../data/method-certification/linux-r-source-capture/capture.json) contains the complete **2,148 executable source files**, three source provisioning files, 140 retained execution files, actual native terminal and independent numerical review. The 137 governed report outputs are exact projections of that capture. The [core](oracle/report.json) and [source-domain](source-domains/report.json) directories retain executed R scripts, manifests, original inputs, individual vectors, completion statuses and session information. Saved Python expectations are identified separately from R goldens.
 
-The [commit context](context.json) binds the generated report's SHA-256 to the
-1,661-file executed source SHA set. The first `HEAD` observed just after the
-run was `44c89c7c77f720166a86dc73b750b3e9223945d2`; the repository had
-advanced to `a862468a8ad93cc2e522bdf0173f81f6b84e8cc9` before the
-context annotation was written. The producer verified source *bytes* before
-and after execution but did not independently capture Git `HEAD` inside the
-run. The result therefore belongs to its recorded byte set and must not be
-presented as certification of either commit or a later source revision.
+The execution used a source snapshot exported from commit `6d8f1c5beffc2627b14e3330f8567e60f0fc8c36`. The host repository identity and protected input bytes were checked before and after both actual stages. The snapshot was not a Git checkout, and no in-container Git `HEAD` observation is claimed. The [context](context.json) binds the generated report and its captured source bytes. Later metadata admission retains this execution epoch; it does not relabel the run as a later commit. The maintained capture consumer also checks that the 127 LRA package and numerical reference source members, and the R dependency lock, remain unchanged.
 
-An earlier local run also completed 43 + 23 cases, but its source tree changed
-during execution, so we refused that run. The source-closed replay took 17.37
-seconds and is the sole admitted local Linux result here. Its governed raw
-vectors, completion statuses and environment record are linked above; an old
-local log directory is not required to read or verify the result.
+An older result described 1,661 executable source files and post-run observations of commits `44c89c7c77f720166a86dc73b750b3e9223945d2` and `a862468a8ad93cc2e522bdf0173f81f6b84e8cc9`. Four original source bodies remain unavailable for that historical epoch. Its four metadata outputs and source-recovery refusals are retained separately in the capture. The fresh execution does not repair or certify those missing historical bytes. Of the current 137 report outputs, 133 are byte-identical to the older result; the four changed JSON files record the new execution and source identities. Every CSV, NPY, NPZ, R script, text result and log in that correspondence remains byte-identical.
 
-## Reproduction from private custody
+## Runtime and private custody
 
-The private data store retains the exact source-built runtime and package
-library, the 37 locked R/CRAN source archives, the image ID and the Dockerfile
-under `lra-reference/`. Its `linux-arm64-oracle/custody.json` has SHA-256
-`0398b643a2124ce44d9854a6979b1939c6c93337ddea30d1e030439de44d3575`.
-The custody was checked against the source lock, the original build and
-provision receipts, all **1,227 runtime files** and **2,784 library files**.
-It also retains 130 acquisition, build and provision process files with
-individual hashes; unpacked R source and build intermediates are reproducible
-from the locked archive and are not part of that private copy.
-The DISQOVER source archive remains governed separately by the repository's
-[LRA NOTICE](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/NOTICE).
+The run reused a source-built Linux R prefix and its qualified private package library. The producer authenticated 38 source archives, the build and provision receipts, **1,227 runtime files**, **2,784 library files**, the package-version closure and the DISQOVER archive. The source, runtime and library were mounted read-only into a local container with one CPU, 4 GiB memory and no network. The runtime was R 4.6.0 on `aarch64-unknown-linux-gnu`; its exact image, Python and numerical dependency identities remain in the report.
 
-Set `BIJUX_LRA_CUSTODY_ROOT` to the restored private `lra-reference/` directory.
-With the recorded container image available locally, run the
-[producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py)
-from the repository root with new absent output destinations:
+The private `lra-reference/` store retains the runtime, package library, 37 R/CRAN archives plus the separately governed DISQOVER archive, image identity and Dockerfile. Its `linux-arm64-oracle/custody.json` SHA-256 is `0398b643a2124ce44d9854a6979b1939c6c93337ddea30d1e030439de44d3575`. The retained custody also identifies 130 acquisition, build and provisioning process files. The public source capture does not redistribute those private binaries or an image archive. DISQOVER remains governed by the [LRA NOTICE](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/NOTICE).
+
+## Reproduction
+
+Restore the exact qualified private store and local image. Set `BIJUX_LRA_CUSTODY_ROOT` to its `lra-reference/` directory, use the project development environment, and run the [maintained producer at the executed source revision](https://github.com/bijux/bijux-pollenomics/blob/6d8f1c5beffc2627b14e3330f8567e60f0fc8c36/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py) with absent output destinations:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
@@ -69,22 +31,11 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREA
   --dockerfile "$BIJUX_LRA_CUSTODY_ROOT/linux-arm64-oracle/Dockerfile"
 ```
 
-The producer verifies every archive, receipt and installed file before execution.
-The image ID names a locally built image, not an exported image archive; another
-machine must restore that exact image or build and qualify a replacement. A
-freshly rebuilt R runtime or library also needs a new qualification if its bytes
-differ from the retained receipts. The original raw oracle outputs remain in
-this repository regardless of local container availability.
+The producer checks every archive, receipt and installed file before execution. Another machine must restore the exact image or qualify a replacement; a changed runtime or library also needs its own qualification. A new execution belongs to its own captured source and runtime epoch. Reading or transporting the retained public capture performs no R execution.
 
 ## Release boundary
 
-This result is **local Linux ARM64 numerical evidence**, not a release
-certificate. The locked release job requires Ubuntu 24.04 on x86_64 and a
-matching GitHub run, attempt, committed source revision, and uploaded artifact
-digest. None is supplied by this local run. The [release gate](../reference-release-gate/README.md)
-must evaluate its own same-attempt CI certificate. Numerical parity does not
-establish stochastic optimizer trajectory parity, independent vegetation
-accuracy, or ecological propagation accuracy.
+This result is **local Linux ARM64 numerical evidence**. The locked release job requires Ubuntu 24.04 on x86_64, a matching GitHub run and attempt, committed source revision and uploaded artifact digest. Those hosted records remain absent. The [release gate](../reference-release-gate/README.md) must assess its own actual same-attempt certificate. The two explicit release refusals remain preserved. Numerical parity does not establish stochastic optimizer trajectory parity, independent vegetation accuracy, ecological propagation accuracy or qualified human acceptance.
 
 
 <!-- scientific-account-route:begin -->
@@ -92,29 +43,29 @@ accuracy, or ecological propagation accuracy.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-**Supported claim.** The retained local Linux ARM64 container executed source-built R 4.6/DISQOVER on 43 core and 23 domain cases against its exact captured byte closure, with network disabled and declared one-CPU/4GiB container bounds.
+**Supported claim.** Actual source-closed localLinuxARM64 R4.6/DISQOVER execution passed43core and23source-domain cases with complete2148executable source files,3source provisioning files and independentDecimal50 original-tolerance comparison. The exact137current report outputs are transported by an authenticated retained-source capture.
 
-**Unsupported claim.** It does not establish the locked Ubuntu 24.04 x86_64 hosted job, same-attempt publication artifacts, a captured in-process Git HEAD or a new release certificate.
+**Unsupported claim.** No lockedUbuntu24.04x86_64 hosted run/attempt/artifact, in-containerGitHEAD observation, stochasticoptimizer trajectory, independent vegetation/ecological accuracy, rights or qualifiedhuman release acceptance is supplied.
 
-**Actual verification performed.** Reviewed the retained container exit, source/runtime inventory and explicit release refusals and bound the report/context bytes. No container, R installation or mathematical case was rerun for this reader qualification.
+**Actual verification performed.** Actual native43+23 run and independent numerical observer both exited0 at source commit 6d8f1c5beffc2627b14e3330f8567e60f0fc8c36; hostGit/protected inputs stable before/after. Metadata-only assembly independently authenticated2311retained members plus capture. Strict137transport/current127source-and-metadata/Rlock guards passed controlled positive and tamper cases; no R was rerun for reader publication.
 
-**Remaining input or review.** A real same-revision hosted run with provider identity, locked architecture/runtime and linked native-parity artifacts is required; historical post-run commit observations cannot replace execution-time identity.
+**Remaining input or review.** Official hosted release admission still requires its own matching locked platform/provider/run/attempt/source/artifact certificate. Four source bodies remain missing for the distinct original1661file historical epoch; that gap does not certify or replace the fresh complete source execution at commit 6d8f1c5beffc2627b14e3330f8567e60f0fc8c36.
 
-**Cause category.** Valid bounded local Linux diagnostic with incomplete release-provider/source identity.
+**Cause category.** Complete bounded local numerical/source custody; hosted release-provider evidence absent and older source-gap epoch retained separately.
 
-**Consequence.** The native 66-case Linux result remains useful correspondence evidence while official release admission stays refused.
+**Consequence.** The current137outputs have exact retained-source numerical authority. They remain local method correspondence evidence and do not become a hosted release or ecological accuracy certificate.
 
-**Precise next acceptance route.** Execute the locked hosted verification and collect its actual same-run/attempt/source artifacts, then submit them to the maintained publication admission consumer without substituting local annotations.
+**Precise next acceptance route.** Use the maintained source-capture transport for exact current report bytes and unchanged scientific implementation; collect a genuine locked same-run/attempt hosted certificate for official release admission. A changed numerical source/dependency requires its own qualification; no historical relabelling.
 
-**Negative or refused result.** The prior changed-source attempt remains refused and both release-refusal codes remain retained. Neither the later observed 44c revision nor the a862 annotation is certified as the container's captured Git HEAD.
+**Negative or refused result.** The prior changed-source run and original1661source four-file gap remain explicit. local_linux_arm_is_not_locked_ubuntu_x86_64_ci and github_run_attempt_and_artifact_absent remain refused; neither44c nor a862postrun observation is substituted for execution-time identity.
 
-**Matched denominator.** 43 core plus 23 domain cases;1,661 source files,1,227 runtime files,2,784 library files and 38 archives in the retained local capture; zero new hosted runs in this qualification.
+**Matched denominator.** 43core+23source-domain cases;2148executable+3source provisioning files;140retained execution files and137report outputs;127current LRA/reference source-and-metadata members plus unchanged Rlock;1227runtime/2784library files/38archives. Zero new hosted runs.
 
-Qualified authored reader SHA-256: `da6972f17488bb73649727d366ef36a83c799ac61a52645323d8d6fe3b0c86c3`.
+Qualified authored reader SHA-256: `63016d0a6da3e146ebe6a769616b94a3da9a7622983a3dedf585c0246b1a3b34`.
 
-- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/report.json](report.json) (SHA-256 `45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85`).
+- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/report.json](report.json) (SHA-256 `e67f3d4fb6316094f37b6d3a4a4db7bdb604dba5d564b54522b825ffe62ee1f7`).
 
-- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/context.json](context.json) (SHA-256 `d33f777d10baec9d20ecb21143d87a3d037da6ebf21ea3285cd0b56182de5ad6`).
+- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/context.json](context.json) (SHA-256 `b535e12bfd2121a74dcb9bd98067659e878829d8551bd8e63d2e00942fa84cba`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

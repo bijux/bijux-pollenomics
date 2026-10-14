@@ -38899,14 +38899,10 @@
         "docs/report/method-certification/linux-r-oracle/source-domains/python_expected_not_R_goldens/S010.npy",
         "docs/report/method-certification/linux-r-oracle/source-domains/report.json"
       ],
-      "producer_inputs": [
-        "configs/ci/lra-r-source-lock.v1.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py"
-      ],
-      "role": "unresolved",
-      "verification": "The Linux producer requires the exact private source-built R runtime and package library, 38 locked archives, pinned image and original build/provision custody. The report binds 1,661 executed source file identities and 43+23 results, but no repository-only reproduction exists. Keep captured raw files and context unresolved; the post-run Git HEAD annotation is not an in-run source certificate."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Exact actual109 localARM64R4.6 execution with complete2148source+3provisioning files,43core+23source-domain cases and independentDecimal50 original-tolerance review. Public source-capture fa6e9a4 preserves137current outputs,140execution files and actualnative0 receipts; original1661source missing4 epoch/four historical metadata outputs remain separate. Maintained linux_r_reference capture consumer authenticates every packet member,exact137owner/current Git bytes and unchanged127scientific source projection. No newR during transport, hostedUbuntu/x86_64, ecological accuracy, rights or qualifiedhuman release acceptance."
     },
     {
       "owner_id": "method-certification/linux-r-oracle/source-code",
@@ -81687,6 +81683,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",

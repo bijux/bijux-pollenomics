@@ -2409,26 +2409,26 @@
       ],
       "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.",
       "qualification": {
-        "authored_reader_sha256": "da6972f17488bb73649727d366ef36a83c799ac61a52645323d8d6fe3b0c86c3",
+        "authored_reader_sha256": "63016d0a6da3e146ebe6a769616b94a3da9a7622983a3dedf585c0246b1a3b34",
         "fields": {
-          "supported_claim": "The retained local Linux ARM64 container executed source-built R 4.6/DISQOVER on 43 core and 23 domain cases against its exact captured byte closure, with network disabled and declared one-CPU/4GiB container bounds.",
-          "unsupported_claim": "It does not establish the locked Ubuntu 24.04 x86_64 hosted job, same-attempt publication artifacts, a captured in-process Git HEAD or a new release certificate.",
-          "actual_verification_performed": "Reviewed the retained container exit, source/runtime inventory and explicit release refusals and bound the report/context bytes. No container, R installation or mathematical case was rerun for this reader qualification.",
-          "remaining_input_or_review": "A real same-revision hosted run with provider identity, locked architecture/runtime and linked native-parity artifacts is required; historical post-run commit observations cannot replace execution-time identity.",
-          "cause_category": "Valid bounded local Linux diagnostic with incomplete release-provider/source identity.",
-          "consequence": "The native 66-case Linux result remains useful correspondence evidence while official release admission stays refused.",
-          "precise_next_acceptance_route": "Execute the locked hosted verification and collect its actual same-run/attempt/source artifacts, then submit them to the maintained publication admission consumer without substituting local annotations.",
-          "negative_or_refused_result": "The prior changed-source attempt remains refused and both release-refusal codes remain retained. Neither the later observed 44c revision nor the a862 annotation is certified as the container's captured Git HEAD.",
-          "matched_denominator": "43 core plus 23 domain cases;1,661 source files,1,227 runtime files,2,784 library files and 38 archives in the retained local capture; zero new hosted runs in this qualification."
+          "supported_claim": "Actual source-closed localLinuxARM64 R4.6/DISQOVER execution passed43core and23source-domain cases with complete2148executable source files,3source provisioning files and independentDecimal50 original-tolerance comparison. The exact137current report outputs are transported by an authenticated retained-source capture.",
+          "unsupported_claim": "No lockedUbuntu24.04x86_64 hosted run/attempt/artifact, in-containerGitHEAD observation, stochasticoptimizer trajectory, independent vegetation/ecological accuracy, rights or qualifiedhuman release acceptance is supplied.",
+          "actual_verification_performed": "Actual native43+23 run and independent numerical observer both exited0 at source commit 6d8f1c5beffc2627b14e3330f8567e60f0fc8c36; hostGit/protected inputs stable before/after. Metadata-only assembly independently authenticated2311retained members plus capture. Strict137transport/current127source-and-metadata/Rlock guards passed controlled positive and tamper cases; no R was rerun for reader publication.",
+          "remaining_input_or_review": "Official hosted release admission still requires its own matching locked platform/provider/run/attempt/source/artifact certificate. Four source bodies remain missing for the distinct original1661file historical epoch; that gap does not certify or replace the fresh complete source execution at commit 6d8f1c5beffc2627b14e3330f8567e60f0fc8c36.",
+          "cause_category": "Complete bounded local numerical/source custody; hosted release-provider evidence absent and older source-gap epoch retained separately.",
+          "consequence": "The current137outputs have exact retained-source numerical authority. They remain local method correspondence evidence and do not become a hosted release or ecological accuracy certificate.",
+          "precise_next_acceptance_route": "Use the maintained source-capture transport for exact current report bytes and unchanged scientific implementation; collect a genuine locked same-run/attempt hosted certificate for official release admission. A changed numerical source/dependency requires its own qualification; no historical relabelling.",
+          "negative_or_refused_result": "The prior changed-source run and original1661source four-file gap remain explicit. local_linux_arm_is_not_locked_ubuntu_x86_64_ci and github_run_attempt_and_artifact_absent remain refused; neither44c nor a862postrun observation is substituted for execution-time identity.",
+          "matched_denominator": "43core+23source-domain cases;2148executable+3source provisioning files;140retained execution files and137report outputs;127current LRA/reference source-and-metadata members plus unchanged Rlock;1227runtime/2784library files/38archives. Zero new hosted runs."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/linux-r-oracle/report.json",
-            "sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85"
+            "sha256": "e67f3d4fb6316094f37b6d3a4a4db7bdb604dba5d564b54522b825ffe62ee1f7"
           },
           {
             "path": "docs/report/method-certification/linux-r-oracle/context.json",
-            "sha256": "d33f777d10baec9d20ecb21143d87a3d037da6ebf21ea3285cd0b56182de5ad6"
+            "sha256": "b535e12bfd2121a74dcb9bd98067659e878829d8551bd8e63d2e00942fa84cba"
           }
         ]
       }

@@ -1,0 +1,15 @@
+{
+  "executed_source_file_count": 1661,
+  "executed_source_set_sha256": "e5ebff98ef02d6f11183d6bbdcad2a829980a167501b2281ab185bd93aeeb844",
+  "first_head_observed_after_execution": "44c89c7c77f720166a86dc73b750b3e9223945d2",
+  "first_tree_observed_after_execution": "7dcd9afef19b5f5212362d049779614d669ef3e3",
+  "head_changed_before_annotation": true,
+  "head_during_execution_independently_verified": false,
+  "head_observed_at_annotation": "a862468a8ad93cc2e522bdf0173f81f6b84e8cc9",
+  "observed_at_utc": "2026-09-27T22:59:00.491250+00:00",
+  "relationship": "post_run_observation; executed source SHA set in report is authoritative",
+  "release_certificate": false,
+  "report_sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+  "schema_version": "linux-r-oracle-commit-context.v1",
+  "tree_observed_at_annotation": "6bd54014127dbadca35b298b474c9db6146217fb"
+}
