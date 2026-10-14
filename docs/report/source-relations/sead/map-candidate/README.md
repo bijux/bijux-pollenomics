@@ -1,6 +1,6 @@
 # SEAD built map candidate
 
-The published Nordic atlas build `atlas-77be437a84bc823b81933728de0fa81a5da6f7d1a38683ec361d7a3c49a65897` and the browser candidate `atlas-ee0c85dd860bce72123c877990bc3bf54a39795dfa77735379ffe5b6350de6ee` agree on the retained four-country SEAD source details. The browser replay checked 16 chronology tables at two widths with 0 runtime errors. The public SEAD evidence blocks and map layer prose/counts match the governed sources. The [machine report](report.json) binds the checked source and map bytes.
+The published Nordic atlas build `atlas-e50f85d0eaf103404801f4b4c4a9f3a6377db546ea4c20f4293c72dd461a9fc6` and the browser candidate `atlas-ee0c85dd860bce72123c877990bc3bf54a39795dfa77735379ffe5b6350de6ee` agree on the retained four-country SEAD source details. The browser replay checked 16 chronology tables at two widths with 0 runtime errors. The public SEAD evidence blocks and map layer prose/counts match the governed sources. The [machine report](report.json) binds the checked source and map bytes.
 
 The built site layer contains 2,069 context points, including 1,219 without numeric site envelopes. The Swedish discovery layer contains 8,799 features: 7,244 numeric record intervals and 1,555 unresolved context records. A live run of the map's time-filter functions excluded every site 3840 record from the 84–104 BP gap and admitted the two 82 BP records at 82 BP; a source-backed 0 BP site envelope remained numeric while an unresolved site remained outside the test time window. The optional site inventory ignores the time filter because its envelopes are display context.
 
@@ -28,23 +28,23 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** Its historical PASS/current-sync fields do not certify the changed current renderer, browser engine, hosted release or ecological events.
 
-**Actual verification performed.** Read the historical build IDs, browser 16-table receipt summary and time-filter witness alongside current source interval report; no fresh browser execution.
+**Actual verification performed.** The maintained map audit ran on the current selected source context after its chronology-country parent was regenerated. All 76 dependencies of the retained browser candidate and all 19 actually served payload hashes match current source bytes. The browser receipt records 16 chronology-table checks and zero runtime errors. The map time-filter JavaScript was executed again. No new browser session, source capture or model run occurred.
 
-**Remaining input or review.** Current browser capture is required after renderer changes; source release/classification/chronology acceptance remains separately refused.
+**Remaining input or review.** Source classifications and event and propagation eligibility remain unaccepted. The browser evidence covers eight retained source details in four countries at two widths. It does not certify all source records, hosted deployment, other engines, chronology accuracy or source release rights.
 
 **Cause category.** Historical presentation qualification and refused scientific endpoints.
 
 **Consequence.** Old browser success remains retained evidence only for its pinned candidate, not current browser adoption.
 
-**Precise next acceptance route.** Run the owned current browser/static consumer with exact candidate bytes and retain negative gap controls before a current UI claim.
+**Precise next acceptance route.** Use the maintained chronology-country producer before the map audit when its custody parent changes. Reuse a browser capture only after every declared candidate dependency and served byte is verified unchanged; recapture when that exact footprint changes. Source classification and ecological event admission require separate qualified evidence.
 
-**Negative or refused result.** Acquisition release refused; 0 eligible ecological events/accepted propagation edges; current browser qualification not established by this packet.
+**Negative or refused result.** All 25,109 typed source chronology claims retain their display, context or refusal roles. There are zero eligible ecological events and zero accepted propagation edges. The 84–104 BP gap admits no record for site 3840; the 82 BP test admits two. A numeric 0 BP envelope remains numeric, and unresolved support remains outside the test window. The current account audit supplies no new browser execution.
 
 **Matched denominator.** Historical 2,069 context sites/1,219 untimed; 8,799 discovery records=7,244 numeric+1,555 unresolved; 16 chronology tables/two widths/0 recorded runtime errors.
 
-Qualified authored reader SHA-256: `b4d503b681f1652203d1392200819045ad0a8f0c2e8663a91daab8325db96b6c`.
+Qualified authored reader SHA-256: `4220f0c512e39ed337434333f0683c5803b1984e5d1601d22a793f0feb7aea45`.
 
-- [Retained qualification evidence: docs/report/source-relations/sead/map-candidate/report.json](report.json) (SHA-256 `59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f`).
+- [Retained qualification evidence: docs/report/source-relations/sead/map-candidate/report.json](report.json) (SHA-256 `20d564598838620c15405a16b36ad4885a8c85a4f919fa21f888904795a8242f`).
 
 - [Retained qualification evidence: docs/report/source-relations/sead/interval-sets/report.json](../interval-sets/report.json) (SHA-256 `b2c7fe1f2e4ab7b1d331031abcc4fac9bd484d81345f463df5d3f08085a0735c`).
 

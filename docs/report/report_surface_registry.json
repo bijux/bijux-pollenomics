@@ -19017,7 +19017,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
-      "content_sha256": "86d4a7f1c33bc81dff6389860a4db26d11533012dfceabc39a25954d697d6a25",
+      "content_sha256": "fcaff886eb9dd904eb9c0eef1685552a96dba89cc7c7a07fec5ecfea6f6113e4",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -19128,7 +19128,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/map-candidate/README.md",
-      "content_sha256": "0e90e55b84a3fb3bb74ea47766dbb84af2aaf1354bf1021ae5d1852da1fe595b",
+      "content_sha256": "526573c0962ebd9249aa54262dc4949e7ce1afdb876146d276b7c8aa9b0c0989",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

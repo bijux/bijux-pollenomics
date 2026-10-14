@@ -68,7 +68,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** Group-site and overlapping reason counts cannot be summed as independent sites/events, and country assignment is governed rather than source-native.
 
-**Actual verification performed.** Read country summary and 16 grouped rows against chronology-age review/public custody; no claim or country producer rerun.
+**Actual verification performed.** The maintained chronology-country producer regenerated the account of 25,109 claims from its six current sources. The grouped CSV rows are byte-identical and every scientific report value is unchanged; only the public-custody parent input identity changed. The downstream map audit then consumed this regenerated report. No source classification, new scientific review or age calibration occurred.
 
 **Remaining input or review.** Scientific classification, chronology/uncertainty decisions and excluded-site country authority remain.
 
@@ -76,7 +76,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Consequence.** A site with multiple claim groups remains one site; display-eligible claims remain propagation-refused.
 
-**Precise next acceptance route.** Resolve scoped source chronology/classification decisions and qualified country questions before changing public/scientific eligibility.
+**Precise next acceptance route.** Preserve the source-native claim/review/site joins and all refusal roles; actually replay this producer when a custody parent changes before publishing downstream map correspondence. Stronger chronology or ecological claims require the missing source-specific uncertainty, classification and qualified evidence.
 
 **Negative or refused result.** All 25,109 propagation claims refused; 1,216 assigned sites lack captured claims; 126 excluded decisions remain outside totals.
 
@@ -84,7 +84,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 Qualified authored reader SHA-256: `649182c832da4178273bc3ec713bbc4073e608fbb37b655bf0c00aeb5ac0fe10`.
 
-- [Retained qualification evidence: docs/report/source-relations/sead/chronology-country-accounting/report.json](report.json) (SHA-256 `855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778`).
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-country-accounting/report.json](report.json) (SHA-256 `2f3b2bbfc27f8392d92ca00b1d9c9002612b8be2351844365aebb5f3efe4d80e`).
 
 - [Retained qualification evidence: docs/report/source-relations/sead/chronology-country-accounting/rows.csv](rows.csv) (SHA-256 `afdf52ee1b5dea2945fbc0c652dce92ce30eb5cfab2b01d2fa0f2e57f5e1fb8a`).
 

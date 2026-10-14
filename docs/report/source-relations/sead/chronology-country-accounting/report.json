@@ -98,7 +98,7 @@
     "data/sead/normalized/source_lineage.json": "86d539d9a1a26ff39b61859f0d100e0afdbf8775c73207982f368b89e766f010",
     "docs/report/source-relations/sead/chronology-claim-review/claims.csv": "e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546",
     "docs/report/source-relations/sead/chronology-claim-review/report.json": "6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9",
-    "docs/report/source-relations/sead/public-custody/report.json": "8a772532e3f9792c432095bb7953b8cafc0438b8078f4ab785580cff6a867063"
+    "docs/report/source-relations/sead/public-custody/report.json": "fa5257291cf4890691a90c437b717012f9366b7ba26c2cb43ce855a5e088615f"
   },
   "posture": "reviewed chronology display/context accounting only; no event, propagation, or pollen admission",
   "propagation_refusal_counts_by_country": {
