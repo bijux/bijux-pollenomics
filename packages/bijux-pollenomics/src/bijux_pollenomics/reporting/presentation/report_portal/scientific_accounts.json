@@ -4397,7 +4397,7 @@
         "fields": {
           "supported_claim": "Four explicit literal/major-transfer/shared-birch/large-grass parameter maps on four native cores yield wider conditional panel reconstructions with complete count allocations and source-presence/hypothesized-zero distinctions. Their finite differences are model-assumption sensitivity, not measured ecology.",
           "unsupported_claim": "Authenticated species identities from generic labels, forest from shared dwarf-birch PPE, cereal from a large-grass proxy, complete taxonomic independence, whole vegetation coverage, historical LandClim reproduction, native R parity or ecological accuracy.",
-          "actual_verification_performed": "The reader and maintained captures/scalar/source-mask/physical reviews were inspected. Two actual maintained writers reproduce 344,952 saved estimates/SE/baseline covariance values. Independent checks cover 16 populations,1,896 result rows and 14,910 selected covariance coordinates; separate integration qualifies 300 tuples/1,340 uses. This qualification does not rerun any producer or reviewer.",
+          "actual_verification_performed": "A fresh maintained publication on current source reproduced all 16 cases and 367,590 saved case numeric values exactly; only four source-identity metadata fields changed. All 316 source-support keys retained the same private capsule digest. Explicit call-site observation compared all 1,759,272 covariance array values across 1,896 actual current-input calls byte for byte with the exact historical function; this establishes implementation parity, not an independent mathematical oracle. Fifteen source/claim refusal regressions and strict typing/configured lint passed. Original 827 captures and independent source-mask/scalar/physical reviews retain their separate historical source and numerical scopes; they were not relabelled or rerun.",
           "remaining_input_or_review": "All 267 retained point ages lack raw bounds; provisional Tibetanus basin/elevation linkage, sparse reporting, parameter transfer and the unauthenticated full synonym/higher-taxon graph remain assumptions. Conditional SEs omit these and model discrepancy; source-use/historical rights and qualified external review remain separate.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
           "consequence": "Keep residual NISP, imposed zeros, actual presence masks and target axes explicit. High mapped-count coverage is not vegetation coverage, and zero plug-in SE at a measured or hypothesized zero is not absence or calibrated coverage.",
@@ -4408,7 +4408,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json",
-            "sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d"
+            "sha256": "580fc3271b85a3c67eb325db4bd4a57ce96d614b81d225c9dc62da5d880d2dcc"
           },
           {
             "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json",
@@ -4439,7 +4439,7 @@
         "fields": {
           "supported_claim": "Four native Swedish cores support conditional inverse panel estimates with counting and assumed diagonal-PPE covariance under fixed receiver-radius/wind alternatives. Every successful core/window and the failed original Bussj\u00f6sj\u00f6n panel remain distinct.",
           "unsupported_claim": "These different taxon panels cannot be pooled as comparable whole vegetation. No historical LandClim reproduction, complete 31-taxon reconstruction, native R parity, dated basin geometry, calibrated total uncertainty or independent vegetation accuracy is supplied.",
-          "actual_verification_performed": "The authored reader, report, actual run and independent mathematical review were inspected and exact public bytes bound. Retained independent checks cover 385 inverse/count/PPE cases, 77 zero-PPE controls and 55 circle-overlap response factors, with largest factor difference 7.50e-11. This qualification runs no model, quadrature, native R or independent numerical check.",
+          "actual_verification_performed": "A fresh current-source maintained producer reproduced all four cores, 261 included samples and 77 occupied windows; all 11,955 saved core numeric values remain exact and only four source-identity metadata fields changed. Explicit call-site observation compared all 8,718 covariance array values across 462 actual current-input calls byte for byte with the exact historical function; this is implementation parity, not an independent oracle. The actual maintained figure producer reproduced all 167 CSV rows exactly and refused unbound report bytes. Eleven native source/age/output refusal regressions passed. Original independent checks of 385 inverse/count/PPE cases, 77 zero-PPE controls and 55 response factors retain their historical source scope; no independent quadrature, R or human scientific review was rerun.",
           "remaining_input_or_review": "All 261 retained point ages lack raw bounds. Static circular basins, homogeneous annulus/metre diffusion convention, literal parameter transfer and diagonal PPE covariance remain assumptions. Tibetanus source elevation/coordinate disagreement, source publication attribution and separate source-use/historical selection and external scientific decisions remain unresolved.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
           "consequence": "Marginal count/PPE SE excludes chronology, geometry, transport and site-selection uncertainty. Radius/wind differences describe finite assumption sensitivity rather than a probability interval. Small area sensitivity does not authenticate the metadata radius or local shoreline.",
@@ -4450,7 +4450,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
-            "sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89"
+            "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd"
           },
           {
             "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-math-review.json",

@@ -43,7 +43,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** Authenticated species identities from generic labels, forest from shared dwarf-birch PPE, cereal from a large-grass proxy, complete taxonomic independence, whole vegetation coverage, historical LandClim reproduction, native R parity or ecological accuracy.
 
-**Actual verification performed.** The reader and maintained captures/scalar/source-mask/physical reviews were inspected. Two actual maintained writers reproduce 344,952 saved estimates/SE/baseline covariance values. Independent checks cover 16 populations,1,896 result rows and 14,910 selected covariance coordinates; separate integration qualifies 300 tuples/1,340 uses. This qualification does not rerun any producer or reviewer.
+**Actual verification performed.** A fresh maintained publication on current source reproduced all 16 cases and 367,590 saved case numeric values exactly; only four source-identity metadata fields changed. All 316 source-support keys retained the same private capsule digest. Explicit call-site observation compared all 1,759,272 covariance array values across 1,896 actual current-input calls byte for byte with the exact historical function; this establishes implementation parity, not an independent mathematical oracle. Fifteen source/claim refusal regressions and strict typing/configured lint passed. Original 827 captures and independent source-mask/scalar/physical reviews retain their separate historical source and numerical scopes; they were not relabelled or rerun.
 
 **Remaining input or review.** All 267 retained point ages lack raw bounds; provisional Tibetanus basin/elevation linkage, sparse reporting, parameter transfer and the unauthenticated full synonym/higher-taxon graph remain assumptions. Conditional SEs omit these and model discrepancy; source-use/historical rights and qualified external review remain separate.
 
@@ -59,7 +59,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 Qualified authored reader SHA-256: `cde331159d04d1a78fe783708a347b26deed9dcb06e45117e58948c672a3df60`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json](report.json) (SHA-256 `4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json](report.json) (SHA-256 `580fc3271b85a3c67eb325db4bd4a57ce96d614b81d225c9dc62da5d880d2dcc`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json](assumptions/parameter-transfer.json) (SHA-256 `60c57338d04ce379708b73841bf733377635324af928bb7c68124b465fbf8566`).
 

@@ -425563,15 +425563,15 @@
     "turbulence_parameter": 0.25,
     "uncertainty": "Maintained fixed-site delta covariance: independent fixed-total multinomial counts per single pooled core-window; diagonal covariance of public PPE SD squared, shared across window taxa with all off-diagonal entries assumed0. Chronology, radius, wind, site selection and physical response held fixed for conditional SE; separate declared geometry/wind sensitivity profiles are not probability intervals."
   },
-  "producer_source_candidate": "827cdccd64273cdeb59f7ac4ce42b005a6aa4c8f",
+  "producer_source_candidate": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
   "producer_source_sha256": {
     "__init__.py": "465ab39f6f574da16b9e48a4834418bf75f728bc160109b467a3366a05a683e1",
     "__main__.py": "72787edec1db45aab25da4b6ab51cb9736c9282848cc4caaa786a44943cec4e0",
-    "comparison.py": "c957eee575fbbcec70ab8cb5662f8bbfd419426beeab190a432db926e99b6cdd",
-    "mapping.py": "7086521b63183848554c65045bba0679f6f7378cb673db19ee59104fbf029733",
-    "producer.py": "aed5eacb114afe8ec2302a002e683c7137ea42ebf0c20b5ae0f6852e022ea933",
-    "reconstruction.py": "1544f02f58e674eec132305029564111e4879da2053b8a5be9b3c82bda04fd50",
-    "sources.py": "6234f3b8b8d31ab9142efa9064b83ee438e8cdc67b5be6dcf33bb7867bb42382"
+    "comparison.py": "aa9f76f1803c2caa33e6fd4876a4ee8579cb3aa55ef93f6e28978ce985c8b04e",
+    "mapping.py": "672b0251149501a42f2919dcd2a5b80157ec7a68aa3cc292708fc4839fd161f9",
+    "producer.py": "287ebf0dd74862c75470a4fd5cd16ef5350f395f5bd437964e0954eef3d3a57f",
+    "reconstruction.py": "a4086b620e2a95d89bab574266b34ae2dfd6fdb389dad97c27453984113365c9",
+    "sources.py": "3fa49872686f9bd13445cf99d0ccc34572eeee957e7bd61ca554a7fe20ce7e16"
   },
   "raw_source_redistribution_authorized": false,
   "scenario_protocol": {
@@ -425709,7 +425709,7 @@
   },
   "scenario_protocol_sha256": "60c57338d04ce379708b73841bf733377635324af928bb7c68124b465fbf8566",
   "schema_version": "swedish-parameter-transfer-maintained-producer.v1",
-  "source_declaration_sha256": "be488edc406198d63d77b282dc97f0edb2b459a92a77d96d31dba2776cc824b2",
+  "source_declaration_sha256": "0c6315e4699b1dd0eaace64e6ee6b9a3b16aa897cb43b1197101ac71dc73c058",
   "source_files": {
     "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
       "bytes": 264067,
@@ -425744,8 +425744,8 @@
       "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399"
     },
     "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json": {
-      "bytes": 2855,
-      "sha256": "834fd5d2975f9c777a94de374b58eeaaa1541aaf2aa8c08056e0624a5c9f458c"
+      "bytes": 3247,
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8"
     },
     "docs/report/publication-replay/landclim-study-inputs/records.jsonl": {
       "bytes": 3664403,
@@ -425760,16 +425760,16 @@
       "sha256": "890e68ea96524268c4277fb65ac99162c0eb907ad9396f204dde0d98b23e2d0a"
     },
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/producer.py": {
-      "bytes": 3649,
-      "sha256": "39e652762133b45a87598c474c8a736bb8e262af178dc06f5a142a8e2a565409"
+      "bytes": 3821,
+      "sha256": "72f7d7a4b6d8d3cf737657df9b547f817aa7685b9bd4141f656a3ba44eeb8121"
     },
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/reconstruction.py": {
-      "bytes": 13928,
-      "sha256": "cb1c2b64eccaccfac87849a2902ffd3ea2642a515b38a66c6eeeaa229a719bf8"
+      "bytes": 14455,
+      "sha256": "166089639ed7dda4646ba4f202316f0485d00e5d0c5a7e17ef6eea8fb84bd43c"
     },
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/sources.py": {
-      "bytes": 9719,
-      "sha256": "c3a33898f0aecc42f0c48f04e176f79d6444cead076e550a19ba7dafd25ccd0d"
+      "bytes": 10097,
+      "sha256": "52555e72f5add6cee95014d874208daadac56a22bc161dc6988ac5be0db7679f"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py": {
       "bytes": 9757,
@@ -425780,8 +425780,8 @@
       "sha256": "9aeae845a11540abcddf77dd9f09a418aed8838e52ba516a7eb058efbeff5563"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py": {
-      "bytes": 5376,
-      "sha256": "4dde1a078ae7d57f3c93e93fa8cc4e73756f551e774d78aadb606fa47c483448"
+      "bytes": 5910,
+      "sha256": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4"
     }
   },
   "vegetation_accuracy_claimed": false,

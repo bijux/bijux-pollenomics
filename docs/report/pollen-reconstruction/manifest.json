@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "f527b23003933bd9cd0e64b391010103f658c412bb3de5585e16d50078fd2f7f",
-      "bytes": 5095779
+      "sha256": "b16a5059466e8595561e9cf7affc3163b06b502ac2adbec5c124adf12aed3b36",
+      "bytes": 5097567
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2321,8 +2321,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/README.md",
-      "sha256": "3b53b62b14f224c575e93c81f5f3d4c00fe0ed1b1acb783e6e55f0b6a155a9c4",
-      "bytes": 13674
+      "sha256": "94de302b1d8d7b9701ac5668e482bedf283844fd676cc3d7a4b1742804e9153e",
+      "bytes": 14019
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json",
@@ -2361,13 +2361,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/inputs/source-identities.json",
-      "sha256": "be488edc406198d63d77b282dc97f0edb2b459a92a77d96d31dba2776cc824b2",
-      "bytes": 4333
+      "sha256": "0c6315e4699b1dd0eaace64e6ee6b9a3b16aa897cb43b1197101ac71dc73c058",
+      "bytes": 4781
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json",
-      "sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
-      "bytes": 14176603
+      "sha256": "580fc3271b85a3c67eb325db4bd4a57ce96d614b81d225c9dc62da5d880d2dcc",
+      "bytes": 14176604
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
@@ -2376,8 +2376,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
-      "sha256": "2c87d2521fd42171a7e9b38624c88959a59d7acd820baa08c8688ea2e069a8e8",
-      "bytes": 14698
+      "sha256": "3cb99f03c5a3dcd831b5b713f9d719903841166bb7095f51043dde404ae7c5f8",
+      "bytes": 15144
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
@@ -2441,17 +2441,17 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/figure-source-identities.json",
-      "sha256": "5194dd17173af264f3fcdcad55a3ed5bf4e9759687d9a83c200dbd3a68ffc1b7",
-      "bytes": 427
+      "sha256": "cca1a9039ea9057df8deca0cb9bd5bd343a05f45ebe21639b279c77e950b30ad",
+      "bytes": 844
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
-      "sha256": "834fd5d2975f9c777a94de374b58eeaaa1541aaf2aa8c08056e0624a5c9f458c",
-      "bytes": 2855
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
-      "sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
       "bytes": 726215
     },
     {
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "ba272510fb4fc1dcd96f7a64b0a795291e45884727cf38fc711916708301c074",
+      "sha256": "a74899ef87b8e920d0bfc0547e2f3dea2f32b17bc9535524ad1e5ed5aa061b40",
       "bytes": 150927
     },
     {
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "b5620fc8b2c659779405841a3a60754861fd169b6ff3d87c617780ffaede0fc9",
+      "sha256": "14ee8e1282412712aa6f317399fec212fcd00691838921a55fa16697eda4ef48",
       "bytes": 1027393
     },
     {
@@ -6156,8 +6156,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_parameter_transfer.py",
-      "sha256": "79c4dbd099c85acd3f00e7f1146295179170a48d41a8e14701074ee83403fed5",
-      "bytes": 6322
+      "sha256": "62e3c5ba29f06b918744586cdcc5b79dfcbe86b05a2bbf4316107c1fe4fa1cc1",
+      "bytes": 9891
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_parameter_transfer_publication.py",

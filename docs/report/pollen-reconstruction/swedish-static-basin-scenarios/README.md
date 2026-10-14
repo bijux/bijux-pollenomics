@@ -169,7 +169,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** These different taxon panels cannot be pooled as comparable whole vegetation. No historical LandClim reproduction, complete 31-taxon reconstruction, native R parity, dated basin geometry, calibrated total uncertainty or independent vegetation accuracy is supplied.
 
-**Actual verification performed.** The authored reader, report, actual run and independent mathematical review were inspected and exact public bytes bound. Retained independent checks cover 385 inverse/count/PPE cases, 77 zero-PPE controls and 55 circle-overlap response factors, with largest factor difference 7.50e-11. This qualification runs no model, quadrature, native R or independent numerical check.
+**Actual verification performed.** A fresh current-source maintained producer reproduced all four cores, 261 included samples and 77 occupied windows; all 11,955 saved core numeric values remain exact and only four source-identity metadata fields changed. Explicit call-site observation compared all 8,718 covariance array values across 462 actual current-input calls byte for byte with the exact historical function; this is implementation parity, not an independent oracle. The actual maintained figure producer reproduced all 167 CSV rows exactly and refused unbound report bytes. Eleven native source/age/output refusal regressions passed. Original independent checks of 385 inverse/count/PPE cases, 77 zero-PPE controls and 55 response factors retain their historical source scope; no independent quadrature, R or human scientific review was rerun.
 
 **Remaining input or review.** All 261 retained point ages lack raw bounds. Static circular basins, homogeneous annulus/metre diffusion convention, literal parameter transfer and diagonal PPE covariance remain assumptions. Tibetanus source elevation/coordinate disagreement, source publication attribution and separate source-use/historical selection and external scientific decisions remain unresolved.
 
@@ -185,7 +185,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 Qualified authored reader SHA-256: `c11e2e0d6582dc01cbfa4a2c58977059ad3533d7a045881a5d7dbd4385f0806f`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json](report.json) (SHA-256 `895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json](report.json) (SHA-256 `8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-math-review.json](execution/independent-math-review.json) (SHA-256 `bbe0fa0fb324ff7eaa4b2a295d6624c31ab58cdc364720887e5d2064f3e3fc8a`).
 
