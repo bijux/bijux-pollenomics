@@ -8,7 +8,6 @@
   "review_method": "Original retained bytes were independently rehashed; current bytes match the earlier specific semantic review. Available original Git blobs and tracked current blobs are identified. Structured source guards, module-origin mapping, cohort projection and scalar-oracle changes use their named source-bound consumer evidence; syntax-only differences never stand in for numerical execution.",
   "classes": {
     "development_dependency_or_spellcheck_controls": 3,
-    "import_order_only": 1,
     "capture_owner_shape_refusal": 4,
     "documentation_or_format_reconciliation": 73,
     "same_safe_source_function_import": 6,
@@ -29,7 +28,8 @@
     "paper_export_custody_contract": 1,
     "literal_set_comprehension_equivalence": 1,
     "import_order_and_docstrings": 1,
-    "reader_layout_and_punctuation_behavior": 1
+    "reader_layout_and_punctuation_behavior": 1,
+    "maintained_editorial_admission": 1
   },
   "rows": [
     {
@@ -48,12 +48,12 @@
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
       "original_sha256": "8e30abb9e45333e5fe274ed4e3bc5a5e7722e9dca1f6cfd5cb7db3c5ae1cbd9c",
-      "reviewed_sha256": "481f6476a06c9a128dd0b74bdf18969b2c25d309c6cd8d515b7e138830e310b5",
-      "classification": "import_order_only",
-      "specific_review": "Only existing imports move; normalized top-level function bodies identical. No scientific producer replay for equations; relevant import-boundary check remains appropriate.",
+      "reviewed_sha256": "e18374d044335d057f3fdc867a52529cb33d22c51d5d5fb65c1baaaa9d373068",
+      "classification": "maintained_editorial_admission",
+      "specific_review": "Preserves the original import-order correspondence and all maintained source validators. The independently reviewed editorial path set adds exactly seven already maintained readers to the original 196; count 203 and canonical sorted-path digest d0ea8e34f40aab1bdb5f8602bad7a2b4629a6c75e1d3c68e09ab9a3930cb3d3c match the actual current role inventory. Code and configuration admission sets stay unchanged. A canonical inventory regression checks every role set; 21 focused tests, strict source/test typing and configured lint/format pass. No report generation, model, capture, scientific, rights or human acceptance follows.",
       "git_evidence": {
         "original_blob": "261762d6c2cee4436b434a329b4d79021b89192e",
-        "current_tracked_blob": "befd0c5c99d7690799e4b5caba312bb0e0247391",
+        "current_tracked_blob": "06a0cd0cdd5453ce62db1fc1c19b2e4b9de6e3ed",
         "recorded_history_transition_commit": "5fd248de07c6bdf11b8f624500b35483fa51cd9b"
       },
       "source_structure": {
@@ -61,7 +61,32 @@
         "added_top_level_functions": [],
         "removed_top_level_functions": []
       },
-      "owner_consumer_refs": []
+      "owner_consumer_refs": [],
+      "superseded_review": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+        "original_sha256": "8e30abb9e45333e5fe274ed4e3bc5a5e7722e9dca1f6cfd5cb7db3c5ae1cbd9c",
+        "reviewed_sha256": "481f6476a06c9a128dd0b74bdf18969b2c25d309c6cd8d515b7e138830e310b5",
+        "classification": "import_order_only",
+        "specific_review": "Only existing imports move; normalized top-level function bodies identical. No scientific producer replay for equations; relevant import-boundary check remains appropriate.",
+        "git_evidence": {
+          "original_blob": "261762d6c2cee4436b434a329b4d79021b89192e",
+          "current_tracked_blob": "befd0c5c99d7690799e4b5caba312bb0e0247391",
+          "recorded_history_transition_commit": "5fd248de07c6bdf11b8f624500b35483fa51cd9b"
+        },
+        "source_structure": {
+          "changed_top_level_function_syntax": [],
+          "added_top_level_functions": [],
+          "removed_top_level_functions": []
+        },
+        "owner_consumer_refs": []
+      },
+      "subsequent_source_revision": "e8ef0305e520792dea97d7f76d54d68c42ef30ba",
+      "admission_evidence": {
+        "path_review": "artifacts/science/maintained-editorial-source-admission/source-path-review.json",
+        "path_review_sha256": "3b7a85c090209ca38619ea7ecf486e4474d48b9813978e871182b966b2557ef0",
+        "checks": "artifacts/science/maintained-editorial-source-admission/canonical-checks.json",
+        "checks_sha256": "2b66bcd105077404b0dd7cc86de9ea00ddb1aa08feeae07310cddf0957e22493"
+      }
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",

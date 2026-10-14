@@ -390,3 +390,19 @@ def test_wrong_git_candidate_is_refused(
         sources.validated_maintained_report_sources(
             root, tracked, expected_repository={"mode": "git", "head_commit": "wrong"}
         )
+
+
+def test_reviewed_source_path_sets_match_the_current_repository() -> None:
+    repository = Path(__file__).resolve().parents[3]
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text(encoding="utf-8")
+    )
+    for role, (count, digest) in sources.MAINTAINED_ROLE_PATHS.items():
+        paths = sorted(
+            path
+            for owner in inventory["owners"]
+            if owner["role"] == role
+            for path in owner["paths"]
+        )
+        assert len(paths) == count, role
+        assert canonical_json_sha256(paths) == digest, role
