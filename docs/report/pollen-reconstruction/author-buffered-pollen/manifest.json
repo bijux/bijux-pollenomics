@@ -13,7 +13,9 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py": "628bb5ad9d288185717be699dedd3191ce1fa5a656871c9dd01ea96de8bae1db",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_comparison.py": "a43d0d03be8932c717f7f474a7713412a1087adc3c6a7dd2ba7abdf3ef4e64df",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/taxon_errors.py": "b88240086434437eef6c67e96ffd9f95f032fa62c0aee0a4e80254df8a9093bf",
-    "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py": "f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634"
+    "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py": "6cda97438a16f174b93f1fb620be148835555f315e20b912941c886eaa5fb38e",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py": "5058747e742a80bc8caf73e0420b5dfa7297b18bbe866a7b50cbb38a962c0646",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py": "f091d85f2d0088e7d3b389c2262db51ac7d24dafae2537a10dd0d3dcb944bd2b"
   },
   "files": [
     {
@@ -286,5 +288,9 @@
       "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7",
       "bytes": 48524
     }
-  ]
+  ],
+  "historical_manifest_sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026",
+  "historical_replay_sha256": "f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634",
+  "file_identity_scope": "The retained file index describes original domain products. For the51 compared outputs, Markdown hashes and sizes bind source-produced authored bytes before an exact authority-verified terminal scientific reader block; other outputs remain exact raw bytes. README and both replay scripts remain explicitly omitted from this comparison. Historical script/index identities are distinct from current producer pins.",
+  "reader_qualification_authority": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
 }

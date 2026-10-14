@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0647cedd5237c65ed5d37680fd4c7ebc7e32dc35052089c72000398dd178b2fc",
-      "bytes": 5092887
+      "sha256": "f527b23003933bd9cd0e64b391010103f658c412bb3de5585e16d50078fd2f7f",
+      "bytes": 5095779
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1406,12 +1406,12 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
-      "sha256": "d9474b3b4bd819cea0a725ea9ca28a563e35f32b25572a9e017c6ad3364a29ef",
-      "bytes": 9088
+      "sha256": "4a06bdee0850eb85eb06eb341213d4d0f3ea97dd00835f8fda450faa8590387e",
+      "bytes": 9308
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
-      "sha256": "3b2524aab87e6ef6d5f65f04c7f9e3e0b41a80f9f968a0e8623f36fbc4202880",
+      "sha256": "a9fb127bb9e0ec04f0b2f335a19ed1ebcba11fad9aa9c60e7c148126207ff42d",
       "bytes": 7828
     },
     {
@@ -1421,7 +1421,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
-      "sha256": "f7c87f16ab4e951ed5f4495238fcdbd115829b4fd92870343d2b419d4fe7411c",
+      "sha256": "f807e6f23c50030e497e6a39e09f0053f09cce273c3ccd9acd80974714f63365",
       "bytes": 5169
     },
     {
@@ -1431,7 +1431,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
-      "sha256": "4b0d0554087ff4bb6582c4e4f0af02a284a4c738709a7888c5de5e9cdbb261e9",
+      "sha256": "120195d9b0f5b21c8b5b69bffb23e1f3be9ac43e039bdd52f0c93e43caf0ba2a",
       "bytes": 5540
     },
     {
@@ -1446,7 +1446,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
-      "sha256": "e3739aa1a40746a05dce535e69f644f4a7faa18b4baae2c2dd1dba72d435c166",
+      "sha256": "56b945f99ee601a3bb3e8052e5e1f7ea3766bcd554bf785120ca5a6c2cabf800",
       "bytes": 4785
     },
     {
@@ -1461,7 +1461,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
-      "sha256": "7cd6f962dac01b95211cea6ab488902e6595f2934b580028ee180eafe3bd5553",
+      "sha256": "15ea293db57d94acb0fa9dba57667c5cccfc21283627860b1b529d089f7412b2",
       "bytes": 7825
     },
     {
@@ -1501,7 +1501,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
-      "sha256": "b40db0542c1975ef9beb7c2504eb06795f32ecf474826ecab8a36e16fd6ba00e",
+      "sha256": "0888cfc5ad17cf47e13829f36214a4678a5916f2cd57e911eea0bf583c7750fe",
       "bytes": 6194
     },
     {
@@ -1551,7 +1551,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
-      "sha256": "98f7897230e45fb352e603938e7033493263d933236174841c6d2214659be0f8",
+      "sha256": "b83e04c14519a6ae8d6aecbe5ccf9d62f44af6ad83e67c8e8d417c6092a7652b",
       "bytes": 5773
     },
     {
@@ -1571,8 +1571,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-      "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026",
-      "bytes": 11459
+      "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60",
+      "bytes": 12621
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/predictions.csv",
@@ -1606,7 +1606,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
-      "sha256": "1db1a8c52e7335fb5ca4b06df317c08caadded006bd6293ac7ef700cc1c54ef9",
+      "sha256": "b1a69aa95bb4ed2c30eb6f05b64366b0b0f8b2a0f0b54dc1d8506d8760f70908",
       "bytes": 5725
     },
     {
@@ -1626,8 +1626,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
-      "sha256": "f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634",
-      "bytes": 8290
+      "sha256": "6cda97438a16f174b93f1fb620be148835555f315e20b912941c886eaa5fb38e",
+      "bytes": 9304
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/predictions.csv",
@@ -1661,7 +1661,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
-      "sha256": "0473c17c9a7ec254f6b0de513056deb54989404aaa6d4ebb66f017c9b50e1d26",
+      "sha256": "c85ccda4485554fc54cfc94707151a2f04038dc80aac6dff3d07b9d997b68eb3",
       "bytes": 5716
     },
     {
@@ -3756,7 +3756,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "7e54cbb785360d91704d55ccf846b736592c7765c74facdb664280799abc76b4",
+      "sha256": "ba272510fb4fc1dcd96f7a64b0a795291e45884727cf38fc711916708301c074",
       "bytes": 150927
     },
     {
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "bc648c5d318b1bed5de2d2f7ab9e0b95c0ad69f48ea18809f9935f8c9dbb0792",
+      "sha256": "b5620fc8b2c659779405841a3a60754861fd169b6ff3d87c617780ffaede0fc9",
       "bytes": 1027393
     },
     {
@@ -5196,8 +5196,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/buffered_author_pollen.py",
-      "sha256": "82debca5b2eb635370b826ffe4c2e0d6a00278eff0f5abf806c12d81880e556e",
-      "bytes": 5400
+      "sha256": "4f370c076627ccfe5c7e12a12df93e6eea2d4ea733285a5655af3d1dbf1a9527",
+      "bytes": 6150
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/constrained_author_lra.py",
@@ -6091,8 +6091,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_buffered_author_pollen.py",
-      "sha256": "04905b9b785b53db6163cde9612f8582c7a8cd0186f18c9d1e9998839d97ec35",
-      "bytes": 8152
+      "sha256": "2e1f9e7b74d13b386b52e929842dc4016073a43b1ea9ae64ad968e95f72efc2e",
+      "bytes": 10823
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_buffered_author_source_roots.py",

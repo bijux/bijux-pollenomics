@@ -32,7 +32,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 Qualified authored reader SHA-256: `99e7b4e2dc8aaf6c6197956aa7465026e3871c92fec020e00665aaf87570cf72`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](../../manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](../../manifest.json) (SHA-256 `5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/report.json](report.json) (SHA-256 `05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23`).
 

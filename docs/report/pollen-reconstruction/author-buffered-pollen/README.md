@@ -74,7 +74,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** Untouched confirmation, Swedish LRA vegetation reconstruction, independently measured vegetation accuracy, general long-distance transfer skill, calibrated spatial confidence intervals or cleared publication/redistribution rights.
 
-**Actual verification performed.** The retained family manifest pins 10 producer modules and 54 listed files; its replay omits README and two replay scripts and compares 51 generated products. Read-only inspection found all 10 current producer hashes equal their retained pins and all 53 non-README file payloads equal retained hashes after removing exact managed route blocks where present. README source-link prose changed from its 3835-byte retained body to 3981 authored bytes; its old body hash is historical, not the current reader identity. Current qualification does not execute the model/replay. The replay raw-Markdown comparison needs managed-block compatibility before a current end-to-end replay pass can be claimed.
+**Actual verification performed.** The original family retains ten historical producer pins and 54 file-index entries; nine numerical producer files and all 51 compared authored/numeric payload identities remain unchanged. An actual bounded no-fit consumer invoked the maintained _compare on those 51 retained source-produced payloads and returned zero differences; 19 source-free guards passed. Exact managed blocks and every pinned public evidence file are authenticated before stripping only the owned terminal block. No raw source preparation, predictions, fitting, scoring or R execution was repeated; current full end-to-end domain replay remains separately unexecuted.
 
 **Remaining input or review.** The 20 km basin-edge rule does not independently close pollen-source footprints or cross-database aliases. Two adjacent previously exposed English blocks do not establish independent transfer uncertainty. Full raw-core grain denominators, matched vegetation observations, intended-use rights and qualified scientific review remain unbound.
 
@@ -90,13 +90,15 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 Qualified authored reader SHA-256: `01f85cfd44e0691ff06f4d49deccdbd00d1143c16aa0f7b3bf52b111fd09b8a6`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](manifest.json) (SHA-256 `5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json](comparisons/baseline/report.json) (SHA-256 `e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json](comparisons/fitted-common-support/report.json) (SHA-256 `8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json](comparisons/strict-clr-support/report.json) (SHA-256 `82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a`).
+
+- [Retained qualification evidence: reports/science/buffered-pollen-reader-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/buffered-pollen-reader-custody.json) (SHA-256 `0ed06d48124ca7335a8ebfdf959c9b8ef5f0871ccbc82d1bc340fea1fec5b403`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
 

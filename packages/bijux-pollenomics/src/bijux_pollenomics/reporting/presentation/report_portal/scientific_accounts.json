@@ -3133,12 +3133,12 @@
           "supported_claim": "The declared 20 km buffered split supports three fixed observed-pollen baselines on 148 common site-bins and a separate fixed half-count CLR/RBF fit on 140; strict-positive support without replacement is absent. Reported method/metric differences are descriptive on those exact supports.",
           "matched_denominator": "17 English author site IDs;31 named taxa;2 adjacent one-degree grids 512/562;184 observed of 425 possible site-bins. Baselines 148/184 with 36 missing-training refusals; fitted 140/184 with 36 missing-training plus 8 insufficient-training refusals. Strict CLR diagnostic spans 25 bins per withheld grid.",
           "negative_or_refused_result": "The fitted common-support MAE 0.040564 is poorer than training mean 0.025298. Strict-positive CLR admits 0 fits in both grids;36 baseline and 44 fitted targets remain unscored. Different supports must not be pooled.",
-          "actual_verification_performed": "The retained family manifest pins 10 producer modules and 54 listed files; its replay omits README and two replay scripts and compares 51 generated products. Read-only inspection found all 10 current producer hashes equal their retained pins and all 53 non-README file payloads equal retained hashes after removing exact managed route blocks where present. README source-link prose changed from its 3835-byte retained body to 3981 authored bytes; its old body hash is historical, not the current reader identity. Current qualification does not execute the model/replay. The replay raw-Markdown comparison needs managed-block compatibility before a current end-to-end replay pass can be claimed."
+          "actual_verification_performed": "The original family retains ten historical producer pins and 54 file-index entries; nine numerical producer files and all 51 compared authored/numeric payload identities remain unchanged. An actual bounded no-fit consumer invoked the maintained _compare on those 51 retained source-produced payloads and returned zero differences; 19 source-free guards passed. Exact managed blocks and every pinned public evidence file are authenticated before stripping only the owned terminal block. No raw source preparation, predictions, fitting, scoring or R execution was repeated; current full end-to-end domain replay remains separately unexecuted."
         },
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
@@ -3151,6 +3151,10 @@
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json",
             "sha256": "82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a"
+          },
+          {
+            "path": "reports/science/buffered-pollen-reader-custody.json",
+            "sha256": "0ed06d48124ca7335a8ebfdf959c9b8ef5f0871ccbc82d1bc340fea1fec5b403"
           }
         ]
       }
@@ -3184,7 +3188,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
@@ -3222,7 +3226,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json",
@@ -3260,7 +3264,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/report.json",
@@ -3302,7 +3306,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json",
@@ -3340,7 +3344,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/report.json",
@@ -3378,7 +3382,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/report.json",
@@ -3420,7 +3424,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/report.json",
@@ -3462,7 +3466,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/report.json",
@@ -3504,7 +3508,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-            "sha256": "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+            "sha256": "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/report.json",
