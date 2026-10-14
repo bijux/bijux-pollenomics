@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2131,
-  "paths_sha256": "aa4e9e15e6eacd015287687244792f7434d77c7e3241ae95462e11423d0f1154",
+  "path_count": 2134,
+  "paths_sha256": "c09e69e2a6cb7eab0192efe6dcaaad9d9892961d7d7d65fdd4a05a9470d1661a",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -63275,6 +63275,37 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Retain actual original native/independent and changed-public-writer source accounts. Source packet, failed predecessors and private output identities are preserved; no new source acquisition or review is inferred."
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/pair-counting",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
+        "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/literal_pair_counting.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/arithmetic.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/publication.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/report.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/source.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/report-sources/swedish-literal-pair-counting.json"
+      ],
+      "verification": "Resolve the configured owner with the exact retained local scientific capture source root and execute both maintained commands to new artifact directories; compare both aggregate products byte-for-byte. This authenticates retained public projection only. The original actual source consumer independently verified121objects/80intervals/26bins/24contrasts under fixed counting assumptions. No new interval/source analysis, HTTP retrieval, ecological/rights or release admission."
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/pair-counting/method",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Preserve the exact scientific protocol/method account read before original native data analysis: all-source121 allocation, fixed conditional sampling/response assumptions, selected-subset scope and increasing-BP contrast direction. No external scientific review, ecological accuracy or rights admission."
     }
   ]
 }

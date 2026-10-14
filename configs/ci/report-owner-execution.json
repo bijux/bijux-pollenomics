@@ -2234,6 +2234,18 @@
         "source-products/geodesic-window-cells.csv": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/pair-counting",
+      "module": "bijux_pollenomics_dev.source_completion.literal_pair_trajectory.publication",
+      "source_paths": {
+        "pair-counting.json": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json",
+        "pair-counting-source.json": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "external_source_descriptor": "configs/ci/report-sources/swedish-literal-pair-counting.json",
+      "timeout_seconds": 60
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

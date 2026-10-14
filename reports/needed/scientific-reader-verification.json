@@ -1840,6 +1840,24 @@
       "actual_publication_terminal_sha256": "87cef562d25810b77b1c0623e40865a5896a0b01360dd4c6453a6ed38e12fa22",
       "prior_readability_execution_preserved": true,
       "scope": "Actual finite geodesic context sensitivity and exact aggregate transport; original327reader execution/report_prose stays historical. No human reader/ecological/rights/release admission."
+    },
+    {
+      "report_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
+      "authored_source_sha256": "257a3ad29f42a5d880d06d1dd6dea5b297f3b1d99a7e18882c57faf6c29ca603",
+      "rendered_sha256": "ad427f6ccbbd0e7fb2cde3627b2dcbbd6ad7f2f2d12cfd1f6a1a5455a3d3b4e2",
+      "pair_counting_source_account": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
+      "method_source_sha256": "dfbe9950d9ce41f79131354960367d5d3434fbca1261bf17b2279a9c251d4583",
+      "actual_publication_terminal_sha256": "aa0d281340916421a1466e8e8241a71c1c45030f7b51f6aabd2b1877de7cfa89",
+      "prior_readability_execution_preserved": true,
+      "scope": "Original native source/counting and independent110digit-tail evidence retained; authenticated aggregates only. Preserve current geodesic supplement and prior327reader execution/report_prose. No new human/rights/ecological/wholeclause admission."
+    },
+    {
+      "report_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "authored_source_sha256": "dfbe9950d9ce41f79131354960367d5d3434fbca1261bf17b2279a9c251d4583",
+      "rendered_sha256": "e1c68d113f4162a32d6a3cf658781fe7d4c5a6b8148b1601157399aae52d168e",
+      "method_native_source_sha256": "dfbe9950d9ce41f79131354960367d5d3434fbca1261bf17b2279a9c251d4583",
+      "individual_qualification": true,
+      "scope": "Classify the new methods page as a scientific reader, retain its exact preanalysis authored method bytes, and expose its own estimator/assumptions/populations/limits. No external qualified review or new scientific execution."
     }
   ],
   "subsequent_source_link_adoptions": [

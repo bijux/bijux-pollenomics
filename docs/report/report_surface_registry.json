@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2127,
+  "surface_count": 2130,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -15,11 +15,11 @@
     "maps": 88,
     "portal": 2,
     "reviews": 36,
-    "scopes": 764
+    "scopes": 767
   },
   "audience_counts": {
     "maintainer_diagnostic": 1229,
-    "public_reading_surface": 773,
+    "public_reading_surface": 776,
     "scientific_review_surface": 125
   },
   "geography_counts": {
@@ -29,7 +29,7 @@
     "nordic": 498,
     "norway": 14,
     "report_root": 1278,
-    "sweden": 52,
+    "sweden": 55,
     "world": 160
   },
   "rows": [
@@ -2918,7 +2918,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
-      "content_sha256": "2000c54a6b1067a7f6ed8e3aa93bf64e91b0bc22c44ac19ae46fdffcb4850d1f",
+      "content_sha256": "ad427f6ccbbd0e7fb2cde3627b2dcbbd6ad7f2f2d12cfd1f6a1a5455a3d3b4e2",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "c54b943e88cd431a52c852463032136b40734e09333e56f6d92b1caa3a661f92",
+      "content_sha256": "b206c3b45e2488ea8dd644611d503ba3f04af824472370d501a3d3f7810c9fc9",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20412,7 +20412,7 @@
     },
     {
       "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "81d83683dc8e04502acc66d2a75743d23d04d008af90eb4d5ec9fc34858511d8",
+      "content_sha256": "cf6172332a69751c4029a1e326958f21555ebe303ce031639facfa8184a85679",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -25868,6 +25868,43 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-source.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "content_sha256": "e1c68d113f4162a32d6a3cf658781fe7d4c5a6b8148b1601157399aae52d168e",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
