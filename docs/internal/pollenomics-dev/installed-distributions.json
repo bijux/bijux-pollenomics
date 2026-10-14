@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "purpose": "Historical local noneditable installed distribution identity and API/CLI diagnostic",
+  "status": "passed",
+  "candidate": "dcd3f7c0903ad8aaf3ecadc9179f1403073ac494",
+  "git_describe": "v0.1.8-1498-gdcd3f7c09",
+  "versions": {
+    "bijux-pollenomics": "0.1.9.dev1498",
+    "pollenomics": "0.1.9.dev1498",
+    "bijux-pollenomics-lra": "0.1.9.dev1498"
+  },
+  "runtime": {
+    "python": "3.11.13 (main, Jun  3 2025, 18:38:25) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "scope": "macOS arm64 Python3.11 local installation; no Linux/Python3.12-3.13/hosted R qualification",
+    "admitted_entry": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "runtime_identities": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4",
+        "bytes": 52640
+      },
+      {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4",
+        "bytes": 52640
+      },
+      {
+        "path": "/opt/homebrew/Cellar/uv/0.11.17/bin/uv",
+        "sha256": "feb812c11ce114b901ea3dbf5ee085defc46dad77fadcf9da10a734a91155289",
+        "bytes": 46855344
+      },
+      {
+        "path": "/opt/homebrew/Cellar/git/2.55.0/bin/git",
+        "sha256": "9048038886ac36210fbb616b49b0707465f63683cb04e33a2013baf95f746938",
+        "bytes": 3699840
+      }
+    ]
+  },
+  "actual_execution": {
+    "plan": {
+      "path": "artifacts/science/installed-distribution-qualification/plan-native-dependency-tags.json",
+      "sha256": "5524ec9800a886e623bd3779f93dfbf88b99a50d608661710ba4e3a673aa0ef3",
+      "bytes": 4144778
+    },
+    "terminal": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/terminal.json",
+      "sha256": "c125f725b8dd3355b0bc8d42afcdcd9d4cb8d4b9e28d7fe8c76fca85e8dbff67",
+      "bytes": 211477
+    },
+    "native_exit": 0,
+    "stages": 83,
+    "wall_seconds": 101.10824216599576,
+    "peak_child_rss_bytes": 223133696,
+    "output_bytes": 953530204,
+    "memory_policy": "portable peak child RSS qualification after return; not enforced during each child"
+  },
+  "source_custody": {
+    "scope": "Selected tracked public package build inputs plus root metadata. Sparse detached contexts preserve actual candidate/tree/tag ancestry through read-only original object alternates; this is not a complete worktree export or full-tree reproducibility claim.",
+    "candidate_tree": "c1f1ecf46e08cf075cd3c7523d4b5fd5d9872f6a",
+    "ancestry_sha256": "e26a8bb48d30572c74bbc30c1091d8f11cc9c435c0132ce5a8f00cd2512c1e1c",
+    "tags": {
+      "refs/tags/v0.1.0": "8af8d1acfc49eb62ac6b5e608a428623f4556fde",
+      "refs/tags/v0.1.1": "13fec4664a506bfbff167195228411e7bc64659b",
+      "refs/tags/v0.1.2": "ed070c41bc2d81d5489e61f49ba91e3c5350c466",
+      "refs/tags/v0.1.3": "8ef47ea6b1cf4355d667981264aa23752cf252e9",
+      "refs/tags/v0.1.4": "22a5a961ca769068617fc3531c07c86460ea464d",
+      "refs/tags/v0.1.5": "975ee9bd28aa40c4c7a8fdd0c6711ee6cf386995",
+      "refs/tags/v0.1.6": "57574a7c13c5bf110db485c2f9a4f2740735ba81",
+      "refs/tags/v0.1.7": "4532dc359728d8a7ce8a76fc846b68bec5d37c71",
+      "refs/tags/v0.1.8": "59184344a9b57fea5e53100c83dc496056215aff"
+    },
+    "protected_source_cache_control_pins": 10148,
+    "source_facts": {
+      "path": "artifacts/science/installed-distribution-qualification/git-source-facts.json",
+      "sha256": "067692b93011de7b419d4576e4b668a229d7627882f8ac3f83b28977b9a2d108",
+      "bytes": 1505
+    },
+    "post_execution_guard": "Every protected source/cache/control/runtime hash unchanged. Each native owned sparse detached context retained exact candidate, native clean tracked state and same tag describe. Later canonical commits are outside this historical candidate."
+  },
+  "project_archives": [
+    {
+      "path": "dist/bijux-pollenomics/bijux_pollenomics-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "fbf6c209a6bcadbddcebedf86c799e8bd34bc0da5c986aeafb8d8966196f0219",
+      "bytes": 2531257,
+      "name": "bijux-pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "defusedxml>=0.7.1",
+        "jsonschema<5,>=4.24.0",
+        "pyproj>=3.7.1",
+        "bandit>=1.7.10; extra == 'dev'",
+        "build>=1.2.2; extra == 'dev'",
+        "hypothesis<7,>=6.135.0; extra == 'dev'",
+        "mkdocs-autorefs>=1.4.2; extra == 'dev'",
+        "mkdocs-git-revision-date-localized-plugin>=1.4.7; extra == 'dev'",
+        "mkdocs-material>=9.6.12; extra == 'dev'",
+        "mkdocs>=1.6.1; extra == 'dev'",
+        "pip-audit>=2.7.3; extra == 'dev'",
+        "pymdown-extensions>=11.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=7.0.0; extra == 'dev'",
+        "types-jsonschema<5,>=4.24; extra == 'dev'",
+        "bijux-pollenomics-lra<0.3,>=0.1.5; extra == 'lra'",
+        "numpy<3,>=1.26; extra == 'lra'",
+        "pandas<3,>=2.1; extra == 'lra'",
+        "xlrd==2.0.2; extra == 'rootsi-review'"
+      ],
+      "members": 1430,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "dist/bijux-pollenomics/bijux_pollenomics-0.1.9.dev1498.tar.gz",
+      "sha256": "d81f02111a47ddbb4f2e86fb22df1446f4ad048e95fa847bd36fdbbd1b8331bf",
+      "bytes": 1712300,
+      "name": "bijux-pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "defusedxml>=0.7.1",
+        "jsonschema<5,>=4.24.0",
+        "pyproj>=3.7.1",
+        "bandit>=1.7.10; extra == 'dev'",
+        "build>=1.2.2; extra == 'dev'",
+        "hypothesis<7,>=6.135.0; extra == 'dev'",
+        "mkdocs-autorefs>=1.4.2; extra == 'dev'",
+        "mkdocs-git-revision-date-localized-plugin>=1.4.7; extra == 'dev'",
+        "mkdocs-material>=9.6.12; extra == 'dev'",
+        "mkdocs>=1.6.1; extra == 'dev'",
+        "pip-audit>=2.7.3; extra == 'dev'",
+        "pymdown-extensions>=11.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=7.0.0; extra == 'dev'",
+        "types-jsonschema<5,>=4.24; extra == 'dev'",
+        "bijux-pollenomics-lra<0.3,>=0.1.5; extra == 'lra'",
+        "numpy<3,>=1.26; extra == 'lra'",
+        "pandas<3,>=2.1; extra == 'lra'",
+        "xlrd==2.0.2; extra == 'rootsi-review'"
+      ],
+      "members": 1431,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "sdist-wheels/bijux-pollenomics/bijux_pollenomics-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "fbf6c209a6bcadbddcebedf86c799e8bd34bc0da5c986aeafb8d8966196f0219",
+      "bytes": 2531257,
+      "name": "bijux-pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "defusedxml>=0.7.1",
+        "jsonschema<5,>=4.24.0",
+        "pyproj>=3.7.1",
+        "bandit>=1.7.10; extra == 'dev'",
+        "build>=1.2.2; extra == 'dev'",
+        "hypothesis<7,>=6.135.0; extra == 'dev'",
+        "mkdocs-autorefs>=1.4.2; extra == 'dev'",
+        "mkdocs-git-revision-date-localized-plugin>=1.4.7; extra == 'dev'",
+        "mkdocs-material>=9.6.12; extra == 'dev'",
+        "mkdocs>=1.6.1; extra == 'dev'",
+        "pip-audit>=2.7.3; extra == 'dev'",
+        "pymdown-extensions>=11.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=7.0.0; extra == 'dev'",
+        "types-jsonschema<5,>=4.24; extra == 'dev'",
+        "bijux-pollenomics-lra<0.3,>=0.1.5; extra == 'lra'",
+        "numpy<3,>=1.26; extra == 'lra'",
+        "pandas<3,>=2.1; extra == 'lra'",
+        "xlrd==2.0.2; extra == 'rootsi-review'"
+      ],
+      "members": 1430,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "dist/pollenomics/pollenomics-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "d729c6843a9bfdddd787c1773a3c6f0758fb503d762dc30a9936a69c0102e085",
+      "bytes": 12433,
+      "name": "pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "bijux-pollenomics<1.0,>=0.1.5",
+        "bandit<2.0,>=1.8.6; extra == 'dev'",
+        "build<2.0,>=1.3.0; extra == 'dev'",
+        "codespell<3.0,>=2.4.1; extra == 'dev'",
+        "deptry<1.0,>=0.24.0; extra == 'dev'",
+        "hatch<2.0,>=1.14.0; extra == 'dev'",
+        "interrogate<2.0,>=1.7.0; extra == 'dev'",
+        "mypy<3.0,>=1.18.2; extra == 'dev'",
+        "pip-audit<3.0,>=2.9.0; extra == 'dev'",
+        "pydantic<3.0,>=2.12; extra == 'dev'",
+        "pydocstyle<7.0,>=6.3.0; extra == 'dev'",
+        "pytest-asyncio<2.0,>=1.0.0; extra == 'dev'",
+        "pytest-cov<8.0,>=6.2.1; extra == 'dev'",
+        "pytest-timeout<3.0,>=2.4.0; extra == 'dev'",
+        "pytest<10.0,>=9.0.3; extra == 'dev'",
+        "radon<7.0,>=6.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=6.2.0; extra == 'dev'",
+        "vulture<3.0,>=2.14; extra == 'dev'"
+      ],
+      "members": 14,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "dist/pollenomics/pollenomics-0.1.9.dev1498.tar.gz",
+      "sha256": "5a142e9333d4c6423957ba128f01552204b83bf130845a7c0bb0496baad0de5b",
+      "bytes": 11538,
+      "name": "pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "bijux-pollenomics<1.0,>=0.1.5",
+        "bandit<2.0,>=1.8.6; extra == 'dev'",
+        "build<2.0,>=1.3.0; extra == 'dev'",
+        "codespell<3.0,>=2.4.1; extra == 'dev'",
+        "deptry<1.0,>=0.24.0; extra == 'dev'",
+        "hatch<2.0,>=1.14.0; extra == 'dev'",
+        "interrogate<2.0,>=1.7.0; extra == 'dev'",
+        "mypy<3.0,>=1.18.2; extra == 'dev'",
+        "pip-audit<3.0,>=2.9.0; extra == 'dev'",
+        "pydantic<3.0,>=2.12; extra == 'dev'",
+        "pydocstyle<7.0,>=6.3.0; extra == 'dev'",
+        "pytest-asyncio<2.0,>=1.0.0; extra == 'dev'",
+        "pytest-cov<8.0,>=6.2.1; extra == 'dev'",
+        "pytest-timeout<3.0,>=2.4.0; extra == 'dev'",
+        "pytest<10.0,>=9.0.3; extra == 'dev'",
+        "radon<7.0,>=6.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=6.2.0; extra == 'dev'",
+        "vulture<3.0,>=2.14; extra == 'dev'"
+      ],
+      "members": 15,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "sdist-wheels/pollenomics/pollenomics-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "d729c6843a9bfdddd787c1773a3c6f0758fb503d762dc30a9936a69c0102e085",
+      "bytes": 12433,
+      "name": "pollenomics",
+      "version": "0.1.9.dev1498",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "requires_dist": [
+        "bijux-pollenomics<1.0,>=0.1.5",
+        "bandit<2.0,>=1.8.6; extra == 'dev'",
+        "build<2.0,>=1.3.0; extra == 'dev'",
+        "codespell<3.0,>=2.4.1; extra == 'dev'",
+        "deptry<1.0,>=0.24.0; extra == 'dev'",
+        "hatch<2.0,>=1.14.0; extra == 'dev'",
+        "interrogate<2.0,>=1.7.0; extra == 'dev'",
+        "mypy<3.0,>=1.18.2; extra == 'dev'",
+        "pip-audit<3.0,>=2.9.0; extra == 'dev'",
+        "pydantic<3.0,>=2.12; extra == 'dev'",
+        "pydocstyle<7.0,>=6.3.0; extra == 'dev'",
+        "pytest-asyncio<2.0,>=1.0.0; extra == 'dev'",
+        "pytest-cov<8.0,>=6.2.1; extra == 'dev'",
+        "pytest-timeout<3.0,>=2.4.0; extra == 'dev'",
+        "pytest<10.0,>=9.0.3; extra == 'dev'",
+        "radon<7.0,>=6.0.1; extra == 'dev'",
+        "ruff<1.0,>=0.13.0; extra == 'dev'",
+        "twine<8.0,>=6.2.0; extra == 'dev'",
+        "vulture<3.0,>=2.14; extra == 'dev'"
+      ],
+      "members": 14,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "dist/bijux-pollenomics-lra/bijux_pollenomics_lra-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "c6a75fb546160ebb820fa0a59d0298792cadcb6858b9ed11c366f6fe4a950448",
+      "bytes": 277273,
+      "name": "bijux-pollenomics-lra",
+      "version": "0.1.9.dev1498",
+      "license_expression": "GPL-2.0-or-later",
+      "license": null,
+      "requires_dist": [
+        "numpy<3,>=1.26",
+        "pandas<3,>=2.1",
+        "scipy<2,>=1.12",
+        "build>=1.2.2; extra == 'dev'",
+        "jsonschema<5,>=4.24; extra == 'dev'",
+        "pandas-stubs<3,>=2.1; extra == 'dev'",
+        "pytest<10,>=8.4; extra == 'dev'",
+        "ruff<1.0,>=0.13; extra == 'dev'",
+        "scipy-stubs<2,>=1.12; extra == 'dev'"
+      ],
+      "members": 68,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "dist/bijux-pollenomics-lra/bijux_pollenomics_lra-0.1.9.dev1498.tar.gz",
+      "sha256": "7842955449ba942bd63495c8a11b210be8ddc50ceb0e90603e11f63d6244bfd9",
+      "bytes": 1167552,
+      "name": "bijux-pollenomics-lra",
+      "version": "0.1.9.dev1498",
+      "license_expression": "GPL-2.0-or-later",
+      "license": null,
+      "requires_dist": [
+        "numpy<3,>=1.26",
+        "pandas<3,>=2.1",
+        "scipy<2,>=1.12",
+        "build>=1.2.2; extra == 'dev'",
+        "jsonschema<5,>=4.24; extra == 'dev'",
+        "pandas-stubs<3,>=2.1; extra == 'dev'",
+        "pytest<10,>=8.4; extra == 'dev'",
+        "ruff<1.0,>=0.13; extra == 'dev'",
+        "scipy-stubs<2,>=1.12; extra == 'dev'"
+      ],
+      "members": 147,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    },
+    {
+      "path": "sdist-wheels/bijux-pollenomics-lra/bijux_pollenomics_lra-0.1.9.dev1498-py3-none-any.whl",
+      "sha256": "c6a75fb546160ebb820fa0a59d0298792cadcb6858b9ed11c366f6fe4a950448",
+      "bytes": 277273,
+      "name": "bijux-pollenomics-lra",
+      "version": "0.1.9.dev1498",
+      "license_expression": "GPL-2.0-or-later",
+      "license": null,
+      "requires_dist": [
+        "numpy<3,>=1.26",
+        "pandas<3,>=2.1",
+        "scipy<2,>=1.12",
+        "build>=1.2.2; extra == 'dev'",
+        "jsonschema<5,>=4.24; extra == 'dev'",
+        "pandas-stubs<3,>=2.1; extra == 'dev'",
+        "pytest<10,>=8.4; extra == 'dev'",
+        "ruff<1.0,>=0.13; extra == 'dev'",
+        "scipy-stubs<2,>=1.12; extra == 'dev'"
+      ],
+      "members": 68,
+      "member_manifest_evidence": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+        "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+        "bytes": 987466
+      }
+    }
+  ],
+  "installed_environments": [
+    {
+      "form": "direct-wheel-base",
+      "role": "base",
+      "native_exit": 0,
+      "python_executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/environments/direct-wheel-base/bin/python",
+      "site_package_module_origins": 1001,
+      "complete_source_resource_files": 1432,
+      "isolated": true,
+      "r_absent": true,
+      "expected_refusal_codes": [
+        "lra_extension_missing"
+      ],
+      "proof": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/direct-wheel-base-probe.json",
+        "sha256": "2e6ace48996c774977e91fdcf76a7598a62c47ea11049c21741d4fdc86687008",
+        "bytes": 602520
+      }
+    },
+    {
+      "form": "direct-wheel-engine",
+      "role": "engine",
+      "native_exit": 0,
+      "python_executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/environments/direct-wheel-engine/bin/python",
+      "site_package_module_origins": 1974,
+      "complete_source_resource_files": 1493,
+      "isolated": true,
+      "r_absent": true,
+      "expected_refusal_codes": [
+        "taxon_measurement_unresolved"
+      ],
+      "proof": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/direct-wheel-engine-probe.json",
+        "sha256": "984d1b1e84950b207771f947872fa52b3bd601ad2c3f5c6d3d9416aec627af18",
+        "bytes": 865080
+      }
+    },
+    {
+      "form": "sdist-wheel-base",
+      "role": "base",
+      "native_exit": 0,
+      "python_executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/environments/sdist-wheel-base/bin/python",
+      "site_package_module_origins": 1001,
+      "complete_source_resource_files": 1432,
+      "isolated": true,
+      "r_absent": true,
+      "expected_refusal_codes": [
+        "lra_extension_missing"
+      ],
+      "proof": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/sdist-wheel-base-probe.json",
+        "sha256": "738ea440abc693e025eff4030101df97f8b1c451e6d4ea7585949d7e524b5697",
+        "bytes": 601517
+      }
+    },
+    {
+      "form": "sdist-wheel-engine",
+      "role": "engine",
+      "native_exit": 0,
+      "python_executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/environments/sdist-wheel-engine/bin/python",
+      "site_package_module_origins": 1974,
+      "complete_source_resource_files": 1493,
+      "isolated": true,
+      "r_absent": true,
+      "expected_refusal_codes": [
+        "taxon_measurement_unresolved"
+      ],
+      "proof": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/sdist-wheel-engine-probe.json",
+        "sha256": "749b26f31f428ffaaafc5a69c0ec3bb009deae60dbe19beaa7147f5948f2c7f9",
+        "bytes": 863104
+      }
+    }
+  ],
+  "legal_identity": {
+    "bijux-pollenomics": {
+      "metadata": "Apache-2.0",
+      "owned_files": [
+        {
+          "name": "LICENSE",
+          "sha256": "89a8c1009ee18e6a8a30d2c7d3c6b6d2d3e29e230dce52c32ab0d848a09f6de2",
+          "bytes": 10865
+        },
+        {
+          "name": "NOTICE",
+          "sha256": "c10c62723450ffe3bcabcfb772618067c0532d0cb0f0bb2e868fd236b67bef60",
+          "bytes": 114
+        }
+      ]
+    },
+    "pollenomics": {
+      "metadata": "Apache-2.0",
+      "owned_files": [
+        {
+          "name": "LICENSE",
+          "sha256": "89a8c1009ee18e6a8a30d2c7d3c6b6d2d3e29e230dce52c32ab0d848a09f6de2",
+          "bytes": 10865
+        },
+        {
+          "name": "NOTICE",
+          "sha256": "c10c62723450ffe3bcabcfb772618067c0532d0cb0f0bb2e868fd236b67bef60",
+          "bytes": 114
+        }
+      ]
+    },
+    "bijux-pollenomics-lra": {
+      "metadata": "GPL-2.0-or-later",
+      "owned_files": [
+        {
+          "name": "LICENSE",
+          "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+          "bytes": 17984
+        },
+        {
+          "name": "NOTICE",
+          "sha256": "a2d32aab853b24b96855dd75f1b4c4fb78282664b37b8bada73132f533b5e05b",
+          "bytes": 2214
+        }
+      ]
+    },
+    "proof": "Exact native archive and installed LICENSE/NOTICE bytes match package-owned source bytes; engine legal assets differ from host/facade. This is identity evidence, not a new legal or source-data rights decision."
+  },
+  "cli_checks": {
+    "native_commands": 32,
+    "forms": [
+      "python -I -m bijux_pollenomics",
+      "python -I bin/bijux-pollenomics",
+      "python -I -m pollenomics",
+      "python -I bin/pollenomics"
+    ],
+    "options": [
+      "--help",
+      "--version"
+    ],
+    "version_requirement": "All --version stdout contains actual native project artifact version."
+  },
+  "dependency_transport": {
+    "packages": 50,
+    "record_validated_files": 7216,
+    "registry_network_used": false,
+    "proof": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/dependency-payload-transport.json",
+      "sha256": "0a47f1ad57753612774d79939fb6c754de7a986021f064fadc7342b8c8cd70a4",
+      "bytes": 1204823
+    },
+    "limitation": "Owned dependency wheels were deterministically recontainerized from retained extracted payloads. Every original RECORD hash/size, METADATA, WHEEL compatibility tag and payload file was preserved; these are not hashes or custody claims for original dependency wheel archives."
+  },
+  "complete_evidence_products": {
+    "terminal.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/terminal.json",
+      "sha256": "c125f725b8dd3355b0bc8d42afcdcd9d4cb8d4b9e28d7fe8c76fca85e8dbff67",
+      "bytes": 211477
+    },
+    "artifacts.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/artifacts.json",
+      "sha256": "3b29b8426504065252298f61e27b7e7776d0348610d3649c4a1eb96bc5a84a8d",
+      "bytes": 987466
+    },
+    "dependency-payload-transport.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/dependency-payload-transport.json",
+      "sha256": "0a47f1ad57753612774d79939fb6c754de7a986021f064fadc7342b8c8cd70a4",
+      "bytes": 1204823
+    },
+    "direct-wheel-base-probe.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/direct-wheel-base-probe.json",
+      "sha256": "2e6ace48996c774977e91fdcf76a7598a62c47ea11049c21741d4fdc86687008",
+      "bytes": 602520,
+      "resources": 1432,
+      "origins": 1001,
+      "role": "base"
+    },
+    "direct-wheel-engine-probe.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/direct-wheel-engine-probe.json",
+      "sha256": "984d1b1e84950b207771f947872fa52b3bd601ad2c3f5c6d3d9416aec627af18",
+      "bytes": 865080,
+      "resources": 1493,
+      "origins": 1974,
+      "role": "engine"
+    },
+    "sdist-wheel-base-probe.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/sdist-wheel-base-probe.json",
+      "sha256": "738ea440abc693e025eff4030101df97f8b1c451e6d4ea7585949d7e524b5697",
+      "bytes": 601517,
+      "resources": 1432,
+      "origins": 1001,
+      "role": "base"
+    },
+    "sdist-wheel-engine-probe.json": {
+      "path": "artifacts/science/installed-distribution-qualification/execution-native-dependency-tags/sdist-wheel-engine-probe.json",
+      "sha256": "749b26f31f428ffaaafc5a69c0ec3bb009deae60dbe19beaa7147f5948f2c7f9",
+      "bytes": 863104,
+      "resources": 1493,
+      "origins": 1974,
+      "role": "engine"
+    }
+  },
+  "preserved_failed_predecessors": [
+    {
+      "terminal": {
+        "path": "artifacts/science/installed-distribution-qualification/execution/terminal.json",
+        "sha256": "2fc8bfe072968efaf0741d446a4f00877a5d49267fb6488ec57ac5d34f697371",
+        "bytes": 4383
+      },
+      "native_exit": 1,
+      "phase": "Offline dependency transport provisioning before any public project build",
+      "exception": "ValueError: native child failed: ['/opt/homebrew/bin/uv', 'pip', 'install', '--offline', '--no-deps', '--python', PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution/environments/build/bin/python'), 'backports-tarfile==1.2.0', 'build==1.4.2', 'certifi==2026.2.25', 'charset-normalizer==3.4.6', 'docutils==0.22.4', 'hatch-vcs==0.5.0', 'hatchling==1.30.1', 'id==1.6.1', 'idna==3.18', 'importlib-metadata==9.0.0', 'jaraco-classes==3.4.0', 'jaraco-context==6.1.2', 'jaraco-functools==4.4.0', 'keyring==25.7.0', 'markdown-it-py==4.0.0', 'mdurl==0.1.2', 'more-itertools==10.8.0', 'nh3==0.3.4', 'packaging==26.3', 'pathspec==1.0.4', 'pluggy==1.6.0', 'pygments==2.20.0', 'pyproject-hooks==1.2.0', 'readme-renderer==44.0', 'requests==2.33.1', 'requests-toolbelt==1.0.0', 'rfc3986==2.0.0', 'rich==14.3.3', 'setuptools==84.0.0', 'setuptools-scm==10.3.4', 'trove-classifiers==2026.1.14.14', 'twine==7.0.0', 'urllib3==2.8.0', 'vcs-versioning==2.6.0', 'zipp==3.23.0']"
+    },
+    {
+      "terminal": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-cache-layout/terminal.json",
+        "sha256": "ef0bd40a6f1d2f6f2f69f43911a81678943ef26fba5898048e009ecb13912874",
+        "bytes": 4476
+      },
+      "native_exit": 1,
+      "phase": "Offline dependency transport provisioning before any public project build",
+      "exception": "ValueError: native child failed: ['/opt/homebrew/bin/uv', 'pip', 'install', '--offline', '--no-deps', '--python', PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cache-layout/environments/build/bin/python'), 'backports-tarfile==1.2.0', 'build==1.4.2', 'certifi==2026.2.25', 'charset-normalizer==3.4.6', 'docutils==0.22.4', 'hatch-vcs==0.5.0', 'hatchling==1.30.1', 'id==1.6.1', 'idna==3.18', 'importlib-metadata==9.0.0', 'jaraco-classes==3.4.0', 'jaraco-context==6.1.2', 'jaraco-functools==4.4.0', 'keyring==25.7.0', 'markdown-it-py==4.0.0', 'mdurl==0.1.2', 'more-itertools==10.8.0', 'nh3==0.3.4', 'packaging==26.3', 'pathspec==1.0.4', 'pluggy==1.6.0', 'pygments==2.20.0', 'pyproject-hooks==1.2.0', 'readme-renderer==44.0', 'requests==2.33.1', 'requests-toolbelt==1.0.0', 'rfc3986==2.0.0', 'rich==14.3.3', 'setuptools==84.0.0', 'setuptools-scm==10.3.4', 'trove-classifiers==2026.1.14.14', 'twine==7.0.0', 'urllib3==2.8.0', 'vcs-versioning==2.6.0', 'zipp==3.23.0']"
+    },
+    {
+      "terminal": {
+        "path": "artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/terminal.json",
+        "sha256": "5bb5227ba5f6a0b66fd5d25f021d64206dd86230e4899cee8224e477aca40e5e",
+        "bytes": 16097
+      },
+      "native_exit": 1,
+      "phase": "Offline dependency transport provisioning before any public project build",
+      "exception": "ValueError: native child failed: ['/opt/homebrew/bin/uv', 'pip', 'install', '--offline', '--no-deps', '--python', PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/environments/build/bin/python'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/backports_tarfile-1.2.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/build-1.4.2-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/certifi-2026.2.25-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/charset_normalizer-3.4.6-cp311-cp311-macosx_10_9_universal2.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/docutils-0.22.4-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/hatch_vcs-0.5.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/hatchling-1.30.1-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/id-1.6.1-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/idna-3.18-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/importlib_metadata-9.0.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/jaraco_classes-3.4.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/jaraco_context-6.1.2-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/jaraco_functools-4.4.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/keyring-25.7.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/markdown_it_py-4.0.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/mdurl-0.1.2-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/more_itertools-10.8.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/nh3-0.3.4-cp38-abi3-macosx_10_12_x86_64.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/packaging-26.3-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/pathspec-1.0.4-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/pluggy-1.6.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/Pygments-2.20.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/pyproject_hooks-1.2.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/readme_renderer-44.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/requests-2.33.1-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/requests_toolbelt-1.0.0-py2-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/rfc3986-2.0.0-py2-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/rich-14.3.3-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/setuptools-84.0.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/setuptools_scm-10.3.4-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/trove_classifiers-2026.1.14.14-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/twine-7.0.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/urllib3-2.8.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/vcs_versioning-2.6.0-py3-none-any.whl'), PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/installed-distribution-qualification/execution-cached-payload-wheels/dependency-wheels/zipp-3.23.0-py3-none-any.whl')]"
+    }
+  ],
+  "limits": [
+    "Historical dcd3 candidate only, not current-main or a tagged release qualification.",
+    "Actual version0.1.9.dev1498 is untagged development identity, not official0.2.0. No version override, tag, branch, push, upload or publication occurred.",
+    "No ordinary source test suite, scientific reconstruction, source-data acquisition or R execution was repeated.",
+    "No hosted same-revision R, empirical scientific accuracy, human scientific review, data rights or publication admission is conferred.",
+    "All four environments are actual noneditable installs with python -I and neutral cwd; module origins are inside those environments site-packages, not repository src trees."
+  ]
+}

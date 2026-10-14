@@ -210,3 +210,8 @@ integrity](documentation-integrity.md) for route and audience contracts, and
 broader lanes as intentionally unexecuted when they are unrelated or too
 expensive for the changed boundary; do not describe a focused result as proof
 that the entire repository is green.
+
+The [installed distribution qualification](installed-distributions.md) records
+actual wheel and sdist builds, isolated API/CLI behavior and their exact historical
+source candidate. Its diagnostic scope leaves current-candidate and hosted release
+acceptance explicit.
