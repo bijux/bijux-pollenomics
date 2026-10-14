@@ -90,7 +90,29 @@ must show the current zero-candidate refusal rather than old rank values.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal.
+
+**Unsupported claim.** Live endpoint availability or matching count does not prove raw capture parity, supported acquisition rights, full identity equivalence or admitted lake ranking.
+
+**Actual verification performed.** Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing.
+
+**Remaining input or review.** Both full identity sets, versioned official source route, approved access/rights and qualified registry review remain required.
+
+**Cause category.** Missing original capture and unresolved geometry rights/version identity.
+
+**Consequence.** The 42 net count difference cannot be presented as an omitted lake list, and 99 derived features cannot restore old ranks.
+
+**Precise next acceptance route.** Obtain an approved provider route and versioned layer identity comparison, reconcile the candidate subset, then conduct qualified review before ranking.
+
+**Negative or refused result.** raw_wfs_capture_bound_to_export=false, source_population_reconciled=false, qualified_review_accepted=false; 0 ranked candidates.
+
+**Matched denominator.** 40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference.
+
+Qualified authored reader SHA-256: `db5f18e581407bcf154d670c5b8aabff58008d08514910c149f8674a8b99283b`.
+
+- [Retained qualification evidence: docs/report/source-relations/svar/normalized-export/report.json](report.json) (SHA-256 `ab082b7899ce947b7bef8c0f8c58fc030aed79b54ee14edf50c81bf5e18f9baf`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json](../../../countries/sweden/sweden_lake_evidence_richness_v66.json) (SHA-256 `52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

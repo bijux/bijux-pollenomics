@@ -79,7 +79,33 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This Finland bundle inventories 32 published AADR v66 genetic IDs at 6 localities under the source Political Entity filter; country labels are publication selection.
+
+**Unsupported claim.** Neither source country labels nor metadata dates establish historical nationality, qualified geography/chronology, ancestry, migration or farming. Two sheep samples at Kastelholm supply one locality; most source-labelled Finnish human IDs lack coordinates.
+
+**Actual verification performed.** Read this bundle reader and current summary; reconciled 32 CSV rows/distinct genetic IDs and 6 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun.
+
+**Remaining input or review.** Authenticate each Finland source row, chronology, coordinate interpretation, rights and intended reuse before scientific comparison; keep duplicate source-panel membership distinct from genetic IDs.
+
+**Cause category.** Source metadata selection and unresolved scientific admission.
+
+**Consequence.** The 32 visible IDs are a filtered publication inventory; they are not 32 independent people, validated dates or an admitted population estimate.
+
+**Precise next acceptance route.** Review reports/science/aadr-nordic-entities/report.json and its exact decision population, then resolve missing coordinates and qualified chronology/geography/rights at native record IDs before an independently declared biological comparison.
+
+**Negative or refused result.** 92 of 124 source-labelled Finland IDs are excluded for missing coordinates; map_admitted and scientifically_admitted remain false. 1240k contributes 23 rows and ho 32; present-day rows remain visible.
+
+**Matched denominator.** Finland: source-labelled genetic IDs 124; published unique genetic IDs 32; coordinate exclusions 92; locality rows 6. Dataset counts {"1240k": 23, "ho": 32} count panel membership, not additional people. Two sheep samples at Kastelholm supply one locality; most source-labelled Finnish human IDs lack coordinates.
+
+Qualified authored reader SHA-256: `aacf2f10e0f41e3efd7a2a08f871109007d8d16e367f06b98b3771783b109788`.
+
+- [Retained qualification evidence: docs/report/countries/finland/finland_aadr_v66_summary.json](finland_aadr_v66_summary.json) (SHA-256 `d84243c21847ea16a75bab9ae1bf157f589335fa6ee0c37e18f8721ba8ce4332`).
+
+- [Retained qualification evidence: docs/report/countries/finland/finland_aadr_v66_samples.csv](finland_aadr_v66_samples.csv) (SHA-256 `1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb`).
+
+- [Retained qualification evidence: docs/report/countries/finland/finland_aadr_v66_localities.csv](finland_aadr_v66_localities.csv) (SHA-256 `a51ee57bf9b4f82970f2f36cfe61896a6f4c08f9d4bcb6735d112c638a771546`).
+
+- [Retained qualification evidence: reports/science/aadr-nordic-entities/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/report.json) (SHA-256 `73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196`).
 
 - [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `714f2e896dc3ceec86e9b986cf97defe08f9fbb26fb25dd908368dc65c2f5eac`).
 

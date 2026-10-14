@@ -60,7 +60,29 @@ Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA 
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained species-evidence register distinguishes mapped locality evidence, project-level context and too-weak species support across four publication countries.
+
+**Unsupported claim.** A species review contribution labelled direct is not proof that the world map contains a mapped point for that species, nor qualified scientific admission.
+
+**Actual verification performed.** Read 16 species-review rows, 4 country profiles, 17 refusals and current animal entity totals; distinguished registry/context classifications from actual visible map membership. No source evaluation or map renderer was rerun.
+
+**Remaining input or review.** Project geography must be resolved to sample-owned locality/chronology and qualified taxonomy/source roles before broad biological interpretation.
+
+**Cause category.** Evidence-role registry with species-level context and heterogeneous mapped capability.
+
+**Consequence.** Camel/dog review labels can remain project-context while their current atlas mapped-point count is 0; the generic contribution rationale cannot override native point membership.
+
+**Precise next acceptance route.** Trace species review and project source identities to actual source-owned locality rows, resolve source-role contradictions, and qualify scientific admission before positive map/biological claims.
+
+**Negative or refused result.** 17 refusals and too-weak species remain; wild/progenitor cattle and mixed source taxonomies cannot be flattened into domesticated-core confidence.
+
+**Matched denominator.** 16 species-review rows across 4 country profiles; current actual map supports 6 animal species/165 features/322 samples, not 16 mapped species or 64 independent biological populations.
+
+Qualified authored reader SHA-256: `449ee4f44db39d70a07da82ce20f06ef872d2201265ecee8ef768f7abd39fd6a`.
+
+- [Retained qualification evidence: docs/report/world/world_evidence_surface.json](world_evidence_surface.json) (SHA-256 `2070f4b89c44bcbab8ca72f9b3bb6a09e214205062af4aba6c8ae34c0b14a27a`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

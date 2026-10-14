@@ -53,7 +53,29 @@ target-window rows for time navigation and analysis.
 
 Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This six-target product joins published modeled LandClim windows to spatially nearby numeric-interval SEAD/aDNA context and retains each named lake/wetland decision.
+
+**Unsupported claim.** Modeled percentages are not observed crop acreage; nearby dated context is not proof of cultivation,migration,causation or viable lake coring.
+
+**Actual verification performed.** Read the machine target decisions and 150 window rows; checked sixcovered targets,zero uncovered,25 rows per target and separate lake/wetland classes. No country-report producer or ecological validation was rerun.
+
+**Remaining input or review.** Independent measured vegetation,qualified SEAD/aDNA chronology and source admission,and physical lake/core suitability are needed for stronger historical or sampling claims.
+
+**Cause category.** Modeled-grid synthesis with descriptive temporal/spatial context.
+
+**Consequence.** The four modern registered lakes and two archaeological wetlands remain separate target classes; common modeled values are not six independent vegetation measurements.
+
+**Precise next acceptance route.** Reproduce the exact source-bound six-target product,retain refused/no-data windows and contextroles,then qualify independent matched measurements before historical accuracy or causal inference.
+
+**Negative or refused result.** Gullåkra andVesums mossar remain excluded from lake ranking while retained as archaeological wetlands;cross-proxy causal inference and crop-acreage interpretation remain refused.
+
+**Matched denominator.** 6 targets=4 registered lakes+2 wetland contexts;25 published windows each=150 target-window rows,6/6 gridcovered,0 uncovered;20 km context requires numeric interval overlap,not mere proximity.
+
+Qualified authored reader SHA-256: `828273af8dd07f9fe612f2936fecbfd5bcb99c40a5cb32677843c8a415fd6fd7`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_land_use_synthesis_v66.json](sweden_land_use_synthesis_v66.json) (SHA-256 `c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv](sweden_land_use_synthesis_v66.csv) (SHA-256 `a534469cf5f411bd8b017b307f94784918df070e9c5d5005f1a03b0a966ed3d5`).
 
 - [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md) (source SHA-256 `de6656338213deaaf57a2359dd3bf2ec8c0c717ce14fe21e4e2702b0f2cd08a7`).
 

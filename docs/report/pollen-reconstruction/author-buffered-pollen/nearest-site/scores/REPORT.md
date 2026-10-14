@@ -12,7 +12,31 @@ This is a development comparison on author-prepared pollen, not a Swedish cohort
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The nearest-site prediction uses eligible opposite-grid counts under the declared 20 km basin-edge split; held-out target counts are scored afterward. Retained site-macro MAE is 0.025285 fraction on its stated support.
+
+**Unsupported claim.** Untouched confirmation, Swedish LRA vegetation reconstruction, independently measured vegetation accuracy, general long-distance transfer skill, calibrated spatial confidence intervals or cleared publication/redistribution rights.
+
+**Actual verification performed.** This qualification reads the exact retained report JSON, reader text and family source/producer manifest. It does not rerun predictions, fitting, scoring or private source acquisition, and supplies no independent numerical or human review. The retained scores concern author-prepared observed pollen, not measured vegetation.
+
+**Remaining input or review.** The 20 km basin-edge rule does not independently close pollen-source footprints or cross-database aliases. Two adjacent previously exposed English blocks do not establish independent transfer uncertainty. Full raw-core grain denominators, matched vegetation observations, intended-use rights and qualified scientific review remain unbound.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Read these observed-pollen outcomes as descriptive development evidence on their stated support. Do not convert their errors or source identity into vegetation, LRA, independent confirmation or general-transfer accuracy.
+
+**Precise next acceptance route.** For a new general-transfer claim, qualify source identity/footprints/aliases, raw denominators and rights, then freeze a development-selected protocol before scoring genuinely untouched independent spatial groups. A vegetation/LRA claim additionally needs admitted basin/chronology/taxon support and independently matched vegetation truth; obtain qualified review of that exact estimand.
+
+**Negative or refused result.** Buffered MAE 0.025285 is poorer than retained within-grid MAE 0.019518 on matched support. 36 unscored targets and differences between within-grid and buffered spatial support remain explicit.
+
+**Matched denominator.** 17 English author sites;2 adjacent outer blocks;31-taxon prepared axis;148/184 observed site-bins scored out of 425 possible site-bins. 36 targets lack buffered same-bin training. No absent prediction is scored as zero. The within-grid comparison pairs only the same 148 bins; sites, not all bins pooled, receive equal weight.
+
+Qualified authored reader SHA-256: `0836124a2052bced4694d71715d57b9c7dde7fd363142ecf45b0470f0f7e9202`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](../../manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/report.json](report.json) (SHA-256 `394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scores.csv](scores.csv) (SHA-256 `e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
 

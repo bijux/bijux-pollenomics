@@ -51,7 +51,29 @@ require a new comparison rather than silent fallback.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Six published ABBO AMS dates match their Neotoma control lab/depth/age/error fields under explicit unit comparisons.
+
+**Unsupported claim.** Calibrated control bounds do not supply sample-age uncertainty or historical lake geometry, and the core top is not a seventh published 14C date.
+
+**Actual verification performed.** Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download.
+
+**Remaining input or review.** Collection-date roles, 107 interpolated sample uncertainties, historical basin geometry and source analytical rights need resolution.
+
+**Cause category.** Control correspondence does not define a sample-age posterior.
+
+**Consequence.** Zero ABBO LRA samples are admitted despite strong control-source lineage.
+
+**Precise next acceptance route.** Obtain the selected age model and sample-level uncertainty/support with qualified basin/count/taxon/use decisions.
+
+**Negative or refused result.** The −52 cal BP core top lacks a matching published radiocarbon date; sample ages lack uncertainty bounds.
+
+**Matched denominator.** 6 published dates/6 exact control matches versus 7 Neotoma controls and 107 pollen samples; ka 14C BP and cal BP remain distinct.
+
+Qualified authored reader SHA-256: `7624ddef469a420bf8254ecee40b09df654fd3679cdcf4500329bae43a62ee3f`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-age-controls/report.json](report.json) (SHA-256 `629efd8c18ce6b3ab570d36cf4c3ebbb99a180d1018cdb8eec2ecfa268039445`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-profile/report.json](../abbo-profile/report.json) (SHA-256 `c29738753e25a99767776cfecfbdaebe0c3a4394c38df91b72bb2c4c944c6263`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md) (source SHA-256 `264420c81e18a6ee56b0b612e657f881fa26829a9cc060114d69b15d2491120f`).
 

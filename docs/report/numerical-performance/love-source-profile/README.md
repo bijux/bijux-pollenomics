@@ -83,7 +83,29 @@ complete empirical LRA study.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained one-thread LOVEexample profile finds no single deterministic component dominating the public call and therefore supports retaining Python for this workload.
+
+**Unsupported claim.** Profile fractions do not establish an unprofiled speedup, optimizer convergence, independent ecological accuracy or a compiled adoption benefit.
+
+**Actual verification performed.** Read the retained 12-warm-call workload, source closure, timing interpretation and separate identical-input R comparison. Bound both accounts without rerunning profiling, R or LOVE.
+
+**Remaining input or review.** A larger qualified workload and an isolated boundary occupying at least half of full-call cost are needed before reopening a compiled candidate; present-source qualification remains separate.
+
+**Cause category.** Measured performance decision with explicitly bounded historical source correspondence.
+
+**Consequence.** No speculative C++ adoption follows from the measured profile, and later R fixture cases cannot silently substitute for this exact workload.
+
+**Precise next acceptance route.** Profile a named qualified workload, retain output/missingness identity, then apply the declared conversion-inclusive twofold full-call gate to any actual compiled proposal.
+
+**Negative or refused result.** The largest diagnostic component remains below half the call. Eight of 45 shared files differed from the earlier R closure; later 18 optimized R cases use other fixtures, while the separate exact LOVEexample comparison has its own account.
+
+**Matched denominator.** One first call, 12 warm calls and one instrumented call; 56 source pins; first 76.382 ms, warm median 21.601 ms (21.382–23.300 ms), profiled 45.400 ms, whole-process peak 167.9 MB. Timings describe one recorded machine and workload.
+
+Qualified authored reader SHA-256: `f050dafea3267bbd9eb62b0169ecece9e8456376f7467a5f06cab39709054e3c`.
+
+- [Retained qualification evidence: docs/report/numerical-performance/love-source-profile/report.json](report.json) (SHA-256 `7cc846537a95eedcbde215f450fdc9a434c6dab73e93565decf771c19ddd3e7e`).
+
+- [Retained qualification evidence: docs/report/numerical-performance/love-source-comparison/report.json](../love-source-comparison/report.json) (SHA-256 `73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

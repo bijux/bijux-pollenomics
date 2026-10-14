@@ -464,7 +464,27 @@ Species-aware evidence boundary: mapped Homo sapiens localities are direct atlas
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained nordic atlas ranking orders447 locality anchors under explicit evidence, chronology, species, contextual and missingness weights.
+
+**Unsupported claim.** An exploratory weighted score is not scientific certainty, fieldwork authorization, ecological accuracy, genotype inference or a species-resolved historical event.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The recommendation gate still needs qualified cross-species and non-metadata evidence plus source and locality review.
+
+**Cause category.** Exploratory locality heuristic with explicit missingness and recommendation refusal.
+
+**Consequence.** Metadata-rich human localities can rank highly without becoming stronger independent biological observations.
+
+**Precise next acceptance route.** Replay the source-bound ranking and preserve score-family contributions, then submit any proposed fieldwork candidate through its stronger admission gate.
+
+**Negative or refused result.** Sampling recommendation stays disabled; animal proximity alone cannot promote a locality claim.
+
+**Matched denominator.** 447 locality anchors under one atlas_exploration profile; ranked human samples and nearby context counts describe different units.
+
+Qualified authored reader SHA-256: `4bc6cf9caecabb0908736554db3e9305615adaf14929c843d78c3982fc1005ab`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_candidate_sites.json](nordic_candidate_sites.json) (SHA-256 `e1009ec2cd028d3fed6dbb9399545c2ac15adf984b9053a049966b9c210e182f`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

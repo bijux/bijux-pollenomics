@@ -27,7 +27,29 @@ rights and scientific relationship are qualified.
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Two retained DataCite records establish 931856 IsObsoletedBy 937075 with distinct rights declarations.
+
+**Unsupported claim.** DOI supersession does not establish byte/row equivalence or transfer successor licensing to an OpenLand derivative.
+
+**Actual verification performed.** Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun.
+
+**Remaining input or review.** An input-level join and derivative-specific permission/scientific role review remain missing.
+
+**Cause category.** Dataset lineage is narrower than version/rights equivalence.
+
+**Consequence.** The older restricted record is not replaced silently by an openly licensed successor.
+
+**Precise next acceptance route.** Obtain exact release/member correspondence and qualified derivative rights before changing private modeled-source status.
+
+**Negative or refused result.** 931856 licensing unknown/access restricted; 937075 CC BY 4.0 does not supply independent vegetation truth.
+
+**Matched denominator.** 2 DOI records/1 explicit supersession relation; 25 OpenLand CSV slices remain dependent modeled context; 0 recovered input-level joins.
+
+Qualified authored reader SHA-256: `8225ab762f9431a05d1583818746d3b12e6402500a20321c398798a2f55c8a2a`.
+
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/doi-lineage.json](doi-lineage.json) (SHA-256 `52421cacb6bf4f0ec580e7f2d0f2665ab0e87a1184efff6b887247513e3afa27`).
+
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

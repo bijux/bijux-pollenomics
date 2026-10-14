@@ -61,7 +61,27 @@ pollen prediction on a closed author-target count subcomposition.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The separate31-author-target sensitivity applies the same two supported LegacyAge samples to frozen Norway-excluded observed-pollen predictions on the author-assigned count denominator.
+
+**Unsupported claim.** It cannot pool scores with the16-label response, establish a chronology posterior or historical LandClim age selection, admit LRA inputs or estimate between-site uncertainty.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source chronology, parameters, geometry and analytical rights remain separate; two bins cannot select a general model winner.
+
+**Cause category.** Conditional source-age support with a distinct closed taxonomic response.
+
+**Consequence.** Matched-sample nominal and strict scores coincide; changed complete-parent-bin scores reflect sample exclusion rather than age reassignment.
+
+**Precise next acceptance route.** Replay its31-target freeze/score consumer and verify all22nominal bins against source-assigned/excluded/unmapped mass while retaining the two-bin matched comparison.
+
+**Negative or refused result.** 70of72samples are refused and20of22bins lack supported samples; no unsupported bin becomes a zero-error observation.
+
+**Matched denominator.** One site,72samples,71exact-depth joins,two contained samples,two supported bins,31targets and three methods/six selected prediction rows.
+
+Qualified authored reader SHA-256: `4a4bfdb0e1aed2754784df7b42bd804d3f899efa8a3476d2905af0fa2c0d7b40`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/dalmutladdo-author-target-age-interval/report.json](report.json) (SHA-256 `c5081314e606bc40adce4b1ce8adff73f2868f847e6a18a508f2cd55368694a9`).
 
 - [Canonical scientific account: reports/science/dalmutladdo-lra-input/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/dalmutladdo-lra-input/README.md) (source SHA-256 `93fb8bf7334d3919fbf25d2cc0d7a5f062bfe67fa23dfb0e69d0940494964702`).
 

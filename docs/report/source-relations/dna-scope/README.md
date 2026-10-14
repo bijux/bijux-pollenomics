@@ -61,7 +61,29 @@ basis, or a point whose source artifact has no present path.
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained scope report separates AADR v66 annotations from animal aDNA project and point evidence.
+
+**Unsupported claim.** Its historical 170-feature/331-sample animal population and dating classes are not the current horse-qualified atlas population; neither DNA family is pollen evidence.
+
+**Actual verification performed.** Read the retained scope JSON and its historical input pins alongside the current animal capability account; no acquisition, genotype analysis or source producer was rerun.
+
+**Remaining input or review.** A current scope-producer regeneration and sample-owned lineage review remain required after the horse source-age refusals.
+
+**Cause category.** Historical source snapshot and unresolved biological/chronological admission.
+
+**Consequence.** The old locality/evidence-class totals cannot certify current map scope or cross-source comparison.
+
+**Precise next acceptance route.** Regenerate the governed DNA scope consumer from the qualified animal foundation, retain its predecessor, and review the eleven Galician paper-link rows.
+
+**Negative or refused result.** Both human scientific admission and cross-source/pollen admission are false; foundation validation is false.
+
+**Matched denominator.** Retained AADR: 51,005 annotation rows/27,755 Genetic IDs; retained animal: 1,468 foundation rows, 170 historical locality features/331 sample IDs; no new observations.
+
+Qualified authored reader SHA-256: `bbe8a1e307d4c94803e7a60377a293760b16c9c9a6526d43e0f8a15646ade0c6`.
+
+- [Retained qualification evidence: docs/report/source-relations/dna-scope/report.json](report.json) (SHA-256 `b44651d55f6cb74e833fd2e508144f08647c164ae72931b0f8c19c695f598a81`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 

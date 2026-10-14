@@ -26,7 +26,31 @@ The command requires an absent output directory and the exact pinned archive SHA
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 51-entry OpenLand intake distinguishes exact upstream modeled CSVs from private/local derivative and project-state members.
+
+**Unsupported claim.** Pollen-derived modeled cover is not independent vegetation truth; upstream data/code terms do not license a mixed private archive or local script.
+
+**Actual verification performed.** Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture.
+
+**Remaining input or review.** Exact input-row relation, member-specific rights and scientific role decisions remain required before public use.
+
+**Cause category.** Mixed archive rights and dependent modeled inputs.
+
+**Consequence.** 25 CSVs route to private modeled-source review without a second LandClim authority.
+
+**Precise next acceptance route.** Qualify each intended member and its derivation/use rights, then bind exact REVEALS inputs before any export or benchmark claim.
+
+**Negative or refused result.** 0 public member admissions/independent vegetation benchmarks; local GeoPackage excluded; local script/PDF rights unresolved.
+
+**Matched denominator.** 51 entries: 25 modeled slices, 1 PDF, 1 local derivative, 1 script, 1 configuration, 14 private-state files, 8 directories; 26 exact upstream blobs.
+
+Qualified authored reader SHA-256: `e692eafb81f221fc3b8cd2d348428114492c8964aefb335a02e4c155827626ea`.
+
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b`).
+
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/members.csv](members.csv) (SHA-256 `9bd4f430895d3b0c76522e2f44e7e9d5a4613ece4cafbf5d632c3feafc42c9df`).
+
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/upstream-tree.json](upstream-tree.json) (SHA-256 `4bbd8f7a11b6fc01083dab358143f01b8f06192c8562592758e451436f75eae1`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

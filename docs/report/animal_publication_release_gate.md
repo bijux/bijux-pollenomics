@@ -29,7 +29,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The ten retained publication guard checks pass while reference-grade support and the strongest scientific claim remain explicitly false.
+
+**Unsupported claim.** overall_ok is a publication contract outcome, not scientific certification, complete sample recovery or reference-grade biological accuracy.
+
+**Actual verification performed.** Read all ten retained check outcomes and strongest-claim flags; no native publication guard or scientific-review decision was executed for this qualification.
+
+**Remaining input or review.** Qualified source/scientific review and a clean full foundation remain necessary beyond artifact presence and traceability.
+
+**Cause category.** Passing publication safeguards with unresolved scientific readiness.
+
+**Consequence.** Correct refusals and complete traceability may pass the gate while ecological/biological admission remains false.
+
+**Precise next acceptance route.** Execute the exact current native guard after source-owned changes, resolve foundation/source-review gaps, and independently qualify reference-grade evidence before changing strongest-claim flags.
+
+**Negative or refused result.** reference_grade_claim_allowed false and reference_grade_support_ready false remain despite overall_ok true.
+
+**Matched denominator.** 10 publication safeguard checks, 0 reported findings; these are software/data contracts, not 10 scientific replications. Scientific sample population remains 1468 tracked/322 mapped/165 features, with unresolved exclusions.
+
+Qualified authored reader SHA-256: `50f6c4d6b470361c71204467bf6617d71950799cf09b29dc8e02ded4b171bc1b`.
+
+- [Retained qualification evidence: docs/report/animal_publication_release_gate.json](animal_publication_release_gate.json) (SHA-256 `1de70463fcf9c2bb8f73b52395a14985ef52310f1b0559a4114c4875ff1773e0`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

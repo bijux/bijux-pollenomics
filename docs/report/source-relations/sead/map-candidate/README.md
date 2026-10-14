@@ -24,7 +24,29 @@ Use absent artifact destinations for a replay. The browser result is a bounded r
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained historical map candidate verified bounded SEAD details and gap-aware time filtering for its exact atlas/browser builds.
+
+**Unsupported claim.** Its historical PASS/current-sync fields do not certify the changed current renderer, browser engine, hosted release or ecological events.
+
+**Actual verification performed.** Read the historical build IDs, browser 16-table receipt summary and time-filter witness alongside current source interval report; no fresh browser execution.
+
+**Remaining input or review.** Current browser capture is required after renderer changes; source release/classification/chronology acceptance remains separately refused.
+
+**Cause category.** Historical presentation qualification and refused scientific endpoints.
+
+**Consequence.** Old browser success remains retained evidence only for its pinned candidate, not current browser adoption.
+
+**Precise next acceptance route.** Run the owned current browser/static consumer with exact candidate bytes and retain negative gap controls before a current UI claim.
+
+**Negative or refused result.** Acquisition release refused; 0 eligible ecological events/accepted propagation edges; current browser qualification not established by this packet.
+
+**Matched denominator.** Historical 2,069 context sites/1,219 untimed; 8,799 discovery records=7,244 numeric+1,555 unresolved; 16 chronology tables/two widths/0 recorded runtime errors.
+
+Qualified authored reader SHA-256: `b4d503b681f1652203d1392200819045ad0a8f0c2e8663a91daab8325db96b6c`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/map-candidate/report.json](report.json) (SHA-256 `59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/interval-sets/report.json](../interval-sets/report.json) (SHA-256 `b2c7fe1f2e4ab7b1d331031abcc4fac9bd484d81345f463df5d3f08085a0735c`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

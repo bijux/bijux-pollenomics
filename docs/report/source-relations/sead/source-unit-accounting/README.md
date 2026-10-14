@@ -64,7 +64,29 @@ unresolved joins.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The country unit ledger preserves distinct site, group, physical sample, analysis entity, dataset and analysis value populations through native relations.
+
+**Unsupported claim.** Dataset membership is not a physical specimen count, and zero captured analysis values outside Sweden is not absence of environmental evidence.
+
+**Actual verification performed.** Read the six-row country decision ledger and raw table/unit totals with null dataset links; no relational consumer rerun.
+
+**Remaining input or review.** Scientific chronology, measurement/taxon meaning, rights and excluded coordinate authority remain unqualified.
+
+**Cause category.** Source entities and country decision strata have different denominators.
+
+**Consequence.** Excluded review/unassigned unit fields stay blank rather than zero or country assigned.
+
+**Precise next acceptance route.** Qualify exact entity/measure/date/use semantics and country scope before aggregating units as scientific observations.
+
+**Negative or refused result.** 25 Swedish entities have null dataset ID; 0 ecological/pollen/propagation admission; capture release refused.
+
+**Matched denominator.** 2,069 sites/1,245 group-linked sites/4,432 groups/32,308 physical samples/129,918 entities/43,392 datasets/68,705 analysis values; 0 cross-country datasets.
+
+Qualified authored reader SHA-256: `65eac93688ee3eda605b70c20f08fe6816cf41f261d2bcf3300dc3316c46c3bb`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/source-unit-accounting/report.json](report.json) (SHA-256 `68bd83e4fa7f7ce9beaa0c354129cf236b3c5542914976fa25a812c94c6c6c02`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/source-unit-accounting/rows.csv](rows.csv) (SHA-256 `b2d7c66c6b75571745feba0cfb037c4f813c3989f616bd16bebc050dc004cc00`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

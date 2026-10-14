@@ -55,7 +55,29 @@ numeric interval. It does not reacquire a changing source snapshot.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All 25,109 captured chronology claims retain a native-age review with explicit display-only eligibility and refusal bases.
+
+**Unsupported claim.** Synthetic calibrated-BP/BCE branch tests do not certify native SEAD rows, and display eligibility is not ecological/scientific chronology admission.
+
+**Actual verification performed.** Read all age-basis totals and seven native-backed gold examples in report.json plus per-claim decision schema; no calibration or chronology replay.
+
+**Remaining input or review.** Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty and qualified scientific use remain unresolved.
+
+**Cause category.** Source-backed AD conversion is narrower than chronology/event approval.
+
+**Consequence.** 13,170 display-eligible claims cannot become 13,170 propagated events.
+
+**Precise next acceptance route.** Obtain source-specific age/calibration/uncertainty decisions and classification authority before changing claim or propagation admission.
+
+**Negative or refused result.** 11,939 claims not display eligible; all 25,109 propagation statuses refused; 1,094 From dates lack bounded intervals.
+
+**Matched denominator.** 25,109 claims: 13,170 bounded nonnegative AD conversions, 1,094 open-ended, 60 negative BP, 10,057 periods, 87 radiometric, 641 modelled unresolved; 1 native AD type.
+
+Qualified authored reader SHA-256: `dbd34aebcdd2a18090d6b8608b9647a778344af81cbf71face671a2dc96ffa8a`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/report.json](report.json) (SHA-256 `6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/claims.csv](claims.csv) (SHA-256 `e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

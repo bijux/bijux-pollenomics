@@ -413,7 +413,27 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Nordic bundle adds governed pollen, archaeology, modeled, boundary and fieldwork overlays to the same shared human/animal publication engine.
+
+**Unsupported claim.** Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Each layer needs its own chronology, entity, rights and scientific decisions, plus actual browser/provider qualification for delivery claims.
+
+**Cause category.** Regional context publication with mixed source families.
+
+**Consequence.** Nordic overlays remain local scope evidence; a map display cannot transfer biological or chronological authority between layers.
+
+**Precise next acceptance route.** Replay the Nordic owner and inspect source-sample/exact-label/model-window lineage, then qualify any named cross-layer scientific comparison with admitted observations.
+
+**Negative or refused result.** Unresolved animal chronology and approximate locality warnings remain visible. Missing external basemap tiles offline are not an empty scientific layer.
+
+**Matched denominator.** Four-country human display totals1,231 samples (SE416/NO130/FI32/DK653); eight animal locality points and one documented fieldwork location are separate evidence populations.
+
+Qualified authored reader SHA-256: `2e2103c0c2f073b6349721860d266ef8dd5088ac788625f8ad8529acf09520ff`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `01b199ce548e3842228c403acb7b4021d4f39d377cf5497902652e3fc287c9ea`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

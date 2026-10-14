@@ -62,7 +62,29 @@ These are descriptive author-prepared observed-pollen predictions from only two 
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Three fixed buffered observed-pollen baselines are compared with equal-site weighting on the same 148 site-bins; all 31 taxon diagnostics and signed site/grid differences are retained.
+
+**Unsupported claim.** Untouched confirmation, Swedish LRA vegetation reconstruction, independently measured vegetation accuracy, general long-distance transfer skill, calibrated spatial confidence intervals or cleared publication/redistribution rights.
+
+**Actual verification performed.** This qualification reads the exact retained report JSON, reader text and family source/producer manifest. It does not rerun predictions, fitting, scoring or private source acquisition, and supplies no independent numerical or human review. The retained scores concern author-prepared observed pollen, not measured vegetation.
+
+**Remaining input or review.** The 20 km basin-edge rule does not independently close pollen-source footprints or cross-database aliases. Two adjacent previously exposed English blocks do not establish independent transfer uncertainty. Full raw-core grain denominators, matched vegetation observations, intended-use rights and qualified scientific review remain unbound.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Read these observed-pollen outcomes as descriptive development evidence on their stated support. Do not convert their errors or source identity into vegetation, LRA, independent confirmation or general-transfer accuracy.
+
+**Precise next acceptance route.** For a new general-transfer claim, qualify source identity/footprints/aliases, raw denominators and rights, then freeze a development-selected protocol before scoring genuinely untouched independent spatial groups. A vegetation/LRA claim additionally needs admitted basin/chronology/taxon support and independently matched vegetation truth; obtain qualified review of that exact estimand.
+
+**Negative or refused result.** Nearest-site has higher site MAE than training mean at 9/17 sites and inverse-distance squared at 5/17; directions and positive grid-specific differences remain. Neither the small aggregate improvements nor post-score taxon ranks select a generalizable model.
+
+**Matched denominator.** 17 English sites;2 withheld grids;31 taxa;148/184 observed bins common to 3 methods;36 missing-training refusals. Grid 512 contributes 69/97 bins at 9 sites;grid 562 contributes 79/87 at 8 sites. Taxon table displays 10 of 31 taxa; full 31 remain in JSON.
+
+Qualified authored reader SHA-256: `eb8b72cf9f7d3d550ec722b29bdfbd88ae5b239507b6172638b204dead8d6589`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](../../manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json](report.json) (SHA-256 `e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
 

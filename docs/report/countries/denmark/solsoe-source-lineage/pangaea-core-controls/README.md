@@ -72,7 +72,27 @@ or admit the historical author chronology or any LRA sample.
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained 1981 primary-control account linksSOLSOE81 area 2.5 ha and 30 distinct radiocarbon controls to 54Neotoma chronology-view rows with exact source values.
+
+**Unsupported claim.** Matching radiocarbon material and a static event area do not select the LandClimIIauthor chronology, identify 79 input samples or supply age-specific lake extent.
+
+**Actual verification performed.** Read the report and qualified-source descriptor; checked 34 primary controls,30 matched identities and four missing lab labels, retaining uncalibrated versus calibrated chronology roles. No private primary table replay was run.
+
+**Remaining input or review.** Obtain the missing control/source explanations, author sample chronology and dated basin geometry; acquisition custody and noncommercial source rights remain separate.
+
+**Cause category.** Primary core/control correspondence with historical-model and basin prerequisites unresolved.
+
+**Consequence.** The 1981 core lineage is supported, but 65 selected calibrated samples followMADCAP rather than the collection-unit EPDdefault uncalibrated chronology.
+
+**Precise next acceptance route.** Resolve the exact qualified primary-age-controls descriptor and its five lineage inputs, execute configured reference/replay, then separately review author chronology and historical physical support.
+
+**Negative or refused result.** K-3970,K-4012,K-4016,K-5634 lack retained Neotoma controls; one calibrated sample has a negative bound; LRA-admitted 0.
+
+**Matched denominator.** 34 primary controls→30 distinct matches→54 of 56Neotoma control rows(25 EPDdefault+29 MADCAP);66 source samples,65 calibrated selected,1 refused;66 uncalibrated context claims are not extra samples.
+
+Qualified authored reader SHA-256: `b751f006818f26518ec49e6e0db2e222c4c345d53733183fffa40031a4741512`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json](report.json) (SHA-256 `fb3f00851e5b4faae84763b9741d454113693add0e6b03e03216dbcb6850a2d1`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

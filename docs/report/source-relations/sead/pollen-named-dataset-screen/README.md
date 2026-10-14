@@ -46,7 +46,29 @@ screen before any eligibility claim changes.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The captured pollen-name screen retains 2,063 abundance observations and their exact source-parent links with negative eligibility results.
+
+**Unsupported claim.** A dataset name containing pollen does not establish pollen proxy, grain count unit, taxon acceptance or sample-owned date.
+
+**Actual verification performed.** Read the screen and sample-observation export, including source abundance/null posture and all overlapping refusal reasons; no count/date imputation or source replay.
+
+**Remaining input or review.** Qualified proxy/unit/classification and sample-owned chronology/use evidence remain missing.
+
+**Cause category.** Dataset labels cannot replace source measurement and chronology authority.
+
+**Consequence.** No site envelope may fill the absent analysis-entity sample dates.
+
+**Precise next acceptance route.** Obtain exact observation-unit/proxy and chronology decisions, then rerun the same screen before admitting a time series.
+
+**Negative or refused result.** All 2,063 lack eligible entity chronology/source units and classification; 0 admitted pollen time series or LRA samples.
+
+**Matched denominator.** 95 pollen-named datasets/534 physical samples/45 Swedish sites/2,063 observations out of 177,763; reason counts overlap, not additional observations.
+
+Qualified authored reader SHA-256: `54044baf50b32c33e841b68e3f0f95d5f61b0b1445b6f84b1bed1fc8b37450d6`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/pollen-named-dataset-screen/report.json](report.json) (SHA-256 `de8d71fc02496b9766ca6b9a3c262fea206bcfcb8cdcfeb0413428ca2665e546`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv](sample-observations.csv) (SHA-256 `39c516f0d2c92e3c479500d332126ed34ae99e52c6df9cb7e3c3425db8baf02c`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

@@ -39,7 +39,33 @@ The configured publication adapter uses a distinct retained-artifacts root for t
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Four explicit literal/major-transfer/shared-birch/large-grass parameter maps on four native cores yield wider conditional panel reconstructions with complete count allocations and source-presence/hypothesized-zero distinctions. Their finite differences are model-assumption sensitivity, not measured ecology.
+
+**Unsupported claim.** Authenticated species identities from generic labels, forest from shared dwarf-birch PPE, cereal from a large-grass proxy, complete taxonomic independence, whole vegetation coverage, historical LandClim reproduction, native R parity or ecological accuracy.
+
+**Actual verification performed.** The reader and maintained captures/scalar/source-mask/physical reviews were inspected. Two actual maintained writers reproduce 344,952 saved estimates/SE/baseline covariance values. Independent checks cover 16 populations,1,896 result rows and 14,910 selected covariance coordinates; separate integration qualifies 300 tuples/1,340 uses. This qualification does not rerun any producer or reviewer.
+
+**Remaining input or review.** All 267 retained point ages lack raw bounds; provisional Tibetanus basin/elevation linkage, sparse reporting, parameter transfer and the unauthenticated full synonym/higher-taxon graph remain assumptions. Conditional SEs omit these and model discrepancy; source-use/historical rights and qualified external review remain separate.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Keep residual NISP, imposed zeros, actual presence masks and target axes explicit. High mapped-count coverage is not vegetation coverage, and zero plug-in SE at a measured or hypothesized zero is not absence or calibrated coverage.
+
+**Precise next acceptance route.** Qualify taxonomic partition/parameter transfer and sparse-reporting semantics from source evidence, then age-specific geometry/chronology and intended-use rights. Recompute a separately declared scenario when justified; independent vegetation and external uncertainty validation are required for ecological claims.
+
+**Negative or refused result.** 6/273 source ages remain outside the declared nonnegative windows. Major maps impose 969/310/410/139 source-label zero cells by core; none is an observed new row. Shared birch changes a Tibetanus panel fraction by up to 13.7963 points and the grass proxy changes BUS Poaceae by 3.06615 points. Earlier serialization/reviewer failures remain retained, not omitted cases.
+
+**Matched denominator.** 4 cores ×4 maps =16 cases; each wider map retains 267/273 samples,79 occupied core/windows and 278,368 all-reported pollen grains. The 344,952-value exact writer comparison and 14,910 selected independent covariance checks have different scopes; the latter is not every profile’s full covariance. Each count is allocated once between mapped and residual NISP.
+
+Qualified authored reader SHA-256: `cde331159d04d1a78fe783708a347b26deed9dcb06e45117e58948c672a3df60`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json](report.json) (SHA-256 `4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json](assumptions/parameter-transfer.json) (SHA-256 `60c57338d04ce379708b73841bf733377635324af928bb7c68124b465fbf8566`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/independent-source-mask-review.json](execution/independent-source-mask-review.json) (SHA-256 `19b4cf2bd6bc11de2835680a61d0d35200adc4cdd81e11d21f36f2fc73be9389`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/independent-physical-response-review.json](execution/independent-physical-response-review.json) (SHA-256 `123de5038343c22bcf02c25a3b69160755d0c3c563cc4705e10db9630323147e`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

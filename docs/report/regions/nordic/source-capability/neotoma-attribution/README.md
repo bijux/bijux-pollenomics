@@ -163,7 +163,29 @@ cmp docs/report/regions/nordic/source-capability/neotoma-attribution/report.json
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained attribution ledger distinguishes provider primary flags, literal DOI names, independently supported publication matches and explicit unresolved original-work leads for the85used datasets.
+
+**Unsupported claim.** Provider metadata readiness and DOI landing-page similarity do not establish source-specific rights, complete numerical sample identity, LRA inputs or vegetation truth.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Six provider primary-link cases and ten distinct DOI pairs still need their exact source-owner decisions; Kuivajärvi and VasikkasuoIleads are not authenticated complete original-work matches.
+
+**Cause category.** Publication/source-identity correspondence with scoped unresolved citations.
+
+**Consequence.** A later original-work review may support a citation without rewriting provider flags or treating separate registrations as identical.
+
+**Precise next acceptance route.** Use the exact retained provider/registry packets to resolve each named core/publication/DOIpair, preserve original strings and obtain claim-scoped source-owner citation decisions.
+
+**Negative or refused result.** Skogstjern245published spectra versus236Neotoma samples remains unreconciled; VasikkasuoII1991report cannot stand in for coreI's1990original source.
+
+**Matched denominator.** 85used datasets;79single provider primaries and six primary-link cases;16multi-stringDOIcases include three ASCII-case-only and13distinct-name pairs, of which three declare identity and ten do not;18dataset union of review cases.
+
+Qualified authored reader SHA-256: `2092fbfed719904e751c95c55fa9c1f5fd08de575e8af2fdc865ffe53b1d0c9a`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/report.json](report.json) (SHA-256 `db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json](doi-review.json) (SHA-256 `e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

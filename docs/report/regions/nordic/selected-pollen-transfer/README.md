@@ -11,7 +11,29 @@ at this producer-owned path. This page preserves earlier website citations.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This citation pointer maintains the relationship to the retained selected Nordic16-label observed-pollen transfer account and its producer-owned numeric products; it reports no new observations, fits or independent scientific checks.
+
+**Unsupported claim.** Prior country-outcome exposure remains development evidence and cannot become an independent transfer confirmation.
+
+**Actual verification performed.** Read the citation body and named retained primary account, checked exact account/result identities and distinguished own support from linked study support; no predictor, scorer or independent scientific consumer was rerun.
+
+**Remaining input or review.** The linked study's source, exposure, support and independent-review requirements remain separate from citation routing.
+
+**Cause category.** Citation-only pointer to a conditional exposed-development account.
+
+**Consequence.** A maintained citation does not replicate its linked experiment or enlarge its scientific population.
+
+**Precise next acceptance route.** Inspect the linked frozen selected-transfer account and country-specific paired scores, then qualify new independent sites under a separate predeclared protocol.
+
+**Negative or refused result.** All linked failed, missing, refused and poorer results remain part of the primary account; a pointer supplies no new accepted case.
+
+**Matched denominator.** Own population:zero new observations, fits and independent scientific checks; the linked study's native site/bin/taxon denominator remains its own.
+
+Qualified authored reader SHA-256: `52ef31126a66b6a5a801cae69423ac8520a64877405c91936aecec768e3efdf1`.
+
+- [Retained qualification evidence: reports/science/nordic-observed-pollen-transfer.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-observed-pollen-transfer.md) (SHA-256 `6b3f0ed4f17bbc23a0fa97726bfa7aa2745cbf007e5d39ee8e02936646749388`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/selected-pollen-transfer/report.json](report.json) (SHA-256 `dfef25d4e6d491dab6060e8a42a4772ffe27241559d25c8adee20d9afa4b7488`).
 
 - [Canonical scientific account: reports/science/nordic-observed-pollen-transfer.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-observed-pollen-transfer.md) (source SHA-256 `6b3f0ed4f17bbc23a0fa97726bfa7aa2745cbf007e5d39ee8e02936646749388`).
 

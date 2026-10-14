@@ -31,7 +31,27 @@ The governed `report.json` beside this reader must come from the configured sour
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained account partitions each unique native target-cohort observation by literal unit/family and the existing direct-pollen admission predicate without changing predictions or measures.
+
+**Unsupported claim.** Native unit labels do not admit all count rows, convert concentration/influx to counts, approve taxa, establish absence or supply LRA/vegetation evidence.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The source owner must reconcile the historical published-producer binding with the current producer before current-source replay is claimed; scientific admission remains separate.
+
+**Cause category.** Native observation accounting with retained historical producer identity.
+
+**Consequence.** Unique sample/site counts within unit strata can overlap and cannot be added as independent observations; unlike measures remain unlike.
+
+**Precise next acceptance route.** Replay the configured source-measure consumer against exact study/source inputs and review the changed producer relation, preserving the22strata and first-refusal reasons.
+
+**Negative or refused result.** 58,243of174,970observations fail the predicate, including all2,057concentration and160influx rows; these are refusals rather than inferred missing pollen.
+
+**Matched denominator.** 174,970distinct observations in22strata:165,699NISP/count,2,057concentration,160influx,7,054other;116,727pass. Candidate samples remain DK91/FI1,797/NO3,544.
+
+Qualified authored reader SHA-256: `27c03037403edbf549ce6c51b26e3e545c3c7e137854708708a9b71d49cd5830`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-measures/report.json](report.json) (SHA-256 `535c33015411abfbe3222c035c8977becc4f9c6c158068aa93726fdff67b8d50`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

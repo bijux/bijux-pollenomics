@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "d3d0b0c944ebadc0e4b14c4cc48b63637fce918562a96b6c4c9eebc6e3cbf21c",
-      "bytes": 4886759
+      "sha256": "09b669824c3b19a542a99dc06681cbb48e18c583a448490953c81425acfdf0f3",
+      "bytes": 5090078
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1096,8 +1096,8 @@
     },
     {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
-      "sha256": "c1aec2b1d38259d1b82a90208417784fe031c8e942b4b072337690ade1689ee5",
-      "bytes": 5230
+      "sha256": "47ab11408f23355365ffae56478a6557c11374a858eb5462fee78965730c303e",
+      "bytes": 6847
     },
     {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/replay.py",
@@ -1111,13 +1111,13 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "sha256": "93b683958e7c841279af2fe1e075e7b158efff12cd640afd9b9c7edb3c9b1525",
-      "bytes": 2465
+      "sha256": "511b8968c942615305f29956e996fd4051a762f3c59e9c243f48ac6a98a514aa",
+      "bytes": 3899
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md",
-      "sha256": "f59801769e68559ae8b01e443ab4d8b1d02a128ceb356e8358a9277aa026f8fa",
-      "bytes": 5326
+      "sha256": "d8e36c04435ea01ff8738d93922ea3f4da56d1f0a40436e1ca22d8b9971d4ed7",
+      "bytes": 8051
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json",
@@ -1151,8 +1151,8 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
-      "sha256": "412842c490e4cb4df250282d4b96c684276c140bef54617faf190fc2d97ba669",
-      "bytes": 4871
+      "sha256": "09890471bc738f88379402f4ba73d4112f264439074d557a681f6f171d5a9add",
+      "bytes": 6908
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv",
@@ -1176,8 +1176,8 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
-      "sha256": "9d1a4b468a28957b260a7978f4d333e1c5a359ac03fd6bd719072d55770df41e",
-      "bytes": 5143
+      "sha256": "094f74619397aa21434fca06598c41411d07ab2570982b95209f222fb9549c03",
+      "bytes": 7906
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json",
@@ -1216,8 +1216,8 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
-      "sha256": "8156219a61eed222330f10c6ea5884d42f10e002babea966813e2384383f1921",
-      "bytes": 4095
+      "sha256": "b791d64f7022636a642bc7e2885284583872dc1475e0c6f56b18ba8d02f3c890",
+      "bytes": 5618
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/replay.py",
@@ -1231,8 +1231,8 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
-      "sha256": "9661e168c1c080acaabd38b8c484a360998787a04b026d9f85d05b88d3e19d1c",
-      "bytes": 4306
+      "sha256": "2fd5ed9479d41800ede23bb5d3be80c240e67a02d2529ebdfc2c67e484e6b0dc",
+      "bytes": 6143
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
@@ -1241,8 +1241,8 @@
     },
     {
       "path": "docs/report/countries/sweden/bjaresjo-context-screen/README.md",
-      "sha256": "0b53488ed2990bd35a5063a31d3f73c95a3c105c2f8834a6e7d738c15156a77b",
-      "bytes": 1637
+      "sha256": "9856eb685175be9d9e0eec59851d4c6ad9f794d85313c94922dced12b521d58b",
+      "bytes": 3213
     },
     {
       "path": "docs/report/index.md",
@@ -1256,8 +1256,8 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
-      "sha256": "86f00992a2da9d6a6986628d039f2488a200e04451462a55b1a078df88ccd840",
-      "bytes": 12849
+      "sha256": "df26b4a1305e2b8c9d34ee532f61e3299a670bcecc9cee967016a2de22f88ddc",
+      "bytes": 14950
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
@@ -1271,8 +1271,8 @@
     },
     {
       "path": "docs/report/method-certification/love-paper-correspondence/README.md",
-      "sha256": "b614219a5fc008a15347557b8638c21732fe04b29d97affc7dc7e16c4ab65bca",
-      "bytes": 12146
+      "sha256": "153f0f5f660e8915e7943c1a5cc11b32896cf4286ee4cc87c6deb9e5889a434c",
+      "bytes": 14526
     },
     {
       "path": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
@@ -1286,8 +1286,8 @@
     },
     {
       "path": "docs/report/numerical-performance/love-source-comparison/README.md",
-      "sha256": "f217265b2b0546f480df39f3d35f5d937d1528eb7ac70655477ee5e30dedcf04",
-      "bytes": 5125
+      "sha256": "560d19048697edbf5241b281c606ac7fc03dc4a916713d64a8ed7de68e4608bc",
+      "bytes": 6800
     },
     {
       "path": "docs/report/numerical-performance/love-source-comparison/compare.py",
@@ -1306,8 +1306,8 @@
     },
     {
       "path": "docs/report/numerical-performance/love-source-profile/README.md",
-      "sha256": "da994e75d05c716a04d0d582f218c8691dc351899d86ed18df2a505164cf03ee",
-      "bytes": 5733
+      "sha256": "ccde0afb912e7ac92487bbbda87061eb78ab62008f3752446f3cca661ef315a6",
+      "bytes": 7665
     },
     {
       "path": "docs/report/numerical-performance/love-source-profile/report.json",
@@ -1316,13 +1316,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "fe6cb0872383e786c6baaa9bdcae173d0ed05b02e6039b0d32868de3b136150c",
-      "bytes": 2012
+      "sha256": "d919b3e6102773672789703100ff30ce0b7027d7e1efcaaa630dcdaa470e6eea",
+      "bytes": 4536
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/README.md",
-      "sha256": "b6a15f468ba5dd6796341b54be117173b7b6d8189a4b5ea07b6de3780bc8432d",
-      "bytes": 6463
+      "sha256": "2a154fa80fe78a6c6ae9e786360a7100d59ad410e06857e6624f35f65b9de033",
+      "bytes": 9414
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
@@ -1336,8 +1336,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
-      "sha256": "f499712ccaf5c507976fe73858a8bf965722d2ec7195fd62b674dd229d617042",
-      "bytes": 4481
+      "sha256": "45cfa03468930b085d131896664a6579fb40c5daea0167ea42877c82c8958bb3",
+      "bytes": 7227
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
@@ -1406,13 +1406,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
-      "sha256": "7eb156dd47b5f316def4d85e2500e5057c9f77591acd782810b8b7531ac0c14c",
-      "bytes": 5421
+      "sha256": "d9474b3b4bd819cea0a725ea9ca28a563e35f32b25572a9e017c6ad3364a29ef",
+      "bytes": 9088
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
-      "sha256": "aa14ebf49fbf7783449fbe34350dfb6632d62be87444785da1a2faf080ecb20f",
-      "bytes": 5178
+      "sha256": "3b2524aab87e6ef6d5f65f04c7f9e3e0b41a80f9f968a0e8623f36fbc4202880",
+      "bytes": 7828
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
@@ -1421,8 +1421,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
-      "sha256": "aabbe629994cc5820d747f435b1b3268d8b09aefd99c169f1a2e521626fdce62",
-      "bytes": 2581
+      "sha256": "f7c87f16ab4e951ed5f4495238fcdbd115829b4fd92870343d2b419d4fe7411c",
+      "bytes": 5169
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json",
@@ -1431,8 +1431,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
-      "sha256": "9f68681765656b1ecaa40b384a98e3efae6cc0c492eac07ab5dc271d8f772280",
-      "bytes": 2703
+      "sha256": "4b0d0554087ff4bb6582c4e4f0af02a284a4c738709a7888c5de5e9cdbb261e9",
+      "bytes": 5540
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/report.json",
@@ -1446,8 +1446,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
-      "sha256": "c456f31b7d8bbc38858861a2ff6843bfa2b5627af901447fdfae6fb6eed230e0",
-      "bytes": 2304
+      "sha256": "e3739aa1a40746a05dce535e69f644f4a7faa18b4baae2c2dd1dba72d435c166",
+      "bytes": 4785
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/replay.py",
@@ -1461,8 +1461,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
-      "sha256": "aa14ebf49fbf7783449fbe34350dfb6632d62be87444785da1a2faf080ecb20f",
-      "bytes": 5178
+      "sha256": "7cd6f962dac01b95211cea6ab488902e6595f2934b580028ee180eafe3bd5553",
+      "bytes": 7825
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/report.json",
@@ -1501,8 +1501,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
-      "sha256": "c1fa395c5d1d417acd1d9430e3ab86ed096e49e4411848dac7b676fe705e5ae5",
-      "bytes": 3211
+      "sha256": "b40db0542c1975ef9beb7c2504eb06795f32ecf474826ecab8a36e16fd6ba00e",
+      "bytes": 6194
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/report.json",
@@ -1551,8 +1551,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
-      "sha256": "1a004f94b41e97bbb41e2c1b527a1a8529102101abc5afe04ab6056ee672b322",
-      "bytes": 2834
+      "sha256": "98f7897230e45fb352e603938e7033493263d933236174841c6d2214659be0f8",
+      "bytes": 5773
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/report.json",
@@ -1606,8 +1606,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
-      "sha256": "a744380d5106a54ac2bc4842f193e21e8e3ccbecf9027ee955f635730be03c99",
-      "bytes": 2822
+      "sha256": "1db1a8c52e7335fb5ca4b06df317c08caadded006bd6293ac7ef700cc1c54ef9",
+      "bytes": 5725
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/report.json",
@@ -1661,8 +1661,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
-      "sha256": "f18807db42d441a28926af030f764dfdc20ed909499aa3e8419dd810f2607f48",
-      "bytes": 2799
+      "sha256": "0473c17c9a7ec254f6b0de513056deb54989404aaa6d4ebb66f017c9b50e1d26",
+      "bytes": 5716
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/report.json",
@@ -1686,8 +1686,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-interpretation.md",
-      "sha256": "f96a4a11385b70a4a2d1592f16da3434466354d728ed6d61f5ffc93e16090457",
-      "bytes": 2228
+      "sha256": "c3ae48b78d352f3bd90483c2ae5a344b3638a9d71760d04f5ac4a49002d4fd4b",
+      "bytes": 4626
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
@@ -1696,13 +1696,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
-      "sha256": "ad860048c8f9668db39ed516e74dd958f4284a1e56c81381e48656b7e8b90ba8",
-      "bytes": 3668
+      "sha256": "2845c76fe7f36074e9b5ebd5b116ceb568058466c6de77cefe4a8584b43de0e4",
+      "bytes": 6431
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
-      "sha256": "b89daa2af45b51d2c0267d1442b8763b242a6b180d8869ac427cd5766547adfc",
-      "bytes": 2733
+      "sha256": "7781b39aa732ecab3748f5f59dfb9cb3056848c4ada1c7c04487dd757d254403",
+      "bytes": 5496
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
@@ -1726,8 +1726,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
-      "sha256": "1466f14df24132001bcc023b4f1034aeb8aff25eb0c073acfe671a0456c2c8bc",
-      "bytes": 1794
+      "sha256": "408006f55699c5a29f306d3382f499c74c912918df121e0c0ec3ec084861b0ec",
+      "bytes": 4141
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
@@ -1776,8 +1776,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
-      "sha256": "e0d2d63fc718b0f6d85329cf932d99209294e6db3ab11796ea75f4829b7efbc9",
-      "bytes": 5056
+      "sha256": "4094ecf043896e2d3e2845e578a85f30faa41f2ecbff9a9f1884449f82076387",
+      "bytes": 7520
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
@@ -1806,8 +1806,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
-      "sha256": "85c6857e697074264524cce0e21e600c40911bfc92fbc6bc53c593baa8fbfce3",
-      "bytes": 7548
+      "sha256": "8f9e5ce95fe360842a320cc661894a46d7cddcca7718e89d9399caa6703c051e",
+      "bytes": 10384
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
@@ -1866,13 +1866,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "bd705987a35d8329a1ed1f061aa0a540bef700fa5ae67ff4019394213a9d0c8d",
-      "bytes": 1497
+      "sha256": "ebeab103d38e63224b70aad83ac170757bd251e9668d4a79be48230bb8bfa986",
+      "bytes": 3426
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "sha256": "6abf44eb2b1e8738cf6f5cd4afb675738f1a5155abdaad577ebace3e05b2db75",
-      "bytes": 6615
+      "sha256": "4488832f396d64c0c529783234099daf07b424465df8688093ac4360ab776dc4",
+      "bytes": 9330
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
@@ -1896,8 +1896,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md",
-      "sha256": "cf8724871779bd6f44cbec6bece6d612782f59870776c9ff80e94113322ddf7a",
-      "bytes": 2703
+      "sha256": "443446fe905aecef5fada433dfa65e5b6ab6ead631aa6ea3604e7b3eb196a725",
+      "bytes": 5189
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
@@ -1921,8 +1921,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "sha256": "de3b35c2d8096d76fd4a9de2d8e5aac760a0cae791397d397810e75ad2690fcb",
-      "bytes": 24168
+      "sha256": "674218022b9a9d9992d89dfa05e75a5257868dbd93a8d83eb56ff42c6f211550",
+      "bytes": 28095
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/cohort-diagnostics.json",
@@ -1956,8 +1956,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
-      "sha256": "c97ceba87837d721e9c3b127ffc911cb4c956881053e87949a80843796b59e7a",
-      "bytes": 10877
+      "sha256": "0cfc88cf89ec20f4ed6241fdece8300999820357644fc49b068f21e089f1e9df",
+      "bytes": 13883
     },
     {
       "path": "docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json",
@@ -1976,8 +1976,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "sha256": "4d7e463ff4caf0e96e3cc25e653edbcb74dc30f77b3ee02309eb3303aaf845d6",
-      "bytes": 18384
+      "sha256": "869dba87158c14f183dc54ef7835d32f941e2054f648f2dc29537fe0b684da70",
+      "bytes": 22592
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
@@ -2020,9 +2020,9 @@
       "sha256": "2c2b051f26871b211a9ddb758188e1a3d4506e9917e677408031d343ffc68dfd"
     },
     {
-      "bytes": 4534,
+      "bytes": 7041,
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty-method.md",
-      "sha256": "46f28418bee088057c3d3b13907e4ed63b4031915ba35460c07c839ab52f58a4"
+      "sha256": "33a9335d71267ccca0dba4df8c6f29d49610edd6738a34ac630de9d0647583e8"
     },
     {
       "bytes": 363472,
@@ -2141,8 +2141,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "sha256": "7f82cf79802f5dbf1857200d4419c4f0b3c20df092263d91f5c00454f8292f5d",
-      "bytes": 1583
+      "sha256": "a5ac59c3bc114e887e36743f4d7fcfd177832d8f62c20e4690731679e08fa007",
+      "bytes": 3963
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
@@ -2161,8 +2161,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
-      "sha256": "10d9891f0cbacd4d02b5f11a941adcce2a8cddc825be90d4fe07771365f9d0e0",
-      "bytes": 6711
+      "sha256": "f26c3983588c388be84accc7e04aaf57c002a552b01dd527925e7aa88d9be0d0",
+      "bytes": 9802
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
@@ -2241,8 +2241,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
-      "sha256": "bc8d8780533de5ef23c4522c40c6389fe83d7a6fccd9b95481b5e22c0cb7efe8",
-      "bytes": 5295
+      "sha256": "71427423caf076ceb159446c76a65d8f4505cc02459f5d4efd49de11bf41bdd8",
+      "bytes": 8120
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json",
@@ -2251,8 +2251,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "sha256": "ca21d7689e483ca4635ef872660d6741c1a3d51fd6eb2fd27c40851a52266dce",
-      "bytes": 12221
+      "sha256": "8f844ddbc8606e9b31a79960c9e327975149eb67fe16c0d78423e6b3fab4cf22",
+      "bytes": 15770
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
@@ -2286,8 +2286,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/README.md",
-      "sha256": "3add7b3ac8c0bfc1e61a9d9cf7e254afcc984aec0ee90f95fba21ca3948e4693",
-      "bytes": 8503
+      "sha256": "64521ee60efc50fb625d9977429fb624651eee612dec4b4abd246e4f7b921b29",
+      "bytes": 11341
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/attribution.json",
@@ -2321,8 +2321,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/README.md",
-      "sha256": "c7cd1a824c021a3cbd3d3ce2231be99a42bc3fc2ee7e245383459b7760ab5c52",
-      "bytes": 10039
+      "sha256": "3b53b62b14f224c575e93c81f5f3d4c00fe0ed1b1acb783e6e55f0b6a155a9c4",
+      "bytes": 13674
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json",
@@ -2376,8 +2376,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
-      "sha256": "cc6ad17d95bac9e69f95fa9f93cd411dda0b987ffbc05236a74df43b1eae1253",
-      "bytes": 11363
+      "sha256": "2c87d2521fd42171a7e9b38624c88959a59d7acd820baa08c8688ea2e069a8e8",
+      "bytes": 14698
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
@@ -2456,8 +2456,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md",
-      "sha256": "4188541befd3cfa7bde5fe918ffdbe975580832e217df0d5e8159cbc523185a8",
-      "bytes": 6922
+      "sha256": "3c2cb2b5a5fa8aa4f9cbdf792cb9713dee6ad9782d8d552f6c7a6af076f7b608",
+      "bytes": 10283
     },
     {
       "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/protocol.json",
@@ -2521,8 +2521,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "bytes": 3617,
-      "sha256": "37f1165e2463471e82f7632a9b35c3b6085ec093662ed94d5fc90e91d2ced8f3"
+      "bytes": 5653,
+      "sha256": "adce24a6f12c311838de2108cca6203efa8a20ed86f39641209624531e61d121"
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
@@ -2531,13 +2531,13 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
-      "bytes": 3075,
-      "sha256": "bc3792e0b0c64a7b3779eb89afeb51acd923723f165f6c9b86f85aff4ecbe75c"
+      "bytes": 5789,
+      "sha256": "bd050119966de2a98f0c0d7c20246198bac821a035bddfe625b87d0b74679cec"
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
-      "bytes": 2310,
-      "sha256": "db736db87792132f5fee334cff1aab2e66a46e3372878ca3ed209149299008f6"
+      "bytes": 5004,
+      "sha256": "4b911c26c53f44e6aa47a9d6749cc30c258b63dc34b570b9f840dcf95259c52a"
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
@@ -2556,8 +2556,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-method-profile/README.md",
-      "sha256": "8dfbfec5bbc283ae7acaf185e725c59e444be3c9b6ef715fd4af0288ec2bbbbe",
-      "bytes": 1684
+      "sha256": "89c5767f858e6dc199d73e9a369c65f3531d5c087edeb7e77319c2a8b5bc26bf",
+      "bytes": 4220
     },
     {
       "path": "docs/report/publication-replay/landclim-method-profile/example_inputs.csv",
@@ -2591,18 +2591,18 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "sha256": "7b4d125a43e50260993b59fe821c9e8fa25622d8bcc34c328f2722f96b2e5687",
-      "bytes": 1669
+      "sha256": "24f88c850e58ec90dd1c6b90178cadcce3062287c3dcea9c4e4e43ec8feb8c7f",
+      "bytes": 3784
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
-      "bytes": 2967,
-      "sha256": "62f9d80f84a99ea33981275988c7f6e4dbf27bc8e2e57828718cbb64e6ca4239"
+      "bytes": 5276,
+      "sha256": "828b97860d184c3b74561548f74e604d7ca702b3ce882e4121cc9c522ac11ae4"
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
-      "bytes": 2770,
-      "sha256": "d3648b6dc618bc1e494c20179153117b6872cd90094304bdf44091ed589bbbf0"
+      "bytes": 5100,
+      "sha256": "fddd7443f318bdcdde20f8bbc86ccffcb5f3746618b6ec1311e60469523ef049"
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-correspondence/manifest.json",
@@ -2621,13 +2621,13 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
-      "sha256": "70d4fc2700a04dfd4a08205193c04b3b7089f4e250305738d062d2cd9d0f9299",
-      "bytes": 2064
+      "sha256": "9c3d490128f028151ff9743fcf4e0cfcbfc0b0d8e130a8b8e5900e02b4e57e26",
+      "bytes": 4469
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
-      "sha256": "bdfe1a02df5139b26f30a6e5e5e180e2b3a99129466fbfc32dc3b97837657810",
-      "bytes": 3196
+      "sha256": "6f258bcf2a149ece13487f574f1fe8e0843982ccdcae787c911d5edceacac25b",
+      "bytes": 5644
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/manifest.json",
@@ -2646,13 +2646,13 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "sha256": "d87c3b2d51da550b9883dd71efbce7c52dbfbdc9f8379102792d2ba3ddd3c835",
-      "bytes": 4364
+      "sha256": "028daf7e5439d6904de5109e07b2531b13063989f2efe31bf672c77c68267402",
+      "bytes": 6941
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
-      "sha256": "afeb0033a2bfa96ed01e9a96e84b78086803f184af33e8e7ef212d88ec1bdaab",
-      "bytes": 1948
+      "sha256": "114ccac72be2bffe09f8ac22318a1142962dd10152f56c0e51cc7f1c729adc78",
+      "bytes": 4468
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json",
@@ -2671,8 +2671,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-study-inputs/README.md",
-      "sha256": "f11671ae36a1e97e1ff041f2d336afe1fd16637cf8b9203fa379aa65bac692e5",
-      "bytes": 3926
+      "sha256": "55aadb320f65dba46297eb86f78cfa9a4e7b8fb0ef5808e74aff760b34fc67eb",
+      "bytes": 6663
     },
     {
       "path": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
@@ -2701,13 +2701,13 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-window-alignment/README.md",
-      "sha256": "a9d65610037e77a71d4d117c0032ae4f874a5a5a7b875eb9b7f426bf87c7135f",
-      "bytes": 2649
+      "sha256": "1c30e908b7a750fd23f0814a2512a61bf52df20cdc5c07921959eb70b39a2006",
+      "bytes": 4702
     },
     {
       "path": "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
-      "sha256": "a3735da45d7514ee45b45c34e59cbdc12fd80a8c92c5e9b4c0d50bbea7757363",
-      "bytes": 3460
+      "sha256": "a24bd68c5e56c0cde48f836979c5b49fd0593d580dfd7e3f18e65b034d455844",
+      "bytes": 5554
     },
     {
       "path": "docs/report/publication-replay/landclim-window-alignment/manifest.json",
@@ -2731,13 +2731,13 @@
     },
     {
       "path": "docs/report/regions/nordic/README.md",
-      "sha256": "2c2f32afb2561487ce088e17cabe5002a600eabc28510d12fd2eb943149875b8",
-      "bytes": 42091
+      "sha256": "7241cbdbbd790086440030c13b1634f533cd629aa2daba549ec47bda140bc747",
+      "bytes": 43577
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/README.md",
-      "sha256": "94310d99ef696885db9854c357df1de7a3129cfff7fd6eaa303034b498afb802",
-      "bytes": 3158
+      "sha256": "d28143631ac07505dd7fe72062c50af1c6b202f51285be39d3e8c759fe2b1494",
+      "bytes": 5651
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
@@ -2841,8 +2841,8 @@
     },
     {
       "path": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md",
-      "sha256": "8a8ec92d06c22165375d004920c3f5bb4804c30d2727724668172f367d52f777",
-      "bytes": 5213
+      "sha256": "2366a671bec149a46825a39f23a806508e1945db325aaa717c1fd5f07f1799ce",
+      "bytes": 6706
     },
     {
       "path": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/predictions.json",
@@ -2876,8 +2876,8 @@
     },
     {
       "path": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/README.md",
-      "sha256": "155f7845a9ac2a30d53b8bdb8109a146b5ac9293d587ccf8d301d323879a62f7",
-      "bytes": 4667
+      "sha256": "97719a8d7fbc2373ead8e896b93e1a0f7f9c9c2b6dbcad2680fcaae69935885a",
+      "bytes": 6168
     },
     {
       "path": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/predictions.json",
@@ -2911,8 +2911,8 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
-      "sha256": "99b0d980b45657fc6579ac25cec00bf4afa741d3d62196276f53cdc68f4f1714",
-      "bytes": 7129
+      "sha256": "3ef52cc5ddf38553842bcacda732e57469d5e5829a25610c38c4986e15d7db94",
+      "bytes": 9097
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/cohort.csv",
@@ -2961,8 +2961,8 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/source-measures/README.md",
-      "sha256": "b540b1c2efaf08da6d4e6d6a317be54d796aa9bb7e8260de254c6ed07aeeb4e5",
-      "bytes": 4248
+      "sha256": "930ed7408a72c77f8b929a4778de56e8ba753fbec033949d3e15c2b0683da94f",
+      "bytes": 5841
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/source-measures/report.json",
@@ -2976,8 +2976,8 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/README.md",
-      "sha256": "8d97ae87b7f3df272ff030beae9f54d569e729d4d304a1227e2a849cb12923a3",
-      "bytes": 1554
+      "sha256": "8d0e1bf3a147bcb10d458aeb2f0d9ad5ae9cfb209c11d9cf7d8e08f19c53dfeb",
+      "bytes": 2957
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
@@ -2986,8 +2986,8 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
-      "sha256": "ac17dcb24b92e455454c5c171207e815eb65133016e579cab5ab2edf6bf3a9aa",
-      "bytes": 3477
+      "sha256": "2f840ee8505df401e3fa86a410ad42b9ed63ee1a9e3af9b878e64589ce3532ca",
+      "bytes": 5014
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
@@ -3006,8 +3006,8 @@
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
-      "sha256": "8e52573a0253bd11e0fbc5c6f51c97007d67948247e91744a09129bec08c4c1d",
-      "bytes": 9238
+      "sha256": "9e4608130a6c92eb2a1ffa6fac2a409dc67e70e077c2c30afbadceb9c2ee7a0d",
+      "bytes": 11070
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
@@ -3031,8 +3031,8 @@
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md",
-      "sha256": "0fb3a232bd1a6eb747320883d5aea153b8cae61991a83a4128554b51b32b264c",
-      "bytes": 4382
+      "sha256": "3e499e3e4df302c5752fbcbfdb3c421cddb992c02e4331b0a900d5d6b733f66d",
+      "bytes": 5910
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/coverage.csv",
@@ -3096,8 +3096,8 @@
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
-      "sha256": "f0f604e0f563c821a85075593640fc4396aefea3230a84f56617667bebdf7853",
-      "bytes": 1546
+      "sha256": "fc1af7fc1ef61512b114d4be9d5cabc0cc670f49c72e7fb414570bdc9a9726c9",
+      "bytes": 3234
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/report.json",
@@ -3111,13 +3111,13 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
-      "sha256": "b0e62223e3bcd263a706d7bce573fdc59f5081642d05e10df3ea27871231a3f9",
-      "bytes": 8223
+      "sha256": "07d545c6acfe0ea9cd4b0e110d6e1773fd524a40832a3e35539dbf31f81b7dff",
+      "bytes": 9792
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md",
-      "sha256": "1acc6fe115b7f1b0e93604f5215677bbd353b2d147176f7796b3b5ca743d682f",
-      "bytes": 4039
+      "sha256": "713077197a47c6b85d6913c4f0f1a4258bd73c0a37909da73ac5973b6da63453",
+      "bytes": 5576
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/bins.csv",
@@ -3171,8 +3171,8 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
-      "sha256": "52f9dd3e6cc59f86b86f9d7bd7ae261cdb1da484c22acb0fb110b225e6ea50f0",
-      "bytes": 5721
+      "sha256": "c2106d830196f69a703c55a69a10af030e44740da3442142a90c5d255265b4ec",
+      "bytes": 7291
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
@@ -3211,8 +3211,8 @@
     },
     {
       "path": "docs/report/regions/nordic/selected-pollen-transfer/README.md",
-      "sha256": "19cb8ede6160439552d23026760350e95d651b0ed13006683edaa018fceff459",
-      "bytes": 1542
+      "sha256": "943be6dc78fbaed494724476cf00a804affac9aedde88ae4f86fa0ba735830a0",
+      "bytes": 3258
     },
     {
       "path": "docs/report/regions/nordic/selected-pollen-transfer/freeze.json",
@@ -3246,13 +3246,13 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/README.md",
-      "sha256": "77696606b1a7a9f3460c3532d0a221f4d90ce4ec6adcf7b2abdb181412a58da5",
-      "bytes": 8462
+      "sha256": "12c808d22f8d3e834c8f953bb872c2c004ce0387fce9f66d078a6dbf96570c55",
+      "bytes": 10985
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
-      "sha256": "4e82c06397d10fd853b1956124410941f588e2a1bd23e6d0c06f224bbefce8d0",
-      "bytes": 15453
+      "sha256": "4416be9c19c2b68cc8cd02d597d48a6ddf70029ce17525289be6cdcf8280d6be",
+      "bytes": 17377
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
@@ -3266,8 +3266,8 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
-      "sha256": "ac5c435b763989b9e2aeaa917f44dda1c679dcc04a7b7f2d2ac3f1b80b86a1e8",
-      "bytes": 3388
+      "sha256": "cf33442a2d1ab87929d7ffae8121254ba8b7ee8b1291ec70e2ee1d050919a753",
+      "bytes": 4917
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json",
@@ -3276,8 +3276,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
-      "sha256": "ec2f3b9db0881c4af77f5431a1bfd5616b423b497fedffdf4571ec1a37ed49ca",
-      "bytes": 1590
+      "sha256": "bd484dfd8974a1ff91507e2f7fa7c3e51045de536583c80688c2876dd0c511ea",
+      "bytes": 3295
     },
     {
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
@@ -3331,8 +3331,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-chronology-block/README.md",
-      "sha256": "51b4855ebaf303fda3650ea8a11e0ba53a1dc65e6cb43e7f7f669727751fa7f0",
-      "bytes": 4739
+      "sha256": "f87feba88ec656261ccc0c7a8f460393a74a894373e7b5edb2a57d0406e9c1d5",
+      "bytes": 6302
     },
     {
       "path": "docs/report/regions/nordic/swedish-chronology-block/coverage.csv",
@@ -3381,8 +3381,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
-      "sha256": "3b50e8299ffa53abd0a4406841248b38b80df76cb006a1b2e04c062effc6f4e7",
-      "bytes": 6483
+      "sha256": "3b351801580a795ae8121a48874130a06c31aaeb930e76819baac70103d346e8",
+      "bytes": 8123
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
@@ -3461,8 +3461,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
-      "bytes": 5969,
-      "sha256": "3068636ee2662a5f4649796884203cb5e6e2408c823ff19e4540c74bb10372c0"
+      "bytes": 7600,
+      "sha256": "ae352a9313d3deffefa7034ffbb966bf72137b46518be67d60212fc1739a90e9"
     },
     {
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/coverage.csv",
@@ -3551,8 +3551,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-support-sensitivity/README.md",
-      "sha256": "d5a1539c495866773348f64e62759099b911628211f484e2923429f66a848326",
-      "bytes": 1796
+      "sha256": "3e8d7f1a69c632fd3f35acbbc1d921b004b70f8143261cf97e16dfdfa873bc6b",
+      "bytes": 3519
     },
     {
       "path": "docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv",
@@ -3601,8 +3601,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-training-scope/README.md",
-      "sha256": "e8d789fbaa6c5d18817f9e010d1b746442fc55998903ec4cc741292ce6ae7f71",
-      "bytes": 1789
+      "sha256": "58b5d150471e2618ba7803639692e5b137e87374ac880a541ab20c1b1b336c33",
+      "bytes": 3462
     },
     {
       "path": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "b8e61b18d4967ae098c33a518b7bf3b290fb228a09fe169402368b72479716b2",
-      "bytes": 150726
+      "sha256": "76595371af4d3ed5da1fe9d0212f50dc38bb2498feae4fcbfaca6ca1c391ea6f",
+      "bytes": 150927
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,7 +3766,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "2cceffc7dded8f25e135e215e33752cb920ac831f79abcdd118c9cff877dea7c",
+      "sha256": "65d987db125d114fd30a84fe2631cd9f9111ba6b7478d0a45ba0eba52d7ed35e",
       "bytes": 1025967
     },
     {
@@ -3781,18 +3781,18 @@
     },
     {
       "path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
-      "sha256": "644e700f841f4af9301145d2919016e96b0e74cf2a25babec86b05ee913cf60e",
-      "bytes": 1518
+      "sha256": "25f7576a6520c36701bec137e277e85ecea0234adb14ccb89a8b48a3d54080df",
+      "bytes": 2670
     },
     {
       "path": "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
-      "bytes": 8178,
-      "sha256": "2eb79a784d70af984e5c47f02274b0eeffc0b88580d2c09fcf668dfe1fce3cc7"
+      "bytes": 9825,
+      "sha256": "64e441d99b2e3784b6ed13a959465373408989ceb3309615ab9e2de5eb850eaa"
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-      "bytes": 4371,
-      "sha256": "4cae7d69247ea36eb4e63cdb4de7a0fcb0b0bdf3d2b1dfebd29a6d15a4480d13"
+      "bytes": 5801,
+      "sha256": "de4436e78174525cf2a844f14aa29ad88737bbcf5c368c9ccf6cbcad3c92b544"
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json",
@@ -3806,8 +3806,8 @@
     },
     {
       "path": "docs/report/source-relations/landclim/browser-export/README.md",
-      "sha256": "1c300b0b70f88054ade0d551ed4982598570491560d56d21033cd99f18f6f5dd",
-      "bytes": 5629
+      "sha256": "808190ca6d47505c6f662ff2844aafeb42c4d6008527a255118f8d99298581f0",
+      "bytes": 7065
     },
     {
       "path": "docs/report/source-relations/landclim/browser-export/report.json",
@@ -3816,8 +3816,8 @@
     },
     {
       "path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
-      "sha256": "96307328b30c69733c38f7a25d7d1a0c7a9a0b66021527ce254c84f6fd6055f6",
-      "bytes": 5017
+      "sha256": "731a7eec5daee309e218a41569d2dc80fe4b3b464a26af9c9b1738052088fa89",
+      "bytes": 6481
     },
     {
       "path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
@@ -3831,8 +3831,8 @@
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
-      "sha256": "cd460d0eb0c865c245205ed0d00d5b7be2a5d3ba52c87a73bc223414e9a1f91c",
-      "bytes": 5157
+      "sha256": "9b547d5a426bcfa877295bbd136616d17133445f6bc54c07ea4565b74382a4bf",
+      "bytes": 6408
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py",
@@ -3846,8 +3846,8 @@
     },
     {
       "path": "docs/report/source-relations/landclim/workbook-chronology/README.md",
-      "sha256": "2e3df911da0821bd156d944d2f3ed9c8f759840f00403c81899880c051596436",
-      "bytes": 5253
+      "sha256": "2141847fb38729932c12ee5cc9928991229743bee4b209e0bbf25b6c2cd6c7a6",
+      "bytes": 6381
     },
     {
       "path": "docs/report/source-relations/landclim/workbook-chronology/replay.py",
@@ -3861,13 +3861,13 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/README.md",
-      "sha256": "9f428b21643f25af7a95082844fa82d1376f8d814f48782c2559a5401d430e4f",
-      "bytes": 6553
+      "sha256": "88da9632a080263b1ab8b0f9d7d8e86062decf22bd0c9ba5f45d8e333ccac325",
+      "bytes": 7945
     },
     {
       "path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
-      "sha256": "192434e249c81746acb11e28f67fed326558d80d38776c65028c4231c911ac13",
-      "bytes": 4452
+      "sha256": "917eb3acea1780fc6055d4b9b74cc2065dc56e800c14253de6e4c8d14db78514",
+      "bytes": 5865
     },
     {
       "path": "docs/report/source-relations/neotoma/abbo-profile/report.json",
@@ -3876,13 +3876,13 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/abbo-published-method/README.md",
-      "sha256": "e2a2294b6d065f395da63760cda7b5177541ba48a13a2a2792356c3c0ff51fae",
-      "bytes": 1598
+      "sha256": "acc6edb51ecf6f3a0ebc64fdd77e459be53896c375217282799fe5d61d7da84a",
+      "bytes": 2649
     },
     {
       "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
-      "sha256": "665f55c7c302550737546d95268d54c31a03bc3b812a82dbaaefde536fd3ce58",
-      "bytes": 7412
+      "sha256": "7851e1e77fdd7eaf4bc4308e188d15497f4fe4c800f9ac562aa9b110c0b2a26c",
+      "bytes": 8886
     },
     {
       "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json",
@@ -3891,13 +3891,13 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/boke-basin/README.md",
-      "sha256": "a7ab095d3b3d49be0e4b982647cf41753ed2ac93e1c753a555f095fb790fb44d",
-      "bytes": 3099
+      "sha256": "6ebe66967e1c9cbc3f46c904697d1ea772646aae73fa012aa02241c2a1b6bf55",
+      "bytes": 4601
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
-      "sha256": "995904b7e57a5b994845aa83496bafecbf2cda58cfee7ba349ac9b2812166530",
-      "bytes": 3512
+      "sha256": "2892a7392405aa69640d9e5382b38705a5ba7efebba8f4a501724139348617c5",
+      "bytes": 4638
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
@@ -3911,13 +3911,13 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/legacyage-chronology/README.md",
-      "sha256": "2b1ef14be83e39937c91190434d94fc592028c5857c91063afac4b1cfd488c70",
-      "bytes": 4751
+      "sha256": "bcc56745e85f1af0c47eb850150881f01ab24ea5b25acde4a16184d662e711d4",
+      "bytes": 6382
     },
     {
       "path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md",
-      "sha256": "d842f3288d7ad489f5266ff8dca5468afdfbbece881e5808174e1a218960ea85",
-      "bytes": 3434
+      "sha256": "1621bf6dbcf1ffdc1ba2d3007e36731640e9d1b5b3be8a16df75f4bc7e639829",
+      "bytes": 4821
     },
     {
       "path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py",
@@ -3951,8 +3951,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/pollen-screen/README.md",
-      "sha256": "dbee45eea890afe5ac81016724288fdc387c7dc19497a597b2ef14bda4b5a6d2",
-      "bytes": 5020
+      "sha256": "76f3b719c4956807dd40fa95b2606c7afda046ed0ef1aea85873d7882e24491a",
+      "bytes": 6471
     },
     {
       "path": "docs/report/source-relations/neotoma/pollen-screen/report.json",
@@ -3966,8 +3966,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
-      "sha256": "a12390ce64dc685f959520cdd4fd005cfc03af28dffe539105f7e5c8c35fb0d1",
-      "bytes": 7084
+      "sha256": "6ee3ae096e6589ec7e030611ed4b8eb6debeeb63e130adf64b224d2a02740a2f",
+      "bytes": 8559
     },
     {
       "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
@@ -3986,8 +3986,8 @@
     },
     {
       "path": "docs/report/source-relations/openland-intake/README.md",
-      "sha256": "4e42288f7603416702f52711ca5c532579ca49eef9b32de6cef710448117dbdf",
-      "bytes": 5126
+      "sha256": "67c721295b65af637d21d85baa9dfe314139ff7f8dd2f6c818ac61303283341d",
+      "bytes": 6728
     },
     {
       "path": "docs/report/source-relations/openland-intake/report.json",
@@ -3996,8 +3996,8 @@
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
-      "sha256": "a80ce5643f5a6d0651831373b18e2ce760bd07c99b5276a1c5ae161fcba1c243",
-      "bytes": 8492
+      "sha256": "7993447aeccb7c9ace5a7bcf7f128070a72e86aec7e9c1e2aa4f8ee886fac75f",
+      "bytes": 10034
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
@@ -4011,13 +4011,13 @@
     },
     {
       "path": "docs/report/source-relations/sead/README.md",
-      "sha256": "200df34848bed3e54a359008d60f55e4461ec6ad41867c974c0677d1897a6cfa",
-      "bytes": 9411
+      "sha256": "ee31851fc293420a1814f0e3fc1c3b5997238f2a04eced4437681bc01811aa67",
+      "bytes": 11097
     },
     {
       "path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
-      "sha256": "5ba5a2dcb7d858e0378b20ef7b89e8050c20eddc7685ed5d0bae7d2172602fb3",
-      "bytes": 4539
+      "sha256": "5eeeb3b725124ae9ffc406f1eefb006d978403b1581c5a7be050b37b1e01a470",
+      "bytes": 5662
     },
     {
       "path": "docs/report/source-relations/sead/analysis-categorical-values/report.json",
@@ -4026,8 +4026,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/analysis-value-components/README.md",
-      "sha256": "275d3667fa27bc295daefba2e7caef3a6f8ef2b3840e874d9d199742e916548f",
-      "bytes": 3088
+      "sha256": "4fd4190cb7df2b9e3863527e64b3c54f0a496cfe7d52a247d2b3d19b94b77bf4",
+      "bytes": 4416
     },
     {
       "path": "docs/report/source-relations/sead/analysis-value-components/report.json",
@@ -4041,8 +4041,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/analysis-value-methods/README.md",
-      "sha256": "c8345a202d41f3bf5497549cad71a5cb80d0efc147d8ce0ab158612aca422e2d",
-      "bytes": 3852
+      "sha256": "0ffdc77b28a262f32f2401749ded9e40c714b2db7045fa6db407c0dec1f3ccfb",
+      "bytes": 5451
     },
     {
       "path": "docs/report/source-relations/sead/analysis-value-methods/report.json",
@@ -4056,8 +4056,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
-      "sha256": "9caaed5104d39df0833febc7a465a1b47156d34d3d41b5005a622f195093f550",
-      "bytes": 4421
+      "sha256": "4a4ce6cc495e3ecdb9874c18d19f3861a065281d97dda2a0d7a3c0a2c088b16d",
+      "bytes": 5886
     },
     {
       "path": "docs/report/source-relations/sead/chronology-claim-review/report.json",
@@ -4066,8 +4066,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
-      "sha256": "5114de059136797238be36b7f7c4e5a989b67bc9db058b631a58d09206159d31",
-      "bytes": 4146
+      "sha256": "86d4a7f1c33bc81dff6389860a4db26d11533012dfceabc39a25954d697d6a25",
+      "bytes": 5804
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
@@ -4081,8 +4081,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/country-coverage/README.md",
-      "sha256": "6a121ed61513e10a2ab0a385b78db2452a02bf910bd272620412cf0412c0edf8",
-      "bytes": 4469
+      "sha256": "cb0866b382e4c4514b0ec2089ed4caa01a747ccd2988588eaacb073fd968a372",
+      "bytes": 5886
     },
     {
       "path": "docs/report/source-relations/sead/country-coverage/report.json",
@@ -4096,8 +4096,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/interval-sets/README.md",
-      "sha256": "7fc751b5b8630074aafc68938269805c4bfeebead608f9f81fb66ad006e4befa",
-      "bytes": 3751
+      "sha256": "3cd694a9398fe2195cf27799913ea198ef728f2dbb6050bf44218e9c4973accb",
+      "bytes": 5122
     },
     {
       "path": "docs/report/source-relations/sead/interval-sets/report.json",
@@ -4106,8 +4106,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/map-candidate/README.md",
-      "sha256": "8fea395dd1cec230258d9040f31e0b390454ee29f589e580ddb1410db06962be",
-      "bytes": 3761
+      "sha256": "0e90e55b84a3fb3bb74ea47766dbb84af2aaf1354bf1021ae5d1852da1fe595b",
+      "bytes": 5293
     },
     {
       "path": "docs/report/source-relations/sead/map-candidate/report.json",
@@ -4116,8 +4116,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/public-custody/README.md",
-      "sha256": "7b713fc65aee389555d274b8f1096c48acc8ca8944465432a143776849420cb3",
-      "bytes": 3255
+      "sha256": "e84f8bd6482b64e5a1486958850eef6e49740bd24763595d14cf778df965da4b",
+      "bytes": 4811
     },
     {
       "path": "docs/report/source-relations/sead/public-custody/report.json",
@@ -4126,8 +4126,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/source-unit-accounting/README.md",
-      "sha256": "91541bfbac7aa9cc7c1a7aee1ea3a2fb10d8027acfec884b2d2bbf0e8ad043b0",
-      "bytes": 4437
+      "sha256": "b23ff78618da9d0ce4619bf29869562ba596fe18f287970a0c3e25c783d53925",
+      "bytes": 5853
     },
     {
       "path": "docs/report/source-relations/sead/source-unit-accounting/report.json",
@@ -4151,8 +4151,8 @@
     },
     {
       "path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "sha256": "3fa8dff202a74432685633857792e7005f15bbcbd603f364347338451bf9ac93",
-      "bytes": 4022
+      "sha256": "ee61dfeabf5192d3855b2ad987b2ed24b0e08d85d7f2d4b35d8b30a9a1b239fd",
+      "bytes": 5266
     },
     {
       "path": "docs/report/source-relations/source-capability-evidence/report.json",
@@ -4161,8 +4161,8 @@
     },
     {
       "path": "docs/report/source-relations/source-reconciliation/README.md",
-      "sha256": "f6e7a7e7bd02e66f061d6fcf96511dd1ce1624e25fe176e7db527fe417a04b0f",
-      "bytes": 4017
+      "sha256": "c602768db457def43082fab6dcd48027be1dd7a786e1d728ce265adbaec012c9",
+      "bytes": 5282
     },
     {
       "path": "docs/report/source-relations/source-reconciliation/report.json",
@@ -4171,8 +4171,8 @@
     },
     {
       "path": "docs/report/synthetic-validation/README.md",
-      "sha256": "3523d845be6880d32fbd25bf8c29f89167376681df118c75270564fa597e2bd4",
-      "bytes": 2417
+      "sha256": "8e682efbd7e0c89281b761f5e8e9613ac2a624a4e17d4ab4029c28cc7ce9305d",
+      "bytes": 4807
     },
     {
       "path": "docs/report/synthetic-validation/propagation/report.json",
@@ -4181,13 +4181,13 @@
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "sha256": "414af76a81c509edf698f0095e4bfab516938a626a728833fdf8655dbb5f8b97",
-      "bytes": 1945
+      "sha256": "9b5dc853040794b0f0b42ce536578715db1772b5f0c46d1bb400da8603dfddc3",
+      "bytes": 3531
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
-      "sha256": "97e3d0d335998855753957a12789c5c3def9ebd93b72b98d89431df50c16bd31",
-      "bytes": 6613
+      "sha256": "4646a8bd5e0b97cefa39979aee34764424155f8e9664367daa435a9bb7ffdeee",
+      "bytes": 8574
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
@@ -4221,13 +4221,13 @@
     },
     {
       "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
-      "sha256": "0163fcbb3910bfb002830d7ae6ce90299c6efacd79ba39d7f38fb8441ba58d9a",
-      "bytes": 2012
+      "sha256": "e51c56f5c0d3733726e4ed1078d13c6c88477352c6f979074f63d780343e3fb4",
+      "bytes": 3727
     },
     {
       "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
-      "sha256": "712e3a6ef54be6dd5003a3cf6efb4b7fea73a1a2d03c0d05d360d2694a8b9398",
-      "bytes": 2237
+      "sha256": "67915442b0c9e5db560044718ef431db48412c6ed79166516ef92c413a157908",
+      "bytes": 3875
     },
     {
       "path": "docs/report/world/world_map.html",
@@ -6491,8 +6491,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
-      "sha256": "da454bf6ddff85829064f12bccbaec23a88ab73b272fffb5382a255b401d1a1d",
-      "bytes": 49349
+      "sha256": "681b69f19aa7cb4686568d841e7cb48240ef6602a86acf98ab47957a74d10896",
+      "bytes": 50665
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_scientific_change_impact.py",
@@ -8086,7 +8086,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "18224175e138a7940529593d88954ba5abf68a4ac2985c521b8d23c8482ae8ed",
+      "sha256": "63749bed7c875086ff1ebb0b3846efb266a3bed7be4620684255aa5868f0879c",
       "bytes": 65254
     },
     {
@@ -8586,8 +8586,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
-      "sha256": "ebb79db8b4a9ee504d673b870149e84a0bead3ca4a8af46e31de3a70441e5fd1",
-      "bytes": 8477
+      "sha256": "195324261cb52f053f79301574efdc36baacbb5747ee8f04c5990269e13214db",
+      "bytes": 11365
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json",
@@ -8651,8 +8651,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md",
-      "sha256": "ee78d491909c824ae0d58cd9b795b268990d4a84c7b787d3c015a84e7eaab26b",
-      "bytes": 3106
+      "sha256": "50d4441542bc97abbd6b406c1291fb45bb675a1e2a86b0e0778cbbf87dd85e36",
+      "bytes": 5864
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/report.json",
@@ -8711,8 +8711,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/norwegian-one-family-forward/README.md",
-      "sha256": "298688ca4e7b743b9bf09358143ec78f9a1f8f1373c1a98ce46c9c539128793b",
-      "bytes": 5861
+      "sha256": "fea2cb65b45a568ee9e010eaa5fb66351aee0a376d415f622f6a5bee21c0c48e",
+      "bytes": 8857
     },
     {
       "path": "docs/report/pollen-reconstruction/norwegian-one-family-forward/assumptions.json",
@@ -8776,8 +8776,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
-      "sha256": "74a4f92b55955d391442741f760b22e05449d6fafab02c20336930c9ccdcdd6f",
-      "bytes": 10915
+      "sha256": "a01ca30b07147dc353a82b173d361ec97abb4c826613caf0a7b32001742996b3",
+      "bytes": 14102
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
@@ -8836,13 +8836,13 @@
     },
     {
       "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
-      "sha256": "d42a355c2b7b2798b01af557436ec55c02b793315548201dab887a071fcdc130",
-      "bytes": 7073
+      "sha256": "6c1fdcd3cc55203d5ae504399408c6b21a87da458744f65d1d8f6a342728d62e",
+      "bytes": 9197
     },
     {
       "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
-      "sha256": "c52b96be0a523c24c76ffecca653b6f27b1341b21f25e34f74c7d8a6b389f999",
-      "bytes": 2435
+      "sha256": "73b519a9164ddeaf37a55241c386cf4ca061e6051047d4c1526906465fdb3a28",
+      "bytes": 4307
     },
     {
       "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/assumptions.json",
@@ -8856,8 +8856,8 @@
     },
     {
       "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
-      "sha256": "e76072b28390279475b40c89fec377ca09e03ed8b0cfff80d81671f63420b12e",
-      "bytes": 4323
+      "sha256": "b3568a8d00b1d70276ebe6a5343c6952a8f09b2086b721757e32268b3cea286a",
+      "bytes": 6351
     },
     {
       "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json",
@@ -8946,8 +8946,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
-      "sha256": "4b7581ad3566e4c918731e64000cb5cbf54315ab9742338fbce5ff5a621d9888",
-      "bytes": 6548
+      "sha256": "329ed79cca7bfcfffe5f18366700bda48185b13dccbd130a03ec694f5889c6e5",
+      "bytes": 9296
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json",
@@ -9041,8 +9041,8 @@
     },
     {
       "path": "docs/report/model-development/english-retained-score-audit/README.md",
-      "sha256": "e085beaf54619eb6dd0e644e63234b01938d1751c12ac6eadaf7cda20eb60278",
-      "bytes": 5129
+      "sha256": "08e09ac6ab4e565126403de6b0dc76b350bb97c11333cc168e5ced603a85eb6a",
+      "bytes": 6845
     },
     {
       "path": "docs/report/model-development/english-retained-score-audit/report.json",

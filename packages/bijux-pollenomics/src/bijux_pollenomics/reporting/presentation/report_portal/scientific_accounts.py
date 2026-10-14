@@ -11,6 +11,13 @@ import re
 from typing import Any
 from urllib.parse import quote
 
+from .scientific_qualifications import (
+    Qualification,
+    parse_qualification,
+    validate_authored_reader,
+    validate_evidence,
+)
+
 BEGIN = "\n\n<!-- scientific-account-route:begin -->\n"
 END = "<!-- scientific-account-route:end -->\n"
 SHA256 = re.compile(r"[a-f0-9]{64}\Z")
@@ -31,6 +38,7 @@ class Route:
     reader_path: str
     accounts: tuple[Account, ...]
     scope_reason: str
+    qualification: Qualification | None = None
 
 
 def _path(value: object, *, reader: bool) -> str:
@@ -94,7 +102,22 @@ def parse_routes(raw: str) -> dict[str, Route]:
             ):
                 raise ValueError("Scientific reading account is duplicated or unbound")
             qualified.append(Account(source, digest))
-        result[reader] = Route(reader, tuple(qualified), reason)
+        qualification = parse_qualification(item.get("qualification"))
+        if qualification is not None and any(
+            record.path == reader for record in qualification.evidence
+        ):
+            raise ValueError(
+                "Scientific qualification cannot bind its own rendered hash"
+            )
+        result[reader] = Route(reader, tuple(qualified), reason, qualification)
+
+    for route in result.values():
+        if route.qualification is not None and any(
+            pin.path in result for pin in route.qualification.evidence
+        ):
+            raise ValueError(
+                "Scientific qualification cannot bind another rendered wrapper hash"
+            )
     return result
 
 
@@ -120,23 +143,63 @@ def authored_reader(raw: bytes) -> bytes:
     return original.encode("utf-8")
 
 
+def verified_authored_reader(raw: bytes, route: Route) -> bytes:
+    """Compare generated prose only after authenticating its exact managed account."""
+    expected = render_route(raw, route)
+    if BEGIN.encode() in raw and raw != expected:
+        raise ValueError("Scientific account route differs from its source authority")
+    return authored_reader(raw)
+
+
 def render_route(raw: bytes, route: Route) -> bytes:
     """Expose exact account links while retaining each wrapper's own denominator."""
     base = authored_reader(raw)
+    if route.qualification is not None:
+        validate_authored_reader(base, route.qualification)
     parent = posixpath.dirname(route.reader_path)
     lines = [
         "## Scientific verification and limits",
         "",
         route.scope_reason,
         "",
-        "The linked canonical accounts state the supported and unsupported claim, "
-        "actual verification performed, remaining input or review, cause category, "
-        "consequence, precise next acceptance route, negative or refused result and "
-        "matched denominator. Read those limits alongside this page's own source "
-        "population; an account link does not substitute another study's denominator "
-        "or establish scientific validity.",
-        "",
     ]
+    if route.qualification is None:
+        lines.extend(
+            (
+                "Individual wrapper qualification remains unreviewed. "
+                "The linked canonical accounts state the supported and unsupported claim, "
+                "actual verification performed, remaining input or review, cause category, "
+                "consequence, precise next acceptance route, negative or refused result and "
+                "matched denominator. Read those limits alongside this page's own source "
+                "population; an account link does not substitute another study's denominator "
+                "or establish scientific validity.",
+                "",
+            )
+        )
+    else:
+        for label, text in route.qualification.fields:
+            lines.extend((f"**{label}.** {text}", ""))
+        lines.extend(
+            (
+                "Qualified authored reader SHA-256: "
+                f"`{route.qualification.authored_reader_sha256}`.",
+                "",
+            )
+        )
+        for evidence in route.qualification.evidence:
+            target = (
+                "https://github.com/bijux/bijux-pollenomics/blob/main/"
+                + quote(evidence.path, safe="/")
+                if evidence.path.startswith("reports/science/")
+                else posixpath.relpath(evidence.path, parent)
+            )
+            lines.extend(
+                (
+                    f"- [Retained qualification evidence: {evidence.path}]({target}) "
+                    f"(SHA-256 `{evidence.sha256}`).",
+                    "",
+                )
+            )
     for account in route.accounts:
         relative = (
             "https://github.com/bijux/bijux-pollenomics/blob/main/"
@@ -174,6 +237,8 @@ def publish_scientific_routes(output_root: Path) -> int:
             or not path.resolve().is_relative_to(root.resolve())
         ):
             raise ValueError("Scientific reader is not a regular in-scope file")
+        if route.qualification is not None:
+            validate_evidence(root, route.qualification, portal=True)
         prepared.append((path, render_route(path.read_bytes(), route)))
     for path, rendered in prepared:
         path.write_bytes(rendered)

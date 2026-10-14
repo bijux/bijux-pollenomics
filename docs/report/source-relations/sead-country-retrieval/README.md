@@ -14,7 +14,31 @@ This is site-context custody and retrieval evidence. It does not admit chronolog
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The site-retrieval ledger reconciles 2,069 governed country assignments from 2,195 discovered IDs through source and normalized consumers.
+
+**Unsupported claim.** Later boundary assignments are not provider-native country counts or proof that 126 excluded coordinates were independently verified.
+
+**Actual verification performed.** Read country/site ledgers and exact retrieval/report population identities; no acquisition or boundary reassignment.
+
+**Remaining input or review.** 103 review and 23 unassigned sites retain qualified coordinate/country questions and source scientific admission remains refused.
+
+**Cause category.** Scoped country decisions and unresolved excluded preflight authority.
+
+**Consequence.** Excluded discovery rows are not retrieval failures or source zeros.
+
+**Precise next acceptance route.** Recover/qualify excluded preflight coordinate evidence and return scoped country decisions before expanding assigned retrieval.
+
+**Negative or refused result.** 126 excluded identities are absent from retrieved/normalized assigned products; source release refused.
+
+**Matched denominator.** 2,195 discovered=2,069 assigned/retrieved/normalized+103 review+23 unassigned; SE 1,925, DK 59, NO 45, FI 40.
+
+Qualified authored reader SHA-256: `1ecc910470fd97e15fb1583e2154f90a726a5c08f08ccd78bb69583952e7c4f4`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead-country-retrieval/report.json](report.json) (SHA-256 `32321c08a249d2042a6a5d68315492a229b05336dace46a2507ff279c4269be5`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead-country-retrieval/countries.csv](countries.csv) (SHA-256 `ee39d12eff900b8aaf3a15c571f182c3e15957d3cfe3d797c2f31f9c70221c9f`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead-country-retrieval/sites.csv](sites.csv) (SHA-256 `901fe18211ee3c0ad0b901bc5723bb437191bb66debc97dc5f7eb91cb212abec`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

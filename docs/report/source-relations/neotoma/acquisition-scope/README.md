@@ -44,7 +44,27 @@ Compare the replayed JSON with the retained receipt before using its conclusions
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained inventory objects and 209 dataset IDs reconcile to the nine-part serialized download manifest.
+
+**Unsupported claim.** Serialization equality cannot recover original HTTP response bytes, pagination termination, request times or original boundary-selection authority.
+
+**Actual verification performed.** Read the acquisition receipt and six exact current-selector differences; no network acquisition or historical receipt reconstruction.
+
+**Remaining input or review.** Original request/response/page/download identities or a separately identified new capture are required.
+
+**Cause category.** Missing original HTTP authority and changed country selection.
+
+**Consequence.** A new capture could qualify itself but cannot certify the April capture retroactively.
+
+**Precise next acceptance route.** Recover original URLs/parameters, statuses, timestamps, response digests and termination evidence, or capture a distinct source revision honestly.
+
+**Negative or refused result.** Six retained rows are outside the current selector; original HTTP receipts are unavailable.
+
+**Matched denominator.** 387 queried rows→206 retained rows/209 datasets; current selector 200 rows/203 datasets; 6 retained-only rows, 0 current-only rows.
+
+Qualified authored reader SHA-256: `30a1b159e3b0643e50473eebed06648dc48141095292e8d67d04da8f1c5dac50`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/acquisition-scope/report.json](report.json) (SHA-256 `0468b53b29c5892151c1533d487994f63617c7df7c40e6b167637d1657e2f5fd`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

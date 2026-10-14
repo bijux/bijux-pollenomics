@@ -43,7 +43,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This project ledger names 32 non-published project rows and distinguishes capture, paper, site, coordinate and point-publication stages.
+
+**Unsupported claim.** A project-level absence stage is not a biological zero or permission to substitute project geography/chronology for sample evidence.
+
+**Actual verification performed.** Read all 32 retained project-stage rows, including PRJEB31613 not_point_publishable. No capture, extraction or publication guard was rerun.
+
+**Remaining input or review.** Exact primary-paper/native sample, site, date and coordinate evidence must resolve the reason at the relevant ownership boundary.
+
+**Cause category.** Project-specific source and sample publication gaps.
+
+**Consequence.** A recovered project can remain unpublishable; blank blocker text under not_point_publishable does not establish scientific approval.
+
+**Precise next acceptance route.** Follow each native project/sample gap to authentic bytes and qualified decisions, then replay publication guard; retain refused elapsed-age and regional geography cases.
+
+**Negative or refused result.** 32 project rows remain non-published; PRJEB31613 is not_point_publishable after unqualified epoch refusal rather than missing historical source rows.
+
+**Matched denominator.** 32 non-published project entries, not 32 missing biological populations; 40 tracked-project intake and 22 sample-bearing foundation projects are separate scopes.
+
+Qualified authored reader SHA-256: `cb46113448a8b61358ac2cfa8803dc86f7f2782d11ba666dca8dc8723bf446bf`.
+
+- [Retained qualification evidence: docs/report/animal_project_publication_gap_review.json](animal_project_publication_gap_review.json) (SHA-256 `821ec7ed8c8a047ba4b4c71d1ba1f847cffaa323f73279e3e15410a00f6ec77e`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

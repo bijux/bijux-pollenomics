@@ -69,7 +69,27 @@ biological interpretation, specimen identity or independent scientific decision.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Categorical item identities, nullable component fields and parent displays survive as distinct source values and types.
+
+**Unsupported claim.** Category components are not specimens, libraries, assays, people, presence/absence or eligible dated events.
+
+**Actual verification performed.** Read the 4,800-component report, 15 groups, display differences and context-only chronology links; no source component consumer rerun.
+
+**Remaining input or review.** Source class/entity interpretation, units, taxonomy and chronology/event admission require qualified review.
+
+**Cause category.** Categorical source semantics cannot be inferred from label resemblance.
+
+**Consequence.** The 2,821 display/item differences and null component fields must remain intact.
+
+**Precise next acceptance route.** Review each source type/class/entity and obtain qualified chronology/ecological meaning before any event mapping.
+
+**Negative or refused result.** 25 chronology links are context only; 4,775 lack entity chronology; all event eligibility refused.
+
+**Matched denominator.** 4,800 distinct component parents of 68,705 analysis values; 1,979 display matches/2,821 differences; 4,800 unexposed units; 0 events.
+
+Qualified authored reader SHA-256: `766d68a14a4a6fffdd6fd005f1c5d37c7ca8e64a57ba1b69385eb4cf55bfa82d`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-categorical-values/report.json](report.json) (SHA-256 `8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

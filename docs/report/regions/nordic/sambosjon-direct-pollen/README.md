@@ -120,7 +120,27 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained one-core16-label development study freezes66predictions before separate scoring, preserves all22positive bins and documents preparation/aggregate-count and later aggregate-score exposure.
+
+**Unsupported claim.** It is not untouched confirmation, between-site Swedish skill, LRA, measured vegetation validation or evidence that the nearby LandClimSAMpoint is the same core.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Chronology bounds and source identity need their declared scope; correlated age uncertainty and independent ecological truth are not supplied.
+
+**Cause category.** Single-core exposed development result with explicit historical freeze lineage.
+
+**Consequence.** Corrected annotations and deterministic gzip preserve prediction bytes but cannot erase the prior exposure history or create another observation.
+
+**Precise next acceptance route.** Replay the separate source-bound preparation/prediction/scoring stages, retain historical prediction identity and compare any age sensitivity on matched bins with no refit.
+
+**Negative or refused result.** The nearbySAMjoin is refused and outside-axis pollen is not absent vegetation; zero failed bins does not mean independent scientific acceptance.
+
+**Matched denominator.** One site3398/core4262/dataset4403;111samples,22bins,three methods/66predictions;393,822native NISP=224,291closed16-label+169,531outside; primaryMAE0.022991.
+
+Qualified authored reader SHA-256: `45106775a3a3539f55dbe892fb922565ee25f2e1475b10bead4c6ec85298ab5d`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/report.json](report.json) (SHA-256 `410db1760454c74809fb3c60811db159c90e5e35c8bbdd1fb770c8435ff7f4c1`).
 
 - [Canonical scientific account: reports/science/sambosjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sambosjon-direct-pollen.md) (source SHA-256 `7de581e27ffefb4ac8d99403a1ac6d8fedf97971ab5886e4f28a63a954e0366a`).
 

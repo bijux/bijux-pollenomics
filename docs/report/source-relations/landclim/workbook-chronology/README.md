@@ -65,7 +65,27 @@ cmp artifacts/jobs/rootsi-workbook-chronology/report.json \
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The four-workbook age audit preserves actual age-column presence, reversals and numeric metadata diagnostics.
+
+**Unsupported claim.** Sequence coverage and 1950-minus-age arithmetic do not authorize sample-age conversion, row omission, calibration or historical input identity.
+
+**Actual verification performed.** Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun.
+
+**Remaining input or review.** FLINK/HOLK source-model/order explanations and RANV/STAV sample ages with model/unit/uncertainty authority remain needed.
+
+**Cause category.** Missing age columns and source-native age-order contradictions.
+
+**Consequence.** No dated event or LRA sample is admitted by this audit.
+
+**Precise next acceptance route.** Resolve the source-specific age-model and sample-row questions, retaining native cells and both reversal witnesses unchanged.
+
+**Negative or refused result.** FLINK and HOLK each retain one reversal; HOLK has 0 exact duplicate ages; RANV and STAV have no sample-age column.
+
+**Matched denominator.** 4 workbooks:FLINK 109, HOLK 40, RANV 141, STAV 77 sample rows; age comparisons apply only to the 149 FLINK/HOLK age labels.
+
+Qualified authored reader SHA-256: `a303078ea5054d598db904c92bf07ebd29a178d56ffd0692a5c9616633e78a7a`.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/workbook-chronology/report.json](report.json) (SHA-256 `b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

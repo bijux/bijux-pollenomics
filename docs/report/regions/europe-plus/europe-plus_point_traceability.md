@@ -61,7 +61,27 @@ for deeper source-family review files.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained europe-plus ledger associates every published point-layer row with its native source or deeper traceability surface.
+
+**Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The deeper source-family decisions and actual bundle/browser identity checks remain required for any intended scientific or delivery claim.
+
+**Cause category.** Publication point lineage rather than source validity.
+
+**Consequence.** Readers can follow marker provenance while preserving the distinction between feature rows, source observations and physical sites.
+
+**Precise next acceptance route.** Replay the exact scope's point ledger and verify native IDs and attached sources, then apply source-specific chronology/biology/rights decisions to named records.
+
+**Negative or refused result.** Unresolved source identities and time claims remain unresolved even when their marker has a traceability link.
+
+**Matched denominator.** 1,252 point rows across10 visible point layers in the retained ledger; repeated temporal/context features are not distinct independent sites.
+
+Qualified authored reader SHA-256: `36f07e88a12d7cbe90e8a213008fc96293acebc85bb176c97b286ad4c6056505`.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_point_traceability.json](europe-plus_point_traceability.json) (SHA-256 `0b0393ae723934893e948d8ba58934279c7c6b063ccb4d641e3455dec9b9d4b4`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

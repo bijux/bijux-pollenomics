@@ -115,7 +115,31 @@ cross-source comparison, or release decision.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained account joins eleven source families to six country partitions and three distinct availability dimensions without conflating reported source, governed assignment and publication.
+
+**Unsupported claim.** Captured or published source entries do not establish scientific admission, authentic historical LandClim inputs, LRA cohorts, ecological events or measured vegetation truth.
+
+**Actual verification performed.** Read this source-capability account, its historical DNA-scope parent and the separately pinned current animal entity account. Checked exact bytes and distinguished historical 170/331 from current 165/322. No source-country producer, numerical oracle or acquisition consumer was rerun.
+
+**Remaining input or review.** Per-family entity, chronology and rights decisions remain required. The authored 170-feature/331-sample animal context and pinned DNA-scope report are historical. Current source-owned entity evidence has 165 features/322 samples after five unqualified-age horse points/nine sample memberships were excluded. The affected historical account still requires its configured owner replay; no retained receipt is relabelled as current.
+
+**Cause category.** Source-country capability accounting with separate historical context references.
+
+**Consequence.** Null and zero remain different, incompatible families cannot be summed as one scientific cohort, and stale contextual population prose cannot enlarge current point support.
+
+**Precise next acceptance route.** Replay the source-country owner and its exact parent artifacts, reconcile changed contextual entity accounts through their own producers, then decide source-specific scientific admission independently.
+
+**Negative or refused result.** All1,128historical primary LandClim inputs remain unauthenticated; no measured vegetation target or LRA cohort is created by source availability.
+
+**Matched denominator.** Eleven families×six partitions×three dimensions=198cells/66family-partition entries;187capability-audit rows; current animal165features/322samples remains separate from eight Nordic locality features/12samples.
+
+Qualified authored reader SHA-256: `5e35092646789660323665a56fbdf2083cb6ee4eb2472eaf54c827121770288a`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/report.json](report.json) (SHA-256 `772d89f7509f39f06c324baebaee6e667f12d7e2680cf6baceb6074c5fec3d05`).
+
+- [Retained qualification evidence: docs/report/source-relations/dna-scope/report.json](../../../source-relations/dna-scope/report.json) (SHA-256 `b44651d55f6cb74e833fd2e508144f08647c164ae72931b0f8c19c695f598a81`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

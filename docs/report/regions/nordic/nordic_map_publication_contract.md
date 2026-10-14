@@ -83,7 +83,27 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained nordic contract declares its parent scope, eligible layers and shared renderer; the default distance circle is20 km diameter.
+
+**Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Actual provider/browser/export behavior and each layer's scientific/source rights decisions remain separate requirements.
+
+**Cause category.** Map delivery and scope contract.
+
+**Consequence.** Shared rendering makes publication behavior consistent without conferring scientific equivalence on mixed layers.
+
+**Precise next acceptance route.** Replay the configured scope and its browser/export checks using exact layer/source identities, then review scientific use under the appropriate data contract.
+
+**Negative or refused result.** Literal ecological codes and exact source taxa remain source-owned display contexts, not reviewed biological signal admission. Approximate and country-unresolved animal records keep their caveats; excluded broader-scope overlays remain separate.
+
+**Matched denominator.** Four represented countries and 21 declared layer rows, including the separate Neotoma literal ecological-code and exact source-taxon display layers. The 20 km circle is a display diameter, not a scientific sampling denominator.
+
+Qualified authored reader SHA-256: `25f5e8b5a4daee483c3b84910e0c8344f9739b32ccfe40611bbddd8fdb3c6321`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_map_publication_contract.json](nordic_map_publication_contract.json) (SHA-256 `36ddd169b00254bee39d3d30fba627e49754a4ebf8d6a0df4376428a20908a8d`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

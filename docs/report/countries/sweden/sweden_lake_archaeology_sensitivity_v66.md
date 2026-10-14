@@ -34,7 +34,27 @@ No eligible lake candidates.
 
 Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The declared three-profile archaeology-weight sensitivity is explicitly not evaluated because no eligible lake candidates are available.
+
+**Unsupported claim.** Weight 0.07 is a design choice,not an empirically validated optimum; unavailableRAÄcannot be scored as zero or promote a lake.
+
+**Actual verification performed.** Read the report and machine profile declarations; checked candidate_count 0,emptyrows and null maximum rank shift. No ranking or sensitivity run was performed.
+
+**Remaining input or review.** The governingSVARregistry must be authenticated before candidate admission; archaeology source authority and temporal compatibility need separate review before weighting.
+
+**Cause category.** Missing governing candidate authority with refused archaeology scoring.
+
+**Consequence.** There is no tested rank movement or top 20 selection; SEADcomponent renormalization and displayed design weights cannot imply field suitability.
+
+**Precise next acceptance route.** Restore authenticated governing lake registry,admit a documented candidate population,then run all three declared profiles on matched candidates while retaining RAÄdisplay-only/refusal.
+
+**Negative or refused result.** evaluation_status not_evaluated_no_eligible_candidates;maximum_absolute_rank_shift null;RAÄsource authority refused.
+
+**Matched denominator.** 0 eligible candidates,0 sensitivity rows,3 declared profiles;baseline archaeology weight 0.07 has no evaluated candidate denominator.
+
+Qualified authored reader SHA-256: `b96e5a7221b61ef6a42703d7f2b45cb613b03f8428267b30c272cad7eb9a4ea8`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.json](sweden_lake_archaeology_sensitivity_v66.json) (SHA-256 `fcdd4494b054d3a97289026a15ffca7e0a981c79b5042a05b71a93315dd2639f`).
 
 - [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md) (source SHA-256 `de6656338213deaaf57a2359dd3bf2ec8c0c717ce14fe21e4e2702b0f2cd08a7`).
 

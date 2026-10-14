@@ -53,7 +53,27 @@ cell-level CSV in the local run area while source rights remain unresolved.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** BOKE and Neotoma share 52 numeric depths and 52 age-number comparisons within 0.05, with explicit count agreement/refusal states.
+
+**Unsupported claim.** Numeric age proximity cannot identify workbook units or historical age model; missing source rows are not zeros.
+
+**Actual verification performed.** Read the depth/age/count correspondence JSON, including both discrepant Pediastrum pairs and ambiguous duplicate cases; no workbook replay.
+
+**Remaining input or review.** Selected historical age model, taxon/unit/count semantics, basin geometry and workbook use rights remain unresolved.
+
+**Cause category.** Strong numeric correspondence has incomplete semantic authority.
+
+**Consequence.** Neither a complete matched count matrix nor an executable LRA request is established.
+
+**Precise next acceptance route.** Resolve the two Pediastrum discrepancies and missing/ambiguous source cells with original sample/age/rights authority before admission.
+
+**Negative or refused result.** 902 of 904 explicit pairs agree; 2 differ; 1,951 workbook zeros and 3 positives have no source row; 2 cases remain ambiguous.
+
+**Matched denominator.** 52 depths; 55 exact shared labels of 166 workbook/142 Neotoma labels; 904 explicit NISP comparisons; 0 LRA samples.
+
+Qualified authored reader SHA-256: `4e29365497c3d70bd57f5fd4de4cc549a70049b78c4bd253c38189c23adcdfd6`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/boke-native-correspondence/report.json](report.json) (SHA-256 `4dd04b4c1216cf4118852e18faf212c15c0f5c7a9bafa31afb639eb65a197fc1`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

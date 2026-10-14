@@ -427,7 +427,33 @@ Generated on `2026-09-28`. Total Homo sapiens aDNA samples: `416`.
 
 AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This Sweden table preserves 416 distinct published genetic IDs, source full-date text, dataset membership and metadata locators; it reports no genotype analysis.
+
+**Unsupported claim.** Neither source country labels nor metadata dates establish historical nationality, qualified geography/chronology, ancestry, migration or farming. Five animal samples at three localities, blocked lake rankings and modeled land-use windows have separate units and admission.
+
+**Actual verification performed.** Read this samples reader and current summary; reconciled 416 CSV rows/distinct genetic IDs and 77 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun.
+
+**Remaining input or review.** Authenticate each Sweden source row, chronology, coordinate interpretation, rights and intended reuse before scientific comparison; keep duplicate source-panel membership distinct from genetic IDs.
+
+**Cause category.** Source metadata selection and unresolved scientific admission.
+
+**Consequence.** The 416 visible IDs are a filtered publication inventory; they are not 416 independent people, validated dates or an admitted population estimate.
+
+**Precise next acceptance route.** Review reports/science/aadr-nordic-entities/report.json and its exact decision population, then resolve missing coordinates and qualified chronology/geography/rights at native record IDs before an independently declared biological comparison.
+
+**Negative or refused result.** 0 of 416 source-labelled Sweden IDs are excluded for missing coordinates; map_admitted and scientifically_admitted remain false. Both 1240k and ho contain 416 rows.
+
+**Matched denominator.** Sweden: source-labelled genetic IDs 416; published unique genetic IDs 416; coordinate exclusions 0; locality rows 77. Dataset counts {"1240k": 416, "ho": 416} count panel membership, not additional people. Five animal samples at three localities, blocked lake rankings and modeled land-use windows have separate units and admission.
+
+Qualified authored reader SHA-256: `1994d928a9531eb6b35c25d228a28d436913a345337f91ab5528e42740e93b32`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_aadr_v66_summary.json](sweden_aadr_v66_summary.json) (SHA-256 `2bb540d46edcb2080604b33c8acdc45157e5d5bc508ba5c7c191049785c0cf50`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_aadr_v66_samples.csv](sweden_aadr_v66_samples.csv) (SHA-256 `e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_aadr_v66_localities.csv](sweden_aadr_v66_localities.csv) (SHA-256 `5d00df28727080ae8832747ec4f967f4c0d535b8adc354f4d6144a2bbc443adb`).
+
+- [Retained qualification evidence: reports/science/aadr-nordic-entities/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/report.json) (SHA-256 `73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196`).
 
 - [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `714f2e896dc3ceec86e9b986cf97defe08f9fbb26fb25dd908368dc65c2f5eac`).
 

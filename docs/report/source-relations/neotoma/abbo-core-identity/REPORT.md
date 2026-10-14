@@ -12,7 +12,29 @@ LandClim row 968 reports a 98 m site radius, chronology source `Authors chronolo
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The generated ABBO interpretation summarizes its bounded physical-core review lead and explicit radius/chronology refusals.
+
+**Unsupported claim.** This interpretation adds no independent core identification or numerical check beyond the owning comparison report.
+
+**Actual verification performed.** Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay.
+
+**Remaining input or review.** Physical core, selected age support, denominator, parameter applicability and analytical rights remain unqualified.
+
+**Cause category.** Generated interpretation inherits a bounded source comparison.
+
+**Consequence.** ABBO water depth cannot become radius and ABB source coverage cannot become sample chronology.
+
+**Precise next acceptance route.** Resolve original core and sample-model provenance before accepting the source inputs.
+
+**Negative or refused result.** 98 m radius transfer refused; native −52/9815 cal BP endpoints differ from 3/9799 LandClim labels.
+
+**Matched denominator.** 1 generated interpretation of 107-sample ABBO/ABB lead and 1 selected sample; 0 additional fits or independent observations.
+
+Qualified authored reader SHA-256: `b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-core-identity/report.json](report.json) (SHA-256 `e7b22e4cc7caf8831422307dd6b89b7da9b6f8afc07daadb84f07268fdcaa2ea`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-core-identity/manifest.json](manifest.json) (SHA-256 `c817748f52c5cda435d2f5bbfb746f442aa346ca4f4d2ca71b38ae360bf6739c`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md) (source SHA-256 `264420c81e18a6ee56b0b612e657f881fa26829a9cc060114d69b15d2491120f`).
 

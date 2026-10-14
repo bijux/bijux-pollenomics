@@ -128,7 +128,33 @@ The maintained [correspondence account](../embsecbio-literal-correspondence/READ
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The published fixed nine-class biome equation is reproduced on all released curated samples, and declared source-compatible selection and training scenarios reproduce the saved matrices and model parameters. Training exposure and literal raw-count correspondence are separately measured conditional diagnostics.
+
+**Unsupported claim.** Categorical PNV map agreement is not independently measured vegetation accuracy, calibrated class probability, continuous vegetation cover, LRA, untouched confirmation, complete raw-to-curated taxonomy reproduction or authentication of the original installed R environment and historical training IDs.
+
+**Actual verification performed.** The authored source account and compact model, training, exposure and historical-comparison products were inspected and their exact public bytes bound. Retained actual independent scalar Python/native R checks cover all 103,770 distance/score cells and all sample predictions; separate Decimal 50 checks cover 38 source vectors. This qualification repeats no model, native R, training or numerical oracle.
+
+**Remaining input or review.** Table S 1 taxon amalgamation remains inaccessible after an actual HTTP 403; native sample crosswalk, raw denominator/missing-zero rules and original release/age selector remain unauthenticated. Combined curated inputs and unlicensed author code require precise source-use decisions. PNV is model-derived; physical entity identity, historical environment, qualified external review and independent vegetation observations remain separate.
+
+**Cause category.** data | access/rights | assumption | comparability | qualified review
+
+**Consequence.** Keep broad and source-masked denominators, exposed training groups, opaque entity tokens and compatibility profiles distinct. Matching saved outputs establishes the declared numerical route without authenticating historical custody or ecological accuracy; 0.5-point regularization is not measured uncertainty.
+
+**Precise next acceptance route.** Acquire the exact lawful Table S 1 and authenticate the raw-to-curated crosswalk, denominator and missing-data rules; assess retained training/evaluation exposure under physical source identities and freeze new unexposed confirmation. Obtain independent measured vegetation and qualified review before an ecological accuracy claim.
+
+**Negative or refused result.** The original Latin 1/C-locale reader failure, four Rounding selection counter-scenarios and two Rounding training profiles with 2,060 parameter mismatches each remain retained. The northern TUND/CENF rule excludes 639/878 entities. Published EMB evaluation includes 237 regenerated training IDs. Only two literal reported-axis correspondences are complete; neither recovers all 242 model taxa.
+
+**Matched denominator.** Fixed model: 5,765 samples ×242 taxa ×9 classes; 103,770 distance/score cells. Training: 4,204 eligible locations, 970 downsampled, 678 training IDs, 4,356 mean/SD cells in each of four scenarios. Original EMB matrices use 917 entities (570 dominant/679 composite trace); source metric uses 915. Northern screen has 878 eligible entity groups, or 239 after masking. Raw proof starts with 430 eligible rows, 860 ID hypotheses, 214 coordinate-equal, 112 shared-label matches and two complete reported axes.
+
+Qualified authored reader SHA-256: `7cfab1ae30764cb550026c622130ac30f6a09f343f7a78d5f17c1b342f29834a`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json](report.json) (SHA-256 `97140533eb8f3d4ae22441d00331284bf504d45c0aaf6047771bd4047b547e27`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json](training-reconstruction.json) (SHA-256 `fe10e9b2e6197c3d9d9f787ed3a775e038613a30b74db779f6675d360ea4ec6a`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-exposure.json](training-exposure.json) (SHA-256 `79090928001393b0252d851ecaf887e3974ab9785d7e10e4284cbad3793fbe2c`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json](historical-comparison.json) (SHA-256 `989f50becb4efcb4c10c55ee4dd7651ab0686e08d9d83502b166b666acd665fa`).
 
 - [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
 

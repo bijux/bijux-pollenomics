@@ -58,7 +58,31 @@ vegetation truth or a multi-evidence causal trajectory.
 
 Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained native replay receipt reports byte-identical six-target 150-window country products and a field-classified comparison with the earlier two-target 50-window product.
+
+**Unsupported claim.** A historical product diff or current output equality does not establish past land-cover change, independent vegetation truth or a multi-evidence causal trajectory.
+
+**Actual verification performed.** Read the retained replay/historical receipts and source-policy bindings; checked native status identical,three outputs and three upstream products,plus reported change categories. No fresh country-report execution was run for this reader.
+
+**Remaining input or review.** A current candidate needs its own source-bound execution before a current reproducibility claim; ecological claims additionally need admitted independent observations and chronology.
+
+**Cause category.** Retained product reproduction and semantic change accounting, separate from historical causation.
+
+**Consequence.** The historical expansion is governed target-selection/presentation: four named lakes added to two wetland contexts. Existing wetland values are retained,not inferred past landscape change.
+
+**Precise next acceptance route.** Execute the maintained semantic replay against a frozen coherent candidate and compare all source/policy/output identities; retain separate membership,policy,admission and scientific-result differences.
+
+**Negative or refused result.** Retained replay reports zero changes in six categories; historical 106 membership entries plus policy/admission changes remain visible. Historical receipts are not relabelled as current execution.
+
+**Matched denominator.** Current retained 6 targets×25 windows=150 rows versus historical 2×25=50;three output files/three upstream products;7 direct source and 11 policy files are custody counts,not scientific sample support.
+
+Qualified authored reader SHA-256: `189a4ac6e4be6b10d1df07e55ac12313b059411709fc13bb1bd320c85ef0d615`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/land-use-replay/receipt.json](receipt.json) (SHA-256 `f6fcc69f04872d7ef65ed3ac19f2168e2f4b27b2ed2e073730f66de905b253a0`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/land-use-replay/historical-comparison.json](historical-comparison.json) (SHA-256 `e1332c72d19be249be19099cfadade66817c1f59425677391f8b0564f42e6d41`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_land_use_synthesis_v66.json](../sweden_land_use_synthesis_v66.json) (SHA-256 `c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380`).
 
 - [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md) (source SHA-256 `de6656338213deaaf57a2359dd3bf2ec8c0c717ce14fe21e4e2702b0f2cd08a7`).
 

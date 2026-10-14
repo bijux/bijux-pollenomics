@@ -68,7 +68,33 @@ surface for now.
 
 AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This Norway bundle inventories 130 published AADR v66 genetic IDs at 69 localities under the source Political Entity filter; country labels are publication selection.
+
+**Unsupported claim.** Neither source country labels nor metadata dates establish historical nationality, qualified geography/chronology, ancestry, migration or farming. No country-resolved animal samples are published; this is no evidence of historical animal absence.
+
+**Actual verification performed.** Read this bundle reader and current summary; reconciled 130 CSV rows/distinct genetic IDs and 69 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun.
+
+**Remaining input or review.** Authenticate each Norway source row, chronology, coordinate interpretation, rights and intended reuse before scientific comparison; keep duplicate source-panel membership distinct from genetic IDs.
+
+**Cause category.** Source metadata selection and unresolved scientific admission.
+
+**Consequence.** The 130 visible IDs are a filtered publication inventory; they are not 130 independent people, validated dates or an admitted population estimate.
+
+**Precise next acceptance route.** Review reports/science/aadr-nordic-entities/report.json and its exact decision population, then resolve missing coordinates and qualified chronology/geography/rights at native record IDs before an independently declared biological comparison.
+
+**Negative or refused result.** One of 131 source-labelled Norway IDs is excluded for missing coordinates; map_admitted and scientifically_admitted remain false. 1240k contributes 119 rows and ho 130; present-day Bergen rows remain in this metadata inventory.
+
+**Matched denominator.** Norway: source-labelled genetic IDs 131; published unique genetic IDs 130; coordinate exclusions 1; locality rows 69. Dataset counts {"1240k": 119, "ho": 130} count panel membership, not additional people. No country-resolved animal samples are published; this is no evidence of historical animal absence.
+
+Qualified authored reader SHA-256: `796dcb0bb59adab622316b0e1b27751ce0087c60726222251cf61eeb7e9555ee`.
+
+- [Retained qualification evidence: docs/report/countries/norway/norway_aadr_v66_summary.json](norway_aadr_v66_summary.json) (SHA-256 `0ca91dd558b9fc1a868720100eef530aa71dbe5f8b189f0c7025efd81e8f57ee`).
+
+- [Retained qualification evidence: docs/report/countries/norway/norway_aadr_v66_samples.csv](norway_aadr_v66_samples.csv) (SHA-256 `021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396`).
+
+- [Retained qualification evidence: docs/report/countries/norway/norway_aadr_v66_localities.csv](norway_aadr_v66_localities.csv) (SHA-256 `e162ec0bf12b1385972264b7e9d93c1424b5cf8ccf277dc1e1ed82032a4d7df1`).
+
+- [Retained qualification evidence: reports/science/aadr-nordic-entities/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/report.json) (SHA-256 `73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196`).
 
 - [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `714f2e896dc3ceec86e9b986cf97defe08f9fbb26fb25dd908368dc65c2f5eac`).
 

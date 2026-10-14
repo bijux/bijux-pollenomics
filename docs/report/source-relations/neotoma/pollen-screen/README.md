@@ -71,7 +71,29 @@ source custody or approve any scientific prerequisite.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The screen preserves source-bound necessary count/typed-age candidates and explicit refusals, including a bounded 16-sample Ageröds series.
+
+**Unsupported claim.** Necessary candidates and source pollen labels are not approved taxon/count/PPE/basin decisions or executable LRA inputs.
+
+**Actual verification performed.** Read the whole-snapshot summary, decision denominators and 16-sample source-series export; no source materialization or screen replay.
+
+**Remaining input or review.** Chronology alternatives, classification, parameter binding, measured support and basin/use authority require qualified decisions.
+
+**Cause category.** Prerequisite screening is deliberately weaker than scientific admission.
+
+**Consequence.** The candidate list must retain refused and unassigned populations and source alternatives.
+
+**Precise next acceptance route.** Qualify the selected physical samples, age model, taxa/counting scheme, parameters and geometry before forming a request.
+
+**Negative or refused result.** 1,751 distinct samples refused; all 16 example samples remain numerically LRA-refused; 0 accepted samples.
+
+**Matched denominator.** 12,388 captured samples→10,637 necessary candidates/1,751 refused; example 16 samples/409 observations/32 alternative ages/360 integer pollen candidates.
+
+Qualified authored reader SHA-256: `34289d57cb539e767346aa5d5ada1326e22d96c957aa7c60ad169d79994a75e8`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/pollen-screen/summary.json](summary.json) (SHA-256 `6c6a6c05ee04d5c7d1105fcb78869f70a5302795ef4918932849e6e1ff2ed9fe`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json](agerods-mosse.sample-series.json) (SHA-256 `77666e63575f5da0a82842d33d72b0527dc7a592691e8560e595b04d5cd69071`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

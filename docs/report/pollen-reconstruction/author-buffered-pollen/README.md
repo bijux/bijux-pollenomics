@@ -70,7 +70,33 @@ skill.
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The declared 20 km buffered split supports three fixed observed-pollen baselines on 148 common site-bins and a separate fixed half-count CLR/RBF fit on 140; strict-positive support without replacement is absent. Reported method/metric differences are descriptive on those exact supports.
+
+**Unsupported claim.** Untouched confirmation, Swedish LRA vegetation reconstruction, independently measured vegetation accuracy, general long-distance transfer skill, calibrated spatial confidence intervals or cleared publication/redistribution rights.
+
+**Actual verification performed.** The retained family manifest pins 10 producer modules and 54 listed files; its replay omits README and two replay scripts and compares 51 generated products. Read-only inspection found all 10 current producer hashes equal their retained pins and all 53 non-README file payloads equal retained hashes after removing exact managed route blocks where present. README source-link prose changed from its 3835-byte retained body to 3981 authored bytes; its old body hash is historical, not the current reader identity. Current qualification does not execute the model/replay. The replay raw-Markdown comparison needs managed-block compatibility before a current end-to-end replay pass can be claimed.
+
+**Remaining input or review.** The 20 km basin-edge rule does not independently close pollen-source footprints or cross-database aliases. Two adjacent previously exposed English blocks do not establish independent transfer uncertainty. Full raw-core grain denominators, matched vegetation observations, intended-use rights and qualified scientific review remain unbound.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Read these observed-pollen outcomes as descriptive development evidence on their stated support. Do not convert their errors or source identity into vegetation, LRA, independent confirmation or general-transfer accuracy.
+
+**Precise next acceptance route.** For a new general-transfer claim, qualify source identity/footprints/aliases, raw denominators and rights, then freeze a development-selected protocol before scoring genuinely untouched independent spatial groups. A vegetation/LRA claim additionally needs admitted basin/chronology/taxon support and independently matched vegetation truth; obtain qualified review of that exact estimand.
+
+**Negative or refused result.** The fitted common-support MAE 0.040564 is poorer than training mean 0.025298. Strict-positive CLR admits 0 fits in both grids;36 baseline and 44 fitted targets remain unscored. Different supports must not be pooled.
+
+**Matched denominator.** 17 English author site IDs;31 named taxa;2 adjacent one-degree grids 512/562;184 observed of 425 possible site-bins. Baselines 148/184 with 36 missing-training refusals; fitted 140/184 with 36 missing-training plus 8 insufficient-training refusals. Strict CLR diagnostic spans 25 bins per withheld grid.
+
+Qualified authored reader SHA-256: `01f85cfd44e0691ff06f4d49deccdbd00d1143c16aa0f7b3bf52b111fd09b8a6`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json](comparisons/baseline/report.json) (SHA-256 `e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json](comparisons/fitted-common-support/report.json) (SHA-256 `8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json](comparisons/strict-clr-support/report.json) (SHA-256 `82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
 

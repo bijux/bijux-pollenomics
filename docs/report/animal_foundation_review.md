@@ -28,7 +28,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The foundation review preserves traceable publication strengths while explicitly retaining a metadata-foundation posture below reference grade.
+
+**Unsupported claim.** Published traceability and coordinate presence do not grant reference-grade biology, precise locations or complete sample geography.
+
+**Actual verification performed.** Read the retained foundation counts, strengths and four blockers; distinguished 308 coordinate-provenance rows from 165 published atlas features. No foundation validation or geocoding was rerun.
+
+**Remaining input or review.** Foundation validation, paper linkage, unresolved site assignments, coordinate refusals and geocoded-point interpretation still require source-owner resolution.
+
+**Cause category.** Incomplete source foundation and coordinate/lineage review.
+
+**Consequence.** A traceable publication can remain scientifically unadmitted; direct-coordinate inventory counts cannot be substituted for mapped feature counts.
+
+**Precise next acceptance route.** Resolve native paper/site/coordinate evidence and validate the same source identities before replaying publication; obtain qualified independent review before changing reference-grade posture.
+
+**Negative or refused result.** reference_grade_claim_allowed false; validation_overall_ok false; 378 unresolved samples and 4 coordinate-provenance refusals remain.
+
+**Matched denominator.** 165 published locality features; 308 coordinate records partition into 300 direct, 4 geocoded and 4 refused records. These coordinate records are not 308 published points. Unresolved sample count 378.
+
+Qualified authored reader SHA-256: `9cd6a7d8eed676268af9927929193f37187a06c83fbc4e1db3e41a987a78ba77`.
+
+- [Retained qualification evidence: docs/report/animal_foundation_review.json](animal_foundation_review.json) (SHA-256 `9e554394d43c9864aa4fa5233f0e7b29dd9e76454bfc1d4172c5ec8b05d99e69`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

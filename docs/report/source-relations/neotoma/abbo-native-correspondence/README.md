@@ -55,7 +55,27 @@ CSV in the local run area while workbook reuse rights remain unresolved.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** ABB workbook and Neotoma preserve 107 shared numeric depths and 2,183 exact explicit NISP cell matches under exact labels.
+
+**Unsupported claim.** Missing Neotoma rows are not observed zeros, matching mass is not the pollen denominator, and workbook ages are not authenticated cal BP.
+
+**Actual verification performed.** Read the retained native correspondence with explicit-pair counts and complete age-difference range; no private workbook/cell rescan.
+
+**Remaining input or review.** Workbook age unit/model, historical selected inputs, unmatched taxon concepts, count/basin support and reuse rights remain.
+
+**Cause category.** Shared counts coexist with age-model and taxon ambiguity.
+
+**Consequence.** No age vector or radius is transferred from the comparison.
+
+**Precise next acceptance route.** Qualify original sample age selection and native taxon/count semantics while preserving all missing-row and age disagreements.
+
+**Negative or refused result.** 4,986 workbook-zero positions have no Neotoma row; none of 107 age labels exactly matches; age differences −238..+129.
+
+**Matched denominator.** 107 depths, 67 exact shared labels of 94 each, 2,183 explicit pairs carrying 130,163 source count units; 0 LRA samples.
+
+Qualified authored reader SHA-256: `3a1c873b231f39aba5bdc3d9a2adc3b81f4269774e564e8ec4b16a9b76143a18`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-native-correspondence/report.json](report.json) (SHA-256 `ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md) (source SHA-256 `264420c81e18a6ee56b0b612e657f881fa26829a9cc060114d69b15d2491120f`).
 

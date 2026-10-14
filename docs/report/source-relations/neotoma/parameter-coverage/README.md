@@ -50,7 +50,29 @@ parameter review state or a nonzero LRA admission claim.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 39-bin literal-name screen closes each native NISP pollen bin and records how much mass has a parameter-name lead.
+
+**Unsupported claim.** A high spelling-match fraction is not an accepted taxon/PPE mapping, whole-pollen denominator or historical basin qualification.
+
+**Actual verification performed.** Read the source-bound report/CSV and per-site native/literal fractions, retaining the separate 16-label direct-pollen response; no mapping or reconstruction.
+
+**Remaining input or review.** Biological concept decisions, complete count support, parameter profile, core/chronology/basin identity and rights remain.
+
+**Cause category.** Literal-name coverage addresses text correspondence only.
+
+**Consequence.** Unmatched genus/species names cannot be relabeled silently to improve coverage.
+
+**Precise next acceptance route.** Resolve source-specific concept-to-parameter mappings and complete scientific inputs before any numerical LRA request.
+
+**Negative or refused result.** All 39 bins remain LRA-unadmitted; BUS retains the 2.5264 km coordinate conflict.
+
+**Matched denominator.** 3 sites×13 bins=39; native NISP 88,004/56,450/42,548, of which literal 81,970/10,752/14,512; digitized units excluded.
+
+Qualified authored reader SHA-256: `f7af527c8dc6490fd57fb56d910779d63642dbd25d8ec88aa77cd7da5f619254`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/parameter-coverage/report.json](report.json) (SHA-256 `2e03bd0f134647c3549fd67be43d7dfa05589edf6bae67c701f3eaca861a9c55`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/parameter-coverage/bins.csv](bins.csv) (SHA-256 `e4530cc679662aeaac9496451aa5a7164097ee625a7c28482c67dbfcc69d8bf6`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

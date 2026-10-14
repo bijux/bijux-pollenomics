@@ -75,7 +75,27 @@ python -m bijux_pollenomics_dev.lra_validation.development_evidence \
 
 Previously exposed English retained-score ledger, not new fitting or untouched confirmation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The frozen retained-score audit independently reconciles previously exposed English development predictions and count-normalized MAE/Hellinger scores without fitting or selecting a new model.
+
+**Unsupported claim.** A new audit declaration does not retroactively make historical fitting prospective or exposed outcomes untouched; no measured vegetation accuracy or release certification follows.
+
+**Actual verification performed.** Read the authored protocol and retained cohort, terminal/refusal accounting and failed-runtime history; bound the report. No score audit, fit or source model was rerun for this qualification.
+
+**Remaining input or review.** Any confirmation claim needs genuinely unopened outcomes, an independently admitted source/identity graph and a separately frozen evaluation protocol; source chronology and aliases remain separate reviews.
+
+**Cause category.** Prior-exposed development custody with preserved failed predecessors.
+
+**Consequence.** The audit can qualify retained-score reproducibility while the original design and selected candidate remain historical development evidence.
+
+**Precise next acceptance route.** Use the maintained declared attempt ledger for current-source replay, retain append-only failed/refused records, and admit a different untouched cohort before confirmatory evaluation.
+
+**Negative or refused result.** Ninety insufficient-training fitted bins and 18missing-training baseline bins remain refusals; 36 earlier interpreter launches failed before score consumption and remain separate from 36 successful successor audits.
+
+**Matched denominator.** Seventeen author sites, 31 taxa, three whole-site folds and 12 historical candidates; 36 candidate/fold audits cover 2208 bin attempts=2100 scored+108 refused. No new fits or selections.
+
+Qualified authored reader SHA-256: `af0233317884b38ffc4df4fa508da3ccb9466f6d7a40d2da847d02859d6a5848`.
+
+- [Retained qualification evidence: docs/report/model-development/english-retained-score-audit/report.json](report.json) (SHA-256 `2a25302eb49242ca6ba31bd26c2e2f0459fd177614aaae55dbd0f4b21e1fe85b`).
 
 - [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
 

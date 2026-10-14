@@ -28,7 +28,27 @@ command; this page remains a stable website citation to the governed evidence.
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This stable research pointer links the governed Solsø source decision and its machine account; it adds zero observations, fits or independent scientific checks.
+
+**Unsupported claim.** The link does not identify the 79 published LandClim II source samples, authenticate author chronology or convert static site area/radius into sample-age basin geometry.
+
+**Actual verification performed.** Read this pointer and retained machine lineage account and pinned their current bytes; no LandClim/Neotoma source join or numerical producer was rerun.
+
+**Remaining input or review.** The linked account still needs exact author sample/core selection, source-owned chronology, dated basin geometry and qualified taxonomy/count/rights decisions.
+
+**Cause category.** Citation routing to incomplete historical input lineage.
+
+**Consequence.** The 91 selected Neotoma samples support observed-pollen development only; the website citation is not a second experiment or LRA admission.
+
+**Precise next acceptance route.** Inspect the source-owned report and primary joins, then obtain the 79-row historical selection and age-specific basin packet before declaring executable Danish LRA input.
+
+**Negative or refused result.** The 79-vs 92 sample mismatch and zero LRA admission remain explicit; static 2.5 ha/89 m fields do not resolve them.
+
+**Matched denominator.** Own experiment population 0. Linked LandClim II79 samples/25 windows versus Neotoma 92 samples from two cores,91 selected observed-pollen candidates; LRA-admitted 0.
+
+Qualified authored reader SHA-256: `04207b9da22427318466ec015e6418f2e8933fb70039265b1e46c705ad5818e2`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/report.json](report.json) (SHA-256 `508c3808131dddc4f4c455a42c4f16af37fe0e01793ff7e3da9562bfda9238e6`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

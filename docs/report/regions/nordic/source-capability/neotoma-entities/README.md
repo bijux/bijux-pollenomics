@@ -42,7 +42,27 @@ report atomically. Compare the replay file byte for byte with this directory's
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained ledger records exact dataset inclusion in the16-label development study and preserves sample count/age prerequisite decisions across the captured Neotoma entity population.
+
+**Unsupported claim.** A dataset in that study or a count-and-age candidate is not an admitted LRA sample, approved taxonomic interpretation, source-use decision or independent vegetation target.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Basin history, taxa, parameter binding, scientific/rights decisions and measured vegetation pairings remain absent for stronger claims.
+
+**Cause category.** Native dataset membership and prerequisite accounting.
+
+**Consequence.** Exclusion from one selected study does not prove unusability, while inclusion cannot transfer source authority to unrelated analyses.
+
+**Precise next acceptance route.** Replay the dataset-entity owner against its six exact sources, retain native row digests and country partitions, then apply named sample-specific scientific admission rules.
+
+**Negative or refused result.** All12,388samples remain refused for LRA in this screen;124datasets outside the selected study are not relabeled scientifically unusable.
+
+**Matched denominator.** 209datasets/12,388samples;85included datasets (SE3/DK2/NO52/FI28),124excluded including seven unassigned;10,637prerequisite candidates and1,751refused samples.
+
+Qualified authored reader SHA-256: `949e3bcf1298e90f4d6ca3e0838a5a697684ae4800c73c623abacc86449d38ef`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-entities/report.json](report.json) (SHA-256 `d67c1486c86206c8e4f962450987dada5490dd7b6b8db9f72ea4c47927436474`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

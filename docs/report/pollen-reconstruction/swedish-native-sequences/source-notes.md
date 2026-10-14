@@ -70,7 +70,31 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_compl
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The source-owned trajectory/table/map-summary readers expose exact reported native pollen rows, selected point ages, named chronology controls and source coordinates without interpolation. Source overlap flags potential shared lineage, not independent corroboration.
+
+**Unsupported claim.** Full raw-core grain-sum authority, zero counts for unreported taxa, depth units for all lakes, continuous age support, historical core/sample identity, vegetation composition, LRA reconstruction or predictive skill from the trajectory.
+
+**Actual verification performed.** The source notes and retained observations/site/map/overlap manifests were inspected. The separate ABBO source comparison supports a scoped centimeter interpretation from 107 matched depths and five count series, while native labels remain unchanged. This qualification performs no source acquisition, trajectory replay, atlas/browser interaction or numerical model execution.
+
+**Remaining input or review.** Native depth units are unlabeled, sample-age bounds and a separate pollen denominator are absent, and historical identity is unresolved for the 8 near-coordinate same-name leads. A present-day 3 ha PANGAEA event area is not an age-specific basin boundary. Other lakes do not inherit ABBO’s depth-unit interpretation.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Percentages divide only reported native pollen NISP. Keep source labels/missingness and chronology metadata visible, and do not count LandClim modeled cells as observations or treat name/coordinate matches as independent source evidence.
+
+**Precise next acceptance route.** Obtain source-specific denominator/depth/age semantics and authentic core/sample linkage before stronger source or LRA claims; admit age-specific basin/parameters and measured vegetation separately. Verify atlas integration as its own consumer rather than infer it from this coordinate overview.
+
+**Negative or refused result.** Unreported taxa are not filled with zero.8 metadata leads across the 3 lakes have point gaps below 0.45 m but do not prove identical original cores/samples. No continuous trajectory, predictive accuracy or LRA result is established.
+
+**Matched denominator.** 3 native datasets 19913/53995/54001;228 source samples;5,464 reported native NISP pollen rows;46 source chronology controls. ABBO’s separate unit/count comparison covers 107 depths and 5 taxa; those are not additional independent samples.
+
+Qualified authored reader SHA-256: `e03ab3bdb28121c4814386b6f00fbfa3cd0b5d48db291a1589b8358bb3736dcf`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json](manifest.json) (SHA-256 `9f9a29740c56ec64dc089e50d57514071146fc3945a90d3e3b270dedfb5e722b`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json](source-overlap.json) (SHA-256 `6c3e60cb4144fbde19eaf7ee3ce044343d6d181d7f102ac38a49c4f887b09cc5`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-native-sequences/sites.json](sites.json) (SHA-256 `9956683a701d5ed576836e1f37d894dce81d8e6cb1050a10dfc3980190140b37`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

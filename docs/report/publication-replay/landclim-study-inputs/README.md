@@ -50,7 +50,33 @@ clear sequence-specific rights or measure vegetation accuracy.
 
 Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The pinned publication metadata workbook yields a complete 1,128-row source-requirement inventory and row-level unresolved historical bridge, with four explicit refusals per row.
+
+**Unsupported claim.** Metadata rows, filename/source labels and NR/R markers do not supply historical pollen counts, selected ages, legal permissions, independent cohorts, reproduced LRA results, country admission or measured vegetation accuracy.
+
+**Actual verification performed.** The authored inventory, source manifest, summary and row-level requirement refusals were inspected and exact public bytes bound. Its maintained validator rebuilds five products from pinned workbook/receipt parents; this qualification runs no workbook scan, numerical calculation, historical R or new source recovery.
+
+**Remaining input or review.** Exact historical counts/sample IDs, selected chronologies, historical-to-current revision decisions, per-sequence source-use permissions, original intermediate matrices and qualified PFT/scientific decisions remain missing in this closure.
+
+**Cause category.** data | access/rights | comparability | qualified review
+
+**Consequence.** Keep every row unresolved until its actual historical source closure is authenticated. Do not subtract the 17 released author examples without a historical identity bridge or reinterpret country strings as scientifically admitted cohorts.
+
+**Precise next acceptance route.** For a named publication row, obtain authenticated historical count/chronology/transformation and revision/rights decisions, import their evidence and rerun the exact row admission. Extend only verified membership while retaining all other refusal records.
+
+**Negative or refused result.** Zero historical count identities, chronology selections, revision matches, per-sequence rights decisions and reproduction-ready rows are authenticated. The one-row Amsoldingersee review remains negative and does not close any broader lineage.
+
+**Matched denominator.** 1,128 metadata rows/crosswalk entries;4,512 requirement refusals,four per row. Workbook country strings include 84 Sweden/66 Denmark/42 Norway/31 Finland, not admitted independent cohorts; zero reproduction-ready rows.
+
+Qualified authored reader SHA-256: `7b72436271b9290546ede25bc07d3b4c30cb8b89f8d53ce1151a058723569e49`.
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-study-inputs/report.json](report.json) (SHA-256 `6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02`).
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-study-inputs/manifest.json](manifest.json) (SHA-256 `aaab3414a4168c910210b3e275b759f19fe478501de3ec5656f2e1ddcec58e93`).
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv](primary-source-crosswalk.csv) (SHA-256 `7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893`).
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-study-inputs/refusals.csv](refusals.csv) (SHA-256 `055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f`).
 
 - [Canonical scientific account: reports/science/publication-correspondence/published-inventory/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/published-inventory/README.md) (source SHA-256 `d3c118abf989e31d5b4d97a93e2619f35e5da898bad8d7dcf4bd194df2bd6796`).
 

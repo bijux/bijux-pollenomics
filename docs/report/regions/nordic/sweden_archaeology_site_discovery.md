@@ -70,7 +70,27 @@ The JSON and CSV companions contain the complete ranked registry; the GeoJSON co
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Swedish SEAD discovery surface keeps every geolocated site and orders repository chronology/bibliography readiness while publishing unresolved temporal features explicitly.
+
+**Unsupported claim.** Discovery rank is not archaeological significance, present excavation or sampling activity, inferred chronology, farming causality or a pollen/vegetation observation.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Actual activity, source-specific event semantics and independent archaeological interpretation require their own source evidence; RAÄdensity supplies only coarse context.
+
+**Cause category.** Archaeological source discovery readiness rather than scientific ranking.
+
+**Consequence.** A site with no numeric chronology stays visible as unresolved; nearby density cannot identify a site or improve its discovery rank.
+
+**Precise next acceptance route.** Replay the exact SEAD discovery owner and retain original temporal intervals and bibliography links; obtain source-qualified event/activity evidence before making a historical or current-fieldwork claim.
+
+**Negative or refused result.** 1,555sites lack linked numeric chronology, and present-day activity is not captured by the repository sources.
+
+**Matched denominator.** 1,925sites=370chronology-resolved+1,555unresolved;1,074bibliography-linked;8,799mapfeatures=7,244numeric temporal+1,555unresolved, not8,799independent sites.
+
+Qualified authored reader SHA-256: `f0a9a26fa447c5ff840bdfb7fddb78d4f0fbc332bd365dd251e653ad22a44b62`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/sweden_archaeology_site_discovery.json](sweden_archaeology_site_discovery.json) (SHA-256 `1d1c3389b805c08d7ae449865361cc6dd145c8697c6f659a5bd9043a7d80f52f`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

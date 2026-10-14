@@ -89,7 +89,33 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This Denmark bundle inventories 653 published AADR v66 genetic IDs at 295 localities under the source Political Entity filter; country labels are publication selection.
+
+**Unsupported claim.** Neither source country labels nor metadata dates establish historical nationality, qualified geography/chronology, ancestry, migration or farming. Five animal samples at four localities are a separate population: three wild/progenitor aurochs and two pigs.
+
+**Actual verification performed.** Read this bundle reader and current summary; reconciled 653 CSV rows/distinct genetic IDs and 295 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun.
+
+**Remaining input or review.** Authenticate each Denmark source row, chronology, coordinate interpretation, rights and intended reuse before scientific comparison; keep duplicate source-panel membership distinct from genetic IDs.
+
+**Cause category.** Source metadata selection and unresolved scientific admission.
+
+**Consequence.** The 653 visible IDs are a filtered publication inventory; they are not 653 independent people, validated dates or an admitted population estimate.
+
+**Precise next acceptance route.** Review reports/science/aadr-nordic-entities/report.json and its exact decision population, then resolve missing coordinates and qualified chronology/geography/rights at native record IDs before an independently declared biological comparison.
+
+**Negative or refused result.** One of 654 source-labelled Denmark IDs is excluded for missing coordinates; map_admitted and scientifically_admitted remain false. Both 1240k and ho contain 653 rows.
+
+**Matched denominator.** Denmark: source-labelled genetic IDs 654; published unique genetic IDs 653; coordinate exclusions 1; locality rows 295. Dataset counts {"1240k": 653, "ho": 653} count panel membership, not additional people. Five animal samples at four localities are a separate population: three wild/progenitor aurochs and two pigs.
+
+Qualified authored reader SHA-256: `9a7c7f5dab66211b59eb044a8400257bd96f2a1210d6b8c50cefef96fdf65a1c`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/denmark_aadr_v66_summary.json](denmark_aadr_v66_summary.json) (SHA-256 `fe6da56c5f4d4032f78e2021e348fdfcd62b5327450dc11a9aa771563dbdd809`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/denmark_aadr_v66_samples.csv](denmark_aadr_v66_samples.csv) (SHA-256 `1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/denmark_aadr_v66_localities.csv](denmark_aadr_v66_localities.csv) (SHA-256 `c0df6ee0c6f399d2ee78aa1aaac3bfa5795f1ae2586b0e9785f5235fb12764c4`).
+
+- [Retained qualification evidence: reports/science/aadr-nordic-entities/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/report.json) (SHA-256 `73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196`).
 
 - [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `714f2e896dc3ceec86e9b986cf97defe08f9fbb26fb25dd908368dc65c2f5eac`).
 

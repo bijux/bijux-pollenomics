@@ -57,7 +57,27 @@ audit.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The pinned source audit reconciles registered families, country/capability cells and historical intake custody without claiming full source confirmation.
+
+**Unsupported claim.** Zero mechanical findings cannot certify provider completeness, historical input semantics, rights or scientific review.
+
+**Actual verification performed.** Read retained summary, external intake dispositions and source-specific blockers; no private archives or whole-registry audit rerun.
+
+**Remaining input or review.** 53 supported dimensions need missing/partial materialization; qualified taxonomy, chronology, basin, rights and independent truth evidence remain.
+
+**Cause category.** Mechanical accounting and scientific acceptance are separate states.
+
+**Consequence.** Rootsi/OpenLand are intake relationships, not new independent vegetation families.
+
+**Precise next acceptance route.** Resolve exact per-source blockers and changed evidence closure before rerunning source/country consumers and scientific review.
+
+**Negative or refused result.** accounting_checks_pass=true but full_source_confirmation=false; SEAD 177,763 event dispositions remain refused.
+
+**Matched denominator.** 11 families/198 country cells/187 capability cells; 321 input paths/284 present/204 manifested identities; 3 receipts/12 country claims/2 original archives; 0 mechanical findings.
+
+Qualified authored reader SHA-256: `1cde29f9ced7222cc04c936cd9062508519351b3c703fe97988f188f4edbfb5b`.
+
+- [Retained qualification evidence: docs/report/source-relations/source-reconciliation/report.json](report.json) (SHA-256 `16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

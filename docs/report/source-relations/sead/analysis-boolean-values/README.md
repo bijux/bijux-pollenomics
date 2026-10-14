@@ -69,7 +69,27 @@ this producer.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Typed boolean components and exact parent display/class identities are preserved as distinct source facts.
+
+**Unsupported claim.** False is not source null, and native flags are not ecological presence/absence, selected dates or accepted events.
+
+**Actual verification performed.** Read the 11,603-component lineage report and 17 display/class/state groups; no typed-source consumer rerun.
+
+**Remaining input or review.** Source class interpretation, scientific chronology/entity qualification and use review remain.
+
+**Cause category.** Typed source continuity supplies no ecological classification.
+
+**Consequence.** Integer 0/1 cannot replace false/true, and Not dated cannot become an eligible date.
+
+**Precise next acceptance route.** Qualify the exact value class/entity meaning and independent chronology/event requirements before interpreting flags scientifically.
+
+**Negative or refused result.** All 68,705 parent event eligibilities remain refused; 0 typed nulls is not proof every parent is measured.
+
+**Matched denominator.** 177,763 staged observations; 68,705 analysis parents; 11,603 boolean parents/components=1,708 true+9,895 false; 17 groups; 0 events.
+
+Qualified authored reader SHA-256: `10ab451b47fc1e9d1980553b59f7c510111757be5d45233db9119b08aaf5df66`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-boolean-values/report.json](report.json) (SHA-256 `1cb2b0777fd98181d749cf9aa81b418062048108d96e80816b31f77e48a9bc30`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

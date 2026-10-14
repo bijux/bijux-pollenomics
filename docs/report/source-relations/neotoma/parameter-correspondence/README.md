@@ -45,7 +45,29 @@ Compare the replayed `report.json` byte-for-byte with this directory.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All 31 author mean/fall-speed rows pair uniquely to published rows under the frozen numerical display rule.
+
+**Unsupported claim.** Mean/fall-speed correspondence does not make source SDs identical or authorize silently swapping parameter revisions.
+
+**Actual verification performed.** Read every retained parameter pair and all three SD exceptions under the 0.00050001 display tolerance; no reconstruction or parameter change.
+
+**Remaining input or review.** Source-holder explanation for the SD version/display differences and remaining Swedish input qualifications are needed.
+
+**Cause category.** Parameter revisions retain small but real covariance discrepancies.
+
+**Consequence.** Author covariance and published SD values remain distinct reproducibility targets.
+
+**Precise next acceptance route.** Resolve source version/display authority before selecting a common uncertainty profile, then qualify actual pollen/site inputs.
+
+**Negative or refused result.** Cerealia-t, Cyperaceae and Phillyrea SD differences exceed the declared three-decimal display bound; 0 LRA samples admitted.
+
+**Matched denominator.** 31 exact fall-speed/within-bound mean pairs; 28 SDs within bound and 3 explicit exceptions.
+
+Qualified authored reader SHA-256: `a25dcb75e22963efb35b7bce682090a7decf5767861e8fdc950b5c655d539103`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/parameter-correspondence/report.json](report.json) (SHA-256 `0b869d584239390967c226a82ced03acb1e2419a8fa66b4226ff36b586147f16`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-parameter-binding/report.json](../author-parameter-binding/report.json) (SHA-256 `94ae944d1bb1f09fd0234f879915ce32c3d58e1587ad04165ef545f8d13ed202`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

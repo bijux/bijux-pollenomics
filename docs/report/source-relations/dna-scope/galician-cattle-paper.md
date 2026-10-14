@@ -57,7 +57,27 @@ focused regressions cover the identity and refusal rules.
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Eleven source-owned ENA aliases identify the eleven sequenced Galician cattle specimens in the primary paper.
+
+**Unsupported claim.** The project-wide Bos taurus label does not identify all sample species, and identifying the paper does not admit site or chronology.
+
+**Actual verification performed.** Read the paper-review JSON, its eleven alias crosswalks, specimen counts and author-name-only correction scope; no paper recapture or dating calculation.
+
+**Remaining input or review.** Qualified project-paper promotion and sample-owned site/date/context decisions remain.
+
+**Cause category.** Project-level species and sample-level source taxonomy differ.
+
+**Consequence.** Three aurochs must remain visible instead of inheriting a domestic-cattle project label.
+
+**Precise next acceptance route.** Review the eleven sample aliases against the retained paper/ENA evidence before changing the project catalog and context admission.
+
+**Negative or refused result.** Three Bos primigenius conflict with the project Bos taurus label; paper linkage remains identified_not_promoted.
+
+**Matched denominator.** 18 dating-table specimens versus 11 sequenced labels/BioSamples: 8 Bos taurus and 3 Bos primigenius.
+
+Qualified authored reader SHA-256: `3288bea397534ae617252fbd60c059d169b4b613b56d2447f98ead53d5dc9602`.
+
+- [Retained qualification evidence: docs/report/source-relations/dna-scope/galician-cattle-paper.json](galician-cattle-paper.json) (SHA-256 `34f3899c37c437d55c8a891d834a7f119edf4ede46f076da03160e9f31a8b567`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 

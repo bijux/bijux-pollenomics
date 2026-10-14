@@ -58,7 +58,27 @@ cmp docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained original-paper comparison matches all seven distinct 1983 radiocarbon controls and describes explicit 1981/1983 core intervals and a 9000BC basin figure.
+
+**Unsupported claim.** An ungeoreferenced 9000BC reconstruction and conditional calendar conversion cannot identify the 79 author input samples or provide one radius valid for every sample age.
+
+**Actual verification performed.** Read the retained primary-source account, control-match counts and conditional core selection; pinned its report. No privatePDF inspection or source-control replay was repeated.
+
+**Remaining input or review.** The original author sample IDs, historical chronology and georeferenced time-specific basin outline remain missing for LRA.
+
+**Cause category.** Historical core lineage established in part; author selection and physical basin support unresolved.
+
+**Consequence.** Seven date matches support 1983 core lineage, while conditional 76/74 sample selections remain distinguishable from the published 79.
+
+**Precise next acceptance route.** Reproduce against the exact 12,519,377-byte OdgaardPDF and Neotoma controls, then authenticate the author input selection and dated basin geometry without transferring static figure support.
+
+**Negative or refused result.** Conditional selections miss the author denominator:76 samples or 74 within the LandClim span versus 79 published. LRA-admitted 0.
+
+**Matched denominator.** Seven primary controls match 14Neotoma chronology-view rows;92 source samples yield 76 conditional selections(56+20),or 74 withspanrestriction;51 corings underlie one 9000BC basin reconstruction.
+
+Qualified authored reader SHA-256: `21591edc895e6d78a34a1e8badb80d461f9210627bb155071022098a59c624a0`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json](report.json) (SHA-256 `8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

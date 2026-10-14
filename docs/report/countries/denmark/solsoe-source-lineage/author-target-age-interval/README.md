@@ -76,7 +76,35 @@ geometry, admit LRA input or validate measured vegetation.
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This prior-exposed one-site development sensitivity reuses 3 fixed methods on the closed 31 author taxonomy targets native-NISP subcomposition under strict full 95%-interval containment.
+
+**Unsupported claim.** It supplies neither independent-site uncertainty, an untouched model ranking, measured vegetation accuracy, age posterior, historical LandClim chronology nor LRA admission.
+
+**Actual verification performed.** Read the retained protocol,report and score/sample ledgers; checked 92 sample decisions,15 retained in 8 bins and 24 method/bin predictions. No refit, private taxonomy mapping or fresh score producer was run.
+
+**Remaining input or review.** A historical interpretation still needs the 79 author samples/chronology and dated basins; an accuracy claim needs qualified independent observations and a fresh predeclared evaluation.
+
+**Cause category.** Prior-exposed restricted-support chronology sensitivity.
+
+**Consequence.** Nearest-site strict MAE 0.025673 versus parent same-bin 0.025513; differences reflect restricted source composition. The same retained samples stay in their nominal bins, so no improvement can be credited to age reassignment.
+
+**Precise next acceptance route.** Replay the exact frozen 31 author taxonomy targets protocol/Denmark-excluded predictions before opening observations, then compare strict and nominal scores on identical samples; retain separate 16/31 target denominators.
+
+**Negative or refused result.** One negative source-age refusal and 76 crossing intervals remain;16 of 24 parent bins have no retained sample. The source restriction is not repaired by interpolating ages.
+
+**Matched denominator.** 92 source samples=91 comparable+1 refused;91=15 contained+76 crossing;15=14 SOLSOE81 + 1 SOLSOE83; 8 of 24 bins supported,24 reused predictions=3 methods×8 bins;closed 31 author taxonomy targets, not vegetation cover.
+
+Qualified authored reader SHA-256: `d02da3e5be4aaf7289e95ba7e48e97893d95eb6d69a8dffc11574d07502695d8`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json](report.json) (SHA-256 `c78342a1490638d7aa31614d12015d5353405c0ad35b503b55d974adeed5111b`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/protocol.json](protocol.json) (SHA-256 `45dd6fc90b8550f1e4758007030d4987044fda49bba5eea2ecdd9862302ed7ed`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/sample-support.csv](sample-support.csv) (SHA-256 `fa5c7a3f74c2f750d3f4a3f4cea18382aeab9970c87f6321342b569d3365c619`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/scores.csv](scores.csv) (SHA-256 `fa726106e254b41ac60462dea6d1eeb69ce82b661970bcc9e24b85751b6d7405`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json](predictions.json) (SHA-256 `0747fd1661a08c9e77035dbc4d50d242fb005a78be9ad4ea2593000bc34070c9`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

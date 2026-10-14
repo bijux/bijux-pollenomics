@@ -1503,7 +1503,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The chronology ledger retains 1475 source review rows with explicit normalized, context-only and unresolved precision/evidence classes.
+
+**Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
+
+**Actual verification performed.** Read the complete machine class counts and source-level chronology identities; checked 315+368+386+406=1475 and separate comparability partition. No date parser, calibration or chronology review was rerun.
+
+**Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
+
+**Cause category.** Heterogeneous source chronology with explicit epoch and precision refusals.
+
+**Consequence.** 1475 chronology review rows are not 1468 unique normalized sample IDs; multiple source/native row views and taxonomic normalization must retain their own identity units.
+
+**Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
+
+**Negative or refused result.** 386 text-only/context-only and 406 unresolved rows remain; numeric/caveated rows do not override source dating class. PRJEB31613 unqualified elapsed-year claims stay weak chronology.
+
+**Matched denominator.** 1475 rows=315 normalized intervals+368 normalized points+386 text-only+406 unresolved. Comparability: 547 numeric+136 numeric-with-caveat+386 context+406 unresolved. These partitions must not be summed together.
+
+Qualified authored reader SHA-256: `7e0f3d764bd6de9d2e803b5fadd119dc48628e689ca048aee042a5d8fc78c4e1`.
+
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `1102dfcfe19a93269a6271744b4cc9fd5e48edb52ad29874652e4955b25fce9a`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

@@ -16,7 +16,27 @@ Private plot identifiers and coordinates remain unpublished.
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This citation-only reader routes to the source-bound Färskesjön plot-support refusal; it reports zero new observations, fits or independent scientific checks.
+
+**Unsupported claim.** The nearby forest plot does not validate the lake pollen reconstruction or transform five tree-volume groups into a 31-taxon regional landscape target.
+
+**Actual verification performed.** Read this pointer and the linked retained numeric refusal account and checked physical report identity. No private plot source, geodesic, measurement or model was reopened or recomputed.
+
+**Remaining input or review.** An authenticated date, footprint relation, vegetation quantity/taxon crosswalk and independent reference review remain necessary for a valid paired target.
+
+**Cause category.** Citation routing to an explicitly refused vegetation-reference lead.
+
+**Consequence.** The pointer preserves the refusal rather than adding a successful comparison or publishing private plot identity.
+
+**Precise next acceptance route.** Inspect the exact source-bound refusal and supply a reviewed compatible target quantity, spatial support and time relation before recording any changed pairing decision.
+
+**Negative or refused result.** The source point is 427.122 m away and the inventory precedes possible pollen sampling by 107–136 days; one 7 m plot remains refused as a landscape reference.
+
+**Matched denominator.** Own population: zero new observations, fits or checks. Linked support: one lake pollen point and one 153.94 m² plot with five tree-volume groups; zero admitted vegetation pairs.
+
+Qualified authored reader SHA-256: `d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9`.
+
+- [Retained qualification evidence: reports/science/vegetation-reference/farskesjon/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/farskesjon/report.json) (SHA-256 `c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855`).
 
 - [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
 

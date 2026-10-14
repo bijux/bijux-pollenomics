@@ -50,7 +50,29 @@ governed files in this directory. The focused review and fieldwork tests passed
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The interval review preserves disjoint eligible record support and unobserved gaps instead of using site envelopes analytically.
+
+**Unsupported claim.** Numeric display spans are not continuous dated occupation, arrival, event or propagation intervals.
+
+**Actual verification performed.** Read interval totals, site inventory and native-backed site 3840 gap witness; no map filter or claim consumer rerun.
+
+**Remaining input or review.** Qualified chronology/event meaning and governed record-level temporal joins for future ranking remain missing.
+
+**Cause category.** Display envelopes overstate temporal support if used as observations.
+
+**Consequence.** Spatial site density may use context points; time-aware analytic support must refuse their display hulls.
+
+**Precise next acceptance route.** Qualify record-age/event meaning and add an explicit source-bound record-interval join before temporal ranking or propagation.
+
+**Negative or refused result.** 11,939 claims contribute no record interval; site 3840 gap 84–104 BP stays unobserved; 0 ecological events admitted.
+
+**Matched denominator.** 25,109 reviewed claims→13,170 eligible claims/7,244 record intervals; 2,069 sites, 370 with intervals/299 with separated components; site 3840 has 79 claims/11 records.
+
+Qualified authored reader SHA-256: `9a7e07e2c7771913a5dcf1cf4cc96d3ef96dbd1860d601b17389965f2e08cec7`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/interval-sets/report.json](report.json) (SHA-256 `b2c7fe1f2e4ab7b1d331031abcc4fac9bd484d81345f463df5d3f08085a0735c`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/interval-sets/sites.csv](sites.csv) (SHA-256 `75b37bccd76b3e523d976f754ec562d07b0b6ce6059c9676d4ec45cd4cedfacf`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

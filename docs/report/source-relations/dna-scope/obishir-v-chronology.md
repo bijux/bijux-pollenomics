@@ -18,7 +18,29 @@ Table 2 reports an unlabelled tooth at lab `AA-114469` with 6989 ± 45 14C BP an
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Obishir review distinguishes specimen-matched calibrated BCE intervals from uncalibrated radiocarbon measurements.
+
+**Unsupported claim.** An unlabeled dated tooth is not OB20-01, and an article variant is not authority to overwrite the governed PDF.
+
+**Actual verification performed.** Read the source-specific Table 2 interpretation and current animal chronology account; this is document correspondence review, with no calibration or new specimen join.
+
+**Remaining input or review.** The undated aliases need specimen-owned dates; source warnings and the Capra species conflict need qualified resolution.
+
+**Cause category.** Incomplete specimen linkage and mixed dating representations.
+
+**Consequence.** A site-level date cannot fill an undated sample or override the goat/sheep refusal.
+
+**Precise next acceptance route.** Provide an unambiguous specimen-to-lab/date join and qualified calibration/species decision before changing chronology eligibility.
+
+**Negative or refused result.** OB20-01 and OB21-06 have no matched direct date; OB21-04 remains sheep-blocked; OB20-04 retains stratigraphic inconsistency.
+
+**Matched denominator.** 5 archive accessions; 3 stated specimen-date matches include one Capra sample; calibrated BCE ranges and uncalibrated 14C BP remain distinct.
+
+Qualified authored reader SHA-256: `24cba8d951484fdf50c5fd4afe2b0eb9bd4141cdb42e4280fff4789b7e72e7fa`.
+
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `1102dfcfe19a93269a6271744b4cc9fd5e48edb52ad29874652e4955b25fce9a`).
+
+- [Retained qualification evidence: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 

@@ -57,7 +57,27 @@ private lookup or source workbook bytes.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained source accounting partitions selected native NISP into31author targets, explicit author exclusions and unmapped names, preserving exact source mass by site/country.
+
+**Unsupported claim.** Lookup coverage is neither taxonomic scientific approval nor an LRA-ready sample count, basin/PPE qualification or independent vegetation comparison.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source-specific taxa, historical geometry, parameters, rights and independent scientific decisions remain required for LRA.
+
+**Cause category.** Source taxonomy feasibility and count conservation.
+
+**Consequence.** Unmapped and excluded mass stays visible instead of becoming zero vegetation or being reassigned to improve coverage.
+
+**Precise next acceptance route.** Replay the native observation/lookup accounting with exact source hashes and review each proposed taxon mapping before running a separately admitted physical reconstruction.
+
+**Negative or refused result.** All5,432selected samples retain zero LRA admission; Norway's34,127unmapped and233,598excluded NISP remain distinct.
+
+**Matched denominator.** 81sites/5,432samples/116,727selected observations; DK129,768native/122,998assigned, FI1,260,281/1,229,019, NO2,286,020/2,018,295 NISP;10,788lookup rows and31targets.
+
+Qualified authored reader SHA-256: `d7099faa9437187a2f094e81d78259c55185587c4a67b7b6dfd6643300ab476a`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-taxonomy-mass/report.json](report.json) (SHA-256 `360266a47da915874fba74c457b6d12cdd030c5aefa122caf0002433305e5a4e`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

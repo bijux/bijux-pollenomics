@@ -92,7 +92,29 @@ accuracy, or ecological propagation accuracy.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained local Linux ARM64 container executed source-built R 4.6/DISQOVER on 43 core and 23 domain cases against its exact captured byte closure, with network disabled and declared one-CPU/4GiB container bounds.
+
+**Unsupported claim.** It does not establish the locked Ubuntu 24.04 x86_64 hosted job, same-attempt publication artifacts, a captured in-process Git HEAD or a new release certificate.
+
+**Actual verification performed.** Reviewed the retained container exit, source/runtime inventory and explicit release refusals and bound the report/context bytes. No container, R installation or mathematical case was rerun for this reader qualification.
+
+**Remaining input or review.** A real same-revision hosted run with provider identity, locked architecture/runtime and linked native-parity artifacts is required; historical post-run commit observations cannot replace execution-time identity.
+
+**Cause category.** Valid bounded local Linux diagnostic with incomplete release-provider/source identity.
+
+**Consequence.** The native 66-case Linux result remains useful correspondence evidence while official release admission stays refused.
+
+**Precise next acceptance route.** Execute the locked hosted verification and collect its actual same-run/attempt/source artifacts, then submit them to the maintained publication admission consumer without substituting local annotations.
+
+**Negative or refused result.** The prior changed-source attempt remains refused and both release-refusal codes remain retained. Neither the later observed 44c revision nor the a862 annotation is certified as the container's captured Git HEAD.
+
+**Matched denominator.** 43 core plus 23 domain cases;1,661 source files,1,227 runtime files,2,784 library files and 38 archives in the retained local capture; zero new hosted runs in this qualification.
+
+Qualified authored reader SHA-256: `da6972f17488bb73649727d366ef36a83c799ac61a52645323d8d6fe3b0c86c3`.
+
+- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/report.json](report.json) (SHA-256 `45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85`).
+
+- [Retained qualification evidence: docs/report/method-certification/linux-r-oracle/context.json](context.json) (SHA-256 `d33f777d10baec9d20ecb21143d87a3d037da6ebf21ea3285cd0b56182de5ad6`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

@@ -155,7 +155,31 @@ its own governed admission and identities; it cannot silently reuse this replay.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 61-table SEAD summary records complete source receipts and 522,270 distinct captured primary keys for its pinned scope.
+
+**Unsupported claim.** Source capture completeness does not grant taxonomy, chronology, event, propagation, rights or independent vegetation admission.
+
+**Actual verification performed.** Read the retained summary/table export and later typed-value/chronology accounts; acquisition-time downstream statuses are historical, not current missing-product claims; no 61-table replay.
+
+**Remaining input or review.** Qualified classification/chronology/use decisions and 126 excluded-coordinate authority remain unresolved.
+
+**Cause category.** Mechanical capture and acquisition-time admission statuses differ from later source materialization.
+
+**Consequence.** A passing local accounting check cannot overturn refused release or 177,763 event dispositions.
+
+**Precise next acceptance route.** Resolve source-specific scientific/refusal reasons and verify a changed source in its own capture before revising scientific admission.
+
+**Negative or refused result.** Acquisition release refused; 8 tables genuinely empty; 126 excluded sites and all event refusals preserved.
+
+**Matched denominator.** 61 tables/522,270 rows and distinct keys/0 duplicate keys; 2,195 discovered sites, 2,069 assigned; 177,763 refused observation dispositions remain a separate population.
+
+Qualified authored reader SHA-256: `bccb7f8a46cbd88e46bfe5dbb20c476e8e6e3d3af697cdff25f4564d1675502c`.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/summary.json](summary.json) (SHA-256 `f9ce173a33dc76c39b56a8d79a61054c7b3c718d5e4d00557e0575589d72173b`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/tables.csv](tables.csv) (SHA-256 `89ee2b92ff3f1a29207e9b5a907b346b554df6439972eb47aecdc991e8437c8d`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-components/report.json](analysis-value-components/report.json) (SHA-256 `b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

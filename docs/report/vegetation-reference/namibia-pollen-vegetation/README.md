@@ -93,7 +93,29 @@ cmp artifacts/jobs/namibia-radius-sensitivity-replay/radius-sensitivity.json \
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained source-row join aligns ten modern pollen samples with deposited five-taxon mapped areas and describes conditional compositional mismatch at every native radius label.
+
+**Unsupported claim.** Joining source rows or computing Hellinger distances is not fitting a model, choosing an ecological pollen radius, measuring whole cover or validating Nordic reconstruction.
+
+**Actual verification performed.** Read the exact source join, unit/ring/date caveats and retained radius-sensitivity account; bound both reports. No original TSV, join, distance or geometry calculation was rerun.
+
+**Remaining input or review.** Exact soil/image dates, ring-sector masks, taxon overlap and broader pollen/cover denominators remain unresolved; independent target admission and reviewed physical interpretation are still needed.
+
+**Cause category.** Out-of-domain modern source join with descriptive radius and geometry diagnostics.
+
+**Consequence.** Ten repeated pollen samples remain ten samples across all radii; selected five-quantity closure cannot establish total pollen or landscape fractions.
+
+**Precise next acceptance route.** Recover exact target masks, times and quantities, retain native ring labels and source hashes, and freeze a separate scientifically justified comparison before any accuracy or source-radius claim.
+
+**Negative or refused result.** Nine decreases among 700 adjacent radius comparisons affect eight series and rule out treating them as cumulative nonnegative areas on one fixed map; hypothetical annulus ratios remain diagnostics.
+
+**Matched denominator.** Ten sites×15 radius labels×five taxa=750 paired taxon rows; 100 m subset 50 pairs. There are 150 site/radius distances from ten pollen samples; mean Hellinger 0.3664 at 100 m, 0.3427 at 400 m, 0.3777 at 1500 m, not model scores.
+
+Qualified authored reader SHA-256: `33238c09821c3d4466a1a4ec3ff1854c59e4fdfc6163e5bc241d324eebbaa312`.
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-pollen-vegetation/report.json](report.json) (SHA-256 `7060e68eaa3a7f67f528dcc565a7cca6dc1963c5f5ccfc6e13fdfe356d926b67`).
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json](radius-sensitivity.json) (SHA-256 `5a3caae7c491a020e1a1abc77e526a26ac95f1a2c7bc1084561fd6998ffeec0c`).
 
 - [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md) (source SHA-256 `a8c92d02c7e7a9d2155f193b5e59451d741184afbfdd626eb5d8c4c3ae8e4bcc`).
 

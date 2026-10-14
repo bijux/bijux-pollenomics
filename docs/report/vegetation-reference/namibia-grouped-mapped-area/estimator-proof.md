@@ -39,7 +39,29 @@ Exact source authority: experiment protocol SHA256 `a1662a4d5327e13e1d59cc1492eb
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Under strictly positive five-quantity compositions and normalized positive training weights, the centered weighted least-squares log-compositional objective has the unique mean residual minimizer; closure removes its common raw offset.
+
+**Unsupported claim.** This conditional point-estimator theorem supplies no stochastic likelihood, uncertainty coverage, physical transport, identifiable PPE/ERV, taxonomy equivalence or environmental validity.
+
+**Actual verification performed.** Read and checked the displayed completed-squares identity, centering and closure-invariance argument against the retained experiment/source account. No fit, score or numerical oracle was rerun.
+
+**Remaining input or review.** The proof assumes source positivity and normalized weights; finite numerical behavior has separate retained verification and real environmental interpretation still needs admitted targets and review.
+
+**Cause category.** Conditional deterministic estimator theorem distinct from empirical and stochastic validity.
+
+**Consequence.** Uniqueness in the centered gauge supports the implemented point calculation; the raw least-squares mean remains unique even though closed predictions discard a common offset.
+
+**Precise next acceptance route.** Preserve the positive normalized-weight assumptions and separate squared-Hellinger held-out scores from the training log-residual objective; qualify a new target independently before ecological use.
+
+**Negative or refused result.** The theorem does not erase the correction’s poorer held-out contrasts or turn exposed group-held-out outcomes into untouched confirmation.
+
+**Matched denominator.** One five-axis point-estimator theorem for a fixed radius and held-out group, with eight remaining nominal training groups in this experiment; no additional observations, fits, uncertainty intervals or independent environmental checks.
+
+Qualified authored reader SHA-256: `131a3e2c240ad2e4f9a45f1e2d91f190fc01bd3f2dacd6dcd2490f0af0dbe206`.
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json](report.json) (SHA-256 `a19f533e08c589507698cc9bfa89d97f2ac210f5c85db6eed3f7967b32d2b499`).
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json](source-account.json) (SHA-256 `00c21f87b989dfce82e7a74fe7bb6fd89a4b7b3e52de072e83b0d224addab2b7`).
 
 - [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md) (source SHA-256 `a8c92d02c7e7a9d2155f193b5e59451d741184afbfdd626eb5d8c4c3ae8e4bcc`).
 

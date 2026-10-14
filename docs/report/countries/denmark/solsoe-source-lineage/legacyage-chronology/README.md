@@ -68,7 +68,31 @@ Quaternary pollen dataset (LegacyAge 1.0)*, PANGAEA,
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained exact-depth join links all 92 Solsø sample depths to alternative LegacyAge S5 estimates and retains separate S6 chronology comparisons.
+
+**Unsupported claim.** Row-wise S5 interval membership is not a joint age posterior, the historical author chronology, selection of LandClim II79 samples or LRA basin support.
+
+**Actual verification performed.** Read the source-bound report and sample/refusal ledgers; checked 66+26 depth matches,65+26 comparable samples and the single negative-bound refusal. No private S5/S6 rejoin or age model was run.
+
+**Remaining input or review.** Authenticate the historical author chronology/sample selection and sample-age basin support; evaluate alternative chronology under a separately declared response and support rule.
+
+**Cause category.** Alternative chronology correspondence with unresolved historical selection.
+
+**Consequence.** Different point ages can be compared descriptively; agreement does not authorize replacing Neotoma ages or treating alternative model estimates as independent observed truth.
+
+**Precise next acceptance route.** Use the frozen S5/S6 hashes and exact cm-depth sample IDs to reproduce the join, retain negative_bp, then predeclare any restricted-support sensitivity before scoring.
+
+**Negative or refused result.** SOLSOE81 has 9 of 66 point ages outside S5 intervals; the negative-bound sample 352996 remains refused even though its depth and alternative interval match.
+
+**Matched denominator.** Two cores:66/492 S5 depths and 26/185;92 exact joins,0 unmatched;91 comparable+1 refused. Point intervals:57/66 inside in 1981,26/26 in 1983. LRA-admitted 0.
+
+Qualified authored reader SHA-256: `afe3741f14051de330dac1279ef0288aad78badda484e992dbf5c2424301d7b1`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json](report.json) (SHA-256 `dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv](sample-depth-join.csv) (SHA-256 `0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv](refused-samples.csv) (SHA-256 `052d97c8a2f01743cdbf425a41c7c5c37c5ac1e8f8b4a5ba5ea9db7e874d07e8`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

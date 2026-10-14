@@ -40,7 +40,27 @@ A second independent invocation reproduced all four retained files byte for byte
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained sensitivity keeps53wholly contained samples and fixed predictions, comparing the same21supported bins against the original full-bin response.
+
+**Unsupported claim.** It is not an age posterior, refit, independent confirmation, NordicLRA or measured vegetation comparison; the original22-bin score answers a different support question.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The historical producer binding needs the named maintained owner replay before current-source correspondence is claimed; scientific chronology and collaborator review remain outstanding.
+
+**Cause category.** Conditional marginal age support with a historical producer binding.
+
+**Consequence.** Withholding crossing samples alters count composition and slightly worsens the fixed primary paired score without implying a model-selection result.
+
+**Precise next acceptance route.** Replay the maintained contained-age owner against the111source samples and66frozen predictions, preserve all refusals and compare the four numeric products before source-custody refresh.
+
+**Negative or refused result.** 58crossing samples remain excluded; bin1has three refused/null method rows, rather than zero error or omitted failure.
+
+**Matched denominator.** 53of111samples in21of22bins;63scored of66method/bin rows;185,150retained native NISP/108,163closed-axis; primaryMAE0.023054versus0.022881on the same bins.
+
+Qualified authored reader SHA-256: `f310296f6d26888737c96f14c4848d91518980f34105a12ba0056bdee7ed6fb2`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json](report.json) (SHA-256 `01ca16cc78426ab658abd40dd1a1e2e41d8cfa75ce2cc055b8d2535a3fb1eb1e`).
 
 - [Canonical scientific account: reports/science/sambosjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sambosjon-direct-pollen.md) (source SHA-256 `7de581e27ffefb4ac8d99403a1ac6d8fedf97971ab5886e4f28a63a954e0366a`).
 

@@ -13,6 +13,9 @@ from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts 
     load_routes,
     render_route,
 )
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
+    validate_evidence,
+)
 
 from .source import repository_file
 
@@ -21,9 +24,15 @@ def validate_reader_routes(
     root: Path,
     claims: list[dict[str, str]],
     routes: Mapping[str, Route] | None = None,
+    *,
+    require_individual_qualifications: bool = False,
 ) -> dict[str, int]:
     """Refuse missing prose dispositions, stale account hashes and altered routes."""
     routes = load_routes() if routes is None else routes
+    if require_individual_qualifications and any(
+        route.qualification is None for route in routes.values()
+    ):
+        raise ValueError("Scientific wrappers still lack individual qualifications")
     primary = {row["report_path"]: row["source_report_sha256"] for row in claims}
     path = repository_file(root, "reports/needed/scientific-reader-sources.json")
     authority: Any = json.loads(path.read_text())
@@ -69,6 +78,8 @@ def validate_reader_routes(
         raw = source.read_bytes()
         if raw != render_route(raw, route):
             raise ValueError(f"Scientific reader route missing or changed: {relative}")
+        if route.qualification is not None:
+            validate_evidence(root, route.qualification, portal=False)
         for account in route.accounts:
             if primary.get(account.report_path) != account.source_sha256:
                 raise ValueError(
@@ -82,6 +93,12 @@ def validate_reader_routes(
     return {
         "primary_accounts": len(primary),
         "scientific_wrappers": len(routed),
+        "individually_qualified_wrappers": sum(
+            route.qualification is not None for route in routes.values()
+        ),
+        "unreviewed_scientific_wrappers": sum(
+            route.qualification is None for route in routes.values()
+        ),
         "non_scientific_readers": len(excluded),
         "physical_docs_report_markdown": len(physical),
     }

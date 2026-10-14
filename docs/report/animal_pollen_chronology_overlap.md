@@ -16,7 +16,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The animal/pollen comparison explicitly refuses evaluation because the required comparable right-record dimension is unavailable.
+
+**Unsupported claim.** Zero right-record comparisons is not evidence of no ecological overlap, and site-level pollen extrema must not be substituted for sample-owned comparable chronology.
+
+**Actual verification performed.** Read the five retained rows and comparison contract/disposition; checked zero denominators and both refusal reasons. No pollen chronology producer or scientific comparison was run.
+
+**Remaining input or review.** An admitted comparable pollen record population and qualified scientific comparison review are missing.
+
+**Cause category.** Required temporal comparison dimension unavailable.
+
+**Consequence.** No animal/pollen overlap result can be inferred from this empty/refused comparison.
+
+**Precise next acceptance route.** Supply source-owned comparable pollen observations/chronology at the declared support, authenticate animal intervals, and obtain qualified comparison review before executing matched analysis.
+
+**Negative or refused result.** status refused; required_comparison_dimension_unavailable and qualified_comparison_review_missing remain; all five rows no_context_rows.
+
+**Matched denominator.** 5 country/species output cells but 0 right-record comparisons and 0 comparable right-record comparisons; these empty cells supply 0 scientific overlap tests.
+
+Qualified authored reader SHA-256: `df886936d56d7d6330b01a7c484c54a56890137c822222992b7674a6951a6f03`.
+
+- [Retained qualification evidence: docs/report/animal_pollen_chronology_overlap.json](animal_pollen_chronology_overlap.json) (SHA-256 `c7af6e7b38334dd31faccca49de6d7cda331c1ad4723cf208ed63be2f7e1b9a6`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

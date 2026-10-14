@@ -44,7 +44,31 @@ original pollen denominator is admitted by this comparison.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The two-lake comparison preserves full native count/age coverage and close LandClim metadata leads for BUS/BOKE.
+
+**Unsupported claim.** Submetre points and nearly equal endpoint numbers do not establish common cores, historical radii, selected chronology or pollen denominator.
+
+**Actual verification performed.** Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay.
+
+**Remaining input or review.** Elevation/coordinate conflicts, original count support, source chronology/geometry and analytical-use decisions remain.
+
+**Cause category.** Metadata and endpoint agreement are incomplete physical-core authority.
+
+**Consequence.** 69 m/80 m radii are not transferred and candidate-filter counts do not replace native sample totals.
+
+**Precise next acceptance route.** Bind exact cores, selected sample ages and justified basin/count/taxon/parameter profiles with source permission before admission.
+
+**Negative or refused result.** BUS 49/260 m and BOKE 57/24 m elevation claims differ; all radius transfers refused and 0 LRA samples.
+
+**Matched denominator.** BUS 69 and BOKE 52 native samples versus 66/50 prerequisite candidates; pure-pollen NISP 68,668/42,548 and other NISP 15,561/10,280.
+
+Qualified authored reader SHA-256: `e5bba0eafdcd6226ef7b2079f9d27101a3f7e3883645ca39a660808e5c2e714a`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json](report.json) (SHA-256 `d2b80a81ed26c7d3f327488290927de6220a3ca39c8d7d15514c258c75dc7594`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json](manifest.json) (SHA-256 `bf8f76d4513859615b84ec7d408a774c26591bd89a8d0d5a34b43d18d70b907a`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json](count-mass-crosscheck.json) (SHA-256 `afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

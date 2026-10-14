@@ -43,7 +43,27 @@ regression checks the native/digitized split and refuses review-state promotion.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The parameter-name candidate ledger preserves 20 matched and 11 unmatched published strings with 23 distinct native concept/unit rows.
+
+**Unsupported claim.** Literal name matches do not establish biological equivalence, PPE applicability, count support, source rights or LRA eligibility.
+
+**Actual verification performed.** Read the 31-parameter ledger and exact native/digitized split; no name normalization or parameter application.
+
+**Remaining input or review.** Qualified concept-level mapping and matched source parameter/profile, denominator, age and basin decisions remain.
+
+**Cause category.** Orthographic candidates are not biological or model authority.
+
+**Consequence.** NISP and NISP digitized remain separate axes instead of a merged count denominator.
+
+**Precise next acceptance route.** Review each native concept and unmatched parameter against source identity and permitted use before applying the profile.
+
+**Negative or refused result.** 11 parameter strings lack literal matches; all selected concepts remain needs_discussion; 0 LRA samples.
+
+**Matched denominator.** 31 published parameter names→20 matched strings/23 source-concept rows; 11 unmatched; Betula 9,920 native versus 49 digitized observations.
+
+Qualified authored reader SHA-256: `a8c75b41b4da343d9b9ed13f3e89b12db2af96cf4adafc2ffb1a975384d28cf5`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/parameter-candidates/report.json](report.json) (SHA-256 `6f3290a73db9d5e02c4f66a9c38fe809cbf3d1795515186b7a9f0da9843e3065`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

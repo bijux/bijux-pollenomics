@@ -15,7 +15,29 @@ The report gives each bin and training site zero-taxon count. This is a fit-supp
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Under strictly positive training fractions for all 31 taxa and at least 2 eligible training sites, neither withheld grid supports a CLR fit. This is a training-support diagnostic, with no model fitting or zero replacement.
+
+**Unsupported claim.** Observed-pollen prediction skill, measured vegetation accuracy, an accepted zero policy or an inferred absence of vegetation. No fitted model or scored target is produced by this diagnostic.
+
+**Actual verification performed.** This qualification reads the exact retained report JSON, reader text and family source/producer manifest. It does not rerun predictions, fitting, scoring or private source acquisition, and supplies no independent numerical or human review. The retained scores concern author-prepared observed pollen, not measured vegetation.
+
+**Remaining input or review.** A replacement/zero-handling policy requires an explicit prospective scientific choice and new development assessment; it cannot be inferred from zero strict support. This diagnostic alone leaves all source footprint, denominator, transfer, vegetation-reference and rights questions open.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Read these observed-pollen outcomes as descriptive development evidence on their stated support. Do not convert their errors or source identity into vegetation, LRA, independent confirmation or general-transfer accuracy.
+
+**Precise next acceptance route.** For a new general-transfer claim, qualify source identity/footprints/aliases, raw denominators and rights, then freeze a development-selected protocol before scoring genuinely untouched independent spatial groups. A vegetation/LRA claim additionally needs admitted basin/chronology/taxon support and independently matched vegetation truth; obtain qualified review of that exact estimand.
+
+**Negative or refused result.** 0/25 strict CLR fit bins in each grid; no predictions or accuracy scores are produced. Source zeros are retained rather than replaced.
+
+**Matched denominator.** 2 withheld English grids;25 candidate bins per grid;31 required positive taxa. Grid 512 has 4 eligible training sites,11 bins with any training and 10 with at least 2; grid 562 has 6 sites,18 and 17 bins respectively. Both have 0 strict-positive fit bins.
+
+Qualified authored reader SHA-256: `ae4dabe9fdfa3017e81d47b152bbb3e46f882d0fca7dea218c861ef0a5d23f96`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json](../../manifest.json) (SHA-256 `6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json](report.json) (SHA-256 `82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
 

@@ -68,7 +68,29 @@ admission for a physical core.
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 79-row overlap ledger binds Rootsi metadata candidates and member hashes to 79 of 223 normalized LandClim II site features.
+
+**Unsupported claim.** Metadata overlap and complete workbook custody do not authenticate historical selected cells, grid/window contribution, scientific count semantics or rights.
+
+**Actual verification performed.** Read overlap report/CSV and source-store identities, distinguishing retained 5,170 mechanical row candidates from later source-qualified denominator review; no workbook rescan.
+
+**Remaining input or review.** Historical input revision, core/chronology/taxon/count support, per-sequence rights and contributor mapping remain unresolved.
+
+**Cause category.** Metadata candidate identity and historical scientific authority differ.
+
+**Consequence.** LandClim outputs cannot be used as independent truth for overlapping Rootsi inputs.
+
+**Precise next acceptance route.** Resolve original selected input/core/age/count/geometry/rights packets and exact grid/window contribution before admitting a historical reconstruction.
+
+**Negative or refused result.** 78 sample-count claims agree but EKE 25 versus 42 differs; 44 coverage intervals refused; Gilltjärnen longitude differs 0.75 degree.
+
+**Matched denominator.** 79 unique candidate pairs of 81 metadata rows/1,128 publication rows; 35 numeric coverage intervals, 36 negative-bound and 8 partial refusals; 0 admitted sample chronologies.
+
+Qualified authored reader SHA-256: `8dcbcf6e2c5d4befcac8b5f38af883a45c8479a67cc01b4dd14ae059d30a4f08`.
+
+- [Retained qualification evidence: docs/report/source-relations/rootsi-landclim-overlap/report.json](report.json) (SHA-256 `c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264`).
+
+- [Retained qualification evidence: docs/report/source-relations/rootsi-landclim-overlap/overlap.csv](overlap.csv) (SHA-256 `34bb9b19d1a3ba3a479ce77174ea85e87c52f1bae51e42a44b57eaf5739165c6`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

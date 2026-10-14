@@ -35,7 +35,31 @@ Producer module: `bijux_pollenomics_dev.source_completion.pollen_reconstruction.
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** On the declared two-label/geometry/point-window support, two calibrated Norwegian training cores from one primary-publication family predict exposed Dalmutladdo pollen. Physical, count-pooled and equal-source methods are compared on identical support, preserving poorer physical contrasts.
+
+**Unsupported claim.** Two independent training families, identified PPE, vegetation accuracy, full pollen assemblage cover, source-authenticated historical geometry, predictive uncertainty coverage or untouched confirmation.
+
+**Actual verification performed.** The source reader, retained report/comparisons/assumptions and source-account were inspected. The retained native collector reports exit 0 with 15 source controls, Decimal 50 verification of 632 saved cells and independent circle-lens checks for two new 252 m response tuples. The maintained writer reuses qualified outputs; this qualification runs no model or quadrature.
+
+**Remaining input or review.** The training cores share primary publication 1096; secondary reference 1149 is not another family. Radii are assumed static, training age bounds mostly cross windows and all 72 target bounds are absent. Investigator/chronology dependence and forward uncertainty are unmodeled; source rights and qualified ecological review remain distinct.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Keep this as a one-family cross-core development comparison. Shared positive PPE cancels from the forward pollen prediction, so its lower error cannot identify PPE or validate reconstructed vegetation.
+
+**Precise next acceptance route.** For independent-family or ecological claims, qualify additional source families, full/native taxon/count support, age/geometry inputs and matched vegetation reference; declare a new frozen evaluation before unexposed outcomes. Supply an explicit predictive uncertainty model before coverage claims.
+
+**Negative or refused result.** Two of 20 source windows have no target outcome, preserving 6 unscored method records. Physical error is poorer than the equal-source mean in windows 17,19,21; missing observations are not scored zeros. The original report’s pending flag predates the separate later numerical qualification and remains historical.
+
+**Matched denominator.** Mukkavaara 55/56, Rattuvarri 30/32 and Dalmutladdo 72/72 source samples; literal Betula/Poaceae only.20 training windows ×3 methods =60 frozen vectors;18 target-supported windows ×3 =54 scored records and 6 unscored. Unique paired target panel counts total 17,935. These are one training publication family, not two.
+
+Qualified authored reader SHA-256: `62a94a2a022dec5150f542a1358334b4d8c18c888dc558fcc6f58e730cd2187c`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/norwegian-one-family-forward/report.json](report.json) (SHA-256 `4fc496f10a53cde6722a3ab7546e8dc8d134b74d4c4890d05e5e2ee5f179f466`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/norwegian-one-family-forward/comparisons.json](comparisons.json) (SHA-256 `ac4cfcbc501367e9c11a5e5b8ec054fbb563caca0902f49aba22d308760b755b`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/norwegian-one-family-forward/source-account.json](source-account.json) (SHA-256 `e0782c216600c9094d7c08ef663b07685a80abc70a5b3c4fc8885ac0842c6f7b`).
 
 - [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
 

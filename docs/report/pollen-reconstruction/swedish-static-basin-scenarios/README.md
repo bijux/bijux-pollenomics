@@ -165,7 +165,31 @@ The [maintained producer capture](execution/maintained-producer-capture.json) re
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Four native Swedish cores support conditional inverse panel estimates with counting and assumed diagonal-PPE covariance under fixed receiver-radius/wind alternatives. Every successful core/window and the failed original Bussjösjön panel remain distinct.
+
+**Unsupported claim.** These different taxon panels cannot be pooled as comparable whole vegetation. No historical LandClim reproduction, complete 31-taxon reconstruction, native R parity, dated basin geometry, calibrated total uncertainty or independent vegetation accuracy is supplied.
+
+**Actual verification performed.** The authored reader, report, actual run and independent mathematical review were inspected and exact public bytes bound. Retained independent checks cover 385 inverse/count/PPE cases, 77 zero-PPE controls and 55 circle-overlap response factors, with largest factor difference 7.50e-11. This qualification runs no model, quadrature, native R or independent numerical check.
+
+**Remaining input or review.** All 261 retained point ages lack raw bounds. Static circular basins, homogeneous annulus/metre diffusion convention, literal parameter transfer and diagonal PPE covariance remain assumptions. Tibetanus source elevation/coordinate disagreement, source publication attribution and separate source-use/historical selection and external scientific decisions remain unresolved.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Marginal count/PPE SE excludes chronology, geometry, transport and site-selection uncertainty. Radius/wind differences describe finite assumption sensitivity rather than a probability interval. Small area sensitivity does not authenticate the metadata radius or local shoreline.
+
+**Precise next acceptance route.** Qualify native taxon identity, source chronologies/bounds, historical basin support and intended-use attribution/rights. Keep source-supported successor panel distinct from the refused original. Freeze any new physical alternative separately; provide time-matched independent vegetation and qualified review before ecological accuracy or coverage claims.
+
+**Negative or refused result.** The original Bussjösjön Betula/Poaceae panel has zero supported samples of 69 because the source uses Poaceae undiff. (<40 µm); no alias is silently admitted. Six source ages are outside the nonnegative domain and six Bussjösjön rows lack explicit Ulmus. The successor uses its literal Betula/Ulmus panel, preserving all other successful outputs.
+
+**Matched denominator.** Four cores: 261/273 source samples and 77 occupied core/windows; each baseline plus finite radius/wind/zero-PPE controls has its own denominator. All 261 age bounds are missing. Tibetanus youngest window has 111 Pinus plus 39 Poaceae =150 panel grains of 1,024 reported NISP; its 29.21299/70.78701% corrected panel is not whole vegetation.
+
+Qualified authored reader SHA-256: `c11e2e0d6582dc01cbfa4a2c58977059ad3533d7a045881a5d7dbd4385f0806f`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json](report.json) (SHA-256 `895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-math-review.json](execution/independent-math-review.json) (SHA-256 `bbe0fa0fb324ff7eaa4b2a295d6624c31ab58cdc364720887e5d2064f3e3fc8a`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/source-reconciliation.json](assumptions/source-reconciliation.json) (SHA-256 `c88355fa3ad588e91261f6906884e2d68fe6968dc6f1aa4eccb36ae04b94cb6e`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

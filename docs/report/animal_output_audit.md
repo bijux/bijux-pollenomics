@@ -34,7 +34,29 @@ The current public report tree ships `165` mapped non-human animal atlas localit
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The output audit accounts for current mapped locality features, sample membership, country publications and traceability without conflating their units.
+
+**Unsupported claim.** Bundle presence, full traceability and country output hits are not reference-grade readiness, scientific country approval or worldwide completeness.
+
+**Actual verification performed.** Read the retained output audit and entity-capability account; reconciled 165 candidate/traceable features, 322 mapped and 1146 blocked sample IDs. No output publisher or browser was rerun.
+
+**Remaining input or review.** Blocked/unresolved samples and mixed coordinate/taxon scopes require source-owner review; current browser/map behavior needs separate native execution.
+
+**Cause category.** Product publication inventory with unresolved biological/source admission.
+
+**Consequence.** Fivecountry/species output hits andfourcountry bundles are publication inventory, not five additional sites or a global admission.
+
+**Precise next acceptance route.** Reproduce the exact source-owned products, review identity deltas and unresolved samples, then qualify source/geography/chronology decisions separately from output presence.
+
+**Negative or refused result.** 1146 blocked and 378 unresolved samples remain; zero country outputs for mapped horses do not erase the 73 global horse locality features.
+
+**Matched denominator.** 1468 tracked=322 mapped+1146 blocked; 165 traceable locality features; 12 country sample rows across 4 country bundles and 5 species/country output hits. Historical 170/331 is superseded by 165/322.
+
+Qualified authored reader SHA-256: `afe3fd818dd0eacab72f556f4027e9c00b8682bf9c95136478ca6da4fba56907`.
+
+- [Retained qualification evidence: docs/report/animal_output_audit.json](animal_output_audit.json) (SHA-256 `32b6ac488b84fecd80020ba61894a50b8cad63b7f34546b262636043440e01f7`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

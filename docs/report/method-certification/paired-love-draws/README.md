@@ -53,7 +53,31 @@ writes a passed report after every numeric and missing-position comparison.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained analytical LOVE comparison uses the exact same two explicit draw realizations and setup in Python and DISQOVER 0.9.14, preserving invalid cases and the rounded regional-vector sum.
+
+**Unsupported claim.** Matched explicit draws do not establish R/NumPy seed trajectory equivalence, calibrated interval coverage, physically valid vegetation compositions, relevant source area or measured ecological accuracy.
+
+**Actual verification performed.** Reviewed the retained setup, draw and report accounts and their exact public identities, including finite/missing partitions and comparison tolerance. No R execution, draw generation or analytical model was rerun for this reader qualification.
+
+**Remaining input or review.** A current-source owner replay must preserve the same setup and arrays; scientific application needs physical and observational source support and independent interpretation of invalid and negative cases.
+
+**Cause category.** Conditional cross-language arithmetic correspondence with fixed shared draws.
+
+**Consequence.** The small finite-cell differences support the declared calculation only; matching missing cells and inadmissible estimates remain part of the result.
+
+**Precise next acceptance route.** Replay the paired-LOVE owner using the exact committed draw arrays and nonfinite mask, retain the regional total 0.99999 and all invalid cases, then separately review any physically justified scientific case.
+
+**Negative or refused result.** Seven of ten cases are invalid. The 280 matched missing cells remain missing; neither the comparison nor renormalization silently converts them into valid predictions.
+
+**Matched denominator.** Ten taxa by ten rings, two explicit repeats, six local PPE/count realizations, three eligible cases;120 finite Mean/Q10/Q90/SD cells agree within 3e-10, maximum 6.927791673660977e-14, with 280 matched missing cells.
+
+Qualified authored reader SHA-256: `fa77174bea370dd5e4e8ff24c3cb0aff5109dc75dcebd559aadd30ed36ce59a0`.
+
+- [Retained qualification evidence: docs/report/method-certification/paired-love-draws/report.json](report.json) (SHA-256 `bdb5984e4e37cfca64ba6ebc766db421c80c13570b67dabbd4d1239baf2650e0`).
+
+- [Retained qualification evidence: docs/report/method-certification/paired-love-draws/draws.json](draws.json) (SHA-256 `904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351`).
+
+- [Retained qualification evidence: docs/report/method-certification/paired-love-draws/setup.json](setup.json) (SHA-256 `9ac28398214f733ea6b193a78a4da570b654806945703be7c2238a4021c8029b`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

@@ -49,7 +49,27 @@ responses remain outside the repository.
 
 Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** One named historical metadata row is compared with three current Neotoma pollen cores; the retained capture demonstrates a precise unrecovered historical identity rather than an admitted source match.
+
+**Unsupported claim.** Equal sample count, approximate location, site name or NR workbook label does not authenticate historical count bytes, author age model, a legal redistribution decision, LRA reproduction or vegetation accuracy.
+
+**Actual verification performed.** The authored review and retained candidate/source-hash report were inspected and bound. Its maintained reader authenticates 14 private inputs including 11 raw HTTP responses and two acquisition receipts. This qualification makes no new API request, model calculation, native R run or independent source authentication.
+
+**Remaining input or review.** The E#69-to-core mapping, exact historical 23-sample count revision, author age-depth output, taxon-to-PFT transformation and sequence-specific source-use decision remain missing. Qualified historical and scientific review is required.
+
+**Cause category.** data | comparability | access/rights | qualified review
+
+**Consequence.** Keep the matching 23-sample candidate as a lead, not a closed historical input. The unresolved row stays in the full 1,128-row inventory; its three candidates are not three admitted historical cores.
+
+**Precise next acceptance route.** Obtain an authenticated author or ALPADABA E#69 bridge, exact historical counts/chronology and transformation with an intended-use rights decision; replay that named row before extending to other publication rows.
+
+**Negative or refused result.** No candidate response contains E#69. Dataset 3873 has 23 samples but zero chronology records; datasets 3874/3875 have 24/52 samples and radiocarbon-year information. None of the three candidates is reproduction-ready.
+
+**Matched denominator.** One metadata row 1059 outside the 17 author examples; one current site 2973, three candidates 3873/3874/3875, 23/24/52 native sample IDs; 11 response bodies and 14 consumed private inputs; zero of three admitted candidates.
+
+Qualified authored reader SHA-256: `ad0098d692f5a2d30a8447adc5e73a50984c9ca8e3b45be9f18ecdd0d085e2f0`.
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json](report.json) (SHA-256 `eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

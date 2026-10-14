@@ -143,7 +143,27 @@ cmp docs/report/method-certification/fixed-site-covariance/report.json \
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The synthetic two-site, three-taxon account derives a first-order fixed-site delta covariance with shared full PPE covariance, separate counting and parameter terms, and closure/positive-semidefinite invariants under its declared domain.
+
+**Unsupported claim.** The formula does not establish empirical interval coverage, site-selection, chronology, geometry or transport uncertainty, R parity, measured ecological accuracy or ecological absence from zero counts.
+
+**Actual verification performed.** Reviewed the equations, retained three-taxon report and physical report identity; both declared producer/transport source hashes match current files. The authored reader cites a different historical report hash. This qualification ran no covariance calculation or original-R comparison.
+
+**Remaining input or review.** The maintained owner replay must reconcile the stale reader report reference. A scientific case also needs valid finite parameters, measurement status and justified site and observation assumptions.
+
+**Cause category.** Conditional mathematical covariance with a stale authored report reference; its two declared code dependencies currently match.
+
+**Consequence.** The retained standard errors apply to fixed inputs and first-order propagation; they cannot be relabeled total physical uncertainty or a field calibration result.
+
+**Precise next acceptance route.** Replay the fixed-site covariance owner, retain count-only and shared-PPE components, exercise finite positive parameter/integer count and measurement refusals, then obtain an independent scientific decision for the intended observations.
+
+**Negative or refused result.** Unresolved taxon measurement, invalid parameters and unsupported count-domain inputs remain refusals; a zero observed count is not proof of absence or calibrated zero uncertainty.
+
+**Matched denominator.** Two synthetic basins (75 m peat and 300 m lake), three taxa, count rows[30,20,50] and[20,65,15]; cover approximately 0.187169,0.098380,0.714451 with SE 0.055315,0.029472,0.067454.
+
+Qualified authored reader SHA-256: `a649525a5d28b1ad444523adf228422d2174e256840ef4d3647592333b4e961b`.
+
+- [Retained qualification evidence: docs/report/method-certification/fixed-site-covariance/report.json](report.json) (SHA-256 `bc4de9b4d9287128457598a611dccafa4eba4af4bb9e201488af130a16d4f38f`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

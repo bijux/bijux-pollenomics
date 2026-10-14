@@ -76,7 +76,27 @@ independent known truth, paired controls and refusal accounting.
 
 Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Eight deterministic public REVEALS runs meet their independent calculation expectations while preserving deliberate parameter, label and transport/support mismatch errors against constructed landscape truth.
+
+**Unsupported claim.** The shared-equation matched controls are inverse-crime calculation checks; neither those nor finite-cell challenges establish measured vegetation accuracy, spatial skill, fitted PPE or uncertainty coverage.
+
+**Actual verification performed.** Read each retained control, truth-versus-calculation distinction, rounding tolerance and eight-run denominator; bound the machine account. No inverse model, generator or independent calculation was rerun.
+
+**Remaining input or review.** A field claim needs independently admitted measured landscape support and physical assumptions; stochastic coverage needs its own counting and uncertainty design.
+
+**Cause category.** Synthetic numerical recovery with known truth and preserved misspecification controls.
+
+**Consequence.** Agreement with an expected erroneous reconstruction verifies the calculation while leaving its ecological disagreement visible.
+
+**Precise next acceptance route.** Retain declared true and assumed parameters and independent expected outputs for any new control; use an independently reviewed measured target for ecological validation.
+
+**Negative or refused result.** The six mismatched controls retain nonzero truth error; finite-cell MAEs are 0.067463 and 0.079897 fraction. No negative control is converted into a successful ecological result.
+
+**Matched denominator.** Eight requested/predicted/scored attempts, zero refusals; two matched recoveries and six truth-disagreement controls. Calculation tolerance 5e-6 fraction, largest discrepancy 0.000004864425; analytical weights are not observed count efforts.
+
+Qualified authored reader SHA-256: `d10a6614428073a642f23907fe9d616065d2f974e3343a1cd6cf80499fc4598e`.
+
+- [Retained qualification evidence: docs/report/synthetic-validation/reconstruction/report.json](report.json) (SHA-256 `5023c8d46e58680492ce3bc821d1db6ff10af1c0ad7f7bb75907aa3562e19e84`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

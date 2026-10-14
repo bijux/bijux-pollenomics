@@ -68,7 +68,27 @@ local custody location, not a source publication URL.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The prerequisite projection retains 10,637 sample chronology leads and 163 source-site basin review rows without selecting an executable LRA request.
+
+**Unsupported claim.** A necessary count/typed-age candidate or native area value is not an accepted chronology, basin, taxon/PPE/count mask or source right.
+
+**Actual verification performed.** Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit.
+
+**Remaining input or review.** Qualified source-bound chronology, physical core, permitted use, count support, parameters and justified geometry decisions remain.
+
+**Cause category.** Required scientific decisions are deliberately unselected.
+
+**Consequence.** Historical reproduction needs the authentic selected inputs; a new declared reconstruction needs its own justified profile.
+
+**Precise next acceptance route.** Return scoped source/reviewer decisions and freeze an explicit independent reconstruction protocol before building an executable request.
+
+**Negative or refused result.** accepted_samples=0, executable_request=null, scientific_acceptance=not_evaluated; 194 unassigned samples are not a fifth Nordic country.
+
+**Matched denominator.** 10,637 sample rows/163 sites:SE 5,011/77, DK 91/1, NO 3,544/52, FI 1,797/28, unassigned 194/5; 0 accepted.
+
+Qualified authored reader SHA-256: `53cb52c36de696d3090cea07251311248a8df58bdfab5a7bacd9f99837a8a45c`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/lra-prerequisites/projection.json](projection.json) (SHA-256 `26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

@@ -153,7 +153,29 @@ The [source replay verifier](https://github.com/bijux/bijux-pollenomics/blob/695
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations.
+
+**Unsupported claim.** A local macOS source export is not hosted same-revision Linux certification, a complete clean Git checkout, parity for new fixed/joint covariance extensions or independent ecological accuracy.
+
+**Actual verification performed.** Reviewed the retained report's native-capture/source revision and its separate fresh-R-for-this-comparison=false flag. Bound the report bytes; this reader qualification performed no R execution and no regeneration of Python expectations.
+
+**Remaining input or review.** The two mapped reports require final current-owner-policy replay, and official publication requires the actual admitted same-revision hosted Linux/R and native-parity artifacts.
+
+**Cause category.** Historical native numerical correspondence with separately scoped deterministic mapping and release admission.
+
+**Consequence.** The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope.
+
+**Precise next acceptance route.** Replay only the final mapped-report consumers after ownership settles, retain native 43+23 and 48 comparison evidence, then qualify hosted artifacts through the publication gate at the actual release source revision.
+
+**Negative or refused result.** The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list.
+
+**Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases.
+
+Qualified authored reader SHA-256: `01f1711c57ce909b00c4cb3bfbdf144a6d11d9032b4d5da8e86018155b81f753`.
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `3d2eb9fb27d5f08a8b0dc8c4e83ce9d250169a5b43e233fd4d6e3dea47bf8f3a`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `a607c455de5e07bc1787a2d4af194e0667f2eff05961aa25741fb9f034fbb0d0`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

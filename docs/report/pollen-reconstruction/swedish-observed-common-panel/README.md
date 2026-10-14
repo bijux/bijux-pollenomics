@@ -56,7 +56,29 @@ Actual full-domain terminal: 10b9117c9a7d7e60a2feb662c7e58790bd0f9423c20092d6b59
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Twenty-four named calibrated-BP profiles yield conditional Betula/Poaceae single-core and multisite results under five fixed physical scenarios, complete native-presence masks and full pooled-window support accounting. A separate published-model comparator retains all matched discrepancies without treating modeled archive means as independent vegetation.
+
+**Unsupported claim.** Neither 2,685 results nor repeated chronology/radius cases are independent observations. This establishes no whole-vegetation fraction, measured physical geometry, historical selected-record reproduction, chronology accuracy, calibrated confidence coverage, cross-window posterior, independent vegetation accuracy or native R parity for these profiles.
+
+**Actual verification performed.** The reader and retained numerical, full-domain, published-model and citation follow-through products were inspected and exact bytes bound. Actual retained independent lens integration checks all 150 physical tuples/5,890 uses; Decimal 50 checks every saved cover and covariance. Separate consumers qualify all 75 grid/windows and 225 pooled comparisons. This qualification repeats no numerical model, oracle, writer or acquisition.
+
+**Remaining input or review.** Point-age bounds, chronology selection, basin geometry, literal taxon/PPE transfer and conditional count independence remain declared assumptions. Three current native primary-publication endpoints remain empty. Historical private-copy rights/selection, matched independent vegetation, unfamiliar-reader exercise, external review and release admission remain separate.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Use within-result covariance only for its exact two-taxon conditional panel. Shared PPE and native profile overlaps prevent independence inference. Keep 30 incomplete/absent pooled slots and all large archive discrepancies visible; paired chronology SE cannot be supplied without cross-chronology shared count/PPE covariance.
+
+**Precise next acceptance route.** Obtain original paper association or explicit source-owner unpublished status for datasets 1438/53969/53970; qualify native taxon, age, basin and use assumptions. Authenticate historical selection before a reproduction claim. Supply archive cross-taxon covariance for published ratio SE and an independent measured target/external uncertainty assessment before accuracy or coverage claims.
+
+**Negative or refused result.** The full domain retains 28 partial and two wholly absent grid/windows. Three recaptured publication arrays remain empty despite six DOI attribution records. Maximum baseline archive panel-share differences are 0.437827/0.241077/0.672300 by grid; these are model discrepancies. Same-core chronology comparisons retain 19 one-sided/missing slots; no missing sample/taxon is filled as measured zero.
+
+**Matched denominator.** 19 datasets/18 distinct native units, 24 chronology profiles and 2,685 results under five scenarios; 150 physical tuples/5,890 uses. Three grids ×25 windows =75 slots: 45 complete, 28 partial, two wholly absent; 225 actual pooled scenario comparisons. Current primary citations cover 16/19 designations, three unresolved; all-source attribution covers 59 downloaded datasets. Later chronology contrasts have their separate 125-slot population.
+
+Qualified authored reader SHA-256: `472ead0f15f2b84f7ec2b016ac51c01a377466f840a40014e15ef0152d1affa0`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-observed-common-panel/report.json](report.json) (SHA-256 `009e9d5613fa4adec6b887e5c20c7a78d406bbe2ac93deef2e73b48618ee2330`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough.json](dataset-attribution-followthrough.json) (SHA-256 `2ce966bc78ad5ce9fc04951bb6ccceb62e1d44d97f2330fefc81ed40d9be2b5c`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

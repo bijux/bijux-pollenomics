@@ -342,7 +342,27 @@
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This retained review surface organizes descriptive, comparative and exploratory evidence roles, coverage, caveats and four scenario postures.
+
+**Unsupported claim.** A scenario or contribution label is not a qualified scientist approval, causal farming trajectory, independent validation or sampling recommendation.
+
+**Actual verification performed.** Read native review populations and scenario/refusal language; checked 64 country-species cells, 30 period cells, 144 overlap cells and 46 uncertainty entries. No comparison producer or human scientific review was run.
+
+**Remaining input or review.** Qualified source/sample chronology, geography, taxonomy and independent ecological context are required; project-level species evidence cannot become local country evidence without source rows.
+
+**Cause category.** Structured scientific-review questions with heterogeneous source support and unresolved acceptance.
+
+**Consequence.** Descriptive coverage and exploratory scenarios remain distinct from independent historical/biological conclusions; the label scientific review does not mean review is complete.
+
+**Precise next acceptance route.** Resolve each named uncertainty at its source-owned identity, declare matched biological/temporal support, and obtain qualified review before promoting scenario or comparative claims.
+
+**Negative or refused result.** nordic_farming_arrival and lake_selection remain exploratory; field_sampling_gate_not_cleared andspecies_support_asymmetry remain. Zero local rows cannot be inferred from global project evidence.
+
+**Matched denominator.** 16 species×4 countries=64 coverage cells; 30 periodcoverage cells, 144 overlap cells, 46 uncertainty entries and 4 scenario assessments. These are review/accounting cells, not independent experiments or admitted cohorts.
+
+Qualified authored reader SHA-256: `1faa83b145d53a785ccb74401f11f9e0c48df6e7f4ae1847ca8b02a7c539772b`.
+
+- [Retained qualification evidence: docs/report/world/world_scientific_review.json](world_scientific_review.json) (SHA-256 `e5d5f31afcd841070bf04f334e6ae369a2bdb1aa992f7dab4761e3c2f9f4bd1d`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

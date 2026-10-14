@@ -80,7 +80,29 @@ with a new source-bound record; proximity alone cannot promote a lead.
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The source-bound outcome-free review retains sixteen geographic leads and refuses every lead as a currently admissible observed vegetation pair.
+
+**Unsupported claim.** Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.
+
+**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification.
+
+**Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.
+
+**Cause category.** Independent-measurement admission refusal despite geographic proximity.
+
+**Consequence.** The sixteen rows are missing benchmark support, not sixteen negative measured observations; benchmark policy and evaluation remain false.
+
+**Precise next acceptance route.** Recover the named missing source facts and reviewed plot-to-basin relation, then predeclare non-null sample/error minima before opening qualified independent evaluation outcomes and recording a new decision.
+
+**Negative or refused result.** Zero measured pairs are admitted, no reconstruction is evaluated and no tree-outcome cell is decoded by this schema review. Five headers lack exact dictionary counterparts and remain unresolved.
+
+**Matched denominator.** 132 Swedish EMPD2 samples; 43892 NFI plot-years/6018 tract-plot keys; 53 combinations within 1 km across 16 pollen leads and 14 selected plot-years. Plot 153.94 m² with five m²/ha basal-area dictionary groups is not regional cover.
+
+Qualified authored reader SHA-256: `058d430ab5a999a8cb6d7cafb83cddbacbfdcf61f79a53910393d27b0d93d57c`.
+
+- [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
+
+- [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json](nfi-measurement-schema.json) (SHA-256 `5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505`).
 
 - [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
 

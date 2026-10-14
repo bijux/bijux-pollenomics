@@ -12,7 +12,29 @@ The workbook defines `siteradius` as metres; the source receipt authenticates th
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The generated Swedish site interpretation accurately summarizes the same 77-versus 84 metadata comparison and Klotjärnen refusal.
+
+**Unsupported claim.** The generated prose supplies no second independent identity study or new observations.
+
+**Actual verification performed.** Read REPORT.md against its owning report and row ledger; no site-comparison replay or new distance calculation.
+
+**Remaining input or review.** Physical cores, source rights, selected chronology, count support and basin authority remain unresolved.
+
+**Cause category.** Generated interpretation preserves the owning comparison’s limited estimand.
+
+**Consequence.** The KLO 56 m source radius remains a published metadata value rather than a Neotoma input.
+
+**Precise next acceptance route.** Resolve the source-specific Klotjärnen identity and coordinate conflict before radius transfer or source admission.
+
+**Negative or refused result.** 0 admitted cores or LRA samples; Klotjärnen metadata points differ 6.773 km despite the name.
+
+**Matched denominator.** 1 generated interpretation of 77 candidates/84 sequences; 34 point leads and 16 sub 10 m leads; 0 additional numerical runs.
+
+Qualified authored reader SHA-256: `5a6822cfad53a1c69f5704a1c1be2f2872bec1a24de725e3f1ffe5f55e35b533`.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/landclim-site-identity/report.json](report.json) (SHA-256 `9a0b6aee4ead3f8a658b63a279e74c11210bb680c78d538ed83a4b0b4c90f4cf`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv](site-comparison.csv) (SHA-256 `104049578ccd4f6fb0e0df869ffa33ed5033bb8a68d5208e019428de7ee43e8c`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

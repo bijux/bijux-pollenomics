@@ -52,7 +52,27 @@ cmp artifacts/jobs/rootsi-neotoma-chronology-witness/report.json \
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Depth and selected count correspondences witness shared EPD lineage for FLINK and STAV while preserving source age differences.
+
+**Unsupported claim.** Shared lineage is not independent chronology validation or authority to correct FLINK, select STAV ages, or admit historical inputs.
+
+**Actual verification performed.** Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan.
+
+**Remaining input or review.** Source-holder chronology selection/age corrections, uncertainty, basin/count support and workbook analytical rights remain unresolved.
+
+**Cause category.** Shared source lineage with absent or inconsistent workbook age evidence.
+
+**Consequence.** Neither sequence becomes an executable LRA input from numeric similarity.
+
+**Precise next acceptance route.** Obtain a source-owned FLINK row 56 decision and authenticated STAV age-vector/run correspondence, then qualify remaining sample inputs.
+
+**Negative or refused result.** FLINK row 56 has the opposite age sign; STAV has no age column and 5,374 count positions lack a single exact pollen row.
+
+**Matched denominator.** FLINK 109 depth pairs/270 explicit count agreements/57 missing-row zeros; 108 of 109 age comparisons within 0.05; STAV 77 depth pairs/940 explicit agreements.
+
+Qualified authored reader SHA-256: `7a6e99a46bf9bff8b06f13c0b6a9291be1f8201fba72f679818069b7f070ad02`.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/neotoma-chronology-witness/report.json](report.json) (SHA-256 `9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

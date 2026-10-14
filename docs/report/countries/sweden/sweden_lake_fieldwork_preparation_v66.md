@@ -29,7 +29,29 @@ used.
 
 Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This preparation reader declares identity,sampling-fit,human-context and interoperability rules but retains zero reviewed lake rows.
+
+**Unsupported claim.** Declared shortlist rules and a no-reviewed-lakes placeholder do not establish a viable coring location,reviewed priority or final sampling recommendation.
+
+**Actual verification performed.** Read the methodology and machine row_count 0/emptyrows; distinguished the rendered placeholder from a real candidate. No fieldwork screen,source review or sampling assessment was executed.
+
+**Remaining input or review.** Admitted governing lake candidates,physical identity,basin/sample suitability,source-compatible human/SEAD context and qualified field review are still required.
+
+**Cause category.** Downstream preparation blocked by absent admitted lake population.
+
+**Consequence.** No lake obtains a fieldwork rank or preparation endorsement; declared thresholds remain conditional design rules.
+
+**Precise next acceptance route.** Resolve the governingSVARregistry and candidate admission,then apply identity/near-context/sampling rules to actual reviewed lakes and record required actions before fieldwork decisions.
+
+**Negative or refused result.** No reviewed lakes;0 real preparation rows. The placeholder carries neither a registry identity nor a recommendation.
+
+**Matched denominator.** 0 candidate preparation rows;displayed no-reviewed-lakes placeholder contributes 0 observations,0 ranks and 0 sampling recommendations.
+
+Qualified authored reader SHA-256: `e0c8a3ded551018f53d28ce17d9256beae3f61ff7f720499be4094eee9825e30`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.json](sweden_lake_fieldwork_preparation_v66.json) (SHA-256 `e23b4dd917706398030a476bb2ad5e85342d009e0eab3b2ce28a7c5050d6fdd4`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json](sweden_lake_evidence_richness_v66.json) (SHA-256 `52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596`).
 
 - [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md) (source SHA-256 `de6656338213deaaf57a2359dd3bf2ec8c0c717ce14fe21e4e2702b0f2cd08a7`).
 

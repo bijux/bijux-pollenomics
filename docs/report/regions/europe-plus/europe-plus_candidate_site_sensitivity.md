@@ -460,7 +460,27 @@ fieldwork-triage weighting.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained europe-plus comparison exposes how the same447 locality anchors change order across four explicit heuristic weight profiles.
+
+**Unsupported claim.** Rank stability or a small shift does not validate historical biology, chronological accuracy, lake suitability or sampling benefit.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Scientific source evidence and the disabled recommendation gate require independent decisions before any locality can become a fieldwork recommendation.
+
+**Cause category.** Sensitivity of descriptive ranking weights.
+
+**Consequence.** A rank change diagnoses choices in the atlas heuristic; no profile is selected by this reader as scientifically superior.
+
+**Precise next acceptance route.** Replay the scope's ranking/sensitivity owner, retain all four profile outcomes and missingness, then evaluate a named proposed locality against source-specific acceptance.
+
+**Negative or refused result.** Recommendation-ready profiles remain absent for the displayed leading localities; unchanged rank is not acceptance.
+
+**Matched denominator.** 447 locality rows and four profiles; the rows share source anchors across profiles and are not1,788 independent sites.
+
+Qualified authored reader SHA-256: `9425a079a9737995507f43aaa64aee62a707ed30edc9cc8c107aab6d7da77d54`.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_candidate_site_sensitivity.json](europe-plus_candidate_site_sensitivity.json) (SHA-256 `9069fb4e77add09717ed14ee3690fd12811eb281276c7922f6df5b3302c6120f`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

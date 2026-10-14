@@ -94,7 +94,31 @@ the taxon comparison SHA-256 is
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Petr/Kuneš author-R correspondence matches selected mean and SE outputs and a same-index bootstrap on shared prepared author data, keeping code/data lineage explicit.
+
+**Unsupported claim.** Agreement on these shared inputs is not independent empirical derivation, full 25-window random-stream reproduction, scientific source admission or measured vegetation accuracy.
+
+**Actual verification performed.** Reviewed the retained native report and mean/SE summary, case support and numerical tolerances and bound their public bytes. This qualification ran no author-R program, bootstrap or native Python model.
+
+**Remaining input or review.** Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement.
+
+**Cause category.** Author-code arithmetic correspondence on shared prepared input lineage.
+
+**Consequence.** The comparison qualifies a named computational route and selected population; it does not independently validate the historical observations or all author scenarios.
+
+**Precise next acceptance route.** Replay the maintained selected-case owner with exact author inputs and indices, preserve its tolerance and scope, and resolve the named source/rights questions before any scientific or redistribution admission.
+
+**Negative or refused result.** Unreproduced windows and unresolved source/use rights stay open. Shared code lineage and 124 zero retained CSV differences do not become independent evidence.
+
+**Matched denominator.** Four selected site cases by 31 taxa at 225 BP give 124 mean and 124 SE pairs; one full grid has nine sites, six active and 1,000 shared indices. Native residual maxima are 1.21958e-13 for 31 means and 2.86438e-14 for 31 SEs.
+
+Qualified authored reader SHA-256: `ab85bac0aada4c6e5a2288b5ee8364f00d04a9e4e61b01eab70d3272d0f18cf4`.
+
+- [Retained qualification evidence: docs/report/method-certification/petrkunes-r-comparison/native-report.json](native-report.json) (SHA-256 `273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995`).
+
+- [Retained qualification evidence: docs/report/method-certification/petrkunes-r-comparison/summary.csv](summary.csv) (SHA-256 `5f7957d2d318518e96959a286b74a9a183a9b23655aef3216d61dfd38137541a`).
+
+- [Retained qualification evidence: docs/report/method-certification/petrkunes-r-comparison/taxa.csv](taxa.csv) (SHA-256 `b37211fda3a692d1b903501a14323ab14820950d434f8a2953b9ea25a269b915`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

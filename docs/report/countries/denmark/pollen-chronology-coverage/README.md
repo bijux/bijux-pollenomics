@@ -34,7 +34,27 @@ cmp artifacts/jobs/denmark-pollen-chronology/coverage.json \
 
 Danish pollen source/age support and distinct source cohort populations.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The captured Danish pollen screen partitions 279 physical count samples at five sites into 91 comparable-age candidates at Solsø and 188 refusals.
+
+**Unsupported claim.** Comparable sample ages do not admit LRA or validate transfer among Danish sites; Hollerup 66 and Harreskov 38 non-Holocene samples cannot enter a Holocene cohort by supplying an age unit.
+
+**Actual verification performed.** Read the five-site source/claim partition and pinned report; checked its site sample counts, age-class refusals and snapshot identity. No relational producer, pollen model or chronology review was rerun.
+
+**Remaining input or review.** Vejlby and Trelde Klint need period eligibility plus source-backed ages; Hollerup and Harreskov need a suitable period-specific study; the negative Solsø bound needs an explicit exclusion or source decision.
+
+**Cause category.** Source age typing and period eligibility, separate from LRA basin/taxon/rights prerequisites.
+
+**Consequence.** The current Danish observed-pollen result evaluates one selected site, not five-site transfer; zero Danish LRA samples are admitted.
+
+**Precise next acceptance route.** Resolve native age type/unit/chronology and sample mapping, predeclare a suitable site-held-out protocol, then separately qualify counts, taxa, basin support and rights before LRA.
+
+**Negative or refused result.** Refused 188=187 missing-age-type claims plus one negative-bound calibrated claim;92 uncalibrated Solsø claims remain context, not 91 extra samples.
+
+**Matched denominator.** Five sites/279 sample IDs: Solsø92=91 comparable+1 refused; Vejlby 44,Trelde Klint 39,Hollerup 66,Harreskov 38 all refused. Non-Holocene subset 104; LRA-admitted 0.
+
+Qualified authored reader SHA-256: `6c54b62bb3de57e9e63d073459e37508855626212ab88c2e6ee338036a3364fc`.
+
+- [Retained qualification evidence: docs/report/countries/denmark/pollen-chronology-coverage/report.json](report.json) (SHA-256 `07eae7ce6398e98e4d59cb600096a341ae49248195f4f5d670ec324f3966c124`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
 

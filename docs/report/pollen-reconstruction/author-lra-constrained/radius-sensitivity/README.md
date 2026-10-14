@@ -114,7 +114,31 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** A target-basin forward diagnostic varies radius factors 0.8/1.0/1.2 while freezing previously reconstructed vegetation and training fits. The matched direct-pollen aggregate advantage persists across these scenarios, with site/method/metric disagreements retained.
+
+**Unsupported claim.** A newly fitted LOVE reconstruction, physical radius selection, age-specific surveyed basin geometry, independent/equal-information model ranking, chronology/PPE uncertainty or measured vegetation accuracy.
+
+**Actual verification performed.** The reader and retained freeze, scored and paired ledgers were inspected. Retained source replay reports exact unvaried forward fractions and 42 baseline scores within 1e-15;126 radius scores are byte-identical under a separately regenerated source bundle despite differing metadata identities. This qualification performs no forward, inversion or source replay.
+
+**Remaining input or review.** Radii are declared source-profile assumptions, vegetation/training fits stay fixed, outcomes were already exposed and BECKHAM remains refused. Direct pollen uses 14 training pollen sites while LRA uses a regional anchor plus 13 local predictors; those information sets differ.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Interpret changes as conditional transport sensitivity on 14 paired exposed targets. Do not select a radius from these scores or describe the direct/LRA difference as an independent vegetation-accuracy ranking.
+
+**Precise next acceptance route.** Obtain source- and age-specific measured basin geometry for a physical-radius claim; define comparable information sets and freeze a new independent evaluation before stronger prediction comparisons. Source/PPE/chronology uncertainty and measured vegetation require separate admission.
+
+**Negative or refused result.** BECKHAM still has no LRA prediction after 3 training fits fail. Individual sites and metrics disagree with the aggregate; changing assumed radius by 20% does not reverse the aggregate direct-pollen advantage on the matched exposed support.
+
+**Matched denominator.** 14 scored sites,3 fixed vegetation methods and 3 radius factors yield 126 frozen/scored/paired method-radius-site rows. The factor 1 baseline has 42 rows. Scores use the existing 30-taxon count axis and exact observed raw-row SHA per target; the source study attempted 15 outer folds.
+
+Qualified authored reader SHA-256: `44e969a8db481c0f92d568b579040ab60864f0ed75c2ae645c4abbf34816def4`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json](frozen/predictions.json) (SHA-256 `ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json](scored/report.json) (SHA-256 `d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json](paired/report.json) (SHA-256 `c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67`).
 
 - [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e`).
 

@@ -108,6 +108,8 @@ def test_exact_links_retain_authored_prose_and_all_nine_field_names(
     assert result == {
         "primary_accounts": 1,
         "scientific_wrappers": 1,
+        "individually_qualified_wrappers": 0,
+        "unreviewed_scientific_wrappers": 1,
         "non_scientific_readers": 0,
         "physical_docs_report_markdown": 1,
     }
@@ -266,3 +268,11 @@ def test_doc_account_routes_remain_local_and_root_accounts_use_portable_reposito
     ]:
         with pytest.raises(ValueError):
             product._path(invalid, reader=True)
+
+
+def test_full_accounting_refuses_unreviewed_scientific_wrapper(tmp_path: Path) -> None:
+    _, validator, routes, claims = setup(tmp_path)
+    with pytest.raises(ValueError, match="lack individual qualifications"):
+        validator.validate_reader_routes(
+            tmp_path, claims, routes, require_individual_qualifications=True
+        )

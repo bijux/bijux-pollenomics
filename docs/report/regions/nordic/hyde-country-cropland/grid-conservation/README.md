@@ -47,7 +47,27 @@ PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained native-grid account uses exact Decimal country-cell sums to reconcile cropland to source tables at sevenCElabels under three separately retained scenarios.
+
+**Unsupported claim.** Conservation does not validate the formal CRS, BP conversion, licence/version conflicts, all release years/variables or ecological accuracy of modeled land use.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source-owner rights, coordinate/time interpretation and intended analytical use remain unresolved; no independent measured vegetation target is supplied.
+
+**Cause category.** Numerical source-grid/table conservation on selected modeled variables.
+
+**Consequence.** Native zero cells and source country labels are preserved without converting cell counts to land area or treating scenario bounds as probability intervals.
+
+**Precise next acceptance route.** Replay the seven-year cropland consumer against its22archives and three country tables, then resolve source metadata and rights before a separate scientific comparison.
+
+**Negative or refused result.** The2025source label and conflicting release prose remain explicit; no missing/negative selected cell is silently filled.
+
+**Matched denominator.** 84country/year/scenario rows; four countries,sevenCElabels500/1000/1500/1700/1900/2000/2025,three scenarios; each grid2,160×4,320cells, tolerance1e-6km².
+
+Qualified authored reader SHA-256: `2f30ffdd70b442222f6d1d324ffaba7fb39b39c64ee973e878bb3f4cf83498fc`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json](report.json) (SHA-256 `adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628`).
 
 - [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md) (source SHA-256 `995c8f3d6ee273554fc0d97f68dcd8bb8a0bb4cf8da56759f8adceda337f8c29`).
 

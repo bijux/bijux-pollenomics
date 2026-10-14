@@ -38,7 +38,27 @@ The bundled original DISQOVER source archive and its license remain governed by 
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The original certificate supplies a 124-member immutable historical reference bundle and supports 48 evaluated retained R comparisons, distinct from 18 cases with no historical R values.
+
+**Unsupported claim.** A historical certificate cannot certify all later source inputs, extend its case population or establish scientific source validity, ecological accuracy or a current hosted release certificate.
+
+**Actual verification performed.** Reviewed the retained report, original certificate identity and attempted/evaluated/refused case partition; bound exact public account bytes. This qualification generated no R output, Python expectation or new reference certificate.
+
+**Remaining input or review.** Later source correspondence requires named current-source consumers and actual case scope. Missing historical 18-case outputs remain missing rather than being reconstructed from later software and relabeled original.
+
+**Cause category.** Historical immutable reference correspondence with explicit incomplete case support.
+
+**Consequence.** The 48 evaluated comparisons can be cited within their tolerance and nonfinite contracts; attempted 66 does not mean 66 reproduced historical cases.
+
+**Precise next acceptance route.** Preserve the original bundle unchanged, replay its retained comparison against exact current dependencies when required, and report later native-R extensions separately before hosted publication admission.
+
+**Negative or refused result.** 18 attempted cases remain refused for absent historical R values; zero failures among 48 evaluated cases does not close those 18 or prove ecological validity.
+
+**Matched denominator.** 124 original members/1,536,418 bytes;66 attempted,48 evaluated and passed, zero failed,18 refused; evaluated scope is 25 core plus 23 domain cases.
+
+Qualified authored reader SHA-256: `77fb820c648d44507082bc756d064e5cf1980f357ac8c48a96d80404aa046635`.
+
+- [Retained qualification evidence: docs/report/method-certification/original-r-reference/report.json](report.json) (SHA-256 `329c9281ca334a82091120f9872b314d4a31b6b46867b65f569bbaf5e9f0c9f9`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

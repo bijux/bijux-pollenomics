@@ -119,7 +119,31 @@ its separate source, denominator and result.
 
 Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The original fabricated grouped-site challenge tests alias/ancestry refusal; the separately retained development witness shows target-only outcome changes preserve target-fold training and predictions while changing scores.
+
+**Unsupported claim.** Known synthetic identity links and exposed constructed outcomes do not qualify a real-source crosswalk, independent field accuracy, biological admission or untouched confirmation.
+
+**Actual verification performed.** Read the original 24-case report and the separate input-isolation witness/source account, including actual failed harness history and negative composition refusals; bound these bytes without rerunning fits, inversions or guards.
+
+**Remaining input or review.** Empirical applications need a qualified complete real-source identity graph, independent measured target and prospectively frozen untouched protocol.
+
+**Cause category.** Constructed split/input-isolation contract with separately scoped numerical and runtime custody.
+
+**Consequence.** A split contract can be verified without claiming that its constructed aliases authenticate real biological independence or that changing truth leaves every other outer fold valid.
+
+**Precise next acceptance route.** Use the maintained pre-fit split and target-blind input contracts on an admitted real-source graph; score only after frozen predictions and retain any negative reconstruction refusals.
+
+**Negative or refused result.** Original aliases and transitive target ancestry cause twelve expected refusals. In the separate witness the other three folds legitimately refuse negative compositions; thirty failed-prediction score rows remain alongside fifty scored rows.
+
+**Matched denominator.** Original six physical sites with aliases: 24 attempts=12 scored predictions+12 refusals. Separate nine-record/four-group witness retains five target predictions, five spatial fits, sixteen cache hits, zero new basin inversions and twenty target metric cells; its 57 guards are not 57 ecological cases.
+
+Qualified authored reader SHA-256: `780780dc1f3cca68bc485a01d09446edbc88ee3f4f7a4ee70584d03f80dc62e9`.
+
+- [Retained qualification evidence: docs/report/synthetic-validation/site-leakage/report.json](report.json) (SHA-256 `766d7349e715d996890e695f4935a64ecb6aa20b3fbd0df88d9b52b25eed349a`).
+
+- [Retained qualification evidence: docs/report/synthetic-validation/site-leakage/development-input-isolation.json](development-input-isolation.json) (SHA-256 `2989ffdac40afa5e810173b2de73deaa38163806d9b952ae1e7e709752920e66`).
+
+- [Retained qualification evidence: docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json](development-input-isolation-source-account.json) (SHA-256 `2c2d103a1cfbd4e68aa024ef6d49843e0cce9dcc30ec2354dfdefa39695a4f0d`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

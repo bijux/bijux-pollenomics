@@ -61,7 +61,27 @@ for deeper source-family review files.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained nordic ledger associates every published point-layer row with its native source or deeper traceability surface.
+
+**Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The deeper source-family decisions and actual bundle/browser identity checks remain required for any intended scientific or delivery claim.
+
+**Cause category.** Publication point lineage rather than source validity.
+
+**Consequence.** Readers can follow marker provenance while preserving the distinction between feature rows, source observations and physical sites.
+
+**Precise next acceptance route.** Replay the exact scope's point ledger and verify native IDs and attached sources, then apply source-specific chronology/biology/rights decisions to named records.
+
+**Negative or refused result.** Unresolved source identities and time claims remain unresolved even when their marker has a traceability link.
+
+**Matched denominator.** 263,708 point rows across18 visible point layers in the retained ledger; repeated temporal/context features are not distinct independent sites.
+
+Qualified authored reader SHA-256: `93157fa61c260916a597117634a1aa14d9ae9666b7858b142c970f6a16611ed9`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_point_traceability.json](nordic_point_traceability.json) (SHA-256 `3d6f0c2fa4e57d79db57b35469579374cd2becf12d957acae34a844b9f9a3ecd`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

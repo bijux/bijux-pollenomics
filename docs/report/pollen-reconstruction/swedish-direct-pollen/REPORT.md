@@ -54,7 +54,33 @@ The source and configuration hashes are recorded in `input-manifest.json`. From 
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Four fixed statistical predictors compare a closed 16-label observed-pollen response under whole-physical-site holdout; all score the same 39 targets. Nearest-site site-macro MAE 0.055371 fraction is the smallest retained development mean, without selecting a new model.
+
+**Unsupported claim.** REVEALS/LOVE or LRA reconstruction, measured vegetation accuracy, untouched confirmation, full pollen-assemblage coverage, a closed raw-core grain denominator or generalized spatial uncertainty.
+
+**Actual verification performed.** The source reader, configuration/input manifest, score and exclusion outputs were inspected. The retained workflow saves/hashes predictions before a separate job opens target counts and applies half-count replacement only to CLR training cells. This qualification runs no predictions or scoring and supplies no independent numerical oracle.
+
+**Remaining input or review.** The 3 lakes are very small and geographically unbalanced support; all outcomes were previously exposed. Missing native NISP cells are interpreted as zero under the stated matrix workflow, not observed taxon absence. Sample age bounds are null; basin/PPE/fall-speed/dispersal admission and independent vegetation truth remain separate from public direct-pollen use.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Keep scores within the 16-label subcomposition and declared point bins. The six-name public parameter intersection is a separate support diagnostic and cannot authorize LRA or transfer the 31-author-target response denominator.
+
+**Precise next acceptance route.** Qualify missing-cell/age/bin and source-group assumptions, freeze a new evaluation on previously unexposed physical groups, and retain all excluded labels. Admit time-matched basin/transport/PPE and measured vegetation separately before LRA or ecological accuracy claims.
+
+**Negative or refused result.** All 39 targets are scored but inverse-distance and CLR means are poorer than the training mean. The 16-label response retains only about 45–57% of each site’s reported NISP. The 6-name parameter subset retains 50,208/129,750,12,456/68,668 and 11,102/42,548 grains; missing age bounds and LRA readiness remain unresolved.
+
+**Matched denominator.** 3 native physical lakes and 228 source samples;13 shared 500-calibrated-BP bins ×3 sites =39 targets for each of 4 methods;16 exact labels. Scores average within site then give 3 sites equal weight. These are distinct from the later 31-target country response and its all-bin support.
+
+Qualified authored reader SHA-256: `dbc126e485a0b975cdd8c1341345887882210ee56f32b8ba64df79f6a95e6a36`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-direct-pollen/config.json](config.json) (SHA-256 `9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-direct-pollen/input-manifest.json](input-manifest.json) (SHA-256 `7fd3e2a94aecbc99c23df84f888368cf23dba42121eba92b1c4eb582ae4a991f`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv](scores.csv) (SHA-256 `3ac45ac3f764ce3784b0d6afb36fe5217d56d8670cbab19a3bb9e6df8ada439b`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv](exclusions.csv) (SHA-256 `f12714ca2532842a5248d86f27efcc0ea8f48d736ce7b2f4aee243590b78f26e`).
 
 - [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md) (source SHA-256 `2f61fcbbf6fb36a075790199e81d834dbf8225e426aa7d92dc1ba4cbfb19f1f0`).
 

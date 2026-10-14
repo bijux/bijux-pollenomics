@@ -64,7 +64,27 @@ Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA 
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained europe-plus evidence surface distinguishes source-specific human and animal contribution, geography and country context rather than treating all markers as equivalent evidence.
+
+**Unsupported claim.** Publication contribution labels do not establish genotype-aware human inference, excavation-grade coordinates, pollen/LRA admission or independent ecological validation.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Weak species support, locality precision and country-unassigned context still need source-specific biological and geographical review.
+
+**Cause category.** Evidence-role accounting with unequal source support.
+
+**Consequence.** Species-level context cannot silently become country-resolved direct evidence or a sampling recommendation.
+
+**Precise next acceptance route.** Inspect the exact species/country/refusal rows against source-owned entities and submit each intended claim to its named source authority before comparison.
+
+**Negative or refused result.** Thin species support remains refused and approximate/inferred mapped animals retain visible caution.
+
+**Matched denominator.** 16 species rows, four country profiles and21 refusal entries; contribution rows are not16 independently validated ecological species effects.
+
+Qualified authored reader SHA-256: `fea9b875f899b0c5ef66378eb032af6ed1983b11874f8d0ac54d644843c52fc7`.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_evidence_surface.json](europe-plus_evidence_surface.json) (SHA-256 `d68d271a3b393e7bbca758ac37a2554896419323c621e0968ff1132b30409911`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

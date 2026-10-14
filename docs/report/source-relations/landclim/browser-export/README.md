@@ -29,7 +29,29 @@ The reconciliation refuses changes in the pinned source/map identities, record I
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained historical browser download agrees semantically with its pinned 32-feature modeled LandClim projection.
+
+**Unsupported claim.** It does not qualify the current renderer/browser after map-source changes, and modeled REVEALS percentages are not observed vegetation.
+
+**Actual verification performed.** Read the historical Brave download receipt and source-window/metric reconciliation alongside the current transport lineage; no fresh browser run.
+
+**Remaining input or review.** A current browser receipt is needed for the changed renderer; contributor lineage, geometry authority and scientific use remain separate.
+
+**Cause category.** Historical browser custody and derived modeled context.
+
+**Consequence.** Its completed download event is retained evidence only for the pinned historical build.
+
+**Precise next acceptance route.** Run the owned current browser consumer on the current candidate and retain exact download/selector evidence without transferring source admission.
+
+**Negative or refused result.** 3 no_pollen_data features retain 141 null metric pairs; historical browser evidence is refused as current qualification.
+
+**Matched denominator.** 32 features: 6 DK/26 SE, 47 paired metrics, 1,363 numeric pairs/141 null pairs and 408 numerical zeros in each metric family.
+
+Qualified authored reader SHA-256: `8619eabccac2efb1ece02f2ee9f765b90fb7b1416ce83a5ab7c8f71ea873f728`.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/browser-export/report.json](report.json) (SHA-256 `e7c9788fbac97ecc2564a9e0bc431f965510260a054f9ac15480cbf373c72d9c`).
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](../map-export-lineage/report.json) (SHA-256 `d620dab202ff00693e8b31b8fc18f0fa5b6d7dcfee8b95b0ef59e05e60e074ca`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

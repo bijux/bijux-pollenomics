@@ -58,7 +58,29 @@ marker mismatch and checks numerical gaps before writing its passed report.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Three declared objective surfaces compare retained RcppDE and bounded Python candidates by actual objective and cross-evaluation gaps, with separate handling of nonunique minimizing vectors.
+
+**Unsupported claim.** Small objective gaps do not prove parameter identifiability, unique vector recovery, calibrated confidence, convergence of the R run, paper reproduction or ecological accuracy.
+
+**Actual verification performed.** Reviewed the three-case objective contract, retained candidate/evaluation summaries and exact report/case JSON bytes. No optimizer, RcppDE process or independent objective computation was executed in this reader qualification.
+
+**Remaining input or review.** The configured current-source owner must replay exact cases and candidate cross-evaluation; an applied scientific objective additionally needs identifiable parameters and justified observation/model assumptions.
+
+**Cause category.** Bounded numerical objective correspondence with nonunique solutions and iteration limits.
+
+**Consequence.** Objective agreement can support the named mathematical comparison even when coordinates differ; reaching a fixed iteration cap supplies no convergence certificate.
+
+**Precise next acceptance route.** Replay the three declared symmetric, boundary and ambiguous cases under frozen budgets and compare both candidates in both objectives before interpreting any fitted physical parameter.
+
+**Negative or refused result.** The R comparator reaches its 400-iteration cap. Ambiguous/nonunique vectors remain acceptable only under the stated objective-gap criterion, not as evidence of unique recovered parameters.
+
+**Matched denominator.** Three objective cases; Python 29–40 iterations and 600–1230 evaluations, R 400-iteration caps and 8020 or 12030 evaluations; declared objective gap below 1e-4 and cross-evaluation gap below 1e-10.
+
+Qualified authored reader SHA-256: `7b0ffd153deabe2a8fca946a1ec9b176ffdf6b8f0c8164e306e88f23caf74137`.
+
+- [Retained qualification evidence: docs/report/method-certification/optimizer-solution-quality/report.json](report.json) (SHA-256 `62da8c5e4af32da8feeb297c1fc63d1a02e1c19c5d765cd8fab5ccbd71584aba`).
+
+- [Retained qualification evidence: docs/report/method-certification/optimizer-solution-quality/cases.json](cases.json) (SHA-256 `747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

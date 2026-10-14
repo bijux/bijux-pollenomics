@@ -14,7 +14,31 @@ This appendix lists the tracked animal-aDNA papers that currently back the
 
 Country animal sample/context wrapper; broader entity ledger is not an ecological event admission.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This Sweden appendix links the exact represented project/paper citations to source-backed country sample rows. Two Bos primigenius source samples remain wild/progenitor context and three sheep samples remain a separate domesticated-core population. All five coordinates are approximate.
+
+**Unsupported claim.** Publication traceability and modern country placement do not establish an exact specimen findspot, domestication, a farming event, inferred population prevalence or qualified scientific country assignment.
+
+**Actual verification performed.** Read this citations appendix and machine summary; reconciled 5 sample CSV rows, native sample IDs, 3 localities and 2 project citations. Checked the listed warning population; no paper extraction, chronology review or model was rerun.
+
+**Remaining input or review.** Review the native evidence excerpt, taxonomy, dating basis and coordinate precision for each Sweden sample before scientific use; missing country rows require source-backed evidence, not inferred placement.
+
+**Cause category.** Animal sample lineage and constrained country publication, with biological admission unresolved.
+
+**Consequence.** Sweden supports the documented publication footprint only. Two Bos primigenius source samples remain wild/progenitor context and three sheep samples remain a separate domesticated-core population. All five coordinates are approximate.
+
+**Precise next acceptance route.** Use the exact docs/report/countries/sweden/sweden_animal_adna_v66_summary.json sample/site/project identities and animal-entity-capability disposition; obtain qualified taxonomic, chronological and geographic decisions before admitting a historical biological comparison.
+
+**Negative or refused result.** Four warnings retain wild scope, two-sample cattle support, approximate cattle placement and two-species scope. Global animal country_assignment_admitted and scientifically_admitted remain false; country export identity does not change those decisions.
+
+**Matched denominator.** This Sweden appendix covers 5 sample rows,3 localities,2 tracked species and 2 projects. 4 warning entries are cautions, not extra observations. Two Bos primigenius source samples remain wild/progenitor context and three sheep samples remain a separate domesticated-core population. All five coordinates are approximate.
+
+Qualified authored reader SHA-256: `2bb1045e527c0129a53baeefb645c8e370773185b3c8b1d03c7ae12dd6ab52a4`.
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_animal_adna_v66_summary.json](sweden_animal_adna_v66_summary.json) (SHA-256 `3037bcd0946008af5f8b9d651319a1a80995f2325099527ec6982c1aea201315`).
+
+- [Retained qualification evidence: docs/report/countries/sweden/sweden_animal_adna_v66_samples.csv](sweden_animal_adna_v66_samples.csv) (SHA-256 `50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

@@ -49,7 +49,31 @@ From the repository root, run `PYTHONPATH=packages/bijux-pollenomics/src:package
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained prior-exposed country-held-out study predicts a closed16literal-label observed-pollen response using four fixed methods with target-country exclusion and separate prediction/scoring reads.
+
+**Unsupported claim.** Pollen prediction is not LRA vegetation reconstruction, measured-vegetation validation, confirmatory testing or a claim about all Nordic landscapes and periods.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Physical LRA parameters/geometry and independent vegetation truth remain absent; sample chronology uncertainty is not propagated by fixed point-age bins.
+
+**Cause category.** Exposed descriptive geographic transfer on a fixed pollen subcomposition.
+
+**Consequence.** Site-macro scores weight physical sites equally and cannot supply between-site Danish uncertainty from one site or ecological meaning to outside-axis counts.
+
+**Precise next acceptance route.** Replay the named prepare/predict/score stages with target-country exclusion and retained refusals, and qualify any new untouched target with its own frozen protocol before examining outcomes.
+
+**Negative or refused result.** Norway retains94unscored candidate bins, including empty outcome or insufficient-support cases; outside-axis labels are not interpreted as absent vegetation.
+
+**Matched denominator.** DK91samples/1site/24scored bins;FI1,797/28/435;NO3,544/52/1,084scored of1,178candidate bins. Four methods share the same selected16-label response.
+
+Qualified authored reader SHA-256: `be05e7fdaf846dfb1f049964cd72e64975b7e04f7d40858c75d876bcb4adcff4`.
+
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/manifest.json](manifest.json) (SHA-256 `43ec4aa62c1c93c0b3af0da2733706eb68a9685bd3f37b18a3041d22e7382573`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/scores.csv](scores.csv) (SHA-256 `b85963e3b2e0386541dfcebf0e14530571d1bcc22f630f0720e43592e44ef2d8`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/coverage.csv](coverage.csv) (SHA-256 `634a78011031e180290304d9843e42a36e3d59c24f4a1c396b41dcf7a96df9a1`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

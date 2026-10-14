@@ -1494,7 +1494,29 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This point ledger preserves the project, paper, coordinate basis/confidence and represented sample counts for each current animal locality feature.
+
+**Unsupported claim.** A coordinate basis called exact does not prove a specimen findspot; approximate and geocoded coordinates cannot become precise ecological sites through traceability.
+
+**Actual verification performed.** Read the machine 165 feature ledger and entity account; checked unique feature identities and current sample support. No coordinate extraction, geocoding or map rendering was run.
+
+**Remaining input or review.** Each point needs qualified geographic/chronological interpretation, taxon scope and primary-source review before a biological or historical join.
+
+**Cause category.** Traceable locality publication with heterogeneous coordinate precision.
+
+**Consequence.** Source coordinates remain place/proximal/site claims at their stated precision; point count does not equal unique biological sample count.
+
+**Precise next acceptance route.** Inspect each native source locator and represented sample IDs, retain uncertainty and unresolved chronology, and qualify sample-level scientific admission before ecological comparison.
+
+**Negative or refused result.** Named-site geocoding and approximate proximal coordinates remain explicit; five unqualified horse features/nine memberships were removed without assigning a default BP epoch.
+
+**Matched denominator.** Current 165 locality features represent 322 mapped sample IDs; historical 170 features/331 memberships are superseded. The global 165 does not substitute for 8 Nordic features/12 samples.
+
+Qualified authored reader SHA-256: `9ae57814cd25885852ad68a5787e7f2b2a28a64f2bf7d4fcddcf3d63360707d2`.
+
+- [Retained qualification evidence: docs/report/animal_point_evidence_review.json](animal_point_evidence_review.json) (SHA-256 `38c98f138fd2e8fc1cd3caa53b5fc6337d0e513ad4f1a1ee7cab848bf48236f4`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
 

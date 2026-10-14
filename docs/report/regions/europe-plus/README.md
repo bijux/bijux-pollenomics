@@ -166,7 +166,27 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Europe-plus bundle filters the world publication surface to four currently represented countries and keeps source metadata, animal context and traceability alongside a shared map engine.
+
+**Unsupported claim.** The bundle is not a second independent source collection, genotype-aware analysis, excavation recommendation, historical ecological reconstruction or vegetation validation.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source chronology, biological/locality authority and rights need their own decisions; provider and browser execution require actual separate receipts.
+
+**Cause category.** Regional publication selection of metadata and context.
+
+**Consequence.** Visible markers identify retained publication records, while Nordic-only overlays are withheld rather than generalized beyond their governed scope.
+
+**Precise next acceptance route.** Replay the governed Europe-plus bundle and inspect exact source/point identities and caveats before independently reviewing any proposed scientific use.
+
+**Negative or refused result.** Approximate locations and comparator/wild-progenitor animals remain cautioned; unsupported species and sampling recommendations remain refused.
+
+**Matched denominator.** Four-country display:1,231 human samples (SE416/NO130/FI32/DK653), eight animal locality points across three species; these are publication populations, not independent ecological samples.
+
+Qualified authored reader SHA-256: `6c8893b2dda4044cf17ad0d4ec2d724e9686bd3d062199f8bc453bf296154a16`.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `50710305c7749b46fee91fcd7d63063e9f05e54308fe1f83bf594842af370123`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) (source SHA-256 `b07462b1cd31fae284b29d0b6319ac5fbfcadd0e9eabb35ab290240f0818ae3e`).
 

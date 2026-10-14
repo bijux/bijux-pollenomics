@@ -118,7 +118,7 @@ def validate(root: Path, rows: list[dict[str, str]], packet_ids: set[str]) -> No
         ):
             raise ValueError("Scientific claim references an unknown request packet")
 
-    validate_reader_routes(root, rows)
+    validate_reader_routes(root, rows, require_individual_qualifications=True)
 
 
 def main() -> None:
