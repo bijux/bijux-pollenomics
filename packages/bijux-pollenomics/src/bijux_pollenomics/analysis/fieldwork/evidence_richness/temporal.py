@@ -191,6 +191,7 @@ def _attach_temporal_context(
         point
         for point in evidence
         if occurrence_support_intervals(
+            source_layer_key=point.source_layer_key,
             temporal_semantics=point.temporal_semantics,
             time_start_bp=point.time_start_bp,
             time_end_bp=point.time_end_bp,
@@ -244,6 +245,7 @@ def _summarize_candidate_temporal_context(
         ):
             continue
         for interval in occurrence_support_intervals(
+            source_layer_key=point.source_layer_key,
             temporal_semantics=point.temporal_semantics,
             time_start_bp=point.time_start_bp,
             time_end_bp=point.time_end_bp,
@@ -368,6 +370,7 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
 def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
     return bool(
         occurrence_support_intervals(
+            source_layer_key=point.layer_key,
             temporal_semantics=point.temporal_semantics,
             time_start_bp=point.time_start_bp,
             time_end_bp=point.time_end_bp,
@@ -393,6 +396,7 @@ def _context_point_overlaps_any_human(
     human_points: Sequence[_PointEvidence],
 ) -> bool:
     intervals = occurrence_support_intervals(
+        source_layer_key=point.layer_key,
         temporal_semantics=point.temporal_semantics,
         time_start_bp=point.time_start_bp,
         time_end_bp=point.time_end_bp,
@@ -403,6 +407,7 @@ def _context_point_overlaps_any_human(
         for interval in intervals
         for human_point in human_points
         for human_interval in occurrence_support_intervals(
+            source_layer_key=human_point.source_layer_key,
             temporal_semantics=human_point.temporal_semantics,
             time_start_bp=human_point.time_start_bp,
             time_end_bp=human_point.time_end_bp,

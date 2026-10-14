@@ -94,6 +94,7 @@ def temporal_overlap(
 def _admitted_context_intervals(point: ContextPointRecord) -> tuple[BpInterval, ...]:
     """Use dated member supports rather than site, sequence or locality coverage."""
     return occurrence_support_intervals(
+        source_layer_key=point.layer_key,
         temporal_semantics=point.temporal_semantics,
         time_start_bp=point.time_start_bp,
         time_end_bp=point.time_end_bp,

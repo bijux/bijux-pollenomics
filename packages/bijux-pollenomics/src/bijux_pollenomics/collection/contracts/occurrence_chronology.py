@@ -70,6 +70,7 @@ def occurrence_support_interval(
     temporal_semantics: Mapping[str, object] | None,
     time_start_bp: int | None,
     time_end_bp: int | None,
+    source_layer_key: str = "",
 ) -> BpInterval | None:
     """Return explicit record/model support eligible for fieldwork time scoring.
 
@@ -78,6 +79,8 @@ def occurrence_support_interval(
     admitted sample components; their locality hull is never a record support.
     This admission does not infer source epochs, calibration or authentication.
     """
+    if source_layer_key == "sead-sites":
+        return None
     if not _declared_numeric_posture(temporal_semantics) or temporal_semantics is None:
         return None
     if not temporal_semantics_has_numeric_interval(dict(temporal_semantics)):
@@ -133,6 +136,7 @@ def occurrence_support_intervals(
     time_start_bp: int | None,
     time_end_bp: int | None,
     occurrence_supports: tuple[ContextOccurrenceSupport, ...] | None = None,
+    source_layer_key: str = "",
 ) -> tuple[BpInterval, ...]:
     """Return admitted member intervals without filling gaps or counting duplicates.
 
@@ -144,6 +148,7 @@ def occurrence_support_intervals(
             temporal_semantics=temporal_semantics,
             time_start_bp=time_start_bp,
             time_end_bp=time_end_bp,
+            source_layer_key=source_layer_key,
         )
         return (interval,) if interval is not None else ()
     if temporal_semantics is not None and not _declared_numeric_posture(

@@ -260,6 +260,7 @@ def _temporal_navigation_summary(
             for candidate in candidates
             if any(
                 occurrence_support_interval(
+                    source_layer_key=point.source_layer_key,
                     temporal_semantics=point.temporal_semantics,
                     time_start_bp=point.time_start_bp,
                     time_end_bp=point.time_end_bp,

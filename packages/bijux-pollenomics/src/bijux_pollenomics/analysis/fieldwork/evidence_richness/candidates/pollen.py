@@ -187,6 +187,7 @@ def _derive_lake_candidates(
                     1
                     for source_point in points
                     if occurrence_support_intervals(
+                        source_layer_key=source_point.point.layer_key,
                         temporal_semantics=source_point.point.temporal_semantics,
                         occurrence_supports=source_point.point.occurrence_supports,
                         time_start_bp=source_point.point.time_start_bp,

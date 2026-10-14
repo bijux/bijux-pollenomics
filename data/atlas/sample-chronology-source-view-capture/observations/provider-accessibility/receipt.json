@@ -259,7 +259,7 @@
       },
       "screenshot": {
         "path": "390-tile-free.png",
-        "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed"
+        "sha256": "ed93b5d142cdc9815850a2f6a06b25a4d6c40f36159c965783aecd2c250f9c19"
       }
     }
   ],
@@ -335,7 +335,7 @@
       "scenario": "provider-failure",
       "record_id": "neotoma:site:12",
       "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
-      "sha256": "34ee0f7c80e51a7a3789b1f8f6e838fdcbab4c55e033edc1b5bf19457c271069",
+      "sha256": "660e5936d082653a32ea17670516b3ccc333fad27c7fe1e299d99492ba9b99b2",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -345,7 +345,7 @@
       "scenario": "tile-free",
       "record_id": "neotoma:site:12",
       "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
-      "sha256": "ad43bb74d561a44566906ba6b30757d1c97338a2afd5d546349085cf704355df",
+      "sha256": "352717350d9c3d86abe90fc5254a05309edbe1dc5ebb77d423c1c07886375a17",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -355,7 +355,7 @@
       "scenario": "provider-failure",
       "record_id": "neotoma:site:12",
       "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
-      "sha256": "22a98c1c6d6b7fce92212bef1d3d3cb401eb4766bff90dc59cb668c837c7fe0e",
+      "sha256": "99f43590356dd879666344a3bd1a1f4bc0ea089310bf6b74b09481c6158dfb10",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -365,7 +365,7 @@
       "scenario": "tile-free",
       "record_id": "neotoma:site:12",
       "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
-      "sha256": "1031a02b28adcebf65c228c79870b6fc760eaf8e291a30643e0f081769e518dc",
+      "sha256": "c047791ec11ebe25fb0562a2cecd8760cb3d53e163b6527bdc64c3cca899c38c",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580

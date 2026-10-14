@@ -1,5 +1,5 @@
 
-DevTools listening on ws://127.0.0.1:52995/devtools/browser/ea71d0bc-1cde-44cc-a20a-ed606be9f721
-[30441:16874581:1014/134025.001512:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-[30441:16874581:1014/134025.002023:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-[30441:16874581:1014/134025.002180:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+DevTools listening on ws://127.0.0.1:58459/devtools/browser/3df4987a-abfa-4d10-9195-223938233688
+[47586:17355709:1014/160751.058828:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[47586:17355709:1014/160751.059269:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[47586:17355709:1014/160751.059356:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670

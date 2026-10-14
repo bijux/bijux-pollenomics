@@ -171,6 +171,7 @@ def _candidate_direct_temporal_sources(
         source_point
         for source_point in candidate.supporting_source_points
         if occurrence_support_interval(
+            source_layer_key=source_point.source_layer_key,
             temporal_semantics=source_point.temporal_semantics,
             time_start_bp=source_point.time_start_bp,
             time_end_bp=source_point.time_end_bp,

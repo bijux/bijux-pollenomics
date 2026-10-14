@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.analysis.propagation.event_estimation import GovernedSample
-from bijux_pollenomics.core.temporal_relations import (
+from bijux_pollenomics.core.chronology.relations import (
     TemporalRelationKind,
     bp_interval_relation_kind,
 )

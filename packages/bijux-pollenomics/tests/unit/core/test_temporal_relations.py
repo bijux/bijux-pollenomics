@@ -8,7 +8,7 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 import pytest
 
-from bijux_pollenomics.core.temporal_relations import (
+from bijux_pollenomics.core.chronology.relations import (
     TemporalComparisonBasis,
     TemporalRelationKind,
     compare_bp_intervals,
@@ -230,7 +230,7 @@ def test_algebraic_kind_api_preserves_missing_touching_and_fractional_bounds(
     right: BpInterval | None,
     expected: TemporalRelationKind,
 ) -> None:
-    from bijux_pollenomics.core.temporal_relations import bp_interval_relation_kind
+    from bijux_pollenomics.core.chronology.relations import bp_interval_relation_kind
 
     assert bp_interval_relation_kind(left, right) is expected
     if left is not None and right is not None:

@@ -51,8 +51,8 @@ MAINTAINED_ROLE_PATHS = {
         "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        203,
-        "d0ea8e34f40aab1bdb5f8602bad7a2b4629a6c75e1d3c68e09ab9a3930cb3d3c",
+        204,
+        "ce1c97b558ca8af8eeb8bacbb07cea0b32d2399f6b2e1fcaa7c496ffadf074ad",
     ),
     "maintained_configuration": (
         14,

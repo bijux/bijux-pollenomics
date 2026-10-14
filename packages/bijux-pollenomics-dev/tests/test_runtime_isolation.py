@@ -823,7 +823,7 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
     },
     "bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py": {
         "bijux_pollenomics.core.temporal_semantics": frozenset({"BpInterval"}),
-        "bijux_pollenomics.core.temporal_relations": frozenset(
+        "bijux_pollenomics.core.chronology.relations": frozenset(
             {"TemporalRelationKind", "bp_interval_relation_kind"}
         ),
         "bijux_pollenomics.analysis.propagation.event_estimation": frozenset(
@@ -1283,12 +1283,12 @@ def test_temporal_producer_bindings_remain_file_module_and_symbol_specific() -> 
         ),
         (
             "lra_validation/neotoma_first_observed.py",
-            "temporal_relations",
+            "chronology.relations",
             "TemporalRelationKind",
         ),
         (
             "lra_validation/neotoma_first_observed.py",
-            "temporal_relations",
+            "chronology.relations",
             "bp_interval_relation_kind",
         ),
     )

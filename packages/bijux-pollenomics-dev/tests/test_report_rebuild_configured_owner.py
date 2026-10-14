@@ -143,7 +143,34 @@ def test_analysis_value_components_use_absent_child_output() -> None:
         "source-products/report.json": "source-relations/sead/analysis-value-components/report.json",
         "source-products/rows.csv": "source-relations/sead/analysis-value-components/rows.csv",
     }
-    assert len(selected.inputs) == 1042
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text()
+    )
+    declaration = next(
+        row
+        for row in inventory["owners"]
+        if row["owner_id"]
+        == "source-relations/sead/analysis-value-components/report-products"
+    )
+    code, data = set(declaration["producer_paths"]), set(declaration["producer_inputs"])
+    assert code.isdisjoint(data)
+    assert selected.inputs == {name: repository / name for name in sorted(code | data)}
+    required_helpers = {
+        "packages/bijux-pollenomics/src/bijux_pollenomics/" + suffix
+        for suffix in (
+            "collection/contracts/occurrence_chronology.py",
+            "reporting/map_document/adna_exports.py",
+            "core/chronology/__init__.py",
+            "core/chronology/relations.py",
+            "core/chronology/source_metadata.py",
+        )
+    }
+    assert required_helpers <= code
+    assert required_helpers.isdisjoint(data)
+    assert (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_relations.py"
+        not in code
+    )
 
 
 def test_neotoma_entity_map_assets_resolve_as_code_only() -> None:
@@ -1529,7 +1556,30 @@ def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() 
     selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
     offset = selected.command.index("--capture-profile")
     assert selected.command[offset + 1] == "finite-covariance"
-    assert len(selected.inputs) == 386
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text()
+    )
+    declaration = next(
+        row for row in inventory["owners"] if row["owner_id"] == _NATIVE_CAPTURE_OWNER
+    )
+    code, data = declaration["producer_paths"], declaration["producer_inputs"]
+    assert code == sorted(set(code))
+    assert data == sorted(set(data))
+    assert not set(code) & set(data)
+    assert selected.inputs == {
+        name: repository / name for name in sorted([*code, *data])
+    }
+    assert hashlib.sha256(("\n".join(code) + "\n").encode()).hexdigest() == (
+        "59d82281322020fa6b10d0bfd430293ca27502adc7b909c0714e9b00f2a0071c"
+    )
+    assert hashlib.sha256(("\n".join(data) + "\n").encode()).hexdigest() == (
+        "03125905df3b60cc9536f594ac57e323e399cee74e33a9ce4c27ce3f35962912"
+    )
+    assert {
+        "data/method-certification/native-r-finite-covariance/capture/capture.json",
+        "data/method-certification/native-r-finite-covariance/capture/receipt.json",
+        "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+    } <= set(data)
     assert selected.source_paths == {
         "source-products/report.json": "method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",

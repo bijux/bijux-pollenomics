@@ -8,7 +8,7 @@ import hashlib
 import json
 from math import isfinite
 
-from bijux_pollenomics.core.temporal_relations import (
+from bijux_pollenomics.core.chronology.relations import (
     TemporalRelationKind,
     bp_interval_relation_kind,
 )

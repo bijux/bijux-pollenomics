@@ -61,6 +61,7 @@ def _locality_intervals(locality: AdnaLocalitySummary) -> tuple[BpInterval, ...]
 
 def _context_point_intervals(point: ContextPointRecord) -> tuple[BpInterval, ...]:
     return occurrence_support_intervals(
+        source_layer_key=point.layer_key,
         temporal_semantics=point.temporal_semantics,
         time_start_bp=point.time_start_bp,
         time_end_bp=point.time_end_bp,

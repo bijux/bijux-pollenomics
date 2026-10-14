@@ -10,6 +10,7 @@ from .bp_time import (
     mean_bp_year_from_interval,
     normalize_bp_interval,
 )
+from .chronology.source_metadata import _json_metadata_copy, _source_metadata_copy
 
 __all__ = [
     "TEMPORAL_COMPARABILITY_POSTURES",
@@ -171,7 +172,7 @@ def closed_bp_intervals_overlap(left: BpInterval, right: BpInterval) -> bool:
     """Return closed interval algebra; source comparability is a separate admission."""
     # Relations consume interval values. Import here to preserve that dependency
     # direction while keeping the established value and boolean API owners.
-    from .temporal_relations import TemporalRelationKind, bp_interval_relation_kind
+    from .chronology.relations import TemporalRelationKind, bp_interval_relation_kind
 
     return bp_interval_relation_kind(left, right) is TemporalRelationKind.OVERLAPPING
 
@@ -509,46 +510,3 @@ def _bp_value_refusal_reason(value: object) -> str:
     if isinstance(value, float) and not value.is_integer():
         return "fractional_bp"
     return ""
-
-
-def _source_metadata_copy(
-    metadata: Mapping[str, object] | None,
-    *,
-    reserved: Mapping[str, object],
-) -> dict[str, object]:
-    """Retain explicit JSON source assertions without overriding computed semantics."""
-    if metadata is None:
-        return {}
-    result: dict[str, object] = {}
-    for key, item in metadata.items():
-        if not isinstance(key, str) or key in reserved:
-            raise ValueError("Source metadata must use noncanonical string keys")
-        result[key] = _json_metadata_copy(item, seen=set())
-    return result
-
-
-def _json_metadata_copy(value: object, *, seen: set[int]) -> object:
-    """Copy JSON metadata exactly; reject nonfinite values and non-JSON objects."""
-    if value is None or isinstance(value, (str, bool, int)):
-        return value
-    if isinstance(value, float):
-        if not isfinite(value):
-            raise ValueError("Source metadata numbers must be finite")
-        return value
-    if isinstance(value, (dict, list)):
-        identity = id(value)
-        if identity in seen:
-            raise ValueError("Source metadata must not contain cycles")
-        seen.add(identity)
-        try:
-            if isinstance(value, list):
-                return [_json_metadata_copy(item, seen=seen) for item in value]
-            result: dict[str, object] = {}
-            for key, item in value.items():
-                if not isinstance(key, str):
-                    raise ValueError("Source metadata object keys must be strings")
-                result[key] = _json_metadata_copy(item, seen=seen)
-            return result
-        finally:
-            seen.remove(identity)
-    raise ValueError("Source metadata must contain only JSON values")

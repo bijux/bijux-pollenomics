@@ -61,7 +61,9 @@ PROPAGATION_PRODUCER_SOURCE_PATHS = (
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/service.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/union.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_relations.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/__init__.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/relations.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/source_metadata.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
 )
 _CLASSIFICATION_MANIFEST_NAME = "manifest.json"

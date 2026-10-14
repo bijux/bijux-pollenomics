@@ -19,9 +19,9 @@ from .atlas_source_views import (
 
 CURRENT_CAPTURE_PATH = "data/atlas/sample-chronology-source-view-capture/capture.json"
 CURRENT_CAPTURE_SHA256 = (
-    "6e1cc3147e45449d5741999337eba180ef8727489e82288927a9f362cea85f69"
+    "2491a59a0d5cde5dffd05397c4a7dcc95ab98ba922019863e5ea2662681dba62"
 )
-CURRENT_SOURCE_CANDIDATE = "dc3fe6f99b29c16f78e939164ad2d0609ac588bb"
+CURRENT_SOURCE_CANDIDATE = "63fe7e57c597d6a0a0b8b80befa8331950b231cd"
 CURRENT_CASE_IDS = CASE_IDS | {"sample-owned-chronology-components"}
 
 
@@ -31,7 +31,7 @@ def _validate_current_reader_custody(
     review: dict[str, Any],
     generation_inputs: dict[str, str],
 ) -> None:
-    """Join successful readers to the original producer's explicit partial result."""
+    """Join readers to exact successful source production or retained partial custody."""
     current = packet.get("current_reader_reference")
     reused = packet.get("reused_source_producer_reference")
     _require(
@@ -71,6 +71,12 @@ def _validate_current_reader_custody(
     old_terminal = objects["reused/terminal"]
     origins = objects["reused/producer-import-origins"]
     stages = terminal["stages"]
+    mode = plan.get("reader_custody_mode", "reused-partial-source-producer")
+    _require(
+        mode in {"reused-partial-source-producer", "same-run-source-producer"},
+        "current reader custody mode differs",
+    )
+    direct = mode == "same-run-source-producer"
     _require(
         plan["candidate"] == terminal["candidate"] == CURRENT_SOURCE_CANDIDATE
         and terminal["plan_sha256"] == _sha(members[current["plan"]])
@@ -78,7 +84,7 @@ def _validate_current_reader_custody(
         and terminal["native_exit_code"] == 0
         and terminal["status"] == "passed"
         and terminal["protected_inputs_unchanged"] is True
-        and len(stages) == len(plan["stages"]) == 2
+        and len(stages) == len(plan["stages"]) == (3 if direct else 2)
         and [stage["name"] for stage in stages]
         == [stage["name"] for stage in plan["stages"]]
         and all(
@@ -90,32 +96,67 @@ def _validate_current_reader_custody(
         ),
         "current reader native execution differs",
     )
-    reused_producer = plan["reused_source_producer"]
-    _require(
-        reused_producer["original_plan_sha256"] == _sha(members[reused["plan"]])
-        and reused_producer["original_terminal_sha256"]
-        == _sha(members[reused["terminal"]])
-        and reused_producer["reused_source_producer_proof_sha256"]
-        == _sha(members[current["locality-producer"]])
-        and old_plan["candidate"]
-        == old_terminal["candidate"]
-        == CURRENT_SOURCE_CANDIDATE
-        and old_terminal["plan_sha256"] == _sha(members[reused["plan"]])
-        and type(old_terminal["native_exit_code"]) is int
-        and old_terminal["native_exit_code"] == 1
-        and old_terminal["status"] == "failed"
-        and old_terminal["protected_inputs_unchanged"] is True
-        and old_terminal["stages"][0] == reused_producer["reused_source_producer_stage"]
-        and type(old_terminal["stages"][0]["native_exit_code"]) is int
-        and old_terminal["stages"][0]["native_exit_code"] == 0
-        and old_terminal["stages"][0]["timed_out"] is False
-        and old_terminal["stages"][0]["actual_argv"] == old_plan["stages"][0]["argv"]
-        and plan["source_directory"]
-        == old_plan["source_directory"]
-        == reused_producer["source_directory"]
-        == origins["source_root"],
-        "reused producer partial native result differs",
-    )
+    if direct:
+        _require(
+            [stage["name"] for stage in stages]
+            == [
+                "maintained-source-owned-locality-wire-products",
+                "actual-declared-public-reader-transport",
+                "independent-original-membership-reader-observer",
+            ]
+            and _sha(members[reused["plan"]]) == _sha(members[current["plan"]])
+            and _sha(members[reused["terminal"]]) == _sha(members[current["terminal"]])
+            and old_plan == plan
+            and old_terminal == terminal
+            and plan["source_directory"] == origins["source_root"]
+            and set(plan["reader_products"])
+            == {"locality_producer", "reader", "observer"}
+            and plan["reader_products"]["locality_producer"]
+            == str(
+                Path(origins["source_root"])
+                / "artifacts/public-chronology-readers/localities/producer-proof.json"
+            )
+            and "reused_source_producer" not in plan,
+            "same-run producer native result differs",
+        )
+        source_pins = {row["path"]: row["sha256"] for row in plan["protected_inputs"]}
+        _require(
+            len(source_pins) == len(plan["protected_inputs"])
+            and all(
+                source_pins.get(origin["path"]) == origin["sha256"]
+                for origin in origins["actual_origins"]
+            ),
+            "same-run producer protected source differs",
+        )
+    else:
+        reused_producer = plan["reused_source_producer"]
+        _require(
+            reused_producer["original_plan_sha256"] == _sha(members[reused["plan"]])
+            and reused_producer["original_terminal_sha256"]
+            == _sha(members[reused["terminal"]])
+            and reused_producer["reused_source_producer_proof_sha256"]
+            == _sha(members[current["locality-producer"]])
+            and old_plan["candidate"]
+            == old_terminal["candidate"]
+            == CURRENT_SOURCE_CANDIDATE
+            and old_terminal["plan_sha256"] == _sha(members[reused["plan"]])
+            and type(old_terminal["native_exit_code"]) is int
+            and old_terminal["native_exit_code"] == 1
+            and old_terminal["status"] == "failed"
+            and old_terminal["protected_inputs_unchanged"] is True
+            and old_terminal["stages"][0]
+            == reused_producer["reused_source_producer_stage"]
+            and type(old_terminal["stages"][0]["native_exit_code"]) is int
+            and old_terminal["stages"][0]["native_exit_code"] == 0
+            and old_terminal["stages"][0]["timed_out"] is False
+            and old_terminal["stages"][0]["actual_argv"]
+            == old_plan["stages"][0]["argv"]
+            and plan["source_directory"]
+            == old_plan["source_directory"]
+            == reused_producer["source_directory"]
+            == origins["source_root"],
+            "reused producer partial native result differs",
+        )
     _require(
         all(
             type(result["native_exit"]) is int and result["native_exit"] == 0

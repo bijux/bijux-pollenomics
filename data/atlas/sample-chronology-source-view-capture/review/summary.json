@@ -1,21 +1,19 @@
 {
   "schema_version": "sample-chronology-independent-retained-source-browser-review.v1",
-  "candidate": "dc3fe6f99b29c16f78e939164ad2d0609ac588bb",
+  "candidate": "63fe7e57c597d6a0a0b8b80befa8331950b231cd",
   "source_context": {
-    "base_candidate": "dc3fe6f99b29c16f78e939164ad2d0609ac588bb",
-    "kind": "selected owned base92 source with exact temporal/component/export/metadata/sample admission, combined import-boundary, public reader intake, typed temporal relations and source-owned analytical occurrence overlays",
+    "base_candidate": "63fe7e57c597d6a0a0b8b80befa8331950b231cd",
     "not_a_clean_git_tree": true,
-    "not_a_whole_current_tree_claim": true,
-    "scope": "Selected base92 source plus exact reviewed chronology/intake/relation/analytical occurrence overlays and retained original inputs. All actual observed source dependencies are physically bound; no whole-current canonical tree claim.",
-    "source_overlay_manifest_sha256": "03edb68b8306590990af6e9bc6932b0cc18ef881b8e546640d54fd3fc8f05688"
+    "source_overlay_manifest_sha256": "d875275c49fc56ae59bc8f8ac932aa6cf61bc3a3801375430d9c45a19c058497",
+    "scope": "Complete committed main candidate plus exact reviewed overlay/deletions; no Git metadata or clean-tree claim."
   },
   "browser": "Chrome/155.0.8059.40",
   "scope": "Independent retained-byte/native-execution/source-table reconstruction with separately qualified current reader/source code and retained original2699 historical wire normalization. No new browser/source authentication/age review/ecology/rights/R execution or human scientific review.",
   "counts": {
     "successful_probes": 9,
     "qualified_current_stage_membership": 14,
-    "source_footprint_unique_paths": 1221,
-    "source_bindings_checked": 5273,
+    "source_footprint_unique_paths": 1227,
+    "source_bindings_checked": 5303,
     "served_file_digests_checked": 145,
     "download_or_screenshot_hashes_checked": 92,
     "source_table_full_equalities": 76,
@@ -261,7 +259,8 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/chronology.py": "9ce6e90bbeedb362160832b66dbcf683dc1a47053dfdbf38e792cc9d4315cc5c",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/evidence.py": "4770d1ca087602cd8be73f02a014042ef0c60102d54dbaaed5acbd44bd0a336b",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/identity.py": "671ac96d7c785449e5510b063034cb9414bb15f9d60f7a0a520026ec12b5f185",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py": "a901e1edb6d549bfac950e6e709ff7a2e1d2f92e4903715b2e10f874782b59ef",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py": "7d48769c36ab6797b8d745cde6bddca0ed6230504ffa3cc1e6ef15a819baa271",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py": "161102a44d91f100f42f55cf66c1bac2f5de6198b1e50515c0f3d0ef60ae925f",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py": "35db235289c297c2154215af88c790cff68ff15703f19b96a256da0f8610c0fd",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/vocabularies.py": "43b5bacc8c8f09d203aa4a0cf2ea92f74c2b17c96d87a032dc948f9192140abb",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/__init__.py": "8bfec5166124dabcd89422ffb6871371aaf0fbc8e0d5b87b0711dd48643a426c",
@@ -509,12 +508,12 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/__init__.py": "128a580de1bc7d8be583a89b9e4943452c3406ca53f709c99ef08c66b5ab7cd5",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/matching.py": "a3df752cf8e483996e83c6f29b29624437f691b23d594de62f50a48a48d96bbb",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/naming.py": "a7930550d7c6d4d2b2115f258b9aaa3988358b1c144ba8d2c5018494ae2cb9e0",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/pollen.py": "716572dec241a9f0afeb42324726c36fffac8ba16e29e16e4e13f9d0b0a03a4b",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/registry.py": "53ba12791c97c1bac42c5bacc887d8c1107d165d97dd3c8c7c0292018900a0b9",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/pollen.py": "cc53de291cd46bc1288e523ed9ecfd72e00770fdae5bf4089688a1a4c63ef52c",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/registry.py": "a627fb58bbf44e4695acf9eec4d40eccbe017bc854911b4e23c6360f0e0c26be",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/sampling.py": "2329141f633bb0b4a56b3fbd088d3d6a604230cdaaaced27642d880618f7c8d8",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/candidates/uncertainty.py": "034fa0c160d5d2f692e778781a8578d742352141f9991da33e68a3a38a40507a",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/inputs.py": "dd1c6a9df751e9343b22c611add7b10c5b4c642821676bfae7dc6cfdc9ef7845",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/methodology.py": "a206b223a1765346f8b478541d69dfa2f9c0ecc7b435c282d84c547e88722b88",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/methodology.py": "91908afa0ba6d96237398dd81a486571bb297da386211afe92518b9ac4b623f6",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/metrics.py": "433d79f697db921ec750f010de842511072402b491e1f4f496729ce3d701d97c",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/models.py": "47e49c71995701a4dbee90361e60d86b3efe3b145f9433b4a429cf9dbc9f01d6",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/scoring.py": "ecd42c0b5f4c4527fb32533c5d36bf1728bbe94fa7d02483b2e6bd9a1b9d98dc",
@@ -526,7 +525,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/ranking.py": "bc8c52ebafb0490f1392367c2a3c067ff9d70f25a7cbe1950585796b69d4308a",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/signals.py": "7b4e470962225ca1b9153133a1f6f849fc7ad1cb0bb422a824c3963ba89e7340",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/svar_report.py": "4590b945b84cbbb09c095b08d21050f57c48134cc20279d9f4a69f3ea8dc0057",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/temporal.py": "e5cac5b2a405dee9ab7330ecef8fa4fb60cfe5cb1c0f2a4209b1182d5d277849",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/temporal.py": "c25ed5682f8f511632cf99119493568c9c0f08d49063999eec2d9c922b5e2ad4",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py": "137c5b3a06f69df51d0bfd5d58b3e266b56a4ab6104b94755c49bd384eb64484",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/context.py": "2208ee7b6558ceae79254a4ff814f9d19a51e2c56272f45d33688a37b4ee815f",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/inputs.py": "00f2aed13b79b83cc1da787ad8502c93ef786a417305f1eedda0cf79350fc656",
@@ -538,7 +537,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py": "ab6aec1eed12738004f005af5832aabe53adc52076c7e7b719974f83d8c99178",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py": "6c0f382ef0d1d7087b8e9751360d492ba38e5a1ad20be535ad61e90651e4748b",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/temporal.py": "3ccc38e6389bb973d2f00b5df85f362a8e2f674d9ab6eef4adc32687169433ce",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/ranking.py": "791c3382e6499b48bb39ac4489543cbd13d1898db0c9833753a3382324a47dce",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/ranking.py": "8e7bc86b74f4e1bcddc5c9c6e784b264b83f51537d163ef57b26217c0f5608fa",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/__init__.py": "0b32f5e6a2570c2bbb5eb08286fa8f0c3a444caffb5b3ea8404094770d958b11",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/api.py": "2e0a8cb4c0c2073e7d901a143c8a3ef62cb051b4d8c7b3f13abbffd27f766bf1",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/__init__.py": "f38f522680078412cc7bce2c2f5d01b39df1c95135e978d48df37acaff7bcc68",
@@ -633,7 +632,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/contracts.py": "bf955aa90b22269d8c8b6d662b715e2c0ad17b76b61dfc5f11470d0d3843ab5f",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/inputs.py": "88625730302357dafb8b7c350d9c1b023c38eaa71e681d293e659fe50da27a2d",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/manifest.py": "4cef8a058461d34a01d63a0a1f8b58f08fc9ef0fae06ba94dde0bce0e2cdadae",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/models.py": "4ea482a1cd405561737d7fdcf5be14df5ed687a5d721ad4b2122fd83bfa9bab5",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/models.py": "220ba4fbc8e3f884408b6b7bec47d6e70b021a1fe3f4d517c259dabf8681b834",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/payloads.py": "a7b702559331589f0fafdaf82664b6e7e9a369d1db7b47019299baabca8ed74b",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/producer.py": "857bad91617d3cfca94b4de4a9aa384bd7c1cd64aa6e7c35812d59200e0f4c3d",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/publication.py": "4f451e9d20851c8c92aafcf5400b3a8e5429818abe729a0f94b44d125aaa8621",
@@ -663,7 +662,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/candidate_site_packets.py": "aa2355180c18adda31a6c58cf5786915b06ef8ce651f10d40c2c094cbcbc3be9",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_archaeology_sensitivity.py": "d9b9b08d29cffbfa16f37dd6b0d328e244b0b01e796e9884f0540058d83101bd",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/__init__.py": "795f8ce3bda9abb4ff50cac76a2d95b5bd7a852b0e48ecf188c6c96115ac86bc",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/candidate_features.py": "d7770a4585a3be4adfdb91175624435933f6713ec42260a06cbf612c8c318e27",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/candidate_features.py": "aa387a02bf2edb20db821092265d5cb0fd556e66a9aa482818a278c28ed4ee9e",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/csv_exports.py": "8ff522023e64cfdc08ad8e120f63824efb24947d9abe16142c8b00bdde955ce0",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/methodology.py": "1b3deaf9a2ebd97a56dabf4a26f463b5436a6c75003e12c1311a5e28f369179b",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/payloads.py": "463b6165acb63722ea842036417ff4d9f9521e41a1ac3cb3d6ea5ae52da83453",
@@ -739,7 +738,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/families/state.py": "ebcb0b0f95526fcdcc83dd0ce2cc3c582339416509abc141aaad9fe6f6406dbd",
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/layout.py": "d7cd4272a91fac640326544127af16729d07a3b1f7c2d6adc662e84c05ca79c4",
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/models.py": "8ad228220158c603051e5cd134e40fee46ad3786ec440f3ed5c86d7e255f3331",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/occurrence_chronology.py": "cc3e27f9a9b878aebcd902a45b57da43e592a1c64e414670dbb0fdc0a6ceb90c",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/occurrence_chronology.py": "9dd6a0b81eaeab3e235ce9694d5f714194ce437bba3ad4127b075ef619a11ddc",
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/repository.py": "1bf3bbf76a8164c406f94fd7e2fd4377c0693fe263e8f5e17b627e02a93b6ee5",
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/contracts/summary.py": "6f8d415ea923287cd89f8ef699cce970f8339a394053b32399a4e01294a1a9d2",
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/exports/__init__.py": "97cfac66031e5f17a602f4623c74be30e5cd74e776830385143cc62c9c1e13d9",
@@ -986,6 +985,9 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py": "3da4c9030d78268b5650d2e80beb125cfb70266404507f98f8229d174cbd748c",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/calendar_support/__init__.py": "5311b9237a21147b09d25a0da0d7608e2e043478f6bf263d72514d1ebe8a1d39",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/calendar_support/values.py": "460078023e6babd7cb5fd7b982d098ba4f58f5d7ff7161c31e4d5de95ad369ef",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/__init__.py": "ea002914c577e02cc4d7101093dbcf258e50f551d10373e869d4e6493a5e7a92",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/relations.py": "74cd45a80bcc307afe4744d26a69dadb918f58ab8729c68406bfd2b9275a7b21",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/source_metadata.py": "073378977ff26b1041147fc5ac2087c147a5c535f44daad77049fd69e23ae89b",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/files.py": "fda27a9b01a63d4445d2ccac81c6ddd13ecbcea917028002f79c5591bc26fdef",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py": "13139b77db119b22f2f74d90777f420d48f44458f6c293a1a4a5bb41ec07cc09",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py": "2eea7f3882ed49e3e6be1995fe78b21b2bbedef3f3ee614b368657a3c74692eb",
@@ -995,8 +997,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/records.py": "b80f1cb0797e0f391ccd75b735e370fe8e2a96ff563b1482c9848f2212331df9",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/repository.py": "f39cdf4f011f26146b261ae514182b57bfa059c4604938ff0ea0c6389b1118fb",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/tabular.py": "d816127398e6e1ac928c27016786218a5b1963c3382c915ddf819e1c524501b5",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_relations.py": "6544e0a0c8570b8c3015f4bfaf14c78b49883fd9b967c53ecfb8d4f080098a76",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py": "e0535b05f831269a86ad3c073508c3aa34d0348394ff782c750330fd8397072c",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py": "932bb349c6e0b400df6ef5ca2d842461e282bca4fcb18b3ecfb264c0f36e9aba",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/text.py": "fe61352bcb5023c087aea4782aa334402ac4bccd413601d7f49e2656fba11cf4",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/xml_security.py": "0eecda6ce921c2da8c8cf1819fbce2095e99922be697a0c0254f242fdbe6a151",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/__init__.py": "cf09defc1cba9e5643c048226d093ccc8f8b5049dd8901fe70eaca502ebec50a",
@@ -1017,7 +1018,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/period_coverage.py": "2954c4bc543cc8cd680d73dd33f75b17daaac89f0949a9f031237e2df3560fb5",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/scenarios.py": "63657df8496c23bfff7ce175d3a8a14a8bb5efa3b3a4cda315672a5b7fb0bbe6",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/surface.py": "e34f35025ff868154a1919ccd6fc74a20d446ebe886b67b41ba7c31c61dd63df",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/temporal.py": "30ca0296f9b19d36a9e3011d49014101e95bb52c767b4a0e8f8a0d55066fad1f",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/temporal.py": "a1164e1ae739e33285857015b49552b0c771537a26ec8861896dc92ac7c3de86",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/scientific_review/uncertainty.py": "d6bc66bff3ad81c95af57835df10634e8202d095f0d5411145fb182c0544cc79",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/__init__.py": "74e45d1e7e582a93c460e3cb3997a5e3d1185bac31e61a5c7e4ae3095240bdbe",
     "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py": "215aaff63f1477dff9b817dbb8ddf7b5c92057c0aee44f1f4e9eeb76e707df0f",
@@ -1180,7 +1181,10 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/geography_reconciliation.py": "a63c1ba4a3c9b4d7b5f2ebc897b487dea1e7fb95a47a5b1b6afb42e5b0c03696",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/identity.py": "f81f6ae8fdd60ec89c7caad52889b5aeccc3d7d62d9873a3cf6e677dbe894e09",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/service.py": "f284c03947769c499830208fd87e4be735d695889a1dfd6d15f4c2c445b20d38",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context.py": "50c2d69607a044ea478180295d5fa35eeee4efd73738339b0145d040c780f91f",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/__init__.py": "217aa1037d8a83b72c43b16309ab87b39e8671c22f0d7efb0516cf0b8a89b50d",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/animal_summary.py": "6c41989d4cb300ef3123e4bed53aa3dacb8d4c9255f1048a82ba86ba30678791",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/extraction.py": "9dcd0322421bd85db5b2b6a3be8c007914115eaa5726d7b6d8b17787fb91e05f",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/source_bindings.py": "6a6ab3f8fb87a1d996f11180afb01933a8c0f47bf62aad1d7fdb5788ba7251e9",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/contracts.py": "5674253433e951e2f06254c03437ba533574119f45dd2c548e3f9ba684d4c65d",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/evidence.py": "ddc7a8ecee29f91fc9314a787af3e181703dea80e3c71db343c0152dbe42f489",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/finalization.py": "fcf8be43d6c73e7acc3be4db275bdcb8e2a8d9a81069e00dbe35432185375cd6",
@@ -1238,7 +1242,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/projection.py": "dff15fd89a9014289a341ae0044183de05912cd3e261aa287664878a3c41ccc4",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/rendering.py": "9b4f55546d29aba20558667e26a1679a98f63baea35d0faa8e08bb849189dab2",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/workflow.py": "b2b6917ecf16320a7b6ff50be8c260335775e61a0ce0a01bff525a216013e580",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/projection.py": "ca6964cb7f69369872986037c7c92f10afc0f82776a61f731ef8f6f72a7b54f2",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/projection.py": "e580078b4aaf3c72a1a39c064995f27b0c2f5380971635e35568f5a699d6eb20",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/tables.py": "0d3029393571d2f14af064127ff6191eb8ee9cfaa38a7aa32c87b782cd3ec532",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/workflow.py": "b9e8af47a6369d89604bb78e61daf388bd02964862fd19055fbb93662bd92a9e",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
@@ -1335,6 +1339,68 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/time_density.py": "d49a48e3703d1e6d0efdd9ca80e7c5bc419296801ff866b1118c026263d597a5",
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/validation.py": "bcb5d1502b0acbf56177ec587bf595168b7b1a5cc364989e4563e9a5c26c9248"
   },
+  "current_source_module_membership": {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/__init__.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/relations.py": [
+      "context-frames",
+      "modeled-panels"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/chronology/source_metadata.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/__init__.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/animal_summary.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/extraction.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context/source_bindings.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ],
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/adna_exports.py": [
+      "Nordic-source-contexts",
+      "context-frames",
+      "modeled-panels",
+      "sample-chronology",
+      "source-details"
+    ]
+  },
   "source_normalization_reference": {
     "plan": {
       "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/controller-plan.json",
@@ -1363,108 +1429,108 @@
   },
   "current_reader_reference": {
     "plan": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/controller-plan.json",
-      "sha256": "ab3b5ead69c88baf3c15139cb1dff4869eb3b1c7feb8d86bdcc2724004ebe594"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/controller-plan.json",
+      "sha256": "1d9bc3eb87d277718032e5ad8c2460b265383f6957cd09db24e370c1ea29d773"
     },
     "terminal": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/execution/terminal.json",
-      "sha256": "d26323797eaabb7ef21d0da18be50b7f705597a2926462844d096b4789dd5b1e"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/execution/terminal.json",
+      "sha256": "46162b9b1587dd637c4e975d3cb5f5556c0804344db8fa5b576b0215095fb455"
     },
     "locality-producer": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/source/artifacts/public-chronology-readers/localities/producer-proof.json",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/chronology-domain-capture/source/artifacts/public-chronology-readers/localities/producer-proof.json",
       "sha256": "832f1079ff7048cc292ce1e8a6dde8f0cf4def09c3b51a0360c469ae677cd201"
     },
     "reader": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/products/intake/reader-proof.json",
-      "sha256": "c9d87c30db5fcea66349a352f8c71a442e127f6b27e1dc3dae0354a235227190"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/products/intake/reader-proof.json",
+      "sha256": "56665c494ff04bb58b3ae33ffed695957bd6cc4b1108fab5c91b4d8945f02f30"
     },
     "observer": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-declared-transport/products/independent-observer.json",
-      "sha256": "7cdb0e6e95e3dea2e1fd8cec6d8ebce827acddf230250a3e6ab3367a0c0abb98"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/products/independent-observer.json",
+      "sha256": "e8d71ecf8b05cea5090aed7f1fba9595b05593043f80531aa97ffa60abbe8ec1"
     }
   },
   "reused_source_producer_reference": {
     "plan": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/controller-plan.json",
-      "sha256": "7fcc69fc53a94eff26a3fffc0a920ea5db7ff41b37229f069be2a725f220c943"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/controller-plan.json",
+      "sha256": "1d9bc3eb87d277718032e5ad8c2460b265383f6957cd09db24e370c1ea29d773"
     },
     "terminal": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/execution/terminal.json",
-      "sha256": "688cc20be09bee475d2d30d2e8c34ced56dd7bdfed2614cab13bacc20f2759aa"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-reader-qualification/execution/terminal.json",
+      "sha256": "46162b9b1587dd637c4e975d3cb5f5556c0804344db8fa5b576b0215095fb455"
     },
     "producer-import-origins": {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/public-chronology-occurrence-qualification/source/artifacts/import-origins/produce_locality_exports.json",
-      "sha256": "9e040c4cae1a9a4886314fdea694061bbb9bae0ac9bf1e63ef54c43a13497334"
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/chronology-domain-capture/source/artifacts/import-origins/produce_locality_exports.json",
+      "sha256": "0c690cb228de2fa7db62acd767442a7922ca0e68dec71ed6c1db5d6296e425c8"
     }
   },
   "visual_review_required": [
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/1440-provider-failure.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/provider-accessibility/1440-provider-failure.png",
       "sha256": "f6aa07796eccadb3e2411bdc4bb701cc6da32ac8486602732f55a1554f599e39",
       "bytes": 88127
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/1440-tile-free.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/provider-accessibility/1440-tile-free.png",
       "sha256": "6f9ae3a1aafe2e4174a696934c86818db0607ccadcf6895fd73360eb4a042bfd",
       "bytes": 86597
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/390-provider-failure.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/provider-accessibility/390-provider-failure.png",
       "sha256": "d0d2ecf748de8b4d7cecb4f365c80eb677e8533355d0703187797b9f16ff6b89",
       "bytes": 70772
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/provider-accessibility/390-tile-free.png",
-      "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed",
-      "bytes": 68407
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/provider-accessibility/390-tile-free.png",
+      "sha256": "ed93b5d142cdc9815850a2f6a06b25a4d6c40f36159c965783aecd2c250f9c19",
+      "bytes": 68528
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/1440-blocked_provider.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/modeled-panel-browser/1440-blocked_provider.png",
       "sha256": "bebd2a7bcfd6d4b7c275847a50c2f449b76e628b210dc840c6fb38819352364b",
       "bytes": 84849
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/1440-no_basemap.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/modeled-panel-browser/1440-no_basemap.png",
       "sha256": "5e1c2b018276fe09640b71f574312f38494c3dd71ea5996741334e202f21c069",
       "bytes": 82706
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/320-blocked_provider.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/modeled-panel-browser/320-blocked_provider.png",
       "sha256": "9ec1c3d00d8f103b4e701e64d014965717c663f9263c8badf95840921cc480e2",
       "bytes": 64921
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/modeled-panel-browser/320-no_basemap.png",
-      "sha256": "001454b8c5dff5a9083ef6c4dd365d834fa41a4ca417866a55037761ddcce59b",
-      "bytes": 62000
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/modeled-panel-browser/320-no_basemap.png",
+      "sha256": "5b09ba1c8d67baaeb1a0784674552f66887c979f938b855387cda8eae5dff413",
+      "bytes": 62148
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/1440-dated-source-component-1.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/sample-owned-chronology-components/1440-dated-source-component-1.png",
       "sha256": "502d0df28ba4803a71406489c22df01bfac60ceb1c0e4aca1cabee7661ba2e1d",
       "bytes": 81528
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/1440-disjoint-source-gap.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/sample-owned-chronology-components/1440-disjoint-source-gap.png",
       "sha256": "98fb904a7397bb7c3522dec58c9368f14356005dd2de2914b4977973fc486db5",
       "bytes": 100564
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/390-dated-source-component-1.png",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/sample-owned-chronology-components/390-dated-source-component-1.png",
       "sha256": "2a444df56ef655fc402cadc8c7df018475e97bd627be773bb8e75aac737669c5",
       "bytes": 64396
     },
     {
-      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/owned-occurrence-browser-capture/execution/observations/sample-owned-chronology-components/390-disjoint-source-gap.png",
-      "sha256": "decdd1ebc8cc303840768f0297845625fad5dfedc75716cc5dbcc6dfafc88282",
-      "bytes": 79321
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/sample-owned-chronology-components/390-disjoint-source-gap.png",
+      "sha256": "8204963f4157f73805627c495dd5c0d792233f0213974d3ef1cbb72d2e7bedcb",
+      "bytes": 79450
     }
   ],
   "source_custody_and_native_membership_passed": true,
   "scientific_admission": false,
-  "qualified_current_plan_sha256": "6c819d768c6e54d6944ea11749fca379643ed611e54c0a5317db9da7b0053ad0",
-  "qualified_current_terminal_sha256": "6b68fd15a7c4ae1d3d058eb7aeeaa323ab1db03b252edb513f800640923f0342",
+  "qualified_current_plan_sha256": "fa691b166ac2df9c69fd868dc62c7a11623936ba0eabe6f5484ed338801ba4e3",
+  "qualified_current_terminal_sha256": "150d9e7574eac940d8a3b0bba04e0f76b60aed553713cc6d65c692d01210d48d",
   "original_capture_preserved_sha256": "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd",
-  "native_source_review_sha256": "ba1bf7819b863879058f7a0d018cc2f2265fe9261c9d95f066b2e277b0ccf531",
-  "visual_review_sha256": "54678c4aa8c516aa00de0574cb1b60a7d47cf8caa2ec87c8d1e2ac0153707eba",
+  "native_source_review_sha256": "705aeb85958498a3ce7b531024d9ad7eecfcb465795721fc69b46fe78502cf11",
+  "visual_review_sha256": "8efdf0f7178a13004bede0f1875cffa29e0fd2cbba1c5af8a420aa44277115d0",
   "independent_human_scientific_review": false
 }

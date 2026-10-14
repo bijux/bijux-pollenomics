@@ -198,6 +198,7 @@ def _derive_svar_lake_candidates(
                     1
                     for point in direct_pollen_points
                     if occurrence_support_intervals(
+                        source_layer_key=point.layer_key,
                         temporal_semantics=point.temporal_semantics,
                         occurrence_supports=point.occurrence_supports,
                         time_start_bp=point.time_start_bp,
