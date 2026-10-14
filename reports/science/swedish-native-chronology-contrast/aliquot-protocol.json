@@ -1,0 +1,382 @@
+{
+  "schema_version": "swedish-paired-chronology-aliquot-uncertainty-protocol.v1",
+  "purpose": "Conditional paired chronology sensitivity under a newly declared aliquot counting model; no replacement of historical pooled-window marginal errors.",
+  "status": "prepared_not_executed",
+  "candidate": "fa783a83de162cd017701b1f7e83a5f542414a2b",
+  "input_root": "artifacts/science/nordic-chronology-admission/native-chronology-contrast/inputs",
+  "input_custody": {
+    "dataset-19909-sample-eligibility.json": {
+      "sha256": "7ba4825d625f8bbd39da9a2c9c16b4959d5f7e9d9c222e674032df8043859029",
+      "bytes": 241603
+    },
+    "dataset-21790-sample-eligibility.json": {
+      "sha256": "d04ce5d94d5efc98a3b217e05abaefc50d1d3ff8166f0af988b29f78e0728836",
+      "bytes": 225719
+    },
+    "dataset-4042-sample-eligibility.json": {
+      "sha256": "9336f5c9f87a967764ed444017163e52e1f7e3b617e07856ad9de8611d5ac9a1",
+      "bytes": 245476
+    },
+    "dataset-45311-sample-eligibility.json": {
+      "sha256": "2158063bb2936adf66c8200fdfae5cf6cb8e584dd9771f0d83788a7ff28854d9",
+      "bytes": 118585
+    },
+    "dataset-45314-sample-eligibility.json": {
+      "sha256": "3f81054e023da5e9b2db66a4dc443f9b4d3b5c8851c4cb2528a89e3333deb496",
+      "bytes": 98527
+    },
+    "native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "source-eligibility.json": {
+      "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+      "bytes": 4565333
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "protected_existing_controls": {
+    "reports/science/swedish-native-chronology-contrast/qualify.py": {
+      "sha256": "4d06db4ce402507800deed94b91cebc0f929e66ae8d8c8f0239014267e65b779",
+      "bytes": 16869
+    },
+    "reports/science/swedish-native-chronology-contrast/protocol.json": {
+      "sha256": "0a946428c5bbe139e3f58d38d5977b0597c56f302b02fde84ac6c41b42d9d503",
+      "bytes": 1219
+    },
+    "reports/science/swedish-native-chronology-contrast/source-custody.json": {
+      "sha256": "108ac1c7483501df7e3eb5261ca776b20f3cb98b3dcd2911474c1e4431ea1531",
+      "bytes": 1429
+    },
+    "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json": {
+      "sha256": "27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a",
+      "bytes": 125409
+    },
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": {
+      "sha256": "b3eceb04eb2ba5dd4a63ab95d699b0fffb6e287dda682638dfcb08c225e98771",
+      "bytes": 5401
+    },
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_fixed_site_covariance.py": {
+      "sha256": "d6c00766235d71c7efc78be128519919455e132a022a6f49b30591f93ec50697",
+      "bytes": 12022
+    }
+  },
+  "literal_axis": [
+    "Betula",
+    "Poaceae"
+  ],
+  "fixed_domain": {
+    "pairs": [
+      {
+        "dataset_id": 4042,
+        "collection_unit_id": 3915,
+        "reference_chronology_id": 25402,
+        "alternative_chronology_id": 25404,
+        "native_source_samples": 114,
+        "deposition": [
+          0.24897830966061812,
+          0.1733945122309757
+        ],
+        "static_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "12196",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "FLA",
+            "metadata_radius_m": 229.0,
+            "metadata_radius_source_literal": "229",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "114",
+            "metadata_site_name": "Lake Flarken",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-50",
+            "positive_static_radius_available": true,
+            "publication_row": 1008,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+      },
+      {
+        "dataset_id": 19909,
+        "collection_unit_id": 14908,
+        "reference_chronology_id": 11514,
+        "alternative_chronology_id": 11513,
+        "native_source_samples": 111,
+        "deposition": [
+          0.31313933141222455,
+          0.23182392771985522
+        ],
+        "static_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "9497",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "KLO",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "111",
+            "metadata_site_name": "Klotj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-60",
+            "positive_static_radius_available": true,
+            "publication_row": 1003,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+      },
+      {
+        "dataset_id": 21790,
+        "collection_unit_id": 15810,
+        "reference_chronology_id": 12503,
+        "alternative_chronology_id": 12504,
+        "native_source_samples": 101,
+        "deposition": [
+          0.31313933141222455,
+          0.23182392771985522
+        ],
+        "static_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10502",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "HOL",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "101",
+            "metadata_site_name": "Holtj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "15",
+            "positive_static_radius_available": true,
+            "publication_row": 999,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+      },
+      {
+        "dataset_id": 45311,
+        "collection_unit_id": 32166,
+        "reference_chronology_id": 29525,
+        "alternative_chronology_id": 29524,
+        "native_source_samples": 67,
+        "deposition": [
+          0.2063686193521438,
+          0.13732181390857723
+        ],
+        "static_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10558",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "VOUS",
+            "metadata_radius_m": 592.0,
+            "metadata_radius_source_literal": "592",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "67",
+            "metadata_site_name": "Vuoskkujavri",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 1051,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+      },
+      {
+        "dataset_id": 45314,
+        "collection_unit_id": 32168,
+        "reference_chronology_id": 29528,
+        "alternative_chronology_id": 29529,
+        "native_source_samples": 56,
+        "deposition": [
+          0.25626950961421463,
+          0.17979197638533007
+        ],
+        "static_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "8565",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "ALAN",
+            "metadata_radius_m": 195.0,
+            "metadata_radius_source_literal": "195",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "56",
+            "metadata_site_name": "Alanen Laanijarvi",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 971,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+      }
+    ],
+    "windows": 25,
+    "original_slots": 125,
+    "matched_slots": 106,
+    "reference_only_slots": 5,
+    "alternative_only_slots": 4,
+    "neither_slots": 10,
+    "original_samples": 449,
+    "changed_window_samples": 76,
+    "reference_only_samples": 3,
+    "both_refused_samples": 17,
+    "occupied_profile_windows": 221,
+    "joint_cover_axes": 442,
+    "paired_contrast_axes": 212,
+    "retain_historical_null_paired_SE_slots": 125
+  },
+  "age_selection": {
+    "age_type": "Calibrated radiocarbon years BP",
+    "source_epoch": "AD1950 documented Neotoma convention, not article date",
+    "membership": "Reuse exact maintained select() and its finite typed named-age/source-window equality guards; half-open bins from original protocol; retain missing/ambiguous/outside/allzero/refused tokens.",
+    "bounds": "No source interval distribution or probability inferred; alternate point profiles are deterministic selections."
+  },
+  "count_model": {
+    "primitive": "One immutable (collection_unit_id,dataset_id,native_sample_id) observation per selected source sample; aliases/count or digest clashes refuse. Native analysis-unit IDs also retained privately, not substituted for sample identity.",
+    "axis": "Exactly the common measured literal Betula/Poaceae panel, in this order, for every primitive and output; fixed N_i=n_i,Betula+n_i,Poaceae. Other NISP is excluded and separately retained, never inserted into the multinomial denominator.",
+    "covariance": "C_i=diag(n_i)-outer(n_i,n_i)/N_i; plugin conditional multinomial with integer measured counts, positive panel total; count sources never independently renormalized per profile.",
+    "independence": "Distinct counted native samples are conditionally independent counting observations, including samples in one core. This does not assert ecological, environmental, sediment or temporal independence. Same sample in different profiles/windows is the same primitive observation.",
+    "selection": "All membership fixed conditional on the two native point chronology selections. Different chronology profiles are not independent replicate sites.",
+    "no_imputation": "Missing/unmeasured axis, ambiguous literal mapping, negative/fractional/bool counts, zero total and absent source windows refuse; explicit measured taxon zero remains permitted."
+  },
+  "ppe_model": {
+    "ppe": [
+      5.106,
+      1.0
+    ],
+    "sd": [
+      0.303,
+      0.0
+    ],
+    "covariance": [
+      [
+        0.091809,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "source": "Exact original source protocol/public-profile input magnitudes retained. Diagonal taxon covariance and one global two-axis shared PPE vector across all cores, windows and chronologies are declared working assumptions, not an estimated cross-core PPE covariance.",
+    "count_independence": "Counts and PPE have zero cross-covariance conditional on this scenario; unsupported correlated/endogenous PPE is outside scope."
+  },
+  "physical_model": {
+    "profile": "metadata_radius_wind_3",
+    "binding": "Read exact factors from both saved profiles at every occupied window and require parity with pair-specific source facts above; factor, radius candidate, PPE and literal axes hashed. No quadrature or new geometry or wind.",
+    "scope": "Static radius candidates remain unauthenticated historical geometry; source site/core handles and rights restrictions unchanged."
+  },
+  "algebra": {
+    "point": "n_h=sum_{i in I_h} n_i; a_h=1/(k_h*p); w_h=n_h*a_h; W_h=sum(w_h); q_h=w_h/W_h. Exactly the retained original closure under matching factors and source membership.",
+    "count_J": "J_hi=(identity-q_h[:,None])*a_h[None,:]/W_h for i in I_h, otherwise zero.",
+    "ppe_H": "H_h=-(identity-q_h[:,None])*(q_h/p)[None,:].",
+    "joint": "Ccount[A,B]=sum_{i in intersection(I_A,I_B)} J_A C_i J_B.T; Cppe[A,B]=H_A Cp H_B.T; Ctotal=Ccount+Cppe. Across cores counting cross-covariance is zero; shared PPE cross-covariance remains.",
+    "contrast": "D maps alternative minus reference on exactly106 matched slots, both literal axes. Propagate D C D.T including all cross-slot and cross-core blocks, not only marginal sums.19 unpaired slots keep null contrasts/SEs and exact refusals.",
+    "marginal_departure": "Original pooled-window Cpool=diag(sum_i n_i)-outer(sum_i n_i,sum_i n_i)/sum_i N_i differs from sum_i C_i. Report actual old/new counting, PPE and total marginal differences at every221 occupied output. Point and PPE marginals must match; counting equality is not required. Never overwrite the original125 paired-null report.",
+    "conditioning_identity": "C_pool-sum_i C_i=sum_i N_i outer(p_i-p_pool,p_i-p_pool) is PSD on the same fixed two-taxon axis; propagate via the same result count Jacobian. New counting marginal variance must not exceed old pooled counting variance beyond scale-aware tolerance. This expresses different conditioning, not improved accuracy."
+  },
+  "public_API_proposal": {
+    "boundary": "Existing joint_fixed_site_covariance refuses same-unit alternate chronology overlap and uses one pooled multinomial per result. Preserve it and all its existing refusals.",
+    "module": "reconstruction/joint_aliquot_covariance.py",
+    "objects": [
+      "AliquotCountInput",
+      "AliquotResultInput",
+      "JointAliquotCovariance",
+      "joint_aliquot_covariance"
+    ],
+    "identities": "Primitive observation binds native collection unit,dataset,sample,source SHA256,common parameter axis,measuredmask,integercount vector. Results bind unique result ID,nonempty unique observation IDs,exactcommon parameter axis and positive deposition. No chronology-specific aliasing of primitives.",
+    "validation": "All observations referenced, no duplicate native identity even with different digest, no duplicate results or member IDs, no unknown observation, no mismatched axes/unmeasured taxa, positive finite PPE/deposition/correction and covariancePSD. Explicit counting and count/PPE independence booleans; finite budgets <=512 observations,256 results,1536 cover axes. Count inputs require explicit numeric ndarrays, so mixed bool lists cannot silently become integer counts. Native(dataset,sample) cannot alias across collectionunits. Jacobian allocation capped at16,777,216 elements; finite derivatives before covariance; finite normalized symmetry checked before eigensolver.",
+    "outputs": "Global cover,count/PPE Jacobians,count/PPE/total covariance,distinct observation counts,result IDs/slices and finite declared profile. No calendar labels or historical metadata fabricated by numerical API."
+  },
+  "independent_oracle": {
+    "implementation": "Separate source-specific no-production-helper Decimal50 scalar algebra from exact decimal strings of retained binary64 values and integer counts. Derive q/J/H independently via quotient rule. Independent same-sample intersections and v_i=n_i0*n_i1/N_i scalar form for the two-axis covariance; explicit count/PPE/total blocks and D contrasts.",
+    "scope": "Compare every442 cover scalar; all three442x442 joint matrices; all three212x212 contrast matrices; Jacobians and all old/new marginal declarations. Do not call production Jacobian/covariance/normalization functions.",
+    "tolerances": {
+      "point_and_saved_PPE_absolute": 2e-13,
+      "Decimal50_scalar_absolute": 2e-13,
+      "symmetry_absolute": 2e-13,
+      "closure_J_H_absolute": 2e-13,
+      "PSD_min_eigenvalue_normalized": -1e-10,
+      "identical_selection_contrast_absolute": 2e-13,
+      "matrix_absolute_floor": 1e-18,
+      "matrix_relative": 5e-10,
+      "nearzero_matrix_scale": 1e-14,
+      "matrix_nearzero_absolute": 5e-18
+    },
+    "positives": [
+      "Identical sample sets and response => zero contrast and variance",
+      "Disjoint sets => zero counting cross block, global PPE cross block retained",
+      "Single pooled observation equals existing public joint API for exactly matched configuration",
+      "Arbitrary source-sample order invariance",
+      "Weighted between-aliquot composition PSD identity and new<=old propagated count marginals",
+      "Identical membership with different factors may have nonzero contrast/variance; zero cancellation requires identical response too",
+      "Zero measured count axes retain finite derivatives and correct zero variance without marking absent taxa measured"
+    ],
+    "negative_controls": [
+      "Duplicate primitive native identity/count/source aliases refuse",
+      "Missing/unknown/duplicate observation membership refuses",
+      "Unmeasured/fractional/bool/negative/allzero counts refuse",
+      "Malformed PPE/deposition, overflowing correction/nonPSD covariance refuse",
+      "Undeclared sample independence/countPPE independence refuse",
+      "Original pooled API alternate chronology overlap refusal preserved",
+      "Naive independent profile count blocks differ from shared-source oracle where support overlaps",
+      "Independent PPE per core/profile differs from one global PPE oracle",
+      "Pooled-window count marginal cannot be substituted for per-aliquot marginal where source compositions differ",
+      "Contradictory saved point/factor/PPE/source membership refuses",
+      "Reused native sample under changed digest/count cannot create a new independent primitive",
+      "Source sample aliases across native collection units/datasets require actual source identity, never invented chronology IDs",
+      "Mixed boolean list counts refuse before integer coercion",
+      "Finite observation/result/Jacobian memory budgets refuse before expensive allocation"
+    ],
+    "tolerance_rule": "Points/Jacobians use stated2e-13 absolute tolerance. Every covariance scalar additionally must satisfy abs(error)<=1e-18+5e-10*max(abs(expected),abs(actual)); if both scalars <=1e-14 require abs(error)<=5e-18. Record maximum absolute and scaled residuals, no silent floor replacement of actual matrix values."
+  },
+  "products": {
+    "public": "Aggregate declared model/support counts, maxima and retained limitations; reader linked from existing primary, no new primary claim required.",
+    "private": "Full sample memberships/count vectors/native age controls,442x442 matrices/Jacobians,125slot outputs and212x212 paired contrasts, scalar oracle comparisons and exact source/protocol hashes remain owned artifacts, no raw redistribution decision inferred."
+  },
+  "resources": {
+    "consumer_wall_seconds": 180,
+    "memory_bytes": 1610612736,
+    "memory_enforcement": "portable postrun peakRSS qualification, wall alarm enforced",
+    "numeric_threads": 1,
+    "network": false,
+    "R": false,
+    "quadrature": false,
+    "fitting": false,
+    "model_selection": false,
+    "expected_output_ceiling_bytes": 100663296,
+    "source_input_bytes": 12657372
+  },
+  "acceptance_limits": [
+    "This is a new first-order fixed-support counting/PPE covariance scenario, not chronology posterior propagation or calibrated interval coverage.",
+    "No independent chronology accuracy, environmental independence, biological whole-vegetation accuracy, historical LandClim reproduction, source licensing/review, or untouched validation admitted.",
+    "Original deterministic point contrasts and all missing/refused populations remain authoritative for their original scope; original pooled marginal SEs remain untouched.",
+    "Current uncertainty describes conditional local delta approximation and retains all poor/unchanged effects, exact zeros and failures.",
+    "Empirical per-aliquot taxon zero may yield degenerate plug-in count variance and understate finite-sample uncertainty. Report one-taxon-only primitives and exact-zero marginals/contrasts explicitly; variance reduction is changed conditioning, not measured precision gain."
+  ],
+  "predecessor_protocol_sha256": "302f022c17b563f179a2fc700859e439b2cc09378ed689a50584cf3d91164ec5"
+}

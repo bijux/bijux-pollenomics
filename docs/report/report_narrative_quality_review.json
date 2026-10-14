@@ -3408,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "af15f004d87da5a6bdcdfd01875c79b45925996802c81c1a56302a706e3b0246",
+      "content_sha256": "37873a2286bb5832c2c46dd36f0caad7b7ddca0781136e073953aac50fb9e18e",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3419,7 +3419,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "1225a00be46497ba24b0405c5f12d79887263e484490f01ae2f5c6ccde5bf724",
+      "content_sha256": "adafe711bd4c7eb86867056aed411b9e4834fda5d0fdca068e65a2203f2e463e",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,
@@ -3441,7 +3441,7 @@
     },
     {
       "repository_path": "docs/report/reviews/index.md",
-      "content_sha256": "79efe413979386539d04b210c506ca3683c329879861990bd8cc105775cbf474",
+      "content_sha256": "358617c0ccdd6921d037c832a5ba66064df2b677f25ef00f334eee5c5125ffc1",
       "prose_paragraph_count": 3,
       "link_bullet_count": 6,
       "bullet_sentence_count": 4,
@@ -3452,7 +3452,7 @@
     },
     {
       "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "805be9b9aaafe6fc3837efb8fa2e804dc8c43b14b0c78b88b0716e07592b4304",
+      "content_sha256": "4a30abe508db327909986a1785b8f1869bf03fe8199d978a005236f68abda668",
       "prose_paragraph_count": 3,
       "link_bullet_count": 4,
       "bullet_sentence_count": 4,
@@ -3474,12 +3474,12 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
-      "content_sha256": "329ed79cca7bfcfffe5f18366700bda48185b13dccbd130a03ec694f5889c6e5",
-      "prose_paragraph_count": 20,
-      "link_bullet_count": 3,
+      "content_sha256": "20942c7c6fae951b17e72a555a31444b8daef2a06cf0a1f4ea8d394f035d31b7",
+      "prose_paragraph_count": 26,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 6,
-      "table_line_count": 7,
+      "heading_count": 7,
+      "table_line_count": 14,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },

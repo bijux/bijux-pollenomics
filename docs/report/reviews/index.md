@@ -30,4 +30,4 @@ supported by sample, chronology, coordinate, intake, and cross-family evidence.
 
 ## Current Count
 
-- review artifacts: `33`
+- review artifacts: `35`

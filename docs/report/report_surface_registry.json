@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2091,
+  "surface_count": 2093,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,16 +11,16 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1192,
+    "maintenance": 1196,
     "maps": 88,
     "portal": 2,
-    "reviews": 38,
+    "reviews": 36,
     "scopes": 761
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1194,
+    "maintainer_diagnostic": 1198,
     "public_reading_surface": 770,
-    "scientific_review_surface": 127
+    "scientific_review_surface": 125
   },
   "geography_counts": {
     "denmark": 49,
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1245,
+    "report_root": 1247,
     "sweden": 49,
     "world": 160
   },
@@ -20360,7 +20360,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "af15f004d87da5a6bdcdfd01875c79b45925996802c81c1a56302a706e3b0246",
+      "content_sha256": "37873a2286bb5832c2c46dd36f0caad7b7ddca0781136e073953aac50fb9e18e",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -20373,7 +20373,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "1225a00be46497ba24b0405c5f12d79887263e484490f01ae2f5c6ccde5bf724",
+      "content_sha256": "adafe711bd4c7eb86867056aed411b9e4834fda5d0fdca068e65a2203f2e463e",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -20399,7 +20399,7 @@
     },
     {
       "repository_path": "docs/report/reviews/index.md",
-      "content_sha256": "79efe413979386539d04b210c506ca3683c329879861990bd8cc105775cbf474",
+      "content_sha256": "358617c0ccdd6921d037c832a5ba66064df2b677f25ef00f334eee5c5125ffc1",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "public_reading_surface",
@@ -20412,7 +20412,7 @@
     },
     {
       "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "805be9b9aaafe6fc3837efb8fa2e804dc8c43b14b0c78b88b0716e07592b4304",
+      "content_sha256": "4a30abe508db327909986a1785b8f1869bf03fe8199d978a005236f68abda668",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -20486,7 +20486,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
-      "content_sha256": "329ed79cca7bfcfffe5f18366700bda48185b13dccbd130a03ec694f5889c6e5",
+      "content_sha256": "20942c7c6fae951b17e72a555a31444b8daef2a06cf0a1f4ea8d394f035d31b7",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -25219,27 +25219,27 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/report.json",
-      "family": "reviews",
-      "family_label": "Evidence reviews",
-      "audience": "scientific_review_surface",
-      "audience_label": "Scientific review surface",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
-      "reader_route": "evidence_review"
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/source-account.json",
-      "family": "reviews",
-      "family_label": "Evidence reviews",
-      "audience": "scientific_review_surface",
-      "audience_label": "Scientific review surface",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
-      "reader_route": "evidence_review"
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json",
@@ -25436,6 +25436,30 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/native-memory/source-context.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

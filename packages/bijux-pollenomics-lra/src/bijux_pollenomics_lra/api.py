@@ -46,6 +46,12 @@ from bijux_pollenomics_lra.reconstruction.fixed_site_covariance import (
     fixed_site_cover_covariance,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance import (
+    AliquotCountInput,
+    AliquotResultInput,
+    JointAliquotCovariance,
+    joint_aliquot_covariance,
+)
 from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
     ConditionalResultInput,
     CountSupport,
@@ -95,6 +101,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.reveals.multisite.publication-source",
             "lra.reveals.multisite.fixed-site-delta-covariance",
             "lra.reveals.multisite.joint-fixed-site-delta-covariance",
+            "lra.reveals.multisite.joint-aliquot-delta-covariance",
             "lra.reveals.multisite.joint-site-count-ppe-draws",
             "lra.love.analytical",
             "lra.love.analytical.fall-speed-profile."
@@ -116,6 +123,10 @@ def extension_descriptor() -> dict[str, Any]:
 
 
 __all__ = [
+    "AliquotCountInput",
+    "AliquotResultInput",
+    "JointAliquotCovariance",
+    "joint_aliquot_covariance",
     "BasinType",
     "ConvergenceError",
     "ConditionalResultInput",

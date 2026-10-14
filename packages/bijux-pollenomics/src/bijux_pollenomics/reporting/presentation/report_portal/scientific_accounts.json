@@ -4249,17 +4249,17 @@
       ],
       "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
       "qualification": {
-        "authored_reader_sha256": "65eb96777eb5a7b6b479701b07635cd68de9298265bca5855979b99d0987e84a",
+        "authored_reader_sha256": "9ebb8437660cd4ee9aa93e5e74091175ea36834b38e2feaaf76216f5ea9a5e4b",
         "fields": {
-          "supported_claim": "All retained same-dataset native calibrated chronology pairs in the Swedish common panel yield conditional Betula/Poaceae contrasts on the complete 125 pair/window domain. The comparison reconciles actual sample membership without refitting ages or rerunning reconstruction.",
-          "unsupported_claim": "A more accurate chronology, measured vegetation change, whole-landscape cover, historical LandClim reproduction, independent samples under alternate ages or paired standard errors without an explicit cross-chronology covariance model.",
-          "actual_verification_performed": "The reader and aggregate comparison were inspected. The retained bounded consumer reconciles native identities and pooled counts; independent Decimal 50 checks cover 898 sample-side memberships,663 pooled-support count cells,442 cover cells and 212 contrasts, with discrepancy below 2.04e-16 at unchanged 2e-13 tolerance. This qualification reruns no age/model/physical consumer.",
-          "remaining_input_or_review": "Unknown raw age bounds and missing cross-chronology covariance remain explicit. Point-window changes alter pooled counts and sometimes cohort membership; native calibrated-BP scale and AD 1950 datum do not identify historical chronology selection or chronological accuracy.",
+          "supported_claim": "The original deterministic comparison retains all 125 chronology/window combinations. A separate model of counting error per aliquot and shared PPE uncertainty now gives conditional joint covariance on 442 axes and 212 matched contrast axes. Its point estimates agree with the retained comparison.",
+          "unsupported_claim": "An age-model probability distribution, better chronology or vegetation accuracy, environmental independence, calibrated interval coverage, historical LandClim reproduction or empirically estimated shared-PPE covariance. The new counting model does not replace the original pooled-window marginal errors.",
+          "actual_verification_performed": "The public API and maintained consumer passed 83 focused tests, strict typing, lint and format checks. An independent Decimal50 calculation checked 1,105,676 scalar values, including 720,924 covariance cells. All 28,456 source and runtime pins stayed unchanged. Point differences were below 1.85 \u00d7 10\u207b\u00b9\u2076; joint and contrast covariance errors were below 1.15 \u00d7 10\u207b\u00b9\u2078 and satisfied the frozen scale-aware bounds. No new source capture, quadrature, calibration or age fit was performed.",
+          "remaining_input_or_review": "Raw age bounds remain unknown. Cross-profile covariance is conditional on plug-in multinomial counts for each aliquot and one global diagonal PPE covariance; it is not a source age posterior. Historical geometry and selection, biological and environmental dependence, independent chronology and vegetation accuracy, qualified review and rights decisions remain open.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
-          "consequence": "Preserve absent and one-sided windows as null contrasts and keep chronology order descriptive. Neither near-equal sample totals nor marginal covariance supplies independent paired uncertainty or an ecological history.",
-          "precise_next_acceptance_route": "Declare and qualify a source-compatible joint age/membership and cross-chronology count/PPE model before paired uncertainty; use external chronology evidence for age-quality claims and independent matched vegetation for ecological claims. Historical reproduction needs the actual selected historical source/preparation identity.",
-          "negative_or_refused_result": "Of 125 slots,5 have only the first model,4 only the second and 10 neither; all 19 retain null contrasts.3 samples are selected only by the first model and 17 are outside both;76 shared-selected samples migrate windows. Paired SEs are withheld.",
-          "matched_denominator": "5 same-native-dataset chronology pairs \u00d725 windows =125 slots:106 paired,5 first-only,4 second-only,10 empty.449 source samples supply 898 sample-side checks;76 change windows while selected in both and 3 more leave the second cohort. The panel is 2 literal taxa; no new physical quadrature or observations are added."
+          "consequence": "Preserve the original 125 null paired standard errors and pooled marginals. All 19 unpaired combinations also remain null in the new scenario. Identical membership and response can cancel to exact zero contrast covariance; narrower conditional variance does not establish improved accuracy.",
+          "precise_next_acceptance_route": "Qualify a source age and membership probability model before describing chronology-distribution uncertainty. Obtain external chronology and matched vegetation evidence for accuracy. Qualify sample dependence and PPE uncertainty empirically before interpreting conditional delta standard errors as calibrated intervals.",
+          "negative_or_refused_result": "The 19 unpaired combinations comprise five reference-only, four alternative-only and ten empty combinations. Three samples leave the second cohort and 17 are refused by both. Identical support and response produce 44 exact zero contrast variances in 22 combinations. No zero taxon axis or degenerate primitive covariance occurs among the 432 selected samples. Generic taxon-zero plug-in undercoverage remains a limitation; the existing pooled-overlap and extreme-arithmetic refusals are preserved.",
+          "matched_denominator": "449 source samples supply 432 selected counting primitives across five native same-dataset chronology pairs and 25 windows: 125 combinations, 106 matched and 19 unpaired. The 221 occupied profile windows produce 442 joint axes and 212 matched contrast axes. Of the shared selected samples, 76 migrate windows. Each sample uses a fixed total over two literal taxa; unparameterized NISP is excluded."
         },
         "evidence_pins": [
           {
@@ -4269,6 +4269,14 @@
           {
             "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
             "sha256": "b760890e945c1efdbd3a7c5a81f986d50da762945f8220136da7a4953d34ea58"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty.json",
+            "sha256": "248c94af458b2f941426ef518b4a2493b772bcd3501b6208eb3106049cb8c5a4"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty-source.json",
+            "sha256": "a68a0568f8298f78d394c015ce4f951a208d81ebd327b7e12a33c6ec08559a72"
           }
         ]
       }
