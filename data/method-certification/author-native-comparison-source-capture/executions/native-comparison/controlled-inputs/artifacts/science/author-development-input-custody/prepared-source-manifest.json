@@ -1,0 +1,55 @@
+{
+  "schema_version": "author-development-original-input-source.v1",
+  "source_only": true,
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "de9f5e823bc1395c0bf8b22d4a7588030442c0fac35e288ba110945b9b2df675",
+      "bytes": 2463
+    },
+    {
+      "path": "observe.py",
+      "sha256": "a3be2eb5e0787c5ea6ace07bf5cb5097073a24a201507d34b5a953136f746536",
+      "bytes": 5411
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "16febdccb67bd1fb5a555c7e582593ed313037db718805228c7db9f69c72c536",
+      "bytes": 9406
+    },
+    {
+      "path": "run.py",
+      "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+      "bytes": 3690
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "0e7c66999b0beb6a52ce73262da8b6fdf31288fc33a7d97a4d15a3e309923442",
+      "bytes": 2378
+    },
+    {
+      "path": "source-checks/final-checks.json",
+      "sha256": "82b259118e1fcadbed6678b7f8e7dc887d59de84fabbe7edeec07e66465022f1",
+      "bytes": 2268
+    }
+  ],
+  "source_controls": 11,
+  "all_source_checks_passed": true,
+  "actual_preparer_or_producer_executed": false,
+  "upstream_source_imports": "artifacts/science/additional-author-owner-admission/source-import-review.json",
+  "root_requirement": "Independent finite source review before actual prepare/register/readback/separate launch; current exact clean candidate dynamic.",
+  "resource_scope": {
+    "sequential_stages": 5,
+    "stage_timeout_seconds": [
+      120,
+      60,
+      60,
+      60,
+      60
+    ],
+    "overall_seconds": 420,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_output_bytes_with_16KiB_reserve": 67108864,
+    "numerical_threads": 1
+  }
+}

@@ -1,0 +1,642 @@
+[
+  {
+    "draw": 0,
+    "converged": true,
+    "optimality_gap": 2.5587454488551487e-08,
+    "mean_negative_log_likelihood": 1.014024172453369,
+    "steps": 81,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.825053878789305,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 1,
+    "converged": true,
+    "optimality_gap": 6.922402984166354e-08,
+    "mean_negative_log_likelihood": 1.0140071351969298,
+    "steps": 81,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 53.613201879209434,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 2,
+    "converged": true,
+    "optimality_gap": 8.858100919439948e-09,
+    "mean_negative_log_likelihood": 1.0137108906183054,
+    "steps": 88,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.696120317587798,
+    "forward_max_abs": 2.7755575615628914e-17
+  },
+  {
+    "draw": 3,
+    "converged": true,
+    "optimality_gap": 1.523214909759929e-08,
+    "mean_negative_log_likelihood": 1.0147258441235207,
+    "steps": 85,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.852071081976467,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 4,
+    "converged": true,
+    "optimality_gap": 2.42227888858082e-08,
+    "mean_negative_log_likelihood": 1.0143328949614026,
+    "steps": 117,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.969173945909045,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 5,
+    "converged": true,
+    "optimality_gap": 8.740010015717559e-08,
+    "mean_negative_log_likelihood": 1.013608421584358,
+    "steps": 74,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.727796545014282,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 6,
+    "converged": true,
+    "optimality_gap": 1.714237252148365e-08,
+    "mean_negative_log_likelihood": 1.0143416797270124,
+    "steps": 86,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 19.48032210187776,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 7,
+    "converged": true,
+    "optimality_gap": 1.0965615748759205e-08,
+    "mean_negative_log_likelihood": 1.01341809009705,
+    "steps": 100,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.984065217693692,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 8,
+    "converged": true,
+    "optimality_gap": 5.661025848091583e-08,
+    "mean_negative_log_likelihood": 1.0133363806816242,
+    "steps": 92,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 17.15112720469208,
+    "forward_max_abs": 5.551115123125783e-16
+  },
+  {
+    "draw": 9,
+    "converged": true,
+    "optimality_gap": 5.659259327828181e-08,
+    "mean_negative_log_likelihood": 1.0134377284896263,
+    "steps": 97,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 14.067392697612126,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 10,
+    "converged": true,
+    "optimality_gap": 4.862752145395888e-08,
+    "mean_negative_log_likelihood": 1.013993479934205,
+    "steps": 76,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.650561543725912,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 11,
+    "converged": true,
+    "optimality_gap": 2.3301923501861665e-08,
+    "mean_negative_log_likelihood": 1.013916128278172,
+    "steps": 92,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 27.15016840833105,
+    "forward_max_abs": 6.938893903907228e-18
+  },
+  {
+    "draw": 12,
+    "converged": true,
+    "optimality_gap": 8.140311213988838e-08,
+    "mean_negative_log_likelihood": 1.012721894350555,
+    "steps": 74,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 9.266277247520472,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 13,
+    "converged": true,
+    "optimality_gap": 7.826780645814324e-08,
+    "mean_negative_log_likelihood": 1.0143623386874108,
+    "steps": 75,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.534654091201961,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 14,
+    "converged": true,
+    "optimality_gap": 8.56732088605483e-08,
+    "mean_negative_log_likelihood": 1.0137426571193404,
+    "steps": 78,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.105726062417014,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 15,
+    "converged": true,
+    "optimality_gap": 7.393102108288474e-08,
+    "mean_negative_log_likelihood": 1.0145301499057529,
+    "steps": 77,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.358529771966756,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 16,
+    "converged": true,
+    "optimality_gap": 9.823358781968494e-08,
+    "mean_negative_log_likelihood": 1.0134872364304321,
+    "steps": 125,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 14.778538530811986,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 17,
+    "converged": true,
+    "optimality_gap": 7.40500432083735e-08,
+    "mean_negative_log_likelihood": 1.0138985760881865,
+    "steps": 76,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 9.791604623508569,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 18,
+    "converged": true,
+    "optimality_gap": 2.9829208880727265e-08,
+    "mean_negative_log_likelihood": 1.0142216432631113,
+    "steps": 128,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 19.324105052907036,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 19,
+    "converged": true,
+    "optimality_gap": 1.253951942281617e-08,
+    "mean_negative_log_likelihood": 1.0146129017509173,
+    "steps": 90,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.073952308855198,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 20,
+    "converged": true,
+    "optimality_gap": 9.688881053016019e-08,
+    "mean_negative_log_likelihood": 1.014356532725697,
+    "steps": 72,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.318818567983632,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 21,
+    "converged": true,
+    "optimality_gap": 3.731812725504824e-08,
+    "mean_negative_log_likelihood": 1.0134729821200925,
+    "steps": 88,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.365032913021597,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 22,
+    "converged": true,
+    "optimality_gap": 3.950688221010523e-08,
+    "mean_negative_log_likelihood": 1.0139095638876419,
+    "steps": 91,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.105486269429322,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 23,
+    "converged": true,
+    "optimality_gap": 9.959748226151532e-08,
+    "mean_negative_log_likelihood": 1.0133678271877213,
+    "steps": 75,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.191883816203758,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 24,
+    "converged": true,
+    "optimality_gap": 7.998562134847731e-08,
+    "mean_negative_log_likelihood": 1.0138656221431148,
+    "steps": 91,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 9.327589356011956,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 25,
+    "converged": true,
+    "optimality_gap": 3.208163601442493e-08,
+    "mean_negative_log_likelihood": 1.014472207913061,
+    "steps": 87,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 27.801547290898377,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 26,
+    "converged": true,
+    "optimality_gap": 2.1411972084273145e-08,
+    "mean_negative_log_likelihood": 1.013265888146177,
+    "steps": 93,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 9.83334280433093,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 27,
+    "converged": true,
+    "optimality_gap": 1.8954889546840548e-08,
+    "mean_negative_log_likelihood": 1.013609061727474,
+    "steps": 92,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.96650847458127,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 28,
+    "converged": true,
+    "optimality_gap": 5.477964970523885e-09,
+    "mean_negative_log_likelihood": 1.0135087238379432,
+    "steps": 83,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.532754339682905,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 29,
+    "converged": true,
+    "optimality_gap": 2.3992293818331234e-08,
+    "mean_negative_log_likelihood": 1.0145298126360016,
+    "steps": 100,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.247548156566756,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 30,
+    "converged": true,
+    "optimality_gap": 3.61280867444691e-08,
+    "mean_negative_log_likelihood": 1.0133366260728216,
+    "steps": 78,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.921356716291525,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 31,
+    "converged": true,
+    "optimality_gap": 9.288188396183727e-08,
+    "mean_negative_log_likelihood": 1.0141767277446994,
+    "steps": 65,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.374879989153595,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 32,
+    "converged": true,
+    "optimality_gap": 8.754860947313148e-08,
+    "mean_negative_log_likelihood": 1.0145103784513867,
+    "steps": 67,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.414840818578618,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 33,
+    "converged": true,
+    "optimality_gap": 4.403640041505952e-08,
+    "mean_negative_log_likelihood": 1.0143637117428788,
+    "steps": 96,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.83136026698379,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 34,
+    "converged": true,
+    "optimality_gap": 2.3790499348308458e-08,
+    "mean_negative_log_likelihood": 1.013575843435762,
+    "steps": 117,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 22.88488969716121,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 35,
+    "converged": true,
+    "optimality_gap": 4.8711896405428945e-08,
+    "mean_negative_log_likelihood": 1.0147051227841295,
+    "steps": 97,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.25325676596335,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 36,
+    "converged": true,
+    "optimality_gap": 6.414929965004035e-08,
+    "mean_negative_log_likelihood": 1.014033184042537,
+    "steps": 96,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.005754222751632,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 37,
+    "converged": true,
+    "optimality_gap": 3.836480144681076e-08,
+    "mean_negative_log_likelihood": 1.0136040074923032,
+    "steps": 94,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 19.236591655539648,
+    "forward_max_abs": 2.7755575615628914e-17
+  },
+  {
+    "draw": 38,
+    "converged": true,
+    "optimality_gap": 3.5158811417801417e-08,
+    "mean_negative_log_likelihood": 1.014318137098706,
+    "steps": 72,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 22.629269063697066,
+    "forward_max_abs": 4.440892098500626e-16
+  },
+  {
+    "draw": 39,
+    "converged": true,
+    "optimality_gap": 8.592842948296209e-08,
+    "mean_negative_log_likelihood": 1.0143362814469334,
+    "steps": 71,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 14.175908662266025,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 40,
+    "converged": true,
+    "optimality_gap": 6.314217027014735e-08,
+    "mean_negative_log_likelihood": 1.0135403896023631,
+    "steps": 95,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.893990698795262,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 41,
+    "converged": true,
+    "optimality_gap": 5.066215358340287e-08,
+    "mean_negative_log_likelihood": 1.0134027980800067,
+    "steps": 112,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 11.80965875825936,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 42,
+    "converged": true,
+    "optimality_gap": 3.509844548332808e-08,
+    "mean_negative_log_likelihood": 1.0137837894617552,
+    "steps": 93,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.664961100902019,
+    "forward_max_abs": 5.204170427930421e-18
+  },
+  {
+    "draw": 43,
+    "converged": true,
+    "optimality_gap": 5.272289294033783e-08,
+    "mean_negative_log_likelihood": 1.0128522124003823,
+    "steps": 118,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.490290873373418,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 44,
+    "converged": true,
+    "optimality_gap": 5.830455540589696e-08,
+    "mean_negative_log_likelihood": 1.0132155967849013,
+    "steps": 85,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 11.180124144285108,
+    "forward_max_abs": 2.7755575615628914e-17
+  },
+  {
+    "draw": 45,
+    "converged": true,
+    "optimality_gap": 1.4814310445032675e-08,
+    "mean_negative_log_likelihood": 1.012428355203951,
+    "steps": 98,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 23.93677485222175,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 46,
+    "converged": true,
+    "optimality_gap": 5.979293826730014e-08,
+    "mean_negative_log_likelihood": 1.0126507604784285,
+    "steps": 100,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.371435142388028,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 47,
+    "converged": true,
+    "optimality_gap": 1.4079333032768204e-08,
+    "mean_negative_log_likelihood": 1.0133496253460095,
+    "steps": 109,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 16.967894041156732,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 48,
+    "converged": true,
+    "optimality_gap": 3.998877673438983e-08,
+    "mean_negative_log_likelihood": 1.0138249254331493,
+    "steps": 93,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 16.67767956585061,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 49,
+    "converged": true,
+    "optimality_gap": 5.303646299914533e-08,
+    "mean_negative_log_likelihood": 1.0138513121757602,
+    "steps": 97,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 16.47227320162574,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 50,
+    "converged": true,
+    "optimality_gap": 3.950705385058484e-08,
+    "mean_negative_log_likelihood": 1.0148969433116095,
+    "steps": 99,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.234857191537449,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 51,
+    "converged": true,
+    "optimality_gap": 2.988565994677117e-08,
+    "mean_negative_log_likelihood": 1.0136286249049267,
+    "steps": 83,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 15.545187424984583,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 52,
+    "converged": true,
+    "optimality_gap": 5.70324726334448e-08,
+    "mean_negative_log_likelihood": 1.0141437097011878,
+    "steps": 80,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.630624302046314,
+    "forward_max_abs": 1.3877787807814457e-17
+  },
+  {
+    "draw": 53,
+    "converged": true,
+    "optimality_gap": 2.7119152035126604e-08,
+    "mean_negative_log_likelihood": 1.0132926728307046,
+    "steps": 102,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 9.1846708540656,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 54,
+    "converged": true,
+    "optimality_gap": 1.8510400878746225e-08,
+    "mean_negative_log_likelihood": 1.0147039616863984,
+    "steps": 81,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.013489337636306,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 55,
+    "converged": true,
+    "optimality_gap": 1.8296632431358262e-08,
+    "mean_negative_log_likelihood": 1.0136972620145062,
+    "steps": 123,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 13.643277811851684,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 56,
+    "converged": true,
+    "optimality_gap": 5.475170583579825e-08,
+    "mean_negative_log_likelihood": 1.0152500734979433,
+    "steps": 86,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 23.74650544511215,
+    "forward_max_abs": 6.938893903907228e-18
+  },
+  {
+    "draw": 57,
+    "converged": true,
+    "optimality_gap": 1.8534760615196433e-08,
+    "mean_negative_log_likelihood": 1.0138888509025925,
+    "steps": 93,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 11.427721132551772,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 58,
+    "converged": true,
+    "optimality_gap": 9.41471480775391e-08,
+    "mean_negative_log_likelihood": 1.01310222829106,
+    "steps": 103,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 11.273174520494244,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 59,
+    "converged": true,
+    "optimality_gap": 5.455937701626112e-09,
+    "mean_negative_log_likelihood": 1.014228008626676,
+    "steps": 97,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 10.59812906826329,
+    "forward_max_abs": 2.220446049250313e-16
+  },
+  {
+    "draw": 60,
+    "converged": true,
+    "optimality_gap": 5.006305525689925e-08,
+    "mean_negative_log_likelihood": 1.0140879220420724,
+    "steps": 92,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 17.67420270007287,
+    "forward_max_abs": 3.3306690738754696e-16
+  },
+  {
+    "draw": 61,
+    "converged": true,
+    "optimality_gap": 8.29685244951861e-08,
+    "mean_negative_log_likelihood": 1.013197300184398,
+    "steps": 99,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.60807685058319,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 62,
+    "converged": true,
+    "optimality_gap": 4.096316641444275e-08,
+    "mean_negative_log_likelihood": 1.014230629177283,
+    "steps": 92,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.291816295028942,
+    "forward_max_abs": 1.1102230246251565e-16
+  },
+  {
+    "draw": 63,
+    "converged": true,
+    "optimality_gap": 6.367518978755982e-08,
+    "mean_negative_log_likelihood": 1.014511206023795,
+    "steps": 125,
+    "stop_reason": "gap_tolerance",
+    "vertex_condition_number": 12.719893101743494,
+    "forward_max_abs": 2.220446049250313e-16
+  }
+]

@@ -40562,17 +40562,10 @@
       "paths": [
         "docs/report/method-certification/petrkunes-r-comparison/native-report.json"
       ],
-      "producer_inputs": [
-        "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
-        "docs/report/method-certification/petrkunes-r-comparison/taxa.csv",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
-        "docs/report/method-certification/petrkunes-r-comparison/replay.R"
-      ],
-      "role": "unresolved",
-      "verification": "The original R grid bootstrap and native comparison use the private LandClim author files and reference taxon crosswalk, with exact SHA identities in native-report.json. The published reference CSVs cannot be regenerated from repository bytes alone; do not infer independent model validation."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Exact retained Python reference-comparison source capture authenticates the genuine full nine-site/31-taxon historical REVEALS Python execution, complete first-party registered source/input custody, external193-member private authority and current byte-identical native-report.json. Retained tagged-R draws/taxon CSVs are reference inputs; transport executes no R/model/optimizer and does not admit the separate historical R reference owner, ecological accuracy, source rights or human release acceptance."
     },
     {
       "owner_id": "method-certification/petrkunes-r-comparison/source-code",
@@ -81662,6 +81655,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",

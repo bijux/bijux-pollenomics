@@ -1,0 +1,146 @@
+{
+  "schema_version": "petrkunes-tagged-r-native-parity.v1",
+  "profile": "landclimii-2016-release-source-v1",
+  "source_r_release": "Petr Kunes LRA v0.1.2 commit d29075692ed730e3934bc461eb9081c404aef59b",
+  "grid_id": "512",
+  "window_midpoint_bp": 225,
+  "source_window_bounds_bp": [
+    100,
+    350
+  ],
+  "supplied_sites": 9,
+  "active_sites": 6,
+  "taxa": 31,
+  "site_bootstrap_draws": 1000,
+  "cover": {
+    "pairs": 31,
+    "finite_pairs": 31,
+    "undefined_masks_equal": true,
+    "max_absolute_error": 1.2195799925507345e-13,
+    "atol": 1e-11,
+    "rtol": 1e-10,
+    "passed": true
+  },
+  "standard_error": {
+    "pairs": 31,
+    "finite_pairs": 31,
+    "undefined_masks_equal": true,
+    "max_absolute_error": 2.864375403532904e-14,
+    "atol": 5e-08,
+    "rtol": 1e-09,
+    "passed": true
+  },
+  "source_faithful_not_corrected_uncertainty": true,
+  "independent_model_validation_claimed": false,
+  "private_inputs": [
+    {
+      "path": "author/run.REVEALS.files/site.list.512.csv",
+      "bytes": 192,
+      "sha256": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "bytes": 2476,
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_CUTHILL2.csv",
+      "bytes": 2452,
+      "sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "bytes": 2474,
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "bytes": 2367,
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "bytes": 2370,
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH11.csv",
+      "bytes": 2341,
+      "sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "bytes": 2350,
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "bytes": 2507,
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    },
+    {
+      "path": "author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+    },
+    {
+      "path": "author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918"
+    },
+    {
+      "path": "reference/taxon-name-crosswalk.csv",
+      "bytes": 930,
+      "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    {
+      "path": "author/bins.csv",
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f"
+    }
+  ],
+  "reference_inputs": [
+    {
+      "path": "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
+      "bytes": 12000,
+      "sha256": "1515f0b680e066bfc1810b0ce691e70dea56856076bf9a149c70d00f4efb9a45"
+    },
+    {
+      "path": "docs/report/method-certification/petrkunes-r-comparison/taxa.csv",
+      "bytes": 11038,
+      "sha256": "b37211fda3a692d1b903501a14323ab14820950d434f8a2953b9ea25a269b915"
+    }
+  ],
+  "code_inputs": [
+    {
+      "path": "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
+      "bytes": 8123,
+      "sha256": "91d389c42f98a3d876af95c2fcfcc384930be4e619872aacec6f1bb197908c78"
+    },
+    {
+      "path": "docs/report/method-certification/petrkunes-r-comparison/replay.R",
+      "bytes": 6590,
+      "sha256": "21bf40762f012ef15e2d596c6224f88ed13a01da024f25078ef071717764c78d"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+      "bytes": 9031,
+      "sha256": "6fd244753ce97bcdb93ae9514392d1196b1dc39cd2fad2047953dcdde35c44a4"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "bytes": 4200,
+      "sha256": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "bytes": 1645,
+      "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89"
+    }
+  ]
+}

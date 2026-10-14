@@ -1,0 +1,46 @@
+{
+  "schema_version": "author-lra-optimized-feasibility.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "source_request_sha256": "05802721173c2d8b30c042d0eca585b8c27b79dff82138aec0247611565774d5",
+  "source_cohort": "15 previously exposed English author sites, 1250-1750 cal BP",
+  "source_count_denominator": 20732,
+  "excluded_taxon": "Filipendula",
+  "excluded_taxon_fall_speed_m_s": 0.006,
+  "excluded_count_mass": 159,
+  "retained_count_mass": 20573,
+  "retained_taxa": 30,
+  "pilot_pair": {
+    "regional_site": "BECKHAM",
+    "local_site": "LARKBARR",
+    "excluded_regional_counts": 42,
+    "excluded_local_counts": 10
+  },
+  "rings": "two circular/homogeneous local annuli to 1000 m and one declared regional annulus from 1000 to 10000 m",
+  "method_profile": "ring-taxon-preserving optimized LOVE with source fall speeds, gpm-neutral distance weighting and standard 0.01-0.15 m/s fall-speed validation bounds",
+  "attempts": [
+    {
+      "request_sha256": "7d2b1da93b5490823c906d7c977a0d9a41dba2e21cafcd58c90c358313716dfa",
+      "max_iterations": 40,
+      "max_evaluations_per_run": 1000,
+      "repeats": 2,
+      "wall_limit_seconds": 180,
+      "outcome": "optimizer_nonconvergence",
+      "diagnostic": "4 of 4 optimization runs did not converge",
+      "product_published": false
+    },
+    {
+      "request_sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c",
+      "max_iterations": 120,
+      "max_evaluations_per_run": 20000,
+      "repeats": 1,
+      "wall_limit_seconds": 300,
+      "outcome": "optimizer_nonconvergence",
+      "diagnostic": "2 of 2 optimization runs did not converge",
+      "product_published": false
+    }
+  ],
+  "successful_lra_products": 0,
+  "held_out_predictions": 0,
+  "scores": 0,
+  "interpretation": "Bounded numerical feasibility negative result on one previously exposed training pair; not proof that all optimizer budgets or taxon axes fail, and not ecological skill, Swedish LRA admission or independent vegetation accuracy"
+}
