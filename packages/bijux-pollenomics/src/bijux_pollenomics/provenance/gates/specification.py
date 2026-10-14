@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,6 +16,19 @@ from .repository import _repository_root
 _DOC_COUNT_SHARD_COUNT = 2
 _DOC_COUNT_REDUCER_TIMEOUT_SECONDS = 120.0
 _PYTEST_GATE_TIMEOUT_SECONDS = 540.0
+
+
+def _source_pythonpath(root: Path) -> str:
+    """Resolve every workspace distribution from the same owned source tree."""
+    return os.pathsep.join(
+        str(root / "packages" / name / "src")
+        for name in (
+            "bijux-pollenomics",
+            "bijux-pollenomics-dev",
+            "bijux-pollenomics-lra",
+            "pollenomics",
+        )
+    )
 
 
 def _head_revision(root: Path) -> str:
@@ -44,6 +58,8 @@ def _doc_count_specification(
     root: Path, *, inputs: set[str], artifacts_directory: str, junit_path: str
 ) -> RecordedGateSpecification:
     """Specify the exact reducer that attests complete doc-count shard execution."""
+    from .temporary import temporary_paths
+
     python_path = root / "artifacts/root/check-venv/bin/python"
     receipt_root = root / "artifacts/execution-control/doc-count-shards"
     collection_plan = (
@@ -69,14 +85,16 @@ def _doc_count_specification(
     if node_path is not None:
         path_parts.append(str(Path(node_path).parent))
     path_parts.extend(("/usr/bin", "/bin"))
+    temporary, _ = temporary_paths(root, artifacts_directory, "doc-counts")
     environment = {
         "PATH": ":".join(path_parts),
-        "PYTHONPATH": str(root / "packages/bijux-pollenomics-dev/src"),
+        "PYTHONPATH": _source_pythonpath(root),
         "PYTHONPYCACHEPREFIX": str(root / f"{artifacts_directory}/pycache/doc-counts"),
         "PYTHONDONTWRITEBYTECODE": "1",
         "PYTHONIOENCODING": "utf-8",
         "LANG": "C",
         "LC_ALL": "C",
+        "TMPDIR": str(temporary),
     }
     return RecordedGateSpecification(
         gate_id="doc-counts",
@@ -95,6 +113,8 @@ def build_product_gate_specification(
     repository_root: Path, gate_id: str
 ) -> RecordedGateSpecification:
     """Return the repository-owned exact specification for a release gate."""
+    from .temporary import temporary_paths
+
     root = _repository_root(repository_root)
     try:
         test_names = _GATE_TESTS[gate_id]
@@ -125,6 +145,7 @@ def build_product_gate_specification(
             junit_path=junit_path,
         )
     pytest_path = root / "artifacts/root/check-venv/bin/pytest"
+    temporary, basetemp = temporary_paths(root, artifacts_directory, gate_id)
     argv = (
         str(pytest_path),
         "--rootdir",
@@ -135,6 +156,8 @@ def build_product_gate_specification(
         "-o",
         f"cache_dir={root}/{artifacts_directory}/pytest-cache/{gate_id}",
         f"--junitxml={root}/{junit_path}",
+        "--basetemp",
+        str(basetemp),
         *tests,
     )
     node_path = shutil.which("node")
@@ -144,7 +167,7 @@ def build_product_gate_specification(
     path_parts.extend(("/usr/bin", "/bin"))
     environment = {
         "PATH": ":".join(path_parts),
-        "PYTHONPATH": str(root / "packages/bijux-pollenomics/src"),
+        "PYTHONPATH": _source_pythonpath(root),
         "PYTHONPYCACHEPREFIX": str(root / f"{artifacts_directory}/pycache/{gate_id}"),
         "PYTHONDONTWRITEBYTECODE": "1",
         "PYTHONIOENCODING": "utf-8",
@@ -153,6 +176,7 @@ def build_product_gate_specification(
         ),
         "LANG": "C",
         "LC_ALL": "C",
+        "TMPDIR": str(temporary),
     }
     return RecordedGateSpecification(
         gate_id=gate_id,

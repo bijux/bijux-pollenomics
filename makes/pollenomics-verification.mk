@@ -19,6 +19,7 @@ POLLENOMICS_DOC_COUNT_PLAN := artifacts/execution-control/doc-count-plan/collect
 POLLENOMICS_DOC_COUNT_SHARD_ROOT := artifacts/execution-control/doc-count-shards
 POLLENOMICS_NODE_DIRECTORY := $(patsubst %/,%,$(dir $(shell command -v node 2>/dev/null)))
 POLLENOMICS_GATE_PATH := $(abspath $(ROOT_CHECK_VENV))/bin$(if $(POLLENOMICS_NODE_DIRECTORY),:$(POLLENOMICS_NODE_DIRECTORY)):/usr/bin:/bin
+POLLENOMICS_GATE_PYTHONPATH := $(CURDIR)/packages/bijux-pollenomics/src:$(CURDIR)/packages/bijux-pollenomics-dev/src:$(CURDIR)/packages/bijux-pollenomics-lra/src:$(CURDIR)/packages/pollenomics/src
 POLLENOMICS_GATE_TRUST_INPUTS := Makefile makes/pollenomics-verification.mk pyproject.toml packages/bijux-pollenomics/pyproject.toml uv.lock
 POLLENOMICS_PYTHON_SOURCES = $(shell find $(1) -type f -name '*.py' -print | LC_ALL=C sort)
 
@@ -178,8 +179,17 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/reporting/review) \
 	$(POLLENOMICS_DOC_COUNT_TESTS)
 
+define prepare_pollenomics_temporary_directory
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
+	PYTHONDONTWRITEBYTECODE=1 \
+	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance.gates.temporary \
+		--repository-root "$(CURDIR)" \
+		--directory "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/$(1)/tmp" \
+		$(if $(2),--directory "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/$(1)/pytest")
+endef
+
 define run_pollenomics_pytest_gate
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/$(1)" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance.gate_runner \
 		--repository-root "$(CURDIR)" \
@@ -189,13 +199,14 @@ define run_pollenomics_pytest_gate
 		--timeout-seconds "$(POLLENOMICS_GATE_TIMEOUT_SECONDS)" \
 		$(foreach input,$(3),--input "$(input)") \
 		--environment "PATH=$(POLLENOMICS_GATE_PATH)" \
-		--environment "PYTHONPATH=$(CURDIR)/packages/bijux-pollenomics/src" \
+		--environment "PYTHONPATH=$(POLLENOMICS_GATE_PYTHONPATH)" \
 		--environment "PYTHONPYCACHEPREFIX=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pycache/$(1)" \
 		--environment "PYTHONDONTWRITEBYTECODE=1" \
 		--environment "PYTHONIOENCODING=utf-8" \
 		--environment "HYPOTHESIS_DATABASE_DIRECTORY=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/hypothesis/$(1)" \
 		--environment "LANG=C" \
 		--environment "LC_ALL=C" \
+		--environment "TMPDIR=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/$(1)/tmp" \
 		-- \
 		"$(POLLENOMICS_VERIFICATION_PYTEST)" \
 		--rootdir "$(CURDIR)" \
@@ -203,13 +214,18 @@ define run_pollenomics_pytest_gate
 		-q \
 		-o "cache_dir=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pytest-cache/$(1)" \
 		--junitxml="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/$(1).junit.xml" \
+		--basetemp "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/$(1)/pytest" \
 		$(2)
 endef
 
 .PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition build-report-rebuild-owner assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 materialize-scientific-evidence: root-check-env ## Recreate policy-owned classification and propagation evidence
-	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.scientific_evidence \
+	$(call prepare_pollenomics_temporary_directory,scientific-evidence)
+	@TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/scientific-evidence/tmp" \
+	PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
+	PYTHONDONTWRITEBYTECODE=1 \
+	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics_dev.ci.scientific_evidence \
 		--repository-root "$(CURDIR)"
 
 verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministically
@@ -330,16 +346,19 @@ verify-doc-counts: root-check-env ## Record documentation and governed-count ver
 
 collect-doc-count-universe: root-check-env ## Collect the independent complete doc-count test universe
 	@test -n "$(GITHUB_SHA)"
+	$(call prepare_pollenomics_temporary_directory,doc-count-plan,pytest)
 	@mkdir -p "$(dir $(POLLENOMICS_DOC_COUNT_PLAN))"
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src:$(CURDIR)/packages/bijux-pollenomics/src" \
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/doc-count-plan" \
 	GITHUB_SHA="$(GITHUB_SHA)" \
+	TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/doc-count-plan/tmp" \
 	"$(POLLENOMICS_VERIFICATION_PYTEST)" \
 		--rootdir "$(CURDIR)" \
 		-c "$(CURDIR)/configs/pytest.ini" \
 		-q \
 		-o "cache_dir=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pytest-cache/doc-count-plan" \
 		--collect-only \
+		--basetemp "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/doc-count-plan/pytest" \
 		-p bijux_pollenomics_dev.ci.test_shards.plugin \
 		--bijux-shard-count=1 \
 		--bijux-shard-index=0 \
@@ -348,16 +367,19 @@ collect-doc-count-universe: root-check-env ## Collect the independent complete d
 
 verify-doc-count-shard: root-check-env ## Execute one exact partition of the doc-count tests
 	@test -n "$(GITHUB_SHA)" && test -n "$(DOC_COUNT_SHARD_INDEX)"
+	$(call prepare_pollenomics_temporary_directory,doc-count-$(DOC_COUNT_SHARD_INDEX),pytest)
 	@mkdir -p "$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)/$(DOC_COUNT_SHARD_INDEX)"
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src:$(CURDIR)/packages/bijux-pollenomics/src" \
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/doc-count-$(DOC_COUNT_SHARD_INDEX)" \
 	GITHUB_SHA="$(GITHUB_SHA)" \
+	TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/doc-count-$(DOC_COUNT_SHARD_INDEX)/tmp" \
 	"$(POLLENOMICS_VERIFICATION_PYTEST)" \
 		--rootdir "$(CURDIR)" \
 		-c "$(CURDIR)/configs/pytest.ini" \
 		-q \
 		-o "cache_dir=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pytest-cache/doc-count-$(DOC_COUNT_SHARD_INDEX)" \
 		--junitxml="$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)/$(DOC_COUNT_SHARD_INDEX)/results.junit.xml" \
+		--basetemp "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/doc-count-$(DOC_COUNT_SHARD_INDEX)/pytest" \
 		-p bijux_pollenomics_dev.ci.test_shards.plugin \
 		--bijux-shard-count=$(POLLENOMICS_DOC_COUNT_SHARD_COUNT) \
 		--bijux-shard-index=$(DOC_COUNT_SHARD_INDEX) \
@@ -366,7 +388,7 @@ verify-doc-count-shard: root-check-env ## Execute one exact partition of the doc
 
 attest-doc-count-shards: root-check-env ## Record one doc-count gate after exact shard reconciliation
 	@revision="$${GITHUB_SHA:-$$(git rev-parse HEAD)}"; \
-	PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance.gate_runner \
 		--repository-root "$(CURDIR)" \
 		--gate-id doc-counts \
@@ -375,12 +397,13 @@ attest-doc-count-shards: root-check-env ## Record one doc-count gate after exact
 		--timeout-seconds "$(POLLENOMICS_DOC_COUNT_REDUCER_TIMEOUT_SECONDS)" \
 		$(foreach input,$(POLLENOMICS_DOC_COUNT_INPUTS),--input "$(input)") \
 		--environment "PATH=$(POLLENOMICS_GATE_PATH)" \
-		--environment "PYTHONPATH=$(CURDIR)/packages/bijux-pollenomics-dev/src" \
+		--environment "PYTHONPATH=$(POLLENOMICS_GATE_PYTHONPATH)" \
 		--environment "PYTHONPYCACHEPREFIX=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pycache/doc-counts" \
 		--environment "PYTHONDONTWRITEBYTECODE=1" \
 		--environment "PYTHONIOENCODING=utf-8" \
 		--environment "LANG=C" \
 		--environment "LC_ALL=C" \
+		--environment "TMPDIR=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/doc-counts/tmp" \
 		-- \
 		"$(POLLENOMICS_VERIFICATION_PYTHON)" \
 		-m bijux_pollenomics_dev.ci.test_shards \
@@ -393,14 +416,17 @@ attest-doc-count-shards: root-check-env ## Record one doc-count gate after exact
 refresh-release-gates: verify-science verify-data verify-map verify-provenance verify-doc-counts ## Force-run and record every required local gate
 
 release-evidence-request: root-check-env ## Derive a request only from fresh existing gate records and governed inputs
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	$(call prepare_pollenomics_temporary_directory,release-evidence)
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
+	TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/release-evidence/tmp" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/release-evidence" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance request \
 		--repository-root "$(CURDIR)" \
 		--output "$(POLLENOMICS_RELEASE_EVIDENCE_REQUEST)"
 
 release-evidence: release-evidence-request ## Build canonical evidence without rerunning recorded gates
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
+	TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/release-evidence/tmp" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/release-evidence" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance write \
 		--repository-root "$(CURDIR)" \
@@ -408,7 +434,8 @@ release-evidence: release-evidence-request ## Build canonical evidence without r
 		--output "$(POLLENOMICS_RELEASE_EVIDENCE_OUTPUT)"
 
 verify-release-candidate: release-evidence ## Refuse a candidate unless canonical release evidence validates as ready
-	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	@PYTHONPATH="$(POLLENOMICS_GATE_PYTHONPATH)" \
+	TMPDIR="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/temporary/release-evidence/tmp" \
 	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/release-evidence" \
 	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance validate \
 		--repository-root "$(CURDIR)" \

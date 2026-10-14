@@ -57,9 +57,15 @@ def test_doc_count_gate_attests_exact_shard_receipt_reconciliation() -> None:
         "artifacts/execution-control/doc-count-shards",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards",
     } <= set(specification.input_paths)
-    assert dict(specification.environment)["PYTHONPATH"].endswith(
-        "/packages/bijux-pollenomics-dev/src"
-    )
+    assert dict(specification.environment)["PYTHONPATH"].split(os.pathsep) == [
+        str(REPOSITORY_ROOT / "packages" / name / "src")
+        for name in (
+            "bijux-pollenomics",
+            "bijux-pollenomics-dev",
+            "bijux-pollenomics-lra",
+            "pollenomics",
+        )
+    ]
     assert specification.timeout_seconds == 120.0
 
 
