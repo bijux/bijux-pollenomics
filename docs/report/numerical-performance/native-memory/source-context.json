@@ -1,0 +1,27 @@
+{
+  "historical_sources": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py": "b1f728fc54634800038b8bc71536d8dc7c289482b6ac72dfdf288fed7c315e7e",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp": "44b5c3893c713042fbe7537983fef2a424c2df0b837d4c4b92761b8c644f377d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py": "b171b8540f1fc57f170fbb2fd79a2f6b32312f73e48a22aee882d20f40d465cc",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py": "07a67fb736177b56b707676b0b6bd8f3a660b147effe852c921d3f4c1a888715",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6"
+  },
+  "measurement": {
+    "path": "docs/report/numerical-performance/native-memory/report.json",
+    "role": "Unchanged historical measured worker distributions; no timings, profile, source-map refresh or new memory experiment.",
+    "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
+  },
+  "qualification": "Exactly one Bandit import-suppression comment was removed. All other helper bytes and four other measured source files are unchanged. This qualifies source correspondence only, not current timing, RSS, platforms, kernel adoption or independent scientific admission.",
+  "schema_version": "native-memory-retained-source-context.v1",
+  "security_comment_delta": {
+    "change_count": 1,
+    "current_line": "import subprocess",
+    "current_sha256": "08cdb29a7557b9b3969b37e1adf86423cc002fe0859c4125a6e4296767f3a670",
+    "historical_git_blob": "a12660618ff907c81b3658a9e114ee73fe09343e",
+    "historical_sha256": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6",
+    "historical_source_path": "docs/report/numerical-performance/native-memory/retained-trusted-process.txt",
+    "original_line": "import subprocess  # nosec B404",
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+    "revision": "5f3fe303ef3e5cf1f4cf2b5e29da2b934844a331"
+  }
+}

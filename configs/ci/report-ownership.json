@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2093,
-  "paths_sha256": "c9ac1e7b5b4f0366291063e222c7fdce8ef3aa5629c18f7ac121985bae8b4b7c",
+  "path_count": 2095,
+  "paths_sha256": "7b44f8f00ca3f33e5667060b4481e4d0dbf4a11744d79eb3338358aadd4302ed",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -48539,6 +48539,26 @@
         "docs/report/regions/nordic/direct-pollen/predictions-NO.json"
       ],
       "verification": "Retained bounded source-correspondence receipt: actual historical/current prepare and current score using unchanged historical predictions; all10 publication products match,7 prepared products match and only runner identity differs. Current producer hash does not reattribute original predictions. This is not an ordinary configured full-study or new model qualification; a changed original source requires a fresh correspondence decision."
+    },
+    {
+      "owner_id": "numerical-performance/native-memory/retained-source-context",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/numerical-performance/native-memory/retained-trusted-process.txt",
+        "docs/report/numerical-performance/native-memory/source-context.json"
+      ],
+      "producer_paths": [
+        "reports/verify.py"
+      ],
+      "producer_inputs": [
+        "docs/report/numerical-performance/native-memory/report.json",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+      ],
+      "verification": "Read-only reports/verify.py verifies the pinned original1887B helper text against its original Git blob and historical SHA, accepts only the exact one-line Bandit import-suppression deletion, checks current helper/all4other source identities and preserves the original historical report hash/source map. Retained source-context/TXT are custody evidence,not current benchmark outputs or a new source-owner scientific admission. No memory/timing/profiling/native compiler replay is required for this exact reviewed security-comment correspondence."
     }
   ]
 }

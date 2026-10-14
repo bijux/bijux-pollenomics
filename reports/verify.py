@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import ast
 import csv
 import hashlib
 import json
@@ -10,7 +11,6 @@ from pathlib import Path
 import re
 import runpy
 from statistics import median
-
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORTS = ROOT / "reports"
@@ -212,10 +212,132 @@ def verify_native_forward() -> None:
             raise ValueError(f"Native forward decision changed: {shape}")
 
 
+NATIVE_MEMORY_SOURCE_CONTEXT_PATH = (
+    "docs/report/numerical-performance/native-memory/source-context.json"
+)
+NATIVE_MEMORY_SOURCE_CONTEXT_SHA256 = (
+    "7388b3a4b5c5aa2666902a0f77545fd90b38f4eb49f2b327eea7c4a11a87fe93"
+)
+NATIVE_MEMORY_SOURCE_CONTEXT = {
+    "schema_version": "native-memory-retained-source-context.v1",
+    "measurement": {
+        "path": "docs/report/numerical-performance/native-memory/report.json",
+        "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06",
+        "role": "Unchanged historical measured worker distributions; no timings, profile, source-map refresh or new memory experiment.",
+    },
+    "historical_sources": {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py": "b171b8540f1fc57f170fbb2fd79a2f6b32312f73e48a22aee882d20f40d465cc",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py": "b1f728fc54634800038b8bc71536d8dc7c289482b6ac72dfdf288fed7c315e7e",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp": "44b5c3893c713042fbe7537983fef2a424c2df0b837d4c4b92761b8c644f377d",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py": "07a67fb736177b56b707676b0b6bd8f3a660b147effe852c921d3f4c1a888715",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6",
+    },
+    "security_comment_delta": {
+        "revision": "5f3fe303ef3e5cf1f4cf2b5e29da2b934844a331",
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "historical_git_blob": "a12660618ff907c81b3658a9e114ee73fe09343e",
+        "historical_sha256": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6",
+        "current_sha256": "08cdb29a7557b9b3969b37e1adf86423cc002fe0859c4125a6e4296767f3a670",
+        "historical_source_path": "docs/report/numerical-performance/native-memory/retained-trusted-process.txt",
+        "original_line": "import subprocess  # nosec B404",
+        "current_line": "import subprocess",
+        "change_count": 1,
+    },
+    "qualification": "Exactly one Bandit import-suppression comment was removed. All other helper bytes and four other measured source files are unchanged. This qualifies source correspondence only, not current timing, RSS, platforms, kernel adoption or independent scientific admission.",
+}
+
+
+def _native_memory_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    """Reject duplicate custody fields rather than accepting last-key wins."""
+    result: dict[str, object] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("Native memory source context has duplicate keys")
+        result[key] = value
+    return result
+
+
+def _native_memory_source(root: Path, relative: str) -> bytes:
+    """Read a canonical regular custody member without following source links."""
+    path = Path(relative)
+    if (
+        path.is_absolute()
+        or not path.parts
+        or ".." in path.parts
+        or path.as_posix() != relative
+        or any(character in relative for character in "\\\n\r\0")
+    ):
+        raise ValueError("Native memory source path is not canonical")
+    source = root / path
+    if (
+        not source.is_file()
+        or source.stat().st_nlink != 1
+        or not source.resolve().is_relative_to(root.resolve())
+        or any(
+            member.is_symlink()
+            for member in (source, *source.parents)
+            if member.is_relative_to(root)
+        )
+    ):
+        raise ValueError("Native memory source is absent, linked or nonregular")
+    return source.read_bytes()
+
+
+def _native_memory_helper_delta(original: bytes, current: bytes) -> None:
+    """Allow exactly the reviewed import suppression removal, not AST-only parity."""
+    before = b"import subprocess  # nosec B404\n"
+    after = b"import subprocess\n"
+    if original.count(before) != 1 or original.replace(before, after, 1) != current:
+        raise ValueError("Native memory helper changed beyond the exact comment")
+    if ast.dump(ast.parse(original), include_attributes=False) != ast.dump(
+        ast.parse(current), include_attributes=False
+    ):
+        raise ValueError("Native memory helper runtime syntax changed")
+
+
+def verify_native_memory_sources(root: Path, payload: bytes) -> None:
+    """Qualify only one exact security comment delta without remeasuring history."""
+    raw = _native_memory_source(root, NATIVE_MEMORY_SOURCE_CONTEXT_PATH)
+    context = json.loads(raw, object_pairs_hook=_native_memory_object)
+    if (
+        hashlib.sha256(raw).hexdigest() != NATIVE_MEMORY_SOURCE_CONTEXT_SHA256
+        or context != NATIVE_MEMORY_SOURCE_CONTEXT
+    ):
+        raise ValueError("Native memory retained source context changed")
+    if hashlib.sha256(payload).hexdigest() != context["measurement"]["sha256"]:
+        raise ValueError("Native memory historical measurement changed")
+    measured = json.loads(payload, object_pairs_hook=_native_memory_object)
+    historical = context["historical_sources"]
+    if measured["source_sha256"] != historical or len(historical) != 5:
+        raise ValueError("Native memory historical source population changed")
+    delta = context["security_comment_delta"]
+    original = _native_memory_source(root, delta["historical_source_path"])
+    current = _native_memory_source(root, delta["path"])
+    git_blob = hashlib.sha1(
+        b"blob " + str(len(original)).encode() + b"\0" + original,
+        usedforsecurity=False,
+    ).hexdigest()
+    if (
+        hashlib.sha256(original).hexdigest() != delta["historical_sha256"]
+        or git_blob != delta["historical_git_blob"]
+        or hashlib.sha256(current).hexdigest() != delta["current_sha256"]
+    ):
+        raise ValueError("Native memory helper source identity changed")
+    _native_memory_helper_delta(original, current)
+    for relative, expected in historical.items():
+        if (
+            relative != delta["path"]
+            and hashlib.sha256(_native_memory_source(root, relative)).hexdigest()
+            != expected
+        ):
+            raise ValueError("Native memory source changed outside security comment")
+
+
 def verify_native_memory() -> None:
     """Check the measured worker distributions behind the bounded RSS claim."""
     payload = (NATIVE_MEMORY / "report.json").read_bytes()
     measured = json.loads(payload)
+    verify_native_memory_sources(ROOT, payload)
     shapes = ((1, 8, 3), (32, 128, 32), (512, 256, 64), (8192, 256, 512))
     if (
         measured.get("schema_version") != "native-forward-isolated-worker-memory.1"
@@ -227,10 +349,6 @@ def verify_native_memory() -> None:
         or measured["build"]["flags"][:3] != ["-std=c++17", "-O3", "-fPIC"]
         or measured["build"]["flags"][3] not in ("-dynamiclib", "-shared")
         or [tuple(row["shape"]) for row in measured["cases"]] != list(shapes)
-        or any(
-            hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != digest
-            for path, digest in measured["source_sha256"].items()
-        )
     ):
         raise ValueError("Native worker source or measurement scope changed")
     for row in measured["cases"]:

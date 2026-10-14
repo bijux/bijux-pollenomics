@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "ff5c4d9a97b95bd0b266dbcd50a62918c5deb615d8e8ca34c05c3a2a8f69b5bd",
-      "bytes": 5091341
+      "sha256": "0647cedd5237c65ed5d37680fd4c7ebc7e32dc35052089c72000398dd178b2fc",
+      "bytes": 5092887
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3766,12 +3766,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "d5a4578414c553f825084e8e00d8cac6d582051c571d3d1bd3d1e8492adbc7c5",
-      "bytes": 1026417
+      "sha256": "bc648c5d318b1bed5de2d2f7ab9e0b95c0ad69f48ea18809f9935f8c9dbb0792",
+      "bytes": 1027393
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "364c03f808549a24e56422164d11a81faac066c76245127c9cc72277e5baedc2",
+      "sha256": "40dc27286ee60bb78e0f699b8e4929c3e30c5fcea4b28b14b220b54701579792",
       "bytes": 1078
     },
     {
@@ -8571,8 +8571,8 @@
     },
     {
       "path": "reports/verify.py",
-      "sha256": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
-      "bytes": 18342
+      "sha256": "49787df262595377f2e1bef24760313fc9613a9ea86762f2357b335c380d579a",
+      "bytes": 24556
     },
     {
       "path": "uv.lock",
@@ -8636,8 +8636,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
-      "sha256": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6",
-      "bytes": 1887
+      "sha256": "08cdb29a7557b9b3969b37e1adf86423cc002fe0859c4125a6e4296767f3a670",
+      "bytes": 1873
     },
     {
       "path": "configs/ci/qualified-report-sources/embsecbio-literal-correspondence.json",
@@ -10118,6 +10118,16 @@
       "path": "docs/report/regions/nordic/direct-pollen/source-correspondence.json",
       "sha256": "6918782578b1ab62808464ca43fae6796bd276d366c23e24e439aed3c8a0bd14",
       "bytes": 6999
+    },
+    {
+      "path": "docs/report/numerical-performance/native-memory/retained-trusted-process.txt",
+      "sha256": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6",
+      "bytes": 1887
+    },
+    {
+      "path": "docs/report/numerical-performance/native-memory/source-context.json",
+      "sha256": "7388b3a4b5c5aa2666902a0f77545fd90b38f4eb49f2b327eea7c4a11a87fe93",
+      "bytes": 2175
     }
   ]
 }
