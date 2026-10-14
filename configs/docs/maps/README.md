@@ -10,13 +10,15 @@ and source revision during rendering and mechanical admission.
 route and a search route. The descriptor also binds the sole Nordic documentation
 iframe to its original Markdown and rendered parent page.
 
-Publication qualification preserves the original reports and scientific inputs.
+Publication qualification preserves the governed report documents and scientific inputs.
 It verifies presentation source, resource ownership, executable recipes, navigation
 and browser policy. It does not recompute or certify scientific results. The
-historical Nordic document is 526299 bytes, 2011 bytes beyond the 524288-byte value
-recorded in its original bootstrap. The shared standard admits only that exact
-reviewed document and producer closure; unrelated documents retain the default
-limit. This does not correct the historical bootstrap claim.
+historical Nordic document was 526299 bytes, 2011 bytes beyond the 524288-byte value
+recorded in its bootstrap; the shared standard retains an allowance only for that
+exact historical document and producer closure. The current Nordic document is
+523944 bytes and uses the ordinary 524288-byte limit. Its current source and
+immutable data registrations are bound by this descriptor; the earlier scientific
+results and historical publication receipts keep their original identities.
 
 The Swedish chart has no inert bootstrap. Its independently reviewed original
 script reads exactly three same-origin files and displays retained sample and
