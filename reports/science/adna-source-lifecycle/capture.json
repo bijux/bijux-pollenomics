@@ -1,0 +1,171 @@
+{
+  "schema_version": "adna-source-lifecycle-capture.v1",
+  "source_candidate": "e643986a963f903f987b1e75753a617d9114e7eb",
+  "plan_sha256": "6b08f77e9d6278ba5635657de84d4949fed5f00746c6b270a841d84a7a282976",
+  "terminal_sha256": "949eff6bae7f96b145344298f78194bac847ad594bba89e6dbae7cc950e1ef4d",
+  "native_exit": 0,
+  "actual_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "artifacts/science/adna-source-lifecycle/configured-lifecycle/run.py",
+    "--registered-plan-sha256",
+    "6b08f77e9d6278ba5635657de84d4949fed5f00746c6b270a841d84a7a282976"
+  ],
+  "wall_seconds": 19.115034249960445,
+  "observed_child_peak_rss_bytes": 547864576,
+  "output_bytes": 897549,
+  "source_runtime_pins_unchanged": true,
+  "stages": [
+    {
+      "id": "owned-import-origin",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "imports"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 0.8279673749930225,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/owned-import-origin.stdout",
+      "stdout_sha256": "ed19c120469293261a332f53061ea901803a177688ec83383a3a35d5464991ea",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/owned-import-origin.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "actual-human-source-partition",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/reports/science/aadr-nordic-entities/replay.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/human-entities"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 5.023097083030734,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-human-source-partition.stdout",
+      "stdout_sha256": "6b02b7da007d82678ccad20350747f36b4302a816e0eb96b6b546defa57d7197",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-human-source-partition.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "actual-animal-source-partition",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/reports/science/animal-entity-capability/replay.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/animal-entities"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 0.07915170799242333,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-animal-source-partition.stdout",
+      "stdout_sha256": "ae76171d6173d677d77f0cfbadc7c9ba3e3e110e3ab895dfe5d6246a28eb2c57",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-animal-source-partition.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "actual-country-data-producers",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/produce.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/country-contracts"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 4.8847213329863735,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-country-data-producers.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/actual-country-data-producers.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "independent-source-publication-correspondence",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/verify.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/country-contracts",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/independent-account.json"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 0.140769875026308,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/independent-source-publication-correspondence.stdout",
+      "stdout_sha256": "efa454fdda4211df5b6692d665b6001c86d9b716a5532c7cbda27d3ade94a247",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/independent-source-publication-correspondence.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "maintained-dna-pollen-boundary-controls",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/bootstrap.py",
+        "pytest",
+        "-q",
+        "-c",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/configs/pytest.ini",
+        "--rootdir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view",
+        "--import-mode=importlib",
+        "-p",
+        "pytest_asyncio.plugin",
+        "-p",
+        "pytest_timeout",
+        "--strict-config",
+        "-o",
+        "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/cache",
+        "--basetemp",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/pytest",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/packages/bijux-pollenomics/tests/unit/analysis/propagation/test_propagation_evidence_domains.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/source-view/packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_feature_partitions.py"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 1.0510638750274666,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/maintained-dna-pollen-boundary-controls.stdout",
+      "stdout_sha256": "0f381126bd3c4f4f33c04bcf2dc6b085f3fd6e9c2899e7fe81627ddd0099c6ff",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-lifecycle/configured-lifecycle/execution/logs/maintained-dna-pollen-boundary-controls.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_account_sha256": "fa3bafd89f876a8259c66f56b4dc16d199e98959bade7395d41d98fe3cc58224",
+  "producer_sha256": "68708c54136726bf9364fb0f3e900c6f13d9c757b68cb7f2d10708eb7e2f2811",
+  "observer_sha256": "109f7f2b99ef93517c47b029dbaa50aa620ab7a8491e70e97660d1e72f37024d",
+  "scope": "Source and country-record correspondence;26controlled source-boundary guards. No new LRA/propagation/genotype computation, historical authentication, map/rights/biological admission or human scientific review.",
+  "actual_transport_qualification": {
+    "plan_sha256": "6cb9388b40ef57376a0ae775c9c3bb8c8c5ed400dae791b28b3aa672d65ec773",
+    "terminal_sha256": "7c7ca967afd179618c07ac88cec882efda050f9df9dd363a2fa8150ebb3b243e",
+    "native_exit": 0,
+    "actual_logical_inputs": 207,
+    "recovered_gzip_aliases": 8,
+    "retained_observer_bytes_equal": true,
+    "new_country_producer_calls": 0
+  }
+}

@@ -46,7 +46,7 @@ Qualified authored reader SHA-256: `bef0719676286d2d05929fcc43c642892cba8197ff77
 
 - [Retained qualification evidence: docs/report/animal_temporal_comparison_review.json](animal_temporal_comparison_review.json) (SHA-256 `79f8eaf1d578ed31e0f20c92c48e3791e26077104b82f945a3bc24fed4cb7729`).
 
-- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `fdca2e23ab7891334135a9b72600149ec44ac2b4c8f5e7452da1ccec7289281d`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 

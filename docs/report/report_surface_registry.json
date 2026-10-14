@@ -47,7 +47,7 @@
     },
     {
       "repository_path": "docs/report/animal_atlas_exclusion_report.md",
-      "content_sha256": "c55964a282a3909f0a3afd47c07ebbce3d84206b8372effb81005dfd171d603d",
+      "content_sha256": "1aefde322d94cce957990583a3b78813d23b959a28fa0b3a0e4c6f3bf7302d2f",
       "family": "caveats",
       "family_label": "Scientific caveats",
       "audience": "scientific_review_surface",
@@ -72,7 +72,7 @@
     },
     {
       "repository_path": "docs/report/animal_atlas_readiness.md",
-      "content_sha256": "581508e718e2091b663e8368eba7d2bb816db5708439f9d2c7006fb76d0e30f0",
+      "content_sha256": "52fbb2b1d911c12f34af23d5edf08347a82c31bc9d26032b8243d0a6639d1957",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -97,7 +97,7 @@
     },
     {
       "repository_path": "docs/report/animal_country_species_coverage.md",
-      "content_sha256": "f6608c82db8ebe7917d32d2fb2a076ac6d031619021eaa079a7fdbd2926dee7f",
+      "content_sha256": "98cc3dfec66d67de0170bc8d2b3ba110033cb5332e91e502a53a0568b455d3e3",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -122,7 +122,7 @@
     },
     {
       "repository_path": "docs/report/animal_cross_surface_drift.md",
-      "content_sha256": "fb322a4639486bf738d6533d3b652f877e967d242031c082507e2b47691b0e01",
+      "content_sha256": "81b45091e7f4a9931665b0c0e843bddb4b7ecf53035247c5f9f037a6a85cfdc8",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -147,7 +147,7 @@
     },
     {
       "repository_path": "docs/report/animal_first_appearance_by_country.md",
-      "content_sha256": "168108817dba09bdc293a980adb76ae1d3cde480432eeaeb49b73c62b2d46d8d",
+      "content_sha256": "ce4dd3e814e2f80f3e4b504742322158d34841fd0d15b3f8ac0edfd679f0df21",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -172,7 +172,7 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_review.md",
-      "content_sha256": "c07f6edd5e710cde9ca06fd5d4c7305749bdb4dd918e2d3e887326323ae559e1",
+      "content_sha256": "b25035d7699adb41c27b8682f0d3491015efeb948380fb7a2b2759789bc200fd",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -197,7 +197,7 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_validation.md",
-      "content_sha256": "f173b275e7f078d7aac834563452182a3c722d6af70023f6e608d1896a1b85ea",
+      "content_sha256": "e10ce24259dec63130286f82f52e7e8e9e3acfec17a4c4a6df1df84f1c99e6ac",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -222,7 +222,7 @@
     },
     {
       "repository_path": "docs/report/animal_human_chronology_overlap.md",
-      "content_sha256": "0d84674a52df8f1fc743c02017312ea458cb82dd8c99f8d7b820258939ec022f",
+      "content_sha256": "88d467213a60a1249371c3f20590899ae3a505e1d43280714bc73a17b1a8ace8",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -247,7 +247,7 @@
     },
     {
       "repository_path": "docs/report/animal_intake_recovery_review.md",
-      "content_sha256": "6e5b6ebc271c9b7b5cecab85f2d23d2ad215d37d857fd2de16f6cf5cf03ee883",
+      "content_sha256": "2216d6a66a86206b694022121a767616c552624e72a0006f1a6f8eb489d424e4",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -272,7 +272,7 @@
     },
     {
       "repository_path": "docs/report/animal_output_audit.md",
-      "content_sha256": "0757728fca84a5a27532018c939fbd16ed196a04f89e8c5ce63190a47154d197",
+      "content_sha256": "f6d61851b12744e2e83eca77405cbf9f70f0066d9dacd9a82faca2dd95a7bea2",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -297,7 +297,7 @@
     },
     {
       "repository_path": "docs/report/animal_output_honesty.md",
-      "content_sha256": "7a61ade55a5258a13ad09a00962eb8cab94aea0df0ed7137b10fece156b6c306",
+      "content_sha256": "42164d02da8f09e72447716f9072961879fbdd725c6754e7e7cf0659d099deb8",
       "family": "caveats",
       "family_label": "Scientific caveats",
       "audience": "scientific_review_surface",
@@ -322,7 +322,7 @@
     },
     {
       "repository_path": "docs/report/animal_point_evidence_review.md",
-      "content_sha256": "1ad5cdbfb304e718d3734cdbc62dd72c343bf6c90ec4c0b815e5ec30f19140ba",
+      "content_sha256": "51194250a4e54157e8cc13849b7167e11baefc87357286fbbce52b4d163009ab",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -347,7 +347,7 @@
     },
     {
       "repository_path": "docs/report/animal_pollen_chronology_overlap.md",
-      "content_sha256": "8822dc45250e2537ae4dfcce6780b8899a0527428d5c84453b1af3945166acd4",
+      "content_sha256": "81664d90610adc47af25a1c7aaa8d7f3c5f40699a2471442dc0c7960c489cc78",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -372,7 +372,7 @@
     },
     {
       "repository_path": "docs/report/animal_project_publication_gap_review.md",
-      "content_sha256": "9e0454a766a40396455ea4d805df7d1e3e0eade13eab1040c1e364bd3e10e659",
+      "content_sha256": "ed9b899aa12ec815899dae6c16544f292ee92e1fe4c71e9ecbbaba289fddae41",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -397,7 +397,7 @@
     },
     {
       "repository_path": "docs/report/animal_publication_release_gate.md",
-      "content_sha256": "33978679bad8cb9d0aa6b2402480a634a2bb6d51db0dee2783f2973007bef800",
+      "content_sha256": "ef1d00f2784c89164fe94bbc131ed99dfd80ecf24dc2b4ac78a5ba2423b719bb",
       "family": "caveats",
       "family_label": "Scientific caveats",
       "audience": "scientific_review_surface",
@@ -422,7 +422,7 @@
     },
     {
       "repository_path": "docs/report/animal_sample_chronology_review.md",
-      "content_sha256": "667e33c73b07d7959f90ca5540ecce85a6998327e4a3c988e6158d5179edcec1",
+      "content_sha256": "2d4ee8a1c24c04db78fc07ce63f6b610d4b5b4c027ae245df70f33f7bd89badd",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -447,7 +447,7 @@
     },
     {
       "repository_path": "docs/report/animal_sample_database_review.md",
-      "content_sha256": "05123f32a40634947f51b6b8635cc09ba9eb873a6311bd3dbe8b67b84bb3ae0e",
+      "content_sha256": "c7e1566cc617037c561f3b8ecbea7c2e7e1ddb2b6763c18ef0628ae7321101c5",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -472,7 +472,7 @@
     },
     {
       "repository_path": "docs/report/animal_scientific_caveat_ledger.md",
-      "content_sha256": "117a232a0be1d566591266d82ce229e99875577c5f1ff44c177a3bfafba6e1f4",
+      "content_sha256": "fedc497dcd95e6b2f62c09e40e07df3f15783b5a20cca0dc8de40c2b83bf83da",
       "family": "caveats",
       "family_label": "Scientific caveats",
       "audience": "scientific_review_surface",
@@ -497,7 +497,7 @@
     },
     {
       "repository_path": "docs/report/animal_temporal_comparison_review.md",
-      "content_sha256": "202540c06473ca468bef4346579ab6766dabf7c2a0413f034449267e673bb3f3",
+      "content_sha256": "b24ac6b5065977da5045fd8e879311413c461f41957f5d175866f99f04577c6a",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -1787,7 +1787,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/README.md",
-      "content_sha256": "17112674f2a601523327c6211453a0ea72e682aae3853611313dc86a502ddd89",
+      "content_sha256": "1f9db62380f4c6201e25f7b76167b12bd3fefa7a39800b283c010470ff9b3d1f",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1848,7 +1848,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_aadr_v66_samples.md",
-      "content_sha256": "d9e911f6d37042132dd25ce56d1de1ff4dc6811e12a27a5892bbb87f18878519",
+      "content_sha256": "66cfb2ded2bc97567f167f3370348af2f4e8983499d3afef8cf3b88abb8c4eb5",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1873,7 +1873,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_citations.md",
-      "content_sha256": "65a8439a8d76de474a1888eb42fc85506f94fc369f74a0699b615b6967ecea02",
+      "content_sha256": "ed0cdc83fc6096ea10dd4beef61d5a29c5e63fb61d4f584ea9ec3d576fbf387f",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1910,7 +1910,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_samples.md",
-      "content_sha256": "e1551cb46dfb2604ade393c220281547154450c429e41e8e4dc1cfce15c751cd",
+      "content_sha256": "a6dc75e334b790f72d711f4091a4a24995ef3816a9664f79d957773bbf281d1a",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1947,7 +1947,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_warnings.md",
-      "content_sha256": "c0cacaecb15718b17924234fb280b0c9d8bd967842a3bb4b43ebeda934facff5",
+      "content_sha256": "7d8b639c669bf4f877ae91fa598e0fe4a257131dcc5b8d9ce9616988365f1e92",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2389,7 +2389,7 @@
     },
     {
       "repository_path": "docs/report/countries/finland/README.md",
-      "content_sha256": "3bf47ad4f4e79920a61e2902d014cd1a5da5f96e0ee4519fb0765eb9f8a15f6f",
+      "content_sha256": "ad147fc6924437dbabe21fafbcdc34f351024daedfefe3d2542b08432cc66837",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2450,7 +2450,7 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_aadr_v66_samples.md",
-      "content_sha256": "5727a56ffbd2e826a513622aa1b60576b96965977dab02d02464b44e89086660",
+      "content_sha256": "d2bc042cc95a15a53d9d33e7fbbcabf5d535bac2028ebc4fd9dc81793be3fd0c",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2475,7 +2475,7 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_citations.md",
-      "content_sha256": "1b098466b22c12c77223ecaf366dd1302c4a59e154fc51c1890edc14f4a5ce9b",
+      "content_sha256": "5f294d039073fb860e1be1b21264c4606728f94a73e67b3422b9671b12d1069b",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2512,7 +2512,7 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_samples.md",
-      "content_sha256": "6dd8f2d0010e97d89324976fac80d3095d4c5896e181247bbad12c496da6eccb",
+      "content_sha256": "8a8996298a5890708c13f91cb733697bc5e673b867c8bf85ed1873203ed920a5",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2549,7 +2549,7 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_warnings.md",
-      "content_sha256": "22f203ad8c1ccacd5b964dede05ae55b0fb786a485350d4ef8251dcb5a76e758",
+      "content_sha256": "3be3dc3c37dba85d26eaf31deaf63717ac10882f0ffa627a5e952d107c2bb315",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2562,7 +2562,7 @@
     },
     {
       "repository_path": "docs/report/countries/norway/README.md",
-      "content_sha256": "b4a67ad308bebf2b7198f1f98d43a73e93908918051357dc12376f9d236157d6",
+      "content_sha256": "ca2cb87a5a50ccc5a4a9f8ba76810c3d9806a1472a430f1253b566a5765afc52",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2623,7 +2623,7 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_aadr_v66_samples.md",
-      "content_sha256": "bcd1a8f20143133734c584bcf38bb6dcc71a1ac26605811759e79783aceb7867",
+      "content_sha256": "05d9a3fa96a5b7a5ea1e2e2f1e9557d5985b24cd28af4206d39d5311c75a782a",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2648,7 +2648,7 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_citations.md",
-      "content_sha256": "76f961b6d450c8aa5f2894e46862927d58f639dd8928b3bb18310e8fb0db4a91",
+      "content_sha256": "972ba684a206ee2e30f6babb687e2c9d7c5bfec603699f70d73a1128238e020f",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2685,7 +2685,7 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_samples.md",
-      "content_sha256": "503a572807f9ba10c5237668b7e04e0bbb8b39f00878d40ff7f5a24aa8b7060b",
+      "content_sha256": "03eac54fdc68d4735e4ec55c1760a6cd02cbbac037d23e1a7e718e4d7deb2622",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2722,7 +2722,7 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_warnings.md",
-      "content_sha256": "7c4ca881bc39aeacb55b8773d0ce9d59b7132dcbe52305138d4843017577c223",
+      "content_sha256": "bf91c669498c0ae73949ba57f242b959ea52e8b515b80d9cacaaeea6d9dc4da9",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2735,7 +2735,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/README.md",
-      "content_sha256": "09a63c74a878c455923ff3d1336afd4b3d664f808b6e916d62f14a744ed3222a",
+      "content_sha256": "386f0e66a1ad05319a42b4515cc3cdd2090af0fdb18cd5d790b0a7d78d84631a",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3028,7 +3028,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_aadr_v66_samples.md",
-      "content_sha256": "cdb1b07b3ddb656eee8809b17ce997ff5187b1309695e62eb05b514cd0961c6b",
+      "content_sha256": "a183ab073fb3224d963eb610cf2d6d58ffe1d3532b71cd0778d4c29a7c642d6e",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3053,7 +3053,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_citations.md",
-      "content_sha256": "32b4324072ba0dd03624997e43c15f927e0d6e7a85a0cbccdae4ab28a3af797a",
+      "content_sha256": "028d704a993714bbc4c40d579baf445da85f52363c44da3e1113ac5f8535aaef",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3090,7 +3090,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.md",
-      "content_sha256": "c29aba4f4c0e0d5bd2fb1eb3bc76e5cc69df07c4db6bba98d03ce749c7258f0a",
+      "content_sha256": "53118f40a4541fdecf34a163ef0cd50e9849c84e19d5fb4e9ed0c0dc57878711",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3127,7 +3127,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md",
-      "content_sha256": "09a253485e22a27f6be56fffe7e326171cd9296ee828c10aae3c0d777d4f3079",
+      "content_sha256": "855f0474be2104f2e7069367d324e7f8fb8e38d54e6352ab171eced331aba1c5",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -8811,7 +8811,7 @@
     },
     {
       "repository_path": "docs/report/nordic_farming_history_scenario.md",
-      "content_sha256": "f8864423c550245de0a19f6b91dfeba705d562b5ce4f2e851ce5a0595ccdd2b7",
+      "content_sha256": "5f1291c7e55c57a17d9c40d4715db6b2f5a7b663f2c33139b63a8fb488561560",
       "family": "reviews",
       "family_label": "Evidence reviews",
       "audience": "scientific_review_surface",
@@ -13114,7 +13114,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/README.md",
-      "content_sha256": "1ece84a77283ffc817f9d2fcaa034692a02ec3739a434619983e81c0aa2d6c9a",
+      "content_sha256": "aa6449dcb2c2c1d6f4b27541ff819cab044e6880f5c2edb238b228cb7e1ac66b",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -13343,7 +13343,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_candidate_site_sensitivity.md",
-      "content_sha256": "60f4005a7e8ca0d7a782fec530d6a41a1598628e91b4d560cfc1c82ac8787aaa",
+      "content_sha256": "f5053f795828b888f16164887261c0d7393073e6dbf60a9a6cbe0f8b1ec1ea8f",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13380,7 +13380,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_candidate_sites.md",
-      "content_sha256": "60256bd16834a2b0589216a29733222e4b463d7516762e026249f92fc0c916b2",
+      "content_sha256": "2b2a229b31e59d36e84058e65167a9835b0982d7da846be927c13d24cfe4236b",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13429,7 +13429,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_evidence_surface.md",
-      "content_sha256": "463fb2e22bf37a61fdb35405d5c0ce36bf415353808a1152a77b7e04e0fd207b",
+      "content_sha256": "feb16b25f10b4a7fb00de4405c7cb5367814a8330d0711f3a801d14dcb0283cc",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13478,7 +13478,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_map_publication_contract.md",
-      "content_sha256": "827add0fa1a26f4ee4e90b9f9f85f1aaff00f75112ce36c7d7c816776ecaf977",
+      "content_sha256": "4c62d960e70a1382c5765b5df4c43628440d570fbd5458c94c6539298610bec6",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13503,7 +13503,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_point_traceability.md",
-      "content_sha256": "413385aaef5ee56f77ec5ee7cbbe17f96c64658e7cd1bb8b096830bbaffc2202",
+      "content_sha256": "1fc0e32c0f7dd40e85ff38296d71a26e8d17e1109221ecdc36a6a9a215052ebf",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13552,7 +13552,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_scientific_review.md",
-      "content_sha256": "df8c18fc94aec8ca95414e66e28e3b6eb89022dd00a379d54335f9a572349295",
+      "content_sha256": "172a0db6aebc6ef7fc1b4d070e202a90432807c5d5f45646ba0265cd1f7262d5",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -13589,7 +13589,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/README.md",
-      "content_sha256": "7241cbdbbd790086440030c13b1634f533cd629aa2daba549ec47bda140bc747",
+      "content_sha256": "29de3507cdbbeee52524c35bf36df3f797e7684bb55d951dd3fa226909403f3e",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -14729,7 +14729,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_candidate_site_sensitivity.md",
-      "content_sha256": "e8cda273c6d6617fd125594dbd73d726faa00e9d7c5a9941a35e734aded9c1ae",
+      "content_sha256": "c918aaf3a52f37f2ee63f0a18bd09e4a07bce4043f2f2f6248bc91a7138f57b9",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -14766,7 +14766,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_candidate_sites.md",
-      "content_sha256": "c7b3bc47e37ed9b6ed58160cd6e4a107ceb0ce54f720cadeca13685efcd4a89e",
+      "content_sha256": "eea9ca162c7fe0b93b58315dbe6c51990c7caea99d5c93164a0af49c2b349c71",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -14839,7 +14839,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_evidence_surface.md",
-      "content_sha256": "608fddaeed18756227d3be49a64f48cd72f4ddf934076668529d3c4ec19c9f0f",
+      "content_sha256": "9456466ea8baf4f5c4cf77762d731f9ad9987f75d966cbbd9498474e9c706178",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -14888,7 +14888,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_map_publication_contract.md",
-      "content_sha256": "8fdaa69dca6b567fd81b3504a0aee73f7a754770ea25c68fd0a256559be4b38a",
+      "content_sha256": "538a7c796bb4c56f648f8dcc88a3541bacaa096d0c24b3c84a28c24b648cab64",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -14925,7 +14925,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_point_traceability.md",
-      "content_sha256": "40a2dd9b8f5e6665c8d377c6ee7f08812bfa676978c09cb9c3b3bed1aa0f0919",
+      "content_sha256": "dcfd8ea35b6a8f91aed819d3f04819cb49c556b25ad07e82dc65c1eda6fe025f",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -15010,7 +15010,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_scientific_review.md",
-      "content_sha256": "e1aa2cd897bb717172d2a9e1d71ba8ec701775392acb278feb0f81826c4f2bfd",
+      "content_sha256": "e96d25242a10985bb5d8c41322cc5e2e2b7f1d9f2b041c6ea998725a558da187",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -15559,7 +15559,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.md",
-      "content_sha256": "147f1fdbed285d45982fd6f185bd8533dd193c0da4c69187c8475cc3d23f65b9",
+      "content_sha256": "4e460864177322ac8d2a58d2eaddb589cad174a53746d59c9f9f2dd167cb6e55",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -17280,7 +17280,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/README.md",
-      "content_sha256": "23fee4d52f8b92aa06517f9e101f60db07ec1a92c10e1fe628e684cc92a9d008",
+      "content_sha256": "e7a2c9154ef1f76a7e882b460244ca336fe2e0a91401402012e337ba438616b6",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -17305,7 +17305,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/galician-cattle-paper.md",
-      "content_sha256": "0961e61eedcc6ede87cc98076bcd631ce868a43bd127f73cdc430c8c2df3332d",
+      "content_sha256": "78bc537775be830346837eadf0b56ece9dc0567aac1bdc2ed26dcde6e05af27f",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -17318,7 +17318,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/galician-cattle-samples/README.md",
-      "content_sha256": "a8f0a284d0db8f6863dd9ec756ac11c97303ae712eba4c91df979399087fd2f8",
+      "content_sha256": "8b4a298fee30f249404ae8139ded10d2f0c96418f06eca2b35e0d1c4c3a423bf",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -17355,7 +17355,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/obishir-v-chronology.md",
-      "content_sha256": "99dd6a3d74c1e3ff88812c1f73894c5ea1b8c8ba82516f12cc8c581bed560a00",
+      "content_sha256": "b88f37742e641430b8a60dea4e065ad0290b18065b6f9bbfb17bc91aa7cb9dba",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -19859,7 +19859,7 @@
     },
     {
       "repository_path": "docs/report/world/README.md",
-      "content_sha256": "748dd7e252ba13b47f550e3f9e685c076642e3eed6b13ca08b27b620057add91",
+      "content_sha256": "01c7d2a77ba5ffc9400601b9a0986803ec6615c7171ae3609989034973826106",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -20100,7 +20100,7 @@
     },
     {
       "repository_path": "docs/report/world/world_candidate_site_sensitivity.md",
-      "content_sha256": "bbaeed975008bed28ac4c8e6fed0ad0b718e2094b4006aff45d5fde6a74e1b76",
+      "content_sha256": "1eee5d5a6418974cdaa5ac319ebcfcfa1cc30bd76ab2c4bc7da5812d4edef2a7",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -20137,7 +20137,7 @@
     },
     {
       "repository_path": "docs/report/world/world_candidate_sites.md",
-      "content_sha256": "8e412a201723481620e943402455a00a51ed7b09cc805f0ba795c13a76761d88",
+      "content_sha256": "2d40d62259ad2e80c4d155b01ee4605d8f7b327fc659aae918f6cc46349b67b1",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -20186,7 +20186,7 @@
     },
     {
       "repository_path": "docs/report/world/world_evidence_surface.md",
-      "content_sha256": "630360b7e70c1f8f9d4acb8bb7f00c69d3c6c5754eb8606c410347117aab4f1e",
+      "content_sha256": "c126dda70f4f17f4b4b587018ca5a0d6d813a0bf9359ff296c6a3ea7b095e1a9",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -20235,7 +20235,7 @@
     },
     {
       "repository_path": "docs/report/world/world_map_publication_contract.md",
-      "content_sha256": "d7207dbe98f364ccbc34155bf1f413d6da032eee8edc6d67a2176ca7cf394a26",
+      "content_sha256": "822222111f6d8aed9f69d6b821fdc0fa52f2d1a62eb97594e7f080ee26a1b77c",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -20260,7 +20260,7 @@
     },
     {
       "repository_path": "docs/report/world/world_point_traceability.md",
-      "content_sha256": "270ac282dda0b00240f56138845176e0bc61721fa00c12d2f1de013107580f56",
+      "content_sha256": "fa47a4b047b3937544f5847867576001f2abdc0bee041b1e58394697bcbaab99",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",
@@ -20309,7 +20309,7 @@
     },
     {
       "repository_path": "docs/report/world/world_scientific_review.md",
-      "content_sha256": "f534e94109b8537597d9458d33b912711a2d4dc2402fe70757f295acd0912284",
+      "content_sha256": "f44b224c84cb9b0610ce9c5c2b06d9a2093aed7ac861ceedfe16f386608b8ff0",
       "family": "maps",
       "family_label": "Map surfaces",
       "audience": "scientific_review_surface",

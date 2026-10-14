@@ -1744,6 +1744,30 @@
       "exact_capture_api_compatibility_terminal_sha256": "7366e3b4a50d4383ab12d61727ff9d6fd25c37be78ea2ea777ff30507a0d038a",
       "prior_readability_execution_preserved": true,
       "scope": "Separate conditional exactly-two-taxon fixed-response/counting profile; original ten-taxon rare-count/misspecified-response failures and original327reader execution remain unchanged. No general uncertainty, ecological or release certification."
+    },
+    {
+      "report_path": "reports/science/aadr-nordic-entities/README.md",
+      "authored_source_sha256": "9e9811e4f4baaabb19f67a0d59496ea09cf695e28fe1e60496fd77a0520f7cee",
+      "rendered_sha256": "629106e651dfb865dd106c95e5e05f332316fe33da3a3b27218ebcc81e3922af",
+      "claim_semantic_sha256": "833698c3f524859bd68c8ab6d2efc8fe5a2aee4e42d3df37965ee50618350409",
+      "current_native_source_account": "reports/science/adna-source-lifecycle/capture.json",
+      "current_native_source_account_sha256": "9e3c6b3b446f804afe249d91986dea39712d02c75305515da54b31923057abf4",
+      "actual_native_terminal_sha256": "949eff6bae7f96b145344298f78194bac847ad594bba89e6dbae7cc950e1ef4d",
+      "actual_transport_terminal_sha256": "7c7ca967afd179618c07ac88cec882efda050f9df9dd363a2fa8150ebb3b243e",
+      "prior_readability_execution_preserved": true,
+      "scope": "Actual source/country metadata lifecycle qualification only; two original authored prefixes and all affected wrapper authored bytes/individual fields retained. No source-rights,map,biological or empirical classification admission."
+    },
+    {
+      "report_path": "reports/science/animal-entity-capability/README.md",
+      "authored_source_sha256": "d9721df11be77cbc12751642ab6efe5c237df902642c5c17970abf0c5a65a75c",
+      "rendered_sha256": "fdca2e23ab7891334135a9b72600149ec44ac2b4c8f5e7452da1ccec7289281d",
+      "claim_semantic_sha256": "e811bb68bda0cc1e7d34075752c9c8f6f8869136efb48a06a82403d35f595b8d",
+      "current_native_source_account": "reports/science/adna-source-lifecycle/capture.json",
+      "current_native_source_account_sha256": "9e3c6b3b446f804afe249d91986dea39712d02c75305515da54b31923057abf4",
+      "actual_native_terminal_sha256": "949eff6bae7f96b145344298f78194bac847ad594bba89e6dbae7cc950e1ef4d",
+      "actual_transport_terminal_sha256": "7c7ca967afd179618c07ac88cec882efda050f9df9dd363a2fa8150ebb3b243e",
+      "prior_readability_execution_preserved": true,
+      "scope": "Actual source/country metadata lifecycle qualification only; two original authored prefixes and all affected wrapper authored bytes/individual fields retained. No source-rights,map,biological or empirical classification admission."
     }
   ]
 }

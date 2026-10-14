@@ -38,7 +38,7 @@ Qualified authored reader SHA-256: `59f91dd510c565fcc16bc7f7f58a9c7f4c8a7df4d74c
 
 - [Retained qualification evidence: docs/report/animal_human_chronology_overlap.json](animal_human_chronology_overlap.json) (SHA-256 `64067916b7e4cfcf0f152d7d92ee1f616e5c2b9cc1f66e74b2d0bd39147fc3fe`).
 
-- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `3a0a899e96cfe7d95bdef41012516f39ce2b68606212efecafe1d909b6ccd045`).
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `fdca2e23ab7891334135a9b72600149ec44ac2b4c8f5e7452da1ccec7289281d`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 

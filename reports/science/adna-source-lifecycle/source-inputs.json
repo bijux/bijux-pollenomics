@@ -1,0 +1,995 @@
+{
+  "scope": "Exact consumed source/country inputs and named recovered transports; raw bytes remain at their original sources.",
+  "inputs": [
+    {
+      "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "bytes": 13518214,
+      "sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+    },
+    {
+      "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "bytes": 15540394,
+      "sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+    },
+    {
+      "path": "data/aadr/v66/release_manifest.json",
+      "bytes": 754,
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    },
+    {
+      "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "bytes": 681283,
+      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6"
+    },
+    {
+      "path": "data/adna/governance/animal_sample_foundation_truth.json",
+      "bytes": 18127,
+      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "bytes": 81103,
+      "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
+      "bytes": 52635,
+      "sha256": "887c99e7f9cb5d5be943a6d3ade2e579d33d54432ad6c1941b41180bb723c962"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "bytes": 171355,
+      "sha256": "f8dcf0155fe3a1352c02a86bae8db1085e6429ddac25ca6e29b07d6be605db6b"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "bytes": 35396,
+      "sha256": "c4b042517528c3e4f99e40aca6df9713acb7e55f3cf5b3eca299b92908b55505"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "bytes": 231509,
+      "sha256": "8bf627fe5a4eb0e3eca2651ab677a15bdd1f8f04668e7bb82c94bcb3b104139f"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html.gz",
+      "bytes": 51633,
+      "sha256": "b26f2a3ed0da32787440271aa259b4fdad26fe1fe950703ee681e93045fdc544"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html.metadata.json",
+      "bytes": 414,
+      "sha256": "bf097a662bfe2d73798715379d61a97bf36da2c17ee5a072f12edb260ab6ee09"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "bytes": 2970244,
+      "sha256": "d6fcdfae2d835883c68585aa6ff87ad197cc8561c434f654099322fefeb156a9"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+      "bytes": 93096,
+      "sha256": "f99a65b2b80618c64bff71f29f415de9207ba4f2775127b5e752168bd8fb440f"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "bytes": 233005,
+      "sha256": "e6367f3a2b877d7940e520dd90bc3066b9530b7dac738de5b35ade9ba4a91640"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "bytes": 305785,
+      "sha256": "2c4676aef05f1d9cc272eba1dabfc3d30fb7604c8fa3fc0713518414e213655f"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+      "bytes": 38834,
+      "sha256": "1a11850c94d8a08f91a11feecc298dc9be9003911bd6dc39df6f6796c2348988"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+      "bytes": 817335,
+      "sha256": "a4f7d6f164c534daa2ef7bf2e214a66b39a9e7d2005cc27e4bf170b8119a376d"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "bytes": 511536,
+      "sha256": "aaa7a6db334acdb81ac4c9f205a31e7dc746c40faa8bdd43e232425f4eb7f7a1"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
+      "bytes": 58603,
+      "sha256": "a2a8071103e4171f0ef8d11a0d3bdea9690413cf846a5e8dad7d6749e2836bd7"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "bytes": 191558,
+      "sha256": "6be3492f07b3602598f77025afae03db65851570e2144e668bb3ef7012385862"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "bytes": 64739,
+      "sha256": "57ba7ad100ef756aa53bb1cd23340f6b0f9b3000851a31fd92e167258640745b"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "bytes": 2557869,
+      "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "bytes": 273976,
+      "sha256": "3fa8687dde75e6db278336a0f01b58d246abf2c180e005dc6993004b47260e15"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz",
+      "bytes": 57176,
+      "sha256": "2b783acff6af3e3a4be315334962370042a51d758d52312785a0a9a13bc563d1"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.metadata.json",
+      "bytes": 422,
+      "sha256": "15618675ec1fac537c6d320cad847bc6407ff540e54e036ea0f06a281486ad48"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+      "bytes": 8867790,
+      "sha256": "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
+      "bytes": 2611241,
+      "sha256": "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "bytes": 60061,
+      "sha256": "fe4066aecc10fb4573613ac1641756c80503cb4bf41c7bf9a49ab25aa2ecfe97"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx",
+      "bytes": 60378,
+      "sha256": "81cc00377f5898004b8f4f724c0aa1b787fdb30d7df9874b31f1a27241268462"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx",
+      "bytes": 45373,
+      "sha256": "bff93c33770648d645f48284bc334fa55dd27341b99903f27a29c8195ab14d31"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx",
+      "bytes": 48231,
+      "sha256": "a5c81d6140129165b6606b77e22a787e47cebe93b7c40652b8228aead0e8b336"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "bytes": 5901232,
+      "sha256": "bc076874345613dc71269f66db8b4941589d3be1eacae90043f3d94618b5e56c"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "bytes": 185895,
+      "sha256": "79e5fe0ba0bf86a217bb4d91dd8a350a27e89c976866c6ec067c700bb5eda0d2"
+    },
+    {
+      "path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "bytes": 42068,
+      "sha256": "b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
+      "bytes": 172426,
+      "sha256": "6ceeb9e5dd9d6c574fe69d308bb9fe0af4067cb1ff8e8895d52a41ecbc9a16b8"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
+      "bytes": 24701,
+      "sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.metadata.json",
+      "bytes": 882,
+      "sha256": "78ae373ea41bdbc07c62297978cadc1c7d58898ad7f74cae4beef27c5e7ef814"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "bytes": 99850,
+      "sha256": "3fa7867b615e14cb5333e8c70d8df3329084a932ebd29d65fd00502d95781ced"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.gz",
+      "bytes": 14596,
+      "sha256": "6f958dbaf61775f20e5acf59fe3a3616ab6ec3ef9ac9b8399a00e1e9e82a6487"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.metadata.json",
+      "bytes": 881,
+      "sha256": "5f11e8730a4071f457cca8c15516b6c0daaddd705879b252dabfbadc99ad3341"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml",
+      "bytes": 2544,
+      "sha256": "21e9298cfdc5e99c6aeeac372978d31b2c2e456bfa535a7379035eab815446f2"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml",
+      "bytes": 2544,
+      "sha256": "81f90329eea391e921b48734395796fcc96e9ae00d6cdd1bc2fbb3a1d27cf922"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml",
+      "bytes": 2548,
+      "sha256": "ad869666aeb669ba463f20b55b25a1149b1b25dc0ada399404207288c48d99fc"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml",
+      "bytes": 2544,
+      "sha256": "14392aa0e88bb10ed81f204c1f78dbfdf9bc79e51d60f0d59ae17a274e76e7fd"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml",
+      "bytes": 2544,
+      "sha256": "3d619c7e456b526fc896dcd3f9a3fbddf7f39a82b7567f1d878e37a7b8644094"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "bytes": 2691,
+      "sha256": "e1541763210d77411992559dc9fcda4771db57931cb2f98ae0f682b052ca12dd"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "bytes": 2694,
+      "sha256": "d72e70066adb82e6ecc0f8262973773753acef80a86fe21bd7341d51161febc2"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
+      "bytes": 2482,
+      "sha256": "763790b7b4c26ca4af9183aa88ee0a9b38903876744f49a7bfa4d3ad8cf65218"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml",
+      "bytes": 2474,
+      "sha256": "5ff8e23e75222343c0d872f272ef82f4bd3c1b36c709cd4dc21b2b7fe8e4a752"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757325.xml",
+      "bytes": 2482,
+      "sha256": "c399fe2b22c9688fdc10c9a5116c5c199f70893d0d364c6196b91210d501db20"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757326.xml",
+      "bytes": 2482,
+      "sha256": "1483bddc93d0d0ea28bd44b1cea5f7443a1ac8ea818789ce3091560f9aa06230"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml",
+      "bytes": 2474,
+      "sha256": "68b69221bb6f4583f2826e78c9b3486a2d357de84dfe3fbc1f471fab8d26ce62"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757328.xml",
+      "bytes": 2482,
+      "sha256": "98b7166ed3cb1376ac65ce7fd9543db1a413f5570523e7ed5878de9c80e7a348"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757329.xml",
+      "bytes": 2482,
+      "sha256": "73c574451fee3f6143db7aced8609dadb4ee9d802879fc9e9ac9b2a9b80632c2"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757330.xml",
+      "bytes": 2478,
+      "sha256": "de1a5b42434129676f61d4f69a8cacad6b5a16be75a1c12fde109dfcd4b9f134"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757331.xml",
+      "bytes": 2474,
+      "sha256": "96a50408ea0fde6204bb2fbfe7cd50bb8064056f6aa5f2e0e98e580f6fb9a44f"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757332.xml",
+      "bytes": 2474,
+      "sha256": "dda3e813da33a0daf7d704057124ef2eb7c204ecfafdf512a75a1795b3e487b0"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757333.xml",
+      "bytes": 2474,
+      "sha256": "83a72919817e9019e1a392d52356dfcc0236840003976150e6564d4f14616c2e"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757334.xml",
+      "bytes": 2478,
+      "sha256": "27920381a5d0ac5add5ef788bd44b31cb4b4fd72e9e574a072e758d2fc2758dc"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757335.xml",
+      "bytes": 2482,
+      "sha256": "84dbca49899964650ccc309f8f5eb134419dff4a720b5a08b91d9e8afe7b6f02"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757336.xml",
+      "bytes": 2482,
+      "sha256": "08d6a8d6b73dfd3d8c43a4bf430853b5be2c9d7e933e8fab5d792860a181af34"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml",
+      "bytes": 2474,
+      "sha256": "3eca516f6339e19d538548ee06e891f37843ba057ebe1712b0ffc81e0b324c7d"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757338.xml",
+      "bytes": 2478,
+      "sha256": "cebef6bab705c29d6d0228e92b9255170898ef52c5e71ffae0eaf8b6a0ccaaf3"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757339.xml",
+      "bytes": 2478,
+      "sha256": "d91cf7bb7e83272970f47b6563369fb89d3efcd7afa37c90c6e38b70ee0a2885"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757340.xml",
+      "bytes": 2474,
+      "sha256": "fd6f181fa8eaed489abffe7c54fdf57085c843f7500887dbc5e7c8c512d26c08"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857470.xml",
+      "bytes": 2882,
+      "sha256": "3dd310877004840068d04ea826af3f512f9dfe2a5ab8a6f49bd95ae40b0329ff"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857471.xml",
+      "bytes": 2878,
+      "sha256": "85d7bb3e60a33c1154572ad8323c00955e7bcf2fa78f7aaa77c4665db7018f61"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "bytes": 274385,
+      "sha256": "18a982463818f35cc349ca399c4ba1607f293381f6df30b2550e32406c329647"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.gz",
+      "bytes": 36798,
+      "sha256": "cbffd4932b227542a5e7c74a5c0a5cbb35eab6d7fa6e2fddd6197bc6d8114896"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.metadata.json",
+      "bytes": 882,
+      "sha256": "a70b2425fbd1ecef72cfd3d8ed06b7466fe16545e45124a2897f4fb5b4b150ce"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "bytes": 3535,
+      "sha256": "d7918701812ac839f1cac8616050c0c30a3dfc3cd2d13a95b6fd46f7f22351a8"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "bytes": 808,
+      "sha256": "8ed410e6f0087bed960f68b96b9443ff10cf596e9cde831f5c2a6a4db6bd8d11"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.metadata.json",
+      "bytes": 881,
+      "sha256": "ca775c568a631097a7d0f3b47de2dabae3423db44171a108701269743e73e64a"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+      "bytes": 85258,
+      "sha256": "7dfd6a5d3c761307b54f47868a731b463732ac9fdd8533cf13e956c78c130d70"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html.gz",
+      "bytes": 16220,
+      "sha256": "a173a52daf955ef12fa99963b87ef4fd5bd0afaf86f5cd39735e90f2db2eefcc"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html.metadata.json",
+      "bytes": 595,
+      "sha256": "dc1f5f983075da6c556d7bd40f9af9bde97b26642ca40448fdffc476129ae0ee"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv",
+      "bytes": 10971,
+      "sha256": "fda2ea49e06d0380110fc846cd99ae6274259dfb91c7e8a414e1157e6542d384"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+      "bytes": 2196,
+      "sha256": "7f42433a4a046874217ba6eb9d8d5d31e093c78e3240ce725be65f3b1d619e5d"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "bytes": 55351,
+      "sha256": "04406a06112ebe27b659deadb22db74c665ada0a026c8112791bc9ce599aa257"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html.gz",
+      "bytes": 13817,
+      "sha256": "6dafd968bf99e9acfee48ae380ebb127880a8e9c2b8c5676b73314ced8f2fe5d"
+    },
+    {
+      "path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html.metadata.json",
+      "bytes": 422,
+      "sha256": "d3d968bf41ad17078b3c27b620c95b13c3503254ed5b3e030d32c1bcc8a167e5"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/manifests/citation_manifest.csv",
+      "bytes": 770,
+      "sha256": "4fc4e719df836854416216d4a27693619094bccaacaa51331be65d404bc50752"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/coordinate_provenance.json",
+      "bytes": 43666,
+      "sha256": "23aff77756661947458ea423acd16993b162b783c9722e6182b89831770f642a"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/locality_summaries.json",
+      "bytes": 128694,
+      "sha256": "025cde57b2a78be803e9ed77788368165a8e809e9beea538e57b6fb5c3a17897"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/project_summaries.json",
+      "bytes": 5895,
+      "sha256": "2a1a34d5a5315c6413288a52f9379a229379aa2adaa5a03d70605a45c0dcddbf"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
+      "bytes": 165617,
+      "sha256": "3bf9b510d7af34fb199bd8f58bfa4c07ca8b98c30a29f29b62cc34ef1109fc2c"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
+      "bytes": 583597,
+      "sha256": "d5060a5f657a2db322a99b23a12f5467959dd95f8fbb1a9fc9d6a45a5b5dcbc6"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/site_evidence.json",
+      "bytes": 110784,
+      "sha256": "a70f2888221236fa6eb25ced31f77b7978086d13f3a8e032a0e36ddbf79887e1"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/reports/support_summary.json",
+      "bytes": 928877,
+      "sha256": "60d2c7a90cfe4dfdc4ec35ed892fcf101525a4e09a4e9cf558c0579b7b397c22"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/review/species_review.json",
+      "bytes": 9502,
+      "sha256": "e5d7e4b6f5e6ec00c8c36ff70654f7621033b6e19145b0e4143992a86228d2e1"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/manifests/citation_manifest.csv",
+      "bytes": 994,
+      "sha256": "fcef7db8fea2a40e868fad1104297e7dc2d8d51dec7eb0b9fe6658144e207949"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/coordinate_provenance.json",
+      "bytes": 1832,
+      "sha256": "de278e18d28e4d7d6da539d09c8ed3a856e2461d8993654395155a87fce75a09"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/locality_summaries.json",
+      "bytes": 33033,
+      "sha256": "07f53e3136fff644bd7ef8346f4cf9f18f6a6dd7b32406ca0ee366b1b3ab9272"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/project_summaries.json",
+      "bytes": 4322,
+      "sha256": "ecf977e3e1f3a975260ca5781b455fa5444423f1f43de46148363a784800dee6"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.csv",
+      "bytes": 39095,
+      "sha256": "e9dcdf1a24b70a9944637b3bec1c28102b005325f36bd0efe2e9f16fcddd7cc7"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.json",
+      "bytes": 134940,
+      "sha256": "36d05818a7674783683e1198d3d114f7b1a9b3f5f96d2d1c2be71b06c6ece629"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/site_evidence.json",
+      "bytes": 25574,
+      "sha256": "cdb18fafd3ef289568c52eb86d005e79c5ae06cb3cecec448d3b566277d0c124"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/reports/support_summary.json",
+      "bytes": 222328,
+      "sha256": "14b9df69e869ceec34238e9afe9d2a0e018e0668c6fe140b64facb0007f155cc"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/review/species_review.json",
+      "bytes": 7518,
+      "sha256": "6f1828a0777b49f41f0f0a57627476fab63825130020d1359783dfca8405512f"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/manifests/citation_manifest.csv",
+      "bytes": 1176,
+      "sha256": "3d2072f18dea039e0e312d91c912bcfe61f14d81b5ad4e9f76e5c0c0b741daa3"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/coordinate_provenance.json",
+      "bytes": 1974,
+      "sha256": "18eec0ea3bd1b43a5b2e9d5d7bfe53523485dfec4dd3730449558ed31ae4b9e4"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/locality_summaries.json",
+      "bytes": 6323,
+      "sha256": "c2cafe0d5b8e95a7753237cec761db80a5edaadbaffb284b5d02956b27773a72"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/project_summaries.json",
+      "bytes": 5831,
+      "sha256": "0eba4aa1136044e2de6002bed77b322bc78cd8770cf64cb262e7ed5c3851fec4"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.csv",
+      "bytes": 4664,
+      "sha256": "14fb5cb2ef134cf5f6c3453a8e86c0fd3b7c733a9a25dd33b69fb612ea5eb4b2"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.json",
+      "bytes": 16125,
+      "sha256": "24f55ac6ace7c8ebe69b016ca86013d44e33d916723479469c61c7121670c3d3"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/site_evidence.json",
+      "bytes": 5849,
+      "sha256": "c3b43fd544ecf361879472c21aca1f38bb4b4349d5c44b37ef6ff1ad515f29f4"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/reports/support_summary.json",
+      "bytes": 54072,
+      "sha256": "eca989ebd5d69cf70d249e7327f362fe0dd3d05fe54ba8f14b27111a41b077a7"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/review/species_review.json",
+      "bytes": 9452,
+      "sha256": "0dff2bf921c4dc3c01177d5574a825fb4240b1901b4bfd780cbc6b82a74d64eb"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/manifests/citation_manifest.csv",
+      "bytes": 1163,
+      "sha256": "3c792ae50609435140e80bfadf9f06bb986b207e41a6bdc089645e52d1fdd73b"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/coordinate_provenance.json",
+      "bytes": 43855,
+      "sha256": "f6ba12897496cb17267bfd19419ab2ca0c38efa8bab0626c4d74e73db5ab55e8"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/locality_summaries.json",
+      "bytes": 58261,
+      "sha256": "f57745e6f4d738cd0ead9c8ed6efc8e23ab17424ec2e76558d3673db5849a844"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/project_summaries.json",
+      "bytes": 5836,
+      "sha256": "f0207bd9685bd20d6a4bab1538add216c9d73f550954929bfce856e6bd29c23d"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.csv",
+      "bytes": 86483,
+      "sha256": "cc20dbac3546f4ccd783bdbe43cfa9a4a74e7931796ae7d359bc12cacc27b7e9"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.json",
+      "bytes": 362636,
+      "sha256": "8dbb479f68b409832ef790940544f8480a61f5d2495674d06696229a5a04e153"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/site_evidence.json",
+      "bytes": 42968,
+      "sha256": "8fa466f3736a33e6bf99a306f2909f8093c88cc1fcd8c4ee80bc810037db86a4"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/reports/support_summary.json",
+      "bytes": 552933,
+      "sha256": "1c2988fa412fd1f4329e392f0e5668b8b73e9b67f9832e74ae1a1ed469144a29"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/review/species_review.json",
+      "bytes": 9173,
+      "sha256": "a2a4e43d493ab1a4091bf87cb4b539b04adcac012c9a8fe706006e959009defa"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/manifests/citation_manifest.csv",
+      "bytes": 484,
+      "sha256": "3b26244f0db987d06da2108da3e6180da63bacc89822382b834472eb3a2977ce"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/coordinate_provenance.json",
+      "bytes": 1853,
+      "sha256": "59b0971e4b5a66fcc416d282fffc8b97157d3ec5af6c36d99baa89a76c92a1d5"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/locality_summaries.json",
+      "bytes": 117,
+      "sha256": "6d6ff4c433b31343086868e1a22f3efc7d33a4f3b1d8ab796b4843fb5ddf0b24"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/project_summaries.json",
+      "bytes": 9161,
+      "sha256": "afd83e9de594cc1d188e1db39818a544cde965862c843ff39bcfd18fd2f9dd5c"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/sample_records.csv",
+      "bytes": 841,
+      "sha256": "967b14740e7ce3247d617363ecdd0f1614c7148e05a49b040c28a6e87fa2f821"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/sample_records.json",
+      "bytes": 2934,
+      "sha256": "c7a49dd79e4bde1c27e92a8e66200694c7d24c41af72c892c21ffa381f8df526"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/site_evidence.json",
+      "bytes": 1619,
+      "sha256": "0cecc6ed1429821c08883c14fd8a85879cd3350f0877487732b480247db32a0e"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/reports/support_summary.json",
+      "bytes": 42266,
+      "sha256": "0210d35c7da3b771ef56daabb28e0ccc886bc7710fc9cc7b3188d741884d052b"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/review/species_review.json",
+      "bytes": 12534,
+      "sha256": "218451cf86b7fa020aa62ad12275a233f352b1cac14df11c4912a60183174617"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/manifests/citation_manifest.csv",
+      "bytes": 1668,
+      "sha256": "46b30338072379cc17983050a97b2fe9cb7f3dfe770ce255956e2a8ac0320149"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/coordinate_provenance.json",
+      "bytes": 331115,
+      "sha256": "533399954b7d5fa64d48f548de587c650a07e9f3f547ded03472f97ed45fd33f"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/locality_summaries.json",
+      "bytes": 500821,
+      "sha256": "c47c84dda511b205a445aeaa85a1185bdfdd7775952818fb5b165aa0647e1b65"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/project_summaries.json",
+      "bytes": 15215,
+      "sha256": "74cbcf498a31c22fcb8751078f6b498c8000197f1c123872d9cfd8704d31760e"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
+      "bytes": 560906,
+      "sha256": "6d09f96168d449e69f728e6270a248f686b7a3152af4c42f4dffae85553ecb38"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/sample_records.json",
+      "bytes": 2365153,
+      "sha256": "9b0af17de81f8be2753433b9a65fb9768296b848f88ac1bc7587f1dbc6f86587"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/site_evidence.json",
+      "bytes": 367036,
+      "sha256": "0c023a17a9b94ea8be1b92ca930da49a608fc05bd13e714fb9c39e27e8e22983"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/reports/support_summary.json",
+      "bytes": 3772210,
+      "sha256": "ae96d270b7f99c9db3a56dcc2849e39eb0a0fe749a214492eb05f72d18612c7b"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/review/species_review.json",
+      "bytes": 20125,
+      "sha256": "b98c48d14157f3dd10ff892e27bb4ebf37a9493ec694ad1e253ce4cf56831a4a"
+    },
+    {
+      "path": "data/adna/species/felis_catus/manifests/citation_manifest.csv",
+      "bytes": 770,
+      "sha256": "81026111eaa9be4ddb8b9604ec5ae2a0db6defe939405c0782c2054e10c32d92"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/coordinate_provenance.json",
+      "bytes": 67920,
+      "sha256": "f9f12b4e5998529a67aad76a8185fed12a5eddcb838cefaa73f5b4d68b8f4512"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/locality_summaries.json",
+      "bytes": 156358,
+      "sha256": "223be15556e926a07b6cbf55d0169e8dfdaeeffc836b747a346ed462e4610784"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/project_summaries.json",
+      "bytes": 3979,
+      "sha256": "b63de7d677342ed6fcb30b159d84eb74ad4d1a4d29f0b5409721e5a0b0fd1ab1"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
+      "bytes": 116135,
+      "sha256": "a946e366696079e5e6549370a5ca2f6a79e2b9fb7e6388169a972750a4853134"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/sample_records.json",
+      "bytes": 444485,
+      "sha256": "07670ff7e5cb629c8c3951c3e7242a2170a2d411bc13e93c401c37ca6d43277f"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/site_evidence.json",
+      "bytes": 111166,
+      "sha256": "5cc363a69f360ec2f533ac3c798cd0d0b7b0423825be9c279a153d7cd9ee47a2"
+    },
+    {
+      "path": "data/adna/species/felis_catus/reports/support_summary.json",
+      "bytes": 832911,
+      "sha256": "8c1ed9d8293273df1cc1f49e2cfedb9a6d1b287cd2d976585c88f8c00bfc0b71"
+    },
+    {
+      "path": "data/adna/species/felis_catus/review/species_review.json",
+      "bytes": 7070,
+      "sha256": "e2fab691f2babcbb68dc8783ba6d750fa46a4dc6f9cd7bc71a3d159cf2e56d6f"
+    },
+    {
+      "path": "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json",
+      "bytes": 58974,
+      "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/manifests/citation_manifest.csv",
+      "bytes": 1326,
+      "sha256": "50d6d774470e260605471a0c0b8474f11df4d6ce965a13ef020a7c5211e42d6b"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
+      "bytes": 3535,
+      "sha256": "a5d2ef05b73d7382c0eb9eb13c5becc256fa4696e7cf34bcbf0545e9792d34c8"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/locality_summaries.json",
+      "bytes": 23355,
+      "sha256": "8f414b2b066e5d734d89d12df20a203f19db01c4ab3a83fbb7f7a52d0e9b2ea9"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/project_summaries.json",
+      "bytes": 11270,
+      "sha256": "38f9cc744d910a337b1eec474aec1b88467339e83efcba9568238038c6237a56"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/sample_records.csv",
+      "bytes": 230865,
+      "sha256": "d327b862b86cbed1b0334e503292f940417940ce8104c33a0fc3044dece73941"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/sample_records.json",
+      "bytes": 818123,
+      "sha256": "479fe9fe9e149829987f228d7e49b45f2b1307b5b9078e4950e97a5a7890a917"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/site_evidence.json",
+      "bytes": 12202,
+      "sha256": "fc1ebec7a25ab70208becec182b0f5dcc99b405784586a3575595f0be03e07fc"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/reports/support_summary.json",
+      "bytes": 937610,
+      "sha256": "f5dfa7dd267a11a5a3a8b86746b3d92b4e3918848c7a0e2c8403a2fd9e8a21ec"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/review/species_review.json",
+      "bytes": 16095,
+      "sha256": "127301ab2fc3f59e66e855e743d605838ecfe32eb1eb3189eee161e8bb89d537"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/manifests/citation_manifest.csv",
+      "bytes": 841,
+      "sha256": "5f16bd7423825bbc1e5b7d8b7a959c0c0052c5d73ef297ae559ff37d2a5c1b62"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/coordinate_provenance.json",
+      "bytes": 1756,
+      "sha256": "e49e3053a8b5c62881601384f4bf494b2bd28d3c4e36c899e449b469d221128e"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/locality_summaries.json",
+      "bytes": 18249,
+      "sha256": "3f1b424a1230b59b380e13f6ebcfe83ff1c67d2aaca206d1d7a01d577e276e3c"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/project_summaries.json",
+      "bytes": 7887,
+      "sha256": "248f51de8da2bbe48a0191cce12612799343569f5263e5ab2580a622fb22994c"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.csv",
+      "bytes": 27434,
+      "sha256": "0696675c852a48b4d138551916b3b181119ff2d23da229e23fb395f6c0938213"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.json",
+      "bytes": 97601,
+      "sha256": "ce12e3391bd5a3456a3d78bb6586c44a70dccd721aafe2c4b597c361491a49db"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/site_evidence.json",
+      "bytes": 17217,
+      "sha256": "313f0a5c9e4b041a58becfda13fb4309bf0c46373016c9d99d707fe1f92aa467"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/reports/support_summary.json",
+      "bytes": 168661,
+      "sha256": "0648b7094047856178b10910534b327e32f9d7e997a080624adb9e31f545803a"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/review/species_review.json",
+      "bytes": 11900,
+      "sha256": "fdada566bb641f2d9f47d1c5f10213bcae91907706f45731a04ace0054751051"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/manifests/citation_manifest.csv",
+      "bytes": 796,
+      "sha256": "ac9a364f5ae918431d5eabc4d05e7d3697cdbe761dfb9faeeda32a6a1437365d"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/coordinate_provenance.json",
+      "bytes": 4199,
+      "sha256": "50a7b0ee7b568d3348ef6b68847cea000c62f000c81b00410546190a294715b0"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/locality_summaries.json",
+      "bytes": 217520,
+      "sha256": "7634be10c11f90bcd15802d058af6c0def1950110a75c30b7b96214fb6c4f2d2"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/project_summaries.json",
+      "bytes": 7869,
+      "sha256": "1239783084eb4e702a50ce5d9ffa441b2d0c0a91367feb38145a67e1d7a6e612"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.csv",
+      "bytes": 340530,
+      "sha256": "693021d7f9a9931c9e913bd2e2433c473f3d4912b228e9092c01d2063c50bb61"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.json",
+      "bytes": 1542156,
+      "sha256": "907bb2e89b53f4233baa6a55eac504e5b6bc4d219e100deaf7456cf29dd91093"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/site_evidence.json",
+      "bytes": 218436,
+      "sha256": "283f85dc54b6e9f26b3c4585a2c93e04fd5e8081b82882749690e1969187ac3b"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+      "bytes": 3578,
+      "sha256": "3f223f4490752083ea864499db2b9ce4c1b649a57d01beb8e7e89ea23d4e23f3"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/reports/support_summary.json",
+      "bytes": 2092700,
+      "sha256": "9a9240f6d7b58079463e43993f35f7e902521589fd5df2a76c2100df218fb53d"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/review/species_review.json",
+      "bytes": 11442,
+      "sha256": "953339b7ecbb326071384b158836f6ea9e0829458d8bd7559483cc3fe2f1e66e"
+    },
+    {
+      "path": "docs/report/animal_atlas_exclusion_report.json",
+      "bytes": 1401887,
+      "sha256": "7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb"
+    },
+    {
+      "path": "docs/report/animal_country_species_coverage.json",
+      "bytes": 5538,
+      "sha256": "683735a1149bfd6a44c6b23f777bc6bd8a9db551e644b92bef54841417cd116e"
+    },
+    {
+      "path": "docs/report/animal_output_honesty.json",
+      "bytes": 3170,
+      "sha256": "e31a154caf4951ffdf2b8ae5d53e65a4967d78e3c3d405af1b6219812c394aee"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_samples.csv",
+      "bytes": 284233,
+      "sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_summary.json",
+      "bytes": 1263,
+      "sha256": "fe6da56c5f4d4032f78e2021e348fdfcd62b5327450dc11a9aa771563dbdd809"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_animal_adna_v66_samples.csv",
+      "bytes": 20827,
+      "sha256": "c7f19fdccaec73ff61caa1c91dd1c30dec7400e1c0de0bcb97942757226acea0"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_animal_adna_v66_summary.json",
+      "bytes": 64654,
+      "sha256": "b5e7d9208f8717c6758a317da82a9e8142d98ba16fe3f609c4c0350d7998333b"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_samples.csv",
+      "bytes": 11789,
+      "sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_summary.json",
+      "bytes": 1258,
+      "sha256": "d84243c21847ea16a75bab9ae1bf157f589335fa6ee0c37e18f8721ba8ce4332"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_animal_adna_v66_samples.csv",
+      "bytes": 5128,
+      "sha256": "fc525193febcb01b6f796f9d01ae5b78570ac84e39143cfcbf3d96509c24ba47"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_animal_adna_v66_summary.json",
+      "bytes": 16507,
+      "sha256": "fb822baee3de235d9a3ec75ed360db69fe78b66e7841d6852be65a25ff8e933d"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_samples.csv",
+      "bytes": 56620,
+      "sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_summary.json",
+      "bytes": 1247,
+      "sha256": "0ca91dd558b9fc1a868720100eef530aa71dbe5f8b189f0c7025efd81e8f57ee"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_animal_adna_v66_samples.csv",
+      "bytes": 963,
+      "sha256": "53908372b493330ae91d166a64c2ee533fd73df20c558fd2785af80dec40dbee"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_animal_adna_v66_summary.json",
+      "bytes": 1161,
+      "sha256": "a7144d675ccc451d6446413de3e21b6a70df4c079c91238e25f0e0a78f1ef270"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_samples.csv",
+      "bytes": 180827,
+      "sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_summary.json",
+      "bytes": 2331,
+      "sha256": "2bb540d46edcb2080604b33c8acdc45157e5d5bc508ba5c7c191049785c0cf50"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.csv",
+      "bytes": 14305,
+      "sha256": "50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_animal_adna_v66_summary.json",
+      "bytes": 46185,
+      "sha256": "3037bcd0946008af5f8b9d651319a1a80995f2325099527ec6982c1aea201315"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/decisions.csv",
+      "bytes": 165929,
+      "sha256": "d55e36f9739a26dfff91d98f47f5b66baae6593060a9c11a8812723407a4dcdd"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/replay.py",
+      "bytes": 8067,
+      "sha256": "c81ae1210332517c004ec9c725598f04fb53542433a25ad6f680058b6999b712"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/report.json",
+      "bytes": 2483,
+      "sha256": "73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196"
+    },
+    {
+      "path": "reports/science/animal-entity-capability/replay.py",
+      "bytes": 6131,
+      "sha256": "e7e057067f384a793fd96bcef8aaf3bb9bb56912be438e94fbf54e6229a094e6"
+    },
+    {
+      "path": "reports/science/animal-entity-capability/report.json",
+      "bytes": 3542,
+      "sha256": "fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780"
+    }
+  ]
+}

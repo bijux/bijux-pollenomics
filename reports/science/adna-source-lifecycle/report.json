@@ -1,0 +1,168 @@
+{
+  "schema_version": "adna-source-country-lifecycle.v1",
+  "countries": [
+    {
+      "country": "Denmark",
+      "kind": "aadr",
+      "rows": 653,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5",
+      "actual_sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5"
+    },
+    {
+      "country": "Denmark",
+      "kind": "animal",
+      "rows": 5,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "c7f19fdccaec73ff61caa1c91dd1c30dec7400e1c0de0bcb97942757226acea0",
+      "actual_sha256": "c7f19fdccaec73ff61caa1c91dd1c30dec7400e1c0de0bcb97942757226acea0"
+    },
+    {
+      "country": "Finland",
+      "kind": "aadr",
+      "rows": 32,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb",
+      "actual_sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb"
+    },
+    {
+      "country": "Finland",
+      "kind": "animal",
+      "rows": 2,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "fc525193febcb01b6f796f9d01ae5b78570ac84e39143cfcbf3d96509c24ba47",
+      "actual_sha256": "fc525193febcb01b6f796f9d01ae5b78570ac84e39143cfcbf3d96509c24ba47"
+    },
+    {
+      "country": "Norway",
+      "kind": "aadr",
+      "rows": 130,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396",
+      "actual_sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396"
+    },
+    {
+      "country": "Norway",
+      "kind": "animal",
+      "rows": 0,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "53908372b493330ae91d166a64c2ee533fd73df20c558fd2785af80dec40dbee",
+      "actual_sha256": "53908372b493330ae91d166a64c2ee533fd73df20c558fd2785af80dec40dbee"
+    },
+    {
+      "country": "Sweden",
+      "kind": "aadr",
+      "rows": 416,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b",
+      "actual_sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b"
+    },
+    {
+      "country": "Sweden",
+      "kind": "animal",
+      "rows": 5,
+      "all_fields_and_order_byte_equal": true,
+      "source_sha256": "50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764",
+      "actual_sha256": "50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764"
+    }
+  ],
+  "complete_animal_bundles_equal": 4,
+  "normalized_source_contracts": {
+    "source_families": {
+      "ENA": 1411,
+      "GenBank": 15,
+      "SRA": 20,
+      "BioProject": 22
+    },
+    "actual_domain_flags": [
+      {
+        "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
+        "sha256": "d5060a5f657a2db322a99b23a12f5467959dd95f8fbb1a9fc9d6a45a5b5dcbc6",
+        "samples": 132,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.json",
+        "sha256": "36d05818a7674783683e1198d3d114f7b1a9b3f5f96d2d1c2be71b06c6ece629",
+        "samples": 31,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.json",
+        "sha256": "24f55ac6ace7c8ebe69b016ca86013d44e33d916723479469c61c7121670c3d3",
+        "samples": 4,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/sample_records.json",
+        "sha256": "8dbb479f68b409832ef790940544f8480a61f5d2495674d06696229a5a04e153",
+        "samples": 82,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/sample_records.json",
+        "sha256": "c7a49dd79e4bde1c27e92a8e66200694c7d24c41af72c892c21ffa381f8df526",
+        "samples": 0,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/equus_caballus/normalized/sample_records.json",
+        "sha256": "9b0af17de81f8be2753433b9a65fb9768296b848f88ac1bc7587f1dbc6f86587",
+        "samples": 550,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/sample_records.json",
+        "sha256": "07670ff7e5cb629c8c3951c3e7242a2170a2d411bc13e93c401c37ca6d43277f",
+        "samples": 106,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/sample_records.json",
+        "sha256": "479fe9fe9e149829987f228d7e49b45f2b1307b5b9078e4950e97a5a7890a917",
+        "samples": 200,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.json",
+        "sha256": "ce12e3391bd5a3456a3d78bb6586c44a70dccd721aafe2c4b597c361491a49db",
+        "samples": 20,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.json",
+        "sha256": "907bb2e89b53f4233baa6a55eac504e5b6bc4d219e100deaf7456cf29dd91093",
+        "samples": 343,
+        "pollen_eligible": false,
+        "pollen_propagation_eligible": false
+      }
+    ],
+    "modalities": {
+      "archive_reads": 1442,
+      "mitogenome_only": 26
+    },
+    "actual_source_backlinks": 60,
+    "historical_metadata_without_declared_hash": 3
+  },
+  "source_partition": {
+    "human_source_ids": 1325,
+    "human_published": 1231,
+    "human_missing_coordinates": 94,
+    "animal_source_ids": 1468,
+    "animal_mapped": 322,
+    "animal_excluded": 1146,
+    "animal_nordic": 12
+  },
+  "scope": "Four actual human source loaders/CSV writers and four actual animal source bundle/CSV writers, exact every-cell and source-record partition correspondence. Separate controlled boundary tests do not constitute accepted empirical events or a complete map/publication replay.",
+  "scientific_admission": false,
+  "accepted_propagation_mapping_count": 0
+}

@@ -35,14 +35,23 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 ```
 
 
+## Actual source and country-record lifecycle verification
+
+The [lifecycle account](../adna-source-lifecycle/report.json) adds a fresh execution of the four actual country animal bundle producers and CSV writers. The full country bundles match the retained summaries as JSON values, including localities, sample provenance, citations, warnings and chronology precision. All 48 sample CSV fields match byte for byte: Denmark five, Finland two, Norway zero and Sweden five. The Norwegian product zero remains a source/publication support limitation.
+
+All ten normalized sample JSONs explicitly retain the animal-DNA domain and false pollen/pollen-propagation eligibility for 1,468 sample IDs. Their source families remain ENA 1,411, BioProject 22, SRA 20 and GenBank 15; modalities remain 1,442 archive-read records and 26 mitogenome-only records. Every one of 60 nonempty literal sample-lineage/chronology source pointers resolves to frozen retained bytes or a named ZIP member. Three compressed article/archive transports lack historical metadata digests; current frozen byte correspondence does not authenticate those original source histories.
+
+The [capture](../adna-source-lifecycle/capture.json) records six native-zero stages, eight country CSV comparisons, four complete animal bundles and 26 maintained boundary controls. The source-ID partition stays 322 mapped + 1,146 excluded = 1,468. This verifies the metadata lifecycle and domain separation. It supplies no accepted empirical classification, new map/browser capture, genotype result, source-rights decision or independent human biological review.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Every normalized animal sample ID has one point-map membership or exclusion decision.
+**Supported claim.** Every normalized animal source ID has one map membership/exclusion; actual non-pollen source flags and full four-country chronology/provenance publication contracts retain source-domain separation.
 
 **Unsupported claim.** Scientific animal/ecological admission or source-country authority.
 
-**Actual verification performed.** Actual current 13-input SHA-bound reconciliation retained the exact disjoint 1,468-ID partition after source-age qualification. All 322 mapped IDs and 1,146 excluded IDs are distinct; source chronology has its separate 1,475-row denominator. This index refresh reruns no source model.
+**Actual verification performed.** Actual six-stage replay native0 preserved1468=322+1146source-ID partition, all10animal JSON domain/refusal flags,60literal source pointers,8human/animal CSVs and4complete animal bundles;26maintained boundaries passed. Original 1475row chronology scope remains separate. Three compressed transports have current captured hashes but no historical metadata digests; no new human review or model fit.
 
 **Remaining input or review.** The 1,468-ID point-map partition is closed, but 1,146 exclusions include unresolved locality, coordinate provenance and chronology; eleven paper links and biological/country authority remain open. Resolver: Animal source custodian and qualified provenance/biological reviewer Reopen when: Source-backed locality, coordinates, chronology, paper links and admission are decided per sample.
 
@@ -56,10 +65,10 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 **Matched denominator.** 1,468 IDs = 322 mapped sample IDs in 165 point features + 1,146 excluded; separate Nordic subset: 12 mapped IDs in eight features.
 
-Retained evidence: [reports/science/animal-entity-capability/report.json](report.json), [docs/report/animal_atlas_exclusion_report.json](../../../docs/report/animal_atlas_exclusion_report.json).
+Retained evidence: [reports/science/animal-entity-capability/report.json](report.json), [docs/report/animal_atlas_exclusion_report.json](../../../docs/report/animal_atlas_exclusion_report.json), [reports/science/adna-source-lifecycle/report.json](../adna-source-lifecycle/report.json), [reports/science/adna-source-lifecycle/capture.json](../adna-source-lifecycle/capture.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: bdd9a277249c043debe0510c3bb104c30bf007c62ee475d6479b48b3d67255c5 -->
-<!-- scientific-authored-source-sha256: 68331c3bf2948657db84c89e0a54eeba3ec0c00a02bd330b48705efe9df72358 -->
+<!-- scientific-claim-semantic-sha256: e811bb68bda0cc1e7d34075752c9c8f6f8869136efb48a06a82403d35f595b8d -->
+<!-- scientific-authored-source-sha256: d9721df11be77cbc12751642ab6efe5c237df902642c5c17970abf0c5a65a75c -->
 <!-- scientific-verification-and-limits:end -->
