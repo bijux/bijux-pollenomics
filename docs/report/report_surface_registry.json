@@ -12459,7 +12459,7 @@
     },
     {
       "repository_path": "docs/report/propagation/source-first-observed/README.md",
-      "content_sha256": "6ad83eaa2e9b21e71f1b28d859f8373d444d94feb962256dbbebf3744a823e75",
+      "content_sha256": "5c035c775ceb537a1ce13a6704d95777b4d3909e0a9e15d38b694e3b64bd2c4b",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

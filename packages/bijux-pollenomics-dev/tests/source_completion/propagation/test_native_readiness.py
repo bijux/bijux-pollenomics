@@ -58,10 +58,17 @@ def test_original_success_exit_preserves_arguments_and_report(
         )
         raise SystemExit(0)
 
+    custody_calls: list[Path] = []
+    monkeypatch.setattr(
+        readiness,
+        "validate_retained_readiness",
+        lambda repository, report: custody_calls.append(repository),
+    )
     monkeypatch.setattr(runpy, "run_module", writer)
     original = sys.argv
     assert readiness.main(["--repository", str(root), "--output", str(output)]) == 0
     assert sys.argv is original
+    assert custody_calls == [root]
     assert seen == [
         [
             str(root / readiness.SOURCE),

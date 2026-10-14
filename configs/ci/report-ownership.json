@@ -28066,6 +28066,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/native_readiness.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/neotoma_exports.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/event_estimation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/__init__.py",
@@ -28086,6 +28087,9 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
       ],
       "producer_inputs": [
+        "data/atlas/source-view-capture/capture.json",
+        "data/atlas/source-view-capture/products/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
+        "data/atlas/source-view-capture/products/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json",
         "data/neotoma/relational/manifest.json",
         "data/neotoma/relational/surfaces/age_claims/part-00001.json",
         "data/neotoma/relational/surfaces/collection_units/part-00001.json",
@@ -28101,10 +28105,14 @@
         "data/neotoma/relational/surfaces/samples/part-00001.json",
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "data/neotoma/source-selection-reference/neotoma-site-12.pollen-series.json.gz",
+        "data/neotoma/source-selection-reference/neotoma-site-3009.pollen-series.json.gz",
+        "data/neotoma/source-selection-reference/readiness-report.json.gz",
+        "data/neotoma/source-selection-reference/selection-custody.json",
         "docs/report/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
         "docs/report/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json"
       ],
-      "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_retained_readiness_matches_replay_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows."
+      "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_named_export_custody_preserves_refusals_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows. The named physical historical/current/captured export certificate permits only the two declared shared_url changes; the retained historical report remains byte-bound and every scientific readiness field must match after exactly two declared export-digest substitutions."
     },
     {
       "owner_id": "publication-replay/landclim-amsoldingersee-source-review/reader-account",

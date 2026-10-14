@@ -10,6 +10,8 @@ import runpy
 import stat
 import sys
 
+from .neotoma_exports import validate_retained_readiness
+
 SOURCE = Path(
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py"
 )
@@ -95,6 +97,7 @@ def run(repository: Path, output: Path) -> None:
         is not False
     ):
         raise ValueError("native readiness refusal or nonpromotion contract differs")
+    validate_retained_readiness(repository, report)
 
 
 def main(argv: list[str] | None = None) -> int:
