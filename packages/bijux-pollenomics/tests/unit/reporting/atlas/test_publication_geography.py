@@ -191,7 +191,9 @@ class PublicationGeographyTests(unittest.TestCase):
             "publication_geography_registry.json",
         )
 
-    def test_publish_published_reports_tree_writes_geography_packets(self) -> None:
+    def test_geography_packets_precede_refusal_of_unqualified_science_fixture(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             staging_output_root = Path(tmp) / "staging"
             output_root = Path(tmp) / "isolated" / "report"
@@ -390,8 +392,12 @@ class PublicationGeographyTests(unittest.TestCase):
                     "bijux_pollenomics.reporting.bundles.published_reports.render_public_animal_output_audit_markdown",
                     return_value="# audit\n",
                 ),
+                self.assertRaisesRegex(
+                    ValueError,
+                    "Scientific qualification evidence changed: docs/report/animal_output_audit.json",
+                ),
             ):
-                report = publish_published_reports_tree(
+                publish_published_reports_tree(
                     staging_output_root,
                     version_dir=version_dir,
                     output_root=output_root,
@@ -408,23 +414,13 @@ class PublicationGeographyTests(unittest.TestCase):
                     write_summary_json_fn=write_summary_json,
                 )
 
-            self.assertEqual(report.shared_map_dir, published_output_root / "world")
-            self.assertEqual(
-                report.regional_output_dirs,
-                (
-                    published_output_root / "regions" / "europe-plus",
-                    published_output_root / "regions" / "nordic",
-                ),
-            )
-            self.assertEqual(
-                report.country_output_root, published_output_root / "countries"
-            )
+            self.assertFalse((staging_output_root / "index.md").exists())
             self.assertEqual(len(observed_published_dirs), 5)
             self.assertEqual(
                 observed_docs_roots,
-                [Path("docs"), Path("docs"), Path("docs")],
+                [Path("docs"), Path("docs")],
             )
-            self.assertEqual(observed_sustainability_roots, [staging_output_root])
+            self.assertEqual(observed_sustainability_roots, [])
             self.assertTrue(
                 all(
                     directory.is_relative_to(published_output_root)
