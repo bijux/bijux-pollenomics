@@ -208,7 +208,7 @@ def test_retained_deck_context_admits_original_history_and_exact_current_inputs(
     assert [name for name in current if current[name] != historical[name]] == [
         row["path"] for row in retained["context"]["reviewed_deltas"]
     ]
-    assert len(retained["context"]["reviewed_deltas"]) == 12
+    assert len(retained["context"]["reviewed_deltas"]) == 15
     before = (ROOT / "presentation/source-lock.json").read_bytes()
     frozen = HOOK.download_bytes(ROOT)
     assert len(frozen) == 12

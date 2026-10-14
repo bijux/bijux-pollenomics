@@ -96,21 +96,21 @@ def _committed_inputs(root: Path, revision: str, paths: list[str]) -> dict[str, 
     for record in tree.split(b"\0"):
         if not record:
             continue
-        metadata, name = record.split(b"\t", 1)
+        metadata, encoded_name = record.split(b"\t", 1)
         mode, kind, _ = metadata.split()
         if mode not in {b"100644", b"100755"} or kind != b"blob":
             raise ValueError("Retained deck history requires regular source blobs")
-        owned[name.decode()] = mode
+        owned[encoded_name.decode()] = mode
     if set(owned) != set(paths):
         raise ValueError("Retained deck history is missing an exact source")
     request = "".join(f"{revision}:{path}\n" for path in paths).encode()
     stream = io.BytesIO(_git(root, "cat-file", "--batch", request=request))
     result = {}
-    for path in paths:
+    for relative in paths:
         header = stream.readline().split()
         if len(header) != 3 or header[1] != b"blob":
             raise ValueError("Retained deck history requires complete source blobs")
-        result[path] = stream.read(int(header[2]))
+        result[relative] = stream.read(int(header[2]))
         if stream.read(1) != b"\n":
             raise ValueError("Retained deck history stream is incomplete")
     if stream.read():
@@ -118,7 +118,7 @@ def _committed_inputs(root: Path, revision: str, paths: list[str]) -> dict[str, 
     return result
 
 
-def _json_object(pairs: list[tuple[str, object]]) -> dict:
+def _json_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
     result = {}
     for key, value in pairs:
         if key in result:
@@ -127,7 +127,7 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
-def _previous_deck_sources(root: Path) -> dict:
+def _previous_deck_sources(root: Path) -> dict[str, object]:
     """Keep original deck context and one reviewed security metadata delta distinct."""
     context_bytes = _read(root, RETAINED_CONTEXT_PATH)
     context = json.loads(context_bytes, object_pairs_hook=_json_object)
@@ -159,11 +159,11 @@ def _previous_deck_sources(root: Path) -> dict:
     current_modes = _git(root, "ls-tree", "-r", "-z", current_revision, "--", *paths)
     for record in current_modes.split(b"\0"):
         if record:
-            metadata, name = record.split(b"\t", 1)
+            metadata, encoded_name = record.split(b"\t", 1)
             mode = metadata.split()[0]
             physical_mode = (
                 b"100755"
-                if (root / name.decode()).stat().st_mode & 0o100
+                if (root / encoded_name.decode()).stat().st_mode & 0o100
                 else b"100644"
             )
             if physical_mode != mode:
@@ -231,7 +231,7 @@ def _previous_deck_sources(root: Path) -> dict:
 
 CURRENT_DECK_CONTEXT_PATH = "presentation/retained-build-source-context.json"
 CURRENT_DECK_CONTEXT_SHA256 = (
-    "0c15e691d437c8bc6dc4fd58b0215fd93cdb4ad000de42d688b28e71e967f1d0"
+    "3d569d55f47273985e53b5bc8c4b4fddb1ae216eec0ff3d1d18ef6ca87004619"
 )
 CURRENT_DECK_SOURCE_LOCK_SHA256 = (
     "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"
@@ -239,7 +239,7 @@ CURRENT_DECK_SOURCE_LOCK_SHA256 = (
 CURRENT_DECK_ACCEPTED_REVISION = "4ec5f1f614ba2e0e1c8b16f3e9b3aa1abd73c3c3"
 
 
-def _current_deck_sources(root: Path) -> dict:
+def _current_deck_sources(root: Path) -> dict[str, object]:
     """Authenticate retained slide inputs and separately reviewed current bytes."""
     raw = _read(root, CURRENT_DECK_CONTEXT_PATH)
     if hashlib.sha256(raw).hexdigest() != CURRENT_DECK_CONTEXT_SHA256:
@@ -252,7 +252,7 @@ def _current_deck_sources(root: Path) -> dict:
         or previous_context != RETAINED_CONTEXT
     ):
         raise ValueError("Retained deck original context differs")
-    previous_revision = RETAINED_CONTEXT["source_revision"]
+    previous_revision = previous_context["source_revision"]
     for revision in (previous_revision, CURRENT_DECK_ACCEPTED_REVISION):
         _git(root, "merge-base", "--is-ancestor", revision, "HEAD")
     previous_lock_raw = _committed_inputs(
@@ -286,10 +286,10 @@ def _current_deck_sources(root: Path) -> dict:
     )
     for record in modes.split(b"\0"):
         if record:
-            metadata, name = record.split(b"\t", 1)
+            metadata, encoded_name = record.split(b"\t", 1)
             physical = (
                 b"100755"
-                if (root / name.decode()).stat().st_mode & 0o100
+                if (root / encoded_name.decode()).stat().st_mode & 0o100
                 else b"100644"
             )
             if metadata.split()[0] != physical:
@@ -324,7 +324,7 @@ def _current_deck_sources(root: Path) -> dict:
     }
 
 
-def retained_deck_sources(root: Path) -> dict:
+def retained_deck_sources(root: Path) -> dict[str, object]:
     """Keep the original and later retained deck epochs distinct."""
     source_lock = _read(root, "presentation/source-lock.json")
     if hashlib.sha256(source_lock).hexdigest() == CURRENT_DECK_SOURCE_LOCK_SHA256:
