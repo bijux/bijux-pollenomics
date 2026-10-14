@@ -18,9 +18,9 @@ from bijux_pollenomics_dev.docs.report_portal_check import (
 @pytest.fixture
 def repository(tmp_path: Path) -> Path:
     report_root = tmp_path / "docs/report"
-    (report_root / "world").mkdir(parents=True)
-    (report_root / "world/README.md").write_text(
-        "# World\n\nA bounded description of this report surface.\n",
+    (report_root / "regional-account").mkdir(parents=True)
+    (report_root / "regional-account/README.md").write_text(
+        "# Regional account\n\nA bounded description of this report surface.\n",
         encoding="utf-8",
     )
     (report_root / "machine.csv").write_text("id,value\na,1\n", encoding="utf-8")
@@ -55,7 +55,7 @@ def test_checks_real_producer_population_and_cli(
 
 
 def test_rejects_modified_markdown(repository: Path) -> None:
-    with (repository / "docs/report/world/README.md").open(
+    with (repository / "docs/report/regional-account/README.md").open(
         "a", encoding="utf-8"
     ) as stream:
         stream.write("A changed interpretation.\n")
