@@ -78,8 +78,9 @@ def test_build_candidate_context_counts_nearby_points_and_layers() -> None:
 
     assert context.nearby_context_points == 2
     assert context.nearby_context_layer_count == 2
-    assert context.time_aware_context_points == 2
-    assert context.temporal_overlap_points == 2
+    # SEAD site coverage remains spatial context without dated occurrence support.
+    assert context.time_aware_context_points == 1
+    assert context.temporal_overlap_points == 1
 
 
 def test_candidate_context_reuses_exact_coordinate_distance_without_collapsing_rows(
