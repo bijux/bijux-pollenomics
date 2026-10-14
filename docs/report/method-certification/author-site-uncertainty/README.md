@@ -10,7 +10,7 @@ has already reproduced all six selected prepared files byte-for-byte from
 source raw rows. The report hashes the selected author files, 31-target PPE
 and covariance tables, crosswalk, site list, lineage receipt and calculation
 code. Its SHA-256 is
-`415185927514de10a71b6a7ba6c26d7bc1fd3ed8cc140760ec2e3e9f58f1c243`.
+`7da46aa0ca1c17b6915f6ee99e51c4911632472a244aefdc1a62828f1d4c41d4`.
 
 The **ten taxa with positive prepared counts at every selected site** form an
 exploratory closed subcomposition. Their site totals are 289, 293, 2,223,
@@ -66,23 +66,23 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Unsupported claim.** It supplies no historical source-R parity, calibrated field coverage, scientific admission of all 31 author targets or independent vegetation accuracy; shared author lineage is not independent evidence.
 
-**Actual verification performed.** Reviewed the retained report and authored reader and compared all four declared repository-code hashes with physical current files: all four match. The reader cites a different historical report hash; no fresh bootstrap or current-source replay occurred in this qualification.
+**Actual verification performed.** Executed the maintained author-site uncertainty replay on local main1180a97d7d7356d0f7a6b05d116f342587861997 and an independent complete three-product observer; both native stages exited zero. All 13 original private input identities, six sites, ten taxa, selected counts and 1,024 joint draw rows were authenticated. Every typed scientific value matched the retained result, and draws.json plus cover-draws.csv were byte-identical. Only replay-code byte/hash metadata and the moved joint-draw module path changed.
 
-**Remaining input or review.** The maintained author-site owner replay must reconcile the stale reader report reference before claiming a current replay. Scientific use also needs source parameter, geometry and chronology justification and independent review.
+**Remaining input or review.** Current-source replay and the stale report reference are reconciled. Scientific use still needs source parameter, age-specific geometry and chronology justification, rights and independent scientific review; this replay supplies no historical source-R parity or ecological accuracy.
 
-**Cause category.** Conditional uncertainty account with a stale authored report reference; its four declared code dependencies currently match.
+**Cause category.** Current-source conditional uncertainty replay with exact retained scientific values and shared-draw identities; scientific applicability remains separately qualified.
 
-**Consequence.** The retained 1,024-draw result remains inspectable as historical development evidence; it cannot certify later source bytes or uncertainty omitted by its fixed assumptions.
+**Consequence.** The 1,024-draw calculation now binds its actual current code provenance and reader reference. It remains conditional on the selected ten-taxon denominator and fixed chronology, geometry and transport, without a new field-accuracy or scientific-release claim.
 
-**Precise next acceptance route.** Run the configured author-site uncertainty owner with exact retained inputs, preserve its selected-count denominator and paired draw construction, and compare native numeric products before advancing current-source or scientific acceptance.
+**Precise next acceptance route.** Use the adopted source-bound report and unchanged stored draw products for the maintained paired author-site profile comparison; qualify any scientific application against its original source, chronology, geometry, rights and independent review requirements.
 
 **Negative or refused result.** Targets without selected positive prepared support are not silently treated as measured absences. Missing historical R parity and ecological accuracy remain explicit false claims.
 
 **Matched denominator.** One grid/window, six sites, ten selected taxa from 31 prepared targets; selected site counts 289,293,2223,2786,4251,562 sum 10,404 against full 10,747; 1,024 explicit paired replicates.
 
-Qualified authored reader SHA-256: `1ce12bd4b502d934b3a46a1c5b9a3b7d38312da8097d8fe078c46609f7614912`.
+Qualified authored reader SHA-256: `cdeba0e06615b0989e9f4822f45f4fd1ff63e7a6ae13873dea36c42a525020f4`.
 
-- [Retained qualification evidence: docs/report/method-certification/author-site-uncertainty/report.json](report.json) (SHA-256 `7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8`).
+- [Retained qualification evidence: docs/report/method-certification/author-site-uncertainty/report.json](report.json) (SHA-256 `7da46aa0ca1c17b6915f6ee99e51c4911632472a244aefdc1a62828f1d4c41d4`).
 
 - [Retained qualification evidence: docs/report/method-certification/author-site-uncertainty/draws.json](draws.json) (SHA-256 `84da401dc862452bc329d11df074d2c6d7353b3e34b223892b5fd6702fae4390`).
 
