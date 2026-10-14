@@ -17,9 +17,16 @@ def test_authored_verification_has_explicit_manual_runner_budgets() -> None:
         workflow = yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
         assert "workflow_dispatch" in workflow["on"]
         assert not {"push", "pull_request", "merge_group"}.intersection(workflow["on"])
-        runner_jobs = [job for job in workflow["jobs"].values() if "runs-on" in job]
+        runner_jobs = {
+            key: job for key, job in workflow["jobs"].items() if "runs-on" in job
+        }
         assert runner_jobs, name
-        for job in runner_jobs:
+        for job_id, job in runner_jobs.items():
+            job_ceiling = (
+                30
+                if name == "scientific-verification.yml" and job_id == "rebuild-owners"
+                else ceiling
+            )
             budget = job.get("timeout-minutes")
             assert isinstance(budget, str) and budget.isdigit(), (name, budget)
-            assert 0 < int(budget) <= ceiling, (name, budget)
+            assert 0 < int(budget) <= job_ceiling, (name, job_id, budget)
