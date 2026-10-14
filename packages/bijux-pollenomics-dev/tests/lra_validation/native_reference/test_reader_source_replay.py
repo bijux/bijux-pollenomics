@@ -115,8 +115,8 @@ def test_retained_consumer_and_case_vector_identity(
     result = reader._require_retained_comparison(repository, report, replay)
     assert result.manifest_sha256 == "b" * 64
     assert (report, replay) == before
-    assert len(report["consumer_inputs"]["code_sha256"]) == 99
-    assert len(report["consumer_inputs"]["data_sha256"]) == 287
+    assert len(report["consumer_inputs"]["code_sha256"]) == 100
+    assert len(report["consumer_inputs"]["data_sha256"]) == 291
     assert replay["retained_numeric_csv"]["file_count"] == 97
 
 
@@ -251,3 +251,79 @@ def test_report_and_replay_capture_profiles_must_agree(
     )
     with pytest.raises(ValueError, match="scope"):
         reader._require_retained_comparison(repository, report, replay)
+
+
+def test_reader_uses_authenticated_finite_source_context_and_current_analysis(
+    reader: ModuleType, tmp_path: Path
+) -> None:
+    """Historical source names stay sealed while present analysis code stays byte-bound."""
+    source = {f"captured/source-{index}.py": "a" * 64 for index in range(68)}
+    analysis = tmp_path / "analysis.py"
+    analysis.write_bytes(b"current analysis\n")
+    capture = AnnulusCapture(
+        tmp_path / "capture",
+        tmp_path / "archives",
+        "a" * 40,
+        "b" * 64,
+        (),
+        {},
+        {},
+        {"protected_science_sha256": source},
+    )
+    replay = {
+        "native_capture_profile": "finite-covariance",
+        "current_inputs_sha256": dict(source),
+        "analysis_inputs_sha256": {"analysis.py": reader.sha256(analysis)},
+    }
+    reader._require_replay_source_inputs(tmp_path, replay, capture)
+    analysis.write_bytes(b"changed analysis\n")
+    with pytest.raises(ValueError, match="R replay source changed"):
+        reader._require_replay_source_inputs(tmp_path, replay, capture)
+
+
+@pytest.mark.parametrize("change", ["missing", "extra", "digest"])
+def test_reader_refuses_unsealed_finite_source_map(
+    reader: ModuleType, tmp_path: Path, change: str
+) -> None:
+    """The authenticated context authorizes exactly its original 68 source hashes."""
+    source = {f"captured/source-{index}.py": "a" * 64 for index in range(68)}
+    capture = AnnulusCapture(
+        tmp_path / "capture",
+        tmp_path / "archives",
+        "a" * 40,
+        "b" * 64,
+        (),
+        {},
+        {},
+        {"protected_science_sha256": source},
+    )
+    changed = dict(source)
+    if change == "missing":
+        changed.pop(next(iter(changed)))
+    elif change == "extra":
+        changed["unknown.py"] = "b" * 64
+    else:
+        changed[next(iter(changed))] = "b" * 64
+    replay = {
+        "native_capture_profile": "finite-covariance",
+        "current_inputs_sha256": changed,
+        "analysis_inputs_sha256": {},
+    }
+    with pytest.raises(ValueError, match="sealed source hashes"):
+        reader._require_replay_source_inputs(tmp_path, replay, capture)
+
+
+@pytest.mark.parametrize("profile", [None, "annulus", "count-domain"])
+def test_reader_keeps_legacy_raw_source_hashes_strict(
+    reader: ModuleType, tmp_path: Path, profile: object
+) -> None:
+    """The source-custody branch cannot relax standalone or older profile checks."""
+    path = tmp_path / "source.py"
+    path.write_bytes(b"current source\n")
+    replay = {
+        "native_capture_profile": profile,
+        "current_inputs_sha256": {"source.py": "a" * 64},
+        "analysis_inputs_sha256": {},
+    }
+    with pytest.raises(ValueError, match="R replay source changed"):
+        reader._require_replay_source_inputs(tmp_path, replay, None)

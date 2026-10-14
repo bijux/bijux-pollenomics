@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 from pathlib import Path
 from typing import Any, TypedDict
@@ -425,6 +426,16 @@ def test_selected_capture_profile_binds_consumer_data_and_output(
         return source
 
     monkeypatch.setattr(producer, "validated_current_capture", validate)
+    if profile == "finite-covariance":
+        original: Callable[..., dict[str, Any]] = vars(producer)["summarize"]
+
+        def retained_summary(
+            *paths: Path, retained_capture_profile: str
+        ) -> dict[str, Any]:
+            assert retained_capture_profile == "finite-covariance"
+            return original(*paths)
+
+        monkeypatch.setattr(producer, "summarize", retained_summary)
     result = producer.build(repository, output, capture_profile=profile)  # type: ignore[arg-type]
     assert selected_profiles == [profile, profile]
     assert result["native_capture_profile"] == profile
@@ -433,3 +444,37 @@ def test_selected_capture_profile_binds_consumer_data_and_output(
         f"data/method-certification/native-r-{profile}/capture/capture.json"
         in result["consumer_inputs"]["data_sha256"]
     )
+
+
+def test_configured_finite_comparison_explicitly_selects_source_authentication(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The configured finite recipe opts in while legacy profiles keep strict defaults."""
+    repository, output, _, calls = comparison
+    policy_path = repository / "configs/ci/report-ownership.json"
+    policy = json.loads(policy_path.read_text())
+    declaration = policy["owners"][0]
+    declaration["producer_inputs"] = [
+        name.replace("native-r-annulus/", "native-r-finite-covariance/")
+        for name in declaration["producer_inputs"]
+    ]
+    for name in declaration["producer_inputs"]:
+        path = repository / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"synthetic declared input")
+    policy_path.write_text(json.dumps(policy))
+    original: Callable[..., dict[str, Any]] = vars(producer)["summarize"]
+    selectors = []
+
+    def summarize(*paths: Path, retained_capture_profile: str) -> dict[str, Any]:
+        selectors.append(retained_capture_profile)
+        return original(*paths)
+
+    monkeypatch.setattr(producer, "summarize", summarize)
+    result = producer.build(repository, output, capture_profile="finite-covariance")
+    assert selectors == ["finite-covariance"]
+    assert len(calls) == 1
+    assert result["native_capture_profile"] == "finite-covariance"
+    assert result["fresh_R_executed_for_this_comparison"] is False

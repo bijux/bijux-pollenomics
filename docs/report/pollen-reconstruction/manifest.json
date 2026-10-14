@@ -1266,8 +1266,8 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/verify_source_replay.py",
-      "sha256": "1a10a99427c45fb2d67ff7f89efabc86c17b33a4759436f97b4cb5d4bb247f55",
-      "bytes": 7781
+      "sha256": "22ae1fbe2449035e20ba9c69fe6d952741b76f4968adbcb3ee5f5561b6d7e3f2",
+      "bytes": 8672
     },
     {
       "path": "docs/report/method-certification/love-paper-correspondence/README.md",

@@ -107,3 +107,150 @@ def test_member_file_alias_refuses(repository: Path, alias: str) -> None:
         os.link(backing, target)
     with pytest.raises(ValueError):
         validated_finite_covariance_capture(repository)
+
+
+def test_retained_comparison_authenticates_adopted_source_layout(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Use the real finite packet and all 68 sealed sources after named custody."""
+    from bijux_pollenomics_dev.lra_validation import (
+        live_reference_comparison as comparison,
+    )
+
+    capture = validated_finite_covariance_capture(repository)
+    receipt = json.loads((capture.directory / "receipt.json").read_text())
+    calls: list[Path] = []
+
+    def authenticate(root: Path) -> object:
+        calls.append(root)
+        return validated_finite_covariance_capture(root)
+
+    monkeypatch.setattr(comparison, "validated_finite_covariance_capture", authenticate)
+    comparison._require_current_inputs(
+        repository,
+        capture.directory,
+        capture.source_archives,
+        receipt,
+        retained_capture_profile="finite-covariance",
+    )
+    assert calls == [repository]
+    assert len(receipt["current_inputs_sha256"]) == 68
+    assert not (
+        repository
+        / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py"
+    ).exists()
+    with pytest.raises(ValueError, match="Current R/Python input changed"):
+        comparison._require_current_inputs(
+            repository, capture.directory, capture.source_archives, receipt
+        )
+    assert calls == [repository]
+
+
+@pytest.mark.parametrize("route", ["capture", "archives"])
+def test_retained_comparison_refuses_other_source_routes(
+    repository: Path, route: str
+) -> None:
+    """An authenticated packet cannot authorize another native or archive route."""
+    from bijux_pollenomics_dev.lra_validation import (
+        live_reference_comparison as comparison,
+    )
+
+    capture = validated_finite_covariance_capture(repository)
+    receipt = json.loads((capture.directory / "receipt.json").read_text())
+    run = repository / "other-capture" if route == "capture" else capture.directory
+    archives = (
+        repository / "other-archives"
+        if route == "archives"
+        else capture.source_archives
+    )
+    with pytest.raises(ValueError, match="source routes or sealed source hashes"):
+        comparison._require_current_inputs(
+            repository,
+            run,
+            archives,
+            receipt,
+            retained_capture_profile="finite-covariance",
+        )
+
+
+@pytest.mark.parametrize("change", ["digest", "missing", "extra"])
+def test_retained_comparison_refuses_unsealed_source_map(
+    repository: Path, change: str
+) -> None:
+    """All 68 receipt hashes must equal the sealed capture context exactly."""
+    from bijux_pollenomics_dev.lra_validation import (
+        live_reference_comparison as comparison,
+    )
+
+    capture = validated_finite_covariance_capture(repository)
+    receipt = json.loads((capture.directory / "receipt.json").read_text())
+    sources = receipt["current_inputs_sha256"]
+    if change == "digest":
+        sources[next(iter(sources))] = "0" * 64
+    elif change == "missing":
+        sources.pop(next(iter(sources)))
+    else:
+        sources["unknown-source.py"] = "0" * 64
+    with pytest.raises(ValueError, match="source routes or sealed source hashes"):
+        comparison._require_current_inputs(
+            repository,
+            capture.directory,
+            capture.source_archives,
+            receipt,
+            retained_capture_profile="finite-covariance",
+        )
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "data/method-certification/native-r-finite-covariance/capture/oracle/C0000.csv",
+        "data/method-certification/native-r-finite-covariance/capture/receipt.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+    ],
+)
+def test_retained_comparison_reauthenticates_physical_capture_and_science(
+    repository: Path, name: str
+) -> None:
+    """The source-adoption route must preserve native-byte and scientific tamper refusal."""
+    from bijux_pollenomics_dev.lra_validation import (
+        live_reference_comparison as comparison,
+    )
+
+    capture = validated_finite_covariance_capture(repository)
+    receipt = json.loads((capture.directory / "receipt.json").read_text())
+    target = repository / name
+    target.write_bytes(target.read_bytes() + b"\n")
+    with pytest.raises(ValueError):
+        comparison._require_current_inputs(
+            repository,
+            capture.directory,
+            capture.source_archives,
+            receipt,
+            retained_capture_profile="finite-covariance",
+        )
+
+
+@pytest.mark.parametrize("profile", ["annulus", "count-domain", "unknown", "", False])
+def test_retained_comparison_refuses_unsupported_profile_before_authentication(
+    repository: Path, monkeypatch: pytest.MonkeyPatch, profile: object
+) -> None:
+    """Only the explicit finite-covariance selector can use governed source custody."""
+    from typing import Any, cast
+
+    from bijux_pollenomics_dev.lra_validation import (
+        live_reference_comparison as comparison,
+    )
+
+    def forbidden(_: Path) -> None:
+        pytest.fail("unknown profiles must refuse before capture authentication")
+
+    monkeypatch.setattr(comparison, "validated_finite_covariance_capture", forbidden)
+    with pytest.raises(ValueError, match="profile must be finite-covariance"):
+        comparison._require_current_inputs(
+            repository,
+            repository / "capture",
+            repository / "archives",
+            {"current_inputs_sha256": {}},
+            retained_capture_profile=cast(Any, profile),
+        )
