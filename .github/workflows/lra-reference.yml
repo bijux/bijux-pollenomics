@@ -45,7 +45,7 @@ jobs:
           mkdir -p "$root/handoff"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/sources.tar" "$root/sources" "$root/receipts/acquisition"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/sources.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/sources.tar
@@ -53,7 +53,7 @@ jobs:
           if-no-files-found: error
       - name: Retain source acquisition diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-sources-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/receipts/acquisition/
@@ -109,7 +109,7 @@ jobs:
           root="artifacts/bijux-pollenomics-lra/reference"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/runtime.tar" "$root/runtime" "$root/receipts/runtime" "$root/system/runtime"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/runtime.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/runtime.tar
@@ -117,7 +117,7 @@ jobs:
           if-no-files-found: error
       - name: Retain R build diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-runtime-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -189,7 +189,7 @@ jobs:
           root="artifacts/bijux-pollenomics-lra/reference"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/provision.tar" "$root/library" "$root/receipts/provision" "$root/system/provision"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/provision.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/provision.tar
@@ -197,7 +197,7 @@ jobs:
           if-no-files-found: error
       - name: Retain provisioning diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-r-provision-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -221,7 +221,7 @@ jobs:
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
       - name: Prepare native cases and exact shared-input digests
         run: .venv/bin/python packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py --prepare-only --output artifacts/bijux-pollenomics-lra/reference/native-cases
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -334,7 +334,7 @@ jobs:
             --lock configs/ci/lra-r-source-lock.v1.json \
             --target-sha "${{ github.sha }}" \
             --output artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: lra-native-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
