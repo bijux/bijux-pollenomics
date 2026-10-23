@@ -74,6 +74,58 @@ def test_forward_model_and_objective() -> None:
     assert logeuclidean([1, 2], [2, 4]) == pytest.approx(np.sqrt(2 * np.log(2) ** 2))
 
 
+@pytest.mark.parametrize("field", ["mKlocal", "vSampleLocPro"])
+def test_optimized_helpers_refuse_unresolved_masks_before_backing_coercion(
+    field: str,
+) -> None:
+    cover, regional, ppe = [0.4, 0.6], [0.2, 0.2], [1, 2]
+    kernel = np.array([[0.2, 0.3], [0.1, 0.4]])
+    fractions = [0.5, 1.0]
+    observed = np.array([0.3, 0.7])
+    with pytest.raises(ValidationError, match=field + " contains masked"):
+        if field == "mKlocal":
+            love_pollen(
+                cover,
+                regional,
+                np.ma.array(kernel, mask=[[True, False], [False, False]]),
+                fractions,
+                ppe,
+            )
+        else:
+            tf(
+                cover,
+                regional,
+                kernel,
+                fractions,
+                np.ma.array(observed, mask=[True, False]),
+                ppe,
+            )
+
+
+@pytest.mark.parametrize("flat_kernel", [False, True])
+def test_allfalse_masks_preserve_exact_forward_array_and_objective(
+    flat_kernel: bool,
+) -> None:
+    cover, regional, ppe = [0.4, 0.6], [0.2, 0.2], [1, 2]
+    kernel = np.array([0.2, 0.3]) if flat_kernel else np.array([[0.2, 0.3], [0.1, 0.4]])
+    fractions = [0.5] if flat_kernel else [0.5, 1.0]
+    observed = np.array([0.3, 0.7])
+    plain_array = love_pollen(cover, regional, kernel, fractions, ppe)
+    masked_array = love_pollen(
+        cover, regional, np.ma.array(kernel, mask=False), fractions, ppe
+    )
+    np.testing.assert_array_equal(masked_array, plain_array)
+    expected = tf(cover, regional, kernel, fractions, observed, ppe)
+    assert (
+        tf(cover, regional, kernel, fractions, np.ma.array(observed, mask=False), ppe)
+        == expected
+    )
+    assert (
+        tf(cover, regional, np.ma.array(kernel, mask=False), fractions, observed, ppe)
+        == expected
+    )
+
+
 def test_calk_shape_and_finiteness() -> None:
     _, _, params, rings = _source_params()
     matrix = calK(rings.head(10), params)
