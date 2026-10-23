@@ -91,7 +91,7 @@ retains the result and refusal/scoring population. [replay.py](replay.py) and
 The completed fold retains [prediction-freeze.json](prediction-freeze.json)
 and [outcome-access.json](outcome-access.json).
 
-The numerical run used clean base `f0383c0bfcbbb7baac3f1cd974052550896f0867` with separately authenticated `replay.py`, `training.py` and scientific-protocol files that were absent from that base Git tree. The compact [execution authority](../../../../../reports/science/source-cohorts/author-love-development-fold.json) binds their exact overlay identities, original terminals and independent output review.
+The numerical run used clean base `f0383c0bfcbbb7baac3f1cd974052550896f0867` with separately authenticated `replay.py`, `training.py` and scientific-protocol files that were absent from that base Git tree. The compact [execution authority](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-development-fold.json) binds their exact overlay identities, original terminals and independent output review.
 
 The qualified source engine uses explicitly derived discovery metadata. This
 numerical study does not qualify an installed wheel/sdist, original R optimizer

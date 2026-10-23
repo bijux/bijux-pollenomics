@@ -82,7 +82,7 @@ Overlapping training sets, reused numerical requests and shared source/protocol 
 
 [report.json](report.json) retains every scored/refused fold; [training.json](training.json) retains the numerical request pool and logical reuse map; [trials.jsonl](trials.jsonl) retains every new start/completion lifecycle. The linked prior evidence retains the 832 reused outcomes. [prediction-freeze.json](prediction-freeze.json) and [outcome-access.jsonl](outcome-access.jsonl) bind complete-inventory freezing and subsequent cohort scoring. [protocol.json](protocol.json), [replay.py](replay.py) and [pool.py](pool.py) retain the exact executed scientific protocol and source.
 
-The actual execution used clean base `5998a3c616e02c9e702fae8048ffbff6f40435d2` with separately authenticated cohort sources. Native/common/outer exits were zero, with source/input/runtime custody preserved. The compact [execution authority](../../../../../reports/science/source-cohorts/author-love-cohort-development.json) binds the original terminals, source overlay and independent saved-output arithmetic. Derived source discovery metadata is declared separately from installed-distribution qualification.
+The actual execution used clean base `5998a3c616e02c9e702fae8048ffbff6f40435d2` with separately authenticated cohort sources. Native/common/outer exits were zero, with source/input/runtime custody preserved. The compact [execution authority](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-cohort-development.json) binds the original terminals, source overlay and independent saved-output arithmetic. Derived source discovery metadata is declared separately from installed-distribution qualification.
 
 
 <!-- scientific-account-route:begin -->

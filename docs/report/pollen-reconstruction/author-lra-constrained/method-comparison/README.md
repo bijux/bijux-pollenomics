@@ -153,7 +153,7 @@ The registered saved-result comparison ran on `b30acdff340aa36c9ab28974232f73bad
 `bfee143ff2fc07624d931300f81dabda1f1dceea` source epoch. Its compact execution
 authority binds the exact original and cohort products, native terminals,
 resource observations and independent saved-output review:
-[execution authority](../../../../../reports/science/source-cohorts/author-love-matched-method-comparison.json).
+[execution authority](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-matched-method-comparison.json).
 
 [report.json](report.json) retains full support and descriptive summaries;
 [paired-scores.csv](paired-scores.csv) retains every metric difference and
