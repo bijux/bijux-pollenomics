@@ -356,13 +356,14 @@ def test_native_boke_repeated_download_preserves_all_source_entities(
     assert {
         r["source_sample_id"] for r in cast(list[dict[str, Any]], repeated["samples"])
     } == sample_ids
-    for table, field in (("age_claims", "ages"), ("observations", "datum")):
+    for table, field, parent in (
+        ("age_claims", "ages", "subject_id"),
+        ("observations", "datum", "sample_id"),
+    ):
         actual = cast(list[dict[str, Any]], repeated[table])
         for sample in native_samples:
             matching = [
-                r
-                for r in actual
-                if r["sample_id"] == f"neotoma:sample:{sample['sampleid']}"
+                r for r in actual if r[parent] == f"neotoma:sample:{sample['sampleid']}"
             ]
             assert identities([r["source_payload"] for r in matching]) == identities(
                 sample[field]
