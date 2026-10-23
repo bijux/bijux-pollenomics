@@ -88,9 +88,21 @@ def assemble(
     return payload
 
 
+def _physical_inventory(path: Path) -> None:
+    """Keep an explicit shared inventory bound to its physical file locator."""
+    if (
+        not path.is_file()
+        or path.resolve() != path
+        or any(parent.is_symlink() for parent in (path, *path.parents))
+    ):
+        raise ValueError("Absolute Rootsi inventory must be a physical file")
+
+
 def build_review(root: Path, *, rootsi_inventory: str | None = None) -> dict[str, Any]:
     """Assemble a private review projection from source evidence without admitting mappings."""
     reader = EvidenceReader(root)
+    readers = [reader]
+    external_inventory: Path | None = None
     contract_bytes = reader.read_bytes(CONTRACT_PATH)
     if contract_bytes is None:
         raise ValueError("Classification authority is missing")
@@ -113,17 +125,35 @@ def build_review(root: Path, *, rootsi_inventory: str | None = None) -> dict[str
         },
     }
     if rootsi_inventory is not None:
-        private_rows, private_summary = rootsi_rows(reader, rootsi_inventory)
+        inventory_reader = reader
+        inventory_path = Path(rootsi_inventory)
+        if inventory_path.is_absolute():
+            _physical_inventory(inventory_path)
+            if not inventory_path.is_relative_to(reader.root):
+                external_inventory = inventory_path
+                inventory_reader = EvidenceReader(inventory_path.parent)
+                readers.append(inventory_reader)
+        private_rows, private_summary = rootsi_rows(inventory_reader, rootsi_inventory)
         rows.extend(private_rows)
         summaries["rootsi"] = private_summary
     else:
         summaries["rootsi"] = {"status": "private_header_inventory_not_supplied"}
-    for relative in list(reader.files):
-        reader.read_bytes(relative)
-    if reader.issues:
-        raise ValueError(f"Input evidence verification failed: {reader.issues}")
+    if external_inventory is not None:
+        _physical_inventory(external_inventory)
+    for source_reader in readers:
+        for relative in list(source_reader.files):
+            source_reader.read_bytes(relative)
+        if source_reader.issues:
+            raise ValueError(
+                f"Input evidence verification failed: {source_reader.issues}"
+            )
     return assemble(
-        rows, inputs=list(reader.files.values()), contract=contract, summaries=summaries
+        rows,
+        inputs=[
+            entry for source_reader in readers for entry in source_reader.files.values()
+        ],
+        contract=contract,
+        summaries=summaries,
     )
 
 

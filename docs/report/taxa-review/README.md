@@ -63,17 +63,14 @@ header or authorize analytical use. The workbook archive identity is
 ## Rebuild the private package
 
 Set `ROOTSI_SOURCE_ROOT` to the private `landclim/rootsi-workbooks` directory.
-From the repository root, create a fresh artifact directory and copy the
-inventory into it before building:
+From the repository root, read the original inventory directly and write only
+the new review products into an absent artifact directory:
 
 ```sh
-mkdir -p artifacts/jobs/taxa-review/source-input
-cp "$ROOTSI_SOURCE_ROOT/header-review-inventory.json" \
-  artifacts/jobs/taxa-review/source-input/header-review-inventory.json
-shasum -a 256 artifacts/jobs/taxa-review/source-input/header-review-inventory.json
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+shasum -a 256 "$ROOTSI_SOURCE_ROOT/header-review-inventory.json"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
   bijux_pollenomics_dev.taxa_review build --root . \
-  --rootsi-inventory artifacts/jobs/taxa-review/source-input/header-review-inventory.json \
+  --rootsi-inventory "$ROOTSI_SOURCE_ROOT/header-review-inventory.json" \
   --output artifacts/jobs/taxa-review/complete-review
 ```
 
@@ -83,6 +80,12 @@ and a completion receipt with file hashes. The complete JSON and CSV remain
 private because the workbook material is restricted. The source inventory in
 the private store, the governed source files and this command suffice to
 regenerate the package; no prior artifact tree is an input authority.
+
+Use an absolute physical path for `ROOTSI_SOURCE_ROOT`, without symlinks. The
+builder checks the shared inventory again before completing the projection;
+it does not copy or change it. Git identifies the builder used for a new run.
+The inventory locator is retained in the bundle, so this direct-input command
+does not reproduce either retained bundle's exact physical identity above.
 
 The reviewer return has not been received. The return validator can check
 identity, vocabulary and documented intent, but it cannot grant source rights,
