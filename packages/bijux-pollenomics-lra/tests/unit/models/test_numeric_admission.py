@@ -15,8 +15,9 @@ from bijux_pollenomics_lra.models.validation import (
     sample_counts,
     vector,
 )
-from bijux_pollenomics_lra.reconstruction import regional
+from bijux_pollenomics_lra.reconstruction import analytical, regional
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.reconstruction.inputs import _regional_cover
 
 
 @pytest.mark.parametrize(
@@ -218,3 +219,128 @@ def test_public_frame_wrapper_refuses_boolean_pollen_or_draws(
         inputs[role] = [[[False, 5]]]
     with pytest.raises(ValidationError, match="booleans"):
         regional.REVEALSinR(**inputs)
+
+
+def love_inputs() -> dict[str, Any]:
+    return {
+        "pollenLoc": pd.DataFrame({"age": [0], "A": [9], "B": [1]}),
+        "pollenReg": pd.DataFrame({"age": [0], "A": [5], "B": [5]}),
+        "lParams": {
+            "ppes": parameters(),
+            "fallspeed": [0.02, 0.03],
+            "dBasinLocal": 10.0,
+            "error": False,
+        },
+        "dfRadii": pd.DataFrame({"inner": [20.0], "outer": [40.0], "mean": [30.0]}),
+        "maxRingLove": 1,
+        "repeats": 1,
+        "stochastic": False,
+        "regional_cover_draws": [[0.5, 0.5]],
+        "return_samples": True,
+    }
+
+
+@pytest.mark.parametrize(
+    "sr",
+    [[False, 0.1], [[True, 0.1]], np.array([False, 0.1], dtype=object), [10**400, 0.1]],
+)
+def test_public_analytical_love_refuses_flagged_or_overflowing_background(
+    sr: Any,
+) -> None:
+    inputs = love_inputs()
+    with pytest.raises(ValidationError):
+        analytical.lov(inputs["pollenLoc"], sr, inputs["lParams"], stochastic=False)
+
+
+@pytest.mark.parametrize("draws", [[[True, False]], [[10**400, 1]]])
+def test_shared_regional_cover_selector_refuses_before_float_conversion(
+    draws: Any,
+) -> None:
+    with pytest.raises(ValidationError):
+        _regional_cover(
+            None, parameters(), {}, np.random.default_rng(0), False, draws, 0
+        )
+    valid = _regional_cover(
+        None, parameters(), {}, np.random.default_rng(0), False, ["0", "1"], 0
+    )
+    np.testing.assert_array_equal(valid, [0.0, 1.0])
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"regional_cover_draws": [[True, False]]},
+        {"regional_cover_draws": [[10**400, 1]]},
+        {"local_ppe_draws": [[[True, 2.0]]]},
+        {"local_count_draws": [[[False, 1]]]},
+        {"local_ppe_draws": [[[10**400, 2.0]]]},
+        {"local_count_draws": [[[10**400, 1]]]},
+        {"pollenReg": pd.DataFrame({"age": [0], "A": [False], "B": [5]})},
+    ],
+)
+def test_actual_love_draw_boundary_refuses_numeric_flags(
+    changes: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(analytical, "DispersalFactorK", lambda *args: 1.0)
+    inputs = love_inputs()
+    inputs.update(changes)
+    with pytest.raises(ValidationError):
+        analytical.LOVEr(**inputs)
+
+
+def test_publication_profile_draws_are_guarded_before_closure_test(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(analytical, "DispersalFactorK", lambda *args: 1.0)
+    inputs = love_inputs()
+    inputs["lParams"].update(
+        fall_speed_profile="landclimii-2016-gpm-neutral-analytical-v1",
+        dwm="gpm neutral",
+    )
+    inputs["regional_cover_draws"] = [[True, False]]
+    with pytest.raises(ValidationError, match="booleans"):
+        analytical.LOVEr(**inputs)
+
+
+@pytest.mark.parametrize("column", ["inner", "outer", "mean"])
+def test_love_ring_geometry_flags_do_not_become_numeric_radii(column: str) -> None:
+    inputs = love_inputs()
+    inputs["dfRadii"] = pd.DataFrame(
+        {"inner": [0.0], "outer": [2.0], "mean": [1.0]}
+    ).astype({column: object})
+    inputs["dfRadii"].loc[0, column] = column != "inner"
+    with pytest.raises(ValidationError, match="booleans"):
+        analytical.LOVEr(**inputs)
+
+
+@pytest.mark.parametrize("diameter", [True, np.bool_(True), [True], 10**400])
+def test_love_local_basin_flags_and_overflow_use_public_error(diameter: Any) -> None:
+    inputs = love_inputs()
+    inputs["lParams"]["dBasinLocal"] = diameter
+    with pytest.raises(ValidationError):
+        analytical.LOVEr(**inputs)
+
+
+def test_valid_love_numeric_text_shapes_and_signed_results_remain(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(analytical, "DispersalFactorK", lambda *args: 1.0)
+    inputs = love_inputs()
+    baseline = analytical.LOVEr(**inputs)
+    relative = np.array([9.0, 0.5]) / 9.5
+    expected = relative * 2 - 0.5
+    np.testing.assert_array_equal(baseline["samples"][0, 0], expected)
+    assert baseline["samples"][0, 0, 1] < 0
+    inputs.update(
+        regional_cover_draws=[".5", ".5"],
+        local_ppe_draws=[[["1", "2"]]],
+        local_count_draws=[[["9", "1"]]],
+    )
+    inputs["lParams"]["dBasinLocal"] = "10.0"
+    inputs["dfRadii"] = inputs["dfRadii"].astype(str)
+    result = analytical.LOVEr(**inputs)
+    np.testing.assert_array_equal(result["samples"], baseline["samples"])
+    low_level = analytical.lov(
+        inputs["pollenLoc"], [[".5", ".5"]], inputs["lParams"], stochastic=False
+    )
+    np.testing.assert_array_equal(low_level, expected)

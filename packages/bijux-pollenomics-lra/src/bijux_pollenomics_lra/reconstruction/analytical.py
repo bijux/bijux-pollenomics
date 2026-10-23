@@ -16,7 +16,9 @@ from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawS
 from bijux_pollenomics_lra.models.validation import (
     DEFAULT_FALL_SPEED_PROFILE,
     LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    _float_array,
     fall_speed_bounds,
+    finite_number,
     frame,
     normalise_parameters,
     parameter_value,
@@ -122,7 +124,7 @@ def _lov_arrays(
         count_values = multidraw(observed, rng=generator) if use_error else observed
     else:
         count_values = vector(counts, "counts", nonnegative=True)
-    regional_term = vector(np.asarray(sr, dtype=float).reshape(-1), "sr", finite=False)
+    regional_term = vector(_float_array(sr, "sr").reshape(-1), "sr", finite=False)
     if not (
         alpha_values.shape
         == count_values.shape
@@ -276,8 +278,14 @@ def LOVEr(
         allow_publication_profile=True,
         allow_draw_only=draw_source is not None,
     )
+    regional_values = (
+        None
+        if regional_cover_draws is None
+        else _float_array(regional_cover_draws, "regional_cover_draws")
+    )
     if fall_speed_profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE:
-        draws = np.asarray(regional_cover_draws, dtype=float)
+        assert regional_values is not None
+        draws = regional_values
         rounding_bound = len(taxa) * 0.000005 + 1e-12
         if (
             draws.shape != (repeat_count, len(taxa))
@@ -290,9 +298,12 @@ def LOVEr(
                 "regional_cover_draws must be closed fractions, not percentages"
             )
     generator = rng_from(rng)
-    local_diameter = float(parameter_value(lParams, "dBasinLocal"))
-    if not np.isfinite(local_diameter) or local_diameter <= 0:
-        raise ValidationError("dBasinLocal must be positive and finite")
+    local_diameter = finite_number(
+        parameter_value(lParams, "dBasinLocal"),
+        "dBasinLocal",
+        minimum=0,
+        strict_minimum=True,
+    )
     method = str(parameter_value(lParams, "dwm", "lsm unstable")).lower()
     fall_speed_bounds(fall_speed_profile, method)
 
@@ -337,11 +348,21 @@ def LOVEr(
             )
 
     samples = np.full((repeat_count, maximum_ring, len(taxa)), np.nan, dtype=float)
+    ppe_values = (
+        None
+        if local_ppe_draws is None
+        else _float_array(local_ppe_draws, "local_ppe_draws")
+    )
+    count_values = (
+        None
+        if local_count_draws is None
+        else _float_array(local_count_draws, "local_count_draws")
+    )
     for supplied, name in (
-        (local_ppe_draws, "local_ppe_draws"),
-        (local_count_draws, "local_count_draws"),
+        (ppe_values, "local_ppe_draws"),
+        (count_values, "local_count_draws"),
     ):
-        if supplied is not None and np.asarray(supplied).shape != samples.shape:
+        if supplied is not None and supplied.shape != samples.shape:
             raise ValidationError(f"{name} must have shape {samples.shape}")
 
     prepared = prepare_analytical_inputs(
@@ -362,7 +383,7 @@ def LOVEr(
                 lParams,
                 generator,
                 stochastic,
-                regional_cover_draws,
+                regional_values,
                 repeat_index,
             )
         )
@@ -383,14 +404,12 @@ def LOVEr(
                 regional_correction,
                 generator,
                 alpha=(
-                    None
-                    if local_ppe_draws is None
-                    else np.asarray(local_ppe_draws)[repeat_index, ring_index]
+                    None if ppe_values is None else ppe_values[repeat_index, ring_index]
                 ),
                 counts=(
                     None
-                    if local_count_draws is None
-                    else np.asarray(local_count_draws)[repeat_index, ring_index]
+                    if count_values is None
+                    else count_values[repeat_index, ring_index]
                 ),
             )
 
