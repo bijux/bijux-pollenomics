@@ -10,9 +10,13 @@ import pytest
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    finite_number,
+    integer,
     matrix,
     normalise_parameters,
+    parameter_value,
     sample_counts,
+    scalar,
     vector,
 )
 from bijux_pollenomics_lra.reconstruction import analytical, regional
@@ -83,6 +87,52 @@ def test_valid_numbers_numeric_text_zero_and_native_array_fast_path_remain() -> 
     np.testing.assert_array_equal(
         vector([np.nan, np.inf], "response", finite=False), [np.nan, np.inf]
     )
+
+
+@pytest.mark.parametrize("backing", [0.0, 99.0, np.nan])
+def test_masked_entries_are_missing_even_when_backing_values_pass_numeric_checks(
+    backing: float,
+) -> None:
+    masked = np.ma.array([backing, 5.0], mask=[True, False])
+    for validator, values in ((vector, masked), (matrix, masked.reshape(1, 2))):
+        with pytest.raises(ValidationError, match="masked.*missing"):
+            validator(values, "pollen", finite=False)
+
+
+@pytest.mark.parametrize(
+    "value",
+    [np.ma.masked, np.ma.array(0.0, mask=True), np.ma.array([0.0], mask=[True])],
+)
+def test_masked_scalar_never_becomes_zero_or_a_parameter_default(value: Any) -> None:
+    with pytest.raises(ValidationError, match="masked.*missing"):
+        scalar(value, "radius")
+    with pytest.raises(ValidationError, match="masked.*missing"):
+        finite_number(value, "radius")
+    with pytest.raises(ValidationError, match="masked.*missing"):
+        integer(value, "count", minimum=0)
+    with pytest.raises(ValidationError, match="masked.*missing"):
+        parameter_value({"radius": value}, "radius", default=0)
+
+
+@pytest.mark.parametrize("mask", [False, [False, False], np.ma.nomask])
+def test_unmasked_arrays_and_literal_zero_remain_observed_values(mask: Any) -> None:
+    values = np.ma.array([0.0, 5.0], mask=mask)
+    np.testing.assert_array_equal(vector(values, "pollen"), [0.0, 5.0])
+    np.testing.assert_array_equal(matrix(values.reshape(1, 2), "pollen"), [[0.0, 5.0]])
+    assert finite_number(np.ma.array(0.0, mask=False), "radius") == 0
+    assert integer(np.ma.array(0, mask=False), "count", minimum=0) == 0
+    assert parameter_value({}, "radius", default=0) == 0
+
+
+def test_public_reveals_distinguishes_missing_from_measured_zero() -> None:
+    missing = np.ma.array([0.0, 5.0], mask=[True, False])
+    with pytest.raises(ValidationError, match="masked.*missing"):
+        regional.reveals_cover(missing, [1.0, 1.0], [1.0, 1.0], round_digits=None)
+    measured_zero = np.ma.array([0.0, 5.0], mask=False)
+    result = regional.reveals_cover(
+        measured_zero, [1.0, 1.0], [1.0, 1.0], round_digits=None
+    )
+    np.testing.assert_array_equal(result, [0.0, 100.0])
 
 
 def parameters() -> pd.DataFrame:

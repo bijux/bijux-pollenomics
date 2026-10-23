@@ -40,8 +40,15 @@ def validate_fall_speeds(
     return speeds
 
 
+def _reject_masked_values(value: Any, name: str) -> None:
+    """An unresolved mask cannot become an observed backing value during coercion."""
+    if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
+        raise ValidationError(f"{name} contains masked, unresolved missing values")
+
+
 def scalar(value: Any, name: str = "value") -> Any:
     """Return a scalar, rejecting multi-element containers."""
+    _reject_masked_values(value, name)
     if isinstance(value, (list, tuple, np.ndarray, pd.Series)):
         array = np.asarray(value)
         if array.size != 1:
@@ -99,7 +106,8 @@ def finite_number(
 
 
 def _float_array(value: Any, name: str) -> np.ndarray:
-    """Preserve boolean provenance until numeric admission, without copying numeric arrays."""
+    """Refuse masked or boolean values before coercion; retain native numeric arrays."""
+    _reject_masked_values(value, name)
     try:
         raw = np.asarray(value)
         if raw.dtype.kind == "b":
