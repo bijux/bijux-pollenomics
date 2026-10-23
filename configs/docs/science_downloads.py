@@ -12,6 +12,8 @@ import subprocess
 import tomllib
 from typing import Any, cast
 
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import source_revision
+
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
 
@@ -354,7 +356,7 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
         exec(compile(_read(root, relative), str(root / relative), "exec"), scope)
         return cast(
             dict[str, Any],
-            scope["admitted_sources"](root, manifest, _read, _committed_inputs, _git),
+            scope["admitted_sources"](root, manifest, _read, _committed_inputs, _retained_export_git),
         )
     if (
         hashlib.sha256(_read(root, "presentation/source-lock.json")).hexdigest()
@@ -459,6 +461,21 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
         "historical_inputs": historical_inputs,
         "current_inputs": current_inputs,
     }
+
+
+def _retained_export_git(root: Path, *arguments: str) -> bytes:
+    """Check reachable source storage while preserving the original execution ID."""
+    if (
+        len(arguments) == 4
+        and arguments[:2] == ("merge-base", "--is-ancestor")
+        and arguments[3] == "HEAD"
+    ):
+        arguments = (
+            *arguments[:2],
+            source_revision(root, arguments[2]),
+            arguments[3],
+        )
+    return _git(root, *arguments)
 
 
 def _paper_sources(root: Path) -> dict[str, dict[str, object]]:
