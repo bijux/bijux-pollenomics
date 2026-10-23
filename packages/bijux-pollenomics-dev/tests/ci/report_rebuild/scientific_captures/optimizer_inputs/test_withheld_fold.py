@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
+import runpy
 from typing import Any
 
 import pytest
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import query
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     author_love_starts as prior,
 )
@@ -145,7 +148,7 @@ def test_empty_governed_source_marker_is_distinct_from_missing_source(
         admission._read(tmp_path, "missing.py", digest, 0)
 
 
-def test_new_scientific_capture_uses_every_governed_source_marker() -> None:
+def test_retained_scientific_capture_authenticates_original_governed_sources() -> None:
     from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
     authority = json.loads((ROOT / admission.AUTHORITY).read_bytes())
@@ -162,3 +165,86 @@ def test_new_scientific_capture_uses_every_governed_source_marker() -> None:
         ROOT, entries, owners
     )
     assert len(accepted) == 5 and result["attempts"] == 832
+    assert result["executed_source_candidate"] == admission.ORIGINAL_SOURCE_REVISION
+    assert result["source_authentication_role"] == "original_execution_only"
+    assert result["current_source_or_numerical_reuse_claimed"] is False
+
+
+@pytest.mark.parametrize(
+    "case",
+    [
+        "missing",
+        "extra",
+        "duplicate",
+        "unlisted",
+        "changed_pin",
+        "negative_size",
+        "changed_git_bytes",
+        "linked_git_source",
+        "changed_generated_bytes",
+    ],
+)
+def test_original_source_authentication_refuses_changed_contract(
+    monkeypatch: pytest.MonkeyPatch, case: str
+) -> None:
+    sources = deepcopy(_bundle()[2]["source_pins"])
+    if case == "missing":
+        sources.pop()
+    elif case == "extra":
+        sources.append(dict(sources[0]))
+    elif case == "duplicate":
+        sources[-1] = dict(sources[0])
+    elif case == "unlisted":
+        sources[0]["path"] = "packages/unlisted/source.py"
+    elif case == "changed_pin":
+        sources[0]["sha256"] = "0" * 64
+    elif case == "negative_size":
+        sources[0]["bytes"] = -1
+    elif case == "changed_generated_bytes":
+        monkeypatch.setattr(admission, "read_source_path", lambda *args: b"changed")
+    else:
+        original = query
+
+        def changed_query(*args: Any, **kwargs: Any) -> bytes:
+            raw = original(*args, **kwargs)
+            if case == "changed_git_bytes" and args[1][:2] == ["cat-file", "blob"]:
+                return bytes([raw[0] ^ 1]) + raw[1:]
+            if case == "linked_git_source" and args[1][0] == "ls-tree":
+                return b"120000" + raw[6:]
+            return raw
+
+        monkeypatch.setattr(admission, "query", changed_query)
+    with pytest.raises(ReportRebuildError):
+        admission._validate_original_sources(ROOT, sources)
+
+
+@pytest.mark.parametrize(
+    "source_name",
+    [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+    ],
+)
+def test_live_replay_refuses_changed_original_computational_input_before_fitting(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, source_name: str
+) -> None:
+    replay = runpy.run_path(str(ROOT / admission.PREFIX / "replay.py"))
+    protocol = deepcopy(_bundle()[2])
+    protocol["source_pins"] = [
+        row for row in protocol["source_pins"] if row["path"] == source_name
+    ]
+    assert len(protocol["source_pins"]) == 1
+
+    def refuse_execution(*args: Any, **kwargs: Any) -> Any:
+        raise AssertionError("Numerical execution preceded source admission")
+
+    monkeypatch.setattr(runpy, "run_path", refuse_execution)
+    with pytest.raises(ValueError, match="Declared computational source changed"):
+        replay["run"](ROOT, tmp_path / "prepared", protocol, tmp_path / "output")
+    assert not (tmp_path / "output").exists()
