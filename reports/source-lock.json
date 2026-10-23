@@ -1110,10 +1110,15 @@
     "reports/science/vegetation-reference/namibia-pollen-prediction.csv": "958a7d8c199c52c97a0464dfd309d1aa283f935983a66246efa373f97dbbd027",
     "reports/science/vegetation-reference/namibia-fit-resolution.json": "637d3e4cc0d67e2625a1afc31ea83185f84ffc36c6d51dfb542454e11417feee",
     "reports/science/method-certification/current-native-r-comparisons.csv": "59be82e73176ef337268c92da8195058dee9c1d7e39b69832509a2893c50df52",
-    "reports/science/method-certification/current-native-r-values.csv": "65036253e42695583b058d6130db684b8ebede828077673ebf6cc3d16e965070"
+    "reports/science/method-certification/current-native-r-values.csv": "65036253e42695583b058d6130db684b8ebede828077673ebf6cc3d16e965070",
+    "presentation/big-picture.pdf": "626fcc5d92d3410c126be2c1cb6097fdac4fbaf638b49fb906af0a81cfccaee3",
+    "presentation/developer.pdf": "19937f759003bd652518ccb193a1028f5984279d768922d90dd2a13a6a87a5fd",
+    "presentation/scientific-evidence.pdf": "487de0fc7f71e39d9c07e8111c3b8552405a5d37e50fc529cbf1774434cdd6da",
+    "reports/exports/site-downloads.json": "b550d0db15932afd3d2b815c067b4a3350e2151059f14b78eaf23abe0f69c90a"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
+    "configs/docs/publication/deck_build.py",
     "configs/docs/science_downloads.py",
     "docs/public/pollenomics-data/sources/aadr.md",
     "docs/public/pollenomics-data/sources/animal-source-intake.md",

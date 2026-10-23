@@ -9,6 +9,15 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
+The retained decks were compiled from Git revision `86d7c77ad` on
+23 October 2026: 14 big-picture, 13 developer and 43 scientific pages.
+The three compiler commands completed successfully in 8.27 seconds overall.
+Local review inspected all 70 pages and enlarged changed or dense slides;
+all fonts are embedded and all 112 citation annotations match their authored
+paths and existing local targets. No rendering defect was observed. This is
+numerical, machine and model visual review; independent human comprehension,
+tagged accessibility and online availability remain unqualified.
+
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution. Intermediate files and the compiler log go
 to `artifacts/jobs/presentation/`; only the final PDFs are retained here.
