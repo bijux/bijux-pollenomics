@@ -17,7 +17,11 @@ from bijux_pollenomics_lra.api import (
     run_lra_series,
     run_reveals,
 )
-from bijux_pollenomics_lra.models.validation import normalise_parameters
+from bijux_pollenomics_lra.models.validation import (
+    finite_number,
+    integer,
+    normalise_parameters,
+)
 from bijux_pollenomics_lra.provenance.identity import sha256_object
 from bijux_pollenomics_lra.resources.examples import load_love_example
 
@@ -222,3 +226,113 @@ def test_fractional_regional_diameter_is_rejected_not_truncated() -> None:
         diameter: object = 300.5
         dynamic_config: Callable[..., LoveConfig] = LoveConfig
         dynamic_config("analytical", "lake", diameter, 12.9, 10)
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        True,
+        False,
+        np.bool_(True),
+        np.bool_(False),
+        np.array(True),
+        [False],
+        np.array([True], dtype=object),
+    ],
+)
+def test_finite_physical_scalar_refuses_boolean_source_layouts(value: object) -> None:
+    with pytest.raises(ValidationError, match="excluding booleans"):
+        finite_number(value, "physical scalar")
+
+
+@pytest.mark.parametrize("field", ["local_basin_diameter_m", "optimizer_tolerance"])
+@pytest.mark.parametrize("value", [True, False, np.bool_(True), np.array(False)])
+def test_love_configuration_cannot_turn_flags_into_geometry_or_tolerance(
+    field: str, value: object
+) -> None:
+    config: Callable[..., LoveConfig] = LoveConfig
+    settings: dict[str, object] = {
+        "method": "analytical",
+        "regional_basin_type": "lake",
+        "regional_basin_diameter_m": 300,
+        "local_basin_diameter_m": 12.9,
+        "max_ring": 10,
+        field: value,
+    }
+    with pytest.raises(ValidationError, match="excluding booleans"):
+        config(**settings)
+
+
+@pytest.mark.parametrize("sign", [-1, 1])
+def test_unrepresentable_scalar_has_public_finite_value_refusal(sign: int) -> None:
+    with pytest.raises(ValidationError, match="finite number") as error:
+        finite_number(sign * 10**1000, "physical scalar")
+    assert isinstance(error.value.__cause__, OverflowError)
+    config: Callable[..., LoveConfig] = LoveConfig
+    with pytest.raises(ValidationError, match="finite number"):
+        config("analytical", "lake", 300, sign * 10**1000, 10)
+
+
+@pytest.mark.parametrize("sign", [-1, 1])
+def test_unrepresentable_integer_has_public_integer_refusal(sign: int) -> None:
+    with pytest.raises(ValidationError, match="must be an integer") as error:
+        integer(sign * 10**1000, "repeats")
+    assert isinstance(error.value.__cause__, OverflowError)
+    config: Callable[..., LoveConfig] = LoveConfig
+    with pytest.raises(ValidationError, match="must be an integer"):
+        config("analytical", "lake", 300, 12.9, 10, repeats=sign * 10**1000)
+
+
+def test_object_scalar_containers_preserve_public_numerical_admission() -> None:
+    with pytest.raises(ValidationError, match="finite number"):
+        finite_number([10**1000], "physical scalar")
+    with pytest.raises(ValidationError, match="must be an integer"):
+        integer([10**1000], "repeats")
+    boolean = np.array([True], dtype=object)
+    with pytest.raises(ValidationError, match="must be an integer"):
+        integer(boolean, "repeats")
+    assert integer(np.array([2], dtype=object), "repeats") == 2
+    config: Callable[..., LoveConfig] = LoveConfig
+    with pytest.raises(ValidationError, match="finite number"):
+        config("analytical", "lake", 300, [10**1000], 10)
+    with pytest.raises(ValidationError, match="excluding booleans"):
+        config("analytical", "lake", 300, boolean, 10)
+    admitted = config("analytical", "lake", 300, np.array([2.5], dtype=object), 10)
+    assert admitted.local_basin_diameter_m == 2.5
+
+
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (0, 0.0),
+        (1, 1.0),
+        (np.int64(3), 3.0),
+        (np.float64(2.5), 2.5),
+        (np.array(2.5), 2.5),
+        (np.array([2.5], dtype=object), 2.5),
+        ([2.5], 2.5),
+        ((2.5,), 2.5),
+        (pd.Series([2.5]), 2.5),
+    ],
+)
+def test_finite_scalar_preserves_numerical_values_and_singleton_layouts(
+    value: object, expected: float
+) -> None:
+    assert finite_number(value, "physical scalar", minimum=0, maximum=3) == expected
+
+
+def test_love_scalar_boundaries_remain_numerical_and_explicit() -> None:
+    config = LoveConfig(
+        "analytical",
+        "lake",
+        300,
+        np.nextafter(0.0, 1.0),
+        10,
+        optimizer_tolerance=0.0,
+    )
+    assert config.local_basin_diameter_m == np.nextafter(0.0, 1.0)
+    assert config.optimizer_tolerance == 0.0
+    with pytest.raises(ValidationError, match="must be >"):
+        LoveConfig("analytical", "lake", 300, 0.0, 10)
+    with pytest.raises(ValidationError, match="must be >="):
+        LoveConfig("analytical", "lake", 300, 12.9, 10, optimizer_tolerance=-1.0)

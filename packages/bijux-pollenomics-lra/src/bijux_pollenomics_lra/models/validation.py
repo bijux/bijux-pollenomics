@@ -46,7 +46,8 @@ def scalar(value: Any, name: str = "value") -> Any:
         array = np.asarray(value)
         if array.size != 1:
             raise ValidationError(f"{name} must be scalar")
-        return array.reshape(-1)[0].item()
+        item = array.reshape(-1)[0]
+        return item.item() if isinstance(item, np.generic) else item
     return value
 
 
@@ -62,7 +63,7 @@ def integer(value: Any, name: str, minimum: int = 1) -> int:
         raise ValidationError(f"{name} must be an integer >= {minimum}")
     try:
         numeric = float(value)
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, OverflowError) as exc:
         raise ValidationError(f"{name} must be an integer >= {minimum}") from exc
     if not np.isfinite(numeric) or numeric != int(numeric) or numeric < minimum:
         raise ValidationError(f"{name} must be an integer >= {minimum}")
@@ -79,9 +80,11 @@ def finite_number(
 ) -> float:
     """Validate a finite numeric scalar and optional bounds."""
     value = scalar(value, name)
+    if isinstance(value, (bool, np.bool_)):
+        raise ValidationError(f"{name} must be a finite number, excluding booleans")
     try:
         numeric = float(value)
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, OverflowError) as exc:
         raise ValidationError(f"{name} must be a finite number") from exc
     if not np.isfinite(numeric):
         raise ValidationError(f"{name} must be a finite number")
