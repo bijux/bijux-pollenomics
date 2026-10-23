@@ -1,0 +1,9 @@
+surface,normalized_rows,single_registered_occurrences,replayed_registered_occurrences,replayed_identical_exclusions,replayed_unregistered_occurrences,replayed_conflicting_variants
+sites,1,1,2,1,0,0
+collection_units,1,1,2,1,0,0
+datasets,1,1,2,1,0,0
+chronologies,1,1,2,1,0,0
+chronology_controls,29,29,58,29,0,0
+samples,52,52,104,52,0,0
+age_claims,52,52,104,52,0,0
+observations,1885,1885,3770,1885,0,0

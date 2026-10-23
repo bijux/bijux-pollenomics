@@ -1118,7 +1118,8 @@
     "presentation/developer.pdf": "19937f759003bd652518ccb193a1028f5984279d768922d90dd2a13a6a87a5fd",
     "presentation/scientific-evidence.pdf": "487de0fc7f71e39d9c07e8111c3b8552405a5d37e50fc529cbf1774434cdd6da",
     "reports/exports/site-downloads.json": "b550d0db15932afd3d2b815c067b4a3350e2151059f14b78eaf23abe0f69c90a",
-    "reports/science/source-lineage/rootsi-neotoma-dependence.csv": "b96a5fa20d85a391f8088e7ff088cf7064f1a5e0422eb16289ba6f9a875206e0"
+    "reports/science/source-lineage/rootsi-neotoma-dependence.csv": "b96a5fa20d85a391f8088e7ff088cf7064f1a5e0422eb16289ba6f9a875206e0",
+    "reports/science/source-lineage/neotoma-occurrence-accounting.csv": "a8b50b5f3b0d86abecc6d9fb0ed984332093488ae63e7d1e33e44328f144eab7"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
@@ -1958,6 +1959,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py",
     "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/split_authority/__init__.py",
     "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/split_authority/test_persistence.py",
+    "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_occurrence_accounting.py",
     "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_biff.py",
     "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/cells/test_layout.py",
     "packages/bijux-pollenomics/tests/unit/reporting/adna/sample_chronology_context/test_repository_data.py",
