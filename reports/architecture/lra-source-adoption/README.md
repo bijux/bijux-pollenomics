@@ -15,7 +15,7 @@ did not install or copy the prototype tree into the host.
 
 | Source | Exact identity | Authority and disposition |
 | --- | --- | --- |
-| Original R archive | `disqover_0.9.14.tar.gz`; SHA-256 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`; 80 regular archive members, including 13 R files | Scientific numerical reference, GPL (>= 2); retained unchanged in the engine's `vendor/` directory. |
+| Original R archive | `disqover_0.9.14.tar.gz`; SHA-256 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`; 80 regular archive members, including 12 R files | Scientific numerical reference, GPL (>= 2); retained unchanged in the engine's `vendor/` directory. |
 | Python prototype | `disqover_native_python_port_v0.1.0.zip`; SHA-256 `2d34088f55327fc39ec09e48364e0d1d0b511bdd70a476852edeef42e51568d0`; 73 regular ZIP members | Candidate translation and source inventory, GPL-2.0-or-later; private original in the external data store. |
 | Adopted engine | [Engine API](../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py) and [extension descriptor](../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py) | Current supported facade and numerical implementation, GPL-2.0-or-later; installed only through the optional host extra. |
 
