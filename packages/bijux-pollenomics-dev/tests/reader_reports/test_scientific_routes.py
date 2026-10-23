@@ -9,6 +9,11 @@ from types import ModuleType
 
 import pytest
 
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
+    FIELDS,
+    is_maintained_reference,
+)
+
 ROOT = Path(__file__).resolve().parents[4]
 
 
@@ -247,6 +252,17 @@ def test_actual_portal_producer_indexes_routes_after_writing_scoped_links(
     )
     assert registry["schema_version"] == "report-surface-registry.v2"
     assert "content_sha256" not in governed
+    assert governed["format"] == "md"
+    quality = json.loads(
+        (tmp_path / "docs/report/report_narrative_quality_review.json").read_text()
+    )
+    assessed = next(
+        r
+        for r in quality["rows"]
+        if r["repository_path"] == "docs/report/source/README.md"
+    )
+    assert assessed["heading_count"] == 2
+    assert assessed["link_bullet_count"] == 1
     publication.publish_report_portal(tmp_path / "docs/report")
     assert reader.read_bytes() == raw
 
@@ -277,6 +293,65 @@ def test_doc_account_routes_remain_local_and_root_accounts_use_portable_reposito
     ]:
         with pytest.raises(ValueError):
             product._path(invalid, reader=True)
+
+
+@pytest.mark.parametrize(
+    ("path", "target"),
+    [
+        ("docs/report/source/replay.py", "source"),
+        ("docs/report/source/oracle.R", "source"),
+        ("docs/report/source/draws.npz", "source"),
+        ("docs/report/source/draws.npy", "source"),
+        ("docs/report/source/execution.log", "source"),
+        (
+            "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+            "source",
+        ),
+        ("reports/science/account.md", "source"),
+        ("reports/science/result.json", "source"),
+        ("docs/report/source/account.md", "account.md"),
+        ("docs/report/source/result.json", "result.json"),
+        ("docs/report/source/values.csv", "values.csv"),
+        ("docs/report/source/report.pdf", "report.pdf"),
+        ("docs/report/source/records.jsonl", "records.jsonl"),
+        ("docs/report/source/data.json.gz", "data.json.gz"),
+    ],
+)
+def test_qualification_links_distinguish_published_assets_from_repository_sources(
+    path: str, target: str
+) -> None:
+    product, _ = modules()
+    pin = {"path": path}
+    if not is_maintained_reference(path):
+        pin["sha256"] = "a" * 64
+    fields = {key: f"Original {label}: twelve retained rows." for key, label in FIELDS}
+    value = {
+        "reader_path": "docs/report/source/README.md",
+        "canonical_accounts": [{"report_path": "reports/science/account.md"}],
+        "scope_reason": "Original retained source and refusal scope.",
+        "qualification": {"fields": fields, "evidence_pins": [pin]},
+    }
+    route = product.parse_routes(json.dumps({"schema_version": 2, "routes": [value]}))[
+        value["reader_path"]
+    ]
+    original = b"# Native denominator\n\nOwn source evidence, no ecological approval.\n"
+    rendered = product.render_route(original, route)
+    expected = (
+        "https://github.com/bijux/bijux-pollenomics/blob/main/" + path
+        if target == "source"
+        else target
+    )
+    assert f"]({expected})".encode() in rendered
+    for text in fields.values():
+        assert text.encode() in rendered
+    if "sha256" in pin:
+        assert f"(SHA-256 `{pin['sha256']}`)".encode() in rendered
+    assert product.authored_reader(rendered) == original
+    assert product.render_route(rendered, route) == rendered
+    assert product.verified_authored_reader(rendered, route) == original
+    changed = rendered.replace(f"]({expected})".encode(), b"](unbound-source)")
+    with pytest.raises(ValueError, match="differs from its source authority"):
+        product.verified_authored_reader(changed, route)
 
 
 def test_account_prose_edits_do_not_require_route_pin_updates(tmp_path: Path) -> None:

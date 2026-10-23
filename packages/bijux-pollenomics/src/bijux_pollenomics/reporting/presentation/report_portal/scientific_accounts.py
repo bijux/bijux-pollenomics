@@ -141,6 +141,21 @@ def verified_authored_reader(raw: bytes, route: Route) -> bytes:
     return authored_reader(raw)
 
 
+def _reading_target(source: str, parent: str) -> str:
+    """Keep published report links local and excluded run assets in source control."""
+    path = PurePosixPath(source)
+    excluded = path.parts[:2] == ("docs", "report") and (
+        path.suffix in {".py", ".R", ".npz", ".npy", ".log"}
+        or source
+        == "docs/report/publication-replay/landclim-study-inputs/records.jsonl"
+    )
+    if path.parts[:1] != ("docs",) or excluded:
+        return "https://github.com/bijux/bijux-pollenomics/blob/main/" + quote(
+            source, safe="/"
+        )
+    return posixpath.relpath(source, parent)
+
+
 def render_route(raw: bytes, route: Route) -> bytes:
     """Expose exact account links while retaining each wrapper's own denominator."""
     base = authored_reader(raw)
@@ -168,12 +183,7 @@ def render_route(raw: bytes, route: Route) -> bytes:
         for label, text in route.qualification.fields:
             lines.extend((f"**{label}.** {text}", ""))
         for evidence in route.qualification.evidence:
-            target = (
-                "https://github.com/bijux/bijux-pollenomics/blob/main/"
-                + quote(evidence.path, safe="/")
-                if evidence.path.startswith("reports/science/")
-                else posixpath.relpath(evidence.path, parent)
-            )
+            target = _reading_target(evidence.path, parent)
             lines.extend(
                 (
                     f"- [Retained qualification evidence: {evidence.path}]({target})"
@@ -187,12 +197,7 @@ def render_route(raw: bytes, route: Route) -> bytes:
                 )
             )
     for account in route.accounts:
-        relative = (
-            "https://github.com/bijux/bijux-pollenomics/blob/main/"
-            + quote(account.report_path, safe="/")
-            if account.report_path.startswith("reports/science/")
-            else posixpath.relpath(account.report_path, parent)
-        )
+        relative = _reading_target(account.report_path, parent)
         lines.extend(
             (
                 f"- [Canonical scientific account: {account.report_path}]({relative}).",
