@@ -8,6 +8,7 @@ import numpy as np
 
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import matrix, vector
 from bijux_pollenomics_lra.reconstruction.draws import rnorm_reveals
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
@@ -28,12 +29,7 @@ class SharedPpeLikelihoodResult:
 
 
 def _vector(value: object, name: str, size: int | None = None) -> np.ndarray:
-    try:
-        result = np.asarray(value, dtype=float)
-    except (TypeError, ValueError, OverflowError) as exc:
-        raise ValidationError(f"{name} must be numeric") from exc
-    if result.ndim != 1 or not np.isfinite(result).all():
-        raise ValidationError(f"{name} must be a finite vector")
+    result = vector(value, name)
     if size is not None and result.size != size:
         raise ValidationError(f"{name} differs from the taxon axis")
     return result.copy()
@@ -96,10 +92,7 @@ def fit_shared_ppe_likelihood(
             "Positive PPE variance underflows; rescale PPE and covariance units",
             reason_code="ppe_variance_not_representable",
         )
-    try:
-        covariance = np.asarray(ppe_covariance, dtype=float)
-    except (TypeError, ValueError, OverflowError) as exc:
-        raise ValidationError("ppe_covariance must be numeric") from exc
+    covariance = matrix(ppe_covariance, "ppe_covariance")
     if (
         covariance.shape != (size, size)
         or not np.isfinite(covariance).all()
@@ -122,10 +115,7 @@ def fit_shared_ppe_likelihood(
         ):
             raise ValidationError(f"{name} must have finite positive integer mass")
     regional_k = _vector(regional_kernel, "regional_kernel", size)
-    try:
-        local_k = np.asarray(local_kernels, dtype=float)
-    except (TypeError, ValueError, OverflowError) as exc:
-        raise ValidationError("local_kernels must be numeric") from exc
+    local_k = matrix(local_kernels, "local_kernels")
     fractions = _vector(terrestrial_fractions, "terrestrial_fractions")
     if (
         np.any(regional_k <= 0)
