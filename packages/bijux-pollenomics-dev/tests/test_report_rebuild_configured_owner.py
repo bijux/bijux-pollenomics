@@ -1557,6 +1557,65 @@ def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() 
     offset = selected.command.index("--capture-profile")
     assert selected.command[offset + 1] == "finite-covariance"
     assert len(selected.inputs) == 392
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text()
+    )
+    declaration = next(
+        row for row in inventory["owners"] if row["owner_id"] == _NATIVE_CAPTURE_OWNER
+    )
+    code, data = declaration["producer_paths"], declaration["producer_inputs"]
+    assert code == sorted(set(code))
+    assert data == sorted(set(data))
+    assert not set(code) & set(data)
+    assert selected.inputs == {
+        name: repository / name for name in sorted([*code, *data])
+    }
+    assert all(
+        name.startswith("packages/") and name.endswith((".py", ".R")) for name in code
+    )
+    oracle = "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/"
+    assert {name for name in code if name.endswith(".R")} == {
+        oracle + "r_support.R",
+        oracle + "source_domains.R",
+    }
+    transport = (
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "ci/report_rebuild/retained_source/"
+    )
+    assert {name for name in code if name.startswith(transport)} == {
+        transport + name + ".py"
+        for name in (
+            "__init__",
+            "canonical_paths",
+            "capsule",
+            "correspondence",
+            "descriptor",
+            "generated",
+            "index",
+            "member",
+            "objects",
+        )
+    }
+    assert {
+        "data/method-certification/native-r-finite-covariance/capture/capture.json",
+        "data/method-certification/native-r-finite-covariance/capture/receipt.json",
+        "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+        "data/method-certification/native-r-finite-covariance/source-transport.json",
+    } <= set(data)
+    # Historical source is authenticated through Git, not copied into data inputs.
+    detached = {
+        "data/method-certification/native-r-finite-covariance/capture/source-domains/"
+        + name
+        for name in ("r_support.R", "run_source_domains.py", "source_domains.R")
+    } | {
+        "data/method-certification/native-r-finite-covariance/execution-evidence/runner.py",
+        "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
+    }
+    assert detached.isdisjoint(code + data)
+    assert all(
+        not (repository / name).exists() and not (repository / name).is_symlink()
+        for name in detached
+    )
     assert selected.source_paths == {
         "source-products/report.json": "method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",
