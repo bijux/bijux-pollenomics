@@ -73,6 +73,7 @@ def project_samples(
             id_field="sample_id",
             conflicts=state.conflicts,
             conflict_kind="sample_payload_conflict",
+            occurrence_counts=state.registered_occurrences,
         )
         project_age_claims(
             state,
@@ -150,4 +151,5 @@ def project_age_claims(
             id_field="chronology_claim_id",
             conflicts=state.conflicts,
             conflict_kind="age_claim_identity_conflict",
+            occurrence_counts=state.registered_occurrences,
         )

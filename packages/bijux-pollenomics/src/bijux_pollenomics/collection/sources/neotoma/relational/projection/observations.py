@@ -99,4 +99,5 @@ def project_observations(
             id_field="observation_id",
             conflicts=state.conflicts,
             conflict_kind="observation_identity_conflict",
+            occurrence_counts=state.registered_occurrences,
         )

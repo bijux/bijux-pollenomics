@@ -42,6 +42,16 @@ COUNTRY_SURFACE_COUNT_FIELDS = {
 }
 COUNTRY_DECISION_STATUSES = ("assigned", "review", "unassigned", "refused")
 PROPAGATION_ELIGIBILITY = ("eligible", "blocked")
+SOURCE_OCCURRENCE_COUNTER_FIELDS = {
+    "sites": "site_rows",
+    "collection_units": "collection_unit_rows",
+    "datasets": "dataset_rows",
+    "chronologies": "chronology_rows",
+    "chronology_controls": "chronology_control_rows",
+    "samples": "sample_rows",
+    "age_claims": "age_claim_rows",
+    "observations": "observation_rows",
+}
 
 __all__ = [
     "COUNTRY_CODES",
@@ -88,6 +98,7 @@ def validate_reconciliation_counts(
             expected,
             f"reconciled {surface_name} row_count",
         )
+    _validate_source_occurrences(reconciliation, surface_row_counts)
     for surface_name, reconciliation_field in (
         ("conflicts", "conflict_count"),
         ("orphans", "orphan_count"),
@@ -154,6 +165,63 @@ def validate_reconciliation_counts(
         expected_total=surface_row_counts["sites"],
         label="country attribution final country codes",
     )
+
+
+def _validate_source_occurrences(
+    reconciliation: Mapping[str, object], surface_row_counts: Mapping[str, int]
+) -> None:
+    """Validate optional encounter accounting; historical v2 records may omit it."""
+    if "source_occurrence_accounting" not in reconciliation:
+        return
+    accounting = reconciliation["source_occurrence_accounting"]
+    raw = reconciliation.get("source_row_counts")
+    if (
+        not isinstance(accounting, Mapping)
+        or set(accounting) != set(SOURCE_OCCURRENCE_COUNTER_FIELDS)
+        or not isinstance(raw, Mapping)
+    ):
+        raise ValueError("Source occurrence accounting requires eight native tables")
+    for surface, counter in SOURCE_OCCURRENCE_COUNTER_FIELDS.items():
+        row = accounting[surface]
+        if not isinstance(row, Mapping) or set(row) != {
+            "source_counter",
+            "registered_occurrences",
+            "unregistered_source_occurrences",
+            "excluded_occurrence_counts",
+        }:
+            raise ValueError(f"Invalid source occurrence fields: {surface}")
+        expect_equal(row["source_counter"], counter, f"{surface} source counter")
+        excluded = row["excluded_occurrence_counts"]
+        reasons = {
+            "repeated_identical_entity_record",
+            "unselected_conflicting_entity_variant",
+        }
+        if not isinstance(excluded, Mapping) or set(excluded) != reasons:
+            raise ValueError(f"Invalid source occurrence exclusions: {surface}")
+        repeated = non_negative_integer(
+            excluded["repeated_identical_entity_record"], f"{surface} repeats"
+        )
+        variants = non_negative_integer(
+            excluded["unselected_conflicting_entity_variant"],
+            f"{surface} conflicting variants",
+        )
+        registered = non_negative_integer(
+            row["registered_occurrences"], f"{surface} registered occurrences"
+        )
+        unregistered = non_negative_integer(
+            row["unregistered_source_occurrences"],
+            f"{surface} unregistered source occurrences",
+        )
+        expect_equal(
+            registered,
+            surface_row_counts[surface] + repeated + variants,
+            f"{surface} registered occurrence partition",
+        )
+        expect_equal(
+            non_negative_integer(raw.get(counter, 0), f"{surface} source rows"),
+            registered + unregistered,
+            f"{surface} source occurrence partition",
+        )
 
 
 def accumulate_country_partition(

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from collections.abc import Mapping
 import copy
 import json
@@ -16,7 +17,10 @@ def register_record(
     id_field: str,
     conflicts: list[dict[str, object]],
     conflict_kind: str,
+    occurrence_counts: Counter[str] | None = None,
 ) -> None:
+    if occurrence_counts is not None:
+        occurrence_counts[id_field] += 1
     record_id = str(record[id_field])
     existing = table.get(record_id)
     if existing is None:

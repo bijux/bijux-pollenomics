@@ -96,6 +96,7 @@ def project_chronologies(
             id_field="chronology_id",
             conflicts=state.conflicts,
             conflict_kind="chronology_payload_conflict",
+            occurrence_counts=state.registered_occurrences,
         )
         project_chronology_controls(
             state,
@@ -210,4 +211,5 @@ def project_chronology_controls(
             id_field="chronology_control_id",
             conflicts=state.conflicts,
             conflict_kind="chronology_control_payload_conflict",
+            occurrence_counts=state.registered_occurrences,
         )

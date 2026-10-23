@@ -69,6 +69,7 @@ def project_download_row(
         id_field="site_id",
         conflicts=state.conflicts,
         conflict_kind="site_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     unit = site.get("collectionunit")
@@ -102,6 +103,7 @@ def project_download_row(
         id_field="collection_unit_id",
         conflicts=state.conflicts,
         conflict_kind="collection_unit_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     dataset = unit.get("dataset")
@@ -135,6 +137,7 @@ def project_download_row(
         id_field="dataset_id",
         conflicts=state.conflicts,
         conflict_kind="dataset_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     default_source_id, chronology_ids_by_source = project_chronologies(

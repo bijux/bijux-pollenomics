@@ -5,6 +5,10 @@ from __future__ import annotations
 from collections import Counter
 from collections.abc import Mapping
 
+from bijux_pollenomics.evidence.sources.neotoma.contract import (
+    SOURCE_OCCURRENCE_COUNTER_FIELDS,
+)
+
 from .contracts import COUNTRY_COUNT_FIELDS, TABLE_ID_FIELDS
 from .country import country_attribution_counts
 from .state import RelationalBuildState
@@ -53,6 +57,22 @@ def build_snapshot_payload(state: RelationalBuildState) -> dict[str, object]:
             for control_record in normalized_tables["chronology_controls"]
             if control_record.get("country_code") == country_code
         )
+        # These country bins describe normalized surfaces, as required by the
+        # materialization contract. Global source and age counters retain visits.
+        country_claims = [
+            claim
+            for claim in normalized_tables["age_claims"]
+            if claim.get("country_code") == country_code
+        ]
+        counts["age_claim_rows"] = len(country_claims)
+        for posture in ("comparable", "context_only", "refused", "unresolved"):
+            counts[f"age_{posture}"] = sum(
+                claim["comparability_status"] == posture for claim in country_claims
+            )
+        counts["observation_rows"] = sum(
+            observation.get("country_code") == country_code
+            for observation in normalized_tables["observations"]
+        )
         counts["variables"] = len(
             {
                 observation["variable_id"]
@@ -97,6 +117,9 @@ def build_snapshot_payload(state: RelationalBuildState) -> dict[str, object]:
         "reconciliation": {
             "source_row_counts": dict(sorted(state.source_counts.items())),
             "normalized_row_counts": normalized_counts,
+            "source_occurrence_accounting": _source_occurrence_accounting(
+                state, normalized_counts
+            ),
             "age_comparability_counts": dict(sorted(state.age_postures.items())),
             "age_reason_counts": dict(sorted(state.age_reasons.items())),
             "source_unit_counts": dict(sorted(state.unit_counts.items())),
@@ -115,6 +138,68 @@ def build_snapshot_payload(state: RelationalBuildState) -> dict[str, object]:
         "conflicts": state.conflicts,
         "orphans": state.orphans,
     }
+
+
+def _source_occurrence_accounting(
+    state: RelationalBuildState, normalized_counts: Mapping[str, int]
+) -> dict[str, object]:
+    """Reconcile encountered native entity projections without another row index.
+
+    Registration visits are partitioned into retained rows, identical repeats
+    and unselected distinct variants. Existing conflict variants supply the
+    latter population even when a repeated variant is not the canonical winner.
+    Thus A/B/B and B/B/A have identical counts. These are entity occurrences,
+    not independent observation trials: repeated site metadata is legitimate,
+    and identical datum entries within a sample retain their distinct row IDs.
+
+    The existing source counters keep their original scopes; descendants of an
+    invalid parent may never be visited. Unregistered occurrences are not the
+    orphan total: fallback rows can retain an identity diagnostic and still be
+    registered. Variables are derived lookup semantics and excluded from here.
+    """
+    kinds = {
+        "sites": "site_payload_conflict",
+        "collection_units": "collection_unit_payload_conflict",
+        "datasets": "dataset_payload_conflict",
+        "chronologies": "chronology_payload_conflict",
+        "chronology_controls": "chronology_control_payload_conflict",
+        "samples": "sample_payload_conflict",
+        "age_claims": "age_claim_identity_conflict",
+        "observations": "observation_identity_conflict",
+    }
+    additional_variants: Counter[str] = Counter()
+    by_kind = {kind: surface for surface, kind in kinds.items()}
+    for conflict in state.conflicts:
+        surface = by_kind.get(str(conflict["conflict_kind"]))
+        detail = conflict["detail"]
+        if surface is None or not isinstance(detail, Mapping):
+            continue
+        variants = detail.get("variants")
+        if (
+            detail.get("resolution") != "canonical_minimum"
+            or not isinstance(variants, list)
+            or conflict["subject_id"] not in state.tables[surface]
+        ):
+            raise ValueError("Native entity conflict variant accounting is invalid")
+        additional_variants[surface] += len(variants) - 1
+    result: dict[str, object] = {}
+    for surface, counter in SOURCE_OCCURRENCE_COUNTER_FIELDS.items():
+        registered = state.registered_occurrences[TABLE_ID_FIELDS[surface]]
+        unselected = additional_variants[surface]
+        repeated = registered - normalized_counts[surface] - unselected
+        unregistered = state.source_counts[counter] - registered
+        if min(repeated, unselected, unregistered) < 0:
+            raise ValueError("Native source occurrence partition is negative")
+        result[surface] = {
+            "source_counter": counter,
+            "registered_occurrences": registered,
+            "unregistered_source_occurrences": unregistered,
+            "excluded_occurrence_counts": {
+                "repeated_identical_entity_record": repeated,
+                "unselected_conflicting_entity_variant": unselected,
+            },
+        }
+    return result
 
 
 def parent_country(record: Mapping[str, object], sites: list[dict[str, object]]) -> str:
