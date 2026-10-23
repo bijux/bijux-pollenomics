@@ -171,6 +171,58 @@ claims are retained separately, without converting calendars or selecting a
 chronology. The post-exposure three-header result does not authenticate the
 remaining count panel, formula origin, historical LandClim input, depth units,
 physical core, source independence, rights, basin geometry or LRA eligibility.
+### Which Rootsi candidates share Neotoma observations?
+
+The [79-row dependence table](source-lineage/rootsi-neotoma-dependence.csv)
+joins the existing metadata overlap to five already qualified native count
+witnesses. It uses exact workbook member and SHA identities; a matching site
+name supplies no edge. All original overlap fields are unchanged. Five rows
+carry report-owned Neotoma dataset/site IDs and partial count comparisons;
+the other 74 remain unassessed with empty witness fields. Every row retains
+its refusal of independent corroboration and physical-core equivalence.
+
+| Workbook | Neotoma dataset / site | Reported equal count pairs | Retained partial or conflicting support |
+| --- | --- | ---: | --- |
+| ABB | 19913 / 13338 | 2,183 | 4,986 source-absent rows have workbook zeros; zero explicit differences reported. |
+| BOKE | 54001 / 28872 | 902 | Two explicit differences, two ambiguous duplicate-label cases, three source-absent positive cells and 1,951 source-absent workbook zeros. |
+| BUS | 53995 / 28869 | 1,195 | 2,807 source-absent workbook zeros; duplicated Betula/Pinus columns remain excluded by the native comparison. |
+| FLINK | 54024 / 28889 | 270 | Three selected anchor taxa only, with 57 source-absent zeros; the original age-sign discrepancy remains unresolved. |
+| STAV | 54003 / 28873 | 940 | 854 source-absent positive cells and 4,520 source-absent zeros; the workbook has no age column. |
+
+Each row has its own reported support and taxon-matching rule. The table's
+agreement counts are not interchangeable trial denominators or additional
+independent samples. The complete CSV keeps each original count-status
+dictionary and scope limits, with an exact source-report or finding pointer.
+Missing Neotoma observations are not supplied as zeros. No new EPD accession,
+physical-core merge, chronology transfer, historical LandClim input identity,
+source permission or scientific alias approval is created by this join.
+
+The [maintained adapter](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/rootsi_dependence.py)
+and its opt-in owner were committed at
+`cdfa8765c255a716e7695768a1fb95e498284080` before the actual join. Its 28
+focused tests cover source integrity, exact identities, admission refusals
+and unchanged default outputs. The native join exited zero in **0.112 seconds**
+with 84,397 output bytes. The existing overlap CSV and report are byte-identical
+to their retained versions. An independent standard-library CSV/JSON check
+confirms all 79 original rows and every native ID, sample total and complete
+count-status dictionary for the five witnesses. Source and selected original
+inputs stayed unchanged; no workbook scan, model fit or chronology calculation
+was run. The new 44,784-byte CSV was moved to the maintained location above.
+
+Reproduce from the repository's existing qualified candidate and witness inputs:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap \
+  --repository . --output artifacts/rootsi-neotoma-dependence \
+  --neotoma-dependence
+```
+
+Use an absent output directory. The extra CSV is opt-in; the original overlap
+products retain their existing contract. These five source-specific witnesses
+help prevent circular corroboration. The other 74 candidates still need their
+own source evidence, and the original rights, chronology, historical input and
+qualified-review requirements remain open.
 
 For EKE, we separately checked the original 27,648-byte workbook against its
 retained typed capture: all 1,376 cached cell values and types agree exactly.
@@ -387,12 +439,12 @@ rights, formal CRS and historical time support still need resolution.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained. A source-bound cached-feature census classifies 76 workbooks and retains three header refusals. Conditional partial-tree covariance consistency separates 2,420 feasible and 5,611 infeasible archived rows. Separately, 108 EXHU numeric anchors carry 324 equal NISP pairs under three declared presentation-header mappings.
+**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained. A source-bound cached-feature census classifies 76 workbooks and retains three header refusals. Conditional partial-tree covariance consistency separates 2,420 feasible and 5,611 infeasible archived rows. Separately, 108 EXHU numeric anchors carry 324 equal NISP pairs under three declared presentation-header mappings. Five authenticated workbook/count witnesses expose partial Rootsi/Neotoma observation dependence within the existing 79-row metadata overlap.
 
 **Unsupported claim.** Full ESSD paper reproduction, source-causal diagnosis or ecological accuracy.
 
 **Actual verification performed.** Existing author replay, archive-window and PFT ledgers are synthesized. The new 79-workbook cached-feature census returned 0; independent classification checks 472,460 feature cells, every row partition/anomaly index and EKE controls using the same xlrd parser. No model or R replay was performed by this census. The actual joint PFT consumer at dd3766f16 and an independent exact covariance calculation agree on all 10,500 source rows and 8,080 diagnostics; this does not reproduce the historical delta method. The separate EXHU profile at ea73e1764 exited zero in 0.910 seconds after 58 controlled tests and independent code review; an independent standard-library/xlrd check confirms all 108 identities and anchors, all 324 positive count pairs, paired sums 48,238 and both profile partitions without the maintained comparison helpers. Its smaller 108-row publication table preserves selected-panel sums without copying the full count matrix.
-
+ The new opt-in dependence join at cdfa8765c exited zero in 0.112 seconds after 28 focused controls. An independent standard-library check confirms all 79 original rows and the five native dataset/site IDs, sample totals and complete count-status dictionaries; original overlap products remain byte-identical. No workbook scan, fit or date conversion.
 **Remaining input or review.** Two-grid example parity is strong, but 1,128 historical inputs, archive PFT/covariance producer, nonmatching windows, source rights and independent ecological comparison remain open. Resolver: LandClim paper/archive producer and qualified taxon, chronology and ecology reviewers Reopen when: A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing.
 
 **Cause category.** data|algorithm/numerical|comparability|access/rights|qualified review
@@ -401,12 +453,11 @@ rights, formal CRS and historical time support still need resolution.
 
 **Precise next acceptance route.** A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing. Then update reports/science/landclim-paper.md.
 
-**Negative or refused result.** Zero authenticated historical primary inputs; TW2 archive gaps and 12/11/13 PFT statements unresolved. Three unlabelled-header refusals retain 301 unclassified rows; 32 classified rows have missing or unsupported features. The initial EXHU literal-header control has zero shared labels because presentation headers differ; it is not absence of native NISP. The later three-header mapping is post-exposure curation and admits no physical core, chronology, rights or LRA input.
+**Negative or refused result.** Zero authenticated historical primary inputs; TW2 archive gaps and 12/11/13 PFT statements unresolved. Three unlabelled-header refusals retain 301 unclassified rows; 32 classified rows have missing or unsupported features. The initial EXHU literal-header control has zero shared labels because presentation headers differ; it is not absence of native NISP. The later three-header mapping is post-exposure curation and admits no physical core, chronology, rights or LRA input. All 79 independent-corroboration and physical-core-equivalence admissions remain false; 74 lack a selected Neotoma witness. BOKE differences/ambiguities, FLINK age-sign discrepancy and STAV missing age field remain visible.
 
-**Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows. Census: 5,170 mechanical rows across 79 workbooks; 4,869 rows classified in 76 workbooks, 301 rows unclassified in three. Separate EXHU comparison: 108 numeric anchors, 3 selected of 202 feature columns, 324 matching count pairs; 197 other unique columns and 2 duplicate columns remain excluded. Both selected-panel sums are 48,238 grain occurrences, not independent trials or a complete pollen denominator.
+**Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows. Census: 5,170 mechanical rows across 79 workbooks; 4,869 rows classified in 76 workbooks, 301 rows unclassified in three. Separate EXHU comparison: 108 numeric anchors, 3 selected of 202 feature columns, 324 matching count pairs; 197 other unique columns and 2 duplicate columns remain excluded. Both selected-panel sums are 48,238 grain occurrences, not independent trials or a complete pollen denominator. Separate dependence join: 79 existing metadata rows, five partial native count witnesses, 74 unassessed rows; witness-specific count panels remain separate.
 
-Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md), [reports/science/publication-correspondence/rootsi-feature-census/report.json](publication-correspondence/rootsi-feature-census/report.json), [reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json](publication-correspondence/pft-crosswalk/joint-covariance/report.json), [reports/science/source-lineage/exhult-count-correspondence.csv](source-lineage/exhult-count-correspondence.csv).
-
+Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md), [reports/science/publication-correspondence/rootsi-feature-census/report.json](publication-correspondence/rootsi-feature-census/report.json), [reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json](publication-correspondence/pft-crosswalk/joint-covariance/report.json), [reports/science/source-lineage/exhult-count-correspondence.csv](source-lineage/exhult-count-correspondence.csv), [reports/science/source-lineage/rootsi-neotoma-dependence.csv](source-lineage/rootsi-neotoma-dependence.csv).
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-verification-and-limits:end -->

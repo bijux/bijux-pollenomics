@@ -1117,7 +1117,8 @@
     "presentation/big-picture.pdf": "626fcc5d92d3410c126be2c1cb6097fdac4fbaf638b49fb906af0a81cfccaee3",
     "presentation/developer.pdf": "19937f759003bd652518ccb193a1028f5984279d768922d90dd2a13a6a87a5fd",
     "presentation/scientific-evidence.pdf": "487de0fc7f71e39d9c07e8111c3b8552405a5d37e50fc529cbf1774434cdd6da",
-    "reports/exports/site-downloads.json": "b550d0db15932afd3d2b815c067b4a3350e2151059f14b78eaf23abe0f69c90a"
+    "reports/exports/site-downloads.json": "b550d0db15932afd3d2b815c067b4a3350e2151059f14b78eaf23abe0f69c90a",
+    "reports/science/source-lineage/rootsi-neotoma-dependence.csv": "b96a5fa20d85a391f8088e7ff088cf7064f1a5e0422eb16289ba6f9a875206e0"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
@@ -1578,6 +1579,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/sample_decisions.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/relational_summary.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/rootsi_dependence.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/swedish_native_sequences.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_compact_summary.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_screen_summary.py",
