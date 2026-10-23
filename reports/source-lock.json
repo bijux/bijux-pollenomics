@@ -1108,7 +1108,9 @@
     "reports/science/method-certification/kernel-branch-comparisons.csv": "87ff8bc7fb9975b2577663145a1ecd5c29cd84a0e0da7f8762becd3746d7184d",
     "reports/science/method-certification/minimum-lake-comparisons.csv": "51963e6fef262f81c1bbe4f5a1c004e7479ca9cd8197f18b0a79a111e12b4fdb",
     "reports/science/vegetation-reference/namibia-pollen-prediction.csv": "958a7d8c199c52c97a0464dfd309d1aa283f935983a66246efa373f97dbbd027",
-    "reports/science/vegetation-reference/namibia-fit-resolution.json": "637d3e4cc0d67e2625a1afc31ea83185f84ffc36c6d51dfb542454e11417feee"
+    "reports/science/vegetation-reference/namibia-fit-resolution.json": "637d3e4cc0d67e2625a1afc31ea83185f84ffc36c6d51dfb542454e11417feee",
+    "reports/science/method-certification/current-native-r-comparisons.csv": "59be82e73176ef337268c92da8195058dee9c1d7e39b69832509a2893c50df52",
+    "reports/science/method-certification/current-native-r-values.csv": "65036253e42695583b058d6130db684b8ebede828077673ebf6cc3d16e965070"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
