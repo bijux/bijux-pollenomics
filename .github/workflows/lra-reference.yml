@@ -333,6 +333,7 @@ jobs:
             --live artifacts/bijux-pollenomics-lra/reference/ci-live \
             --lock configs/ci/lra-r-source-lock.v1.json \
             --target-sha "${{ github.sha }}" \
+            --repository "$GITHUB_WORKSPACE" \
             --output artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:

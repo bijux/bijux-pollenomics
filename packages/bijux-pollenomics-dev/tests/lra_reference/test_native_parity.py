@@ -6,16 +6,37 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 
 import pytest
+import yaml
 
 from bijux_pollenomics_dev.ci.lra_reference.contracts import ReferenceRefusal
 from bijux_pollenomics_dev.ci.lra_reference.evidence import file_inventory
 from bijux_pollenomics_dev.ci.lra_reference.native_parity import verify_native_parity
 
 from .support import LOCK, SHA, bundle_fixture
+
+
+def test_parity_workflow_supplies_explicit_current_source_context() -> None:
+    repository = Path(__file__).resolve().parents[4]
+    workflow = yaml.load(
+        (repository / ".github/workflows/lra-reference.yml").read_text(
+            encoding="utf-8"
+        ),
+        Loader=yaml.BaseLoader,
+    )
+    commands = [
+        step["run"]
+        for step in workflow["jobs"]["parity"]["steps"]
+        if "bijux_pollenomics_dev.ci.lra_reference.native_parity" in step.get("run", "")
+    ]
+    assert len(commands) == 1
+    arguments = shlex.split(commands[0].replace("\\\n", ""))
+    assert "--repository" in arguments
+    assert arguments[arguments.index("--repository") + 1] == "$GITHUB_WORKSPACE"
 
 
 def _synthetic_pair(root: Path) -> tuple[Path, Path]:
