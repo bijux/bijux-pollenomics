@@ -11,6 +11,7 @@ from ..diagnostics import add_orphan, register_record
 from ..identifiers import digest
 from ..state import RelationalBuildState
 from ..variables import register_variable, unit_family, variable_id
+from .parent_refusals import native_rows
 
 
 def _detection_status(datum: Mapping[str, object]) -> str:
@@ -32,9 +33,9 @@ def project_observations(
     site_id: str,
     country_code: str,
 ) -> None:
-    datum_rows = sample.get("datum")
-    if not isinstance(datum_rows, list):
-        datum_rows = []
+    datum_rows = native_rows(
+        state, sample, "datum", entity_type="sample", parent_id=sample_id
+    )
     state.source_counts["observation_rows"] += len(datum_rows)
     state.country_counts[country_code]["observation_rows"] += len(datum_rows)
     occurrence_counts: Counter[str] = Counter()
@@ -46,6 +47,7 @@ def project_observations(
                 sample_id,
                 "invalid_observation_row",
                 source_value=datum,
+                excluded_source_row_counts={"observation_rows": 1},
             )
             continue
         datum_payload = copy.deepcopy(dict(datum))

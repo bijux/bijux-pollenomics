@@ -52,6 +52,26 @@ SOURCE_OCCURRENCE_COUNTER_FIELDS = {
     "age_claims": "age_claim_rows",
     "observations": "observation_rows",
 }
+SOURCE_ROW_REFUSAL_REASONS = frozenset(
+    {
+        "missing_source_identifier",
+        "missing_site",
+        "missing_collection_unit",
+        "missing_dataset",
+        "dataset_identity_unavailable_for_chronology_projection",
+        "dataset_context_unavailable_for_projection",
+        "invalid_sample_row",
+        "invalid_age_row",
+        "invalid_observation_row",
+        "invalid_chronology_row",
+        "missing_chronology_payload",
+        "invalid_chronology_control_row",
+        *(
+            f"invalid_{field}_container"
+            for field in ("samples", "ages", "datum", "chronologies", "chroncontrols")
+        ),
+    }
+)
 
 __all__ = [
     "COUNTRY_CODES",
@@ -67,6 +87,7 @@ __all__ = [
     "SURFACE_ID_FIELDS",
     "accumulate_country_partition",
     "accumulate_site_attribution",
+    "accumulate_source_occurrence_refusals",
     "canonical_json_bytes",
     "expect_equal",
     "materialization_digest",
@@ -84,6 +105,7 @@ def validate_reconciliation_counts(
     country_partitions: Mapping[str, Counter[str]],
     site_statuses: Counter[str],
     site_eligibility: Counter[str],
+    source_occurrence_refusals: Mapping[str, Counter[str]] | None = None,
 ) -> None:
     normalized_counts = reconciliation.get("normalized_row_counts")
     if not isinstance(normalized_counts, Mapping):
@@ -99,6 +121,7 @@ def validate_reconciliation_counts(
             f"reconciled {surface_name} row_count",
         )
     _validate_source_occurrences(reconciliation, surface_row_counts)
+    _validate_source_refusals(reconciliation, source_occurrence_refusals)
     for surface_name, reconciliation_field in (
         ("conflicts", "conflict_count"),
         ("orphans", "orphan_count"),
@@ -221,6 +244,82 @@ def _validate_source_occurrences(
             non_negative_integer(raw.get(counter, 0), f"{surface} source rows"),
             registered + unregistered,
             f"{surface} source occurrence partition",
+        )
+
+
+def accumulate_source_occurrence_refusals(
+    rows: Iterable[object], *, counts: dict[str, Counter[str]]
+) -> None:
+    """Aggregate actual orphan exclusions without retaining their raw payloads.
+
+    Empty maps mark a preserved malformed container with no extractable rows.
+    Identity diagnostics for registered fallback rows have no exclusion map.
+    """
+    counters = set(SOURCE_OCCURRENCE_COUNTER_FIELDS.values())
+    for row in rows:
+        if not isinstance(row, Mapping):
+            raise ValueError("Non-object orphan row")
+        if "excluded_source_row_counts" not in row:
+            continue
+        excluded = row["excluded_source_row_counts"]
+        reason = row.get("reason")
+        if (
+            not isinstance(excluded, Mapping)
+            or not set(excluded).issubset(counters)
+            or not isinstance(reason, str)
+            or reason not in SOURCE_ROW_REFUSAL_REASONS
+        ):
+            raise ValueError("Invalid orphan source occurrence exclusions")
+        for counter in counters:
+            counts.setdefault(counter, Counter())
+        for counter, value in excluded.items():
+            count = non_negative_integer(value, f"orphan exclusions.{counter}")
+            if count:
+                counts[str(counter)][reason] += count
+
+
+def _validate_source_refusals(
+    reconciliation: Mapping[str, object],
+    observed: Mapping[str, Counter[str]] | None,
+) -> None:
+    field = "unregistered_source_occurrence_counts_by_reason"
+    if field not in reconciliation:
+        if observed:
+            raise ValueError("Orphan exclusions require source refusal accounting")
+        return
+    reasons = reconciliation[field]
+    accounting = reconciliation.get("source_occurrence_accounting")
+    if (
+        not isinstance(reasons, Mapping)
+        or set(reasons) != set(SOURCE_OCCURRENCE_COUNTER_FIELDS)
+        or not isinstance(accounting, Mapping)
+        or observed is None
+    ):
+        raise ValueError(
+            "Source refusal accounting requires eight native tables and orphan rows"
+        )
+    for surface, counter in SOURCE_OCCURRENCE_COUNTER_FIELDS.items():
+        declared = reasons[surface]
+        if not isinstance(declared, Mapping) or not set(declared).issubset(
+            SOURCE_ROW_REFUSAL_REASONS
+        ):
+            raise ValueError(f"Invalid source refusal reasons: {surface}")
+        totals = {
+            str(reason): non_negative_integer(value, f"{surface} refusal {reason}")
+            for reason, value in declared.items()
+        }
+        row = accounting.get(surface)
+        if not isinstance(row, Mapping):
+            raise ValueError(f"Invalid source occurrence fields: {surface}")
+        expect_equal(
+            sum(totals.values()),
+            row.get("unregistered_source_occurrences"),
+            f"{surface} unregistered reason partition",
+        )
+        expect_equal(
+            totals,
+            dict(observed.get(counter, Counter())),
+            f"{surface} orphan refusal reasons",
         )
 
 

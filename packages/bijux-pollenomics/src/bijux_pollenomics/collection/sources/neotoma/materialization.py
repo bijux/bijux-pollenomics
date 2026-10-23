@@ -28,6 +28,7 @@ from bijux_pollenomics.evidence.sources.neotoma.contract import (
     SURFACE_ID_FIELDS,
     accumulate_country_partition,
     accumulate_site_attribution,
+    accumulate_source_occurrence_refusals,
     canonical_json_bytes,
     expect_equal,
     materialization_digest,
@@ -105,6 +106,7 @@ def _write_materialization(
     country_partitions: dict[str, Counter[str]] = {}
     site_statuses: Counter[str] = Counter()
     site_eligibility: Counter[str] = Counter()
+    source_refusals: dict[str, Counter[str]] = {}
     for surface_name, id_field in SURFACE_ID_FIELDS.items():
         raw_rows = snapshot.get(surface_name)
         if not isinstance(raw_rows, list):
@@ -129,6 +131,8 @@ def _write_materialization(
                 statuses=site_statuses,
                 eligibility=site_eligibility,
             )
+        if surface_name == "orphans":
+            accumulate_source_occurrence_refusals(rows, counts=source_refusals)
         surface_root = surfaces_root / surface_name
         surface_root.mkdir()
         chunks = [
@@ -178,6 +182,7 @@ def _write_materialization(
         country_partitions=country_partitions,
         site_statuses=site_statuses,
         site_eligibility=site_eligibility,
+        source_occurrence_refusals=source_refusals,
     )
 
     reconciliation_path = "reconciliation.json"

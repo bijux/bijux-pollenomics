@@ -190,6 +190,7 @@ def test_historical_reconciliation_without_optional_accounting_still_opens(
 ) -> None:
     payload = snapshot([download_row()])
     del payload["reconciliation"]["source_occurrence_accounting"]
+    del payload["reconciliation"]["unregistered_source_occurrence_counts_by_reason"]
     output = tmp_path / "materialized"
     materialize_neotoma_relational_snapshot(output, payload)
     validate_neotoma_relational_materialization(output)

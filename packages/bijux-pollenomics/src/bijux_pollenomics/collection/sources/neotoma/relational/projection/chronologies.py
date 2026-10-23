@@ -9,6 +9,7 @@ from ..diagnostics import add_conflict, add_orphan, register_record
 from ..identifiers import digest, optional_source_id
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
+from .parent_refusals import native_rows
 
 
 def project_chronologies(
@@ -25,9 +26,9 @@ def project_chronologies(
     chronology_ids_by_source: dict[str, str] = {}
     flagged_default_ids: list[str] = []
     flagged_by_age_type: dict[str, list[str]] = {}
-    chronologies = unit.get("chronologies")
-    if not isinstance(chronologies, list):
-        chronologies = []
+    chronologies = native_rows(
+        state, unit, "chronologies", entity_type="collection_unit", parent_id=unit_id
+    )
     state.source_counts["chronology_rows"] += len(chronologies)
     for wrapper in chronologies:
         if not isinstance(wrapper, Mapping):
@@ -37,6 +38,7 @@ def project_chronologies(
                 unit_id,
                 "invalid_chronology_row",
                 source_value=wrapper,
+                excluded_source_row_counts={"chronology_rows": 1},
             )
             continue
         chronology = wrapper.get("chronology")
@@ -47,6 +49,7 @@ def project_chronologies(
                 unit_id,
                 "missing_chronology_payload",
                 source_value=wrapper,
+                excluded_source_row_counts={"chronology_rows": 1},
             )
             continue
         chronology_source_id = optional_source_id(chronology.get("chronologyid"))
@@ -168,9 +171,13 @@ def project_chronology_controls(
     site_id: str,
     country_code: str,
 ) -> None:
-    controls = chronology.get("chroncontrols")
-    if not isinstance(controls, list):
-        controls = []
+    controls = native_rows(
+        state,
+        chronology,
+        "chroncontrols",
+        entity_type="chronology",
+        parent_id=chronology_id,
+    )
     state.source_counts["chronology_control_rows"] += len(controls)
     for control in controls:
         if not isinstance(control, Mapping):
@@ -180,6 +187,7 @@ def project_chronology_controls(
                 chronology_id,
                 "invalid_chronology_control_row",
                 source_value=control,
+                excluded_source_row_counts={"chronology_control_rows": 1},
             )
             continue
         control_source_id = optional_source_id(control.get("chroncontrolid"))

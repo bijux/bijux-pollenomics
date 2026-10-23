@@ -7,6 +7,7 @@ from collections.abc import Mapping
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import (
     SOURCE_OCCURRENCE_COUNTER_FIELDS,
+    accumulate_source_occurrence_refusals,
 )
 
 from .contracts import COUNTRY_COUNT_FIELDS, TABLE_ID_FIELDS
@@ -106,6 +107,8 @@ def build_snapshot_payload(state: RelationalBuildState) -> dict[str, object]:
         if isinstance(source_semantics, list):
             variable_semantic_variant_count += len(source_semantics)
 
+    refusals: dict[str, Counter[str]] = {}
+    accumulate_source_occurrence_refusals(state.orphans, counts=refusals)
     state.conflicts.sort(key=lambda item: str(item["conflict_id"]))
     state.orphans.sort(key=lambda item: str(item["orphan_id"]))
     return {
@@ -120,6 +123,10 @@ def build_snapshot_payload(state: RelationalBuildState) -> dict[str, object]:
             "source_occurrence_accounting": _source_occurrence_accounting(
                 state, normalized_counts
             ),
+            "unregistered_source_occurrence_counts_by_reason": {
+                surface: dict(sorted(refusals.get(counter, Counter()).items()))
+                for surface, counter in SOURCE_OCCURRENCE_COUNTER_FIELDS.items()
+            },
             "age_comparability_counts": dict(sorted(state.age_postures.items())),
             "age_reason_counts": dict(sorted(state.age_reasons.items())),
             "source_unit_counts": dict(sorted(state.unit_counts.items())),
@@ -152,10 +159,11 @@ def _source_occurrence_accounting(
     not independent observation trials: repeated site metadata is legitimate,
     and identical datum entries within a sample retain their distinct row IDs.
 
-    The existing source counters keep their original scopes; descendants of an
-    invalid parent may never be visited. Unregistered occurrences are not the
-    orphan total: fallback rows can retain an identity diagnostic and still be
-    registered. Variables are derived lookup semantics and excluded from here.
+    Source counters include extractable native descendants of refused parents.
+    Their payload is retained once in an orphan with exact exclusion counters.
+    Unregistered occurrences are not the orphan total: fallback rows can retain
+    an identity diagnostic and still be registered. Variables are derived lookup
+    semantics and excluded from this native-row partition.
     """
     kinds = {
         "sites": "site_payload_conflict",

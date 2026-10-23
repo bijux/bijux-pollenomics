@@ -7,7 +7,7 @@ from collections.abc import Mapping
 import copy
 import json
 
-from .identifiers import digest, optional_source_id
+from .identifiers import digest
 
 
 def register_record(
@@ -91,25 +91,6 @@ def _canonical_record_key(record: Mapping[str, object]) -> str:
     )
 
 
-def required_source_id(
-    value: object,
-    entity_type: str,
-    orphans: list[dict[str, object]],
-    *,
-    parent_id: str | None,
-) -> str | None:
-    source_id = optional_source_id(value)
-    if source_id is None:
-        add_orphan(
-            orphans,
-            entity_type,
-            parent_id,
-            "missing_source_identifier",
-            source_value=value,
-        )
-    return source_id
-
-
 def conflict_record(
     conflict_kind: str, subject_id: str, detail: Mapping[str, object]
 ) -> dict[str, object]:
@@ -142,13 +123,19 @@ def add_orphan(
     reason: str,
     *,
     source_value: object = None,
+    excluded_source_row_counts: Mapping[str, int] | None = None,
+    source_field_present: bool | None = None,
 ) -> None:
-    body = {
+    body: dict[str, object] = {
         "entity_type": entity_type,
         "parent_id": parent_id,
         "reason": reason,
         "source_value": copy.deepcopy(source_value),
     }
+    if excluded_source_row_counts is not None:
+        body["excluded_source_row_counts"] = dict(excluded_source_row_counts)
+    if source_field_present is not None:
+        body["source_field_present"] = source_field_present
     base_id = f"neotoma:orphan:{digest(body)[:24]}"
     occurrence = 1 + sum(
         orphan.get("orphan_id") == base_id

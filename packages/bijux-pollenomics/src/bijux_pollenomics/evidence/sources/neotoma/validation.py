@@ -20,6 +20,7 @@ from .contract import (
     SURFACE_ID_FIELDS,
     accumulate_country_partition,
     accumulate_site_attribution,
+    accumulate_source_occurrence_refusals,
     expect_equal,
     materialization_digest,
     non_negative_integer,
@@ -72,6 +73,7 @@ def validate_neotoma_relational_materialization(
     ownership = NeotomaOwnershipIndex()
     site_statuses: Counter[str] = Counter()
     site_eligibility: Counter[str] = Counter()
+    source_refusals: dict[str, Counter[str]] = {}
     for surface_name, id_field in SURFACE_ID_FIELDS.items():
         surface = surfaces.get(surface_name)
         if not isinstance(surface, Mapping):
@@ -202,6 +204,8 @@ def validate_neotoma_relational_materialization(
                     statuses=site_statuses,
                     eligibility=site_eligibility,
                 )
+            if surface_name == "orphans":
+                accumulate_source_occurrence_refusals(rows, counts=source_refusals)
             if row_ids != sorted(row_ids):
                 raise ValueError(f"Rows are not stably ordered: {relative_path}")
             observed_ids.extend(row_ids)
@@ -275,6 +279,7 @@ def validate_neotoma_relational_materialization(
         country_partitions=country_partitions,
         site_statuses=site_statuses,
         site_eligibility=site_eligibility,
+        source_occurrence_refusals=source_refusals,
     )
     digest_records.append(
         {"path": reconciliation_path, "sha256": reconciliation_digest}
