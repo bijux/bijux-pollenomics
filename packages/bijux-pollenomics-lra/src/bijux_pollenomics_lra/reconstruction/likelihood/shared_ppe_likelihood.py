@@ -63,6 +63,11 @@ def fit_shared_ppe_likelihood(
     cover and local/background deposition. The first local kernel row defines
     the homogeneous local domain; all remaining rows define background. The
     caller owns source identity, time support, geometry and taxon alignment.
+
+    Regional and local counts are nonnegative integer-valued numbers, each
+    with positive aggregate mass below 2**53. This numerical domain preserves
+    exact integer counts and their denominators in binary64; it is separate
+    from the homogeneous point estimator's broader fractional-weight domain.
     """
     if (
         type(draws) is not int
@@ -114,6 +119,11 @@ def fit_shared_ppe_likelihood(
             or mass <= 0
         ):
             raise ValidationError(f"{name} must have finite positive integer mass")
+        if np.any(counts >= 2**53) or mass >= 2**53:
+            raise ValidationError(
+                f"{name} integer counts and aggregate mass must be below 2**53",
+                reason_code="count_precision_exceeded",
+            )
     regional_k = _vector(regional_kernel, "regional_kernel", size)
     local_k = matrix(local_kernels, "local_kernels")
     fractions = _vector(terrestrial_fractions, "terrestrial_fractions")
