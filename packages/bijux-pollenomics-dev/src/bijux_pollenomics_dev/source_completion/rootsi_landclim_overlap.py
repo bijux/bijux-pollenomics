@@ -287,7 +287,9 @@ def reconcile(
     return rows
 
 
-def build(repository: Path, output: Path) -> dict[str, object]:
+def build(
+    repository: Path, output: Path, *, neotoma_dependence: bool = False
+) -> dict[str, object]:
     """Write a deterministic source-bound review at an explicit destination."""
     repository = repository.resolve()
     output = output.resolve()
@@ -326,6 +328,11 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         _read_csv(crosswalk_path.read_bytes()),
         _read_csv((repository / SITES).read_bytes()),
     )
+    dependence = None
+    if neotoma_dependence:
+        from .neotoma.rootsi_dependence import dependence_rows, load_witnesses
+
+        dependence = dependence_rows(rows, load_witnesses(repository))
     output.mkdir(parents=True)
     with (output / "overlap.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, FIELDS, lineterminator="\n")
@@ -410,6 +417,17 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         json.dumps(report, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    if dependence is not None:
+        from .neotoma.rootsi_dependence import FIELDS as DEPENDENCE_FIELDS
+
+        with (output / "neotoma-dependence.csv").open(
+            "w", encoding="utf-8", newline=""
+        ) as handle:
+            writer = csv.DictWriter(
+                handle, (*FIELDS, *DEPENDENCE_FIELDS), lineterminator="\n"
+            )
+            writer.writeheader()
+            writer.writerows(dependence)
     return report
 
 
@@ -418,8 +436,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--neotoma-dependence", action="store_true")
     args = parser.parse_args()
-    build(args.repository, args.output)
+    build(args.repository, args.output, neotoma_dependence=args.neotoma_dependence)
 
 
 if __name__ == "__main__":
