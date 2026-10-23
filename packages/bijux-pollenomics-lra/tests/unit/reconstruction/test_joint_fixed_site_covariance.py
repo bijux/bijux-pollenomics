@@ -9,6 +9,7 @@ from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
     ConditionalResultInput,
     CountSupport,
+    JointFixedSiteCovariance,
     joint_fixed_site_covariance,
 )
 
@@ -40,6 +41,67 @@ def evaluate(
         assume_disjoint_window_count_independence=windows,
         assume_distinct_unit_count_independence=units,
     )
+
+
+@pytest.mark.parametrize(
+    "field", ["ppe", "ppe_covariance", "counts", "deposition", "taxon_measured"]
+)
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_fixed_site_masks_cannot_become_backing_counts_parameters_or_covariance(
+    field: str, unresolved: bool
+) -> None:
+    item = observation()
+    ppe = np.array([1.4, 2.3])
+    covariance = np.array([[0.01, 0.005], [0.005, 0.04]])
+
+    def calculate() -> JointFixedSiteCovariance:
+        return joint_fixed_site_covariance(
+            (item,),
+            parameter_ids=item.parameter_ids,
+            ppe=ppe,
+            ppe_covariance=covariance,
+            assume_disjoint_window_count_independence=True,
+            assume_distinct_unit_count_independence=True,
+        )
+
+    expected = calculate()
+    value = (
+        ppe
+        if field == "ppe"
+        else covariance
+        if field == "ppe_covariance"
+        else getattr(item, field)
+    )
+    mask = np.zeros(value.shape, dtype=bool)
+    mask.flat[0] = unresolved
+    masked = np.ma.array(value, mask=mask)
+    if field == "ppe":
+        ppe = masked
+    elif field == "ppe_covariance":
+        covariance = masked
+    else:
+        if field == "counts":
+            item = replace(item, counts=masked)
+        elif field == "deposition":
+            item = replace(item, deposition=masked)
+        else:
+            item = replace(item, taxon_measured=masked)
+    if unresolved:
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            calculate()
+    else:
+        actual = calculate()
+        for name in (
+            "cover",
+            "count_jacobian",
+            "ppe_jacobian",
+            "counting_covariance",
+            "ppe_covariance",
+            "total_covariance",
+        ):
+            np.testing.assert_array_equal(
+                getattr(actual, name), getattr(expected, name)
+            )
 
 
 def test_identical_geometry_is_one_count_observation_and_zero_contrast():

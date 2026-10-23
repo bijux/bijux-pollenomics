@@ -8,6 +8,7 @@ import re
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import _covariance
 
 PROFILE = "reveals-joint-aliquot-delta-covariance"
@@ -100,6 +101,7 @@ def joint_aliquot_covariance(
         or size * size * len(results) * len(observations) > 16_777_216
     ):
         raise ValidationError("Joint aliquot result axis exceeds its finite budget")
+    _reject_masked_values(ppe, "ppe")
     raw_p = np.asarray(ppe)
     if raw_p.dtype.kind not in "iuf" or raw_p.shape != (size,):
         raise ValidationError("Joint aliquot PPE axis/type differs")
@@ -129,6 +131,8 @@ def joint_aliquot_covariance(
             raise ValidationError(
                 "Joint aliquot counts require an explicit numeric array"
             )
+        _reject_masked_values(row.counts, "counts")
+        _reject_masked_values(row.taxon_measured, "taxon_measured")
         raw = np.asarray(row.counts)
         measured = np.asarray(row.taxon_measured)
         if (
@@ -179,6 +183,7 @@ def joint_aliquot_covariance(
             raise ValidationError("Joint aliquot result membership/axis differs")
         identifiers.add(result.result_id)
         used.update(result.observation_ids)
+        _reject_masked_values(result.deposition, "deposition")
         raw_k = np.asarray(result.deposition)
         if raw_k.dtype.kind not in "iuf" or raw_k.shape != (size,):
             raise ValidationError("Joint aliquot deposition axis/type differs")

@@ -7,6 +7,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 
 PROFILE = "reveals-joint-site-count-ppe-draws-v1"
 
@@ -83,6 +84,15 @@ def joint_site_cover_draws(
     calculation neither infers a random seed nor treats site rows as independent
     when the same site was selected twice.
     """
+    for value, name in (
+        (counts, "counts"),
+        (deposition, "deposition"),
+        (site_indices, "site_indices"),
+        (count_draws, "count_draws"),
+        (ppe_draws, "ppe_draws"),
+        (taxon_measured, "taxon_measured"),
+    ):
+        _reject_masked_values(value, name)
     raw = [
         np.asarray(value)
         for value in (counts, deposition, site_indices, count_draws, ppe_draws)
