@@ -10,6 +10,7 @@ import numpy as np
 import numpy.typing as npt
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 from bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting import (
     _directed_float,
     fixed_two_taxon_counting_interval,
@@ -41,6 +42,7 @@ class HomogeneousCountingSet:
 
 
 def _pair(value: npt.ArrayLike, label: str, *, positive: bool) -> tuple[float, float]:
+    _reject_masked_values(value, label)
     try:
         original = np.asarray(value, dtype=object)
     except (TypeError, ValueError, OverflowError) as error:

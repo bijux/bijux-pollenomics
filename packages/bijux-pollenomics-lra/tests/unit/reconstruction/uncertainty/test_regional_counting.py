@@ -7,6 +7,7 @@ from itertools import product
 from math import inf, nextafter
 from typing import Any
 
+import numpy as np
 import pytest
 
 from bijux_pollenomics_lra.models.errors import ValidationError
@@ -231,3 +232,24 @@ def test_signed_outward_display_encloses_negative_fractions() -> None:
     assert Fraction.from_float(core._signed_display(value, upper=True)) >= value
     with pytest.raises(ValidationError, match="finite binary64"):
         core._signed_display(Fraction(10**400), upper=True)
+
+
+def test_unresolved_confidence_cannot_receive_a_bonferroni_budget() -> None:
+    with pytest.raises(ValidationError, match="masked, unresolved missing"):
+        run(confidence_level=np.ma.array(0.95, mask=True))
+
+
+def test_fully_observed_masks_preserve_regional_set_exactly() -> None:
+    expected = run()
+    observed = run(
+        local_counts=np.ma.array([3, 7], mask=False),
+        regional_counts=np.ma.array([3, 5], mask=False),
+        local_kernel=np.ma.array([2.0, 3.0], mask=False),
+        regional_kernel=np.ma.array([4.0, 1.0], mask=False),
+        regional_deposition=np.ma.array([3.0, 2.0], mask=False),
+        ppe=np.ma.array([2.0, 1.0], mask=False),
+        local_taxon_measured=np.ma.array([True, True], mask=False),
+        regional_taxon_measured=np.ma.array([True, True], mask=False),
+        confidence_level=np.ma.array(0.95, mask=False),
+    )
+    assert observed == expected

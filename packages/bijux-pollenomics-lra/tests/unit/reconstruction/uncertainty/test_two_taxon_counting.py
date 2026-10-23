@@ -291,3 +291,43 @@ def test_exact_domain_boundaries_remain_safe_when_seed_is_extreme(
         assert result.bound_search_evaluations == (1, 1)
     finally:
         interval_module._probability_bounds.cache_clear()
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("counts", np.ma.array([0, 10], mask=[True, False])),
+        ("deposition", np.ma.array([1.0, 2.0], mask=[True, False])),
+        ("ppe", np.ma.array([1.0, 1.0], mask=[False, True])),
+        ("taxon_measured", np.ma.array([True, True], mask=[True, False])),
+        ("confidence_level", np.ma.array(0.95, mask=True)),
+    ],
+)
+def test_unresolved_mask_cannot_supply_a_counting_certificate(
+    field: str, value: Any
+) -> None:
+    parameters: dict[str, Any] = {
+        "counts": [0, 10],
+        "deposition": [1.0, 2.0],
+        "ppe": [1.0, 1.0],
+        "taxon_measured": [True, True],
+        "confidence_level": 0.95,
+    }
+    parameters[field] = value
+    with pytest.raises(ValidationError, match="masked, unresolved missing"):
+        fixed_two_taxon_counting_interval(**parameters)
+
+
+def test_fully_observed_masks_preserve_counting_result_and_certificates() -> None:
+    expected = fixed_two_taxon_counting_interval(
+        [0, 10], [1.0, 2.0], [1.0, 1.0], taxon_measured=[True, True]
+    )
+    confidence: Any = np.ma.array(0.95, mask=False)
+    observed = fixed_two_taxon_counting_interval(
+        np.ma.array([0, 10], mask=False),
+        np.ma.array([1.0, 2.0], mask=False),
+        np.ma.array([1.0, 1.0], mask=False),
+        taxon_measured=np.ma.array([True, True], mask=False),
+        confidence_level=confidence,
+    )
+    assert observed == expected

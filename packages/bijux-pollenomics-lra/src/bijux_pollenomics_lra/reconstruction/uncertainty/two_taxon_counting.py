@@ -26,6 +26,7 @@ import numpy.typing as npt
 from scipy.special import betainccinv, betaincinv
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 
 PROFILE = "fixed-two-taxon-binomial-equal-tail-v1"
 MAX_TOTAL_COUNT = 10_000
@@ -54,6 +55,7 @@ class TwoTaxonCountingInterval:
 
 
 def _positive_pair(value: npt.ArrayLike, label: str) -> npt.NDArray[np.float64]:
+    _reject_masked_values(value, label)
     original = np.asarray(value, dtype=object)
     if original.shape != (2,) or any(
         isinstance(item, (bool, np.bool_)) for item in original
@@ -291,6 +293,7 @@ def fixed_two_taxon_counting_interval(
     No multinomial/Wald covariance API is replaced. Extreme correction
     factors and unrepresentable interior point estimates refuse.
     """
+    _reject_masked_values(counts, "counts")
     original = np.asarray(counts, dtype=object)
     if original.shape != (2,) or any(
         isinstance(item, (bool, np.bool_)) for item in original
@@ -313,6 +316,7 @@ def fixed_two_taxon_counting_interval(
     total = sum(observed)
     if not 1 <= total <= MAX_TOTAL_COUNT:
         raise ValidationError("Counting total must lie between 1 and 10000")
+    _reject_masked_values(taxon_measured, "taxon_measured")
     measured = np.asarray(taxon_measured)
     if measured.shape != (2,) or measured.dtype != bool:
         raise ValidationError(
@@ -323,6 +327,7 @@ def fixed_two_taxon_counting_interval(
             "Unmeasured taxa cannot be assigned observed zero counts",
             reason_code="taxon_measurement_unresolved",
         )
+    _reject_masked_values(confidence_level, "confidence_level")
     level = np.asarray(confidence_level)
     if level.shape != () or level.dtype.kind not in "iuf":
         raise ValidationError("Confidence level must be one finite number")
