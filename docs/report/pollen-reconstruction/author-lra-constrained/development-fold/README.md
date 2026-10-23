@@ -86,8 +86,8 @@ untouched confirmation cohort.
 and reuse identities. [training.json](training.json) and [trials.jsonl](trials.jsonl)
 retain the training decisions, all new attempts and their start/completion events;
 the linked earlier report/ledger retain the 128 reused outcomes. [report.json](report.json)
-retains the result and refusal/scoring population. [replay.py](replay.py) and
-[training.py](training.py) are the source consumer and its numerical adapter.
+retains the result and refusal/scoring population. [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py) and
+[training.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py) are the source consumer and its numerical adapter.
 The completed fold retains [prediction-freeze.json](prediction-freeze.json)
 and [outcome-access.json](outcome-access.json).
 
@@ -135,9 +135,9 @@ Source-bound retrospective fixed-start English development-fold prediction and d
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/protocol.json](protocol.json) (SHA-256 `4e57812229aeb2d3aad448ac638712b675e299c90f535f163b238f7e72e8124d`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py](replay.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py](training.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py).
 
 - [Retained qualification evidence: reports/science/source-cohorts/author-love-development-fold.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-development-fold.json) (SHA-256 `4d3a460c94fefaf19641c77fef465bb35abd0bd8e46b7251d1def9356d2bef37`).
 

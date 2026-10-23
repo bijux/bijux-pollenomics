@@ -158,8 +158,8 @@ resource observations and independent saved-output review:
 [report.json](report.json) retains full support and descriptive summaries;
 [paired-scores.csv](paired-scores.csv) retains every metric difference and
 nonfinite category; [fold-dispositions.csv](fold-dispositions.csv) retains all
-15 original/cohort dispositions. [sources.py](sources.py),
-[comparison.py](comparison.py) and [replay.py](replay.py) retain the exact executed
+15 original/cohort dispositions. [sources.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/sources.py),
+[comparison.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/comparison.py) and [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py) retain the exact executed
 custody/support, arithmetic and entry-point sources.
 
 These already generated outcomes cannot supply untouched confirmation,
@@ -199,11 +199,11 @@ Retrospective saved-score comparison of combined fixed-start/unrounded and unifo
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/protocol.json](protocol.json) (SHA-256 `a53b0c1f8691b204d3cd19326f2055033740105a22efe57abab36025a3df25fd`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/comparison.py](comparison.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/comparison.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/comparison.py).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py](replay.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/sources.py](sources.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/sources.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/sources.py).
 
 - [Retained qualification evidence: reports/science/source-cohorts/author-love-matched-method-comparison.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-matched-method-comparison.json) (SHA-256 `23a6d11f763c0e262a25b6f77dc2437bfaa9f7691ca8db7d2826e7566e2e22f1`).
 

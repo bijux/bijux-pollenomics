@@ -76,8 +76,8 @@ stop message, iteration/evaluation diagnostics and elapsed time.
 [trials.jsonl](trials.jsonl) retains the start and completion events for every
 attempt. The [execution receipt](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-start-diagnostic.json)
 binds their exact bytes, inputs, source candidate, command, terminal and runtime.
-[replay.py](replay.py) implements this comparison without changing the original
-[gradient consumer](../optimizer-gradient/replay.py). Reproduction requires the
+[replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py) implements this comparison without changing the original
+[gradient consumer](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py). Reproduction requires the
 source-qualified prepared inputs and matching selection manifest. The public
 protocol preserves the executed scientific settings with portable input names;
 the receipt retains the original execution-selection identity. This page adds
@@ -156,7 +156,7 @@ Source-bound fixed-start convergence diagnostic on exposed English training obje
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/protocol.json](protocol.json) (SHA-256 `d257517c80ea407de3c186a8fa611d3a68ef95aae2ee706173849148fe6a37d8`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py](replay.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json](../optimizer-gradient/report.json) (SHA-256 `8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d`).
 
