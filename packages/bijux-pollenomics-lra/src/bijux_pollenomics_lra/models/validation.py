@@ -98,6 +98,33 @@ def finite_number(
     return numeric
 
 
+def _float_array(value: Any, name: str) -> np.ndarray:
+    """Preserve boolean provenance until numeric admission, without copying numeric arrays."""
+    try:
+        raw = np.asarray(value)
+        if raw.dtype.kind == "b":
+            raise ValidationError(f"{name} must contain numbers, excluding booleans")
+        # A native non-object array has already declared its scalar types.
+        # Python sequences need object inspection before NumPy promotes a
+        # mixed boolean/numeric sequence into an indistinguishable numeric one.
+        original = (
+            raw
+            if isinstance(value, (np.ndarray, pd.Series, pd.DataFrame))
+            else np.asarray(value, dtype=object)
+        )
+        if original.dtype.kind == "O" and any(
+            isinstance(item, (bool, np.bool_)) for item in original.flat
+        ):
+            raise ValidationError(f"{name} must contain numbers, excluding booleans")
+        return np.asarray(raw, dtype=float)
+    except (TypeError, ValueError, OverflowError) as error:
+        if isinstance(error, ValidationError):
+            raise
+        raise ValidationError(
+            f"{name} must contain numeric values representable as floats"
+        ) from error
+
+
 def vector(
     value: Any,
     name: str,
@@ -107,7 +134,7 @@ def vector(
     positive: bool = False,
 ) -> np.ndarray:
     """Return a validated non-empty one-dimensional float vector."""
-    array = np.asarray(value, dtype=float)
+    array = _float_array(value, name)
     if array.ndim != 1 or array.size == 0:
         raise ValidationError(f"{name} must be a non-empty one-dimensional vector")
     if finite and not np.isfinite(array).all():
@@ -127,7 +154,7 @@ def matrix(
     nonnegative: bool = False,
 ) -> np.ndarray:
     """Return a validated non-empty two-dimensional float matrix."""
-    array = np.asarray(value, dtype=float)
+    array = _float_array(value, name)
     if array.ndim != 2 or 0 in array.shape:
         raise ValidationError(f"{name} must be a non-empty two-dimensional matrix")
     if finite and not np.isfinite(array).all():
@@ -190,7 +217,7 @@ def normalise_parameters(
         table = table.loc[requested]
 
     validate_fall_speeds(
-        table["fallspeed"].to_numpy(dtype=float),
+        table["fallspeed"].to_numpy(),
         fall_speed_profile,
         distance_weighting,
     )
@@ -216,7 +243,7 @@ def sample_counts(
             )
         coordinate = finite_number(table.iloc[0, 0], f"{name} coordinate")
         taxa = list(map(str, table.columns[1:]))
-        counts = vector(table.iloc[0, 1:].to_numpy(dtype=float), name, nonnegative=True)
+        counts = vector(table.iloc[0, 1:].to_numpy(), name, nonnegative=True)
     else:
         values = vector(frame_or_vector, name)
         if len(values) < 2:
