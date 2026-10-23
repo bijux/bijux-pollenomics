@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import ast
+from collections.abc import Callable
 from dataclasses import dataclass
 import hashlib
 from importlib import metadata
@@ -266,7 +267,12 @@ def selected_engine_version(identity: SourceIdentity) -> dict[str, Any]:
     }
 
 
-def validate_generated_evidence(root: Path, certificate: dict[str, Any]) -> None:
+def validate_generated_evidence(
+    root: Path,
+    certificate: dict[str, Any],
+    *,
+    read_source: Callable[[str], bytes] | None = None,
+) -> None:
     """Refuse incomplete or altered tracked source and retained generated version evidence."""
     generated = certificate.get("generated_source_files")
     blobs = certificate.get("tracked_git_blobs")
@@ -285,8 +291,8 @@ def validate_generated_evidence(root: Path, certificate: dict[str, Any]) -> None
     ):
         raise ReferenceRefusal("Committed Git blob identity is malformed")
     for path, row in generated.items():
-        retained = root / "generated-sources" / path
-        data = retained.read_bytes()
+        name = "generated-sources/" + path
+        data = (root / name).read_bytes() if read_source is None else read_source(name)
         if row != {
             "sha256": hashlib.sha256(data).hexdigest(),
             "declaration_path": DECLARATION_PATH,
@@ -301,7 +307,10 @@ def validate_generated_evidence(root: Path, certificate: dict[str, Any]) -> None
         for path in (root / "generated-sources").rglob("*")
         if path.is_file()
     }
-    if actual != set(generated):
+    # A scoped retained-source reader provides the original logical bytes.
+    # Such members must remain absent physically, including identical copies.
+    expected_physical = set(generated) if read_source is None else set()
+    if actual != expected_physical:
         raise ReferenceRefusal("Generated source retained member inventory differs")
     runtime = certificate.get("engine_version_identity")
     if (

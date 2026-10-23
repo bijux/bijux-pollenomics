@@ -8,6 +8,10 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+)
 from bijux_pollenomics_dev.lra_validation.retained_reference import identity, sources
 from bijux_pollenomics_dev.lra_validation.retained_reference.comparison import (
     read_vector,
@@ -43,6 +47,23 @@ def test_maintained_profile_is_distinct_and_complete() -> None:
     )
     assert len([name for name in profile["files"] if name.startswith("oracle/C")]) == 43
     assert len([name for name in profile["files"] if name.endswith("-R.csv")]) == 23
+
+
+@pytest.mark.parametrize(
+    "storage",
+    [
+        "data/unqualified/_build_version.py",
+        "data/method-certification/source-locked-linux-r/reference-bundle/"
+        "generated-sources/packages/other/src/_build_version.py",
+    ],
+)
+def test_retained_version_git_storage_permission_is_one_exact_metadata_path(
+    storage: str,
+) -> None:
+    with pytest.raises(ReportRebuildError, match="canonical source or exact retained"):
+        GitSourceMember(
+            "generated-version", storage, "1" * 40, "2" * 40, "3" * 64, 723
+        ).validate()
 
 
 def test_unqualified_bundle_refuses_before_vectors(tmp_path: Path) -> None:

@@ -54,6 +54,8 @@ def _source_transport(bundle: Path, profile: dict[str, Any]) -> SourceCapsule | 
             "source-domains/run_source_domains.py",
             "source-domains/source_domains.R",
             "source-lock.json",
+            "generated-sources/packages/bijux-pollenomics-lra/src/"
+            "bijux_pollenomics_lra/_build_version.py",
         }
     ):
         raise ValueError("Retained reference source transport population differs")
