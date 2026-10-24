@@ -225,3 +225,45 @@ def test_largest_exact_site_total_retains_binomial_covariance() -> None:
         np.array([[variance, -variance], [-variance, variance]]),
         rtol=2e-15,
     )
+
+
+@pytest.mark.parametrize(
+    "field", ["counts", "deposition", "ppe", "ppe_covariance", "taxon_measured"]
+)
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_masks_cannot_become_observed_backing_values(
+    field: str, unresolved: bool
+) -> None:
+    values = {
+        "counts": np.array([[30, 20, 50], [20, 65, 15]]),
+        "deposition": np.array([[0.4, 0.8, 0.5], [0.8, 0.3, 0.7]]),
+        "ppe": np.array([1.0, 1.5, 0.75]),
+        "ppe_covariance": np.array(
+            [[0.04, 0.015, -0.005], [0.015, 0.09, 0.01], [-0.005, 0.01, 0.0225]]
+        ),
+        "taxon_measured": np.ones((2, 3), dtype=bool),
+    }
+    expected = fixed_site_cover_covariance(**values)
+    original = values[field]
+    mask = np.zeros(original.shape, dtype=bool)
+    mask.flat[0] = unresolved
+    values[field] = np.ma.array(original, mask=mask)
+    if unresolved:
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            fixed_site_cover_covariance(**values)
+    else:
+        actual = fixed_site_cover_covariance(**values)
+        assert actual.profile == expected.profile
+        for name in (
+            "cover",
+            "counting_covariance",
+            "ppe_covariance",
+            "total_covariance",
+            "standard_error",
+        ):
+            observed = getattr(actual, name)
+            baseline = getattr(expected, name)
+            np.testing.assert_array_equal(observed, baseline)
+            assert observed.dtype == baseline.dtype
+            assert observed.tobytes() == baseline.tobytes()
+            assert not observed.flags.writeable
