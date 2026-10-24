@@ -237,6 +237,7 @@ def LOVEoptim(
     )
     pollen_samples = np.full_like(cover_samples, np.nan)
     best_values = np.full((maximum_ring, repeat_count), np.nan, dtype=float)
+    _reject_masked_values(local_count_draws, "local_count_draws")
     if local_count_draws is not None and np.asarray(local_count_draws).shape != (
         repeat_count,
         len(taxa),

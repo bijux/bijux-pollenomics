@@ -346,3 +346,80 @@ def test_single_taxon_supplied_regional_analytical_path_remains_supported() -> N
         regional_cover_draws=np.array([[1.0]]),
     )
     np.testing.assert_allclose(result.cover["mean"].to_numpy(), [[1.0]], atol=1e-14)
+
+
+@pytest.mark.parametrize(
+    "profile,maximum,fractions",
+    [
+        (OptimizedLoveProfile.DISQOVER_SOURCE.value, 2, [0.0, 0.7, 0.9, 0.6]),
+        (OptimizedLoveProfile.RING_TAXON_PRESERVING.value, 1, [1.0, 0.7, 0.9, 0.6]),
+    ],
+)
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_supplied_local_draw_masks_preserve_profile_and_full_public_results(
+    profile: str, maximum: int, fractions: list[float], unresolved: bool
+) -> None:
+    from dataclasses import replace
+
+    inputs = _inputs(fractions)
+    config = replace(_config(maximum, optimized_profile=profile), retain_samples=True)
+    counts = np.array([[30.0, 50.0, 20.0]])
+    regional = np.array([[0.89448, 0.04771, 0.05781]])
+    candidates = np.array([[0.2, 0.5, 0.3]])
+    expected = run_love(
+        *inputs,
+        config,
+        local_count_draws=counts,
+        regional_cover_draws=regional,
+        replay_candidates=candidates,
+    )
+    masked = np.ma.array(counts, mask=[[unresolved, False, False]])
+    if unresolved:
+        with pytest.raises(ValidationError, match="local_count_draws contains masked"):
+            run_love(
+                *inputs,
+                config,
+                local_count_draws=masked,
+                regional_cover_draws=regional,
+                replay_candidates=candidates,
+            )
+        return
+    actual = run_love(
+        *inputs,
+        config,
+        local_count_draws=masked,
+        regional_cover_draws=regional,
+        replay_candidates=candidates,
+    )
+    assert actual.method == expected.method
+    for name in ("cover", "pollen_percentages"):
+        left, right = getattr(actual, name), getattr(expected, name)
+        assert left.keys() == right.keys()
+        for key in left:
+            pd.testing.assert_frame_equal(left[key], right[key], check_exact=True)
+    assert actual.objective_values is not None and expected.objective_values is not None
+    pd.testing.assert_frame_equal(
+        actual.objective_values, expected.objective_values, check_exact=True
+    )
+    assert [d.as_dict() for d in actual.diagnostics] == [
+        d.as_dict() for d in expected.diagnostics
+    ]
+    assert actual.samples.keys() == expected.samples.keys()
+    for key in actual.samples:
+        np.testing.assert_array_equal(actual.samples[key], expected.samples[key])
+        assert actual.samples[key].tobytes() == expected.samples[key].tobytes()
+    assert actual.auxiliary.keys() == expected.auxiliary.keys()
+    for key in actual.auxiliary:
+        if isinstance(actual.auxiliary[key], pd.DataFrame):
+            pd.testing.assert_frame_equal(
+                actual.auxiliary[key], expected.auxiliary[key], check_exact=True
+            )
+        else:
+            np.testing.assert_array_equal(
+                actual.auxiliary[key], expected.auxiliary[key]
+            )
+    assert actual.outlier is expected.outlier is None
+    assert actual.outlier_quantile is expected.outlier_quantile is None
+    assert (
+        actual.manifest.scientific_identity() == expected.manifest.scientific_identity()
+    )
