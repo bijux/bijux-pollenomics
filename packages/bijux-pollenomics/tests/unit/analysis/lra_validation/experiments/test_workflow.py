@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.analysis.lra.batches import execution
 from bijux_pollenomics.analysis.lra_validation.experiments import (
     prepare_experiment_predictions,
     read_withheld_predictions,
@@ -14,8 +15,12 @@ from bijux_pollenomics.analysis.lra_validation.experiments import (
 from .test_inputs import fixture_inputs, source_fixture_inputs, store
 
 
-def test_source_fixture_prepare_reopen_and_score(tmp_path: Path) -> None:
+def test_source_fixture_prepare_reopen_and_score(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """Exercise the source-posture route on constructed software inputs only."""
+    for name in execution._THREAD_CONTROLS:
+        monkeypatch.setenv(name, "1")
     inputs = tmp_path / "inputs"
     payload = source_fixture_inputs(inputs)
     product = prepare_experiment_predictions(
@@ -27,6 +32,7 @@ def test_source_fixture_prepare_reopen_and_score(tmp_path: Path) -> None:
     _, _, folds, predictions, methods = read_withheld_predictions(
         product.directory, expected_manifest_sha256=product.manifest_sha256
     )
+    assert json.loads((product.directory / "failures.json").read_text()) == []
     assert len(folds) == 4
     assert len(predictions) == 4 * len(methods)
     training = json.loads((product.directory / "training.json").read_text())
