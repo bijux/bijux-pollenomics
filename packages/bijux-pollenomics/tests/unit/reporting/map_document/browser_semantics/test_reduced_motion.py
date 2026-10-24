@@ -200,3 +200,40 @@ const map={getZoom:()=>11,flyTo:(...args)=>calls.push(args)};
         "popup": 1,
         "searchOpen": False,
     }
+
+
+@pytest.mark.parametrize("reduced", [False, True])
+@pytest.mark.parametrize("bounds_kind", ["valid", "invalid", "missing"])
+def test_fit_and_reset_navigation_preserve_bounds_and_motion_preference(
+    reduced: bool, bounds_kind: str
+) -> None:
+    handlers = template_block(
+        "function fitToActive()", "async function restoreDefaults"
+    )
+    observed = run_node_json(
+        f"const reducedMotionQuery={{matches:{json.dumps(reduced)}}};"
+        f"const boundsKind={json.dumps(bounds_kind)};"
+        """
+const INITIAL_BOUNDS=[[54,10],[70,32]],calls=[];
+const selected=boundsKind==='missing'?null:{isValid:()=>boundsKind==='valid'};
+let reads=0;
+function activeBounds(){reads++;return selected}
+const map={fitBounds(bounds,options){calls.push({target:bounds===INITIAL_BOUNDS?'initial':bounds===selected?'active':'unknown',options})}};
+"""
+        + handlers
+        + """
+resetView();fitToActive();resetView();
+console.log(JSON.stringify({calls,reads,initial:INITIAL_BOUNDS}));
+"""
+    )
+    options: dict[str, object] = {"padding": [36, 36]}
+    if reduced:
+        options["animate"] = False
+    initial = {"target": "initial", "options": options}
+    assert observed == {
+        "calls": [initial]
+        + ([{"target": "active", "options": options}] if bounds_kind == "valid" else [])
+        + [initial],
+        "reads": 1,
+        "initial": [[54, 10], [70, 32]],
+    }

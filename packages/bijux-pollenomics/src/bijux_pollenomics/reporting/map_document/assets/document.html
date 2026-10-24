@@ -8068,9 +8068,9 @@ __URL_STATE_CONTROLLER__
       document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === currentBasemap));
       function fitToActive() {
         const bounds = activeBounds();
-        if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36] });
+        if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36], ...(reducedMotionQuery.matches ? { animate: false } : {}) });
       }
-      function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
+      function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36], ...(reducedMotionQuery.matches ? { animate: false } : {}) }); }
       async function restoreDefaults() {
         edgeFocusLoadState.request++;
         if (focusState?.kind === 'edge' || pendingEdgeFocus) setFocusState(null);
