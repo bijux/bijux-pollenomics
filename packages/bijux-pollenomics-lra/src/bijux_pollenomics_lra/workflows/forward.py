@@ -10,13 +10,18 @@ import pandas as pd
 from bijux_pollenomics_lra.models.configuration import ForwardConfig
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.results import PreparedForwardInputs
-from bijux_pollenomics_lra.models.validation import frame, normalise_parameters
+from bijux_pollenomics_lra.models.validation import (
+    _reject_masked_values,
+    frame,
+    normalise_parameters,
+)
 from bijux_pollenomics_lra.reconstruction.forward import _deposition_components
 from bijux_pollenomics_lra.reconstruction.optimized import calK
 
 
 def _numeric(values: object, name: str) -> np.ndarray:
     """Require finite real numeric values without string or boolean coercion."""
+    _reject_masked_values(values, name)
     raw = np.asarray(values, dtype=object)
     if any(
         isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
