@@ -85,7 +85,7 @@
     "configs/ci/report-capture-projections/atlas-source-view-root-api.json": "ff0d3d8b14b522313aae5fb49d8a117950f8d8217fa4c0171686ad4d76c24c18",
     "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json": "8f6d5e31f612b140b8bebec47419fb529f2aebc7bacddbe034845fd9cd0a54ef",
     "configs/ci/report-owner-execution.json": "c880c779d32eb2ccb75c289c32e353c15868280fc4522a5f197a1eebf668c6bb",
-    "configs/ci/report-ownership.json": "85981a24c44802b46d46150b391d1ebccbd56c7d6d0779f6a0480a76bc11ccb9",
+    "configs/ci/report-ownership.json": "f04f0a4ad8e4f0e2d1f1c6176f1aa373c91959e92319447c29703c8a06e54fec",
     "configs/ci/report-sources/swedish-literal-pair-counting.json": "ce732135ba63a7977521557983caf9e6c7de79d553422f3913cb9d6b866a1a6b",
     "configs/docs/scientific-source-files.json": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",

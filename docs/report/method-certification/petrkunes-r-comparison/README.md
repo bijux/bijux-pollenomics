@@ -98,16 +98,37 @@ The governed summary SHA-256 is
 the taxon comparison SHA-256 is
 `b37211fda3a692d1b903501a14323ab14820950d434f8a2953b9ea25a269b915`.
 
-## Source-R reference execution protocol
+## Current source-R reference execution
 
-The retained three R CSVs do not currently have an admitted source-R execution
-authority. The separately authenticated native comparison establishes a Python
-calculation against those reference bytes; it does not establish the missing
-R execution. A new calculation will address this narrow source-reference gap,
-without relabelling historical execution custody or rerunning Python.
+At committed source `14a3cec7ac1b0a05f122411d4fde9bb5b397280e`, the
+single R invocation above exited zero in 28.307267125 seconds. It reproduced
+`summary.csv`, `taxa.csv` and `bootstrap-full-grid.csv` byte for byte; the
+three retained numerical files were not replaced. Peak child RSS was
+103,841,792 bytes on macOS, and additional outputs occupied 25,810 bytes.
+There was no R stderr. These measurements satisfy the predeclared 120-second,
+512 MiB and 50 MiB execution budget. The committed source and Git identity,
+13 raw R inputs, three tagged source files and all 38 installed package
+DESCRIPTION files (36 existing dependency packages, the DISQOVER 0.9.14
+reference and zipfR) remained unchanged.
 
-Before new outcomes, the calculation fixes the same four cases, their order,
-31-taxon axis, 225 BP source column, original site inputs, shared PPE/covariance,
+A separate saved-output observer verified all 124 cover and 124 SE pairs as
+finite with exact zero differences, the 124 case/taxon labels and all 6,000
+original-site bootstrap positions. Its first attempt stopped before numeric
+comparison because it incorrectly equated raw source labels with prepared
+labels. The existing authenticated 31-row crosswalk corrected that observer
+assertion, adding one observer-only input to the 13 R inputs. The qualified
+observer exited zero; neither R nor Python reconstruction was relaunched,
+and no numerical criterion or output was changed. The failed observer
+remains evidence of that initial label error.
+
+This qualifies a **current three-CSV source-R replay**, not original R
+execution custody. The linked `native-report.json` remains a separately
+qualified historical Python calculation: no Python model ran in this replay.
+The exact 2022 executable, source rights, uncertainty validity, field accuracy,
+human review and release acceptance remain unresolved.
+
+Before the new outcomes, the committed protocol fixed the same four cases,
+their order, 31-taxon axis, 225 BP source column, original site inputs, shared PPE/covariance,
 3 m/s wind, 100,000 m extent, neutral GPM and seed 750225. The two R functions
 retain their different bodies and source-compatible uncertainty formulas.
 The three absent full-grid sites remain absent; they do not become observed
@@ -131,7 +152,7 @@ procedure. The already provisioned shared library is reused in place.
 
 The existing reproduction criteria remain byte-for-byte equality of
 `summary.csv`, `taxa.csv` and `bootstrap-full-grid.csv` against their retained
-counterparts. A separate standard-library observer will inspect all 124 cover
+counterparts. The separate standard-library observer checked all 124 cover
 and 124 SE pairs, exact labels/order, finite masks, site-count populations,
 recorded differences and all 6,000 full-grid index entries. This is independent
 inspection of saved outputs, not another R execution or independent physical
@@ -140,11 +161,14 @@ there is no retry, changed seed, tolerance relaxation or automatic replacement
 of the original references. The retained Python comparison remains bound to
 its original inputs and draws.
 
-The prospective execution limit is 120 seconds, with 512 MiB peak RSS and
-50 MiB additional storage including the shared dependency. These are bounds
-to measure, not historical performance claims. The intended result is a
-qualified current source-R reference calculation on four already exposed
-cases. It cannot identify the 2022 executable, resolve source licensing,
+The same-process before/after runtime records report R 4.6.0 (2026-04-24),
+`aarch64-apple-darwin23` on macOS Tahoe 26.6.2, the R.framework
+`libRblas.0.dylib` and `libRlapack.dylib`, and LAPACK 3.12.1. The RNG kind
+was Mersenne-Twister / Inversion / Rejection. Only zipfR was attached beyond
+the base packages; compiler and parallel 4.6.0 were loaded namespaces. The
+full before/after sessions remain in the bounded execution artifacts rather
+than a duplicate runtime file. This is a current calculation on four already
+exposed cases. It cannot identify the 2022 executable, resolve source licensing,
 validate the source uncertainty model or supply historical, Nordic, field,
 human-review or hosted-release acceptance.
 
@@ -154,11 +178,11 @@ human-review or hosted-release acceptance.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-**Supported claim.** The retained Petr/Kuneš author-R correspondence matches selected mean and SE outputs and a same-index bootstrap on shared prepared author data, keeping code/data lineage explicit.
+**Supported claim.** A current four-case source-R replay reproduces the three retained R CSVs byte for byte: 124 cover and 124 SE pairs agree exactly, with identical original-site bootstrap indices. The separately retained historical Python comparison remains distinct.
 
 **Unsupported claim.** Agreement on these shared inputs is not independent empirical derivation, full 25-window random-stream reproduction, scientific source admission or measured vegetation accuracy.
 
-**Actual verification performed.** Reviewed the retained native report and mean/SE summary, case support and numerical tolerances and bound their public bytes. This qualification ran no author-R program, bootstrap or native Python model.
+**Actual verification performed.** At committed source 14a3cec7ac1b0a05f122411d4fde9bb5b397280e, the R-only replay exited zero in 28.307267125 seconds, peak child RSS 103,841,792 bytes and output 25,810 bytes, with no R stderr. All three CSVs reproduce exactly; a separate saved-output observer verified 248 finite pairs, 124 labels and 6,000 indices. Its first label assertion failed before numeric comparison and was corrected with the existing authenticated crosswalk; R was not relaunched. Source, raw inputs and dependency metadata stayed unchanged. No Python model ran.
 
 **Remaining input or review.** Original source geometry, chronology, measured-taxon interpretation and source-use rights remain scientific inputs; GPL-2 DESCRIPTION and MIT GitHub labels require a real rights decision rather than inference from numerical agreement. The selected tagged v0.1.2 source is not authenticated as the exact executable used in 2022; that historical version identity remains uncertain.
 
@@ -166,11 +190,11 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Consequence.** The comparison qualifies a named computational route and selected population; it does not independently validate the historical observations or all author scenarios.
 
-**Precise next acceptance route.** Replay the maintained selected-case owner with exact author inputs and indices, preserve its tolerance and scope, and resolve the named source/rights questions before any scientific or redistribution admission.
+**Precise next acceptance route.** Retain this current source-R calculation separately from historical execution custody and the retained Python report. Resolve the exact 2022 executable, source-use rights and independent uncertainty/field evidence before broader scientific or redistribution admission.
 
-**Negative or refused result.** Unreproduced windows and unresolved source/use rights stay open. Shared code lineage and 124 zero retained CSV differences do not become independent evidence.
+**Negative or refused result.** The first observer failed an incorrect raw-versus-prepared label assertion; the existing crosswalk corrected it without changing results or tolerances. Unreproduced windows, historical R custody, the exact publication executable and unresolved source/use rights remain open; shared code lineage and exact CSV agreement are not independent field evidence.
 
-**Matched denominator.** Four selected site cases by 31 taxa at 225 BP give 124 mean and 124 SE pairs; one full grid has nine sites, six active and 1,000 shared indices. Native residual maxima are 1.21958e-13 for 31 means and 2.86438e-14 for 31 SEs.
+**Matched denominator.** Current R-only: four cases by 31 taxa, 124 finite cover plus 124 finite SE pairs, exact zero differences; full nine-site grid with six active positions and 1,000 rows by six sampled original-site indices. Separately retained Python: 31 means and 31 SEs within declared tolerances, not rerun here.
 
 - [Retained qualification evidence: docs/report/method-certification/petrkunes-r-comparison/native-report.json](native-report.json) (SHA-256 `273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995`).
 
