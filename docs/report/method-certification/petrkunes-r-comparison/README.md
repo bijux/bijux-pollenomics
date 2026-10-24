@@ -53,41 +53,100 @@ missing-taxon semantics, or Nordic empirical reconstruction. The
 [reviewed conditional draw profile](../author-site-uncertainty/README.md) is a
 different method with a restricted positive-count subcomposition.
 
-The source [replay script](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/method-certification/petrkunes-r-comparison/replay.R) parses only the author's `KPf` and
+The maintained [replay script](replay.R) parses only the author's `KPf` and
 `REVEALS` function definitions, avoiding the archived script's old
 installation side effects. It loads the tagged functions from their pinned
-source files and requires zipfR 0.6.70 and LRA 0.1.2. Reproduce into
-`artifacts/` using the private source roots:
+source files and requires the literal DESCRIPTION versions zipfR `0.6-70`
+and LRA `0.1.2`. Reproduce into an absent `artifacts/` directory using the
+existing authenticated source store and shared R library. This command runs
+only the four source-R comparisons; it does not rerun the Python model:
 
 ```sh
-mkdir -p artifacts/jobs/petrkunes-r-comparison/r-library
-R CMD INSTALL --library=artifacts/jobs/petrkunes-r-comparison/r-library \
-  /path/to/bijux-pollenomics-data/lra/dependencies/zipfR_0.6-70.tar.gz
-OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 Rscript \
+SOURCE_STORE=/path/to/existing/source-store
+ZIPFR_LIBRARY="$PWD/artifacts/qualification/native-reference/library"
+OUTPUT="$PWD/artifacts/science/petrkunes-r-reference"
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 Rscript --vanilla \
   docs/report/method-certification/petrkunes-r-comparison/replay.R \
-  /path/to/landclim/author-reference \
-  /path/to/bijux-pollenomics-data/lra/petrkunes-v0.1.2/LRA-d29075692ed730e3934bc461eb9081c404aef59b \
-  artifacts/jobs/petrkunes-r-comparison/r-library \
-  artifacts/jobs/petrkunes-r-comparison/replay
+  "$SOURCE_STORE/landclim/author-reference" \
+  "$SOURCE_STORE/lra/petrkunes-v0.1.2/LRA-d29075692ed730e3934bc461eb9081c404aef59b" \
+  "$ZIPFR_LIBRARY" "$OUTPUT"
 cmp docs/report/method-certification/petrkunes-r-comparison/summary.csv \
-  artifacts/jobs/petrkunes-r-comparison/replay/summary.csv
+  "$OUTPUT/summary.csv"
 cmp docs/report/method-certification/petrkunes-r-comparison/taxa.csv \
-  artifacts/jobs/petrkunes-r-comparison/replay/taxa.csv
+  "$OUTPUT/taxa.csv"
 cmp docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv \
-  artifacts/jobs/petrkunes-r-comparison/replay/bootstrap-full-grid.csv
+  "$OUTPUT/bootstrap-full-grid.csv"
+```
+
+The independent Python procedure is optional, separate numerical work. It is
+not part of this source-R execution protocol and has not been launched for it.
+The retained `native-report.json` describes its historical source epoch,
+inputs and supplied draws; a new Python run must retain its own observed
+source identity and cannot acquire the old execution identity through a
+matching value. If that separate calculation is required, its entry point is:
+
+```sh
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  MKL_NUM_THREADS=1 .venv/bin/python \
+  MKL_NUM_THREADS=1 .venv/bin/python -B \
   docs/report/method-certification/petrkunes-r-comparison/native_comparison.py \
-  --repository . --private-root /path/to/landclim/author-reference \
-  --output artifacts/jobs/petrkunes-r-comparison/native-replay
-cmp docs/report/method-certification/petrkunes-r-comparison/native-report.json \
-  artifacts/jobs/petrkunes-r-comparison/native-replay/native-report.json
+  --repository . --private-root "$SOURCE_STORE/landclim/author-reference" \
+  --output "$PWD/artifacts/science/petrkunes-native-reference"
 ```
 
 The governed summary SHA-256 is
 `5f7957d2d318518e96959a286b74a9a183a9b23655aef3216d61dfd38137541a`;
 the taxon comparison SHA-256 is
 `b37211fda3a692d1b903501a14323ab14820950d434f8a2953b9ea25a269b915`.
+
+## Source-R reference execution protocol
+
+The retained three R CSVs do not currently have an admitted source-R execution
+authority. The separately authenticated native comparison establishes a Python
+calculation against those reference bytes; it does not establish the missing
+R execution. A new calculation will address this narrow source-reference gap,
+without relabelling historical execution custody or rerunning Python.
+
+Before new outcomes, the calculation fixes the same four cases, their order,
+31-taxon axis, 225 BP source column, original site inputs, shared PPE/covariance,
+3 m/s wind, 100,000 m extent, neutral GPM and seed 750225. The two R functions
+retain their different bodies and source-compatible uncertainty formulas.
+The three absent full-grid sites remain absent; they do not become observed
+zero-count sites. At each multisite case, both R versions must sample exactly
+the same original-site indices. The full-grid index output remains 1,000 rows
+by six sampled entries. Each entry is a zero-based position on the original
+nine-site axis, drawn from the active positions `{0, 2, 3, 4, 7, 8}`; the
+entries are not indices on a compact six-site axis. The active positions are
+derived from the original site list and nine prepared inputs.
+
+Use R 4.6.0 and the one shared installation of authenticated zipfR 0.6-70.
+The literal installed DESCRIPTION version is `0.6-70`, not its normalized
+`packageVersion` display. The maintained replay records `sessionInfo()`,
+RNG kind and the actually loaded zipfR namespace before and after source calls
+in one process. It refuses an existing output directory or a different
+dependency/source version. All original author and tagged source files are
+read in place. Neither source package is copied or installed for this replay.
+
+Use the single source-R invocation above, without the optional Python
+procedure. The already provisioned shared library is reused in place.
+
+The existing reproduction criteria remain byte-for-byte equality of
+`summary.csv`, `taxa.csv` and `bootstrap-full-grid.csv` against their retained
+counterparts. A separate standard-library observer will inspect all 124 cover
+and 124 SE pairs, exact labels/order, finite masks, site-count populations,
+recorded differences and all 6,000 full-grid index entries. This is independent
+inspection of saved outputs, not another R execution or independent physical
+model. Any mismatch, warning, refusal or nonzero process exit remains evidence;
+there is no retry, changed seed, tolerance relaxation or automatic replacement
+of the original references. The retained Python comparison remains bound to
+its original inputs and draws.
+
+The prospective execution limit is 120 seconds, with 512 MiB peak RSS and
+50 MiB additional storage including the shared dependency. These are bounds
+to measure, not historical performance claims. The intended result is a
+qualified current source-R reference calculation on four already exposed
+cases. It cannot identify the 2022 executable, resolve source licensing,
+validate the source uncertainty model or supply historical, Nordic, field,
+human-review or hosted-release acceptance.
 
 
 <!-- scientific-account-route:begin -->
