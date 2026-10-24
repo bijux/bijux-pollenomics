@@ -29,6 +29,7 @@ _REGISTRATION_ORDER = [
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
     "build_collect_data_parser",
+    "build_benchmark_lra_parser",
     "build_validate_lra_input_parser",
     "build_run_lra_parser",
     "build_run_joint_lra_parser",
@@ -63,6 +64,7 @@ def test_export_order_covers_every_supported_builder() -> None:
             "build_adna_runtime_manifest_parser",
             "build_adna_species_parser",
             "build_adna_species_review_parser",
+            "build_benchmark_lra_parser",
             "build_collect_data_parser",
             "build_multi_country_map_parser",
             "build_ownership_map_parser",
@@ -95,7 +97,7 @@ def test_builder_signatures_remain_uniform() -> None:
         "(subparsers: 'argparse._SubParsersAction[argparse.ArgumentParser]') "
         "-> 'argparse.ArgumentParser'"
     )
-    assert len(_BUILDERS) == 33
+    assert len(_BUILDERS) == 34
     assert all(
         str(inspect.signature(getattr(subcommands, name))) == expected
         for name in _BUILDERS
