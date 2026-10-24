@@ -6,8 +6,15 @@ import argparse
 from pathlib import Path
 
 
-def _request_arguments(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("request", type=Path, help="lra-request.v1 JSON file.")
+def _request_arguments(
+    parser: argparse.ArgumentParser, *, regional_draws: bool = False
+) -> None:
+    schemas = (
+        "lra-request.v1 or lra-regional-draw-love-request.v1"
+        if regional_draws
+        else "lra-request.v1"
+    )
+    parser.add_argument("request", type=Path, help=f"{schemas} JSON file.")
     parser.add_argument(
         "--input-root",
         type=Path,
@@ -24,7 +31,7 @@ def build_validate_lra_input_parser(
         "validate-lra-input",
         help="Validate an LRA request, source hashes and numerical configuration.",
     )
-    _request_arguments(parser)
+    _request_arguments(parser, regional_draws=True)
     return parser
 
 
@@ -134,7 +141,7 @@ def build_run_lra_parser(
     parser = subparsers.add_parser(
         "run-lra", help="Run an exploratory REVEALS, LOVE or paired series request."
     )
-    _request_arguments(parser)
+    _request_arguments(parser, regional_draws=True)
     parser.add_argument(
         "--output",
         type=Path,
