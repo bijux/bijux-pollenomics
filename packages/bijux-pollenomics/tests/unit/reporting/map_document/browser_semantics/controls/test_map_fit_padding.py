@@ -27,10 +27,14 @@ const statusRect={left:350,top:713,right:1264,bottom:776,...fixture.status};
 const status={hidden:fixture.hidden??false,
  getBoundingClientRect:()=>statusRect,
  getClientRects:()=>fixture.layout===false?[]:[statusRect]};
+const topbarRect={left:16,top:16,right:736,bottom:177,...fixture.topbar};
+const topbar={hidden:fixture.topbarHidden??false,
+ getBoundingClientRect:()=>topbarRect,
+ getClientRects:()=>fixture.topbarLayout===false?[]:[topbarRect]};
 const document={querySelectorAll:()=>[],
  getElementById:()=>({getBoundingClientRect:()=>mapRect}),
- querySelector:()=>fixture.absent?null:status};
-function getComputedStyle(){return {display:'grid',visibility:'visible',opacity:'1',...fixture.style}}
+ querySelector:selector=>selector==='.map-topbar'?(fixture.topbar?topbar:null):(fixture.absent?null:status)};
+function getComputedStyle(element){return {display:'grid',visibility:'visible',opacity:'1',...(element===topbar?fixture.topbarStyle:fixture.style)}}
 const currentBasemap='none',INITIAL_BOUNDS=[[54,10],[70,32]],calls=[];
 let mapViewReady=true,initialMapFitPending=false;
 const selected={isValid:()=>true},original=JSON.stringify(fixture);
@@ -96,6 +100,60 @@ def test_fit_reserves_measured_status_hud_clearance(
     }
 
 
+@pytest.mark.parametrize("operation", ["fit", "reset"])
+@pytest.mark.parametrize("reduced", [False, True])
+@pytest.mark.parametrize(
+    ("geometry", "top_padding", "bottom_padding"),
+    [
+        ({"topbar": {}}, 213, 123),
+        (
+            {
+                "map": {"top": 10.25, "bottom": 810.75},
+                "topbar": {"bottom": 177.125},
+                "status": {"top": 700.125},
+            },
+            202.875,
+            146.625,
+        ),
+        (
+            {
+                "map": {"right": 640, "bottom": 450},
+                "topbar": {"right": 624, "bottom": 160.5},
+                "status": {"left": 20, "top": 360.5, "right": 620, "bottom": 430},
+            },
+            196.5,
+            125.5,
+        ),
+    ],
+    ids=["two-panels", "fractional-css-pixels", "zoomed-css-viewport"],
+)
+def test_fit_reserves_topbar_and_status_clearance_together(
+    operation: str,
+    reduced: bool,
+    geometry: dict[str, object],
+    top_padding: float,
+    bottom_padding: float,
+) -> None:
+    options: dict[str, object] = {
+        "padding": [36, 36],
+        "paddingTopLeft": [36, top_padding],
+        "paddingBottomRight": [36, bottom_padding],
+    }
+    if reduced:
+        options["animate"] = False
+    assert _fit(operation=operation, reduced=reduced, geometry=geometry) == {
+        "calls": [
+            {
+                "target": "active" if operation == "fit" else "initial",
+                "options": options,
+            }
+        ],
+        "message": "",
+        "role": None,
+        "unchanged": True,
+    }
+
+
 @pytest.mark.parametrize(
     "geometry",
     [
@@ -109,6 +167,13 @@ def test_fit_reserves_measured_status_hud_clearance(
         {"status": {"top": 800, "bottom": 840}},
         {"status": {"top": -80, "bottom": 0}},
         {"status": {"top": 713, "bottom": 713}},
+        {"absent": True, "topbar": {}, "topbarHidden": True},
+        {"absent": True, "topbar": {}, "topbarLayout": False},
+        {"absent": True, "topbar": {}, "topbarStyle": {"display": "none"}},
+        {"absent": True, "topbar": {}, "topbarStyle": {"visibility": "hidden"}},
+        {"absent": True, "topbar": {}, "topbarStyle": {"opacity": "0"}},
+        {"absent": True, "topbar": {"top": -177, "bottom": 0}},
+        {"absent": True, "topbar": {"left": 1280, "right": 1400}},
     ],
     ids=[
         "absent",
@@ -121,6 +186,13 @@ def test_fit_reserves_measured_status_hud_clearance(
         "bottom-touch",
         "top-touch",
         "zero-height",
+        "topbar-hidden",
+        "topbar-no-layout",
+        "topbar-display-none",
+        "topbar-invisible",
+        "topbar-transparent",
+        "topbar-top-touch",
+        "topbar-right-touch",
     ],
 )
 def test_unobstructed_fit_keeps_original_padding(geometry: dict[str, object]) -> None:
@@ -142,6 +214,12 @@ def test_unobstructed_fit_keeps_original_padding(geometry: dict[str, object]) ->
         {"status": {"top": -20}},
         {"map": {"right": None}},
         {"status": {"right": None}},
+        {
+            "map": {"bottom": 300},
+            "topbar": {"bottom": 160},
+            "status": {"top": 210, "bottom": 280},
+        },
+        {"topbar": {"bottom": None}},
     ],
     ids=[
         "narrow",
@@ -150,6 +228,8 @@ def test_unobstructed_fit_keeps_original_padding(geometry: dict[str, object]) ->
         "covered",
         "invalid-map",
         "invalid-status",
+        "combined-panels-exhaust-height",
+        "invalid-topbar",
     ],
 )
 def test_unusable_fit_preserves_camera_and_reports_unavailability(

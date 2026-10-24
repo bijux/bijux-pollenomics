@@ -8083,21 +8083,24 @@ __URL_STATE_CONTROLLER__
           topbarStatePill.setAttribute('role', 'status');
         };
         if (!validRect(mapRect)) { unavailable(); return; }
-        let bottomPadding = 36;
-        const status = document.querySelector('.map-status');
-        if (status && !status.hidden && status.getClientRects().length) {
-          const style = getComputedStyle(status);
-          if (style.display !== 'none' && style.visibility === 'visible' && Number(style.opacity) > 0) {
-            const statusRect = status.getBoundingClientRect();
-            if (!validRect(statusRect)) { unavailable(); return; }
-            const overlaps = Math.min(mapRect.right, statusRect.right) > Math.max(mapRect.left, statusRect.left)
-              && Math.min(mapRect.bottom, statusRect.bottom) > Math.max(mapRect.top, statusRect.top);
-            if (overlaps) bottomPadding = Math.max(36, mapRect.bottom - Math.max(mapRect.top, statusRect.top) + 36);
-          }
+        let topPadding = 36, bottomPadding = 36;
+        for (const selector of ['.map-topbar', '.map-status']) {
+          const panel = document.querySelector(selector);
+          if (!panel || panel.hidden || !panel.getClientRects().length) continue;
+          const style = getComputedStyle(panel);
+          if (style.display === 'none' || style.visibility !== 'visible' || !(Number(style.opacity) > 0)) continue;
+          const rect = panel.getBoundingClientRect();
+          if (!validRect(rect)) { unavailable(); return; }
+          const overlaps = Math.min(mapRect.right, rect.right) > Math.max(mapRect.left, rect.left)
+            && Math.min(mapRect.bottom, rect.bottom) > Math.max(mapRect.top, rect.top);
+          if (!overlaps) continue;
+          if (selector === '.map-topbar') topPadding = Math.max(36, Math.min(mapRect.bottom, rect.bottom) - mapRect.top + 36);
+          else bottomPadding = Math.max(36, mapRect.bottom - Math.max(mapRect.top, rect.top) + 36);
         }
-        if (mapRect.right - mapRect.left <= 72 || mapRect.bottom - mapRect.top <= 36 + bottomPadding) { unavailable(); return; }
+        if (mapRect.right - mapRect.left <= 72 || mapRect.bottom - mapRect.top <= topPadding + bottomPadding) { unavailable(); return; }
         map.fitBounds(bounds, {
           padding: [36, 36],
+          ...(topPadding > 36 ? { paddingTopLeft: [36, topPadding] } : {}),
           ...(bottomPadding > 36 ? { paddingBottomRight: [36, bottomPadding] } : {}),
           ...(reducedMotionQuery.matches ? { animate: false } : {}),
         });
