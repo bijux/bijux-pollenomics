@@ -402,3 +402,39 @@ def test_unrepresentable_trial_movement_is_line_search_failure_not_accepted_step
     assert not result.converged
     assert result.stop_reason == "line_search_failed"
     assert result.steps == 0
+
+
+@pytest.mark.parametrize("field", ["counts", "responses", "taxon_measured"])
+@pytest.mark.parametrize("container", [list, tuple])
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_nested_source_row_masks_preserve_public_likelihood_contract(
+    field: str, container: type[list[Any]] | type[tuple[Any, ...]], unresolved: bool
+) -> None:
+    values: dict[str, Any] = {
+        "counts": np.array([[80, 20], [40, 60]]),
+        "responses": np.array([[9.0, 1.0], [1.0, 1.0]]),
+        "taxon_measured": np.ones((2, 2), dtype=bool),
+    }
+    expected = fit_multisite_likelihood(**values)
+    original = values[field]
+    arguments: dict[str, Any] = dict(values)
+    arguments[field] = container(
+        [original[0], np.ma.array(original[1], mask=[unresolved, False])]
+    )
+    if unresolved:
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            fit_multisite_likelihood(**arguments)
+    else:
+        from dataclasses import fields
+
+        actual = fit_multisite_likelihood(**arguments)
+        for descriptor in fields(expected):
+            baseline = getattr(expected, descriptor.name)
+            observed = getattr(actual, descriptor.name)
+            if isinstance(baseline, np.ndarray):
+                np.testing.assert_array_equal(observed, baseline)
+                assert observed.dtype == baseline.dtype
+                assert observed.tobytes() == baseline.tobytes()
+                assert not observed.flags.writeable
+            else:
+                assert observed == baseline
