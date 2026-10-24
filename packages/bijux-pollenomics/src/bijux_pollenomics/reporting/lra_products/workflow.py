@@ -14,6 +14,7 @@ from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError as SchemaValidationError
 
 from ...analysis.lra.api import read_lra_product
+from ...analysis.lra.inputs.regional_draw_love import REGIONAL_DRAW_LOVE_REQUEST_SCHEMA
 from ...analysis.lra.inputs.schema import REQUEST_SCHEMA
 from ...core.geospatial.geojson import JsonObject
 from ...core.owned_tree import publish_new_output_tree
@@ -51,6 +52,20 @@ def _report(
     def text(value: object) -> str:
         return escape(str(value), quote=True)
 
+    supplied_draws = request["schema_version"] == "lra-regional-draw-love-request.v1"
+    estimate_scope = (
+        "<p>This local LOVE result uses supplied regional-cover draws in fractions, "
+        "not measured regional pollen. Local cover is in fractions. This report "
+        "retains the complete original numerical tables below and in downloads; "
+        "typed estimate rows and a geographic map are unavailable for this profile. "
+        "The saved request retains the draw-source binding, seed and configuration. "
+        "Values retain original CSV decimal text; N/A remains missing. q10/q90 are "
+        "method quantiles, not total uncertainty or held-out predictive intervals.</p>"
+        if supplied_draws
+        else "<p>REVEALS cover: percent. LOVE cover: fraction. "
+        "Values retain original CSV decimal text; N/A remains missing. q10/q90 are method "
+        "quantiles, not total uncertainty or held-out predictive intervals.</p>"
+    )
     estimates = "".join(
         "<tr>"
         + "".join(
@@ -114,10 +129,9 @@ def _report(
                 if map_available
                 else "<p>This overview and its downloads retain all rows.</p>"
             )
-            + "<h2>Native estimates</h2><p>REVEALS cover: percent. LOVE cover: fraction. "
-            "Values retain original CSV decimal text; N/A remains missing. q10/q90 are method "
-            "quantiles, not total uncertainty or held-out predictive intervals.</p>"
-            "<table><thead><tr><th>Role</th><th>Site</th><th>Taxon</th><th>Statistic</th>"
+            + "<h2>Native estimates</h2>"
+            + estimate_scope
+            + "<table><thead><tr><th>Role</th><th>Site</th><th>Taxon</th><th>Statistic</th>"
             "<th>Value</th><th>Native unit</th></tr></thead><tbody>"
             + estimates
             + "</tbody></table>"
@@ -227,7 +241,12 @@ def render_lra_report(
         manifest, product = capture_product(product_directory, expected_manifest_sha256)
         geometry_bytes = bound_bytes(geometry_path, expected_geometry_sha256)
         request = json_object(product["request.json"])
-        Draft202012Validator(REQUEST_SCHEMA).validate(request)
+        schema = (
+            REGIONAL_DRAW_LOVE_REQUEST_SCHEMA
+            if request.get("schema_version") == "lra-regional-draw-love-request.v1"
+            else REQUEST_SCHEMA
+        )
+        Draft202012Validator(schema).validate(request)
         if temporal_profile is not None:
             calendar_supports(request)
         geometry = validate_geometry(
