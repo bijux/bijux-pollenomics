@@ -3317,6 +3317,9 @@ __URL_STATE_CONTROLLER__
       const DEFAULT_TIME_INTERVAL_YEARS = __INITIAL_TIME_INTERVAL__;
       const TIME_INTERVAL_MAX = __TIME_INTERVAL_MAX__;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
+      let initialMapFitPending = false;
+      let mapViewReady = false;
+      map.whenReady(() => { mapViewReady = true; });
       // Attribution owns an intrinsic row, independent of responsive map overlays.
       document.getElementById('map-provider-credit').appendChild(map.attributionControl.getContainer());
       if (window.ResizeObserver) {
@@ -3326,6 +3329,7 @@ __URL_STATE_CONTROLLER__
           mapResizeFrame = requestAnimationFrame(() => {
             mapResizeFrame = null;
             map.invalidateSize({ animate: false, pan: false });
+            if (initialMapFitPending) resetView();
           });
         });
         mapViewportResize.observe(document.querySelector('.map-viewport'));
@@ -8066,11 +8070,45 @@ __URL_STATE_CONTROLLER__
         });
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === currentBasemap));
+      function fitMapBounds(bounds) {
+        const mapRect = document.getElementById('map').getBoundingClientRect();
+        const validRect = (rect) => ['left', 'top', 'right', 'bottom'].every((key) => Number.isFinite(rect[key])) && rect.right >= rect.left && rect.bottom >= rect.top;
+        const unavailable = () => {
+          if (!mapViewReady) {
+            // A hidden initial viewport still needs a valid Leaflet view before data rendering.
+            map.setView(L.latLngBounds(INITIAL_BOUNDS).getCenter(), 0, { animate: false });
+            initialMapFitPending = true;
+          }
+          topbarStatePill.textContent = 'Fit unavailable: the map has no usable area.';
+          topbarStatePill.setAttribute('role', 'status');
+        };
+        if (!validRect(mapRect)) { unavailable(); return; }
+        let bottomPadding = 36;
+        const status = document.querySelector('.map-status');
+        if (status && !status.hidden && status.getClientRects().length) {
+          const style = getComputedStyle(status);
+          if (style.display !== 'none' && style.visibility === 'visible' && Number(style.opacity) > 0) {
+            const statusRect = status.getBoundingClientRect();
+            if (!validRect(statusRect)) { unavailable(); return; }
+            const overlaps = Math.min(mapRect.right, statusRect.right) > Math.max(mapRect.left, statusRect.left)
+              && Math.min(mapRect.bottom, statusRect.bottom) > Math.max(mapRect.top, statusRect.top);
+            if (overlaps) bottomPadding = Math.max(36, mapRect.bottom - Math.max(mapRect.top, statusRect.top) + 36);
+          }
+        }
+        if (mapRect.right - mapRect.left <= 72 || mapRect.bottom - mapRect.top <= 36 + bottomPadding) { unavailable(); return; }
+        map.fitBounds(bounds, {
+          padding: [36, 36],
+          ...(bottomPadding > 36 ? { paddingBottomRight: [36, bottomPadding] } : {}),
+          ...(reducedMotionQuery.matches ? { animate: false } : {}),
+        });
+        initialMapFitPending = false;
+        if (topbarStatePill.textContent === 'Fit unavailable: the map has no usable area.') topbarStatePill.textContent = 'Map view fitted.';
+      }
       function fitToActive() {
         const bounds = activeBounds();
-        if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36], ...(reducedMotionQuery.matches ? { animate: false } : {}) });
+        if (bounds && bounds.isValid()) fitMapBounds(bounds);
       }
-      function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36], ...(reducedMotionQuery.matches ? { animate: false } : {}) }); }
+      function resetView() { fitMapBounds(INITIAL_BOUNDS); }
       async function restoreDefaults() {
         edgeFocusLoadState.request++;
         if (focusState?.kind === 'edge' || pendingEdgeFocus) setFocusState(null);
@@ -8596,7 +8634,10 @@ __URL_STATE_CONTROLLER__
         button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
       });
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
-      window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
+      window.addEventListener('resize', () => window.setTimeout(() => {
+        map.invalidateSize();
+        if (initialMapFitPending) resetView();
+      }, 120));
       Object.assign(activeRelationFilters, initialState.relationFilters);
       Object.assign(activeRelationEventDefinition, initialState.relationEventDefinition);
       if (NATIVE_LRA_BINDING !== null) {

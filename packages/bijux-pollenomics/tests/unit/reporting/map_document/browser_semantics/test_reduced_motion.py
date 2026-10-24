@@ -208,13 +208,16 @@ def test_fit_and_reset_navigation_preserve_bounds_and_motion_preference(
     reduced: bool, bounds_kind: str
 ) -> None:
     handlers = template_block(
-        "function fitToActive()", "async function restoreDefaults"
+        "function fitMapBounds(bounds)", "async function restoreDefaults"
     )
     observed = run_node_json(
         f"const reducedMotionQuery={{matches:{json.dumps(reduced)}}};"
         f"const boundsKind={json.dumps(bounds_kind)};"
         """
 const INITIAL_BOUNDS=[[54,10],[70,32]],calls=[];
+let mapViewReady=true,initialMapFitPending=false;
+const document={getElementById:()=>({getBoundingClientRect:()=>({left:0,top:0,right:1280,bottom:800})}),querySelector:()=>null};
+const topbarStatePill={textContent:'',setAttribute(){}};
 const selected=boundsKind==='missing'?null:{isValid:()=>boundsKind==='valid'};
 let reads=0;
 function activeBounds(){reads++;return selected}
