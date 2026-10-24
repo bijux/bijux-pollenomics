@@ -20,10 +20,10 @@ from ...evidence_projection.test_neotoma_chronology_models import (
     materialized,
     native_source,
 )
+from ..pollen.test_pollen_diagram import add_row
+from ..pollen.test_pollen_diagram import decoded as decoded_observations
+from ..pollen.test_pollen_small_multiples import script
 from ..support import run_node_json
-from ..test_pollen_diagram import add_row
-from ..test_pollen_diagram import decoded as decoded_observations
-from ..test_pollen_small_multiples import script
 from . import test_age_depth_diagram as age
 from .test_observation_age_alignment import add_claim
 
