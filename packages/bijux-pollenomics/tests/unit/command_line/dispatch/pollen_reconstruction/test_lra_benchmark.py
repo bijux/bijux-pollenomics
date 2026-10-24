@@ -12,7 +12,7 @@ from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 from bijux_pollenomics.cli import main
 from bijux_pollenomics.command_line.runtime import lra
 
-from ...analysis.lra.support import request_fixture
+from ....analysis.lra.support import request_fixture
 
 
 def test_actual_cli_benchmarks_seeded_request_and_writes_only_one_reference(

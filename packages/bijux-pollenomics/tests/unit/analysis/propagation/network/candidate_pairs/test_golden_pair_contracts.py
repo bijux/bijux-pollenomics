@@ -20,7 +20,7 @@ from bijux_pollenomics.analysis.propagation.network import (
 )
 from tests.support.repository import REPOSITORY_ROOT
 
-from .support import event
+from ..support import event
 
 
 class _EventOverrides(TypedDict, total=False):

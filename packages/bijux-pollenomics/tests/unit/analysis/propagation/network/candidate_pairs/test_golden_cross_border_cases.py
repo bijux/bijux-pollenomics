@@ -16,7 +16,7 @@ from bijux_pollenomics.analysis.propagation.network import (
     run_propagation_sensitivity,
 )
 
-from .support import event, scenario
+from ..support import event, scenario
 
 
 def _norway_sweden_events() -> tuple[PhenomenonEvent, PhenomenonEvent]:

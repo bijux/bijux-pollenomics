@@ -23,10 +23,10 @@ from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
 from bijux_pollenomics.cli import main
 from bijux_pollenomics.command_line.runtime import lra_validation as runtime
 
-from ...analysis.lra_validation.experiments.test_assimilation import (
+from ....analysis.lra_validation.experiments.test_assimilation import (
     synthetic_local_product,
 )
-from ...analysis.lra_validation.experiments.test_scoring import prediction_product
+from ....analysis.lra_validation.experiments.test_scoring import prediction_product
 
 
 def prepare_args(root: Path) -> list[str]:
@@ -177,7 +177,7 @@ def test_temporal_semantics_refuse_before_outcome_inventory_access(
 def test_temporal_cli_keeps_both_failed_target_denominators(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    from ...analysis.lra_validation.temporal.persistence.support import refused_product
+    from ....analysis.lra_validation.temporal.persistence.support import refused_product
 
     product, spec = refused_product(tmp_path / "generation")
     assert isinstance(product, ExperimentProduct)

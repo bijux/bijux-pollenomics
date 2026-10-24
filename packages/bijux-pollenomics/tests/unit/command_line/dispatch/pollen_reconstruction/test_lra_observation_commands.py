@@ -17,7 +17,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
 from bijux_pollenomics.cli import main
 from bijux_pollenomics.command_line.runtime import lra_validation as runtime
 
-from ...analysis.lra_validation.observation_uncertainty.support import fixture
+from ....analysis.lra_validation.observation_uncertainty.support import fixture
 
 
 def generate_args(root: Path, predictions: Path) -> list[str]:

@@ -12,7 +12,7 @@ import pytest
 
 from bijux_pollenomics.cli import main
 
-from ...analysis.lra.support import request_fixture
+from ....analysis.lra.support import request_fixture
 
 
 @pytest.mark.parametrize("refused", [False, True])

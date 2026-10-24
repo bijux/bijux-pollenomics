@@ -18,8 +18,8 @@ from bijux_pollenomics.cli import main
 from bijux_pollenomics.command_line.runtime import lra
 from bijux_pollenomics_lra import api as engine_api
 
-from ...analysis.lra.support import regional_draw_love_fixture, request_fixture
-from ...analysis.lra.test_publication_draws import _bundle, _pin
+from ....analysis.lra.support import regional_draw_love_fixture, request_fixture
+from ....analysis.lra.test_publication_draws import _bundle, _pin
 
 
 @pytest.fixture

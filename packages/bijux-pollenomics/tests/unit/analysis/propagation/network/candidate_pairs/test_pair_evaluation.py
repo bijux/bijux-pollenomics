@@ -18,7 +18,7 @@ from bijux_pollenomics.analysis.propagation.network import (
 )
 from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
 
-from .support import event, scenario
+from ..support import event, scenario
 
 
 def test_malmo_5600_to_lund_5500_is_exact_temporal_boundary_candidate() -> None:
