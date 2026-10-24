@@ -4,13 +4,13 @@ from __future__ import annotations
 
 from copy import deepcopy
 import hashlib
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ....contracts import JsonObject, ReportRebuildError
-from ....retained_source import validated_descriptor
+from ....retained_source import SourceCapsule, validated_descriptor
 from .contracts import require, strict_equal
 from .execution import OLD_REPORT_SHA, OWNER
 from .execution import REPORT as REPORT
@@ -76,6 +76,68 @@ def selected_owner(owners: list[JsonObject]) -> dict[str, Any] | None:
     return selected[0]
 
 
+def _original_source_contracts(
+    declaration: dict[str, Any], capture: dict[str, Any], resolver: SourceCapsule
+) -> None:
+    """Join declarations to batch-authenticated original source, never today's code."""
+    resolver.fresh()
+    contracts = declaration["maintained_source_contracts"]
+    roles = capture["public_roles"]
+    require(
+        type(contracts) is list
+        and len(contracts) == 51
+        and type(roles) is list
+        and all(type(role) is dict for role in roles)
+        and strict_equal(resolver.descriptor.members, capture["members"]),
+        "Complete original science source correspondence required",
+    )
+    seen: set[str] = set()
+    for source in contracts:
+        require(
+            type(source) is dict
+            and set(source) == {"path", "sha256", "bytes"}
+            and type(source["path"]) is str
+            and type(source["sha256"]) is str
+            and len(source["sha256"]) == 64
+            and all(c in "0123456789abcdef" for c in source["sha256"])
+            and type(source["bytes"]) is int
+            and source["bytes"] >= 0,
+            "Exact original source declaration identity required",
+        )
+        name = source["path"]
+        path = PurePosixPath(name)
+        require(
+            bool(path.parts)
+            and not path.is_absolute()
+            and ".." not in path.parts
+            and path.as_posix() == name
+            and "\\" not in name
+            and name not in seen,
+            "Unique confined original source path required",
+        )
+        seen.add(name)
+        matching = [
+            role for role in roles if role.get("logical_name") == "source/" + name
+        ]
+        require(len(matching) == 1, "Unique original owned source role required")
+        role = matching[0]
+        identity = role.get("source_identity")
+        member = role.get("member")
+        expected = {key: source[key] for key in ("sha256", "bytes")}
+        require(
+            role.get("role") == "complete-original-owned-public-source-resource"
+            and type(identity) is dict
+            and type(identity.get("path")) is str
+            and PurePosixPath(identity["path"]).is_absolute()
+            and identity["path"].endswith("/" + name)
+            and strict_equal({key: identity.get(key) for key in expected}, expected)
+            and member == "members/" + source["sha256"]
+            and strict_equal(resolver.descriptor.members.get(member), expected),
+            "Declared source differs from authenticated original owned member",
+        )
+    resolver.fresh()
+
+
 def validated_sweden_country_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -135,6 +197,7 @@ def validated_sweden_country_capture(
         declaration = load_reference(
             capture_path.parent, "source-declaration", capture, resolver
         )
+        _original_source_contracts(declaration, capture, resolver)
         require(
             type(declaration["maintained_source_contracts"]) is list
             and len(declaration["maintained_source_contracts"]) == 51
@@ -215,6 +278,8 @@ def validated_sweden_country_capture(
             "admitted_inventory_entries": 0,
             "original_owner_role": "unresolved",
             "original_owner_acceptance_established": False,
+            "source_authentication_role": "original_execution_only",
+            "current_source_or_numerical_reuse_claimed": False,
             "current_receipt_path": CURRENT_RECEIPT,
             "governed_historical_receipt_path": REPORT,
             "capture_sha256": CAPTURE_SHA256,
