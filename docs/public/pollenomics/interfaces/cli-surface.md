@@ -31,7 +31,7 @@ flowchart LR
 | capability and ownership | `surface-map`, `product-scope`, `ownership-map`, `source-support` | read-only orientation |
 | animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
 | animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
-| landscape reconstruction | `validate-lra-input`, `run-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
+| landscape reconstruction | `validate-lra-input`, `run-lra`, `benchmark-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
 | validation | `validate-collection-summary` | validates an existing summary without recollection |
 | collection and contract refresh | `collect-data`, `refresh-aadr-source-accountability`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
@@ -42,6 +42,7 @@ flowchart LR
 | --- | --- |
 | `validate-lra-input REQUEST --input-root ROOT` | schema, evidence-byte and installed-method configuration checks |
 | `run-lra REQUEST --input-root ROOT --output NEW_DIRECTORY` | one exploratory REVEALS, LOVE, paired or series bundle; existing destinations refused |
+| `benchmark-lra REQUEST --input-root ROOT --output NEW_REFERENCE --repeats 3` | fresh same-seed calls with one retained exploratory reference; total calls bounded from 2 to 10 |
 | `collect-data <sources...>` | collect one or more source families, or `all` |
 | `adna-layout --species <name>` | canonical species evidence paths |
 | `adna-runtime-manifest --species <name>` | source bundles and analysis boundaries for one species |
@@ -196,6 +197,28 @@ stable reason and applicable diagnostics. Each output remains
 `generated_exploratory`; ecological accuracy and scientific admission are
 `not_evaluated`. See [LRA engine integration](../architecture/lra-engine.md)
 for numerical profiles, units, installation and publication boundaries.
+
+`benchmark-lra REQUEST --input-root INPUTS --output NEW_REFERENCE --repeats 3`
+uses the same request and installed facade. The default is three total fresh
+calls; the supported range is 2 to 10. Each call reconstructs independent inputs
+and restarts the declared seed. Seeded stochastic calls repeat the same experiment,
+not independent uncertainty draws. The command retains one detached reference
+result and publishes one normal exploratory bundle after every comparison passes.
+No per-call data products or host result-cache entries are written.
+
+JSON stdout reports the actual backend, first-call and repeated-call seconds,
+setup, final publication and total elapsed time. Individual calls include adapter
+conversion and numerical calculation; source/code checks and result comparison
+are outside those timings. The process and engine remain loaded; ordinary process-level resource caches
+are not cleared. These timings
+are not cold-process, optimizer warm-start, native-backend speedup or incremental
+memory measurements. Exact public numerical, axis, diagnostic or scientific
+manifest differences refuse with `lra_benchmark_nonrepeatable`; operational
+manifest timestamps use the existing scientific-identity exclusion. Calculation
+failures retain their reason, diagnostics, attempted/completed call counts and
+observed call times. An interrupted benchmark returns exit 130 with its completed
+and attempted calls retained. Neither repeatability nor timing establishes
+scientific acceptance.
 
 `run-lra-batch BATCH.json --input-root INPUTS --cache-root CACHE
 --report-root NEW_ATTEMPT --max-workers 2` runs independent requests with bounded

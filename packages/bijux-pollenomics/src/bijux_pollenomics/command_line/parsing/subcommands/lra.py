@@ -174,3 +174,27 @@ def build_run_joint_lra_parser(
         help="Optional local directory for verified reusable child LRA products.",
     )
     return parser
+
+
+def build_benchmark_lra_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build fresh same-seed measurements with one retained reference product."""
+    parser = subparsers.add_parser(
+        "benchmark-lra",
+        help="Time fresh same-seed LRA calls and retain one exploratory reference.",
+    )
+    _request_arguments(parser)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="New directory for the single reference product.",
+    )
+    parser.add_argument(
+        "--repeats",
+        type=int,
+        default=3,
+        help="Total fresh calls, including the first (2 to 10; default: 3).",
+    )
+    return parser
