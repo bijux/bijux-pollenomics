@@ -77,6 +77,20 @@ The CLI delegates to the same service. `validate-lra-input` verifies a declared
 request and installed configuration; `run-lra` executes it and publishes a new
 local exploratory bundle. Neither command grants source or scientific approval.
 
+For the distinct `lra-regional-draw-love-request.v1` contract, those same commands
+call `validate_regional_draw_love_inputs` and `run_regional_draw_love_request`
+in the supported host facade. Local measured counts remain local pollen;
+regional input is an authenticated fraction-draw product with exact taxa, bin,
+source membership and receipt binding. It is not a regional pollen sample. The
+host input module `analysis.lra.inputs.regional_draw_love` owns these fields.
+The [supported facade](../interfaces/api-surface.md#optional-landscape-reconstruction-facade)
+and [CLI instructions](../interfaces/cli-surface.md#landscape-reconstruction)
+describe the existing validation and execution boundaries. The installed engine must advertise
+`lra.love.analytical.multisite-cover-draws.landclimii-2016-v1`; the optional
+extra's broad version range alone does not guarantee that capability. These
+checks do not admit an empirical common regional background, source chronology
+or scientific accuracy.
+
 The request records sample/site identities separately from exact numeric pairing
 coordinates. All source age intervals remain typed BP support. An explicit
 `declared_bin_stationarity` decision identifies common time bins containing the
@@ -712,6 +726,16 @@ nonnegative, typed BP bin and explicit point anchors. Unsupported geography,
 profiles or temporal support remain in the tables and refusal accounting.
 Regional and local model anchors carry textual R/L cues. These are model context,
 not measured vegetation, propagation edges or accepted scientific reconstructions.
+
+Saved regional-draw LOVE products have a table/download-only route through the
+same `render_lra_report` facade and `render-lra-report` command. Retain the
+required product and display-geometry bindings even though no map is produced.
+The report exposes the original local fraction CSV content, source inputs,
+configuration, missing values and uncertainty omissions, plus the complete
+original product archive. It does not invent typed estimate rows or a regional
+pollen input. Rendering performs no reconstruction or optional-engine load.
+The paired signed-calendar opt-in remains unsupported for this local-only
+profile and refuses before output staging; report success remains exploratory.
 
 For a synthetic paired request whose samples explicitly declare `calendar_bp`,
 set `temporal_profile="calendar-bp1950-signed.v1"` in `render_lra_report`, or use

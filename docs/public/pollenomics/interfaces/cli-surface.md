@@ -189,7 +189,28 @@ operation sequences, continue to [operator workflows](operator-workflows.md).
 counts, taxa and parameters, source identities, measured basin/ring geometry,
 typed age support, time-bin assumptions, a fixed random seed, exclusions and
 unpropagated uncertainties. A matching coordinate alone never supplies age
-support. The `lra-request.v1` schema is owned by the host input layer.
+support. The generic `lra-request.v1` schema is owned by the host input layer.
+
+Both commands also accept the existing
+[`lra-regional-draw-love-request.v1` schema](../architecture/lra-engine.md#host-boundary).
+This separate analytical LOVE request uses local pollen counts and a verified
+regional-cover draw product, not a placeholder regional pollen sample. The
+request binds the draw source, exact taxon order, time support and the local
+site's relationship to the regional cohort. Source and scientific admission
+remain separate from those consistency checks.
+
+```sh
+bijux-pollenomics validate-lra-input regional-draw-love.json --input-root INPUTS
+bijux-pollenomics run-lra regional-draw-love.json --input-root INPUTS \
+  --output NEW_LOCAL_PRODUCT
+```
+
+The installed engine must advertise
+`lra.love.analytical.multisite-cover-draws.landclimii-2016-v1`. Installing an
+older engine that satisfies the host extra's version range does not establish
+that capability; an absent or incompatible capability refuses visibly. Validation
+authenticates the request and source without running a reconstruction. The
+benchmark and batch commands retain their existing generic request contracts.
 
 Successful execution returns structured JSON and exit0. Missing/incompatible
 extensions, invalid inputs and numerical nonconvergence return exit2 with a
@@ -251,6 +272,15 @@ mapped/refused site accounting. Missing values stay missing and LOVE fractions
 remain distinct from REVEALS percentages. A successful report returns exit 0,
 including reports with declared map refusals; invalid inputs or an existing
 output return exit 2. Report generation does not confer scientific acceptance.
+
+A saved regional-draw LOVE product is also supported by this report command,
+with the same required product and display-geometry hashes. It retains the
+original local fraction tables, input counts, draw-source binding, omissions and
+complete product downloads without loading the engine. Typed estimate rows and
+a geographic map remain unavailable for this profile; a successful table-only
+report is not a mapped reconstruction. Do not add the paired signed-calendar
+option: it refuses this local-only product before staging. See
+[saved-product reporting](../architecture/lra-engine.md#saved-product-reporting).
 
 `render-joint-lra-report PRODUCT --expected-manifest-sha256 HASH --output
 NEW_REPORT` reopens a retained joint-realization product without running the
