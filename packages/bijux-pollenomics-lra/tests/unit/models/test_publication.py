@@ -54,3 +54,56 @@ def test_no_implicit_publication_profile(changes: dict[str, object]) -> None:
     dynamic_replace: Callable[..., PublicationRevealsConfig] = replace
     with pytest.raises(ValidationError):
         dynamic_replace(PublicationRevealsConfig("synthetic-bp-v1"), **changes)
+
+
+SOURCE_ARRAY_FIELDS = (
+    "counts",
+    "basin_radius_m",
+    "bin_bounds_bp",
+    "ppe",
+    "ppe_covariance",
+    "fall_speed_m_s",
+    "availability",
+    "basin_type",
+)
+
+
+@pytest.mark.parametrize("field", SOURCE_ARRAY_FIELDS)
+def test_unresolved_source_mask_cannot_become_observed_support(
+    publication_inputs: MultisiteRevealsInput, field: str
+) -> None:
+    original = getattr(publication_inputs, field)
+    mask = np.zeros(original.shape, dtype=bool)
+    mask.flat[0] = True
+    masked = np.ma.array(original, mask=mask)
+    dynamic_replace: Callable[..., MultisiteRevealsInput] = replace
+    with pytest.raises(ValidationError, match=field + " contains masked"):
+        dynamic_replace(publication_inputs, **{field: masked})
+
+
+@pytest.mark.parametrize("field", SOURCE_ARRAY_FIELDS)
+def test_false_source_masks_preserve_observed_and_unavailable_values(
+    publication_inputs: MultisiteRevealsInput, field: str
+) -> None:
+    counts = publication_inputs.counts.astype(float)
+    counts[1] = np.nan
+    expected = replace(
+        publication_inputs,
+        counts=counts,
+        availability=np.array([[True], [False]]),
+        basin_radius_m=np.array([[25.0], [np.nan]]),
+        basin_type=np.array([["peatland"], [None]], dtype=object),
+    )
+    original = getattr(expected, field)
+    masked = np.ma.array(original, mask=np.zeros(original.shape, dtype=bool))
+    dynamic_replace: Callable[..., MultisiteRevealsInput] = replace
+    actual = dynamic_replace(expected, **{field: masked})
+    for name in ("site_ids", "bin_ids", "taxon_ids"):
+        assert getattr(actual, name) == getattr(expected, name)
+    for name in SOURCE_ARRAY_FIELDS:
+        observed = getattr(actual, name)
+        baseline = getattr(expected, name)
+        np.testing.assert_array_equal(observed, baseline)
+        assert observed.dtype == baseline.dtype
+        assert observed.tobytes() == baseline.tobytes()
+        assert not observed.flags.writeable

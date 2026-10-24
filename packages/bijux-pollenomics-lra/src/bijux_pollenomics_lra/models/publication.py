@@ -8,6 +8,7 @@ from numbers import Real
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 
 PUBLICATION_PROFILE = "landclimii-2016-release-source-v1"
 PUBLICATION_REVISION = "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a"
@@ -75,6 +76,7 @@ def _array(value: object, name: str, shape: tuple[int, ...]) -> np.ndarray:
     Integer input above the exact binary64 conversion range is refused; callers
     validate its domain and missing-value semantics separately.
     """
+    _reject_masked_values(value, name)
     original = np.asarray(value)
     if original.dtype.kind not in "iuf":
         raise ValidationError(
@@ -134,6 +136,8 @@ class MultisiteRevealsInput:
             ("fall_speed_m_s", (taxa,)),
         ):
             object.__setattr__(self, name, _array(getattr(self, name), name, shape))
+        _reject_masked_values(self.availability, "availability")
+        _reject_masked_values(self.basin_type, "basin_type")
         available = np.array(self.availability, copy=True)
         if available.dtype != bool or available.shape != (sites, bins):
             raise ValidationError("availability must be a boolean [sites,bins] matrix")
