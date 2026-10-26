@@ -1,0 +1,391 @@
+{
+  "source_commit": "8628c543483fcb87586430c6585ee2a2834f4fbc",
+  "protocol": "reports/science/chronology/abborrtjarnen-bacon/sampler-accuracy-protocol.json",
+  "original_model_protocol": "reports/science/chronology/abborrtjarnen-bacon/physical-rate-protocol.json",
+  "scientific_status": "conditional_model_diagnostics_passed",
+  "requested_chain_seeds": [
+    314159,
+    271828
+  ],
+  "requested_draws": 32000,
+  "conditional_sampler_diagnostics_passed": true,
+  "consumer_status": "computed_after_sampler_qualification",
+  "complete_four_bin_draws": 31999,
+  "incomplete_draw_fraction": 3.125e-05,
+  "saved_ensemble_descriptors": {
+    "training_mean": {
+      "complete_draws": 31999,
+      "mean_mae": 0.07761476874881783,
+      "quantiles_025_50_975": [
+        0.07665184390321154,
+        0.07762813834346007,
+        0.07848281386276058
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    },
+    "nearest_site": {
+      "complete_draws": 31999,
+      "mean_mae": 0.06771462004019632,
+      "quantiles_025_50_975": [
+        0.06689839552402112,
+        0.06773698715142024,
+        0.06840660465036388
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.99996875
+    },
+    "inverse_distance_squared": {
+      "complete_draws": 31999,
+      "mean_mae": 0.0774778303123421,
+      "quantiles_025_50_975": [
+        0.07651563996482948,
+        0.07749115946479361,
+        0.07834596833323092
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    },
+    "clr_rbf_ridge": {
+      "complete_draws": 31999,
+      "mean_mae": 0.0751643398827938,
+      "quantiles_025_50_975": [
+        0.0742964113044686,
+        0.07518301791803794,
+        0.0759389453129686
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    }
+  },
+  "interpretation": "Only ABBO target chronology varies. Scores and ranking frequencies concern saved quantized states, fixed exposed predictions/counts, and the explicitly declared conditional model; incomplete draws stay in the all-draw denominator. Failed diagnostics prohibit a qualified posterior interpretation.",
+  "raw_report": {
+    "path": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/report.json",
+    "bytes": 23070,
+    "sha256": "1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf",
+    "literal_flag_conflict": {
+      "diagnostics_passed": false,
+      "diagnostics_pass": true
+    },
+    "unchanged": true
+  },
+  "sampler_accuracy_qualification": {
+    "protocol": "reports/science/chronology/abborrtjarnen-bacon/sampler-accuracy-protocol.json",
+    "original_failed_source_commit": "0d374ce2190e5e44f70c8b28f18612809688af76",
+    "original_failed_status": "refused_mcmc_diagnostics",
+    "retained_rows_per_seed": 16000,
+    "raw_rows_per_seed": 19501,
+    "prefixes_passed": true,
+    "diagnostics_passed": false,
+    "qualified": true,
+    "score_interpretation_permitted": true,
+    "diagnostics_pass": true
+  },
+  "prefix_checks": [
+    {
+      "seed": 314159,
+      "baseline_sha256": "ad6e64bb62b24e4bc412f698d5476e7eecf819c3e5171b361be494e20be5a4e9",
+      "bytes_compared": 5678254,
+      "matched": true,
+      "first_mismatch_byte": null,
+      "native_prefix_sha256": "ad6e64bb62b24e4bc412f698d5476e7eecf819c3e5171b361be494e20be5a4e9",
+      "next_byte_starts_new_native_row": true
+    },
+    {
+      "seed": 271828,
+      "baseline_sha256": "87c2dcfeeda84d305e8a7d535837fc41bb9b2fa057024229a50fb519ac0592eb",
+      "bytes_compared": 5678254,
+      "matched": true,
+      "first_mismatch_byte": null,
+      "native_prefix_sha256": "87c2dcfeeda84d305e8a7d535837fc41bb9b2fa057024229a50fb519ac0592eb",
+      "next_byte_starts_new_native_row": true
+    }
+  ],
+  "diagnostics": {
+    "age_diagnostics": {
+      "status": "computed",
+      "qualified": true,
+      "maximum_rhat_upper_95": 1.0256812154234327,
+      "minimum_effective_sample_size": 1467.479768718961
+    },
+    "free_parameter_diagnostics": {
+      "status": "computed",
+      "qualified": true,
+      "maximum_rhat_upper_95": 1.0244605194264058,
+      "minimum_effective_sample_size": 1249.472596549957
+    }
+  },
+  "chains": [
+    {
+      "seed": 314159,
+      "sections": 51,
+      "top_depth_cm": 648,
+      "section_thickness_cm": 5,
+      "elbows_cm": [
+        648,
+        653,
+        658,
+        663,
+        668,
+        673,
+        678,
+        683,
+        688,
+        693,
+        698,
+        703,
+        708,
+        713,
+        718,
+        723,
+        728,
+        733,
+        738,
+        743,
+        748,
+        753,
+        758,
+        763,
+        768,
+        773,
+        778,
+        783,
+        788,
+        793,
+        798,
+        803,
+        808,
+        813,
+        818,
+        823,
+        828,
+        833,
+        838,
+        843,
+        848,
+        853,
+        858,
+        863,
+        868,
+        873,
+        878,
+        883,
+        888,
+        893,
+        898
+      ],
+      "raw_rows": 19501,
+      "retained_rows": 16000,
+      "first_native_row": 3502,
+      "last_native_row": 19501,
+      "explicit_burn_rows": 500,
+      "source_tail_selection_removals": 3001,
+      "native_save_interval_attempts": 1325,
+      "native_rng_seed": 314159,
+      "native_initial_top_age_pair": [
+        -52,
+        -22
+      ],
+      "native_top_depth_cm": 648,
+      "native_bottom_depth_cm": 903,
+      "requested_pollen_depth_range_cm": [
+        648,
+        896
+      ],
+      "deepest_control_depth_cm": 880.5,
+      "extrapolation_to_deepest_sample_cm": 15.5,
+      "extrapolation_to_native_model_bottom_cm": 22.5,
+      "population": {
+        "requested_draws": 16000,
+        "complete_four_bin_draws": 16000,
+        "incomplete_draws": 0,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 27698,
+        "ages_above_50000_bp": 0
+      },
+      "independent_maximum_absolute_age_residual": 9.094947017729282e-12
+    },
+    {
+      "seed": 271828,
+      "sections": 51,
+      "top_depth_cm": 648,
+      "section_thickness_cm": 5,
+      "elbows_cm": [
+        648,
+        653,
+        658,
+        663,
+        668,
+        673,
+        678,
+        683,
+        688,
+        693,
+        698,
+        703,
+        708,
+        713,
+        718,
+        723,
+        728,
+        733,
+        738,
+        743,
+        748,
+        753,
+        758,
+        763,
+        768,
+        773,
+        778,
+        783,
+        788,
+        793,
+        798,
+        803,
+        808,
+        813,
+        818,
+        823,
+        828,
+        833,
+        838,
+        843,
+        848,
+        853,
+        858,
+        863,
+        868,
+        873,
+        878,
+        883,
+        888,
+        893,
+        898
+      ],
+      "raw_rows": 19501,
+      "retained_rows": 16000,
+      "first_native_row": 3502,
+      "last_native_row": 19501,
+      "explicit_burn_rows": 500,
+      "source_tail_selection_removals": 3001,
+      "native_save_interval_attempts": 1325,
+      "native_rng_seed": 271828,
+      "native_initial_top_age_pair": [
+        -82,
+        -42
+      ],
+      "native_top_depth_cm": 648,
+      "native_bottom_depth_cm": 903,
+      "requested_pollen_depth_range_cm": [
+        648,
+        896
+      ],
+      "deepest_control_depth_cm": 880.5,
+      "extrapolation_to_deepest_sample_cm": 15.5,
+      "extrapolation_to_native_model_bottom_cm": 22.5,
+      "population": {
+        "requested_draws": 16000,
+        "complete_four_bin_draws": 15999,
+        "incomplete_draws": 1,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 27555,
+        "ages_above_50000_bp": 0
+      },
+      "independent_maximum_absolute_age_residual": 9.094947017729282e-12
+    }
+  ],
+  "execution": {
+    "source_commit": "8628c543483fcb87586430c6585ee2a2834f4fbc",
+    "owned_session": 60038,
+    "exit_code": 0,
+    "first_observed_running_utc": "2026-10-26 21:41:28 UTC",
+    "terminal_observed_utc": "2026-10-26 21:42:55 UTC",
+    "outer_process_elapsed_seconds": 87.14,
+    "outer_peak_rss_bytes": 1124958208,
+    "native_command_elapsed_seconds": 83.84324308298528,
+    "native_peak_rss_bytes": 1124958208,
+    "output_bytes_before_report": 63923974,
+    "report_bytes": 23070,
+    "report_sha256": "1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf",
+    "sampler_trajectories": 2,
+    "retained_rows_per_original_seed": 16000,
+    "raw_rows_per_seed": 19501,
+    "both_exact_prefixes_matched": true,
+    "scientific_status_as_reported": "conditional_model_diagnostics_passed",
+    "report_field_conflict": {
+      "diagnostics_passed": false,
+      "diagnostics_pass": true,
+      "cause": "Writer populated a different key from the initial default. Raw report kept unchanged; independent diagnostics verification and future writer correction required."
+    },
+    "command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 /usr/bin/time -l .venv/bin/python -B -m bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarnen_bacon --repository /Users/bijan/bijux/bijux-pollenomics --source-root /Users/bijan/bijux/-bijux-pollenomics-data --library /Users/bijan/bijux/bijux-pollenomics/artifacts/qualification/native-reference/library --oracle-summary /Users/bijan/bijux/bijux-pollenomics/artifacts/physical-core/native-likelihood-oracle/summary.json --output /Users/bijan/bijux/bijux-pollenomics/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay --sampler-accuracy"
+  },
+  "independent_check": {
+    "execution": {
+      "source_commit": "e5d8e109eb7a021c09501c4ed93a2794fc092202",
+      "owned_session": 95895,
+      "exit_code": 0,
+      "process_elapsed_seconds": 3.81,
+      "peak_rss_bytes": 238288896,
+      "command": "PYTHONPATH=packages/bijux-pollenomics-dev PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /usr/bin/time -l .venv/bin/python -B -m tests.source_completion.pollen_age_support.abborrtjarnen_bacon.test_sampler_accuracy_result --repository /Users/bijan/bijux/bijux-pollenomics --directory /Users/bijan/bijux/bijux-pollenomics/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay --output /Users/bijan/bijux/bijux-pollenomics/artifacts/physical-core/abborrtjarnen-sampler-accuracy/independent-check/verified-result.json",
+      "model_fits": 0,
+      "observer_status": "native_and_consumer_verified_with_report_flag_conflict",
+      "limits": "Saved six-significant-digit states; fixed exposed prediction/count support. Diagnostic CSV gates are checked, not independently re-estimated statistical diagnostics. Conditional sampler accuracy is not field calibration or untouched confirmation."
+    },
+    "result": {
+      "observer_status": "native_and_consumer_verified_with_report_flag_conflict",
+      "source_commit": "8628c543483fcb87586430c6585ee2a2834f4fbc",
+      "scientific_status": "conditional_model_diagnostics_passed",
+      "model_fits": 0,
+      "raw_rows_checked": 39002,
+      "joint_age_rows_checked": 32000,
+      "sample_depths_checked": 107,
+      "exact_old_prefixes_matched": true,
+      "all_unchanged_diagnostic_gates_passed": true,
+      "literal_diagnostic_report_flag_conflict": {
+        "diagnostics_passed": false,
+        "diagnostics_pass": true
+      },
+      "score_interpretation_permitted": true,
+      "complete_score_rows_checked": 31999,
+      "maximum_polynomial_age_residual_years": 1.0913936421275139e-11,
+      "chains": [
+        {
+          "seed": 314159,
+          "exact_original_prefix_matches": true,
+          "prefix_bytes_compared": 5678254,
+          "raw_rows_checked": 19501,
+          "retained_rows_checked": 16000,
+          "maximum_polynomial_age_residual_years": 1.0913936421275139e-11
+        },
+        {
+          "seed": 271828,
+          "exact_original_prefix_matches": true,
+          "prefix_bytes_compared": 5678254,
+          "raw_rows_checked": 19501,
+          "retained_rows_checked": 16000,
+          "maximum_polynomial_age_residual_years": 9.094947017729282e-12
+        }
+      ],
+      "limits": "Saved six-significant-digit states; fixed exposed prediction/count support. Diagnostic CSV gates are checked, not independently re-estimated statistical diagnostics. Conditional sampler accuracy is not field calibration or untouched confirmation."
+    }
+  }
+}

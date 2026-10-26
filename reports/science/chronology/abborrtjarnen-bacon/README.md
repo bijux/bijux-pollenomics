@@ -1,11 +1,18 @@
-# ABBO joint ages: verified arithmetic and failed convergence
+# ABBO joint ages: conditional sampler qualification and retained failures
 
-The new fixed-transition ABBO age model produced all 8,000 requested joint
+The first fixed-transition ABBO age model produced all 8,000 requested joint
 states and scores, but failed its prespecified convergence criteria. An
 independent consumer verified every saved score and retained the refusal.
 These values describe an unsuccessful conditional computation; they do not
 establish a qualified joint posterior, chronology accuracy or field acceptance.
 The [result](result.json) records the numerical population and diagnostics.
+
+A separately prespecified longer replay of the same two seeded trajectories
+passed every unchanged numerical gate. Its [32,000-state result](sampler-accuracy-result.json)
+and independent check qualify the declared conditional sampler calculation,
+with one explicit score-support refusal and a literal raw-report flag defect.
+They establish neither chronology accuracy nor field acceptance. The longer
+replay retains the original short-run failure below.
 
 The separately preserved [archived proposal](protocol.json) was refused
 before fitting. The source-law checks below explain why it was not used for
@@ -412,8 +419,8 @@ Gelman 1.025681215 and minimum ESS 1467.479769; free-parameter/energy values
 are 1.024460519 and 1249.472597. All unchanged scalar gates pass. Of 32,000
 requested draws, 31,999 have complete four-bin support; the remaining draw
 stays refused and remains in the all-draw denominator. The original failed
-8,000-state result is unchanged. Independent consumer verification is pending
-the explicit report-metadata reconciliation below.
+8,000-state result is unchanged. Independent consumer verification passed with
+the explicit report-metadata conflict below.
 
 The replay exposed a writer-field defect: the computed value was written as
 `diagnostics_pass: true`, leaving initialized `diagnostics_passed: false`.
@@ -428,3 +435,59 @@ records the conflict for this exact producing revision while independently
 enforcing every original prefix, diagnostic CSV, resource and score condition;
 it does not silently treat the contradictory metadata as a clean report. No
 model rerun, change of scientific criteria or rewrite of saved results follows.
+
+The corrected observer consumed committed source
+`e5d8e109eb7a021c09501c4ed93a2794fc092202` (session 95895), returned exit 0
+in **3.81 s**, and measured **238,288,896 bytes** peak RSS. Its explicit status
+is `native_and_consumer_verified_with_report_flag_conflict`. It checked all
+**39,002 raw native rows**, **32,000 joint age rows at 107 sample depths**, and
+all **32,000 score-ledger rows**, including the refusal. Closed innovation
+polynomials, independently derived from the production backwards recurrence,
+agree with saved ages to a maximum **1.0913936421275139e-11 years**, below
+the unchanged absolute `1e-8` tolerance. Independent rational count/score
+helpers verify the frozen consumer. Diagnostic CSV gates were checked;
+Coda's statistical estimates were not independently re-estimated.
+
+The raw report occupies 23,070 bytes and the remaining native outputs
+63,923,974 bytes, within the 100 MB budget. Both original 5,678,254-byte
+trajectory prefixes match exactly. All 108 age/memory and 54 free/energy
+diagnostic rows pass. Seed 314159 has 16,000 complete scoring draws; seed
+271828 has 15,999, with one empty bin 4. There are no nonempty zero-mass
+bins and no retained ages above 50,000 BP. Negative age cells number
+27,698 and 27,555; their signs are preserved.
+
+| Frozen predictor | Mean MAE conditional on 31,999 complete draws | Strict lowest score / all 32,000 draws |
+| --- | ---: | ---: |
+| training_mean | 0.077614769 | 0 / 32000 |
+| nearest_site | 0.067714620 | 31999 / 32000 |
+| inverse_distance_squared | 0.077477830 | 0 / 32000 |
+| clr_rbf_ridge | 0.075164340 | 0 / 32000 |
+
+The [compact result](sampler-accuracy-result.json) retains full-precision
+descriptors, quantiles, diagnostic summaries, per-chain populations, exact
+source/commands and the independent result. Means and quantiles condition on
+complete scoring support; the undefined draw retains probability **1/32,000**.
+All four predictors remain exposed development comparisons on fixed counts,
+training fits, sixteen labels and four equally weighted windows. The rows are
+dependent states from two trajectories, not 32,000 independent observations;
+their score quantiles are not field confidence intervals. Passing numerical
+diagnostics supports only this declared sampler/profile and saved precision.
+No true age, independent vegetation, untouched confirmation, shared
+calibration-curve uncertainty or additional basin/taxon admission is supplied.
+
+The independent command reads the existing outputs and fits no model:
+
+```sh
+PYTHONPATH=packages/bijux-pollenomics-dev PYTHONDONTWRITEBYTECODE=1 \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /usr/bin/time -l .venv/bin/python -B -m \
+  tests.source_completion.pollen_age_support.abborrtjarnen_bacon.test_sampler_accuracy_result \
+  --repository "$PWD" \
+  --directory "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/independent-check/verified-result.json"
+```
+
+That output path already exists in the retained execution; a deliberate fresh
+observer check must use an absent destination. Actual stdout, stderr and
+execution facts stay beside the native and independent outputs, including both
+failed attempts. The source fix also passed 33 affected controls, configured
+Ruff and strict mypy. This result required no additional fit to repair metadata.
