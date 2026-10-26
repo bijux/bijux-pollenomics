@@ -11,7 +11,6 @@ import re
 from typing import Any
 import xml.etree.ElementTree as ET
 
-
 FAMILY = Path("docs/report/source-relations/neotoma/swedish-cohort-availability")
 RELATIONAL = Path("data/neotoma/relational")
 PANGAEA_NAMESPACE = "{http://www.pangaea.de/MetaData}"
@@ -182,6 +181,85 @@ def _pangaea_title(hit: dict[str, Any]) -> str:
     return title.text
 
 
+def _garasel_prior_processing(
+    repository: Path, declared: dict[str, Any]
+) -> dict[str, Any]:
+    """Read identity and completed-processing metadata, never a target workbook."""
+    evidence = declared["prior_processing_evidence"]
+    expected_paths = {
+        "crosswalk": "data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv",
+        "census": "reports/science/publication-correspondence/rootsi-feature-census/report.json",
+    }
+    paths = {}
+    for role, expected in expected_paths.items():
+        item = evidence[role]
+        if item["path"] != expected:
+            raise ValueError("prior-processing metadata path changed")
+        path = repository / expected
+        if path.is_symlink() or not path.is_file() or _sha(path) != item["sha256"]:
+            raise ValueError("prior-processing metadata identity changed")
+        paths[role] = path
+    census = _read_json(paths["census"])
+    if census["canonical_crosswalk"] != evidence["crosswalk"]:
+        raise ValueError("census and crosswalk source identities differ")
+    with paths["crosswalk"].open(encoding="utf-8", newline="") as stream:
+        identities = [
+            row
+            for row in csv.DictReader(stream)
+            if row["rootsi_sequence_label_raw"].upper() == "GARASEL"
+        ]
+    if len(identities) != 1:
+        raise ValueError("GARASEL crosswalk identity is missing or duplicated")
+    identity = identities[0]
+    member = identity["typed_workbook_member"]
+    entries = [row for row in census["workbooks"] if row["archive_member"] == member]
+    if len(entries) != 1 or member != "rootsi/GARASEL.xls":
+        raise ValueError("GARASEL prior-processing workbook identity differs")
+    entry = entries[0]
+    if (
+        entry["sha256"] != identity["typed_workbook_sha256"]
+        or entry["bytes"] != int(identity["typed_workbook_bytes"])
+        or entry["metadata_source_locator"] != identity["rootsi_source_locator"]
+        or entry["status"] != "computed"
+        or entry["value_origin"]
+        != "decoded cached values; literal/formula origin unavailable"
+    ):
+        raise ValueError("GARASEL completed numeric-processing evidence differs")
+    return {
+        "status": "prior_numeric_source_processing_recorded",
+        "workbook_member": member,
+        "workbook_sha256": entry["sha256"],
+        "workbook_bytes": entry["bytes"],
+        "sheet": entry["sheet"],
+        "metadata_source_locator": identity["rootsi_source_locator"],
+        "site_name_raw": identity["rootsi_site_name_raw"],
+        "latitude_raw": identity["rootsi_latitude_raw"],
+        "longitude_raw": identity["rootsi_longitude_raw"],
+        "completed_census_source_commit": census["source_commit"],
+        "evidence_inputs": evidence,
+        "processing_scope": entry["value_origin"],
+        "fitting_or_tuning_exposure": "not_established_by_these_records",
+        "target_measurement_values_opened_by_this_check": False,
+    }
+
+
+def _prior_processing_facet(
+    lead: dict[str, Any], exposure: dict[str, Any]
+) -> dict[str, Any]:
+    """Known previous processing cannot become untouched through metadata repair."""
+    if lead["core_handle"].upper() != "GARASEL":
+        return lead
+    if exposure.get("status") != "prior_numeric_source_processing_recorded":
+        raise ValueError("GARASEL prior-processing evidence is unavailable")
+    return {
+        **lead,
+        "decision": "refused_as_untouched_prior_numeric_source_processing",
+        "prior_source_processing": exposure,
+        "untouched_confirmation_eligible": False,
+        "untouched_status_restored_by_age_or_rights_repair": False,
+    }
+
+
 def _epd_age_events(path: Path) -> set[str]:
     events: set[str] = set()
     for line in path.read_text(encoding="utf-8").splitlines():
@@ -199,6 +277,7 @@ def _epd_screen(
     repository: Path, private_root: Path, declared: dict[str, Any]
 ) -> dict[str, Any]:
     manifest, root = _epd_sources(declared, private_root)
+    prior_processing = _garasel_prior_processing(repository, declared)
     retained_handles = _retained_core_handles(repository, declared)
     search = _read_json(root / "pangaea-sweden-pollen-profiles.json")
     if (
@@ -296,23 +375,26 @@ def _epd_screen(
         ):
             raise ValueError(f"retained Swedish core country posture changed: {handle}")
         leads.append(
-            {
-                "core_handle": handle,
-                "pangaea_pollen_doi": f"10.1594/PANGAEA.{doi_id}",
-                "age_determination_metadata_dois": [
-                    f"10.1594/PANGAEA.{item}" for item in dated_controls
-                ],
-                "profile_license": profile.get("license"),
-                "profile_conditions_of_access": profile.get("conditionsOfAccess"),
-                "retained_neotoma_identity": retained,
-                "in_checked_epd_final_age_events": False,
-                "selected_sample_age_sequence_identified": False,
-                "decision": (
-                    "refused_as_fresh_retained_core_country_unassigned"
-                    if retained is not None
-                    else "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
-                ),
-            }
+            _prior_processing_facet(
+                {
+                    "core_handle": handle,
+                    "pangaea_pollen_doi": f"10.1594/PANGAEA.{doi_id}",
+                    "age_determination_metadata_dois": [
+                        f"10.1594/PANGAEA.{item}" for item in dated_controls
+                    ],
+                    "profile_license": profile.get("license"),
+                    "profile_conditions_of_access": profile.get("conditionsOfAccess"),
+                    "retained_neotoma_identity": retained,
+                    "in_checked_epd_final_age_events": False,
+                    "selected_sample_age_sequence_identified": False,
+                    "decision": (
+                        "refused_as_fresh_retained_core_country_unassigned"
+                        if retained is not None
+                        else "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+                    ),
+                },
+                prior_processing,
+            )
         )
     generic = _read_json(root / "pangaea-schonen-pollen-metadata.jsonld")
     if generic["identifier"] != "https://doi.org/10.1594/PANGAEA.761854":
@@ -453,7 +535,7 @@ def replay(repository: Path, private_root: Path) -> dict[str, Any]:
             },
         ],
         "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
-        "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces.",
+        "scope": "This current availability check reads metadata only, including prior-processing identity metadata; no target pollen measurements are opened. Known previous numeric processing is not erased by a new metadata-only check. A genuinely unexposed physical site must satisfy the original grouping, input and prediction-freeze requirements.",
         "epd_metadata_screen": _epd_screen(repository, private_root, declared),
     }
 
