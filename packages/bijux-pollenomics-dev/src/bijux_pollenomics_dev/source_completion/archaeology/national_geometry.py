@@ -10,6 +10,9 @@ import sqlite3
 import time
 from typing import TextIO, cast
 
+import numpy as np
+import pyproj
+
 from bijux_pollenomics.collection.sources.raa.geometry.rows import (
     iter_geometry_documents,
 )
@@ -48,7 +51,8 @@ def scan(
     checks = byte_count = occurrences = 0
     for document in iter_geometry_documents(connection):
         if document["kind"] == "source_profile":
-            crs = cast(dict[str, object], document["crs"])
+            crs = dict(cast(dict[str, object], document["crs"]))
+            crs["pyproj_version_scope"] = "runtime_dependency_recorded_in_report"
             continue
         if document["kind"] == "summary":
             summary = document
@@ -138,6 +142,11 @@ def scan(
     return {
         "native_geometry_summary": summary,
         "crs": crs,
+        "runtime_versions": {
+            "numpy": np.__version__,
+            "pyproj": pyproj.__version__,
+            "proj": pyproj.proj_version_str,
+        },
         "independent_status_cross_counts": {
             key: dict(sorted(value.items())) for key, value in crossed.items()
         },
