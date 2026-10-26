@@ -296,6 +296,15 @@ def main() -> None:
     entry = Path(__file__).resolve()
     helpers = entry.parent / "abborrtjarnen_age_ppe"
     paths = [entry, *sorted(helpers.glob("independent_*.py"))]
+    counts = entry.parent / "abborrtjarnen_source_counts"
+    paths.extend(
+        counts / name
+        for name in (
+            "independent_controls.py",
+            "independent_sources.py",
+            "independent_result.py",
+        )
+    )
     relative = [str(path.relative_to(repository)) for path in paths]
     prefix = ["git", "-C", str(repository)]
     subprocess.run(
@@ -331,8 +340,16 @@ def main() -> None:
         check=True,
         capture_output=True,
     )
+    if (
+        subprocess.check_output([*prefix, "rev-parse", "HEAD"], text=True).strip()
+        != revision
+    ):
+        raise ValueError("Observer source revision changed during observation")
+    body = json.dumps(checked, indent=2, allow_nan=False) + "\n"
+    if len(body.encode()) > 1000000:
+        raise ValueError("Independent result exceeds declared output budget")
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(checked, indent=2, allow_nan=False) + "\n")
+    output.write_text(body)
     print(json.dumps(checked, sort_keys=True))
 
 

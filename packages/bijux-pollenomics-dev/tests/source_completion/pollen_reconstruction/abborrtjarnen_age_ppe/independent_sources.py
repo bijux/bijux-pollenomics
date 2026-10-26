@@ -102,7 +102,13 @@ def native_samples(source_root: Path) -> dict[int, Sample]:
     return result
 
 
-def check_accounts(saved: list[dict[str, Any]], samples: dict[int, Sample]) -> None:
+def check_accounts(
+    saved: list[dict[str, Any]],
+    samples: dict[int, Sample],
+    *,
+    analytical: dict[int, Sample] | None = None,
+    support: list[dict[str, Any]] | None = None,
+) -> None:
     """Validate the complete native census without importing a selection mask."""
     if len(saved) != len(samples) or {r["sample_id"] for r in saved} != set(samples):
         raise ValueError("Saved native sample census differs")
@@ -112,7 +118,7 @@ def check_accounts(saved: list[dict[str, Any]], samples: dict[int, Sample]) -> N
             name for name, n in zip(AXIS, sample.panel, strict=True) if n is None
         ]
         subtotal = sum(n for n in sample.panel if n is not None)
-        expected = {
+        expected: dict[str, Any] = {
             "sample_id": sample.sample_id,
             "depth_native": sample.depth,
             "source_point_age_bp": sample.point_age,
@@ -123,6 +129,21 @@ def check_accounts(saved: list[dict[str, Any]], samples: dict[int, Sample]) -> N
             "all_reported_pollen_nisp": sample.reported_nisp,
             "omitted_reported_pollen_nisp": sample.reported_nisp - subtotal,
         }
+        if analytical is not None:
+            active = analytical[sample.sample_id]
+            expected.update(
+                analytical_missing_taxa=[
+                    name
+                    for name, n in zip(AXIS, active.panel, strict=True)
+                    if n is None
+                ],
+                analytical_panel_mass=sum(n for n in active.panel if n is not None),
+                source_recorded_zero_support=[
+                    row
+                    for row in support or []
+                    if row["native_sample_id"] == sample.sample_id
+                ],
+            )
         if actual != expected:
             raise ValueError("Saved native sample measurement account differs")
 

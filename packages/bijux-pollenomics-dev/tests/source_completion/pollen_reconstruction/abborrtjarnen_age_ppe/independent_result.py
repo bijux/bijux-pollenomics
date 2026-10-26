@@ -12,6 +12,12 @@ from typing import Any
 
 import numpy as np
 
+from .independent_count_profiles import (
+    NATIVE_PROFILE,
+    SOURCE_PROFILE,
+    SOURCE_PROTOCOL,
+    prepare_recorded_profile,
+)
 from .independent_ledger import Observation, close, observe_ledger
 from .independent_sources import (
     AXIS,
@@ -197,7 +203,10 @@ def check_moments(result: dict[str, Any], observed: Observation) -> dict[str, An
 
 
 def input_identities(
-    repository: Path, source_root: Path, protocol: dict[str, Any]
+    repository: Path,
+    source_root: Path,
+    protocol: dict[str, Any],
+    profile: dict[str, Any] | None = None,
 ) -> dict[str, str]:
     """Bind external observations and the already qualified saved-age products."""
     source = json.loads((repository / protocol["source_profile"]).read_text())
@@ -207,7 +216,11 @@ def input_identities(
         (
             "repository",
             repository,
-            {**source["repository_files"], **protocol["repository_inputs"]},
+            {
+                **source["repository_files"],
+                **protocol["repository_inputs"],
+                **(profile["repository_inputs"] if profile is not None else {}),
+            },
         ),
     ):
         for relative, pin in pins.items():
@@ -245,7 +258,31 @@ def verify_result(
         or result["status"] != "conditional_age_count_ppe_delta_mixture"
     ):
         raise ValueError("Saved first-order mixture profile differs")
-    identities = input_identities(repository, source_root, protocol)
+    profile_bytes = None
+    profile = None
+    count_profile = result.get("count_profile", NATIVE_PROFILE)
+    if count_profile not in (NATIVE_PROFILE, SOURCE_PROFILE):
+        raise ValueError("Unknown analytical count profile")
+    if count_profile == SOURCE_PROFILE:
+        profile_bytes = (repository / SOURCE_PROTOCOL).read_bytes()
+        profile = json.loads(profile_bytes)
+        committed_profile = subprocess.check_output(
+            [
+                "git",
+                "-C",
+                str(repository),
+                "show",
+                f"{result['source_commit']}:{SOURCE_PROTOCOL}",
+            ]
+        )
+        if (
+            profile_bytes != committed_profile
+            or profile["count_profile"] != SOURCE_PROFILE
+            or profile["base_protocol"] != str(PROTOCOL)
+            or profile["default_count_profile"] != NATIVE_PROFILE
+        ):
+            raise ValueError("Frozen source-supported count profile differs")
+    identities = input_identities(repository, source_root, protocol, profile)
     if result["input_sha256"] != identities or result["model_fits"] != 0:
         raise ValueError("Saved scientific identity or no-fit contract differs")
     axis = [
@@ -256,7 +293,17 @@ def verify_result(
     if result["component_axis"] != axis:
         raise ValueError("Saved twenty-component identity differs")
     samples = native_samples(source_root)
-    check_accounts(result["sample_accounts"], samples)
+    analytical, support = samples, None
+    if profile is not None:
+        analytical, support = prepare_recorded_profile(
+            repository, source_root, profile, result, samples, identities
+        )
+    check_accounts(
+        result["sample_accounts"],
+        samples,
+        analytical=analytical if profile is not None else None,
+        support=support,
+    )
     ppe, sd = public_parameters(repository, result["parameters"])
     baseline = json.loads(
         (repository / protocol["physical_response_input"]).read_text()
@@ -273,16 +320,33 @@ def verify_result(
         or np.any(response <= 0)
     ):
         raise ValueError("Conditional transport factors differ")
-    observed = observe_ledger(
-        repository,
-        protocol,
-        result_path,
-        result["draw_ledger"],
-        samples,
-        response,
-        ppe,
-        sd,
-    )
+    profile_checked: dict[str, Any] = {}
+    if profile is None:
+        observed = observe_ledger(
+            repository,
+            protocol,
+            result_path,
+            result["draw_ledger"],
+            samples,
+            response,
+            ppe,
+            sd,
+        )
+    else:
+        from .independent_profile_comparison import observe_source_ledger
+
+        observed, profile_checked = observe_source_ledger(
+            repository,
+            profile,
+            protocol,
+            result_path,
+            result,
+            samples,
+            analytical,
+            response,
+            ppe,
+            sd,
+        )
     checked = check_moments(result, observed)
     for actual, (seed, moments) in zip(
         result["chain_summaries"], observed.chains.items(), strict=True
@@ -314,7 +378,15 @@ def verify_result(
         or not 0 <= control["maximum_absolute_gap"] <= 1e-12
     ):
         raise ValueError("Frozen-age source control failed")
-    if input_identities(repository, source_root, protocol) != identities:
+    if (
+        input_identities(repository, source_root, protocol, profile) != identities
+        or result_path.read_bytes() != result_bytes
+        or (repository / PROTOCOL).read_bytes() != protocol_bytes
+        or (
+            profile_bytes is not None
+            and (repository / SOURCE_PROTOCOL).read_bytes() != profile_bytes
+        )
+    ):
         raise ValueError("Scientific inputs changed during observation")
     return {
         "status": "passed",
@@ -326,5 +398,6 @@ def verify_result(
         "undefined_rows": observed.rows - observed.complete,
         "maximum_ledger_cover_gap": observed.maximum_cover_gap,
         **checked,
+        **profile_checked,
         "model_fits": 0,
     }

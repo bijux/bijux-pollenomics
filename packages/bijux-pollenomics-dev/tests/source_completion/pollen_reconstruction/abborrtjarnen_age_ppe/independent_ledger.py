@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Callable
 import csv
 from dataclasses import dataclass
 from functools import lru_cache
@@ -80,6 +81,12 @@ def observe_ledger(
     response: np.ndarray,
     ppe: np.ndarray,
     sd: np.ndarray,
+    *,
+    comparison: Callable[
+        [dict[str, str], np.ndarray, tuple[int, ...], tuple[Membership, ...]], None
+    ]
+    | None = None,
+    additional_fields: tuple[str, ...] = (),
 ) -> Observation:
     """Stream source ages and saved ledgers together, retaining all multiplicities."""
     path = Path(ledger["path"])
@@ -140,6 +147,7 @@ def observe_ledger(
                 )
             )
             expected_fields.update(f"cover_{b}_{taxon_id}" for taxon_id in TAXON_IDS)
+        expected_fields.update(additional_fields)
         if (
             records.fieldnames is None
             or len(records.fieldnames) != len(expected_fields)
@@ -170,6 +178,8 @@ def observe_ledger(
                     ):
                         raise ValueError("Saved chain/native-row identity differs")
                     windows = memberships(ages, ids, samples)
+                    if comparison is not None:
+                        comparison(row, ages, ids, windows)
                     complete = all(w.status == "defined" for w in windows)
                     if row["complete"] != str(int(complete)):
                         raise ValueError("Saved five-axis complete event differs")
