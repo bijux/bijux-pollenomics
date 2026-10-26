@@ -403,3 +403,28 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
   --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay" \
   --sampler-accuracy
 ```
+
+The committed replay at `8628c543483fcb87586430c6585ee2a2834f4fbc` (session
+60038) terminated with exit 0 in 87.14 s process time; the native command took
+83.843243 s and measured peak RSS was 1,124,958,208 bytes. Both original byte
+prefixes matched. The recorded age/memory diagnostics have maximum upper
+Gelman 1.025681215 and minimum ESS 1467.479769; free-parameter/energy values
+are 1.024460519 and 1249.472597. All unchanged scalar gates pass. Of 32,000
+requested draws, 31,999 have complete four-bin support; the remaining draw
+stays refused and remains in the all-draw denominator. The original failed
+8,000-state result is unchanged. Independent consumer verification is pending
+the explicit report-metadata reconciliation below.
+
+The replay exposed a writer-field defect: the computed value was written as
+`diagnostics_pass: true`, leaving initialized `diagnostics_passed: false`.
+Scoring used the computed diagnostic booleans, not that unused default. The
+strict saved-result observer (session 33940) correctly refused the contradictory
+flags after its native/age checks: exit 1, 2.03 s, RSS 207,192,064 bytes. Its
+literal failure remains in `independent-check/strict-stderr.txt`; no result
+JSON was fabricated. The original 23,070-byte report remains unchanged, SHA-256
+`1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf`.
+The maintained writer now populates the intended key. The observer explicitly
+records the conflict for this exact producing revision while independently
+enforcing every original prefix, diagnostic CSV, resource and score condition;
+it does not silently treat the contradictory metadata as a clean report. No
+model rerun, change of scientific criteria or rewrite of saved results follows.

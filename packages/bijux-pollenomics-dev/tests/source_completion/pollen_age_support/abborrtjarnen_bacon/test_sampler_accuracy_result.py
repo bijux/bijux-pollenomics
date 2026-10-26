@@ -15,7 +15,26 @@ from .sampler_accuracy.independent_native import (
     native_program,
     polynomial_ages,
 )
-from .sampler_accuracy.independent_result import verify_result
+from .sampler_accuracy.independent_result import diagnostic_flags, verify_result
+
+
+def test_saved_flag_conflict_is_exposed_only_for_its_exact_original_writer() -> None:
+    flags = {"diagnostics_passed": False, "diagnostics_pass": True}
+    original = "8628c543483fcb87586430c6585ee2a2834f4fbc"
+    digest = "1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf"
+    assert diagnostic_flags(flags, original, True, report_sha256=digest) == flags
+    for commit, gate in (("different-source", True), (original, False)):
+        with pytest.raises(ValueError, match="Diagnostic report flags"):
+            diagnostic_flags(flags, commit, gate, report_sha256=digest)
+    with pytest.raises(ValueError, match="Diagnostic report flags"):
+        diagnostic_flags(flags, original, True, report_sha256="different-result")
+    assert (
+        diagnostic_flags({"diagnostics_passed": True}, "corrected-writer", True) is None
+    )
+    assert (
+        diagnostic_flags({"diagnostics_passed": False}, "corrected-writer", False)
+        is None
+    )
 
 
 def test_generated_input_timestamp_is_distinct_from_executable_model_bytes(

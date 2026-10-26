@@ -269,7 +269,7 @@ def run(
         result["sampler_accuracy_qualification"].update(
             prefix_checks=checks,
             prefixes_passed=prefixes_passed,
-            diagnostics_pass=diagnostics_pass,
+            diagnostics_passed=diagnostics_pass,
             qualified=qualified,
             score_interpretation_permitted=qualified,
         )

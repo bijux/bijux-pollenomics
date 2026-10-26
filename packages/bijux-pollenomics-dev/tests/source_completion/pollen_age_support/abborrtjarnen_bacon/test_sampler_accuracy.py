@@ -230,6 +230,10 @@ def test_scores_wait_for_both_prefixes_and_all_diagnostics(
         tmp_path, tmp_path, library, oracle, output, sampler_accuracy=True
     )
     assert result["requested_draws"] == 32000
+    assert result["sampler_accuracy_qualification"]["diagnostics_passed"] is (
+        failed_gate != "diagnostics"
+    )
+    assert "diagnostics_pass" not in result["sampler_accuracy_qualification"]
     assert result["sampler_accuracy_qualification"][
         "score_interpretation_permitted"
     ] is (failed_gate is None)

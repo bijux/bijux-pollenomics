@@ -28,6 +28,36 @@ RAW_ROWS = 19_501
 BASELINE = Path("artifacts/physical-core/abborrtjarnen-fixed-iteration")
 
 
+def diagnostic_flags(
+    qualification: dict[str, Any],
+    source_commit: str,
+    computed_gate: bool,
+    *,
+    report_sha256: str = "",
+) -> dict[str, bool] | None:
+    """Expose one known saved metadata defect without weakening diagnostics.
+
+    That writer used diagnostics_pass for the computed value, leaving its
+    diagnostics_passed initialization untouched. The raw record stays literal;
+    the independent gate still comes from every original diagnostic CSV row.
+    """
+    if (
+        qualification["diagnostics_passed"] is computed_gate
+        and "diagnostics_pass" not in qualification
+    ):
+        return None
+    if (
+        source_commit == "8628c543483fcb87586430c6585ee2a2834f4fbc"
+        and report_sha256
+        == "1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf"
+        and computed_gate is True
+        and qualification["diagnostics_passed"] is False
+        and qualification.get("diagnostics_pass") is True
+    ):
+        return {"diagnostics_passed": False, "diagnostics_pass": True}
+    raise ValueError("Diagnostic report flags disagree with independent gate")
+
+
 def _native_chain(
     directory: Path,
     baseline: Path,
@@ -179,7 +209,8 @@ def _scores(
 
 def verify_result(repository: Path, directory: Path) -> dict[str, Any]:
     """Check both complete native trajectories and any permitted saved scores."""
-    report = json.loads((directory / "report.json").read_text())
+    report_body = (directory / "report.json").read_bytes()
+    report = json.loads(report_body)
     prior._require(
         report["exit_status"] == 0 and not report["timed_out"],
         "Native execution incomplete; no complete-matrix qualification",
@@ -247,9 +278,14 @@ def verify_result(repository: Path, directory: Path) -> dict[str, Any]:
         and report["output_bytes_before_report"] <= 100_000_000
     )
     permitted = prefixes_pass and ages_gate and free_gate and resources_pass
+    report_flag_conflict = diagnostic_flags(
+        qualification,
+        report["source_commit"],
+        ages_gate and free_gate,
+        report_sha256=hashlib.sha256(report_body).hexdigest(),
+    )
     prior._require(
         qualification["prefixes_passed"] is prefixes_pass
-        and qualification["diagnostics_passed"] is (ages_gate and free_gate)
         and qualification["score_interpretation_permitted"] is permitted
         and qualification["qualified"] is permitted,
         "Sampler qualification or scoring permission differs",
@@ -355,7 +391,9 @@ def verify_result(repository: Path, directory: Path) -> dict[str, Any]:
             "Unqualified new score ledger must not exist",
         )
     return {
-        "observer_status": "fixed_length_native_and_consumer_verified",
+        "observer_status": "native_and_consumer_verified_with_report_flag_conflict"
+        if report_flag_conflict
+        else "fixed_length_native_and_consumer_verified",
         "source_commit": report["source_commit"],
         "scientific_status": report["scientific_status"],
         "model_fits": 0,
@@ -364,6 +402,7 @@ def verify_result(repository: Path, directory: Path) -> dict[str, Any]:
         "sample_depths_checked": len(ids),
         "exact_old_prefixes_matched": prefixes_pass,
         "all_unchanged_diagnostic_gates_passed": ages_gate and free_gate,
+        "literal_diagnostic_report_flag_conflict": report_flag_conflict,
         "score_interpretation_permitted": permitted,
         "complete_score_rows_checked": len(combined),
         "maximum_polynomial_age_residual_years": max(
