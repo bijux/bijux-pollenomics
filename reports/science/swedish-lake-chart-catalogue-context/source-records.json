@@ -1,0 +1,451 @@
+{
+  "scope": "archival_source_catalogue_context_only",
+  "source": {
+    "publisher": "SMHI",
+    "title": "Svenskt Vattenarkiv. Sjökartor och sjöuppgifter. Register 1987",
+    "series": "SMHI Hydrologi",
+    "report_number": 15,
+    "publication_year": 1987,
+    "authors": [
+      "Torbjörn Lindkvist",
+      "Håkan Danielsson"
+    ],
+    "copyright_declaration": "© SMHI 1987",
+    "url": "https://www.smhi.se/download/18.18f5a56618fc9f08e832bab2/1717803129630/Hydrologi_15%20Sj%C3%B6karte-%20och%20sj%C3%B6uppgifter.%20Register%201987..pdf",
+    "canonical_source_relative_path": "hydrology/smhi/hydrologi-15-register-1987/hydrologi-15-register-1987.pdf",
+    "bytes": 4226310,
+    "sha256": "b29f4ca2a847a4dc785d3738603e46817aa130c55c061b2d614d48857edc1fd3",
+    "capture_manifest_relative_path": "hydrology/smhi/hydrologi-15-register-1987/capture-manifest.json",
+    "capture_manifest_sha256": "39726836b76d603f00b1cb8a144d7e12d606392ba768c0aeaa0a73a586ba3354"
+  },
+  "source_definition_and_limits": {
+    "catalogue_availability_epoch": "Charts held at SMHI in spring 1987; current chart availability is not established.",
+    "year_column": "Chart-drawing year, not survey year. Publication year 1987 is not substituted for the blank cell or a measurement date.",
+    "water_level": "The report explains that lake quantities depend on water level; no lake-specific reference level is established by these rows.",
+    "general_error_comment": "The catalogue gives a general estimated table error of about ±10%. It is not a lake-specific uncertainty estimate or probability law.",
+    "lake_specific_error": null,
+    "confidence_interval": null,
+    "actual_chart_or_bathymetric_grid_inspected": false,
+    "row_multiplicity": "Each catalogue chart remains a separate row. Shared lake identity does not make charts independent measurements or justify a selected or averaged depth."
+  },
+  "http_delivery": {
+    "request_utc_start": "2026-10-26T19:28:28.562806+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "declared_content_length": 4226310,
+    "last_modified": "Fri, 07 Jun 2024 23:32:09 GMT",
+    "date_interpretation": "HTTP delivery metadata, not chart-drawing year or measurement date.",
+    "original_wrapper_exit": 1,
+    "original_manifest_body_complete": false,
+    "original_terminal_status": "refused_transport_or_bound",
+    "original_error_type": "AttributeError",
+    "original_error_literal": "'NoneType' object has no attribute 'raw'",
+    "failure_context": "After retaining the declared byte length, the downloader tried to set a timeout through an already closed response. The original failed capture manifest remains unchanged."
+  },
+  "offline_retained_body_verification": {
+    "artifact": "artifacts/physical-core/smhi-hydrologi-15-register-1987/offline-body-check.json",
+    "retained_bytes_match_declared_length": true,
+    "hash_matches_original_capture": true,
+    "pdf_header": "%PDF-1.7",
+    "pdf_eof_in_final_32_bytes": true,
+    "pdfinfo_exit": 0,
+    "pdf_pages": 180,
+    "second_http_get_performed": false
+  },
+  "visual_source_verification": {
+    "method": "Independent direct comparison with the rendered publication, table-definition and all three positive lake-row pages.",
+    "result": "passed",
+    "page_image_directory": "artifacts/physical-core/smhi-hydrologi-15-register-1987",
+    "page_images": [
+      "page-index-002.png",
+      "page-index-027.png",
+      "page-index-085.png",
+      "page-index-086.png",
+      "page-index-087.png"
+    ],
+    "scope": "Source transcription and blank-cell meaning; no qualified field or ecological decision is inferred."
+  },
+  "reuse_scope": "Factual catalogue transcription with attribution. No report-specific open licence was established; no CC BY grant, redistribution of the PDF/chart/grid, or permission for the retained lake geometries is inferred.",
+  "admission": {
+    "retained_geometry_authority_changed": false,
+    "historical_basin_established": false,
+    "physical_pollen_core_join_established": false,
+    "field_permission_established": false,
+    "rank_changed": false,
+    "field_decision_changed": false
+  },
+  "schema_version": "swedish-lake-chart-catalogue-context.v1",
+  "scope_counts": {
+    "predeclared_leads": 5,
+    "leads_with_exact_printed_number_matches": 3,
+    "separate_chart_rows": 5,
+    "exact_id_not_found_in_available_text": 1,
+    "lead_without_unique_lake_id": 1
+  },
+  "page_locators": {
+    "publication": {
+      "pdf_zero_based_index": 2,
+      "pdf_page": 3
+    },
+    "table_definitions": {
+      "pdf_zero_based_index": 27,
+      "pdf_page": 28,
+      "printed_page": 26
+    },
+    "finjasjon": {
+      "pdf_zero_based_index": 85,
+      "pdf_page": 86,
+      "printed_page": 84,
+      "section": "88 HELGE Å"
+    },
+    "havgardssjon": {
+      "pdf_zero_based_index": 86,
+      "pdf_page": 87,
+      "printed_page": 85,
+      "section": "90 SEGE Å"
+    },
+    "ostra_ringsjon": {
+      "pdf_zero_based_index": 87,
+      "pdf_page": 88,
+      "printed_page": 86
+    }
+  },
+  "lake_number_definition": {
+    "comparison_rule": "Same two six-digit identifier groups; only the separating space/hyphen differs.",
+    "number_definition": "The catalogue defines lake numbers by outlet X/Y in rikets system, using six digits and 10 m resolution. This is not a lake-centre or sampling-station coordinate.",
+    "coordinate_crs": null,
+    "coordinates_admitted": false
+  },
+  "leads": [
+    {
+      "requested_name": "Finjasjön",
+      "retained_sjoid_hint": "622731-136920",
+      "printed_name": "Finjasjön",
+      "printed_lake_number": "622731 136920",
+      "catalogue_status": "exact_printed_number_match",
+      "chart_references": [
+        "3-0818"
+      ],
+      "current_record": {
+        "url": "https://vattenwebb.smhi.se/svarwebb/?sjoid=622731-136920",
+        "status": "unresolved_in_available_text_reader",
+        "current_svar_version": null,
+        "current_attribute_source": null,
+        "current_bathymetric_fields_verified": false
+      }
+    },
+    {
+      "requested_name": "Östra Ringsjön",
+      "retained_sjoid_hint": "619626-135565",
+      "printed_name": "Östra ringsjön",
+      "printed_lake_number": "619626 135565",
+      "catalogue_status": "exact_printed_number_match",
+      "chart_references": [
+        "3-2176",
+        "3-2177"
+      ],
+      "current_record": {
+        "status": "not_queried",
+        "current_attributes_verified": false
+      }
+    },
+    {
+      "requested_name": "Havgårdssjön",
+      "retained_sjoid_hint": "615365-134524",
+      "printed_name": "Havgårdssjön",
+      "printed_lake_number": "615365 134524",
+      "catalogue_status": "exact_printed_number_match",
+      "chart_references": [
+        "2-0170",
+        "3-1984"
+      ],
+      "current_record": {
+        "status": "not_queried",
+        "current_attributes_verified": false
+      }
+    },
+    {
+      "requested_name": "Bjäresjösjön",
+      "retained_sjoid_hint": "614958-137018",
+      "printed_name": null,
+      "printed_lake_number": null,
+      "catalogue_status": "exact_identifier_not_found_in_available_catalogue_text",
+      "chart_references": [],
+      "current_record": {
+        "status": "not_queried",
+        "current_attributes_verified": false
+      }
+    },
+    {
+      "requested_name": "Uppåkra/Lund",
+      "retained_sjoid_hint": null,
+      "printed_name": null,
+      "printed_lake_number": null,
+      "catalogue_status": "no_unique_lake_identifier",
+      "chart_references": [],
+      "current_record": {
+        "status": "not_queried_no_unique_identifier",
+        "current_attributes_verified": false
+      }
+    }
+  ],
+  "chart_rows": [
+    {
+      "retained_sjoid_hint": "622731-136920",
+      "chart_reference": "3-0818",
+      "page_locator": "finjasjon",
+      "chart_drawing_year": {
+        "value": null,
+        "source_state": "blank_printed_cell"
+      },
+      "chart_scale": {
+        "raw_token": "1:20000",
+        "denominator": 20000,
+        "source_state": "reported"
+      },
+      "area": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "unit": "km2"
+      },
+      "volume": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "printed_unit_header": "Mm³"
+      },
+      "maximum_depth": {
+        "raw_token": "13.2",
+        "value": 13.2,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "mean_depth": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "unit": "m"
+      },
+      "measurement_date": {
+        "value": null,
+        "source_state": "not_reported_by_catalogue_row"
+      },
+      "coupled_volume_area_mean_depth_use": "unqualified_without_source_chart_reference_level_and_meaning"
+    },
+    {
+      "retained_sjoid_hint": "615365-134524",
+      "chart_reference": "2-0170",
+      "page_locator": "havgardssjon",
+      "chart_drawing_year": {
+        "value": null,
+        "source_state": "blank_printed_cell"
+      },
+      "chart_scale": {
+        "raw_token": "1:4000",
+        "denominator": 4000,
+        "source_state": "reported"
+      },
+      "area": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "unit": "km2"
+      },
+      "volume": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "printed_unit_header": "Mm³"
+      },
+      "maximum_depth": {
+        "raw_token": "5.8",
+        "value": 5.8,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "mean_depth": {
+        "raw_token": null,
+        "value": null,
+        "source_state": "blank_printed_cell",
+        "unit": "m"
+      },
+      "measurement_date": {
+        "value": null,
+        "source_state": "not_reported_by_catalogue_row"
+      },
+      "coupled_volume_area_mean_depth_use": "unqualified_without_source_chart_reference_level_and_meaning"
+    },
+    {
+      "retained_sjoid_hint": "615365-134524",
+      "chart_reference": "3-1984",
+      "page_locator": "havgardssjon",
+      "chart_drawing_year": {
+        "value": 1983,
+        "source_state": "reported"
+      },
+      "chart_scale": {
+        "raw_token": "1:10000",
+        "denominator": 10000,
+        "source_state": "reported"
+      },
+      "area": {
+        "raw_token": "0.540",
+        "value": 0.54,
+        "source_state": "reported",
+        "unit": "km2"
+      },
+      "volume": {
+        "raw_token": "1.670",
+        "value": 1.67,
+        "source_state": "reported",
+        "printed_unit_header": "Mm³"
+      },
+      "maximum_depth": {
+        "raw_token": "5.0",
+        "value": 5.0,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "mean_depth": {
+        "raw_token": "3.1",
+        "value": 3.1,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "measurement_date": {
+        "value": null,
+        "source_state": "not_reported_by_catalogue_row"
+      },
+      "coupled_volume_area_mean_depth_use": "unqualified_without_source_chart_reference_level_and_meaning"
+    },
+    {
+      "retained_sjoid_hint": "619626-135565",
+      "chart_reference": "3-2176",
+      "page_locator": "ostra_ringsjon",
+      "chart_drawing_year": {
+        "value": 1982,
+        "source_state": "reported"
+      },
+      "chart_scale": {
+        "raw_token": null,
+        "denominator": null,
+        "source_state": "blank_printed_cell"
+      },
+      "area": {
+        "raw_token": "20.220",
+        "value": 20.22,
+        "source_state": "reported",
+        "unit": "km2"
+      },
+      "volume": {
+        "raw_token": "1.247",
+        "value": 1.247,
+        "source_state": "reported",
+        "printed_unit_header": "Mm³"
+      },
+      "maximum_depth": {
+        "raw_token": "16.4",
+        "value": 16.4,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "mean_depth": {
+        "raw_token": "6.2",
+        "value": 6.2,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "measurement_date": {
+        "value": null,
+        "source_state": "not_reported_by_catalogue_row"
+      },
+      "coupled_volume_area_mean_depth_use": "unqualified_without_source_chart_reference_level_and_meaning"
+    },
+    {
+      "retained_sjoid_hint": "619626-135565",
+      "chart_reference": "3-2177",
+      "page_locator": "ostra_ringsjon",
+      "chart_drawing_year": {
+        "value": 1982,
+        "source_state": "reported"
+      },
+      "chart_scale": {
+        "raw_token": null,
+        "denominator": null,
+        "source_state": "blank_printed_cell"
+      },
+      "area": {
+        "raw_token": "4.250",
+        "value": 4.25,
+        "source_state": "reported",
+        "unit": "km2"
+      },
+      "volume": {
+        "raw_token": "0.136",
+        "value": 0.136,
+        "source_state": "reported",
+        "printed_unit_header": "Mm³"
+      },
+      "maximum_depth": {
+        "raw_token": "17.5",
+        "value": 17.5,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "mean_depth": {
+        "raw_token": "3.2",
+        "value": 3.2,
+        "source_state": "reported",
+        "unit": "m"
+      },
+      "measurement_date": {
+        "value": null,
+        "source_state": "not_reported_by_catalogue_row"
+      },
+      "coupled_volume_area_mean_depth_use": "unqualified_without_source_chart_reference_level_and_meaning"
+    }
+  ],
+  "identifier_search": {
+    "method": "Exact two-part lake-number search of the retained catalogue text; positive rows also compared with source page images. No nearby-name or alias substitution.",
+    "negative_result_limit": "An absent exact text match does not establish lake absence, source absence or exhaustive visual absence in this OCR-bearing publication.",
+    "uppakra_limit": "No unique lake identifier supplied; no substitute lake or archaeological parcel inferred."
+  },
+  "conditional_volume_area_check": {
+    "unit_interpretation": "Only for this arithmetic check, interpret printed volume header Mm³ as million cubic metres and area km² as million square metres, so V/A has units m. This is not a qualified coupled use of those lake quantities.",
+    "rows": [
+      {
+        "chart": "3-1984",
+        "area_raw_km2": "0.540",
+        "volume_raw_Mm3": "1.670",
+        "unit_interpretation": "Mm3 interpreted as million cubic metres; km2 as million square metres",
+        "mean_depth_raw_m": "3.1",
+        "exact_volume_area_ratio_m": "167/54",
+        "volume_area_ratio_m": 3.0925925925925926,
+        "printed_mean_matches_rounding_to_one_decimal": true
+      },
+      {
+        "chart": "3-2176",
+        "area_raw_km2": "20.220",
+        "volume_raw_Mm3": "1.247",
+        "unit_interpretation": "Mm3 interpreted as million cubic metres; km2 as million square metres",
+        "mean_depth_raw_m": "6.2",
+        "exact_volume_area_ratio_m": "1247/20220",
+        "volume_area_ratio_m": 0.06167161226508407,
+        "printed_mean_matches_rounding_to_one_decimal": false
+      },
+      {
+        "chart": "3-2177",
+        "area_raw_km2": "4.250",
+        "volume_raw_Mm3": "0.136",
+        "unit_interpretation": "Mm3 interpreted as million cubic metres; km2 as million square metres",
+        "mean_depth_raw_m": "3.2",
+        "exact_volume_area_ratio_m": "4/125",
+        "volume_area_ratio_m": 0.032,
+        "printed_mean_matches_rounding_to_one_decimal": false
+      }
+    ],
+    "conclusion": "Havgårdssjön chart 3-1984 supplies a rounding-compatible arithmetic control. Both Östra Ringsjön rows disagree with their printed mean depth under the conditional unit interpretation. The values are visibly printed, not repaired OCR.",
+    "use_posture": "Unqualified for coupled volume/area/mean-depth calculation pending source meaning and actual chart/reference-level evidence; no multiplication by 100, derived replacement, preferred chart, averaging or independent-replicate interpretation."
+  }
+}
