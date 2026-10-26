@@ -93,6 +93,19 @@ dimensions answer different questions. The source-stage matrix's missing HYDE
 row describes governed repository materialization; it does not deny the
 separately retained private archive.
 
+RAÄ also has a separately identified `raa/lamningar-v1` native source-context
+profile. The report preserves that optional `source_context_profile` alongside
+the historical WFS stage. It permits the retained official capture's native
+identities, verbatim fields, relationships and separately typed remains versus
+positional-uncertainty geometry context, under its recorded source-use terms.
+The [national source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/archaeology-native-reconciliation/README.md)
+owns its 764,383-record population and payload qualification. Historical WFS
+density retains its existing inventory, summary and review requirements;
+matching that historical population is not a prerequisite for the separately
+identified native capture. Scientific interpretation, chronology, events and
+publication admission remain false in the native profile, and the country
+cube retains its existing count and availability meanings.
+
 ## Reproduce
 
 From the repository root, use a fresh output directory:

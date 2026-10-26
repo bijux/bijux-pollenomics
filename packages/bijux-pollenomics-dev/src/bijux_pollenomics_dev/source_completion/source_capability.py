@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
@@ -139,6 +140,52 @@ def _verify_parents(repository: Path, specs: tuple[tuple[str, int, str], ...]) -
             raise ValueError(f"Country coverage parent changed: {relative}")
 
 
+def _stage_projection(family: str, source: dict[str, Any]) -> dict[str, Any]:
+    result = {
+        "source_family": family,
+        **{
+            key: source[key]
+            for key in (
+                "evidence_role",
+                "raw_status",
+                "normalized_status",
+                "reviewed_status",
+                "published_status",
+                "authority_status",
+                "blocking_reasons",
+            )
+        },
+    }
+    if "source_context_profile" in source:
+        profile = source["source_context_profile"]
+        if (
+            family != "raa"
+            or not isinstance(profile, dict)
+            or profile.get("source_id") != "raa/lamningar-v1"
+            or profile.get("evidence_role") != "source_context_only"
+            or profile.get("status") not in {"admitted_source_context", "not_admitted"}
+            or any(
+                profile.get(key) is not False
+                for key in (
+                    "scientific_admission",
+                    "chronology_admission",
+                    "event_admission",
+                    "legacy_density_admission",
+                    "publication_admission",
+                    "archaeological_interpretation_admission",
+                )
+            )
+        ):
+            raise ValueError("RAÄ native source context scope changed")
+        if profile["status"] == "admitted_source_context" and (
+            type(profile.get("source_record_count")) is not int
+            or profile["source_record_count"] < 0
+        ):
+            raise ValueError("RAÄ native source context count invalid")
+        result["source_context_profile"] = deepcopy(profile)
+    return result
+
+
 def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
     """Require a complete Cartesian inventory and retain each native dimension."""
     if stage.get("schema_version") != "source-family-evidence-stage-matrix.v2":
@@ -242,17 +289,7 @@ def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
         "country_cells": len(cells),
         "country_entries": entries,
         "source_stages": [
-            {
-                "source_family": family,
-                "evidence_role": by_stage[family]["evidence_role"],
-                "raw_status": by_stage[family]["raw_status"],
-                "normalized_status": by_stage[family]["normalized_status"],
-                "reviewed_status": by_stage[family]["reviewed_status"],
-                "published_status": by_stage[family]["published_status"],
-                "authority_status": by_stage[family]["authority_status"],
-                "blocking_reasons": by_stage[family]["blocking_reasons"],
-            }
-            for family in FAMILIES
+            _stage_projection(family, by_stage[family]) for family in FAMILIES
         ],
         "coverage_build_id": coverage["build_id"],
     }

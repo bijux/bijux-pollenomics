@@ -5,6 +5,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from ....config import DEFAULT_AADR_VERSION
+from ...sources.raa.materialization.context import qualified_raa_context_profile
 from ..capabilities import build_source_capability_audit_payload
 from .authority import _source_authority_state
 from .metrics import _coverage_metrics
@@ -74,6 +75,11 @@ def build_source_family_state_rows(
                     authority_status=authority.status,
                     authority_reasons=authority.reason_codes,
                 ),
+                source_context_profile=(
+                    qualified_raa_context_profile(output_root)
+                    if contract.source_key == "raa"
+                    else None
+                ),
             )
         )
     return tuple(states)
@@ -90,6 +96,9 @@ def build_source_family_state_matrix_payload(
         output_root, counts=counts, version=version
     )
     rows = [asdict(row) for row in state_rows]
+    for row in rows:
+        if row["source_context_profile"] is None:
+            del row["source_context_profile"]
     return {
         "schema_version": "source-family-evidence-stage-matrix.v2",
         "row_count": len(rows),

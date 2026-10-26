@@ -11,6 +11,9 @@ import sqlite3
 import time
 from typing import cast
 
+from bijux_pollenomics.collection.sources.raa.materialization.context import (
+    open_raa_source_context,
+)
 from bijux_pollenomics.collection.sources.raa.materialization.contracts import (
     SOURCE_COLUMNS,
 )
@@ -20,7 +23,6 @@ from bijux_pollenomics.collection.sources.raa.materialization.ownership import (
 )
 from bijux_pollenomics.collection.sources.raa.materialization.reading import (
     quote_identifier,
-    read_only_database,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
     require_absent_artifact_output,
@@ -186,16 +188,14 @@ def main() -> int:
         (root / "data/raa/normalized/sweden_archaeology_layer.json").read_bytes()
     )
     started = time.monotonic()
-    with read_only_database(
-        args.source,
-        expected_sha256=descriptor["sha256"],
-        expected_byte_count=descriptor["byte_count"],
-    ) as connection:
+    with open_raa_source_context(args.source, descriptor) as context:
+        connection = context.connection
         connection.set_progress_handler(
             lambda: int(time.monotonic() - started > 600), 10000
         )
         report = summarize(iter_audit_documents(connection))
         verify_sql(connection, report)
+        report["source_context_profile"] = context.profile
     report.update(
         source_identity={
             key: descriptor[key]

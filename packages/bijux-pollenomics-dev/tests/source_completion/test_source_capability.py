@@ -51,6 +51,73 @@ def test_complete_cube_preserves_country_dimensions_and_null_counts(
     assert sead["source_reported"]["availability_status"] == "zero_observations"
 
 
+def native_profile() -> dict[str, object]:
+    return {
+        "source_id": "raa/lamningar-v1",
+        "status": "admitted_source_context",
+        "evidence_role": "source_context_only",
+        "source_record_count": 764383,
+        "scientific_admission": False,
+        "chronology_admission": False,
+        "event_admission": False,
+        "legacy_density_admission": False,
+        "publication_admission": False,
+        "archaeological_interpretation_admission": False,
+    }
+
+
+def test_native_context_profile_survives_without_changing_country_or_legacy_fields(
+    ledgers: tuple[dict[str, object], dict[str, object]],
+) -> None:
+    stage, coverage = deepcopy(ledgers)
+    baseline = derive(stage, coverage)
+    rows = stage["rows"]
+    assert isinstance(rows, list)
+    source = next(row for row in rows if row["source_key"] == "raa")
+    source["source_context_profile"] = native_profile()
+    result = derive(stage, coverage)
+    assert result["country_entries"] == baseline["country_entries"]
+    native = next(
+        row for row in result["source_stages"] if row["source_family"] == "raa"
+    )
+    profile = native.pop("source_context_profile")
+    assert profile == native_profile()
+    previous = next(
+        row for row in baseline["source_stages"] if row["source_family"] == "raa"
+    )
+    previous.pop("source_context_profile", None)
+    assert native == previous
+    profile["source_record_count"] = 0
+    assert source["source_context_profile"]["source_record_count"] == 764383
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("scientific_admission", True),
+        ("chronology_admission", True),
+        ("publication_admission", True),
+        ("legacy_density_admission", True),
+        ("evidence_role", "pollen_observation"),
+        ("source_id", "raa/unknown"),
+        ("source_record_count", True),
+    ],
+)
+def test_native_context_profile_cannot_promote_interpretation_or_false_count(
+    ledgers: tuple[dict[str, object], dict[str, object]], field: str, value: object
+) -> None:
+    stage, coverage = deepcopy(ledgers)
+    rows = stage["rows"]
+    assert isinstance(rows, list)
+    profile = native_profile()
+    profile[field] = value
+    next(row for row in rows if row["source_key"] == "raa")[
+        "source_context_profile"
+    ] = profile
+    with pytest.raises(ValueError, match="native source context"):
+        derive(stage, coverage)
+
+
 def test_duplicate_country_cell_refuses(
     ledgers: tuple[dict[str, object], dict[str, object]],
 ) -> None:

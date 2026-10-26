@@ -43,6 +43,7 @@ class SourceFamilyStateRow:
     authority_reasons: tuple[str, ...]
     coverage_metrics: dict[str, int | None]
     blocking_reasons: tuple[str, ...]
+    source_context_profile: dict[str, object] | None = None
 
 
 @dataclass(frozen=True)
