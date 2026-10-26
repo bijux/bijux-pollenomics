@@ -37,8 +37,9 @@ Other source species remain explicitly counted outside that population.
 
 The literal header coordinates preserve `14C age(BP)` at R3 and `(from 2017)`
 at R4, alongside the IntCal13 and unmodelled BC/AD labels at their own source
-coordinates. These labels do not establish a shared epoch, a signed-calendar
-conversion or a selected age. Formula text and its stored cached value remain
+coordinates. These labels do not establish a shared radiocarbon epoch or a selected age.
+The separate alternative accounting below evaluates the signed-calendar
+coordinates using the source-defined 2017 reference; it does not convert R/S. Formula text and its stored cached value remain
 separate; the reader does not evaluate formulas. Numeric zero, a literal
 placeholder, a physically present blank cell and an absent cell remain distinct.
 Per-column cell-state and formula counts cover the complete linked population.
@@ -85,8 +86,9 @@ without evaluating the formula or adopting its epoch for other rows. At row
 282, D contains `1143` while X contains `-2895.5`; neither value is selected
 to repair the other. The Uppsala row retains its source age-range text while
 R–X remain blank. Field disagreement and missingness survive this preparation.
-The 54 rows with additional date values can now receive field-specific review;
-their presence does not turn the 191 blank rows into dated observations.
+The 54 rows with additional date values now have the separate arithmetic
+accounting below; their presence does not turn the 191 blank rows into dated
+observations.
 
 The recorded native command used `/usr/bin/time -l .venv/bin/python -B -c`
 and the maintained public call:
@@ -133,6 +135,125 @@ guard was preserved. The independent test's initial blank-registration
 fallback was corrected in the observer. An initial test-style lint finding
 was also corrected. Those unsuccessful checks remain distinct from the
 successful committed-source runs; their local logs are retained.
+
+## Source alternatives and selected-field discrepancies
+
+The unmet question after retaining literal cells was whether the alternative
+calendar fields can be reconciled on a source-defined reference, rather than
+waiting for an unspecified chronology review. The primary article's
+[Experimental Model and Subject Details](https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/)
+defines specimen-name ages as years ago from **2017**, with mixed direct
+radiocarbon and archaeological dating. Its radiocarbon methods identify
+OxCalOnline and IntCal13; Table S1 supplies the calibrated alternatives.
+This supports the following explicitly scoped arithmetic without a new source
+request or a new calibration.
+
+The public provenance consumer now adds a separate
+`source_chronology_alternatives` sibling for the 245 horse owners. The existing
+literal packet, including `date_conversion_performed=false`, remains unchanged.
+The new sibling uses T/U as the source's signed unmodelled BC/AD coordinates,
+V as source interval coverage, W as the supplied average, and X as the supplied
+signed offset. It checks **W − (T + U)/2** and **X − (W − 2017)** independently.
+It also derives the affine elapsed coordinate **[2017 − U, 2017 − T]**, with
+midpoint **2017 − W**, keeping the sign of source X distinct. These are
+coordinates of the source's signed numbers: the source does not define a civil
+calendar year-zero convention, so they are not elapsed physical durations across
+year zero or newly admitted calibrated-BP intervals. W equals the endpoint
+midpoint on all 54 rows; no posterior-mean interpretation is inferred. V supplies neither a Gaussian sigma nor an uncertainty
+law for propagation. R/S remain uninterpreted; their missingness cannot refuse
+otherwise valid T–X arithmetic. No formula is evaluated.
+
+At committed source **`d9a4ea9a3653cd6c07a0f924e1259b5ccac8eede`**, the actual
+1,475-row public consumer returned **245** alternative packets and no new
+alternative field on the other **1,230** rows. All **54** populated alternatives
+have zero midpoint and signed-offset residuals. All **191** rows with seven
+physically present blank R–X cells remain explicitly refused. No alternative
+is filled from D, the sample-name age, R/S or another specimen.
+
+For the 54 populated alternatives, comparing unambiguous numeric D literals
+with the derived elapsed-coordinate midpoint gives:
+
+| D comparison | Owners |
+| --- | ---: |
+| Equal numeric coordinate | 18 |
+| D minus derived midpoint = −0.5 | 31 |
+| D minus derived midpoint = +0.5 | 2 |
+| D minus derived midpoint = +2.5 | 1 |
+| D minus derived midpoint = −1,752.5 | 1 |
+| Non-numeric range, not compared | 1 |
+
+The +2.5 case is `CGG_1_020484` at physical row 119: D is `4058`, while the
+alternative midpoint is `4055.5`. The −1,752.5 case is `CGG_1_018577` at row
+282: D is `1143`, while the alternative midpoint is `2895.5`. The range
+`3039-3130` for `CGG_1_018080` at row 233 remains text and is not collapsed to
+a date. These are source-coordinate disagreements, not a verdict about which
+date is correct. Half-year differences are retained without assigning a
+rounding rule. Neither agreement nor disagreement establishes D's dating
+basis, scale, precision or selection authority.
+
+The same paper preserves corresponding distinctions. Its Experimental Model
+and Subject Details → Spain paragraph calls the specimen
+`ElAcequion_Spain38_4055`, while Method Details → DNA extraction and genome
+sequencing calls it `ElAcequion_Spain38_4058`. Results → Influence of Persian
+Lines Post C7th–C9th describes `Zhanaturmus_Issyk1_1143` as a ninth-century
+Kazakhstan horse, which is distinct from that row's T–X alternative coordinate.
+These statements are from the same publication and retain their shared source
+dependence. They were checked in the retained
+[primary article capture](../../data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html.gz)
+for table rows 119 and 282. They make the discrepancies useful curation
+evidence without resolving which field should supply a selected date. We
+retain all of them without repairing the table or relabeling a specimen.
+
+All **1,475** earlier packets equal the retained prior native result after
+removing only the added alternative sibling, including the entire literal
+source context. All **1,475** selected records also equal the governed project
+snapshots after removing the two optional siblings. No selected age, sample
+membership, coordinate, map, admission or rights decision changes.
+
+The actual direct `/usr/bin/time -l .venv/bin/python -B -` command called
+`build_sample_chronology_provenance_rows(Path("data"))`, performed those two
+population comparisons and serialized a JSON list. Owned session **80537**
+terminated with exit zero in **3.87 s**, peak RSS **205,062,144 bytes**. The
+6,809,994-byte private packet artifact and 7,432-byte summary are retained at
+`artifacts/animal-source-chronology/source-alternatives/{provenance,summary}.json`.
+They fit the predeclared 180-second, 512-MiB resident-memory, 16,000,000-byte
+packet and 100,000-byte summary bounds. The exact inline command and terminal
+facts are in the adjacent `execution.json`, `stdout.txt` and `stderr.txt`.
+The earlier session **39005** exited one in 3.68 s because the inline comparison
+expected the previous artifact to be a list rather than its actual `rows`
+wrapper. Only that observer shape assumption was corrected for the same-source
+retry; no scientific source, calculation, population or tolerance changed.
+Its failed command and resources remain in `failed-execution.json`.
+
+An independent original-ZIP/XML observer used DOM traversal and exact rational
+arithmetic, rather than the producer's cell reader and Decimal calculations.
+At observer commit **`547d24718cca48d8deaa2e00b0441d3b2418139f`**, owned
+session **75988** passed **three tests in 2.91 s**, with **3.41 s** process
+wall time and **197,050,368 bytes** peak RSS, without skips. Two checks compare
+the saved result with all 245 native alternatives and all 1,475 prior packets;
+the existing literal observer separately reopens the original workbook and
+recomputes the public API, checking all 1,960 date cells and all selected
+snapshot fields. Configured Ruff and strict types passed for the observer.
+Its recorded command was:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  /usr/bin/time -l .venv/bin/python -B -m pytest -c configs/pytest.ini \
+  packages/bijux-pollenomics/tests/unit/adna/projects/sample_master/tables/test_horse_chronology_alternative_result.py \
+  packages/bijux-pollenomics/tests/unit/adna/projects/sample_master/tables/test_horse_source_field_result.py \
+  --basetemp=artifacts/animal-source-chronology/alternatives-independent-observer/pytest \
+  --timeout=180 -q
+```
+
+The observer's stdout/stderr remain in that owning artifact directory. Use a
+fresh basetemp for a new invocation to retain the completed run's evidence.
+
+Before commit, **34** focused alternative, literal-field and adapter checks
+passed, with configured Ruff lint/format and strict types for all three changed
+Python paths. The initial formatting check and unavailable optional HTML parser
+were corrected using the configured formatter and standard-library HTMLParser;
+no dependency was installed. This unit adds source-specific arithmetic and
+explicit conflicts to the maintained consumer, beyond the earlier literal scan.
 
 ## What we ran and observed
 
@@ -220,21 +341,21 @@ accession requires source evidence that resolves its physical specimen identity.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. The PRJEB31613 provenance consumer additionally preserves 1,960 labeled source-date cells for 245 owners, without changing any selected chronology. Generic direct radiocarbon evidence and precision remain refused; Palm143 identity refusal is retained. Separate Galician curation exposes eleven sample-owned supplement rows as 110 literal typed cells, with radiocarbon, calibrated-BP, calendar and locality fields kept distinct.
+**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. The PRJEB31613 provenance consumer additionally preserves 1,960 labeled source-date cells for 245 owners and separately accounts for 54 signed-calendar alternatives against the source-defined 2017 reference: 18 equal numeric D coordinates, 35 different and one range left uncomputed. All 191 blank alternatives and every selected chronology remain unchanged. Generic direct radiocarbon evidence and precision remain refused; Palm143 identity refusal is retained. Separate Galician curation exposes eleven sample-owned supplement rows as 110 literal typed cells, with radiocarbon, calibrated-BP, calendar and locality fields kept distinct.
 
 **Unsupported claim.** A universal 67-year shift, calibrated BP, or per-row direct radiocarbon support from the imported mixed elapsed-age field; distinct physical identity for both Palm143 BioSamples; ecological events.
 
-**Actual verification performed.** The horse source-field consumer and independent raw-XML test ran at a1f04506dd1a26ea63cda0f2c3526814629fc995, both exit zero: all 245 source owners/1,960 date cells agree, with 1,475 old provenance packets unchanged and no new field on the other 1,230. No map or selected-age writer was rerun for this source-field result. Earlier actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun. The Galician optional consumer ran at 85de3133f, exit 0 in 2.30 s, producing a 19905-byte context table. An independent DOM source check confirms all 110 cells, original header/unit/type/style/value/blank/formula states and exact eleven crosswalk rows.Fifty controlled tests plus the native default-writer exact-byte test pass, with configured lint/types. Original default report/species CSV remain unchanged.
+**Actual verification performed.** The alternative consumer ran at d9a4ea9a3653cd6c07a0f924e1259b5ccac8eede, session 80537 exit zero: all 54 source midpoint/offset equations hold, all 245 owners and 191 blank refusals reconcile, and all 1,475 previous packets and selected fields remain unchanged. The independent DOM/rational saved-result and original literal observers passed three tests at 547d24718cca48d8deaa2e00b0441d3b2418139f, session 75988, confirming all alternative/source counts and unchanged packets. The producer’s initial wrapper-comparison failure and same-source correction are retained above. The horse source-field consumer and independent raw-XML test ran at a1f04506dd1a26ea63cda0f2c3526814629fc995, both exit zero: all 245 source owners/1,960 date cells agree, with 1,475 old provenance packets unchanged and no new field on the other 1,230. No map or selected-age writer was rerun for this source-field result. Earlier actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun. The Galician optional consumer ran at 85de3133f, exit 0 in 2.30 s, producing a 19905-byte context table. An independent DOM source check confirms all 110 cells, original header/unit/type/style/value/blank/formula states and exact eleven crosswalk rows.Fifty controlled tests plus the native default-writer exact-byte test pass, with configured lint/types. Original default report/species CSV remain unchanged.
 
-**Remaining input or review.** The Cell 2019 native Age (years ago) field has no established field-specific epoch and scale mapping; a mixed project dating basis cannot classify every row as direct radiocarbon. Two Palm143 BioSamples also retain unresolved physical specimen identity. Resolver: Horse source chronology reviewer and SRP073444 specimen/source owner Reopen when: Source-backed field epoch and scale or independently dated per-row evidence permits horse chronology; citable accession-to-physical-specimen evidence resolves Palm143.
+**Remaining input or review.** The Cell 2019 native selected Age (years ago) field still has no established field-specific epoch and scale mapping; the separate T–X alternative arithmetic is now source-bound to 2017 without adopting a civil year-zero convention; a mixed project dating basis cannot classify every row as direct radiocarbon. Two Palm143 BioSamples also retain unresolved physical specimen identity. Resolver: Horse source chronology reviewer and SRP073444 specimen/source owner Reopen when: Source-backed field epoch and scale or independently dated per-row evidence permits horse chronology; citable accession-to-physical-specimen evidence resolves Palm143.
 
 **Cause category.** data|assumption
 
 **Consequence.** Source chronology nodes, locality features and mapped samples have distinct admission contracts. Elapsed-age text cannot become BP or direct radiocarbon support, and accession labels cannot establish independent specimens.
 
-**Precise next acceptance route.** Bind source-field epoch and scale and per-row date evidence before re-admitting horse chronology. Resolve Palm143 physical specimen identity from citable source evidence before revising its source-sample publication decision.
+**Precise next acceptance route.** Resolve the selected D field meaning, per-row dating evidence and source conflicts before re-admitting horse chronology; preserve the now-accounted alternative coordinates as distinct source context. Resolve Palm143 physical specimen identity from citable source evidence before revising its source-sample publication decision.
 
-**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 selected horse dating-evidence and precision classifications remain unresolved. Among the 245 newly linked source-field rows, 191 have blank R–X cells and eight have literal `-` in D; additional native values on 54 rows do not establish selected chronology. The global refusal waterfall has 7 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused. Galician sample SAMN18106837 keeps modern-carbon text, a blank calibrated-BP cell and last-60-years calendar text; its label establishes neither 60 BP nor Cobas locality. All eleven retain unresolved site/date and refused atlas-point posture.
+**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 selected horse dating-evidence and precision classifications remain unresolved. Among the 245 linked source-field rows, 191 have blank R–X cells and eight have literal `-` in D; all 54 populated alternatives are arithmetically consistent, but 35 numeric D values differ from their alternative midpoints and one range is not compared. No selected chronology is established by this accounting. The global refusal waterfall has 7 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused. Galician sample SAMN18106837 keeps modern-carbon text, a blank calibrated-BP cell and last-60-years calendar text; its label establishes neither 60 BP nor Cobas locality. All eleven retain unresolved site/date and refused atlas-point posture.
 
 **Matched denominator.** 1,475 source rows = 323 temporal nodes + 1,152 refusals; 13 temporal nodes each in Europe-plus/Nordic. Separate normalized foundation: 1,468 rows; locality atlas: 165 features/322 mapped samples; 12 Nordic mapped IDs. Separate Galician context:11 BioSamples versus 18 paper specimens;110 exact cells: 109 shared strings, one present blank, zero formulas.
 
