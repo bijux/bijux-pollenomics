@@ -80,6 +80,18 @@ def test_duplicate_depth_and_age_reversal_are_separate_refusals() -> None:
     assert "age_reversal_with_depth" in reversal["reason_codes"]
 
 
+def test_repeated_missing_depth_is_not_a_duplicate_finite_coordinate() -> None:
+    result = scope_support(
+        [_sample("a", None, 0), _sample("b", None, 1)],
+        {"a": [2], "b": [0]},
+    )
+    assert result["reason_codes"] == "missing_or_invalid_depth"
+    assert result["depth_boundary_status"] == "refused"
+    assert result["positive_at_top"] is None and result["positive_at_bottom"] is None
+    assert result["sample_count"] == 2
+    assert result["reported_count_total"] == 2
+
+
 def test_invalid_count_is_neither_missing_nor_reported_zero() -> None:
     result = scope_support(
         [_sample("a", 1, 0), _sample("b", 2, 1)], {"a": [None], "b": [0]}

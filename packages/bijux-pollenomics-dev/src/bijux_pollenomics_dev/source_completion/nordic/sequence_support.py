@@ -188,7 +188,8 @@ def scope_support(
     reasons: list[str] = []
     if any(d is None for d in depths):
         reasons.append("missing_or_invalid_depth")
-    if len(set(depths)) != len(depths):
+    finite_depths = [depth for depth in depths if depth is not None]
+    if len(set(finite_depths)) != len(finite_depths):
         reasons.append("duplicate_depth")
     invalid = sum(
         any(value is None for value in values.get(row["sample_id"], []))
