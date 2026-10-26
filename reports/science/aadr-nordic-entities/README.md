@@ -137,6 +137,45 @@ This prepares the existing `aadr-country-map-scientific-admission` review
 question with explicit per-ID spatial evidence. No country product, source
 coordinate, chronology or admission decision is promoted by this result.
 
+### Original sample-source follow-through
+
+The AADR rows identify the two conflicting records as Aunvollen
+(A7437/T20248 Individual2) and Fauskland (T11792c), citing the
+[Celtic ancient-genomics preprint](https://doi.org/10.1101/2025.02.28.640770).
+Its data route points to the companion study and ENA project PRJEB87274.
+The exact public archive records provide useful source leads:
+
+| ENA sample | Native alias | Reported country | Coordinates in sample XML |
+| --- | --- | --- | --- |
+| [SAMEA117823048](https://www.ebi.ac.uk/ena/browser/view/SAMEA117823048) / ERS23812695 | CGG105915 | Norway | absent |
+| [SAMEA117823049](https://www.ebi.ac.uk/ena/browser/view/SAMEA117823049) / ERS23812696 | CGG105916_CGG105917_CGG105918 | Norway | absent |
+
+Both XML records were acquired once on 26 October 2026 into the shared source
+store's `adna/prjeb87274/`, with actual HTTP/capture metadata. Their respective
+identities are 2,328 bytes / SHA-256
+`b222acea6afbd4451d901667c95bfde724fcb1d1f415cca08a120f9546417561` and
+2,408 bytes / SHA-256
+`04d80c397aa1e6aea484998706ff0ebb4345843414a3f61d40acf0533826c510`.
+A separate standard-library XML parse verified the native accessions, aliases,
+country and absence of coordinate/locality attributes. No sequence or genotype
+data were acquired. ENA/INSDC metadata access policy is retained without inferring
+an additional Creative Commons license.
+
+The source `collection_date=2020` is archive metadata; it does not date these
+ancient specimens. The combined alias is not proof of three independent
+specimens or a completed AADR-to-skeletal-sample crosswalk. These records
+corroborate the archive's Norway label but do not resolve the coordinates.
+An apparent longitude shift or a place-name match cannot supply a correction.
+
+Original Table S1.1/archaeological Note S4 of the
+[companion Germanic study](https://doi.org/10.1101/2024.03.13.584607) remains
+the exact evidence lead for specimen identity, coordinates, datum and units.
+Tested primary bioRxiv supplementary/JATS routes returned HTTP 403; this is a
+bounded failed retrieval, not proof that no public supplement exists. The
+existing scientific review question and human inbox retain that precise gap.
+No custodian was contacted, and both conflicting source-coordinate records
+remain uncorrected review cases.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
