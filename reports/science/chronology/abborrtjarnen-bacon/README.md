@@ -45,6 +45,12 @@ The initial one-row mock failed with R's matrix-dimension drop and
 synthetic rows so the helper retains its normal matrix shape; it changes no
 package code or equation. Those rows are not MCMC draws or observations.
 
+The maintained script ran against the installed 2.5.3 package from committed
+source `5123315b23958478fca19b5ca1325e6790fa21d8`, using the reproduction
+command below with output `artifacts/physical-core/bacon-source-law-committed.csv`.
+It returned exit zero in 0.3039493 seconds; the three raw-helper and physical-rate rows match this
+table exactly. No core data or sampler was used.
+
 ## Equal-weight saved rows also need a sampling-law check
 
 The 2.5.3 native caller sets a negative save interval, and the t-walk saves
@@ -87,6 +93,74 @@ still require the same explicit review. A separately named new profile could
 combine fixed-transition sampling with source-correct physical-rate extraction,
 after its complete law, dependencies and consumer are independently checked.
 No silent package substitution or source patch was made.
+
+## The separately declared physical-rate profile
+
+The [new profile](physical-rate-protocol.json) uses rbacon 4.0.2's fixed
+transition clock and explicitly transforms its saved innovations into the
+physical rates used by the native likelihood. It preserves the refused
+archived proposal separately. Both chains retain the same six full precision
+source dates and the artificial calendar anchor; only the ABBO target ages
+vary. The BUS/BOKE training fits, four predictors, exact 16-label count axis
+and bins 3/4/5/9 remain frozen development inputs.
+
+An independent wrapper invokes the unmodified native likelihood's support
+and age functions. It checks 64 source-age comparisons, including the actual
+nondivisible ABBO depth range, and four source support refusals. An exact
+rational observer independently checks those witnesses. The wrapper is a
+mathematical source check without MCMC or field observations; it must pass
+before the new core run. Agreement with the raw R helper alone is insufficient.
+
+The native oracle replay consumed committed source
+`12cd104bfa9600ed31bb3fe6b32bac55cc73cfbc`, returned exit zero in
+3.068850917 seconds and retained its outputs under
+`artifacts/physical-core/native-likelihood-oracle/`, with artifact-local
+`TMPDIR`. All 64 comparisons and four support refusals passed; zero models
+were fitted. The maximum native/corrected-helper gap was
+`2.2737367544323206e-13` years. Independent exact rational arithmetic found
+a maximum native/exact gap of `1.4743761767022079e-12` years. The raw-helper
+disagreement reached `59.99992000002` years on these controlled cases;
+that number is not an observed ABBO bias.
+
+Two source-preparation failures were retained. First, the updated `rice`
+reader required a full IntCal20 file absent from the older directory. The
+explicit rintcal 1.4.2 directory supplies that pinned full file and the
+byte-identical qualified three-column native curve. Second, the source's
+nonempty `th0` argument was not assigned to its returned settings, yielding
+`NA` initial ages in the native input. The maintained input adapter assigns
+the declared pair to that returned object and calls the unmodified source
+writer. No vendor code is patched.
+
+The actual prepare-only consumer then verified a fresh, zero-byte native
+output, 51 sections of 5 cm, source support 648–903 cm, seed 314159 and
+initial walker ages −52/−22. The requested pollen support remains 648–896 cm.
+The 880.5 cm deepest control therefore leaves 15.5 cm extrapolation to the
+deepest sample and 22.5 cm to the native model bottom. No radius, country,
+taxon/PPE admission or physical basin assumption enters this age model.
+
+The two fixed seeds request 4,000 retained states each. The complete 7,501
+native rows are preserved per chain; frozen source-equivalent burn/tail
+selection uses original rows 3502–7501 without further trimming. Saved
+parameters have six significant digits; derived ages refer to those same
+quantized states. The age and free-parameter diagnostics use the identical
+rows. Their acceptance concerns this conditional sampler computation,
+rather than chronology accuracy or original core admission; failed
+convergence stays refused. Counts, priors and
+calibration tables stay fixed, and no shared calibration-curve covariance
+is sampled.
+
+The aggregate command has a 600-second wall-clock limit. The 240-second
+per-chain figure is a planning estimate. Peak memory is measured by
+`time -l`; 1.5 GB memory and 30 MB output are budgets checked after execution,
+rather than in-run operating-system caps. Partial and failed chains retain
+their actual stage and requested population. Incomplete scoring bins retain
+their mass in the all-draw denominator.
+
+Before any core fit, 11 focused tests, strict mypy on eight Python paths and
+configured Ruff checks passed. The prepare-only check used the real native
+input writer and produced no model draw. The source and protocol must be
+committed and consumed inputs frozen before execution. At this checkpoint,
+the corrected profile has not yet been fitted.
 
 These findings do not change the retained LegacyAge S5 marginal intervals,
 the earlier set-based age bounds, or their conditional pollen sensitivities.
