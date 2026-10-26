@@ -83,3 +83,31 @@ The separate committed independent observer (session 5933) terminated with exit 
 Chronology authority retains the original report's literal `diagnostics_passed=false` / `diagnostics_pass=true` writer conflict and the independent qualification that explicitly checked it. The raw chronological report and earlier failed strict observer remain unchanged. The chronology remains conditional on its controls, artificial surface and broad bottom likelihood, priors, zero reservoir assumption, fixed calibration treatment and saved precision; successful sampler diagnostics are not chronology accuracy or field calibration.
 
 Count attribution is to Neotoma, EPD and Thomas Giesecke, dataset [10.21233/2vzb-bg61](https://doi.org/10.21233/2vzb-bg61), with current CC BY 4.0 source evidence. Parameters are the literal public [LandClimII PANGAEA.937075](https://doi.org/10.1594/PANGAEA.937075) values and [Githumbi et al. 2022](https://doi.org/10.5194/essd-14-1581-2022) uncertainty context. LegacyAge controls/metadata retain their CC BY 4.0 attribution. The separate [PANGAEA.738429](https://doi.org/10.1594/PANGAEA.738429) CC BY-NC 3.0 file supplies only the previously qualified descriptive 3 ha area fact; its measurement table is not parsed or redistributed here. Static geometry, taxon/PPE transfer, transport, aquatic/marginal pollen contributions, overdispersion, site selection and field accuracy remain outside this conditional calculation.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** First-order law-of-total-covariance propagation of qualified shared age membership, conditional pooled counts and one shared diagonal PPE perturbation on an explicit complete-event subset, including age/PPE interaction and all 30 temporal contrasts.
+
+**Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, Monte Carlo SE of a mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission.
+
+**Actual verification performed.** Committed producer 5c2a6306c retained all 32,000 identities and reproduced the independently qualified frozen source-point reference with zero numerical gap. Separate committed observer checked all 107 sources, 32,000 ledger rows, 2,400 covariance entries and 30 contrasts; maximum cover gap was 1.1102230246251565e-16 and moment gap 1.181693631835401e-14 against 1e-12 absolute tolerance. Fourteen producer and 22 observer controls plus configured lint/types passed; no new age fit or PPE draw was made.
+
+**Remaining input or review.** Eight source samples lack a five-taxon measurement and 2,668 saved age rows do not define all four windows, so unconditional 20-component moments are refused. Conditional moments depend on the declared age, pooled-count and shared diagonal-PPE laws and fixed physical/taxon assumptions, not calibrated field uncertainty. Resolver: Analyst retaining the declared conditional estimand; measurement/source experts for absent panel observations and independent field evidence only if broader ecological accuracy or admission is proposed. Reopen when: Source-owned complete measurements and defined-window support would be needed for the refused unconditional quantity; any different uncertainty or field-calibration claim needs an explicit new estimand/evidence protocol, without relabelling the present conditional result.
+
+**Cause category.** data|assumption|comparability
+
+**Consequence.** Keep undefined probability mass and conditional-on-complete labels on every scientific summary; retain all covariance components and contrasts without promoting successful arithmetic to scientific or field admission.
+
+**Precise next acceptance route.** Read the existing conditional outputs under their exact source/model/measurement assumptions. The primary unconditional result stays refused unless the source support for that exact quantity is resolved; do not obtain it by dropping failed rows or silently changing masks, bins, taxon transfer or stochastic laws.
+
+**Negative or refused result.** Unconditional means/covariance remain null/refused for 2,668 rows: one empty bin 4 and 2,667 bin-9 missing-member cases. No 99-sample subset, structural zero, row drop, clipped covariance or replacement chronology was used. Standard deviations are conditional mixture spread, not SE or field confidence intervals; the chronology writer flag conflict remains explicit.
+
+**Matched denominator.** All 107 original samples, 99 complete five-taxon source panels and eight incomplete panels; two chains of 16,000 states each. All 32,000 rows define support probabilities; 29,332 complete rows define the separate conditional 20-component population covariance with denominator M_C and 30 contrasts.
+
+Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

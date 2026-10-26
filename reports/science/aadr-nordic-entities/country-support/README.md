@@ -183,3 +183,31 @@ laboratory/date crosswalk, and qualified treatment of inconsistent Fauskland
 and AADR dating representations. The sources resolve document availability,
 museum locality evidence, human/animal distinction and documented merger
 subquestions. Country/map/chronology admission and field decisions remain open.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Literal source comparisons for the two AADR country conflicts, author-reported Fauskland three-sample/one-individual merger, distinct Aunvollen individuals, museum locality/collection context and nominal pinned-boundary comparisons; no coordinate or chronology selection.
+
+**Unsupported claim.** Treating the Germanic and Celtic DOIs as version aliases, correcting AADR coordinates or dates, assigning the older Aunvollen woman to Individual 2, counting merged teeth as independent people, genotype inference, qualified country/map/chronology admission or field permission.
+
+**Actual verification performed.** Committed reader ac1c3619a and independent original ZIP/XML/CSV observer each exited zero: six Germanic worksheet rows, 162 descriptive cells, four AADR panel rows and two unchanged country decisions. Original archaeological pages 161/174/175 and genetics page 22 were visually checked. Museum source facts and a separate nominal five-pair degree-axis comparison were retained. Six bounded Celtic GET responses supplied three publication-metadata successes and three failed content responses, not a Celtic specimen table. No new polygon oracle, datum transformation or genotype analysis was performed.
+
+**Remaining input or review.** The two AADR coordinate/date assertions, Germanic v2 companion cells and museum locality records remain distinct. The cited Celtic version and descriptive specimen-table crosswalk are unbound, and exact individual/date, coordinate meaning/datum and correction authority remain unresolved. Resolver: Source custodian for the versioned Celtic specimen crosswalk and museum/sample identity; chronology and geography reviewers for any proposed scientific or map correction. Reopen when: Bind the cited Celtic version and sample-owned laboratory/date/coordinate representations, exact museum subrecord/individual links and an explicit datum/precision and correction decision.
+
+**Cause category.** data|comparability|access/rights|qualified review
+
+**Consequence.** Retain annotation, companion-study and museum contexts separately, with unchanged country products, source coordinates and selected AADR fields; permit source reading without promoting map, date or biological claims.
+
+**Precise next acceptance route.** Use the existing literal-source and country-support consumers for their stated scopes. Any correction must cite the exact Celtic/specimen and museum bindings and explicit chronology/datum authority; re-run only the affected admitted downstream consumer after that decision. Original publisher attachments remain outside public product content.
+
+**Negative or refused result.** Both original AADR pairs still conflict with source Norway on the pinned boundary axes; all date disagreements and the trailing-T alias remain. Museum locality/property points are not sample corrections. Celtic PDF/XML/supplement attempts returned 403/500/403; the earlier missing-Shapely attempt is preserved. No admission was granted.
+
+**Matched denominator.** Two AADR IDs in two original annotation panels; six Germanic worksheet rows and 162 descriptive cells; three museum records at two distinct points, including one separate dog; five nominal point comparisons. Fauskland three sampled teeth plus a merged row represent one author-reported individual.
+
+Retained evidence: [reports/science/aadr-nordic-entities/country-support/report.json](report.json), [reports/science/aadr-nordic-entities/country-support/decisions.csv](decisions.csv), [reports/science/aadr-nordic-entities/country-support/mccoll-source-context.json](mccoll-source-context.json), [reports/science/aadr-nordic-entities/country-support/museum-source-context.json](museum-source-context.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

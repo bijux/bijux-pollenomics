@@ -228,3 +228,31 @@ identity, selected chronology/uncertainty, dated basin support, count/taxon/PPE
 admission, original pollen-source rights and independent scientific review
 remain separate. The original source-core outcome remains open, with zero
 additional LRA samples admitted.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Exact source-version reconciliation of archived and PANGAEA S1/S3/S4 metadata, declared run transformations, four calibrated-token bin crossings and matched control/settings/depth populations without calibration or model fitting.
+
+**Unsupported claim.** Historical S5 posterior recovery, selection of the original LandClim ages, a new calibrated uncertainty distribution, resulting chronology shifts, pollen-score changes or additional admitted LRA samples.
+
+**Actual verification performed.** The unchanged five-input reader at 69c274568 reproduced the governed JSON byte for byte. Independent pandas/native-key and Fraction arithmetic checked 271 matched depths, 9,485 non-key cells, 58 controls including 57 radiocarbon comparisons, four settings records, twelve empty/NA differences and four exact source-token bin crossings. Twenty focused extension tests and configured lint/types passed. No interpolation, calibration or Bacon fit was executed.
+
+**Remaining input or review.** Archive and PANGAEA metadata versions expose different precision and missingness representations. The original settings and exact pre-calibration arithmetic do not identify which bytes or unpinned runtime produced historical S5, recover joint draws or select the LandClim chronology. Resolver: Chronology analyst selecting explicit metadata/model inputs for new work; original source custodian for a claimed historical realization or selected-age identity. Reopen when: For historical claims, bind the exact executed control/settings release, runtime and selected sample-age realization; for a new profile, declare its chosen inputs and model rather than calling a recreation the lost posterior.
+
+**Cause category.** data|assumption|comparability
+
+**Consequence.** Reuse the exact retained metadata/version arithmetic as source preparation while retaining version, source-age type, signed tokens and unresolved historical realization separately.
+
+**Precise next acceptance route.** Choose and cite an explicit control/settings release and predeclared model for any new chronology analysis, as a new analysis. Reopen historical-posterior or selected-age claims only with the source-owned executed inputs/realization; the completed source reconciliation itself needs no new fitting or blanket approval.
+
+**Negative or refused result.** LAIH, BUS and BOKE are absent from this metadata release, not missing pollen populations. Source-age/error precision differences and explicit empty-versus-NA cells remain; no matched radiocarbon control was refused and no signed source age was clipped. No historical input or original core decision was replaced.
+
+**Matched denominator.** Seven requested dataset IDs; four series have 271 matched S4 depths, 58 S1 controls with 57 radiocarbon rows and four S3 settings. Source-version differences affect 454 S4 numeric cells, 28 distinct pre-calibration controls and twelve settings cells; changed cells are not independent observations.
+
+Retained evidence: [reports/science/chronology/legacyage-run-inputs.json](legacyage-run-inputs.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

@@ -491,3 +491,31 @@ observer check must use an absent destination. Actual stdout, stderr and
 execution facts stay beside the native and independent outputs, including both
 failed attempts. The source fix also passed 33 affected controls, configured
 Ruff and strict mypy. This result required no additional fit to repair metadata.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Source-law refusal of the archived route, retained failed short experiment and independently checked numerical qualification of the separately prespecified 32,000-state conditional fixed-transition physical-rate sampler and frozen pollen-score consumer.
+
+**Unsupported claim.** Qualified interpretation of the original failed 8,000-state ensemble, correction of published historical results, true sample ages, shared calibration-curve uncertainty, untouched prediction validation, field chronology calibration or core/LRA admission.
+
+**Actual verification performed.** The historical 2.5.3 helper witness and native likelihood oracle expose the saved-column distinction without field inference. The first 8,000-state run failed unchanged convergence gates and its independent checker retained that refusal. The fixed-length replay at 8628c5434 matched both original byte prefixes and all 108 age/memory plus 54 free/energy gates. Committed independent observer e5d8e109 checked 39,002 native rows, 32,000 joint age/score rows at 107 depths and all bin masses/refusals; polynomial age residual was at most 1.0913936421275139e-11 years. The raw flag conflict was explicitly retained rather than rewritten; diagnostic CSV thresholds were checked, not independently re-estimated by Coda.
+
+**Remaining input or review.** The archived 2.5.3 saved-column and accepted-transition laws do not support the proposed equal-weight posterior interpretation. A separately declared 4.0.2 fixed-transition physical-rate profile passes its longer-run numerical gates, but retains quantized states, model/control assumptions and an explicitly reconciled raw-report flag conflict; this is not chronology accuracy. Resolver: Analyst using the exact declared conditional sampler/profile; independent chronology or source-control expertise only for a new field-age or historical-realization claim. Reopen when: A newly declared scientific chronology question supplies independent source-bound age/control evidence or a distinct justified model protocol; the current fixed-length protocol permits no further seed, prior or length escalation.
+
+**Cause category.** algorithm/numerical|assumption|comparability
+
+**Consequence.** Permit only the explicitly qualified conditional sampler and saved-consumer interpretation at its original precision; keep old failures, undefined mass, warning meaning and the raw metadata conflict visible.
+
+**Precise next acceptance route.** Reuse the qualified saved rows through the committed physical-rate and source-identity guards. Any new chronology or field claim requires its own predeclared evidence/model question; do not repair the original result by clipping, reweighting accepted-only rows, changing thresholds or extending this protocol again.
+
+**Negative or refused result.** The archived proposal remains unfit/refused; preparation failures and the original refused_mcmc_diagnostics 8,000-state result remain. The longer replay has one empty-bin score refusal and literal diagnostics_passed=false versus diagnostics_pass=true in its unchanged raw report. The first strict observer correctly failed on that contradiction; scoped reconciliation did not rerun or retune the model.
+
+**Matched denominator.** One core, 107 jointly aged samples, two original seeds, four frozen bins, 16 labels and four fixed predictors. Original run: 8,000 dependent states, diagnostic refusal. Qualified longer replay: 32,000 retained states, 31,999 complete scoring states plus one refusal; old prefixes occur once, not as additional draws.
+
+Retained evidence: [reports/science/chronology/abborrtjarnen-bacon/result.json](result.json), [reports/science/chronology/abborrtjarnen-bacon/sampler-accuracy-result.json](sampler-accuracy-result.json), [reports/science/chronology/legacyage-run-inputs.json](../legacyage-run-inputs.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

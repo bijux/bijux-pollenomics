@@ -140,7 +140,7 @@ Committed metadata replay ac55a2219cc211cdcb3611c41c02bded82803208 exited zero; 
 
 **Matched denominator.** 102 queried dataset records/99 sites; 66 metadata titles: 62 retained handles, 3 unmatched named handles, 1 generic; 37 final-age events all retained.
 
-- [Current metadata result](report.json) and [source declaration](sources.json).
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/report.json](report.json) (SHA-256 `91c21717d160d5f6e217696367de484dd1cb1848a438e9e0b68031bcaf9da528`).
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json](sources.json) (SHA-256 `c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81`).
 

@@ -59,3 +59,31 @@ PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
 Use a fresh basetemp for another invocation so completed-run evidence remains retained.
 
 Count attribution is to Neotoma, the European Pollen Database and the original investigators: Marie-José Gaillard-Lemdahl (BOKE, [A5HN-WW50](https://doi.org/10.21233/A5HN-WW50), [0msh-1a51](https://doi.org/10.21233/0msh-1a51)); Joachim Regnéll (BUS, [PQFT-GY26](https://doi.org/10.21233/PQFT-GY26), [mhqn-eq25](https://doi.org/10.21233/mhqn-eq25)); Bent V. Odgaard (Solsø, [mtmk-d772](https://doi.org/10.21233/mtmk-d772)). All native DOI strings and retained publication metadata remain in the terminal native result. Current Neotoma/EPD CC BY 4.0 policy evidence is bound in the protocol. Public parameters/site metadata are attributed to [LandClimII PANGAEA.937075](https://doi.org/10.1594/PANGAEA.937075), CC BY 4.0. Reusing the old normalized count bodies does not recover their original HTTP wire custody or establish current provider-value parity. No private author count table was consumed or redistributed.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Matched whole-place-excluded forward predictions of a two-anchor cover field against direct-pollen IDW and homogeneous centre-cover forwarding, with frozen prediction bytes, all family metrics and conservative numerical-resolution accounting.
+
+**Unsupported claim.** Measured or jointly fitted vegetation field, genuine untouched confirmation, resolved superiority of spatial over centre forwarding, rigorous true-integral bounds, jointly attaining aggregate endpoints, qualified historical basin/core geometry or field accuracy.
+
+**Actual verification performed.** Producer dbe099e7d saved predictions before scoring all 18 contexts/54 outcomes and met resource bounds. Independent checker 7deffa682 compared all 147 original samples, 59 selected samples, exact source IDs/denominators, folds, prediction identities, all formulas and scores. Direct 256/512-node angular quadrature and independent ellipsoidal projection checks passed; maximum angular-resolution discrepancy was 3.3306690738754696e-16 and bracket width 0.002801955587572096. The checker exited zero in 6.18 s. The disclosed missing-bytecode-flag deviation was retained without a model rerun.
+
+**Remaining input or review.** Three exposed physical places and six fixed windows support a declared two-anchor spatial hypothesis, not measured vegetation or untouched validation. Static radii, BUS coordinate ambiguity, inherited panel completeness and two-stage anchor inversion remain assumptions; step brackets condition on computed ring factors and do not resolve the centre-versus-spatial score differences. Resolver: Analyst for a predeclared numerical/spatial model question; source and vegetation-reference experts only for historical geometry, ecological accuracy or an admitted field interpretation. Reopen when: A finer numerical claim requires prespecified independent integration/refinement, while historical/field accuracy requires exact core/geometry support and an independent measured target. Do not select parameters or source masks from current target scores.
+
+**Cause category.** assumption|algorithm/numerical|comparability
+
+**Consequence.** Retain the full matched development comparison and numerical ranges; keep per-context and aggregate endpoints conservative and the common geometry dependence explicit.
+
+**Precise next acceptance route.** Read all current families/metrics on their fixed support. Any next integration-resolution or empirical prediction question must declare its protocol and independent input before scores; do not erase unresolved comparisons or interpret static source geometry as historical basin acceptance.
+
+**Negative or refused result.** No context/family was dropped or refused; all 54 scores remain. Every aggregate centre-versus-spatial metric comparison is numerically unresolved under the conditional brackets. No response rescaling, point correction, target-score tuning or ecological winner was adopted.
+
+**Matched denominator.** Three physical places BOKE/BUS/SOLSOE83; 147 native accounts, 59 selected and 88 outside six frozen windows. Inherited source panels of three/two/six taxa are projected to literal Betula/Ulmus on the same 18 target contexts, producing 54 outcomes across three families.
+
+Retained evidence: [reports/science/pollen-reconstruction/spatial-field-forward/result.json](result.json), [reports/science/pollen-reconstruction/spatial-field-forward/scores.csv](scores.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

@@ -101,3 +101,31 @@ qualify the retained 40,565-lake export, reconcile the historical 40,523-lake
 population or change ranks. All forty questions and five unranked leads in
 the field dossier retain their existing status; no access, permit, safety
 or field decision has been supplied.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Factual archival chart-catalogue transcription for predeclared lake-number leads, preserving separate rows, blank cells, source-page locators and conditional exact volume/area arithmetic without selecting a chart or coring location.
+
+**Unsupported claim.** Current bathymetry or survey dates, a preferred/averaged lake depth, repaired Ringsjon volumes, an EPSG or sampling point inferred from outlet identifiers, historical pollen-core/basin joins, exhaustive absence from OCR text, open geometry rights, changed ranks or field permission.
+
+**Actual verification performed.** Offline qualification checked the sole retained 4,226,310-byte PDF against declared length/hash, header/EOF and 180-page pdfinfo output, preserving the original downloader failure. Independent rendered-page comparisons at indexes 2/27/85/86/87 checked definitions and all five chart rows. Exact conditional arithmetic gives Havgardssjon 167/54 m matching printed rounding and Ringsjon 1247/20220 m and 4/125 m disagreeing with the printed means. No chart/grid, new lake export, undocumented API or numeric confidence interval was created.
+
+**Remaining input or review.** The 1987 catalogue supplies source chart rows, not current surveys or bathymetric grids. Chart extents/reference levels, measurement dates and permission for intended chart/geometry reuse are unbound; two printed Ringsjon volume/area ratios disagree with printed mean depths under the stated unit interpretation. Resolver: SMHI/source chart owner for chart meaning, reference levels, dates and use terms; field authority for any separately requested location, access or permit decision. Reopen when: Obtain and identify the actual relevant chart/attributes with extents, reference water level, measurement epoch and allowed use; bind an exact lake/core/location before quantitative or field use.
+
+**Cause category.** data|comparability|access/rights
+
+**Consequence.** Retain catalogue facts as unranked source context only, without changing the field dossier, historical or retained lake population, geometry authority, core identity, access or permit status.
+
+**Precise next acceptance route.** Use the retained transcription as a source lead now. Quantitative lake use requires the actual chart/reference-level/source-meaning evidence; field use additionally requires a selected, source-bound location and explicit applicable access/permit decisions. Do not fill blanks, repair printed volumes or infer current geometry from the catalogue.
+
+**Negative or refused result.** Original acquisition remains exit 1 with body_complete=false despite readable retained bytes; it was not retried or relabelled successful. Ten blanks remain null; two volume/area/mean-depth combinations are unqualified. Bjaresjosjon exact ID was not found in available text, without an absence claim; Uppakra lacks a unique lake ID. The available current Finjasjon route did not expose verified attributes.
+
+**Matched denominator.** Five existing field leads; three exact positive lake-number matches with five separate chart entries, one OCR-text nonmatch and one unresolved lake identity. Ten blank cells and three conditional volume/area checks remain explicit; charts are not independent repeated measurements.
+
+Retained evidence: [reports/science/swedish-lake-chart-catalogue-context/source-records.json](swedish-lake-chart-catalogue-context/source-records.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->
