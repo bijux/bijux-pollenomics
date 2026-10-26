@@ -1,0 +1,874 @@
+{
+  "schema_version": "spatial-field-forward-account.v1",
+  "status": "conditional_development_spatial_forward_comparison",
+  "source_commit": "dbe099e7df3718098d0dc13b1412335d44702af5",
+  "scientific_outputs": [
+    {
+      "path": "artifacts/physical-core/spatial-field-forward/native-run/prediction-freeze.json",
+      "bytes": 92013,
+      "sha256": "b9925425014270f53c8278c5e3690deff0a6d7f089d3e0f6cf11702b6f7319c9"
+    },
+    {
+      "path": "artifacts/physical-core/spatial-field-forward/native-run/result.json",
+      "bytes": 258956,
+      "sha256": "c02b2aee34eb2623ace446179df8e28801ab393b7b35559590a68989dac84319"
+    }
+  ],
+  "execution": {
+    "exit_code": 0,
+    "elapsed_seconds": 4.918875040952116,
+    "peak_rss_bytes": 295665664,
+    "science_output_bytes": 350969,
+    "resource_budget_passed": true
+  },
+  "producer_elapsed_seconds": 3.0095080421306193,
+  "geometry_elapsed_seconds": 2.4311247079167515,
+  "population": {
+    "native_samples": 147,
+    "selected_samples": 59,
+    "sample_status_counts": {
+      "selected_frozen_subset": 59,
+      "outside_requested_windows": 88
+    },
+    "contexts": 18,
+    "family_outcomes": 54,
+    "scored": 54,
+    "refused": 0,
+    "model_fits": 0
+  },
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "ppe": [
+    5.106,
+    1.27
+  ],
+  "fall_speed_m_s": [
+    0.024,
+    0.032
+  ],
+  "cohort": [
+    {
+      "id": "BOKE",
+      "site_id": 28872,
+      "dataset_id": 54001,
+      "collection_unit_id": 39241,
+      "chronology_id": 38422,
+      "native_samples": 52,
+      "source_axis": [
+        "Betula",
+        "Fraxinus",
+        "Ulmus"
+      ],
+      "radius_m": 80,
+      "selected_samples": 20,
+      "window_sample_counts": [
+        3,
+        1,
+        2,
+        4,
+        5,
+        5
+      ],
+      "source_panel_N": 5116,
+      "projected_panel_N": 4385,
+      "excluded_panel_N": 731,
+      "all_reported_pollen_NISP": 18207,
+      "outside_source_axis_N": 13091
+    },
+    {
+      "id": "BUS",
+      "site_id": 28869,
+      "dataset_id": 53995,
+      "collection_unit_id": 39238,
+      "chronology_id": 38418,
+      "native_samples": 69,
+      "source_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "radius_m": 69,
+      "selected_samples": 21,
+      "window_sample_counts": [
+        2,
+        4,
+        4,
+        3,
+        3,
+        5
+      ],
+      "source_panel_N": 1756,
+      "projected_panel_N": 1756,
+      "excluded_panel_N": 0,
+      "all_reported_pollen_NISP": 22991,
+      "outside_source_axis_N": 21235
+    },
+    {
+      "id": "SOLSOE83",
+      "site_id": 3432,
+      "dataset_id": 4446,
+      "collection_unit_id": 4304,
+      "chronology_id": 25740,
+      "native_samples": 26,
+      "source_axis": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "radius_m": 89,
+      "selected_samples": 18,
+      "window_sample_counts": [
+        1,
+        3,
+        2,
+        5,
+        5,
+        2
+      ],
+      "source_panel_N": 12367,
+      "projected_panel_N": 4114,
+      "excluded_panel_N": 8253,
+      "all_reported_pollen_NISP": 19626,
+      "outside_source_axis_N": 7259
+    }
+  ],
+  "geometry": [
+    {
+      "core": "BOKE",
+      "taxon": "Betula",
+      "anchor_order": [
+        "BUS",
+        "SOLSOE83"
+      ],
+      "anchor_xy_m": [
+        [
+          23982.112636306832,
+          -12057.632034655657
+        ],
+        [
+          -299751.06953122956,
+          71997.52163742164
+        ]
+      ],
+      "centre_weights": [
+        0.9924752842442294,
+        0.007524715755770586
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Betula",
+        "status": "qualified",
+        "factor": 0.2968731304200054,
+        "estimated_absolute_error": 2.362920920853322e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.2930409882082995,
+          0.0038321422116385133
+        ],
+        "homogeneous_factor": 0.2968731304200036,
+        "estimated_absolute_error": 1.5441822041182164e-10,
+        "partition_residual": -6.55586696041155e-14,
+        "homogeneous_estimated_absolute_error": 5.157265099668595e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.29123505939526306,
+          0.2940370149828158
+        ],
+        [
+          0.0028361154371883833,
+          0.005638071024741128
+        ]
+      ],
+      "step_bracket_widths": [
+        0.0028019555875527513,
+        0.002801955587552745
+      ],
+      "step_homogeneous_factor": 0.2968731304200042,
+      "step_homogeneous_estimated_absolute_error": 2.184079049772711e-09
+    },
+    {
+      "core": "BOKE",
+      "taxon": "Ulmus",
+      "anchor_order": [
+        "BUS",
+        "SOLSOE83"
+      ],
+      "anchor_xy_m": [
+        [
+          23982.112636306832,
+          -12057.632034655657
+        ],
+        [
+          -299751.06953122956,
+          71997.52163742164
+        ]
+      ],
+      "centre_weights": [
+        0.9924752842442294,
+        0.007524715755770586
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Ulmus",
+        "status": "qualified",
+        "factor": 0.2382713964696883,
+        "estimated_absolute_error": 2.2936877772427384e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.23551139115677824,
+          0.0027600053127208
+        ],
+        "homogeneous_factor": 0.23827139646968928,
+        "estimated_absolute_error": 9.898138425553164e-11,
+        "partition_residual": -1.9023671526952057e-13,
+        "homogeneous_estimated_absolute_error": 7.576479521205733e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.23439269141322855,
+          0.23610982446717146
+        ],
+        [
+          0.002161572002516771,
+          0.003878705056459689
+        ]
+      ],
+      "step_bracket_widths": [
+        0.0017171330539429153,
+        0.0017171330539429179
+      ],
+      "step_homogeneous_factor": 0.23827139646968826,
+      "step_homogeneous_estimated_absolute_error": 2.359841389566393e-09
+    },
+    {
+      "core": "BUS",
+      "taxon": "Betula",
+      "anchor_order": [
+        "BOKE",
+        "SOLSOE83"
+      ],
+      "anchor_xy_m": [
+        [
+          -23915.97855407107,
+          12188.280706681926
+        ],
+        [
+          -323271.05467023485,
+          85815.13955230611
+        ]
+      ],
+      "centre_weights": [
+        0.9936003642167058,
+        0.006399635783294125
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Betula",
+        "status": "qualified",
+        "factor": 0.3036219855575824,
+        "estimated_absolute_error": 2.3198442062977365e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.3006482275201514,
+          0.0029737580373523633
+        ],
+        "homogeneous_factor": 0.3036219855575815,
+        "estimated_absolute_error": 2.355850376029061e-10,
+        "partition_residual": -7.777112287499222e-14,
+        "homogeneous_estimated_absolute_error": 5.032471347072811e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.2993739314806692,
+          0.30131161150981495
+        ],
+        [
+          0.0023103740477619793,
+          0.004248054076907689
+        ]
+      ],
+      "step_bracket_widths": [
+        0.0019376800291457386,
+        0.0019376800291457095
+      ],
+      "step_homogeneous_factor": 0.3036219855575769,
+      "step_homogeneous_estimated_absolute_error": 2.1628739060593408e-09
+    },
+    {
+      "core": "BUS",
+      "taxon": "Ulmus",
+      "anchor_order": [
+        "BOKE",
+        "SOLSOE83"
+      ],
+      "anchor_xy_m": [
+        [
+          -23915.97855407107,
+          12188.280706681926
+        ],
+        [
+          -323271.05467023485,
+          85815.13955230611
+        ]
+      ],
+      "centre_weights": [
+        0.9936003642167058,
+        0.006399635783294125
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Ulmus",
+        "status": "qualified",
+        "factor": 0.24477138467402693,
+        "estimated_absolute_error": 2.251159361989891e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.24258207915418906,
+          0.0021893055196680004
+        ],
+        "homogeneous_factor": 0.24477138467402887,
+        "estimated_absolute_error": 1.0121355629742312e-10,
+        "partition_residual": -1.7180701306074297e-13,
+        "homogeneous_estimated_absolute_error": 7.377660748152585e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.24179395588035033,
+          0.24298003655123812
+        ],
+        [
+          0.0017913481227844912,
+          0.0029774287936723
+        ]
+      ],
+      "step_bracket_widths": [
+        0.0011860806708877958,
+        0.0011860806708878088
+      ],
+      "step_homogeneous_factor": 0.24477138467402262,
+      "step_homogeneous_estimated_absolute_error": 2.336206145043888e-09
+    },
+    {
+      "core": "SOLSOE83",
+      "taxon": "Betula",
+      "anchor_order": [
+        "BOKE",
+        "BUS"
+      ],
+      "anchor_xy_m": [
+        [
+          304037.1059744547,
+          -50948.846873353985
+        ],
+        [
+          328800.10821696755,
+          -61309.88338349191
+        ]
+      ],
+      "centre_weights": [
+        0.5406811058865767,
+        0.45931889411342336
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Betula",
+        "status": "qualified",
+        "factor": 0.292007913782744,
+        "estimated_absolute_error": 2.394540116391155e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.15788295969620966,
+          0.1341249540864755
+        ],
+        "homogeneous_factor": 0.2920079137827464,
+        "estimated_absolute_error": 1.7292717195111982e-10,
+        "partition_residual": -6.117328865684613e-14,
+        "homogeneous_estimated_absolute_error": 5.251059895525074e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.15788269882037703,
+          0.1578830899404138
+        ],
+        [
+          0.1341248238423335,
+          0.1341252149623703
+        ]
+      ],
+      "step_bracket_widths": [
+        3.9112003677455043e-07,
+        3.9112003677455043e-07
+      ],
+      "step_homogeneous_factor": 0.2920079137827473,
+      "step_homogeneous_estimated_absolute_error": 2.1940591695882e-09
+    },
+    {
+      "core": "SOLSOE83",
+      "taxon": "Ulmus",
+      "anchor_order": [
+        "BOKE",
+        "BUS"
+      ],
+      "anchor_xy_m": [
+        [
+          304037.1059744547,
+          -50948.846873353985
+        ],
+        [
+          328800.10821696755,
+          -61309.88338349191
+        ]
+      ],
+      "centre_weights": [
+        0.5406811058865767,
+        0.45931889411342336
+      ],
+      "homogeneous_baseline": {
+        "taxon": "Ulmus",
+        "status": "qualified",
+        "factor": 0.23360957831389104,
+        "estimated_absolute_error": 2.3249850102356974e-09
+      },
+      "primary": {
+        "anchor_factors": [
+          0.1263081632408522,
+          0.10730141507281143
+        ],
+        "homogeneous_factor": 0.23360957831389095,
+        "estimated_absolute_error": 1.1510482061434051e-10,
+        "partition_residual": -2.273181642920008e-13,
+        "homogeneous_estimated_absolute_error": 7.725274999990416e-10
+      },
+      "step_anchor_factor_bounds": [
+        [
+          0.12630800251795843,
+          0.12630824122750728
+        ],
+        [
+          0.10730133708638258,
+          0.10730157579593143
+        ]
+      ],
+      "step_bracket_widths": [
+        2.3870954884985807e-07,
+        2.3870954884985807e-07
+      ],
+      "step_homogeneous_factor": 0.23360957831388987,
+      "step_homogeneous_estimated_absolute_error": 2.372754341749606e-09
+    }
+  ],
+  "summaries": {
+    "families": [
+      {
+        "family": "direct_pollen_idw",
+        "status": "complete_cohort",
+        "requested_contexts": 18,
+        "scored_contexts": 18,
+        "places": [
+          {
+            "core": "BOKE",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.2511667045443872,
+              "total_variation": 0.2511667045443872,
+              "hellinger_distance": 0.21093605115379543
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.2511667045443872,
+                0.2511667045443872
+              ],
+              "total_variation": [
+                0.2511667045443872,
+                0.2511667045443872
+              ],
+              "hellinger_distance": [
+                0.2109360511537954,
+                0.2109360511537954
+              ]
+            }
+          },
+          {
+            "core": "BUS",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.25334627440728125,
+              "total_variation": 0.25334627440728125,
+              "hellinger_distance": 0.21254173246571095
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.25334627440728125,
+                0.25334627440728125
+              ],
+              "total_variation": [
+                0.25334627440728125,
+                0.25334627440728125
+              ],
+              "hellinger_distance": [
+                0.21254173246571093,
+                0.21254173246571093
+              ]
+            }
+          },
+          {
+            "core": "SOLSOE83",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.15696654388340486,
+              "total_variation": 0.15696654388340486,
+              "hellinger_distance": 0.1568882875940512
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.15696654388340484,
+                0.15696654388340484
+              ],
+              "total_variation": [
+                0.15696654388340484,
+                0.15696654388340484
+              ],
+              "hellinger_distance": [
+                0.15688828759405116,
+                0.15688828759405116
+              ]
+            }
+          }
+        ],
+        "equal_place": {
+          "metrics": {
+            "mean_absolute_fraction_error": 0.2204931742783578,
+            "total_variation": 0.2204931742783578,
+            "hellinger_distance": 0.19345535707118588
+          },
+          "numerical_ranges": {
+            "mean_absolute_fraction_error": [
+              0.22049317427835777,
+              0.22049317427835777
+            ],
+            "total_variation": [
+              0.22049317427835777,
+              0.22049317427835777
+            ],
+            "hellinger_distance": [
+              0.1934553570711858,
+              0.1934553570711858
+            ]
+          }
+        }
+      },
+      {
+        "family": "centre_cover_idw_forward",
+        "status": "complete_cohort",
+        "requested_contexts": 18,
+        "scored_contexts": 18,
+        "places": [
+          {
+            "core": "BOKE",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.24760538336837554,
+              "total_variation": 0.24760538336837554,
+              "hellinger_distance": 0.2084302277631709
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.24760538336837554,
+                0.24760538336837554
+              ],
+              "total_variation": [
+                0.24760538336837554,
+                0.24760538336837554
+              ],
+              "hellinger_distance": [
+                0.20843022776317097,
+                0.20843022776317097
+              ]
+            }
+          },
+          {
+            "core": "BUS",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.2530976840231352,
+              "total_variation": 0.2530976840231352,
+              "hellinger_distance": 0.2122530083917923
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.2530976840231352,
+                0.2530976840231352
+              ],
+              "total_variation": [
+                0.2530976840231352,
+                0.2530976840231352
+              ],
+              "hellinger_distance": [
+                0.2122530083917923,
+                0.2122530083917923
+              ]
+            }
+          },
+          {
+            "core": "SOLSOE83",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.1171712524660201,
+              "total_variation": 0.1171712524660201,
+              "hellinger_distance": 0.12491564748591655
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.11717125246602011,
+                0.11717125246602011
+              ],
+              "total_variation": [
+                0.11717125246602011,
+                0.11717125246602011
+              ],
+              "hellinger_distance": [
+                0.12491564748591655,
+                0.12491564748591655
+              ]
+            }
+          }
+        ],
+        "equal_place": {
+          "metrics": {
+            "mean_absolute_fraction_error": 0.20595810661917693,
+            "total_variation": 0.20595810661917693,
+            "hellinger_distance": 0.18186629454695993
+          },
+          "numerical_ranges": {
+            "mean_absolute_fraction_error": [
+              0.20595810661917693,
+              0.20595810661917693
+            ],
+            "total_variation": [
+              0.20595810661917693,
+              0.20595810661917693
+            ],
+            "hellinger_distance": [
+              0.18186629454695993,
+              0.18186629454695993
+            ]
+          }
+        }
+      },
+      {
+        "family": "spatial_cover_idw_forward",
+        "status": "complete_cohort",
+        "requested_contexts": 18,
+        "scored_contexts": 18,
+        "places": [
+          {
+            "core": "BOKE",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.24429550900592445,
+              "total_variation": 0.24429550900592445,
+              "hellinger_distance": 0.20609608433933033
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.23855144614289267,
+                0.24846310943576122
+              ],
+              "total_variation": [
+                0.23855144614289267,
+                0.24846310943576122
+              ],
+              "hellinger_distance": [
+                0.2017820960087159,
+                0.20929665526309227
+              ]
+            }
+          },
+          {
+            "core": "BUS",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.253160183770692,
+              "total_variation": 0.253160183770692,
+              "hellinger_distance": 0.21231867824552042
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.2520169401274759,
+                0.2543341580275191
+              ],
+              "total_variation": [
+                0.2520169401274759,
+                0.2543341580275191
+              ],
+              "hellinger_distance": [
+                0.21109124329280463,
+                0.213580839934875
+              ]
+            }
+          },
+          {
+            "core": "SOLSOE83",
+            "metrics": {
+              "mean_absolute_fraction_error": 0.11717136552502379,
+              "total_variation": 0.11717136552502379,
+              "hellinger_distance": 0.1249157398959065
+            },
+            "numerical_ranges": {
+              "mean_absolute_fraction_error": [
+                0.11717107348051696,
+                0.11717173181500502
+              ],
+              "total_variation": [
+                0.11717107348051696,
+                0.11717173181500502
+              ],
+              "hellinger_distance": [
+                0.12491546650117787,
+                0.12491607398220644
+              ]
+            }
+          }
+        ],
+        "equal_place": {
+          "metrics": {
+            "mean_absolute_fraction_error": 0.20487568610054674,
+            "total_variation": 0.20487568610054674,
+            "hellinger_distance": 0.18111016749358574
+          },
+          "numerical_ranges": {
+            "mean_absolute_fraction_error": [
+              0.20257981991696183,
+              0.20665633309276177
+            ],
+            "total_variation": [
+              0.20257981991696183,
+              0.20665633309276177
+            ],
+            "hellinger_distance": [
+              0.17926293526756612,
+              0.18259785639339124
+            ]
+          }
+        }
+      }
+    ],
+    "pairwise": [
+      {
+        "first_family": "direct_pollen_idw",
+        "second_family": "centre_cover_idw_forward",
+        "status": "matched_complete_cohort",
+        "metrics": {
+          "mean_absolute_fraction_error": {
+            "point_difference": 0.014535067659180861,
+            "numerical_difference_range": [
+              0.014535067659180834,
+              0.014535067659180834
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          },
+          "total_variation": {
+            "point_difference": 0.014535067659180861,
+            "numerical_difference_range": [
+              0.014535067659180834,
+              0.014535067659180834
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          },
+          "hellinger_distance": {
+            "point_difference": 0.011589062524225952,
+            "numerical_difference_range": [
+              0.011589062524225868,
+              0.011589062524225868
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          }
+        }
+      },
+      {
+        "first_family": "direct_pollen_idw",
+        "second_family": "spatial_cover_idw_forward",
+        "status": "matched_complete_cohort",
+        "metrics": {
+          "mean_absolute_fraction_error": {
+            "point_difference": 0.015617488177811056,
+            "numerical_difference_range": [
+              0.013836841185596,
+              0.017913354361395933
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          },
+          "total_variation": {
+            "point_difference": 0.015617488177811056,
+            "numerical_difference_range": [
+              0.013836841185596,
+              0.017913354361395933
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          },
+          "hellinger_distance": {
+            "point_difference": 0.01234518957760014,
+            "numerical_difference_range": [
+              0.010857500677794563,
+              0.014192421803619681
+            ],
+            "resolution": "separated_conditional_numerical_ranges"
+          }
+        }
+      },
+      {
+        "first_family": "centre_cover_idw_forward",
+        "second_family": "spatial_cover_idw_forward",
+        "status": "matched_complete_cohort",
+        "metrics": {
+          "mean_absolute_fraction_error": {
+            "point_difference": 0.001082420518630195,
+            "numerical_difference_range": [
+              -0.0006982264735848343,
+              0.0033782867022150997
+            ],
+            "resolution": "numerically_unresolved"
+          },
+          "total_variation": {
+            "point_difference": 0.001082420518630195,
+            "numerical_difference_range": [
+              -0.0006982264735848343,
+              0.0033782867022150997
+            ],
+            "resolution": "numerically_unresolved"
+          },
+          "hellinger_distance": {
+            "point_difference": 0.0007561270533741893,
+            "numerical_difference_range": [
+              -0.0007315618464313056,
+              0.002603359279393813
+            ],
+            "resolution": "numerically_unresolved"
+          }
+        }
+      }
+    ]
+  },
+  "independent_observation": {
+    "status": "saved_result_verified_with_conditional_numerical_limits",
+    "source_commit": "7deffa682499d0763b5c06f66b7aac77c962266c",
+    "owned_session": 91200,
+    "exit_code": 0,
+    "tests_passed": 1,
+    "test_elapsed_seconds": 5.45,
+    "process_elapsed_seconds": 6.18,
+    "peak_rss_bytes": 313229312,
+    "source_rows_checked": 147,
+    "selected_samples_checked": 59,
+    "contexts_checked": 18,
+    "scores_checked": 54,
+    "primary_quadrature_accuracy_independently_certified": false,
+    "numerically_unresolved_pair_metrics": 3
+  },
+  "limits": [
+    "Previously exposed development outcomes; no untouched validation or measured vegetation target.",
+    "Native fixed point ages; no age/count/PPE/geometry uncertainty law propagated.",
+    "Static circular radii and site analysis points; BUS coordinate discrepancy and null core GPS remain unresolved.",
+    "Two-stage source cover inversion then IDW point-anchor field; no jointly fitted self-consistent landscape.",
+    "Two-component closure after inherited source-panel completeness; omitted native NISP retained in cohort accounting.",
+    "Step brackets condition on computed ring factors and fixed anchor covers; adaptive quadrature errors are nonrigorous.",
+    "Normalized prediction and score endpoints are conservative; no ecological coverage or joint physical attainment is asserted."
+  ]
+}
