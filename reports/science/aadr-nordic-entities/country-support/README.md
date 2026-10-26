@@ -107,6 +107,29 @@ material in 1982. These are discovery/collection dates and relative locality
 descriptions; they do not select an ancient date or justify moving the property
 point. The archaeology supplement's `64.1641 / 11.8140` point remains separate.
 
+The existing committed country helper was then applied to all three museum
+records and both original AADR pairs, with each pair independently treated as
+literal degrees on the pinned Natural Earth 5.1.1 boundary axes. All three
+museum records give strict Norway containment; both original AADR pairs retain
+strict Sweden containment with `raw_country_conflict`. The human and dog share
+one property point, so three records represent only two distinct museum points.
+No source coordinate was merged or selected. This is an explicitly nominal
+degree-axis comparison, with **no datum transformation** or museum-label/EPSG
+authentication; it is not a newly admitted archaeological map layer.
+
+The comparison consumed committed source and curated input at
+`679389cd4`, exited zero in 0.88 s process time, and measured 86,065,152 bytes
+peak RSS. Original museum files, boundary inputs, the existing country report
+and decisions were authenticated before and after; HEAD stayed unchanged.
+The [compact source context](museum-source-context.json) retains all five
+outputs, source/parameters, resource facts and evidence limits. No new
+independent polygon oracle was run: this reuses the already checked, unchanged
+country helper. An initial attempt failed at import because the environment
+has no Shapely, before reading inputs. Its literal failure remains under
+`artifacts/source-review/museum-localities/spatial-check/`; the successful
+comparison is separately retained in `degree-axis-check/`. No dependency was
+installed or result overwritten.
+
 The remaining exact conditions are specimen-level binding and coordinate
 semantics for any selected correction, an explicit Aunvollen Individual 2
 laboratory/date crosswalk, and qualified treatment of inconsistent Fauskland

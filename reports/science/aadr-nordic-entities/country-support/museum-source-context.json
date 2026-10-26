@@ -127,5 +127,123 @@
     "Museum EU89 label realization/EPSG and intended coordinate semantics; preserve source label separately from nominal boundary-axis comparison.",
     "Exact Fauskland c.003-to-sampled-tooth crosswalk and chronology representation conflict.",
     "Exact Aunvollen Individual 2/CGG-to-human/laboratory/date crosswalk and property-versus-grave point meaning."
-  ]
+  ],
+  "nominal_degree_axis_comparison": {
+    "source_commit": "679389cd413d9e5ef53650668fd08081915994cf",
+    "profile": "literal_source_degrees_on_pinned_boundary_axes_without_datum_or_specimen_admission",
+    "source_label": "Coordinate (EU89 - Lat/Lon)",
+    "boundary_crs": "EPSG:4326",
+    "boundary_version": "5.1.1",
+    "coordinate_transform_performed": false,
+    "records": [
+      {
+        "source": "museum",
+        "identity": "T11792:c.003",
+        "latitude_raw": "63.6058590629654",
+        "longitude_raw": "8.8588817461179",
+        "precision": "Funnsted (Lokalitet)",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "museum",
+        "identity": "T20248:L.012",
+        "latitude_raw": "64.1635647815224",
+        "longitude_raw": "11.819740680260399",
+        "precision": "Bruk",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "museum",
+        "identity": "T20248:L.013",
+        "latitude_raw": "64.1635647815224",
+        "longitude_raw": "11.819740680260399",
+        "precision": "Bruk",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "original_aadr",
+        "identity": "CGG_2_105915.SG",
+        "latitude_raw": "63.12322",
+        "longitude_raw": "16.90684",
+        "precision": null,
+        "degree_axis_country_support": {
+          "spatial_status": "review",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Sweden",
+          "spatial_candidates": "Sweden",
+          "spatial_reason": "raw_country_conflict"
+        }
+      },
+      {
+        "source": "original_aadr",
+        "identity": "CGG_2_105916.SG",
+        "latitude_raw": "63.60579",
+        "longitude_raw": "14.85861",
+        "precision": null,
+        "degree_axis_country_support": {
+          "spatial_status": "review",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Sweden",
+          "spatial_candidates": "Sweden",
+          "spatial_reason": "raw_country_conflict"
+        }
+      }
+    ],
+    "elapsed_seconds": 0.15355808311142027,
+    "verification_limit": "Unchanged previously qualified country helper; no new independent geometry oracle or source datum/positional qualification.",
+    "execution": {
+      "tool_chunk": "4494a4",
+      "exit_code": 0,
+      "process_elapsed_seconds": 0.88,
+      "peak_rss_bytes": 86065152,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        ".venv/bin/python",
+        "-B",
+        "-"
+      ],
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1"
+      },
+      "input_selection": "Committed museum-source-context.json three records and mccoll-source-context.json two original AADR contexts; all original file/boundary/country-product identities checked before and after; HEAD unchanged.",
+      "output": "artifacts/source-review/museum-localities/degree-axis-check/result.json",
+      "classification_function": "bijux_pollenomics_dev.source_completion.adna.aadr_country_support.coordinate_country_support",
+      "arguments": {
+        "source_country": "Norway",
+        "boundary_version": "5.1.1",
+        "coordinate_status": "admitted means numerically usable pair only"
+      },
+      "preparation_failure": {
+        "tool_chunk": "19651e",
+        "exit_code": 1,
+        "process_elapsed_seconds": 0.04,
+        "peak_rss_bytes": 19333120,
+        "stage": "Python import, before source input reading",
+        "error": "ModuleNotFoundError: No module named shapely",
+        "output_directory": "artifacts/source-review/museum-localities/spatial-check",
+        "resolution": "Used unchanged existing country helper without proposing a new independent geometry oracle; no package installed, no failed output overwritten."
+      }
+    }
+  }
 }
