@@ -169,29 +169,105 @@ has been approved. The paper's 3 m/s wind, 100 km regional extent and neutral
 atmosphere are named LandClimII REVEALS settings, not missing ABB core evidence
 or automatically transferable LOVE parameters.
 
+## Original recorded zeros and the current sparse five-taxon panels
+
+We compared the retained [Giesecke (2010) ABBO count table](https://doi.org/10.1594/PANGAEA.738429),
+archived from EPD on 11 May 2010, with the current Neotoma/EPD
+[dataset 19913](https://doi.org/10.21233/2vzb-bg61). This is a separate source
+comparison from the Rootsi workbook check above. The
+[declared protocol](abborrtjarnen-source-counts/protocol.json) was committed
+before numeric table reading. It uses five original count columns, not the
+whole 94-taxon matrix, and makes no chronology or vegetation calculation.
+
+All **107 original rows** bind uniquely to the **107 native samples** after
+exact decimal multiplication of original metre depths by **100**. There are
+no duplicate or unmatched depths. Across **535 five-taxon slots**, all **527
+explicitly reported native counts agree exactly** with the original table.
+Only after that complete shared-count check did we examine the eight absent
+native cells: each has an **explicit numeric zero** in the original source,
+comprising **five Juniperus-type, two Cyperaceae and one Poaceae** cells.
+There are no blank, invalid or conflicting original tokens in this five-axis
+comparison. These are recorded count zeros; neither missing native records
+nor blank cells were converted to zero, and a zero grain count is not proof
+of biological absence.
+
+The original columns retain their full names and EPD comments: in particular,
+`Juniperus communis` has comment `Juniperus-type`, `Pinus sylvestris` has
+`Pinus diploxylon-type`, and `Poaceae` has `Gramineae`. Numeric correspondence
+does not establish new species-level equivalence or a reviewed PPE transfer.
+The table declares depth in metres and counts as `#`; current observations
+declare `NISP`, while the native depth unit remains unstated. The exact depth
+relationship is evidence of export-series correspondence, not independent
+measurement or physical-core identity. PANGAEA's elevation start **387 m**
+and end **6.5 m**, and Neotoma's altitude **374 m**, remain separate metadata.
+
+The calculation and independent check both exited zero at Git source
+`efcae7412f3ef345fd2c16472f8803ac1b0c8589`. The calculation took **0.182657 s**
+with peak RSS **28,704,768 bytes**; the independent Fraction-based source
+checker took **0.241958 s** with peak RSS **38,764,544 bytes**. It reconstructed
+all 107 depth owners, 535 slots, 527 reported comparisons, eight absence
+counterparts, five morphological comments and three input identities. Both
+were within their **60 s / 512 MiB / 16 KiB** limits. The source/comparison
+controls passed 32 cases, six additional mutable-input/HEAD/protocol guards
+passed, and the independent checker passed 33 controlled cases. No model was
+fitted, saved-age row consumed, source measurement changed or value imputed.
+
+The original table is **43,894 bytes**, SHA-256
+`ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154`.
+The local compact result is **8,507 bytes**, SHA-256
+`426ee3cc7844a1c2a5c0564ca59a64b37d29b46755d649fe04f769a1367886d2`.
+It remains under `artifacts/method-certification/abborrtjarnen-source-counts/native-run/`,
+with exact execution facts in the adjacent `native-execution/` directory;
+the independent receipt is under
+`artifacts/raa-reconciliation/abborrtjarnen-source-counts/`. Native original
+tables and individual candidate-cell exports are not reproduced here.
+
+To repeat only the source comparison, using the unchanged external inputs
+and an absent artifact destination:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  PYTHONPATH=packages/bijux-pollenomics-dev/src \
+  .venv/bin/python -B -m bijux_pollenomics_dev.source_completion.pollen_reconstruction.abborrtjarnen_source_counts \
+  --repository . --source-root /path/to/external/source-store \
+  --output artifacts/abborrtjarnen-source-counts/reproduction/result.json
+```
+
+The original source declares **CC BY-NC 3.0**. This comparison is local
+noncommercial scientific source work, with attribution to Giesecke, EPD and
+PANGAEA; current Neotoma terms do not relicense that archive. Its numerical
+correspondence is not independent vegetation evidence or authority for a raw
+table release. The existing strict native-only profiles remain unchanged:
+they still report 99 complete five-taxon panels out of 107 and
+[2,668 undefined joint-age rows out of 32,000](pollen-reconstruction/abborrtjarnen-age-ppe/README.md).
+The eight original recorded zeros can support a **separately declared source
+profile**, with their provenance and terms retained. They do not retrospectively
+change those refusals, supply historical LandClim inputs, or admit the core
+to a historical LRA reconstruction.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Published 2005 percentage method is distinguished from later ABBO/ABB exports; 107 depths and six radiocarbon controls correspond. Across 123,480 compatible joint age memberships for four frozen ABBO pollen-prediction bins, nearest-site retains the lowest equal-bin MAE.
+**Supported claim.** Published 2005 percentage method is distinguished from later ABBO/ABB exports; 107 depths and six radiocarbon controls correspond. Across 123,480 compatible joint age memberships for four frozen ABBO pollen-prediction bins, nearest-site retains the lowest equal-bin MAE. A separate original PANGAEA/current Neotoma five-taxon comparison establishes 107 unique exact depth pairs, agreement of all 527 reported counts and eight explicit original zero counterparts.
 
-**Unsupported claim.** Historical ABB LRA input or a fixed 500-grain denominator.
+**Unsupported claim.** Historical ABB LRA input or a fixed 500-grain denominator. General missing-to-zero rules, species-level equivalence, biological absence, independent measurements and automatic historical core admission are not established.
 
-**Actual verification performed.** Retained core/count/control reports compare 107 depths, 2,183 same-label counts and six controls. The actual joint sensitivity consumer at 3344c0d78 scored 123,480 complete memberships; 998 depth-order tests passed. Independent source joins and exact arithmetic confirm all 13 retained age witnesses, 52 pooled vectors/scores and 20 endpoint claims without rerunning the full search.
+**Actual verification performed.** Retained core/count/control reports compare 107 depths, 2,183 same-label counts and six controls. The actual joint sensitivity consumer at 3344c0d78 scored 123,480 complete memberships; 998 depth-order tests passed. Independent source joins and exact arithmetic confirm all 13 retained age witnesses, 52 pooled vectors/scores and 20 endpoint claims without rerunning the full search. The original-count producer and independent Fraction checker at efcae7412 both exited zero: 107 depth owners, all 535 slots, 527 reported matches, eight absent-native counterparts, five morphological comments and three source identities. All eight original counterparts are numeric zero. The producer used 0.182657 s/28704768 B RSS and the independent process 0.241958 s/38764544 B RSS, within 60 s/512 MiB/16 KiB. Thirty-two source/comparison controls, six mutable-source guards and 33 independent controls passed; no age consumer or model ran.
 
-**Remaining input or review.** 107-depth ABBO correspondence and six dated controls do not identify LandClim-selected ages, time-specific basin, eligible pollen/spore denominator, reviewed taxon/PPE profile or Rootsi workbook use rights. Resolver: ABB core/author custodian and qualified chronology, basin and palynology reviewer Reopen when: One source-bound ABB sample/window packet supplies selected age, dated geometry, denominator, parameters and permitted use.
+**Remaining input or review.** 107-depth ABBO correspondence and six dated controls do not identify LandClim-selected ages, time-specific basin, eligible pollen/spore denominator, reviewed taxon/PPE profile or Rootsi workbook use rights. The eight original recorded zeros resolve only those count states under exact source/depth/field correspondence; original CC BY-NC 3.0 terms and morphological comments remain distinct from current native metadata and do not establish historical inputs. Resolver: ABB core/author custodian and qualified chronology, basin and palynology reviewer Reopen when: One source-bound ABB sample/window packet supplies selected age, dated geometry, denominator, parameters and permitted use.
 
 **Cause category.** data|assumption|access/rights|qualified review
 
-**Consequence.** Do not import a modern 98 m radius, published polynomial or alternative LegacyAge into historical LRA.
+**Consequence.** Do not import a modern 98 m radius, published polynomial or alternative LegacyAge into historical LRA. Original zeros are source-owned measurements, not imputation or a blanket absent-equals-zero rule; preserve native-only refusals and the original noncommercial source terms.
 
-**Precise next acceptance route.** Authenticate one ABB same-core/window age, basin, count denominator, PPE and rights packet; rerun docs/report/source-relations/neotoma/lra-prerequisites/README.md before revising this source-method account or admitting an LRA row.
+**Precise next acceptance route.** For historical ABB/LandClim reproduction, authenticate the same-core/window age, basin, denominator, PPE and rights packet using the existing LRA prerequisite consumer. A separately declared local noncommercial conditional profile may use the qualified original zero counterparts with exact provenance while preserving the strict native-only results; this does not grant historical admission.
 
-**Negative or refused result.** Zero ABB LRA samples admitted; candidate sample 173174 denominator remains 1,219 or 1,215 under alternate indeterminable treatment.
+**Negative or refused result.** Zero ABB LRA samples admitted; candidate sample 173174 denominator remains 1,219 or 1,215 under alternate indeterminable treatment. The strict native-only five-taxon profile retains 99/107 complete source panels and 2668/32000 undefined joint-age rows; original recorded zeros do not retrospectively change those results.
 
-**Matched denominator.** 107 source depths; 1,206 pollen NISP for sample 173174; 1,190 mapped to 13 author targets, 16 excluded. Joint sensitivity: 107 samples, 16 taxa, four fixed bins and four frozen predictors; 123,480 finite configurations are not independent observations.
+**Matched denominator.** 107 source depths; 1,206 pollen NISP for sample 173174; 1,190 mapped to 13 author targets, 16 excluded. Joint sensitivity: 107 samples, 16 taxa, four fixed bins and four frozen predictors; 123,480 finite configurations are not independent observations. Separate original-source comparison: 107 rows by five axes = 535 slots, partitioned into 527 matching reported counts and eight explicit original zeros (five Juniperus-type, two Cyperaceae and one Poaceae); these are linked exports, not additional independent measurements.
 
-Retained evidence: [docs/report/source-relations/neotoma/abbo-native-correspondence/README.md](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md), [docs/report/source-relations/neotoma/abbo-age-controls/README.md](../../docs/report/source-relations/neotoma/abbo-age-controls/README.md), [reports/science/chronology/abborrtjarne-joint-prediction-age-sensitivity.json](chronology/abborrtjarne-joint-prediction-age-sensitivity.json).
+Retained evidence: [docs/report/source-relations/neotoma/abbo-native-correspondence/README.md](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md), [docs/report/source-relations/neotoma/abbo-age-controls/README.md](../../docs/report/source-relations/neotoma/abbo-age-controls/README.md), [reports/science/chronology/abborrtjarne-joint-prediction-age-sensitivity.json](chronology/abborrtjarne-joint-prediction-age-sensitivity.json), [reports/science/abborrtjarnen-source-counts/protocol.json](abborrtjarnen-source-counts/protocol.json), [packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_source_counts/comparison.py](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_source_counts/comparison.py), [packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_abborrtjarnen_source_counts_result.py](../../packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_abborrtjarnen_source_counts_result.py).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
