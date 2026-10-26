@@ -1,0 +1,164 @@
+{
+  "schema_version": "abborrtjarnen-age-ppe-protocol.v1",
+  "question": "How does integrating qualified joint ABBO age membership change the five-taxon conditional cover covariance when one shared PPE error vector is propagated across the four frozen windows?",
+  "core": {
+    "dataset_id": 19913,
+    "site_id": 13338,
+    "collection_unit_id": 14910,
+    "handle": "ABBO",
+    "chronology_id": 11516,
+    "native_samples": 107,
+    "native_point_selected_samples": 29,
+    "chronology_id_role": "Original native point-age reference only. The mixture uses the separately named qualified Bacon age rows, not a realization or refit of native chronology 11516."
+  },
+  "taxon_axis": [
+    "Betula",
+    "Cyperaceae",
+    "Juniperus communis",
+    "Pinus sylvestris",
+    "Poaceae"
+  ],
+  "native_taxon_ids": [
+    29,
+    74,
+    4416,
+    1287,
+    417
+  ],
+  "window_ids": [
+    3,
+    4,
+    5,
+    9
+  ],
+  "window_width_years": 500,
+  "physical": {
+    "source_reported_area_ha": 3.0,
+    "receiver_radius_rule": "sqrt(30000/pi) metres",
+    "uniform_circular_receiver": true,
+    "homogeneous_terrestrial_annulus": true,
+    "regional_extent_m": 100000.0,
+    "wind_speed_m_s": 3.0,
+    "diffusion_coefficient": 0.12,
+    "turbulence_parameter": 0.25,
+    "quadrature_absolute_tolerance": 1e-09,
+    "quadrature_relative_tolerance": 1e-08,
+    "geometry_posture": "Declared static circular receiver derived from reported event area; no historical shoreline, qualified basin radius, or reconstruction of the original LandClim analysis is asserted.",
+    "transport_posture": "Conditional stationary isotropic GPM displacement and uniform disk reception. All panel pollen is attributed to the homogeneous land annulus, with no plants on the receiver or lake-margin source term; Cyperaceae and Poaceae can violate that assumption in real basins. The coefficient 0.12 follows the retained empirical transport convention, not SI diffusivity. No spatial vegetation field or separate regional background is estimated."
+  },
+  "source_profile": "reports/science/pollen-reconstruction/abborrtjarnen-ppe-dependence/protocol.json",
+  "physical_response_input": "reports/science/pollen-reconstruction/abborrtjarnen-ppe-dependence/result.json",
+  "physical_factor_posture": "Reuse the exact saved binary64 five-taxon factors as fixed nuisance inputs from the source-qualified static 3 ha profile; no new integration or geometry uncertainty law.",
+  "age_inputs": [
+    {
+      "seed": 314159,
+      "path": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/seed-314159/ages.csv.gz",
+      "retained_rows": 16000,
+      "first_native_row": 3502,
+      "last_native_row": 19501
+    },
+    {
+      "seed": 271828,
+      "path": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/seed-271828/ages.csv.gz",
+      "retained_rows": 16000,
+      "first_native_row": 3502,
+      "last_native_row": 19501
+    }
+  ],
+  "core_input": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/core-input.json",
+  "fit_input": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/fit-summary.json",
+  "report_input": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/report.json",
+  "verified_input": "artifacts/physical-core/abborrtjarnen-sampler-accuracy/independent-check/verified-result.json",
+  "repository_inputs": {
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/seed-314159/ages.csv.gz": {
+      "bytes": 16466136,
+      "sha256": "6d8b522eb40a9054d7ba80b20698a66ced9a066cf2af5b772a3b6eaf43e03898"
+    },
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/seed-271828/ages.csv.gz": {
+      "bytes": 16466991,
+      "sha256": "94044c79c665ca0a7832a128a61780137dd0c582f1472d417e774ba10e79f316"
+    },
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/core-input.json": {
+      "bytes": 27205,
+      "sha256": "de7e6ce6c71193150aaf69b7e6b909ac8311e63b5256f1c5d02df366717c2120"
+    },
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/fit-summary.json": {
+      "bytes": 3474,
+      "sha256": "e43a56932d484b7a8c13a99fab8a833b2e1854e4c7f361f2e024b35c5c7232e2"
+    },
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay/report.json": {
+      "bytes": 23070,
+      "sha256": "1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf"
+    },
+    "artifacts/physical-core/abborrtjarnen-sampler-accuracy/independent-check/verified-result.json": {
+      "bytes": 1474,
+      "sha256": "5050de7f97b1c066c024e8333b7291b368a6da1538045471377c7e29d0e695b5"
+    },
+    "reports/science/pollen-reconstruction/abborrtjarnen-ppe-dependence/result.json": {
+      "bytes": 162547,
+      "sha256": "e0dfb337976c1daf46a6382e19d4a5ec7b588b1142f81a9c04a33d4eeffd29d4"
+    }
+  },
+  "age_authority": {
+    "source_commit": "8628c543483fcb87586430c6585ee2a2834f4fbc",
+    "requested_rows": 32000,
+    "samples": 107,
+    "observer_status": "native_and_consumer_verified_with_report_flag_conflict",
+    "literal_report_flag_conflict": {
+      "diagnostics_passed": false,
+      "diagnostics_pass": true
+    },
+    "row_law": "Equal saved fixed-transition rows, preserving seed/native-row identity and both original prefixes exactly once. Do not append the original failed 8,000-state run, thin rows again, clip ages, condition on old S5 intervals or fit a new model.",
+    "precision_and_limits": "Saved physical ages from six-significant-digit native states, conditional on the original six radiocarbon controls plus artificial surface and broad bottom likelihood, priors, zero reservoir assumption and fixed curve. Diagnostics are sampler qualification, not chronology accuracy or field calibration."
+  },
+  "support_rule": {
+    "native_population": 107,
+    "explicit_source_five_panel_complete": 99,
+    "explicit_source_missing_five_panel": 8,
+    "window_membership": "For each whole joint age row use ALL native samples in half-open [500*b,500*(b+1)). Signed negative and other out-of-scope ages remain outside, never clipped.",
+    "refusals": [
+      "empty_native_window",
+      "missing_explicit_five_taxon_member",
+      "nonempty_zero_panel_mass"
+    ],
+    "missing_policy": "Any member missing any five-axis observation refuses that bin. Do not reuse the structural zero convention of the 16-label panel, fill absent cells with zero or silently select the 99 complete samples. Report known panel subtotal separately from undefined complete panel mass.",
+    "complete_event": "C means all four windows are defined, fixed by saved age membership and source measurement support before hypothetical count/PPE errors. Preserve every one of 32,000 rows and all-draw support probabilities. The known incomplete row of the 16-label study is not an allowed drop; additional five-axis refusals must be measured."
+  },
+  "estimand": {
+    "unconditional": "The unconditional 20-component mean/covariance refuses when any saved row is undefined; report undefined mass over all 32,000 rows.",
+    "conditional": "Separately named moments condition explicitly on C. They describe a finite saved-state mixture, not a relabelled unconditional posterior. If C is empty, retain null moments and 30 refused contrasts.",
+    "axis_order": "Window order 3, 4, 5, 9, each with the literal five-taxon order. All six older-minus-younger window pairs times five taxa produce 30 contrasts.",
+    "count_law": "Preserve the existing pooled-window fixed-total multinomial working law conditional on A at its observed pooled five-panel plug-in composition. Conditional window count errors are independent only because raw memberships are disjoint. This is not one age-independent native aliquot count law.",
+    "ppe_law": "One shared PPE perturbation across all four windows with covariance diag(published SD squared), independent of A. Counts and PPE are conditionally independent given A. No distribution shape or PPE draw is invented. Poaceae mean 1 and SD 0 define the relative reference, not zero field uncertainty. Retain the source SD/SEM wording discrepancy.",
+    "total_covariance": "Cov_C[c(A)] + E_C[C_count(A)] + E_C[G(A) Sigma G(A)^T]. Mixture expectations and Welford population covariance divide by M_C, never M_C - 1.",
+    "age_ppe_interaction": "Report E[G Sigma G^T] minus E[G] Sigma E[G]^T separately from the mean-gradient term. Do not average old per-age sharp extrema as global attainable bounds.",
+    "monte_carlo_posture": "Saved states are autocorrelated MCMC output, not 32,000 independent field replicates. Report per-chain conditional means and complete-support counts. The second seed minus first seed mean/probability differences derive directly from those summaries; per-chain bin-status counts derive from the saved ledger grouped by seed. Explain these derivations in the account. No new sampling, convergence threshold or calibrated interval follows.",
+    "spread_label": "conditional_standard_deviation for 20 components and standard_deviation for 30 contrasts are square roots of total first-order mixture variance, not Monte Carlo SE or SE of a mean."
+  },
+  "checks": {
+    "absolute_tolerance": 1e-12,
+    "relative_tolerance": 0.0,
+    "covariance": "finite, symmetric and PSD within the fixed absolute tolerance; window closure annihilates covariance and PPE gradients within tolerance; preserve raw numeric residuals.",
+    "controls": [
+      "Fixed-age inputs reproduce the existing five-taxon pooled-count/PPE moments.",
+      "A two-age gradient control distinguishes E[G Sigma G^T] from E[G] Sigma E[G]^T.",
+      "Zero SD isolates age/count components.",
+      "A missing-axis member refuses instead of becoming a structural zero.",
+      "All row identities and chain multiplicities are preserved."
+    ],
+    "roundoff": "Keep raw covariance and contrast values. Only conditional standard deviation square roots use max(0, variance), after the fixed negative-roundoff refusal at -1e-12."
+  },
+  "rights_and_exposure": {
+    "data": "Current official Neotoma/EPD public release, CC BY 4.0 with Neotoma, EPD and original investigator attribution; dataset DOI 10.21233/2vzb-bg61, Giesecke, Thomas.",
+    "parameters": "Fyfe et al. LandClim II PANGAEA.937075, CC BY 4.0; Githumbi et al. 2022 doi:10.5194/essd-14-1581-2022 Table 1 and Appendix B.",
+    "geometry_context": "Giesecke 2010 PANGAEA.738429, CC BY-NC 3.0, source-reported ABBO event-area fact and citation only. Its whole file is hashed, but only the descriptive header is decoded; measurement values are not parsed or redistributed. Current Neotoma CC BY 4.0 count bytes remain the analytical source. No relicensing or broader commercial-use authority is inferred.",
+    "exposure": "Previously exposed development core and windows. No withheld target, model fitting, vegetation-reference outcome, original-paper reproduction, ecological accuracy, or original core-admission decision is supplied."
+  },
+  "resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 20000000
+  },
+  "model_fits": 0,
+  "ecological_calibration_or_coverage_claim": false
+}
