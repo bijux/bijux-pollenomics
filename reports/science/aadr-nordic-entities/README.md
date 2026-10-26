@@ -58,6 +58,85 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/adna-source-lifecycle
 
 The original capture binds the executed source candidate and runtime. A later replay records correspondence on the invoking environment; it does not inherit the original native receipt, source version or scientific admission. Any changed source input, chronology/provenance export or country denominator refuses this retained comparison.
 
+## Source coordinates and pinned country geometry
+
+The optional country-support comparison asks whether each source-reported
+Nordic Genetic ID has coordinates supported by Natural Earth 5.1.1 country
+geometry. Its [ledger](country-support/decisions.csv) preserves all 1,325 IDs,
+source-row links, panel coordinate-group counts/statuses and original product
+membership beside the spatial result. The [result](country-support/report.json)
+binds both original annotation panels, the release and accountability records,
+four country products, and the validated boundary manifest/four country shapes.
+
+| Source Political Entity | Matching strict containment | Spatial review | Missing coordinate refusal | Outside geometry and review band |
+| --- | ---: | ---: | ---: | ---: |
+| Denmark | 599 | 52 | 1 | 2 |
+| Finland | 32 | 0 | 92 | 0 |
+| Norway | 81 | 49 | 1 | 0 |
+| Sweden | 385 | 31 | 0 | 0 |
+| Total | 1,097 | 132 | 94 | 2 |
+
+The 132 review rows comprise 130 points outside polygons but within the
+existing 0.15-degree review band, and two source-country conflicts. Norwegian
+source IDs `CGG_2_105915.SG` and `CGG_2_105916.SG` have coordinates strictly
+inside Sweden. Their source labels and coordinates are retained as competing
+claims; the calculation does not choose a corrected country or location.
+Danish `NEO645.SG` and `NEO757.SG` lie outside all four country polygons and
+the review band. Missing source coordinates remain refusals, not zero points.
+
+Here `assigned` in the machine output means the geometric policy found one
+strictly containing country matching the source label. It is not qualified
+country, map or scientific admission. The 0.15-degree band is an angular
+policy for reviewing exterior points, not measurement uncertainty, a physical
+distance or permission to move a coastal point inland. Interior points are
+not refused merely for being near a border. Source datum, coordinate precision,
+archaeological locality accuracy, chronology and rights are unqualified by this
+comparison. Modern administrative geometry does not establish ancient borders.
+
+Each actual ID has one coordinate group. The maintained consumer also preserves
+complementary missing panel evidence and equivalent numeric pairs with different
+raw tokens; competing usable pairs or invalid nonmissing claims refuse. These
+guarded branches are tested, not asserted to occur in the selected population.
+
+The actual command ran on 26 October 2026 with the consumed reader, helper and
+country classifier committed at `0e780fcea0a979ae5a135128f2c0ff367ea47ae9`:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  .venv/bin/python -B reports/science/aadr-nordic-entities/replay.py \
+  --repository . --output artifacts/aadr-country-support/source-replay \
+  --country-support
+```
+
+The invocation used `runpy` with these arguments and a 240-second alarm. Owned
+session `39166` terminated with exit zero in 7.474 seconds; the two saved files
+are byte-identical to its output. Disjoint chronology documentation advanced
+HEAD while the consumed source and inputs stayed stable. The default mode also
+ran to exit zero in session `97974` and reproduced the original membership
+report and decision CSV byte for byte.
+
+An independent standard-library observer parsed the original ANNO rows and raw
+country polygons without the reconciliation or geometry implementation. It
+checked every ID, panel/group status and source-row reference, then used winding
+numbers and perpendicular edge distances to compare all five spatial fields.
+It evaluated 435 distinct source-country/point pairs shared by 1,231 IDs, so
+these IDs are not 1,231 independent spatial observations. All fields agree;
+94 missing-coordinate refusals agree. Inputs were checked before and after.
+Observer session `94811` exited zero in 2.546 seconds; its compact account is
+`artifacts/aadr-country-support-observer/raw-source-observer.json`.
+
+Twenty focused controls, configured Ruff and strict mypy on three changed
+Python files passed. Controlled holes, overlaps, contacts, proximity thresholds,
+raw-country conflicts and coordinate-group failures exercise branches absent
+from the real polygons (which have no holes). An initial observer failure came
+from candidate-country ordering and was corrected to the declared sorted order;
+the literal failure remains under the observer artifact directory. No Shapely
+run or independent human geography review is claimed.
+
+This prepares the existing `aadr-country-map-scientific-admission` review
+question with explicit per-ID spatial evidence. No country product, source
+coordinate, chronology or admission decision is promoted by this result.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
