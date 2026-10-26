@@ -1,0 +1,6 @@
+country,dataset_id,collection_unit_id,selected_samples,captured_owner_samples,selected_cohort_native_taxon_rows,selected_cohort_depth_count_refused_rows,selected_cohort_age_order_refused_rows,selected_cohort_reason_counts,captured_owner_context_native_taxon_rows,captured_owner_context_depth_count_refused_rows,captured_owner_context_age_order_refused_rows,captured_owner_context_reason_counts
+DK,neotoma:dataset:4445,neotoma:collection-unit:4303,65,66,136,0,136,age_reversal_with_depth:136,136,0,136,age_reversal_with_depth:136
+NO,neotoma:dataset:45331,neotoma:collection-unit:32176,82,82,100,0,100,mixed_source_chronology_or_age_basis:100,100,0,100,mixed_source_chronology_or_age_basis:100
+NO,neotoma:dataset:52255,neotoma:collection-unit:38015,236,236,108,1,1,invalid_native_count:1,108,1,1,invalid_native_count:1
+FI,neotoma:dataset:58530,neotoma:collection-unit:42184,127,217,69,6,6,invalid_native_count:6,69,9,9,invalid_native_count:9
+NO,neotoma:dataset:62017,neotoma:collection-unit:45043,81,82,66,66,66,missing_or_invalid_depth:66,66,66,66,missing_or_invalid_depth:66

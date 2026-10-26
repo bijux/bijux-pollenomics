@@ -1,0 +1,244 @@
+{
+  "schema_version": "neotoma-native-sequence-support.v1",
+  "source_commit": "5cb4cc36465da75fd9473d14552c276fb3c6b41c",
+  "status": "conditional_native_count_support",
+  "model_fits": 0,
+  "selected_samples": 5660,
+  "selected_sites": 84,
+  "captured_owner_samples": 5840,
+  "taxon_scope_rows": 12824,
+  "country_accounts": {
+    "SE": {
+      "selected_samples": 228,
+      "selected_sites": 3,
+      "captured_owner_samples": 228,
+      "dataset_collection_unit_sequences": 3,
+      "source_age_refused_samples": 0,
+      "scope_rows": {
+        "selected_cohort": {
+          "taxon_rows": 295,
+          "positive_at_top": 106,
+          "positive_at_bottom": 37,
+          "depth_boundary_refused": 0,
+          "age_order_refused": 0
+        },
+        "captured_owner_context": {
+          "taxon_rows": 295,
+          "positive_at_top": 106,
+          "positive_at_bottom": 37,
+          "depth_boundary_refused": 0,
+          "age_order_refused": 0
+        }
+      }
+    },
+    "DK": {
+      "selected_samples": 91,
+      "selected_sites": 1,
+      "captured_owner_samples": 92,
+      "dataset_collection_unit_sequences": 2,
+      "source_age_refused_samples": 0,
+      "scope_rows": {
+        "selected_cohort": {
+          "taxon_rows": 235,
+          "positive_at_top": 82,
+          "positive_at_bottom": 54,
+          "depth_boundary_refused": 0,
+          "age_order_refused": 136
+        },
+        "captured_owner_context": {
+          "taxon_rows": 235,
+          "positive_at_top": 84,
+          "positive_at_bottom": 54,
+          "depth_boundary_refused": 0,
+          "age_order_refused": 136
+        }
+      }
+    },
+    "FI": {
+      "selected_samples": 1797,
+      "selected_sites": 28,
+      "captured_owner_samples": 1946,
+      "dataset_collection_unit_sequences": 28,
+      "source_age_refused_samples": 0,
+      "scope_rows": {
+        "selected_cohort": {
+          "taxon_rows": 1583,
+          "positive_at_top": 509,
+          "positive_at_bottom": 450,
+          "depth_boundary_refused": 6,
+          "age_order_refused": 6
+        },
+        "captured_owner_context": {
+          "taxon_rows": 1583,
+          "positive_at_top": 509,
+          "positive_at_bottom": 447,
+          "depth_boundary_refused": 9,
+          "age_order_refused": 9
+        }
+      }
+    },
+    "NO": {
+      "selected_samples": 3544,
+      "selected_sites": 52,
+      "captured_owner_samples": 3574,
+      "dataset_collection_unit_sequences": 52,
+      "source_age_refused_samples": 0,
+      "scope_rows": {
+        "selected_cohort": {
+          "taxon_rows": 4299,
+          "positive_at_top": 1438,
+          "positive_at_bottom": 1108,
+          "depth_boundary_refused": 67,
+          "age_order_refused": 167
+        },
+        "captured_owner_context": {
+          "taxon_rows": 4299,
+          "positive_at_top": 1399,
+          "positive_at_bottom": 1108,
+          "depth_boundary_refused": 67,
+          "age_order_refused": 167
+        }
+      }
+    }
+  },
+  "observation_account": {
+    "captured_owner_observations": 185996,
+    "valid_native_integer_nisp_rows": 124794,
+    "other_element_or_unit_rows": 61009,
+    "invalid_native_nisp_rows": 193
+  },
+  "source_inputs_sha256": {
+    "docs/report/regions/nordic/author-target-pollen/input-manifest.json": "86645e8d2f29f60c6c206cb9b594030e7ec01d6b568009eb1e6dec3fc3481500",
+    "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json": "e6359b4c14cea325c5cecb8d7ff57b5f5b26c17593a1cc3f94e9591edb3fb7f6",
+    "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz": "a7d8b5b1c9dc696db0b0f168bad83ff55f4447c762028d7af0947dad0d4cc770",
+    "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz": "2f33131a93644d2c645cbc5cade1f9df75abd70d66386de50cdd8a12d2ed38a9",
+    "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz": "4f88132d091289e6fbc58215abf8f2a294b579ec1c0bb80d472841866e11e71c",
+    "docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz": "f1a2f8d408cdfbd8c46bde9e1ca9f1bae5e1acb14881247fe62c62d4620b3371",
+    "data/neotoma/relational/manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "data/neotoma/relational/surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "data/neotoma/relational/surfaces/collection_units/part-00001.json": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780",
+    "data/neotoma/relational/surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+    "data/neotoma/relational/surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+    "data/neotoma/relational/surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+    "data/neotoma/relational/surfaces/observations/part-00001.json": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+    "data/neotoma/relational/surfaces/observations/part-00002.json": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+    "data/neotoma/relational/surfaces/observations/part-00003.json": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+    "data/neotoma/relational/surfaces/observations/part-00004.json": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+    "data/neotoma/relational/surfaces/observations/part-00005.json": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+    "data/neotoma/relational/surfaces/observations/part-00006.json": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+    "data/neotoma/relational/surfaces/observations/part-00007.json": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+    "data/neotoma/relational/surfaces/observations/part-00008.json": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd"
+  },
+  "elapsed_seconds": 7.028560624923557,
+  "depth_unit": "native_depth_unit_not_explicit_in_payload",
+  "age_interpretation": "Source point ages in declared calendar/calibrated BP years, reference1950; no age probability, chronology fit or historical truth is inferred. Missing, mixed or reversed support is refused for age ordering.",
+  "measurement_interpretation": "Only literal reported pollen NISP rows on native variable-ID/taxon-ID/name axes. Missing listed measurement is not zero or biological absence. Multiple source measurements are retained in integer totals; any invalid cell refuses taxon boundary inference.",
+  "boundary_interpretation": "A positive native count at the shallowest/deepest captured sample flags endpoint support only. Selected cohort and all captured samples of the same dataset/collection unit are distinct. Captured owner context is not proof of a complete historical sequence, first arrival, continuity, comparable sampling effort, or an admitted ecological event.",
+  "rights_and_exposure": "Previously exposed development cohort. Neotoma2025 CC BY4.0 default with Neotoma/EPD/investigator/dataset attribution; source-specific publication/eligibility questions and all LRA/field admission remain separate. No private author taxonomy map is consumed or distributed.",
+  "output_bytes_before_report": 7084870,
+  "execution": {
+    "source_commit": "5cb4cc36465da75fd9473d14552c276fb3c6b41c",
+    "command": [
+      "/usr/bin/time",
+      "-l",
+      "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+      "-B",
+      "-m",
+      "bijux_pollenomics_dev.source_completion.nordic.sequence_support",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/nordic-sequence-support/finite-depth-boundaries"
+    ],
+    "exit_status": 0,
+    "timed_out": false,
+    "elapsed_seconds": 7.583697665948421,
+    "measured_peak_rss_bytes": 839057408
+  },
+  "independent_observer": {
+    "status": "passed",
+    "producer_source_commit": "5cb4cc36465da75fd9473d14552c276fb3c6b41c",
+    "selected_samples": 5660,
+    "selected_sites": 84,
+    "sample_rows_checked": 5840,
+    "taxon_scope_rows_checked": 12824,
+    "native_observations_checked": 185996,
+    "signed_age_samples": 136,
+    "model_fits": 0,
+    "elapsed_seconds": 10.688166999956593,
+    "observer_source_commit": "ce9ac38163e80127cd6a8c0a73c3d509e6713bda",
+    "execution": {
+      "source_commit": "ce9ac38163e80127cd6a8c0a73c3d509e6713bda",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+        "-B",
+        "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sequence_support_result.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics",
+        "--result",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/nordic-sequence-support/finite-depth-boundaries",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/nordic-sequence-support/finite-depth-boundaries/independent-check.json"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "elapsed_seconds": 11.221045791869983,
+      "measured_peak_rss_bytes": 746553344
+    }
+  },
+  "retained_original_attempt": {
+    "source_commit": "39fa622396eff889bf2e76ec7f46a476fe7f0c47",
+    "output": "artifacts/nordic-sequence-support/source-run",
+    "execution": {
+      "source_commit": "39fa622396eff889bf2e76ec7f46a476fe7f0c47",
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+        "-B",
+        "-m",
+        "bijux_pollenomics_dev.source_completion.nordic.sequence_support",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/nordic-sequence-support/source-run"
+      ],
+      "exit_status": 0,
+      "timed_out": false,
+      "elapsed_seconds": 7.616428167093545
+    },
+    "diagnostic_error": "Repeated missing depths were incorrectly also labelled duplicate_depth; native boundary refusal itself was correct.",
+    "correction_comparison": {
+      "rows_compared": 12824,
+      "sample_support_byte_identical": true,
+      "only_reason_codes_changed": true,
+      "changed_rows": 132,
+      "owners": [
+        [
+          "neotoma:dataset:62017",
+          "neotoma:collection-unit:45043"
+        ]
+      ]
+    }
+  },
+  "compact_tables": {
+    "country_scope_rows": "countries.csv",
+    "refusal_owners": "refusals.csv"
+  },
+  "retained_detailed_outputs": {
+    "sample_support": "artifacts/nordic-sequence-support/finite-depth-boundaries/sample-support.csv",
+    "taxon_support": "artifacts/nordic-sequence-support/finite-depth-boundaries/taxon-support.csv"
+  },
+  "table_units": "A taxon row is one dataset/collection-unit/native-variable-ID/taxon-ID/name/scope tuple, not a unique taxon, physical site, event or independent observation. Paired scopes reuse source evidence.",
+  "scope_completion": "This supplies a bounded native endpoint/truncation diagnostic for the existing exposed cohort; it does not complete all coverage-fairness, country-boundary or four-country scientific acceptance.",
+  "local_verification": {
+    "source_controlled_tests": 18,
+    "ruff": "passed",
+    "format": "passed",
+    "strict_mypy": "passed"
+  }
+}
