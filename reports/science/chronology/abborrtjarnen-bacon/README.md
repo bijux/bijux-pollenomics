@@ -1,11 +1,15 @@
-# Why the archived Bacon route is refused for joint ABBO age uncertainty
+# ABBO joint ages: verified arithmetic and failed convergence
 
-We prepared a new ABBO chronology to ask how shared age uncertainty affects
-four existing frozen pollen predictors. Source inspection and independent
-review identified two reasons to refuse the proposed equal-weight posterior
-route **before any core was fitted**. No ABBO age draw, score or admission
-result was produced. The [proposed protocol](protocol.json) preserves the
-question and its source assumptions; it is not an executed study.
+The new fixed-transition ABBO age model produced all 8,000 requested joint
+states and scores, but failed its prespecified convergence criteria. An
+independent consumer verified every saved score and retained the refusal.
+These values describe an unsuccessful conditional computation; they do not
+establish a qualified joint posterior, chronology accuracy or field acceptance.
+The [result](result.json) records the numerical population and diagnostics.
+
+The separately preserved [archived proposal](protocol.json) was refused
+before fitting. The source-law checks below explain why it was not used for
+the new model. That proposal remains unexecuted.
 
 ## Sources and an actual numerical witness
 
@@ -174,9 +178,8 @@ their mass in the all-draw denominator.
 
 Before any core fit, 11 focused tests, strict mypy on eight Python paths and
 configured Ruff checks passed. The prepare-only check used the real native
-input writer and produced no model draw. The source and protocol must be
-committed and consumed inputs frozen before execution. At this checkpoint,
-the corrected profile has not yet been fitted.
+input writer and produced no model draw. The actual run below consumed
+committed source and frozen inputs.
 
 The first foreground attempt at committed source
 `2556a52701e94cb71232ffe74cf33c7b3c2c7bf8` returned exit 1 in
@@ -190,6 +193,91 @@ A bounded native check then opened the qualified curves with zero proposal
 iterations. Its one initialization state is retained separately and is not
 a posterior draw; no negative-size option was added to the scientific workflow.
 
+## Actual conditional run and refusal
+
+The foreground command consumed committed source
+`0d374ce2190e5e44f70c8b28f18612809688af76` with a clean tree and stable
+HEAD/index, inputs and shared library throughout. Session 55036 returned
+exit zero in **29.720341833 seconds**; peak RSS was **481,722,368 bytes**,
+and files before the report occupied **19,996,773 bytes**. Both resource
+budgets passed. Raw files, exact command, native inputs, diagnostics and
+logs remain in `artifacts/physical-core/abborrtjarnen-fixed-iteration/`.
+Both seeds produced 7,501 raw rows and retained the frozen 4,000 each.
+
+| Diagnostic axis | Tested parameters | Failed parameters | Maximum upper 95% Gelman value | Minimum combined ESS |
+| --- | ---: | ---: | ---: | ---: |
+| 107 sample ages plus memory | 108 | 5 | 1.075272547 | 409.741367 |
+| Top age, 51 innovations, memory and energy | 54 | 8 | 1.088025829 | 334.583762 |
+
+The criterion requires every upper value below 1.05 and every ESS at least
+400. Five sample ages fail the upper-value criterion; seven innovations
+fail ESS and two fail the upper value (one overlaps). The reported status
+is **`refused_mcmc_diagnostics`**. The R condition-warning list is empty,
+but native stdout separately records 31,680 and 30,438 `WarnBeyondLimits`
+warnings for seeds 314159 and 271828, respectively, with the literal message
+“calibration attempted beyond MinYr= -202.000000 or MaxYr= 1000000.000000”.
+The raw native warnings remain preserved; they are not counts of retained
+age values or an empty warning channel. No seed, prior,
+retention rule or criterion was changed, and no extra chain or retuned fit
+was run after inspecting this outcome.
+
+All 8,000 states contain positive count mass in all four requested bins:
+there are zero empty-bin, zero-mass-bin or incomplete-score refusals. Signed
+ages remain unchanged: the chains contain 6,877 and 7,107 negative age cells,
+respectively; no retained age exceeds 50,000 BP. These are dependent age cells,
+not counts of independent observations. R extraction and independent Python
+integration agree within `9.094947017729282e-12` years on all 856,000 values,
+below the frozen absolute `1e-8` tolerance.
+
+| Frozen predictor | Mean MAE across saved states | Strict lowest score / all 8,000 states |
+| --- | ---: | ---: |
+| training_mean | 0.077602985 | 0 / 8000 |
+| nearest_site | 0.067704040 | 8000 / 8000 |
+| inverse_distance_squared | 0.077466063 | 0 / 8000 |
+| clr_rbf_ridge | 0.075153104 | 0 / 8000 |
+
+MAE is in closed-16-label fraction units, equally weighted over four bins.
+These are saved-state descriptors, not qualified posterior means or ranking
+probabilities. The nearest-site predictor scores lowest on this saved
+population; failed diagnostics prevent interpreting its frequency as a
+converged posterior result. The complete JSON retains descriptive quantiles
+and all paired differences without promoting them to confidence intervals.
+
+The independent checker consumed the same committed source, returned exit
+zero in **0.996835542 seconds**, and fitted no model. It checked all 15,002
+raw rows, all 107 sample/depth identities, 8,000 saved age/score rows, every
+bin count and mass, all method refusals, paired differences and diagnostic
+thresholds. Exact rational count closure and prediction arithmetic agree
+within absolute `2e-15` score tolerance, relative tolerance zero. This verifies
+computation on the saved population while preserving its scientific refusal.
+The model/native-boundary/observer selection also passed 23 focused tests;
+configured Ruff, strict mypy and R parsing passed for the changed surfaces.
+
+Reproduce the model command from the repository root, substituting a fresh
+absent artifact output. It remains a failed prespecified experiment; this
+command is supplied for inspection, rather than an instruction to tune it.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarnen_bacon \
+  --repository "$PWD" --source-root "$PWD/../-bijux-pollenomics-data" \
+  --library "$PWD/artifacts/qualification/native-reference/library" \
+  --oracle-summary "$PWD/artifacts/physical-core/native-likelihood-oracle/summary.json" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-fixed-iteration"
+```
+
+The independent saved-result check uses the existing output and an absent
+artifact destination:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B \
+  packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/abborrtjarnen_bacon/test_independent_result.py \
+  --repository "$PWD" \
+  --result "$PWD/artifacts/physical-core/abborrtjarnen-fixed-iteration" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-fixed-iteration/independent-check.json"
+```
+
 These findings do not change the retained LegacyAge S5 marginal intervals,
 the earlier set-based age bounds, or their conditional pollen sensitivities.
 They do not retrospectively correct or quantify bias in a published result.
@@ -199,7 +287,13 @@ remain open; no human approval or additional field evidence is implied.
 
 ## Reproduce the bounded helper check
 
-From the repository root, with the existing shared library:
+The following is the historical command for the committed helper witness.
+It requires rbacon **2.5.3** in the specified library. The present shared
+library contains 4.0.2, so this command is not executable against that runtime;
+the original version guard must remain unchanged. The archived source and
+qualified earlier outputs remain available. No second library was created.
+
+Historical invocation from the repository root:
 
 ```sh
 R_LIBS_USER="$PWD/artifacts/qualification/native-reference/library" \
