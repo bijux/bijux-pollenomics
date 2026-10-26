@@ -1,0 +1,5627 @@
+{
+  "schema_version": "abborrtjarnen-ppe-dependence.v1",
+  "status": "conditional_physical_delta_ppe_dependence",
+  "source_commit": "ccf316e22bec8d31fe589d2a7541e89cd6338eb5",
+  "input_sha256": {
+    "source-store/neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.download.json": "1317496c2e1d04c7f69a2048ee49647350f5abfc0f8e23360211e01f5eb5dd8a",
+    "source-store/neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.metadata.json": "baa42c6510d22e7008ecc2caa2ae935bb0e7b05df909501f090d76b3f9196b98",
+    "source-store/neotoma/dataset-19913/2026-10-26T185139Z/capture-manifest.json": "906f7e38d5c32d03f00094136ee89213ea39ea99eb422db233e723b8f4e79269",
+    "source-store/neotoma/dataset-19913/2026-10-26T185139Z/policy-neotoma.response": "fa74d971e9824a6071a6e6a8ea4b7e14f99a906b7aea2643d222e052bfec3497",
+    "source-store/neotoma/dataset-19913/2026-10-26T185139Z/policy-epd.response": "7607d8798afc7ca3dce481456bc85eb4c0cbe67409add110a611bfb8af7fbc26",
+    "source-store/epd/pangaea/abbo-pollen-profile-pangaea-738429.tsv": "ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154",
+    "source-store/landclim/provider-descriptions/essd_article.html": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38",
+    "repository/data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+  },
+  "taxon_axis": [
+    "Betula",
+    "Cyperaceae",
+    "Juniperus communis",
+    "Pinus sylvestris",
+    "Poaceae"
+  ],
+  "parameters": [
+    {
+      "name": "Betula",
+      "native_taxon_id": 29,
+      "ppe": 5.106,
+      "published_sd": 0.303,
+      "fall_speed_m_s": 0.024,
+      "source_row": 12,
+      "literal_ppe_sd": "5.106 (0.303)",
+      "literal_fall_speed": "0.024"
+    },
+    {
+      "name": "Cyperaceae",
+      "native_taxon_id": 74,
+      "ppe": 0.962,
+      "published_sd": 0.05,
+      "fall_speed_m_s": 0.035,
+      "source_row": 26,
+      "literal_ppe_sd": "0.962 (0.05)",
+      "literal_fall_speed": "0.035"
+    },
+    {
+      "name": "Juniperus communis",
+      "native_taxon_id": 4416,
+      "ppe": 2.07,
+      "published_sd": 0.04,
+      "fall_speed_m_s": 0.016,
+      "source_row": 8,
+      "literal_ppe_sd": "2.07 (0.04)",
+      "literal_fall_speed": "0.016"
+    },
+    {
+      "name": "Pinus sylvestris",
+      "native_taxon_id": 1287,
+      "ppe": 6.058,
+      "published_sd": 0.237,
+      "fall_speed_m_s": 0.031,
+      "source_row": 4,
+      "literal_ppe_sd": "6.058 (0.237)",
+      "literal_fall_speed": "0.031"
+    },
+    {
+      "name": "Poaceae",
+      "native_taxon_id": 417,
+      "ppe": 1.0,
+      "published_sd": 0.0,
+      "fall_speed_m_s": 0.035,
+      "source_row": 28,
+      "literal_ppe_sd": "1 (0)",
+      "literal_fall_speed": "0.035"
+    }
+  ],
+  "sample_account": [
+    {
+      "sample_id": 173173,
+      "depth_native": 648,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": -52,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 909,
+      "reported_panel_subtotal": 909,
+      "all_reported_pollen_nisp": 1157,
+      "omitted_reported_pollen_nisp": 248,
+      "excluded_nonpollen_rows": 4
+    },
+    {
+      "sample_id": 173174,
+      "depth_native": 650,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 19,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 938,
+      "reported_panel_subtotal": 938,
+      "all_reported_pollen_nisp": 1206,
+      "omitted_reported_pollen_nisp": 268,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173175,
+      "depth_native": 652,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 90,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 943,
+      "reported_panel_subtotal": 943,
+      "all_reported_pollen_nisp": 1215,
+      "omitted_reported_pollen_nisp": 272,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173176,
+      "depth_native": 654,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 161,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 932,
+      "reported_panel_subtotal": 932,
+      "all_reported_pollen_nisp": 1183,
+      "omitted_reported_pollen_nisp": 251,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173177,
+      "depth_native": 656,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 232,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 995,
+      "reported_panel_subtotal": 995,
+      "all_reported_pollen_nisp": 1249,
+      "omitted_reported_pollen_nisp": 254,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173178,
+      "depth_native": 658,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 303,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 833,
+      "reported_panel_subtotal": 833,
+      "all_reported_pollen_nisp": 1127,
+      "omitted_reported_pollen_nisp": 294,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173179,
+      "depth_native": 660,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 374,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 832,
+      "reported_panel_subtotal": 832,
+      "all_reported_pollen_nisp": 1141,
+      "omitted_reported_pollen_nisp": 309,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173180,
+      "depth_native": 664,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 516,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 804,
+      "reported_panel_subtotal": 804,
+      "all_reported_pollen_nisp": 1063,
+      "omitted_reported_pollen_nisp": 259,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173181,
+      "depth_native": 668,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 658,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 875,
+      "reported_panel_subtotal": 875,
+      "all_reported_pollen_nisp": 1123,
+      "omitted_reported_pollen_nisp": 248,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173182,
+      "depth_native": 672,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 800,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 872,
+      "reported_panel_subtotal": 872,
+      "all_reported_pollen_nisp": 1172,
+      "omitted_reported_pollen_nisp": 300,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173183,
+      "depth_native": 676,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 942,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 972,
+      "reported_panel_subtotal": 972,
+      "all_reported_pollen_nisp": 1274,
+      "omitted_reported_pollen_nisp": 302,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173184,
+      "depth_native": 680,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1085,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 882,
+      "reported_panel_subtotal": 882,
+      "all_reported_pollen_nisp": 1126,
+      "omitted_reported_pollen_nisp": 244,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173185,
+      "depth_native": 684,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1227,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 827,
+      "reported_panel_subtotal": 827,
+      "all_reported_pollen_nisp": 1133,
+      "omitted_reported_pollen_nisp": 306,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173186,
+      "depth_native": 688,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1369,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 816,
+      "reported_panel_subtotal": 816,
+      "all_reported_pollen_nisp": 1069,
+      "omitted_reported_pollen_nisp": 253,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173187,
+      "depth_native": 692,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1511,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 861,
+      "reported_panel_subtotal": 861,
+      "all_reported_pollen_nisp": 1160,
+      "omitted_reported_pollen_nisp": 299,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173188,
+      "depth_native": 696,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1605,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 698,
+      "reported_panel_subtotal": 698,
+      "all_reported_pollen_nisp": 1087,
+      "omitted_reported_pollen_nisp": 389,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173189,
+      "depth_native": 700,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1672,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 837,
+      "reported_panel_subtotal": 837,
+      "all_reported_pollen_nisp": 1239,
+      "omitted_reported_pollen_nisp": 402,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173190,
+      "depth_native": 704,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1738,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 768,
+      "reported_panel_subtotal": 768,
+      "all_reported_pollen_nisp": 1134,
+      "omitted_reported_pollen_nisp": 366,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173191,
+      "depth_native": 708,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1804,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 821,
+      "reported_panel_subtotal": 821,
+      "all_reported_pollen_nisp": 1151,
+      "omitted_reported_pollen_nisp": 330,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173192,
+      "depth_native": 712,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1871,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 798,
+      "reported_panel_subtotal": 798,
+      "all_reported_pollen_nisp": 1081,
+      "omitted_reported_pollen_nisp": 283,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173193,
+      "depth_native": 716,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 1937,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 3,
+      "panel_missing_taxa": [],
+      "panel_count_total": 862,
+      "reported_panel_subtotal": 862,
+      "all_reported_pollen_nisp": 1226,
+      "omitted_reported_pollen_nisp": 364,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173194,
+      "depth_native": 720,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2003,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 829,
+      "reported_panel_subtotal": 829,
+      "all_reported_pollen_nisp": 1131,
+      "omitted_reported_pollen_nisp": 302,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173195,
+      "depth_native": 724,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2070,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 894,
+      "reported_panel_subtotal": 894,
+      "all_reported_pollen_nisp": 1198,
+      "omitted_reported_pollen_nisp": 304,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173196,
+      "depth_native": 728,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2136,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 831,
+      "reported_panel_subtotal": 831,
+      "all_reported_pollen_nisp": 1088,
+      "omitted_reported_pollen_nisp": 257,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173197,
+      "depth_native": 732,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2202,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 843,
+      "reported_panel_subtotal": 843,
+      "all_reported_pollen_nisp": 1128,
+      "omitted_reported_pollen_nisp": 285,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173198,
+      "depth_native": 734,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2242,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 808,
+      "reported_panel_subtotal": 808,
+      "all_reported_pollen_nisp": 1038,
+      "omitted_reported_pollen_nisp": 230,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173199,
+      "depth_native": 736,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2300,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1015,
+      "reported_panel_subtotal": 1015,
+      "all_reported_pollen_nisp": 1199,
+      "omitted_reported_pollen_nisp": 184,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173200,
+      "depth_native": 738,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2359,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 889,
+      "reported_panel_subtotal": 889,
+      "all_reported_pollen_nisp": 1075,
+      "omitted_reported_pollen_nisp": 186,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173201,
+      "depth_native": 740,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2418,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 936,
+      "reported_panel_subtotal": 936,
+      "all_reported_pollen_nisp": 1088,
+      "omitted_reported_pollen_nisp": 152,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173202,
+      "depth_native": 742,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2476,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 4,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1011,
+      "reported_panel_subtotal": 1011,
+      "all_reported_pollen_nisp": 1162,
+      "omitted_reported_pollen_nisp": 151,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173203,
+      "depth_native": 744,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2535,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 998,
+      "reported_panel_subtotal": 998,
+      "all_reported_pollen_nisp": 1085,
+      "omitted_reported_pollen_nisp": 87,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173204,
+      "depth_native": 746,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2594,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1072,
+      "reported_panel_subtotal": 1072,
+      "all_reported_pollen_nisp": 1183,
+      "omitted_reported_pollen_nisp": 111,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173205,
+      "depth_native": 748,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2653,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1165,
+      "reported_panel_subtotal": 1165,
+      "all_reported_pollen_nisp": 1320,
+      "omitted_reported_pollen_nisp": 155,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173206,
+      "depth_native": 750,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2711,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1358,
+      "reported_panel_subtotal": 1358,
+      "all_reported_pollen_nisp": 1494,
+      "omitted_reported_pollen_nisp": 136,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173207,
+      "depth_native": 752,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2770,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 899,
+      "reported_panel_subtotal": 899,
+      "all_reported_pollen_nisp": 1066,
+      "omitted_reported_pollen_nisp": 167,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173208,
+      "depth_native": 754,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2829,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1164,
+      "reported_panel_subtotal": 1164,
+      "all_reported_pollen_nisp": 1290,
+      "omitted_reported_pollen_nisp": 126,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173209,
+      "depth_native": 756,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2887,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1058,
+      "reported_panel_subtotal": 1058,
+      "all_reported_pollen_nisp": 1129,
+      "omitted_reported_pollen_nisp": 71,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173210,
+      "depth_native": 758,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 2962,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 5,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1189,
+      "reported_panel_subtotal": 1189,
+      "all_reported_pollen_nisp": 1318,
+      "omitted_reported_pollen_nisp": 129,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173211,
+      "depth_native": 760,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3043,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1182,
+      "reported_panel_subtotal": 1182,
+      "all_reported_pollen_nisp": 1275,
+      "omitted_reported_pollen_nisp": 93,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173212,
+      "depth_native": 762,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3123,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1188,
+      "reported_panel_subtotal": 1188,
+      "all_reported_pollen_nisp": 1296,
+      "omitted_reported_pollen_nisp": 108,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173213,
+      "depth_native": 764,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3203,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1571,
+      "reported_panel_subtotal": 1571,
+      "all_reported_pollen_nisp": 1719,
+      "omitted_reported_pollen_nisp": 148,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173214,
+      "depth_native": 766,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3284,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1029,
+      "reported_panel_subtotal": 1029,
+      "all_reported_pollen_nisp": 1137,
+      "omitted_reported_pollen_nisp": 108,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173215,
+      "depth_native": 768,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3364,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1243,
+      "reported_panel_subtotal": 1243,
+      "all_reported_pollen_nisp": 1336,
+      "omitted_reported_pollen_nisp": 93,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173216,
+      "depth_native": 770,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3444,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1176,
+      "reported_panel_subtotal": 1176,
+      "all_reported_pollen_nisp": 1258,
+      "omitted_reported_pollen_nisp": 82,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173217,
+      "depth_native": 772,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3525,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1161,
+      "reported_panel_subtotal": 1161,
+      "all_reported_pollen_nisp": 1271,
+      "omitted_reported_pollen_nisp": 110,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173218,
+      "depth_native": 774,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3605,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1123,
+      "reported_panel_subtotal": 1123,
+      "all_reported_pollen_nisp": 1236,
+      "omitted_reported_pollen_nisp": 113,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173219,
+      "depth_native": 776,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3685,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1173,
+      "reported_panel_subtotal": 1173,
+      "all_reported_pollen_nisp": 1258,
+      "omitted_reported_pollen_nisp": 85,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173220,
+      "depth_native": 778,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3766,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1105,
+      "reported_panel_subtotal": 1105,
+      "all_reported_pollen_nisp": 1215,
+      "omitted_reported_pollen_nisp": 110,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173221,
+      "depth_native": 780,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3846,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Poaceae"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 1109,
+      "all_reported_pollen_nisp": 1201,
+      "omitted_reported_pollen_nisp": 92,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173222,
+      "depth_native": 782,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 3927,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1141,
+      "reported_panel_subtotal": 1141,
+      "all_reported_pollen_nisp": 1236,
+      "omitted_reported_pollen_nisp": 95,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173223,
+      "depth_native": 784,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4007,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1156,
+      "reported_panel_subtotal": 1156,
+      "all_reported_pollen_nisp": 1294,
+      "omitted_reported_pollen_nisp": 138,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173224,
+      "depth_native": 786,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4087,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1040,
+      "reported_panel_subtotal": 1040,
+      "all_reported_pollen_nisp": 1144,
+      "omitted_reported_pollen_nisp": 104,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173225,
+      "depth_native": 788,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4168,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Juniperus communis"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 1345,
+      "all_reported_pollen_nisp": 1476,
+      "omitted_reported_pollen_nisp": 131,
+      "excluded_nonpollen_rows": 11
+    },
+    {
+      "sample_id": 173226,
+      "depth_native": 790,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4248,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Cyperaceae"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 1058,
+      "all_reported_pollen_nisp": 1156,
+      "omitted_reported_pollen_nisp": 98,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173227,
+      "depth_native": 792,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4328,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1306,
+      "reported_panel_subtotal": 1306,
+      "all_reported_pollen_nisp": 1498,
+      "omitted_reported_pollen_nisp": 192,
+      "excluded_nonpollen_rows": 10
+    },
+    {
+      "sample_id": 173228,
+      "depth_native": 794,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4409,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1056,
+      "reported_panel_subtotal": 1056,
+      "all_reported_pollen_nisp": 1139,
+      "omitted_reported_pollen_nisp": 83,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173229,
+      "depth_native": 796,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4489,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1150,
+      "reported_panel_subtotal": 1150,
+      "all_reported_pollen_nisp": 1258,
+      "omitted_reported_pollen_nisp": 108,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173230,
+      "depth_native": 798,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4569,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 9,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1076,
+      "reported_panel_subtotal": 1076,
+      "all_reported_pollen_nisp": 1185,
+      "omitted_reported_pollen_nisp": 109,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173231,
+      "depth_native": 800,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4650,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 9,
+      "panel_missing_taxa": [],
+      "panel_count_total": 993,
+      "reported_panel_subtotal": 993,
+      "all_reported_pollen_nisp": 1085,
+      "omitted_reported_pollen_nisp": 92,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173232,
+      "depth_native": 802,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4733,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 9,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1083,
+      "reported_panel_subtotal": 1083,
+      "all_reported_pollen_nisp": 1227,
+      "omitted_reported_pollen_nisp": 144,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173233,
+      "depth_native": 804,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4827,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 9,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1244,
+      "reported_panel_subtotal": 1244,
+      "all_reported_pollen_nisp": 1377,
+      "omitted_reported_pollen_nisp": 133,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173234,
+      "depth_native": 806,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 4921,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "selected_complete_panel",
+      "window_id": 9,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1016,
+      "reported_panel_subtotal": 1016,
+      "all_reported_pollen_nisp": 1141,
+      "omitted_reported_pollen_nisp": 125,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173235,
+      "depth_native": 808,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5015,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1294,
+      "reported_panel_subtotal": 1294,
+      "all_reported_pollen_nisp": 1414,
+      "omitted_reported_pollen_nisp": 120,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173236,
+      "depth_native": 810,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5108,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1099,
+      "reported_panel_subtotal": 1099,
+      "all_reported_pollen_nisp": 1207,
+      "omitted_reported_pollen_nisp": 108,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173237,
+      "depth_native": 812,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5202,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1121,
+      "reported_panel_subtotal": 1121,
+      "all_reported_pollen_nisp": 1261,
+      "omitted_reported_pollen_nisp": 140,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173238,
+      "depth_native": 814,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5296,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1056,
+      "reported_panel_subtotal": 1056,
+      "all_reported_pollen_nisp": 1186,
+      "omitted_reported_pollen_nisp": 130,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173239,
+      "depth_native": 816,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5390,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1082,
+      "reported_panel_subtotal": 1082,
+      "all_reported_pollen_nisp": 1184,
+      "omitted_reported_pollen_nisp": 102,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173240,
+      "depth_native": 818,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5483,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 981,
+      "reported_panel_subtotal": 981,
+      "all_reported_pollen_nisp": 1091,
+      "omitted_reported_pollen_nisp": 110,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173241,
+      "depth_native": 820,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5577,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1026,
+      "reported_panel_subtotal": 1026,
+      "all_reported_pollen_nisp": 1158,
+      "omitted_reported_pollen_nisp": 132,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173242,
+      "depth_native": 822,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5671,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1029,
+      "reported_panel_subtotal": 1029,
+      "all_reported_pollen_nisp": 1186,
+      "omitted_reported_pollen_nisp": 157,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173243,
+      "depth_native": 824,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5765,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 988,
+      "reported_panel_subtotal": 988,
+      "all_reported_pollen_nisp": 1155,
+      "omitted_reported_pollen_nisp": 167,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173244,
+      "depth_native": 826,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5858,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 969,
+      "reported_panel_subtotal": 969,
+      "all_reported_pollen_nisp": 1140,
+      "omitted_reported_pollen_nisp": 171,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173245,
+      "depth_native": 828,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 5952,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1075,
+      "reported_panel_subtotal": 1075,
+      "all_reported_pollen_nisp": 1296,
+      "omitted_reported_pollen_nisp": 221,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173246,
+      "depth_native": 830,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6046,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1049,
+      "reported_panel_subtotal": 1049,
+      "all_reported_pollen_nisp": 1199,
+      "omitted_reported_pollen_nisp": 150,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173247,
+      "depth_native": 832,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6139,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 957,
+      "reported_panel_subtotal": 957,
+      "all_reported_pollen_nisp": 1140,
+      "omitted_reported_pollen_nisp": 183,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173248,
+      "depth_native": 834,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6233,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 897,
+      "reported_panel_subtotal": 897,
+      "all_reported_pollen_nisp": 1090,
+      "omitted_reported_pollen_nisp": 193,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173249,
+      "depth_native": 836,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6327,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1228,
+      "reported_panel_subtotal": 1228,
+      "all_reported_pollen_nisp": 1388,
+      "omitted_reported_pollen_nisp": 160,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173250,
+      "depth_native": 838,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6421,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 943,
+      "reported_panel_subtotal": 943,
+      "all_reported_pollen_nisp": 1149,
+      "omitted_reported_pollen_nisp": 206,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173251,
+      "depth_native": 840,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6514,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Juniperus communis"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 990,
+      "all_reported_pollen_nisp": 1203,
+      "omitted_reported_pollen_nisp": 213,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173252,
+      "depth_native": 842,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6608,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 963,
+      "reported_panel_subtotal": 963,
+      "all_reported_pollen_nisp": 1193,
+      "omitted_reported_pollen_nisp": 230,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173253,
+      "depth_native": 844,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6702,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1387,
+      "reported_panel_subtotal": 1387,
+      "all_reported_pollen_nisp": 1764,
+      "omitted_reported_pollen_nisp": 377,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173254,
+      "depth_native": 846,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6796,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 871,
+      "reported_panel_subtotal": 871,
+      "all_reported_pollen_nisp": 1181,
+      "omitted_reported_pollen_nisp": 310,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173255,
+      "depth_native": 848,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 6910,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1068,
+      "reported_panel_subtotal": 1068,
+      "all_reported_pollen_nisp": 1340,
+      "omitted_reported_pollen_nisp": 272,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173256,
+      "depth_native": 850,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7031,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1029,
+      "reported_panel_subtotal": 1029,
+      "all_reported_pollen_nisp": 1272,
+      "omitted_reported_pollen_nisp": 243,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173257,
+      "depth_native": 852,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7152,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1151,
+      "reported_panel_subtotal": 1151,
+      "all_reported_pollen_nisp": 1402,
+      "omitted_reported_pollen_nisp": 251,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173258,
+      "depth_native": 854,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7273,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 841,
+      "reported_panel_subtotal": 841,
+      "all_reported_pollen_nisp": 1070,
+      "omitted_reported_pollen_nisp": 229,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173259,
+      "depth_native": 856,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7394,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1134,
+      "reported_panel_subtotal": 1134,
+      "all_reported_pollen_nisp": 1437,
+      "omitted_reported_pollen_nisp": 303,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173260,
+      "depth_native": 858,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7515,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 925,
+      "reported_panel_subtotal": 925,
+      "all_reported_pollen_nisp": 1220,
+      "omitted_reported_pollen_nisp": 295,
+      "excluded_nonpollen_rows": 9
+    },
+    {
+      "sample_id": 173261,
+      "depth_native": 860,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7636,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1052,
+      "reported_panel_subtotal": 1052,
+      "all_reported_pollen_nisp": 1281,
+      "omitted_reported_pollen_nisp": 229,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173262,
+      "depth_native": 862,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7757,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 907,
+      "reported_panel_subtotal": 907,
+      "all_reported_pollen_nisp": 1259,
+      "omitted_reported_pollen_nisp": 352,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173263,
+      "depth_native": 864,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7878,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1210,
+      "reported_panel_subtotal": 1210,
+      "all_reported_pollen_nisp": 1492,
+      "omitted_reported_pollen_nisp": 282,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173264,
+      "depth_native": 866,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 7999,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 834,
+      "reported_panel_subtotal": 834,
+      "all_reported_pollen_nisp": 1130,
+      "omitted_reported_pollen_nisp": 296,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173265,
+      "depth_native": 868,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8120,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1170,
+      "reported_panel_subtotal": 1170,
+      "all_reported_pollen_nisp": 1432,
+      "omitted_reported_pollen_nisp": 262,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173266,
+      "depth_native": 870,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8241,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 912,
+      "reported_panel_subtotal": 912,
+      "all_reported_pollen_nisp": 1095,
+      "omitted_reported_pollen_nisp": 183,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173267,
+      "depth_native": 872,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8363,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 943,
+      "reported_panel_subtotal": 943,
+      "all_reported_pollen_nisp": 1289,
+      "omitted_reported_pollen_nisp": 346,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173268,
+      "depth_native": 874,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8484,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1026,
+      "reported_panel_subtotal": 1026,
+      "all_reported_pollen_nisp": 1261,
+      "omitted_reported_pollen_nisp": 235,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173269,
+      "depth_native": 876,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8605,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Juniperus communis"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 795,
+      "all_reported_pollen_nisp": 1184,
+      "omitted_reported_pollen_nisp": 389,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173270,
+      "depth_native": 878,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8726,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 840,
+      "reported_panel_subtotal": 840,
+      "all_reported_pollen_nisp": 1127,
+      "omitted_reported_pollen_nisp": 287,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173271,
+      "depth_native": 880,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8847,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1014,
+      "reported_panel_subtotal": 1014,
+      "all_reported_pollen_nisp": 1310,
+      "omitted_reported_pollen_nisp": 296,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173272,
+      "depth_native": 882,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 8968,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1149,
+      "reported_panel_subtotal": 1149,
+      "all_reported_pollen_nisp": 1332,
+      "omitted_reported_pollen_nisp": 183,
+      "excluded_nonpollen_rows": 8
+    },
+    {
+      "sample_id": 173273,
+      "depth_native": 884,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9089,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1019,
+      "reported_panel_subtotal": 1019,
+      "all_reported_pollen_nisp": 1120,
+      "omitted_reported_pollen_nisp": 101,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173274,
+      "depth_native": 886,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9210,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1095,
+      "reported_panel_subtotal": 1095,
+      "all_reported_pollen_nisp": 1144,
+      "omitted_reported_pollen_nisp": 49,
+      "excluded_nonpollen_rows": 7
+    },
+    {
+      "sample_id": 173275,
+      "depth_native": 888,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9331,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1233,
+      "reported_panel_subtotal": 1233,
+      "all_reported_pollen_nisp": 1299,
+      "omitted_reported_pollen_nisp": 66,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173276,
+      "depth_native": 890,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9452,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [],
+      "panel_count_total": 1055,
+      "reported_panel_subtotal": 1055,
+      "all_reported_pollen_nisp": 1108,
+      "omitted_reported_pollen_nisp": 53,
+      "excluded_nonpollen_rows": 10
+    },
+    {
+      "sample_id": 173277,
+      "depth_native": 892,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9573,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Juniperus communis"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 1196,
+      "all_reported_pollen_nisp": 1255,
+      "omitted_reported_pollen_nisp": 59,
+      "excluded_nonpollen_rows": 6
+    },
+    {
+      "sample_id": 173278,
+      "depth_native": 894,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9694,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Juniperus communis"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 997,
+      "all_reported_pollen_nisp": 1061,
+      "omitted_reported_pollen_nisp": 64,
+      "excluded_nonpollen_rows": 5
+    },
+    {
+      "sample_id": 173279,
+      "depth_native": 896,
+      "depth_unit": "native_depth_unit_not_explicit_in_payload",
+      "source_age_bp": 9815,
+      "chronology_id": 11516,
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "assumed_age_reference_year_ce": 1950,
+      "raw_age_bounds": {
+        "younger": null,
+        "older": null
+      },
+      "status": "outside_requested_windows",
+      "window_id": null,
+      "panel_missing_taxa": [
+        "Cyperaceae"
+      ],
+      "panel_count_total": null,
+      "reported_panel_subtotal": 353,
+      "all_reported_pollen_nisp": 519,
+      "omitted_reported_pollen_nisp": 166,
+      "excluded_nonpollen_rows": 3
+    }
+  ],
+  "sample_status_counts": {
+    "outside_requested_windows": 78,
+    "selected_complete_panel": 29
+  },
+  "selected_sample_count": 29,
+  "windows": [
+    {
+      "window_id": 3,
+      "edges_cal_bp": [
+        1500,
+        2000
+      ],
+      "sample_ids": [
+        173187,
+        173188,
+        173189,
+        173190,
+        173191,
+        173192,
+        173193
+      ],
+      "native_sample_support_sha256": "46486f933e7617ec3e3d6f5ea629469372598ca5e11dd05b6e2a9c85b1b5ee72",
+      "pooled_panel_counts": [
+        1922,
+        79,
+        84,
+        3510,
+        50
+      ],
+      "panel_count_total": 5645,
+      "all_reported_pollen_nisp": 8078,
+      "omitted_reported_pollen_nisp": 2433,
+      "cover": [
+        0.28985817012259885,
+        0.08742512952298913,
+        0.027465955563868525,
+        0.5420210140303436,
+        0.053229730760199705
+      ],
+      "counting_covariance": [
+        [
+          4.2721448208173565e-05,
+          -2.452102673308035e-05,
+          -1.4965137330244872e-06,
+          -2.4228492965056672e-06,
+          -1.4281058445563067e-05
+        ],
+        [
+          -2.452102673308035e-05,
+          8.204729862500738e-05,
+          -2.746537397525021e-06,
+          -4.60242786884555e-05,
+          -8.755455805946503e-06
+        ],
+        [
+          -1.4965137330244872e-06,
+          -2.746537397525021e-06,
+          8.705999438626505e-06,
+          -2.852170582507749e-06,
+          -1.6107777255692475e-06
+        ],
+        [
+          -2.4228492965056706e-06,
+          -4.602427868845549e-05,
+          -2.852170582507749e-06,
+          7.81083898525954e-05,
+          -2.6809091285126512e-05
+        ],
+        [
+          -1.4281058445563067e-05,
+          -8.755455805946499e-06,
+          -1.6107777255692477e-06,
+          -2.6809091285126512e-05,
+          5.1456383262205335e-05
+        ]
+      ],
+      "ppe_gradient": [
+        [
+          -0.040313437394394316,
+          0.026341879486761772,
+          0.003846005613725383,
+          0.025934172877984628,
+          0.0154290723542701
+        ],
+        [
+          0.004962962801853667,
+          -0.08293344724623464,
+          0.001160007112388343,
+          0.007822095964969413,
+          0.004653616106184298
+        ],
+        [
+          0.0015591914650238039,
+          0.002496065200253503,
+          -0.012904143405232911,
+          0.0024574323351007556,
+          0.0014620054197363307
+        ],
+        [
+          0.030769529826641377,
+          0.04925806377940198,
+          0.0071918478676523566,
+          -0.040976268468118464,
+          0.02885163264320562
+        ],
+        [
+          0.0030217533008754602,
+          0.004837438779817358,
+          0.0007062828114668265,
+          0.004762567290063655,
+          -0.05039632652339636
+        ]
+      ],
+      "ppe_covariance_diagonal": [
+        [
+          0.00018874215316690374,
+          -1.2428600843365642e-05,
+          -2.1060764557633244e-06,
+          -0.00017028408444606907,
+          -3.923391421705668e-06
+        ],
+        [
+          -1.2428600843365638e-05,
+          2.2895102797166196e-05,
+          1.2486645570966129e-06,
+          -1.4182837696117904e-05,
+          2.46767118522073e-06
+        ],
+        [
+          -2.1060764557633235e-06,
+          1.248664557096613e-06,
+          8.444008760288013e-07,
+          -1.0925347764139366e-06,
+          1.1055457990518431e-06
+        ],
+        [
+          -0.00017028408444606905,
+          -1.41828376961179e-05,
+          -1.0925347764139366e-06,
+          0.00018738091789882288,
+          -1.8214609802219774e-06
+        ],
+        [
+          -3.923391421705665e-06,
+          2.46767118522073e-06,
+          1.1055457990518431e-06,
+          -1.8214609802219766e-06,
+          2.171635417655063e-06
+        ]
+      ],
+      "total_covariance_diagonal": [
+        [
+          0.0002314636013750773,
+          -3.694962757644599e-05,
+          -3.6025901887878114e-06,
+          -0.00017270693374257475,
+          -1.8204449867268736e-05
+        ],
+        [
+          -3.6949627576445985e-05,
+          0.00010494240142217358,
+          -1.4978728404284081e-06,
+          -6.02071163845734e-05,
+          -6.287784620725772e-06
+        ],
+        [
+          -3.6025901887878105e-06,
+          -1.497872840428408e-06,
+          9.550400314655306e-06,
+          -3.944705358921685e-06,
+          -5.052319265174044e-07
+        ],
+        [
+          -0.00017270693374257472,
+          -6.0207116384573394e-05,
+          -3.944705358921685e-06,
+          0.00026548930775141825,
+          -2.863055226534849e-05
+        ],
+        [
+          -1.8204449867268733e-05,
+          -6.287784620725769e-06,
+          -5.052319265174046e-07,
+          -2.863055226534849e-05,
+          5.3628018679860395e-05
+        ]
+      ],
+      "standard_error_diagonal": [
+        0.015213927874650823,
+        0.010244139857605106,
+        0.0030903721967839577,
+        0.01629384263307518,
+        0.007323115367100288
+      ]
+    },
+    {
+      "window_id": 4,
+      "edges_cal_bp": [
+        2000,
+        2500
+      ],
+      "sample_ids": [
+        173194,
+        173195,
+        173196,
+        173197,
+        173198,
+        173199,
+        173200,
+        173201,
+        173202
+      ],
+      "native_sample_support_sha256": "9bc66bd0ae43b1212fa32ae01d69ff77c1d5e4c4cef1fd3dd39a3313a4cd2372",
+      "pooled_panel_counts": [
+        3546,
+        75,
+        76,
+        4304,
+        55
+      ],
+      "panel_count_total": 8056,
+      "all_reported_pollen_nisp": 10107,
+      "omitted_reported_pollen_nisp": 2051,
+      "cover": [
+        0.3915445509079387,
+        0.060768812071967535,
+        0.01819446582259534,
+        0.4866217999077945,
+        0.04287037128970403
+      ],
+      "counting_covariance": [
+        [
+          3.777989478710895e-05,
+          -1.7498059732244593e-05,
+          -1.1722975831921585e-06,
+          -7.282062214139723e-06,
+          -1.1827475257532468e-05
+        ],
+        [
+          -1.7498059732244593e-05,
+          4.393785814243938e-05,
+          -9.557175642592535e-07,
+          -2.1825233670874657e-05,
+          -3.6588471750608828e-06
+        ],
+        [
+          -1.172297583192159e-06,
+          -9.557175642592535e-07,
+          4.258597943137959e-06,
+          -1.4803718538090926e-06,
+          -6.502109418774537e-07
+        ],
+        [
+          -7.282062214139724e-06,
+          -2.1825233670874657e-05,
+          -1.480371853809092e-06,
+          4.534232193415954e-05,
+          -1.4754654195336064e-05
+        ],
+        [
+          -1.1827475257532466e-05,
+          -3.6588471750608823e-06,
+          -6.502109418774536e-07,
+          -1.4754654195336062e-05,
+          3.089118756980686e-05
+        ]
+      ],
+      "ppe_gradient": [
+        [
+          -0.04665832658876602,
+          0.024733573006161594,
+          0.003441518816192238,
+          0.031451653038446714,
+          0.016785660273883753
+        ],
+        [
+          0.004659948537392764,
+          -0.059330523442130384,
+          0.0005341333692382282,
+          0.004881384732373614,
+          0.0026051815363594966
+        ],
+        [
+          0.001395210330888745,
+          0.0011493306385895346,
+          -0.008629674993249155,
+          0.0014615093606722012,
+          0.0007800035052324924
+        ],
+        [
+          0.03731572935897184,
+          0.03073953088224465,
+          0.004277209520266761,
+          -0.0412382013473577,
+          0.02086165723971121
+        ],
+        [
+          0.003287438361512682,
+          0.0027080889151346117,
+          0.0003768132875519287,
+          0.003443654215865172,
+          -0.04103250255518695
+        ]
+      ],
+      "ppe_covariance_diagonal": [
+        [
+          0.00025697920487035105,
+          -1.5003814202721913e-05,
+          -3.3711358286532536e-06,
+          -0.0002307751187708752,
+          -7.829136068100725e-06
+        ],
+        [
+          -1.5003814202721915e-05,
+          1.213276775813982e-05,
+          8.197754422311672e-07,
+          1.0199106141674499e-07,
+          1.9492799409341806e-06
+        ],
+        [
+          -3.3711358286532544e-06,
+          8.197754422311672e-07,
+          4.211504798693522e-07,
+          1.4238393190008846e-06,
+          7.063705875518509e-07
+        ],
+        [
+          -0.0002307751187708752,
+          1.0199106141674499e-07,
+          1.4238393190008841e-06,
+          0.00022575266167483026,
+          3.4966267156273415e-06
+        ],
+        [
+          -7.829136068100725e-06,
+          1.9492799409341806e-06,
+          7.063705875518509e-07,
+          3.4966267156273415e-06,
+          1.6768588239873552e-06
+        ]
+      ],
+      "total_covariance_diagonal": [
+        [
+          0.00029475909965746,
+          -3.250187393496651e-05,
+          -4.543433411845412e-06,
+          -0.0002380571809850149,
+          -1.965661132563319e-05
+        ],
+        [
+          -3.250187393496651e-05,
+          5.6070625900579206e-05,
+          -1.359421220280863e-07,
+          -2.1723242609457912e-05,
+          -1.7095672341267022e-06
+        ],
+        [
+          -4.543433411845413e-06,
+          -1.359421220280863e-07,
+          4.679748423007311e-06,
+          -5.6532534808208e-08,
+          5.615964567439718e-08
+        ],
+        [
+          -0.0002380571809850149,
+          -2.1723242609457912e-05,
+          -5.653253480820779e-08,
+          0.0002710949836089898,
+          -1.1258027479708723e-05
+        ],
+        [
+          -1.965661132563319e-05,
+          -1.7095672341267018e-06,
+          5.615964567439729e-08,
+          -1.125802747970872e-05,
+          3.256804639379422e-05
+        ]
+      ],
+      "standard_error_diagonal": [
+        0.017168549724931922,
+        0.0074880321781212456,
+        0.002163272618743951,
+        0.016464962302082255,
+        0.005706842068411761
+      ]
+    },
+    {
+      "window_id": 5,
+      "edges_cal_bp": [
+        2500,
+        3000
+      ],
+      "sample_ids": [
+        173203,
+        173204,
+        173205,
+        173206,
+        173207,
+        173208,
+        173209,
+        173210
+      ],
+      "native_sample_support_sha256": "8f8c374cd45661b411a0cd8f0bbf99603bba81ba31a7deef059caa9623310e64",
+      "pooled_panel_counts": [
+        3535,
+        53,
+        71,
+        5197,
+        47
+      ],
+      "panel_count_total": 8903,
+      "all_reported_pollen_nisp": 9885,
+      "omitted_reported_pollen_nisp": 982,
+      "cover": [
+        0.3632692355559102,
+        0.039966130464927495,
+        0.01581906515407705,
+        0.5468506891488355,
+        0.03409487967624965
+      ],
+      "counting_covariance": [
+        [
+          3.0434511710976394e-05,
+          -1.0214805502622506e-05,
+          -9.901307979977073e-07,
+          -1.0870292144660171e-05,
+          -8.359283265696017e-06
+        ],
+        [
+          -1.0214805502622505e-05,
+          2.7973426330098308e-05,
+          -5.207105510210381e-07,
+          -1.543073194453687e-05,
+          -1.8071783319178863e-06
+        ],
+        [
+          -9.901307979977073e-07,
+          -5.20710551021038e-07,
+          3.4513909796223313e-06,
+          -1.5117894352822697e-06,
+          -4.2876019532131634e-07
+        ],
+        [
+          -1.0870292144660174e-05,
+          -1.543073194453687e-05,
+          -1.5117894352822697e-06,
+          4.04424173350075e-05,
+          -1.2629603810528189e-05
+        ],
+        [
+          -8.35928326569602e-06,
+          -1.8071783319178863e-06,
+          -4.2876019532131634e-07,
+          -1.262960381052819e-05,
+          2.3224825603463412e-05
+        ]
+      ],
+      "ppe_gradient": [
+        [
+          -0.04530056757824811,
+          0.01509196014773595,
+          0.0027761254617056554,
+          0.032792015815503485,
+          0.012385620876361948
+        ],
+        [
+          0.0028434127814574977,
+          -0.03988444790081901,
+          0.00030542358540146464,
+          0.0036077098031293943,
+          0.0013626404093269983
+        ],
+        [
+          0.0011254562682590495,
+          0.000657200438441821,
+          -0.007521170208564307,
+          0.0014279740312309944,
+          0.0005393491230190106
+        ],
+        [
+          0.038905999179459486,
+          0.0227188211926797,
+          0.0041790660295639446,
+          -0.04090541646191469,
+          0.018644808447403745
+        ],
+        [
+          0.002425699349072062,
+          0.0014164661219615367,
+          0.00026055513189324187,
+          0.0030777168120507997,
+          -0.03293241885611171
+        ]
+      ],
+      "ppe_covariance_diagonal": [
+        [
+          0.00024938624236954077,
+          -6.684211132643557e-06,
+          -2.059205985059829e-06,
+          -0.00023627777297856138,
+          -4.365052273275984e-06
+        ],
+        [
+          -6.6842111326435575e-06,
+          5.4504191875712566e-06,
+          5.139624647486359e-07,
+          -3.959643870079026e-07,
+          1.1157938673315614e-06
+        ],
+        [
+          -2.059205985059829e-06,
+          5.139624647486359e-07,
+          3.2241337957548526e-07,
+          7.261409803449759e-07,
+          4.9668916039073e-07
+        ],
+        [
+          -0.00023627777297856138,
+          -3.959643870079026e-07,
+          7.261409803449759e-07,
+          0.00023427240935896293,
+          1.6751870262613997e-06
+        ],
+        [
+          -4.365052273275984e-06,
+          1.1157938673315616e-06,
+          4.966891603907298e-07,
+          1.6751870262613993e-06,
+          1.0773822192922889e-06
+        ]
+      ],
+      "total_covariance_diagonal": [
+        [
+          0.0002798207540805172,
+          -1.6899016635266063e-05,
+          -3.0493367830575363e-06,
+          -0.0002471480651232216,
+          -1.2724335538972001e-05
+        ],
+        [
+          -1.6899016635266063e-05,
+          3.3423845517669566e-05,
+          -6.748086272402219e-09,
+          -1.5826696331544773e-05,
+          -6.913844645863249e-07
+        ],
+        [
+          -3.0493367830575363e-06,
+          -6.748086272402113e-09,
+          3.7738043591978165e-06,
+          -7.856484549372938e-07,
+          6.792896506941361e-08
+        ],
+        [
+          -0.0002471480651232216,
+          -1.5826696331544773e-05,
+          -7.856484549372938e-07,
+          0.00027471482669397045,
+          -1.095441678426679e-05
+        ],
+        [
+          -1.2724335538972003e-05,
+          -6.913844645863247e-07,
+          6.792896506941351e-08,
+          -1.0954416784266791e-05,
+          2.43022078227557e-05
+        ]
+      ],
+      "standard_error_diagonal": [
+        0.016727843676951227,
+        0.005781335963051236,
+        0.0019426282092046888,
+        0.01657452342283091,
+        0.00492972695215016
+      ]
+    },
+    {
+      "window_id": 9,
+      "edges_cal_bp": [
+        4500,
+        5000
+      ],
+      "sample_ids": [
+        173230,
+        173231,
+        173232,
+        173233,
+        173234
+      ],
+      "native_sample_support_sha256": "14569d55e909b3a7701b53576010eac7049d2dd49a4074da9493c16c94818c24",
+      "pooled_panel_counts": [
+        2232,
+        23,
+        27,
+        3110,
+        20
+      ],
+      "panel_count_total": 5412,
+      "all_reported_pollen_nisp": 6015,
+      "omitted_reported_pollen_nisp": 603,
+      "cover": [
+        0.3858276515297334,
+        0.029174540559270504,
+        0.0101192001862775,
+        0.5504734703177462,
+        0.024405137406972366
+      ],
+      "counting_covariance": [
+        [
+          5.016891063916793e-05,
+          -1.3582030012636454e-05,
+          -1.221793551083468e-06,
+          -2.445729675492938e-05,
+          -1.0907790320518626e-05
+        ],
+        [
+          -1.3582030012636456e-05,
+          3.504715497177346e-05,
+          -4.158317817758859e-07,
+          -1.9444421286278922e-05,
+          -1.6048718910821995e-06
+        ],
+        [
+          -1.2217935510834684e-06,
+          -4.158317817758859e-07,
+          3.7398055054180736e-06,
+          -1.766231691392621e-06,
+          -3.359484811660982e-07
+        ],
+        [
+          -2.445729675492938e-05,
+          -1.9444421286278922e-05,
+          -1.7662316913926205e-06,
+          6.128607468705192e-05,
+          -1.5618124954450993e-05
+        ],
+        [
+          -1.0907790320518626e-05,
+          -1.6048718910821993e-06,
+          -3.359484811660982e-07,
+          -1.561812495445099e-05,
+          2.8466735647217918e-05
+        ]
+      ],
+      "ppe_gradient": [
+        [
+          -0.0464090628368163,
+          0.01170098177592754,
+          0.001886119441174246,
+          0.03505907663950453,
+          0.009416176850992596
+        ],
+        [
+          0.00220453279836316,
+          -0.02944218996094177,
+          0.00014261981461929013,
+          0.0026510086805195568,
+          0.0007120086711342851
+        ],
+        [
+          0.0007646430166922619,
+          0.0003068846322889091,
+          -0.00483903476998432,
+          0.000919503341594612,
+          0.0002469604709947628
+        ],
+        [
+          0.04159574741130404,
+          0.01669418979894748,
+          0.002690990938830995,
+          -0.040847215053496796,
+          0.01343438068199752
+        ],
+        [
+          0.0018441396104568342,
+          0.0007401337537778431,
+          0.00011930457535978879,
+          0.0022176263918780984,
+          -0.023809526675119163
+        ]
+      ],
+      "ppe_covariance_diagonal": [
+        [
+          0.00026712580110622595,
+          -5.033377855276507e-06,
+          -1.452877248516548e-06,
+          -0.00025717112636916046,
+          -3.468419633272426e-06
+        ],
+        [
+          -5.033377855276507e-06,
+          3.0080745721459566e-06,
+          2.679862257510947e-07,
+          1.108306774352233e-06,
+          6.490102830272198e-07
+        ],
+        [
+          -1.4528772485165482e-06,
+          2.6798622575109474e-07,
+          1.388703718599254e-07,
+          8.023808295560695e-07,
+          2.4363982134945833e-07
+        ],
+        [
+          -0.00025717112636916046,
+          1.108306774352233e-06,
+          8.023808295560695e-07,
+          0.0002532745218866341,
+          1.9859168786180278e-06
+        ],
+        [
+          -3.468419633272426e-06,
+          6.490102830272198e-07,
+          2.4363982134945833e-07,
+          1.985916878618027e-06,
+          5.898526502777196e-07
+        ]
+      ],
+      "total_covariance_diagonal": [
+        [
+          0.0003172947117453939,
+          -1.861540786791296e-05,
+          -2.6746707996000157e-06,
+          -0.0002816284231240898,
+          -1.4376209953791053e-05
+        ],
+        [
+          -1.8615407867912964e-05,
+          3.805522954391942e-05,
+          -1.4784555602479124e-07,
+          -1.833611451192669e-05,
+          -9.558616080549797e-07
+        ],
+        [
+          -2.6746707996000166e-06,
+          -1.478455560247912e-07,
+          3.878675877277999e-06,
+          -9.638508618365515e-07,
+          -9.230865981663989e-08
+        ],
+        [
+          -0.0002816284231240898,
+          -1.833611451192669e-05,
+          -9.63850861836551e-07,
+          0.00031456059657368604,
+          -1.3632208075832966e-05
+        ],
+        [
+          -1.4376209953791053e-05,
+          -9.558616080549795e-07,
+          -9.230865981663989e-08,
+          -1.3632208075832962e-05,
+          2.9056588297495636e-05
+        ]
+      ],
+      "standard_error_diagonal": [
+        0.01781276822241265,
+        0.0061688920839904,
+        0.0019694354209463176,
+        0.017735856240218176,
+        0.005390416338048077
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "younger_window_id": 3,
+      "older_window_id": 4,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": 0.10168638078533987,
+      "count_variance": 8.05013429952825e-05,
+      "shared_ppe_gradient": [
+        -0.006344889194371706,
+        -0.001608306480600178,
+        -0.0004044867975331449,
+        0.005517480160462086,
+        0.0013565879196136537
+      ],
+      "ppe_variance_diagonal": 5.412669819455188e-06,
+      "ppe_variance_bounds": {
+        "lower": 2.6859739949068295e-07,
+        "upper": 1.1067192506228973e-05,
+        "exact_lower": "29660657931076265822948693578467596192923786436893891621830883969/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "1222127287185499387671110916066700301439473569176736122686182627969/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 8.591401281473769e-05,
+      "total_variance_bounds": {
+        "lower": 8.076994039477319e-05,
+        "upper": 9.156853550151148e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008987209822563017,
+        "upper": 0.009569144972332244
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          -0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          -0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 9.156853550151161e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 4,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.026656317451021594,
+      "count_variance": 0.00012598515676744677,
+      "shared_ppe_gradient": [
+        -0.0003030142644609036,
+        0.023602923804104253,
+        -0.0006258737431501148,
+        -0.002940711232595799,
+        -0.002048434569824801
+      ],
+      "ppe_variance_diagonal": 1.8875387633329022e-06,
+      "ppe_variance_bounds": {
+        "lower": 1.3421185080453034e-07,
+        "upper": 3.975808783708288e-06,
+        "exact_lower": "237131814652458856362449499728413777639921231379318493356843206849/1766847064778384329583297500742918515827483896875618958121606201292619776",
+        "exact_upper": "7024646079615106714440091353198082202730292669329937467309934780609/1766847064778384329583297500742918515827483896875618958121606201292619776"
+      },
+      "total_variance_diagonal": 0.00012787269553077968,
+      "total_variance_bounds": {
+        "lower": 0.0001261193686182513,
+        "upper": 0.00012996096555115504
+      },
+      "standard_error_bounds": {
+        "lower": 0.011230288002462417,
+        "upper": 0.011400042348656212
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00012996096555115504
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 4,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.009271489741273186,
+      "count_variance": 1.2964597381764464e-05,
+      "shared_ppe_gradient": [
+        -0.00016398113413505886,
+        -0.0013467345616639684,
+        0.004274468411983756,
+        -0.0009959229744285543,
+        -0.0006820019145038383
+      ],
+      "ppe_variance_diagonal": 9.194861880946742e-08,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 2.746131980757641e-07,
+        "exact_lower": "0",
+        "exact_upper": "29614228696873097451247538235072141301485008933239231345785201/107839786668602559178668060348078522694548577690162289924414440996864"
+      },
+      "total_variance_diagonal": 1.3056546000573931e-05,
+      "total_variance_bounds": {
+        "lower": 1.2964597381764464e-05,
+        "upper": 1.3239210579840228e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.003600638468628094,
+        "upper": 0.0036385726019746026
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 1.3239210579840227e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 4,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": -0.05539921412254917,
+      "count_variance": 0.00012345071178675494,
+      "shared_ppe_gradient": [
+        0.00654619953233046,
+        -0.01851853289715733,
+        -0.0029146383473855958,
+        -0.0002619328792392364,
+        -0.007989975403494408
+      ],
+      "ppe_variance_diagonal": 4.809052161988051e-06,
+      "ppe_variance_bounds": {
+        "lower": 7.724796014623971e-07,
+        "upper": 9.536292000827148e-06,
+        "exact_lower": "21325833069453320592014311832258329428819993089283837798306402201/27606985387162255149739023449108101809804435888681546220650096895197184",
+        "exact_upper": "263268273914547391998500631896825043627691090628443722763768843161/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 0.00012825976394874298,
+      "total_variance_bounds": {
+        "lower": 0.00012422319138821733,
+        "upper": 0.00013298700378758208
+      },
+      "standard_error_bounds": {
+        "lower": 0.011145545809345424,
+        "upper": 0.01153199912363776
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          -0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          -0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.0001329870037875821
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 4,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.010359359470495676,
+      "count_variance": 8.23475708320122e-05,
+      "shared_ppe_gradient": [
+        0.0002656850606372217,
+        -0.002129349864682746,
+        -0.0003294695239148978,
+        -0.001318913074198483,
+        0.009363823968209409
+      ],
+      "ppe_variance_diagonal": 1.1569742760792794e-07,
+      "ppe_variance_bounds": {
+        "lower": 1.2641303395243319e-08,
+        "upper": 2.628933307773545e-07,
+        "exact_lower": "1395953112428667693589229427920144750312041904235546795361828129/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "29030769364611354203039867977097300455652636507660006796591688609/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 8.246326825962012e-05,
+      "total_variance_bounds": {
+        "lower": 8.236021213540744e-05,
+        "upper": 8.261046416278955e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.009075252731214015,
+        "upper": 0.009089029880179157
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          -0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          -0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.261046416278955e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 5,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": 0.07341106543331133,
+      "count_variance": 7.315595991914996e-05,
+      "shared_ppe_gradient": [
+        -0.004987130183853793,
+        -0.011249919339025822,
+        -0.0010698801520197276,
+        0.006857842937518857,
+        -0.0030434514779081514
+      ],
+      "ppe_variance_diagonal": 5.243286317484608e-06,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.4000321845432402e-05,
+        "exact_lower": "0",
+        "exact_upper": "1546026722409683279490220168009640115451034615044149125141039122641/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 7.839924623663456e-05,
+      "total_variance_bounds": {
+        "lower": 7.315595991914996e-05,
+        "upper": 8.715628176458236e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.00855312573970183,
+        "upper": 0.009335752876152108
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          -0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          -0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.715628176458228e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 5,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.047458999058061634,
+      "count_variance": 0.00011002072495510569,
+      "shared_ppe_gradient": [
+        -0.0021195500203961696,
+        0.043048999345415624,
+        -0.0008545835269868783,
+        -0.0042143861618400185,
+        -0.003290975696857299
+      ],
+      "ppe_variance_diagonal": 6.044281044922552e-06,
+      "ppe_variance_bounds": {
+        "lower": 2.2775176546978563e-07,
+        "upper": 1.4651030719522457e-05,
+        "exact_lower": "100600634579596426551557575179599409443630411343833548600652686729/441711766194596082395824375185729628956870974218904739530401550323154944",
+        "exact_upper": "6471532655691548524477962733168841184834914388508226726838380744329/441711766194596082395824375185729628956870974218904739530401550323154944"
+      },
+      "total_variance_diagonal": 0.00011606500600002824,
+      "total_variance_bounds": {
+        "lower": 0.00011024847672057548,
+        "upper": 0.00012467175567462815
+      },
+      "standard_error_bounds": {
+        "lower": 0.010499927462633991,
+        "upper": 0.01116565070538337
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00012467175567462815
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 5,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.011646890409791475,
+      "count_variance": 1.2157390418248836e-05,
+      "shared_ppe_gradient": [
+        -0.0004337351967647544,
+        -0.001838864761811682,
+        0.005382973196668604,
+        -0.0010294583038697612,
+        -0.0009226562967173201
+      ],
+      "ppe_variance_diagonal": 1.3161450987428565e-07,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 4.660322512373958e-07,
+        "exact_lower": "0",
+        "exact_upper": "51462982199428460783605079630216523316211512187143887858928805481/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 1.2289004928123121e-05,
+      "total_variance_bounds": {
+        "lower": 1.2157390418248836e-05,
+        "upper": 1.2623422669486231e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.003486744960310237,
+        "upper": 0.0035529456327794027
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 1.2623422669486233e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 5,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": 0.004829675118491861,
+      "count_variance": 0.0001185508071876029,
+      "shared_ppe_gradient": [
+        0.008136469352818108,
+        -0.02653924258672228,
+        -0.003012781838088412,
+        7.08520062037768e-05,
+        -0.010206824195801874
+      ],
+      "ppe_variance_diagonal": 7.853585105695439e-06,
+      "ppe_variance_bounds": {
+        "lower": 1.002170948124591e-06,
+        "upper": 1.5441878309765697e-05,
+        "exact_lower": "6916729680078530440888870438998984906493038829724262051042600729/6901746346790563787434755862277025452451108972170386555162524223799296",
+        "exact_upper": "106575927212009843051197884231584438542542653029790636093636564889/6901746346790563787434755862277025452451108972170386555162524223799296"
+      },
+      "total_variance_diagonal": 0.00012640439229329834,
+      "total_variance_bounds": {
+        "lower": 0.0001195529781357275,
+        "upper": 0.0001339926854973686
+      },
+      "standard_error_bounds": {
+        "lower": 0.010934028449557258,
+        "upper": 0.011575520960085062
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00013399268549736855
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 5,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.019134851083950057,
+      "count_variance": 7.468120886566875e-05,
+      "shared_ppe_gradient": [
+        -0.0005960539518033983,
+        -0.003420972657855821,
+        -0.0004457276795735846,
+        -0.0016848504780128553,
+        0.017463907667284652
+      ],
+      "ppe_variance_diagonal": 2.2164156951001314e-07,
+      "ppe_variance_bounds": {
+        "lower": 8.896783136067146e-10,
+        "upper": 5.910406022801475e-07,
+        "exact_lower": "392981379248251617180260952362663214239680567228205752309124289/441711766194596082395824375185729628956870974218904739530401550323154944",
+        "exact_upper": "261069588325881778631536481913594280440862348440963872698800403009/441711766194596082395824375185729628956870974218904739530401550323154944"
+      },
+      "total_variance_diagonal": 7.490285043517876e-05,
+      "total_variance_bounds": {
+        "lower": 7.468209854398236e-05,
+        "upper": 7.52722494679489e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008641880498131315,
+        "upper": 0.008675958129679332
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 7.52722494679489e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 9,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": 0.09596948140713457,
+      "count_variance": 9.28903588473415e-05,
+      "shared_ppe_gradient": [
+        -0.006095625442421981,
+        -0.014640897710834232,
+        -0.001959886172551137,
+        0.0091249037615199,
+        -0.006012895503277504
+      ],
+      "ppe_variance_diagonal": 8.63019863623253e-06,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 2.3232564198196436e-05,
+        "exact_lower": "0",
+        "exact_upper": "2565524241303672032329255309700357787367500242420380458537944310025/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 0.00010152055748357404,
+      "total_variance_bounds": {
+        "lower": 9.28903588473415e-05,
+        "upper": 0.00011612292304553794
+      },
+      "standard_error_bounds": {
+        "lower": 0.009637964455596499,
+        "upper": 0.010776034662413532
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          -0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          -0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.0001161229230455382
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 9,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.058250588963718625,
+      "count_variance": 0.00011709445359678084,
+      "shared_ppe_gradient": [
+        -0.0027584300034905074,
+        0.053491257285292866,
+        -0.001017387297769053,
+        -0.005171087284449856,
+        -0.003941607435050012
+      ],
+      "ppe_variance_diagonal": 9.355478582591908e-06,
+      "ppe_variance_bounds": {
+        "lower": 3.2777387737648233e-07,
+        "upper": 2.2816006279509468e-05,
+        "exact_lower": "144781578288416974952081500403814058277773791868725425507772615921/441711766194596082395824375185729628956870974218904739530401550323154944",
+        "exact_upper": "10078098431229121576294490283405352106523867087631307948594470910449/441711766194596082395824375185729628956870974218904739530401550323154944"
+      },
+      "total_variance_diagonal": 0.00012644993217937275,
+      "total_variance_bounds": {
+        "lower": 0.00011742222747415732,
+        "upper": 0.0001399104598762903
+      },
+      "standard_error_bounds": {
+        "lower": 0.010836153721415977,
+        "upper": 0.011828375200182411
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.0001399104598762903
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 9,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.017346755377591026,
+      "count_variance": 1.2445804944044579e-05,
+      "shared_ppe_gradient": [
+        -0.000794548448331542,
+        -0.002189180567964594,
+        0.008065108635248591,
+        -0.0015379289935061437,
+        -0.001215044948741568
+      ],
+      "ppe_variance_diagonal": 3.0686688478597603e-07,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.0759927943211725e-06,
+        "exact_lower": "0",
+        "exact_upper": "29704917349516493520288543027089427010443107583895244222304224809/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 1.2752671828830555e-05,
+      "total_variance_bounds": {
+        "lower": 1.2445804944044579e-05,
+        "upper": 1.3521797738365752e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.003527861242175573,
+        "upper": 0.003677199714234427
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 1.352179773836575e-05
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 9,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": 0.008452456287402543,
+      "count_variance": 0.00013939446453964732,
+      "shared_ppe_gradient": [
+        0.010826217584662665,
+        -0.0325638739804545,
+        -0.004500856928821361,
+        0.00012905341462166736,
+        -0.015417251961208099
+      ],
+      "ppe_variance_diagonal": 1.3445018832008812e-05,
+      "ppe_variance_bounds": {
+        "lower": 2.0780095848059767e-06,
+        "upper": 2.620577416089861e-05,
+        "exact_lower": "3585473765132606464980010964878004868505543107941212490938846129/1725436586697640946858688965569256363112777243042596638790631055949824",
+        "exact_upper": "45216401519950130320541619146387659185170856432868324273770466609/1725436586697640946858688965569256363112777243042596638790631055949824"
+      },
+      "total_variance_diagonal": 0.00015283948337165614,
+      "total_variance_bounds": {
+        "lower": 0.0001414724741244533,
+        "upper": 0.00016560023870054594
+      },
+      "standard_error_bounds": {
+        "lower": 0.011894220198249792,
+        "upper": 0.012868575628271605
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00016560023870054592
+    },
+    {
+      "younger_window_id": 3,
+      "older_window_id": 9,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.02882459335322734,
+      "count_variance": 7.992311890942326e-05,
+      "shared_ppe_gradient": [
+        -0.001177613690418626,
+        -0.004097305026039515,
+        -0.0005869782361070377,
+        -0.0025449408981855566,
+        0.026586799848277196
+      ],
+      "ppe_variance_diagonal": 5.33630495431031e-07,
+      "ppe_variance_bounds": {
+        "lower": 3.2362800820194166e-10,
+        "upper": 1.4120861741727878e-06,
+        "exact_lower": "8934393693307430090985691453963725064657706103135887451378369/27606985387162255149739023449108101809804435888681546220650096895197184",
+        "exact_upper": "38983442375802009489138050681646031992689497241981020476926628769/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 8.045674940485428e-05,
+      "total_variance_bounds": {
+        "lower": 7.992344253743146e-05,
+        "upper": 8.133520508359604e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008939991193364312,
+        "upper": 0.009018603277869365
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.133520508359603e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 5,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": -0.02827531535202854,
+      "count_variance": 6.821440649808534e-05,
+      "shared_ppe_gradient": [
+        0.001357759010517913,
+        -0.009641612858425644,
+        -0.0006653933544865827,
+        0.0013403627770567708,
+        -0.004400039397521805
+      ],
+      "ppe_variance_diagonal": 5.032725837659827e-07,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.5320580745846256e-06,
+        "exact_lower": "0",
+        "exact_upper": "2643469054833856278392335547943700470798948232585328378958217729/1725436586697640946858688965569256363112777243042596638790631055949824"
+      },
+      "total_variance_diagonal": 6.871767908185132e-05,
+      "total_variance_bounds": {
+        "lower": 6.821440649808534e-05,
+        "upper": 6.974646457266996e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008259201323256707,
+        "upper": 0.008351434881065047
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 6.974646457266999e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 5,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.02080268160704004,
+      "count_variance": 7.191128447253769e-05,
+      "shared_ppe_gradient": [
+        -0.001816535755935266,
+        0.01944607554131137,
+        -0.00022870978383676357,
+        -0.0012736749292442196,
+        -0.0012425411270324982
+      ],
+      "ppe_variance_diagonal": 1.3395299018916476e-06,
+      "ppe_variance_bounds": {
+        "lower": 1.2295282176421118e-08,
+        "upper": 3.3625417303153673e-06,
+        "exact_lower": "86895532896126548187513081924804872716815265788633344947735267681/7067388259113537318333190002971674063309935587502475832486424805170479104",
+        "exact_upper": "23764387945610144293099206561550474373946479251179489913733621411169/7067388259113537318333190002971674063309935587502475832486424805170479104"
+      },
+      "total_variance_diagonal": 7.325081437442933e-05,
+      "total_variance_bounds": {
+        "lower": 7.192357975471411e-05,
+        "upper": 7.527382620285305e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008480777072575019,
+        "upper": 0.008676048997259815
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 7.527382620285306e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 5,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.002375400668518289,
+      "count_variance": 7.709988922760291e-06,
+      "shared_ppe_gradient": [
+        -0.00026975406262969557,
+        -0.0004921302001477136,
+        0.001108504784684848,
+        -3.3535329441206855e-05,
+        -0.00024065438221348176
+      ],
+      "ppe_variance_diagonal": 9.315390443979861e-09,
+      "ppe_variance_bounds": {
+        "lower": 2.343437578484688e-11,
+        "upper": 2.5163494491798305e-08,
+        "exact_lower": "2587809879398147471365230210885137980548495674289765409627321/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "2778752898900054897516870794822579417206687403629837554133573929/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 7.719304313204271e-06,
+      "total_variance_bounds": {
+        "lower": 7.710012357136076e-06,
+        "upper": 7.73515241725209e-06
+      },
+      "standard_error_bounds": {
+        "lower": 0.002776690900538999,
+        "upper": 0.002781214198376689
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 7.735152417252088e-06
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 5,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": 0.06022888924104103,
+      "count_variance": 8.578473926916703e-05,
+      "shared_ppe_gradient": [
+        0.0015902698204876484,
+        -0.008020709689564951,
+        -9.814349070281624e-05,
+        0.0003327848854430132,
+        -0.0022168487923074666
+      ],
+      "ppe_variance_diagonal": 3.992464653402669e-07,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 9.325436517844083e-07,
+        "exact_lower": "0",
+        "exact_upper": "25744718967703087900092906895587011548037466003383204090365245025/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 8.61839857345073e-05,
+      "total_variance_bounds": {
+        "lower": 8.578473926916703e-05,
+        "upper": 8.671728292095144e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.00926200514301126,
+        "upper": 0.009312211494642475
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.671728292095144e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 5,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.008775491613454381,
+      "count_variance": 5.4116013173270277e-05,
+      "shared_ppe_gradient": [
+        -0.00086173901244062,
+        -0.001291622793173075,
+        -0.00011625815565868684,
+        -0.00036593740381437234,
+        0.008100083699075243
+      ],
+      "ppe_variance_diagonal": 7.989077430495188e-08,
+      "ppe_variance_bounds": {
+        "lower": 1.1056162927882712e-08,
+        "upper": 1.7394367412998236e-07,
+        "exact_lower": "4883637254210289085944559111308780323539607500035033226969039881/441711766194596082395824375185729628956870974218904739530401550323154944",
+        "exact_upper": "76832967518331785614717859905873404003294913456694854615234305801/441711766194596082395824375185729628956870974218904739530401550323154944"
+      },
+      "total_variance_diagonal": 5.419590394757523e-05,
+      "total_variance_bounds": {
+        "lower": 5.412706933619816e-05,
+        "upper": 5.428995684740026e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.00735711012124993,
+        "upper": 0.00736817187960489
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 5.428995684740025e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 9,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": -0.005716899378205298,
+      "count_variance": 8.794880542627688e-05,
+      "shared_ppe_gradient": [
+        0.0002492637519497243,
+        -0.013032591230234054,
+        -0.0015553993750179922,
+        0.003607423601057813,
+        -0.0073694834228911574
+      ],
+      "ppe_variance_diagonal": 1.165151792598288e-06,
+      "ppe_variance_bounds": {
+        "lower": 4.301646711354733e-09,
+        "upper": 2.7038272224134932e-06,
+        "exact_lower": "118755497901104688575939396142048861661305255313065254111571009/27606985387162255149739023449108101809804435888681546220650096895197184",
+        "exact_upper": "74644518618580818794572538652703575134583414694724633861878795329/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 8.911395721887517e-05,
+      "total_variance_bounds": {
+        "lower": 8.795310707298824e-05,
+        "upper": 9.065263264869038e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.009378331785183772,
+        "upper": 0.009521167609526175
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 9.065263264869039e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 9,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.03159427151269703,
+      "count_variance": 7.898501311421284e-05,
+      "shared_ppe_gradient": [
+        -0.002455415739029604,
+        0.029888333481188613,
+        -0.0003915135546189381,
+        -0.002230376051854057,
+        -0.0018931728652252116
+      ],
+      "ppe_variance_diagonal": 3.066466044331308e-06,
+      "ppe_variance_bounds": {
+        "lower": 4.2504435496464577e-08,
+        "upper": 7.74323735513496e-06,
+        "exact_lower": "300395348387962412605940498787233992252979687596018456586514625849/7067388259113537318333190002971674063309935587502475832486424805170479104",
+        "exact_upper": "54724464771210181075853245252546674822742654663221566635297812390201/7067388259113537318333190002971674063309935587502475832486424805170479104"
+      },
+      "total_variance_diagonal": 8.205147915854415e-05,
+      "total_variance_bounds": {
+        "lower": 7.902751754970931e-05,
+        "upper": 8.67282504693478e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008889742265651424,
+        "upper": 0.009312800355926664
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.67282504693478e-05
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 9,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.008075265636317839,
+      "count_variance": 7.998403448556032e-06,
+      "shared_ppe_gradient": [
+        -0.0006305673141964831,
+        -0.0008424460063006256,
+        0.003790640223264835,
+        -0.0005420060190775893,
+        -0.0005330430342377296
+      ],
+      "ppe_variance_diagonal": 7.777005825032071e-08,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 2.634411983477271e-07,
+        "exact_lower": "0",
+        "exact_upper": "7272817313162215282660902366716008188796008808253196055481532889/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 8.076173506806353e-06,
+      "total_variance_bounds": {
+        "lower": 7.998403448556032e-06,
+        "upper": 8.26184464690376e-06
+      },
+      "standard_error_bounds": {
+        "lower": 0.0028281448775754102,
+        "upper": 0.002874342472097533
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.26184464690376e-06
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 9,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": 0.06385167040995171,
+      "count_variance": 0.00010662839662121146,
+      "shared_ppe_gradient": [
+        0.0042800180523322046,
+        -0.01404534108329717,
+        -0.0015862185814357658,
+        0.0003909862938609038,
+        -0.007427276557713691
+      ],
+      "ppe_variance_diagonal": 2.1875995019430046e-06,
+      "ppe_variance_bounds": {
+        "lower": 1.92252363693639e-07,
+        "upper": 4.644994882195876e-06,
+        "exact_lower": "21230032780550780813354892460768378246674002786889414822884017681/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "512937223344900007041649461456510093278500914064076164512647838225/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 0.00010881599612315446,
+      "total_variance_bounds": {
+        "lower": 0.00010682064898490509,
+        "upper": 0.00011127339150340733
+      },
+      "standard_error_bounds": {
+        "lower": 0.010335407538404331,
+        "upper": 0.010548620360189637
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00011127339150340733
+    },
+    {
+      "younger_window_id": 4,
+      "older_window_id": 9,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.018465233882731663,
+      "count_variance": 5.935792321702478e-05,
+      "shared_ppe_gradient": [
+        -0.0014432987510558477,
+        -0.0019679551613567686,
+        -0.00025750871219213994,
+        -0.0012260278239870736,
+        0.017222975880067787
+      ],
+      "ppe_variance_diagonal": 2.8546668790261395e-07,
+      "ppe_variance_bounds": {
+        "lower": 1.4480171654685246e-09,
+        "upper": 6.998765075268736e-07,
+        "exact_lower": "159901554909798682891237707443060747349005099471217096776373489/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "77285922064450221342408707603388291806850756794297823133259164081/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 5.9643389904927394e-05,
+      "total_variance_bounds": {
+        "lower": 5.935937123419025e-05,
+        "upper": 6.0057799724551655e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.007704503308727322,
+        "upper": 0.007749696750489767
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 6.005779972455165e-05
+    },
+    {
+      "younger_window_id": 5,
+      "older_window_id": 9,
+      "taxon": "Betula",
+      "cover_difference_older_minus_younger": 0.022558415973823243,
+      "count_variance": 8.060342235014433e-05,
+      "shared_ppe_gradient": [
+        -0.0011084952585681887,
+        -0.00339097837180841,
+        -0.0008900060205314095,
+        0.0022670608240010423,
+        -0.0029694440253693524
+      ],
+      "ppe_variance_diagonal": 4.3150981348248224e-07,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.1627667718870116e-06,
+        "exact_lower": "0",
+        "exact_upper": "32100485280162556380990620129483380728129376869613235348655100489/27606985387162255149739023449108101809804435888681546220650096895197184"
+      },
+      "total_variance_diagonal": 8.103493216362682e-05,
+      "total_variance_bounds": {
+        "lower": 8.060342235014433e-05,
+        "upper": 8.176618912203134e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.008977940874729813,
+        "upper": 0.009042465876188384
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          -0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          -0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 8.176618912203145e-05
+    },
+    {
+      "younger_window_id": 5,
+      "older_window_id": 9,
+      "taxon": "Cyperaceae",
+      "cover_difference_older_minus_younger": -0.010791589905656991,
+      "count_variance": 6.302058130187177e-05,
+      "shared_ppe_gradient": [
+        -0.0006388799830943379,
+        0.010442257939877242,
+        -0.00016280377078217452,
+        -0.0009567011226098376,
+        -0.0006506317381927133
+      ],
+      "ppe_variance_diagonal": 3.615279434629676e-07,
+      "ppe_variance_bounds": {
+        "lower": 9.078649086137987e-09,
+        "upper": 9.004944281018425e-07,
+        "exact_lower": "16040584489995862708669162656329048255043184608667214739381621001/1766847064778384329583297500742918515827483896875618958121606201292619776",
+        "exact_upper": "1591035937141030311949593407893537272240079212141347519853687210249/1766847064778384329583297500742918515827483896875618958121606201292619776"
+      },
+      "total_variance_diagonal": 6.338210924533474e-05,
+      "total_variance_bounds": {
+        "lower": 6.30296599509579e-05,
+        "upper": 6.392107572997362e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.0079391221146269,
+        "upper": 0.007995065711423116
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          -0.002,
+          -0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          -0.002,
+          0.0016,
+          0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 6.392107572997362e-05
+    },
+    {
+      "younger_window_id": 5,
+      "older_window_id": 9,
+      "taxon": "Juniperus communis",
+      "cover_difference_older_minus_younger": -0.0056998649677995495,
+      "count_variance": 7.191196485040405e-06,
+      "shared_ppe_gradient": [
+        -0.00036081325156678756,
+        -0.00035031580615291186,
+        0.002682135438579987,
+        -0.0005084706896363824,
+        -0.00029238865202424783
+      ],
+      "ppe_variance_diagonal": 3.829129923042736e-08,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.2576610842494906e-07,
+        "exact_lower": "0",
+        "exact_upper": "222209479519221292618814871800965693101989286552803982416781830625/1766847064778384329583297500742918515827483896875618958121606201292619776"
+      },
+      "total_variance_diagonal": 7.2294877842708326e-06,
+      "total_variance_bounds": {
+        "lower": 7.191196485040405e-06,
+        "upper": 7.316962593465354e-06
+      },
+      "standard_error_bounds": {
+        "lower": 0.002681640633090199,
+        "upper": 0.0027049884645715875
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          -0.01212,
+          0.071811,
+          0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          -0.002,
+          0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          -0.002,
+          0.0016,
+          -0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          -0.00948,
+          0.056169,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 7.316962593465353e-06
+    },
+    {
+      "younger_window_id": 5,
+      "older_window_id": 9,
+      "taxon": "Pinus sylvestris",
+      "cover_difference_older_minus_younger": 0.0036227811689106826,
+      "count_variance": 0.00010172849202205942,
+      "shared_ppe_gradient": [
+        0.002689748231844556,
+        -0.0060246313937322195,
+        -0.0014880750907329495,
+        5.8201408417890566e-05,
+        -0.005210427765406225
+      ],
+      "ppe_variance_diagonal": 7.586884678941424e-07,
+      "ppe_variance_bounds": {
+        "lower": 1.939921566688982e-07,
+        "upper": 1.4150102205809242e-06,
+        "exact_lower": "21422154537529454977184779371997631357149546386632130244290789681/110427941548649020598956093796432407239217743554726184882600387580788736",
+        "exact_upper": "156256665929051268293267562537568979849209852684579336964027640625/110427941548649020598956093796432407239217743554726184882600387580788736"
+      },
+      "total_variance_diagonal": 0.00010248718048995356,
+      "total_variance_bounds": {
+        "lower": 0.00010192248417872832,
+        "upper": 0.00010314350224264034
+      },
+      "standard_error_bounds": {
+        "lower": 0.010095666603980558,
+        "upper": 0.01015595895239048
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          -0.01515,
+          -0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          -0.01515,
+          0.0025000000000000005,
+          0.002,
+          -0.01185,
+          0.0
+        ],
+        [
+          -0.01212,
+          0.002,
+          0.0016,
+          -0.00948,
+          0.0
+        ],
+        [
+          0.071811,
+          -0.01185,
+          -0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 0.00010314350224264034
+    },
+    {
+      "younger_window_id": 5,
+      "older_window_id": 9,
+      "taxon": "Poaceae",
+      "cover_difference_older_minus_younger": -0.009689742269277282,
+      "count_variance": 5.169156125068133e-05,
+      "shared_ppe_gradient": [
+        -0.0005815597386152277,
+        -0.0006763323681836936,
+        -0.00014125055653345308,
+        -0.0008600904201727013,
+        0.009122892180992544
+      ],
+      "ppe_variance_diagonal": 7.377769552662941e-08,
+      "ppe_variance_bounds": {
+        "lower": 0.0,
+        "upper": 1.759975934398088e-07,
+        "exact_lower": "0",
+        "exact_upper": "4975373302034969690429592034498670467874628485906036262703722491401/28269553036454149273332760011886696253239742350009903329945699220681916416"
+      },
+      "total_variance_diagonal": 5.176533894620796e-05,
+      "total_variance_bounds": {
+        "lower": 5.169156125068133e-05,
+        "upper": 5.1867558844121136e-05
+      },
+      "standard_error_bounds": {
+        "lower": 0.007189684363772955,
+        "upper": 0.007201913554335482
+      },
+      "upper_witness_ppe_covariance": [
+        [
+          0.091809,
+          0.01515,
+          0.01212,
+          0.071811,
+          -0.0
+        ],
+        [
+          0.01515,
+          0.0025000000000000005,
+          0.002,
+          0.01185,
+          -0.0
+        ],
+        [
+          0.01212,
+          0.002,
+          0.0016,
+          0.00948,
+          -0.0
+        ],
+        [
+          0.071811,
+          0.01185,
+          0.00948,
+          0.056169,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          0.0
+        ]
+      ],
+      "upper_witness_total_contrast_variance": 5.1867558844121136e-05
+    }
+  ],
+  "receiver_radius_m": 97.720502380584,
+  "physical_response": [
+    {
+      "taxon": "Betula",
+      "factor": 0.2877420757364626,
+      "estimated_absolute_error": 1.988596079246718e-09,
+      "rigorous_error_bound": false
+    },
+    {
+      "taxon": "Cyperaceae",
+      "factor": 0.2081287521478031,
+      "estimated_absolute_error": 2.3713261737725268e-09,
+      "rigorous_error_bound": false
+    },
+    {
+      "taxon": "Juniperus communis",
+      "factor": 0.3273637395080251,
+      "estimated_absolute_error": 1.9685483895210954e-09,
+      "rigorous_error_bound": false
+    },
+    {
+      "taxon": "Pinus sylvestris",
+      "factor": 0.2368525521034912,
+      "estimated_absolute_error": 2.2791894053277443e-09,
+      "rigorous_error_bound": false
+    },
+    {
+      "taxon": "Poaceae",
+      "factor": 0.2081287521478031,
+      "estimated_absolute_error": 2.3713261737725268e-09,
+      "rigorous_error_bound": false
+    }
+  ],
+  "shared_diagonal_joint_covariance": [
+    [
+      0.00023146360137507723,
+      -3.694962757644599e-05,
+      -3.6025901887878097e-06,
+      -0.0001727069337425747,
+      -1.820444986726873e-05,
+      0.00022015434410889976,
+      -1.4040315599577445e-05,
+      -3.012302874478838e-06,
+      -0.00019613148631747625,
+      -6.970239317367255e-06,
+      0.0002164425546094799,
+      -7.893218867045539e-06,
+      -2.088344881290235e-06,
+      -0.00020206133055427383,
+      -4.39966030687032e-06,
+      0.00022361887781844854,
+      -6.235590234144802e-06,
+      -1.5001784635478537e-06,
+      -0.00021233758109770158,
+      -3.545528023054288e-06
+    ],
+    [
+      -3.6949627576445985e-05,
+      0.00010494240142217358,
+      -1.4978728404284083e-06,
+      -6.020711638457341e-05,
+      -6.287784620725772e-06,
+      -1.2562754135341794e-05,
+      1.657016589598656e-05,
+      1.023536212524388e-06,
+      -7.481074711915216e-06,
+      2.450126738746062e-06,
+      -9.357402140354281e-06,
+      1.1150620469907453e-05,
+      9.899826898956067e-07,
+      -4.947484031748128e-06,
+      2.1642830122993397e-06,
+      -8.165015847665367e-06,
+      8.273849393360125e-06,
+      6.797890484951421e-07,
+      -2.4499965641020345e-06,
+      1.661373969912135e-06
+    ],
+    [
+      -3.602590188787809e-06,
+      -1.4978728404284083e-06,
+      9.550400314655306e-06,
+      -3.944705358921687e-06,
+      -5.052319265174044e-07,
+      -2.2544320935718415e-06,
+      9.595861720693482e-07,
+      5.86801368544343e-07,
+      -2.469968531992742e-07,
+      9.550414061574253e-07,
+      -1.921486664355949e-06,
+      6.49814543077521e-07,
+      5.175998728650004e-07,
+      -2.1442613382367393e-08,
+      7.755148617957908e-07,
+      -1.7700241211179054e-06,
+      4.948281068085015e-07,
+      3.3820218155137527e-07,
+      3.647516350987004e-07,
+      5.72242197659328e-07
+    ],
+    [
+      -0.0001727069337425747,
+      -6.0207116384573394e-05,
+      -3.944705358921685e-06,
+      0.00026548930775141825,
+      -2.8630552265348492e-05,
+      -0.0002011096072982622,
+      -5.371115487751621e-06,
+      6.197863147347654e-07,
+      0.00020416226370583254,
+      1.6986727654465193e-06,
+      -0.0002015539952779711,
+      -5.179139774322937e-06,
+      -1.1291042280766911e-07,
+      0.00020689987107604517,
+      -5.3825600943481935e-08,
+      -0.0002103310874527111,
+      -3.4979448226522897e-06,
+      2.5838729407342482e-08,
+      0.0002136052104767241,
+      1.9798306923194697e-07
+    ],
+    [
+      -1.820444986726873e-05,
+      -6.287784620725768e-06,
+      -5.052319265174046e-07,
+      -2.8630552265348492e-05,
+      5.3628018679860395e-05,
+      -4.227550581723949e-06,
+      1.8816790192731556e-06,
+      7.821789786753392e-07,
+      -3.027058232417889e-07,
+      1.8663984070172452e-06,
+      -3.6096705267986093e-06,
+      1.2719236283835003e-06,
+      6.936727413372959e-07,
+      1.303861233591357e-07,
+      1.5136880337186699e-06,
+      -3.3527503969541635e-06,
+      9.648575566284655e-07,
+      4.5634850409399287e-07,
+      8.176155499808308e-07,
+      1.113928786250876e-06
+    ],
+    [
+      0.00022015434410889973,
+      -1.2562754135341794e-05,
+      -2.2544320935718406e-06,
+      -0.00020110960729826218,
+      -4.227550581723949e-06,
+      0.00029475909965746,
+      -3.25018739349665e-05,
+      -4.543433411845412e-06,
+      -0.0002380571809850149,
+      -1.965661132563319e-05,
+      0.00025293108732806293,
+      -8.271319233339225e-06,
+      -2.299172896135267e-06,
+      -0.0002374958769692507,
+      -4.864718229337778e-06,
+      0.00026146992709198935,
+      -6.579904598376223e-06,
+      -1.6587344070496836e-06,
+      -0.00024929573012871293,
+      -3.935557957850502e-06
+    ],
+    [
+      -1.4040315599577445e-05,
+      1.657016589598656e-05,
+      9.595861720693482e-07,
+      -5.371115487751624e-06,
+      1.8816790192731554e-06,
+      -3.25018739349665e-05,
+      5.6070625900579206e-05,
+      -1.3594212202808598e-07,
+      -2.1723242609457916e-05,
+      -1.7095672341267018e-06,
+      -1.2625890455718125e-05,
+      8.121828521909715e-06,
+      7.691162508585703e-07,
+      2.0631907671412907e-06,
+      1.6717549158085415e-06,
+      -1.197633358276873e-05,
+      6.037188142977235e-06,
+      5.29590718700003e-07,
+      4.122230297499193e-06,
+      1.2873244235922983e-06
+    ],
+    [
+      -3.0123028744788366e-06,
+      1.023536212524388e-06,
+      5.86801368544343e-07,
+      6.19786314734765e-07,
+      7.821789786753391e-07,
+      -4.543433411845413e-06,
+      -1.3594212202808608e-07,
+      4.679748423007311e-06,
+      -5.6532534808208634e-08,
+      5.615964567439729e-08,
+      -3.105700267129392e-06,
+      5.415650941941793e-07,
+      3.671242345004288e-07,
+      1.6331693495069032e-06,
+      5.638415889278778e-07,
+      -3.05903878161954e-06,
+      4.1344400521848616e-07,
+      2.4112539673947847e-07,
+      1.9857205828363237e-06,
+      4.187487968252524e-07
+    ],
+    [
+      -0.00019613148631747625,
+      -7.481074711915214e-06,
+      -2.4699685319927323e-07,
+      0.00020416226370583254,
+      -3.027058232417893e-07,
+      -0.00023805718098501489,
+      -2.1723242609457916e-05,
+      -5.6532534808207575e-08,
+      0.0002710949836089898,
+      -1.1258027479708724e-05,
+      -0.0002299737393167497,
+      -1.6782477257096462e-06,
+      5.471281681188852e-07,
+      0.00022981291228422646,
+      1.2919465901140162e-06,
+      -0.00023928925099417508,
+      -8.496232124251636e-07,
+      4.802198325878517e-07,
+      0.00023841979202976067,
+      1.2388623442517222e-06
+    ],
+    [
+      -6.9702393173672565e-06,
+      2.4501267387460614e-06,
+      9.550414061574253e-07,
+      1.6986727654465188e-06,
+      1.8663984070172452e-06,
+      -1.965661132563319e-05,
+      -1.7095672341267014e-06,
+      5.615964567439739e-08,
+      -1.1258027479708723e-05,
+      3.256804639379422e-05,
+      -7.225757288465735e-06,
+      1.2861733429449802e-06,
+      6.158042426573833e-07,
+      3.986604568376017e-06,
+      1.337175134487346e-06,
+      -7.145303733426009e-06,
+      9.788956626056665e-07,
+      4.077984590223514e-07,
+      4.767987218616761e-06,
+      9.906223931812304e-07
+    ],
+    [
+      0.00021644255460947994,
+      -9.357402140354281e-06,
+      -1.92148666435595e-06,
+      -0.0002015539952779711,
+      -3.6096705267986093e-06,
+      0.000252931087328063,
+      -1.2625890455718128e-05,
+      -3.1057002671293927e-06,
+      -0.00022997373931674974,
+      -7.2257572884657355e-06,
+      0.0002798207540805173,
+      -1.6899016635266063e-05,
+      -3.0493367830575376e-06,
+      -0.0002471480651232216,
+      -1.2724335538972006e-05,
+      0.00025804026683114216,
+      -5.395989957306978e-06,
+      -1.4964370969006017e-06,
+      -0.0002475911529679722,
+      -3.5566868089624075e-06
+    ],
+    [
+      -7.893218867045537e-06,
+      1.1150620469907453e-05,
+      6.49814543077521e-07,
+      -5.179139774322939e-06,
+      1.2719236283835003e-06,
+      -8.271319233339227e-06,
+      8.121828521909715e-06,
+      5.415650941941792e-07,
+      -1.6782477257096456e-06,
+      1.2861733429449802e-06,
+      -1.6899016635266063e-05,
+      3.3423845517669566e-05,
+      -6.748086272402219e-09,
+      -1.5826696331544773e-05,
+      -6.913844645863247e-07,
+      -6.176500978487204e-06,
+      4.048482908127123e-06,
+      3.5297568881022175e-07,
+      9.179863378960304e-07,
+      8.570560436538284e-07
+    ],
+    [
+      -2.0883448812902346e-06,
+      9.899826898956067e-07,
+      5.175998728650004e-07,
+      -1.1291042280766956e-07,
+      6.936727413372959e-07,
+      -2.299172896135267e-06,
+      7.691162508585703e-07,
+      3.6712423450042884e-07,
+      5.471281681188855e-07,
+      6.158042426573833e-07,
+      -3.0493367830575367e-06,
+      -6.748086272402113e-09,
+      3.7738043591978165e-06,
+      -7.856484549372943e-07,
+      6.792896506941361e-08,
+      -1.9867685256342873e-06,
+      3.903297419990619e-07,
+      2.1149622610249162e-07,
+      1.0167416758628846e-06,
+      3.6820088166984837e-07
+    ],
+    [
+      -0.00020206133055427383,
+      -4.947484031748127e-06,
+      -2.144261338236694e-08,
+      0.00020689987107604517,
+      1.3038612335913602e-07,
+      -0.00023749587696925067,
+      2.063190767141291e-06,
+      1.6331693495069043e-06,
+      0.0002298129122842265,
+      3.986604568376017e-06,
+      -0.0002471480651232216,
+      -1.5826696331544773e-05,
+      -7.856484549372941e-07,
+      0.00027471482669397045,
+      -1.0954416784266788e-05,
+      -0.000245644614931833,
+      1.1213988071514801e-07,
+      6.036523656493053e-07,
+      0.00024339412138885147,
+      1.5347012966170382e-06
+    ],
+    [
+      -4.39966030687032e-06,
+      2.1642830122993393e-06,
+      7.755148617957908e-07,
+      -5.382560094348228e-08,
+      1.5136880337186697e-06,
+      -4.864718229337781e-06,
+      1.6717549158085415e-06,
+      5.638415889278779e-07,
+      1.2919465901140175e-06,
+      1.337175134487346e-06,
+      -1.2724335538972006e-05,
+      -6.913844645863245e-07,
+      6.792896506941361e-08,
+      -1.095441678426679e-05,
+      2.43022078227557e-05,
+      -4.23238239518767e-06,
+      8.450374264656388e-07,
+      3.2831281633858104e-07,
+      2.2623035653617606e-06,
+      7.967285870216895e-07
+    ],
+    [
+      0.00022361887781844852,
+      -8.165015847665366e-06,
+      -1.770024121117905e-06,
+      -0.00021033108745271108,
+      -3.352750396954162e-06,
+      0.00026146992709198935,
+      -1.197633358276873e-05,
+      -3.0590387816195405e-06,
+      -0.00023928925099417508,
+      -7.1453037334260075e-06,
+      0.00025804026683114216,
+      -6.176500978487202e-06,
+      -1.986768525634287e-06,
+      -0.00024564461493183293,
+      -4.232382395187669e-06,
+      0.0003172947117453938,
+      -1.8615407867912957e-05,
+      -2.6746707996000157e-06,
+      -0.00028162842312408977,
+      -1.437620995379105e-05
+    ],
+    [
+      -6.235590234144802e-06,
+      8.273849393360125e-06,
+      4.948281068085016e-07,
+      -3.4979448226522897e-06,
+      9.648575566284655e-07,
+      -6.579904598376223e-06,
+      6.037188142977235e-06,
+      4.134440052184861e-07,
+      -8.496232124251624e-07,
+      9.788956626056665e-07,
+      -5.395989957306978e-06,
+      4.048482908127123e-06,
+      3.9032974199906185e-07,
+      1.1213988071514813e-07,
+      8.450374264656388e-07,
+      -1.8615407867912964e-05,
+      3.805522954391942e-05,
+      -1.478455560247912e-07,
+      -1.833611451192669e-05,
+      -9.558616080549797e-07
+    ],
+    [
+      -1.5001784635478539e-06,
+      6.797890484951422e-07,
+      3.3820218155137527e-07,
+      2.583872940734221e-08,
+      4.5634850409399287e-07,
+      -1.658734407049684e-06,
+      5.295907187000031e-07,
+      2.4112539673947847e-07,
+      4.802198325878519e-07,
+      4.0779845902235146e-07,
+      -1.4964370969006017e-06,
+      3.529756888102218e-07,
+      2.1149622610249162e-07,
+      6.036523656493052e-07,
+      3.2831281633858104e-07,
+      -2.6746707996000166e-06,
+      -1.478455560247912e-07,
+      3.878675877277999e-06,
+      -9.638508618365515e-07,
+      -9.230865981663989e-08
+    ],
+    [
+      -0.00021233758109770158,
+      -2.449996564102033e-06,
+      3.6475163509870113e-07,
+      0.0002136052104767241,
+      8.176155499808316e-07,
+      -0.000249295730128713,
+      4.122230297499194e-06,
+      1.985720582836324e-06,
+      0.0002384197920297607,
+      4.767987218616761e-06,
+      -0.0002475911529679722,
+      9.179863378960304e-07,
+      1.0167416758628848e-06,
+      0.00024339412138885144,
+      2.2623035653617606e-06,
+      -0.0002816284231240898,
+      -1.833611451192669e-05,
+      -9.638508618365509e-07,
+      0.00031456059657368604,
+      -1.3632208075832966e-05
+    ],
+    [
+      -3.5455280230542875e-06,
+      1.661373969912135e-06,
+      5.722421976593279e-07,
+      1.9798306923194557e-07,
+      1.113928786250876e-06,
+      -3.935557957850502e-06,
+      1.2873244235922983e-06,
+      4.187487968252524e-07,
+      1.2388623442517216e-06,
+      9.906223931812302e-07,
+      -3.5566868089624075e-06,
+      8.570560436538282e-07,
+      3.6820088166984837e-07,
+      1.5347012966170372e-06,
+      7.967285870216895e-07,
+      -1.437620995379105e-05,
+      -9.558616080549795e-07,
+      -9.230865981663989e-08,
+      -1.3632208075832964e-05,
+      2.9056588297495636e-05
+    ]
+  ],
+  "fixed_site_covariance_api_calls": 64,
+  "receiver_response_calls": 5,
+  "model_fits": 0,
+  "chronology_draws_consumed": 0,
+  "historical_core_admission_changed": false,
+  "whole_vegetation_or_calibrated_coverage_claim": false,
+  "elapsed_seconds": 0.4291031248867512
+}
