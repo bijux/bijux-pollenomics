@@ -1,16 +1,16 @@
 # ABBO conditional age, counting and shared-PPE moments
 
-All 32,000 qualified saved joint age rows were consumed once. **2,668 rows (8.3375%) do not define all four five-taxon windows**, so the primary unconditional 20-component mean/covariance is refused. The separately named conditional-on-complete result uses 29,332 rows (91.6625%). Its conditioning cannot be removed when interpreting the estimates.
+Two separately named count profiles use the same 32,000 qualified saved joint age rows. The original **`neotoma_explicit_five_taxon`** profile defines all four windows on 29,332 rows (91.6625%). The later local noncommercial **`pangaea_recorded_zeros_local_nc`** profile uses independently qualified original recorded zeros and defines 31,999 rows (99.996875%). **Both primary unconditional 20-component means/covariances remain refused**: the strict native profile has 2,668 undefined rows, and the source-supported profile retains one empty-window row. Each conditional result must retain its own population label and denominator.
 
 This is a new propagation of shared age membership and shared PPE moments, not another chronology fit. The earlier [fixed-age PPE study](../abborrtjarnen-ppe-dependence/README.md), original failed 8,000-state chronology experiment and separate [fixed-length chronology qualification](../../chronology/abborrtjarnen-bacon/README.md) remain unchanged. This calculation does not establish field calibration, historical reproduction, whole-vegetation composition or original core admission.
 
-[protocol.json](protocol.json) was committed before the calculation. [result.json](result.json) exports the complete conditional means, six 20×20 covariance components, all 30 contrasts, support census, chain summaries and actual qualification. [components.csv](components.csv) contains the 20 mean/spread/variance rows; [contrasts.csv](contrasts.csv) contains every older-minus-younger contrast. Both CSVs explicitly carry the conditioning event and 32,000/29,332 denominators. No native count matrix or age matrix is copied into these exports. The complete 32,000-row ledger remains in repository artifacts.
+The original strict native [protocol.json](protocol.json) was committed before that calculation. Its unchanged [result.json](result.json) exports the complete conditional means, six 20×20 covariance components, all 30 contrasts, support census, chain summaries and actual qualification. [components.csv](components.csv) contains the 20 mean/spread/variance rows; [contrasts.csv](contrasts.csv) contains every older-minus-younger contrast. Both CSVs explicitly carry the conditioning event and 32,000/29,332 denominators. No native count matrix or age matrix is copied into these exports. The complete 32,000-row strict native ledger remains in repository artifacts. The separately named source-supported result below does not replace these files.
 
-## Source support and the defined event
+## Strict native source support and the defined event
 
-The physical source is Neotoma dataset 19913, site 13338, collection unit 14910, ABBO. All 107 original samples were joined to the exact saved chronology sample/depth axis. The source has 99 complete literal five-taxon panels and eight with absent measurements:
+The physical source is Neotoma dataset 19913, site 13338, collection unit 14910, ABBO. All 107 original samples were joined to the exact saved chronology sample/depth axis. The current native representation has 99 complete literal five-taxon panels and eight with absent native measurements:
 
-| Native sample | Missing source taxon |
+| Native sample | Missing native datum |
 |---:|---|
 | 173221 | Poaceae |
 | 173225 | Juniperus communis |
@@ -21,7 +21,7 @@ The physical source is Neotoma dataset 19913, site 13338, collection unit 14910,
 | 173278 | Juniperus communis |
 | 173279 | Cyperaceae |
 
-The window population includes **every native member**, rather than silently selecting those 99 complete samples. A single member lacking a required taxon refuses that draw/bin. Measured zero remains valid; absence is not filled with zero. Known reported panel subtotals remain distinct from undefined complete panel masses. The ledger retains actual sample IDs, missing ID/taxon mappings, reported and omitted pollen NISP, each bin's status, every seed/native-row identity and per-bin cover where defined, even when the complete four-window event fails.
+In the strict native profile, the window population includes **every native member**, rather than silently selecting those 99 complete samples. A single member lacking a required taxon refuses that draw/bin. Measured zero remains valid; absence is not filled with zero. Known reported panel subtotals remain distinct from undefined complete panel masses. The ledger retains actual sample IDs, missing ID/taxon mappings, reported and omitted pollen NISP, each bin's status, every seed/native-row identity and per-bin cover where defined, even when the complete four-window event fails.
 
 | Window | Half-open calibrated BP interval | Defined rows | Refused rows and reason |
 |---:|---|---:|---|
@@ -30,7 +30,7 @@ The window population includes **every native member**, rather than silently sel
 | 5 | [2500, 3000) | 32000 | 0 |
 | 9 | [4500, 5000) | 29333 | 2667 with a missing five-taxon member |
 
-There were no nonempty zero-panel-mass bins. The one incomplete case from the earlier closed 16-label score consumer remains refused, and the five-taxon measurement requirement adds 2,667 missing-member cases. Thus that earlier consumer's 31,999 complete rows could not establish the five-taxon mask. All 32,000 rows remain in the probability denominator. The defined event C means that all four windows are nonempty, have complete measured panels for every member and have positive pooled panel mass. C is determined before hypothetical counting/PPE errors; conditioning on C changes the age-mixture population and is not an unconditional posterior result.
+There were no nonempty zero-panel-mass bins. The one incomplete case from the earlier closed 16-label score consumer remains refused, and the five-taxon measurement requirement adds 2,667 missing-member cases. Thus that earlier consumer's 31,999 complete rows could not establish the five-taxon mask. All 32,000 rows remain in the probability denominator. The strict native defined event C_native means that all four windows are nonempty, have complete measured panels for every member and have positive pooled panel mass. This event is determined before hypothetical counting/PPE errors; conditioning on it changes the age-mixture population and is not an unconditional posterior result.
 
 The two saved chains each contribute 16,000 rows, retaining original one-based native rows 3502–19501 and all 107 joint sample ages. Original 4,000-row prefixes occur once within each longer chain; failed 8,000-state outputs were not appended. Negative ages remain signed and outside positive study windows. Native point chronology 11516 is the fixed-age reference, while the mixture uses the separately declared Bacon model.
 
@@ -50,9 +50,9 @@ Cov(Y | C) = Cov_C[c(A)]
            + E_C[G(A) Σ G(A)^T].
 ```
 
-Population means/covariances divide by M_C = 29,332, not M_C − 1. The mean is the saved-age mixture of plug-in inverse covers; no second-order correction for nonlinear count/PPE errors is implied. The PPE component is further decomposed into `E[G] Σ E[G]^T` and the age/PPE interaction, their difference from `E[G Σ G^T]`. Taking only the mean gradient would omit that interaction. No old per-age sharp correlation extrema are averaged into a claimed globally attainable bound.
+Population means/covariances divide by M_C, not M_C − 1: M_C_native = 29,332 for the strict native case, and M_C_source = 31,999 for the separately reported source-supported case. The mean is the saved-age mixture of plug-in inverse covers; no second-order correction for nonlinear count/PPE errors is implied. The PPE component is further decomposed into `E[G] Σ E[G]^T` and the age/PPE interaction, their difference from `E[G Σ G^T]`. Taking only the mean gradient would omit that interaction. No old per-age sharp correlation extrema are averaged into a claimed globally attainable bound.
 
-## Conditional results
+## Strict native conditional results
 
 Each table cell is conditional mean **(conditional standard deviation)** on the five-taxon closure. Fractions are not percentages or a complete terrestrial denominator.
 
@@ -72,7 +72,7 @@ Seed 314159 has 14,695 complete rows; seed 271828 has 14,637. Their conditional 
 
 Covariances and contrast variance components remain raw, including signed numerical residuals. Only square roots use roundoff-only `max(0, variance)` after the frozen −1e−12 refusal criterion. Covers, contrasts and covariance matrices are not clipped or renormalized to remove numerical failures. Reported spreads are standard deviations of the conditional first-order mixture, **not standard errors of its mean**, normal intervals or coverage statements.
 
-## Actual execution and independent observation
+## Strict native actual execution and independent observation
 
 The producer code was committed at `09bc85194`; the actual run consumed HEAD `5c2a6306cfcfc3bf494a7a2b6e8bbdf4c1e32dd4`, including the committed independent observer. Owned session 78256 terminated with exit 0 in 8.829082167 s; producer time was 7.485233791 s, peak macOS RSS 143982592 bytes. The 2,961,320-byte ledger and 145,136-byte result total 3,106,456 bytes, within 180 s / 768 MiB posthoc / 20 MB. Exact command, explicit Python `-B`, bytecode suppression, one-thread environment, UTC bounds and input identities are retained in `artifacts/physical-core/abborrtjarnen-age-ppe/native-execution/execution.json`. Eight unrelated PDF export paths were dirty at launch; consumed scientific code and inputs were committed and frozen. No globally clean-worktree claim is made.
 
@@ -82,31 +82,162 @@ The separate committed independent observer (session 5933) terminated with exit 
 
 Chronology authority retains the original report's literal `diagnostics_passed=false` / `diagnostics_pass=true` writer conflict and the independent qualification that explicitly checked it. The raw chronological report and earlier failed strict observer remain unchanged. The chronology remains conditional on its controls, artificial surface and broad bottom likelihood, priors, zero reservoir assumption, fixed calibration treatment and saved precision; successful sampler diagnostics are not chronology accuracy or field calibration.
 
-Count attribution is to Neotoma, EPD and Thomas Giesecke, dataset [10.21233/2vzb-bg61](https://doi.org/10.21233/2vzb-bg61), with current CC BY 4.0 source evidence. Parameters are the literal public [LandClimII PANGAEA.937075](https://doi.org/10.1594/PANGAEA.937075) values and [Githumbi et al. 2022](https://doi.org/10.5194/essd-14-1581-2022) uncertainty context. LegacyAge controls/metadata retain their CC BY 4.0 attribution. The separate [PANGAEA.738429](https://doi.org/10.1594/PANGAEA.738429) CC BY-NC 3.0 file supplies only the previously qualified descriptive 3 ha area fact; its measurement table is not parsed or redistributed here. Static geometry, taxon/PPE transfer, transport, aquatic/marginal pollen contributions, overdispersion, site selection and field accuracy remain outside this conditional calculation.
+Count attribution is to Neotoma, EPD and Thomas Giesecke, dataset [10.21233/2vzb-bg61](https://doi.org/10.21233/2vzb-bg61), with current CC BY 4.0 source evidence. Parameters are the literal public [LandClimII PANGAEA.937075](https://doi.org/10.1594/PANGAEA.937075) values and [Githumbi et al. 2022](https://doi.org/10.5194/essd-14-1581-2022) uncertainty context. LegacyAge controls/metadata retain their CC BY 4.0 attribution. For the strict native run above, the separate [PANGAEA.738429](https://doi.org/10.1594/PANGAEA.738429) CC BY-NC 3.0 file supplied only the previously qualified descriptive 3 ha area fact; that run did not parse or redistribute its measurement table. The later source-supported profile below additionally uses eight qualified original recorded zeros under its separate local noncommercial scope. Static geometry, taxon/PPE transfer, transport, aquatic/marginal pollen contributions, overdispersion, site selection and field accuracy remain outside this conditional calculation.
+
+
+## Source-supported original recorded-zero profile
+
+The [source-supported protocol](source-supported-counts/protocol.json) defines
+`pangaea_recorded_zeros_local_nc` separately from the unchanged strict native
+protocol and outputs above. The [original-count source account](../../abborrtjarnen-source-method.md)
+qualified an exact 107-to-107 depth correspondence across 535 five-taxon slots:
+all **527 reported native counts match**, and all **eight absent native cells
+are literal original recorded zeros**, with no blank or invalid cells. Five
+concern Juniperus-type, two Cyperaceae and one Gramineae/Poaceae. This is source
+measurement support, not a general missing-to-zero rule or evidence of
+biological absence.
+
+Only those eight qualified original zeros enter a separate analytical panel.
+Every native omission remains explicit in the sample accounts and ledger; all
+527 reported integers, native reported subtotals and omitted pollen NISP are
+unchanged. Full source correspondence, independently verified raw ownership,
+exact source-data digests and the exact missing-slot set are required before
+that panel is available. All 107 samples have five-axis analytical source
+support, but empty and nonempty zero-mass windows still refuse. No original
+matrix or eight-row source-candidate dump is added to Git.
+
+The analytical use of Giesecke's original EPD/PANGAEA counts is **local
+noncommercial research under CC BY-NC 3.0**, distinct from the Neotoma CC BY 4.0
+release. Attribution remains to Thomas Giesecke, EPD and PANGAEA. Original
+Juniperus-type, Pinus diploxylon-type and Gramineae comments remain distinct
+from the native/public parameter labels; literal taxon/PPE transfer is still
+the declared assumption. Exact scaled depths and count agreement qualify
+exported-series correspondence, not independent measurements, unrecorded
+native depth units, species equivalence, a historical core selection or field
+admission. The original source-method account owns these source limits.
+
+### Changed complete-event population
+
+| Population | Strict native C_native | Source-supported C_source |
+| --- | ---: | ---: |
+| Saved joint age rows, all-draw denominator | 32,000 | 32,000 |
+| Complete four-window rows | 29,332 | 31,999 |
+| Complete probability | 0.916625 | 0.99996875 |
+| Undefined rows | 2,668 | 1 |
+| Primary unconditional 20-component moments | Refused | Refused |
+
+All **2,667** newly complete rows change only the window-9 missing-panel status
+to defined. Windows 3 and 5 remain defined on all 32,000 rows; window 4 remains
+empty on one row; window 9 is now defined on all 32,000. The full seed/native-row
+comparison records 29,332 common-complete rows, 2,667 native-undefined to
+source-complete rows, one common-undefined row and **zero lost native-complete
+rows**. The remaining empty-window row is not dropped or repaired. Each chain
+still has 16,000 saved rows; their source-complete counts are 16,000 and 15,999.
+
+The age rows, four bins, geometry, PPE values and shared diagonal covariance,
+conditional pooled-window multinomial law and first-order total-covariance
+calculation are unchanged. The producer reproduces the old mean, all six
+covariance components, gradients, spreads and all 30 contrasts on exactly the
+29,332 common native-complete rows with **maximum gap 0.0**. The different
+source-complete conditioning population accounts for the reported comparison;
+it is not a changed measurement or stochastic law within C_native.
+
+The largest absolute conditional mean change is **Betula/window 9**:
+0.40887104876414226 on C_native versus 0.409853930446087 on C_source, a difference
+of **0.000982881681944714 cover fraction** (about 0.09829 percentage points).
+Its conditional standard deviation is 0.029044716405780293 versus
+0.02855345276531486. These are different conditional mixtures, not an estimate
+of field accuracy or a calibrated gain in ecological precision. The local
+result retains every 20-component mean, all six 20×20 matrices, all 30 contrasts
+and their profile differences, rather than only this largest change.
+
+### Actual source-supported execution and check
+
+The producer was committed at `14a5c0fcf`; its single actual run consumed
+**`3c89475195629a8afb7c1cc79752d84aee6d6e3c`**. Owned session **80087** terminated
+with exit **0** in **13.247065916 s**; producer time was 11.921294958 s and peak
+macOS RSS was **149,307,392 bytes**. The 3,111,265-byte ledger and 261,785-byte
+result total **3,373,050 bytes**, within 180 s / 768 MiB posthoc / 20 MB. Exact
+argv, six one-thread/bytecode environment overrides, Python `-B`, the 180-second
+signal alarm, UTC bounds, source/input identities and owned tool handles are in
+`artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-execution/execution.json`.
+The existing module CLI selected `--count-profile pangaea_recorded_zeros_local_nc`
+with repository `/Users/bijan/bijux/bijux-pollenomics`, shared source root
+`/Users/bijan/bijux/-bijux-pollenomics-data` and its fresh `native-run` destination.
+There was no fit, new age/PPE draw, geometry integration or repeated producer.
+
+Full outputs remain local under
+`artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/`:
+`result.json` SHA-256 is
+`4ff4fb0978144c6e86671bd8a6cc4219f1f28ff8124cc60f6c1a95e268c8fc62`;
+`draw-ledger.csv.gz` SHA-256 is
+`8f97e8f74072bfcf25bef117f35850cdc4e51b70e1dbbced02179eced8b50f9c`.
+Neither full source-supported output is committed or substitutes the original
+strict native exports. Both were fixed before independent observation.
+
+The first independent check, owned terminal chunk **48d95e**, exited **1** in
+0.401641708 s **before ledger traversal**, with `KeyError: 'draw_ledger'`. It
+expected a native result locator in the governed strict-result wrapper, whose
+actual ledger locator is under `scientific_outputs`. The failed command,
+traceback and resource facts remain in
+`artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/`.
+Only the maintained wrapper-shape/pin adapter and its controls were corrected;
+producer output, sources, model, settings and tolerance were unchanged.
+
+The corrected observer at
+**`4bc6ab0f211c179aa332dc848f954c6773aeae00`**, session **36453**, then exited **0**
+in **44.215523333 s**, peak RSS **66,519,040 bytes**, producing a 1,054-byte check
+within 120 s / 512 MiB / 1 MB. Its independently reconstructed source check
+covers all 107 owners, 535 slots, 527 shared counts, eight original zeros and
+32,000 joint-age identities. Scalar derivatives and independent moment
+accumulators check 2,400 covariance entries, all 30 contrasts, and every
+old/new support transition. Maximum source-moment gap is
+**1.2989609388114332e−14**; common-native moment gap
+**1.181693631835401e−14**; profile-difference gap
+**3.122502256758253e−16**; ledger-cover gap **1.1102230246251565e−16**.
+All meet the unchanged 1e−12 absolute tolerance; common-ledger cover gap is 0.0.
+
+Its exact existing-module `--result`/`--output` invocation, Python `-B`,
+120-second alarm, one-thread settings, source commits and terminal handles are
+in `artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/governed-reference-check/execution.json`,
+with `independent-check.json`, stdout and stderr alongside. Thirty-six producer
+controls passed with configured Ruff/strict typing. Independent controls passed
+across scoped checks: 44 earlier controls, including the 22 unchanged strict
+controls, plus six wrapper-shape/pin controls; the affected 15 moment/binding
+controls were rerun after the correction and passed in 1.60 s. This does not
+claim a fresh 50-test aggregate after repair. The original failed checker and
+all strict-profile scientific outputs remain unchanged.
+
+The source-supported result resolves these eight native-panel omissions for
+this explicitly named analytical use. One undefined row still prevents the
+unconditional quantity. Age-model dependence, static geometry, taxon/PPE
+transfer, source morphology, pooled-count assumptions and lack of independent
+field calibration remain. No canonical observation, selected chronology,
+scientific core/species/PPE approval or field admission has changed.
 
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** First-order law-of-total-covariance propagation of qualified shared age membership, conditional pooled counts and one shared diagonal PPE perturbation on an explicit complete-event subset, including age/PPE interaction and all 30 temporal contrasts.
+**Supported claim.** First-order total-covariance propagation on explicit complete-event populations, including shared age/count/PPE interaction and all 30 contrasts. Separate source-supported recorded zeros expand the defined population while reproducing all native-complete estimates unchanged.
 
 **Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, Monte Carlo SE of a mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission.
 
-**Actual verification performed.** Committed producer 5c2a6306c retained all 32,000 identities and reproduced the independently qualified frozen source-point reference with zero numerical gap. Separate committed observer checked all 107 sources, 32,000 ledger rows, 2,400 covariance entries and 30 contrasts; maximum cover gap was 1.1102230246251565e-16 and moment gap 1.181693631835401e-14 against 1e-12 absolute tolerance. Fourteen producer and 22 observer controls plus configured lint/types passed; no new age fit or PPE draw was made.
+**Actual verification performed.** Strict producer/observer qualification is retained. Source-supported producer at 3c8947519 and corrected independent observer at 4bc6ab0f2 both exited zero. The observer checked all 107 owners, 535 source slots, 527 reported count pairs, eight recorded zeros, 32,000 saved identities, support transitions, 2,400 covariance cells and 30 contrasts. Common-native, source and difference gaps are 1.1817e-14, 1.2990e-14 and 3.1225e-16 under 1e-12 absolute tolerance. Producer 36 controls and independent 44 earlier plus six wrapper controls passed across affected selections; no fresh aggregate, age fit or PPE draw is claimed.
 
-**Remaining input or review.** Eight source samples lack a five-taxon measurement and 2,668 saved age rows do not define all four windows, so unconditional 20-component moments are refused. Conditional moments depend on the declared age, pooled-count and shared diagonal-PPE laws and fixed physical/taxon assumptions, not calibrated field uncertainty. Resolver: Analyst retaining the declared conditional estimand; measurement/source experts for absent panel observations and independent field evidence only if broader ecological accuracy or admission is proposed. Reopen when: Source-owned complete measurements and defined-window support would be needed for the refused unconditional quantity; any different uncertainty or field-calibration claim needs an explicit new estimand/evidence protocol, without relabelling the present conditional result.
+**Remaining input or review.** Strict native counts leave 2,668 undefined age rows; independently qualified original recorded zeros support a separately named local profile with one undefined empty-window row. Both unconditional quantities remain refused. Conditional moments retain declared age, pooled-count, shared diagonal-PPE, static physical and taxon-transfer assumptions without field calibration. Resolver: Analyst preserving each named source/conditioning population; source and field expertise for any broader taxon, physical-support or accuracy claim. Reopen when: A different unconditional quantity requires a declared estimand and genuinely defined support; a different uncertainty or field claim needs its own source/evidence protocol without relabelling either existing result.
 
 **Cause category.** data|assumption|comparability
 
 **Consequence.** Keep undefined probability mass and conditional-on-complete labels on every scientific summary; retain all covariance components and contrasts without promoting successful arithmetic to scientific or field admission.
 
-**Precise next acceptance route.** Read the existing conditional outputs under their exact source/model/measurement assumptions. The primary unconditional result stays refused unless the source support for that exact quantity is resolved; do not obtain it by dropping failed rows or silently changing masks, bins, taxon transfer or stochastic laws.
+**Precise next acceptance route.** Read each named conditional result under its own source rights, count support and conditioning event. Preserve both refused unconditional quantities and the original strict exports. Any different estimand or field interpretation needs its own defined support and evidence; do not silently change masks, bins, taxon transfer or stochastic laws.
 
-**Negative or refused result.** Unconditional means/covariance remain null/refused for 2,668 rows: one empty bin 4 and 2,667 bin-9 missing-member cases. No 99-sample subset, structural zero, row drop, clipped covariance or replacement chronology was used. Standard deviations are conditional mixture spread, not SE or field confidence intervals; the chronology writer flag conflict remains explicit.
+**Negative or refused result.** Strict unconditional moments remain null for 2,668 rows; the separate source-supported profile remains null for one empty bin-4 row. The failed first observer stopped before ledger traversal on its wrapper-shape assumption and is preserved; only its adapter/controls changed. No missing-value rule, row drop, clipped covariance, replacement chronology or field significance was adopted.
 
-**Matched denominator.** All 107 original samples, 99 complete five-taxon source panels and eight incomplete panels; two chains of 16,000 states each. All 32,000 rows define support probabilities; 29,332 complete rows define the separate conditional 20-component population covariance with denominator M_C and 30 contrasts.
+**Matched denominator.** All 107 native samples, 99 native-complete panels and eight native omissions; the separate original-source profile has 107 analytically supported panels. Both retain two chains of 16,000 states and all 32,000 probability-denominator rows. C_native has 29,332 rows; C_source has 31,999: 2,667 newly complete, one jointly undefined, zero lost native-complete. Each conditional population retains all 20 components, six covariance matrices and 30 contrasts.
 
-Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv).
+Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/source-supported-counts/protocol.json](source-supported-counts/protocol.json), [reports/science/abborrtjarnen-source-method.md](../../abborrtjarnen-source-method.md).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
