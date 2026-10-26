@@ -1,0 +1,981 @@
+{
+  "schema_version": "mccoll-country-source-account.v1",
+  "status": "source_context_reconciled_country_and_chronology_admission_unresolved",
+  "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+  "study": {
+    "doi": "10.1101/2024.03.13.584607",
+    "supplied_version": "v2, posted 2025-01-07",
+    "paper_page_1_license": "CC-BY-NC-ND 4.0 International",
+    "archaeological_supplement_label": "S7",
+    "genetics_page_22_section": "S4. Imputation"
+  },
+  "original_inputs": [
+    {
+      "path": "2024.03.13.584607v2.full.pdf",
+      "bytes": 13244027,
+      "sha256": "e00f32c25897bfef313db79521c5bdbd5addee393faee1d2dd7de7be8ff75a7e"
+    },
+    {
+      "path": "media-1.xlsx",
+      "bytes": 2651210,
+      "sha256": "b94c214e2b018c0446d718bab910505df3b4fb7ce4cd128c7f021edea2e75bf3"
+    },
+    {
+      "path": "media-2.pdf",
+      "bytes": 3679221,
+      "sha256": "1ae31ccdd1dc624346a3270d95907580b8cb6c90782a7dd88acf810007eeef97"
+    },
+    {
+      "path": "media-15.pdf",
+      "bytes": 133531740,
+      "sha256": "f263322161ef2617f009d001d247c0c224dde817f8d32128c23c56bb541b26c1"
+    }
+  ],
+  "source_cell_observation": {
+    "worksheet_rows": 6,
+    "descriptive_cells": 162,
+    "aadr_records": 4,
+    "country_conflicts": 2,
+    "formula_cells": 0,
+    "present_blank_cells": 1,
+    "blank_reference": "S5.1 AG2323"
+  },
+  "worksheet_context": [
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 575,
+      "owner_literal": "CGG_2_105915",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A575",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105915"
+        },
+        "B": {
+          "reference": "B575",
+          "header": "Museum inv #",
+          "literal": "A7437/T20248 Individual 2"
+        },
+        "D": {
+          "reference": "D575",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E575",
+          "header": "Local",
+          "literal": "Central Norway/ Trøndelag"
+        },
+        "F": {
+          "reference": "F575",
+          "header": "Site",
+          "literal": "Aunvollen"
+        },
+        "H": {
+          "reference": "H575",
+          "header": "Latitude",
+          "literal": "63.12322"
+        },
+        "I": {
+          "reference": "I575",
+          "header": "Longitude",
+          "literal": "16.90684"
+        },
+        "K": {
+          "reference": "K575",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L575",
+          "header": "Description",
+          "literal": "M1"
+        },
+        "N": {
+          "reference": "N575",
+          "header": "Age",
+          "literal": "35-49"
+        },
+        "O": {
+          "reference": "O575",
+          "header": "context date",
+          "literal": "800-1050AD"
+        },
+        "P": {
+          "reference": "P575",
+          "header": "C14 Lab #",
+          "literal": "NA"
+        },
+        "Q": {
+          "reference": "Q575",
+          "header": "14C age (BP)",
+          "literal": "NA"
+        },
+        "R": {
+          "reference": "R575",
+          "header": "±",
+          "literal": "NA"
+        },
+        "U": {
+          "reference": "U575",
+          "header": "calBP from",
+          "literal": "1150"
+        },
+        "V": {
+          "reference": "V575",
+          "header": "calBP to",
+          "literal": "900"
+        },
+        "W": {
+          "reference": "W575",
+          "header": "cal BP Mean",
+          "literal": "1025"
+        },
+        "X": {
+          "reference": "X575",
+          "header": "BCE/CE from",
+          "literal": "800"
+        },
+        "Y": {
+          "reference": "Y575",
+          "header": "BCE/CE to",
+          "literal": "1050"
+        },
+        "Z": {
+          "reference": "Z575",
+          "header": "BCE/CE mean",
+          "literal": "925"
+        },
+        "AC": {
+          "reference": "AC575",
+          "header": "sampleId",
+          "literal": "CGG105915.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD575",
+          "header": "popId",
+          "literal": "CGG105915"
+        },
+        "AG": {
+          "reference": "AG575",
+          "header": "flag",
+          "literal": "low_gpAve_cov"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 588,
+      "owner_literal": "CGG_2_105916",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A588",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105916"
+        },
+        "B": {
+          "reference": "B588",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D588",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E588",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra, Trøndelag"
+        },
+        "F": {
+          "reference": "F588",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H588",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I588",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K588",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L588",
+          "header": "Description",
+          "literal": "M1"
+        },
+        "N": {
+          "reference": "N588",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O588",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P588",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q588",
+          "header": "14C age (BP)",
+          "literal": "3680 & 3680"
+        },
+        "R": {
+          "reference": "R588",
+          "header": "±",
+          "literal": "10 & 15"
+        },
+        "U": {
+          "reference": "U588",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V588",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W588",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X588",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y588",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z588",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC588",
+          "header": "sampleId",
+          "literal": "CGG105916.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD588",
+          "header": "popId",
+          "literal": "CGG105916"
+        },
+        "AG": {
+          "reference": "AG588",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 589,
+      "owner_literal": "CGG_2_105918",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A589",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105918"
+        },
+        "B": {
+          "reference": "B589",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D589",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E589",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra Trøndelag"
+        },
+        "F": {
+          "reference": "F589",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H589",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I589",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K589",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L589",
+          "header": "Description",
+          "literal": "M3"
+        },
+        "N": {
+          "reference": "N589",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O589",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P589",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q589",
+          "header": "14C age (BP)",
+          "literal": "3680"
+        },
+        "R": {
+          "reference": "R589",
+          "header": "±",
+          "literal": "10"
+        },
+        "U": {
+          "reference": "U589",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V589",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W589",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X589",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y589",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z589",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC589",
+          "header": "sampleId",
+          "literal": "CGG105918.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD589",
+          "header": "popId",
+          "literal": "CGG105918"
+        },
+        "AG": {
+          "reference": "AG589",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 590,
+      "owner_literal": "CGG_2_105917",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A590",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105917"
+        },
+        "B": {
+          "reference": "B590",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D590",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E590",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra, Trøndelag"
+        },
+        "F": {
+          "reference": "F590",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H590",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I590",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K590",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L590",
+          "header": "Description",
+          "literal": "M2"
+        },
+        "N": {
+          "reference": "N590",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O590",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P590",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q590",
+          "header": "14C age (BP)",
+          "literal": "3680"
+        },
+        "R": {
+          "reference": "R590",
+          "header": "±",
+          "literal": "10"
+        },
+        "U": {
+          "reference": "U590",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V590",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W590",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X590",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y590",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z590",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC590",
+          "header": "sampleId",
+          "literal": "CGG105917.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD590",
+          "header": "popId",
+          "literal": "CGG105917"
+        },
+        "AG": {
+          "reference": "AG590",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 745,
+      "owner_literal": "CGG_2_105916_CGG_2_105917_CGG_2_105918",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A745",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105916_CGG_2_105917_CGG_2_105918"
+        },
+        "B": {
+          "reference": "B745",
+          "header": "Museum inv #",
+          "literal": "NA"
+        },
+        "D": {
+          "reference": "D745",
+          "header": "Country",
+          "literal": "NA"
+        },
+        "E": {
+          "reference": "E745",
+          "header": "Local",
+          "literal": "NA"
+        },
+        "F": {
+          "reference": "F745",
+          "header": "Site",
+          "literal": "NA"
+        },
+        "H": {
+          "reference": "H745",
+          "header": "Latitude",
+          "literal": "NA"
+        },
+        "I": {
+          "reference": "I745",
+          "header": "Longitude",
+          "literal": "NA"
+        },
+        "K": {
+          "reference": "K745",
+          "header": "Sample Material",
+          "literal": "NA"
+        },
+        "L": {
+          "reference": "L745",
+          "header": "Description",
+          "literal": "NA"
+        },
+        "N": {
+          "reference": "N745",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O745",
+          "header": "context date",
+          "literal": "NA"
+        },
+        "P": {
+          "reference": "P745",
+          "header": "C14 Lab #",
+          "literal": "NA"
+        },
+        "Q": {
+          "reference": "Q745",
+          "header": "14C age (BP)",
+          "literal": "NA"
+        },
+        "R": {
+          "reference": "R745",
+          "header": "±",
+          "literal": "NA"
+        },
+        "U": {
+          "reference": "U745",
+          "header": "calBP from",
+          "literal": "NA"
+        },
+        "V": {
+          "reference": "V745",
+          "header": "calBP to",
+          "literal": "NA"
+        },
+        "W": {
+          "reference": "W745",
+          "header": "cal BP Mean",
+          "literal": "NA"
+        },
+        "X": {
+          "reference": "X745",
+          "header": "BCE/CE from",
+          "literal": "NA"
+        },
+        "Y": {
+          "reference": "Y745",
+          "header": "BCE/CE to",
+          "literal": "NA"
+        },
+        "Z": {
+          "reference": "Z745",
+          "header": "BCE/CE mean",
+          "literal": "NA"
+        },
+        "AC": {
+          "reference": "AC745",
+          "header": "sampleId",
+          "literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage"
+        },
+        "AD": {
+          "reference": "AD745",
+          "header": "popId",
+          "literal": "CGG105916_CGG105917_CGG105918"
+        },
+        "AG": {
+          "reference": "AG745",
+          "header": "flag",
+          "literal": "0"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S5.1",
+      "sheet_name": "S5.1. Clustered Ancient Samples",
+      "worksheet_part": "xl/worksheets/sheet2.xml",
+      "physical_row": 2323,
+      "owner_literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A2323",
+          "header": "sampleId",
+          "literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage"
+        },
+        "B": {
+          "reference": "B2323",
+          "header": "popId",
+          "literal": "CGG105916_CGG105917_CGG105918"
+        },
+        "C": {
+          "reference": "C2323",
+          "header": "versionID",
+          "literal": "CGG105916"
+        },
+        "D": {
+          "reference": "D2323",
+          "header": "site",
+          "literal": "Fauskland"
+        },
+        "E": {
+          "reference": "E2323",
+          "header": "country",
+          "literal": "Norway"
+        },
+        "H": {
+          "reference": "H2323",
+          "header": "latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I2323",
+          "header": "longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K2323",
+          "header": "age14C",
+          "literal": "NA"
+        },
+        "L": {
+          "reference": "L2323",
+          "header": "ageHigh",
+          "literal": "4087.0"
+        },
+        "M": {
+          "reference": "M2323",
+          "header": "ageLow",
+          "literal": "3934.0"
+        },
+        "N": {
+          "reference": "N2323",
+          "header": "ageAverage",
+          "literal": "4011.0"
+        },
+        "O": {
+          "reference": "O2323",
+          "header": "datingSource",
+          "literal": "direct"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": null,
+        "I": null
+      }
+    }
+  ],
+  "aadr_context": [
+    {
+      "genetic_id": "CGG_2_105915.SG",
+      "original_panel_physical_lines": [
+        {
+          "panel": "1240k",
+          "physical_line": 20621
+        },
+        {
+          "panel": "ho",
+          "physical_line": 25126
+        }
+      ],
+      "descriptive_literals": {
+        "individual_id": "CGG_2_105915",
+        "skeletal_code": "A7437/T20248 Individual 2",
+        "skeletal_element": "tooth (molar)",
+        "doi": "https://doi.org/10.1101/2025.02.28.640770",
+        "dating_method": "Direct (WARNING: MISSING LAB CODE): IntCal20",
+        "date_mean_bp": "943",
+        "date_sd_bp": "134",
+        "full_date": "800-1050 calCE (1025±125 BP)",
+        "locality": "Aunvollen (Central Norway/ Trøndelag)",
+        "country": "Norway",
+        "latitude": "63.12322",
+        "longitude": "16.90684"
+      }
+    },
+    {
+      "genetic_id": "CGG_2_105916.SG",
+      "original_panel_physical_lines": [
+        {
+          "panel": "1240k",
+          "physical_line": 20622
+        },
+        {
+          "panel": "ho",
+          "physical_line": 25127
+        }
+      ],
+      "descriptive_literals": {
+        "individual_id": "CGG_2_105916",
+        "skeletal_code": "T11792c",
+        "skeletal_element": "tooth (molar)",
+        "doi": "https://doi.org/10.1101/2025.02.28.640770",
+        "dating_method": "Direct: IntCal20",
+        "date_mean_bp": "4503",
+        "date_sd_bp": "134",
+        "full_date": "2137-1984 calBCE (4010±76 BP, TRa-17220 & TRa-17221)",
+        "locality": "Fauskland (Central Norway/ Hitra, Trøndelag)",
+        "country": "Norway",
+        "latitude": "63.60579",
+        "longitude": "14.85861"
+      }
+    }
+  ],
+  "archaeological_context": {
+    "Aunvollen": {
+      "source": "media-2.pdf",
+      "physical_and_printed_page": 161,
+      "lines": [
+        3047,
+        3062
+      ],
+      "coordinate_pair_literals": [
+        "64.1641",
+        "11.8140"
+      ],
+      "coordinate_axis_order_datum_and_correction_qualified": false,
+      "individuals": [
+        {
+          "description": "infant, approximately 1–1.5 years",
+          "date_literal": "Modern",
+          "laboratory_literal": "Tra – 14441"
+        },
+        {
+          "description": "young woman, 19–20 years",
+          "date_literal": "651–759 CE",
+          "laboratory_literal": "Tra14912"
+        },
+        {
+          "description": "older woman, 35–49 years",
+          "date_literal": "649–673 CE",
+          "laboratory_literal": "Tra15329"
+        }
+      ],
+      "explicit_individual_2_laboratory_crosswalk_on_examined_page": false
+    },
+    "Fauskland": {
+      "source": "media-2.pdf",
+      "physical_and_printed_pages": [
+        174,
+        175
+      ],
+      "site": "Fauskland gnr 8/1, Hitra, T11792 c",
+      "coordinate_pair_literals": [
+        "63.6057",
+        "14.8586"
+      ],
+      "coordinate_axis_order_datum_and_correction_qualified": false,
+      "sample_literal_with_trailing_T": "CGG_2_105917T",
+      "same_individual_radiocarbon_entries": [
+        {
+          "material": "skull",
+          "age_literal": "3682+/-12 BP",
+          "laboratory_literal": "Tra 17220"
+        },
+        {
+          "material": "jaw",
+          "age_literal": "3682±13 BP",
+          "laboratory_literal": "TRa 17221"
+        }
+      ],
+      "genetics_source": {
+        "source": "media-15.pdf",
+        "physical_page": 22,
+        "lines": [
+          408,
+          413
+        ],
+        "author_reported_merged_samples": [
+          "CGG105916",
+          "CGG105917",
+          "CGG105918"
+        ],
+        "author_reported_individuals": 1,
+        "worksheet_lines_for_individual": 4,
+        "genotype_reanalysis_performed": false
+      }
+    }
+  },
+  "existing_country_conflicts": [
+    {
+      "genetic_id": "CGG_2_105915.SG",
+      "country": "NO",
+      "decision": "published",
+      "reason": "country_sample_product",
+      "coordinate_status": "admitted",
+      "chronology_status": "review_required",
+      "chronology_reason": "method_specific_policy_required",
+      "source_rows": "ho:25125;1240k:20620",
+      "coordinate_groups": "1",
+      "coordinate_group_statuses": "admitted",
+      "coordinate_reconciliation_status": "exact",
+      "spatial_status": "review",
+      "spatial_method": "strict_boundary_containment",
+      "spatial_country": "Sweden",
+      "spatial_candidates": "Sweden",
+      "spatial_reason": "raw_country_conflict"
+    },
+    {
+      "genetic_id": "CGG_2_105916.SG",
+      "country": "NO",
+      "decision": "published",
+      "reason": "country_sample_product",
+      "coordinate_status": "admitted",
+      "chronology_status": "review_required",
+      "chronology_reason": "method_specific_policy_required",
+      "source_rows": "ho:25126;1240k:20621",
+      "coordinate_groups": "1",
+      "coordinate_group_statuses": "admitted",
+      "coordinate_reconciliation_status": "exact",
+      "spatial_status": "review",
+      "spatial_method": "strict_boundary_containment",
+      "spatial_country": "Sweden",
+      "spatial_candidates": "Sweden",
+      "spatial_reason": "raw_country_conflict"
+    }
+  ],
+  "existing_country_account_unchanged": {
+    "decisions.csv": {
+      "bytes": 260591,
+      "sha256": "2035793d849f9779cc2dad0ea28ca05a71cda581a77a921f8c7edae2ca1235eb"
+    },
+    "report.json": {
+      "bytes": 4382,
+      "sha256": "095a190a33ba421d5c0a0d13fb768b36fe98dcdfc78bb46b3fe8ec4e123f5cb7"
+    }
+  },
+  "execution": {
+    "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+    "exit_code": 0,
+    "elapsed_seconds": 1.9847346669994295,
+    "peak_rss_bytes": 308019200,
+    "context_output_bytes": 101542,
+    "resource_budget_passed": true
+  },
+  "native_context": {
+    "path": "artifacts/physical-core/mccoll-country-context/native-run/context.json",
+    "bytes": 101542,
+    "sha256": "8a86a900655dfda0e6addba95dcb6c84b5815e9e3456d53ed0478be309766a49"
+  },
+  "independent_observation": {
+    "status": "passed",
+    "prepared_originals": 4,
+    "original_rows": 6,
+    "descriptive_cells": 162,
+    "aadr_source_rows": 4,
+    "country_decisions_unchanged": true,
+    "interpretation_or_admission": false,
+    "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4500328339636326,
+    "peak_rss_bytes": 284737536,
+    "resource_budget_passed": true,
+    "native_context_unchanged": true,
+    "source_commit_unchanged": true,
+    "output": {
+      "path": "artifacts/physical-core/mccoll-country-context/independent-check/check.json",
+      "bytes": 206,
+      "sha256": "d54765031347f025adc13d6865280573719b5bafc637f7050460a33981157578"
+    }
+  },
+  "unresolved_conditions": [
+    "Sample-owned coordinate meaning, axis/datum, positional accuracy and versioned correction authority.",
+    "Explicit Aunvollen Individual 2 laboratory/date crosswalk before assigning another T20248 individual chronology.",
+    "Qualified treatment of distinct table, archaeological and AADR date representations; no recomputation or substitution."
+  ],
+  "coordinate_correction_performed": false,
+  "date_conversion_or_calibration_performed": false,
+  "merged_samples_counted_as_independent": false,
+  "scientific_or_map_admission": false,
+  "publisher_sources_redistributed": false
+}

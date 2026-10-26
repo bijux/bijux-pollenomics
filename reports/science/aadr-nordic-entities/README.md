@@ -167,15 +167,22 @@ specimens or a completed AADR-to-skeletal-sample crosswalk. These records
 corroborate the archive's Norway label but do not resolve the coordinates.
 An apparent longitude shift or a place-name match cannot supply a correction.
 
-Original Table S1.1/archaeological Note S4 of the
-[companion Germanic study](https://doi.org/10.1101/2024.03.13.584607) remains
-the exact evidence lead for specimen identity, coordinates, datum and units.
-Tested primary bioRxiv supplementary/JATS routes returned HTTP 403; this is a
-bounded failed retrieval, not proof that no public supplement exists. The
-existing `aadr-country-map-scientific-admission` question in the
-[scientific review register](../../needed/scientific-review.csv) retains this gap.
-No custodian was contacted, and both conflicting source-coordinate records
-remain uncorrected review cases.
+The user subsequently supplied the original v2 paper, Table S1.1 workbook,
+archaeological **S7** and genetics **S4** of the
+[companion Germanic study](https://doi.org/10.1101/2024.03.13.584607).
+The earlier primary bioRxiv supplementary/JATS HTTP 403 failures remain history;
+these attachments are now available and consumed. The
+[scoped source account](country-support/README.md) reconciles six worksheet rows,
+162 descriptive cells and both annotation-panel records for each conflicting ID.
+The genetics supplement explicitly identifies the three Fauskland samples as
+one merged individual. Aunvollen's site paragraph distinguishes three differently
+dated individuals, without explicitly binding Individual 2 to one laboratory
+result. Country/coordinate/date contradictions remain visible; no coordinate or
+selected chronology was changed. The existing
+`aadr-country-map-scientific-admission` question in the
+[scientific review register](../../needed/scientific-review.csv) now concerns the
+precise residual source interpretation/correction, not another download of these
+files. No custodian was contacted; both country conflicts remain review cases.
 
 A distinct [author-deposited isotope workbook](https://data.mendeley.com/datasets/3pkp8kg6g3/2)
 was subsequently recovered under DOI `10.17632/3pkp8kg6g3.2` (version 2,
