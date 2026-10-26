@@ -41,8 +41,8 @@ source evidence, not independent measurements of one common quantity. We
 retain their different depths without averaging, choosing a row or guessing
 whether they cover the same extent or reference water level. That catalogue
 lookup did not acquire the actual charts or bathymetric grids. Subsequently
-received Finjasjön and Havgårdssjön chart scans are described separately
-below; the remaining lead dispositions are unchanged.
+received Finjasjön, Havgårdssjön and Östra Ringsjön chart scans are described
+separately below; the remaining lead dispositions are unchanged.
 
 There is a concrete source arithmetic limitation. Interpreting the printed
 volume header `Mm³` conditionally as million cubic metres, and km² as
@@ -54,8 +54,10 @@ against the printed **6.2 m**; chart 3-2177 gives **4/125 = 0.032 m** against
 **3.2 m**. The source images confirm that the volumes are visibly printed
 as **1.247** and **0.136**. We have not repaired them as OCR errors, multiplied
 them by 100 or substituted derived values. Coupled quantitative use of
-volume, area and mean depth remains **unqualified** until the actual charts,
-reference levels and source meaning support it. Rounding agreement in the
+volume, area and mean depth remains **unqualified**: the subsequently received
+Ringsjön charts supply dated depth context but no volume, area or mean-depth
+table that resolves these catalogue values. Reference levels and source meaning
+still require qualification. Rounding agreement in the
 Havgårdssjön control does not establish contemporary measurement accuracy.
 
 The definitions on printed page **26** (PDF page 28, index 27) describe
@@ -73,7 +75,7 @@ numeric confidence interval is constructed from it. All ten blank cells
 remain null; they are neither zero measurements nor quantities derived
 from another cell. Measurement dates and lake-specific reference water
 levels remain unreported by those catalogue rows. The subsequently received
-Finjasjön survey sheet does not fill their blank cells.
+Finjasjön survey sheet and Ringsjön survey captions do not fill their blank cells.
 
 The retained publisher PDF contains **4,226,310 bytes**, SHA-256
 `b29f4ca2a847a4dc785d3738603e46817aa130c55c061b2d614d48857edc1fd3`,
@@ -194,6 +196,63 @@ local image derivatives used for direct comparison. No use licence, current
 bathymetric accuracy, georeferencing, sediment support or field decision is
 established by these received charts.
 
+The received Östra Ringsjön ZIP `619626-135565-kartor.zip` contains **448,869
+bytes**, SHA-256
+`010ab253ce4b8e3c7123d8955e436d5692b89377ff093304e07d5c551757db53`.
+All three TIFF members pass CRC checks. They are single-page, 1-bit, 600 dpi
+scans, with no embedded GeoTIFF positioning or numeric depth grid. The original
+ZIP remains in place. The TIFF bytes were rendered directly to local PNGs, and
+full-chart/caption image comparisons were independently repeated; no original
+TIFF was extracted or copied. The
+[typed record](swedish-lake-chart-catalogue-context/source-records.json) binds
+each member's identity and keeps this received context separate from the catalogue
+rows.
+
+The `3-0833` sheet is titled **DJUPFÖRHÅLLANDEN I RINGSJÖN** and shows several
+connected basins, including the **SÄTOFTA** label. Its heading states measurements
+in **1910–1911** and **1911–1912**, with water surfaces **+54,4** and **+54,0 M**
+respectively. It supplies no named vertical datum or measurement method in that
+heading. A faint handwritten scale is not selected as an authenticated ratio.
+This broad historical plan is not treated as coextensive with either 1982 sheet.
+
+The `3-2176` sheet, printed page **79**, **Fig. 2**, captions Östra Ringsjön at
+**54.00 m.ö.h.**, with **Ekolodning** by **M. Enell**, **May–June 1982**, and
+**X = maximum depth 16.4 m**. The `3-2177` sheet, printed page **78**, **Fig. 1
+a–b**, separately names **Sätoftasjön**. Its panel a gives the same stated water
+level, echo-sounding investigator and period, with **X = 17.5 m**. Panel b
+depicts the extent of **organogenic (postglacial) sediments in Sätoftasjön**,
+attributed to **Lodning** by M. Enell in May–June 1982. Both sheets have graphic
+0–0.5–1 km scales. These captions qualify the 1982 survey period independently
+of the catalogue's drawing-year column; neither the chart identifiers nor scan
+timestamps supply survey dates. The sediment depiction is historical source
+context, without a present-day sediment or coring-suitability claim.
+
+The user also supplied a **Swedish register-panel transcription**, without a
+register screenshot, API response or independently captured HTTP exchange. It
+names lake **619626-135565**, district **SE5**, waterbody **SE619626-135565** and
+version **SVAR2016_3**; that version remains a transcribed value rather than an
+authenticated backend identity. It reports area **24.7556 km²**, maximum depth
+**15** without a stated unit, and water-surface elevation **53 m**; mean depth
+and volume are not supplied. Its chart notes explicitly distinguish `3-2176`
+as **Östra Ringsjön excluding Sätoftasjön** and `3-2177` as the **Sätoftasjön
+portion**. The user-declared
+[SMHI download route](https://vattenwebb.smhi.se/svarwebb/rest/downloadmap/619626-135565)
+identifies the supplied package's claimed origin; no additional GET or provider
+checksum authenticates it in this review.
+
+Keep the three chart extents and the transcription's quantities distinct. The
+unlabelled register depth 15 is not substituted for either dated chart's marked
+depth, and 53 m is not reconciled with 54.00 m.ö.h. by a one-metre correction:
+no named common datum or level epoch has been established. None of the three
+full scans prints a volume, area or mean-depth table. The catalogue's **1.247**
+and **0.136** volume tokens and both mean-depth arithmetic disagreements therefore
+remain unchanged, without multiplying by 100 or deriving replacements. Three
+scans do not establish independent measurements of one common basin quantity.
+The ZIP contains no separate licence member, and no explicit reuse licence is
+printed on the inspected sheets. This factual account redistributes no chart,
+raw raster or geometry and supplies no licence grant, digitized bathymetry,
+current accuracy, selected core location or field decision.
+
 The catalogue entries do not join pollen cores, establish palaeobasins,
 qualify the retained 40,565-lake export, reconcile the historical 40,523-lake
 population or change ranks. All forty questions and five unranked leads in
@@ -204,23 +263,23 @@ or field decision has been supplied.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Factual archival chart-catalogue transcription and separately received Finjasjon/Havgardssjon chart, survey-sheet and registry context, preserving original rows, blanks, dates, scales, source levels and exact conditional volume/area arithmetic without selecting a chart or coring location.
+**Supported claim.** Factual archival catalogue and received Finjasjon, Havgardssjon and Ringsjon chart/survey/registry context, preserving separate chart scopes, source values, blanks, dated captions, scales and conditional volume/area checks without selecting a chart, corrected quantity or coring location.
 
 **Unsupported claim.** Current bathymetric accuracy or restrictions, a preferred/averaged depth or corrected water level, repaired Ringsjon volumes, an authenticated backend version or datum from a translated screenshot, inferred EPSG/sampling point, historical pollen-core/basin joins, exhaustive OCR absence, open geometry rights, changed ranks or field permission.
 
-**Actual verification performed.** Original PDF offline/source-image qualification, failed downloader and exact catalogue arithmetic are retained. Independent full-chart/legend/screenshot comparisons and raw byte/hash checks qualify the received Finjasjon and Havgardssjon ZIPs with five TIFF members. Havgardssjon survey date/method/track count/water-level fields remain blank; exact conditional display ratio is 16700/5023 m. No depth grid, digitization, geometry, source mutation or field decision was created.
+**Actual verification performed.** Original PDF/source-image qualification and failed downloader are preserved. Independent full-sheet/caption/legend comparisons and raw hash/CRC checks qualify eight TIFF members across three received lake ZIPs. Two registry screenshots and one user-pasted Ringsjon register transcription retain distinct provenance. The later Ringsjon captions name M. Enell, May-June 1982 and 54.00 m above sea level; the Satofta sediment panel has its own historical extent. No grid, digitization, source mutation or field decision was created.
 
-**Remaining input or review.** Received chart scans supply source context but measurement dates, reference levels, datum, common footprint, current accuracy and intended reuse terms remain incompletely bound. Finjasjon screenshot 42 m and chart mean +43.00 remain separate; Havgardssjon displayed volume/area gives 16700/5023 m under explicit units, differing from displayed 3.1 if metres. Two Ringsjon catalogue ratios remain unresolved. Resolver: SMHI/chart owner for exact chart identity, datum, reference levels, dates and use terms; field authority for current site, restrictions, access or permit decisions. Reopen when: Bind the intended chart and location to qualified datum/reference water level, measurement support, accuracy and use terms before quantitative or field use; preserve the two charts separately.
+**Remaining input or review.** Dated chart context is available, including Ringsjon surveys in 1910-1912 and May-June 1982, but chart-specific datum, common quantitative support, current accuracy and intended reuse terms remain incomplete. Ringsjon charts provide no volume/area/mean-depth replacement for two catalogue discrepancies. Havgardssjon displayed V/A differs from displayed mean under the metre assumption; reported water levels remain separate. Resolver: SMHI/chart owner for exact chart identity, datum, reference levels, dates and use terms; field authority for current site, restrictions, access or permit decisions. Reopen when: Bind the intended chart and location to qualified datum/reference water level, measurement support, accuracy and use terms before quantitative or field use; preserve the two charts separately.
 
 **Cause category.** data|comparability|access/rights
 
 **Consequence.** Retain catalogue facts as unranked source context only, without changing the field dossier, historical or retained lake population, geometry authority, core identity, access or permit status.
 
-**Precise next acceptance route.** Use catalogue, scans and registry captures as factual context with each source statement separate. Quantitative use needs exact chart, common footprint/date, datum/reference-level, accuracy and use terms; field use needs a source-bound selected location and current applicable access, restrictions and permit decisions. Do not fill blanks, merge chart quantities or transfer dates/levels between charts.
+**Precise next acceptance route.** Use each catalogue row, chart caption and registry statement within its actual source/extent/date. Quantitative use needs exact chart, common footprint, datum/reference level, accuracy and use terms; current field use additionally needs a source-bound selected location and applicable access, restrictions and permit decisions. Do not average maxima, rescale unexplained volumes, merge basins or transfer the historical Satofta sediment depiction to other extents or present conditions.
 
-**Negative or refused result.** Original downloader remains exit 1 with body_complete=false; ten catalogue blanks, two Ringsjon arithmetic disagreements, limited Bjaresjosjon text nonmatch and unresolved Uppakra identity remain. Received captures do not authenticate a retained layer or datum. Havgardssjon display ratio rounds to 3.3 rather than 3.1 under the metre assumption; no common support, preferred chart, corrected quantity or field approval is inferred.
+**Negative or refused result.** Original downloader remains exit 1/body_complete=false; ten catalogue blanks, two Ringsjon arithmetic disagreements, limited Bjaresjosjon text nonmatch and unresolved Uppakra identity remain. No supplied Ringsjon scan replaces the printed volume tokens or justifies rescaling by 100. Havgardssjon displayed ratio rounds to 3.3 rather than 3.1 under the metre assumption. No maximum, level correction, common datum, current sediment suitability or field approval is selected.
 
-**Matched denominator.** Five existing leads; three exact catalogue lake-number matches and five chart rows, one OCR-text nonmatch and one unresolved identity; ten blanks and three original conditional checks. Two subsequently received lake packages contain five TIFF members: four chart scans and one survey sheet, plus two registry screenshots. The Havgardssjon display ratio is a separate conditional diagnostic.
+**Matched denominator.** Five original leads; three exact catalogue lake-number matches/five rows, one OCR-text nonmatch and one unresolved identity; ten blanks and three original conditional arithmetic checks. Three received lake packages contain eight TIFF members (seven chart scans and one survey sheet), two registry screenshots and one register transcription. The three Ringsjon chart extents remain separate; Havgardssjon display arithmetic is an additional conditional diagnostic.
 
 Retained evidence: [reports/science/swedish-lake-chart-catalogue-context/source-records.json](swedish-lake-chart-catalogue-context/source-records.json).
 

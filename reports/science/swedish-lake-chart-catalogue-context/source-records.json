@@ -737,5 +737,206 @@
       "No current bathymetric accuracy, georeferencing, EPSG, sediment support, pollen-core join, historical basin outline or field decision follows.",
       "No original chart, ZIP or screenshot is redistributed and no blanket analytical or redistribution permission is inferred from a public download route."
     ]
+  },
+  "received_ostra_ringsjon_chart_context": {
+    "scope": "received_scans_and_user_register_transcription_factual_context_only",
+    "lake_id": "619626-135565",
+    "zip": {
+      "received_file_name": "619626-135565-kartor.zip",
+      "bytes": 448869,
+      "sha256": "010ab253ce4b8e3c7123d8955e436d5692b89377ff093304e07d5c551757db53",
+      "source_posture": "User-supplied original retained in place. The separately supplied download route is a user declaration, not an independently captured HTTP response or provider checksum.",
+      "members": [
+        {
+          "name": "3-0833_Östra Ringsjön_619626-135565.tif",
+          "bytes": 114329,
+          "sha256": "e91d2bd39a77dfe25e1fc78171bc4d0de69b102e65acfd5e4a6b86c0a6618297",
+          "crc32": "d058c7a1",
+          "width_px": 4960,
+          "height_px": 7040,
+          "role": "historical_multiple_basin_depth_chart"
+        },
+        {
+          "name": "3-2176_Östra Ringsjön_619626-135565.tif",
+          "bytes": 226935,
+          "sha256": "6d9620e1f2f21d9791f2c97bc619152cca658c23c8de05a6604212d303f1e413",
+          "crc32": "65a8acc0",
+          "width_px": 7072,
+          "height_px": 5135,
+          "role": "ostra_ringsjon_depth_chart"
+        },
+        {
+          "name": "3-2177_Sätoftasjön (Östra Ringsjön)_619626-135565.tif",
+          "bytes": 128101,
+          "sha256": "9bdfe7b3d551e1a0eae0797f80d66397603285e188f8c4be124549a6df65ffd0",
+          "crc32": "922e1cde",
+          "width_px": 5088,
+          "height_px": 7174,
+          "role": "satoftasjon_depth_and_historical_sediment_panels"
+        }
+      ],
+      "raster_metadata": {
+        "single_page_per_member": true,
+        "bits_per_sample": 1,
+        "compression": "CCITT Group 4",
+        "resolution_dpi": 600,
+        "embedded_geotiff_crs_scale_or_tiepoint": false,
+        "numeric_depth_grid_present": false,
+        "image_software_literal": "ImageMill Imaging Library v1.006 (c)Gettes Software 2006"
+      },
+      "date_limit": "ZIP timestamps and imaging-software copyright are not survey or chart-drawing dates.",
+      "license_or_terms_supplied": false,
+      "license_observation": "The ZIP contains only the three TIFFs; no separate licence member or explicit reuse licence was found on the inspected sheets."
+    },
+    "user_declared_download_url": "https://vattenwebb.smhi.se/svarwebb/rest/downloadmap/619626-135565",
+    "download_route_evidence": "User-supplied URL only; no additional GET, independently captured download response or provider-byte comparison.",
+    "chart_3_0833": {
+      "title_literal": "DJUPFÖRHÅLLANDEN I RINGSJÖN",
+      "geographic_scope": "A historical plan of several connected Ringsjön basins, including the SÄTOFTA label; no coextensive footprint with either 1982 sheet is inferred.",
+      "measurement_periods_literal": [
+        "1910-1911",
+        "1911-1912"
+      ],
+      "water_surface_levels_literal": [
+        "+54,4",
+        "+54,0 M"
+      ],
+      "period_level_relation_literal": "RESP. preserves the heading's respective ordering; no basin-specific mapping is inferred.",
+      "named_vertical_datum": null,
+      "measurement_method": {
+        "value": null,
+        "source_state": "not_reported_in_heading"
+      },
+      "faint_handwritten_scale": "not_confidently_qualified_as_a_scale_ratio",
+      "volume_area_or_mean_depth_table_present": false
+    },
+    "chart_3_2176": {
+      "printed_page": 79,
+      "figure_literal": "Fig. 2",
+      "caption_lake_name": "Östra Ringsjön",
+      "water_level_at_measurement_literal": "54.00 m.ö.h.",
+      "named_vertical_datum": null,
+      "measurement_method_literal": "Ekolodning",
+      "performed_by_literal": "M. Enell",
+      "measurement_period_literal": "maj-juni 1982",
+      "marked_depth": {
+        "marker": "X",
+        "raw_token": "16.4",
+        "unit": "m",
+        "caption_label_literal": "maximum djup"
+      },
+      "graphic_scale_labels": [
+        "0",
+        "0.5",
+        "1 km"
+      ],
+      "handwritten_date_token": {
+        "raw_token": "19820601",
+        "role": "not_established_as_an_independent_exact_survey_date"
+      },
+      "volume_area_or_mean_depth_table_present": false,
+      "date_scope": "The caption independently states the survey period. The unchanged catalogue row separately reports drawing year 1982."
+    },
+    "chart_3_2177": {
+      "printed_page": 78,
+      "figure_literal": "Fig. 1 a-b",
+      "caption_lake_name": "Sätoftasjön",
+      "panel_a": {
+        "role": "depth_chart",
+        "water_level_at_measurement_literal": "54.00 m.ö.h.",
+        "named_vertical_datum": null,
+        "measurement_method_literal": "Ekolodning",
+        "performed_by_literal": "M. Enell",
+        "measurement_period_literal": "maj-juni 1982",
+        "marked_depth": {
+          "marker": "X",
+          "raw_token": "17.5",
+          "unit": "m",
+          "caption_calls_marker_maximum": false
+        },
+        "graphic_scale_labels": [
+          "0",
+          "0.5",
+          "1 km"
+        ]
+      },
+      "panel_b": {
+        "role": "historical_organogenic_postglacial_sediment_extent",
+        "caption_literal": "De organogena (postglaciala) sedimentens utbredning i Sätoftasjön.",
+        "measurement_method_literal": "Lodning",
+        "performed_by_literal": "M. Enell",
+        "measurement_period_literal": "maj-juni 1982",
+        "graphic_scale_labels": [
+          "0",
+          "0.5",
+          "1 km"
+        ],
+        "current_sediment_or_coring_suitability_established": false
+      },
+      "volume_area_or_mean_depth_table_present": false,
+      "date_scope": "The captions independently state the survey period; the unchanged catalogue drawing year is not reinterpreted as the measurement date."
+    },
+    "user_register_transcription": {
+      "provenance": "User-supplied Swedish register-panel transcription, not an API response, browser screenshot or independently captured HTTP exchange.",
+      "transcribed_lake_name": "Östra Ringsjön",
+      "transcribed_lake_id": "619626-135565",
+      "transcribed_water_district": "SE5",
+      "transcribed_waterbody_id": "SE619626-135565",
+      "version_literal": "SVAR2016_3",
+      "version_scope": "User transcription only; no authenticated backend version or authority for a retained layer.",
+      "total_area": {
+        "raw_token": "24.7556",
+        "unit": "km2"
+      },
+      "maximum_depth": {
+        "raw_token": "15",
+        "unit": null
+      },
+      "mean_depth": {
+        "value": null,
+        "source_state": "not_supplied_in_user_transcription"
+      },
+      "volume": {
+        "value": null,
+        "source_state": "not_supplied_in_user_transcription"
+      },
+      "water_surface_elevation": {
+        "raw_token": "53",
+        "unit": "m",
+        "named_vertical_datum": null
+      },
+      "chart_references": [
+        "3-0833",
+        "3-2176",
+        "3-2177"
+      ],
+      "chart_scope_notes_literal": {
+        "3-2176": "Östra Ringsjön utom delen Sätoftasjön",
+        "3-2177": "Östra Rinsjön delen Sätoftasjön"
+      },
+      "chart_source_literal": {
+        "3-2176": "M Enell",
+        "3-2177": "M Enell"
+      }
+    },
+    "verification": {
+      "method": "ZIP CRC and in-memory TIFF directory/tag inspection; direct TIFF-byte rendering followed by direct comparisons of all three full sheets and caption crops, independently repeated by the integrator.",
+      "result": "passed_for_factual_source_transcription",
+      "derivative_directory": "artifacts/raa-reconciliation/ostra-ringsjon-chart-source",
+      "zip_crc_all_members_passed": true,
+      "original_zip_unchanged_after_review": true,
+      "original_tiff_extraction_performed": false,
+      "numeric_geometry_or_depth_digitization_performed": false
+    },
+    "interpretation_limits": [
+      "All existing catalogue, Finjasjön and Havgårdssjön source values, ten catalogue blanks, capture failure and conditional arithmetic remain unchanged.",
+      "The older multiple-basin plan, the later Östra Ringsjön sheet and Sätoftasjön sheet have separate scopes; the explicit exclusion/portion notes are user transcription, with Sätoftasjön independently named by its chart caption.",
+      "The transcribed unlabelled depth 15 is not substituted for dated chart depths 16.4 m or 17.5 m, and no preferred maximum is selected.",
+      "Transcribed elevation 53 m and chart level 54.00 m.ö.h. remain separate; no named common vertical datum, level epoch or one-metre correction is established.",
+      "No supplied sheet resolves catalogue volume tokens 1.247 and 0.136 or their area/mean-depth discrepancies; no multiplication by 100 or derived replacements.",
+      "The historical Sätoftasjön sediment depiction is not transferred to all Östra Ringsjön, to current conditions or to a selected coring point.",
+      "No current bathymetric accuracy, georeferencing, EPSG, historical pollen-core/basin join, lake-population reconciliation, rank, access, permit or field decision follows.",
+      "No chart, original raster or ZIP is redistributed; the user-declared public download route supplies no analytical or redistribution licence grant."
+    ]
   }
 }
