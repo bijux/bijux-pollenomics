@@ -191,6 +191,33 @@ geography, category and temporal comparability, qualified source review and
 public redistribution permission remain open. The finite arithmetic success
 does not establish release readiness.
 
+## Dependence on pollen reconstructions remains unestablished
+
+The retained package README `original/readme_HYDE_3.5.txt` calls itself
+`hyde35_c9_base_mrt2025` and attributes Eurasian agricultural-onset timing
+and location to IMSET radiocarbon inputs, other-region onset to ArchaeoGlobe
+expertise, and recent spatial allocation to ESA satellite land cover. The
+retained Yoda description corroborates these declarations and adds FAO inputs.
+These short descriptions do not establish the complete derivation or
+calibration history of the Nordic members used in our local comparison.
+They do not establish absence of shared pollen, age controls or targets.
+
+Separately, [Githumbi et al. (2022), section 4.3](https://essd.copernicus.org/articles/14/1581/2022/#section4),
+states that maps based on its second-generation REVEALS reconstruction were
+being used to evaluate and revise HYDE scenarios. That primary statement
+documents a possible dependence route. It does not demonstrate incorporation
+into the retained release or identify which Nordic inputs were reused.
+
+Consequently, the existing contrasts remain conditional modeled-context
+arithmetic. Target independence is unestablished. An independent validation
+or leakage-free HYDE-assisted comparison needs an input and calibration
+inventory bound to the exact consumed release, joined to the actual target
+records and prior REVEALS products. Matching only grid coordinates or holding
+out a present-day row would not resolve earlier target use. This qualification
+changes no source value or numerical result and requires no repeat of the
+45-context calculation. It does not add an independence requirement to the
+already scoped modeled-context claim.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
