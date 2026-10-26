@@ -447,5 +447,150 @@
     ],
     "conclusion": "Havgårdssjön chart 3-1984 supplies a rounding-compatible arithmetic control. Both Östra Ringsjön rows disagree with their printed mean depth under the conditional unit interpretation. The values are visibly printed, not repaired OCR.",
     "use_posture": "Unqualified for coupled volume/area/mean-depth calculation pending source meaning and actual chart/reference-level evidence; no multiplication by 100, derived replacement, preferred chart, averaging or independent-replicate interpretation."
+  },
+  "received_finjasjon_chart_context": {
+    "scope": "received_scan_and_screenshot_factual_context_only",
+    "lake_id": "622731-136920",
+    "zip": {
+      "received_file_name": "622731-136920-kartor.zip",
+      "bytes": 502622,
+      "sha256": "cfcb528691d48ea713c697cdbdec78b4508a8c64d428da8794075dd7e6542396",
+      "source_posture": "User-supplied original retained in place; screenshot links the same lake ID and three member names to the public SMHI interface. No HTTP capture or provider checksum authenticates these received bytes.",
+      "members": [
+        {
+          "name": "3-5807b_Finjasjön_622731-136920.tif",
+          "bytes": 19535,
+          "sha256": "55f3e1191efe3a38679218d43b35d1a318c9abe4dba6c3f85632b366f80ff400",
+          "width_px": 5056,
+          "height_px": 7175,
+          "role": "survey_description_sheet"
+        },
+        {
+          "name": "3-5807a_Finjasjön_622731-136920.tif",
+          "bytes": 148041,
+          "sha256": "a6cb95c853d06dbc78680aed2869f82d1d2b31f1bce8ff67912c4d184fc2ef1a",
+          "width_px": 9984,
+          "height_px": 7174,
+          "role": "bathymetric_chart"
+        },
+        {
+          "name": "3-0818_Finjasjön_622731-136920.tif",
+          "bytes": 345717,
+          "sha256": "a8aa618477f922f867c4fafdf47d4a6c168f90d7e504f7dd8f83e2a97ea128f8",
+          "width_px": 5056,
+          "height_px": 7195,
+          "role": "separate_contour_and_sounding_chart"
+        }
+      ],
+      "raster_metadata": {
+        "single_page_per_member": true,
+        "bits_per_sample": 1,
+        "compression": "CCITT Group 4",
+        "resolution_dpi": 600,
+        "embedded_geotiff_crs_scale_or_tiepoint": false,
+        "numeric_depth_grid_present": false,
+        "image_software_literal": "ImageMill Imaging Library v1.006 (c)Gettes Software 2006"
+      },
+      "date_limit": "ZIP timestamps and imaging-software copyright are not chart or survey dates.",
+      "license_or_terms_supplied": false
+    },
+    "screenshot": {
+      "received_file_name": "Screenshot 2026-10-27 at 00.13.59.png",
+      "bytes": 3933963,
+      "sha256": "398e67cd83780ea6e2f71d6463325fdd7d4726e80086101b539dd4e2f65de495",
+      "visible_url": "https://vattenwebb.smhi.se/svarwebb/",
+      "exact_download_url": null,
+      "browser_translation": "English browser translation is active; translated labels and values are not authenticated untranslated backend fields.",
+      "displayed_name": "Finjasjön",
+      "displayed_lake_id": "622731-136920",
+      "displayed_waterbody_id": "SE622731-136920",
+      "displayed_water_district": "SE4",
+      "version_display_literal": "ANSWER2016_3",
+      "untranslated_backend_version": null,
+      "displayed_area": {
+        "raw_token": "10.5085",
+        "displayed_unit": "km2"
+      },
+      "displayed_maximum_depth": {
+        "raw_token": "13.2",
+        "displayed_unit": null
+      },
+      "displayed_water_surface_height_above_sea_level": {
+        "raw_token": "42",
+        "displayed_unit": "m",
+        "vertical_datum": null
+      },
+      "displayed_chart_references": [
+        "3-0818",
+        "3-5807a",
+        "3-5807b"
+      ],
+      "displayed_source_for_5807_group": "Hässleholm Municipality",
+      "observation_limit": "Received screenshot evidence, not a new live-record query, measurement date, backend-version authentication or chart-use grant."
+    },
+    "survey_sheet_3_5807b": {
+      "printed_lake_name": "Finjasjön",
+      "printed_smhi_lake_number": "622731 136920",
+      "scale_raw_token": "17096",
+      "performed_year": 1986,
+      "performed_year_label": "UTFÖRD / Datum",
+      "performed_by_literal": "Gatukontoret",
+      "organization_literal": "Hässleholms kommun",
+      "measurement_method_raw_token": "?",
+      "track_or_sounding_count_raw_token": "?",
+      "water_level_at_measurement_literal": "0,2 m under normal medelvattenstånd",
+      "water_level_offset_from_normal_mean_m": -0.2,
+      "named_vertical_datum": null
+    },
+    "chart_3_5807a": {
+      "handwritten_chart_reference": "3-5807",
+      "handwritten_scale": "1:17096",
+      "graphic_scale_labels": [
+        "0",
+        "500",
+        "1000m"
+      ],
+      "printed_water_surface_levels": {
+        "Högsta högvattenyta": "+45.20",
+        "Medelvattenyta": "+43.00",
+        "Lägsta lågvattenyta": "+42.30"
+      },
+      "named_vertical_datum": null,
+      "faint_handwritten_water_level_annotation": "unresolved_not_transcribed",
+      "historical_annotations": [
+        "RISKOMRÅDE VID SKJUTNING",
+        "Militärt övningsområde"
+      ],
+      "date_limit": "The companion 3-5807b sheet records performed year 1986; no drawing date is substituted for it."
+    },
+    "chart_3_0818": {
+      "identity_evidence": "Received member filename and screenshot chart reference agree with the catalogue chart ID; the scan visibly contains Finjasjön contours and soundings.",
+      "graphic_scale_labels": [
+        "0",
+        "100",
+        "300",
+        "500"
+      ],
+      "survey_date": null,
+      "named_vertical_datum": null,
+      "historical_annotations": [
+        "AVSTÄNGT VID SKJUTNING"
+      ],
+      "date_limit": "No 1986 date or 5807 water level is transferred to this separate chart; the catalogue drawing-year cell remains blank."
+    },
+    "verification": {
+      "method": "ZIP central-directory and in-memory TIFF metadata inspection; direct full-chart and detail-image comparison, independently repeated against the received screenshot and rendered scans.",
+      "result": "passed_for_factual_source_transcription",
+      "derivative_directory": "artifacts/method-certification/finjasjon-chart-source",
+      "original_tiff_extraction_performed": false,
+      "numeric_geometry_or_depth_digitization_performed": false
+    },
+    "interpretation_limits": [
+      "Screenshot water height 42 m and chart mean surface +43.00 remain distinct source observations with unresolved dates and datum; no correction, subtraction or preferred level.",
+      "No new current bathymetry, numeric depth grid, coordinate system, historical basin outline or pollen-core join is established.",
+      "Shooting and military-area annotations describe these historical scans only; no current restriction, extent, safety advice or field permission is inferred.",
+      "No chart, raster, screenshot or original ZIP is redistributed; no licence or geometry-use authority follows from public download availability.",
+      "All catalogue rows, blank cells, arithmetic limits, original capture failure and existing field-question dispositions remain unchanged."
+    ]
   }
 }

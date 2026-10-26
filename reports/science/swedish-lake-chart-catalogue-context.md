@@ -39,8 +39,10 @@ printed page **85** (PDF page 87, index 86); the Östra Ringsjön entries are
 on printed page **86** (PDF page 88, index 87). Multiple chart rows are
 source evidence, not independent measurements of one common quantity. We
 retain their different depths without averaging, choosing a row or guessing
-whether they cover the same extent or reference water level. The actual
-charts and bathymetric grids were not acquired.
+whether they cover the same extent or reference water level. That catalogue
+lookup did not acquire the actual charts or bathymetric grids. Subsequently
+received Finjasjön chart scans are described separately below; the other
+lakes remain catalogue-only context.
 
 There is a concrete source arithmetic limitation. Interpreting the printed
 volume header `Mm³` conditionally as million cubic metres, and km² as
@@ -70,7 +72,8 @@ lake-specific error estimate, standard deviation or probability law. No
 numeric confidence interval is constructed from it. All ten blank cells
 remain null; they are neither zero measurements nor quantities derived
 from another cell. Measurement dates and lake-specific reference water
-levels remain unreported here, and present chart availability is unverified.
+levels remain unreported by those catalogue rows. The subsequently received
+Finjasjön survey sheet does not fill their blank cells.
 
 The retained publisher PDF contains **4,226,310 bytes**, SHA-256
 `b29f4ca2a847a4dc785d3738603e46817aa130c55c061b2d614d48857edc1fd3`,
@@ -89,12 +92,59 @@ Only factual transcription and the explicit conditional arithmetic check
 are published here. The PDF and page images stay in their existing
 source/artifact locations; no chart, grid or geometry is redistributed.
 No report-specific open licence or geometry permission is inferred from
-public access. The documented
-[current Finjasjön record route](https://vattenwebb.smhi.se/svarwebb/?sjoid=622731-136920)
-did not expose readable current attributes in the available text reader;
-its current SVAR version, attribute source and bathymetric fields remain
-unverified. Current individual-record routes for the other leads were not
-queried. No undocumented API was used to replace these limitations.
+public access. The earlier
+[Finjasjön record-route attempt](https://vattenwebb.smhi.se/svarwebb/?sjoid=622731-136920)
+did not expose readable attributes in the available text reader. The
+received screenshot below adds visible record context without relabelling
+that attempt or authenticating a backend version. Individual-record routes
+for the other leads were not queried; no undocumented API was used.
+
+The subsequently received `622731-136920-kartor.zip` contains three scanned
+TIFFs: `3-0818_Finjasjön_622731-136920.tif` and the `3-5807a`/`3-5807b`
+Finjasjön files. The ZIP contains **502,622 bytes**, SHA-256
+`cfcb528691d48ea713c697cdbdec78b4508a8c64d428da8794075dd7e6542396`.
+The adjacent source record binds each member's bytes, hash and dimensions.
+These are single-page, 1-bit scans with 600 dpi image resolution, without
+embedded GeoTIFF positioning or a numeric depth grid. Their software and
+ZIP timestamps do not establish map dates. The originals remain in place;
+only local image derivatives were made for direct source comparison.
+
+The `3-5807b` description sheet names Finjasjön, SMHI number `622731 136920`,
+and records **performed year 1986**, **Gatukontoret**, **Hässleholms kommun**.
+It states water level at measurement **0.2 m below normal mean water level**.
+Sounding method and number of tracks/soundings are both `?`. Its scale token
+`17096` agrees with the companion `3-5807a` chart's handwritten **1:17096**
+and graphic 0–1000 m scale. That chart prints highest high, mean and lowest
+low water surfaces **+45.20**, **+43.00** and **+42.30**; a named vertical
+datum is not supplied. A faint handwritten annotation remains unresolved.
+The separate `3-0818` scan contains Finjasjön contours, soundings and a
+graphic scale. Its received filename and registry reference match the
+catalogue chart identifier, but no survey date or named datum is established
+from the scan. The catalogue's **1:20000**, **13.2 m** and blank drawing year
+remain catalogue facts; 1986 and the 5807 water levels are not transferred
+to 0818.
+
+The supplied screenshot shows the public
+[SMHI registry interface](https://vattenwebb.smhi.se/svarwebb/), Finjasjön
+`622731-136920`, waterbody `SE622731-136920`, district `SE4`, the same three
+chart references, and **Hässleholm Municipality** beneath the 5807 group.
+It displays area **10.5085 km²**, maximum depth **13.2** with no adjacent unit,
+and water-surface height **42 m**. English browser translation is active:
+the version value literally reads **`ANSWER2016_3`**, which is not promoted
+to an authenticated untranslated `SVAR2016_3` field. The screenshot is
+**3,933,963 bytes**, SHA-256
+`398e67cd83780ea6e2f71d6463325fdd7d4726e80086101b539dd4e2f65de495`.
+It supports received download context, without a wire-captured download URL,
+provider checksum, measurement epoch or licence. Its 42 m and the chart's
++43.00 mean level remain separate observations with unresolved datum and
+date, without a corrected or preferred quantity.
+
+The 5807a scan labels **RISKOMRÅDE VID SKJUTNING** and **Militärt
+övningsområde**; 0818 labels **AVSTÄNGT VID SKJUTNING**. These are historical
+chart annotations, without a claim about current restrictions, extents,
+safety advice or permission. Direct full-chart, legend and scale comparisons
+qualify this factual transcription only. No chart is selected, averaged,
+digitized or georeferenced, and no basin, core join or field admission follows.
 
 The catalogue entries do not join pollen cores, establish palaeobasins,
 qualify the retained 40,565-lake export, reconcile the historical 40,523-lake
@@ -106,23 +156,23 @@ or field decision has been supplied.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Factual archival chart-catalogue transcription for predeclared lake-number leads, preserving separate rows, blank cells, source-page locators and conditional exact volume/area arithmetic without selecting a chart or coring location.
+**Supported claim.** Factual archival chart-catalogue transcription and separately received Finjasjon chart/survey-sheet and translated registry context, preserving original rows, blanks, dates, scales, source levels and conditional exact volume/area arithmetic without selecting a chart or coring location.
 
-**Unsupported claim.** Current bathymetry or survey dates, a preferred/averaged lake depth, repaired Ringsjon volumes, an EPSG or sampling point inferred from outlet identifiers, historical pollen-core/basin joins, exhaustive absence from OCR text, open geometry rights, changed ranks or field permission.
+**Unsupported claim.** Current bathymetric accuracy or restrictions, a preferred/averaged depth or corrected water level, repaired Ringsjon volumes, an authenticated backend version or datum from a translated screenshot, inferred EPSG/sampling point, historical pollen-core/basin joins, exhaustive OCR absence, open geometry rights, changed ranks or field permission.
 
-**Actual verification performed.** Offline qualification checked the sole retained 4,226,310-byte PDF against declared length/hash, header/EOF and 180-page pdfinfo output, preserving the original downloader failure. Independent rendered-page comparisons at indexes 2/27/85/86/87 checked definitions and all five chart rows. Exact conditional arithmetic gives Havgardssjon 167/54 m matching printed rounding and Ringsjon 1247/20220 m and 4/125 m disagreeing with the printed means. No chart/grid, new lake export, undocumented API or numeric confidence interval was created.
+**Actual verification performed.** Original PDF offline/source-image qualification and exact conditional arithmetic are retained, including the failed downloader. New 502622-byte ZIP has three authenticated TIFF members: two charts and one survey-description sheet. Independent full-chart/legend/scale and screenshot comparisons verify factual transcription; 1986 and minus0.2m survey conditions belong to5807b. No grid, digitization, geometry, source mutation or field decision was created.
 
-**Remaining input or review.** The 1987 catalogue supplies source chart rows, not current surveys or bathymetric grids. Chart extents/reference levels, measurement dates and permission for intended chart/geometry reuse are unbound; two printed Ringsjon volume/area ratios disagree with printed mean depths under the stated unit interpretation. Resolver: SMHI/source chart owner for chart meaning, reference levels, dates and use terms; field authority for any separately requested location, access or permit decision. Reopen when: Obtain and identify the actual relevant chart/attributes with extents, reference water level, measurement epoch and allowed use; bind an exact lake/core/location before quantitative or field use.
+**Remaining input or review.** Received Finjasjon scans supply source context and a1986 survey sheet, but0818 survey date, vertical datum, current accuracy and intended chart/geometry reuse terms remain unbound. Screenshot42m and5807 printed mean+43.00 remain separate; two Ringsjon catalogue volume/area ratios still disagree with printed means. Resolver: SMHI/chart owner for exact chart identity, datum, reference levels, dates and use terms; field authority for current site, restrictions, access or permit decisions. Reopen when: Bind the intended chart and location to qualified datum/reference water level, measurement support, accuracy and use terms before quantitative or field use; preserve the two charts separately.
 
 **Cause category.** data|comparability|access/rights
 
 **Consequence.** Retain catalogue facts as unranked source context only, without changing the field dossier, historical or retained lake population, geometry authority, core identity, access or permit status.
 
-**Precise next acceptance route.** Use the retained transcription as a source lead now. Quantitative lake use requires the actual chart/reference-level/source-meaning evidence; field use additionally requires a selected, source-bound location and explicit applicable access/permit decisions. Do not fill blanks, repair printed volumes or infer current geometry from the catalogue.
+**Precise next acceptance route.** Use the retained catalogue and received scans as factual source context. Quantitative use requires exact chart/datum/reference-level/accuracy/use binding; field use additionally needs a source-bound selected location and current applicable access, restriction and permit decisions. Do not fill blanks, merge charts or transfer5807 dates/levels to0818.
 
-**Negative or refused result.** Original acquisition remains exit 1 with body_complete=false despite readable retained bytes; it was not retried or relabelled successful. Ten blanks remain null; two volume/area/mean-depth combinations are unqualified. Bjaresjosjon exact ID was not found in available text, without an absence claim; Uppakra lacks a unique lake ID. The available current Finjasjon route did not expose verified attributes.
+**Negative or refused result.** Original downloader remains exit1/body_complete=false; ten catalogue blanks and two arithmetic disagreements remain. Bjaresjosjon text nonmatch and unresolved Uppakra identity remain limited findings. The earlier Finjasjon text reader exposed no attributes; received translated screenshot evidence does not authenticate its backend version. No preferred chart, corrected level, numeric grid or field approval.
 
-**Matched denominator.** Five existing field leads; three exact positive lake-number matches with five separate chart entries, one OCR-text nonmatch and one unresolved lake identity. Ten blank cells and three conditional volume/area checks remain explicit; charts are not independent repeated measurements.
+**Matched denominator.** Five existing leads; three exact catalogue lake-number matches/five chart rows, one OCR-text nonmatch and one unresolved identity; ten blanks and three conditional arithmetic checks. Additional Finjasjon ZIP contains two chart scans and one survey sheet, with one separately received translated registry screenshot.
 
 Retained evidence: [reports/science/swedish-lake-chart-catalogue-context/source-records.json](swedish-lake-chart-catalogue-context/source-records.json).
 
