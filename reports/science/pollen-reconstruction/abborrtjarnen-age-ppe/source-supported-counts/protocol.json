@@ -1,0 +1,63 @@
+{
+  "schema_version": "abborrtjarnen-source-supported-age-ppe-protocol.v1",
+  "question": "How does using eight independently qualified original recorded zeros change all-draw age-dependent panel support and conditional age/count/PPE moments relative to strict native missing-cell refusal?",
+  "count_profile": "pangaea_recorded_zeros_local_nc",
+  "default_count_profile": "neotoma_explicit_five_taxon",
+  "base_protocol": "reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/protocol.json",
+  "base_protocol_scope": "Reuse unchanged 32,000 saved joint ages, all 107 source owners, windows 3/4/5/9, five literal native/PPE pairings, fixed static 3 ha response, shared diagonal PPE covariance, conditional pooled-window count law, total covariance and fixed numerical criteria. No new fit, age realization, geometry calculation, PPE distribution or field calibration.",
+  "source_count_commit": "efcae7412f3ef345fd2c16472f8803ac1b0c8589",
+  "source_count_result": "artifacts/method-certification/abborrtjarnen-source-counts/native-run/result.json",
+  "source_count_verification": "artifacts/raa-reconciliation/abborrtjarnen-source-counts/independent-check.json",
+  "depth_pairs_sha256": "c1319b4ccee6a369f062ee351551a4b54c8f8e49b7e817526b6fe9996b695d2a",
+  "slot_audit_sha256": "7fa4c4ca4e11ceb0e4b291dec71fac590a4a6f8283876dc4042487a41aad3650",
+  "native_reference_result": "reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json",
+  "native_reference_ledger": "artifacts/physical-core/abborrtjarnen-age-ppe/native-run/draw-ledger.csv.gz",
+  "repository_inputs": {
+    "artifacts/method-certification/abborrtjarnen-source-counts/native-run/result.json": {
+      "bytes": 8507,
+      "sha256": "426ee3cc7844a1c2a5c0564ca59a64b37d29b46755d649fe04f769a1367886d2"
+    },
+    "artifacts/raa-reconciliation/abborrtjarnen-source-counts/independent-check.json": {
+      "bytes": 564,
+      "sha256": "6ceefe5520618725e694661601326a9026248230a68b457324dbf73b3a7d22d4"
+    },
+    "reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json": {
+      "bytes": 113333,
+      "sha256": "af6d870767b5c393b6488242e4b966f7bbfa7a79e021ee8d70b0aaeda46981ac"
+    },
+    "artifacts/physical-core/abborrtjarnen-age-ppe/native-run/draw-ledger.csv.gz": {
+      "bytes": 2961320,
+      "sha256": "c25fc35cdd416458c8332d30104159fa4d6211e85a161d96a428a6cdec0dc067"
+    }
+  },
+  "source_gate": "Require the exact retained qualified result and independent 535-slot/527-reported/zero-disagreement/107-owner source check, all three external source identities, full depth bijection and exact eight owner/depth/row/column/native-taxon tuples. Every overlaid original token must be literal 0 and a valid integer zero; every native missing slot must be in that set. A changed proof, source identity, unmatched owner, blank, invalid or other value refuses the profile.",
+  "measurement_policy": "Preserve every native omission, native panel mass and reported subtotal as native facts. A separate analytical panel uses only the eight original recorded zeros. All 527 reported native integers and all reported/omitted count masses remain unchanged. This is source-supported measurement context, not a general missing-to-zero rule, imputation, biological absence or independently measured replication.",
+  "support_policy": "All 107 five-axis analytical panels have source support; do not restrict to the old 99 native-complete samples. Empty native windows and nonempty zero-mass panels still refuse. Preserve every seed/native-row identity and per-bin status over all 32,000 saved rows. Primary unconditional moments refuse any undefined mass; conditional moments name C_source explicitly.",
+  "population_comparison": "Reconstruct the original strict native memberships from unchanged raw observations for every saved age row and compare every status/member/count-support field plus identity to the frozen original ledger. Require C_native to be a subset of C_source. Accumulate source-profile moments on exactly C_native and reproduce the old independently qualified mean, all six covariance components, gradients, spreads and 30 contrasts within absolute 1e-12, relative zero. Separately compare C_source and C_native probabilities and conditional moments; their difference reflects changed conditioning populations, not changed measurements within C_native.",
+  "rights_and_correspondence": {
+    "original": "Giesecke, Thomas (2010), EPD/PANGAEA doi:10.1594/PANGAEA.738429, CC BY-NC 3.0 Unported. The analytical use of its eight recorded zeros is local noncommercial research with attribution, separately from the Neotoma CC BY 4.0 release; no relicensing or broad commercial authority.",
+    "native": "Neotoma dataset 19913, site 13338, collection unit 14910, ABBO, European Pollen Database, doi:10.21233/2vzb-bg61, Giesecke; all original/native source bytes stay external and unchanged.",
+    "morphology": "Preserve original Betula, Cyperaceae, Juniperus-type, Pinus diploxylon-type and Gramineae comments alongside native Betula/Cyperaceae/Juniperus communis/Pinus sylvestris/Poaceae labels. Literal parameter transfer is the unchanged declared assumption, not new species/morphotype equivalence or taxonomic review.",
+    "physical_identity": "Exact scaled original-metre/native-depth bijection and 527 count equalities support exported-series correspondence; native depth units, aliquot/core independence and historical LandClim selection are not thereby established.",
+    "publication": "No original count matrix, table, age matrix or attachment is copied or redistributed. New full analytical outputs and support ledger remain local artifacts; any later compact factual scientific account must retain these terms and all conditional/source limits."
+  },
+  "resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 20000000
+  },
+  "model_fits": 0,
+  "new_age_draws": 0,
+  "new_ppe_draws": 0,
+  "scientific_or_field_admission": false,
+  "zero_owner_fields": [
+    "native_sample_id",
+    "depth_native_exact",
+    "original_depth_token",
+    "original_row_index",
+    "original_column",
+    "native_taxon_id",
+    "taxon"
+  ],
+  "expected_zero_owners_sha256": "35c4005cd4657e10eb829f157498450038542a5afd852a651897133efe929b1c"
+}

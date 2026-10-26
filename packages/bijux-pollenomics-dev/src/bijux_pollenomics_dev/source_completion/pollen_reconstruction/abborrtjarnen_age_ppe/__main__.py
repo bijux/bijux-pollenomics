@@ -6,6 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
+from .count_profiles import NATIVE, PROFILES
 from .producer import publish
 
 
@@ -14,8 +15,9 @@ def main() -> int:
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--count-profile", choices=PROFILES, default=NATIVE)
     args = parser.parse_args()
-    result = publish(args.repository, args.source_root, args.output)
+    result = publish(args.repository, args.source_root, args.output, args.count_profile)
     print(
         json.dumps(
             {

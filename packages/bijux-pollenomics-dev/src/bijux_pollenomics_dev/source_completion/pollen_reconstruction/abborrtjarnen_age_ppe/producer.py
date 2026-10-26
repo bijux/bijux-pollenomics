@@ -31,10 +31,12 @@ from ..abborrtjarnen_ppe_dependence.sources import (
     load_sources,
     require,
 )
-from . import chronology, inputs, moments
+from . import chronology, count_profiles, inputs, moments, profile_comparison
 
 
-def source_revision(repository: Path) -> str:
+def source_revision(
+    repository: Path, count_profile: str = count_profiles.NATIVE
+) -> str:
     """Identify committed consumed mathematics and source adapters."""
     files = [
         *Path(__file__).parent.glob("*.py"),
@@ -52,6 +54,8 @@ def source_revision(repository: Path) -> str:
             load_sources,
         )
     )
+    if count_profile == count_profiles.SOURCE:
+        files.append(repository / count_profiles.PROTOCOL)
     relative = sorted({str(p.resolve().relative_to(repository)) for p in files})
     git = ["git", "-C", str(repository)]
     revision = subprocess.check_output([*git, "rev-parse", "HEAD"], text=True).strip()
@@ -98,8 +102,8 @@ def fixed_age_check(case: dict[str, Any], get_moment: Any) -> dict[str, Any]:
     return {"windows_checked": 4, "maximum_absolute_gap": maximum, "passed": True}
 
 
-def ledger_fields() -> list[str]:
-    return [
+def ledger_fields(count_profile: str = count_profiles.NATIVE) -> list[str]:
+    fields = [
         "seed",
         "native_row",
         "complete",
@@ -119,15 +123,37 @@ def ledger_fields() -> list[str]:
         ],
         *[f"cover_{b}_{taxon}" for b in WINDOWS for taxon in TAXON_IDS],
     ]
+    if count_profile == count_profiles.SOURCE:
+        fields.extend(
+            [
+                "native_complete",
+                *[
+                    f"bin_{b}_{name}"
+                    for b in WINDOWS
+                    for name in (
+                        "native_missing_members",
+                        "source_recorded_zero_sample_ids",
+                    )
+                ],
+            ]
+        )
+    return fields
 
 
-def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
+def publish(
+    repository: Path,
+    source_root: Path,
+    output: Path,
+    count_profile: str = count_profiles.NATIVE,
+) -> dict[str, Any]:
     """Preserve all saved rows; publish explicit defined-event mixture moments."""
     started = time.monotonic()
     repository = repository.resolve()
     destination = require_absent_artifact_output(repository, output)
-    revision = source_revision(repository)
-    case = inputs.prepare(repository, source_root)
+    revision = source_revision(repository, count_profile)
+    case = inputs.prepare(repository, source_root, count_profile)
+    if count_profile == count_profiles.SOURCE:
+        case["repository"] = repository
     ppe = np.array([p["ppe"] for p in case["parameters"]])
     covariance = np.diag(np.square([p["published_sd"] for p in case["parameters"]]))
     cache: dict[tuple[int, ...], dict[str, np.ndarray]] = {}
@@ -149,8 +175,9 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
     with (
         gzip.GzipFile(filename=str(ledger), mode="wb", mtime=0) as compressed,
         io.TextIOWrapper(compressed, newline="") as stream,
+        profile_comparison.native_reference(case, covariance) as comparison,
     ):
-        writer = csv.DictWriter(stream, fieldnames=ledger_fields())
+        writer = csv.DictWriter(stream, fieldnames=ledger_fields(count_profile))
         writer.writeheader()
         for entry in case["protocol"]["age_inputs"]:
             chain = moments.PopulationMoments(covariance)
@@ -166,13 +193,21 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
                 requested += 1
                 row: dict[str, Any] = {"seed": entry["seed"], "native_row": native_row}
                 complete = []
+                source_supports = []
                 for b in WINDOWS:
                     support, counts = inputs.membership(case["samples"], ages, b)
+                    source_supports.append(support)
                     supports[str(b)][support["status"]] += 1
                     for key, value in support.items():
                         row[f"bin_{b}_{key}"] = (
                             json.dumps(value, separators=(",", ":"), sort_keys=True)
-                            if key in {"sample_ids", "missing_members"}
+                            if key
+                            in {
+                                "sample_ids",
+                                "missing_members",
+                                "native_missing_members",
+                                "source_recorded_zero_sample_ids",
+                            }
                             else value
                         )
                     if counts is not None:
@@ -183,10 +218,22 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
                         ):
                             row[f"cover_{b}_{taxon}"] = float(value)
                 row["complete"] = int(len(complete) == 4)
-                if len(complete) == 4:
-                    cover, count, gradient = moments.joint_window_moments(complete)
-                    total.add(cover, count, gradient)
-                    chain.add(cover, count, gradient)
+                joint = (
+                    moments.joint_window_moments(complete)
+                    if len(complete) == 4
+                    else None
+                )
+                if joint is not None:
+                    total.add(*joint)
+                    chain.add(*joint)
+                if comparison is not None:
+                    native = [
+                        inputs.membership(case["native_samples"], ages, b)[0]
+                        for b in WINDOWS
+                    ]
+                    row["native_complete"] = comparison.observe(
+                        entry["seed"], native_row, native, source_supports, joint
+                    )
                 writer.writerow(row)
             require(
                 chain_rows == entry["retained_rows"], "Saved chain multiplicity differs"
@@ -244,11 +291,19 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
         "field_calibration_or_coverage_claim": False,
         "historical_core_admission_changed": False,
     }
+    if comparison is not None:
+        result["count_profile"] = count_profile
+        result["source_support"] = case["source_support"]
+        result["comparison_to_native_explicit"] = comparison.result(
+            result["conditional_on_complete"], requested
+        )
+        bound_files(repository, case["count_profile_protocol"]["repository_inputs"])
     chronology.check_inputs(repository, case["protocol"])
     bound_files(source_root, case["source_protocol"]["source_store_files"])
     bound_files(repository, case["source_protocol"]["repository_files"])
     require(
-        source_revision(repository) == revision, "Consumed scientific source changed"
+        source_revision(repository, count_profile) == revision,
+        "Consumed scientific source changed",
     )
     result["draw_ledger"] = {
         "path": ledger.name,

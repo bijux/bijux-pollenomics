@@ -17,10 +17,13 @@ from ..abborrtjarnen_ppe_dependence.sources import (
     load_sources,
     require,
 )
+from . import count_profiles
 from .chronology import PROTOCOL, authority
 
 
-def prepare(repository: Path, source_root: Path) -> dict[str, Any]:
+def prepare(
+    repository: Path, source_root: Path, count_profile: str = count_profiles.NATIVE
+) -> dict[str, Any]:
     """Join all 107 exact native IDs/depths; do not import the closed16 mask."""
     protocol = json.loads((repository / PROTOCOL).read_bytes())
     require(
@@ -94,7 +97,7 @@ def prepare(repository: Path, source_root: Path) -> dict[str, Any]:
         protocol["physical"] == original["protocol"]["physical"],
         "Fixed source geometry/transport differs",
     )
-    return {
+    case = {
         "protocol": protocol,
         "source_protocol": original["protocol"],
         "parameters": original["parameters"],
@@ -113,6 +116,7 @@ def prepare(repository: Path, source_root: Path) -> dict[str, Any]:
             },
         },
     }
+    return count_profiles.apply(case, raw, repository, count_profile)
 
 
 def membership(
@@ -129,7 +133,9 @@ def membership(
         if 500 * bin_id <= a < 500 * (bin_id + 1)
     ]
     missing = {
-        str(s["sample_id"]): s["missing_taxa"] for s in members if s["missing_taxa"]
+        str(s["sample_id"]): s.get("analytical_missing_taxa", s["missing_taxa"])
+        for s in members
+        if s.get("analytical_missing_taxa", s["missing_taxa"])
     }
     subtotal = sum(s["reported_panel_subtotal"] for s in members)
     mass = None if missing else subtotal
@@ -154,6 +160,13 @@ def membership(
         ),
         "missing_members": missing,
     }
+    if samples and "analytical_missing_taxa" in samples[0]:
+        record["native_missing_members"] = {
+            str(s["sample_id"]): s["missing_taxa"] for s in members if s["missing_taxa"]
+        }
+        record["source_recorded_zero_sample_ids"] = [
+            s["sample_id"] for s in members if s["source_recorded_zero_support"]
+        ]
     counts = (
         None
         if status != "defined"
