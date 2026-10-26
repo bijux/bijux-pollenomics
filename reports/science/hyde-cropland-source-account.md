@@ -29,11 +29,42 @@ Doelman (2025, manuscript in preparation).
 
 ## Our source-authority decision
 
-We compared the public release description with the declarations in the
-retained local files before treating any native grid as an admitted Nordic
-covariate. The [Utrecht catalog](https://landuse.sites.uu.nl/datasets/) names
-HYDE 3.5 for the 2025 Global Carbon Budget at five arc minutes, but does not
-publish a file manifest or checksums binding our local bytes to that release.
+On 26 October 2026, the user supplied the download origin: the
+[Utrecht datasets page](https://landuse.sites.uu.nl/datasets/) led through
+[Yoda record F45D44](https://public.yoda.uu.nl/geo/UU01/F45D44.html) to the
+[vault directory `hyde35_c9_apr2025[1749214444]`](https://geo.public.data.uu.nl/vault-hyde/hyde35_c9_apr2025%5B1749214444%5D).
+The user declares that all its content was downloaded into the external
+`HYDE-3.5/` source directory. This establishes a **user-declared download
+route and local destination**, rather than an independently verified remote
+member inventory. Download origin is now recorded. No new provider request or
+comparison with the current remote distribution was performed for this account.
+
+We inspected the original local declarations in place. The root
+`yoda-metadata[1749214948].json` and `original/yoda-metadata.json` are identical
+3,843-byte files, SHA-256
+`44dacada9b1b9ade1886bf0f2a26277a2b964afbff46f9ee64c17069f7b57b3a`.
+They identify *HYDE data for the Global Carbon Budget (2025)*, metadata version
+`1.0`, and CC BY-NC 4.0. The original README remains the March 2025
+`hyde35_c9_base_mrt2025` declaration; the declared vault and retained scenario
+directories instead carry April labels: `gbc2025_7apr_base`,
+`gbc2025_7apr_lower` and `gbc2025_7apr_upper`. These names are preserved
+without treating them as an authenticated release crosswalk.
+
+The exact known consumed archive is at
+`HYDE-3.5/original/gbc2025_7apr_base/zip/2000AD_lu.zip`, with an inspected
+local size of **56,720,903 bytes**. We reuse its previously authenticated
+archive and member hashes below; this metadata review did not rehash or
+decode the ZIP, rescan the collection, or rerun a numerical consumer. Local
+byte identity and a user-declared official download route provide different
+evidence: neither establishes that every remote member was retained or binds
+the later provider licence update to each consumed file.
+
+Our earlier comparison used the public release description and the declarations
+in the retained local files before treating any native grid as an admitted
+Nordic covariate. The previously reviewed
+[Utrecht catalog](https://landuse.sites.uu.nl/datasets/) identifies HYDE 3.5
+for the 2025 Global Carbon Budget at five arc minutes, but that review obtained
+no provider file manifest or checksums binding our local bytes to the release.
 The local README calls itself `hyde35_c9_base_mrt2025`; all 48 inspected
 NetCDF headers instead say `HYDE3.4 test netCDF`. We kept both declarations.
 For a concrete byte anchor, our retained base 2000 CE cropland ZIP has SHA-256
@@ -45,9 +76,9 @@ These identify our local source, not the provider's current distribution.
 We retained the three distinct rights statements. The local Yoda metadata and
 `License.txt` say CC BY-NC 4.0, while its README and NetCDF attributes say
 CC BY 3.0. The [provider DOI record](../../docs/report/source-relations/hyde/provider-record/README.md)
-now says CC BY 4.0 after its September 2026 update; it has no exact-member
-binding to the local release. We have not selected whichever statement is
-most convenient as permission to redistribute native cells.
+retained on 29 September 2026 says CC BY 4.0 after its September update;
+it has no exact-member binding to the local release. We have not selected
+whichever statement is most convenient as permission to redistribute native cells.
 
 The local ASCII grid header fixes a 4320-by-2160 source axis beginning at
 longitude-like `-180`, latitude-like `-90`, with literal step `0.0833333`;
@@ -71,14 +102,21 @@ country membership, cell area or historical date conversion.
 We therefore admit the bounded source-reported country totals and internal
 grid conservation below as **modeled-source accounting only**. We do not yet
 admit a release-wide native-grid product, public cell redistribution or a
-matched pollen-model HYDE comparison. The open evidence request
-asks for provider binding of file identity, rights, CRS, dates, units and
-scenario meaning. This report owns our current decision.
+matched pollen-model HYDE comparison. The remaining
+evidence question concerns provider binding of the
+known files to release-specific rights, CRS, dates, units and scenario meaning;
+it no longer concerns an unknown download origin. This report owns our current
+decision. The declared origin does not supply a formal datum, resolve year zero
+or the NetCDF calendar, establish category/denominator equivalence, or establish
+independence from the target pollen reconstructions discussed below.
 
 We use these modeled totals as external land-use context. They do not measure
 pollen or vegetation at our study sites. We kept the source years as CE labels
 and retained the 2025 column while flagging release prose that states a 2023
-endpoint. We apply the more restrictive local rights declaration to these
+endpoint. The local Yoda description instead states a 2024 CE endpoint; both
+it and the March README separately list extension to 2025. These inconsistent
+coverage descriptions do not resolve historical calendar conventions.
+We apply the more restrictive local rights declaration to these
 derived summaries. Our [native grid-to-country check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)
 verified 21 cropland grids at the seven selected CE labels against their
 source country tables. We still need other variables and years, rights
