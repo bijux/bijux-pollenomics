@@ -23,15 +23,33 @@ The [manifest](manifest.json) binds each PDF to its canonical source and
 committed renderer, compiler versions, deterministic clock and build receipts.
 The [layout record](visual-review.json) records model inspection of every page,
 font embedding, representative Unicode, extractable text order and citations.
-All retained pages are readable without clipping. Every paper includes its nine-field scientific verification and limits account. Six exports retain their reviewed source revision; LandClim and REVEALS theory were separately rebuilt after safe line-break corrections. Namibia was rebuilt after its forward-pollen study and separate two-problem numerical follow-through, preserving the original failed-study results. Per-paper records identify the actual source revision and producer. These PDFs are untagged;
+The library contains **nine PDFs and 53 pages**. Every paper includes its
+nine-field scientific verification and limits account. The five Sugita, Hellman
+and Namibia exports reflect their supplied full primary sources; their **29
+pages** were individually inspected after native text, font, citation and
+physical-bounds checks. Four other PDFs retain their exact historical bytes,
+source/producer/build identities and page-review records. Three inherited
+historical source/receipt identities are now explicit in the manifest because
+the shared inventory has changed.
+
+The first Hellman regional export compiled successfully but lost the
+“at least” symbol in its selected font. That layout-refused candidate and
+its diagnostics remain under `artifacts/raa-reconciliation/paper-exports/`.
+Only the separately committed wording repair was rebuilt; no numerical or
+scientific finding changed. The other four updated candidates retain source
+revision `84a0f2bec7906a247573a2b73c111b752ec17491`; Hellman regional uses
+`133447b8ae71754d9799355b9c6af48f2fa74711`. All accepted pages are readable
+without clipping or missing glyphs. Per-paper records identify the actual
+source, producer and receipt. These PDFs are untagged;
 this review does not establish assistive-technology accessibility, actual
 colleague comprehension or qualified scientific approval.
 
 Repository citations use full commit-pinned GitHub URLs; primary DOI citations
 remain direct. Local path resolution and PDF annotations are checked. Online
 availability of the newly committed repository pages remains unverified.
-Partial primary-paper access and missing scientific data retain the statuses
-in the canonical reports; a portable export cannot strengthen those findings.
+Full main-paper receipt and missing original numerical/scientific inputs retain
+the separate statuses in the canonical reports; a portable export cannot
+strengthen scientific acceptance.
 
 Run `python3 reports/exports/papers/verify.py` from the repository root to
 reconcile inventory, source revisions, producer hashes, retained PDFs and
@@ -50,12 +68,15 @@ From that repository checkout, write to an absent artifacts directory:
 
 ```sh
 SOURCE_DATE_EPOCH=1790812800 PYTHONDONTWRITEBYTECODE=1 \
-  .venv/bin/python -m bijux_pollenomics_dev.reader_reports \
+  .venv/bin/python -B -m bijux_pollenomics_dev.reader_reports \
   --repository . --inventory reports/science/paper-accounts.csv \
-  --output artifacts/jobs/paper-pdf-replay
+  --paper-id regional-reveals-theory \
+  --output artifacts/jobs/regional-reveals-paper-pdf-replay
 ```
 
-Keep the source revision fixed to reproduce its URL annotations. A later
+Select one `--paper-id` from the manifest and its actual source revision; the
+command checks the whole committed inventory but builds only that paper. Keep
+the source revision fixed to reproduce its URL annotations. A later
 revision can contain identical report text but produce different PDF bytes
 because the commit-pinned links differ. Font/compiler changes also require
 new layout verification. Retain only accepted PDFs and their reviewed
