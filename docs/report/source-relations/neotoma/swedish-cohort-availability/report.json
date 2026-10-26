@@ -49,7 +49,7 @@
     }
   ],
   "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
-  "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces.",
+  "scope": "This current availability check reads metadata only, including prior-processing identity metadata; no target pollen measurements are opened. Known previous numeric processing is not erased by a new metadata-only check. A genuinely unexposed physical site must satisfy the original grouping, input and prediction-freeze requirements.",
   "epd_metadata_screen": {
     "private_source_manifest_sha256": "4ab9abd1ed3edb9af0df7370563035adc02617fe6361a842f73840d36c56bc6c",
     "source_capture_utc": "2026-10-01T09:20:21.673123+00:00",
@@ -98,7 +98,34 @@
         "retained_neotoma_identity": null,
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
-        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+        "decision": "refused_as_untouched_prior_numeric_source_processing",
+        "prior_source_processing": {
+          "status": "prior_numeric_source_processing_recorded",
+          "workbook_member": "rootsi/GARASEL.xls",
+          "workbook_sha256": "fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797",
+          "workbook_bytes": 19968,
+          "sheet": "Sheet1",
+          "metadata_source_locator": "rootsi/Metadata table_SWE_climate.xlsx!25",
+          "site_name_raw": "Garaselet (Byskeälven)",
+          "latitude_raw": "65.333332999999996",
+          "longitude_raw": "19.933333000000001",
+          "completed_census_source_commit": "6bc07eb8e6b1599739473ff1478f45cb68fa9333",
+          "evidence_inputs": {
+            "crosswalk": {
+              "path": "data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv",
+              "sha256": "ee76ac6af9d79ce4d81224a566e8edd7dc71eb940402b352fda809bba7e93588"
+            },
+            "census": {
+              "path": "reports/science/publication-correspondence/rootsi-feature-census/report.json",
+              "sha256": "4a1b0834f41446a3ddbfbd992fa5f2d0572c95a49d008402c1fa935c2cafe40d"
+            }
+          },
+          "processing_scope": "decoded cached values; literal/formula origin unavailable",
+          "fitting_or_tuning_exposure": "not_established_by_these_records",
+          "target_measurement_values_opened_by_this_check": false
+        },
+        "untouched_confirmation_eligible": false,
+        "untouched_status_restored_by_age_or_rights_repair": false
       },
       {
         "core_handle": "HAKULLA5",
