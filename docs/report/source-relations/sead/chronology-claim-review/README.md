@@ -101,24 +101,143 @@ public/private output destinations. Private witness data is not a report
 publication output.
 
 
+## Native rows in the admitted claim consumer
+
+The earlier all-field audit retained original facts in a private witness, while
+the live chronology-claim builder still returned only projected
+`source_age_value`. The maintained admitted-capture consumer now offers
+`include_native_source_rows=True`. It adds `source_native_row` directly to each
+existing claim, joining the complete original decoded row by the native table
+and primary key. The original `source_age_value`, claim identity, normalized
+ages, selection, eligibility and all bundle metadata remain unchanged. This
+makes original facts available to the actual consumer without requiring a
+judgment that the older projected representation is scientifically equivalent.
+
+The optional join uses the five existing chronology specifications. It refuses
+missing, noninteger, boolean or duplicate native primary keys, missing/duplicate
+claim ownership, table/kind disagreement and unused native date rows. It checks
+the complete population before attaching deeply copied rows. Nulls, unknown
+flags, whitespace, original numeric types and future source fields are preserved
+without projection or coercion. Equality is scoped to the existing JSON
+decoder's values and types; wire formatting and arbitrary-precision decimal
+lexical identity are not claimed. Parent payload hashes retain the byte identity.
+No new source registry, sidecar witness or raw acquisition is needed.
+
+All four existing builder/writer APIs accept the optional keyword, including
+the admitted-snapshot variants. The default remains false. For example:
+
+```python
+from pathlib import Path
+from bijux_pollenomics.collection.sources.sead.evidence.claims import (
+    build_sead_chronology_claim_bundle,
+)
+
+root = Path("data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e")
+bundle = build_sead_chronology_claim_bundle(root, include_native_source_rows=True)
+```
+
+The actual default and opted-in public file APIs ran at committed source
+**`4c2188cf5ae25afeb5712d642b4fab5f128935a5`**, using the same admitted capture.
+Owned session **20869** terminated with exit zero: **5.251838958 s** consumer
+elapsed, **6.49 s** process wall time, and **836,354,048 bytes** peak RSS. The
+complete current default bundle equals the opted-in bundle after removing
+**only** `source_native_row` from its claims, compared through JSON serialization
+to retain scalar-type distinctions. This is a same-source option comparison,
+not a claim that every historical generated serialization has the same bytes.
+The run checked the admission, manifest and five already qualified source-table
+identities before and after execution.
+
+All **25,109** claims now carry all **202,546** original field cells when opted
+in:
+
+| Original decoded field type | Cells |
+| --- | ---: |
+| Integer | 110,568 |
+| Null | 56,721 |
+| Boolean | 14,754 |
+| String | 18,984 |
+| Floating-point number | 1,519 |
+| **All native field cells** | **202,546** |
+
+These are original date-row fields, distinct from the method/reference lookup
+comparison population above. This capture has no null uncertainty-flag cells;
+controlled fixtures separately verify that a native unknown flag remains null
+where the legacy projected field is false. The fixtures also cover nested future
+fields and mutable-copy independence. Native context does not supply missing
+calibration, an age model or an uncertainty law.
+
+The one private direct claim bundle is
+`artifacts/sead-native-claim-rows/native-run/claims.json`, **72,689,748 bytes**,
+SHA-256 `15bd9980074e9c98bae990194f48a98dc42f64c7fd9a2a854ce9508029034a5c`.
+Its adjacent **2,165-byte** `summary.json`, `stdout.txt` and `stderr.txt` retain
+the population, source pins and terminal resource observations. The exact
+inline invocation, source identity and owned terminal facts are retained in
+`artifacts/sead-native-claim-rows/native-run/execution.json`; the example above
+uses the same maintained public API without duplicating its implementation. Raw rows remain outside this
+public report; the old 99-MB audit witness was not regenerated. The result stayed
+within the predeclared 180-second, 1.5-GiB resident-memory, 100,000,000-byte
+private-bundle and 100,000-byte summary bounds.
+
+An independent comparison at committed observer
+**`7c4d570108a959d678005ae63c715329055bf41e`** read the five original tables
+and saved bundle using its own explicit table/key map and type-sensitive JSON
+encoding, without calling the producer or its join helper. Owned session
+**55715** terminated with exit zero: **one test passed in 1.36 s**, **1.74 s**
+process wall time, **414,941,184 bytes** peak RSS, and no skips. It confirmed
+one-to-one ownership of all 25,109 source rows and exact values/types for all
+202,546 cells. It also independently reproduced the legacy representation
+comparison: 186,797 exact cells, 14,230 null-to-empty-string cells and 1,519
+float-to-integer cells with equal exact value, affecting 8,678 claims. These
+old differences remain visible beside the original context; their scientific
+interpretation is not decided here. Zero native unknown uncertainty flags and
+all unchanged display/propagation populations were checked explicitly.
+Configured Ruff and strict types passed for the independent test.
+
+Its actual command was:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  /usr/bin/time -l .venv/bin/python -B -m pytest -c configs/pytest.ini \
+  packages/bijux-pollenomics/tests/unit/collection/sources/sead/evidence/test_native_rows_result.py \
+  --basetemp=artifacts/sead-native-claim-rows/independent-check/pytest \
+  --timeout=180 -q
+```
+
+The stdout/stderr remain in that owning artifact directory. A new invocation
+should use a fresh basetemp to retain completed-run evidence. This checked the
+new live consumer result; it did not replay the old 17-table private witness.
+
+Before commit, **22** native-row/chronology fixture checks and the existing
+writer-compatibility check passed, with configured Ruff lint/format and strict
+types for all four changed Python paths. The initial fixture run failed because
+its test data omitted required source-reader fields and its scratch parent was
+missing. Correcting that fixture/schema and artifact directory required no
+production-reader relaxation. No actual native-capture run failed.
+
+All **13,170** display-eligible and **11,939** refused chronology decisions remain
+unchanged; all **25,109** propagation statuses remain refused. Exact native
+context is available now. Changes to age interpretation, classification,
+selection or scientific/event admission still require their own source-backed
+support.
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-**Supported claim.** All 25,109 captured chronology claims retain a native-age review and an independent comparison of 202,546 original typed fields, physical ownership and method/reference relations; display and propagation refusals remain explicit.
+**Supported claim.** All 25,109 captured chronology claims retain a native-age review and an independent comparison of 202,546 original typed fields, physical ownership and method/reference relations; the optional admitted claim consumer now additionally returns the exact decoded original row for all 25,109 claims, preserving the entire current default bundle after removing only that optional field. Display and propagation refusals remain explicit.
 
 **Unsupported claim.** Synthetic calibrated-BP/BCE branch tests do not certify native SEAD rows, and display eligibility is not ecological/scientific chronology admission.
 
-**Actual verification performed.** Actual source-bound producer and independent all-row/type/ownership/aggregate verifier passed; 83 annotation, runtime-isolation, receipt and result-schema guards, configured strict typing and lint passed. No calibration, age-model fit or new event admission. Two actual maintained configured reference/replay commands independently reproduced the public aggregate and private witness byte-for-byte; 71 producer/public-private isolation guards and strict10/source lint passed. Canonical ownership and reader validation are separate.
+**Actual verification performed.** The optional native-row public claim consumer ran at 4c2188cf5ae25afeb5712d642b4fab5f128935a5, session 20869 exit zero, preserving 202,546 native field cells and every existing default bundle field. The independent original-table/saved-result comparison passed one actual test at 7c4d570108a959d678005ae63c715329055bf41e (session 55715), checking all rows/types and the legacy difference counts. Twenty-two focused fixtures, one existing writer check and configured lint/types passed. Actual source-bound producer and independent all-row/type/ownership/aggregate verifier passed; 83 annotation, runtime-isolation, receipt and result-schema guards, configured strict typing and lint passed. No calibration, age-model fit or new event admission. Two actual maintained configured reference/replay commands independently reproduced the public aggregate and private witness byte-for-byte; 71 producer/public-private isolation guards and strict10/source lint passed. Canonical ownership and reader validation are separate.
 
-**Remaining input or review.** Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty, scientific equivalence of stored representations and qualified scientific use remain unresolved.
+**Remaining input or review.** Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty, scientific interpretation of legacy stored differences and qualified scientific use remain unresolved. No equivalence approval is needed to read the original context through the new option.
 
 **Cause category.** Source-backed AD conversion is narrower than chronology/event approval.
 
 **Consequence.** 13,170 display-eligible claims cannot become 13,170 propagated events.
 
-**Precise next acceptance route.** Obtain source-specific age/calibration/uncertainty decisions and classification authority before changing claim or propagation admission.
+**Precise next acceptance route.** Use the available optional native rows for source-fidelity consumers; obtain source-specific age/calibration/uncertainty decisions and classification authority before changing claim or propagation admission.
 
 **Negative or refused result.** 8,678 claims differ in stored representation: 14,230 native null field cells become empty strings and 1,519 numeric representations change at equal exact value. No harmlessness approval; all 25,109 propagation statuses remain refused, including 1,094 unbounded dendrochronology From claims.
 
