@@ -592,5 +592,150 @@
       "No chart, raster, screenshot or original ZIP is redistributed; no licence or geometry-use authority follows from public download availability.",
       "All catalogue rows, blank cells, arithmetic limits, original capture failure and existing field-question dispositions remain unchanged."
     ]
+  },
+  "received_havgardssjon_chart_context": {
+    "scope": "received_scan_and_swedish_screenshot_factual_context_only",
+    "lake_id": "615365-134524",
+    "zip": {
+      "received_file_name": "615365-134524-kartor.zip",
+      "bytes": 620531,
+      "sha256": "242e5ae3f35708ba076d2c4aa65b067aa857be276a745eae4cf5096f08fbfcb1",
+      "source_posture": "User-supplied browser download retained in place; no independently captured HTTP response or provider checksum.",
+      "members": [
+        {
+          "name": "2-0170_Havgårdssjön_615365-134524.tif",
+          "bytes": 585693,
+          "sha256": "2d6663bbfc6497722bf9f9b386a2a932822b3b3bab4362cd6142cbc44d151f44",
+          "width_px": 14216,
+          "height_px": 10224
+        },
+        {
+          "name": "3-1984_Havgårdssjön_615365-134524.tif",
+          "bytes": 60225,
+          "sha256": "6e053a51425c7a484cd248dd9d5f3fa0276b120e7da4e2f279971dec09155001",
+          "width_px": 5056,
+          "height_px": 7195
+        }
+      ],
+      "raster_metadata": {
+        "single_page_per_member": true,
+        "bits_per_sample": 1,
+        "compression": "CCITT Group 4",
+        "resolution_dpi": 600,
+        "embedded_geotiff_crs_scale_or_tiepoint": false,
+        "numeric_depth_grid_present": false
+      },
+      "date_limit": "ZIP timestamps and imaging-software copyright are not survey or chart-drawing dates.",
+      "license_or_terms_supplied": false
+    },
+    "user_declared_download_routes": {
+      "615365-134524": "https://vattenwebb.smhi.se/svarwebb/rest/downloadmap/615365-134524",
+      "622731-136920": "https://vattenwebb.smhi.se/svarwebb/rest/downloadmap/622731-136920"
+    },
+    "download_route_evidence": "Both exact URLs are supplied source routes, not wire-captured responses. The earlier Finjasjön screenshot exact_download_url=null capture fact remains unchanged.",
+    "chart_2_0170": {
+      "title_literal": "Karta öfver Hafgårds-sjön",
+      "archive_number_literal": "2-170",
+      "visible_content": "Individual soundings, lake outline and a graphic metre scale.",
+      "faint_scale_annotation": "not_confidently_transcribed",
+      "catalogue_scale_reference": "The separate catalogue row reports 1:4000; no independent ratio is inferred from the faint scan annotation.",
+      "survey_date": null,
+      "water_level_at_measurement": null,
+      "named_vertical_datum": null
+    },
+    "chart_3_1984": {
+      "printed_lake_name": "Havgårdssjön",
+      "printed_smhi_lake_number": "615365 134524",
+      "scale_literal": "1:10000",
+      "county_literal": "12 Malmöhus län",
+      "municipality_literal": "63 Svedala",
+      "drainage_area_literal": "90 Segeån",
+      "performed_by_literal": "Limnologiska institutionen",
+      "organization_literal": "Universitet i Lund",
+      "depth_archive_lake_number": "1157",
+      "depth_archive_chart_number": "3-1984",
+      "measurement_method": {
+        "value": null,
+        "source_state": "blank_printed_field"
+      },
+      "track_or_sounding_count": {
+        "value": null,
+        "source_state": "blank_printed_field"
+      },
+      "survey_date": {
+        "value": null,
+        "source_state": "blank_printed_field"
+      },
+      "water_level_at_measurement": {
+        "value": null,
+        "source_state": "blank_printed_field"
+      },
+      "named_vertical_datum": null,
+      "date_limit": "1984 belongs to the chart identifier, not a survey date. The catalogue drawing year 1983 remains separate and is not a measurement date.",
+      "depth_limit": "The contour label 5 is not promoted to a new independent maximum-depth measurement."
+    },
+    "screenshot": {
+      "received_file_name": "Screenshot 2026-10-27 at 00.20.01.png",
+      "bytes": 1379367,
+      "sha256": "5cac9abea0ef0da23d794cf99e4da2aa57d1d85e0fedd0367a4f83336ccdf96f",
+      "visible_url": "https://vattenwebb.smhi.se/svarwebb/",
+      "language": "Swedish labels visible; no English-translated value substituted.",
+      "displayed_name": "Havgårdssjön",
+      "displayed_lake_id": "615365-134524",
+      "displayed_waterbody_id": "NW615311-134527",
+      "displayed_water_district": "SE4",
+      "version_display_literal": "SVAR2016_3",
+      "version_scope": "Visible received capture only; not an authenticated backend version or authority for another retained layer.",
+      "displayed_area": {
+        "raw_token": "0.5023",
+        "displayed_unit": "km²"
+      },
+      "displayed_maximum_depth": {
+        "raw_token": "5.8",
+        "displayed_unit": null
+      },
+      "displayed_mean_depth": {
+        "raw_token": "3.1",
+        "displayed_unit": null
+      },
+      "displayed_volume": {
+        "raw_token": "1.67",
+        "displayed_unit": "miljoner m³"
+      },
+      "displayed_water_surface_height_above_sea_level": {
+        "raw_token": "50",
+        "displayed_unit": "m",
+        "vertical_datum": null
+      },
+      "chart_references_visible_prefixes": [
+        "2-0170_Havgårdssjön_6",
+        "3-1984_Havgårdssjön_6"
+      ],
+      "source_visible_prefix": "Limn inst",
+      "clipping_limit": "Chart-name and source text are clipped at the right edge; unseen suffixes are not transcribed from the image. The complete TIFF names and 3-1984 legend separately identify the sources.",
+      "observation_limit": "No measurement date, common survey footprint, vertical datum or reuse terms are established by the screenshot."
+    },
+    "conditional_display_volume_area_check": {
+      "assumptions": "Interpret displayed 1.67 miljoner m³ as 1.67 million cubic metres and 0.5023 km² as 0.5023 million square metres; compare with displayed mean 3.1 only conditionally if that unlabelled depth is in metres.",
+      "exact_ratio_m": "16700/5023",
+      "ratio_m": 3.3247063507863825,
+      "displayed_mean_depth_raw": "3.1",
+      "mean_depth_unit_assumption": "m",
+      "matches_rounding_to_one_decimal": false,
+      "interpretation": "The ratio rounds to 3.3 m, not 3.1 m. No common measurement footprint, epoch or reference water level is assumed; no value is repaired, selected or substituted."
+    },
+    "verification": {
+      "method": "ZIP CRC and in-memory TIFF metadata inspection followed by independent direct comparisons of both full scans, legends and received screenshot.",
+      "result": "passed_for_factual_source_transcription",
+      "derivative_directory": "artifacts/method-certification/havgardssjon-chart-source",
+      "original_tiff_extraction_performed": false,
+      "numeric_geometry_or_depth_digitization_performed": false
+    },
+    "interpretation_limits": [
+      "All original catalogue and Finjasjön facts remain unchanged, including Havgårdssjön catalogue area 0.540 km² and maximum 5.0 m for 3-1984 and maximum 5.8 m for 2-0170.",
+      "Screenshot and catalogue quantities remain separate source statements; no preferred chart, mean, depth, adjusted level or averaged quantity is selected.",
+      "No current bathymetric accuracy, georeferencing, EPSG, sediment support, pollen-core join, historical basin outline or field decision follows.",
+      "No original chart, ZIP or screenshot is redistributed and no blanket analytical or redistribution permission is inferred from a public download route."
+    ]
   }
 }
