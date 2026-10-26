@@ -104,6 +104,21 @@
       ],
       "extrapolation_to_deepest_sample_cm": 15.5,
       "extrapolation_to_native_bottom_cm": 22.5
+    },
+    "source_generated_bottom_likelihood": {
+      "cause": "The source input writer sees requested d.max 896 cm beyond deepest input determination 880.5 cm; independent of add.bottom.",
+      "native_label": "NA",
+      "depth_cm": 896,
+      "radiocarbon_age_argument_years": 8000,
+      "error_argument_years": 8000000,
+      "delta_R": 0,
+      "delta_STD": 0,
+      "t_a": 3,
+      "t_b": 4,
+      "cc": 1,
+      "role": "Ordinary broad but nonconstant IntCal20 Student-t pseudo-determination for bottom extrapolation; not measured, censored, a hard minimum-age bound or assumed to have zero influence.",
+      "population": "Six measured dates plus one explicit artificial calendar anchor make seven input rows; the writer adds this eighth native likelihood row.",
+      "geometry_distinction": "add.bottom=TRUE separately appends the model elbow at 898 cm and yields the native model bottom at 903 cm."
     }
   },
   "execution": {

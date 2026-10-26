@@ -11,7 +11,7 @@ p <- case$protocol
 depths <- unlist(case$depths)
 sample.ids <- unlist(case$sample_ids)
 controls <- do.call(rbind, lapply(case$controls, as.data.frame))
-curve.dir <- system.file("extdata", package = "rintcal", lib.loc = args[1])
+curve.dir <- paste0(normalizePath(system.file("extdata", package = "rintcal", lib.loc = args[1]), mustWork = TRUE), "/")
 stopifnot(nzchar(curve.dir), length(depths) == 107L)
 all.ages <- list()
 all.free <- list()
@@ -69,6 +69,7 @@ withCallingHandlers({
       jsonlite::write_json(list(sections = native[1], native_top_depth_cm = native[10],
         native_bottom_depth_cm = native[11], native_seed = native[12],
         native_initial_top_age_pair = native[4:5], native_input = set$bacon.file,
+        native_calibration_directory = curve.dir,
         native_output_bytes = file.info(native.path)$size, model_fits = 0),
         file.path(args[3], "prepared-contract.json"), auto_unbox = TRUE, pretty = TRUE)
       cat("source preparation passed; model_fits=0\n")

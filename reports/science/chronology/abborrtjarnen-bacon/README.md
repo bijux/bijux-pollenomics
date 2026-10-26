@@ -138,6 +138,22 @@ The 880.5 cm deepest control therefore leaves 15.5 cm extrapolation to the
 deepest sample and 22.5 cm to the native model bottom. No radius, country,
 taxon/PPE admission or physical basin assumption enters this age model.
 
+Because the requested `d.max=896` exceeds the deepest dated depth of
+880.5 cm, the source input writer duplicates the deepest determination at
+896 cm and greatly broadens its error. Its generated row has label `NA`,
+radiocarbon-age argument **8000 years**, error argument **8,000,000 years**,
+reservoir and reservoir-error arguments zero, `t.a=3`, `t.b=4` and `cc=1`.
+This is an artificial bottom-extrapolation likelihood term, rather than an
+additional measured date, censored date or hard minimum-age bound. It enters
+the ordinary IntCal20 Student-t likelihood and is broad but nonconstant.
+The native input therefore has eight likelihood rows: six measurements,
+one artificial calendar anchor and this generated extrapolation row.
+The separately declared `add.bottom=TRUE` appends the model elbow at 898 cm
+and gives the native model bottom at 903 cm; it does not generate that row.
+Both operations were present in the original preparation and remain
+unchanged. No setting or scientific assumption was altered to repair the
+directory, and no zero-influence claim is made for the artificial likelihood.
+
 The two fixed seeds request 4,000 retained states each. The complete 7,501
 native rows are preserved per chain; frozen source-equivalent burn/tail
 selection uses original rows 3502–7501 without further trimming. Saved
@@ -161,6 +177,18 @@ configured Ruff checks passed. The prepare-only check used the real native
 input writer and produced no model draw. The source and protocol must be
 committed and consumed inputs frozen before execution. At this checkpoint,
 the corrected profile has not yet been fitted.
+
+The first foreground attempt at committed source
+`2556a52701e94cb71232ffe74cf33c7b3c2c7bf8` returned exit 1 in
+0.967844916 seconds, before producing draws or a completed chain. The direct
+native API concatenates the directory and curve filename; our adapter omitted
+its required trailing separator. The failed result and native error remain
+under `artifacts/physical-core/abborrtjarnen-joint-chronology/`. Normalizing
+the directory and appending `/` repairs that input boundary without changing
+source files, observations, priors, seeds, criteria or expected findings.
+A bounded native check then opened the qualified curves with zero proposal
+iterations. Its one initialization state is retained separately and is not
+a posterior draw; no negative-size option was added to the scientific workflow.
 
 These findings do not change the retained LegacyAge S5 marginal intervals,
 the earlier set-based age bounds, or their conditional pollen sensitivities.
