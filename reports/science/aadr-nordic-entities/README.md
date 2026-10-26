@@ -172,9 +172,26 @@ Original Table S1.1/archaeological Note S4 of the
 the exact evidence lead for specimen identity, coordinates, datum and units.
 Tested primary bioRxiv supplementary/JATS routes returned HTTP 403; this is a
 bounded failed retrieval, not proof that no public supplement exists. The
-existing scientific review question and human inbox retain that precise gap.
+existing `aadr-country-map-scientific-admission` question in the
+[scientific review register](../../needed/scientific-review.csv) retains this gap.
 No custodian was contacted, and both conflicting source-coordinate records
 remain uncorrected review cases.
+
+A distinct [author-deposited isotope workbook](https://data.mendeley.com/datasets/3pkp8kg6g3/2)
+was subsequently recovered under DOI `10.17632/3pkp8kg6g3.2` (version 2,
+CC BY 4.0). Its 26,099 bytes, SHA-256
+`5eb9d06c6bb3864ec355bb7a80c05fe7089a7817d2c27277d5fe77361daeaf4c`,
+remain once in the shared source store at
+`adna/aunvollen-isotopes/multi-isotope-measurements.xlsx`.
+A separate ZIP/XML inspection confirms sheet rows 44–48 share museum ID
+T20248 but distinguish juvenile, old adult and young adult A7437 specimens.
+The sheet reports context Steinkjer, coordinates 64.014807 / 11.495648 and
+the literal county Sør-Trøndelag. It supplies no CGG identifiers or
+"Individual 2" crosswalk and contains no T11792 entry. The differing specimen
+chronology entries cannot be assigned by museum number alone. These are
+source-owned contextual leads, not corrected AADR coordinates, a verified
+country/county interpretation or proof of specimen independence. The source
+labels and their ambiguity remain explicit.
 
 
 <!-- scientific-verification-and-limits:begin -->
