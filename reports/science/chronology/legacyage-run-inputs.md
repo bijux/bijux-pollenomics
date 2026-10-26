@@ -143,6 +143,15 @@ source-token bin crossings. Its bounded result is retained under
 verification results for reviewed working source, rather than a claimed
 exact-HEAD scientific study.
 
+The same command subsequently ran with the consumed reader committed at
+`9c39ac1d84d986e230d01995816ec38e27e40d24`, changing only the destination to
+`artifacts/physical-core/legacyage-committed-source.json`. It returned exit
+zero in 2.1333455 seconds and reproduced the governed JSON byte for byte.
+The consumed reader and three pinned source inputs were unchanged. Separate
+AADR working changes were present, so this identifies the committed consumed
+source rather than claiming a clean whole-tree study. The independent
+source/token and rational-bin checks above apply to the identical result.
+
 This is partial source preparation toward a declared chronology profile.
 The existing [ABBO](../abborrtjarnen-source-method.md),
 [DALMUT](../dalmutladdo-lra-input/README.md) and
