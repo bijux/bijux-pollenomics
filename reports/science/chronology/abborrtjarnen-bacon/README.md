@@ -338,8 +338,9 @@ those rounded values through `.init` is a restart, not exact continuation.
 Instead, the unchanged fixed-transition sampler is invoked from its original
 starts and seeds with native size argument 16,500. Its transition kernel does
 not adapt to the requested length; saved states remain 1,325 proposals apart.
-The two newly prepared native input programs must match the originals before
-sampling. Each complete 19,501-state stream must then begin with its original
+The two newly prepared native executable input programs must match the originals
+before sampling. Only the recognized first `## Ran on` timestamp comment is
+excluded from that comparison; every remaining input byte stays exact. Each complete 19,501-state stream must then begin with its original
 5,678,254-byte stream exactly, including the leading blank line and absent
 final newline. A numerical tolerance or reformatted row comparison cannot
 substitute for that byte check. Original one-based rows 3502–19501 are retained
@@ -364,7 +365,7 @@ the corresponding estimate is 63,967,189 bytes. The ceiling leaves about
 56% headroom over that estimate, without claiming guaranteed compression or
 an operating-system storage quota. The original directory stays untouched.
 
-No native fit for this qualification has run during source preparation.
+No native fit for this qualification ran during source preparation.
 Controlled checks cover literal prefix boundaries, source/runtime identity,
 unchanged target inputs, score withholding and resource failures. The first
 author invocation passed its source-binding control but had eight fixture
@@ -373,6 +374,22 @@ parent resolved that setup failure. Separately, the independent observer's
 initial invocation had five setup errors and nine passing arithmetic checks;
 the same output-parent correction allowed all fourteen controls to pass.
 Neither setup correction changed scientific inputs or diagnostic criteria.
+
+The first committed invocation at `39cff6d1c1a345850c1efa1c190d26e690ff01c4`
+(owned session 54342) terminated with exit 1 before the first sampler call.
+Its guard compared the entire native input including a generated timestamp;
+only that first comment differed. Native output was zero bytes and the saved
+chain list was empty. The process took 2.59 s, with peak RSS 175,374,336 bytes;
+the R preparation command took 1.281334 s with peak RSS 173,424,640 bytes.
+That failed attempt remains in `abborrtjarnen-sampler-accuracy/native-run` and
+its adjacent execution account. The native parser ignores `#` comment lines
+before any model or random-generator operation (`rbacon 4.0.2 src/input.cpp`,
+lines 93–100). The repaired guard excludes only the recognized first generated
+timestamp and compares all remaining bytes exactly. No scientific observation,
+prior, seed, sampler length or diagnostic threshold changed. Nineteen independent controls, configured lint/types and a precommit direct R
+input-guard check pass; the latter evaluated only the repaired function against
+the original and failed-preparation inputs, with zero sampler calls. A fresh
+`native-replay` destination preserves the zero-fit preparation failure.
 
 After source review and commit, the existing command selects this protocol
 with `--sampler-accuracy` and a separate absent output directory:
@@ -383,6 +400,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
   --repository "$PWD" --source-root "$PWD/../-bijux-pollenomics-data" \
   --library "$PWD/artifacts/qualification/native-reference/library" \
   --oracle-summary "$PWD/artifacts/physical-core/native-likelihood-oracle/summary.json" \
-  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-run" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay" \
   --sampler-accuracy
 ```

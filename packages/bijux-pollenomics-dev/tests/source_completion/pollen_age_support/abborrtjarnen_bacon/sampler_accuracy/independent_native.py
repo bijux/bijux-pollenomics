@@ -15,6 +15,14 @@ ORIGINAL_PREFIXES = {
 ORIGINAL_BYTES = 5_678_254
 
 
+def native_program(path: Path) -> bytes:
+    """Remove only the native writer's first nonsemantic timestamp comment."""
+    header, newline, program = path.read_bytes().partition(b"\n")
+    if not newline or not header.startswith(b"## Ran on ") or not program:
+        raise ValueError("Native program lacks its recognized timestamp header")
+    return program
+
+
 def exact_prefix(original: Path, extended: Path, expected_sha256: str) -> int:
     """Require the frozen original bytes plus a fresh following numeric row.
 

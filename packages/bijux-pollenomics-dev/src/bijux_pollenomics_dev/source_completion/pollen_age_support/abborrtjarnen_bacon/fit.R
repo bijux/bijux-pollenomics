@@ -30,6 +30,16 @@ if (!is.null(accuracy)) {
     accuracy$original_directory, "fit-summary.json"), simplifyVector = FALSE)$runtime
   stopifnot(identical(runtime.versions, original.runtime))
 }
+native.program <- function(path) {
+  bytes <- readBin(path, "raw", file.info(path)$size)
+  first.newline <- match(as.raw(10), bytes)
+  stopifnot(!is.na(first.newline), first.newline > 10L)
+  header <- rawToChar(bytes[seq_len(first.newline - 1L)])
+  stopifnot(startsWith(header, "## Ran on "))
+  # The native parser skips '#' lines before reading model instructions.
+  # Exclude only this recognized generated timestamp; preserve all other bytes.
+  bytes[-seq_len(first.newline)]
+}
 options(digits = 17)
 
 withCallingHandlers({
@@ -78,8 +88,7 @@ withCallingHandlers({
     stopifnot(!file.exists(paste0(set$bacon.file, ".init")))
     if (!is.null(accuracy)) {
       original.input <- file.path(case$repository, accuracy$prefixes[[i]]$native_input_path)
-      stopifnot(identical(readBin(set$bacon.file, "raw", file.info(set$bacon.file)$size),
-        readBin(original.input, "raw", file.info(original.input)$size)))
+      stopifnot(identical(native.program(set$bacon.file), native.program(original.input)))
     }
     if (prepare.only) {
       jsonlite::write_json(list(sections = native[1], native_top_depth_cm = native[10],

@@ -17,6 +17,7 @@ from .independent_native import (
     ORIGINAL_BYTES,
     ORIGINAL_PREFIXES,
     exact_prefix,
+    native_program,
     polynomial_ages,
 )
 
@@ -67,8 +68,8 @@ def _native_chain(
     # Inspect the native program too; a matching trajectory is not a substitute
     # for preserving the declared target data, starts, prior and seed.
     prior._require(
-        path.with_suffix(".bacon").read_bytes()
-        == original.with_suffix(".bacon").read_bytes(),
+        native_program(path.with_suffix(".bacon"))
+        == native_program(original.with_suffix(".bacon")),
         "Native target program differs from the original",
     )
     matched = True

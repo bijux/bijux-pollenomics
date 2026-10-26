@@ -7,7 +7,7 @@
   "original_failed_status": "refused_mcmc_diagnostics",
   "original_directory": "artifacts/physical-core/abborrtjarnen-fixed-iteration",
   "contract_reason": "The original no_retry_rule forbids extra chains, changed seeds, wider criteria and outcome-tuned priors. This separately prespecified fixed-length sampler-accuracy qualification changes none of those. It does not rewrite, relabel or erase the failed 8000-state experiment, nor claim a new independent replicate. The old prefixes are shared states, not additional draws.",
-  "same_target_and_runtime": "Use the identical original protocol data, likelihood rows, priors, initial top-age pairs, seeds, calibration files, native input programs, shared native library and fixed-transition save clock. Do not use rounded .last endpoints as .init restarts.",
+  "same_target_and_runtime": "Use the identical original protocol data, likelihood rows, priors, initial top-age pairs, seeds, calibration files, native executable input programs (excluding only the recognized first source-generated ## Ran on timestamp comment), shared native library and fixed-transition save clock. Do not use rounded .last endpoints as .init restarts.",
   "execution": {
     "seeds": [
       314159,
@@ -84,5 +84,10 @@
   ],
   "exposure": "Already exposed development core, frozen predictors and previously computed failed-run scores. This is numerical accuracy work on the same conditional chronology, not untouched validation or a new ecological model. Score interpretation is withheld until qualification.",
   "model_fits_executed": 0,
-  "status": "prespecified_not_executed"
+  "status": "prespecified_not_executed",
+  "native_program_comparison": {
+    "rule": "Preserve both full input files. Require first line to start ## Ran on and compare every byte after its terminating newline exactly; no other comment, whitespace, label, calibration or model token is normalized.",
+    "source_semantics": "Unmodified rbacon 4.0.2 src/input.cpp, lines 93\u2013100 skips leading spaces then ignores any line beginning # or newline before key parsing/calibration/determinations/initialization. The narrower first-header exclusion changes no sampler instructions or RNG state.",
+    "preparation_failure": "The first committed invocation stopped before sampling because full native input bytes differed only in that generated timestamp. Its native output is 0 B and fit-summary has no completed chain. Failed directory/logs retained; no sampler result or diagnostic failure was retried."
+  }
 }

@@ -10,8 +10,41 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from .sampler_accuracy.independent_native import exact_prefix, polynomial_ages
+from .sampler_accuracy.independent_native import (
+    exact_prefix,
+    native_program,
+    polynomial_ages,
+)
 from .sampler_accuracy.independent_result import verify_result
+
+
+def test_generated_input_timestamp_is_distinct_from_executable_model_bytes(
+    tmp_path: Path,
+) -> None:
+    old, new = tmp_path / "old.bacon", tmp_path / "new.bacon"
+    program = b"\nCal 0 : ConstCal;\nBacon 0 : FixT,51;\n"
+    old.write_bytes(b"## Ran on original date \n" + program)
+    new.write_bytes(b"## Ran on current date \n" + program)
+    assert native_program(old) == native_program(new) == program
+    new.write_bytes(b"## Ran on current date \n" + program.replace(b"51", b"52"))
+    assert native_program(old) != native_program(new)
+    new.write_bytes(
+        b"## Ran on current date \n" + program + b"# changed later comment\n"
+    )
+    assert native_program(old) != native_program(new)
+
+
+@pytest.mark.parametrize(
+    "body",
+    [b"Cal 0;\n", b"## unrelated\nCal 0;", b"## Ran on date", b"## Ran on date\n"],
+)
+def test_only_a_recognized_first_timestamp_header_is_excluded(
+    tmp_path: Path, body: bytes
+) -> None:
+    path = tmp_path / "input.bacon"
+    path.write_bytes(body)
+    with pytest.raises(ValueError, match="timestamp header"):
+        native_program(path)
 
 
 def test_exact_prefix_preserves_blank_and_unterminated_native_rows(
