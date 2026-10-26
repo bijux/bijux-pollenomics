@@ -9,6 +9,137 @@
     "archaeological_supplement_label": "S7",
     "genetics_page_22_section": "S4. Imputation"
   },
+  "publication_provenance": {
+    "scope": "Additive publication-discovery metadata, separate from the unchanged committed Germanic reader result, AADR annotation literals and museum context. No original Celtic article/specimen table or genetic measurements were obtained.",
+    "aadr_cited_publication": {
+      "doi_literal": "https://doi.org/10.1101/2025.02.28.640770",
+      "metadata_title": "Tracing the Spread of Celtic Languages using Ancient Genomics",
+      "version_in_retained_annotation": null,
+      "version_binding_established": false,
+      "specimen_fields_scope": "Existing AADR fields are annotation assertions; citation alone does not establish original Celtic specimen-table ownership or identify its source version."
+    },
+    "supplied_companion_publication": {
+      "doi": "10.1101/2024.03.13.584607",
+      "version": "2",
+      "date": "2025-01-07",
+      "existing_study_context": "/study",
+      "distinct_doi_study": true,
+      "originals_reused_in_place": true,
+      "scope": "Germanic companion source cells and archaeological paragraphs, not an alternative DOI/version label for the Celtic study or an authorized correction to AADR."
+    },
+    "celtic_biorxiv_metadata_versions": [
+      {
+        "version_literal": "1",
+        "date_literal": "2025-03-01",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      },
+      {
+        "version_literal": "2",
+        "date_literal": "2025-05-02",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      },
+      {
+        "version_literal": "3",
+        "date_literal": "2025-05-08",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      }
+    ],
+    "provider_metadata_limit": "bioRxiv published=NA and empty Crossref relation are provider metadata states, not proof that no journal publication exists. Present Celtic v3 is not proof that AADR used v3.",
+    "europepmc_metadata": {
+      "identifier": "PPR984375",
+      "manuscript_id": "EMS205221",
+      "isOpenAccess_literal": "Y",
+      "hasSuppl_literal": "N",
+      "license_literal": "cc by-nc-nd",
+      "scope": "The metadata advertises a main PDF; actual PDF request failed. It supplies no retrieved specimen attachment or version-to-AADR binding."
+    },
+    "source_manifest_relative_to_shared_store": "adna/celtic-source/2026-10-26/source-manifest.json",
+    "acquisition_gets": [
+      {
+        "file": "biorxiv-version-metadata.json",
+        "requested_url": "https://api.biorxiv.org/details/biorxiv/10.1101/2025.02.28.640770",
+        "final_url": "https://api.biorxiv.org/details/biorxiv/10.1101/2025.02.28.640770",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:34.297101+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:34.689652+00:00",
+        "bytes": 8027,
+        "sha256": "70c5bc62a36f89ceb638128759e3ff8318e4e9b78605bb82ebd5a7fe76dd0aaa",
+        "completion": "closed"
+      },
+      {
+        "file": "crossref-doi-metadata.json",
+        "requested_url": "https://api.crossref.org/works/10.1101%2F2025.02.28.640770",
+        "final_url": "https://api.crossref.org/works/10.1101%2F2025.02.28.640770",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:34.690815+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:35.234719+00:00",
+        "bytes": 23630,
+        "sha256": "e043e599cafb1d40c7cfd3bc0eb58303ae8740fcdc73d97557d65390902f7b2b",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-doi-metadata.json",
+        "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1101/2025.02.28.640770&format=json&resultType=core",
+        "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1101/2025.02.28.640770&format=json&resultType=core",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:35.236054+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:35.595143+00:00",
+        "bytes": 6985,
+        "sha256": "793fea2852ac92aeaf6decc7f34c5c0a6ae3e60014f2e169e873d6fcae0d09b5",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-EMS205221-pdf.response",
+        "requested_url": "https://europepmc.org/api/fulltextRepo?pprId=PPR984375&type=FILE&fileName=EMS205221-pdf.pdf&mimeType=application/pdf",
+        "final_url": "https://europepmc.org/api/fulltextRepo?pprId=PPR984375&type=FILE&fileName=EMS205221-pdf.pdf&mimeType=application/pdf",
+        "http_status": 403,
+        "retrieval_started_utc": "2026-10-26T22:28:12.867593+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:28:13.099272+00:00",
+        "bytes": 7617,
+        "sha256": "0c38ab5102d7d4eb89a96719bd50357b7e2d9c6dc2716d813c5ea3c17717e1eb",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-PPR984375-fulltext-xml.response",
+        "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PPR984375/fullTextXML",
+        "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PPR984375/fullTextXML",
+        "http_status": 500,
+        "retrieval_started_utc": "2026-10-26T22:28:56.068189+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:28:59.094969+00:00",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "completion": "closed"
+      },
+      {
+        "file": "biorxiv-v1-supplement-page.response",
+        "requested_url": "https://www.biorxiv.org/content/10.1101/2025.02.28.640770v1.supplementary-material",
+        "final_url": "https://www.biorxiv.org/content/10.1101/2025.02.28.640770v1.supplementary-material",
+        "http_status": 403,
+        "retrieval_started_utc": "2026-10-26T22:29:39.738072+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:29:39.880105+00:00",
+        "bytes": 17,
+        "sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c",
+        "completion": "closed"
+      }
+    ],
+    "acquisition_summary": {
+      "get_count": 6,
+      "metadata_http_200": 3,
+      "failed_responses": 3,
+      "article_or_specimen_table_successes": 0,
+      "body_bytes": 46276,
+      "retry_or_challenge_bypass_performed": false,
+      "existing_Germanic_originals_copied": false,
+      "genetic_measurements_or_target_outcome_tables_opened": false
+    },
+    "remaining_source_question": "Which exact Celtic publication version and descriptive specimen-table rows for CGG_2_105915 and CGG_2_105916 underlie the AADR citation and annotation fields, and what source-owned specimen/laboratory/date/coordinate crosswalk explains their relation to the supplied Germanic v2 cells? The museum subrecord and Individual 2-to-laboratory links remain separate unresolved conditions.",
+    "coordinate_or_date_correction_performed": false,
+    "scientific_or_map_admission": false,
+    "outreach_performed": false
+  },
   "original_inputs": [
     {
       "path": "2024.03.13.584607v2.full.pdf",

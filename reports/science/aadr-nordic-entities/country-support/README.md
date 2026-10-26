@@ -8,6 +8,53 @@ The source is McColl et al., *Steppe Ancestry in Western Eurasia and the Spread 
 
 The paper title page identifies a preprint, not certified peer review, under CC BY-NC-ND 4.0. No blanket attachment redistribution grant is inferred. Original PDFs and workbook are not copied into product content. This account retains scoped factual source metadata, conflicts and citations, without genotype results or an inferred open-data licence for the attachments.
 
+## Cited study and supplied companion
+
+The retained AADR annotation cites the **unversioned Celtic study**,
+[*Tracing the Spread of Celtic Languages using Ancient Genomics*,
+DOI 10.1101/2025.02.28.640770](https://doi.org/10.1101/2025.02.28.640770).
+The supplied Germanic paper above is a **distinct DOI study**, whose v2 is
+independently identified as 7 January 2025. Matching CGG, museum and site fields
+provide companion-source context; they do not make the publications version
+aliases or establish a correction to the AADR annotation.
+
+The [official Celtic bioRxiv metadata](https://api.biorxiv.org/details/biorxiv/10.1101/2025.02.28.640770)
+records v1 on **1 March 2025**, v2 on **2 May 2025** and v3 on **8 May 2025**.
+Each reports literal licence `cc_by_nc_nd` and `published=NA`. The
+[Crossref metadata](https://api.crossref.org/works/10.1101%2F2025.02.28.640770)
+also identifies the Celtic DOI and CC BY-NC-ND 4.0, with an empty relation object.
+Those are provider metadata states, **not proof of journal-publication absence**.
+The AADR citation does not identify a version; present v3 cannot be assigned as
+its source by default.
+
+A bounded acquisition on 26 October 2026 retained exactly **six GET responses**
+in the shared source store at `adna/celtic-source/2026-10-26/`. Its ordinary
+`source-manifest.json` records actual request/final URLs, response headers,
+UTC boundaries, byte counts and SHA-256 values. All six bodies were closed and
+rehashed, totaling **46,276 bytes**, without redirects, retries, challenge
+bypass, login or outreach. Three responses were HTTP 200 publication metadata
+from bioRxiv, Crossref and Europe PMC. The advertised Europe PMC main-PDF route
+returned **403**, its documented full-text XML API returned **500**, and the
+original bioRxiv v1 supplement page returned **403**. These failed response
+bodies are not article or specimen-table content. Europe PMC's PPR984375 metadata
+labels the main record open access and `hasSuppl=N`; those labels did not deliver
+the requested main or attachment bytes. No Celtic specimen table or genetic
+measurements were opened, and no already supplied Germanic original was copied.
+The [publication provenance section](mccoll-source-context.json) retains these
+facts separately from the earlier successful Germanic and museum evidence.
+
+Consequently, AADR's date/coordinate strings remain **annotation assertions**;
+the worksheet cells and archaeological paragraphs below remain **Germanic v2
+source context**; and museum records remain **locality/assemblage context**.
+The exact remaining source question is the Celtic version and descriptive
+specimen-table-to-AADR crosswalk for `CGG_2_105915` and `CGG_2_105916`, including
+which source owns each laboratory/date/coordinate representation. That missing
+crosswalk is not supplied by a shared DOI author, matching museum/place name,
+current publication version or the separate museum locality evidence. No date,
+coordinate, source version or admission decision has been selected.
+
+## Retained specimen and annotation comparison
+
 The existing coordinate comparison treats the two AADR latitude/longitude pairs on the pinned boundary degree axes and obtains Sweden while their source political entity is Norway. That is an uncorrected source/boundary conflict. Native coordinate datum, positional accuracy, archaeological locality meaning and the authority to select a replacement remain unqualified.
 
 | AADR genetic ID | Table S1.1 physical row | Original specimen identity | Table locality and coordinates |
