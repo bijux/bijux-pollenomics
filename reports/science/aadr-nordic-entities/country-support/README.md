@@ -51,4 +51,65 @@ The original ANNO physical-line locators include the header: 1240k 20621/20622 a
 
 Narrow original-page text extracts and four renders were inspected at archaeological PDF/printed pages 161, 174, 175 and genetics physical PDF page 22. These derivatives remain only under `artifacts/physical-core/mccoll-country-context/source-pages/` for original-page comparison. The four original files are identified by streamed byte counts and SHA-256 values, without copying them or treating filesystem receipt time as the publication date. PDF claims above are scoped to the named site paragraphs; unrelated Jøa material lower on page 175 is not assigned to Fauskland.
 
-The remaining exact conditions are a specimen-owned, versioned authority for coordinate meaning/datum and any correction, an explicit Aunvollen Individual 2 laboratory/date crosswalk, and qualified treatment of the inconsistent Fauskland and AADR dating representations. This source unit resolves the availability and documented merged-individual subquestions. It does not resolve country/map/chronology admission, infer corrected coordinates or make a fieldwork permit or locality decision.
+## Museum locality and collection evidence
+
+The supplied [Fauskland catalogue record T11792:c.003](https://collections.vm.ntnu.no/artefacts/13439-T11792-c-003)
+was inspected through three user screenshots of its identity, coordinates,
+find circumstances and map. The supplied museum-generated factsheets for
+[Aunvollen human T20248:L.012](https://collections.vm.ntnu.no/artefacts/175301-T20248-L-012)
+and [dog T20248:L.013](https://collections.vm.ntnu.no/artefacts/175300-T20248-L-013)
+were read in full and their human pages and dog page visually checked.
+Two dog exports have identical extracted text and describe the same record.
+Direct web-tool access to the two human record URLs failed; no independent
+API response, Fauskland PDF export or complete museum catalogue was acquired.
+The supporting Spor magazine was a discovery lead; it is not the authority
+for the following specimen-record fields.
+
+[museum-source-context.json](museum-source-context.json) records the six
+original file identities, literal coordinate/precision labels and three
+museum-record contexts. Originals remain in place outside product content;
+no screenshots, photographs or full factsheets are redistributed.
+
+| Museum record | Displayed latitude / longitude | Precision label | Collection link |
+| --- | --- | --- | --- |
+| Fauskland `T11792:c.003` | `63.6058590629654 / 8.8588817461179` | `Funnsted (Lokalitet)` | Human skeletal assemblage; Hitra, Fauskland 8/1 |
+| Aunvollen `T20248:L.012` | `64.1635647815224 / 11.819740680260399` | `Bruk` | Human collection explicitly numbered `A.7437`; Aunvold, Steinkjer 246/1 |
+| Aunvollen `T20248:L.013` | same displayed pair | `Bruk` | Separate adult dog material; no human CGG identity |
+
+The common coordinate label is literally **`Coordinate (EU89 - Lat/Lon)`**.
+Fauskland's record update is displayed as 26 October 2026; human L.012 as
+2026-03-06 and dog L.013 as 2026-10-26. A screenshot filename is not a verified
+HTTP retrieval time. Locality and property precision are categorical source
+descriptions, not metric uncertainty radii. Many decimals do not establish
+survey accuracy. Kartverket distinguishes [EUREF89 and dynamic WGS84 reference
+frames](https://www.kartverket.no/til-lands/posisjon/referanserammer-for-noreg);
+that source does not authenticate the museum's abbreviated label, exact
+realization, EPSG code or acquisition epoch. Preserve the literal label before
+any explicitly declared coordinate transformation or nominal spatial comparison.
+
+The Fauskland museum longitude is source-owned evidence distinct from both
+paper values near `14.8586`; it is not a guessed six-degree adjustment.
+Museum root T11792c, human material, locality and cadastral 8/1 agree with the
+paper assemblage. The inspected paper does not explicitly name subrecord
+`c.003` for a sampled M1/M2/M3 tooth, so the exact subrecord/sample crosswalk
+is narrower than the demonstrated assemblage link. The catalogue's disturbed
+tidal/gravel context is consistent with the archaeological account; neither
+source's recovery prose resolves the conflicting numerical date fields.
+
+The Aunvollen human factsheet explicitly says return from the Schreiner
+Collection in 2022 revealed **two different individuals**, with duplicated
+skeletal elements. Its initial probably-female age of 19–20 cannot be assigned
+to both. It establishes the A.7437 collection link without identifying the
+paper's 35–49-year **Individual 2**, sampled M1 or radiocarbon laboratory token.
+The dog is separate animal material. Both factsheets describe a grave about
+150 m north of the farm buildings, excavation in 1981 and recovery of further
+material in 1982. These are discovery/collection dates and relative locality
+descriptions; they do not select an ancient date or justify moving the property
+point. The archaeology supplement's `64.1641 / 11.8140` point remains separate.
+
+The remaining exact conditions are specimen-level binding and coordinate
+semantics for any selected correction, an explicit Aunvollen Individual 2
+laboratory/date crosswalk, and qualified treatment of inconsistent Fauskland
+and AADR dating representations. The sources resolve document availability,
+museum locality evidence, human/animal distinction and documented merger
+subquestions. Country/map/chronology admission and field decisions remain open.

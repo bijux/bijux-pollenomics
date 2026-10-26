@@ -1,0 +1,131 @@
+{
+  "source_scope": "Human-curated factual museum locality context from supplied screenshots and museum factsheet exports; no direct API capture or scientific admission.",
+  "original_source_inputs": [
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.28.png",
+      "bytes": 2967273,
+      "sha256": "169f9ab0e76c293c1cabfcee83c6c1341f9a8b5144d5918460859c8f7f0d564d"
+    },
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.35.png",
+      "bytes": 871233,
+      "sha256": "3588c484e45a2d73211f8265c9f98f72e7eef9a62ee4bb243181aba535f5fee9"
+    },
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.55.png",
+      "bytes": 1634143,
+      "sha256": "1bbfe06abbf90454cbc9f2f429f3bb515e20ba425be6b0c0326b518713eb630f"
+    },
+    {
+      "path": "factsheet_175301-T20248-L-012.pdf",
+      "bytes": 64663,
+      "sha256": "a9491e4f27dbfd8f946bc384fb9b77ed4f961d964f6f05bfc7575f7d962ed3c5"
+    },
+    {
+      "path": "factsheet_175300-T20248-L-013.pdf",
+      "bytes": 60253,
+      "sha256": "053de532c9e15f0123634a7b191ba518e73eb344eecf066d958cecfc4101ad59"
+    },
+    {
+      "path": "factsheet_175300-T20248-L-013-1.pdf",
+      "bytes": 60253,
+      "sha256": "3a8f3146f3eb0eac3df60822216fecc1ba293704a94eb31834bad187755b813c"
+    }
+  ],
+  "coordinate_label": "Coordinate (EU89 - Lat/Lon)",
+  "coordinate_transform_performed": false,
+  "records": [
+    {
+      "museum_number": "T11792:c.003",
+      "url": "https://collections.vm.ntnu.no/artefacts/13439-T11792-c-003",
+      "evidence_files": [
+        "Screenshot 2026-10-26 at 22.44.28.png",
+        "Screenshot 2026-10-26 at 22.44.35.png",
+        "Screenshot 2026-10-26 at 22.44.55.png"
+      ],
+      "material": "Bone",
+      "form": "ubrent humanosteologisk",
+      "period": "Late Neolithic/bronze Age",
+      "county": "Trøndelag",
+      "municipality": "Hitra",
+      "cadastral": "Fauskland",
+      "cadastral_number": "8",
+      "property_number": "1",
+      "property": "Unknown",
+      "latitude_raw": "63.6058590629654",
+      "longitude_raw": "8.8588817461179",
+      "coordinate_precision": "Funnsted (Lokalitet)",
+      "last_updated_raw": "26 October 2026",
+      "related_paper_museum_token": "T11792c",
+      "related_genetic_ids": [
+        "CGG_2_105916",
+        "CGG_2_105917",
+        "CGG_2_105918"
+      ],
+      "crosswalk_scope": "Same museum root, locality, cadastral 8/1 and human assemblage; exact c.003-to-sampled-tooth subrecord not explicit in inspected paper or capture.",
+      "find_context": "Disturbed gravel/tidal locality in inner Barmfjorden; interpretation alternatives in original catalogue retained, not independently adjudicated."
+    },
+    {
+      "museum_number": "T20248:L.012",
+      "url": "https://collections.vm.ntnu.no/artefacts/175301-T20248-L-012",
+      "evidence_files": [
+        "factsheet_175301-T20248-L-012.pdf"
+      ],
+      "material": "Bone",
+      "form": "ubrent humanosteologisk",
+      "period": "Viking period",
+      "county": "Trøndelag",
+      "municipality": "Steinkjer",
+      "cadastral": "Aunvold",
+      "cadastral_number": "246",
+      "property_number": "1",
+      "property": "Aunvold",
+      "latitude_raw": "64.1635647815224",
+      "longitude_raw": "11.819740680260399",
+      "coordinate_precision": "Bruk",
+      "last_updated_raw": "2026-03-06",
+      "anthropological_number_raw": "A.7437",
+      "related_paper_museum_token": "A7437/T20248 Individual 2",
+      "related_genetic_ids": [
+        "CGG_2_105915"
+      ],
+      "crosswalk_scope": "Explicit A.7437 human collection, comprising two individuals recognized on return in 2022; no explicit Individual 2 or sampled M1-to-laboratory crosswalk.",
+      "initial_description_scope": "Probably female, age 19–20; cannot assign this initial description to both individuals.",
+      "find_context": "Grave described approximately 150 m north of farm buildings; excavation in 1981 and further recovered material in 1982. Property point is not authenticated sampled-tooth or exact grave position."
+    },
+    {
+      "museum_number": "T20248:L.013",
+      "url": "https://collections.vm.ntnu.no/artefacts/175300-T20248-L-013",
+      "evidence_files": [
+        "factsheet_175300-T20248-L-013.pdf",
+        "factsheet_175300-T20248-L-013-1.pdf"
+      ],
+      "material": "Bone",
+      "form": "ubrent animalosteologisk",
+      "period": "Viking period",
+      "county": "Trøndelag",
+      "municipality": "Steinkjer",
+      "cadastral": "Aunvold",
+      "cadastral_number": "246",
+      "property_number": "1",
+      "property": "Aunvold",
+      "latitude_raw": "64.1635647815224",
+      "longitude_raw": "11.819740680260399",
+      "coordinate_precision": "Bruk",
+      "last_updated_raw": "2026-10-26",
+      "description_scope": "Adult dog, size compared with a buhund; two factsheet exports describe the same record, not two dogs.",
+      "related_genetic_ids": [],
+      "crosswalk_scope": "Separate animal material; not an identity or date substitute for the paper human."
+    }
+  ],
+  "locality_precision_is_metric_accuracy": false,
+  "decimal_places_are_positional_accuracy": false,
+  "individual_date_selected": false,
+  "source_coordinate_selected": false,
+  "scientifically_admitted": false,
+  "remaining_questions": [
+    "Museum EU89 label realization/EPSG and intended coordinate semantics; preserve source label separately from nominal boundary-axis comparison.",
+    "Exact Fauskland c.003-to-sampled-tooth crosswalk and chronology representation conflict.",
+    "Exact Aunvollen Individual 2/CGG-to-human/laboratory/date crosswalk and property-versus-grave point meaning."
+  ]
+}
