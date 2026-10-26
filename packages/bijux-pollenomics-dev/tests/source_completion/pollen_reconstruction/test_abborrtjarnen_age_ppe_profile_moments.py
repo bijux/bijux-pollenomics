@@ -168,3 +168,44 @@ def test_changed_event_packets_cannot_hide_population_or_moment_changes(
         packet["conditional_contrast_differences"][0]["standard_deviation_change"] = 10
     with pytest.raises(ValueError):
         check_profile_comparison(packet, old, active, comparison, "controlled-native")
+
+
+@pytest.mark.parametrize(
+    "fault", [None, "missing", "duplicate", "bytes", "hash", "path"]
+)
+def test_governed_native_reference_requires_unique_pinned_ledger(
+    fault: str | None,
+) -> None:
+    from .abborrtjarnen_age_ppe.independent_profile_comparison import (
+        check_native_ledger_binding,
+    )
+
+    route = "artifacts/controlled-native/draw-ledger.csv.gz"
+    pin = {"bytes": 10, "sha256": "a" * 64}
+    entry = {"path": route, **pin}
+    reference: dict[str, Any] = {
+        "scientific_outputs": [
+            entry,
+            {
+                "path": "artifacts/controlled-native/result.json",
+                "bytes": 20,
+                "sha256": "b" * 64,
+            },
+        ]
+    }
+    if fault == "missing":
+        reference["scientific_outputs"].remove(entry)
+        reference["draw_ledger"] = entry
+    elif fault == "duplicate":
+        reference["scientific_outputs"].append(dict(entry))
+    elif fault == "bytes":
+        entry["bytes"] = 11
+    elif fault == "hash":
+        entry["sha256"] = "c" * 64
+    elif fault == "path":
+        entry["path"] = "artifacts/another-native/draw-ledger.csv.gz"
+    if fault is None:
+        check_native_ledger_binding(reference, route, pin)
+    else:
+        with pytest.raises(ValueError, match="ledger identity"):
+            check_native_ledger_binding(reference, route, pin)

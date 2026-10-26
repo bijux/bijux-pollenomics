@@ -130,6 +130,18 @@ class ProfileComparison:
             raise ValueError("Old/source ledger populations differ")
 
 
+def check_native_ledger_binding(
+    reference: dict[str, Any], route: str, pin: dict[str, Any]
+) -> None:
+    """Use the governed account's explicit scientific-output identity surface."""
+    entries = [
+        row for row in reference["scientific_outputs"] if row.get("path") == route
+    ]
+    expected = {"path": route, "bytes": pin["bytes"], "sha256": pin["sha256"]}
+    if len(entries) != 1 or entries[0] != expected:
+        raise ValueError("Old native reference and ledger identity differ")
+
+
 def observe_source_ledger(
     repository: Path,
     profile: dict[str, Any],
@@ -156,8 +168,7 @@ def observe_source_ledger(
         raise ValueError("Native comparison escaped its pinned scientific inputs")
     old = json.loads((repository / reference_path).read_bytes())
     pin = profile["repository_inputs"][ledger_path]
-    if any(old["draw_ledger"][k] != pin[k] for k in ("bytes", "sha256")):
-        raise ValueError("Old native reference and ledger identity differ")
+    check_native_ledger_binding(old, ledger_path, pin)
     with gzip.open(repository / ledger_path, "rt", newline="") as stream:
         comparison = ProfileComparison(
             native, csv.DictReader(stream), response, ppe, sd
