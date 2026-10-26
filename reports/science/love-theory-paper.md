@@ -91,7 +91,7 @@ The remaining source need is the original realized landscape/basin/count inputs,
 
 **Actual verification performed.** Source byte/hash and 15-page identity checks, full-text reading, selected equation/appendix page-image comparison and maintained-consumer inspection. No new model run.
 
-**Remaining input or review.** Original realized numerical inputs/covariance/truth/output arrays and usable programs remain absent; a historical application needs its own supported physical and temporal inputs.
+**Remaining input or review.** Original realized numerical inputs/covariance/truth/output arrays and usable programs remain absent; a historical application needs its own supported physical and temporal inputs. Resolver: Original paper/scenario custodian and qualified LOVE method reviewer Reopen when: Original numerical scenarios permit exact replay, or a separately supported historical profile presents a specific physical/dependence question. A local-accuracy claim additionally requires independent vegetation.
 
 **Cause category.** data|assumption|comparability
 

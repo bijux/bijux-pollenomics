@@ -78,12 +78,20 @@ This source review closes published-design interpretation, with contradictions r
 
 **Actual verification performed.** Full text, source byte/hash identity and critical table/caption/prose page images checked on 26 October 2026. No model, figure digitization or existing arithmetic rerun.
 
-**Remaining input or review.** Original 50/final 40 modern-sample ledger and counts, raw/unrounded realizations, complete random-subrun membership, conflict resolution, uncertainty inputs and a specific matched-support/dependence assessment. Three retained lake-name matches/four historical cores do not supply the modern samples. Main-paper access is resolved.
+**Remaining input or review.** Original 50/final 40 modern-sample ledger and counts, raw/unrounded realizations, complete random-subrun membership, conflict resolution, uncertainty inputs and a specific matched-support/dependence assessment. Three retained lake-name matches/four historical cores do not supply the modern samples. Main-paper access is resolved. Resolver: Original study custodian and qualified REVEALS/survey-design reviewer Reopen when: Source-owned original modern sample/count/run realizations permit exact replay, or genuinely matched independent observations support a separately declared validation and specific qualified comparability review. Main-paper access is resolved.
+
+**Cause category.** data|comparability|qualified review
 
 **Consequence.** Preserve physical scenario descriptions and conflicting source statements; do not elect a correction or substitute nine later labels for the original sensitivity results.
 
 **Precise next acceptance route.** Source-owned numerical run information can permit exact scenario replay. A separately justified matched observation cohort and qualified interpretation are needed for repository vegetation validation.
 
+**Negative or refused result.** No exact original modern-sample binding from three retained lake-name matches/four historical cores; original numerical replay and new repository vegetation pairing remain unperformed.
+
 **Matched denominator.** Per region: 25 samples from five lakes, twenty from four, or four from one/four lakes; two regional landscapes, repeated alternative calculations on shared observations.
+
+Retained evidence: [reports/science/hellman-sampling-design-paper.md](hellman-sampling-design-paper.md), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-verification-and-limits:end -->

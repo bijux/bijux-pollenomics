@@ -74,12 +74,20 @@ Published source interpretation is consequently complete within this account; **
 
 **Actual verification performed.** Full text, source byte/hash identity and critical table page images checked on 26 October 2026; existing nine-label arithmetic retained without rerun.
 
-**Remaining input or review.** Original 50/final 40 modern-sample ledger and counts, unrounded outputs, spatial realization, uncertainty inputs, source-dependence and matched-estimand review. Four retained historical cores from three lake-name matches do not bind the 2003 samples. Main-paper access is resolved.
+**Remaining input or review.** Original 50/final 40 modern-sample ledger and counts, unrounded outputs, spatial realization, uncertainty inputs, source-dependence and matched-estimand review. Four retained historical cores from three lake-name matches do not bind the 2003 samples. Main-paper access is resolved. Resolver: Original study custodian and independent vegetation/palynology reviewer Reopen when: Source-owned original modern sample/count/run realizations permit exact replay, or genuinely matched independent observations support a separately declared validation and specific qualified comparability review. Main-paper access is resolved.
+
+**Cause category.** data|comparability|qualified review
 
 **Consequence.** Preserve the nine-label 5.11 versus 17.33 percentage-point comparison on its own denominator; keep new independent vegetation metrics unavailable.
 
 **Precise next acceptance route.** Obtain the missing original numerical payload where replay is intended, or source-bind genuinely matched independent observations for a new validation. Review actual comparability questions rather than asking again for the supplied article.
 
+**Negative or refused result.** No exact original modern-sample binding from three retained lake-name matches/four historical cores; original numerical replay and new repository vegetation pairing remain unperformed.
+
 **Matched denominator.** Initial 50 samples/ten lakes; final 40/eight lakes, twenty/four per region; two regional compositions. Later local figure calculation: nine displayed region/taxon labels.
+
+Retained evidence: [reports/science/hellman-regional-validation-paper.md](hellman-regional-validation-paper.md), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-verification-and-limits:end -->

@@ -8,13 +8,13 @@ This inventory identifies the papers needed to understand our regional/local pol
 | --- | --- | --- |
 | What does the European regional archive reconstruct? | [LandClim II](landclim-paper.md) | Full paper explanation; selected author examples agree numerically, while historical-input identity and archive transformations remain open. |
 | What does the 2024 local-inference benchmark establish? | [LOVE and LOVEoptim](loveoptim-paper.md) | Full article explanation; later code fixtures and printed parameters correspond, while the eight-pond simulation inputs are unavailable. |
-| Why can a regional model use large-site pollen? | [REVEALS theory](reveals-theory-paper.md) | Abstract-level original theory account with a separate later source-count trace; original simulations are not reproduced. |
-| How can regional background inform local vegetation? | [LOVE theory](love-theory-paper.md) | Abstract-level original theory account with a separate constructed regional/local interface; no independent local truth is scored. |
-| What empirical validation supports regional reconstruction? | [Hellman regional validation](hellman-regional-validation-paper.md) | Publisher abstract and later figure context; original ten-lake/26-taxon data remain unavailable. |
-| How sensitive is validation to sampling and parameters? | [Hellman sampling design](hellman-sampling-design-paper.md) | Publisher abstract explains the distinct question; original scenario outputs and uncertainty formulas are unavailable. |
+| Why can a regional model use large-site pollen? | [REVEALS theory](reveals-theory-paper.md) | Full original theory, formula and scenario/error-method account; realized simulation arrays/programs remain absent, and the later source-count trace is separate. |
+| How can regional background inform local vegetation? | [LOVE theory](love-theory-paper.md) | Full original local/background theory and backward-rule account; original numerical realizations remain absent, and the constructed interface scores no independent local truth. |
+| What empirical validation supports regional reconstruction? | [Hellman regional validation](hellman-regional-validation-paper.md) | Full original ten-lake design and printed 26-taxon reference/error vectors; original 2003 modern counts/run packet remains absent. Three same-name lakes/four retained historical cores do not bind it. |
+| How sensitive is validation to sampling and parameters? | [Hellman sampling design](hellman-sampling-design-paper.md) | Full six-design study with printed parameters and graphical results; conflicting labels/values and missing random memberships/unrounded realizations prevent exact replay. |
 | What does the figure used in our current summary show? | [Gaillard southern Swedish comparison](southern-sweden-validation-paper.md) | Full source PDF; nine rounded selected labels support bounded arithmetic, rather than a full 26-taxon or repository score. |
 | Can historical maps provide a local vegetation target? | [Cui Småland maps](smaland-historical-maps-paper.md) | Full article/appendix account; map support and pollen anchors replay, but numerical mapped class fractions remain unavailable. |
-| What do modern savanna reference observations offer? | [Tabares Namibian observations](namibia-pollen-vegetation-paper.md) | Publisher abstract plus two complete source tables; source join and descriptive distance are out-of-domain development evidence. |
+| What do modern savanna reference observations offer? | [Tabares Namibian observations](namibia-pollen-vegetation-paper.md) | Full article/supplement and modern tables; original ERV/historical realizations remain absent. Source joins and separate exposed development studies do not establish Nordic vegetation accuracy. |
 
 The original published population, later software fixture, source-row extraction and present repository prediction are different evidence units. The canonical account shows a worked example with its actual denominator, explains that distinction and names the missing input or decision. Every independent reader exercise and qualified scientific review remains outstanding; a report or model-generated review does not supply either.
 
@@ -30,19 +30,19 @@ Original lake chronology and regional vegetation-history papers support their pa
 
 HYDE country/gridded source records have their own [source account](hyde-cropland-source-account.md); they are modeled land-use context, rather than independent vegetation truth or a reproduced main-paper experiment. Animal/aDNA appendices and archaeology source publications remain in their [owned evidence accounts](../README.md), since they do not validate REVEALS/LOVE or pollen-to-vegetation accuracy. Conditional archaeological country scope remains conditional.
 
-Expand this inventory when a new scientific conclusion depends on an additional primary paper; add its citation, role, actual source release and canonical account before using it as a headline. Preserve partial source access explicitly. Obtain the exact missing full text, data and qualified decisions before expanding a report's reproduction or validation status.
+Expand this inventory when a new scientific conclusion depends on an additional primary paper; add its citation, role, actual source release and canonical account before using it as a headline. Preserve source-specific receipt and missing-data boundaries explicitly. The supplied main articles are examined; original realized numerical inputs and applicable qualified decisions remain separate from article availability and must support any expanded reproduction or validation claim.
 
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Nine canonical citation/account links cover the declared main scientific paper set.
+**Supported claim.** Nine canonical citation/account links cover the declared main scientific paper set. Sugita, Hellman and Namibia full-text source accounts retain explicit numerical and scientific residuals.
 
-**Unsupported claim.** Automatic reproduction or full-text access for every listed paper.
+**Unsupported claim.** Automatic original-run reproduction, ecological validation or qualified scientific approval for any listed paper.
 
-**Actual verification performed.** Retained paper-accounts.csv and nine linked accounts form the inventory; index checked paths, not primary literature anew.
+**Actual verification performed.** Inventory source-role/status/residual fields were reconciled with the five supplied full-text owning accounts and canonical paths; no numerical model or qualified human review was performed for this reconciliation.
 
-**Remaining input or review.** The nine-paper citation/account inventory is complete for its declared current claim set; partial primary-text/data access is explicitly stated within the individual accounts, not an unresolved inventory enumeration. Resolver: Paper-account owner Reopen when: A new headline scientific claim depends on another primary paper or a canonical account/source status changes.
+**Remaining input or review.** The nine-paper inventory is complete for its declared claim set. Supplied main-text receipt is distinguished from missing realized numerical data, source-specific physical comparability and scientific review; these are not missing bibliography entries. Resolver: Paper-account owner Reopen when: A new headline scientific claim depends on another primary paper or a canonical account/source status changes.
 
 **Cause category.** none within stated scope
 
@@ -50,7 +50,7 @@ Expand this inventory when a new scientific conclusion depends on an additional 
 
 **Precise next acceptance route.** A new headline scientific claim depends on another primary paper or a canonical account/source status changes. Then update reports/science/paper-accounts.md.
 
-**Negative or refused result.** No missing canonical account within declared nine-paper inventory; individual source gaps are reported in those accounts.
+**Negative or refused result.** No missing canonical account within the declared nine-paper inventory; original numerical and scientific residuals remain in their owning accounts.
 
 **Matched denominator.** Nine main-paper accounts in the CSV and Markdown inventory.
 

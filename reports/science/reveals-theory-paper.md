@@ -81,7 +81,7 @@ The remaining source need is the original realized landscapes and basin position
 
 **Actual verification performed.** Source byte/hash and 13-page identity checks, full-text reading, selected appendix page-image comparison, and maintained-consumer inspection. No new model run.
 
-**Remaining input or review.** Original realized landscapes, numerical covariance/count/truth/output arrays and usable source programs are absent. A proposed historical application needs separately supported physical and temporal inputs.
+**Remaining input or review.** Original realized landscapes, numerical covariance/count/truth/output arrays and usable source programs are absent. A proposed historical application needs separately supported physical and temporal inputs. Resolver: Original theory-paper/scenario custodian and qualified REVEALS reviewer Reopen when: Original realized landscape/basin/count/covariance/truth/output arrays and usable source programs permit exact simulation reproduction; a historical application requires its separately supported physical and temporal profile.
 
 **Cause category.** data|assumption|comparability
 

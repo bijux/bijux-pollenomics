@@ -29,6 +29,16 @@ development cohort. Separate experiments predict
 Their fits, scores and failures remain separate from this descriptive join;
 none validates Nordic vegetation reconstruction.
 
+The supplied full article and supplement have now been read in the
+[owning source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md#full-article-and-supplement-source-review).
+They specify fifteen concentric 100 m rings, the 2012–2015 imagery period,
+field/imagery construction, and the ERV background/objective and parameter
+selection. Exact per-site times, realized rasters and area-transformation arrays,
+original execution/repetition/covariance and historical replay inputs remain
+unbound. The separately identified 20- and 100-repetition tables and literal
+Combretaceae fall-speed disagreement must be preserved. This source reading
+reran none of the source join, distance, inverse or forward calculations.
+
 ## Descriptive radius sensitivity
 
 The [radius sensitivity report](radius-sensitivity.json) and [site-level
