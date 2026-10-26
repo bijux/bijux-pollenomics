@@ -24,13 +24,14 @@ from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
 )
 
 from .....core.files import write_json
+from .native_rows import attach_sead_native_source_rows
 
 CLAIM_BUNDLE_SCHEMA_VERSION: Final = "sead-chronology-claim-bundle.v1"
 CLAIM_SCHEMA_VERSION: Final = "sead-chronology-claim.v1"
 
 
 def build_sead_chronology_claim_bundle(
-    acquisition_root: Path,
+    acquisition_root: Path, *, include_native_source_rows: bool = False
 ) -> dict[str, object]:
     """Validate raw-parent bytes and build one claim for every chronology row."""
     root = acquisition_root.resolve(strict=True)
@@ -62,12 +63,15 @@ def build_sead_chronology_claim_bundle(
         copied[relative_path] = payload
 
     return build_sead_chronology_claim_bundle_from_snapshot(
-        SeadMaterializedAdmissionSnapshot(admission=admission, copied_files=copied)
+        SeadMaterializedAdmissionSnapshot(admission=admission, copied_files=copied),
+        include_native_source_rows=include_native_source_rows,
     )
 
 
 def build_sead_chronology_claim_bundle_from_snapshot(
     snapshot: SeadMaterializedAdmissionSnapshot,
+    *,
+    include_native_source_rows: bool = False,
 ) -> dict[str, object]:
     """Build claims exclusively from bytes retained by admission validation."""
     admission = snapshot.admission
@@ -142,6 +146,9 @@ def build_sead_chronology_claim_bundle_from_snapshot(
         claim_row["source_payload_sha256"] = payload_digests[claim["source_table"]]
         claim_row["acquisition_manifest_sha256"] = manifest_sha256
 
+    if include_native_source_rows:
+        attach_sead_native_source_rows(claims, table_payloads)
+
     country_counts = _partition_counts(claims, "country_code")
     claim_type_counts = _partition_counts(claims, "claim_type")
     comparability_counts = _partition_counts(claims, "comparability_status")
@@ -190,22 +197,42 @@ def build_sead_chronology_claim_bundle_from_snapshot(
 
 
 def write_sead_chronology_claim_bundle(
-    acquisition_root: Path, output_path: Path
+    acquisition_root: Path,
+    output_path: Path,
+    *,
+    include_native_source_rows: bool = False,
 ) -> Path:
     """Write the deterministic claim bundle through the repository JSON writer."""
     destination = output_path.resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    write_json(destination, build_sead_chronology_claim_bundle(acquisition_root))
+    bundle = (
+        build_sead_chronology_claim_bundle(
+            acquisition_root, include_native_source_rows=True
+        )
+        if include_native_source_rows
+        else build_sead_chronology_claim_bundle(acquisition_root)
+    )
+    write_json(destination, bundle)
     return destination
 
 
 def write_sead_chronology_claim_bundle_from_snapshot(
-    snapshot: SeadMaterializedAdmissionSnapshot, output_path: Path
+    snapshot: SeadMaterializedAdmissionSnapshot,
+    output_path: Path,
+    *,
+    include_native_source_rows: bool = False,
 ) -> Path:
     """Write a claim bundle without reopening admission-controlled inputs."""
     destination = output_path.resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    write_json(destination, build_sead_chronology_claim_bundle_from_snapshot(snapshot))
+    bundle = (
+        build_sead_chronology_claim_bundle_from_snapshot(
+            snapshot, include_native_source_rows=True
+        )
+        if include_native_source_rows
+        else build_sead_chronology_claim_bundle_from_snapshot(snapshot)
+    )
+    write_json(destination, bundle)
     return destination
 
 
