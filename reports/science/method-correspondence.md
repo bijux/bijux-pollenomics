@@ -464,6 +464,79 @@ ecological site eligibility or recommended physical lake dimensions. The result
 does not establish complete branch coverage, physical accuracy or release
 qualification, and it neither reruns nor replaces the separate 30-case result.
 
+## Conditional covariance numerical-domain refusals
+
+The fixed-site and joint fixed-site conditional covariance APIs have a finite
+binary64 calculation domain in addition to their scientific assumptions. Finite
+counts, deposition, PPE and PPE covariance do not guarantee a representable
+corrected total, derivative or propagated covariance. Both consumers must retain
+that failure as `ValidationError` even when a caller raises on NumPy floating-point
+warnings. A partly computed composition is not a usable covariance result.
+
+A direct pre-edit check at base source `38a830f777afa75d17b8cf0a4935b2b206ae6d60`
+exercised four two-taxon requests in both consumers with
+`warnings.simplefilter("error", RuntimeWarning)` and `np.errstate(all="raise")`.
+All cells were declared measured; there was one fixed count support. Seven of
+the eight calls leaked `FloatingPointError`; only the fixed-site propagated
+covariance case already raised `ValidationError`:
+
+| Counts | Deposition | PPE | PPE covariance | Numerical failure |
+| --- | --- | --- | --- | --- |
+| `(1,1)` | `(1e-308,1e-308)` | `(1,1)` | identity | Corrected total overflows |
+| `(0,1)` | `(1e-308,1e308)` | `(1,1)` | identity | Zero-count-axis derivative overflows |
+| `(1,1)` | `(1e308,1e308)` | `(5e-324,5e-324)` | identity | PPE derivative overflows |
+| `(1,1)` | `(1e200,1e200)` | `(1e-200,1e-200)` | `1e200 * identity` | Propagated covariance is nonfinite |
+
+Review identified a fifth request, counts `(1,1)`, deposition
+`(1e308,1e-308)`, unit PPE and zero PPE covariance. Two direct calls after the
+derivative changes still raised `FloatingPointError` in the unmodified closure
+division. Under ordinary warning handling that division returned `(0,1)`,
+silently losing a taxon with positive observed counts. Both consumers now refuse
+that unrepresentable positive composition. Measured zero remains a distinct,
+permitted value.
+
+The original terminal outcomes are retained in
+`artifacts/method-certification/covariance-domain-before.txt`. The maintained
+consumers now inspect numerical results before using them downstream, retaining
+the existing corrected-total refusal and adding explicit nonfinite derivative
+refusals. The joint consumer checks finiteness before normalizing a covariance.
+Local warning handling permits these reasoned refusals without depending on the
+caller's warning policy. Equations, covariance assumptions, profiles, count
+denominators and numerical tolerances are unchanged.
+
+The focused checks retain all ten requests as explicit refusals. Four positive
+controls (two consumers by two equal-response cases) independently use the
+binomial identity `Var(n1/N) = p*(1-p)/N`: `(30,70)` with deposition
+`(1e308,1e308)` gives `p=0.3` and variance `0.0021`; `(1,1)` with deposition
+`(2e-308,2e-308)` gives `p=0.5` and variance `0.125`. Common correction factors
+cancel analytically. These finite extreme requests still return the two
+complementary covers and their signed closed covariance under the same strict
+warning policy. Existing heterogeneous-geometry, shared-PPE, native-support,
+finite-law and public-contract checks provide separate relevant regression
+evidence; the finite-law checks distinguish exact moments from delta approximation.
+Two separate controls retain the representable subnormal cover `1e-308` for
+deposition `(1e308,1)`, counts `(1,1)` and unit PPE. Those controls claim only
+preservation of positive composition: their squared counting scale lies below
+binary64 and the returned counting covariance is zero, not an exact moment.
+
+The actual precommit command was:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -c configs/pytest.ini \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_covariance_correction_domain.py \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_fixed_site_covariance.py \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_joint_fixed_site_covariance.py \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_joint_covariance_public_contract.py \
+  --basetemp artifacts/method-certification/pytest-covariance-cover-domain -q
+```
+
+It passed **111 checks** in 0.19 seconds on reviewed working changes based on the
+source above. Configured Ruff lint/format and strict mypy checks passed for the
+three changed Python files. This is affected-consumer precommit verification, not an exact-HEAD
+R comparison or a new physical experiment. A finite-input numerical refusal does
+not supply chronology/geometry uncertainty, historical reproduction, measured
+vegetation accuracy or full method certification.
+
 ## How to use this result
 
 We use the selected author profile to test numerical fidelity to the

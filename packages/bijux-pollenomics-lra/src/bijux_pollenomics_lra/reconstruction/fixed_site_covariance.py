@@ -42,6 +42,8 @@ def fixed_site_cover_covariance(
     multinomial denominator remains exactly representable in binary64.
     Every binary64 reciprocal deposition/PPE factor must remain finite and
     positive, including zero-count axes used by the covariance derivative.
+    Positive corrected counts must remain positive after closure; a taxon
+    cannot disappear solely through numerical underflow.
     Overflow of the parameter product refuses even when an alternate
     evaluation could represent its reciprocal.
     Site selection, chronology, geometry and transport uncertainty are held
@@ -124,24 +126,33 @@ def fixed_site_cover_covariance(
         raise ValidationError(
             "Fixed-site correction factors are not finite and positive"
         )
-    weights = (n * factors).sum(axis=0)
-    total = weights.sum()
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        weights = (n * factors).sum(axis=0)
+        total = weights.sum()
     if not np.isfinite(total) or total <= 0:
         raise ValidationError("Fixed-site corrected total is invalid")
-    cover = weights / total
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        cover = weights / total
+    if np.any((weights > 0) & (cover == 0)):
+        raise ValidationError("Fixed-site positive cover is not representable")
     closure_jacobian = np.eye(len(p)) - cover[:, None]
     counting = np.zeros_like(cp)
-    for site_counts, site_factors in zip(n, factors, strict=True):
-        site_total = site_counts.sum()
-        fraction = site_counts / site_total
-        count_covariance = site_total * (
-            np.diag(fraction) - np.outer(fraction, fraction)
-        )
-        jacobian = closure_jacobian * site_factors[None, :] / total
-        counting += jacobian @ count_covariance @ jacobian.T
-    ppe_jacobian = -closure_jacobian * (cover / p)[None, :]
-    ppe_part = ppe_jacobian @ cp @ ppe_jacobian.T
-    combined = counting + ppe_part
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        for site_counts, site_factors in zip(n, factors, strict=True):
+            site_total = site_counts.sum()
+            fraction = site_counts / site_total
+            count_covariance = site_total * (
+                np.diag(fraction) - np.outer(fraction, fraction)
+            )
+            jacobian = closure_jacobian * site_factors[None, :] / total
+            if not np.isfinite(jacobian).all():
+                raise ValidationError("Fixed-site count derivatives are not finite")
+            counting += jacobian @ count_covariance @ jacobian.T
+        ppe_jacobian = -closure_jacobian * (cover / p)[None, :]
+        if not np.isfinite(ppe_jacobian).all():
+            raise ValidationError("Fixed-site PPE derivatives are not finite")
+        ppe_part = ppe_jacobian @ cp @ ppe_jacobian.T
+        combined = counting + ppe_part
     if not np.isfinite(combined).all() or np.linalg.eigvalsh(combined).min() < -1e-12:
         raise ValidationError("Fixed-site propagated covariance is invalid")
     standard_error = np.sqrt(np.maximum(np.diag(combined), 0))
