@@ -121,7 +121,8 @@ def test_public_horse_fields_match_all_original_xml_cells_and_selected_rows() ->
             str(row["repo_stable_sample_id"]): {
                 key: value
                 for key, value in row.items()
-                if key != "source_chronology_fields"
+                if key
+                not in {"source_chronology_fields", "source_chronology_alternatives"}
             }
             for row in rows
         }

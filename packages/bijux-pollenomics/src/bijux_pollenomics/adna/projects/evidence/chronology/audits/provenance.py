@@ -10,6 +10,9 @@ from bijux_pollenomics.adna.projects.sample_master import (
 from bijux_pollenomics.adna.projects.sample_master.tables.horse_source_fields import (
     horse_source_chronology_fields,
 )
+from bijux_pollenomics.adna.projects.sample_master.tables.horse_source_fields.alternatives import (
+    horse_source_chronology_alternatives,
+)
 
 
 def _build_sample_chronology_provenance_rows(
@@ -82,7 +85,10 @@ def _build_sample_chronology_provenance_rows(
                         {
                             "source_chronology_fields": horse_fields[
                                 row.repo_stable_sample_id
-                            ]
+                            ],
+                            "source_chronology_alternatives": horse_source_chronology_alternatives(
+                                horse_fields[row.repo_stable_sample_id]
+                            ),
                         }
                         if horse_fields
                         else {}
