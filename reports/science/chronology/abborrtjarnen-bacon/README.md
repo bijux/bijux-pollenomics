@@ -216,8 +216,21 @@ is **`refused_mcmc_diagnostics`**. The R condition-warning list is empty,
 but native stdout separately records 31,680 and 30,438 `WarnBeyondLimits`
 warnings for seeds 314159 and 271828, respectively, with the literal message
 “calibration attempted beyond MinYr= -202.000000 or MaxYr= 1000000.000000”.
-The raw native warnings remain preserved; they are not counts of retained
-age values or an empty warning channel. No seed, prior,
+The raw native warnings remain preserved. In the actual 4.0.2 source,
+`BaconFix::SetThetas` counts top-age and bottom-age boundary events; it does
+not count calibration calls or unique rejected proposals. A top-limit event
+rejects support; a bottom age above `MaxYr` increments the counter without
+itself rejecting support. Initialization checks can also increment it and
+one call can contribute twice. Consequently, the printed counts cannot be
+interpreted as rejected-proposal or accepted-evaluation counts, and `MaxYr`
+is not an independently enforced hard bottom-age bound in this branch.
+
+A read-only check of all 7,501 saved rows per chain found zero top-age
+violations of [−202,1,000,000] BP and zero physical bottom ages above
+1,000,000 BP. Top-age ranges were −201.858 to 206.071 and −200.240 to 177.797
+BP; physical model-bottom ranges at 903 cm were 7459.926–11062.939 and
+8618.423–11398.243 BP. These finite saved-state checks do not establish an
+unobserved proposal history or posterior convergence. No seed, prior,
 retention rule or criterion was changed, and no extra chain or retuned fit
 was run after inspecting this outcome.
 

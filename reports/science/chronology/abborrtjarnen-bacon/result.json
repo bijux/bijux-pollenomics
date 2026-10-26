@@ -405,6 +405,36 @@
       }
     ],
     "literal_native_message": "calibration attempted beyond MinYr= -202.000000 or MaxYr= 1000000.000000",
-    "interpretation": "Native warnings are preserved separately from R conditions; warning counts are not retained-age counts."
-  }
+    "interpretation": "Native SetThetas counts boundary events, including initialization and up to two per call. Top-limit events reject support; a bottom above MaxYr increments without itself rejecting support. Counts are not calibration-call, unique-rejection, accepted-evaluation or retained-age counts."
+  },
+  "saved_boundary_check": [
+    {
+      "seed": 314159,
+      "rows": 7501,
+      "top_age_range": [
+        -201.858,
+        206.071
+      ],
+      "bottom_age_range": [
+        7459.925702820841,
+        11062.939051112187
+      ],
+      "saved_top_outside_limits": 0,
+      "saved_bottom_above_max": 0
+    },
+    {
+      "seed": 271828,
+      "rows": 7501,
+      "top_age_range": [
+        -200.24,
+        177.797
+      ],
+      "bottom_age_range": [
+        8618.422692431748,
+        11398.243475737238
+      ],
+      "saved_top_outside_limits": 0,
+      "saved_bottom_above_max": 0
+    }
+  ]
 }
