@@ -321,3 +321,68 @@ rate law, independently of the helper. The script asserts both exact vectors
 and writes the three inspection rows. The failed one-row attempt and corrected
 two-row direct call precede this maintained script; no core fit, convergence
 claim or posterior score follows from this controlled witness.
+
+## Separately fixed sampler-accuracy qualification
+
+The [sampler-accuracy protocol](sampler-accuracy-protocol.json) prespecifies
+16,000 retained states for each original seed, 32,000 in total. It preserves
+the failed 8,000-state experiment above. The original no-retry rule prohibits
+extra chains, changed seeds, wider criteria and outcome-tuned priors; it does
+not prohibit separately declared numerical accuracy work on the same two
+trajectories. This qualification fixes one larger terminal length and permits
+no further escalation, new seed or alternative prior after its outcome.
+
+Stock rbacon writes both terminal walkers to `.last` at six significant
+digits but does not checkpoint its private random-generator state. Loading
+those rounded values through `.init` is a restart, not exact continuation.
+Instead, the unchanged fixed-transition sampler is invoked from its original
+starts and seeds with native size argument 16,500. Its transition kernel does
+not adapt to the requested length; saved states remain 1,325 proposals apart.
+The two newly prepared native input programs must match the originals before
+sampling. Each complete 19,501-state stream must then begin with its original
+5,678,254-byte stream exactly, including the leading blank line and absent
+final newline. A numerical tolerance or reformatted row comparison cannot
+substitute for that byte check. Original one-based rows 3502–19501 are retained
+once; the old retained prefix is not an independent additional sample.
+
+All data, eight likelihood terms, priors, calibration files, native binary,
+initial pairs and diagnostic thresholds remain fixed. Every original age,
+memory, innovation, top-age and energy criterion must pass. Both prefixes,
+joint-age extraction and resource checks precede the frozen score consumer.
+A failed gate retains native states, ages and diagnostics with an explicit
+unscored refusal. If final storage exceeds the budget after scoring, raw score
+files remain, while interpreted descriptors are withheld and the result is
+labelled `computed_then_refused_final_resources`. Previously exposed predictions
+and failed-run scores do not become untouched validation.
+
+The 600-second native deadline and 1.5 GB measured RSS budget are unchanged.
+The separate output ceiling is 100,000,000 bytes, checked after execution.
+The original layout contains 20,022,943 bytes: about 11.36 MB native states,
+8.24 MB compressed ages and 0.36 MB compressed scores. Native rows increase
+by about 2.6 times, while retained age and score exports increase fourfold;
+the corresponding estimate is 63,967,189 bytes. The ceiling leaves about
+56% headroom over that estimate, without claiming guaranteed compression or
+an operating-system storage quota. The original directory stays untouched.
+
+No native fit for this qualification has run during source preparation.
+Controlled checks cover literal prefix boundaries, source/runtime identity,
+unchanged target inputs, score withholding and resource failures. The first
+author invocation passed its source-binding control but had eight fixture
+setup errors because its artifact basetemp parent was absent; creating the
+parent resolved that setup failure. Separately, the independent observer's
+initial invocation had five setup errors and nine passing arithmetic checks;
+the same output-parent correction allowed all fourteen controls to pass.
+Neither setup correction changed scientific inputs or diagnostic criteria.
+
+After source review and commit, the existing command selects this protocol
+with `--sampler-accuracy` and a separate absent output directory:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarnen_bacon \
+  --repository "$PWD" --source-root "$PWD/../-bijux-pollenomics-data" \
+  --library "$PWD/artifacts/qualification/native-reference/library" \
+  --oracle-summary "$PWD/artifacts/physical-core/native-likelihood-oracle/summary.json" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-run" \
+  --sampler-accuracy
+```
