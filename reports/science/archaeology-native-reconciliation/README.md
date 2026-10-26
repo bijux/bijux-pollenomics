@@ -6,6 +6,8 @@ resolve, and an independent SQL aggregation reproduces every table population,
 every field's null/non-null, numeric-zero and empty-text counts, and all five
 category distributions. This establishes national source accounting. It does
 not identify the historical WFS records or admit an archaeological chronology.
+The separately scoped native source-context profile is now admitted for reading
+the source's own facts; historical WFS density retains its separate refusal.
 
 The complete compact population result is [report.json](report.json). The
 [full geometry payload result](geometry.json) separately accounts for all
@@ -107,7 +109,7 @@ A later claim-specific selection must declare its treatment of these statuses.
 
 ## Execution and independent check
 
-The actual national execution used committed consumed source
+The population baseline execution used committed consumed source
 `657c8358f9f2234b58a1155e0e2906cd58e23eba` on 26 October 2026:
 
 ```bash
@@ -124,6 +126,9 @@ in **49.112 seconds**, below its 600-second SQLite wall budget, and wrote a
 22,551-byte report. Other workers had disjoint edits; the source consumer and
 its inputs were committed and stable throughout. This is a consumed-source
 scientific result, not a clean whole-repository release qualification.
+That baseline output remains under `artifacts/raa-reconciliation/national-population/`.
+The current linked population result additionally carries the native-context
+profile from the execution described below; every prior scientific field agrees.
 
 The independent check uses SQLite aggregation directly over the seven native
 base tables, without the Python ownership reader's counting loop. It compares
@@ -221,6 +226,77 @@ and the corrected consumer; configured Ruff check/format passed. The NumPy
 comparison is an independent computational method on the same source, not
 independent archaeological corroboration or qualified human review.
 
+## Native source-context admission
+
+The maintained `open_raa_source_context` reader now selects the exact retained
+`raa/lamningar-v1` capture as **source context only**. It validates the source
+byte identity, the existing versioned Public Domain authority and use limits,
+native table/schema declarations and declared CRS. It reads native tables
+lazily, preserving IDs, field values, nulls, numeric zero and relationship keys.
+Its geometry iterator retains distinct remains/positional-uncertainty roles and
+explicit invalid or null payload results. It creates no additional national
+dataset or full derived row stream.
+
+The current result's `source_context_profile.status` is
+`admitted_source_context`, with 764,383 native remains records, 839,063 native
+remains geometry occurrences and 764,383 positional-uncertainty occurrences.
+Its source-country statement is Swedish national provider scope; it does not
+assign each record to a country. Archaeological interpretation, scientific,
+chronology, event, legacy-density and publication admission remain false.
+
+The historical WFS inventory and its current density authority are a different
+source/product population. Their missing inventory/summary/review still refuse
+that density product. They are not prerequisites for reading a separately
+identified official capture's uninterpreted source facts. The original capture
+receipt and the nonadopting ownership/geometry audit boundaries remain unchanged;
+the new source-context profile records the narrower current use separately.
+
+Actual retained-source execution used committed consumed source
+`0ae2ea669d67e0ff8762d791791b9b1ef71b9904`:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  .venv/bin/python -B \
+  -m bijux_pollenomics_dev.source_completion.archaeology.national_population \
+  --repository /Users/bijan/bijux/bijux-pollenomics \
+  --source /Users/bijan/bijux/-bijux-pollenomics-data/raa/lamningar-v1/lamningar_sverige.gpkg \
+  --output /Users/bijan/bijux/bijux-pollenomics/artifacts/raa-reconciliation/native-source-context
+```
+
+Owned session `16408` terminated with exit code **0** in **48.155 seconds**,
+within the existing 600-second bound. Its 24,242-byte report is the current
+[population result](report.json). Every prior population, class, field-null/
+zero/empty, ownership, source-identity and independent SQL result agrees exactly
+with the baseline after excluding the new profile and elapsed time. The existing
+full geometry qualification was reused on the same immutable source bytes.
+
+The existing source-family state-matrix producer generated the optional native
+profile within the RAÄ row using the unchanged v66 collection-summary counts.
+Every old stage field and all 187 capability audit rows agree exactly. The
+existing country-coverage writer then regenerated its parent/build identities;
+all 198 cells retain every original count, status, reason and source identity.
+Only the changed stage-file input identity and resulting build identities differ.
+The existing source-capability consumer was run at
+`artifacts/raa-reconciliation/source-capability-context/`; its
+[published account](../../../docs/report/regions/nordic/source-capability/report.json)
+now preserves the optional native profile. All prior country and legacy stage
+fields agree, with only required input/build identities refreshed. The old
+`raa_total_site_count` and `raa_heritage_site_count` authority metrics remain
+null; native source records use their own explicit denominator.
+
+The actual generators were `build_source_family_state_matrix_payload` with
+`core.files.write_json`, `write_country_dimension_coverage_ledger` with
+`configs/scientific-contracts/country-coverage.schema.json`, and
+`bijux_pollenomics_dev.source_completion.source_capability.run`. No generated
+matrix was edited by hand. Configured checks passed 284 affected product tests,
+60 archaeology tests and 34 source-capability tests, followed by two actual
+country-partition/schema and source-refusal checks on the refreshed inputs.
+Strict mypy passed for the nine changed Python paths; configured Ruff checks
+also passed. Fixture controls
+refuse unbound source bytes/rights/CRS, rewritten acquisition history, mismatched
+qualification populations and scope promotion while preserving native values,
+invalid/null geometry occurrences and the complete legacy density refusal.
+
 ## Remaining acceptance
 
 This is a scoped source-accounting contribution to RAÄ preservation and
@@ -229,7 +305,9 @@ identities, exact query predicates and capture/source dates is still needed for
 individual population reconciliation. The complete 2D payload/declared-CRS
 accounting is now established; qualified spatial/archaeological
 interpretation, source-bound chronology and the actual intended downstream
-selection remain separate. Canonical source adoption, historical-density
-equivalence, chronology admission, scientific-event admission and field
-permission remain false. No whole science outcome or original umbrella clause
-is closed by this national census alone.
+selection remain separate. The narrow native source-context profile is admitted;
+the ownership/geometry audit contracts still assert no general canonical-source
+adoption. Historical-density equivalence, chronology admission,
+scientific-event admission, archaeological interpretation, publication admission
+and field permission remain unestablished. No whole science outcome or original
+umbrella clause is closed by these source preparation results alone.

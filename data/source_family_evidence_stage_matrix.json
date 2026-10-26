@@ -90,7 +90,44 @@
         "missing_raw_summary",
         "missing_scientific_review",
         "unavailable_governed_coverage_metrics"
-      ]
+      ],
+      "source_context_profile": {
+        "profile_id": "raa/lamningar-v1/native-source-context",
+        "source_id": "raa/lamningar-v1",
+        "status": "admitted_source_context",
+        "evidence_role": "source_context_only",
+        "source_identity": {
+          "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+          "byte_count": 2291224576,
+          "captured_at_utc": "2026-09-13T01:14:04.983494+00:00",
+          "http_last_modified": "Sat, 12 Sep 2026 04:14:41 GMT"
+        },
+        "source_record_count": 764383,
+        "native_table_row_counts": {
+          "lamning": 764383,
+          "ingaendelamning": 143795,
+          "egenskap": 774466,
+          "point": 531617,
+          "linestring": 81434,
+          "polygon": 226012,
+          "lämningar_sverige_lägesosäkerhet": 764383
+        },
+        "geometry_occurrence_counts_by_role": {
+          "native_remains_geometry": 839063,
+          "positional_uncertainty": 764383
+        },
+        "coordinate_reference": "declared EPSG:3006; native XY easting/northing",
+        "country_scope": "Swedish national provider scope; no per-record country assignment inferred",
+        "rights_authority_url": "https://catalog.raa.se/store/1/resource/217",
+        "rights_authority_version": "3.0 (2026-02-02)",
+        "rights_scope": "RAÄ Kulturhistoriska lämningar product description v3.0 (2026-02-02) declares the dataset Public Domain with no access restriction; cite source and capture date on redistribution. Separately linked media are outside this decision.",
+        "scientific_admission": false,
+        "chronology_admission": false,
+        "event_admission": false,
+        "legacy_density_admission": false,
+        "publication_admission": false,
+        "archaeological_interpretation_admission": false
+      }
     },
     {
       "source_key": "boundaries",
