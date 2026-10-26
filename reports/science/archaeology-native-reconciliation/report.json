@@ -1,0 +1,1017 @@
+{
+  "native_ownership_summary": {
+    "kind": "summary",
+    "tables": {
+      "lamning": {
+        "source_rows": 764383,
+        "owner_status_counts": {
+          "linked": 764383
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 764383
+          },
+          "uuid": {
+            "non_null": 764383
+          },
+          "lamningsnummer": {
+            "non_null": 764383
+          },
+          "raa_nummer": {
+            "non_null": 698147,
+            "null": 66236
+          },
+          "lamningstyp": {
+            "non_null": 764383
+          },
+          "url": {
+            "non_null": 764383
+          },
+          "beskrivning": {
+            "non_null": 764383,
+            "empty_text": 828
+          },
+          "publicerad_av": {
+            "non_null": 764383
+          },
+          "publiceringsdatum": {
+            "non_null": 764383
+          },
+          "uttagsdatum": {
+            "non_null": 764383
+          },
+          "antikvariskbedomning": {
+            "non_null": 764383
+          },
+          "antikvariskbedomning_motivering": {
+            "null": 76619,
+            "non_null": 687764,
+            "empty_text": 452938
+          },
+          "aktualitetstatus": {
+            "non_null": 764383
+          },
+          "skadestatus": {
+            "non_null": 764383
+          },
+          "undersokningsstatus": {
+            "non_null": 764383
+          },
+          "placering": {
+            "non_null": 764383
+          },
+          "terrang": {
+            "non_null": 496928,
+            "null": 267455
+          },
+          "orientering": {
+            "null": 562074,
+            "non_null": 202309,
+            "empty_text": 13
+          },
+          "tradition": {
+            "null": 749779,
+            "non_null": 14604,
+            "empty_text": 22
+          },
+          "lamningsnamn": {
+            "null": 731431,
+            "non_null": 32952
+          },
+          "lan": {
+            "non_null": 764383,
+            "empty_text": 677
+          },
+          "kommun": {
+            "non_null": 764383,
+            "empty_text": 677
+          },
+          "socken": {
+            "non_null": 764383,
+            "empty_text": 2328
+          },
+          "inspire_ruin": {
+            "non_null": 764383,
+            "numeric_zero": 659109
+          }
+        }
+      },
+      "ingaendelamning": {
+        "source_rows": 143795,
+        "owner_status_counts": {
+          "linked": 143795
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 143795
+          },
+          "id": {
+            "non_null": 143795
+          },
+          "lamning_uuid": {
+            "non_null": 143795
+          },
+          "antal": {
+            "non_null": 143795,
+            "numeric_zero": 2510
+          },
+          "lamningstyp": {
+            "non_null": 143795
+          }
+        }
+      },
+      "egenskap": {
+        "source_rows": 774466,
+        "owner_status_counts": {
+          "linked": 774466
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 774466
+          },
+          "id": {
+            "non_null": 774466
+          },
+          "lamning_uuid": {
+            "null": 174024,
+            "non_null": 600442
+          },
+          "ingaendelamning_id": {
+            "non_null": 174024,
+            "null": 600442
+          },
+          "typ": {
+            "non_null": 774466
+          },
+          "varde": {
+            "non_null": 774466
+          }
+        }
+      },
+      "point": {
+        "source_rows": 531617,
+        "owner_status_counts": {
+          "linked": 531617
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 531617
+          },
+          "geometri": {
+            "non_null": 531617
+          },
+          "lamning_uuid": {
+            "non_null": 531617
+          },
+          "geometrinummer": {
+            "non_null": 531617
+          }
+        }
+      },
+      "linestring": {
+        "source_rows": 81434,
+        "owner_status_counts": {
+          "linked": 81434
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 81434
+          },
+          "geometri": {
+            "non_null": 81434
+          },
+          "lamning_uuid": {
+            "non_null": 81434
+          },
+          "geometrinummer": {
+            "non_null": 81434
+          }
+        }
+      },
+      "polygon": {
+        "source_rows": 226012,
+        "owner_status_counts": {
+          "linked": 226012
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 226012
+          },
+          "geometri": {
+            "non_null": 226012
+          },
+          "lamning_uuid": {
+            "non_null": 226012
+          },
+          "geometrinummer": {
+            "non_null": 226012
+          }
+        }
+      },
+      "lämningar_sverige_lägesosäkerhet": {
+        "source_rows": 764383,
+        "owner_status_counts": {
+          "linked": 764383
+        },
+        "source_cells": {
+          "fid": {
+            "non_null": 764383
+          },
+          "geometri": {
+            "non_null": 764383
+          },
+          "lamning_uuid": {
+            "non_null": 764383
+          },
+          "lamningsnummer": {
+            "non_null": 764383
+          },
+          "inmatningskvalitet": {
+            "non_null": 764383
+          },
+          "definition_av_kvalitet": {
+            "non_null": 764383
+          },
+          "lagesosakerhet_i_meter": {
+            "non_null": 764383
+          },
+          "url": {
+            "non_null": 764383
+          }
+        }
+      }
+    },
+    "unique_valid_native_uuid_values": 764383,
+    "duplicate_native_uuid_values": 0,
+    "unique_native_nested_ids": 143795,
+    "duplicate_native_nested_ids": 0,
+    "geometry_header_status_counts": {
+      "supported_header_only": 1603446
+    },
+    "boundary": {
+      "scientific_admission": false,
+      "canonical_source_adoption": false,
+      "historical_density_equivalence": false,
+      "representative_coordinates_derived": false,
+      "geometry_validation": "not_evaluated",
+      "chronology_admission": false,
+      "country_assertion": "national_provider_scope_not_derived_country_per_row"
+    }
+  },
+  "native_categories": {
+    "lamningstyp": [
+      {
+        "value": "Avrättningsplats",
+        "source_rows": 362
+      },
+      {
+        "value": "Ballastplats",
+        "source_rows": 40
+      },
+      {
+        "value": "Begravningsplats enstaka",
+        "source_rows": 560
+      },
+      {
+        "value": "Begravningsplats",
+        "source_rows": 1239
+      },
+      {
+        "value": "Bengömma",
+        "source_rows": 269
+      },
+      {
+        "value": "Bergshistorisk lämning övrig",
+        "source_rows": 285
+      },
+      {
+        "value": "Bildristning",
+        "source_rows": 169
+      },
+      {
+        "value": "Björngrav",
+        "source_rows": 8
+      },
+      {
+        "value": "Blästbrukslämning",
+        "source_rows": 5699
+      },
+      {
+        "value": "Blästplats",
+        "source_rows": 1679
+      },
+      {
+        "value": "Boplats",
+        "source_rows": 41991
+      },
+      {
+        "value": "Boplatsgrop",
+        "source_rows": 3328
+      },
+      {
+        "value": "Boplatslämning övrig",
+        "source_rows": 1446
+      },
+      {
+        "value": "Boplatsområde",
+        "source_rows": 5841
+      },
+      {
+        "value": "Boplatsvall",
+        "source_rows": 784
+      },
+      {
+        "value": "Borg",
+        "source_rows": 326
+      },
+      {
+        "value": "Bro",
+        "source_rows": 3621
+      },
+      {
+        "value": "Brott/täkt",
+        "source_rows": 5109
+      },
+      {
+        "value": "Brunn/kallkälla",
+        "source_rows": 2109
+      },
+      {
+        "value": "Brytningsyta",
+        "source_rows": 78
+      },
+      {
+        "value": "Bytomt/gårdstomt",
+        "source_rows": 27798
+      },
+      {
+        "value": "Båtlänning",
+        "source_rows": 288
+      },
+      {
+        "value": "Dammvall",
+        "source_rows": 3856
+      },
+      {
+        "value": "Depåfynd",
+        "source_rows": 676
+      },
+      {
+        "value": "Dike/ränna",
+        "source_rows": 535
+      },
+      {
+        "value": "Drag",
+        "source_rows": 29
+      },
+      {
+        "value": "Fartygs-/båtlämning",
+        "source_rows": 8847
+      },
+      {
+        "value": "Fiskeläge",
+        "source_rows": 770
+      },
+      {
+        "value": "Flatmarksgrav",
+        "source_rows": 1098
+      },
+      {
+        "value": "Flintgruva",
+        "source_rows": 9
+      },
+      {
+        "value": "Flottningsanläggning",
+        "source_rows": 2425
+      },
+      {
+        "value": "Fornborg",
+        "source_rows": 1304
+      },
+      {
+        "value": "Fornlämningsliknande bildning",
+        "source_rows": 7355
+      },
+      {
+        "value": "Fornlämningsliknande lämning",
+        "source_rows": 16973
+      },
+      {
+        "value": "Fossil åker",
+        "source_rows": 25447
+      },
+      {
+        "value": "Fyndplats",
+        "source_rows": 51485
+      },
+      {
+        "value": "Fyndsamling",
+        "source_rows": 1405
+      },
+      {
+        "value": "Fyr",
+        "source_rows": 20
+      },
+      {
+        "value": "Fäbod",
+        "source_rows": 5560
+      },
+      {
+        "value": "Färdväg",
+        "source_rows": 9734
+      },
+      {
+        "value": "Färdvägssystem",
+        "source_rows": 926
+      },
+      {
+        "value": "Fästning/skans",
+        "source_rows": 484
+      },
+      {
+        "value": "Fångstanläggning övrig",
+        "source_rows": 1410
+      },
+      {
+        "value": "Fångstgrop",
+        "source_rows": 22227
+      },
+      {
+        "value": "Fångstgropssystem",
+        "source_rows": 2599
+      },
+      {
+        "value": "Fångstgård",
+        "source_rows": 26
+      },
+      {
+        "value": "Förtöjningsanordning",
+        "source_rows": 261
+      },
+      {
+        "value": "Förvaringsanläggning",
+        "source_rows": 3644
+      },
+      {
+        "value": "Gistgård",
+        "source_rows": 224
+      },
+      {
+        "value": "Gjuteri",
+        "source_rows": 7
+      },
+      {
+        "value": "Glasindustri",
+        "source_rows": 78
+      },
+      {
+        "value": "Grav - uppgift om typ saknas",
+        "source_rows": 1358
+      },
+      {
+        "value": "Grav markerad av sten/block",
+        "source_rows": 5358
+      },
+      {
+        "value": "Grav övrig",
+        "source_rows": 161
+      },
+      {
+        "value": "Grav- och boplatsområde",
+        "source_rows": 1556
+      },
+      {
+        "value": "Gravfält",
+        "source_rows": 18632
+      },
+      {
+        "value": "Gravhägnad",
+        "source_rows": 62
+      },
+      {
+        "value": "Gravklot",
+        "source_rows": 114
+      },
+      {
+        "value": "Gravvård",
+        "source_rows": 848
+      },
+      {
+        "value": "Gruvhål",
+        "source_rows": 3026
+      },
+      {
+        "value": "Gruvområde",
+        "source_rows": 5148
+      },
+      {
+        "value": "Gränsbestämt område",
+        "source_rows": 122
+      },
+      {
+        "value": "Gränsmärke",
+        "source_rows": 9392
+      },
+      {
+        "value": "Hammare/smedja",
+        "source_rows": 396
+      },
+      {
+        "value": "Hammarområde",
+        "source_rows": 394
+      },
+      {
+        "value": "Hamnanläggning",
+        "source_rows": 910
+      },
+      {
+        "value": "Hamnområde",
+        "source_rows": 76
+      },
+      {
+        "value": "Hornsamling",
+        "source_rows": 45
+      },
+      {
+        "value": "Husgrund, förhistorisk/medeltida",
+        "source_rows": 3699
+      },
+      {
+        "value": "Husgrund, historisk tid",
+        "source_rows": 28515
+      },
+      {
+        "value": "Hytt- och hammarområde",
+        "source_rows": 134
+      },
+      {
+        "value": "Hyttlämning",
+        "source_rows": 646
+      },
+      {
+        "value": "Hyttområde",
+        "source_rows": 959
+      },
+      {
+        "value": "Hägnad",
+        "source_rows": 14917
+      },
+      {
+        "value": "Hägnadssystem",
+        "source_rows": 5330
+      },
+      {
+        "value": "Hällmålning",
+        "source_rows": 83
+      },
+      {
+        "value": "Hällristning",
+        "source_rows": 21336
+      },
+      {
+        "value": "Härd",
+        "source_rows": 17856
+      },
+      {
+        "value": "Hög",
+        "source_rows": 17531
+      },
+      {
+        "value": "Industri övrig",
+        "source_rows": 330
+      },
+      {
+        "value": "Järnåldersdös",
+        "source_rows": 4
+      },
+      {
+        "value": "Kalkugn",
+        "source_rows": 1325
+      },
+      {
+        "value": "Kanal",
+        "source_rows": 182
+      },
+      {
+        "value": "Kanalmärke",
+        "source_rows": 104
+      },
+      {
+        "value": "Kemisk industri",
+        "source_rows": 11450
+      },
+      {
+        "value": "Kloster",
+        "source_rows": 64
+      },
+      {
+        "value": "Kokgrop",
+        "source_rows": 1726
+      },
+      {
+        "value": "Kolningsanläggning",
+        "source_rows": 43490
+      },
+      {
+        "value": "Kompassros/väderstreckspil",
+        "source_rows": 113
+      },
+      {
+        "value": "Kraftindustri",
+        "source_rows": 166
+      },
+      {
+        "value": "Kvarn",
+        "source_rows": 6428
+      },
+      {
+        "value": "Kyrka/kapell",
+        "source_rows": 990
+      },
+      {
+        "value": "Kyrkstad",
+        "source_rows": 13
+      },
+      {
+        "value": "Källa med tradition",
+        "source_rows": 2095
+      },
+      {
+        "value": "Kåta",
+        "source_rows": 1778
+      },
+      {
+        "value": "Labyrint",
+        "source_rows": 389
+      },
+      {
+        "value": "Livsmedelsindustri",
+        "source_rows": 243
+      },
+      {
+        "value": "Luftfarkost",
+        "source_rows": 26
+      },
+      {
+        "value": "Lägenhetsbebyggelse",
+        "source_rows": 51319
+      },
+      {
+        "value": "Metallindustri/järnbruk",
+        "source_rows": 139
+      },
+      {
+        "value": "Militär anläggning övrig",
+        "source_rows": 464
+      },
+      {
+        "value": "Militär mötesplats",
+        "source_rows": 38
+      },
+      {
+        "value": "Minnesmärke",
+        "source_rows": 5706
+      },
+      {
+        "value": "Naturföremål/-bildning med bruk, tradition eller namn",
+        "source_rows": 7197
+      },
+      {
+        "value": "Offerkast",
+        "source_rows": 560
+      },
+      {
+        "value": "Offerplats",
+        "source_rows": 377
+      },
+      {
+        "value": "Område med fartygslämningar",
+        "source_rows": 52
+      },
+      {
+        "value": "Område med flottningsanläggningar",
+        "source_rows": 340
+      },
+      {
+        "value": "Område med fossil åkermark",
+        "source_rows": 9308
+      },
+      {
+        "value": "Område med militära anläggningar",
+        "source_rows": 377
+      },
+      {
+        "value": "Område med skogsbrukslämningar",
+        "source_rows": 17543
+      },
+      {
+        "value": "Pappersindustri",
+        "source_rows": 54
+      },
+      {
+        "value": "Park-/trädgårdsanläggning",
+        "source_rows": 79
+      },
+      {
+        "value": "Plats med tradition",
+        "source_rows": 5992
+      },
+      {
+        "value": "Rengärda",
+        "source_rows": 356
+      },
+      {
+        "value": "Renvall",
+        "source_rows": 663
+      },
+      {
+        "value": "Ristning, medeltid/historisk tid",
+        "source_rows": 3098
+      },
+      {
+        "value": "Runristning",
+        "source_rows": 2731
+      },
+      {
+        "value": "Röjningsröse",
+        "source_rows": 8116
+      },
+      {
+        "value": "Röse",
+        "source_rows": 17935
+      },
+      {
+        "value": "Rösning",
+        "source_rows": 426
+      },
+      {
+        "value": "Samlingsplats",
+        "source_rows": 305
+      },
+      {
+        "value": "Sjömärke",
+        "source_rows": 927
+      },
+      {
+        "value": "Skärvstenshög",
+        "source_rows": 5165
+      },
+      {
+        "value": "Skåre/jaktvärn",
+        "source_rows": 500
+      },
+      {
+        "value": "Slagfält",
+        "source_rows": 16
+      },
+      {
+        "value": "Slott/herresäte",
+        "source_rows": 234
+      },
+      {
+        "value": "Smideslämning",
+        "source_rows": 980
+      },
+      {
+        "value": "Smidesområde",
+        "source_rows": 26
+      },
+      {
+        "value": "Småindustriområde",
+        "source_rows": 1364
+      },
+      {
+        "value": "Spärranordning",
+        "source_rows": 88
+      },
+      {
+        "value": "Stadsbefästning",
+        "source_rows": 23
+      },
+      {
+        "value": "Stadslager",
+        "source_rows": 156
+      },
+      {
+        "value": "Stadsvall/stadsmur",
+        "source_rows": 16
+      },
+      {
+        "value": "Stalotomt",
+        "source_rows": 167
+      },
+      {
+        "value": "Stenindustri",
+        "source_rows": 490
+      },
+      {
+        "value": "Stenkammargrav",
+        "source_rows": 2783
+      },
+      {
+        "value": "Stenkistgrav",
+        "source_rows": 176
+      },
+      {
+        "value": "Stenkrets/stenrad",
+        "source_rows": 2720
+      },
+      {
+        "value": "Stenring",
+        "source_rows": 34
+      },
+      {
+        "value": "Stenröjd yta",
+        "source_rows": 361
+      },
+      {
+        "value": "Stensättning",
+        "source_rows": 76080
+      },
+      {
+        "value": "Stenugn",
+        "source_rows": 414
+      },
+      {
+        "value": "Stridsvärn",
+        "source_rows": 1435
+      },
+      {
+        "value": "Tegelindustri",
+        "source_rows": 653
+      },
+      {
+        "value": "Terrassering",
+        "source_rows": 1008
+      },
+      {
+        "value": "Textilindustri",
+        "source_rows": 1443
+      },
+      {
+        "value": "Tomtning",
+        "source_rows": 1961
+      },
+      {
+        "value": "Träindustri",
+        "source_rows": 1986
+      },
+      {
+        "value": "Uppfordringsanläggning",
+        "source_rows": 189
+      },
+      {
+        "value": "Vad",
+        "source_rows": 132
+      },
+      {
+        "value": "Vallanläggning",
+        "source_rows": 145
+      },
+      {
+        "value": "Varv/slip",
+        "source_rows": 158
+      },
+      {
+        "value": "Viste",
+        "source_rows": 1080
+      },
+      {
+        "value": "Vägmärke",
+        "source_rows": 15827
+      },
+      {
+        "value": "Vårdkase",
+        "source_rows": 209
+      },
+      {
+        "value": "Övrigt",
+        "source_rows": 10299
+      }
+    ],
+    "antikvariskbedomning": [
+      {
+        "value": "Ej kulturhistorisk lämning",
+        "source_rows": 6709
+      },
+      {
+        "value": "Fornlämning",
+        "source_rows": 318818
+      },
+      {
+        "value": "Ingen antikvarisk bedömning",
+        "source_rows": 62292
+      },
+      {
+        "value": "Möjlig fornlämning",
+        "source_rows": 98921
+      },
+      {
+        "value": "Övrig kulturhistorisk lämning",
+        "source_rows": 277643
+      }
+    ],
+    "aktualitetstatus": [
+      {
+        "value": "Bekräftad i fält",
+        "source_rows": 718886
+      },
+      {
+        "value": "Uppgift om lämning, ej bekräftad i fält",
+        "source_rows": 41898
+      },
+      {
+        "value": "Utgår på grund av felregistrering",
+        "source_rows": 1536
+      },
+      {
+        "value": "Överförd till annan lämning",
+        "source_rows": 2063
+      }
+    ],
+    "skadestatus": [
+      {
+        "value": "Ej skadad",
+        "source_rows": 218379
+      },
+      {
+        "value": "Förstörd",
+        "source_rows": 5213
+      },
+      {
+        "value": "Grov skada",
+        "source_rows": 2407
+      },
+      {
+        "value": "Okänd",
+        "source_rows": 499229
+      },
+      {
+        "value": "Ringa åverkan",
+        "source_rows": 3839
+      },
+      {
+        "value": "Åverkan",
+        "source_rows": 35316
+      }
+    ],
+    "undersokningsstatus": [
+      {
+        "value": "Borttagen utan villkor",
+        "source_rows": 282
+      },
+      {
+        "value": "Delundersökt",
+        "source_rows": 15293
+      },
+      {
+        "value": "Ej undersökt",
+        "source_rows": 254577
+      },
+      {
+        "value": "Helt undersökt",
+        "source_rows": 15083
+      },
+      {
+        "value": "Okänd",
+        "source_rows": 479148
+      }
+    ]
+  },
+  "source_identity": {
+    "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+    "byte_count": 2291224576,
+    "captured_at_utc": "2026-09-13T01:14:04.983494+00:00",
+    "http_last_modified": "Sat, 12 Sep 2026 04:14:41 GMT"
+  },
+  "historical_comparison": {
+    "aggregate_counts": {
+      "all_published_sites": {
+        "native_source_rows": 764383,
+        "historical_wfs_declared_hits": 761917,
+        "difference_native_minus_historical": 2466
+      },
+      "fornlamning": {
+        "native_source_rows": 318818,
+        "historical_wfs_declared_hits": 318265,
+        "difference_native_minus_historical": 553
+      },
+      "fornlamning_or_possible": {
+        "native_source_rows": 417739,
+        "historical_wfs_declared_hits": 416913,
+        "difference_native_minus_historical": 826
+      }
+    },
+    "record_level_reconciliation": "unavailable_missing_historical_feature_inventory",
+    "individual_additions_or_removals": null,
+    "population_equivalence": false,
+    "geometry_equivalence": false,
+    "interpretation": "Native remains rows versus retained declared WFS query hits without jointly bound source dates. Equal labels or a net count difference do not establish identical classification rules, matched records, temporal change, additions/removals or center-point geometry."
+  },
+  "independent_sql_check": "all seven native table populations, every field null/non-null/zero/empty denominator and all declared category bins match",
+  "chronology_admission": false,
+  "scientific_admission": false,
+  "canonical_source_adoption": false,
+  "rights_scope": "RAÄ Kulturhistoriska lämningar product description v3.0 (2026-02-02) declares the dataset Public Domain with no access restriction; cite source and capture date on redistribution. Separately linked media are outside this decision.",
+  "elapsed_seconds": 49.11157612502575
+}
