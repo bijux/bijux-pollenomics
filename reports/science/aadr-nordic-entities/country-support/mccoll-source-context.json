@@ -138,7 +138,103 @@
     "remaining_source_question": "Which exact Celtic publication version and descriptive specimen-table rows for CGG_2_105915 and CGG_2_105916 underlie the AADR citation and annotation fields, and what source-owned specimen/laboratory/date/coordinate crosswalk explains their relation to the supplied Germanic v2 cells? The museum subrecord and Individual 2-to-laboratory links remain separate unresolved conditions.",
     "coordinate_or_date_correction_performed": false,
     "scientific_or_map_admission": false,
-    "outreach_performed": false
+    "outreach_performed": false,
+    "accepted_record_metadata": {
+      "scope": "Separate two-GET public citation-metadata follow-through. The original six-response acquisition unit and all specimen, coordinate, date and country records remain unchanged.",
+      "source_manifest_relative_to_shared_store": "adna/celtic-source/accepted-record-metadata-2026-10-26/source-manifest.json",
+      "acquisition_gets": [
+        {
+          "file": "cambridge-celtic-record.html",
+          "requested_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+          "final_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+          "http_status": 200,
+          "retrieval_started_utc": "2026-10-26T22:38:47.456830+00:00",
+          "retrieval_finished_utc": "2026-10-26T22:38:49.127607+00:00",
+          "bytes": 479559,
+          "sha256": "f9e4e0defde7aab2eb1080be398164d6ac454f224386f0a29922f4998fe674d4",
+          "completion": "closed"
+        },
+        {
+          "file": "crossref-exact-title-journal-metadata.json",
+          "requested_url": "https://api.crossref.org/works?query.title=Tracing+the+spread+of+Celtic+languages+using+ancient+genomics&filter=type%3Ajournal-article&rows=3",
+          "final_url": "https://api.crossref.org/works?query.title=Tracing+the+spread+of+Celtic+languages+using+ancient+genomics&filter=type%3Ajournal-article&rows=3",
+          "http_status": 200,
+          "retrieval_started_utc": "2026-10-26T22:39:13.282670+00:00",
+          "retrieval_finished_utc": "2026-10-26T22:39:13.931738+00:00",
+          "bytes": 5528,
+          "sha256": "868a70a673409e2b7917b68445fbc4811c2d0b286f7cea80c5f4da2342907726",
+          "completion": "closed"
+        }
+      ],
+      "acquisition_summary": {
+        "get_count": 2,
+        "metadata_http_200": 2,
+        "body_bytes": 485087,
+        "embargoed_article_or_attachment_downloaded": false,
+        "genetic_measurements_or_specimen_tables_opened": false,
+        "retry_or_challenge_bypass_performed": false
+      },
+      "cambridge_record": {
+        "item_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+        "handle": "1810/409414",
+        "repository_doi": "10.17863/CAM.135565",
+        "title_literal": "Tracing the spread of Celtic languages using ancient genomics",
+        "citation_author_literals": [
+          "Willerslev, Eske",
+          "McColl, Hugh",
+          "Kroonen, Guus",
+          "Kristiansen, Kristian",
+          "Sikora, Martin"
+        ],
+        "metadata_literals": {
+          "rioxxterms.version": "AM",
+          "dcterms.dateAccepted": "2026-09-22",
+          "cam.depositDate": "2026-10-08",
+          "dc.date.accessioned": "2026-10-13T23:30:42Z",
+          "prism.publicationName": "Nature",
+          "dc.publisher": "Nature Research",
+          "dc.rights": "Attribution 4.0 International",
+          "dc.rights.uri": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "displayed_version_literal": "Accepted version",
+        "displayed_peer_review_literal": "Peer-reviewed",
+        "access_status_literal": "embargo",
+        "embargo_date_literal": "2029-10-13",
+        "citation_publication_date_literal": "2026-10-13T23:30:42Z",
+        "date_interpretation": "Acceptance, repository deposit and accession are distinct events. The HTML citation_publication_date repeats accession; it is not established as a journal-publication date.",
+        "rights_scope": "CC BY 4.0 is public item metadata, not an inferred grant to fetch or redistribute the embargoed accepted-manuscript file. The separately retained preprint CC BY-NC-ND metadata is unchanged.",
+        "journal_doi_or_version_of_record_identified": false,
+        "celtic_preprint_doi_token_present_in_exposed_metadata": false,
+        "relation_scope": "Matching title and author metadata supports a repository accepted-record counterpart, not an explicit relationship to a particular Celtic preprint version or the AADR annotation."
+      },
+      "crossref_exact_title_journal_query": {
+        "returned_items": 3,
+        "returned_doi_title_pairs": [
+          {
+            "doi": "10.1126/science.acz9883",
+            "title": [
+              "Early migration may have spread Celtic languages"
+            ]
+          },
+          {
+            "doi": "10.2307/20522420",
+            "title": [
+              "Celtic Languages and Celtic Peoples"
+            ]
+          },
+          {
+            "doi": "10.2307/330125",
+            "title": [
+              "The Celtic Languages"
+            ]
+          }
+        ],
+        "scope": "All three returned titles are unrelated to the requested exact title. This bounded query does not establish absence of a journal publication or DOI."
+      },
+      "celtic_preprint_version_to_aadr_binding_established": false,
+      "specimen_laboratory_date_coordinate_crosswalk_established": false,
+      "scientific_or_map_admission": false
+    }
   },
   "original_inputs": [
     {

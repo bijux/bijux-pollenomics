@@ -43,6 +43,35 @@ measurements were opened, and no already supplied Germanic original was copied.
 The [publication provenance section](mccoll-source-context.json) retains these
 facts separately from the earlier successful Germanic and museum evidence.
 
+A **separate two-GET metadata follow-through** retained the public
+[Cambridge accepted-record page](https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9)
+and a bounded exact-title Crossref journal query. Both returned HTTP 200;
+the closed bodies total **485,087 bytes** under
+`adna/celtic-source/accepted-record-metadata-2026-10-26/`, with their own
+`source-manifest.json`. This does not enlarge or rewrite the historical
+six-response unit above. No embargoed manuscript or specimen attachment was
+requested, and no genetic measurements were opened.
+
+The Cambridge item, handle **1810/409414** and repository DOI
+**10.17863/CAM.135565**, is titled *Tracing the spread of Celtic languages using
+ancient genomics*. Its metadata gives version **AM**, displays **Accepted
+version** and **Peer-reviewed**, and names **Nature** / **Nature Research**.
+Acceptance is **22 September 2026**, repository deposit **8 October 2026**,
+and accession **13 October 2026 at 23:30:42 UTC**. These are distinct events:
+the HTML `citation_publication_date` repeats accession and does not establish
+a journal-publication date. The file is **embargoed until 13 October 2029**.
+Public item metadata says CC BY 4.0; that is not a grant to access or
+redistribute the embargoed file and does not replace the preprint's separate
+CC BY-NC-ND metadata.
+
+Matching title and authors support an accepted-record counterpart. The exposed
+metadata contains no journal DOI/version-of-record field or Celtic preprint
+DOI token, so it does not explicitly bind a preprint version or the retained
+AADR annotation. The Crossref query returned three unrelated titles; this is
+a bounded negative lookup, not proof that no journal DOI or publication exists.
+The compact JSON keeps both metadata requests and these limits separate from
+the supplied Germanic source and original Celtic attempts.
+
 Consequently, AADR's date/coordinate strings remain **annotation assertions**;
 the worksheet cells and archaeological paragraphs below remain **Germanic v2
 source context**; and museum records remain **locality/assemblage context**.
@@ -192,9 +221,9 @@ subquestions. Country/map/chronology admission and field decisions remain open.
 
 **Unsupported claim.** Treating the Germanic and Celtic DOIs as version aliases, correcting AADR coordinates or dates, assigning the older Aunvollen woman to Individual 2, counting merged teeth as independent people, genotype inference, qualified country/map/chronology admission or field permission.
 
-**Actual verification performed.** Committed reader ac1c3619a and independent original ZIP/XML/CSV observer each exited zero: six Germanic worksheet rows, 162 descriptive cells, four AADR panel rows and two unchanged country decisions. Original archaeological pages 161/174/175 and genetics page 22 were visually checked. Museum source facts and a separate nominal five-pair degree-axis comparison were retained. Six bounded Celtic GET responses supplied three publication-metadata successes and three failed content responses, not a Celtic specimen table. No new polygon oracle, datum transformation or genotype analysis was performed.
+**Actual verification performed.** Committed reader ac1c3619a and independent original ZIP/XML/CSV observer each exited zero: six Germanic worksheet rows, 162 descriptive cells, four AADR panel rows and two unchanged country decisions. Original archaeological pages 161/174/175 and genetics page 22 were visually checked. Museum source facts and a separate nominal five-pair degree-axis comparison were retained. Six bounded Celtic GET responses supplied three publication-metadata successes and three failed content responses, not a Celtic specimen table. A separate two-GET metadata unit retained the Cambridge Nature accepted-record HTML and a bounded Crossref query, both HTTP 200; original metadata bodies were rehashed without fetching the embargoed file. Acceptance/deposit/accession and item rights remain distinct from publication, file access and preprint-version binding. No new polygon oracle, datum transformation or genotype analysis was performed.
 
-**Remaining input or review.** The two AADR coordinate/date assertions, Germanic v2 companion cells and museum locality records remain distinct. The cited Celtic version and descriptive specimen-table crosswalk are unbound, and exact individual/date, coordinate meaning/datum and correction authority remain unresolved. Resolver: Source custodian for the versioned Celtic specimen crosswalk and museum/sample identity; chronology and geography reviewers for any proposed scientific or map correction. Reopen when: Bind the cited Celtic version and sample-owned laboratory/date/coordinate representations, exact museum subrecord/individual links and an explicit datum/precision and correction decision.
+**Remaining input or review.** The two AADR coordinate/date assertions, Germanic v2 companion cells and museum locality records remain distinct. The cited Celtic preprint version and descriptive specimen-table crosswalk remain unbound despite the separate accepted-record metadata; exact individual/date, coordinate meaning/datum and correction authority remain unresolved. Resolver: Source custodian for the versioned Celtic specimen crosswalk and museum/sample identity; chronology and geography reviewers for any proposed scientific or map correction. Reopen when: Bind the cited Celtic version and sample-owned laboratory/date/coordinate representations, exact museum subrecord/individual links and an explicit datum/precision and correction decision.
 
 **Cause category.** data|comparability|access/rights|qualified review
 
