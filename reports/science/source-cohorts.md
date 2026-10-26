@@ -82,6 +82,28 @@ ages. BP types and year units, the 1950 reference, exact claim IDs and physical
 ownership remain explicit. The per-sample payload does not declare a depth
 unit; we report native depth order and gaps without labelling them centimetres.
 
+Read-only inspection of the original JSON tokens in the retained
+[Skogstjern dataset 52255](../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json)
+and [Palomaa dataset 58530](../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json)
+clarifies these 193 count refusals: six Skogstjern Picea entries are `0.5`,
+and 187 Palomaa entries across nine native taxa range from `0.5` to `1075.5`.
+All are positive half-integers, with source unit `NISP` and detection status
+`reported_value`; none is a mathematically integral count rejected merely
+because its JSON token parsed as a float. The retained 29 September 2026
+publication responses remain at
+`neotoma/publication-links/2026-09-29/responses/dataset-52255-publications.json`
+and `dataset-58530-publications.json` in the existing source store. They supply
+publication relationships, not a rule interpreting fractional counts. The
+[primary Skogstjern PANGAEA table](https://doi.pangaea.de/10.1594/PANGAEA.885277?format=html)
+independently lists all six literal Picea `0.5` values at depths 2.87, 2.91,
+3.07, 3.13, 3.50 and 4.14 m. Its separate rare-type notation does not establish
+what those fractions mean. Neither the examined counting-method text nor
+Palomaa's annual-sample/amalgamation note supplies their measurement or
+encoding origin. We assume no weighting, averaging or rounding rule. This
+source-token clarification adds no model, study, ecological interpretation or
+scientific admission; the declared integer-count predicate, cohort and
+refusals remain unchanged.
+
 The corrected consumer ran at `5cb4cc36465da75fd9473d14552c276fb3c6b41c`,
 exiting zero in **7.584 seconds**, with measured peak RSS **839,057,408 bytes**.
 Its detailed CSVs total 7,084,870 bytes, within the declared 120-second,
