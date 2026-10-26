@@ -212,6 +212,14 @@ all twelve S3 empty/`NA` differences. These new checks exercise reviewed
 working source; the earlier committed replay qualifies the original
 three-input result only.
 
+The extended five-input reader then ran unchanged from committed consumed
+source `69c2745684bdf454aa1458050307851ab666f9f4`, with the same replay
+arguments and destination
+`artifacts/physical-core/legacyage-controls-committed-source.json`. It returned
+exit zero in 2.2574483 seconds and reproduced the extended governed JSON byte
+for byte. The five original input hashes and consumed source remained stable;
+the independent control/token checks apply to that identical output.
+
 This is partial source preparation toward a declared chronology profile.
 The existing [ABBO](../abborrtjarnen-source-method.md),
 [DALMUT](../dalmutladdo-lra-input/README.md) and
