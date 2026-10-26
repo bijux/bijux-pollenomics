@@ -77,8 +77,31 @@ We retained the three distinct rights statements. The local Yoda metadata and
 `License.txt` say CC BY-NC 4.0, while its README and NetCDF attributes say
 CC BY 3.0. The [provider DOI record](../../docs/report/source-relations/hyde/provider-record/README.md)
 retained on 29 September 2026 says CC BY 4.0 after its September update;
-it has no exact-member binding to the local release. We have not selected
-whichever statement is most convenient as permission to redistribute native cells.
+it has no exact-member binding to the local release.
+
+On 26 October 2026 the user selected the downloaded April snapshot's bundled
+`original/readme_HYDE_3.5.txt`, line 15, **CC BY 3.0** statement as the project's
+documented licence reference. This supersedes the earlier user selection of
+the root `License.txt`; the original files remain unchanged. The declared
+[April README URL](https://geo.public.data.uu.nl/vault-hyde/hyde35_c9_apr2025%5B1749214444%5D/original/readme_HYDE_3.5.txt)
+identifies that reference, without a new remote-byte comparison. The root
+licence/local JSON's CC BY-NC 4.0 and the user-supplied later Yoda metadata's
+CC BY 4.0 remain recorded as distinct declarations. The current Yoda metadata
+supplied by the user reports DOI `10.24416/UU01-F45D44`, publication
+2025-06-11 11:42:01 and modification 2026-09-28 13:11:36; this account did not
+independently retrieve those current fields. The selected project reference
+does not establish provider-granted alternative licensing or a documented
+licence change. No further email is needed solely to select that reference;
+publication-specific rights must distinguish the selection from provider
+confirmation for the exact retained members.
+
+On 27 October 2026 the user confirmed sending Anneli Poska the HYDE questions
+about input dependence, spatial/time semantics, scenarios and comparison design.
+The source request is now recorded as sent; no reply or scientific decision has
+been received. A direct HYDE-provider email is not reported sent. Existing
+README units, grid dimensions, masks, category descriptions and scenario names
+are available source facts; remaining requests concern unresolved semantics and
+methods, rather than asking for those same descriptions again.
 
 The local ASCII grid header fixes a 4320-by-2160 source axis beginning at
 longitude-like `-180`, latitude-like `-90`, with literal step `0.0833333`;
@@ -116,8 +139,9 @@ and retained the 2025 column while flagging release prose that states a 2023
 endpoint. The local Yoda description instead states a 2024 CE endpoint; both
 it and the March README separately list extension to 2025. These inconsistent
 coverage descriptions do not resolve historical calendar conventions.
-We apply the more restrictive local rights declaration to these
-derived summaries. Our [native grid-to-country check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)
+The earlier local run applied the more restrictive local rights declaration to
+these derived summaries. The current documented project reference is the
+README's CC BY 3.0 statement above; the run's historical scope is preserved. Our [native grid-to-country check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)
 verified 21 cropland grids at the seven selected CE labels against their
 source country tables. We still need other variables and years, rights
 reconciliation, chronology alignment and a matched no-HYDE/HYDE model
@@ -217,8 +241,9 @@ The independent consumer reused the saved capture and did not read native ZIP
 members again. We did not repeat the whole-country conservation calculation,
 certify the complete HYDE collection or perform a new physical reconstruction.
 
-This calculation remains local noncommercial exploratory analysis under the
-more restrictive retained CC BY-NC 4.0 declaration described above. Permission
+This calculation was performed as local noncommercial exploratory analysis
+under the retained CC BY-NC 4.0 declaration. Its outputs remain local; the
+subsequent README-based project reference does not change that execution history. Permission
 to redistribute native cells or derived cell results is not established. No
 cell values, fractions, differences, area totals, maps or numerical data exports
 are published by this section. LandClim output licensing does not upgrade HYDE
