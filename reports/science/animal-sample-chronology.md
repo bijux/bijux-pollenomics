@@ -25,6 +25,32 @@ sample identity before evaluating whether their coordinates are mappable. A
 nearby or missing coordinate cannot establish that they are independent
 specimens.
 
+## Labeled horse source-date fields
+
+The maintained sample chronology provenance consumer additionally exposes
+`source_chronology_fields` for the PRJEB31613 horse rows. This is source context,
+separate from the selected chronology. It retains worksheet column D and R–X,
+the original four header rows at those columns, physical row and cell references,
+sample and registration labels, and the current workbook byte identity. Every
+native horse row must match exactly one existing sample owner and physical row.
+Other source species remain explicitly counted outside that population.
+
+The literal header coordinates preserve `14C age(BP)` at R3 and `(from 2017)`
+at R4, alongside the IntCal13 and unmodelled BC/AD labels at their own source
+coordinates. These labels do not establish a shared epoch, a signed-calendar
+conversion or a selected age. Formula text and its stored cached value remain
+separate; the reader does not evaluate formulas. Numeric zero, a literal
+placeholder, a physically present blank cell and an absent cell remain distinct.
+Per-column cell-state and formula counts cover the complete linked population.
+Missing optional source bytes produce an explicit refusal with unknown counts;
+inconsistent source ownership or representations are refused.
+
+The existing workbook metadata describes recovery from a DOI-keyed local
+supplement stash and supplies no historical source digest. The new current-byte
+identity cannot authenticate that acquisition history or establish reuse rights.
+This evidence does not revise the selected ages, chronology classifications,
+coordinates, sample membership, maps or scientific admission.
+
 ## What we ran and observed
 
 The source correction retains all **260** rows from the [245-row horse time
