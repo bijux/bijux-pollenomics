@@ -17,6 +17,16 @@ from zipfile import ZipFile
 ARCHIVE_SHA256 = "f3b326c67572896ba08bebaabb55bf921e4f34a8a304b9a88ed9d74e867f467f"
 SCRIPT_SHA256 = "6059a0b23199c3a86e7d9ab2b8fcd7bc5a28404cf6078392551ad11df8276e21"
 S4_SHA256 = "943d6151d05cfc47df65b5a3ccedc683393fe6e8e24d14733ba7c58dcd071bb2"
+PANGAEA_TABLES = {
+    "S1": (
+        "table-s1-chronological-controls.csv",
+        "b35b8e3d4110efcb24714d7ccecf025ccd96c31de1b94bb279c9cb7ec0c40b08",
+    ),
+    "S3": (
+        "table-s3-bacon-parameters.csv",
+        "ae87f1cd145eddf630b84fc4e77b3b4f62508a6bea869faccadb19911faa8c41",
+    ),
+}
 MEMBERS = {
     "S1": "Table S1_Chronological control points metadata.csv",
     "S3": "Table S3_Bacon parameter settings.csv",
@@ -150,6 +160,121 @@ def compare_original_rows(archived: list[Row], retained: list[Row]) -> dict[str,
     }
 
 
+def _control_rows(rows: list[Row]) -> dict[tuple[str, Decimal], Row]:
+    keyed: dict[tuple[str, Decimal], Row] = {}
+    for row in rows:
+        try:
+            depth = Decimal(row["Depth (cm)"])
+        except InvalidOperation as error:
+            raise ValueError("LegacyAge control depth is not numeric") from error
+        key = row["Laboratory_Label"], depth
+        if not depth.is_finite() or key in keyed:
+            raise ValueError(
+                "LegacyAge control lab/depth identity is nonfinite or repeated"
+            )
+        keyed[key] = row
+    return keyed
+
+
+def _r_control_numbers(row: Row) -> tuple[Decimal, Decimal]:
+    try:
+        age = Decimal(row["Age_Uncalibrated (kyr BP)"])
+        older = Decimal(row["Dating Error_Older (kyr)"])
+        younger = Decimal(row["Dating Error_Younger (kyr)"])
+    except InvalidOperation as error:
+        raise ValueError("missing_or_nonnumeric_control_age_or_error") from error
+    if not all(value.is_finite() for value in (age, older, younger)):
+        raise ValueError("nonfinite_control_age_or_error")
+    if older < 0 or younger < 0:
+        raise ValueError("negative_control_error")
+    return age * 1000, (older + younger) * 500
+
+
+def compare_control_rows(archived: list[Row], pangaea: list[Row]) -> dict[str, Any]:
+    """Retain unmatched controls and compare the R's literal pre-calibration numbers."""
+    left, right = _control_rows(archived), _control_rows(pangaea)
+    changes: Counter[str] = Counter()
+    compared: list[dict[str, Any]] = []
+    for key in sorted(left.keys() & right.keys()):
+        a, b = left[key], right[key]
+        if a.keys() != b.keys():
+            raise ValueError("LegacyAge S1 versions have different field axes")
+        changes.update(name for name in a if a[name] != b[name])
+        record: dict[str, Any] = {
+            "laboratory_label": key[0],
+            "depth_cm_token": a["Depth (cm)"],
+        }
+        if (
+            a["Dating_Method"] != "Carbon-14"
+            or b["Dating_Method"] != a["Dating_Method"]
+        ):
+            record.update(
+                status="not_compared",
+                reason="outside_matched_radiocarbon_type",
+                archived_method=a["Dating_Method"],
+                pangaea_method=b["Dating_Method"],
+            )
+        else:
+            try:
+                a_age, a_error = _r_control_numbers(a)
+                b_age, b_error = _r_control_numbers(b)
+            except ValueError as error:
+                record.update(status="refused", reason=str(error))
+            else:
+                record.update(
+                    status="compared",
+                    archived_age_years=str(a_age),
+                    pangaea_age_years=str(b_age),
+                    archived_error_argument_years=str(a_error),
+                    pangaea_error_argument_years=str(b_error),
+                    age_difference_years=str(b_age - a_age),
+                    error_argument_difference_years=str(b_error - a_error),
+                )
+        compared.append(record)
+    return {
+        "archived_controls": len(left),
+        "pangaea_controls": len(right),
+        "matched_controls": len(compared),
+        "archived_only_identities": [
+            {"laboratory_label": lab, "depth_cm": str(depth)}
+            for lab, depth in sorted(left.keys() - right.keys())
+        ],
+        "pangaea_only_identities": [
+            {"laboratory_label": lab, "depth_cm": str(depth)}
+            for lab, depth in sorted(right.keys() - left.keys())
+        ],
+        "literal_different_cells_by_field": dict(sorted(changes.items())),
+        "numeric_population": dict(
+            sorted(Counter(row["status"] for row in compared).items())
+        ),
+        "precalibration_numeric_comparisons": compared,
+    }
+
+
+def _parameter_comparison(archived: list[Row], pangaea: list[Row]) -> dict[str, Any]:
+    if len(archived) > 1 or len(pangaea) > 1:
+        raise ValueError("LegacyAge core has competing parameter rows")
+    if not archived or not pangaea:
+        return {
+            "archived_rows": len(archived),
+            "pangaea_rows": len(pangaea),
+            "nonmissing_tokens_equal": None,
+            "literal_differences": None,
+        }
+    a, b = archived[0], pangaea[0]
+    if a.keys() != b.keys():
+        raise ValueError("LegacyAge S3 versions have different field axes")
+    return {
+        "archived_rows": 1,
+        "pangaea_rows": 1,
+        "nonmissing_tokens_equal": {k: v for k, v in a.items() if v not in {"NA", ""}}
+        == {k: v for k, v in b.items() if v not in {"NA", ""}},
+        "literal_differences": {
+            k: {"archived": a[k], "pangaea": b[k]} for k in a if a[k] != b[k]
+        },
+    }
+
+
 def inspect_inputs(source: Path, retained_s4: Path) -> dict[str, Any]:
     """Bind the exact published archive, script and already retained S4 release."""
     archive = source / "input-metadata-tables.zip"
@@ -158,6 +283,10 @@ def inspect_inputs(source: Path, retained_s4: Path) -> dict[str, Any]:
         "zenodo_input_archive": (archive, ARCHIVE_SHA256),
         "zenodo_r_script": (script, SCRIPT_SHA256),
         "pangaea_s4": (retained_s4, S4_SHA256),
+        **{
+            f"pangaea_{name.lower()}": (retained_s4.parent / filename, digest)
+            for name, (filename, digest) in PANGAEA_TABLES.items()
+        },
     }
     for name, (path, expected) in pins.items():
         if _digest(path) != expected:
@@ -187,6 +316,15 @@ def inspect_inputs(source: Path, retained_s4: Path) -> dict[str, Any]:
         retained_count, retained = _selected_rows(
             csv.DictReader(retained_stream, delimiter="\t")
         )
+    pangaea_tables: dict[str, dict[str, list[Row]]] = {}
+    pangaea_population: dict[str, int] = {}
+    for table, (filename, _) in PANGAEA_TABLES.items():
+        with (retained_s4.parent / filename).open(
+            encoding="utf-8", newline=""
+        ) as pangaea_stream:
+            pangaea_population[table], pangaea_tables[table] = _selected_rows(
+                csv.DictReader(pangaea_stream, delimiter="\t")
+            )
     cores: dict[str, Any] = {}
     for dataset, core in CORES.items():
         parameters = tables["S3"][dataset]
@@ -209,6 +347,12 @@ def inspect_inputs(source: Path, retained_s4: Path) -> dict[str, Any]:
             "s4_comparison": compare_original_rows(
                 tables["S4"][dataset], retained[dataset]
             ),
+            "s1_comparison": compare_control_rows(
+                controls, pangaea_tables["S1"][dataset]
+            ),
+            "s3_comparison": _parameter_comparison(
+                parameters, pangaea_tables["S3"][dataset]
+            ),
             "run_input_state": "retained_source_metadata"
             if parameters
             else "not_in_these_source_tables",
@@ -220,8 +364,10 @@ def inspect_inputs(source: Path, retained_s4: Path) -> dict[str, Any]:
         "input_sha256": {name: expected for name, (_, expected) in pins.items()},
         "archive_rows_by_table": population,
         "retained_pangaea_s4_rows": retained_count,
+        "pangaea_rows_by_table": pangaea_population,
         "cores": cores,
         "producer_scope": {
+            "control_numeric_sensitivity": "For matched literal Carbon-14 controls only, preserve age*1000 and (older_error+younger_error)*500 from the R script before curve selection, missing-error defaults or calibration. This arithmetic does not infer a sampling law, chronology posterior or realized Bacon model.",
             "source_token_sensitivity": "Use the source R's x1000 age transformation and existing half-open [500*k, 500*(k+1)) BP bins; preserve negative indices. This compares original-source tokens without selecting a chronology or admitting a study sample.",
             "archived_script_default_dataset_ids": [47502, 4320],
             "script_input_route": "Live tab-delimited PANGAEA URLs for S1, S3 and S4; not the archived semicolon-delimited members.",
