@@ -1,6 +1,6 @@
 # Namibian pollen productivity and what the modern reference tables support
 
-**Citation.** Tabares, X., Ratzmann, G., Kruse, S., Theuerkauf, M., Mapani, B. and Herzschuh, U. (2021), “[Relative pollen productivity estimates of savanna taxa from southern Africa and their application to reconstruct shrub encroachment during the last century](https://doi.org/10.1177/09596836211003193),” *The Holocene* **31**(7), 1100–1111. The study asks how to quantify savanna vegetation change using locally calibrated pollen productivity. Its publisher abstract reports five-taxon extended R-value calibration under Gaussian plume and Lagrangian stochastic dispersal, an unreliable Poaceae productivity estimate, and use of Combretaceae as the reference taxon. It also reports a Lake Otjikoto reconstruction spanning roughly 130 years, interpreted as increased woody cover in the recent period. Those are the authors' findings; we have not reproduced that calibration or historical reconstruction. [Primary publisher record](https://journals.sagepub.com/doi/10.1177/09596836211003193).
+**Citation.** Tabares, X., Ratzmann, G., Kruse, S., Theuerkauf, M., Mapani, B. and Herzschuh, U. (2021), “[Relative pollen productivity estimates of savanna taxa from southern Africa and their application to reconstruct shrub encroachment during the last century](https://doi.org/10.1177/09596836211003193),” *The Holocene* **31**(7), 1100–1111. The study asks how to quantify savanna vegetation change using locally calibrated pollen productivity. The full article reports five-taxon extended R-value calibration under Gaussian plume and Lagrangian stochastic dispersal, an unreliable Poaceae productivity estimate, and use of Combretaceae as the reference taxon. It also reports a Lake Otjikoto reconstruction spanning roughly 130 years, interpreted as increased woody cover in the recent period. Those are the authors' findings; we have not reproduced that calibration or historical reconstruction. [Primary publisher record](https://journals.sagepub.com/doi/10.1177/09596836211003193).
 
 Our narrower result concerns its openly deposited **modern observations**: ten soil-pollen sites joined to vegetation areas at 15 publisher radius labels. We retain the exact source rows and describe their five-taxon composition mismatch. The descriptive join supports an out-of-domain development source. A separate [grouped mapped-area experiment](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md) predicts mapped composition from pollen. The [forward pollen comparison](#forward-pollen-results-and-independent-confirmation) instead predicts pollen given deposited areas, retaining two failed fits and stronger-baseline losses. Both use already exposed observations; neither establishes calibrated productivity, a recommended source radius or Nordic vegetation validation. [Governed source account](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md); [our vegetation-reference decision](vegetation-reference.md).
 
@@ -19,11 +19,88 @@ flowchart LR
     C -. "additional calibration inputs and protocol required" .-> E["Article's productivity and historical-cover inference"]
 ```
 
-The same pollen sample is repeated across the vegetation radius rows. Thus **150 site/radius rows are ten pollen sites**, not 150 independent pollen samples; **750 taxon pairs are not 750 independently measured landscapes**. At every radius label, the summary has ten site weights. The tables do not state exact soil-sampling or imagery dates. The [primary dataset series](https://doi.org/10.1594/PANGAEA.931037) describes mean cover calculated in 100 m rings; the vegetation table labels its spatial field “Ring sector, radius.” This supports a ring-specific interpretation, while the actual sector masks and pixel construction remain unverified. [Joined rows](../../docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv); [join producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py).
+The same pollen sample is repeated across the vegetation radius rows. Thus **150 site/radius rows are ten pollen sites**, not 150 independent pollen samples; **750 taxon pairs are not 750 independently measured landscapes**. At every radius label, the summary has ten site weights. The tables do not state exact soil-sampling or imagery dates. The [primary dataset series](https://doi.org/10.1594/PANGAEA.931037) describes mean cover calculated in 100 m rings; the vegetation table labels its spatial field “Ring sector, radius.” This supports a ring-specific interpretation, while the actual raster masks and pixel construction remain unverified. The full
+article now specifies the intended concentric-ring design below. [Joined rows](../../docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv); [join producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py).
+
+## Full article and supplement source review
+
+The supplied 12-page article (journal pp. 1100–1111) and matching seven-page
+supplement have now been read, including the calibration equations, tables,
+field design and limitations. The article is 1,719,282 bytes, SHA-256
+`ab0088f710ec575b1238ece8586f43cab386d091e21c73659b3596eaabfac82e`;
+the supplement is 402,236 bytes, SHA-256
+`5fb28a1d594aa1997fd64d1428e8ca884d40413ecb99cb932fee13756126fcac`.
+These identify the reviewed originals, which are retained privately rather than
+redistributed. Their availability resolves the article-download subquestion of
+`namibia-radius-and-calibration`; it does not supply the original computation.
+A separate source review checked the methods and numerical table identities.
+No existing fit, join, distance or prediction was rerun for this reading.
+
+Methods and Figure 2 (pp. 1101–1103) describe ten sites, each with eleven
+5 × 5 m vegetation plots, spaced 50 m along a 500 m transect. Six subplots at
+the central plot supplied the pooled surface-soil pollen sample. At least
+400 pollen grains were counted per sample; the article percentages use the
+total terrestrial pollen sum. The five selected taxa
+represented 62%–81% of the full pollen sum and 56%–82% of vegetation cover
+as reported on p. 1104. Our five-component closures still omit those other taxa;
+these reported ranges do not recover each site's missing whole denominator.
+
+The article explicitly specifies fifteen concentric 100 m rings to a 1.5 km
+radius. GeoEye-1 and WorldView-2 imagery at 0.4 m resolution was pansharpened
+and orthocorrected, then classified as bare soil, woody vegetation or grasses.
+Field relevés supplied taxonomic composition. The printed woody-cover workflow
+first forms `d = a*c`, then `f = d*e`, using mapped woody cover and two stated
+field-abundance quantities. We preserve this two-stage description; the actual
+`a,c,d,e,f` arrays, class rasters, training samples and implementation are absent.
+Thus the intended ring geometry and area-construction method are now documented,
+while the exact spatial masks and realized values remain unverified.
+
+The calibration (p. 1103, equations 1–2) uses ERV submodel 3, estimating relative
+productivity together with regional abundance/background pollen. ERVinR uses
+R `optim` with conjugate gradients and a mean squared chord objective. The
+paper compares GPM and LSM at 3, 10 and 50 km, initially with 20 repetitions,
+and repeats the comparison without Poaceae. The selected 10 km/four-taxon
+configuration receives 100 repetitions; smaller reported errors than at 50 km
+contribute to its selection (p. 1104). These are development selections, not
+independent confirmation. The published background model and objective differ
+from our separately declared no-background per-grain-NLL forward comparison.
+Its empirical response weights must not be relabeled as reproduced ERV PPEs.
+
+| Taxon | Table 2 GPM PPE / SE | Table 2 LSM PPE / SE | Table 2 fall speed, m/s |
+| --- | ---: | ---: | ---: |
+| Acacia | 0.420 / 0.015 | 0.235 / 0.009 | 0.065 |
+| Dichrostachys | 0.290 / 0.013 | 0.430 / 0.018 | 0.023 |
+| Grewia | 0.230 / 0.010 | 0.090 / 0.004 | 0.067 |
+| Combretaceae | 1 / 0, reference | 1 / 0, reference | 0.015 |
+| Poaceae | not retained | not retained | 0.031 |
+
+Table 2 contains the final 100-repetition results. Supplement S1 instead uses
+Poaceae as reference with 20 repetitions; S3A/B use Combretaceae with five/four
+taxa and 20 repetitions. S3B's 10 km means and errors differ from Table 2,
+including GPM means 0.429/0.282/0.216 and LSM means 0.235/0.480/0.116 for
+Acacia/Dichrostachys/Grewia. Do not mix means and SEs across these experiments.
+The reported SEs are not field dispersion or a supplied joint uncertainty law;
+original repetitions, seeds, covariance and their generating procedure remain
+missing. A separate literal discrepancy remains: Table 2 gives Combretaceae
+fall speed 0.015 m/s, while Results prose on p. 1104 says 0.014 m/s. Neither
+has been silently selected as a correction or substituted into an existing run.
+
+Historical REVEALS uses Table 2 GPM values and an external Poaceae PPE of
+2.02 relative to Combretaceae from Duffin and Bunting (2008), because this
+study's own Poaceae fit was poor. The 2012–2015 imagery period is now explicit
+(p. 1104), but per-scene/site acquisition and soil-sampling dates remain absent.
+The authors compare the matching REVEALS-period mean with northern Karstveld
+sites T1–T5 because no survey around Lake Otjikoto was available. That is a
+regional proxy comparison, not independent measured catchment validation.
+Supplement S6 identifies charcoal core 15OJ06 and pollen core 15OJ10 and the
+zone context; it does not supply the raw pollen/count/chronology replay packet.
+The paper itself also cautions that soil pollen can arrive through local plants,
+trampling, vehicles or dung, and that European atmospheric settings remain
+unvalidated for this region (pp. 1107–1108).
 
 ## Spatial support of the reported areas
 
-We checked the 750 retained taxon-area rows across 50 site/taxon series. Nine of 700 adjacent-radius comparisons decrease, across eight series. A fixed taxon class measured in nested cumulative disks cannot lose area as the disk grows. All 150 five-taxon sums fit the full 100 m annulus at their radius label: dividing each sum by `pi * (r² - (r - 100)²)` gives 64.621%–93.534%. These arithmetic results support the [source description of rings](https://doi.org/10.1594/PANGAEA.931037); they do not independently establish the sector polygons, imagery dates or classification. The conditional five-taxon fractions and distances remain unchanged. A different map or mask at each radius could also explain nonmonotone areas, so this check does not recover the original calibration design. [Complete retained area rows](../../docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv).
+We checked the 750 retained taxon-area rows across 50 site/taxon series. Nine of 700 adjacent-radius comparisons decrease, across eight series. A fixed taxon class measured in nested cumulative disks cannot lose area as the disk grows. All 150 five-taxon sums fit the full 100 m annulus at their radius label: dividing each sum by `pi * (r² - (r - 100)²)` gives 64.621%–93.534%. These arithmetic results support the [source description of rings](https://doi.org/10.1594/PANGAEA.931037); they do not independently recover the realized raster footprints, per-site imagery dates or classification arrays. The conditional five-taxon fractions and distances remain unchanged. A different map or mask at each radius could also explain nonmonotone areas, so this arithmetic check alone does not recover the realized raster or original calibration inputs. [Complete retained area rows](../../docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv).
 
 ## A worked event-to-composition trace
 
@@ -41,7 +118,7 @@ The [full summary](../../docs/report/vegetation-reference/namibia-pollen-vegetat
 
 ## Separate empirical prediction of mapped area
 
-The [grouped mapped-area account](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md) uses the same ten sites and 15 ring labels to evaluate a positive compositional correction. Its nine nominal spatial groups hold T4 and T5 together under declared 1.5 km circular envelopes. Actual image-sector masks and independent campaigns remain unverified. Training excludes the whole held-out group at every radius; all 15 radii and both equal-site and equal-group means are retained.
+The [grouped mapped-area account](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md) uses the same ten sites and 15 ring labels to evaluate a positive compositional correction. Its nine nominal spatial groups hold T4 and T5 together under declared 1.5 km circular envelopes. Actual classified raster footprints and independent campaigns remain unverified. Training excludes the whole held-out group at every radius; all 15 radii and both equal-site and equal-group means are retained.
 
 The correction is the group-weighted mean of `log(mapped_share / pollen_share)` for each of the five source taxa. Predictions close the held-out pollen multiplied by the exponentiated correction. The [estimator proof](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md) binds this conditional compositional objective; it does not identify pollen productivity or transport parameters. The two baselines are unchanged pollen and the training-only mapped composition.
 
@@ -246,7 +323,7 @@ causation. Both implementations share an interpreter and source inputs.
 
 ## Verified scope and unresolved interpretation
 
-The retained producers authenticate the two original table hashes, verify event identities and displayed coordinate correspondence, preserve count/area units, join the source rows, and calculate conditional fractions and distances deterministically. They do not recover the complete article calibration, its uncertainty procedure or the historical Lake Otjikoto calculation. The publisher record checked here supplies citation and abstract-level findings; it is not a reviewed full-text methods closure. We retain no claim of reproducing article tables or historical curves. [Join producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py); [distance producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py); [publisher record](https://journals.sagepub.com/doi/10.1177/09596836211003193).
+The retained producers authenticate the two original table hashes, verify event identities and displayed coordinate correspondence, preserve count/area units, join the source rows, and calculate conditional fractions and distances deterministically. They do not recover the complete article calibration, its uncertainty procedure or the historical Lake Otjikoto calculation. The supplied full article and matching supplement now establish the published sampling, ring, imagery-period, ERV objective/background and parameter-selection design described above. They do not provide the realized source arrays, uncertainty law or original executable/version needed for numerical reproduction. We retain no claim of computationally reproducing the parameter tables or historical curves. [Join producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py); [distance producer](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py); [publisher record](https://journals.sagepub.com/doi/10.1177/09596836211003193).
 
 The Namibian savanna taxa, soil sampling and calculated vegetation support differ from a Nordic sediment core and dated landscape measurement. Even a lawful modern-data join does not resolve Nordic basin history, calibrated sample ages, local-ring admissibility or the independent vegetation estimand. Our [Nordic EMPD2–NFI review](../../docs/report/validation/empd2-nfi-pairing/report.json) still has zero admitted pairs. These populations must not be pooled into a Nordic accuracy denominator.
 
@@ -254,7 +331,7 @@ The Namibian savanna taxa, soil sampling and calculated vegetation support diffe
 
 With the two exact original tables in a source directory, use the [join and sensitivity commands](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md) or the explicit reproduction blocks on that page. The producers write isolated outputs under `artifacts/`; comparing all four numeric outputs with the retained files checks the bounded calculations. The first producer refuses changed source bytes before deriving rows. Public readers can inspect source dataset identifiers and retained outputs without a private runtime.
 
-The precise **unsent** source request is for the full article methods and supplement, ERV input/design and parameter uncertainty, the exact ring-sector masks and spatial support construction, soil/imagery dates, mapped taxon-area construction and uncertainty, and the versioned Lake Otjikoto count/chronology/PPE/transport inputs. A qualified reviewer should first determine whether those source observations and spatial supports measure the proposed estimand. An independent reader exercise and scientific review are not recorded. These missing details keep calibration, historical reproduction and cross-domain vegetation validation open.
+The article and matching supplement are received and reviewed; do not request them again. The existing request retains its **unsent outreach history** and now concerns original ERV inputs/runtime/version/background and repetition/covariance realizations, actual imagery scenes/masks/classification and taxon-area transformation arrays, per-site soil/image dates and rights, and the versioned Lake Otjikoto count/chronology/selection/transport replay packet. A qualified reviewer should first determine whether those source observations and spatial supports measure the proposed estimand. An independent reader exercise and scientific review are not recorded. These missing details keep calibration, historical reproduction and cross-domain vegetation validation open.
 
 
 <!-- scientific-verification-and-limits:begin -->
@@ -266,7 +343,7 @@ The precise **unsent** source request is for the full article methods and supple
 
 **Actual verification performed.** The retained inverse calculation has 7,290 Decimal50 field checks. The new forward consumer at source 9f3b7d49c exits zero in 2.25 seconds: 135 attempts, 133 converged fits, two step limits, 148 empirical and 450 baseline vectors. Independent Decimal160 verification confirms 598 vectors, 1,794 scores, 1,332 contrasts and 348 non-null summaries. Maximum probability/loss gaps are 1.56e-12/1.40e-12 within fixed 1e-8/1e-10 bounds. Maintained verifier 32b69b04f also passes the saved CSV in 11.42 seconds; no producer refit. Its original 80-digit precision failure is retained; only working precision increased. Shared-interpreter arithmetic agreement supplies no qualified human review. Separate consumer 6735b643d recomputes only T7 training problems at 200/500 m: both converge in four steps under unchanged limits, exit zero in 1.508 seconds, 6702-byte result. Independent Decimal160 verification exits zero in 0.250 seconds and checks 90 training probabilities and two NLL values, maximum gaps 2.68e-16/5.55e-17 within unchanged 1e-8/1e-10 bounds. Both retain 6077 training grains; source and original CSV remain unchanged. Twenty-two controlled consumer tests and static checks pass.
 
-**Remaining input or review.** CC BY 4.0 modern tables support source joins, a grouped inverse mapped-area study and a separate grouped forward-pollen development comparison. Exact soil/image dates, sector masks/pixel construction, original ERV design/uncertainty, historical Otjikoto inputs and qualified interpretation remain unbound; no Nordic measured-reference admission follows. Resolver: Namibian source custodian and independent qualified ERV/spatial/ecological reviewer Reopen when: A versioned packet supplies source sampling/imagery dates, sector masks and area construction, original ERV inputs/design/uncertainty and historical Otjikoto counts/ages/parameters with intended-use terms; qualified reviewer determines one comparable estimand.
+**Remaining input or review.** CC BY 4.0 modern tables support source joins, a grouped inverse mapped-area study and a separate grouped forward-pollen development comparison. The full text now supplies intended concentric-ring geometry, field/imagery construction, the 2012–2015 imagery range, ERV objective/background design and separately identified parameter tables. Exact per-site soil/image dates, realized masks/transformation arrays, original ERV execution/repetition/covariance, historical Otjikoto replay inputs and qualified interpretation remain unbound; no Nordic measured-reference admission follows. Resolver: Namibian source custodian and independent qualified ERV/spatial/ecological reviewer Reopen when: A versioned packet supplies per-site sampling/imagery dates, realized raster masks and area-transformation arrays, original ERV execution/repetition/covariance inputs and historical Otjikoto counts/ages/parameters with intended-use terms; a qualified reviewer determines one comparable estimand.
 
 **Cause category.** data|assumption|comparability|access/rights|qualified review
 
