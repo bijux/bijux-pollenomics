@@ -1,0 +1,759 @@
+{
+  "array_comparison": "literal positional source arrays; no identity matching or reordering",
+  "canonical_data_replaced": false,
+  "capture_identity": "neotoma/dataset-19913/2026-10-26T185139Z",
+  "capture_manifest_sha256": "906f7e38d5c32d03f00094136ee89213ea39ea99eb422db233e723b8f4e79269",
+  "capture_utc_end": "2026-10-26T18:54:19.449560+00:00",
+  "capture_utc_start": "2026-10-26T18:54:13.050022+00:00",
+  "captures": {
+    "current": {
+      "conflicts": [],
+      "native_preservation": {
+        "match": true,
+        "surfaces": {
+          "age_claims": {
+            "accepted_rows": 107,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 107,
+            "raw_rows": 107,
+            "unexpected_rows": 0
+          },
+          "chronologies": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "chronology_controls": {
+            "accepted_rows": 7,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 7,
+            "raw_rows": 7,
+            "unexpected_rows": 0
+          },
+          "collection_units": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "datasets": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "observations": {
+            "accepted_rows": 2892,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 2892,
+            "raw_rows": 2892,
+            "unexpected_rows": 0
+          },
+          "samples": {
+            "accepted_rows": 107,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 107,
+            "raw_rows": 107,
+            "unexpected_rows": 0
+          },
+          "sites": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          }
+        }
+      },
+      "orphans": [],
+      "reconciliation": {
+        "age_comparability_counts": {
+          "comparable": 106,
+          "refused": 1
+        },
+        "age_reason_counts": {
+          "negative_bp": 1
+        },
+        "conflict_count": 0,
+        "country_attribution_counts": {
+          "decision_methods": {
+            "missing_country_decision": 1
+          },
+          "decision_statuses": {
+            "unassigned": 1
+          },
+          "derived_country_codes": {
+            "UNASSIGNED": 1
+          },
+          "derived_country_values": {
+            "UNASSIGNED": 1
+          },
+          "final_country_codes": {
+            "UNASSIGNED": 1
+          },
+          "propagation_eligibility": {
+            "blocked": 1
+          },
+          "raw_country_codes": {
+            "SE": 1
+          },
+          "raw_country_values": {
+            "Sweden": 1
+          },
+          "source_vs_derived_comparisons": {
+            "unresolved": 1
+          }
+        },
+        "country_counts": {
+          "DK": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "FI": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "NO": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "SE": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "UNASSIGNED": {
+            "age_claim_rows": 107,
+            "age_comparable": 106,
+            "age_context_only": 0,
+            "age_refused": 1,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 1,
+            "chronology_controls": 7,
+            "collection_unit_rows": 1,
+            "collection_units": 1,
+            "dataset_rows": 1,
+            "datasets": 1,
+            "observation_rows": 2892,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 107,
+            "samples": 107,
+            "site_rows": 1,
+            "sites": 1,
+            "unassigned_sites": 1,
+            "variables": 94
+          }
+        },
+        "normalized_row_counts": {
+          "age_claims": 107,
+          "chronologies": 1,
+          "chronology_controls": 7,
+          "collection_units": 1,
+          "datasets": 1,
+          "observations": 2892,
+          "samples": 107,
+          "sites": 1,
+          "variables": 94
+        },
+        "orphan_count": 0,
+        "source_occurrence_accounting": {
+          "age_claims": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 107,
+            "source_counter": "age_claim_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "chronologies": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "chronology_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "chronology_controls": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 7,
+            "source_counter": "chronology_control_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "collection_units": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "collection_unit_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "datasets": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "dataset_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "observations": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 2892,
+            "source_counter": "observation_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "samples": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 107,
+            "source_counter": "sample_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "sites": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "site_rows",
+            "unregistered_source_occurrences": 0
+          }
+        },
+        "source_row_counts": {
+          "age_claim_rows": 107,
+          "chronology_control_rows": 7,
+          "chronology_rows": 1,
+          "collection_unit_rows": 1,
+          "dataset_rows": 1,
+          "download_rows": 1,
+          "observation_rows": 2892,
+          "sample_rows": 107,
+          "site_rows": 1
+        },
+        "source_unit_counts": {
+          "NISP": 2892
+        },
+        "unit_family_counts": {
+          "count": 2892
+        },
+        "unregistered_source_occurrence_counts_by_reason": {
+          "age_claims": {},
+          "chronologies": {},
+          "chronology_controls": {},
+          "collection_units": {},
+          "datasets": {},
+          "observations": {},
+          "samples": {},
+          "sites": {}
+        },
+        "variable_semantic_variant_count": 94
+      },
+      "source_snapshot_id": "sha256:1317496c2e1d04c7f69a2048ee49647350f5abfc0f8e23360211e01f5eb5dd8a"
+    },
+    "retained": {
+      "conflicts": [],
+      "native_preservation": {
+        "match": true,
+        "surfaces": {
+          "age_claims": {
+            "accepted_rows": 107,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 107,
+            "raw_rows": 107,
+            "unexpected_rows": 0
+          },
+          "chronologies": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "chronology_controls": {
+            "accepted_rows": 7,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 7,
+            "raw_rows": 7,
+            "unexpected_rows": 0
+          },
+          "collection_units": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "datasets": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          },
+          "observations": {
+            "accepted_rows": 2892,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 2892,
+            "raw_rows": 2892,
+            "unexpected_rows": 0
+          },
+          "samples": {
+            "accepted_rows": 107,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 107,
+            "raw_rows": 107,
+            "unexpected_rows": 0
+          },
+          "sites": {
+            "accepted_rows": 1,
+            "conflict_variant_rows": 0,
+            "match": true,
+            "missing_rows": 0,
+            "raw_distinct_parent_payloads": 1,
+            "raw_rows": 1,
+            "unexpected_rows": 0
+          }
+        }
+      },
+      "orphans": [],
+      "reconciliation": {
+        "age_comparability_counts": {
+          "comparable": 106,
+          "refused": 1
+        },
+        "age_reason_counts": {
+          "negative_bp": 1
+        },
+        "conflict_count": 0,
+        "country_attribution_counts": {
+          "decision_methods": {
+            "missing_country_decision": 1
+          },
+          "decision_statuses": {
+            "unassigned": 1
+          },
+          "derived_country_codes": {
+            "UNASSIGNED": 1
+          },
+          "derived_country_values": {
+            "UNASSIGNED": 1
+          },
+          "final_country_codes": {
+            "UNASSIGNED": 1
+          },
+          "propagation_eligibility": {
+            "blocked": 1
+          },
+          "raw_country_codes": {
+            "SE": 1
+          },
+          "raw_country_values": {
+            "Sweden": 1
+          },
+          "source_vs_derived_comparisons": {
+            "unresolved": 1
+          }
+        },
+        "country_counts": {
+          "DK": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "FI": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "NO": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "SE": {
+            "age_claim_rows": 0,
+            "age_comparable": 0,
+            "age_context_only": 0,
+            "age_refused": 0,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 0,
+            "chronology_controls": 0,
+            "collection_unit_rows": 0,
+            "collection_units": 0,
+            "dataset_rows": 0,
+            "datasets": 0,
+            "observation_rows": 0,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 0,
+            "samples": 0,
+            "site_rows": 0,
+            "sites": 0,
+            "unassigned_sites": 0,
+            "variables": 0
+          },
+          "UNASSIGNED": {
+            "age_claim_rows": 107,
+            "age_comparable": 106,
+            "age_context_only": 0,
+            "age_refused": 1,
+            "age_unresolved": 0,
+            "assigned_sites": 0,
+            "chronologies": 1,
+            "chronology_controls": 7,
+            "collection_unit_rows": 1,
+            "collection_units": 1,
+            "dataset_rows": 1,
+            "datasets": 1,
+            "observation_rows": 2892,
+            "propagation_eligible_sites": 0,
+            "refused_sites": 0,
+            "review_sites": 0,
+            "sample_rows": 107,
+            "samples": 107,
+            "site_rows": 1,
+            "sites": 1,
+            "unassigned_sites": 1,
+            "variables": 94
+          }
+        },
+        "normalized_row_counts": {
+          "age_claims": 107,
+          "chronologies": 1,
+          "chronology_controls": 7,
+          "collection_units": 1,
+          "datasets": 1,
+          "observations": 2892,
+          "samples": 107,
+          "sites": 1,
+          "variables": 94
+        },
+        "orphan_count": 0,
+        "source_occurrence_accounting": {
+          "age_claims": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 107,
+            "source_counter": "age_claim_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "chronologies": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "chronology_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "chronology_controls": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 7,
+            "source_counter": "chronology_control_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "collection_units": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "collection_unit_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "datasets": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "dataset_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "observations": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 2892,
+            "source_counter": "observation_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "samples": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 107,
+            "source_counter": "sample_rows",
+            "unregistered_source_occurrences": 0
+          },
+          "sites": {
+            "excluded_occurrence_counts": {
+              "repeated_identical_entity_record": 0,
+              "unselected_conflicting_entity_variant": 0
+            },
+            "registered_occurrences": 1,
+            "source_counter": "site_rows",
+            "unregistered_source_occurrences": 0
+          }
+        },
+        "source_row_counts": {
+          "age_claim_rows": 107,
+          "chronology_control_rows": 7,
+          "chronology_rows": 1,
+          "collection_unit_rows": 1,
+          "dataset_rows": 1,
+          "download_rows": 1,
+          "observation_rows": 2892,
+          "sample_rows": 107,
+          "site_rows": 1
+        },
+        "source_unit_counts": {
+          "NISP": 2892
+        },
+        "unit_family_counts": {
+          "count": 2892
+        },
+        "unregistered_source_occurrence_counts_by_reason": {
+          "age_claims": {},
+          "chronologies": {},
+          "chronology_controls": {},
+          "collection_units": {},
+          "datasets": {},
+          "observations": {},
+          "samples": {},
+          "sites": {}
+        },
+        "variable_semantic_variant_count": 94
+      },
+      "source_snapshot_id": "sha256:d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+    }
+  },
+  "change_kinds": {},
+  "changed_decimal_serialization": "tagged object with json_numeric_kind=decimal and unrounded exact_value string",
+  "changed_paths": 0,
+  "current_source_attribution": {
+    "database": "European Pollen Database",
+    "datasetnotes": null,
+    "datasetpi": [
+      {
+        "contactid": 8710,
+        "contactname": "Giesecke, Thomas",
+        "familyname": "Giesecke",
+        "firstname": "Thomas",
+        "initials": "T."
+      }
+    ],
+    "doi": [
+      "10.21233/2vzb-bg61"
+    ]
+  },
+  "historical_http_custody_recovered": false,
+  "native_projection_numeric_semantics": "unchanged Python JSON binary64 decoding",
+  "numeric_comparison": "exact JSON numeric values and integer-versus-decimal kind; wire lexical formatting is not compared",
+  "retained_part": {
+    "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+    "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+  },
+  "rights": {
+    "dataset_doi_assessed_before_capture": "10.21233/2vzb-bg61",
+    "intended_use": "Source-bound public Neotoma/European Pollen Database evidence under current CC BY 4.0 policy, with Neotoma, EPD, original investigator and dataset DOI attribution; actual returned metadata must bind attribution before downstream use.",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "policy_application_limit": "No Rootsi/private-source rights, historical chronology, taxonomy/PPE, basin or LRA admission is conferred."
+  },
+  "schema_version": "neotoma-current-abbo-capture-comparison.v1",
+  "scientific_admission": false,
+  "source_value_equal": true
+}
