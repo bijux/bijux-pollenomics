@@ -38,8 +38,9 @@ returned **403**, its documented full-text XML API returned **500**, and the
 original bioRxiv v1 supplement page returned **403**. These failed response
 bodies are not article or specimen-table content. Europe PMC's PPR984375 metadata
 labels the main record open access and `hasSuppl=N`; those labels did not deliver
-the requested main or attachment bytes. No Celtic specimen table or genetic
-measurements were opened, and no already supplied Germanic original was copied.
+the requested main or attachment bytes. Those six requests opened no Celtic
+specimen table or genetic measurements, and no already supplied Germanic original was copied. The later
+supplied v3 package is consumed separately below.
 The [publication provenance section](mccoll-source-context.json) retains these
 facts separately from the earlier successful Germanic and museum evidence.
 
@@ -72,15 +73,85 @@ a bounded negative lookup, not proof that no journal DOI or publication exists.
 The compact JSON keeps both metadata requests and these limits separate from
 the supplied Germanic source and original Celtic attempts.
 
-Consequently, AADR's date/coordinate strings remain **annotation assertions**;
-the worksheet cells and archaeological paragraphs below remain **Germanic v2
+AADR's date/coordinate strings remain **annotation assertions**; the earlier
+worksheet cells and archaeological paragraphs below remain **Germanic v2
 source context**; and museum records remain **locality/assemblage context**.
-The exact remaining source question is the Celtic version and descriptive
-specimen-table-to-AADR crosswalk for `CGG_2_105915` and `CGG_2_105916`, including
-which source owns each laboratory/date/coordinate representation. That missing
-crosswalk is not supplied by a shared DOI author, matching museum/place name,
-current publication version or the separate museum locality evidence. No date,
-coordinate, source version or admission decision has been selected.
+The additional Celtic v3 package now supplies a descriptive combined Fauskland
+row. It does not identify which Celtic version the unversioned AADR citation
+used or select a date, coordinate or admission decision.
+
+## Supplied Celtic v3 sample metadata
+
+The complete supplied package identifies the Celtic DOI above, **v3 posted
+8 May 2025**. Its main PDF has 38 nonempty extracted pages; the two wide figure
+PDFs each have one intentionally oversized page, and the notes PDF has 81.
+All five original byte identities are retained in the compact JSON's
+`supplied_celtic_v3` section. The workbook passed ZIP CRC checks and contains
+eleven sheets. The main title page states CC BY-NC-ND 4.0 and that this preprint
+was not certified by peer review; originals remain outside product content.
+This local source receipt does not establish live-server byte equality or an
+exhaustive publisher attachment list.
+
+Direct original ZIP/XML reading covers all **4,587 sample rows** in
+`S1.1. Sample metadata` (`A1:AG4588`). Exactly one row contains the named
+Fauskland CGG aliases: physical Excel **row 4237**. Sixteen descriptive fields
+were independently decoded through the unchanged maintained workbook reader.
+Other numerical results sheets were inventoried, without scientific validation.
+
+| Source field | Literal Celtic v3 value |
+| --- | --- |
+| `sampleId` | `CGG105916_CGG105917_CGG105918.mccoll_230821_ironage` |
+| `popId` / `versionID` | `CGG105916_CGG105917_CGG105918` / `CGG105916` |
+| `site` / `country` | `Fauskland` / `Norway` |
+| `latitude` / `longitude`, native numeric XML | `63.605789999999999` / `14.858610000000001` |
+| `dataSource` | `thisPublication` |
+| `ageHigh` / `ageLow` / `ageAverage` | `4087` / `3934` / `4011` |
+| `datingSource` / `age14C` / `ageRaw` | `direct` / literal `NA` / literal `NA` |
+
+The combined alias and summary fields agree with Germanic S5.1 row 2323.
+The numeric coordinates agree with the original AADR Fauskland pair and retain
+the conflict with its Norway locality and the museum point. The source does
+not identify an exact sampled museum subrecord. `thisPublication` is a source
+label; the explicit companion reuse described below means it cannot establish
+an independently sampled person. The combined representation is one previously
+reported individual, not three new independent observations.
+
+The selected headers and row do not state an age unit/reference epoch,
+calibration curve or laboratory identifier for these summary fields. Main-text
+BP notation does not resolve that missing table-specific information. Preserve
+the literal values alongside AADR's distinct `4503` mean, `134` SD and full-date
+string; no recalibration, date conversion or rounding repair is performed.
+
+No `105915`, `Aunvollen`, `T11792`, `A7437` or `T20248` match occurs in this
+finite S1.1 sheet. That establishes a scoped metadata nonmatch, without implying
+absence from every auxiliary results sheet, publication or release. In
+particular, it cannot explain the retained Aunvollen **Individual 2** annotation.
+
+The main paper's Methods, PDF page 28 lines 607–609 and page 29 lines 627–634,
+explicitly reuse the Germanic companion's dataset and refer site/sampling details
+to reference 41. Data availability on PDF page 31 lines 674–677 points to
+PRJEB87274 and the accompanying paper's **Note S4**. The supplied Germanic v2
+archaeological section is **S7**; the differing pointer is preserved. Celtic
+v3's own **S4** concerns Y chromosomes. Its **S6**, read in full on notes
+PDF pages 57–62, discusses Urnfield, Hallstatt and La Tène interpretation; it
+supplies no named Norwegian specimen catalogue. Searches of the complete main
+and notes text found no named CGG/site/museum terms above. Neither that bounded
+text result nor the general archaeological discussion replaces the missing
+specimen/laboratory/date/coordinate crosswalk.
+
+Source extraction and direct XML inspection terminated successfully in 6.26 s,
+peak RSS 221,609,984 bytes. A second decoder plus direct original ANNO comparison
+terminated successfully in 2.66 s, peak RSS 318,341,120 bytes: all 16 selected
+Celtic fields and the four retained AADR rows agree with their scoped source
+observations. Five supplied originals were authenticated before and after;
+selected AADR fields remain unchanged. These observations used the committed
+reader at `19feb79bf`, shared Python environment, bytecode suppression,
+one-thread settings and 120 s / 512 MiB posthoc bounds. The literal observations
+and six original-page previews remain under
+`artifacts/celtic-source-review/`; the compact JSON records tool handles and
+resources. No genetic analysis, coordinate transformation or scientific
+admission was performed. The earlier failed remote requests and Cambridge
+embargo context remain intact as separate historical evidence.
 
 ## Retained specimen and annotation comparison
 
@@ -217,13 +288,13 @@ subquestions. Country/map/chronology admission and field decisions remain open.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Literal source comparisons for the two AADR country conflicts, author-reported Fauskland three-sample/one-individual merger, distinct Aunvollen individuals, museum locality/collection context and nominal pinned-boundary comparisons; no coordinate or chronology selection.
+**Supported claim.** Literal source comparisons for the two AADR country conflicts, author-reported Fauskland three-sample/one-individual merger, distinct Aunvollen individuals, museum locality/collection context and nominal pinned-boundary comparisons; no coordinate or chronology selection. Supplied Celtic v3 row 4237 supplies the combined Fauskland representation; all 4587 S1.1 rows have a scoped search and main Methods explicitly reuse the distinct Germanic companion.
 
 **Unsupported claim.** Treating the Germanic and Celtic DOIs as version aliases, correcting AADR coordinates or dates, assigning the older Aunvollen woman to Individual 2, counting merged teeth as independent people, genotype inference, qualified country/map/chronology admission or field permission.
 
-**Actual verification performed.** Committed reader ac1c3619a and independent original ZIP/XML/CSV observer each exited zero: six Germanic worksheet rows, 162 descriptive cells, four AADR panel rows and two unchanged country decisions. Original archaeological pages 161/174/175 and genetics page 22 were visually checked. Museum source facts and a separate nominal five-pair degree-axis comparison were retained. Six bounded Celtic GET responses supplied three publication-metadata successes and three failed content responses, not a Celtic specimen table. A separate two-GET metadata unit retained the Cambridge Nature accepted-record HTML and a bounded Crossref query, both HTTP 200; original metadata bodies were rehashed without fetching the embargoed file. Acceptance/deposit/accession and item rights remain distinct from publication, file access and preprint-version binding. No new polygon oracle, datum transformation or genotype analysis was performed.
+**Actual verification performed.** Committed reader ac1c3619a and independent original ZIP/XML/CSV observer each exited zero: six Germanic worksheet rows, 162 descriptive cells, four AADR panel rows and two unchanged country decisions. Original archaeological pages 161/174/175 and genetics page 22 were visually checked. Museum source facts and a separate nominal five-pair degree-axis comparison were retained. Six bounded Celtic GET responses supplied three publication-metadata successes and three failed content responses, not a Celtic specimen table. A separate two-GET metadata unit retained the Cambridge Nature accepted-record HTML and a bounded Crossref query, both HTTP 200; original metadata bodies were rehashed without fetching the embargoed file. Acceptance/deposit/accession and item rights remain distinct from publication, file access and preprint-version binding. No new polygon oracle, datum transformation or genotype analysis was performed. Later user-supplied Celtic v3 originals were read in place: PDFs 38/1/1/81 nonempty pages, workbook CRC and eleven-sheet inventory, all 4587 S1.1 rows searched. Direct ZIP/XML and a separate unchanged reader agree on 16 descriptive fields; direct original ANNO reading agrees on all four retained rows. Original title, Methods and data-availability images were independently compared. Five byte identities and previous source context are preserved; no genetic results-sheet analysis or source copy was performed.
 
-**Remaining input or review.** The two AADR coordinate/date assertions, Germanic v2 companion cells and museum locality records remain distinct. The cited Celtic preprint version and descriptive specimen-table crosswalk remain unbound despite the separate accepted-record metadata; exact individual/date, coordinate meaning/datum and correction authority remain unresolved. Resolver: Source custodian for the versioned Celtic specimen crosswalk and museum/sample identity; chronology and geography reviewers for any proposed scientific or map correction. Reopen when: Bind the cited Celtic version and sample-owned laboratory/date/coordinate representations, exact museum subrecord/individual links and an explicit datum/precision and correction decision.
+**Remaining input or review.** The supplied Celtic v3 metadata now bind the combined Fauskland alias, but the unversioned AADR citation does not identify its actual Celtic version. AADR assertions, Germanic companion cells, Celtic v3 row and museum localities retain different date/coordinate scope. Exact individual/laboratory/subrecord links, datum/precision and correction authority remain unresolved. Resolver: Source custodian for the versioned Celtic specimen crosswalk and museum/sample identity; chronology and geography reviewers for any proposed scientific or map correction. Reopen when: Bind the cited Celtic version and sample-owned laboratory/date/coordinate representations, exact museum subrecord/individual links and an explicit datum/precision and correction decision.
 
 **Cause category.** data|comparability|access/rights|qualified review
 
@@ -231,9 +302,9 @@ subquestions. Country/map/chronology admission and field decisions remain open.
 
 **Precise next acceptance route.** Use the existing literal-source and country-support consumers for their stated scopes. Any correction must cite the exact Celtic/specimen and museum bindings and explicit chronology/datum authority; re-run only the affected admitted downstream consumer after that decision. Original publisher attachments remain outside public product content.
 
-**Negative or refused result.** Both original AADR pairs still conflict with source Norway on the pinned boundary axes; all date disagreements and the trailing-T alias remain. Museum locality/property points are not sample corrections. Celtic PDF/XML/supplement attempts returned 403/500/403; the earlier missing-Shapely attempt is preserved. No admission was granted.
+**Negative or refused result.** Both original AADR pairs still conflict with source Norway on the pinned boundary axes; all date disagreements and the trailing-T alias remain. Museum locality/property points are not sample corrections. Celtic PDF/XML/supplement attempts returned 403/500/403; the earlier missing-Shapely attempt is preserved. No admission was granted. The later supplied package supersedes the earlier table-availability gap. No 105915 or Aunvollen match occurs in its S1.1 sheet; this is a finite nonmatch, not universal absence. Row 4237 retains the conflicting 14.85861 longitude and literal 4087/3934/4011 summaries; its headers/row do not bind units, calibration or laboratory identifiers.
 
-**Matched denominator.** Two AADR IDs in two original annotation panels; six Germanic worksheet rows and 162 descriptive cells; three museum records at two distinct points, including one separate dog; five nominal point comparisons. Fauskland three sampled teeth plus a merged row represent one author-reported individual.
+**Matched denominator.** Two AADR IDs in two original annotation panels; six Germanic worksheet rows and 162 descriptive cells; three museum records at two distinct points, including one separate dog; five nominal point comparisons. Fauskland three sampled teeth plus a merged row represent one author-reported individual. Additional Celtic v3 source: 4587 S1.1 sample rows searched, one combined Fauskland target row with 16 independently decoded descriptive fields, zero 105915 matches. This is the previously reported merged individual, without another independent biological observation.
 
 Retained evidence: [reports/science/aadr-nordic-entities/country-support/report.json](report.json), [reports/science/aadr-nordic-entities/country-support/decisions.csv](decisions.csv), [reports/science/aadr-nordic-entities/country-support/mccoll-source-context.json](mccoll-source-context.json), [reports/science/aadr-nordic-entities/country-support/museum-source-context.json](museum-source-context.json).
 

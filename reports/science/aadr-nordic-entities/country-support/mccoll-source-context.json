@@ -10,7 +10,7 @@
     "genetics_page_22_section": "S4. Imputation"
   },
   "publication_provenance": {
-    "scope": "Additive publication-discovery metadata, separate from the unchanged committed Germanic reader result, AADR annotation literals and museum context. No original Celtic article/specimen table or genetic measurements were obtained.",
+    "scope": "Historical publication-discovery metadata, separate from the unchanged committed Germanic reader result, AADR annotation literals and museum context. Those remote attempts obtained no Celtic article or specimen table; the later user-supplied v3 package is recorded separately in supplied_celtic_v3.",
     "aadr_cited_publication": {
       "doi_literal": "https://doi.org/10.1101/2025.02.28.640770",
       "metadata_title": "Tracing the Spread of Celtic Languages using Ancient Genomics",
@@ -135,7 +135,7 @@
       "existing_Germanic_originals_copied": false,
       "genetic_measurements_or_target_outcome_tables_opened": false
     },
-    "remaining_source_question": "Which exact Celtic publication version and descriptive specimen-table rows for CGG_2_105915 and CGG_2_105916 underlie the AADR citation and annotation fields, and what source-owned specimen/laboratory/date/coordinate crosswalk explains their relation to the supplied Germanic v2 cells? The museum subrecord and Individual 2-to-laboratory links remain separate unresolved conditions.",
+    "remaining_source_question": "Which Celtic version underlies the unversioned AADR citation, and what sample-owned laboratory/date/coordinate crosswalk explains the AADR representations? Supplied Celtic v3 now provides the Fauskland combined metadata row, but no Aunvollen/105915 row in its S1.1 sheet; the exact museum subrecord and Individual 2-to-laboratory links remain unresolved.",
     "coordinate_or_date_correction_performed": false,
     "scientific_or_map_admission": false,
     "outreach_performed": false,
@@ -235,6 +235,204 @@
       "specimen_laboratory_date_coordinate_crosswalk_established": false,
       "scientific_or_map_admission": false
     }
+  },
+  "supplied_celtic_v3": {
+    "doi": "10.1101/2025.02.28.640770",
+    "version": "3",
+    "posted_date_literal": "May 8, 2025",
+    "original_directory": "Tracing the spread of Celtic languages using ancient genomics",
+    "original_inputs": [
+      {
+        "path": "2025.02.28.640770v3.full.pdf",
+        "bytes": 2389126,
+        "sha256": "8659eaed5c47abc218d8d652dd58e9c471672ac4a7b31bda2ceaa4c8d98a56c6",
+        "pdf_nonempty_pages": 38
+      },
+      {
+        "path": "media-1.xlsx",
+        "bytes": 26599060,
+        "sha256": "ea882decc159f2d6d268548f2b1f94a3b08411b145293c7c20e73b302965140b"
+      },
+      {
+        "path": "media-2.pdf",
+        "bytes": 7090453,
+        "sha256": "f6825a96bf93d4046426b9aaa9ad2b4263857edd6176ad83379e2fcb5d9634f1",
+        "pdf_nonempty_pages": 1
+      },
+      {
+        "path": "media-3.pdf",
+        "bytes": 6986089,
+        "sha256": "ce7b39b40c2ec9ac146b5ede55226b52d6b3ba3a078fe16efcd2f80b0f1ca0b0",
+        "pdf_nonempty_pages": 1
+      },
+      {
+        "path": "media-4.pdf",
+        "bytes": 21767546,
+        "sha256": "c6f61524eff5fedf2b60d13c83eab18ceed4688cec92b6d8da3e07d6571f2ec2",
+        "pdf_nonempty_pages": 81
+      }
+    ],
+    "rights_scope": {
+      "main_page_1_license_literal": "CC-BY-NC-ND 4.0 International",
+      "main_page_1_peer_review_statement": "not certified by peer review",
+      "attachment_redistribution_grant_inferred": false,
+      "original_attachments_redistributed": false
+    },
+    "workbook": {
+      "crc_checked": true,
+      "worksheet_names": [
+        "S1.1. Sample metadata",
+        "S1.2. IBD MM Sources",
+        "S1.3 IBD MM Results",
+        "S1.4 Aux metadata",
+        "S1.5. IBD MM Aux Results",
+        "S2.1. qpadm 1pop models",
+        "S2.2. qpadm 2pop models",
+        "S2.3. qpadm 3pop models",
+        "S2.4. qpadm pops",
+        "S3.1 Chromopaint Sources",
+        "S3.2 Chromopaint Results"
+      ],
+      "reviewed_sheet": "S1.1. Sample metadata",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "dimension_literal": "A1:AG4588",
+      "sample_rows": 4587,
+      "other_results_sheets_numerically_validated": false
+    },
+    "fauskland_metadata": {
+      "physical_excel_row": 4237,
+      "descriptive_literals": {
+        "sampleId": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage",
+        "popId": "CGG105916_CGG105917_CGG105918",
+        "versionID": "CGG105916",
+        "site": "Fauskland",
+        "country": "Norway",
+        "region": "NorthernEurope",
+        "groupLabel": "Norway_LateNeolithicEarlyBronzeAge",
+        "latitude": "63.605789999999999",
+        "longitude": "14.858610000000001",
+        "dataSource": "thisPublication",
+        "age14C": "NA",
+        "ageHigh": "4087",
+        "ageLow": "3934",
+        "ageAverage": "4011",
+        "datingSource": "direct",
+        "ageRaw": "NA"
+      },
+      "native_numeric_tokens": {
+        "H": "63.605789999999999",
+        "I": "14.858610000000001",
+        "L": "4087",
+        "M": "3934",
+        "N": "4011"
+      },
+      "age_scope": "ageHigh, ageLow, ageAverage and datingSource are literal table fields. The selected header/row supplies no explicit age-unit/reference-epoch, calibration-curve or laboratory-code field; age14C and ageRaw are literal NA. No conversion or calibration is performed.",
+      "alias_scope": "The combined popId and versionID match the previously consumed Germanic S5.1 representation. This supports a source representation link, not a new independent individual or an explicit AADR source-version/museum-subrecord binding.",
+      "coordinate_scope": "Numeric degree values agree with the original AADR Fauskland pair and retain its conflict with the Norway locality and museum longitude; no point is selected or transformed.",
+      "date_scope": "4087/3934/4011 reproduce the Germanic summary literals, while AADR date_mean_bp=4503, date_sd_bp=134 and its full-date string remain distinct and unchanged."
+    },
+    "finite_metadata_search": {
+      "scope": "All 4587 S1.1 sample rows, not every auxiliary results sheet or every source release.",
+      "terms_and_physical_rows": {
+        "105915": [],
+        "105916": [
+          "4237"
+        ],
+        "105917": [
+          "4237"
+        ],
+        "105918": [
+          "4237"
+        ],
+        "Aunvollen": [],
+        "Fauskland": [
+          "4237"
+        ],
+        "T11792": [],
+        "A7437": [],
+        "T20248": []
+      },
+      "universal_absence_inferred": false
+    },
+    "pdf_provenance_context": {
+      "main_pages": [
+        1,
+        24,
+        28,
+        29,
+        31
+      ],
+      "main_line_ranges": [
+        "516-518",
+        "607-609",
+        "627-634",
+        "674-677"
+      ],
+      "companion_reference": {
+        "number": 41,
+        "doi": "10.1101/2024.03.13.584607",
+        "scope": "The Celtic main paper explicitly directs sampling/site metadata to the distinct Germanic companion and its data availability to PRJEB87274. The printed companion Note S4 pointer is preserved; the supplied Germanic v2 archaeology section is S7."
+      },
+      "celtic_supplementary_note_s4": "Y-chromosome results, not the Germanic archaeological note",
+      "celtic_supplementary_note_s6": {
+        "pdf_pages": [
+          57,
+          58,
+          59,
+          60,
+          61,
+          62
+        ],
+        "scope": "Read in full: general Urnfield, Hallstatt and La Tene archaeological interpretation, without the named Norwegian specimen catalogue or sample-owned laboratory/date/coordinate crosswalk."
+      },
+      "exact_target_terms_in_main_or_81_page_notes": [],
+      "wide_single_page_figures": "Both oversized single-page sheets render and were previewed; their genetic numerical values were not independently validated."
+    },
+    "literal_verification": {
+      "source_revision": "19feb79bf25917431abfd05b9b5f6b474f358a81",
+      "artifacts_directory": "artifacts/celtic-source-review",
+      "extraction_command": "pdftotext -layout ORIGINAL.pdf artifacts/celtic-source-review/BASENAME.txt",
+      "source_inspection": {
+        "tool_session": 22105,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 6.26,
+        "peak_rss_bytes": 221609984,
+        "wall_bound_seconds": 120,
+        "rss_budget_bytes_posthoc": 536870912
+      },
+      "second_decode_and_original_anno_check": {
+        "tool_session": 37107,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 2.66,
+        "peak_rss_bytes": 318341120,
+        "wall_bound_seconds": 120,
+        "rss_budget_bytes_posthoc": 536870912,
+        "paths": [
+          "Direct original ZIP/XML cell tokens",
+          "Unchanged committed collection.intake.workbooks.read_xlsx_sheet_rows",
+          "Direct original ANNO csv.reader"
+        ],
+        "descriptive_cells_compared": 16,
+        "original_aadr_rows_compared": 4,
+        "originals_unchanged_before_and_after": true,
+        "interpretation_or_admission": false
+      },
+      "previews": {
+        "tool_session": 61706,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 7.68,
+        "peak_rss_bytes": 32620544,
+        "pages_rendered": 6,
+        "command": "pdftoppm -f PAGE -l PAGE -scale-to 1600 -png -singlefile ORIGINAL.pdf artifacts/celtic-source-review/NAME"
+      },
+      "environment": "Shared .venv; python -B and PYTHONDONTWRITEBYTECODE=1; one-thread BLAS settings for workbook and ANNO observations; internal 120-second alarms; /usr/bin/time -l."
+    },
+    "version_to_aadr_binding_established": false,
+    "museum_subrecord_or_individual_laboratory_binding_established": false,
+    "coordinate_or_date_correction_performed": false,
+    "genetic_analysis_performed": false,
+    "scientific_or_map_admission": false,
+    "remaining_source_question": "Bind the unversioned AADR representation to its actual source version and specimen-owned laboratory/date/coordinate statements. Celtic v3 availability and the Fauskland combined row are now established; exact Aunvollen Individual 2 and Fauskland museum subrecord, chronology and datum/precision authority remain unresolved."
   },
   "original_inputs": [
     {
