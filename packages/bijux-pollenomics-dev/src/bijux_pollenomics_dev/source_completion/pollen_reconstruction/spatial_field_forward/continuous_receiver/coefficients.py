@@ -99,6 +99,33 @@ def certify(
             functions, dimensions, targets, roots, strict=True
         )
     )
+    return assemble_coefficients(
+        geometry, results, rule=rule, conditioning=conditioning
+    )
+
+
+def assemble_coefficients(
+    geometry: Geometry,
+    results: tuple[IntegralResult, ...],
+    *,
+    rule: str = SIMPSON_RULE,
+    conditioning: RadialPartition | None = None,
+    require_local_allocations: bool = True,
+) -> CoefficientResult:
+    """Assemble complete coverage; population stopping may use final widths alone.
+
+    The default keeps the single-case local-allocation and product gates. The
+    explicit population option retains those diagnostics without imposing them
+    after all three mathematically valid final coefficient widths already close.
+    """
+    rule_definition(rule)
+    if type(require_local_allocations) is not bool:
+        raise TypeError("Explicit Boolean allocation policy required")
+    expected = 4 if conditioning is None else len(conditioning.domains) + 2
+    if len(results) != expected or (
+        conditioning is not None and conditioning.geometry != geometry
+    ):
+        raise ValueError("Coefficient assembly requires complete owned domains")
     qr, ql = results[0].enclosure, results[1].enclosure
     hr = geometry.angular(Jet.constant(geometry.receiver, 0)).value
     hl = geometry.angular(Jet.constant(geometry.outer, 0)).value
@@ -114,11 +141,13 @@ def certify(
         )
         first = products[0] - products[1] + radial_sum
     second = homogeneous - first
-    success = (
-        all(result.status == "certified_width" for result in results)
-        and all(product.width <= PRODUCT_WIDTH for product in products)
-        and all(bound.width <= EPSILON for bound in (homogeneous, first, second))
-    )
+    success = all(bound.width <= EPSILON for bound in (homogeneous, first, second))
+    if require_local_allocations:
+        success = (
+            all(result.status == "certified_width" for result in results)
+            and all(product.width <= PRODUCT_WIDTH for product in products)
+            and success
+        )
     return CoefficientResult(
         results,
         homogeneous,
