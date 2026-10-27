@@ -87,6 +87,105 @@ The independent original-algebra/rational observer read those closed outputs onc
 This resolves a conditional finite-mass numerical separation question. It does not convert the original unresolved diagnostic into a true-integral certificate, prove ecological ordering, supply independent measurements, or close the broader physical reconstruction and qualified-review outcomes.
 
 
+## Continuous receiver certification remains unresolved
+
+The finite-mass refinement does not bound the underlying continuous receiver
+integrals. The maintained `continuous_receiver` package now supplies outward
+rational elementary functions, analytic derivatives, contact-free geometry and
+positive Simpson certificates for that separate question. Its initial cost
+control **refused numerical resolution**. No six-case calculation or change to
+the original predictions, anchor inversions, scores or finite-mass result ran.
+
+The intended continuous target fixes the serialized radii and projected anchors
+as exact dyadic rationals and uses a separately captured native rounded
+`A = -math.log(float(gpm_values(1, ...)))`. Historical A bit patterns were not
+recorded; a future capture must be named as its own fixed continuous law rather
+than authenticated historical floating arithmetic. The exponent is exactly
+one eighth, with receiver radius R > 0 and outer radius L > R. The old q=745
+truncation and floating operations remain separate from that ideal law.
+
+For the disk-averaged outside probability Q(r), r ≥ R,
+
+```text
+d² = (r − R)² + 4rR sin²(phi/2)
+Q(r) = integral_0^pi exp(−A d^(1/8)) 2r² sin²(phi)/(pi d²) dphi
+K = Q(R) − Q(L)
+B1 = h(R)Q(R) − h(L)Q(L) + integral_R^L Q(r)h'(r) dr
+B2 = K − B1
+```
+
+Here h is the same exact circle-mean two-anchor inverse-square weight used by
+the earlier envelope. Independent disk-overlap integration by parts confirms
+the signs and measure. Splitting the normalized radius/angle square into two
+triangles and applying `(x,y)=(v,v*u)` or `(v*u,v)`, `v=t^8`, cancels the contact
+singularity exactly. Proved positive denominators and the entire sinc function
+retain the zero endpoint; no contact collar, omitted mass or coordinate clipping
+is introduced. Kernel entry points refuse coordinates outside the unit domain
+where these proofs apply. The primitives reuse the existing 96-bit outward
+lattice and integer root inequalities, with rational Machin/Taylor remainders.
+
+A Simpson panel of length ell has error **radius** at most
+`ell^5 * sup(abs(f'''')) / 2880`. Tensor panels use the sum of the two positive
+weighted directional remainders, without a mixed derivative assumption.
+Certificates include both signs of that error and every primitive/node
+uncertainty. A finite-work refusal retains the parent until both children
+close, preserving a complete wide enclosure; failure before all initial panels
+close explicitly supplies no coefficient certificate.
+
+The prospective final full-width target remains **1e-9** for each K, B1 and B2.
+Endpoint-Q widths are allocated at most epsilon/32 each, endpoint-product
+widths epsilon/16 each and the two triangle-integral widths epsilon/16 each.
+No old floating coefficient is certified merely by a narrow new interval:
+its maximum distance from both endpoints must separately satisfy the requested
+tolerance. The original relative correspondence diagnostic remains distinct.
+Each response shares at most 4,096 accepted leaves across its four integrals,
+8,191 panel attempts, 73,719 node evaluations and 4,096 queued leaves. The
+prospective six-case bounds remain 180 s / 768 MiB / 5 MB; this control does
+not establish that those limits are achievable.
+
+The sole long-annulus cost control used literal synthetic values `A=3/5`,
+`R=1`, `L=1025`, with anchors `(137,41)` and `(-293,107)`. It opened no real
+geometry packet, count table, target score or source document. At a working
+prototype before commit, session 47915 / terminal 17eb1b returned exit zero with
+numerical status **refuse_unresolved**: 45.13 s process wall time,
+25,608,192 B peak RSS and 197,697 bytes across its report and certificate.
+These fit the predeclared 60 s / 512 MiB / 1 MiB synthetic-control bounds;
+45 s of internal work left time for closure. Source-stability guards passed.
+
+Q(R) used 527 leaves but reached only full width approximately 5.886e-11,
+above its 3.125e-11 allocation. The other three integrals retained their initial
+panels. The resulting complete bounds were very wide: K width approximately
+2.4314 and B1/B2 widths approximately 2.5627e39. Exact rational endpoints,
+all leaves, counters and literal process output remain under
+`artifacts/physical-core/spatial-field-forward/continuous-receiver/feasibility/long-annulus-cost/`
+and its adjacent stdout/time files. The earlier missing-parent shell redirection
+failed before Python and made no integrand calls. Neither attempt was repeated.
+
+Fifty-five focused primitive, derivative, geometry, polynomial-quadrature,
+refusal and byte-limit controls pass, with configured lint, formatting and strict
+types. After the cost terminal, only exact argument/domain guards and the
+prospective metadata export were corrected; no interior integrand formula, tolerance, partition
+rule or resource limit changed, and the old probe is not relabeled an execution
+of the later source. It establishes a cost obstacle for this implementation,
+not a successful physical certificate. Fifty-two independent controls then passed in 0.67 s (0.96 s process wall time,
+57,032,704 B peak RSS), with configured lint, formatting and strict types.
+Exact checks cover root/series bounds, analytic jets, polynomial remainders,
+complete refused partitions and positive Peano kernels. Decimal comparisons to
+the original Duffy geometry are explicitly correspondence diagnostics. The
+observer's first exception-class assumption failed and was corrected without
+changing production mathematics. The standalone serialized leaf certificate does
+not bind geometry or supply an external verifier: any actual study must bind
+captured A, radii, anchors, arithmetic contract and complete response ownership.
+
+A higher-order positive rule is a separate prospective numerical route. An exact
+independent Peano-kernel check confirms the seven-node closed Newton-Cotes rule
+has positive weights, degree-seven exactness and radius constant
+`ell^9 * sup(abs(f^(8))) / 1567641600`. Tensor remainders require eighth
+partial derivatives, including the ninth underlying derivative of h. Its
+implementation and computational cost remain to be qualified before any actual
+six-case study is justified.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
@@ -94,9 +193,9 @@ This resolves a conditional finite-mass numerical separation question. It does n
 
 **Unsupported claim.** Measured or jointly fitted vegetation field, genuine untouched confirmation, unconditional superiority of spatial over centre forwarding, rigorous true-integral bounds, jointly attaining aggregate endpoints, qualified historical basin/core geometry or field accuracy.
 
-**Actual verification performed.** Producer dbe099e7d saved predictions before scoring all 18 contexts/54 outcomes and met resource bounds. Independent checker 7deffa682 compared all 147 original samples, 59 selected samples, exact source IDs/denominators, folds, prediction identities, all formulas and scores. Direct 256/512-node angular quadrature and independent ellipsoidal projection checks passed; maximum angular-resolution discrepancy was 3.3306690738754696e-16 and bracket width 0.002801955587572096. The checker exited zero in 6.18 s. The disclosed missing-bytecode-flag deviation was retained without a model rerun. Producer and independent observer at frozen aec105a2dae494c3abd09dc2df12300aee1706e2 both exited zero, checking 768 saved ring outcomes, 18 contexts, all 54 scores and summaries without repeated integration. No ring or legacy-reference refusal. Twenty-nine producer and seventy-one independent controls, lint and strict types passed.
+**Actual verification performed.** Producer dbe099e7d saved predictions before scoring all 18 contexts/54 outcomes and met resource bounds. Independent checker 7deffa682 compared all 147 original samples, 59 selected samples, exact source IDs/denominators, folds, prediction identities, all formulas and scores. Direct 256/512-node angular quadrature and independent ellipsoidal projection checks passed; maximum angular-resolution discrepancy was 3.3306690738754696e-16 and bracket width 0.002801955587572096. The checker exited zero in 6.18 s. The disclosed missing-bytecode-flag deviation was retained without a model rerun. Producer and independent observer at frozen aec105a2dae494c3abd09dc2df12300aee1706e2 both exited zero, checking 768 saved ring outcomes, 18 contexts, all 54 scores and summaries without repeated integration. No ring or legacy-reference refusal. Twenty-nine producer and seventy-one independent controls, lint and strict types passed. Fifty-five working-source primitive/derivative/Duffy/Simpson/refusal controls pass with configured lint/format/strict types. One source-free long-annulus prototype cost control, session47915/17eb1b, exits0 with numerical status refuse_unresolved:45.13 s/RSS25608192 B and197697 report/certificate bytes. The complete bounds are retained, with Q(R) width5.886e-11 above its3.125e-11 allocation; Kwidth2.4314 and Bwidth2.5627e39. This is a precommit synthetic control, not an actual six-case study or qualified historical result. Fifty-two independent exact primitive/series/jet/polynomial/partition/Peano controls then pass in0.67 s (process0.96 s/RSS57032704 B) with configured lint/format/types; the first observer exception-class assumption failure is retained. Decimal Duffy comparisons are correspondence diagnostics, separate from the exact proof checks. No actual six-case certificate or geometry-independent serialized-certificate validity is claimed.
 
-**Remaining input or review.** Three exposed physical places and six fixed windows support a declared two-anchor spatial hypothesis, not measured vegetation or untouched validation. Static radii, BUS coordinate ambiguity, inherited panel completeness and two-stage anchor inversion remain assumptions; the original eight-ring step brackets do not resolve the centre-versus-spatial score differences. The finer finite-mass context separates the aggregate scores without certifying the true integrals or a universal place-level improvement. Resolver: Analyst for a predeclared numerical/spatial model question; source and vegetation-reference experts only for historical geometry, ecological accuracy or an admitted field interpretation. Reopen when: A true-integral numerical claim needs independent rigorous mass/error evidence. Historical or field accuracy needs exact core/geometry support and an independent measured target. Do not select parameters or source masks from the current target scores.
+**Remaining input or review.** Three exposed physical places and six fixed windows support a declared two-anchor spatial hypothesis, not measured vegetation or untouched validation. Static radii, BUS coordinate ambiguity, inherited panel completeness and two-stage anchor inversion remain assumptions; the original eight-ring step brackets do not resolve the centre-versus-spatial score differences. The finer finite-mass context separates the aggregate scores without certifying the true integrals or a universal place-level improvement. A separate exact continuous-receiver implementation now has validated primitives and complete resource-refused enclosures on synthetic geometry, but its first long-annulus cost probe did not achieve the fixed coefficient-width target. Six-case affordability remains unproved. Resolver: Analyst for a predeclared numerical/spatial model question; source and vegetation-reference experts only for historical geometry, ecological accuracy or an admitted field interpretation. Reopen when: A true-integral numerical claim needs independent rigorous mass/error evidence. Historical or field accuracy needs exact core/geometry support and an independent measured target. Do not select parameters or source masks from the current target scores.
 
 **Cause category.** assumption|algorithm/numerical|comparability
 
@@ -104,7 +203,7 @@ This resolves a conditional finite-mass numerical separation question. It does n
 
 **Precise next acceptance route.** Read all current families/metrics on their fixed support. Any next integration-resolution or empirical prediction question must declare its protocol and independent input before scores; do not erase unresolved comparisons or interpret static source geometry as historical basin acceptance.
 
-**Negative or refused result.** No context/family was dropped or refused; all 54 scores remain. Every original aggregate centre-versus-spatial metric comparison remains numerically unresolved under its eight-ring brackets. No response rescaling, point correction, target-score tuning or ecological winner was adopted. BUS and SOLSOE83 spatial forwarding remain poorer than centre forwarding. Exact finite-mass certificates do not certify quadrature error, true integrals or field accuracy; the original eight-ring context remains unresolved.
+**Negative or refused result.** In the existing forecast study, no context/family was dropped or refused; all 54 scores remain. Every original aggregate centre-versus-spatial metric comparison remains numerically unresolved under its eight-ring brackets. No response rescaling, point correction, target-score tuning or ecological winner was adopted. BUS and SOLSOE83 spatial forwarding remain poorer than centre forwarding. Exact finite-mass certificates do not certify quadrature error, true integrals or field accuracy; the original eight-ring context remains unresolved. The separate source-free continuous long-annulus probe refuses resolution without changing the original1e-9 final full-width goal, dropping domain, increasing resources or rerunning the original768 ring calls.
 
 **Matched denominator.** Three physical places BOKE/BUS/SOLSOE83; 147 native accounts, 59 selected and 88 outside six frozen windows. Inherited source panels of three/two/six taxa are projected to literal Betula/Ulmus on the same 18 target contexts, producing 54 outcomes across three families. Refinement: 128 nested rings times six geometries = 768 calls; all 18 contexts and 54 family outcomes retained.
 

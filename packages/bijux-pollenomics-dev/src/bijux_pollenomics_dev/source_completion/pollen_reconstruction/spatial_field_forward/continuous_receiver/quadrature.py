@@ -1,0 +1,194 @@
+"""Positive Simpson enclosures, deterministic partitions and finite work caps."""
+
+from __future__ import annotations
+
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from fractions import Fraction
+import heapq
+import math
+import time
+
+from .arithmetic import Interval, Jet
+
+Integrand = Callable[[tuple[Jet, ...]], Jet]
+Box = tuple[tuple[Fraction, Fraction], ...]
+
+
+class ResourceRefusal(RuntimeError):
+    """A declared work limit stopped certification without changing tolerance."""
+
+
+@dataclass
+class WorkBudget:
+    """One geometry's shared four-integral budget; limits may only be lowered."""
+
+    max_leaves: int = 4096
+    max_attempts: int = 8191
+    max_nodes: int = 73719
+    max_queue: int = 4096
+    wall_seconds: float = 180
+    attempts: int = 0
+    nodes: int = 0
+    completed_nodes: int = 0
+    leaves: int = 0
+    derivative_boxes: int = 0
+    started: float = field(default_factory=time.monotonic)
+
+    def __post_init__(self) -> None:
+        if any(
+            type(value) is not int
+            for value in (
+                self.max_leaves,
+                self.max_attempts,
+                self.max_nodes,
+                self.max_queue,
+            )
+        ):
+            raise TypeError("Integer work ceilings required")
+        if not (
+            1 <= self.max_leaves <= 4096
+            and 1 <= self.max_attempts <= 8191
+            and 1 <= self.max_nodes <= 73719
+            and 1 <= self.max_queue <= 4096
+            and 0 < self.wall_seconds <= 180
+        ):
+            raise ValueError("Work limits exceed the declared finite ceilings")
+
+    def check(self) -> None:
+        if time.monotonic() - self.started >= self.wall_seconds:
+            raise ResourceRefusal("wall_seconds")
+
+    def panel(self, dimensions: int) -> None:
+        self.check()
+        nodes = 3**dimensions
+        if self.attempts >= self.max_attempts or self.nodes + nodes > self.max_nodes:
+            raise ResourceRefusal("attempt_or_node_ceiling")
+        self.attempts += 1
+        self.nodes += nodes
+
+    def add_leaf(self) -> None:
+        self.check()
+        if self.leaves >= self.max_leaves:
+            raise ResourceRefusal("leaf_ceiling")
+        self.leaves += 1
+
+
+@dataclass(frozen=True)
+class Panel:
+    box: Box
+    node_sum: Interval
+    error_radius: Fraction
+    directional_radii: tuple[Fraction, ...]
+
+    @property
+    def enclosure(self) -> Interval:
+        # Simpson's |error|<=E is a radius: this adds FULL width 2E.
+        return self.node_sum.expanded(self.error_radius)
+
+
+def simpson_panel(function: Integrand, box: Box, budget: WorkBudget) -> Panel:
+    dimensions = len(box)
+    if dimensions not in (1, 2) or any(not a < b for a, b in box):
+        raise ValueError("One or two positive integration intervals required")
+    budget.panel(dimensions)
+    lengths = tuple(b - a for a, b in box)
+    volume = math.prod(lengths)
+    radii = []
+    for axis in range(dimensions):
+        arguments = tuple(
+            Jet.variable(Interval(a, b)) if axis == j else Jet.constant(Interval(a, b))
+            for j, (a, b) in enumerate(box)
+        )
+        budget.derivative_boxes += 1
+        derivative = function(arguments).coefficients[4].magnitude * math.factorial(4)
+        radii.append(volume * lengths[axis] ** 4 * derivative / 2880)
+        budget.check()
+    coordinates = tuple((a, (a + b) / 2, b) for a, b in box)
+    weights = (1, 4, 1)
+    total = Interval.point(0)
+    for first in range(3):
+        for second in range(3 if dimensions == 2 else 1):
+            indices = (first, second)[:dimensions]
+            point = tuple(
+                Jet.constant(coordinates[j][index], 0)
+                for j, index in enumerate(indices)
+            )
+            weight = math.prod(weights[index] for index in indices)
+            total += function(point).value * weight
+            budget.completed_nodes += 1
+            budget.check()
+    node_sum = total * (volume / (6**dimensions))
+    return Panel(box, node_sum, sum(radii, Fraction(0)), tuple(radii))
+
+
+@dataclass(frozen=True)
+class IntegralResult:
+    enclosure: Interval
+    panels: tuple[Panel, ...]
+    status: str
+    refusal: str | None
+
+
+def integrate(
+    function: Integrand,
+    dimensions: int,
+    target_width: Fraction,
+    budget: WorkBudget,
+    *,
+    initial: Panel | None = None,
+) -> IntegralResult:
+    """Bisect the widest-error leaf, then its largest directional error (ties first)."""
+    if (
+        type(dimensions) is not int
+        or dimensions not in (1, 2)
+        or type(target_width) not in (int, Fraction)
+        or target_width <= 0
+    ):
+        raise ValueError("Invalid integration design")
+    if initial is None:
+        budget.add_leaf()
+        root = simpson_panel(
+            function, ((Fraction(0), Fraction(1)),) * dimensions, budget
+        )
+    else:
+        root = initial
+        if root.box != ((Fraction(0), Fraction(1)),) * dimensions:
+            raise ValueError("Initial certificate does not cover the unit domain")
+    queue: list[tuple[Fraction, int, Panel]] = [(-root.enclosure.width, 0, root)]
+    lower, upper, sequence = root.enclosure.lower, root.enclosure.upper, 0
+    refusal = None
+    while upper - lower > target_width:
+        try:
+            budget.check()
+            if len(queue) + 1 > budget.max_queue:
+                raise ResourceRefusal("queue_ceiling")
+            budget.add_leaf()
+            _, _, parent = queue[0]
+            axis = max(
+                range(dimensions), key=lambda j: (parent.directional_radii[j], -j)
+            )
+            a, b = parent.box[axis]
+            midpoint = (a + b) / 2
+            boxes = []
+            for interval in ((a, midpoint), (midpoint, b)):
+                coordinates = list(parent.box)
+                coordinates[axis] = interval
+                boxes.append(tuple(coordinates))
+            # Publish neither child unless BOTH are closed. On refusal retain
+            # the valid parent partition and its certified wide enclosure.
+            children = [simpson_panel(function, box, budget) for box in boxes]
+            heapq.heappop(queue)
+            lower -= parent.enclosure.lower
+            upper -= parent.enclosure.upper
+            for child in children:
+                sequence += 1
+                heapq.heappush(queue, (-child.enclosure.width, sequence, child))
+                lower += child.enclosure.lower
+                upper += child.enclosure.upper
+        except ResourceRefusal as error:
+            refusal = str(error)
+            break
+    panels = tuple(item[2] for item in sorted(queue, key=lambda item: item[1]))
+    status = "certified_width" if upper - lower <= target_width else "refuse_unresolved"
+    return IntegralResult(Interval(lower, upper), panels, status, refusal)
