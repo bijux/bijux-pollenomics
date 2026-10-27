@@ -639,11 +639,49 @@ def verify_source_lock(root: Path, lock: dict[str, object]) -> tuple[int, int]:
     return len(sources), len(maintained)
 
 
+def verify_scientific_accounts(root: Path) -> tuple[int, int]:
+    """Check visible scientific statements and packaged routes without private queues."""
+    from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+        load_routes,
+        render_route,
+    )
+    from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
+        validate_evidence,
+    )
+    from bijux_pollenomics_dev.reader_reports.scientific_limits import (
+        validate_embedded_report,
+    )
+
+    accounts = set()
+    for directory in (root / "reports/science", root / "docs/report"):
+        for path in directory.rglob("*.md"):
+            raw = path.read_bytes()
+            if (
+                directory == root / "reports/science"
+                or b"scientific-verification-and-limits:" in raw
+            ):
+                validate_embedded_report(raw)
+                accounts.add(path.relative_to(root).as_posix())
+    routes = load_routes()
+    for relative, route in routes.items():
+        raw = (root / relative).read_bytes()
+        if raw != render_route(raw, route) or route.qualification is None:
+            raise ValueError(f"Scientific route is absent or unqualified: {relative}")
+        validate_evidence(root, route.qualification, portal=False)
+        if any(account.report_path not in accounts for account in route.accounts):
+            raise ValueError(f"Scientific route account is missing: {relative}")
+    return len(accounts), len(routes)
+
+
 def main() -> None:
     if (REPORTS / "needed").exists():
         raise ValueError(
             "Human request and review registers must remain outside the research library"
         )
+    accounts, routes = verify_scientific_accounts(ROOT)
+    print(
+        f"verified {accounts} visible scientific accounts and {routes} qualified routes"
+    )
     runpy.run_path(str(REPORTS / "exports/papers/verify.py"), run_name="__main__")
     portal_module = runpy.run_path(
         str(

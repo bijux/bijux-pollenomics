@@ -18,10 +18,10 @@ remain open.
 
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
-The scientific claim and cause ledger covers all 61
+The scientific accounts cover the retained
 root scientific accounts, with supported and unsupported claims, retained
 checks, negative/refused results, matched denominators and precise acceptance
-routes. It distinguishes missing outcomes from measured zero accuracy.
+routes. They distinguish missing outcomes from measured zero accuracy.
 Run `python3 reports/verify.py` after changing a scientific report or its
 governed source. It checks the root page inventory, local links and the
 selected result identities in `source-lock.json`; review changed claims before

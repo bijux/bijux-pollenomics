@@ -2,7 +2,7 @@
 
 SMHI's *Svenskt Vattenarkiv: Sjökartor och sjöuppgifter, Register 1987*
 provides five separate chart entries for three of the four identified lake
-leads in the [existing field dossier](../needed/field-decisions.md). The
+leads in the existing field dossier. The
 [typed source record](swedish-lake-chart-catalogue-context/source-records.json)
 preserves their literal values, blank cells and shared provenance. The
 [official publication](https://www.smhi.se/download/18.18f5a56618fc9f08e832bab2/1717803129630/Hydrologi_15%20Sj%C3%B6karte-%20och%20sj%C3%B6uppgifter.%20Register%201987..pdf)
