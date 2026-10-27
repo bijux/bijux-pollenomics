@@ -1,5 +1,5 @@
 {
-  "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+  "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
   "cell_count": 198,
   "cell_schema_id": "https://bijux.io/schemas/pollenomics/country-coverage.v2.json",
   "cell_schema_sha256": "9e1763379825d3868c743d19e54ec0cac8d8b15cc5e9d335872f4f346e7259bf",
@@ -7,7 +7,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -54,7 +54,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -101,7 +101,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -148,7 +148,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -195,7 +195,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -244,7 +244,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -292,11 +292,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -341,11 +341,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -390,11 +390,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -439,11 +439,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -488,11 +488,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -537,11 +537,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -586,8 +586,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -625,7 +625,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "landclim",
@@ -633,8 +635,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -672,7 +674,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "landclim",
@@ -680,8 +684,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -719,7 +723,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "landclim",
@@ -727,8 +733,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -766,7 +772,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "landclim",
@@ -774,8 +782,8 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -814,7 +822,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -823,8 +832,8 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -863,7 +872,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -873,7 +883,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -920,7 +930,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -967,7 +977,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1014,7 +1024,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1061,7 +1071,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1110,7 +1120,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1158,11 +1168,11 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1197,7 +1207,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1205,11 +1217,11 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1244,7 +1256,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1252,11 +1266,11 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1291,7 +1305,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1299,11 +1315,11 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1338,7 +1354,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1346,11 +1364,11 @@
     },
     {
       "availability_status": "unresolved",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1386,7 +1404,8 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
-        "country_assignment_review_required"
+        "country_assignment_review_required",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -1395,11 +1414,11 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-neotoma-country-reconciliation.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -1435,7 +1454,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -1444,8 +1464,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1483,7 +1503,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1491,8 +1513,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1530,7 +1552,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1538,8 +1562,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1577,7 +1601,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1585,8 +1611,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1624,7 +1650,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "neotoma",
@@ -1632,8 +1660,8 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1672,7 +1700,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -1681,8 +1710,8 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:10c63b30271a64fafb2c72bae4f15330593b1be14241e4ec2ea680de72656eb9",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -1721,7 +1750,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "materialized_country_partition_no_fresh_spatial_replay"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -1731,7 +1761,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1778,7 +1808,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1825,7 +1855,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1872,7 +1902,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1919,7 +1949,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -1968,7 +1998,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2017,10 +2047,10 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2055,7 +2085,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2064,10 +2096,10 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2102,7 +2134,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2111,10 +2145,10 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2149,7 +2183,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2158,10 +2194,10 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2196,7 +2232,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2205,10 +2243,10 @@
     {
       "availability_status": "unresolved",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2245,7 +2283,8 @@
       "producer_version": "1",
       "reason_codes": [
         "boundary_assignment_review_required",
-        "country_assignment_review_required"
+        "country_assignment_review_required",
+        "retained_source_capture_country_assignment_epoch"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -2255,10 +2294,10 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "retained-sead-capture-country-assignment.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2294,7 +2333,8 @@
       "lifecycle_status": "refused",
       "producer_version": "1",
       "reason_codes": [
-        "outside_governed_boundaries"
+        "outside_governed_boundaries",
+        "retained_source_capture_country_assignment_epoch"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -2304,7 +2344,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2342,7 +2382,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2351,7 +2393,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2389,7 +2431,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2398,7 +2442,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2436,7 +2480,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2445,7 +2491,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2483,7 +2529,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "retained_source_capture_country_assignment_epoch"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "sead",
@@ -2492,7 +2540,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2531,7 +2579,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "retained_source_capture_country_assignment_epoch"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -2541,7 +2590,7 @@
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -2580,7 +2629,8 @@
       "lifecycle_status": "admitted",
       "producer_version": "1",
       "reason_codes": [
-        "explicit_empty_partition"
+        "explicit_empty_partition",
+        "retained_source_capture_country_assignment_epoch"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
@@ -2590,7 +2640,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2642,7 +2692,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2692,7 +2742,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2742,7 +2792,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2792,7 +2842,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2842,7 +2892,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -2891,11 +2941,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2943,11 +2993,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -2993,11 +3043,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3043,11 +3093,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3093,11 +3143,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3143,11 +3193,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3193,8 +3243,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3245,8 +3295,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3295,8 +3345,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3345,8 +3395,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3395,8 +3445,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3445,8 +3495,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -3496,7 +3546,7 @@
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3535,17 +3585,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3584,17 +3635,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3633,17 +3685,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3682,17 +3735,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3731,17 +3785,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -3780,20 +3835,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3829,20 +3885,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3878,20 +3935,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3927,20 +3985,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -3976,20 +4035,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4025,20 +4085,21 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "declared-public-country-artifact-membership.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4074,17 +4135,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4123,17 +4185,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4172,17 +4235,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4221,17 +4285,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4270,17 +4335,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4319,17 +4385,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": "sha256:8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -4368,17 +4435,18 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "counts_are_named_public_country_artifacts_not_admin0_features",
         "qualified_boundary_inclusion_review_missing"
       ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "boundaries",
-      "source_snapshot_id": "sha256:76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1"
+      "source_snapshot_id": "sha256:1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4428,7 +4496,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4478,7 +4546,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4528,7 +4596,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4578,7 +4646,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4628,7 +4696,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -4677,11 +4745,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4727,11 +4795,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4777,11 +4845,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4827,11 +4895,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4877,11 +4945,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4927,11 +4995,11 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -4977,8 +5045,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5027,8 +5095,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5077,8 +5145,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5127,8 +5195,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5177,8 +5245,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5227,8 +5295,8 @@
     },
     {
       "availability_status": "not_available_from_source",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5278,7 +5346,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5330,7 +5398,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5382,7 +5450,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5434,7 +5502,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5486,7 +5554,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5538,7 +5606,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -5589,11 +5657,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5641,11 +5709,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5693,11 +5761,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5745,11 +5813,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5797,11 +5865,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5849,11 +5917,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -5901,8 +5969,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5941,6 +6009,7 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay",
         "missing_normalized_outputs",
         "qualified_human_adna_source_review_missing",
         "source_authority_review_required"
@@ -5952,8 +6021,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -5992,6 +6061,7 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay",
         "missing_normalized_outputs",
         "qualified_human_adna_source_review_missing",
         "source_authority_review_required"
@@ -6003,8 +6073,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6043,6 +6113,7 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay",
         "missing_normalized_outputs",
         "qualified_human_adna_source_review_missing",
         "source_authority_review_required"
@@ -6054,8 +6125,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6094,6 +6165,7 @@
       "lifecycle_status": "review_required",
       "producer_version": "1",
       "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay",
         "missing_normalized_outputs",
         "qualified_human_adna_source_review_missing",
         "source_authority_review_required"
@@ -6105,8 +6177,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6157,8 +6229,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6210,7 +6282,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6259,7 +6331,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6308,7 +6380,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6357,7 +6429,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6406,7 +6478,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6455,7 +6527,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -6503,11 +6575,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "SE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6552,11 +6624,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "DK",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6601,11 +6673,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "NO",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6650,11 +6722,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "FI",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6699,11 +6771,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "UNASSIGNED",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6748,11 +6820,11 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
-      "country_assignment_method": "natural-earth-5.1.1-strict-containment-with-review.v1",
+      "country_assignment_method": "governed-country-assignment-not-materialized.v1",
       "country_code": "OUTSIDE",
       "country_dimension": "governed_assignment",
       "counts": {
@@ -6797,8 +6869,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6836,7 +6908,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "animal_adna",
@@ -6844,8 +6918,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6883,7 +6957,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "animal_adna",
@@ -6891,8 +6967,8 @@
     },
     {
       "availability_status": "zero_observations",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6930,7 +7006,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "animal_adna",
@@ -6938,8 +7016,8 @@
     },
     {
       "availability_status": "available_collected",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -6977,7 +7055,9 @@
       "feature_key": null,
       "lifecycle_status": "admitted",
       "producer_version": "1",
-      "reason_codes": [],
+      "reason_codes": [
+        "materialized_country_partition_no_fresh_spatial_replay"
+      ],
       "resolution": "source",
       "schema_version": "2.0.0",
       "source_family": "animal_adna",
@@ -6985,8 +7065,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -7034,8 +7114,8 @@
     },
     {
       "availability_status": "blocked",
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "boundary_artifact_digest": null,
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "product-country-publication-partition.v1",
@@ -7084,7 +7164,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7135,7 +7215,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7186,7 +7266,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7237,7 +7317,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7288,7 +7368,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7339,7 +7419,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -7390,7 +7470,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7441,7 +7521,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7492,7 +7572,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7543,7 +7623,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7594,7 +7674,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7645,7 +7725,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7696,7 +7776,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7747,7 +7827,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7798,7 +7878,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7849,7 +7929,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7900,7 +7980,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -7951,7 +8031,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "hyde-native-country-projection-not-applied.v1",
@@ -8002,7 +8082,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8058,7 +8138,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8113,7 +8193,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8169,7 +8249,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8225,7 +8305,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8280,7 +8360,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -8335,7 +8415,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8390,7 +8470,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8445,7 +8525,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8500,7 +8580,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8555,7 +8635,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8610,7 +8690,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8665,7 +8745,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8720,7 +8800,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8775,7 +8855,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8830,7 +8910,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8885,7 +8965,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8940,7 +9020,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "empd2-governed-country-assignment-not-applied.v1",
@@ -8995,7 +9075,7 @@
     {
       "availability_status": "available_partial",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9051,7 +9131,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9107,7 +9187,7 @@
     {
       "availability_status": "not_available_from_source",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9162,7 +9242,7 @@
     {
       "availability_status": "available_not_collected",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9218,7 +9298,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9273,7 +9353,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": null,
@@ -9328,7 +9408,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9382,7 +9462,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9436,7 +9516,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9490,7 +9570,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9544,7 +9624,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9599,7 +9679,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9654,7 +9734,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9708,7 +9788,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9762,7 +9842,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9816,7 +9896,7 @@
     {
       "availability_status": "blocked",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9870,7 +9950,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9925,7 +10005,7 @@
     {
       "availability_status": "not_applicable",
       "boundary_artifact_digest": null,
-      "build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
+      "build_id": "sha256:4dda3cecc52ae1934355fde303d9514ffb48ea0c20da892c39c2696b5d823955",
       "classification_contract_version": null,
       "config_digest": "sha256:cbc5a0d0229e200c559bd9c7414259951cda69ad4a3479546afb665e57d24a4e",
       "country_assignment_method": "nfi-governed-country-assignment-not-applied.v1",
@@ -9993,9 +10073,9 @@
       "sha256": "73ad1c18b5a44874ae866bee52b309872e27d700b874dcc8ae870f4a0833fa8e"
     },
     {
-      "byte_count": 1826,
+      "byte_count": 2191,
       "path": "data/boundaries/raw/source_manifest.json",
-      "sha256": "3855c31c227b8e9600d4f3956ea2f4f866a62cb55620f39d9e979834528b7373"
+      "sha256": "1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
     },
     {
       "byte_count": 1583525,
@@ -10058,9 +10138,9 @@
       "sha256": "683735a1149bfd6a44c6b23f777bc6bd8a9db551e644b92bef54841417cd116e"
     },
     {
-      "byte_count": 2228017,
+      "byte_count": 2269341,
       "path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
-      "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f"
+      "sha256": "8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394"
     },
     {
       "byte_count": 12306,
@@ -10085,7 +10165,7 @@
   ],
   "producer": {
     "path": "packages/bijux-pollenomics/src/bijux_pollenomics/governance/country_coverage",
-    "sha256": "b5e883ea9e116e0ff8d1d56d7212e9ffe08e75dfdeadca78a832c80a4c0dbd42",
+    "sha256": "041c1bab77eea54d222921390ed0f723347b896e5cd2e1e6c12f3f42d5aa8dcd",
     "version": "1"
   },
   "schema_version": "country-dimension-coverage-ledger.v1",
