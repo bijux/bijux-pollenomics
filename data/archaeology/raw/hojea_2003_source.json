@@ -13,5 +13,62 @@
   "ecological_measurement_admitted": false,
   "archaeological_event_join_admitted": false,
   "redistribution_rights": "not reviewed; PDF bytes remain in the private source store",
-  "review_limit": "The original intake OCR was unreviewed and is not an authoritative transcription; coordinate, chronology and event claims require source-specific checking before a joined analysis."
+  "review_limit": "The original intake OCR was unreviewed and is not an authoritative transcription; coordinate, chronology and event claims require source-specific checking before a joined analysis.",
+  "visual_source_review": {
+    "reviewed_on": "2026-10-27",
+    "method": "All nine rendered original PDF pages were read visually and independently compared. Fresh pdftotext extraction produced nine form-feed-only pages; the old intake OCR was not used as a transcription authority.",
+    "author": "Bo Bondesson Hvid",
+    "report_identifier": "Wallin kulturlandskap och arkeologi, rapport 2003:4",
+    "report_signed_date": "2003-02-05",
+    "fieldwork": {
+      "trial_trench_dates": ["2002-10-23", "2002-10-24"],
+      "later_visit_date": "2003-01-28",
+      "source_pages": "PDF page 4 / printed page 3; PDF page 7 / printed page 6",
+      "county_administration_case_identifiers": ["431-35008-02", "431-33807-02"],
+      "assignment_identifiers": ["2090", "2092"],
+      "identifier_assignment_limit": "The administrative list does not allocate each case or assignment identifier to a particular trench or wetland."
+    },
+    "investigated_ground": {
+      "method": "Ten GPS-surveyed trial trenches excavated with a tracked excavator; access and high water constrained coverage.",
+      "trench_identifiers": ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10"],
+      "source_pages": "PDF pages 5-6 / printed pages 4-5, Figures 3-4",
+      "gullakra_trenches": "S1 is a short western reference trench; S2-S3 adjoin one proposed Gullåkra pond. The grouped description reports 0.3-0.65 m of vegetation layer, peat and underlying calcareous gyttja, with peat-cutting traces in parts and no finds.",
+      "knastorp_trenches": "S4-S10 adjoin or cross the registered settlement RAÄ 4 in Knästorp parish. The grouped description reports vegetation and thin peat layers, peat-cutting traces, peat in S7 and S9 interpreted as evidence of former wetland extent, and plough marks in predominantly sandy subsoil with some clay outside the bog. No features or finds were observed in the trial trenches or the associated surface inspection.",
+      "observation_limit": "Grouped descriptions and a trench plan do not supply a continuous sediment core, dated layer sequence, sample identifiers, per-trench depth table or complete archaeological census.",
+      "reported_extent_statements": [
+        {
+          "source_page": "PDF page 5 / printed page 4, body",
+          "linear_metres": 344,
+          "square_metres": 477
+        },
+        {
+          "source_page": "PDF page 7 / printed page 6, administration",
+          "linear_metres": 344,
+          "square_metres": 381
+        }
+      ],
+      "extent_status": "The two area statements disagree; no preferred value or correction is selected."
+    },
+    "historical_identity_limit": "RAÄ 4 in Brågarp parish, cited for the separate 1984 gas-pipeline investigation, is not RAÄ 4 in Knästorp parish adjoining S4-S10. Equal local numerals do not establish a common site or a current national record identifier.",
+    "vesum_coverage": {
+      "source_page": "PDF page 7 / printed page 6",
+      "status": "planned_archaeological_monitoring_removed",
+      "reason": "Canal clearing and pond excavation rapidly filled the work area with approximately one metre of water, so the archaeological monitoring element was removed from the investigation plan.",
+      "interpretation_limit": "This is an observation gap, not a negative Vesum archaeological census, evidence of an intact archive or a current water-level measurement."
+    },
+    "spatial_support": {
+      "source_pages": "PDF pages 5-7 / printed pages 4-6",
+      "figure_3_scale": "1:10000",
+      "figure_4_scale": "1:5000",
+      "map_sheet": "2C 4h Staffanstorp",
+      "coordinate_system_literal": "Rikets",
+      "administrative_coordinate_literals": [
+        {"x": "617302", "y": "133688"},
+        {"x": "617279", "y": "133672"}
+      ],
+      "interpretation_limit": "Administrative location pairs and source maps describe project-area support. The report does not provide a full coordinate reference definition or a per-trench coordinate table. No EPSG code, new geographic point or sample/event join is inferred."
+    },
+    "consumer": "reports/science/uppakra-landscape-source.md",
+    "admission_limit": "Source reading supplies historical investigation, disturbance and coverage context. It supplies no pollen counts, selected core, sample-owned chronology, current archive suitability or current field permission; both ecological measurement and archaeological event admission remain false."
+  }
 }
