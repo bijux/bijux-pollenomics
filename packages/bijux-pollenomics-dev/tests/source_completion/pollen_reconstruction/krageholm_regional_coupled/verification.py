@@ -12,7 +12,7 @@ from typing import Any
 from .lineage import expected_folds
 from .materialization import NAMES, check_materialization
 from .predictions import check_prediction
-from .reading import decode, exact, read_file
+from .reading import decode, exact, owned_artifact_path, read_file
 from .scalar import AXIS, METHODS, require
 from .scores import check_scores
 from .source_accounts import WINDOWS
@@ -20,16 +20,77 @@ from .source_accounts import WINDOWS
 PROTOCOL = (
     "reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json"
 )
+PRODUCTION_PATHS = (
+    PROTOCOL,
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/core/owned_tree.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/krageholm_regional.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+)
+
+
+def verify_production_revision(
+    repository: Path, producer: str, observer: str, protocol_body: bytes
+) -> None:
+    """Keep historical products bound to unchanged production Git bytes."""
+    require(
+        type(producer) is str
+        and len(producer) == 40
+        and all(char in "0123456789abcdef" for char in producer),
+        "full original producer commit required",
+    )
+    git = ["git", "-C", str(repository)]
+    subprocess.run(
+        [*git, "merge-base", "--is-ancestor", producer, observer],
+        check=True,
+        capture_output=True,
+        timeout=10,
+    )
+    subprocess.run(
+        [*git, "diff", "--exit-code", producer, observer, "--", *PRODUCTION_PATHS],
+        check=True,
+        capture_output=True,
+        timeout=10,
+    )
+    subprocess.run(
+        [*git, "diff", "--exit-code", observer, "--", *PRODUCTION_PATHS],
+        check=True,
+        capture_output=True,
+        timeout=10,
+    )
+    require(
+        not subprocess.check_output(
+            [
+                *git,
+                "ls-files",
+                "--others",
+                "--exclude-standard",
+                "--",
+                *PRODUCTION_PATHS,
+            ],
+            timeout=10,
+        ),
+        "untracked consumed production files",
+    )
+    for commit in (producer, observer):
+        require(
+            subprocess.check_output([*git, "show", commit + ":" + PROTOCOL], timeout=10)
+            == protocol_body,
+            "prospective protocol differs from original producer or observer Git bytes",
+        )
 
 
 def artifact_pin(
-    repository: Path, pin: dict[str, Any]
+    repository: Path, pin: dict[str, Any], owner: Path
 ) -> tuple[Path, bytes, dict[str, Any]]:
-    path = Path(pin["path"])
-    require(
-        path.is_absolute() and path.is_relative_to(repository / "artifacts"),
-        "owned absolute artifact input required",
-    )
+    path = owned_artifact_path(repository, pin["path"], owner)
     body = read_file(path, 2 * 1024**2, pin["sha256"])
     if "bytes" in pin:
         require(
@@ -93,13 +154,6 @@ def verify(repository: Path, result_path: Path, result_sha256: str) -> dict[str,
     ).strip()
     index = subprocess.check_output([*git, "diff", "--cached", "--raw"], timeout=10)
     protocol_body = read_file(repository / PROTOCOL, 65536)
-    committed = subprocess.check_output(
-        [*git, "show", head + ":" + PROTOCOL], timeout=10
-    )
-    require(
-        committed == protocol_body,
-        "prospective protocol is not committed current bytes",
-    )
     protocol = decode(protocol_body)
     require(
         protocol["schema_version"] == "krageholm-regional-coupled-protocol.v1"
@@ -126,15 +180,32 @@ def verify(repository: Path, result_path: Path, result_sha256: str) -> dict[str,
     )
     result_body = read_file(result_path, 2 * 1024**2, result_sha256)
     score = decode(result_body)
-    closed_batch(score, "score", head, protocol_pin)
-    prediction_path, prediction_body, prepared = artifact_pin(
-        repository, score["prediction_index"]
+    producer = score["source_commit"]
+    verify_production_revision(repository, producer, head, protocol_body)
+    require(
+        result_path.name == "batch.json" and result_path.parent.name == "scores",
+        "closed score index owner differs",
     )
-    closed_batch(prepared, "prepare", head, protocol_pin)
-    input_path, input_body, inputs = artifact_pin(repository, score["input_index"])
+    owner = result_path.parent.parent
+    closed_batch(score, "score", producer, protocol_pin)
+    prediction_path, prediction_body, prepared = artifact_pin(
+        repository, score["prediction_index"], owner
+    )
+    require(
+        prediction_path == owner / "predictions/batch.json",
+        "original prediction index owner differs",
+    )
+    closed_batch(prepared, "prepare", producer, protocol_pin)
+    input_path, input_body, inputs = artifact_pin(
+        repository, score["input_index"], owner
+    )
+    require(
+        input_path == owner / "inputs/inputs.json",
+        "original source input index owner differs",
+    )
     exact(prepared["input_index"], score["input_index"])
     require(
-        inputs["source_commit"] == head and inputs["protocol"] == protocol_pin,
+        inputs["source_commit"] == producer and inputs["protocol"] == protocol_pin,
         "materialized source/protocol revision differs",
     )
     contexts = check_materialization(repository, input_path, inputs, protocol)
@@ -254,6 +325,7 @@ def verify(repository: Path, result_path: Path, result_sha256: str) -> dict[str,
         and read_file(repository / PROTOCOL, 65536) == protocol_body,
         "closed study inputs mutated during observation",
     )
+    verify_production_revision(repository, producer, head, protocol_body)
     require(
         subprocess.check_output(
             [*git, "rev-parse", "HEAD"], text=True, timeout=10
@@ -265,7 +337,11 @@ def verify(repository: Path, result_path: Path, result_sha256: str) -> dict[str,
     )
     return {
         "status": "independent_krageholm_regional_coupled_pass",
-        "source_commit": head,
+        "source_commit": producer,
+        "producer_source_commit": producer,
+        "observer_commit": head,
+        "closed_prediction_index": score["prediction_index"],
+        "source_input_index": score["input_index"],
         "closed_score_batch_sha256": result_sha256,
         "closed_prediction_batch_sha256": sha256(prediction_body).hexdigest(),
         "source_input_index_sha256": sha256(input_body).hexdigest(),

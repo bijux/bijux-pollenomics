@@ -99,6 +99,31 @@ def relative_file(root: Path, relative: str) -> Path:
     return target
 
 
+def owned_artifact_path(repository: Path, locator: str, owner: Path) -> Path:
+    """Interpret a retained locator without changing its spelling or study owner."""
+    require(type(locator) is str and bool(locator), "literal artifact locator required")
+    declared = Path(locator)
+    require(".." not in declared.parts, "parent traversal in artifact locator")
+    if not declared.is_absolute():
+        require(
+            declared.parts[0] == "artifacts",
+            "repository-relative artifacts locator required",
+        )
+    path = declared if declared.is_absolute() else repository / declared
+    require(
+        owner.is_absolute()
+        and ".." not in owner.parts
+        and owner.is_relative_to(repository / "artifacts")
+        and path.is_relative_to(owner),
+        "artifact locator escaped its original study owner",
+    )
+    require(
+        not any(node.is_symlink() for node in (path, *path.parents)),
+        "symlink artifact locator ancestry",
+    )
+    return path
+
+
 def pinned(root: Path, pin: dict[str, Any], limit: int) -> tuple[bytes, Any]:
     require(
         type(pin["bytes"]) is int and 0 < pin["bytes"] <= limit,

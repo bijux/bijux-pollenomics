@@ -8,7 +8,15 @@ from typing import Any
 import pytest
 
 from .lineage import digest
-from .reading import csv_rows, decode, pinned, product, read_file, relative_file
+from .reading import (
+    csv_rows,
+    decode,
+    owned_artifact_path,
+    pinned,
+    product,
+    read_file,
+    relative_file,
+)
 
 
 @pytest.mark.parametrize(
@@ -113,3 +121,61 @@ def test_product_rejects_member_population_or_identity_tampering(
 def test_csv_requires_unique_rectangular_columns(body: bytes) -> None:
     with pytest.raises(ValueError):
         csv_rows(body)
+
+
+def test_relative_and_absolute_artifact_locators_keep_one_study_owner(
+    tmp_path: Path,
+) -> None:
+    owner = tmp_path / "artifacts/study"
+    expected = owner / "predictions/batch.json"
+    assert (
+        owned_artifact_path(tmp_path, "artifacts/study/predictions/batch.json", owner)
+        == expected
+    )
+    assert owned_artifact_path(tmp_path, str(expected), owner) == expected
+
+
+@pytest.mark.parametrize(
+    "locator",
+    [
+        "artifacts/study/../other/batch.json",
+        "../artifacts/study/batch.json",
+        "/outside/batch.json",
+        "artifacts/other/batch.json",
+        "reports/batch.json",
+        "",
+    ],
+)
+def test_artifact_locators_refuse_parent_traversal_absolute_escape_and_other_owners(
+    tmp_path: Path, locator: str
+) -> None:
+    with pytest.raises(ValueError):
+        owned_artifact_path(tmp_path, locator, tmp_path / "artifacts/study")
+
+
+def test_absolute_artifact_locator_cannot_select_another_study(tmp_path: Path) -> None:
+    with pytest.raises(ValueError):
+        owned_artifact_path(
+            tmp_path,
+            str(tmp_path / "artifacts/other/batch.json"),
+            tmp_path / "artifacts/study",
+        )
+
+
+@pytest.mark.parametrize("kind", ["member", "ancestor"])
+def test_artifact_locator_refuses_symlink_member_or_ancestry(
+    tmp_path: Path, kind: str
+) -> None:
+    owner = tmp_path / "artifacts/study"
+    owner.mkdir(parents=True)
+    if kind == "member":
+        actual = owner / "actual.json"
+        actual.write_text("{}")
+        (owner / "batch.json").symlink_to(actual)
+        locator = "artifacts/study/batch.json"
+    else:
+        (owner / "actual").mkdir()
+        (owner / "linked").symlink_to(owner / "actual", target_is_directory=True)
+        locator = "artifacts/study/linked/batch.json"
+    with pytest.raises(ValueError):
+        owned_artifact_path(tmp_path, locator, owner)
