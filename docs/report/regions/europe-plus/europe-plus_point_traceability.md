@@ -65,7 +65,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. Regional chronology retains 13 nodes and its original source fields. The independent actual Nordic JavaScript index observer recovered every original logical search entry in 30.51 s; this is not full browser or query-latency acceptance.
 
 **Remaining input or review.** The deeper source-family decisions and actual bundle/browser identity checks remain required for any intended scientific or delivery claim.
 
@@ -79,7 +79,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** 1,252 point rows across10 visible point layers in the retained ledger; repeated temporal/context features are not distinct independent sites.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_point_traceability.json](europe-plus_point_traceability.json) (SHA-256 `0b0393ae723934893e948d8ba58934279c7c6b063ccb4d641e3455dec9b9d4b4`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_point_traceability.json](europe-plus_point_traceability.json) (SHA-256 `db2c4a023db5e873dd834cc971745016a65d525568508a1fe94adda7b18c6f76`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

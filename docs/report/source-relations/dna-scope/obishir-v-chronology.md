@@ -36,7 +36,7 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Matched denominator.** 5 archive accessions; 3 stated specimen-date matches include one Capra sample; calibrated BCE ranges and uncalibrated 14C BP remain distinct.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `1102dfcfe19a93269a6271744b4cc9fd5e48edb52ad29874652e4955b25fce9a`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `4cb3827cae92baddb2a37913ba4932272b313f2b3d3c19d76b793fbd0715b4ef`).
 
 - [Retained qualification evidence: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
 

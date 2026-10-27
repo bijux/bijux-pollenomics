@@ -1,5 +1,5 @@
 {
-  "schema_version": "animal-atlas-locality-collection.v1",
+  "schema_version": "animal-atlas-locality-collection.v2",
   "type": "FeatureCollection",
   "layer_key": "comparator-animal-localities",
   "layer_label": "Comparator animal aDNA atlas evidence",

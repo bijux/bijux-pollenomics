@@ -15,7 +15,7 @@
 | `KX379528-KX379529` | `Canis lupus familiaris` | 2 | 2 | 2 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407451` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |
 | `SRS1407453` | `Canis lupus familiaris` | 1 | 1 | 1 | `recovered_to_exact_expected_count` | `false` |
-| `PRJEB90141` | `Capra hircus` | - | 1 | 4 | `minimum_expected_floor_met` | `false` |
+| `PRJEB90141` | `Capra hircus` | - | 1 | 0 | `paper_or_capture_gap_blocks_estimate` | `false` |
 | `PRJEB90261` | `Capra hircus` | - | 1 | 73 | `minimum_expected_floor_met` | `false` |
 | `PRJNA1328209` | `Capra hircus` | - | 1 | 5 | `minimum_expected_floor_met` | `false` |
 | `PRJEB43564` | `Equus asinus` | - | - | 0 | `extractable_sources_but_no_governed_samples` | `false` |

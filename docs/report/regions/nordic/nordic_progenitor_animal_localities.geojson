@@ -1,5 +1,5 @@
 {
-  "schema_version": "animal-atlas-locality-collection.v1",
+  "schema_version": "animal-atlas-locality-collection.v2",
   "type": "FeatureCollection",
   "layer_key": "progenitor-animal-localities",
   "layer_label": "Wild and progenitor animal aDNA atlas evidence",
@@ -209,6 +209,40 @@
         "sample_count": 1,
         "sample_record_ids": [
           "bos_taurus:sample:prjeb75467:samea115574419"
+        ],
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": [
+          "prjeb75467:samea115574419"
+        ],
+        "sample_chronologies": [
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb75467:samea115574419",
+            "chronology": {
+              "original_text": "7976-8173 BP",
+              "time_start_bp": 7976,
+              "time_end_bp": 8173,
+              "time_mean_bp": 8074,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "radiocarbon",
+              "evidence_class": "direct_radiocarbon_date",
+              "precision_posture": "sample_precise_interval",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB75467",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+            "provenance_locator": "Supplementary Data 1!A26:Y26 || sample_accession:SAMEA115574419;submitted_filename_prefix:Hjo1;tsv_lines:129,241,244,344,540,541,542,543,544 || sample_accession:SAMEA115574419",
+            "provenance_excerpt": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source proximal coordinates 57.2407065497517, 9.8686973853874 | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | normalized integer mean 8074 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || ENA archive metadata identifies sample SAMEA115574419 as Bos primigenius (tax_id 9909).",
+            "provenance_kind": "article_or_archive_text",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_interval",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          }
         ],
         "sample_group_ids": [
           "PRJEB75467"
@@ -466,6 +500,69 @@
           "bos_taurus:sample:prjeb75467:samea115574456",
           "bos_taurus:sample:prjeb75467:samea115574457"
         ],
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": [
+          "prjeb75467:samea115574456",
+          "prjeb75467:samea115574457"
+        ],
+        "sample_chronologies": [
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb75467:samea115574456",
+            "chronology": {
+              "original_text": "6754-7744 BP",
+              "time_start_bp": 6754,
+              "time_end_bp": 7744,
+              "time_mean_bp": 7302,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "mitochondrial_phylogenetic_model",
+              "evidence_class": "modeled_sample_date",
+              "precision_posture": "sample_approximate_or_modeled",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB75467",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+            "provenance_locator": "Supplementary Data 1!A36:Y36 || sample_accession:SAMEA115574456;submitted_filename_prefix:Zea1;tsv_lines:337,364,414,631,632 || sample_accession:SAMEA115574456",
+            "provenance_excerpt": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || ENA archive metadata identifies sample SAMEA115574456 as Bos primigenius (tax_id 9909).",
+            "provenance_kind": "article_or_archive_text",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_interval",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          },
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb75467:samea115574457",
+            "chronology": {
+              "original_text": "6748-7744 BP",
+              "time_start_bp": 6748,
+              "time_end_bp": 7744,
+              "time_mean_bp": 7296,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "mitochondrial_phylogenetic_model",
+              "evidence_class": "modeled_sample_date",
+              "precision_posture": "sample_approximate_or_modeled",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB75467",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+            "provenance_locator": "Supplementary Data 1!A41:Y41 || sample_accession:SAMEA115574457;submitted_filename_prefix:Zea2;tsv_lines:367,415,416 || sample_accession:SAMEA115574457",
+            "provenance_excerpt": "workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || ENA archive metadata identifies sample SAMEA115574457 as Bos primigenius (tax_id 9909).",
+            "provenance_kind": "article_or_archive_text",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_interval",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          }
+        ],
         "sample_group_ids": [
           "PRJEB75467"
         ],
@@ -721,6 +818,40 @@
         "sample_record_ids": [
           "bos_taurus:sample:prjeb75467:samea115574441"
         ],
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": [
+          "prjeb75467:samea115574441"
+        ],
+        "sample_chronologies": [
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb75467:samea115574441",
+            "chronology": {
+              "original_text": "9133-9536 BP",
+              "time_start_bp": 9133,
+              "time_end_bp": 9536,
+              "time_mean_bp": 9334,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "radiocarbon",
+              "evidence_class": "direct_radiocarbon_date",
+              "precision_posture": "sample_precise_interval",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB75467",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+            "provenance_locator": "Supplementary Data 1!A34:Y34 || sample_accession:SAMEA115574441;submitted_filename_prefix:Ska1;tsv_lines:246,319,320,354,593 || sample_accession:SAMEA115574441",
+            "provenance_excerpt": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source proximal coordinates 55.6219, 13.2297 | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | normalized integer mean 9334 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || ENA archive metadata identifies sample SAMEA115574441 as Bos primigenius (tax_id 9909).",
+            "provenance_kind": "article_or_archive_text",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_interval",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          }
+        ],
         "sample_group_ids": [
           "PRJEB75467"
         ],
@@ -975,6 +1106,40 @@
         "sample_count": 1,
         "sample_record_ids": [
           "bos_taurus:sample:prjeb75467:samea115574442"
+        ],
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": [
+          "prjeb75467:samea115574442"
+        ],
+        "sample_chronologies": [
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb75467:samea115574442",
+            "chronology": {
+              "original_text": "9434-9657 BP",
+              "time_start_bp": 9434,
+              "time_end_bp": 9657,
+              "time_mean_bp": 9546,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "radiocarbon",
+              "evidence_class": "direct_radiocarbon_date",
+              "precision_posture": "sample_precise_interval",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB75467",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+            "provenance_locator": "Supplementary Data 1!A33:Y33 || sample_accession:SAMEA115574442;submitted_filename_prefix:Ska3;tsv_lines:248,251,648 || sample_accession:SAMEA115574442",
+            "provenance_excerpt": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source proximal coordinates 55.8476269883224, 13.8093770947441 | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | normalized integer mean 9546 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || ENA archive metadata identifies sample SAMEA115574442 as Bos primigenius (tax_id 9909).",
+            "provenance_kind": "article_or_archive_text",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_interval",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          }
         ],
         "sample_group_ids": [
           "PRJEB75467"

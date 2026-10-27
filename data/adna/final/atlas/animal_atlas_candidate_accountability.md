@@ -1,7 +1,7 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `165`
-- Fully accountable rows: `165`
+- Candidate rows: `161`
+- Fully accountable rows: `161`
 - Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
@@ -28,10 +28,6 @@
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |
-| Capra hircus | PRJEB90141 | true | true | true | true | true | true |
-| Capra hircus | PRJEB90141 | true | true | true | true | true | true |
-| Capra hircus | PRJEB90141 | true | true | true | true | true | true |
-| Capra hircus | PRJEB90141 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90261 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90261 | true | true | true | true | true | true |
 | Capra hircus | PRJEB90261 | true | true | true | true | true | true |

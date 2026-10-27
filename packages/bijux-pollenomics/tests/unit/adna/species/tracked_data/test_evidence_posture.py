@@ -140,6 +140,27 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
         assert sample_payload["refused_sample_count"] == len(
             sample_payload["sample_refusals"]
         )
+        if species_root.name == "capra_hircus":
+            assert not any(
+                row["project_accession"] == "PRJEB90141"
+                for row in sample_payload["samples"]
+            )
+            assert {
+                (row["source_token"], row["reason"])
+                for row in sample_payload["sample_refusals"]
+                if row["source_token"].startswith("PRJEB90141:")
+            } == {
+                (
+                    f"PRJEB90141:prjeb90141:{accession}",
+                    "sample_evidence_not_yet_recoverable",
+                )
+                for accession in (
+                    "samea4453841",
+                    "samea4588077",
+                    "samea4591758",
+                    "samea4591761",
+                )
+            }
         provenance_payload = json.loads(
             (species_root / "normalized" / "coordinate_provenance.json").read_text(
                 encoding="utf-8"
@@ -170,5 +191,5 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
                 assert coordinates["confidence"]
             if provenance and provenance["mapping_posture"] == "refused_region_only":
                 assert not has_coordinates
-    assert admitted_sample_count == 1468
-    assert refused_sample_count == 25
+    assert admitted_sample_count == 1464
+    assert refused_sample_count == 29

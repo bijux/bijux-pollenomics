@@ -43,11 +43,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Bos taurus wild/progenitor context remains outside domesticated-core support; seven named country-localized species claims remain unsupported. The current animal account explicitly sets scientific and country admission false.
 
-**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current animal account: 1468 normalized IDs, 322 mapped across 165 features, 1146 excluded; Nordic 12 mapped IDs across 8 features are not 12 admitted farming events.
+**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current animal account: 1464 normalized IDs, 318 mapped across 161 features, 1146 excluded; Nordic 12 mapped IDs across 8 features are not 12 admitted farming events.
 
 - [Retained qualification evidence: docs/report/nordic_farming_history_scenario.json](nordic_farming_history_scenario.json) (SHA-256 `62736772e789063f7f7eac3657ef418e0777b1a4ad3363a359327919d5604b56`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

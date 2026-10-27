@@ -15,12 +15,12 @@
     },
     "input_identity": {
       "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-      "combined_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
+      "combined_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
       "family_sha256": {
         "project_registry.json": "a916105b46e0b1a0420ed90939e5a5990bd6d0afa38884b57b8e2c90eabee39d",
-        "sample_chronology.json": "48db16d450ab61f0bdb2ee2085578243b8368036d2ae0673298d6bca10fa3687",
-        "sample_master.json": "a4a7a629eb9f2a29ffe9c6aeaad93e9865624ee3257552ac1eb035703f23d83e",
-        "sample_sites.json": "5ddc2be83564b1e9e4646f5e4187544fb32b8c74adeeb8ead3ad1a1293ab8f30"
+        "sample_chronology.json": "cc83396fc33128620ce983acd40edac2eb5246c185e1ef5bbc9a1e18738b844d",
+        "sample_master.json": "76777a4390ec9466db20a2c9e78aa56f0c70511f294d4a94c4672bd470d2ef2d",
+        "sample_sites.json": "32f6ae51c05b4404d10d054ee7d48f50616f06d29a3508d78c08f7ec7892be60"
       },
       "artifact_count": 121,
       "artifacts": [
@@ -306,8 +306,8 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB59481/sample_master.json",
-          "byte_count": 9498,
-          "sha256": "b69cd6ccf812f16148d1574ecf174c1ef9f33e0f651f78aa5953797e16a00865"
+          "byte_count": 9717,
+          "sha256": "4e8161195e8d30ed319a1f075cde1df8de19d8a7991f5093958a8a2ece61f953"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB59481/sample_sites.json",
@@ -436,18 +436,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_chronology.json",
-          "byte_count": 6532,
-          "sha256": "9a61b4a46dec4a2e9adf138992652fb58fc8a34439c371383222d7e25b0a426e"
+          "byte_count": 12964,
+          "sha256": "a5ce77582b133f3e6cff6c472ff7144a8130883259de5824d84b2985bf55e1ed"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_master.json",
-          "byte_count": 7449,
-          "sha256": "678c925a9d52d2f9fd38c334fc96da379789a2a7a29e066bee9b115852c84f65"
+          "byte_count": 13941,
+          "sha256": "8a7209b59519226e22c3d535380dc8d574fa77dd390c5109e8e6d7601a846e8e"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_sites.json",
-          "byte_count": 6523,
-          "sha256": "73433c9ef0d69c90d6f6eb76b68d7e228103f26bcee6bc29b2460aba59704d9b"
+          "byte_count": 12955,
+          "sha256": "9958061248f49c88ba4ecf39016b179aca8b5b17e00e805627173482774e7f20"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB90261/sample_chronology.json",
@@ -636,23 +636,23 @@
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1475,
       "sample_site_row_count": 1475,
-      "admitted_node_count": 323,
-      "refused_master_row_count": 1152
+      "admitted_node_count": 319,
+      "refused_master_row_count": 1156
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 0,
-      "sample_identity_not_final": 7,
+      "sample_identity_not_final": 11,
       "source_chronology_not_comparable": 789,
       "source_coordinate_not_mappable": 356,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "refusal_count": 1152,
-    "refusal_rows_sha256": "fb10eacd991fdce1ee2b5d74e60c80db687f74118d6dc9474b6c778056c720fe",
-    "global_admitted_node_count": 323,
+    "refusal_count": 1156,
+    "refusal_rows_sha256": "40ce741b291e8a58c2c90fa8c320a716b48b004fa8e9246be61966ccb8c7c0c0",
+    "global_admitted_node_count": 319,
     "projected_node_count": 13,
-    "excluded_by_scope_count": 310,
+    "excluded_by_scope_count": 306,
     "species_counts": {
       "Bos taurus": 5,
       "Equus caballus": 2,
@@ -878,9 +878,9 @@
       },
       {
         "country_name": null,
-        "node_count": 4,
-        "time_min_bp": 3833,
-        "time_max_bp": 13316
+        "node_count": 0,
+        "time_min_bp": null,
+        "time_max_bp": null
       }
     ],
     "governed_country_rows": [
@@ -6040,6 +6040,26 @@
       "reason_code": "source_chronology_not_comparable"
     },
     {
+      "project_accession": "PRJEB90141",
+      "repo_stable_sample_id": "prjeb90141:samea4453841",
+      "reason_code": "sample_identity_not_final"
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "repo_stable_sample_id": "prjeb90141:samea4588077",
+      "reason_code": "sample_identity_not_final"
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "repo_stable_sample_id": "prjeb90141:samea4591758",
+      "reason_code": "sample_identity_not_final"
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "repo_stable_sample_id": "prjeb90141:samea4591761",
+      "reason_code": "sample_identity_not_final"
+    },
+    {
       "project_accession": "PRJEB90261",
       "repo_stable_sample_id": "prjeb90261:apor012",
       "reason_code": "source_chronology_not_comparable"
@@ -6682,12 +6702,12 @@
   ],
   "input_identity": {
     "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-    "combined_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
+    "combined_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
     "family_sha256": {
       "project_registry.json": "a916105b46e0b1a0420ed90939e5a5990bd6d0afa38884b57b8e2c90eabee39d",
-      "sample_chronology.json": "48db16d450ab61f0bdb2ee2085578243b8368036d2ae0673298d6bca10fa3687",
-      "sample_master.json": "a4a7a629eb9f2a29ffe9c6aeaad93e9865624ee3257552ac1eb035703f23d83e",
-      "sample_sites.json": "5ddc2be83564b1e9e4646f5e4187544fb32b8c74adeeb8ead3ad1a1293ab8f30"
+      "sample_chronology.json": "cc83396fc33128620ce983acd40edac2eb5246c185e1ef5bbc9a1e18738b844d",
+      "sample_master.json": "76777a4390ec9466db20a2c9e78aa56f0c70511f294d4a94c4672bd470d2ef2d",
+      "sample_sites.json": "32f6ae51c05b4404d10d054ee7d48f50616f06d29a3508d78c08f7ec7892be60"
     },
     "artifact_count": 121,
     "artifacts": [
@@ -6973,8 +6993,8 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB59481/sample_master.json",
-        "byte_count": 9498,
-        "sha256": "b69cd6ccf812f16148d1574ecf174c1ef9f33e0f651f78aa5953797e16a00865"
+        "byte_count": 9717,
+        "sha256": "4e8161195e8d30ed319a1f075cde1df8de19d8a7991f5093958a8a2ece61f953"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB59481/sample_sites.json",
@@ -7103,18 +7123,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_chronology.json",
-        "byte_count": 6532,
-        "sha256": "9a61b4a46dec4a2e9adf138992652fb58fc8a34439c371383222d7e25b0a426e"
+        "byte_count": 12964,
+        "sha256": "a5ce77582b133f3e6cff6c472ff7144a8130883259de5824d84b2985bf55e1ed"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_master.json",
-        "byte_count": 7449,
-        "sha256": "678c925a9d52d2f9fd38c334fc96da379789a2a7a29e066bee9b115852c84f65"
+        "byte_count": 13941,
+        "sha256": "8a7209b59519226e22c3d535380dc8d574fa77dd390c5109e8e6d7601a846e8e"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB90141/sample_sites.json",
-        "byte_count": 6523,
-        "sha256": "73433c9ef0d69c90d6f6eb76b68d7e228103f26bcee6bc29b2460aba59704d9b"
+        "byte_count": 12955,
+        "sha256": "9958061248f49c88ba4ecf39016b179aca8b5b17e00e805627173482774e7f20"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB90261/sample_chronology.json",
@@ -7300,27 +7320,27 @@
   },
   "corpus_identity": {
     "schema_version": "animal-sample-chronology-corpus-identity.v1",
-    "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
-    "admitted_rows_sha256": "6089510179cba789c24d52f8f925e75701de75000b6451d34bf893e3ace5749b",
-    "refusal_rows_sha256": "fb10eacd991fdce1ee2b5d74e60c80db687f74118d6dc9474b6c778056c720fe",
+    "input_identity_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
+    "admitted_rows_sha256": "0e0c184793385d9b3a1a789af009db889edc74c894d649ffe321285120dee564",
+    "refusal_rows_sha256": "40ce741b291e8a58c2c90fa8c320a716b48b004fa8e9246be61966ccb8c7c0c0",
     "source_counts": {
       "project_count": 40,
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1475,
       "sample_site_row_count": 1475,
-      "admitted_node_count": 323,
-      "refused_master_row_count": 1152
+      "admitted_node_count": 319,
+      "refused_master_row_count": 1156
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 0,
-      "sample_identity_not_final": 7,
+      "sample_identity_not_final": 11,
       "source_chronology_not_comparable": 789,
       "source_coordinate_not_mappable": 356,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "global_admitted_node_count": 323,
+    "global_admitted_node_count": 319,
     "country_rows": [
       {
         "country_name": "Armenia",
@@ -7510,9 +7530,9 @@
       },
       {
         "country_name": null,
-        "node_count": 4,
-        "time_min_bp": 3833,
-        "time_max_bp": 13316
+        "node_count": 0,
+        "time_min_bp": null,
+        "time_max_bp": null
       }
     ],
     "governed_country_rows": [
@@ -7543,7 +7563,7 @@
     ],
     "time_min_bp": 320,
     "time_max_bp": 68764,
-    "content_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834"
+    "content_sha256": "2a4c71ade9cb4ced0471b7e29f8f609f9cfc22c6b5c15a8b462f7a6ef8b513e4"
   },
-  "content_sha256": "14074f49c97a1ee61cfffe1cf058318e9cda8d8ebe438499610c2e05dbe1224c"
+  "content_sha256": "53408aad04e30d7c9edd15ec5df021c4bc1a36944b4ff0461525186b7c3dbbc7"
 }
