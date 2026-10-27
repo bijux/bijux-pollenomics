@@ -73,6 +73,28 @@ An observed-pollen transfer study alone does not supply that confirmation.
 The [research need](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/README.md#independent-confirmation)
 remains open for a different genuinely unexposed cohort.
 
+The historical report capture predates the recorded GARASEL exposure. Its
+immutable publication, source declaration and original failed observer remain
+historical evidence. The current report consumer now validates that history
+separately, then permits only the independently metadata-bound stricter GARASEL
+refusal and scoped wording in the current report. All other scientific fields
+and the five other lead dictionaries must agree exactly. The historical source
+declaration permits only its separately checked exposure-metadata addendum;
+its earlier fields and other source identities remain exact. Current inventory
+bytes must identify the actual current report, rather than its old capture.
+
+This corrects an observed consumer failure that still required GARASEL's old
+unresolved disposition and historical report bytes after the current metadata
+replay had already established prior processing. Seventy-nine affected consumer
+and producer controls, configured Ruff and strict mypy pass. A bounded check of
+the actual repository consumer on reviewed working changes exited zero in
+0.45 s, peak macOS RSS 83,279,872 bytes, within 30 s / 256 MiB. Its compact
+output is retained in
+`artifacts/wetland-source-review/current-garasel-actual-consumer.txt`.
+This was a current consumer check, not another source replay or census. The
+historical whole failure, corrected observer success, unresolved owner,
+zero retained selections and all eight false admission/scope flags survive.
+
 ## Actual metadata replay
 
 The maintained replay at committed source
