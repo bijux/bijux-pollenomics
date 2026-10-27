@@ -120,12 +120,30 @@ missing-registry posture above remain separate from this producer capability.
 | water identity | source-owned water object | sampling suitability |
 | official geometry | present registry extent | historical shoreline or depositional basin |
 | representative point | reproducible anchor derived from the polygon | optimal access or coring coordinate |
-| mapped area | geometry-derived screening input | depth, volume, sediment thickness, or preservation |
+| retained `area_km2` | inherited normalized area value used for screening | independently recomputed polygon area, qualified provider units or basin/depth/sediment support |
 | source URL | route back to the registry object | permanence of every displayed attribute |
 
 Duplicate lake names are expected and must remain visible. A clean name match
 cannot replace the registry identifier, UUID, geometry, and coordinate when a
 candidate is cited or reviewed.
+
+Area and representative-point provenance are separate. The present collection
+adapter copies the WFS `AREA` scalar through numeric conversion into
+`area_km2`; the candidate producer inherits this property for screening while
+deriving a representative point from geometry. Neither independently computes
+the polygon's area. This describes the maintained implementation and does not
+authenticate the historical producer of the privately retained normalized
+export. Its missing original WFS pages and unqualified provider units/CRS remain
+part of the source review.
+
+The [lake-chart source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/swedish-lake-chart-catalogue-context.md#comparison-with-retained-registry-attributes)
+compares three retained review area attributes with the separately received
+Finjasjön, Havgårdssjön and Östra Ringsjön panels under their exact `sjoid`
+values. Their differing area statements do not establish common measurement
+support or temporal change. Retained `sj_vatten_id` values correspond to the
+collector's separate `SJVattenID` field; the displayed EU-style waterbody
+identifiers are not authenticated aliases. No value, area-screen outcome,
+registry authority or field status changes through this comparison.
 
 ### Lake, Candidate, And Sampling Location Are Different Objects
 

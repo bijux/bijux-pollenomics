@@ -253,6 +253,53 @@ printed on the inspected sheets. This factual account redistributes no chart,
 raw raster or geometry and supplies no licence grant, digitized bathymetry,
 current accuracy, selected core location or field decision.
 
+## Comparison with retained registry attributes
+
+The [retained 99-feature review registry](../../data/svar/review/sweden_lake_candidate_registry.geojson)
+contains the same three literal `sjoid` values as the received panels. Its
+`area_km2` and `sj_vatten_id` attributes are preserved separately from the
+panel quantities and identifiers:
+
+| Lake | Shared literal `sjoid` | Retained review `area_km2` | Received panel area, km² | Retained review `sj_vatten_id` | Panel waterbody identifier |
+| --- | --- | --- | --- | --- | --- |
+| Finjasjön | 622731-136920 | 10.497234 | 10.5085 | WA46511959 | SE622731-136920 |
+| Havgårdssjön | 615365-134524 | 0.501745 | 0.5023 | WA79481388 | NW615311-134527 |
+| Östra Ringsjön | 619626-135565 | 24.728453 | 24.7556 | WA76357027 | SE619626-135565 |
+
+The Finjasjön panel values come from the supplied English browser capture
+`Screenshot 2026-10-27 at 00.13.59.png`; Havgårdssjön's come from the Swedish
+capture `Screenshot 2026-10-27 at 00.20.01.png`. Their exact original file
+identities and translation/clipping limits are recorded above. Östra
+Ringsjön's values remain the user's Swedish register-panel transcription,
+without a screenshot or independently captured API response. The review
+registry declares `generated_on: 2026-08-01`; neither that metadata date nor
+the panel receipt dates establish measurement dates or a common source epoch.
+The [existing normalized-file census](../../docs/report/source-relations/svar/normalized-export/feature-census.json)
+already establishes exact typed matches for all 99 review rows on seven
+declared fields, including `sjoid`, `sj_vatten_id` and `area_km2`. That
+qualification is reused here; no full-file census or geometry comparison was
+repeated.
+
+These are three same-identifier comparisons of source statements. Common
+geometry, area definition, measurement support, datum and observation date
+remain unestablished. The area differences do not identify a temporal change,
+a coordinate transformation, a unit conversion or a preferred value. The
+retained WA identifiers and panel EU-style identifiers remain different fields;
+no alias relationship or identifier crosswalk is authenticated by their shared
+lake name or `sjoid`.
+
+The present [SVAR collector](../../packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/svar/collection.py)
+copies the WFS `AREA` scalar through numeric conversion into `area_km2` and
+`SJVattenID` into `sj_vatten_id`. The present
+[candidate producer](../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/candidate_registry.py)
+inherits those normalized properties for its area screen; its representative
+point is a separate geometry-derived value. Neither operation independently
+recomputes polygon area. This code inspection describes the maintained
+implementation. It does not authenticate the historical producer of the
+retained export, recover its missing WFS pages, qualify provider units/CRS or
+establish how the provider defined `AREA`. The retained review attributes and
+all panel and catalogue quantities therefore remain unchanged.
+
 The catalogue entries do not join pollen cores, establish palaeobasins,
 qualify the retained 40,565-lake export, reconcile the historical 40,523-lake
 population or change ranks. All forty questions and five unranked leads in
@@ -263,11 +310,11 @@ or field decision has been supplied.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Factual archival catalogue and received Finjasjon, Havgardssjon and Ringsjon chart/survey/registry context, preserving separate chart scopes, source values, blanks, dated captions, scales and conditional volume/area checks without selecting a chart, corrected quantity or coring location.
+**Supported claim.** Factual archival catalogue and received Finjasjon, Havgardssjon and Ringsjon chart/survey/registry context, preserving separate chart scopes, source values, blanks, dated captions, scales and conditional volume/area checks without selecting a chart, corrected quantity or coring location. Three exact SJOID matches distinguish inherited review area attributes from supplied panel areas and keep WA SJVattenID and displayed EU-style identifiers separate. The current collector copies AREA rather than independently recomputing polygon area.
 
 **Unsupported claim.** Current bathymetric accuracy or restrictions, a preferred/averaged depth or corrected water level, repaired Ringsjon volumes, an authenticated backend version or datum from a translated screenshot, inferred EPSG/sampling point, historical pollen-core/basin joins, exhaustive OCR absence, open geometry rights, changed ranks or field permission.
 
-**Actual verification performed.** Original PDF/source-image qualification and failed downloader are preserved. Independent full-sheet/caption/legend comparisons and raw hash/CRC checks qualify eight TIFF members across three received lake ZIPs. Two registry screenshots and one user-pasted Ringsjon register transcription retain distinct provenance. The later Ringsjon captions name M. Enell, May-June 1982 and 54.00 m above sea level; the Satofta sediment panel has its own historical extent. No grid, digitization, source mutation or field decision was created.
+**Actual verification performed.** Original PDF/source-image qualification and failed downloader are preserved. Independent full-sheet/caption/legend comparisons and raw hash/CRC checks qualify eight TIFF members across three received lake ZIPs. Two registry screenshots and one user-pasted Ringsjon register transcription retain distinct provenance. The later Ringsjon captions name M. Enell, May-June 1982 and 54.00 m above sea level; the Satofta sediment panel has its own historical extent. No grid, digitization, source mutation or field decision was created. Independent Decimal JSON reading checked the three exact SJOIDs at feature indices23,34,66 in the unchanged200287-byte review registry; process exit0/.09s/RSS18595840B within5s/64MiB. The two original supplied screenshots were re-read visually, while Ostra remains a user transcription. Current collector/candidate source inspection establishes the implemented attribute path, not the old export producing epoch.
 
 **Remaining input or review.** Dated chart context is available, including Ringsjon surveys in 1910-1912 and May-June 1982, but chart-specific datum, common quantitative support, current accuracy and intended reuse terms remain incomplete. Ringsjon charts provide no volume/area/mean-depth replacement for two catalogue discrepancies. Havgardssjon displayed V/A differs from displayed mean under the metre assumption; reported water levels remain separate. Resolver: SMHI/chart owner for exact chart identity, datum, reference levels, dates and use terms; field authority for current site, restrictions, access or permit decisions. Reopen when: Bind the intended chart and location to qualified datum/reference water level, measurement support, accuracy and use terms before quantitative or field use; preserve the two charts separately.
 
@@ -277,11 +324,11 @@ or field decision has been supplied.
 
 **Precise next acceptance route.** Use each catalogue row, chart caption and registry statement within its actual source/extent/date. Quantitative use needs exact chart, common footprint, datum/reference level, accuracy and use terms; current field use additionally needs a source-bound selected location and applicable access, restrictions and permit decisions. Do not average maxima, rescale unexplained volumes, merge basins or transfer the historical Satofta sediment depiction to other extents or present conditions.
 
-**Negative or refused result.** Original downloader remains exit 1/body_complete=false; ten catalogue blanks, two Ringsjon arithmetic disagreements, limited Bjaresjosjon text nonmatch and unresolved Uppakra identity remain. No supplied Ringsjon scan replaces the printed volume tokens or justifies rescaling by 100. Havgardssjon displayed ratio rounds to 3.3 rather than 3.1 under the metre assumption. No maximum, level correction, common datum, current sediment suitability or field approval is selected.
+**Negative or refused result.** Original downloader remains exit 1/body_complete=false; ten catalogue blanks, two Ringsjon arithmetic disagreements, limited Bjaresjosjon text nonmatch and unresolved Uppakra identity remain. No supplied Ringsjon scan replaces the printed volume tokens or justifies rescaling by 100. Havgardssjon displayed ratio rounds to 3.3 rather than 3.1 under the metre assumption. No maximum, level correction, common datum, current sediment suitability or field approval is selected. Differing retained/panel area values establish neither a temporal change nor an authenticated WA/EU identifier crosswalk; provider field units/definitions and original export custody remain unqualified.
 
-**Matched denominator.** Five original leads; three exact catalogue lake-number matches/five rows, one OCR-text nonmatch and one unresolved identity; ten blanks and three original conditional arithmetic checks. Three received lake packages contain eight TIFF members (seven chart scans and one survey sheet), two registry screenshots and one register transcription. The three Ringsjon chart extents remain separate; Havgardssjon display arithmetic is an additional conditional diagnostic.
+**Matched denominator.** Five original leads; three exact catalogue lake-number matches/five rows, one OCR-text nonmatch and one unresolved identity; ten blanks and three original conditional arithmetic checks. Three received lake packages contain eight TIFF members (seven chart scans and one survey sheet), two registry screenshots and one register transcription. The three Ringsjon chart extents remain separate; Havgardssjon display arithmetic is an additional conditional diagnostic. Separate keyed comparison: three existing lake IDs out of99review features, with three retained/panel area pairs and three distinct identifier-field pairs; no new census or geometry calculation.
 
-Retained evidence: [reports/science/swedish-lake-chart-catalogue-context/source-records.json](swedish-lake-chart-catalogue-context/source-records.json).
+Retained evidence: [reports/science/swedish-lake-chart-catalogue-context/source-records.json](swedish-lake-chart-catalogue-context/source-records.json), [data/svar/review/sweden_lake_candidate_registry.geojson](../../data/svar/review/sweden_lake_candidate_registry.geojson).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
