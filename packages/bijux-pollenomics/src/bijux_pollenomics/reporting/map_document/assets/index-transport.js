@@ -7,6 +7,56 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     const nativeCalendarNumber = dependencies.nativeCalendarNumber;
     const staticAtlasBoundedGunzip = dependencies.boundedGunzip;
     const staticAtlasSha256 = dependencies.sha256;
+    const SEARCH_DOCUMENTS_SCHEMA = 'atlas-search-documents.v1';
+    const SEARCH_COUNT_FIELDS = ['document_count', 'posting_key_count', 'posting_reference_count', 'utf16_unit_count'];
+    function searchTransportCounts(payload) {
+      const declared = STATIC_ATLAS_BOOTSTRAP.compatibility || {};
+      if (Object.hasOwn(declared, 'search_transport_counts')) staticAtlasFailure('search transport counts belong to the bundle header');
+      if (!Object.hasOwn(payload, 'search_transport_schema')) {
+        if (Object.hasOwn(payload, 'search_transport_counts') || Object.hasOwn(declared, 'search_transport_schema')) staticAtlasFailure('search transport declaration is missing');
+        return null;
+      }
+      if (payload.search_transport_schema !== SEARCH_DOCUMENTS_SCHEMA || declared.search_transport_schema !== SEARCH_DOCUMENTS_SCHEMA || payload.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('search documents transport declaration differs');
+      if (!LOGICAL_SCHEMAS.includes(payload.schema_version === PART_SCHEMA ? payload.bundle_schema : payload.schema_version)) staticAtlasFailure('search documents require a logical shard bundle');
+      const counts = payload.search_transport_counts;
+      if (!counts || typeof counts !== 'object' || Array.isArray(counts) || Object.keys(counts).sort().join('|') !== SEARCH_COUNT_FIELDS.join('|')) staticAtlasFailure('search transport counts are invalid');
+      SEARCH_COUNT_FIELDS.forEach(field => integer(counts[field], `search ${field}`));
+      return counts;
+    }
+    function validateSearchDocument(key, row) {
+      if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).sort().join('|') !== 'feature_index|layer_index|layer_key|record_id|text' || !Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || !Number.isSafeInteger(row.feature_index) || row.feature_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || typeof row.text !== 'string' || key !== `d:${row.layer_index}:${row.feature_index}`) staticAtlasFailure('search transport document identity is invalid');
+    }
+    function restoreSearchDocuments(documents, counts) {
+      if (typeof dependencies.searchGrams !== 'function') staticAtlasFailure('search documents require the published UTF-16 gram helper');
+      const postings = Object.create(null);
+      const actual = {document_count: 0, utf16_unit_count: 0, posting_key_count: 0, posting_reference_count: 0};
+      function add(field, increment) {
+        actual[field] = integer(actual[field] + increment, `derived search ${field}`);
+        if (actual[field] > counts[field]) staticAtlasFailure(`derived search ${field} exceeds its declared count`);
+      }
+      for (const key of Object.keys(documents).sort()) {
+        const row = documents[key];
+        validateSearchDocument(key, row);
+        add('document_count', 1);
+        add('utf16_unit_count', row.text.length);
+        const grams = dependencies.searchGrams(row.text);
+        if (!(grams instanceof Set)) staticAtlasFailure('search UTF-16 gram helper did not return unique grams');
+        for (const gram of grams) {
+          if (typeof gram !== 'string' || !/^(?:[a-f0-9]{4}){1,3}$/.test(gram)) staticAtlasFailure('search UTF-16 gram identity is invalid');
+          const posting = `p:${gram}`;
+          if (!Object.hasOwn(postings, posting)) {
+            add('posting_key_count', 1);
+            postings[posting] = [];
+          }
+          add('posting_reference_count', 1);
+          // Globally sorted document keys append each unique membership in lexical order.
+          postings[posting].push(key);
+        }
+      }
+      if (SEARCH_COUNT_FIELDS.some(field => actual[field] !== counts[field])) staticAtlasFailure('derived search counts differ from their declaration');
+      for (const key of Object.keys(postings).sort()) documents[key] = postings[key];
+      return documents;
+    }
     const STATIC_ATLAS_INDEX_KINDS = Object.freeze([
       'country_feature_indexes',
       'spatial_degree_feature_indexes',
@@ -24,6 +74,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     }
     function staticAtlasIndexShardEnvelopes(row, payload) {
       const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
+      searchTransportCounts(payload);
       staticAtlasTemporalIdentity(payload, signed);
       const components = payload.schema_version === 'atlas-static-indexes.v5';
       if (components ? signed || payload.component_time_support !== true : Object.hasOwn(payload, 'component_time_support')) staticAtlasFailure(`${row.asset_key} component time declaration is invalid`);
@@ -53,7 +104,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       if (kinds.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
       return payload.shards;
     }
-    async function staticAtlasDecodeIndexShard(row, shard, components = false) {
+    async function staticAtlasDecodeIndexShard(row, shard, components = false, compactSearch = false) {
       const label = `${row.asset_key} shard ${shard.shard_number}`;
       const payloadJson = await staticAtlasBoundedGunzip(shard.payload_gzip_base64, shard.decoded_byte_count, label);
       if (await staticAtlasSha256(payloadJson) !== shard.payload_sha256) staticAtlasFailure(`${label} payload integrity mismatch`);
@@ -67,6 +118,8 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       if (!decoded || decoded.schema_version !== (signed ? 'atlas-static-index-shard.v2' : components ? 'atlas-static-index-shard.v3' : 'atlas-static-index-shard.v1') || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
       if (components ? decoded.component_time_support !== true : Object.hasOwn(decoded, 'component_time_support')) staticAtlasFailure(`${label} component time declaration is invalid`);
       staticAtlasTemporalIdentity(decoded, signed);
+      const search = shard.index_kind === 'text_search_index';
+      if (Object.hasOwn(decoded, 'search_transport_counts') || (compactSearch && search ? decoded.search_transport_schema !== SEARCH_DOCUMENTS_SCHEMA : Object.hasOwn(decoded, 'search_transport_schema'))) staticAtlasFailure(`${label} search transport declaration differs`);
       if (decoded.entries.length !== shard.record_count) staticAtlasFailure(`${label} record count mismatch`);
       return decoded;
     }
@@ -89,10 +142,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     async function staticAtlasMergeIndexShards(row, payload) {
       const envelopes = staticAtlasIndexShardEnvelopes(row, payload);
       const components = payload.schema_version === 'atlas-static-indexes.v5';
-      const decodedShards = [];
-      for (const shard of envelopes) {
-        decodedShards.push(await staticAtlasDecodeIndexShard(row, shard, components));
-      }
+      const counts = searchTransportCounts(payload);
       const merged = {
         schema_version: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? 'atlas-static-signed-indexes.v1' : 'atlas-static-indexes.v2',
         ...(STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? {temporal_profile:payload.temporal_profile,temporal_axis:payload.temporal_axis} : {}),
@@ -121,7 +171,9 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         if (previous && staticAtlasIndexTupleCompare(previous, key) >= 0) staticAtlasFailure(`${label} entries are duplicated or out of order`);
         previousKeys.set(kind, key);
       };
-      decodedShards.forEach((shard, shardIndex) => {
+      const documentWork = {document_count: 0, utf16_unit_count: 0};
+      for (const [shardIndex, envelope] of envelopes.entries()) {
+        const shard = await staticAtlasDecodeIndexShard(row, envelope, components, counts !== null);
         const kind = shard.index_kind;
         shard.entries.forEach((entry, entryIndex) => {
           const label = `${row.asset_key} shard ${shardIndex + 1} entry ${entryIndex + 1}`;
@@ -160,21 +212,28 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
           } else if (kind === 'text_search_index') {
             if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0]) staticAtlasFailure(`${label} search entry is invalid`);
             assertOrderedUnique(kind, [entry[0]], label);
+            if (counts !== null) {
+              validateSearchDocument(entry[0], entry[1]);
+              documentWork.document_count = integer(documentWork.document_count + 1, 'merged search document count');
+              documentWork.utf16_unit_count = integer(documentWork.utf16_unit_count + entry[1].text.length, 'merged search UTF-16 unit count');
+              if (documentWork.document_count > counts.document_count || documentWork.utf16_unit_count > counts.utf16_unit_count) staticAtlasFailure('merged search documents exceed their declared counts');
+            }
             merged.text_search_index[entry[0]] = entry[1];
           } else staticAtlasFailure(`${label} kind is unsupported`);
         });
-      });
+      }
       const referenceCount = Object.values(merged.country_feature_indexes).reduce(
         (total, layers) => total + Object.values(layers).reduce((subtotal, indexes) => subtotal + indexes.length, 0),
         0
       ) + Object.keys(merged.detail_record_asset_keys).length;
       if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
+      if (counts !== null) merged.text_search_index = restoreSearchDocuments(merged.text_search_index, counts);
       return merged;
     }
     const PART_SCHEMA = 'atlas-static-index-part.v1';
     const LOGICAL_SCHEMAS = ['atlas-static-indexes.v3', 'atlas-static-indexes.v4', 'atlas-static-indexes.v5'];
     const PART_FIELDS = ['asset_key', 'bundle_schema', 'bundle_sha256', 'part_number', 'part_count', 'first_shard_number', 'last_shard_number'];
-    const HEADER_FIELDS = ['schema_version', 'scope_slug', 'version', 'build_id', 'search_index_abi', 'shard_schema', 'component_time_support', 'temporal_profile', 'temporal_axis', 'shard_count', 'reference_count'];
+    const HEADER_FIELDS = ['schema_version', 'scope_slug', 'version', 'build_id', 'search_index_abi', 'search_transport_schema', 'search_transport_counts', 'shard_schema', 'component_time_support', 'temporal_profile', 'temporal_axis', 'shard_count', 'reference_count'];
     const staged = new Map();
     const stagedAssets = new Map();
     let assembly = null;
@@ -205,6 +264,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     }
     function validatePayload(row, payload) {
       validateIdentity(row, payload);
+      searchTransportCounts(payload);
       const transport = STATIC_ATLAS_BOOTSTRAP.compatibility?.index_transport_schema;
       if (payload.schema_version === PART_SCHEMA) {
         if (transport !== PART_SCHEMA || payload.bundle_schema !== STATIC_ATLAS_BOOTSTRAP.compatibility.index_schema || !LOGICAL_SCHEMAS.includes(payload.bundle_schema)) staticAtlasFailure('index part transport declaration differs');

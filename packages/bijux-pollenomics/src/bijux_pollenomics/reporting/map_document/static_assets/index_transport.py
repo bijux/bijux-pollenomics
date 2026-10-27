@@ -9,6 +9,7 @@ from typing import cast
 from .budgets import ATLAS_CHUNK_MAX_BYTES
 from .index_bundles import decode_index_bundle
 from .indexes import index_reference_count
+from .search.transport import SEARCH_DOCUMENTS_SCHEMA, read_search_transport
 from .serialization import canonical_json, chunk_script_bytes
 
 INDEX_PART_SCHEMA = "atlas-static-index-part.v1"
@@ -32,6 +33,8 @@ _HEADER_FIELDS = {
     "version",
     "build_id",
     "search_index_abi",
+    "search_transport_schema",
+    "search_transport_counts",
     "shard_schema",
     "component_time_support",
     "temporal_profile",
@@ -171,6 +174,10 @@ def assemble_index_payloads(
     compatibility = manifest.get("compatibility")
     if not isinstance(compatibility, Mapping):
         raise ValueError("static atlas index compatibility is missing")
+    _require(
+        "search_transport_counts" not in compatibility,
+        "search transport counts belong only in the index bundle header",
+    )
     _require(bool(index_rows), "static atlas index payload is missing")
     keys = [row.get("asset_key") for row in index_rows]
     _require(
@@ -198,6 +205,17 @@ def assemble_index_payloads(
             "index transport asset is missing or foreign",
         )
         payload = payloads[key]
+        search_counts = read_search_transport(payload)
+        if "search_transport_schema" in compatibility:
+            _require(
+                compatibility["search_transport_schema"] == SEARCH_DOCUMENTS_SCHEMA
+                and search_counts is not None,
+                "search transport compatibility differs",
+            )
+        else:
+            _require(
+                search_counts is None, "search transport compatibility is undeclared"
+            )
         _require(
             payload.get("asset_key") == key, "index transport payload identity differs"
         )

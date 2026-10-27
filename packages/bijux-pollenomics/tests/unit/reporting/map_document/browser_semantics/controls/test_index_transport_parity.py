@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import base64
 from copy import deepcopy
+import gzip
 from hashlib import sha256
 from importlib.resources import files
 import json
@@ -12,15 +14,20 @@ import pytest
 
 from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
     build_index_bundle,
+    decode_index_bundle,
 )
 from bijux_pollenomics.reporting.map_document.static_assets.index_transport import (
     decode_index_payloads,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.search import (
+    validate_search_membership,
 )
 from bijux_pollenomics.reporting.map_document.template import NATIVE_LRA_CONTROLLER
 
 from ..support import run_node_json, template_block
 
 PART_SCHEMA = "atlas-static-index-part.v1"
+SEARCH_TRANSPORT = "atlas-search-documents.v1"
 
 
 def logical_fields(mode: str = "legacy") -> dict[str, Any]:
@@ -207,7 +214,8 @@ def browser(
     const controller=globalThis.BijuxPollenomicsIndexTransport.create({
       bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
       temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
-      nativeCalendarNumber,boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256});
+      nativeCalendarNumber,boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,
+      searchGrams:atlasSearchGrams});
     const rows=data.rows, ordered=data.reverse?[...rows].reverse():rows;
     const consume=row=>controller.consume(row,data.payloads[row.asset_key],rows);
     let results;
@@ -228,13 +236,32 @@ def browser(
     const completed=results.filter(value=>value!==null);
     const decoded=completed[completed.length-1]||null;
     let searches=null;
-    if(decoded) {
+    let queryCases=null;
+    if(decoded && data.action==='decode_only') {
+      // Exercise the codec independently of source-layer admission and UI preparation.
+    } else if(decoded && data.corpus) {
+      const layers=data.corpus.layers;
+      const metadata=layers.map((layer,layer_index)=>({layer_kind:'point',layer_index,feature_count:layer.features.length,layer}));
+      const published=atlasPublishedSearch(decoded,metadata);
+      const entries=layers.flatMap((layer,i)=>layer.features.map((feature,j)=>({layer,feature,key:`d:${i}:${j}`})));
+      const subsets=[entries,entries.filter((_,i)=>i%2===0),[...entries].reverse()];
+      queryCases=[];
+      for(const subset of subsets) {
+        // Identity is supplied explicitly, independent of the published postings.
+        const fixed=atlasPrepareVisibleSearch(published,subset,feature=>entries.find(row=>row.feature===feature).key,()=> '');
+        for(const query of data.corpus.queries) {
+          const actual=atlasLookupSearch(fixed,query).map(entry=>entry.key);
+          const expected=subset.filter(({layer,feature})=>`${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} `.toLowerCase().includes(query)).slice(0,12).map(entry=>entry.key);
+          queryCases.push({query,actual,expected});
+        }
+      }
+    } else if(decoded) {
       const published=atlasPublishedSearch(decoded,[{layer_kind:'point',layer_index:0,feature_count:2,layer:{key:'pollen'}}]);
       const visible=new Map(['a','b'].map((text,index)=>[`d:0:${index}`,{order:index,text,entry:{record_id:`site:${index+1}`}}]));
       const state={published,visible,fallback:[]};
       searches=Object.fromEntries(['a','b','absent'].map(query=>[query,atlasLookupSearch(state,query).map(row=>row.record_id)]));
     }
-    console.log(JSON.stringify({decoded,published:results.map(value=>value!==null),searches}));
+    console.log(JSON.stringify({decoded,published:results.map(value=>value!==null),searches,...(queryCases?{queryCases}:{})}));
   } catch(error) {console.log(JSON.stringify({refusal:error.message}));}
 })();
 """
@@ -355,3 +382,411 @@ def test_python_and_actual_browser_refuse_invalid_complete_transport(
     with pytest.raises(ValueError):
         decode_index_payloads(rows, payloads, manifest=manifest)
     assert "refusal" in browser(packet)
+
+
+def reference_grams(text: str) -> set[str]:
+    """Construct code units by arithmetic, independently of the UTF-16 codec."""
+    units: list[int] = []
+    for character in text:
+        point = ord(character)
+        if point <= 0xFFFF:
+            units.append(point)
+        else:
+            point -= 0x10000
+            units.extend((0xD800 + point // 1024, 0xDC00 + point % 1024))
+    return {
+        "".join(f"{value:04x}" for value in units[start : start + width])
+        for width in (1, 2, 3)
+        for start in range(len(units) - width + 1)
+    }
+
+
+def reference_map(documents: dict[str, Any]) -> dict[str, Any]:
+    postings: dict[str, list[str]] = {}
+    for key in sorted(documents):
+        for gram in reference_grams(documents[key]["text"]):
+            postings.setdefault("p:" + gram, []).append(key)
+    return dict(sorted({**documents, **postings}.items()))
+
+
+def codec_corpus(mode: str = "legacy") -> tuple[dict[str, Any], dict[str, Any]]:
+    titles = [
+        "common common aaa",
+        "common älg",
+        "common 💠",
+        "",
+        "common \ud83d",
+        "common \udca0",
+        "common e\u0301",
+        "common é",
+        "common punctuation.(",
+        "common </script>",
+        "common 10",
+        "common 11",
+        "common 12",
+        "common 13",
+        "common source -55 bp",
+        "common refused c14",
+    ]
+    layers: list[dict[str, Any]] = [
+        {
+            "key": f"layer:{layer}",
+            "label": "",
+            "features": [
+                {
+                    "title": title,
+                    "record_id": "repeated-source-id" if position % 2 else None,
+                }
+                for position, title in enumerate(titles)
+            ],
+        }
+        for layer in range(2)
+    ]
+    documents: dict[str, Any] = {
+        f"d:{layer}:{position}": {
+            "layer_index": layer,
+            "feature_index": position,
+            "layer_key": f"layer:{layer}",
+            "record_id": feature["record_id"],
+            "text": feature["title"] + "    ",
+        }
+        for layer, row in enumerate(layers)
+        for position, feature in enumerate(row["features"])
+    }
+    expected = logical_fields(mode)
+    expected["text_search_index"] = reference_map(documents)
+    corpus = {
+        "layers": layers,
+        "queries": [
+            "c",
+            "co",
+            "com",
+            "common",
+            "aaa",
+            "💠",
+            "\ud83d",
+            "\udca0",
+            "älg",
+            "e\u0301",
+            "é",
+            ".(",
+            "</script>",
+            "-55",
+            "refused",
+            "missing",
+        ],
+    }
+    return expected, corpus
+
+
+def codec_packet(
+    monkeypatch: pytest.MonkeyPatch, mode: str = "legacy"
+) -> dict[str, Any]:
+    expected, corpus = codec_corpus(mode)
+    monkeypatch.setattr(
+        "bijux_pollenomics.reporting.map_document.static_assets.index_bundles.ATLAS_CHUNK_TARGET_BYTES",
+        1200,
+    )
+    bundle = cast(
+        dict[str, Any],
+        build_index_bundle(
+            expected,
+            search_transport_schema=SEARCH_TRANSPORT,
+        ),
+    )
+    shards = bundle["shards"]
+    search_numbers = [
+        i for i, row in enumerate(shards) if row["index_kind"] == "text_search_index"
+    ]
+    assert len(search_numbers) >= 3
+    cut = search_numbers[1]
+    packet = packets(mode)
+    packet.update(expected=expected, corpus=corpus)
+    packet["manifest"]["compatibility"]["search_transport_schema"] = SEARCH_TRANSPORT
+    header = {key: value for key, value in bundle.items() if key != "shards"}
+    for number, (start, stop) in enumerate(((0, cut), (cut, len(shards))), 1):
+        key = f"indexes:{11 + number}"
+        packet["rows"][number - 1]["record_count"] = stop - start
+        packet["payloads"][key] = {
+            **header,
+            "schema_version": PART_SCHEMA,
+            "bundle_schema": bundle["schema_version"],
+            "bundle_sha256": literal_digest(bundle),
+            "part_number": number,
+            "part_count": 2,
+            "first_shard_number": start + 1,
+            "last_shard_number": stop,
+            "shards": deepcopy(shards[start:stop]),
+            "asset_key": key,
+        }
+    packet["bundle"] = bundle
+    return packet
+
+
+def native_corpus_payloads(corpus: dict[str, Any]) -> dict[str, Any]:
+    layers = corpus["layers"]
+    payloads: dict[str, Any] = {
+        "provenance": {
+            "schema_version": "atlas-provenance-chunk.v1",
+            "layers": [
+                {
+                    "layer_kind": "point",
+                    "layer_index": i,
+                    "layer": layer,
+                    "feature_count": len(layer["features"]),
+                }
+                for i, layer in enumerate(layers)
+            ],
+        }
+    }
+    for i, layer in enumerate(layers):
+        payloads[f"nodes:{i}"] = {
+            "schema_version": "atlas-node-chunk.v1",
+            "layer_kind": "point",
+            "layer_index": i,
+            "layer_key": layer["key"],
+            "features": layer["features"],
+            "feature_indexes": list(range(len(layer["features"]))),
+        }
+    return payloads
+
+
+@pytest.mark.parametrize("mode", ["legacy", "signed", "components"])
+def test_documents_codec_recovers_full_map_and_literal_query_answers(
+    monkeypatch: pytest.MonkeyPatch,
+    mode: str,
+) -> None:
+    packet = codec_packet(monkeypatch, mode)
+    expected = packet["expected"]
+    original = cast(dict[str, Any], build_index_bundle(expected))
+    documents = {
+        key: row
+        for key, row in expected["text_search_index"].items()
+        if key.startswith("d:")
+    }
+    postings = {
+        key: row
+        for key, row in expected["text_search_index"].items()
+        if key.startswith("p:")
+    }
+    assert packet["bundle"]["search_transport_counts"] == {
+        "document_count": 32,
+        "utf16_unit_count": sum(
+            2 if ord(character) > 0xFFFF else 1
+            for row in documents.values()
+            for character in row["text"]
+        ),
+        "posting_key_count": len(postings),
+        "posting_reference_count": sum(map(len, postings.values())),
+    }
+    assert packet["bundle"]["build_id"] == original["build_id"] == expected["build_id"]
+    assert literal_digest(packet["bundle"]) != literal_digest(original)
+    assert [
+        row
+        for row in packet["bundle"]["shards"]
+        if row["index_kind"] != "text_search_index"
+    ] == [row for row in original["shards"] if row["index_kind"] != "text_search_index"]
+    assert decode_index_bundle(packet["bundle"]) == expected
+    assert (
+        decode_index_payloads(
+            packet["rows"], packet["payloads"], manifest=packet["manifest"]
+        )
+        == expected
+    )
+    validate_search_membership(
+        native_corpus_payloads(packet["corpus"]),
+        expected,
+        expected.get("temporal_profile"),
+    )
+    assert expected["text_search_index"]["p:0063"][:4] == [
+        "d:0:0",
+        "d:0:1",
+        "d:0:10",
+        "d:0:11",
+    ]
+    assert "d83ddca0" in reference_grams("💠")
+    assert reference_grams("aaa") == {"0061", "00610061", "006100610061"}
+    observed = browser(packet, action="concurrent", reverse=True)
+    assert "refusal" not in observed
+    assert {key: observed["decoded"][key] for key in expected} == expected
+    assert sum(observed["published"]) == 1
+    assert len(observed["queryCases"]) == 48
+    assert all(row["actual"] == row["expected"] for row in observed["queryCases"])
+    assert (
+        len(
+            next(row for row in observed["queryCases"] if row["query"] == "common")[
+                "actual"
+            ]
+        )
+        == 12
+    )
+
+
+def rewrite_search_packet(bundle: dict[str, Any], mutation: str) -> None:
+    shard = next(
+        row
+        for row in bundle["shards"]
+        if (row["index_kind"] == "text_search_index")
+        != (mutation in {"nonsearch_tag", "nonsearch_counts"})
+    )
+    body = json.loads(gzip.decompress(base64.b64decode(shard["payload_gzip_base64"])))
+    if mutation in {"shard_counts", "nonsearch_counts"}:
+        body["search_transport_counts"] = None
+    elif mutation == "nonsearch_tag":
+        body["search_transport_schema"] = SEARCH_TRANSPORT
+    elif mutation == "shard_tag":
+        body["search_transport_schema"] = "unsupported"
+    elif mutation == "missing_shard_tag":
+        del body["search_transport_schema"]
+    elif mutation == "posting_in_documents":
+        body["entries"].append(["p:0061", ["d:0:0"]])
+    elif mutation == "duplicate_document":
+        body["entries"].append(deepcopy(body["entries"][0]))
+    elif mutation == "missing_document":
+        body["entries"].pop(0)
+    else:
+        body["entries"][0][1]["feature_index"] = 999
+    encoded = json.dumps(
+        body, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+    ).encode()
+    shard.update(
+        decoded_byte_count=len(encoded),
+        record_count=len(body["entries"]),
+        payload_sha256=sha256(encoded).hexdigest(),
+        payload_gzip_base64=base64.b64encode(gzip.compress(encoded, mtime=0)).decode(),
+    )
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "shard_tag",
+        "missing_shard_tag",
+        "posting_in_documents",
+        "duplicate_document",
+        "missing_document",
+        "foreign_position",
+        "null_tag",
+        "missing_tag",
+        "document_count",
+        "utf16_unit_count",
+        "posting_key_count",
+        "posting_reference_count",
+        "compat_missing",
+        "compat_null",
+        "compat_counts",
+        "nonsearch_tag",
+        "shard_counts",
+        "nonsearch_counts",
+        "extra_count",
+        "null_counts",
+        "boolean_count",
+        "fractional_count",
+    ],
+)
+def test_documents_codec_refuses_self_consistent_malformed_search_packets(
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    packet = codec_packet(monkeypatch)
+    bundle = packet["bundle"]
+    if mutation.startswith("compat_"):
+        compatibility = packet["manifest"]["compatibility"]
+        if mutation == "compat_missing":
+            del compatibility["search_transport_schema"]
+        elif mutation == "compat_null":
+            compatibility["search_transport_schema"] = None
+        else:
+            compatibility["search_transport_counts"] = deepcopy(
+                bundle["search_transport_counts"]
+            )
+    elif mutation == "extra_count":
+        bundle["search_transport_counts"]["unknown"] = 1
+    elif mutation == "null_counts":
+        bundle["search_transport_counts"] = None
+    elif mutation in {"boolean_count", "fractional_count"}:
+        bundle["search_transport_counts"]["document_count"] = (
+            True if mutation == "boolean_count" else 1.25
+        )
+    elif mutation in {"null_tag", "missing_tag"}:
+        if mutation == "null_tag":
+            bundle["search_transport_schema"] = None
+        else:
+            del bundle["search_transport_schema"]
+    elif mutation in bundle["search_transport_counts"]:
+        bundle["search_transport_counts"][mutation] += 1
+    else:
+        rewrite_search_packet(bundle, mutation)
+    shards = bundle["shards"]
+    for payload in packet["payloads"].values():
+        start, stop = payload["first_shard_number"] - 1, payload["last_shard_number"]
+        for key in ("search_transport_schema", "search_transport_counts"):
+            payload.pop(key, None)
+            if key in bundle:
+                payload[key] = deepcopy(bundle[key])
+        payload["shards"] = deepcopy(shards[start:stop])
+        payload["bundle_sha256"] = literal_digest(bundle)
+    with pytest.raises(ValueError):
+        decode_index_payloads(
+            packet["rows"], packet["payloads"], manifest=packet["manifest"]
+        )
+    assert "refusal" in browser(packet)
+
+
+def test_documents_encoder_rejects_invalid_postings_and_preserves_empty_documents() -> (
+    None
+):
+    from bijux_pollenomics.reporting.map_document.static_assets.search.transport import (
+        encode_search_documents,
+        restore_search_documents,
+    )
+
+    expected, _ = codec_corpus()
+    bad = deepcopy(expected["text_search_index"])
+    bad["p:0063"] = []
+    with pytest.raises(ValueError):
+        encode_search_documents(bad)
+    documents = {
+        "d:0:0": {
+            "layer_index": 0,
+            "feature_index": 0,
+            "layer_key": "empty",
+            "record_id": None,
+            "text": "",
+        }
+    }
+    encoded, counts = encode_search_documents(documents)
+    assert encoded == documents
+    assert counts == {
+        "document_count": 1,
+        "utf16_unit_count": 0,
+        "posting_key_count": 0,
+        "posting_reference_count": 0,
+    }
+    assert restore_search_documents(encoded, counts) == documents
+
+
+def test_actual_browser_codec_retains_empty_document_without_postings() -> None:
+    packet = packets(split=False)
+    expected = packet["expected"]
+    expected["text_search_index"]["d:0:0"]["text"] = ""
+    del expected["text_search_index"]["p:0061"]
+    bundle = build_index_bundle(expected, search_transport_schema=SEARCH_TRANSPORT)
+    packet["payloads"]["indexes:12"] = {**bundle, "asset_key": "indexes:12"}
+    packet["manifest"]["compatibility"]["search_transport_schema"] = SEARCH_TRANSPORT
+    observed = browser(packet, action="decode_only")
+    assert "refusal" not in observed
+    assert observed["decoded"]["text_search_index"] == expected["text_search_index"]
+
+
+@pytest.mark.parametrize("mutation", ["title", "record_id", "position"])
+def test_recovered_search_retains_exact_source_join(mutation: str) -> None:
+    expected, corpus = codec_corpus()
+    sources = native_corpus_payloads(corpus)
+    validate_search_membership(sources, expected, None)
+    if mutation == "position":
+        sources["nodes:0"]["feature_indexes"][0] = 999
+    else:
+        sources["nodes:0"]["features"][0][mutation] = "foreign-source-value"
+    with pytest.raises(ValueError):
+        validate_search_membership(sources, expected, None)

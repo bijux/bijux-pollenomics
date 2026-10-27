@@ -2916,7 +2916,8 @@ __NATIVE_LRA_SCRIPT_TAG__
                 const controller = factory.create({bootstrap: STATIC_ATLAS_BOOTSTRAP, failure: staticAtlasFailure,
                   temporalIdentity: staticAtlasTemporalIdentity, nonnegativeInteger: staticAtlasNonnegativeInteger,
                   nativeCalendarNumber: value => typeof nativeCalendarNumber === 'function' && nativeCalendarNumber(value),
-                  boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256});
+                  boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
+                  searchGrams: text => atlasSearchGrams(text)});
                 if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);
@@ -2931,6 +2932,8 @@ __NATIVE_LRA_SCRIPT_TAG__
       function staticAtlasIndexRows() {
         const rows = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => row.domain === 'indexes');
         const declared = STATIC_ATLAS_BOOTSTRAP.compatibility || {};
+        if (Object.hasOwn(declared, 'search_transport_counts')) staticAtlasFailure('search transport counts belong to the bundle header');
+        if (Object.hasOwn(declared, 'search_transport_schema') && (declared.search_transport_schema !== 'atlas-search-documents.v1' || declared.search_index_abi !== 'atlas-substring-postings.v1' || !['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(declared.index_schema))) staticAtlasFailure('search documents transport declaration is invalid');
         if (Object.hasOwn(declared, 'index_transport_schema')) {
           if (declared.index_transport_schema !== 'atlas-static-index-part.v1' || rows.length < 2 || !['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(declared.index_schema)) staticAtlasFailure('index part transport declaration is invalid');
         } else if (rows.length > 1) staticAtlasFailure('singleton index transport is duplicated');

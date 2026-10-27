@@ -24,6 +24,19 @@ def index_transport_helpers(*, common: bool = True) -> str:
         .joinpath("assets/index-transport.js")
         .read_text()
     )
+    search = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/search-index.js")
+        .read_text()
+    )
+    source = (
+        search[
+            search.index("function atlasSearchGrams") : search.index(
+                "function atlasPublishedSearch"
+            )
+        ]
+        + source
+    )
     if common:
         source = (
             template_block(
@@ -39,7 +52,7 @@ const staticAtlasIndexTransport=globalThis.BijuxPollenomicsIndexTransport.create
  bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
  temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
  nativeCalendarNumber:value=>typeof nativeCalendarNumber==='function'&&nativeCalendarNumber(value),
- boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256});
+ boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,searchGrams:atlasSearchGrams});
 const staticAtlasMergeIndexShards=staticAtlasIndexTransport.mergeShards;
 """
     )
