@@ -89,6 +89,67 @@ route and a versioned layer-to-layer identity comparison. The difference of
 42 between the two reported lake counts is a net count difference; without
 both full ID sets, it is not an omitted-lake list.
 
+## Provider response and documented identities
+
+A response from SMHI's hydrology service, supplied on **27 October 2026**,
+identifies the older source as SVAR2016 and names SVAR2022 as the latest
+version in that reply. The original message timestamp and message ID were
+not supplied. This is a received, partially resolving response, rather than
+an unanswered enquiry or an approval of the retained export. SMHI says older
+lake versions are not readily available and offers further investigation
+if the download dates can be supplied. No historical snapshot or full
+replacement layer accompanies the response.
+
+The linked [SVAR2016 documentation, Hydrologi 128](https://www.smhi.se/publikationer-fran-smhi/sok-publikationer/2021-04-15-arbete-med-svar-version-2016-svenskt-vattenarkiv-en-databas-vid-smhi)
+is dated **27 November 2017** within the PDF; its website publication date
+is a separate fact. Sections 5.1–5.1.2 and Appendix 6, printed pages 27–29,
+document these database meanings:
+
+| Documented object | Meaning and boundary |
+| --- | --- |
+| Lake `SJOID` | Older identifiers derive from RT90 outlet coordinates; new lake identifiers use SWEREF 99. Moving an outlet during correction retains the lake and outlet identities. |
+| `SJ_T` lake table | `SJ_UUID` and `SJ_VattenID` describe the lake. |
+| `vy_y` water surfaces | A lake can have several surfaces. This table has `VYID`, similarly named surface identifiers and a separate `EU_CD` waterbody identifier. |
+| `SJ_AREAL_T` | `AREAL` is in km²; `DAT` records the area date. |
+
+The report also specifies SWEREF 99 database storage. These definitions
+do not authenticate the export response CRS, axis order, the WFS `AREA` or
+`SJVattenID` field mappings, or a WA/EU identifier alias. The exact `_3`
+revision, surface aggregation and split/merge rules remain unresolved.
+
+The provider's [SVAR2022 report, Hydrologi 131](https://www.smhi.se/publikationer-fran-smhi/sok-publikationer/2024-05-21-svar-2022)
+describes changed products, geometry and attributes. The reply says that
+SVAR2022 is not connected to the lake directory and anticipates later
+Vattenwebb availability; this expectation is not a verified release date.
+Its indicated geometry coverage is waterbodies under the Water Framework
+Directive, which cannot be assumed equivalent to the retained lake export.
+The linked hydrography page's viewing-service restriction and general
+open-data terms above therefore remain separate. Exact-layer permission
+for analysis, derived publication and modified-geometry redistribution,
+including third-party conditions and a supported acquisition route, is
+still needed.
+
+## Population dates and acquisition evidence
+
+The retained records distinguish metadata dates from download evidence:
+
+| Existing record | Recorded population and date | What the date establishes |
+| --- | --- | --- |
+| [Governed manifest](../../../../../data/svar/raw/svar_lake_registry_manifest.json) and [summary](../../../../../data/svar/normalized/svar_summary.json) | 40,565; `generated_on: 2026-06-22` | A metadata date, without original timed HTTP responses or complete request/page custody. |
+| [Candidate review](../../../../../data/svar/review/lake_candidate_registry_review.json) | Source count 40,523; 99 review members; `generated_on: 2026-08-01` | A review declaration, not evidence of a second complete download or its acquisition date. |
+| Preserved export manifest and summary in the existing source store | 40,565; `generated_on: 2026-09-08` | The metadata accompanying the exact normalized file identified above, without its original WFS pages. |
+| Bounded provider observations recorded above | 1 October 2026; hits 40,565 and two returned features | The scope of those later observations, not the acquisition time or complete identity of either historical population. |
+
+The manifests retain the service URL, type `lakes` and page size 250, but
+do not recover the original full queries, filters, pagination responses or
+download timestamps. No filesystem modification date is used as an
+acquisition date. The measured 40,565-feature census and its 99 subset joins
+remain reusable evidence; they do not supply the historical 40,523 IDs.
+The next provider clarification needs this honest provenance inventory,
+the `_3` and identity rules, exact-layer terms and a supported route with
+comparable coverage. The net difference of 42 remains unexplained; zero
+ranked candidates and all existing field decisions remain unchanged.
+
 To replay the byte and refusal checks, supply the private source-store root and
 write a disposable receipt under `artifacts/`, then compare the resulting JSON
 with the governed receipt:

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-10-27
 ---
 
 # SMHI SVAR
@@ -25,7 +25,7 @@ source families even when they contribute to a lake ranking.
 | source | SMHI SVAR |
 | source surface | `https://vattenwebb.smhi.se/svarwebb/` |
 | acquisition interface | WFS `lakes` type |
-| capture date | `2026-06-22` |
+| manifest `generated_on` | `2026-06-22`; not an authenticated download timestamp |
 | authority status | refused |
 | admitted lake denominator | unavailable |
 | source-reported count | retained in the capture receipt, not admitted as a governed denominator |
@@ -45,6 +45,18 @@ request a current official geometry layer. It does not grant this project
 access, establish rights for the older SMHI `ms:lakes` export, or reconcile
 their lake identities. The [source review](../../../report/source-relations/svar/normalized-export/README.md)
 records the exact outstanding comparison.
+
+SMHI's hydrology response, supplied on 27 October 2026, identifies the older
+source as SVAR2016 and points to [SVAR2022 documentation](https://www.smhi.se/publikationer-fran-smhi/sok-publikationer/2024-05-21-svar-2022).
+Its recommended geometry route covers designated waterbodies, so it cannot
+silently replace the retained lake population. The response is partially
+resolving: original acquisition dates, the exact `SVAR2016_3` revision,
+layer-specific rights and complete population correspondence remain open.
+The [provider and provenance account](../../../report/source-relations/svar/normalized-export/README.md#provider-response-and-documented-identities)
+records the documented database meanings and the separate June, August and
+September metadata dates. Those dates do not establish two timed downloads
+or explain the net 42-count difference. No new registry or geometry was
+acquired through this response.
 
 ## Shipped And Declared Surfaces
 
@@ -120,7 +132,7 @@ missing-registry posture above remain separate from this producer capability.
 | water identity | source-owned water object | sampling suitability |
 | official geometry | present registry extent | historical shoreline or depositional basin |
 | representative point | reproducible anchor derived from the polygon | optimal access or coring coordinate |
-| retained `area_km2` | inherited normalized area value used for screening | independently recomputed polygon area, qualified provider units or basin/depth/sediment support |
+| retained `area_km2` | inherited normalized area value used for screening | independently recomputed polygon area, authenticated export-field units or basin/depth/sediment support |
 | source URL | route back to the registry object | permanence of every displayed attribute |
 
 Duplicate lake names are expected and must remain visible. A clean name match
@@ -133,7 +145,7 @@ adapter copies the WFS `AREA` scalar through numeric conversion into
 deriving a representative point from geometry. Neither independently computes
 the polygon's area. This describes the maintained implementation and does not
 authenticate the historical producer of the privately retained normalized
-export. Its missing original WFS pages and unqualified provider units/CRS remain
+export. Its missing original WFS pages and unqualified export-field units/CRS remain
 part of the source review.
 
 The [lake-chart source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/swedish-lake-chart-catalogue-context.md#comparison-with-retained-registry-attributes)
