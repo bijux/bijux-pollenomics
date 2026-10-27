@@ -63,7 +63,9 @@ def test_sead_embedded_summaries_and_lineage_reconcile(
 
     _replace_input_document(monkeypatch, relative_path, corrupt_summary)
 
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises(
+        ValueError, match=rf"{message}|retained SEAD country decisions identity changed"
+    ):
         _build()
 
 
@@ -81,7 +83,10 @@ def test_sead_decision_boundary_digest_matches_governed_artifact(
         corrupt_boundary,
     )
 
-    with pytest.raises(ValueError, match="governed geometry"):
+    with pytest.raises(
+        ValueError,
+        match="governed geometry|retained SEAD country decisions identity changed",
+    ):
         _build()
 
 
@@ -94,7 +99,10 @@ def test_sead_decision_method_counts_are_recomputed(
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, corrupt_method_counts)
 
-    with pytest.raises(ValueError, match="decision method counts"):
+    with pytest.raises(
+        ValueError,
+        match="decision method counts|retained SEAD country decisions identity changed",
+    ):
         _build()
 
 

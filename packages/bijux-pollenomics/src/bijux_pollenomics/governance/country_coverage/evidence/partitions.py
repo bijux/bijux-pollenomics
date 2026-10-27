@@ -60,3 +60,34 @@ def _record_partition(
 
 def _empty_counts() -> dict[str, int | None]:
     return dict.fromkeys(COUNT_FIELDS)
+
+
+def assignment_basis(source: str, dimension: str, *, materialized: bool) -> str | None:
+    """Describe the numerical partition actually read by the coverage consumer."""
+    if dimension == "source_reported":
+        return None
+    if dimension == "publication":
+        return "product-country-publication-partition.v1"
+    if not materialized:
+        return "governed-country-assignment-not-materialized.v1"
+    if source == "sead":
+        return "retained-sead-capture-country-assignment.v1"
+    if source == "neotoma":
+        return "retained-neotoma-country-reconciliation.v1"
+    if source == "boundaries":
+        return "declared-public-country-artifact-membership.v1"
+    return "materialized-country-field-partition.v1"
+
+
+def assignment_scope_reasons(
+    source: str, dimension: str, *, materialized: bool
+) -> list[str]:
+    if source == "boundaries":
+        return ["counts_are_named_public_country_artifacts_not_admin0_features"]
+    if dimension == "source_reported":
+        return []
+    if source == "sead":
+        return ["retained_source_capture_country_assignment_epoch"]
+    if materialized and source not in {"hyde", "empd2", "nfi"}:
+        return ["materialized_country_partition_no_fresh_spatial_replay"]
+    return []

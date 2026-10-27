@@ -6,6 +6,10 @@ from collections import Counter
 from collections.abc import Mapping
 from typing import cast
 
+from bijux_pollenomics.collection.sources.boundaries.store import (
+    NORDIC_ADMIN0_MEMBERS,
+    boundary_selection_profile,
+)
 from bijux_pollenomics.collection.spatial import (
     COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
     CountryAttributionDecision,
@@ -104,9 +108,21 @@ def _validate_boundary_evidence(
         raise CountryCoverageError(
             "boundary manifest country inventory must be exactly SE/DK/NO/FI"
         )
-    if manifest_counts != dict(feature_counts):
+    try:
+        profile = boundary_selection_profile(manifest)
+    except ValueError as error:
+        raise CountryCoverageError(str(error)) from error
+    expected_raw_counts = (
+        {
+            _country_code(country): len(members)
+            for country, members in NORDIC_ADMIN0_MEMBERS.items()
+        }
+        if profile is not None
+        else dict(feature_counts)
+    )
+    if manifest_counts != expected_raw_counts:
         raise CountryCoverageError(
-            "boundary manifest feature counts do not match normalized boundaries"
+            "boundary manifest feature counts do not match its member profile"
         )
     expected_country_codes = {
         "Sweden": "SWE",
@@ -117,7 +133,8 @@ def _validate_boundary_evidence(
     if manifest.get("country_codes") != expected_country_codes:
         raise CountryCoverageError("boundary manifest country code inventory changed")
     version = _required_text(manifest, "version")
-    return collections, manifest_counts, f"natural-earth:{version}"
+    # Coverage counts named public-country artifacts, not their admin-0 features.
+    return collections, dict(feature_counts), f"natural-earth:{version}"
 
 
 def _validate_admission_copied_file(

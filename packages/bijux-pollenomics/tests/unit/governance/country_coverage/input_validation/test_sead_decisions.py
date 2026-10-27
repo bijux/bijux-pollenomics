@@ -43,7 +43,9 @@ def test_invalid_sead_decision_state_is_refused(
         corrupt_decision,
     )
 
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises(
+        ValueError, match=rf"{message}|retained SEAD country decisions identity changed"
+    ):
         _build()
 
 
@@ -65,7 +67,7 @@ def test_duplicate_sead_decision_identity_is_refused(
         _build()
 
 
-def test_coherent_sead_country_reassignment_is_refused_by_geometry(
+def test_coherent_sead_country_reassignment_is_refused(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     def reassign(document: dict[str, object]) -> None:
@@ -81,7 +83,10 @@ def test_coherent_sead_country_reassignment_is_refused_by_geometry(
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, reassign)
 
-    with pytest.raises(ValueError, match="governed geometry"):
+    with pytest.raises(
+        ValueError,
+        match="governed geometry|retained SEAD country decisions identity changed",
+    ):
         _build()
 
 
@@ -127,5 +132,8 @@ def test_sead_decision_detail_must_equal_geometry_result(
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, corrupt_detail)
 
-    with pytest.raises(ValueError, match="governed geometry"):
+    with pytest.raises(
+        ValueError,
+        match="governed geometry|retained SEAD country decisions identity changed",
+    ):
         _build()

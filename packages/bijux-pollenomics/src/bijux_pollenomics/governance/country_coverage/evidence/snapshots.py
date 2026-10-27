@@ -34,7 +34,6 @@ def _source_snapshot_ids(
             "neotoma",
             "sead",
             "raa",
-            "boundaries",
             "svar",
             "aadr",
         )
@@ -51,6 +50,10 @@ def _source_snapshot_ids(
         "SEAD acquisition bundle",
     )
     result["animal_adna"] = f"sha256:{_sha256(input_bytes[INPUT_PATHS[14]])}"
+    # The receipt owns the selected member profile, independently of collection history.
+    result["boundaries"] = (
+        f"sha256:{_sha256(input_bytes['data/boundaries/raw/source_manifest.json'])}"
+    )
     # No country projection exists; external archive custody remains separate.
     result["hyde"] = None
     result["empd2"] = f"sha256:{EMPD2_SOURCE_ARTIFACT_SHA256}"
