@@ -1,8 +1,8 @@
 # What the current pollen prediction studies show
 
 We report prior-exposed development results on observed pollen, English LRA
-forward pollen and a separate conditional physical-forward comparison at
-Swedish targets. We keep these distinct from independent vegetation accuracy
+forward pollen and conditional physical-forward studies at Swedish and Danish
+targets. We keep these distinct from independent vegetation accuracy
 and a source-complete Nordic LRA reconstruction.
 
 ## Four Nordic countries on the author taxon axis
@@ -130,6 +130,61 @@ Historical basin/source admission, independent vegetation and calibrated
 uncertainty remain separate. Neither a four-country accuracy result nor an
 untouched model ranking follows.
 
+## Three-place physical predictions and a fixed regional background
+
+The [spatial-field study](pollen-reconstruction/spatial-field-forward/README.md)
+matches direct pollen IDW, homogeneous centre-cover forwarding and spatial
+cover-field forwarding at BOKE, BUS and SOLSOE83. Each family uses the same
+two training places in six fixed windows: 18 held-place/window contexts and
+54 scored outcomes, with no refused context. The Betula/Ulmus response is
+projected from each source's admitted panel; it is not a verified whole
+terrestrial pollen denominator. Equal-place MAE/TV is 0.220493174 for direct
+pollen, 0.205958107 for centre-cover and 0.204875686 for spatial forwarding.
+The original eight-ring diagnostics leave the centre-versus-spatial
+difference numerically unresolved.
+
+A separate 128-ring refinement treats all 768 returned positive binary64
+masses as exact conditional constants. Its complementary-coefficient and
+score certificates give spatial equal-place MAE/TV in approximately
+[0.204811632, 0.204937641] and centre-minus-spatial in
+[0.001020466, 0.001146475]. This separates the aggregate scores within that
+finite-mass model. Spatial forwarding is still poorer than centre forwarding
+at BUS and SOLSOE83; BOKE supplies the aggregate improvement. The exact sum
+of the refined masses is distinct from the old saved total. These bounds
+do not certify quadrature error or the underlying continuous integrals, and
+do not resolve the original diagnostic in its own context.
+
+The [fixed-KRAG study](pollen-reconstruction/krageholm-regional-coupled/README.md)
+asks a different conditional question. KRAGMJNY remains regional-only while
+each of BOKE, BUS and SOLSOE83 is withheld in turn, leaving two local training
+places. All 18 folds and 54 method dispositions remain present. Only
+2700–3200 cal BP supports the nine scored outcomes; all 45 method slots in
+the five older windows refuse because at least one required local analytical
+LOVE composition lies outside the nonnegative closed domain. Signed outputs
+remain visible, without clipping or a single-predictor fallback. On the three
+scored targets, training-mean, nearest-site and inverse-square MAE/TV are
+0.062165, 0.096838 and 0.082295. These one-window errors cannot be ranked
+against the six-window spatial-field errors. Compared with the earlier
+small-proxy regional study, both regional input and local predictor information
+change; the result does not isolate a basin-size effect.
+
+The separate [actual continuous-receiver calculation](pollen-reconstruction/spatial-field-forward/README.md#actual-continuous-study-complete-coverage-unresolved-precision)
+retains all six place/taxon cases and their complete integration domains.
+It fixes the saved radii and projected anchors with a newly captured native
+survival coefficient; it does not authenticate historical floating arithmetic.
+Within the unchanged 180-second, 768-MiB and 5-MB limits, neither producer nor
+independent fixed-leaf replay meets any of the 18 K/B1/B2 full-width targets
+of 1e-9. No usable positive lower bounds support normalized forecasts. The
+producer exits zero with numerical refusal; the observer verifies accounting
+but exits one for unresolved precision. This is a retained negative numerical
+result, not a new forecast or a replacement for the finite-mass certificates.
+
+These are previously exposed development studies with fixed geometry and
+transport assumptions. Their independent arithmetic checks are conditional
+on their declared kernels or continuous law. None scores measured vegetation,
+propagates the full chronology/PPE/geometry uncertainty, or supplies untouched
+confirmation or historical field acceptance.
+
 ## Matched English direct pollen and LRA forward pollen
 
 In our [constrained LOVE source study](english-lra-pollen-prediction.md), we
@@ -224,11 +279,11 @@ the source/population limits of the empirical development studies above.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Aggregate development account separates 31-author, 16-literal and English forward-pollen scores from the separate conditional two-taxon physical-forward comparison at Swedish targets. Separately, five development experiment entry points persist and guard split custody before fitting; an explicit nine-record/four-group constructed graph and held-out input perturbation preserve fitted target inputs and predictions.
+**Supported claim.** Aggregate development account separates 31-author, 16-literal and English forward-pollen scores from the separate conditional two-taxon physical-forward comparison at Swedish targets. Separately, five development experiment entry points persist and guard split custody before fitting; an explicit nine-record/four-group constructed graph and held-out input perturbation preserve fitted target inputs and predictions. Additional synthesis retains the distinct three-place six-window spatial development comparison, conditional finite-mass envelope, fixed-KRAG one-window scored subset and actual continuous precision refusal.
 
 **Unsupported claim.** General model ranking, Nordic vegetation accuracy or untouched confirmation.
 
-**Actual verification performed.** Retained country, Swedish site and English fold receipts are synthesized; index did not rerun studies. A distinct source-bound development-input isolation consumer completed with native exit 0, 57 focused guards and 676 independent checks, including 50 Decimal score checks; retained failures and zero new basin inversions are explicit. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring.
+**Actual verification performed.** Retained country, Swedish site and English fold receipts are synthesized; index did not rerun studies. A distinct source-bound development-input isolation consumer completed with native exit 0, 57 focused guards and 676 independent checks, including 50 Decimal score checks; retained failures and zero new basin inversions are explicit. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. The existing spatial-field18contexts/54scores, finite-mass18contexts/54scores, fixedKRAG18folds/54slots (9scored/45refused) and actualcontinuous6case/18coefficient-width refusal are synthesized from their owning qualified accounts. No new prediction/scoring/model or integration ran for this synthesis; the report renderer and 27 local links pass.
 
 **Remaining input or review.** Observed-pollen, English LRA-forward and conditional Swedish physical-forward scores are prior-exposed development results on different axes and supports. The conditional saved metadata geometry does not provide a source-complete historical Nordic reconstruction, independent measured-cover pair or calibrated uncertainty. Resolver: Independent cohort and vegetation-reference owners with qualified science reviewer Reopen when: A fresh grouped cohort and source-qualified same-estimand vegetation pair are frozen, predicted and scored.
 
@@ -238,11 +293,11 @@ the source/population limits of the empirical development studies above.
 
 **Precise next acceptance route.** A fresh grouped cohort and source-qualified same-estimand vegetation pair are frozen, predicted and scored. Then update reports/science/model-use.md.
 
-**Negative or refused result.** 94 NO country bins, 15 Sweden-only bins and one English outer fold refused in their respective studies; no measured vegetation score. In the separate constructed perturbation, three other folds legitimately refuse because the perturbed record enters training; three alternative-dataset folds refuse and perform no inversion. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539).
+**Negative or refused result.** 94 NO country bins, 15 Sweden-only bins and one English outer fold refused in their respective studies; no measured vegetation score. In the separate constructed perturbation, three other folds legitimately refuse because the perturbed record enters training; three alternative-dataset folds refuse and perform no inversion. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539). Three-place original centre-versus-spatial comparison remains numerically unresolved; finite-mass separation is conditional and spatial remains poorer atBUS/SOLSOE83. FixedKRAG retains45negative/nonclosed-LOVE method refusals. Actualcontinuousproducer+independentobserver refuseall18widths despite verifiedaccounting.
 
-**Matched denominator.** Separate 31-, 16- and 30-target axes; English 14 paired target sites after one refusal; country/lake denominators remain separate. Distinct constructed intake population: nine identity records/four groups; reference predictions 12 to 3 and fitted predictions 8 to 2 after target-source perturbation; 80 score rows comprise 50 scored and 30 prediction_failed, five unchanged target method predictions, 16 retained request hits and five spatial fits. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score.
+**Matched denominator.** Separate 31-, 16- and 30-target axes; English 14 paired target sites after one refusal; country/lake denominators remain separate. Distinct constructed intake population: nine identity records/four groups; reference predictions 12 to 3 and fitted predictions 8 to 2 after target-source perturbation; 80 score rows comprise 50 scored and 30 prediction_failed, five unchanged target method predictions, 16 retained request hits and five spatial fits. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score. Separate three-place spatial comparison:147native/59selectedsamples,18contexts/54scores. FixedKRAG:18folds/54slots,9scored in2700–3200BP and45refused acrossfiveolderwindows. Continuousnumerics:6geometryowners/18failedwidthtargets, no newforecast slots. These populations are not pooled.
 
-Retained evidence: [reports/science/nordic-observed-pollen-transfer.md](nordic-observed-pollen-transfer.md), [reports/science/english-lra-pollen-prediction.md](english-lra-pollen-prediction.md), [docs/report/synthetic-validation/site-leakage/development-input-isolation.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation.json), [docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json).
+Retained evidence: [reports/science/nordic-observed-pollen-transfer.md](nordic-observed-pollen-transfer.md), [reports/science/english-lra-pollen-prediction.md](english-lra-pollen-prediction.md), [docs/report/synthetic-validation/site-leakage/development-input-isolation.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation.json), [docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json), [reports/science/pollen-reconstruction/spatial-field-forward/README.md](pollen-reconstruction/spatial-field-forward/README.md), [reports/science/pollen-reconstruction/krageholm-regional-coupled/README.md](pollen-reconstruction/krageholm-regional-coupled/README.md).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
