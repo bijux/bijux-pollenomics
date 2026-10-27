@@ -318,14 +318,114 @@ Carlo precision of derived means, validate taxonomy/geometry/chronology or
 supply measured vegetation, historical reproduction or original core admission.
 
 
+## Simulation precision of conditional mean estimates
+
+The separate [Monte Carlo protocol](monte-carlo/protocol.json) addresses a
+different uncertainty from the mixture SDs above. The finite saved-ledger means
+are exactly defined empirical summaries, subject to ordinary numerical error.
+Under an invariant sampler target π, the same saved ratios estimate
+`mu_pi = E_pi[I_C c] / P_pi(C)`. The following MCSEs estimate simulation error
+relative to that conditional target, under the declared mixing/CLT and ratio
+delta-method assumptions. They are not uncertainty about the definition of the
+finite empirical average, field error or another age/count/PPE mixture spread.
+
+Each original 16,000-state chain is partitioned into **125 contiguous batches
+of 128 saved states**, with native rows 3502–19501 and seed order preserved.
+This fixed choice is near the square root of the chain length; it is not an
+optimal or empirically selected batch size. The method uses nonoverlapping
+batch means as described by [Flegal and Jones (2010), section 3, equation 6](https://arxiv.org/pdf/0811.1729),
+with the ratio and independent-chain pooling algebra declared in the protocol.
+Batch length and number would both need to grow for an asymptotic consistency
+argument; this one finite partition cannot establish adequate mixing.
+
+For every original state, `U = (I_C, I_C c)` retains the complete-event indicator
+and 20 numerators. The undefined state has a zero **numerator**, never an
+observed zero cover. The joint batch covariance and ratio Jacobian retain the
+random denominator and cross-window dependence. Pooling weights use the original
+chain lengths, and pooled influences are centered separately within each chain.
+All 30 contrasts are differenced before the producer's squared batch products;
+their uncertainty is not the sum of independent component variances. There is
+no complete-case reindexing, tail removal, thinning, extra burn-in, batch search,
+fit, new draw or raw count/age-array read.
+
+All 20 component and 30 contrast records are retained for each chain, the pool
+and the seed-271828-minus-314159 difference: **200 scalar records** and four
+20×20 MC covariance matrices. The empirical means reproduce the earlier
+qualified summaries with maximum absolute gap **2.8976820942716586e−14**,
+below the fixed 1e−12 bound. No scalar has zero estimated batch variance.
+
+| Pooled quantity | Empirical mean | Estimated MCSE | Earlier total mixture SD |
+| --- | ---: | ---: | ---: |
+| Betula, window 9 | 0.40985393045 | 0.00031754800 | 0.02855345277 |
+| Betula, window 9 minus window 5 | 0.04570857882 | 0.00037228466 | 0.02738855924 |
+
+Pooled component MCSEs range from 0.0000100046 to 0.000317548; contrast MCSEs
+range from 0.0000148823 to 0.000372285, all in cover fractions. Across the 50
+pooled quantities, MCSE divided by the earlier diagonal-law total mixture SD
+ranges from about **0.00358529 to 0.0135927**. These descriptive ratios compare
+different uncertainty quantities; they are not a new acceptance threshold.
+
+The largest absolute retained chain discrepancy is **Pinus/window 5 minus
+window 3**: seed 271828 minus 314159 is **+0.001247081210472123**, with estimated
+independent-chain difference MCSE **0.0004900842126172119**. No significance
+test, interval or new convergence gate is applied. The pooled estimate and its
+within-chain MCSE can miss between-mode nonconvergence or initialization bias.
+The result does not certify that all derived means agree or have converged.
+
+Chain 314159 has an empirically constant complete indicator, p=1 and estimated
+indicator MCSE=0, explicitly labeled insufficient observed transitions. Chain
+271828 has p=0.9999375 and estimated MCSE=0.0000625; the pool has p=0.99996875
+and estimated MCSE=0.00003125. Those p values are observed finite frequencies.
+**One undefined state cannot establish rare-refusal mixing or precision.**
+The earlier unconditional-moment refusals remain. MCSE interpretation assumes
+positive target P(C), applicable CLT/delta regularity and independent chains
+with the same invariant target; bounded covers and earlier Coda diagnostics
+do not prove those conditions.
+
+Producer `42ff45df7` and independent observer `cc9bf8482` were committed before
+the single actual calculation at **`cc9bf84824c52c59f3541a9be03c8d523af0354f`**.
+HEAD/index/consumed sources and three qualified inputs stayed fixed until both
+terminated. Producer session **86603** exited zero in **2.10 s** (internal
+0.802726542 s), peak macOS RSS **156,844,032 bytes**; its 168,228-byte result
+has SHA-256 `ec9198c80fc8c6c83dc07d3320033ab7ced7ccfc395211eadc0c8a923f9cf167`.
+It remains local under
+`artifacts/physical-core/abborrtjarnen-age-ppe/monte-carlo/native-run/`.
+The module is
+`bijux_pollenomics_dev.source_completion.pollen_reconstruction.abborrtjarnen_monte_carlo`,
+with `--repository . --output <fresh-native-run>`. Exact argv, input pins,
+Python `-B`, bytecode suppression, five one-thread backend settings, 120-second
+alarm and tool/resource facts are in adjacent `native-execution/execution.json`.
+
+Independent session **64001** exited zero in **2.403730459 s** (verifier
+2.221993125 s), peak RSS **255,115,264 bytes**. Its separate masked residual
+formulation checks all 32,000 identities, 31,999 complete rows, 250 native
+batches, 1,600 covariance cells and 200 scalar records, without producer imports.
+Maximum independent covariance/variance gap is **1.3976043629695956e−20**,
+within the frozen abs1e−18 + relative1e−10 criterion. The command
+`python -B -m tests.source_completion.pollen_reconstruction.test_abborrtjarnen_monte_carlo_result --repository . --result <native-result> --output <fresh-check>`
+and execution facts are under
+`artifacts/method-certification/abborrtjarnen-age-ppe/monte-carlo/`.
+Its 984-byte check has SHA-256
+`e67696e5ba329d9198d8f0d411e9e778a36668c72b67b2de9730acb7ef954a71`.
+Both runs met 120 s / 512 MiB posthoc / 5 MB bounds. Before execution,
+35 author and 29 independent controls, configured Ruff and strict mypy passed,
+including exact masked-ratio arithmetic, unequal complete weights, correlated
+contrast cancellation, native ordering and signed/nonfinite/domain refusals.
+
+Full numerical outputs retain the existing local noncommercial source scope.
+The original failed chronology experiment, raw chronology flag conflict and
+qualified longer chains remain unchanged. This finite diagnostic supplies no
+model retuning, calibrated coverage, chronology accuracy or field admission.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** First-order total-covariance propagation on explicit complete-event populations, including shared age/count/PPE interaction and all 30 contrasts. Separate source-supported recorded zeros expand the defined population while reproducing all native-complete estimates unchanged. A separate saved-age calculation certifies finite-Q variance extrema over one common PPE correlation matrix for all age states, on the same source-supported population.
+**Supported claim.** First-order total-covariance propagation on explicit complete-event populations, including shared age/count/PPE interaction and all 30 contrasts. Separate source-supported recorded zeros expand the defined population while reproducing all native-complete estimates unchanged. A separate saved-age calculation certifies finite-Q variance extrema over one common PPE correlation matrix for all age states, on the same source-supported population. A separately declared fixed-batch ratio diagnostic estimates Monte Carlo error relative to conditional invariant-target means, preserving native order, the undefined indicator state, per-chain discrepancies and all 200 scalar records.
 
-**Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, Monte Carlo SE of a mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission. No single covariance jointly attains all scalar extrema; approximate square-root displays are not rigorous directed intervals or field coverage.
+**Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, certified Monte Carlo precision or error in an exactly defined finite-ledger mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission. No single covariance jointly attains all scalar extrema; approximate square-root displays are not rigorous directed intervals or field coverage.
 
-**Actual verification performed.** Strict producer/observer qualification is retained. Source-supported producer at 3c8947519 and corrected independent observer at 4bc6ab0f2 both exited zero. The observer checked all 107 owners, 535 source slots, 527 reported count pairs, eight recorded zeros, 32,000 saved identities, support transitions, 2,400 covariance cells and 30 contrasts. Common-native, source and difference gaps are 1.1817e-14, 1.2990e-14 and 3.1225e-16 under 1e-12 absolute tolerance. Producer 36 controls and independent 44 earlier plus six wrapper controls passed across affected selections; no fresh aggregate, age fit or PPE draw is claimed. Common-covariance producer and independent observer at 19feb79bf both exited zero: 50 scalars, 100 exact endpoint certificates, 1500 dual principal minors and all 32000 saved identities. Maximum independent Q gap 2.7105e-19; largest normalized certified gap exactly 1/4194304, below the frozen 1e-6 criterion. All 800 candidate attempts are retained. Thirty-one author and forty independent controls, configured Ruff and strict mypy pass. Actual producer 4.5844 s/RSS150650880 B; observer 1.70 s/RSS264077312 B.
+**Actual verification performed.** Strict producer/observer qualification is retained. Source-supported producer at 3c8947519 and corrected independent observer at 4bc6ab0f2 both exited zero. The observer checked all 107 owners, 535 source slots, 527 reported count pairs, eight recorded zeros, 32,000 saved identities, support transitions, 2,400 covariance cells and 30 contrasts. Common-native, source and difference gaps are 1.1817e-14, 1.2990e-14 and 3.1225e-16 under 1e-12 absolute tolerance. Producer 36 controls and independent 44 earlier plus six wrapper controls passed across affected selections; no fresh aggregate, age fit or PPE draw is claimed. Common-covariance producer and independent observer at 19feb79bf both exited zero: 50 scalars, 100 exact endpoint certificates, 1500 dual principal minors and all 32000 saved identities. Maximum independent Q gap 2.7105e-19; largest normalized certified gap exactly 1/4194304, below the frozen 1e-6 criterion. All 800 candidate attempts are retained. Thirty-one author and forty independent controls, configured Ruff and strict mypy pass. Actual producer 4.5844 s/RSS150650880 B; observer 1.70 s/RSS264077312 B. Mean-precision producer and independent observer at cc9bf8482 both exited zero within 120 s/512 MiB/5 MB: all 32000 identities, 250 contiguous native batches, 1600 MC covariance cells and 200 scalar records. Independent residual covariance/variance gap is 1.3976e-20 under abs1e-18 plus relative1e-10; qualified empirical-mean gap 2.8977e-14 under 1e-12. Thirty-five author and twenty-nine independent controls plus configured lint/types pass; no fit or new draw.
 
 **Remaining input or review.** Strict native counts leave 2,668 undefined age rows; independently qualified original recorded zeros support a separately named local profile with one undefined empty-window row. Both unconditional quantities remain refused. Conditional moments retain declared age, pooled-count, shared diagonal-PPE, static physical and taxon-transfer assumptions without field calibration. Resolver: Analyst preserving each named source/conditioning population; source and field expertise for any broader taxon, physical-support or accuracy claim. Reopen when: A different unconditional quantity requires a declared estimand and genuinely defined support; a different uncertainty or field claim needs its own source/evidence protocol without relabelling either existing result.
 
@@ -335,11 +435,11 @@ supply measured vegetation, historical reproduction or original core admission.
 
 **Precise next acceptance route.** Read each named conditional result under its own source rights, count support and conditioning event. Preserve both refused unconditional quantities and the original strict exports. Any different estimand or field interpretation needs its own defined support and evidence; do not silently change masks, bins, taxon transfer or stochastic laws.
 
-**Negative or refused result.** Strict unconditional moments remain null for 2,668 rows; the separate source-supported profile remains null for one empty bin-4 row. The failed first observer stopped before ledger traversal on its wrapper-shape assumption and is preserved; only its adapter/controls changed. No missing-value rule, row drop, clipped covariance, replacement chronology or field significance was adopted. The common-covariance study retains signed bounds and predeclared loose/solver/domain refusal behavior; all actual 100 endpoints are tight, with 81 zero gaps and 19 positive gaps. It does not remove the undefined source-supported age row.
+**Negative or refused result.** Strict unconditional moments remain null for 2,668 rows; the separate source-supported profile remains null for one empty bin-4 row. The failed first observer stopped before ledger traversal on its wrapper-shape assumption and is preserved; only its adapter/controls changed. No missing-value rule, row drop, clipped covariance, replacement chronology or field significance was adopted. The common-covariance study retains signed bounds and predeclared loose/solver/domain refusal behavior; all actual 100 endpoints are tight, with 81 zero gaps and 19 positive gaps. It does not remove the undefined source-supported age row. Largest retained chain difference is Pinus/window 5 minus 3: +0.00124708121 with estimated difference MCSE0.00049008421; no derived convergence or agreement is certified. One empirically constant indicator chain and one observed refusal cannot establish rare-event mixing or true zero uncertainty.
 
-**Matched denominator.** All 107 native samples, 99 native-complete panels and eight native omissions; the separate original-source profile has 107 analytically supported panels. Both retain two chains of 16,000 states and all 32,000 probability-denominator rows. C_native has 29,332 rows; C_source has 31,999: 2,667 newly complete, one jointly undefined, zero lost native-complete. Each conditional population retains all 20 components, six covariance matrices and 30 contrasts. Common-covariance sensitivity uses the same C_source, 20 components and 30 contrasts, with one parameter covariance shared across states; it introduces no new observation or draw.
+**Matched denominator.** All 107 native samples, 99 native-complete panels and eight native omissions; the separate original-source profile has 107 analytically supported panels. Both retain two chains of 16,000 states and all 32,000 probability-denominator rows. C_native has 29,332 rows; C_source has 31,999: 2,667 newly complete, one jointly undefined, zero lost native-complete. Each conditional population retains all 20 components, six covariance matrices and 30 contrasts. Common-covariance sensitivity uses the same C_source, 20 components and 30 contrasts, with one parameter covariance shared across states; it introduces no new observation or draw. The mean-precision diagnostic retains two ordered 16000-state chains, each with 125 batches of 128 states, and 50 scalar records per chain, pooled and chain-difference group (200 total). These are dependent simulation states, not independent field observations.
 
-Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/source-supported-counts/protocol.json](source-supported-counts/protocol.json), [reports/science/abborrtjarnen-source-method.md](../../abborrtjarnen-source-method.md), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/common-covariance/protocol.json](common-covariance/protocol.json).
+Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/source-supported-counts/protocol.json](source-supported-counts/protocol.json), [reports/science/abborrtjarnen-source-method.md](../../abborrtjarnen-source-method.md), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/common-covariance/protocol.json](common-covariance/protocol.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/monte-carlo/protocol.json](monte-carlo/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
