@@ -73,24 +73,24 @@
       "source_sha256": "8d8656f923d29a07575a3d3639b41b22aac6d67959b174c4f8a6c9063f4c990a"
     },
     {
-      "bytes": 179390,
+      "bytes": 179438,
       "canonical_source": "presentation/big-picture.tex",
       "path": "presentation/big-picture.pdf",
-      "sha256": "626fcc5d92d3410c126be2c1cb6097fdac4fbaf638b49fb906af0a81cfccaee3",
+      "sha256": "6d48e729d52cb5482bac490d173d3cfb06791d91f2a0b6389208076dd3b5077c",
       "site_uri": "assets/science/presentations/big-picture.pdf"
     },
     {
-      "bytes": 162203,
+      "bytes": 162155,
       "canonical_source": "presentation/developer.tex",
       "path": "presentation/developer.pdf",
-      "sha256": "19937f759003bd652518ccb193a1028f5984279d768922d90dd2a13a6a87a5fd",
+      "sha256": "d1449a86453f0402bbe7940c02121d5048a6a81002f39f50ec3bb30d1a4f0a8b",
       "site_uri": "assets/science/presentations/developer.pdf"
     },
     {
       "bytes": 273346,
       "canonical_source": "presentation/scientific-evidence.tex",
       "path": "presentation/scientific-evidence.pdf",
-      "sha256": "487de0fc7f71e39d9c07e8111c3b8552405a5d37e50fc529cbf1774434cdd6da",
+      "sha256": "d6a89162e51d4b14fd057b9d878b31d4bd49ce157dab55d7f79242455833bcee",
       "site_uri": "assets/science/presentations/scientific-evidence.pdf"
     }
   ],
@@ -103,8 +103,8 @@
   "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
   "deck_build": {
     "schema_version": "git-compiled-deck-inputs.v1",
-    "source_revision": "86d7c77ad4939c7386f96efb2c794f17972db907",
-    "source_date_epoch": 1792776724,
+    "source_revision": "69ef7683fbe8e04132e59175897ee924fa58deae",
+    "source_date_epoch": 1793064110,
     "inputs": [
       "presentation/big-picture.tex",
       "presentation/developer.tex",
