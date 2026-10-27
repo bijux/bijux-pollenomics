@@ -1,0 +1,143 @@
+{
+  "schema_version": "krageholm-regional-source-support-summary.v1",
+  "scope": "Literal source and selected-age preconditions; no model or scientific/field admission.",
+  "source": {
+    "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+    "bytes": 23953555,
+    "sha256": "93a673c6fa66522667be2292cda076489330cbe1b5da8cea6b000d9c124c10cc"
+  },
+  "source_commit": "bb7ea494d38cba97a7f5c40909ae7d127c100d58",
+  "population": {
+    "samples": 96,
+    "age_disposition_counts": {
+      "outside_requested_windows": 77,
+      "in_requested_window": 19
+    },
+    "selected_age_status_counts": {
+      "selected_typed_point": 96
+    },
+    "panel_complete_samples": 91,
+    "full_mass_complete_samples": 96
+  },
+  "support_summary": {
+    "supported_windows": 6,
+    "window_status_counts": {
+      "supported": 6
+    },
+    "literal_taxon_state_counts": {
+      "measured": 187,
+      "missing_literal": 5
+    },
+    "datum_status_counts": {
+      "valid_pollen_NISP": 2803,
+      "non_pollen": 622
+    }
+  },
+  "chronology_selection": {
+    "selected_id": 13366,
+    "native_collection_default_reference": 13365,
+    "native_default_flags": {
+      "13365": true,
+      "13366": true
+    },
+    "reference_epoch_ad": 1950
+  },
+  "source_wide_pollen_N": 87713,
+  "source_wide_panel_N": null,
+  "source_wide_panel_disposition": "suppressed_incomplete_panel",
+  "windows": [
+    {
+      "window": [
+        2700,
+        3200
+      ],
+      "member_count": 4,
+      "status": "supported",
+      "panel_counts": [
+        506,
+        36
+      ],
+      "panel_N": 542,
+      "pollen_N": 3973,
+      "excluded_pollen_N": 3431
+    },
+    {
+      "window": [
+        3200,
+        3700
+      ],
+      "member_count": 4,
+      "status": "supported",
+      "panel_counts": [
+        408,
+        68
+      ],
+      "panel_N": 476,
+      "pollen_N": 3955,
+      "excluded_pollen_N": 3479
+    },
+    {
+      "window": [
+        3700,
+        4200
+      ],
+      "member_count": 3,
+      "status": "supported",
+      "panel_counts": [
+        204,
+        81
+      ],
+      "panel_N": 285,
+      "pollen_N": 2976,
+      "excluded_pollen_N": 2691
+    },
+    {
+      "window": [
+        4200,
+        4700
+      ],
+      "member_count": 2,
+      "status": "supported",
+      "panel_counts": [
+        135,
+        35
+      ],
+      "panel_N": 170,
+      "pollen_N": 2097,
+      "excluded_pollen_N": 1927
+    },
+    {
+      "window": [
+        4700,
+        5200
+      ],
+      "member_count": 3,
+      "status": "supported",
+      "panel_counts": [
+        160,
+        65
+      ],
+      "panel_N": 225,
+      "pollen_N": 2654,
+      "excluded_pollen_N": 2429
+    },
+    {
+      "window": [
+        5200,
+        5700
+      ],
+      "member_count": 3,
+      "status": "supported",
+      "panel_counts": [
+        225,
+        87
+      ],
+      "panel_N": 312,
+      "pollen_N": 2732,
+      "excluded_pollen_N": 2420
+    }
+  ],
+  "engine_calls": 0,
+  "model_fits": 0,
+  "scientific_or_field_admission": false
+}
