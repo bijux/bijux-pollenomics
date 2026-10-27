@@ -117,7 +117,9 @@ class Geometry:
             * (-self.coefficient * distance_squared.root(16)).exp()
         )
 
-    def triangle(self, t: Jet, u: Jet, patch: int) -> Jet:
+    def triangle(
+        self, t: Jet, u: Jet, patch: int, *, contact_outer: Fraction | None = None
+    ) -> Jet:
         """Duffy triangles of integral_R^L Q(r)h'(r)dr; no contact collar."""
         self._unit_coordinate(t)
         self._unit_coordinate(u)
@@ -125,10 +127,17 @@ class Geometry:
             raise ValueError(
                 "Two compatible Duffy coordinates and patch 1 or 2 required"
             )
+        if contact_outer is not None and (
+            type(contact_outer) is not Fraction
+            or not self.receiver < contact_outer <= min(2 * self.receiver, self.outer)
+        ):
+            raise ValueError(
+                "Contact band must use the original receiver and its first radial band"
+            )
         v, p, c, r0 = (
             t**8,
             Jet.constant(pi_bounds(), t.order),
-            self.difference,
+            self.difference if contact_outer is None else contact_outer - self.receiver,
             self.receiver,
         )
         if patch == 1:

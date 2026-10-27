@@ -38,6 +38,10 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
     ResourceRefusal,
     WorkBudget,
 )
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.radial_partition import (
+    DYADIC_RADIAL,
+    WHOLE_ANNULUS,
+)
 
 
 def source_pins() -> dict[str, str]:
@@ -54,6 +58,9 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument(
         "--rule", choices=(SIMPSON_RULE, SEVEN_NODE_RULE), default=SIMPSON_RULE
+    )
+    parser.add_argument(
+        "--partition", choices=(WHOLE_ANNULUS, DYADIC_RADIAL), default=WHOLE_ANNULUS
     )
     arguments = parser.parse_args()
     output: Path = arguments.output
@@ -84,9 +91,12 @@ def main() -> None:
         },
         "target_full_width": str(EPSILON),
         "quadrature_rule": arguments.rule,
+        "radial_partition": arguments.partition,
     }
     try:
-        result = certify(model, budget, rule=arguments.rule)
+        result = certify(
+            model, budget, rule=arguments.rule, partition=arguments.partition
+        )
         report.update(
             {
                 "status": result.status,
