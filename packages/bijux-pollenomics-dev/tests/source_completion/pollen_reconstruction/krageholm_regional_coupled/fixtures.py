@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .lineage import digest, expected_folds
+from .lineage import digest
 from .scalar import AXIS, METHODS
 
 
@@ -47,7 +47,7 @@ def prediction_fixture(
         {
             "record_id": code,
             "site_id": "site:" + code,
-            "identity_keys": ["unit:" + code],
+            "identity_keys": ["site:" + code, "collection:" + code],
             "raw": {"path": code + "-raw.json", "sha256": digest(code + "raw")},
             "geometry": {
                 "path": code + "-geometry.json",
@@ -63,10 +63,14 @@ def prediction_fixture(
         "configuration": {"synthetic": True},
     }
     spec: dict[str, Any] = {
+        "profile": "source-observations-withheld-site-baselines-v1",
         "sites": sites,
         "target_record_ids": list(ids)[:-1],
         "regional_priority": ["KRAGMJNY"],
         "request_template": template,
+        "local_ring_count": 2,
+        "local_support_radius_m": 1000,
+        "support_profile": "same-outer-radius-homogeneous-v1",
     }
     members = {
         code + "-raw.json": {
@@ -75,13 +79,30 @@ def prediction_fixture(
         for code in ids
     }
     context = {"experiment": spec, "ids": ids, "members": members}
-    folds = expected_folds(sites, spec["target_record_ids"], "KRAGMJNY")
+    fixture_groups = {
+        record: "site-group:"
+        + sha256(json.dumps([record], separators=(",", ":")).encode()).hexdigest()
+        for record in ids
+    }
+    folds: list[dict[str, Any]] = [
+        {
+            "fold_id": fixture_groups[target],
+            "train_record_ids": sorted(set(ids) - {target}),
+            "test_record_ids": [target],
+            "train_group_ids": sorted(
+                fixture_groups[record] for record in ids if record != target
+            ),
+            "test_group_ids": [fixture_groups[target]],
+        }
+        for target in spec["target_record_ids"]
+    ]
+    folds.sort(key=lambda row: row["fold_id"])
     fits, preparations, predictions, failures = [], [], [], []
     native = {}
     for fold_index, fold in enumerate(folds):
         fold_id, target = fold["fold_id"], fold["test_record_ids"][0]
         local = sorted(set(fold["train_record_ids"]) - {"KRAGMJNY"})
-        groups = {record: "site-group:" + digest([record]) for record in local}
+        groups = {record: fixture_groups[record] for record in local}
         identity = [
             {
                 "record_id": record,
@@ -117,7 +138,7 @@ def prediction_fixture(
             )
             continue
         group_ids = sorted(groups.values())
-        anchor_group = "site-group:" + digest(["KRAGMJNY"])
+        anchor_group = fixture_groups["KRAGMJNY"]
         fit = {
             "fold_id": fold_id,
             "outer_fold": fold,
@@ -212,11 +233,12 @@ def prediction_fixture(
         for key in ("predictions", "training", "preparations", "failures")
     }
     saved["experiment.json"] = {
+        "profile": spec["profile"],
         "source_catalogue": [
             {
                 "record_id": site["record_id"],
                 "site_id": site["site_id"],
-                "identity_keys": site["identity_keys"],
+                "identity_keys": sorted(set(site["identity_keys"])),
                 "raw_path": site["raw"]["path"],
                 "raw_sha256": site["raw"]["sha256"],
                 "geometry_path": site["geometry"]["path"],
@@ -227,6 +249,9 @@ def prediction_fixture(
         "target_record_ids": spec["target_record_ids"],
         "regional_priority": spec["regional_priority"],
         "request_template": template,
+        "local_ring_count": 2,
+        "local_support_radius_m": 1000.0,
+        "support_profile": "same-outer-radius-homogeneous-v1",
     }
     dispositions = []
     for fold in folds:

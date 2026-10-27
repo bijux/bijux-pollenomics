@@ -54,11 +54,22 @@ def check_prediction(
     for key in ("predictions", "training", "preparations", "failures"):
         exact(decode(files[key + ".json"]), scientific[key])
     saved_metadata = decode(files["experiment.json"])
+    for site in spec["sites"]:
+        aliases = site["identity_keys"]
+        require(
+            type(aliases) is list
+            and all(
+                type(alias) is str and bool(alias) and alias == alias.strip()
+                for alias in aliases
+            )
+            and len(aliases) == len(set(aliases)),
+            "exact unique source alias membership required",
+        )
     expected_catalogue = [
         {
             "record_id": site["record_id"],
             "site_id": site["site_id"],
-            "identity_keys": site["identity_keys"],
+            "identity_keys": sorted(site["identity_keys"]),
             "raw_path": site["raw"]["path"],
             "raw_sha256": site["raw"]["sha256"],
             "geometry_path": site["geometry"]["path"],

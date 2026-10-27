@@ -1,5 +1,6 @@
 """Closed-product controls for all method dispositions and quantitative lineage."""
 
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
@@ -24,6 +25,57 @@ def test_closed_prediction_products_keep_all_successes_and_signed_refusals(
     assert result["native_negative_final_covers"] == int(refused)
     for available in result["predictions"].values():
         assert tuple(map(float, available["pollen"])) == (0.625, 0.375)
+
+
+def test_host_canonical_aliases_preserve_source_declaration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    pin, context, native, _ = prediction_fixture(tmp_path)
+    before = deepcopy(context["experiment"]["sites"])
+    saved = decode((Path(pin["directory"]) / "experiment.json").read_bytes())
+    assert before[0]["identity_keys"] == ["site:BOKE", "collection:BOKE"]
+    assert saved["source_catalogue"][0]["identity_keys"] == [
+        "collection:BOKE",
+        "site:BOKE",
+    ]
+    assert type(context["experiment"]["local_support_radius_m"]) is int
+    assert type(saved["local_support_radius_m"]) is float
+    monkeypatch.setattr(observer, "check_batches", lambda *args: native)
+    assert len(check_prediction(tmp_path, pin, context, TOLERANCE)["predictions"]) == 9
+    assert context["experiment"]["sites"] == before
+
+
+@pytest.mark.parametrize(
+    "corruption",
+    ["source_duplicate", "missing", "foreign", "duplicate", "uncanonical_order"],
+)
+def test_alias_membership_and_canonical_serialization_refuse_tamper(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, corruption: str
+) -> None:
+    pin, context, native, science = prediction_fixture(tmp_path)
+    monkeypatch.setattr(observer, "check_batches", lambda *args: native)
+    members = {
+        path.name: decode(path.read_bytes())
+        for path in Path(pin["directory"]).glob("*.json")
+        if path.name != "manifest.json"
+    }
+    aliases = members["experiment.json"]["source_catalogue"][0]["identity_keys"]
+    if corruption == "source_duplicate":
+        context["experiment"]["sites"][0]["identity_keys"].append("site:BOKE")
+    elif corruption == "missing":
+        aliases.pop()
+    elif corruption == "foreign":
+        aliases[0] = "collection:foreign"
+    elif corruption == "duplicate":
+        aliases.append(aliases[0])
+    else:
+        aliases.reverse()
+    replacement = write_product(
+        tmp_path / "artifacts/alias-tamper", science, members, phase="predictions"
+    )
+    replacement["method_dispositions"] = pin["method_dispositions"]
+    with pytest.raises(ValueError):
+        check_prediction(tmp_path, replacement, context, TOLERANCE)
 
 
 @pytest.mark.parametrize(
