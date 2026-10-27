@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -19,10 +20,32 @@ from .repository import _load_json_if_present
 def build_animal_sample_chronology_review(
     *,
     data_root: Path,
+    chronology_rows: Sequence[dict[str, Any]] | None = None,
+    provenance_rows: Sequence[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """Publish one reader-facing chronology review across all governed animal sample rows."""
-    rows = list(build_sample_chronology_review_rows(data_root))
-    provenance_rows = list(build_sample_chronology_provenance_rows(data_root))
+    """Summarize matching governed rows, rebuilding source evidence only by default."""
+    if (chronology_rows is None) != (provenance_rows is None):
+        raise ValueError("Chronology review requires both supplied row populations")
+    if chronology_rows is None:
+        rows = list(build_sample_chronology_review_rows(data_root))
+        provenance_rows = build_sample_chronology_provenance_rows(data_root)
+    else:
+        rows = list(chronology_rows)
+    assert provenance_rows is not None
+    if chronology_rows is not None:
+        owners = [
+            (row["project_accession"], row["repo_stable_sample_id"]) for row in rows
+        ]
+        provenance_owners = [
+            (row["project_accession"], row["repo_stable_sample_id"])
+            for row in provenance_rows
+        ]
+        if (
+            len(set(owners)) != len(owners)
+            or len(set(provenance_owners)) != len(provenance_owners)
+            or set(owners) != set(provenance_owners)
+        ):
+            raise ValueError("Chronology and provenance owner populations differ")
     strength_counts = dict.fromkeys(ADNA_CHRONOLOGY_STRENGTHS, 0)
     evidence_counts = dict.fromkeys(ADNA_CHRONOLOGY_EVIDENCE_CLASSES, 0)
     precision_counts = dict.fromkeys(ADNA_CHRONOLOGY_PRECISION_POSTURES, 0)
