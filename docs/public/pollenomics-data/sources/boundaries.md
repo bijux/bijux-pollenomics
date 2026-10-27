@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-27
+last_reviewed: 2026-10-28
 ---
 
 # Boundaries
@@ -16,86 +16,107 @@ no scientific weight to a feature inside a polygon.
 
 ## Captured State
 
-The repository boundary source receipt `data/boundaries/raw/source_manifest.json`
-identifies Natural Earth **Admin 0 - Countries, version 5.1.1**, captured on
-`2026-09-04` under public-domain terms. Its CRS is `EPSG:4326`; the selection
-retains all geometry parts for each of the four countries. The source asset
-SHA-256 is `239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255`;
-the normalized GeoJSON SHA-256 is
-`bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f`.
+The current source receipt `data/boundaries/raw/source_manifest.json` identifies
+Natural Earth **Admin 0 - Countries, version 5.1.1**, under public-domain terms
+in `EPSG:4326`. The exact full asset was received on **27 October 2026 at
+22:49:30 UTC**; the country artifacts were built on **2026-10-28**. The v2 receipt
+keeps UTC capture time separate from build date and identifies reuse of the
+retained asset. Its 13,287,234 bytes and 258 source features have SHA-256
+`239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255`, matching the
+earlier 4 September receipt. No second download supplied the materialization.
+The normalized GeoJSON SHA-256 is
+`8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394`.
 The collector snapshot label `v66` belongs to a different inventory layer and
 does not identify the Natural Earth release.
 
-The current machine country decision review at `data/boundaries/review/manifest.json`
-evaluates 3,039 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
-143 point reviews. Qualified inclusion review is still pending, so the
-boundary review release posture is `blocked_pending_qualified_boundary_review`.
-The point decisions and polygons are reusable with this qualification; they do
-not constitute final boundary suitability approval.
+The named selection profile `nordic-four-country-admin0-with-aland` retains
+these exact source administrative members:
+
+| Public country | Source `ADM0_A3` members | Raw source features | Polygon parts |
+| --- | --- | ---: | ---: |
+| Sweden | `SWE` | 1 | 41 |
+| Norway | `NOR` | 1 | 120 |
+| Finland | `FIN`, `ALD` | 2 | 58 |
+| Denmark | `DNK` | 1 | 15 |
+
+The governing source represents Åland separately as `ADMIN=Aland`,
+`NAME=Åland`, `ADM0_A3=ALD`, with the same Finnish `SOV_A3=FI1` as `FIN`.
+The earlier primary-code-only selection omitted this represented unit.
+The new Finnish raw artifact preserves both original feature/property objects;
+normalization concatenates their polygon parts into one public Finnish
+MultiPolygon, without union, simplification or coordinate changes. Each review
+part retains its source administrative code. The other three raw artifacts
+remain byte-identical. All 120 Norwegian parts remain, including the southern
+part; the source feature does not name individual parts. The explicit Danish
+selection excludes separately represented `FRO` and `GRL`, despite their shared
+Danish sovereignty field. This is a declared four-country publication profile,
+not a blanket sovereignty union or qualified territorial-suitability decision.
+
+`data/boundaries/review/manifest.json` accounts for **3,039 points** and
+**141 point reviews**. All four global country reviews remain pending and
+release posture is `blocked_pending_qualified_boundary_review`.
 
 | Source point population | Rows | Assigned | Review | Unassigned | `UNASSIGNED` country partition |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| animal aDNA | 161 | 6 | 1 | 154 | 155 |
-| LandClim | 490 | 474 | 14 | 2 | 16 |
+| animal aDNA | 161 | 7 | 1 | 153 | 154 |
+| LandClim | 490 | 476 | 14 | 0 | 14 |
 | Neotoma | 193 | 193 | 0 | 0 | 0 |
-| SEAD | 2,195 | 2,069 | 103 | 23 | 126 |
+| SEAD | 2,195 | 2,069 | 107 | 19 | 122 |
 
-The 27 October source-label correction recognizes consistent ISO-code/name
-pairs such as `NOR (Norway)` while preserving their literal source values.
-Abborrtjärnen, Afstjørna, Aholami and Møllesø no longer receive false raw-country
-conflicts: their published country and strict containment already agree.
-Contradictory, unknown and malformed labels still refuse agreement. Raw and
-published labels now share the same case-insensitive comparator.
+The seven geometry-membership changes are two LandClim records for
+Kolmilaträsk (`KOLM` and the separately owned Lake Kolmilaträsk sequence),
+SEAD sites 3447, 3457, 3528 and 3652, and the Kastelholm sheep locality.
+Their source identities, coordinates, native country fields and lineage remain
+unchanged. All seven now lie within the Finnish profile. The four SEAD points
+retain review because their prior captured decisions were unassigned; their
+new containment does not add them to the historical admitted SEAD cohort.
 
-The same current-source materialization removes exactly four previously refused
-PRJEB90141 goat localities: Acemhöyük, Blagotin-Poljna, Direkli Cave and
-Sang-e Chakhmaq, each with `locality_depends_on_nonfinal_sample_identity`.
-All 161 retained animal decisions preserve their scientific fields; 139 source
-row locators shift with the shorter point list. Neotoma, SEAD and the polygon
-review remain byte-identical. These changes do not select a new coordinate,
-chronology, biological identity or boundary policy.
+The first materialization revealed a separate comparison defect: a changed
+global boundary digest alone turned 2,388 otherwise matching prior decisions
+into conflicts, producing 2,403 point reviews. That literal outcome and all
+3,039 dispositions remain preserved. The corrected comparator distinguishes
+`agrees_authority_changed` from a different country, method or status and
+retains both authority digests. Its current population is 2,384 agreements
+under changed authority, four genuine prior conflicts and 651 points without
+a supplied prior. Missing or malformed authority still conflicts. Neither the
+new agreement token nor fresh containment grants qualified suitability approval.
 
-One actual maintained producer at `f120a42c976052b52d9c5eee6b3761d914a7098c`
-finished in 14.22 s, with 107,528,192 B peak RSS and 6,783,274 B of governed
-outputs and logs, within 180 s / 768 MiB / 32 MiB. The independent reader
-compared every old/current record, all 17 input pins, six boundary source
-JSONs and all output/queue summaries in 0.42 s, with 86,343,680 B RSS and
-157,268 B of outputs. Independent containment agrees for the four corrected
-LandClim points. Source, HEAD and index remained stable through both terminals.
-The observation is retained locally at
-`artifacts/verification/country-labels/observation.json`; no materializer or
-full geometry scan was repeated by that reader.
+One offline source adoption and review at `ff5fe8d5627fc3c38d7f5de1901a292438ccf0b7`
+completed in 16.24 s with RSS 263,225,344 bytes. A separate standard-library
+observer checked all five original source features, exact four-country
+normalization and every point using winding-number containment and segment
+distances in 10.20 s with RSS 212,287,488 bytes. The comparison-only correction
+at `d5907ed0ea56c2d3f2fd96cf529939e5be8df86e` then regenerated the review in
+15.74 s with RSS 111,640,576 bytes. Its independent 1.17 s readback, RSS
+73,678,848 bytes, checks all 3,039 transitions, reasons, authority identities
+and the complete queue while reusing the unchanged geometry qualification.
+Each job meets 180 s / 768 MiB / 32 MiB; the corrected producer accounts for
+13,105,440 bytes of governed products and retained artifacts before its final
+small metadata/log additions. All 17 point-source files, six boundary sources,
+consumed Python files, HEAD and raw index remained stable in each execution.
+An earlier wrapper failed before adoption on a manifest-shape assumption;
+its error is retained. No source download or geometry adoption was repeated.
 
-All 33 focused checks and 20 subtests now pass, including governed-source
-integrity. The earlier check that detected the old 681,283-byte animal-input
-pin versus the current 1,220,950-byte source remains recorded. The producer,
-rather than a manual pin edit, supplied the current source ledger. Configured
-lint, formatting and strict types passed for all three changed Python files.
-All 143 genuine point reviews and four qualified country reviews remain pending;
-release remains blocked. Machine assignment is not scientific approval.
+The raw local observations are under `artifacts/root/aland-country-members/`
+and `artifacts/verification/aland-country-members/`. These are computational
+checks, not independent human scientific review. The earlier consistent
+ISO-code/name correction and four nonfinal goat-locality exclusions remain
+in force; their source records were not reopened or imputed here.
 
-These are two different partitions of the same 3,039 source points: decision
-status and governed country. A review status can retain a source country
-without receiving a governed assignment, so `UNASSIGNED` is not simply the
-sum of every row labeled review or unassigned. Inspect the source-specific
-decision ledgers in `data/boundaries/review/manifest.json` before
-interpreting an individual point.
+Decision status and governed country are different partitions. A review may
+retain a derived country, while near-border and outside points can remain
+`UNASSIGNED`. Strict boundary contact uses a 1e-12-degree numerical epsilon;
+contact, multiple containment and proximity are reviewed deterministically.
+The 0.15-degree planar proximity band is a computational review threshold,
+not coordinate uncertainty or a published geodesic distance. Invalid or
+out-of-range coordinates refuse; offshore points remain unassigned or reviewed
+and are never snapped. Source coordinate precision remains its own evidence.
+Scientific regional distances use the canonical unrounded WGS84 helper.
 
-The normalized artifact is
-`data/boundaries/normalized/nordic_country_boundaries.geojson`. It contains one
-MultiPolygon feature for each Nordic publication country:
-
-| Country | Governed use |
-| --- | --- |
-| Sweden | country selection and Nordic composition |
-| Norway | country selection and Nordic composition |
-| Finland | country selection and Nordic composition |
-| Denmark | country selection and Nordic composition |
-
-The normalized geometry is the authority from which scope-specific copies are
-published. A copy beside a map is convenient for reuse, but it is not an
-independent boundary source. Its meaning depends on the normalized family,
-the product registry, and the selection rule that produced the bundle.
+Existing captures and published copies retain their own boundary identities.
+They are not silently relabeled as rebuilt under this newer profile. New scope
+exports use `data/boundaries/normalized/nordic_country_boundaries.geojson` and
+carry the current selection rule and pending-review posture.
 
 ## Acquisition And Replacement
 
