@@ -15,6 +15,7 @@ from .contracts import (
     PANGAEA_DATASET_DOI,
     PANGAEA_DATASET_ID,
     PANGAEA_QUALITY_CLASSES,
+    PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE,
 )
 from .metric_families import LAND_COVER_COMPONENT_KEYS, PANGAEA_METRIC_KEYS
 
@@ -260,14 +261,25 @@ def _validate_metric_pairs(row: Mapping[str, object], *, record_id: str) -> None
     errors = as_mapping(row.get("standard_errors"))
     if estimates is None or errors is None:
         raise ModeledContextContractError(f"{record_id} lacks estimates or errors")
-    if tuple(estimates) != PANGAEA_METRIC_KEYS:
+    if set(estimates) != set(PANGAEA_METRIC_KEYS):
         raise ModeledContextContractError(
-            f"{record_id} estimate metric keys/order differ from the source header"
+            f"{record_id} estimate metric keys differ from the source header"
         )
-    if tuple(errors) != PANGAEA_METRIC_KEYS:
+    if set(errors) != set(PANGAEA_METRIC_KEYS):
         raise ModeledContextContractError(
-            f"{record_id} standard-error metric keys/order differ from the source header"
+            f"{record_id} standard-error metric keys differ from the source header"
         )
+    if "publication_value_posture" in row:
+        if (
+            row["publication_value_posture"] != PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE
+            or row.get("quality_class") != "no_pollen_data"
+            or any(value is not None for value in estimates.values())
+            or any(value is not None for value in errors.values())
+        ):
+            raise ModeledContextContractError(
+                f"{record_id} unavailable publication values or posture differ"
+            )
+        return
     numeric_estimates: dict[str, float] = {}
     for metric_key in PANGAEA_METRIC_KEYS:
         estimate = _finite_number(

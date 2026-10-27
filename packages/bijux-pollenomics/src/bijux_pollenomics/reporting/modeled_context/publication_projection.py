@@ -7,7 +7,7 @@ from copy import deepcopy
 from typing import cast
 
 from ...core.geospatial.geojson import JsonObject, as_mapping, feature_list
-from .contracts import PANGAEA_DATASET_ID
+from .contracts import PANGAEA_DATASET_ID, PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE
 
 _VALUE_FIELDS = ("reconstruction_values", "standard_errors")
 
@@ -38,7 +38,7 @@ def project_modeled_context_layers(
                     str(metric): None for metric in source_values
                 }
             mutable_properties["publication_value_posture"] = (
-                "unavailable_source_placeholders_replaced_with_null"
+                PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE
             )
             cast(dict[str, object], feature)["properties"] = mutable_properties
     return [dict(layer) for layer in projected]

@@ -390,7 +390,7 @@ def test_every_metric_requires_a_matching_estimate_and_error_key(
 
     with pytest.raises(
         ModeledContextContractError,
-        match="metric keys/order differ from the source header",
+        match="metric keys differ from the source header",
     ):
         build_modeled_context_manifest([layer])
 
