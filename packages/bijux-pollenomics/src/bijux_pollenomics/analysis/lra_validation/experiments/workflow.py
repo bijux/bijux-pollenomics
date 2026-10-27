@@ -51,11 +51,19 @@ def prepare_experiment_predictions(
     LRABatchLimits(max_workers=workers)
     if workers > (os.cpu_count() or 1):
         raise ValidationRefusal("experiment_worker_budget_exceeded", str(workers))
-    folds = grouped_leave_one_out([site.record for site in spec.sites])
+    catalogue_folds = grouped_leave_one_out([site.record for site in spec.sites])
+    targets = spec.target_record_ids if isinstance(spec, SourceExperimentSpec) else None
+    folds = (
+        catalogue_folds
+        if targets is None
+        else grouped_leave_one_out(
+            [site.record for site in spec.sites], target_record_ids=targets
+        )
+    )
     by_record = {site.record.record_id: site for site in spec.sites}
     group_by_record = {
         record: fold.test_group_ids[0]
-        for fold in folds
+        for fold in catalogue_folds
         for record in fold.test_record_ids
     }
     implementation = _implementation()
@@ -180,6 +188,7 @@ def prepare_experiment_predictions(
         "experiment.json",
         {
             "profile": spec.profile,
+            **({"target_record_ids": targets} if targets is not None else {}),
             "request_template": spec.template(),
             "regional_priority": spec.regional_priority,
             "local_ring_count": spec.local_ring_count,

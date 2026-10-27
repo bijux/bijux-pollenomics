@@ -19,6 +19,7 @@ from ..metrics import closed_composition
 from .configuration import (
     ExperimentScope,
     ExperimentSite,
+    SourceExperimentSpec,
     object_list,
     object_mapping,
 )
@@ -78,14 +79,23 @@ def reconstruct_fold(
     if not eligible:
         raise ValidationRefusal("missing_regional_anchor", fold.fold_id)
     anchor = by_record[eligible[0]]
+    targets = spec.target_record_ids if isinstance(spec, SourceExperimentSpec) else None
+    if targets is not None and not set(fold.test_record_ids) <= set(targets):
+        raise ValidationRefusal("regional_only_target", fold.fold_id)
     anchor_group = group_by_record[anchor.record.record_id]
     predictors = tuple(
         by_record[record]
         for record in training_records
         if group_by_record[record] != anchor_group
+        and (targets is None or record in targets)
     )
     if not predictors or (training_admission is not None and len(predictors) < 2):
         raise ValidationRefusal("missing_local_predictors", fold.fold_id)
+    if targets is not None and set(targets) != set(by_record) and len(predictors) < 2:
+        raise ValidationRefusal(
+            "missing_local_predictors",
+            "Explicit regional-source predictions require two local training groups",
+        )
     if len({group_by_record[record] for record in training_records}) != len(
         training_records
     ):

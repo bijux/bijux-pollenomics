@@ -97,10 +97,29 @@ def _folds(
     return tuple(folds)
 
 
-def grouped_leave_one_out(records: Iterable[SiteRecord]) -> tuple[Fold, ...]:
+def grouped_leave_one_out(
+    records: Iterable[SiteRecord], *, target_record_ids: Iterable[str] | None = None
+) -> tuple[Fold, ...]:
     """Hold all records connected by physical-site or alias identity out together."""
     groups = _groups(records)
-    return _folds(groups, tuple(_group_id(group) for group in groups))
+    folds = _folds(groups, tuple(_group_id(group) for group in groups))
+    if target_record_ids is None:
+        return folds
+    requested = tuple(target_record_ids)
+    targets = set(requested)
+    catalogue = {row.record_id for group in groups for row in group}
+    if not targets or len(targets) != len(requested) or not targets <= catalogue:
+        raise ValidationRefusal(
+            "invalid_target_selection", "Require unique nonempty catalogued targets"
+        )
+    for group in groups:
+        members = {row.record_id for row in group}
+        if members & targets and not members <= targets:
+            raise ValidationRefusal(
+                "cross_role_identity_group",
+                "A transitive physical/alias family crosses target and regional-only roles",
+            )
+    return tuple(fold for fold in folds if set(fold.test_record_ids) <= targets)
 
 
 def grouped_block_holdouts(records: Iterable[SiteRecord]) -> tuple[Fold, ...]:

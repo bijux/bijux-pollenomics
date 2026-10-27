@@ -294,10 +294,39 @@ class ExperimentSpec(ExperimentScope):
         )
 
 
+@dataclass(frozen=True, init=False)
 class SourceExperimentSpec(ExperimentSpec):
     """Exploratory source observations with all target pollen withheld."""
 
     profile: ClassVar[str] = SOURCE_PROFILE
+    target_record_ids: tuple[str, ...] | None
+
+    def __init__(self, payload: Mapping[str, object]) -> None:
+        row = dict(payload)
+        explicit = "target_record_ids" in row
+        selection = row.pop("target_record_ids", None)
+        super().__init__(row)
+        targets = (
+            tuple(
+                identity(value) for value in object_list(selection, "target_record_ids")
+            )
+            if explicit
+            else None
+        )
+        if targets is not None:
+            from ..splits import grouped_leave_one_out
+
+            grouped_leave_one_out(
+                [site.record for site in self.sites], target_record_ids=targets
+            )
+            if set(targets) != {site.record.record_id for site in self.sites} and set(
+                targets
+            ) & set(self.regional_priority):
+                raise ValidationRefusal(
+                    "overlapping_source_target_roles",
+                    "Explicit regional-only anchors cannot be target eligible",
+                )
+        object.__setattr__(self, "target_record_ids", targets)
 
 
 @dataclass(frozen=True, init=False)

@@ -41,6 +41,14 @@ def validate_singleton_provenance(
     }
     template = object_mapping(metadata["request_template"], "template")
     successful = {key[0] for key in predictions}
+    targets = (
+        {
+            identity(value)
+            for value in object_list(metadata["target_record_ids"], "target_record_ids")
+        }
+        if "target_record_ids" in metadata
+        else set(catalogue)
+    )
     training: dict[str, dict[str, object]] = {}
     if not fitted and successful:
         for value in object_list(read_member(product, "training.json"), "training"):
@@ -80,7 +88,12 @@ def validate_singleton_provenance(
         for value in object_list(batch["items"], "items"):
             item = object_mapping(value, "item")
             record = identity(item["item_id"])
-            if record in items or record not in admitted or record == anchor:
+            if (
+                record in items
+                or record not in admitted
+                or record == anchor
+                or record not in targets
+            ):
                 raise ValidationRefusal("retained_request_membership_mismatch", record)
             request = object_mapping(item["request"], "request")
             _same(
@@ -90,7 +103,7 @@ def validate_singleton_provenance(
             )
             _validate_request(metadata, template, catalogue, record, anchor, request)
             items[record] = item
-        if set(items) != set(admitted) - {anchor}:
+        if set(items) != (set(admitted) & targets) - {anchor}:
             raise ValidationRefusal("retained_request_inventory_mismatch", fold_id)
         fold_rows = [row for key, row in predictions.items() if key[0] == fold_id]
         if not fold_rows:

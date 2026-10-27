@@ -1,0 +1,247 @@
+{
+  "schema_version": "krageholm-regional-coupled-protocol.v1",
+  "question": "Can one permanently training, conditionally regional Krageholm source support analytical LOVE at both remaining small training places and forward pollen predictions at each excluded small place on the already qualified six Betula/Ulmus windows?",
+  "small_protocol": {
+    "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json",
+    "bytes": 6527,
+    "sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6"
+  },
+  "small_source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "small_cores": [
+    {
+      "id": "BOKE",
+      "site": 28872,
+      "dataset": 54001,
+      "collection_unit": 39241,
+      "chronology": 38422,
+      "radius_m": 80.0,
+      "longitude": 13.4375,
+      "latitude": 55.575556,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!977",
+      "historical_access_marker": "NR"
+    },
+    {
+      "id": "BUS",
+      "site": 28869,
+      "dataset": 53995,
+      "collection_unit": 39238,
+      "chronology": 38418,
+      "radius_m": 69.0,
+      "longitude": 13.816667,
+      "latitude": 55.466667,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!978",
+      "historical_access_marker": "NR"
+    },
+    {
+      "id": "SOLSOE83",
+      "site": 3432,
+      "dataset": 4446,
+      "collection_unit": 4304,
+      "chronology": 25740,
+      "radius_m": 89,
+      "longitude": 8.6145225,
+      "latitude": 56.12843278,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "historical_access_marker": "R"
+    }
+  ],
+  "old_projections": {
+    "cal-bp-2700-3200": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/projection.json",
+      "bytes": 1294,
+      "sha256": "ecf2047c47844997f18698b04f5a6b3a3242ef9619063b37d2c69863cae0dbeb"
+    },
+    "cal-bp-3200-3700": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/projection.json",
+      "bytes": 1296,
+      "sha256": "e413ad15f26b0cbcdf6c9fcc29d30f0fffb840eda68e6fa887c9d3e480d3f1ca"
+    },
+    "cal-bp-3700-4200": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/projection.json",
+      "bytes": 1296,
+      "sha256": "98e05fbc970a2daa9002e6d4e0d5609964b41bb6e01bec6bbc46db3bdb6caa50"
+    },
+    "cal-bp-4200-4700": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/projection.json",
+      "bytes": 1299,
+      "sha256": "50647b9f26d6efd09ac0856cb7d690b162e3a7ab0d9663f6945db9b7f853de0d"
+    },
+    "cal-bp-4700-5200": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/projection.json",
+      "bytes": 1300,
+      "sha256": "98aeeefecb1dd8a1f64b7ce73d0eca6b135b9f3a8902bdc2bdc8f2db4984362c"
+    },
+    "cal-bp-5200-5700": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/projection.json",
+      "bytes": 1298,
+      "sha256": "76f1a4f1116ce29d0115ece21558106bd3801c287929a8fd7158c16b466f1a20"
+    }
+  },
+  "krag_audit": {
+    "path": "artifacts/physical-core/krageholm-regional-source-support/native-run/result.json",
+    "bytes": 274758,
+    "sha256": "7d19b911ffe54c0fe97b2de973bc85b7150ded6e37550d571ff838b108353c30"
+  },
+  "krag_identity": {
+    "site_id": 3204,
+    "dataset_id": 23013,
+    "collection_unit_id": 16622,
+    "handle": "KRAGMJNY",
+    "source_sample_count": 96,
+    "selected_chronology_id": 13366,
+    "native_collection_default_reference": 13365,
+    "source_default_flags": {
+      "13365": true,
+      "13366": true
+    }
+  },
+  "krag_geometry": {
+    "radius_m": 837.0,
+    "longitude": 13.74492,
+    "latitude": 55.50078,
+    "native_coordinate_source": {
+      "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
+      "bytes": 307210,
+      "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+    },
+    "native_coordinate_selector": "rows[source_site_id==3204].source_payload.geography.coordinates",
+    "radius_source": "reports/science/krageholm-static-geometry-sensitivity/protocol.json#geometry_scenarios.workbook_static_circle; retained KRA workbook row1004",
+    "distinct_named_lake_area_ha": 186.0,
+    "scope": "Static1674m lake diameter is the only regional geometry hypothesis. Preserve distinct186ha named-lake statement without harmonizing radius or transferring dated core/shoreline identity. Coordinates are retained native metadata, not country or independence evidence."
+  },
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "windows_cal_bp": [
+    [
+      2700.0,
+      3200.0
+    ],
+    [
+      3200.0,
+      3700.0
+    ],
+    [
+      3700.0,
+      4200.0
+    ],
+    [
+      4200.0,
+      4700.0
+    ],
+    [
+      4700.0,
+      5200.0
+    ],
+    [
+      5200.0,
+      5700.0
+    ]
+  ],
+  "parameters": [
+    {
+      "taxon": "Betula",
+      "fallspeed_m_s": 0.024,
+      "ppe": 5.106,
+      "ppe_sd": 0.303
+    },
+    {
+      "taxon": "Ulmus",
+      "fallspeed_m_s": 0.032,
+      "ppe": 1.27,
+      "ppe_sd": 0.05
+    }
+  ],
+  "configuration": {
+    "seed": 7,
+    "love": {
+      "method": "analytical",
+      "stochastic": false,
+      "max_ring": 2,
+      "repeats": 2,
+      "distance_weighting": "gpm neutral",
+      "fall_speed_profile": "landclimii-2016-gpm-neutral-analytical-v1"
+    },
+    "reveals": {
+      "stochastic": false,
+      "iterations": 2,
+      "distance_weighting": "gpm neutral",
+      "fall_speed_profile": "landclimii-2016-gpm-neutral-analytical-v1"
+    }
+  },
+  "roles": "Each bin catalogues all four physical/core families before target selection. KRAG is always regional-only training; BOKE/BUS/SOLSOE83 alone are target eligible and local predictors. Reject transitive families crossing those roles before observation access. Hold the whole target family out. Require both remaining local predictors; no single-predictor fallback after a negative, unclosed or missing LOVE result.",
+  "source_accounting": "Bind all96 KRAG audit dispositions and exact19 selected owners/all6 supported windows without reopening part005. Five missing Ulmus literals remain outside the requested windows; no missing-to-zero. Reuse smallsite literal integer counts, native_sample_count and exact native support fingerprints from qualified aggregate products and exact old public projection identities. This is not a fresh independent reconciliation of an invented59owner IDlist. Never derive counts from rounded cover or pollen fractions.",
+  "geometry_and_method": "Smallsite geometry, native chronology IDs, AD1950 calibrated point membership, local rings shore+1 to500 to1000m and forward rings shore to500 to1000 to10000 to100000m stay as declared in the old protocol. KRAG regional-only geometry has exactly basin/sample_metadata/longitude/latitude; no fabricated inversion or forward rings. Use the current source-compatible GPMneutral native lake algorithm at1674m, with its own coefficient and rounding meaning and default3m/s wind, never reuse circular-receiver or Betula/Poaceae coefficients from another study. All land beyond declared shore is assumed terrestrial; no measured land mask or time-varying basin.",
+  "population": {
+    "bins": 6,
+    "catalogued_records_per_bin": 4,
+    "target_folds_per_bin": 3,
+    "folds": 18,
+    "methods": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared"
+    ],
+    "method_dispositions": 54,
+    "local_predictors_per_fold": 2,
+    "maximum_batch_items": 36,
+    "maximum_distinct_local_bin_requests": 18,
+    "krag_source_samples": 96,
+    "krag_selected_samples": 19
+  },
+  "ordering": "Materialization exposes retained source counts and is development, not untouched isolation. Prepare all six native prediction products and authenticate every available closed product before entering any score API. Scoring inventories contain only the exact three targeteligible raw references per bin. KRAG is never an outcome. Every refused/not-run bin or fold retains all nine/three requested method dispositions; signed native outputs and item receipts remain local, no clipping or favorable-subset publication. Prepare authenticates only the60 structural/geometry members of the90-member materialization manifest; it must not open the24 raw or6 projection members. Native per-fold observation admission owns training raw reads. Common native evidence contains fixed identities/chronology definitions/parameters/static assumptions only, with no target-derived mass, support fingerprint or quantitative projection proof. The separate projection account retains those proofs. Complete source-byte checking is allowed only after all six prediction products are authenticated for scoring, or in the terminal independent observation. Guarded synthetic I/O controls and native per-fold consumed-input/request evidence qualify API admission; no operating-system isolation or complete dynamic file-access trace is claimed.",
+  "comparison_scope": "This answers a conditional large-basin regional-source and two-local-predictor question. The earlier smallproxy study had one local predictor, so any descriptive comparison changes information and role geometry together and cannot identify an isolated basin-size effect. No expected gain, target-score selection, kernel retuning, parameter search or significance inference.",
+  "uncertainty_omissions": [
+    "chronology",
+    "basin_geometry",
+    "regional_representativeness",
+    "parameter_domain",
+    "spatial_model",
+    "ppe_covariance",
+    "abundance_density_identifiability",
+    "empirical_sampling_coverage"
+  ],
+  "rights": "Use existing retained local Neotoma/EPD analytical scope and constituent attribution: KRAG counts Marie-Jose Gaillard-Lemdahl/dataset DOI10.21233/d642-mk20, calibrated MADCAP chronology Giesecke et al.2014 separately; existing BOKE/BUS/SOLSOE contributors as recorded in qualified source reports. Historical NR for KRAG/BOKE/BUS and R for Solsoe remain source-specific and unresolved. No new rights decision, private raw/workbook redistribution or field admission. Detailed counts/native products stay local artifacts.",
+  "scientific_scope": "Previously exposed conditional point development on four source places and three target places, repeated across six bins. Existing source-compatible abundance normalization is assumed, not identification of the regional/local abundance-density ratio from closed pollen. No independent vegetation truth, measured regional homogeneity, untouched confirmation, dated shoreline/core correspondence, original historical reproduction, four-country validation, empirical uncertainty or S3/scientific acceptance.",
+  "resources": {
+    "materialize": {
+      "wall_seconds": 60,
+      "peak_rss_bytes_posthoc": 536870912,
+      "output_bytes": 2097152
+    },
+    "prepare": {
+      "wall_seconds": 180,
+      "peak_rss_bytes_posthoc": 805306368,
+      "output_bytes": 67108864
+    },
+    "score": {
+      "wall_seconds": 60,
+      "peak_rss_bytes_posthoc": 536870912,
+      "output_bytes": 5242880
+    },
+    "independent": {
+      "wall_seconds": 120,
+      "peak_rss_bytes_posthoc": 805306368,
+      "output_bytes": 5242880
+    }
+  },
+  "independent_oracle": {
+    "scope": "Separate literal JSON and exact rational/scalar or Decimal source/role/group/lineage/REVEALS/LOVE/rounding/interpolation/forward/metric accounting over all dispositions, conditional on saved native coefficients. No producer imports, engine rerun or continuous-kernel/physical-truth certification.",
+    "strict_fields": "Exact integer counts, source/member fingerprints, role sets, window IDs, default flags, all dispositions and source references.",
+    "scalar_absolute_tolerance": 2e-12,
+    "scalar_relative_tolerance": 2e-10,
+    "decimal_precision": 50,
+    "no_post_outcome_retuning": true
+  },
+  "source_acquisition": false,
+  "scientific_acceptance": "not_evaluated",
+  "dependency_lock": {
+    "path": "uv.lock",
+    "bytes": 558716,
+    "sha256": "7e6aed78b77afa8116d4e9b2e084d11a1d6c4bcb25721475fd0ec4ac3f6fac9d"
+  }
+}
