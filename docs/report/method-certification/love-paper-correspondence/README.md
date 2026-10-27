@@ -106,8 +106,12 @@ bounded numerical tests on declared inputs. Reproducing the paper's eight-site
 Figure 2 requires the author's exact landscape extraction, site and ring
 geometry, pollen simulation inputs or code, and stochastic settings. The
 article tables alone cannot determine those numerical outputs; digitizing the
-figure would not establish a simulation replay. This paper-example obligation
-remains open with that exact source input requirement.
+figure would not establish a simulation replay. The original Figure 2
+reproduction remains unavailable without those exact source inputs. The full
+article, assumption/source/test matrix and available later-package example
+comparisons are documented and checked within their stated scopes. Those
+completed comparisons do not supply the original eight-pond realization,
+historical software identity, calibrated uncertainty or ecological validation.
 
 
 On 26 October 2026 the user confirmed sending the original eight-pond
