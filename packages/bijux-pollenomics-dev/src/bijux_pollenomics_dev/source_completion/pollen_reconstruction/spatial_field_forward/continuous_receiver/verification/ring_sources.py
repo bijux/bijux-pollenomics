@@ -49,6 +49,17 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         _same_json(protocol.get("numerical_contract"), contract),
         "Typed ring contract differs",
     )
+    if "frontier" in protocol:
+        require(
+            _same_json(
+                protocol["frontier"],
+                {
+                    "priority": "coefficient_contribution",
+                    "q_uncertainty_full_width_exact": "1/16000000000",
+                },
+            ),
+            "Unknown or altered coefficient contribution frontier",
+        )
     resources = {
         "wall_seconds": 180,
         "integration_work_seconds": 160,

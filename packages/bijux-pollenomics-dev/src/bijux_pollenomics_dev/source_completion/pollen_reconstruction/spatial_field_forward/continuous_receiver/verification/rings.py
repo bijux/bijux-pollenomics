@@ -26,6 +26,17 @@ from .contracts import (
 )
 from .geometry import Geometry
 
+Q_UNCERTAINTY_TARGET = EPSILON / 16
+CONTRIBUTION_STOP = "coefficient_q_uncertainty_met_raw_endpoint_width_unresolved"
+
+
+def _coefficients(weights: Sequence[Fraction]) -> tuple[Fraction, ...]:
+    return (
+        weights[0],
+        *(b - a for a, b in zip(weights, weights[1:], strict=False)),
+        -weights[-1],
+    )
+
 
 def constrain_survival(values: Sequence[Interval]) -> tuple[Interval, ...]:
     """Intersect with the proved decreasing survival law, retaining every edge."""
@@ -51,11 +62,7 @@ def telescope(values: Sequence[Interval], ring_weights: Sequence[Fraction]) -> I
         "Ring weight/endpoint populations differ",
     )
     require(all(type(a) is Fraction for a in ring_weights), "Exact weights required")
-    coefficients = (
-        ring_weights[0],
-        *(b - a for a, b in zip(ring_weights, ring_weights[1:], strict=False)),
-        -ring_weights[-1],
-    )
+    coefficients = _coefficients(ring_weights)
     lower = sum(
         (
             c * (v.lower if c >= 0 else v.upper)
@@ -139,11 +146,103 @@ def ring_coefficients(
     }
 
 
+def coefficient_q_spreads(
+    geometry: Geometry, edges: Sequence[Fraction], survival: Sequence[Interval]
+) -> dict[str, Fraction]:
+    """Exact rectangular-Q variation, excluding the ring h-envelope variation."""
+    require(len(edges) == len(survival), "Missing survival endpoint")
+    q = constrain_survival(survival)
+    means = _means(geometry, edges)
+    aa, bb, _, _, _ = geometry.anchors()
+    increasing = aa > bb
+    lower = tuple(
+        left.lower if increasing else right.lower
+        for left, right in zip(means, means[1:], strict=False)
+    )
+    upper = tuple(
+        right.upper if increasing else left.upper
+        for left, right in zip(means, means[1:], strict=False)
+    )
+    k = _coefficients((Fraction(1),) * (len(q) - 1))
+    lo, hi = _coefficients(lower), _coefficients(upper)
+    forms = {
+        "K": k,
+        "B1_lower": lo,
+        "B1_upper": hi,
+        "B2_lower": tuple(a - b for a, b in zip(k, hi, strict=True)),
+        "B2_upper": tuple(a - b for a, b in zip(k, lo, strict=True)),
+    }
+    return {
+        name: sum(
+            (abs(c) * value.width for c, value in zip(coefficients, q, strict=True)),
+            Fraction(0),
+        )
+        for name, coefficients in forms.items()
+    }
+
+
+def _contribution_account(
+    value: Mapping[str, Any],
+    own_spreads: Mapping[str, Fraction] | None,
+    complete: bool,
+) -> dict[str, Any]:
+    require(
+        "q_uncertainty_spreads_exact" in value and "q_uncertainty_target_pass" in value,
+        "Missing coefficient contribution diagnostics",
+    )
+    claimed = value["q_uncertainty_spreads_exact"]
+    if not complete:
+        require(
+            claimed is None and value["q_uncertainty_target_pass"] is False,
+            "Incomplete case promoted to Q uncertainty certificate",
+        )
+        return {"q_uncertainty_spreads_exact": None, "q_uncertainty_target_pass": False}
+    names = {"K", "B1_lower", "B1_upper", "B2_lower", "B2_upper"}
+    require(
+        isinstance(claimed, dict) and set(claimed) == names,
+        "Q uncertainty form population differs",
+    )
+    declared = {
+        name: rational(item) for name, item in cast(dict[str, Any], claimed).items()
+    }
+    require(all(x >= 0 for x in declared.values()), "Negative Q uncertainty spread")
+    target_met = max(declared.values()) <= Q_UNCERTAINTY_TARGET
+    require(
+        value["q_uncertainty_target_pass"] is target_met,
+        "Declared Q uncertainty flag differs",
+    )
+    wide = value["raw_endpoint_widths_pass"] is False
+    if target_met and wide:
+        require(
+            value.get("backend_refusal") == CONTRIBUTION_STOP,
+            "Wide raw endpoints lost explicit contribution stop reason",
+        )
+        for row, refusal in zip(
+            value["endpoints"], value["endpoint_refusals"], strict=True
+        ):
+            if bounds(row["bounds"]).width > Fraction(1, 10**10):
+                require(
+                    refusal == CONTRIBUTION_STOP, "Wide endpoint stop reason differs"
+                )
+    elif value.get("backend_refusal") == CONTRIBUTION_STOP:
+        require(False, "Contribution stop reason without its declared condition")
+    require(own_spreads is not None, "Independent Q uncertainty forms missing")
+    own_spreads = cast(Mapping[str, Fraction], own_spreads)
+    return {
+        "q_uncertainty_spreads_exact": {
+            name: str(x) for name, x in own_spreads.items()
+        },
+        "q_uncertainty_target_pass": max(own_spreads.values()) <= Q_UNCERTAINTY_TARGET,
+    }
+
+
 def verify_ring_case(
     value: Mapping[str, Any],
     geometry: Geometry,
     expected_edges: tuple[Fraction, ...],
     clock: Clock,
+    *,
+    contribution: bool = False,
 ) -> dict[str, Any]:
     """Replay every closed endpoint; incomplete populations remain incomplete."""
     require(
@@ -152,6 +251,12 @@ def verify_ring_case(
         "Ring case geometry/edge binding differs",
     )
     _means(geometry, expected_edges)
+    if not contribution:
+        require(
+            "q_uncertainty_spreads_exact" not in value
+            and "q_uncertainty_target_pass" not in value,
+            "Undeclared contribution diagnostics in raw-width mode",
+        )
     rows = value.get("endpoints")
     refusals = value.get("endpoint_refusals")
     require(
@@ -263,7 +368,12 @@ def verify_ring_case(
             and isinstance(value.get("backend_refusal"), str),
             "Incomplete case promoted to coefficient certificate",
         )
-        return {"complete": False, "own_q": own, "own_coefficients": None}
+        return {
+            "complete": False,
+            "own_q": own,
+            "own_coefficients": None,
+            **(_contribution_account(value, None, False) if contribution else {}),
+        }
     claimed = value.get("coefficient_bounds")
     require(
         isinstance(claimed, dict) and set(claimed) == {"K", "B1", "B2"},
@@ -288,6 +398,17 @@ def verify_ring_case(
         "own_q": own,
         "own_coefficients": independent,
         "width_account": width_account(independent),
+        **(
+            _contribution_account(
+                value,
+                coefficient_q_spreads(
+                    geometry, expected_edges, tuple(q for q in own if q is not None)
+                ),
+                True,
+            )
+            if contribution
+            else {}
+        ),
     }
 
 

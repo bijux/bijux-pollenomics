@@ -21,7 +21,7 @@ from ...abborrtjarnen_ppe_dependence.sources import bound_files
 from .. import radial_envelope, radial_envelope_workflow
 from .coefficients import EPSILON
 from .quadrature import IntegralResult
-from .ring_bounds import RingCaseResult, enclose_ring_population
+from .ring_bounds import RingCaseResult, coefficient_q_spreads, enclose_ring_population
 from .ring_inputs import RingInputs, identity, read_ring_inputs
 from .ring_predictions import prediction_contexts, score_closed, summarize
 from .study import _peak_rss
@@ -106,7 +106,7 @@ def case_record(
         if bounds is None
         else {"K": bounds.homogeneous, "B1": bounds.first, "B2": bounds.second}
     )
-    return {
+    row: dict[str, Any] = {
         "case_index": index,
         "core": OWNERS[index][0],
         "taxon": OWNERS[index][1],
@@ -134,6 +134,15 @@ def case_record(
             "leaf_reservations": work.leaves,
         },
     }
+    if "frontier" in inputs.protocol:
+        spreads = None if bounds is None else coefficient_q_spreads(bounds)
+        row["q_uncertainty_spreads_exact"] = (
+            None if spreads is None else {k: str(v) for k, v in spreads.items()}
+        )
+        row["q_uncertainty_target_pass"] = (
+            spreads is not None and max(spreads.values()) <= EPSILON / 16
+        )
+    return row
 
 
 def _write(path: Path, value: Any, limit: int) -> dict[str, str | int]:
@@ -165,7 +174,10 @@ def run_study(repository: Path, protocol_path: Path, output: Path) -> dict[str, 
         **identity(protocol_path.read_bytes()),
     }
     population = enclose_ring_population(
-        inputs.geometries, inputs.edges, wall_seconds=160
+        inputs.geometries,
+        inputs.edges,
+        wall_seconds=160,
+        priority=inputs.protocol.get("frontier", {}).get("priority", "raw_width"),
     )
     require(
         len(population.results) == len(population.budgets) == 6, "Lost scientific case"

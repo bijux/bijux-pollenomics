@@ -34,6 +34,8 @@ from .quadrature import (
 )
 
 Q_TARGET = Fraction(1, 10**10)
+COEFFICIENT_Q_TARGET = EPSILON / 16
+CONTRIBUTION_STOP = "coefficient_q_uncertainty_met_raw_endpoint_width_unresolved"
 
 
 def _edges(geometry: Geometry, edges: tuple[Fraction, ...]) -> None:
@@ -116,17 +118,20 @@ def shared_q_linear(
     )
 
 
+def _mass_coefficients(weights: tuple[Fraction, ...]) -> tuple[Fraction, ...]:
+    return (
+        (weights[0],)
+        + tuple(weights[i] - weights[i - 1] for i in range(1, len(weights)))
+        + (-weights[-1],)
+    )
+
+
 def _weighted_mass(
     q_bounds: tuple[Interval, ...], weights: tuple[Fraction, ...]
 ) -> Interval:
     if len(weights) + 1 != len(q_bounds):
         raise ValueError("One exact weight per true radial mass required")
-    coefficients = (
-        (weights[0],)
-        + tuple(weights[i] - weights[i - 1] for i in range(1, len(weights)))
-        + (-weights[-1],)
-    )
-    return shared_q_linear(q_bounds, coefficients)
+    return shared_q_linear(q_bounds, _mass_coefficients(weights))
 
 
 @dataclass(frozen=True)
@@ -178,6 +183,16 @@ def coefficient_bounds(
         raise TypeError("Every original endpoint requires its raw Q enclosure")
     constrained = _constrained_q(q_bounds)
     h = tuple(geometry.angular(Jet.constant(radius, 0)).value for radius in edges)
+    return _assemble_bounds(geometry, edges, q_bounds, constrained, h)
+
+
+def _assemble_bounds(
+    geometry: Geometry,
+    edges: tuple[Fraction, ...],
+    q_bounds: tuple[Interval, ...],
+    constrained: tuple[Interval, ...],
+    h: tuple[Interval, ...],
+) -> RingBounds:
     lower, upper = _h_weights(h)
     k = _intersect(
         _weighted_mass(constrained, (Fraction(1),) * (len(edges) - 1)),
@@ -203,6 +218,41 @@ def coefficient_bounds(
         k,
         _intersect(first, Fraction(0), k.upper),
         _intersect(second, Fraction(0), k.upper),
+    )
+
+
+def _coefficient_forms(h: tuple[Interval, ...]) -> dict[str, tuple[Fraction, ...]]:
+    lower, upper = _h_weights(h)
+    k = (Fraction(1),) + (Fraction(0),) * (len(h) - 2) + (Fraction(-1),)
+    lo, hi = _mass_coefficients(lower), _mass_coefficients(upper)
+    return {
+        "K": k,
+        "B1_lower": lo,
+        "B1_upper": hi,
+        "B2_lower": tuple(a - b for a, b in zip(k, hi, strict=True)),
+        "B2_upper": tuple(a - b for a, b in zip(k, lo, strict=True)),
+    }
+
+
+def _q_spreads(
+    q: tuple[Interval, ...], forms: dict[str, tuple[Fraction, ...]]
+) -> dict[str, Fraction]:
+    return {
+        name: sum(
+            (
+                abs(coefficient) * value.width
+                for coefficient, value in zip(coefficients, q, strict=True)
+            ),
+            Fraction(0),
+        )
+        for name, coefficients in forms.items()
+    }
+
+
+def coefficient_q_spreads(bounds: RingBounds) -> dict[str, Fraction]:
+    """Exact Q-only box spreads; radial h ranges and rounding remain separate."""
+    return _q_spreads(
+        bounds.constrained_q_bounds, _coefficient_forms(bounds.h_intervals)
     )
 
 
@@ -267,6 +317,56 @@ class _Endpoint:
         )
 
 
+@dataclass
+class _Contribution:
+    h: tuple[Interval, ...]
+    forms: dict[str, tuple[Fraction, ...]]
+    sensitivity: tuple[Fraction, ...]
+    constrained: tuple[Interval, ...] = ()
+    priorities: tuple[Fraction, ...] = ()
+    spreads: tuple[Fraction, ...] = ()
+
+    @classmethod
+    def build(cls, geometry: Geometry, edges: tuple[Fraction, ...]) -> _Contribution:
+        h = tuple(geometry.angular(Jet.constant(radius, 0)).value for radius in edges)
+        forms = _coefficient_forms(h)
+        return cls(
+            h,
+            forms,
+            tuple(
+                max(abs(row[j]) for row in forms.values()) for j in range(len(edges))
+            ),
+        )
+
+    def update(self, rows: list[_Endpoint | None]) -> None:
+        if any(row is None for row in rows):
+            raise ValueError(
+                "Contribution priority requires the complete endpoint population"
+            )
+        self.constrained = _constrained_q(
+            tuple(Interval(row.lower, row.upper) for row in rows if row is not None)
+        )
+        self.priorities = tuple(
+            value.width * sensitivity
+            for value, sensitivity in zip(
+                self.constrained, self.sensitivity, strict=True
+            )
+        )
+        self.spreads = tuple(_q_spreads(self.constrained, self.forms).values())
+
+    @property
+    def done(self) -> bool:
+        return max(self.spreads) <= COEFFICIENT_Q_TARGET
+
+
+def _contribution_stop(
+    cache: _Contribution, rows: list[_Endpoint | None]
+) -> str | None:
+    if cache.done and any(row is not None and row.width > Q_TARGET for row in rows):
+        return CONTRIBUTION_STOP
+    return None
+
+
 def _refine(endpoint: _Endpoint, budget: WorkBudget, queue_size: int) -> None:
     budget.check()
     if queue_size + 1 > budget.max_queue:
@@ -300,8 +400,19 @@ def enclose_ring_population(
     max_attempts: int = 8191,
     max_nodes: int = 73719,
     max_queue: int = 4096,
+    priority: str = "raw_width",
 ) -> RingPopulationResult:
-    """Initialize all endpoint populations round-robin, then refine raw widths."""
+    """Close all roots, then use the declared raw or coefficient-Q objective.
+
+    Contribution stopping bounds only the Q uncertainty in five affine forms.
+    It does not qualify raw endpoint precision, the fixed-ring h envelope, final
+    coefficient EPS, predictions, observations or field accuracy.
+    """
+    if type(priority) is not str or priority not in (
+        "raw_width",
+        "coefficient_contribution",
+    ):
+        raise ValueError("Unknown endpoint refinement priority")
     if (
         type(geometries) is not tuple
         or not 1 <= len(geometries) <= 6
@@ -366,20 +477,50 @@ def enclose_ring_population(
                     else "not_executed"
                 )
                 reasons[i][j] = f"{prefix}:{error}"
+    contributions: list[_Contribution | None] = [None] * len(geometries)
+    if priority == "coefficient_contribution":
+        for i, (geometry, radii) in enumerate(zip(geometries, edges, strict=True)):
+            if all(value is not None for value in states[i]):
+                new_cache = _Contribution.build(geometry, radii)
+                new_cache.update(states[i])
+                contributions[i] = new_cache
+                if frozen[i] is None:
+                    frozen[i] = _contribution_stop(new_cache, states[i])
     while True:
-        active = [
-            (i, j, value)
-            for i, rows in enumerate(states)
-            if frozen[i] is None
-            for j, value in enumerate(rows)
-            if value is not None and value.width > Q_TARGET
-        ]
+        active = (
+            [
+                (i, j, value)
+                for i, rows in enumerate(states)
+                if frozen[i] is None
+                for j, value in enumerate(rows)
+                if value is not None and value.width > Q_TARGET
+            ]
+            if priority == "raw_width"
+            else [
+                (i, j, value)
+                for i, cache in enumerate(contributions)
+                if frozen[i] is None and cache is not None and not cache.done
+                for j, value in enumerate(states[i])
+                if value is not None and cache.priorities[j] > 0
+            ]
+        )
         if not active:
             break
-        i, j, value = min(active, key=lambda row: (-row[2].width, row[0], row[1]))
+
+        def order(row: tuple[int, int, _Endpoint]) -> tuple[Fraction, int, int]:
+            i, j, value = row
+            cache = contributions[i]
+            score = value.width if cache is None else cache.priorities[j]
+            return -score, i, j
+
+        i, j, value = min(active, key=order)
         try:
             queue_size = sum(len(item.queue) for item in states[i] if item is not None)
             _refine(value, budgets[i], queue_size)
+            cache = contributions[i]
+            if cache is not None:
+                cache.update(states[i])
+                frozen[i] = _contribution_stop(cache, states[i])
         except ResourceRefusal as error:
             frozen[i] = str(error)
     results = []
@@ -393,12 +534,12 @@ def enclose_ring_population(
             for j, value in enumerate(endpoints)
         )
         complete = all(value is not None for value in endpoints)
+        cache = contributions[i]
+        raw_q = tuple(value.enclosure for value in endpoints if value is not None)
         bounds = (
-            coefficient_bounds(
-                geometry,
-                radii,
-                tuple(value.enclosure for value in endpoints if value is not None),
-            )
+            _assemble_bounds(geometry, radii, raw_q, cache.constrained, cache.h)
+            if complete and cache is not None
+            else coefficient_bounds(geometry, radii, raw_q)
             if complete
             else None
         )

@@ -44,6 +44,15 @@ def identity(raw: bytes) -> dict[str, str | int]:
 
 
 def validate_protocol(protocol: dict[str, Any]) -> None:
+    if "frontier" in protocol:
+        require(
+            protocol["frontier"]
+            == {
+                "priority": "coefficient_contribution",
+                "q_uncertainty_full_width_exact": "1/16000000000",
+            },
+            "Unknown or changed coefficient-contribution contract",
+        )
     require(
         protocol["numerical_contract"]["all_initial_endpoints_before_refinement"]
         is True

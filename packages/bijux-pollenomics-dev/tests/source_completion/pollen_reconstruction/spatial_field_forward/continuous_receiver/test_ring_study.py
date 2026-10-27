@@ -31,11 +31,18 @@ from .test_ring_inputs import ring_packets
 from .test_ring_predictions import prediction_packets
 
 
-def _setup(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Path, Path]:
+def _setup(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, *, contribution: bool = False
+) -> tuple[Path, Path]:
     public, original, capture, source_prediction, protocol = ring_packets()
     geometries, edges = select_geometry(
         public, original, capture, source_prediction, protocol
     )
+    if contribution:
+        protocol["frontier"] = {
+            "priority": "coefficient_contribution",
+            "q_uncertainty_full_width_exact": "1/16000000000",
+        }
     prediction, scored = prediction_packets()
     scored_path = tmp_path / "old-scored.json"
     scored_path.write_text(json.dumps(scored))
@@ -58,9 +65,14 @@ def _setup(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Path, Path]
         tuple(WorkBudget() for _ in range(6)),
         0.0,
     )
-    monkeypatch.setattr(
-        study, "enclose_ring_population", lambda *_args, **_kwargs: population
-    )
+
+    def frontier(*_args: object, **kwargs: object) -> RingPopulationResult:
+        assert kwargs["priority"] == (
+            "coefficient_contribution" if contribution else "raw_width"
+        )
+        return population
+
+    monkeypatch.setattr(study, "enclose_ring_population", frontier)
     destination = tmp_path / "incomplete-study"
     decode = decode_json
 
@@ -72,7 +84,9 @@ def _setup(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Path, Path]
         return decode(raw)
 
     monkeypatch.setattr(study, "decode_json", read_after_close)
-    return destination, Path(PROTOCOL)
+    return destination, Path(PROTOCOL).with_name(
+        "coefficient-contribution.json"
+    ) if contribution else Path(PROTOCOL)
 
 
 def test_incomplete_frontier_retains_774_endpoints_and_54_family_slots(
@@ -116,3 +130,17 @@ def test_source_drift_refuses_result_after_closed_predictions(
         study.run_study(Path.cwd(), protocol, destination)
     assert (destination / "prediction-ranges.json").exists()
     assert not (destination / "result.json").exists()
+
+
+def test_contribution_profile_keeps_incomplete_diagnostics_explicit(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    destination, protocol = _setup(monkeypatch, tmp_path, contribution=True)
+    result = study.run_study(Path.cwd(), protocol, destination)
+    assert result["status"] == "refuse_incomplete"
+    cases = json.loads((destination / "certificates.json").read_text())["cases"]
+    assert all(
+        row["q_uncertainty_spreads_exact"] is None
+        and row["q_uncertainty_target_pass"] is False
+        for row in cases
+    )

@@ -630,6 +630,7 @@ def audit(
     geometries, edges = select_sources(
         protocol, public_source, original_protocol, capture_freeze, original_prediction
     )
+    contribution = "frontier" in protocol
     require(
         certificates.get("schema_version") == "continuous-receiver-ring-certificates.v1"
         and prediction_packet.get("schema_version")
@@ -657,7 +658,11 @@ def audit(
             "Case index/owner/order differs",
         )
         clock.current_case = (core, taxon)
-        independent.append(verify_ring_case(row, geometries[i], edges[i], clock))
+        independent.append(
+            verify_ring_case(
+                row, geometries[i], edges[i], clock, contribution=contribution
+            )
+        )
     complete = all(r["complete"] for r in independent)
     require(
         result.get("all_endpoint_partitions_complete") is complete,
@@ -732,6 +737,22 @@ def audit(
             "taxon": taxon,
             "complete": row["complete"],
             "width_account": row.get("width_account"),
+            **(
+                {
+                    "own_q_uncertainty_spreads_exact": row[
+                        "q_uncertainty_spreads_exact"
+                    ],
+                    "own_q_uncertainty_target_pass": row["q_uncertainty_target_pass"],
+                    "native_q_uncertainty_spreads_exact": cases[i][
+                        "q_uncertainty_spreads_exact"
+                    ],
+                    "native_q_uncertainty_target_pass": cases[i][
+                        "q_uncertainty_target_pass"
+                    ],
+                }
+                if contribution
+                else {}
+            ),
         }
         for i, ((core, taxon), row) in enumerate(zip(OWNERS, independent, strict=True))
     ]
@@ -743,6 +764,14 @@ def audit(
         "complete_cases": sum(row["complete"] for row in independent),
         "own_774_endpoint_widths_pass": endpoint_precision,
         "own_18_original_epsilon_widths_pass": own_epsilon,
+        **(
+            {
+                "own_all_case_q_uncertainty_targets_pass": complete
+                and all(row["q_uncertainty_target_pass"] for row in independent)
+            }
+            if contribution
+            else {}
+        ),
         "usable_prediction_contexts": usable,
         "cases": own_cases,
         "contexts": list(own_contexts.values()),

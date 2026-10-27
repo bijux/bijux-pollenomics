@@ -12,6 +12,9 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
     Interval,
     Jet,
 )
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.verification import (
+    rings as ring_oracle,
+)
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.verification.contracts import (
     Clock,
     VerificationError,
@@ -27,6 +30,9 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
     score_ranges,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.verification.rings import (
+    CONTRIBUTION_STOP,
+    Q_UNCERTAINTY_TARGET,
+    coefficient_q_spreads,
     constrain_survival,
     ring_coefficients,
     ring_linear_bounds,
@@ -72,6 +78,45 @@ def test_survival_constraints_use_entire_chain() -> None:
         Interval(Q(1, 2), Q(3, 4)),
         Interval(Q(1, 2), Q(5, 8)),
     )
+
+
+def test_contribution_forms_cancel_irrelevant_interior_survival_width() -> None:
+    survival = (
+        Interval.point(Q(3, 4)),
+        Interval(Q(1, 4), Q(3, 4)),
+        Interval.point(Q(1, 4)),
+    )
+    actual = coefficient_q_spreads(symmetric_geometry(), (Q(1), Q(2), Q(4)), survival)
+    assert actual == {
+        key: Q(0) for key in ("K", "B1_lower", "B1_upper", "B2_lower", "B2_upper")
+    }
+    assert survival[1].width == Q(1, 2) > Q_UNCERTAINTY_TARGET
+
+
+def test_exact_five_form_spreads_use_signed_complement_coefficients(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    geometry = Geometry(Q(3, 5), Q(1), Q(4), (Q(1), Q(0)), (Q(3), Q(0)))
+    means = {
+        Q(1): Interval.point(Q(3, 4)),
+        Q(2): Interval.point(Q(1, 2)),
+        Q(4): Interval.point(Q(1, 4)),
+    }
+    monkeypatch.setattr(Geometry, "mean", lambda _, radius: means[radius])
+    survival = (
+        Interval(Q(7, 8), Q(1)),
+        Interval(Q(3, 8), Q(5, 8)),
+        Interval(Q(0), Q(1, 4)),
+    )
+    # k=(1,0,-1), l=(1/2,-1/4,-1/4), u=(3/4,-1/4,-1/2).
+    # The complementary forms are k-u and k-l, not interval differences.
+    assert coefficient_q_spreads(geometry, (Q(1), Q(2), Q(4)), survival) == {
+        "K": Q(3, 8),
+        "B1_lower": Q(3, 16),
+        "B1_upper": Q(9, 32),
+        "B2_lower": Q(7, 32),
+        "B2_upper": Q(5, 16),
+    }
 
 
 @pytest.mark.parametrize(
@@ -230,6 +275,132 @@ def polynomial_endpoint(self: Geometry, index: int) -> Any:
     # it is not asserted to equal a physical disk survival function.
     value = Q(1, 2) if index == 0 else 1 / (2 * self.outer)
     return lambda arguments: Jet.constant(value, arguments[0].order)
+
+
+def contribution_case() -> dict[str, Any]:
+    value = literal_case()
+    value["q_uncertainty_spreads_exact"] = dict.fromkeys(
+        ("K", "B1_lower", "B1_upper", "B2_lower", "B2_upper"), "0"
+    )
+    value["q_uncertainty_target_pass"] = True
+    endpoint = value["endpoints"][1]
+    error = Q(1, 2**32)
+    endpoint["leaves"][0].update(
+        error_radius=str(error), directional_radii=[str(error)]
+    )
+    endpoint.update(
+        bounds=[str(Q(1, 4) - error), str(Q(1, 4) + error)],
+        status="refuse_unresolved",
+        refusal=CONTRIBUTION_STOP,
+    )
+    value["endpoint_refusals"][1] = CONTRIBUTION_STOP
+    value["backend_refusal"] = CONTRIBUTION_STOP
+    value["raw_endpoint_widths_pass"] = False
+    return value
+
+
+def test_wide_auxiliary_endpoint_retains_explicit_contribution_stop(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(Geometry, "function", polynomial_endpoint)
+    value = contribution_case()
+    result = verify_ring_case(
+        value,
+        symmetric_geometry(),
+        (Q(1), Q(2), Q(4)),
+        Clock(seconds=5),
+        contribution=True,
+    )
+    assert result["complete"] is True
+    assert result["q_uncertainty_target_pass"] is True
+    assert value["raw_endpoint_widths_pass"] is False
+    with pytest.raises(VerificationError, match="Undeclared"):
+        verify_ring_case(
+            value, symmetric_geometry(), (Q(1), Q(2), Q(4)), Clock(seconds=5)
+        )
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "missing",
+        "flag",
+        "negative",
+        "numeric",
+        "forms",
+        "backend",
+        "endpoint",
+        "condition",
+    ],
+)
+def test_contribution_metadata_or_stop_reason_drift_refuses(
+    monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    monkeypatch.setattr(Geometry, "function", polynomial_endpoint)
+    value = contribution_case()
+    if mutation == "missing":
+        del value["q_uncertainty_spreads_exact"]
+    elif mutation == "flag":
+        value["q_uncertainty_target_pass"] = False
+    elif mutation == "negative":
+        value["q_uncertainty_spreads_exact"]["K"] = "-1"
+    elif mutation == "numeric":
+        value["q_uncertainty_spreads_exact"]["K"] = 0.0
+    elif mutation == "forms":
+        value["q_uncertainty_spreads_exact"]["B2"] = "0"
+    elif mutation == "backend":
+        value["backend_refusal"] = "wall_seconds"
+    elif mutation == "endpoint":
+        value["endpoint_refusals"][1] = value["endpoints"][1]["refusal"] = (
+            "wall_seconds"
+        )
+    else:
+        value["q_uncertainty_spreads_exact"]["K"] = "1"
+        value["q_uncertainty_target_pass"] = False
+    with pytest.raises(VerificationError):
+        verify_ring_case(
+            value,
+            symmetric_geometry(),
+            (Q(1), Q(2), Q(4)),
+            Clock(seconds=5),
+            contribution=True,
+        )
+
+
+def test_incomplete_contribution_case_keeps_null_diagnostics(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(Geometry, "function", polynomial_endpoint)
+    value = literal_case()
+    value.update(
+        q_uncertainty_spreads_exact=None,
+        q_uncertainty_target_pass=False,
+        coefficient_bounds=None,
+        raw_endpoint_widths_pass=False,
+        all_final_widths_pass=False,
+        positive_bounds_usable=False,
+        backend_refusal="incomplete_endpoint_population:wall_seconds",
+    )
+    value["endpoints"][1] = None
+    value["endpoint_refusals"][1] = "not_executed:wall_seconds"
+    result = verify_ring_case(
+        value,
+        symmetric_geometry(),
+        (Q(1), Q(2), Q(4)),
+        Clock(seconds=5),
+        contribution=True,
+    )
+    assert result["q_uncertainty_spreads_exact"] is None
+    assert result["q_uncertainty_target_pass"] is False
+    value["q_uncertainty_target_pass"] = True
+    with pytest.raises(VerificationError, match="Incomplete"):
+        verify_ring_case(
+            value,
+            symmetric_geometry(),
+            (Q(1), Q(2), Q(4)),
+            Clock(seconds=5),
+            contribution=True,
+        )
 
 
 def test_literal_closed_endpoint_partition_and_complement(
@@ -646,6 +817,7 @@ def test_complete_literal_18_context_54_score_packet(
     assert checked["accounting_verified"] is True
     assert checked["complete_cases"] == 6
     assert checked["usable_prediction_contexts"] == 18
+    assert "own_all_case_q_uncertainty_targets_pass" not in checked
     assert len(checked["contexts"]) == 18 and len(checked["scores"]) == 54
     assert (
         checked["summary"]["pairwise"][2]["metrics"][METRICS[0]][
@@ -653,6 +825,58 @@ def test_complete_literal_18_context_54_score_packet(
         ]
         == "unresolved_continuous_law"
     )
+
+
+def test_independent_contribution_flag_is_diagnostic_for_valid_full_packet(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(Geometry, "function", packet_endpoint)
+    packet = packet_fixture()
+    packet["protocol"]["frontier"] = {
+        "priority": "coefficient_contribution",
+        "q_uncertainty_full_width_exact": "1/16000000000",
+    }
+    forms = ("K", "B1_lower", "B1_upper", "B2_lower", "B2_upper")
+    for case in packet["certificates"]["cases"]:
+        case.update(
+            q_uncertainty_spreads_exact=dict.fromkeys(forms, "0"),
+            q_uncertainty_target_pass=True,
+            raw_endpoint_widths_pass=False,
+            backend_refusal=CONTRIBUTION_STOP,
+        )
+        endpoint = case["endpoints"][1]
+        midpoint = Q(endpoint["bounds"][0])
+        error = Q(1, 2**32)
+        endpoint["leaves"][0].update(
+            error_radius=str(error), directional_radii=[str(error)]
+        )
+        endpoint.update(
+            bounds=[str(midpoint - error), str(midpoint + error)],
+            status="refuse_unresolved",
+            refusal=CONTRIBUTION_STOP,
+        )
+        case["endpoint_refusals"][1] = CONTRIBUTION_STOP
+    for context in packet["prediction_packet"]["contexts"]:
+        for refusal in context["geometry_refusals"]:
+            refusal["refusal"] = CONTRIBUTION_STOP
+    packet["result"]["all_774_raw_endpoint_widths_pass"] = False
+    # A conservatively wider independent representation must remain diagnostic.
+    # All actual proof/deposition/score replay continues through the real oracle.
+    monkeypatch.setattr(
+        ring_oracle,
+        "coefficient_q_spreads",
+        lambda *_: {key: Q(1, 10**9) for key in forms},
+    )
+    checked = audit(**packet, clock=Clock(seconds=30))
+    assert checked["status"] == "passed"
+    assert checked["own_all_case_q_uncertainty_targets_pass"] is False
+    assert all(
+        case["native_q_uncertainty_target_pass"] is True for case in checked["cases"]
+    )
+    assert all(
+        case["own_q_uncertainty_target_pass"] is False for case in checked["cases"]
+    )
+    assert packet["result"]["all_774_raw_endpoint_widths_pass"] is False
 
 
 def test_valid_prediction_certificate_does_not_require_original_coefficient_precision(

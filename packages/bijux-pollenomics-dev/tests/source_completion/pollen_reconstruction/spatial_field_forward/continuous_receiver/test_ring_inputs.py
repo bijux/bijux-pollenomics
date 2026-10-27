@@ -176,3 +176,33 @@ def test_reject_precision_population_or_resource_escalation(
     protocol[section][key] = value
     with pytest.raises(ValueError):
         inputs.validate_protocol(protocol)
+
+
+def test_contribution_profile_preserves_original_numeric_contract() -> None:
+    protocol = ring_packets()[-1]
+    original = deepcopy(protocol["numerical_contract"])
+    protocol["frontier"] = {
+        "priority": "coefficient_contribution",
+        "q_uncertainty_full_width_exact": "1/16000000000",
+    }
+    inputs.validate_protocol(protocol)
+    assert protocol["numerical_contract"] == original
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("priority", "score_selected"),
+        ("priority", "raw_width"),
+        ("q_uncertainty_full_width_exact", "1/1000"),
+    ],
+)
+def test_reject_changed_contribution_scope(field: str, value: str) -> None:
+    protocol = ring_packets()[-1]
+    protocol["frontier"] = {
+        "priority": "coefficient_contribution",
+        "q_uncertainty_full_width_exact": "1/16000000000",
+    }
+    protocol["frontier"][field] = value
+    with pytest.raises(ValueError):
+        inputs.validate_protocol(protocol)

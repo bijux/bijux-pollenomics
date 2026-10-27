@@ -237,6 +237,44 @@ def test_typed_protocol_population_and_precision_are_not_coercible(
         validate_protocol(protocol)
 
 
+def test_optional_contribution_frontier_preserves_legacy_protocol() -> None:
+    protocol = source_fixture()[0]
+    validate_protocol(protocol)
+    protocol["frontier"] = {
+        "priority": "coefficient_contribution",
+        "q_uncertainty_full_width_exact": "1/16000000000",
+    }
+    validate_protocol(protocol)
+
+
+@pytest.mark.parametrize(
+    "frontier",
+    [
+        None,
+        {},
+        {"priority": "raw_width", "q_uncertainty_full_width_exact": "1/16000000000"},
+        {
+            "priority": "coefficient_contribution",
+            "q_uncertainty_full_width_exact": "1/1000000000",
+        },
+        {
+            "priority": "coefficient_contribution",
+            "q_uncertainty_full_width_exact": 6.25e-11,
+        },
+        {
+            "priority": "coefficient_contribution",
+            "q_uncertainty_full_width_exact": "1/16000000000",
+            "score_weight": 1,
+        },
+    ],
+)
+def test_unknown_untyped_or_retuned_frontier_refuses(frontier: object) -> None:
+    protocol = source_fixture()[0]
+    protocol["frontier"] = frontier
+    with pytest.raises(VerificationError, match="frontier"):
+        validate_protocol(protocol)
+
+
 def raw_fixture() -> tuple[dict[str, Any], dict[str, bytes]]:
     protocol = source_fixture()[0]
     paths = {
