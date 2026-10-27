@@ -28,6 +28,25 @@ def test_fixed_regional_is_never_target_or_local_predictor() -> None:
         assert not set(fold["train_record_ids"]) & set(fold["test_record_ids"])
 
 
+def test_fold_group_ids_sort_independently_of_record_ids() -> None:
+    folds = expected_folds(catalogue(), ["BOKE", "BUS", "SOLSOE83"], "KRAG")
+    boke = "site-group:6c0e75aa0bb10fcb3a6e06ab2417f4246e93cd44b8502110d43b3efbf3b29b54"
+    bus = "site-group:3284d35bb1fec648fe98498375da0497b70f9f4681d3b6d4a0795a9ba6490c99"
+    solsoe = (
+        "site-group:8be91017acc89e21d682f71aabc29cfeb5c12056729dd6ccec30ab3faa82c645"
+    )
+    krag = "site-group:bfd7ede870346e4a06ceccc1c2b6eb2eb7ccb0b78078c69910526146c5469796"
+    assert [fold["fold_id"] for fold in folds] == [bus, boke, solsoe]
+    assert [bus, krag, solsoe] != [bus, solsoe, krag]
+    assert next(fold for fold in folds if fold["fold_id"] == boke) == {
+        "fold_id": boke,
+        "train_record_ids": ["BUS", "KRAG", "SOLSOE83"],
+        "test_record_ids": ["BOKE"],
+        "train_group_ids": [bus, solsoe, krag],
+        "test_group_ids": [boke],
+    }
+
+
 def test_transitive_alias_family_is_built_before_role_selection() -> None:
     records = catalogue()
     records[0]["identity_keys"].append("bridge")

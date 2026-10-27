@@ -103,7 +103,7 @@ def expected_folds(
                 "fold_id": group[target],
                 "train_record_ids": train,
                 "test_record_ids": [target],
-                "train_group_ids": [group[record] for record in train],
+                "train_group_ids": sorted(group[record] for record in train),
                 "test_group_ids": [group[target]],
             }
         )
