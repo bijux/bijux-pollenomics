@@ -17,36 +17,36 @@
       "source_sha256": "51086eeb97b54eeb342e4826bc90da9d6fb349164c304567afeffe8fab4134a7"
     },
     {
-      "bytes": 49183,
+      "bytes": 59210,
       "canonical_source": "reports/science/reveals-theory-paper.md",
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
-      "sha256": "6c4362e24297a236d980a6d4b45685fc469185aa3edc0a472c47dc903ff476a6",
+      "sha256": "8dc37bd6a0575e31ea95ebd71f82bac3b015122dfcafd022ef425175238740a7",
       "site_uri": "assets/science/papers/regional-reveals-theory.pdf",
-      "source_sha256": "8db18fc38db75190e4ce1c87797a88297bf6bd22541c514704b3578aad097fef"
+      "source_sha256": "65cdf13c5225aeaa7a8102bee93f4e5d491ff7abce677d0cf1507fa4daf002a0"
     },
     {
-      "bytes": 49056,
+      "bytes": 60608,
       "canonical_source": "reports/science/love-theory-paper.md",
       "path": "reports/exports/papers/local-love-theory.pdf",
-      "sha256": "f5e3a2788cb0c4b82f528e3d578feee6389589181709219f839b545946005acc",
+      "sha256": "591e37a7661f362d0255464dfc247e39536b481dc70c3eb158e7c1a918c71006",
       "site_uri": "assets/science/papers/local-love-theory.pdf",
-      "source_sha256": "affd894dfe758395f7b93d60a1f39818bee3499c14047548871f24ac5ddca732"
+      "source_sha256": "0e2b36ddda4eb639d618c7b1dda4e2ecd1cf049d6dcf0f0c96992a90ce89a051"
     },
     {
-      "bytes": 51253,
+      "bytes": 51334,
       "canonical_source": "reports/science/hellman-regional-validation-paper.md",
       "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
-      "sha256": "215a3c2ff7cd498118cdd3225b09216cb4d1c3c741f90c9df7e858e334a99565",
+      "sha256": "3db992ad8d093369762ce4e112cafee92e502c5981658c3348c2aa10ac835180",
       "site_uri": "assets/science/papers/southern-sweden-regional-validation.pdf",
-      "source_sha256": "a2dcdcb6bd219cf4a9b0029a04dab27a56459920de29d76cf018fae613bbe40c"
+      "source_sha256": "a7ac2a189497310267d366e7961e7c963786c074a759f479d6d20ee467de65ab"
     },
     {
-      "bytes": 51996,
+      "bytes": 48468,
       "canonical_source": "reports/science/hellman-sampling-design-paper.md",
       "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
-      "sha256": "a7b1ba7215ec2277720680188c71cfe826b0d846a1e996b60a238f18504fe431",
+      "sha256": "29c0590e2668a342e8545ca81f3bebcdc46db8d905423eba5108a2feec4eb08b",
       "site_uri": "assets/science/papers/southern-sweden-sampling-design.pdf",
-      "source_sha256": "45a8ab1c2299481935f3da3be62b2b42b79955c255aab93641a34427500e198b"
+      "source_sha256": "e236a3945e51d65457dcd432e99186004d4de9c4543efc13a46755056d3730ef"
     },
     {
       "bytes": 47212,
@@ -65,12 +65,12 @@
       "source_sha256": "2a4648f0fde3b5321c09a219afd315445bb7f71454496b2a37aee2cf63f74dff"
     },
     {
-      "bytes": 104211,
+      "bytes": 111902,
       "canonical_source": "reports/science/namibia-pollen-vegetation-paper.md",
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "9632a30e89057f6819fe23ec0460f2406474eb7193449e4430231134cb7550ec",
+      "sha256": "a46d35e019e3898b378878277f1c84ccc1777aa0df731225f5dfe9ab9c2ffd25",
       "site_uri": "assets/science/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "source_sha256": "3805db896be578a4ef2a24b25c57dc85d5ef5a2f26657293729eb7578dc9e33d"
+      "source_sha256": "8d8656f923d29a07575a3d3639b41b22aac6d67959b174c4f8a6c9063f4c990a"
     },
     {
       "bytes": 179390,
@@ -95,9 +95,9 @@
     }
   ],
   "inputs": {
-    "reports/exports/papers/manifest.json": "d9cf5ac48a812b0b0f84b0b7a195b1f29f08bdcc51efdada3fe98515f76cea4f",
-    "reports/exports/papers/visual-review.json": "d2443a8198cd961a0dbda23a26b2eb0b64188f3831158651ba7d2cf5bf20fc94",
-    "reports/science/paper-accounts.csv": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447"
+    "reports/exports/papers/manifest.json": "d4336d9ec79a7b3db9ce6ad2a9f04b6e72c24824d1ca7fa97a51509f3879df6c",
+    "reports/exports/papers/visual-review.json": "ae929f89b5cebb8bdf07aea895ab866c8a44aa6959ed6884ec3b323a08e3e18d",
+    "reports/science/paper-accounts.csv": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2"
   },
   "schema_version": "scientific-reader-downloads.v1",
   "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
