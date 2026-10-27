@@ -9,6 +9,11 @@ from ....core.files import write_json
 from ....core.geospatial.geojson import CountryBoundaryCollection, feature_list
 from ....core.text import slugify
 from ...contracts.artifacts import BOUNDARY_COLLECTION
+from .store import (
+    NORDIC_ADMIN0_MEMBERS,
+    boundary_selection_profile,
+    validate_boundary_collection,
+)
 
 __all__ = [
     "BoundariesDataReport",
@@ -28,22 +33,44 @@ class BoundariesDataReport:
 def build_combined_country_boundaries(
     country_boundaries: CountryBoundaryCollection,
 ) -> dict[str, object]:
-    """Combine individual Nordic country files into one GeoJSON collection."""
+    """Compose public country features without altering source polygon parts."""
     features = []
     for country, payload in country_boundaries.items():
-        for feature in feature_list(payload):
-            features.append(
-                {
-                    "type": "Feature",
-                    "geometry": feature["geometry"],
-                    "properties": {
-                        "country": country,
-                        "name": country,
-                        "layer_key": "country-boundaries",
-                        "layer_label": "Country boundaries",
-                    },
-                }
-            )
+        source_features = feature_list(payload)
+        if len(source_features) == 1:
+            geometry = source_features[0]["geometry"]
+        else:
+            parts: list[object] = []
+            for source in source_features:
+                source_geometry = source.get("geometry")
+                if not isinstance(source_geometry, dict):
+                    raise ValueError("Country boundary must have a polygon geometry")
+                coordinates = source_geometry.get("coordinates")
+                if not isinstance(coordinates, list) or not coordinates:
+                    raise ValueError(
+                        "Country boundary must retain nonempty polygon parts"
+                    )
+                if source_geometry.get("type") == "Polygon":
+                    parts.append(coordinates)
+                elif source_geometry.get("type") == "MultiPolygon":
+                    parts.extend(coordinates)
+                else:
+                    raise ValueError("Country boundary must be Polygon or MultiPolygon")
+            if not parts:
+                raise ValueError("Country boundary must retain polygon features")
+            geometry = {"type": "MultiPolygon", "coordinates": parts}
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": geometry,
+                "properties": {
+                    "country": country,
+                    "name": country,
+                    "layer_key": "country-boundaries",
+                    "layer_label": "Country boundaries",
+                },
+            }
+        )
     return {"type": "FeatureCollection", "features": features}
 
 
@@ -55,6 +82,20 @@ def write_boundary_archive(
 ) -> BoundariesDataReport:
     """Write raw and normalized boundary artifacts into one output root."""
     output_root = Path(output_root)
+    profile = boundary_selection_profile(source_manifest)
+    if profile is not None:
+        if set(country_boundaries) != set(NORDIC_ADMIN0_MEMBERS):
+            raise ValueError(
+                "Boundary member profile requires all four public countries"
+            )
+        for country, payload in country_boundaries.items():
+            validate_boundary_collection(
+                payload,
+                path=output_root / "raw" / f"{slugify(country)}.geojson",
+                country=country,
+                country_code=NORDIC_ADMIN0_MEMBERS[country][0],
+                selection_profile=profile,
+            )
     raw_dir = output_root / "raw"
     normalized_dir = output_root / "normalized"
     raw_dir.mkdir(parents=True, exist_ok=True)

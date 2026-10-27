@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import hashlib
 import json
 from pathlib import Path
@@ -7,11 +8,54 @@ from pathlib import Path
 from ....core.text import clean_optional_text, slugify
 
 __all__ = [
+    "NORDIC_WITH_ALAND_PROFILE",
+    "NORDIC_ADMIN0_MEMBERS",
+    "boundary_selection_profile",
     "load_country_boundaries",
     "load_repository_country_boundaries",
     "validate_boundary_collection",
     "validate_boundary_manifest",
 ]
+
+NORDIC_WITH_ALAND_PROFILE = "nordic-four-country-admin0-with-aland"
+NORDIC_ADMIN0_MEMBERS = {
+    "Sweden": ("SWE",),
+    "Norway": ("NOR",),
+    "Finland": ("FIN", "ALD"),
+    "Denmark": ("DNK",),
+}
+_SOVEREIGNTY = {
+    "Sweden": ("Sweden", "SWE"),
+    "Norway": ("Norway", "NOR"),
+    "Finland": ("Finland", "FI1"),
+    "Denmark": ("Denmark", "DN1"),
+}
+
+
+def boundary_selection_profile(manifest: Mapping[str, object]) -> str | None:
+    """Admit an explicit member profile, keeping legacy receipts distinct."""
+    schema = manifest.get("schema_version")
+    profile_fields = {"country_selection_profile", "country_admin0_members"}
+    if schema == "natural-earth-boundary-receipt.v1":
+        if profile_fields.intersection(manifest):
+            raise ValueError("Legacy boundary receipts cannot declare a member profile")
+        return None
+    if schema != "natural-earth-boundary-receipt.v2":
+        raise ValueError("Unsupported Natural Earth boundary receipt schema")
+    if manifest.get("country_selection_profile") != NORDIC_WITH_ALAND_PROFILE:
+        raise ValueError("Unknown or missing Nordic boundary member profile")
+    expected = {
+        country: list(members) for country, members in NORDIC_ADMIN0_MEMBERS.items()
+    }
+    if manifest.get("country_admin0_members") != expected:
+        raise ValueError("Boundary receipt must declare every exact admin-0 member")
+    if manifest.get("country_codes") != {
+        country: members[0] for country, members in NORDIC_ADMIN0_MEMBERS.items()
+    }:
+        raise ValueError(
+            "Boundary receipt must preserve the four primary country codes"
+        )
+    return NORDIC_WITH_ALAND_PROFILE
 
 
 def load_repository_country_boundaries(
@@ -48,6 +92,7 @@ def load_country_boundaries(
         natural_earth_terms_url=natural_earth_terms_url,
     )
     country_boundaries: dict[str, dict[str, object]] = {}
+    profile = boundary_selection_profile(manifest)
     for country, country_code in boundary_codes.items():
         path = raw_dir / f"{slugify(country)}.geojson"
         if not path.exists():
@@ -57,11 +102,15 @@ def load_country_boundaries(
             path=path,
             country=country,
             country_code=country_code,
+            selection_profile=profile,
         )
         _validate_country_artifact_digest(
             manifest,
             country=country,
             path=path,
+            expected_member_count=len(NORDIC_ADMIN0_MEMBERS[country])
+            if profile is not None
+            else None,
         )
     return country_boundaries
 
@@ -89,8 +138,8 @@ def validate_boundary_manifest(
         raise ValueError(
             f"Boundary source manifest must record the pinned admin-0 asset URL: {path}"
         )
+    profile = boundary_selection_profile(payload)
     required_values = {
-        "schema_version": "natural-earth-boundary-receipt.v1",
         "license": "public_domain",
         "license_url": natural_earth_terms_url,
         "source_crs": "EPSG:4326",
@@ -110,11 +159,21 @@ def validate_boundary_manifest(
         raise ValueError(f"Boundary source manifest requires source sha256: {path}")
     if not isinstance(payload.get("country_artifacts"), dict):
         raise TypeError(f"Boundary source manifest requires country artifacts: {path}")
+    if profile is not None and set(payload["country_artifacts"]) != set(
+        NORDIC_ADMIN0_MEMBERS
+    ):
+        raise ValueError(
+            "Boundary member profile requires exactly four country artifacts"
+        )
     return payload
 
 
 def _validate_country_artifact_digest(
-    manifest: dict[str, object], *, country: str, path: Path
+    manifest: dict[str, object],
+    *,
+    country: str,
+    path: Path,
+    expected_member_count: int | None = None,
 ) -> None:
     artifacts = manifest["country_artifacts"]
     if not isinstance(artifacts, dict):
@@ -122,6 +181,13 @@ def _validate_country_artifact_digest(
     record = artifacts.get(country)
     if not isinstance(record, dict) or record.get("path") != path.name:
         raise ValueError(f"Boundary manifest does not own {country} artifact: {path}")
+    if expected_member_count is not None and (
+        type(record.get("feature_count")) is not int
+        or record["feature_count"] != expected_member_count
+    ):
+        raise ValueError(
+            f"Boundary manifest member count differs for {country}: {path}"
+        )
     expected = record.get("sha256")
     actual = hashlib.sha256(path.read_bytes()).hexdigest()
     if expected != actual:
@@ -134,6 +200,7 @@ def validate_boundary_collection(
     path: Path,
     country: str,
     country_code: str,
+    selection_profile: str | None = None,
 ) -> dict[str, object]:
     """Validate one stored boundary file before it is reused locally."""
     if not isinstance(payload, dict):
@@ -153,10 +220,27 @@ def validate_boundary_collection(
         raise ValueError(
             f"Boundary payload must contain at least one feature for {country}: {path}"
         )
+    expected_members: tuple[str, ...] = (country_code,)
+    if selection_profile is not None:
+        if (
+            selection_profile != NORDIC_WITH_ALAND_PROFILE
+            or country not in NORDIC_ADMIN0_MEMBERS
+        ):
+            raise ValueError("Unknown boundary member profile or country")
+        expected_members = NORDIC_ADMIN0_MEMBERS[country]
+        if country_code != expected_members[0]:
+            raise ValueError(
+                "Boundary primary country code differs from its member profile"
+            )
+    observed_members = []
     for feature in features:
         if not isinstance(feature, dict):
             raise TypeError(
                 f"Boundary payload must contain GeoJSON features for {country}: {path}"
+            )
+        if selection_profile is not None and feature.get("type") != "Feature":
+            raise ValueError(
+                f"Boundary member must retain GeoJSON feature type: {path}"
             )
         properties = feature.get("properties")
         geometry = feature.get("geometry")
@@ -164,8 +248,23 @@ def validate_boundary_collection(
             raise TypeError(
                 f"Boundary feature must include properties and geometry for {country}: {path}"
             )
-        if clean_optional_text(properties.get("ADM0_A3")) != country_code:
+        member = clean_optional_text(properties.get("ADM0_A3"))
+        if member not in expected_members:
             raise ValueError(
                 f"Boundary feature must retain ADM0_A3={country_code} for {country}: {path}"
             )
+        observed_members.append(member)
+        if selection_profile is not None:
+            sovereign, sovereign_code = _SOVEREIGNTY[country]
+            if (
+                properties.get("SOVEREIGNT") != sovereign
+                or properties.get("SOV_A3") != sovereign_code
+            ):
+                raise ValueError(
+                    f"Boundary member sovereignty differs for {country}: {path}"
+                )
+    if selection_profile is not None and tuple(observed_members) != expected_members:
+        raise ValueError(
+            f"Boundary profile requires unique complete ordered members for {country}: {path}"
+        )
     return payload
