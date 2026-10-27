@@ -67,6 +67,19 @@ paper's 90 m elevation agrees with LandClim I metadata but conflicts with
 LandClim II's 20 m. Neither that conflict nor historical chronology equivalence
 is resolved.
 
+The original LandClim II metadata, `LANDCLIMII metadata file!981`, names
+**Matts Lindbladh** in the combined `Database/Authorname and/or data collector`
+field for Ekenäs/EKE, with `Authors chronology` and no chronology note.
+The retained Rootsi metadata, `All metadata!14`, supplies local labels
+`site_ID=b_6`, `R_ID=a13`, `Site label=EKE` and `File name=EKE.xls`.
+Independent worksheet-XML inspection confirms those literal values without
+opening observations or ages. The combined contributor field does not select
+an author/collector role, and these local labels do not authenticate an archive,
+physical core, sample or Neotoma crosswalk. They provide a concrete source-holder
+lead for the unresolved 25-versus-42 input selection. The article's cited
+Trondman dissertation (Linnaeus University Dissertations 193/2014) is a further
+bibliographic archive lead, with no EKE-specific accession supplied here.
+
 The retained primary article, Table 1 page, original table image and 17-page
 supplement are in the external source store at
 `landclim/provider-descriptions/trondman-small-sites/2026-10-27/`:
