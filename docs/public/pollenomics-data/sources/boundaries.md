@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-28
+last_reviewed: 2026-10-27
 ---
 
 # Boundaries
@@ -27,28 +27,54 @@ The collector snapshot label `v66` belongs to a different inventory layer and
 does not identify the Natural Earth release.
 
 The current machine country decision review at `data/boundaries/review/manifest.json`
-evaluates 3,043 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
-147 point reviews. Qualified inclusion review is still pending, so the
+evaluates 3,039 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
+143 point reviews. Qualified inclusion review is still pending, so the
 boundary review release posture is `blocked_pending_qualified_boundary_review`.
 The point decisions and polygons are reusable with this qualification; they do
 not constitute final boundary suitability approval.
 
 | Source point population | Rows | Assigned | Review | Unassigned | `UNASSIGNED` country partition |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| animal aDNA | 165 | 6 | 1 | 158 | 159 |
-| LandClim | 490 | 470 | 18 | 2 | 16 |
+| animal aDNA | 161 | 6 | 1 | 154 | 155 |
+| LandClim | 490 | 474 | 14 | 2 | 16 |
 | Neotoma | 193 | 193 | 0 | 0 | 0 |
 | SEAD | 2,195 | 2,069 | 103 | 23 | 126 |
 
-The maintained reviewer regenerated the current animal input after the horse
-elapsed-age refusal. Five retired publication candidates leave 165 animal
-localities; the remaining animal country decisions and source-native rows are
-unchanged. LandClim, Neotoma and SEAD decision ledgers and the polygon review
-are byte-identical to their preceding products. The 147 point reviews and
-qualified boundary approval remain pending; machine correspondence does not
-supply that approval.
+The 27 October source-label correction recognizes consistent ISO-code/name
+pairs such as `NOR (Norway)` while preserving their literal source values.
+Abborrtjärnen, Afstjørna, Aholami and Møllesø no longer receive false raw-country
+conflicts: their published country and strict containment already agree.
+Contradictory, unknown and malformed labels still refuse agreement. Raw and
+published labels now share the same case-insensitive comparator.
 
-These are two different partitions of the same 3,043 source points: decision
+The same current-source materialization removes exactly four previously refused
+PRJEB90141 goat localities: Acemhöyük, Blagotin-Poljna, Direkli Cave and
+Sang-e Chakhmaq, each with `locality_depends_on_nonfinal_sample_identity`.
+All 161 retained animal decisions preserve their scientific fields; 139 source
+row locators shift with the shorter point list. Neotoma, SEAD and the polygon
+review remain byte-identical. These changes do not select a new coordinate,
+chronology, biological identity or boundary policy.
+
+One actual maintained producer at `f120a42c976052b52d9c5eee6b3761d914a7098c`
+finished in 14.22 s, with 107,528,192 B peak RSS and 6,783,274 B of governed
+outputs and logs, within 180 s / 768 MiB / 32 MiB. The independent reader
+compared every old/current record, all 17 input pins, six boundary source
+JSONs and all output/queue summaries in 0.42 s, with 86,343,680 B RSS and
+157,268 B of outputs. Independent containment agrees for the four corrected
+LandClim points. Source, HEAD and index remained stable through both terminals.
+The observation is retained locally at
+`artifacts/verification/country-labels/observation.json`; no materializer or
+full geometry scan was repeated by that reader.
+
+All 33 focused checks and 20 subtests now pass, including governed-source
+integrity. The earlier check that detected the old 681,283-byte animal-input
+pin versus the current 1,220,950-byte source remains recorded. The producer,
+rather than a manual pin edit, supplied the current source ledger. Configured
+lint, formatting and strict types passed for all three changed Python files.
+All 143 genuine point reviews and four qualified country reviews remain pending;
+release remains blocked. Machine assignment is not scientific approval.
+
+These are two different partitions of the same 3,039 source points: decision
 status and governed country. A review status can retain a source country
 without receiving a governed assignment, so `UNASSIGNED` is not simply the
 sum of every row labeled review or unassigned. Inspect the source-specific

@@ -48,8 +48,8 @@
       "UNASSIGNED": 16
     },
     "decision_status_counts": {
-      "assigned": 470,
-      "review": 18,
+      "assigned": 474,
+      "review": 14,
       "unassigned": 2
     },
     "decision_method_counts": {
@@ -58,8 +58,8 @@
       "strict_boundary_containment": 474
     },
     "review_requirement_counts": {
-      "no_point_review_required": 470,
-      "qualified_review_required": 20
+      "no_point_review_required": 474,
+      "qualified_review_required": 16
     }
   },
   "decisions": [
@@ -9359,22 +9359,18 @@
       ],
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
       "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
+      "country_decision_status": "assigned",
+      "boundary_decision_status": "assigned",
       "decision_method": "strict_boundary_containment",
-      "ambiguity_reason": "raw_country_conflict",
-      "ambiguity_reason_codes": [
-        "raw_country_conflict"
-      ],
+      "ambiguity_reason": null,
+      "ambiguity_reason_codes": [],
       "refusal_reason": null,
-      "raw_country_comparison": "conflicts",
+      "raw_country_comparison": "agrees",
       "published_country_comparison": "agrees",
       "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "qualified_review_status": "pending",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
       "qualified_reviewer": null,
       "qualified_reviewed_at": null,
       "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
@@ -14075,22 +14071,18 @@
       ],
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
       "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
+      "country_decision_status": "assigned",
+      "boundary_decision_status": "assigned",
       "decision_method": "strict_boundary_containment",
-      "ambiguity_reason": "raw_country_conflict",
-      "ambiguity_reason_codes": [
-        "raw_country_conflict"
-      ],
+      "ambiguity_reason": null,
+      "ambiguity_reason_codes": [],
       "refusal_reason": null,
-      "raw_country_comparison": "conflicts",
+      "raw_country_comparison": "agrees",
       "published_country_comparison": "agrees",
       "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "qualified_review_status": "pending",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
       "qualified_reviewer": null,
       "qualified_reviewed_at": null,
       "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
@@ -14583,22 +14575,18 @@
       ],
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
       "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
+      "country_decision_status": "assigned",
+      "boundary_decision_status": "assigned",
       "decision_method": "strict_boundary_containment",
-      "ambiguity_reason": "raw_country_conflict",
-      "ambiguity_reason_codes": [
-        "raw_country_conflict"
-      ],
+      "ambiguity_reason": null,
+      "ambiguity_reason_codes": [],
       "refusal_reason": null,
-      "raw_country_comparison": "conflicts",
+      "raw_country_comparison": "agrees",
       "published_country_comparison": "agrees",
       "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "qualified_review_status": "pending",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
       "qualified_reviewer": null,
       "qualified_reviewed_at": null,
       "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
@@ -15487,22 +15475,18 @@
       ],
       "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
       "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
+      "country_decision_status": "assigned",
+      "boundary_decision_status": "assigned",
       "decision_method": "strict_boundary_containment",
-      "ambiguity_reason": "raw_country_conflict",
-      "ambiguity_reason_codes": [
-        "raw_country_conflict"
-      ],
+      "ambiguity_reason": null,
+      "ambiguity_reason_codes": [],
       "refusal_reason": null,
-      "raw_country_comparison": "conflicts",
+      "raw_country_comparison": "agrees",
       "published_country_comparison": "agrees",
       "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "qualified_review_status": "pending",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
       "qualified_reviewer": null,
       "qualified_reviewed_at": null,
       "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."

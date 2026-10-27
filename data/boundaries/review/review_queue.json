@@ -47,7 +47,7 @@
       "qualified_reviewed_at": null
     }
   ],
-  "point_decision_count": 147,
+  "point_decision_count": 143,
   "point_decisions": [
     {
       "decision_id": "sha256:00b89425421428d096d4dff169a3806afeb0ec209c26649aeffadbb091c727ae",
@@ -537,18 +537,6 @@
       "qualified_reviewed_at": null
     },
     {
-      "decision_id": "sha256:5e556c52bf7c76e6a958ed0fb3912381fa07e8f34ad058146d1f102e5226502b",
-      "source_family": "landclim",
-      "source_record_id": "landclim:site-sequence:897303:Afstjørna:61.650000:9.883333",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
       "decision_id": "sha256:5e7245214294fc9901016df92dc32a3e7e873ecc765100efc5ef6c4079e4cc20",
       "source_family": "sead",
       "source_record_id": "sead:site:6425",
@@ -816,18 +804,6 @@
       "qualified_reviewed_at": null
     },
     {
-      "decision_id": "sha256:8e2403561b444cd5d443ea10766d85e4525ffc000ba99a7b72f77f6eec981a67",
-      "source_family": "landclim",
-      "source_record_id": "landclim:site-sequence:897303:Aholami:61.883333:25.216667",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
       "decision_id": "sha256:8f6d749aa256bbc68dea41de99ca08f8792fdeba6a01809703ed65912e2214d1",
       "source_family": "landclim",
       "source_record_id": "landclim:site-sequence:937075:kattasjoen",
@@ -883,18 +859,6 @@
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:93cdfd72524c65f212c94617c5694a15ac9d14da366876c17576c01359964db8",
-      "source_family": "landclim",
-      "source_record_id": "landclim:site-sequence:897303:Abborrtjärnen:63.883333:14.450000",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "raw_country_conflict"
       ],
       "review_status": "pending",
       "qualified_reviewer": null,
@@ -980,18 +944,6 @@
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:9d7499369e496bf43dafa832f4f1332332445e85be6ddcf5452447c2e72e4449",
-      "source_family": "landclim",
-      "source_record_id": "landclim:site-sequence:897303:Møllesø:54.845556:11.982222",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "raw_country_conflict"
       ],
       "review_status": "pending",
       "qualified_reviewer": null,
