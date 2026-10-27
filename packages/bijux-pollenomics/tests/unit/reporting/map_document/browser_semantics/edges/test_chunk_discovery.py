@@ -29,6 +29,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.writer import (
 )
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
+from ..support import index_transport_helpers
+
 
 def published(
     root: Path,
@@ -176,6 +178,17 @@ def browser(
             "function staticAtlasFailure", "function staticAtlasNullableFiniteNumber"
         )
         + block(
+            "function staticAtlasTemporalIdentity",
+            "function normalizeStaticAtlasBootstrap",
+        )
+        + block("async function staticAtlasSha256", "function indexTransportDescriptor")
+        + index_transport_helpers(common=False)
+        + "let staticAtlasIndexTransportRequest=null;"
+        + block(
+            "function indexTransportDescriptor",
+            "function validateStaticAtlasEdgeAssets",
+        )
+        + block(
             "function validateStaticAtlasEdgeAssets",
             "function validateStaticAtlasPayload",
         )
@@ -187,7 +200,8 @@ def browser(
         + "async function waitForStaticAtlasSelection(value){return value;}"
         + "async function loadStaticAtlasAsset(row){requested.push(row.asset_key);"
         + "staticAtlasLoadedAssets.add(row.asset_key);if(row.domain==='nodes')"
-        + "STATIC_ATLAS_CHUNKS.nodes.push(payloads[row.asset_key]);}"
+        + "STATIC_ATLAS_CHUNKS.nodes.push(payloads[row.asset_key]);else if(row.domain==='indexes')"
+        + "STATIC_ATLAS_CHUNKS.indexes=await staticAtlasIndexTransport.consume(row,payloads[row.asset_key],staticAtlasIndexRows());}"
         + "const pair=featureCoordinatePair;"
         + "(async()=>{try{validateStaticAtlasEdgeAssets(STATIC_ATLAS_CHUNKS.edges);"
         + change

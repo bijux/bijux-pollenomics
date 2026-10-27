@@ -27,7 +27,7 @@ from .....atlas.static_assets.fixtures.scientific_evidence import (
     build_scientific_point_layers,
     build_scientific_signals,
 )
-from ...support import run_node_json, template_block
+from ...support import index_transport_helpers, run_node_json, template_block
 
 ASSETS = files("bijux_pollenomics.reporting.map_document").joinpath("assets")
 SCRIPT = ASSETS.joinpath("selection-export.js").read_text()
@@ -136,11 +136,12 @@ def observe(packet: dict[str, Any], action: str) -> dict[str, Any]:
             "function staticAtlasFailure", "function normalizeStaticAtlasBootstrap"
         )
         + template_block(
-            "async function staticAtlasSha256", "const STATIC_ATLAS_INDEX_KINDS"
+            "async function staticAtlasSha256", "function indexTransportDescriptor"
         )
+        + index_transport_helpers(common=False)
         + template_block(
-            "async function staticAtlasBoundedGunzip",
-            "function staticAtlasIndexShardEnvelopes",
+            "function indexTransportDescriptor",
+            "function validateStaticAtlasEdgeAssets",
         )
         + template_block(
             "function validateStaticAtlasPayload", "function loadStaticAtlasAsset"

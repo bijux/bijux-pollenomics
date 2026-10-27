@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from importlib.resources import files
 import json
 from pathlib import Path
 import shutil
@@ -14,6 +15,34 @@ def template_block(start: str, end: str) -> str:
     return MAP_DOCUMENT_TEMPLATE[
         start_index : MAP_DOCUMENT_TEMPLATE.index(end, start_index)
     ]
+
+
+def index_transport_helpers(*, common: bool = True) -> str:
+    """Execute the packaged index factory with the maintained browser callbacks."""
+    source = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/index-transport.js")
+        .read_text()
+    )
+    if common:
+        source = (
+            template_block(
+                "async function staticAtlasBoundedGunzip",
+                "function indexTransportDescriptor",
+            )
+            + source
+        )
+    return (
+        source
+        + """
+const staticAtlasIndexTransport=globalThis.BijuxPollenomicsIndexTransport.create({
+ bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
+ temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
+ nativeCalendarNumber:value=>typeof nativeCalendarNumber==='function'&&nativeCalendarNumber(value),
+ boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256});
+const staticAtlasMergeIndexShards=staticAtlasIndexTransport.mergeShards;
+"""
+    )
 
 
 def run_node_json(source: str) -> Any:
@@ -36,4 +65,9 @@ def check_javascript_syntax(source: str, path: Path) -> None:
     subprocess.run([node, "--check", str(path)], check=True, capture_output=True)
 
 
-__all__ = ["check_javascript_syntax", "run_node_json", "template_block"]
+__all__ = [
+    "check_javascript_syntax",
+    "index_transport_helpers",
+    "run_node_json",
+    "template_block",
+]

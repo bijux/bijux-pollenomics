@@ -19,8 +19,8 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
-from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
-    decode_index_bundle,
+from bijux_pollenomics.reporting.map_document.static_assets.index_transport import (
+    decode_index_payloads,
 )
 from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
     decode_chunk_script,
@@ -126,8 +126,11 @@ def generate_nordic_source_candidate(
         )
 
     provenance = chunk(next(row for row in inventory if row["domain"] == "provenance"))
-    indexes = decode_index_bundle(
-        chunk(next(row for row in inventory if row["domain"] == "indexes"))
+    index_rows = [row for row in inventory if row["domain"] == "indexes"]
+    indexes = decode_index_payloads(
+        index_rows,
+        {str(row["asset_key"]): chunk(row) for row in index_rows},
+        manifest=manifest,
     )
     detail_asset_keys = indexes["detail_record_asset_keys"]
     if not isinstance(detail_asset_keys, dict):

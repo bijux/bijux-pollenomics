@@ -98,16 +98,29 @@ def test_runtime_separates_exact_helpers_without_changing_scientific_inventory(
         "integrity": "sha256-"
         + base64.b64encode(hashlib.sha256(raw).digest()).decode(),
     }
-    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence, indexes = subject.static_map_optional_controller_paths(html)
     evidence_raw = evidence.read_bytes()
+    index_raw = indexes.read_bytes()
     assert optional == {
-        "evidence_tools": {
-            "path": evidence.name,
-            "byte_count": len(evidence_raw),
+        kind: {
+            "path": path.name,
+            "byte_count": len(content),
             "integrity": "sha256-"
-            + base64.b64encode(hashlib.sha256(evidence_raw).digest()).decode(),
+            + base64.b64encode(hashlib.sha256(content).digest()).decode(),
         }
+        for kind, path, content in (
+            ("evidence_tools", evidence, evidence_raw),
+            ("index_transport", indexes, index_raw),
+        )
     }
+    assert (
+        index_raw
+        == files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/index-transport.js")
+        .read_bytes()
+    )
+    assert b"function staticAtlasMergeIndexShards" not in raw
+    assert re.fullmatch(r"atlas\.atlas-index-transport\.[a-f0-9]{16}\.js", indexes.name)
     assert re.fullmatch(r"atlas\.atlas-evidence-tools\.[a-f0-9]{16}\.js", evidence.name)
     package = files("bijux_pollenomics.reporting.map_document")
     for name in (
@@ -131,11 +144,22 @@ def test_runtime_separates_exact_helpers_without_changing_scientific_inventory(
     assert (
         sum(cast(int, row["byte_count"]) for row in rows if row["initial_load"] is True)
         + len(raw)
-        + len(subject._NATIVE_BINDING.findall(document)[0].encode())
+        + sum(
+            len(pattern.findall(document)[0].encode())
+            for pattern in (subject._NATIVE_BINDING, subject._MODELED_BINDING)
+        )
         <= 1048576
     )
     check_javascript_syntax(raw.decode(), tmp_path / "checked-runtime.js")
     check_javascript_syntax(evidence_raw.decode(), tmp_path / "checked-tools.js")
+    check_javascript_syntax(index_raw.decode(), tmp_path / "checked-indexes.js")
+    assert subject._MODELED_BINDING.findall(before) == subject._MODELED_BINDING.findall(
+        document
+    )
+    assert (
+        "const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);"
+        in raw.decode()
+    )
 
 
 def test_pure_renderer_does_not_materialize_and_keeps_static_size_guard(
@@ -171,7 +195,7 @@ def test_optional_code_collision_refuses_before_main_runtime_or_html_write(
     html, runtime = subject.write_static_map_document(
         tmp_path / "atlas.html", **request_args
     )
-    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence = subject.static_map_optional_controller_paths(html)[0]
     evidence.write_bytes(b"changed optional code")
     html.unlink()
     runtime.unlink()
@@ -199,7 +223,7 @@ def test_distribution_paths_cannot_escape_through_aliases(
     )
     if alias.startswith(("runtime", "evidence")):
         if alias.startswith("evidence"):
-            (runtime,) = subject.static_map_optional_controller_paths(html)
+            runtime = subject.static_map_optional_controller_paths(html)[0]
         target = tmp_path / "original.js"
         runtime.rename(target)
         if alias.endswith("symlink"):
@@ -313,6 +337,7 @@ def test_actual_inline_binding_utf8_bytes_are_charged_at_exact_resource_boundary
         count
         + runtime_bytes
         + len(inline.encode())
+        + len(subject._MODELED_BINDING.findall(document)[0].encode())
         + (len(optional) if scope == "total" else 0)
     )
     monkeypatch.setattr(subject, limit, exact)
@@ -423,12 +448,14 @@ def test_atlas_bundle_inventories_runtime_before_manifest_and_summary(
             name for label, name in artifacts if label == "Static atlas runtime"
         )
         assert (tmp_path / name).is_file() and paths.map_html_path.is_file()
-        optional_name = next(
-            name for label, name in artifacts if label == "Interactive evidence tools"
-        )
-        assert subject.static_map_optional_controller_paths(paths.map_html_path) == (
-            tmp_path / optional_name,
-        )
+        optional_names = [
+            name
+            for label, name in artifacts
+            if label in {"Interactive evidence tools", "Static atlas index transport"}
+        ]
+        assert subject.static_map_optional_controller_paths(
+            paths.map_html_path
+        ) == tuple(tmp_path / name for name in optional_names)
         checked.append(name)
         return {"runtime": name}
 

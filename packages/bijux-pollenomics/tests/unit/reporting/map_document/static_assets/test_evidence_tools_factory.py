@@ -15,7 +15,7 @@ def test_optional_factory_binds_escape_and_supplied_glyph_callback(
     tmp_path: Path, request_args: dict[str, Any]
 ) -> None:
     html, _ = subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
-    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence = subject.static_map_optional_controller_paths(html)[0]
     evidence_raw = evidence.read_bytes()
     observed = run_node_json(
         evidence_raw.decode()

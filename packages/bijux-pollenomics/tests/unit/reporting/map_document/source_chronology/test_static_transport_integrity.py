@@ -10,6 +10,7 @@ from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
 from ..browser_semantics.support import (
     check_javascript_syntax,
+    index_transport_helpers,
     run_node_json,
     template_block,
 )
@@ -60,9 +61,7 @@ def test_rendered_browser_javascript_is_syntactically_valid(tmp_path: Path) -> N
 
 
 def test_sharded_indexes_merge_without_dropped_references() -> None:
-    helpers = template_block(
-        "const STATIC_ATLAS_INDEX_KINDS", "function validateStaticAtlasPayload"
-    )
+    helpers = index_transport_helpers()
     payload = json.dumps(sharded_index_payload(), separators=(",", ":"))
     observed = run_node_json(
         f"""
@@ -111,9 +110,7 @@ const payload={payload};
 
 
 def test_sharded_indexes_reject_duplicate_missing_and_count_drift() -> None:
-    helpers = template_block(
-        "const STATIC_ATLAS_INDEX_KINDS", "function validateStaticAtlasPayload"
-    )
+    helpers = index_transport_helpers()
     duplicate = json.dumps(
         sharded_index_payload(duplicate_country=True), separators=(",", ":")
     )
@@ -186,8 +183,9 @@ def test_index_runtime_retains_single_payload_compatibility() -> None:
     consume = template_block(
         "async function consumeStaticAtlasAsset", "function loadStaticAtlasAsset"
     )
+    assert "await loadIndexTransport()" in consume
     assert (
-        "row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)"
+        "await staticAtlasIndexTransport.consume(row, payload, staticAtlasIndexRows())"
         in consume
     )
     assert ": payload;" in consume
@@ -235,7 +233,11 @@ function staticAtlasNonnegativeInteger(value,label){{
 }}
 async function probe(assets, existingIndexes, interactionBytes, loadOutcome){{
   const STATIC_ATLAS_INLINE=false;
-  const STATIC_ATLAS_BOOTSTRAP={{assets,budgets:{{interaction_max_bytes:interactionBytes}}}};
+  const STATIC_ATLAS_BOOTSTRAP={{assets,budgets:{{interaction_max_requests:128,interaction_max_bytes:interactionBytes}}}};
+  const staticAtlasLoadedAssets=new Set();
+  function staticAtlasIndexRows(){{if(assets.length>1)throw Error('duplicate');return assets;}}
+  function staticAtlasIndexOverhead(){{return {{request_count:0,byte_count:0}};}}
+  async function loadIndexTransport(){{}}
   const STATIC_ATLAS_CHUNKS={{indexes:existingIndexes}};
   let loadCount=0;
   async function loadStaticAtlasAsset(row){{
@@ -406,7 +408,7 @@ def test_compressed_transport_avoids_blob_reads_and_preserves_refusals() -> None
     bad_crc = base64.b64encode(damaged).decode()
     runtime = template_block(
         "async function staticAtlasBoundedGunzip",
-        "function staticAtlasIndexShardEnvelopes",
+        "function indexTransportDescriptor",
     )
     observed = run_node_json(
         """

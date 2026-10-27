@@ -8,7 +8,11 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.reporting.map_document.static_assets import (
+    index_transport,
     write_static_atlas_assets,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
 )
 from bijux_pollenomics_dev.ci.atlas_browser import source_detail_candidate
 from bijux_pollenomics_dev.ci.atlas_browser.source_detail_candidate import (
@@ -104,10 +108,23 @@ def retained_repository(root: Path) -> tuple[Path, list[dict[str, object]]]:
     return retained, details
 
 
+@pytest.mark.parametrize("multipart", [False, True])
 def test_source_detail_replay_preserves_refused_contextual_and_comparable_claims(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    multipart: bool,
 ) -> None:
-    retained_repository(tmp_path)
+    with monkeypatch.context() as transport:
+        if multipart:
+            transport.setattr(index_transport, "ATLAS_CHUNK_MAX_BYTES", 3000)
+        retained, _ = retained_repository(tmp_path)
+    manifest = json.loads((retained / "nordic_map_assets.json").read_text())
+    index_rows = [
+        row
+        for row in normalize_asset_inventory(manifest["assets"])
+        if row["domain"] == "indexes"
+    ]
+    assert (len(index_rows) > 1) is multipart
     destination = tmp_path / "artifacts/candidate"
     receipt = generate_fixture_candidate(
         tmp_path, destination, "source_detail_candidate"
@@ -157,10 +174,14 @@ def test_source_detail_replay_rejects_malformed_detail_index(
 ) -> None:
     retained_repository(tmp_path)
 
-    def malformed_index(_payload: object) -> dict[str, object]:
+    def malformed_index(
+        _rows: object, _payloads: object, *, manifest: object
+    ) -> dict[str, object]:
         return {"detail_record_asset_keys": asset_keys}
 
-    monkeypatch.setattr(source_detail_candidate, "decode_index_bundle", malformed_index)
+    monkeypatch.setattr(
+        source_detail_candidate, "decode_index_payloads", malformed_index
+    )
     destination = tmp_path / "artifacts/candidate"
     with pytest.raises(ValueError, match="source detail asset index"):
         generate_source_detail_candidate(tmp_path, destination)

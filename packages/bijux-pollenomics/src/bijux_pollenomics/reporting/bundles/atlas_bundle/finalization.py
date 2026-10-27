@@ -48,7 +48,12 @@ def finalize_bundle(
     )
     extra_artifacts.append(("Static atlas runtime", runtime_path.name))
     extra_artifacts.extend(
-        ("Interactive evidence tools", path.name)
+        (
+            "Static atlas index transport"
+            if path.name.rsplit(".", 3)[-3] == "atlas-index-transport"
+            else "Interactive evidence tools",
+            path.name,
+        )
         for path in static_map_optional_controller_paths(bundle_paths.map_html_path)
     )
     write_summary_json_fn(

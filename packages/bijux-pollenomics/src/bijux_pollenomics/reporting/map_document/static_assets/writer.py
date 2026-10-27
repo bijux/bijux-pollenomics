@@ -6,7 +6,7 @@ import base64
 from collections.abc import Sequence
 import hashlib
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from ....core.geospatial.geojson import JsonObject
 from ..evidence import normalize_atlas_evidence, validate_feature_signal_references
@@ -30,6 +30,7 @@ from .edges import EDGE_SCHEMA, edge_endpoint_assets, edge_endpoint_geometry
 from .index_bundles import (
     build_index_bundle,
 )
+from .index_transport import INDEX_PART_SCHEMA, partition_index_bundle
 from .indexes import build_indexes, index_reference_count
 from .models import StaticAtlasAssets, validate_atlas_release_id
 from .nodes import (
@@ -243,13 +244,18 @@ def write_static_atlas_assets(
         "build_id": build_id,
     }
     index_bundle = build_index_bundle(logical_indexes)
-    payloads.append(
-        (
-            "indexes",
-            index_reference_count(logical_indexes),
-            index_bundle,
+    index_payloads = partition_index_bundle(index_bundle, first_sequence=len(payloads))
+    split_indexes = len(index_payloads) > 1
+    for index_payload in index_payloads:
+        payloads.append(
+            (
+                "indexes",
+                len(cast(list[object], index_payload["shards"]))
+                if split_indexes
+                else index_reference_count(logical_indexes),
+                index_payload,
+            )
         )
-    )
 
     assets: list[dict[str, object]] = []
     asset_paths: list[Path] = []
@@ -323,6 +329,7 @@ def write_static_atlas_assets(
             "sequence_schema": "atlas-sequences-chunk.v1",
             "index_schema": index_bundle["schema_version"],
             "search_index_abi": indexes["search_index_abi"],
+            **({"index_transport_schema": INDEX_PART_SCHEMA} if split_indexes else {}),
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
