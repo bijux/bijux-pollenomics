@@ -1,0 +1,105 @@
+{
+  "schema_version": "abborrtjarnen-derived-mean-monte-carlo-protocol.v1",
+  "question": "How large is estimated simulation error in the saved-chain estimates of conditional invariant-target cover means and older-minus-younger contrasts, distinct from conditional mixture spread?",
+  "source_result": "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/result.json",
+  "source_ledger": "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/draw-ledger.csv.gz",
+  "source_verification": "artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/governed-reference-check/independent-check.json",
+  "producer_source_commit": "3c89475195629a8afb7c1cc79752d84aee6d6e3c",
+  "observer_source_commit": "4bc6ab0f211c179aa332dc848f954c6773aeae00",
+  "repository_inputs": {
+    "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/result.json": {
+      "bytes": 261785,
+      "sha256": "4ff4fb0978144c6e86671bd8a6cc4219f1f28ff8124cc60f6c1a95e268c8fc62"
+    },
+    "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/draw-ledger.csv.gz": {
+      "bytes": 3111265,
+      "sha256": "8f97e8f74072bfcf25bef117f35850cdc4e51b70e1dbbced02179eced8b50f9c"
+    },
+    "artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/governed-reference-check/independent-check.json": {
+      "bytes": 1054,
+      "sha256": "cb878d5dc2a916eeeba97e8ef674cc353d23f6eb1d8970664c31b84156c4da3d"
+    }
+  },
+  "taxon_axis": [
+    "Betula",
+    "Cyperaceae",
+    "Juniperus communis",
+    "Pinus sylvestris",
+    "Poaceae"
+  ],
+  "native_taxon_ids": [
+    29,
+    74,
+    4416,
+    1287,
+    417
+  ],
+  "window_ids": [
+    3,
+    4,
+    5,
+    9
+  ],
+  "rights_and_use": "Local noncommercial derived analysis of the already qualified pangaea_recorded_zeros_local_nc result, with Thomas Giesecke/EPD/PANGAEA attribution and original CC BY-NC 3.0 limits retained separately from the Neotoma CC BY 4.0 source and LandClimII parameters. Full numerical outputs remain local artifacts. No original count matrix, candidate table, saved-age matrix or publisher attachment is copied or redistributed.",
+  "batch_design": {
+    "batch_size": 128,
+    "batches_per_chain": 125,
+    "rows_per_chain": 16000,
+    "seeds": [
+      314159,
+      271828
+    ],
+    "native_first_row": 3502,
+    "native_last_row": 19501
+  },
+  "batch_choice": "Nonoverlapping contiguous batches of 128 saved states exactly partition 16,000 states into 125 batches per chain. The fixed design is close to sqrt(16000); it is not claimed optimal or selected from derived values. Keep both chain clocks, seed order and native rows 3502 through 19501, including the undefined row. Do not discard tails, concatenate chains, thin, add burnin, adapt batch size, retune or draw more states.",
+  "method_reference": {
+    "authors": "Flegal, James M.; Jones, Galin L.",
+    "year": 2010,
+    "title": "Batch means and spectral variance estimators in Markov chain Monte Carlo",
+    "doi": "10.1214/09-AOS735",
+    "url": "https://arxiv.org/pdf/0811.1729",
+    "version": "arXiv:0811.1729v5",
+    "location": "Section 3, equation 6: nonoverlapping batch means. The ratio delta method and independent-chain pooling here are explicitly derived applications."
+  },
+  "estimands": {
+    "finite_saved_population": "The existing conditional saved-population means are exactly defined empirical summaries of the fixed finite ledger. Binary64 summaries have ordinary numerical error; MCSE is not uncertainty about an exactly defined finite-ledger average.",
+    "invariant_target": "mu_pi=E_pi[I_C c]/P_pi(C), the conditional invariant-target expectation under the declared qualified sampler model and the assumptions below. The saved ratio estimates mu_pi. MCSE estimates simulation error relative to this different target, not field variability, chronology accuracy, or uncertainty in the fixed empirical summary.",
+    "mixture_spread": "Preserve the earlier source-supported total first-order age/count/shared-diagonal-PPE mixture SD as a different quantity. MCSE concerns estimated conditional means of saved mean-cover c(A), integrating out the declared mean-zero count/PPE errors; it neither simulates nor adds those errors to a Markov chain.",
+    "unconditional": "One undefined row and both earlier unconditional-moment refusals remain. The zero I_C c numerator at I_C=0 is a ratio-estimator definition, never an observed zero cover or a completed missing row."
+  },
+  "calculation": "For each ordered chain form U=(I_C,I_C*c), a 21-dimensional vector. Undefined rows keep missing covers and contribute only their exact zero numerator and indicator. For 125 batch means u_b, B=128/(125-1)*sum_b[(u_b-ubar)(u_b-ubar)^T]. The ratio Jacobian J=[-mu/p,Identity20/p] gives per-chain MC covariance J B J^T/n. The producer applies J to centered batch means before crossproducts, an algebraically equal stable sum of squares. For pooled U use sum_k n_k*B_k/N^2 and the pooled J, preserving different complete counts and random-denominator covariance. For all 30 contrasts form older-minus-younger linear functions before crossproducts and square roots. Difference MC covariance is V_seed314159+V_seed271828 under independent same-target chains. Preserve all 20x20 matrices, 50 scalar estimates and every chain discrepancy.",
+  "assumptions_and_limits": [
+    "The target is the same conditional sampler model and saved precision as the qualified chronology, not true physical chronology. Original Coda age/free-parameter qualification and its raw writer-flag conflict remain unchanged.",
+    "Interpretation as MCSE requires appropriate invariant-target/Markov-chain CLT and delta-method regularity, positive P_pi(C), finite moments and sufficient dependence control, such as absolute summability of relevant autocovariances plus applicable CLT conditions. Bounded saved covers alone do not establish these conditions.",
+    "The two seeded trajectories are treated as independent chains with the same invariant target. Pooled within-chain covariance does not account for undetected between-mode nonconvergence or initialization bias. Report every per-chain mean and its difference with an independent-chain MCSE; no significance test or acceptance threshold is adopted.",
+    "The finite batch estimate can miss correlations longer than 128 saved states and has its own sampling variability. Asymptotic batch-means consistency requires both batch length and number to grow under appropriate regularity; one fixed partition cannot certify adequacy. No rerun, batch search, ESS, interval or new convergence/precision gate follows.",
+    "An observed constant indicator or zero batch variance is an empirical property only, not proof of zero target uncertainty. One observed incomplete state is insufficient to qualify the rare-refusal process. Retain zero estimated values and explicit empirical-constant/zero-batch-variation statuses.",
+    "No measured vegetation, untouched validation, scientific core/taxon/PPE admission, nonlinear full-PPE posterior, calibrated interval coverage or physical field accuracy is established."
+  ],
+  "numerical_policy": "No clipping, covariance projection, dropped identities, conditional-only reindexing or outcome-dependent adjustment. Reject malformed/nonfinite supported values and nonfinite arithmetic. Preserve unsupported numerical domains as failures; no positive batch variation may silently underflow to zero. Square roots and ratios are approximate binary64 displays, not directed rigorous bounds.",
+  "correspondence": {
+    "mean_absolute_tolerance": 1e-12,
+    "independent_absolute_tolerance": 1e-18,
+    "independent_relative_tolerance": 1e-10
+  },
+  "output_scope": "The full result, per-chain and pooled 20x20 MC covariance matrices and all 200 scalar records (50 for each chain, 50 pooled, 50 differences) remain local noncommercial artifacts. The existing age/PPE README is the sole readable scientific account. No source matrix, per-state cover payload or new ledger export is produced.",
+  "environment": {
+    "numpy": "2.4.6"
+  },
+  "resource_budget": {
+    "wall_seconds": 120,
+    "peak_rss_bytes_posthoc": 536870912,
+    "output_bytes": 5000000
+  },
+  "independent_resource_budget": {
+    "wall_seconds": 120,
+    "peak_rss_bytes_posthoc": 536870912,
+    "output_bytes": 5000000
+  },
+  "model_fits": 0,
+  "new_age_or_ppe_draws": 0,
+  "raw_count_or_age_inputs_read": false,
+  "convergence_or_precision_gate_adopted": false,
+  "field_calibration_or_coverage_claim": false
+}
