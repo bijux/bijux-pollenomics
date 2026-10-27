@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import replace
 from decimal import Decimal, localcontext
 from fractions import Fraction as Q
 import json
@@ -12,6 +13,8 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.arithmetic import (
+    MAX_ORDER,
+    ORDER,
     Interval,
     Jet,
     cos_bounds,
@@ -21,19 +24,25 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
     sinc_derivative,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.certificates import (
+    certificate,
     encoded_certificates,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.coefficients import (
+    CoefficientResult,
     certify,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.kernel import (
     Geometry,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.quadrature import (
+    SEVEN_NODE_RULE,
+    SIMPSON_RULE,
     IntegralResult,
+    Panel,
     ResourceRefusal,
     WorkBudget,
     integrate,
+    positive_panel,
     simpson_panel,
 )
 
@@ -147,14 +156,17 @@ def polynomial_product(a: list[Q], b: list[Q], degree: int) -> list[Q]:
     ]
 
 
-def test_analytic_jets_against_binomial_and_complex_exponential_coefficients() -> None:
-    x = Jet.variable(Interval.point(0))
+@pytest.mark.parametrize("order", [4, 8])
+def test_analytic_jets_against_binomial_and_complex_exponential_coefficients(
+    order: int,
+) -> None:
+    x = Jet.variable(Interval.point(0), order)
     root = (1 + x).root(8)
     reciprocal = (1 - x).reciprocal()
     combined = x.exp() * x.sin_cos()[0]
     sine_cardinal = x.sinc()
     real, imaginary = 1, 0
-    for n in range(5):
+    for n in range(order + 1):
         encloses(root.coefficients[n], binomial(Q(1, 8), n))
         encloses(reciprocal.coefficients[n], Q(1))
         encloses(combined.coefficients[n], Q(imaginary, factorial(n)))
@@ -175,22 +187,25 @@ def test_jet_bounds_cover_polynomial_derivatives_across_an_interval() -> None:
         encloses(coefficient, comb(5, n) * min(samples), comb(5, n) * max(samples))
 
 
-def test_angular_derivative_jet_encloses_higher_exact_binomial_coefficients() -> None:
+@pytest.mark.parametrize("order", [4, 8])
+def test_angular_derivative_jet_encloses_higher_exact_binomial_coefficients(
+    order: int,
+) -> None:
     geometry = Geometry(Q(3, 5), Q(1), Q(3), (Q(1), Q(0)), (Q(2), Q(0)))
     encloses(geometry.angular(Jet.constant(2, 0)).value, Q(8, 15))
-    actual = geometry.angular_derivative(Jet.variable(Interval.point(2)))
+    actual = geometry.angular_derivative(Jet.variable(Interval.point(2), order))
     # At r=2+z, D²=25+64z+80z²+32z³+4z⁴ and h'=-6r/D³.
     w = [Q(0), Q(64, 25), Q(80, 25), Q(32, 25), Q(4, 25)]
-    power, series = [Q(1)], [Q(0)] * 5
-    for n in range(5):
+    power, series = [Q(1)], [Q(0)] * (order + 1)
+    for n in range(order + 1):
         coefficient = binomial(Q(-3, 2), n)
         for j, value in enumerate(power):
             series[j] += coefficient * value
-        power = polynomial_product(power, w, 4)
-    expected = polynomial_product([Q(-12, 125), Q(-6, 125)], series, 4)
+        power = polynomial_product(power, w, order)
+    expected = polynomial_product([Q(-12, 125), Q(-6, 125)], series, order)
     for actual_coefficient, exact in zip(actual.coefficients, expected, strict=True):
         encloses(actual_coefficient, exact)
-    assert expected[4] != 0
+    assert expected[order] != 0
 
 
 def test_simpson_error_is_a_radius_and_tensor_requires_both_pure_derivatives() -> None:
@@ -518,3 +533,188 @@ def test_positive_closed_rules_have_exact_signed_peano_remainders(
         - Q(1, order + 1)
         == factorial(order) * kernel_integral
     )
+
+
+@pytest.mark.parametrize("degree", range(9))
+def test_actual_seven_node_moments_and_signed_remainder_on_nonunit_interval(
+    degree: int,
+) -> None:
+    a, b = Q(-2, 3), Q(5, 3)
+    budget = WorkBudget()
+    panel = positive_panel(
+        lambda args: args[0] ** degree, ((a, b),), budget, rule=SEVEN_NODE_RULE
+    )
+    exact = (b ** (degree + 1) - a ** (degree + 1)) / (degree + 1)
+    radius = (b - a) ** 9 * factorial(8) / 1567641600 if degree == 8 else Q(0)
+    assert panel.error_radius == radius
+    encloses(panel.node_sum, exact + radius)
+    encloses(panel.enclosure, exact)
+    assert panel.enclosure.width >= 2 * radius
+    assert budget.nodes == budget.completed_nodes == 7 and budget.derivative_boxes == 1
+    assert panel.rule == "closed-newton-cotes-seven.v1"
+
+
+def test_actual_seven_node_tensor_handles_signed_errors_and_nonunit_lengths() -> None:
+    a, b, c, d = Q(-1, 2), Q(3, 2), Q(2, 3), Q(5, 3)
+    budget = WorkBudget(max_nodes=49)
+    panel = positive_panel(
+        lambda args: 3 * args[0] ** 8 - 2 * args[1] ** 8 + args[0] ** 7 * args[1] ** 7,
+        ((a, b), (c, d)),
+        budget,
+        rule=SEVEN_NODE_RULE,
+    )
+    exact = (
+        3 * (b**9 - a**9) / 9 * (d - c)
+        - 2 * (d**9 - c**9) / 9 * (b - a)
+        + (b**8 - a**8) / 8 * (d**8 - c**8) / 8
+    )
+    unit_radius = Q(factorial(8), 1567641600)
+    x_radius = 3 * (b - a) ** 9 * (d - c) * unit_radius
+    y_radius = 2 * (b - a) * (d - c) ** 9 * unit_radius
+    assert panel.directional_radii == (x_radius, y_radius)
+    assert panel.error_radius == x_radius + y_radius
+    # Q-I has opposite signs for the two degree-eight terms; the bound sums magnitudes.
+    encloses(panel.node_sum, exact + x_radius - y_radius)
+    encloses(panel.enclosure, exact)
+    assert panel.enclosure.width >= 2 * (x_radius + y_radius)
+    assert budget.nodes == budget.completed_nodes == 49 and budget.derivative_boxes == 2
+
+
+def test_rule_defaults_and_literal_legacy_certificate_bytes() -> None:
+    explicit = positive_panel(
+        lambda args: args[0] ** 4, UNIT, WorkBudget(), rule=SIMPSON_RULE
+    )
+    assert simpson_panel(lambda args: args[0] ** 4, UNIT, WorkBudget()) == explicit
+    assert positive_panel(lambda args: args[0] ** 4, UNIT, WorkBudget()) == explicit
+    assert explicit.rule == "simpson-positive.v1"
+    assert ORDER == Jet.variable(Interval.point(0)).order == 4 and MAX_ORDER == 8
+    zero = Interval.point(0)
+    panel = Panel(UNIT, zero, Q(0), (Q(0),))
+    integral = IntegralResult(zero, (panel,), "controlled", None)
+    result = CoefficientResult(
+        (integral,) * 4, zero, zero, zero, (zero, zero), "controlled"
+    )
+    expected = {
+        "schema_version": "continuous-receiver-coefficient-certificate.v1",
+        "status": "controlled",
+        "coefficient_bounds": {"K": ["0", "0"], "B1": ["0", "0"], "B2": ["0", "0"]},
+        "endpoint_products": [["0", "0"], ["0", "0"]],
+        "integrals": [
+            {
+                "status": "controlled",
+                "refusal": None,
+                "bounds": ["0", "0"],
+                "leaves": [
+                    {
+                        "box": [["0", "1"]],
+                        "node_sum": ["0", "0"],
+                        "error_radius": "0",
+                        "directional_radii": ["0"],
+                    }
+                ],
+            }
+        ]
+        * 4,
+    }
+    assert (
+        encoded_certificates([result])
+        == json.dumps(
+            [expected], sort_keys=True, separators=(",", ":"), allow_nan=False
+        ).encode()
+    )
+
+
+def test_seven_node_rule_metadata_and_complete_four_domain_refusal() -> None:
+    budget = WorkBudget(max_leaves=4, max_attempts=4, max_nodes=112, max_queue=4)
+    result = certify(synthetic_geometry(), budget, rule=SEVEN_NODE_RULE)
+    assert result.status == "refuse_unresolved" and result.rule == SEVEN_NODE_RULE
+    assert budget.nodes == budget.completed_nodes == 112 and budget.attempts == 4
+    for dimension, integral in zip((1, 1, 2, 2), result.integrals, strict=True):
+        assert integral.rule == SEVEN_NODE_RULE
+        check_partition(integral, dimension)
+        assert all(panel.rule == SEVEN_NODE_RULE for panel in integral.panels)
+    payload = json.loads(encoded_certificates([result]))[0]
+    assert payload["schema_version"] == "continuous-receiver-coefficient-certificate.v2"
+    assert payload["quadrature_rule"] == "closed-newton-cotes-seven.v1"
+    assert all(
+        row["quadrature_rule"] == SEVEN_NODE_RULE
+        and all(leaf["quadrature_rule"] == SEVEN_NODE_RULE for leaf in row["leaves"])
+        for row in payload["integrals"]
+    )
+    check_serialized_certificate(payload)
+    with pytest.raises(ValueError, match="Mixed"):
+        replace(result, rule=SIMPSON_RULE)
+    # Serialized emission also checks runtime objects damaged after construction.
+    damaged = deepcopy(result)
+    object.__setattr__(damaged.integrals[0], "rule", SIMPSON_RULE)
+    with pytest.raises(ValueError, match="Mixed"):
+        certificate(damaged)
+
+
+@pytest.mark.parametrize("bad_rule", ["unknown", None, True])
+def test_unknown_rules_refuse_before_any_work(bad_rule: object) -> None:
+    budget = WorkBudget()
+
+    def unreachable(_arguments: tuple[Jet, ...]) -> Jet:
+        raise AssertionError("unknown rule evaluated an integrand")
+
+    with pytest.raises(ValueError, match="Unknown"):
+        positive_panel(unreachable, UNIT, budget, rule=cast(str, bad_rule))
+    with pytest.raises(ValueError, match="Unknown"):
+        integrate(unreachable, 1, Q(1, 100), budget, rule=cast(str, bad_rule))
+    with pytest.raises(ValueError, match="Unknown"):
+        certify(synthetic_geometry(), budget, rule=cast(str, bad_rule))
+    assert (
+        budget.attempts == budget.nodes == budget.completed_nodes == budget.leaves == 0
+    )
+
+
+@pytest.mark.parametrize(
+    "original,requested",
+    [(SIMPSON_RULE, SEVEN_NODE_RULE), (SEVEN_NODE_RULE, SIMPSON_RULE)],
+)
+def test_initial_panel_rule_mismatch_refuses_before_new_work(
+    original: str, requested: str
+) -> None:
+    panel = positive_panel(lambda args: args[0], UNIT, WorkBudget(), rule=original)
+    budget = WorkBudget()
+    with pytest.raises(ValueError, match="Mixed"):
+        integrate(
+            lambda args: args[0], 1, Q(1, 100), budget, initial=panel, rule=requested
+        )
+    assert (
+        budget.attempts == budget.nodes == budget.completed_nodes == budget.leaves == 0
+    )
+    with pytest.raises(ValueError, match="Mixed"):
+        IntegralResult(panel.enclosure, (panel,), "controlled", None, requested)
+
+
+def test_seven_node_tensor_charges_all_nodes_before_integrand_admission() -> None:
+    budget = WorkBudget(max_nodes=48)
+    calls = 0
+
+    def counted(args: tuple[Jet, ...]) -> Jet:
+        nonlocal calls
+        calls += 1
+        return args[0]
+
+    with pytest.raises(ResourceRefusal, match="node_ceiling"):
+        positive_panel(counted, UNIT * 2, budget, rule=SEVEN_NODE_RULE)
+    assert calls == budget.attempts == budget.nodes == budget.completed_nodes == 0
+    wrong_order = WorkBudget()
+    with pytest.raises(ValueError, match="derivative order"):
+        positive_panel(
+            lambda args: Jet.constant(1, 4), UNIT, wrong_order, rule=SEVEN_NODE_RULE
+        )
+    assert wrong_order.nodes == 7 and wrong_order.completed_nodes == 0
+    stopped = integrate(
+        lambda args: args[0] ** 8,
+        1,
+        Q(1, 10**12),
+        WorkBudget(max_attempts=2, max_nodes=14),
+        rule=SEVEN_NODE_RULE,
+    )
+    assert stopped.status == "refuse_unresolved" and len(stopped.panels) == 1
+    assert stopped.rule == SEVEN_NODE_RULE
+    check_partition(stopped, 1)
+    encloses(stopped.enclosure, Q(1, 9))

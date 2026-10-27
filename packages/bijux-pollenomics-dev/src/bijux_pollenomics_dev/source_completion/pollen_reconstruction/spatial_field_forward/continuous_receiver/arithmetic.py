@@ -1,4 +1,4 @@
-"""Outward rational intervals and analytic Taylor coefficients through order four.
+"""Outward rational intervals and analytic Taylor coefficients through order eight.
 
 All arithmetic bounds use the existing radial-envelope 96-bit lattice. Elementary
 functions use rational Taylor remainders, rather than machine transcendental
@@ -17,6 +17,7 @@ from ..radial_envelope import lattice_bounds, root_bounds
 
 Scalar = Fraction | int
 ORDER = 4
+MAX_ORDER = 8
 SERIES_DEGREE = 64
 
 
@@ -168,7 +169,7 @@ def cos_bounds(value: Interval) -> Interval:
 
 def sinc_derivative(value: Interval, derivative: int) -> Interval:
     """Differentiate sinc(z)=integral_0^1 cos(t*z)dt, including z=0."""
-    if type(derivative) is not int or not 0 <= derivative <= ORDER:
+    if type(derivative) is not int or not 0 <= derivative <= MAX_ORDER:
         raise ValueError("Sinc derivative order exceeds certificate order")
     midpoint = (value.lower + value.upper) / 2
     if abs(midpoint) > 4:
@@ -218,22 +219,22 @@ class Jet:
     def __post_init__(self) -> None:
         if (
             type(self.coefficients) is not tuple
-            or not 1 <= len(self.coefficients) <= ORDER + 1
+            or not 1 <= len(self.coefficients) <= MAX_ORDER + 1
             or any(type(value) is not Interval for value in self.coefficients)
         ):
             raise TypeError(
-                "One through five exact interval Taylor coefficients required"
+                "One through nine exact interval Taylor coefficients required"
             )
 
     @classmethod
     def constant(cls, value: Interval | Scalar, order: int = ORDER) -> Jet:
-        if type(order) is not int or not 0 <= order <= ORDER:
+        if type(order) is not int or not 0 <= order <= MAX_ORDER:
             raise ValueError("Invalid Taylor order")
         return cls((interval(value),) + (Interval.point(0),) * order)
 
     @classmethod
     def variable(cls, value: Interval, order: int = ORDER) -> Jet:
-        if type(order) is not int or not 0 <= order <= ORDER:
+        if type(order) is not int or not 0 <= order <= MAX_ORDER:
             raise ValueError("Invalid Taylor order")
         if order == 0:
             return cls.constant(value, 0)

@@ -1,4 +1,4 @@
-"""Positive Simpson enclosures, deterministic partitions and finite work caps."""
+"""Two closed positive rules, deterministic partitions and finite work caps."""
 
 from __future__ import annotations
 
@@ -13,6 +13,19 @@ from .arithmetic import Interval, Jet
 
 Integrand = Callable[[tuple[Jet, ...]], Jet]
 Box = tuple[tuple[Fraction, Fraction], ...]
+SIMPSON_RULE = "simpson-positive.v1"
+SEVEN_NODE_RULE = "closed-newton-cotes-seven.v1"
+
+
+def rule_definition(identity: str) -> tuple[int, tuple[int, ...], int, int]:
+    """Closed reviewed rules: derivative order, positive weights, two divisors."""
+    if type(identity) is not str:
+        raise ValueError("Unknown positive quadrature rule")
+    if identity == SIMPSON_RULE:
+        return 4, (1, 4, 1), 6, 2880
+    if identity == SEVEN_NODE_RULE:
+        return 8, (41, 216, 27, 272, 27, 216, 41), 840, 1567641600
+    raise ValueError("Unknown positive quadrature rule")
 
 
 class ResourceRefusal(RuntimeError):
@@ -59,9 +72,16 @@ class WorkBudget:
         if time.monotonic() - self.started >= self.wall_seconds:
             raise ResourceRefusal("wall_seconds")
 
-    def panel(self, dimensions: int) -> None:
+    def panel(self, dimensions: int, *, nodes_per_axis: int = 3) -> None:
         self.check()
-        nodes = 3**dimensions
+        if (
+            type(dimensions) is not int
+            or dimensions not in (1, 2)
+            or type(nodes_per_axis) is not int
+            or nodes_per_axis not in (3, 7)
+        ):
+            raise ValueError("Unknown positive quadrature node population")
+        nodes = nodes_per_axis**dimensions
         if self.attempts >= self.max_attempts or self.nodes + nodes > self.max_nodes:
             raise ResourceRefusal("attempt_or_node_ceiling")
         self.attempts += 1
@@ -80,35 +100,57 @@ class Panel:
     node_sum: Interval
     error_radius: Fraction
     directional_radii: tuple[Fraction, ...]
+    rule: str = SIMPSON_RULE
+
+    def __post_init__(self) -> None:
+        rule_definition(self.rule)
 
     @property
     def enclosure(self) -> Interval:
-        # Simpson's |error|<=E is a radius: this adds FULL width 2E.
+        # Both rules give |error|<=E: this adds FULL width 2E.
         return self.node_sum.expanded(self.error_radius)
 
 
 def simpson_panel(function: Integrand, box: Box, budget: WorkBudget) -> Panel:
+    """Preserve the default fourth-order rule and its exact arithmetic order."""
+    return positive_panel(function, box, budget, rule=SIMPSON_RULE)
+
+
+def positive_panel(
+    function: Integrand, box: Box, budget: WorkBudget, *, rule: str = SIMPSON_RULE
+) -> Panel:
+    order, weights, weight_divisor, error_divisor = rule_definition(rule)
+    node_count = len(weights)
     dimensions = len(box)
     if dimensions not in (1, 2) or any(not a < b for a, b in box):
         raise ValueError("One or two positive integration intervals required")
-    budget.panel(dimensions)
+    budget.panel(dimensions, nodes_per_axis=node_count)
     lengths = tuple(b - a for a, b in box)
     volume = math.prod(lengths)
     radii = []
     for axis in range(dimensions):
         arguments = tuple(
-            Jet.variable(Interval(a, b)) if axis == j else Jet.constant(Interval(a, b))
+            Jet.variable(Interval(a, b), order)
+            if axis == j
+            else Jet.constant(Interval(a, b), order)
             for j, (a, b) in enumerate(box)
         )
         budget.derivative_boxes += 1
-        derivative = function(arguments).coefficients[4].magnitude * math.factorial(4)
-        radii.append(volume * lengths[axis] ** 4 * derivative / 2880)
+        evaluated = function(arguments)
+        if evaluated.order != order:
+            raise ValueError(
+                "Integrand returned the wrong derivative order for the rule"
+            )
+        derivative = evaluated.coefficients[order].magnitude * math.factorial(order)
+        radii.append(volume * lengths[axis] ** order * derivative / error_divisor)
         budget.check()
-    coordinates = tuple((a, (a + b) / 2, b) for a, b in box)
-    weights = (1, 4, 1)
+    coordinates = tuple(
+        tuple(a + (b - a) * j / (node_count - 1) for j in range(node_count))
+        for a, b in box
+    )
     total = Interval.point(0)
-    for first in range(3):
-        for second in range(3 if dimensions == 2 else 1):
+    for first in range(node_count):
+        for second in range(node_count if dimensions == 2 else 1):
             indices = (first, second)[:dimensions]
             point = tuple(
                 Jet.constant(coordinates[j][index], 0)
@@ -118,8 +160,8 @@ def simpson_panel(function: Integrand, box: Box, budget: WorkBudget) -> Panel:
             total += function(point).value * weight
             budget.completed_nodes += 1
             budget.check()
-    node_sum = total * (volume / (6**dimensions))
-    return Panel(box, node_sum, sum(radii, Fraction(0)), tuple(radii))
+    node_sum = total * (volume / (weight_divisor**dimensions))
+    return Panel(box, node_sum, sum(radii, Fraction(0)), tuple(radii), rule)
 
 
 @dataclass(frozen=True)
@@ -128,6 +170,12 @@ class IntegralResult:
     panels: tuple[Panel, ...]
     status: str
     refusal: str | None
+    rule: str = SIMPSON_RULE
+
+    def __post_init__(self) -> None:
+        rule_definition(self.rule)
+        if any(panel.rule != self.rule for panel in self.panels):
+            raise ValueError("Mixed quadrature rules in integral certificate")
 
 
 def integrate(
@@ -137,8 +185,10 @@ def integrate(
     budget: WorkBudget,
     *,
     initial: Panel | None = None,
+    rule: str = SIMPSON_RULE,
 ) -> IntegralResult:
     """Bisect the widest-error leaf, then its largest directional error (ties first)."""
+    rule_definition(rule)
     if (
         type(dimensions) is not int
         or dimensions not in (1, 2)
@@ -148,11 +198,13 @@ def integrate(
         raise ValueError("Invalid integration design")
     if initial is None:
         budget.add_leaf()
-        root = simpson_panel(
-            function, ((Fraction(0), Fraction(1)),) * dimensions, budget
+        root = positive_panel(
+            function, ((Fraction(0), Fraction(1)),) * dimensions, budget, rule=rule
         )
     else:
         root = initial
+        if root.rule != rule:
+            raise ValueError("Mixed quadrature rules in initial certificate")
         if root.box != ((Fraction(0), Fraction(1)),) * dimensions:
             raise ValueError("Initial certificate does not cover the unit domain")
     queue: list[tuple[Fraction, int, Panel]] = [(-root.enclosure.width, 0, root)]
@@ -177,7 +229,9 @@ def integrate(
                 boxes.append(tuple(coordinates))
             # Publish neither child unless BOTH are closed. On refusal retain
             # the valid parent partition and its certified wide enclosure.
-            children = [simpson_panel(function, box, budget) for box in boxes]
+            children = [
+                positive_panel(function, box, budget, rule=rule) for box in boxes
+            ]
             heapq.heappop(queue)
             lower -= parent.enclosure.lower
             upper -= parent.enclosure.upper
@@ -191,4 +245,4 @@ def integrate(
             break
     panels = tuple(item[2] for item in sorted(queue, key=lambda item: item[1]))
     status = "certified_width" if upper - lower <= target_width else "refuse_unresolved"
-    return IntegralResult(Interval(lower, upper), panels, status, refusal)
+    return IntegralResult(Interval(lower, upper), panels, status, refusal, rule)

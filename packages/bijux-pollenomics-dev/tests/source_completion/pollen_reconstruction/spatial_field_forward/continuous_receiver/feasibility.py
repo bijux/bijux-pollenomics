@@ -33,6 +33,8 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
     Geometry,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.quadrature import (
+    SEVEN_NODE_RULE,
+    SIMPSON_RULE,
     ResourceRefusal,
     WorkBudget,
 )
@@ -50,6 +52,9 @@ def source_pins() -> dict[str, str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--rule", choices=(SIMPSON_RULE, SEVEN_NODE_RULE), default=SIMPSON_RULE
+    )
     arguments = parser.parse_args()
     output: Path = arguments.output
     output.mkdir(parents=True, exist_ok=False)
@@ -78,9 +83,10 @@ def main() -> None:
             "second": [str(value) for value in model.second],
         },
         "target_full_width": str(EPSILON),
+        "quadrature_rule": arguments.rule,
     }
     try:
-        result = certify(model, budget)
+        result = certify(model, budget, rule=arguments.rule)
         report.update(
             {
                 "status": result.status,

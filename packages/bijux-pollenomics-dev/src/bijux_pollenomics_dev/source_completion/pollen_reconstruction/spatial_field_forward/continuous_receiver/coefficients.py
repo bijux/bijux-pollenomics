@@ -8,12 +8,14 @@ from fractions import Fraction
 from .arithmetic import Interval, Jet
 from .kernel import Geometry
 from .quadrature import (
+    SIMPSON_RULE,
     Box,
     IntegralResult,
     Integrand,
     WorkBudget,
     integrate,
-    simpson_panel,
+    positive_panel,
+    rule_definition,
 )
 
 EPSILON = Fraction(1, 10**9)
@@ -30,15 +32,24 @@ class CoefficientResult:
     second: Interval
     endpoint_products: tuple[Interval, Interval]
     status: str
+    rule: str = SIMPSON_RULE
+
+    def __post_init__(self) -> None:
+        rule_definition(self.rule)
+        if any(integral.rule != self.rule for integral in self.integrals):
+            raise ValueError("Mixed quadrature rules in coefficient certificate")
 
 
-def certify(geometry: Geometry, budget: WorkBudget) -> CoefficientResult:
+def certify(
+    geometry: Geometry, budget: WorkBudget, *, rule: str = SIMPSON_RULE
+) -> CoefficientResult:
     """Close all four initial domains before refining any of them.
 
     Thus a later finite-work refusal retains a quantified complete continuous
     enclosure, rather than losing an unsampled integral or dropping a response.
     Refinement uses no saved responses, forecasts, observed counts or scores.
     """
+    rule_definition(rule)
     functions: tuple[Integrand, ...] = (
         lambda arguments: geometry.contact_survival(arguments[0]),
         lambda arguments: geometry.outer_survival(arguments[0]),
@@ -51,9 +62,9 @@ def certify(geometry: Geometry, budget: WorkBudget) -> CoefficientResult:
     for function, dimension in zip(functions, dimensions, strict=True):
         budget.add_leaf()
         box: Box = ((Fraction(0), Fraction(1)),) * dimension
-        roots.append(simpson_panel(function, box, budget))
+        roots.append(positive_panel(function, box, budget, rule=rule))
     results = tuple(
-        integrate(function, dimension, target, budget, initial=root)
+        integrate(function, dimension, target, budget, initial=root, rule=rule)
         for function, dimension, target, root in zip(
             functions, dimensions, targets, roots, strict=True
         )
@@ -77,4 +88,5 @@ def certify(geometry: Geometry, budget: WorkBudget) -> CoefficientResult:
         second,
         products,
         "certified_width" if success else "refuse_unresolved",
+        rule,
     )

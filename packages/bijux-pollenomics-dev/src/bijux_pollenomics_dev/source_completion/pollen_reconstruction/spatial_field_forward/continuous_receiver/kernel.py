@@ -89,7 +89,7 @@ class Geometry:
             return Jet.constant(0, radius.order)
         u = 2 * (radius**2 - self.dot)
         denominator = (u**2 + self.norm_sum * self.norm_difference).root(2)
-        # Four jet derivatives here enclose h^(5), not merely h^(4).
+        # Order-n derivatives of this expression enclose h^(n+1).
         return -2 * self.delta * self.norm_difference * radius / denominator**3
 
     def contact_survival(self, t: Jet) -> Jet:

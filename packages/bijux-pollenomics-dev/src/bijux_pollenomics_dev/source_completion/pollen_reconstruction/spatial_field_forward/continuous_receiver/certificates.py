@@ -5,12 +5,25 @@ from __future__ import annotations
 import json
 
 from .coefficients import CoefficientResult
-from .quadrature import ResourceRefusal
+from .quadrature import SIMPSON_RULE, ResourceRefusal, rule_definition
 
 
 def certificate(result: CoefficientResult) -> dict[str, object]:
+    rule_definition(result.rule)
+    if any(
+        integral.rule != result.rule
+        or any(panel.rule != result.rule for panel in integral.panels)
+        for integral in result.integrals
+    ):
+        raise ValueError("Mixed quadrature rules in serialized certificate")
+    legacy = result.rule == SIMPSON_RULE
     return {
-        "schema_version": "continuous-receiver-coefficient-certificate.v1",
+        # v1 is the fixed Simpson format. Its bytes and interpretation remain
+        # unchanged; other rules use an explicit rule-bound certificate format.
+        "schema_version": "continuous-receiver-coefficient-certificate.v1"
+        if legacy
+        else "continuous-receiver-coefficient-certificate.v2",
+        **({} if legacy else {"quadrature_rule": result.rule}),
         "status": result.status,
         "coefficient_bounds": {
             "K": result.homogeneous.encoded(),
@@ -20,11 +33,13 @@ def certificate(result: CoefficientResult) -> dict[str, object]:
         "endpoint_products": [value.encoded() for value in result.endpoint_products],
         "integrals": [
             {
+                **({} if legacy else {"quadrature_rule": integral.rule}),
                 "status": integral.status,
                 "refusal": integral.refusal,
                 "bounds": integral.enclosure.encoded(),
                 "leaves": [
                     {
+                        **({} if legacy else {"quadrature_rule": panel.rule}),
                         "box": [[str(a), str(b)] for a, b in panel.box],
                         "node_sum": panel.node_sum.encoded(),
                         "error_radius": str(panel.error_radius),
