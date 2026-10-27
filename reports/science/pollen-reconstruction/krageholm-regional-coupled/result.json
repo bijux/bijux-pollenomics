@@ -1,0 +1,190 @@
+{
+  "schema_version": "krageholm-regional-coupled-summary.v1",
+  "status": "numerically_checked_conditional_development",
+  "producer_source_commit": "43995b359425da99ce602e820b0ee2b7e1319e76",
+  "observer_commit": "a98bc99a0d43fba700b42475f8f6aa40ca06039c",
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "regional_source": "KRAGMJNY",
+  "target_places": [
+    "BOKE",
+    "BUS",
+    "SOLSOE83"
+  ],
+  "source_support": {
+    "krag_original_owners": 96,
+    "krag_selected_literal_owners": 19,
+    "small_qualified_supports_by_core": {
+      "BOKE": 20,
+      "BUS": 21,
+      "SOLSOE83": 18
+    },
+    "small_support_scope": "Per-core and total sample supports derived from each pinned qualified source row's exact positive integer count and fingerprint; no preset sample total or fresh literal-owner reconciliation."
+  },
+  "requested_folds": 18,
+  "requested_method_dispositions": 54,
+  "scored_method_dispositions": 9,
+  "unscored_method_dispositions": 45,
+  "bins": [
+    {
+      "window": "cal-bp-2700-3200",
+      "scored": 9,
+      "unscored": 0
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "scored": 0,
+      "unscored": 9
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "scored": 0,
+      "unscored": 9
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "scored": 0,
+      "unscored": 9
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "scored": 0,
+      "unscored": 9
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "scored": 0,
+      "unscored": 9
+    }
+  ],
+  "scored_predictions": [
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-54001-39241-cal-bp-2700-3200",
+      "method": "training_mean",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9519670648112741,
+        "Ulmus": 0.04803293518872588
+      },
+      "mae_fraction": 0.10752262036682969,
+      "total_variation": 0.10752262036682969
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-54001-39241-cal-bp-2700-3200",
+      "method": "nearest_site",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9478325110485453,
+        "Ulmus": 0.052167488951454656
+      },
+      "mae_fraction": 0.10338806660410087,
+      "total_variation": 0.10338806660410087
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-54001-39241-cal-bp-2700-3200",
+      "method": "inverse_distance_squared",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9478955246043799,
+        "Ulmus": 0.05210447539562021
+      },
+      "mae_fraction": 0.10345108015993539,
+      "total_variation": 0.10345108015993539
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-53995-39238-cal-bp-2700-3200",
+      "method": "training_mean",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9108841539926278,
+        "Ulmus": 0.0891158460073722
+      },
+      "mae_fraction": 0.03517393729367924,
+      "total_variation": 0.03517393729367924
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-53995-39238-cal-bp-2700-3200",
+      "method": "nearest_site",
+      "pollen_fraction_prediction": {
+        "Betula": 0.8488709879107735,
+        "Ulmus": 0.15112901208922638
+      },
+      "mae_fraction": 0.09718710337553346,
+      "total_variation": 0.09718710337553346
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-53995-39238-cal-bp-2700-3200",
+      "method": "inverse_distance_squared",
+      "pollen_fraction_prediction": {
+        "Betula": 0.8497947141510797,
+        "Ulmus": 0.1502052858489204
+      },
+      "mae_fraction": 0.09626337713522741,
+      "total_variation": 0.09626337713522741
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-4446-4304-cal-bp-2700-3200",
+      "method": "training_mean",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9102240471547958,
+        "Ulmus": 0.08977595284520432
+      },
+      "mae_fraction": 0.04379894135095137,
+      "total_variation": 0.04379894135095137
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-4446-4304-cal-bp-2700-3200",
+      "method": "nearest_site",
+      "pollen_fraction_prediction": {
+        "Betula": 0.864083519380758,
+        "Ulmus": 0.135916480619242
+      },
+      "mae_fraction": 0.0899394691249891,
+      "total_variation": 0.0899394691249891
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "target": "neotoma-4446-4304-cal-bp-2700-3200",
+      "method": "inverse_distance_squared",
+      "pollen_fraction_prediction": {
+        "Betula": 0.9068529112400823,
+        "Ulmus": 0.09314708875991778
+      },
+      "mae_fraction": 0.047170077265664856,
+      "total_variation": 0.047170077265664856
+    }
+  ],
+  "scored_bin_mean_mae": {
+    "training_mean": 0.06216516633715344,
+    "nearest_site": 0.09683821303487448,
+    "inverse_distance_squared": 0.08229484485360922
+  },
+  "retained_negative_final_cover_occurrences": 24,
+  "negative_count_scope": "36 fit references to18 distinct native requests;24 negative final-cover occurrences are not24 independent fits.",
+  "independent_check": {
+    "path": "artifacts/wetland-source-review/krageholm-regional-coupled/independent-check.json",
+    "sha256": "9101c631132f39e282b85048420d3623c6015baefd6fbce3ccd4cf51e8dc03a2",
+    "maximum_scalar_difference": 1.1102230246251565e-16,
+    "scope": "Conditional on saved native kernels and distances; no continuous kernel certification or independent geodesy.",
+    "engine_calls": 0,
+    "model_fits": 0
+  },
+  "closed_products": {
+    "predictions": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictions/batch.json",
+      "sha256": "8038fa2365bf90cd01d1916afbae4a77c9c5a25e9f22aa421384e135ed29900e"
+    },
+    "scores": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/scores/batch.json",
+      "sha256": "2fdec7f166f839a4cd9bb4f166036b5091b4a4b68d2862ea5a5afd45f5aba4d6"
+    }
+  },
+  "exposure": "prior_exposed_development",
+  "scientific_acceptance": "not_evaluated"
+}
