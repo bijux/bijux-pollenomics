@@ -6,6 +6,7 @@ from collections import Counter
 from collections.abc import Sequence
 
 from ....spatial import CountryAttributionDecision, decide_country_attribution
+from ....spatial.country_classification.validation import compare_raw_country
 from .models import BoundaryAuthority, JsonObject, PointEvidence
 from .policy import (
     BOUNDARY_VERSION,
@@ -164,5 +165,8 @@ def _country_comparison(raw: str | None, derived: str | None) -> str:
         return "not_supplied"
     if derived is None:
         return "unresolved"
-    aliased = COUNTRY_ALIASES.get(normalized) or COUNTRY_ALIASES.get(normalized.upper())
-    return "agrees" if aliased == derived else "conflicts"
+    return compare_raw_country(
+        raw_country=normalized,
+        derived_country=derived,
+        raw_country_aliases=COUNTRY_ALIASES,
+    )
