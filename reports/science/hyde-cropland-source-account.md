@@ -103,6 +103,29 @@ README units, grid dimensions, masks, category descriptions and scenario names
 are available source facts; remaining requests concern unresolved semantics and
 methods, rather than asking for those same descriptions again.
 
+The retained README also advertises `input_files.zip` as Excel input files,
+but that paragraph calls the product HYDE 3.3. The archive was not found at
+three checked local candidates: `original/input_files.zip`,
+`original/Input_files.zip` or `original/gbc2025_7apr_base/input_files.zip`.
+That finite check does not establish an incomplete download or a valid current
+release link. On 27 October 2026 we checked the directly derived
+[April input-archive URL](https://geo.public.data.uu.nl/vault-hyde/hyde35_c9_apr2025%5B1749214444%5D/original/input_files.zip).
+A bounded HEAD request returned HTTP 200 with `text/html`; one diagnostic GET
+returned a 7,337-byte provider bot-check page, not a ZIP. No archive bytes were
+read or acquired. The two requests took 0.48 s and 0.19 s respectively; the
+response remained below the declared 64 KiB limit.
+
+Their original headers and diagnostic remain in the external source store at
+`hyde/provider-descriptions/input-archive-availability/2026-10-27/`.
+The diagnostic SHA-256 is
+`fec82d1473b8c36e72858107c7e7fa884b1efe2b9015cd8505b9b02a49b1cab1`;
+it identifies the access response only. This route currently supplies neither
+an archive-availability finding nor a release-bound input/calibration inventory.
+A genuine input archive and explicit lineage statement could clarify shared
+pollen/REVEALS inputs; absence of pollen references alone would not establish
+independence. Existing country/grid arithmetic is unchanged, and no grid or
+model was rerun.
+
 The local ASCII grid header fixes a 4320-by-2160 source axis beginning at
 longitude-like `-180`, latitude-like `-90`, with literal step `0.0833333`;
 NetCDF coordinates carry degree units. Neither declaration gives a formal
@@ -289,7 +312,7 @@ already scoped modeled-context claim.
 
 **Unsupported claim.** A licensed native-grid product or HYDE-assisted pollen-model effect.
 
-**Actual verification performed.** Original 84 totals/21 grids/one whole-member token check reused; actual new 45-context native consumer and independent Decimal/spherical account both exited zero. 24 source guards and four CLI refusals passed. Numerical cell outputs remain local.
+**Actual verification performed.** Original 84 totals/21 grids/one whole-member token check reused; actual new 45-context native consumer and independent Decimal/spherical account both exited zero. 24 source guards and four CLI refusals passed. Numerical cell outputs remain local. On 27 October 2026, one HEAD and one bounded diagnostic GET of the README-derived April input_files.zip URL returned HTTP200 HTML; the 7,337-byte bot-check response is retained, with no archive-body acquisition or availability/independence conclusion. No source grid or model rerun.
 
 **Remaining input or review.** Country totals and selected grids conserve modeled source values, but retained file/version declarations and licences conflict; formal CRS, CE/0AD calendar, category overlap and scenario estimand are unbound. Resolver: HYDE release/licence provider and qualified geospatial/temporal reviewer Reopen when: Provider binds exact retained members to version, rights, CRS, time conversion, units and scenario meanings before matched ablation.
 
