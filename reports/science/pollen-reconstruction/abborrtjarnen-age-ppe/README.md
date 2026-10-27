@@ -216,14 +216,116 @@ field calibration remain. No canonical observation, selected chronology,
 scientific core/species/PPE approval or field admission has changed.
 
 
+## One PPE covariance shared across the saved age mixture
+
+The separate [common-covariance protocol](common-covariance/protocol.json)
+asks how unknown PPE correlation changes uncertainty when **one covariance
+matrix is shared across every age state and window**. It uses only the qualified
+source-supported result, saved cover ledger and independent check above. The
+conditioning event remains C_source with 31,999 complete rows and one undefined
+row among all 32,000 saved identities. Conditional means, age variances and
+counting variances stay fixed. There is no new count-table or age-array read,
+fit, random draw or physical integration.
+
+For each of the 20 components and 30 older-minus-younger contrasts, the producer
+forms `Q = D E_C[g(A) g(A)^T] D` on the four positive-PPE-SD parameter axes.
+Here D contains their reported SDs, and a contrast's gradient is differenced
+**before** forming its outer product. PPE variance is `trace(Q R)`, where one
+correlation matrix R satisfies `R positive semidefinite, diag(R) = 1` across
+all saved states. Taking the outer product of the mean gradient omits age/PPE
+interaction. Averaging separately optimized per-age extrema permits a different
+R at each age and answers another question: gradients (1,1) and (1,−1) in two
+equally weighted ages give variance exactly 2 for every common R, although
+averaged per-age extrema span 0–4. Poaceae's reference-parameter SD of zero
+removes its parameter axis; it does not remove Poaceae output uncertainty from
+the compositional closure.
+
+The prospective calculation retained the identity matrix, eight rank-one sign
+Grams and eight fixed SLSQP starts for each endpoint, without random starts or
+outcome-driven tuning. Solver outputs are candidates. Exact rational unit-Gram
+witnesses supply attainable inner values; diagonal duals checked through all
+15 exact principal minors supply outer bounds. The frozen padding sequence
+and Gershgorin fallback preserve loose certificates rather than forcing a
+success. Certificates apply to the **saved finite binary64 Q interpreted
+exactly**, not an ideal unrounded source integral. Ledger-to-Q correspondence
+is checked numerically and separately. No clipping, symmetrization, eigenvalue
+repair or tolerance-based PSD certificate is used.
+
+All **50 scalars / 100 endpoints** have `tight_global_enclosure`: each endpoint's
+certified gap divided by trace(Q) is at most the predeclared 1e−6. The largest
+is exactly **1/4194304 ≈ 2.38419e−7**; 81 endpoint gaps are exactly zero and
+19 are positive. All 800 optimizer attempts succeeded and remain recorded;
+their success alone supplies no global certificate. Every saved Q also passes
+its own 15 exact principal-minor checks. The diagonal correspondence gap is
+at most **2.4716421400880484e−18**, below the frozen 1e−12 absolute bound.
+
+The table gives illustrative **total conditional SD displays**, after adding
+the separately retained age and counting terms to the PPE-variance endpoints.
+All 50 component/contrast results remain in the local numerical output.
+
+| Quantity | Shared diagonal PPE baseline | Common-correlation outer SD display |
+| --- | ---: | ---: |
+| Pinus sylvestris, window 4 | 0.01772510875 | 0.00929343266–0.02469231106 |
+| Cyperaceae, window 9 minus window 3 | 0.01512764520 | 0.01485581411–0.01552336720 |
+| Poaceae, window 9 | 0.00595415724 | 0.00589988673–0.00601484530 |
+
+Pinus/window 4 has the largest relative component sensitivity: about −47.57%
+to +39.31% versus its diagonal baseline. Cyperaceae/9−3 has the largest relative
+contrast sensitivity: about −1.80% to +2.62%. These are parameter-dependence
+sensitivities under the same conditional working law. The square roots are
+explicitly **approximate numerical displays**, not directed rigorous intervals,
+confidence intervals or field coverage. Signed exact total-variance bounds and
+square-root domain/refusal states are preserved. All 50 actual displays have
+`approximate_square_root_enclosure`; no negative lower-bound domain refusal
+occurred. A different R may attain each scalar extremum: the result does not
+claim one covariance jointly attains all 50 extrema or adopt a PPE distribution.
+
+The producer was committed at `539da7a13`; the actual producer and independent
+observer both consumed **`19feb79bf25917431abfd05b9b5f6b474f358a81`** with
+HEAD, index and consumed inputs fixed until observation terminated. Producer
+session **89250** exited zero in **4.584395375 s** (producer 3.192316334 s),
+with peak macOS RSS **150,650,880 bytes**, within 180 s / 768 MiB posthoc /
+10 MB. Its **1,210,684-byte** result is at
+`artifacts/physical-core/abborrtjarnen-age-ppe/common-covariance/native-run/result.json`,
+SHA-256 `b4e91111c603f46afc54325f1f0122d671b7877f1fa768e1a6e5185c11a82d62`.
+Exact argv, Python `-B`, bytecode suppression, five one-thread backend overrides,
+input pins, UTC bounds and tool handles are in the adjacent
+`native-execution/execution.json`. The module command is
+`python -B -m bijux_pollenomics_dev.source_completion.pollen_reconstruction.abborrtjarnen_age_ppe_dependence --repository . --output <fresh-native-run>`;
+the retained actual command additionally installs the 180-second signal alarm.
+
+Independent session **69905** exited zero in **1.70 s** (observer
+1.476662042 s), RSS **264,077,312 bytes**, within 180 s / 512 MiB posthoc /
+5 MB. It reconstructed Q through a separate vector formulation, checked all
+32,000 identities and 31,999 complete rows, all 100 exact certificates and
+**1,500 dual principal minors**, without repeating candidate optimization.
+Maximum independent Q difference was **2.710505431213761e−19**, within the
+frozen abs1e−18 + relative1e−11 criterion. Its command, environment and result
+are under `artifacts/method-certification/abborrtjarnen-age-ppe/common-covariance/`;
+`independent-check.json` is 1,119 bytes, SHA-256
+`073f9d80e7718723c8e33c671ceb1471165c37c45373412dd8cba621f1d08760`.
+The CLI is
+`python -B -m tests.source_completion.pollen_reconstruction.test_abborrtjarnen_age_ppe_dependence_result --repository . --result <native-result> --output <fresh-check>`.
+Before actual execution, 31 author controls and 40 independent controls passed,
+including analytical shared-age counterexamples, exact rank-two certificates,
+solver failures, retained loose bounds and signed square-root domains;
+configured Ruff and strict mypy passed for both changed source sets.
+
+Full numerical outputs remain local noncommercial derivatives under the
+original count source's CC BY-NC 3.0 scope. This sensitivity does not change
+either earlier profile, remove the remaining undefined state, establish Monte
+Carlo precision of derived means, validate taxonomy/geometry/chronology or
+supply measured vegetation, historical reproduction or original core admission.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** First-order total-covariance propagation on explicit complete-event populations, including shared age/count/PPE interaction and all 30 contrasts. Separate source-supported recorded zeros expand the defined population while reproducing all native-complete estimates unchanged.
+**Supported claim.** First-order total-covariance propagation on explicit complete-event populations, including shared age/count/PPE interaction and all 30 contrasts. Separate source-supported recorded zeros expand the defined population while reproducing all native-complete estimates unchanged. A separate saved-age calculation certifies finite-Q variance extrema over one common PPE correlation matrix for all age states, on the same source-supported population.
 
-**Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, Monte Carlo SE of a mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission.
+**Unsupported claim.** Unconditional 20-component moments across undefined rows, 32,000 independent observations, Monte Carlo SE of a mean, nonlinear full-PPE posterior or calibrated interval coverage, whole vegetation, corrected chronology or original core admission. No single covariance jointly attains all scalar extrema; approximate square-root displays are not rigorous directed intervals or field coverage.
 
-**Actual verification performed.** Strict producer/observer qualification is retained. Source-supported producer at 3c8947519 and corrected independent observer at 4bc6ab0f2 both exited zero. The observer checked all 107 owners, 535 source slots, 527 reported count pairs, eight recorded zeros, 32,000 saved identities, support transitions, 2,400 covariance cells and 30 contrasts. Common-native, source and difference gaps are 1.1817e-14, 1.2990e-14 and 3.1225e-16 under 1e-12 absolute tolerance. Producer 36 controls and independent 44 earlier plus six wrapper controls passed across affected selections; no fresh aggregate, age fit or PPE draw is claimed.
+**Actual verification performed.** Strict producer/observer qualification is retained. Source-supported producer at 3c8947519 and corrected independent observer at 4bc6ab0f2 both exited zero. The observer checked all 107 owners, 535 source slots, 527 reported count pairs, eight recorded zeros, 32,000 saved identities, support transitions, 2,400 covariance cells and 30 contrasts. Common-native, source and difference gaps are 1.1817e-14, 1.2990e-14 and 3.1225e-16 under 1e-12 absolute tolerance. Producer 36 controls and independent 44 earlier plus six wrapper controls passed across affected selections; no fresh aggregate, age fit or PPE draw is claimed. Common-covariance producer and independent observer at 19feb79bf both exited zero: 50 scalars, 100 exact endpoint certificates, 1500 dual principal minors and all 32000 saved identities. Maximum independent Q gap 2.7105e-19; largest normalized certified gap exactly 1/4194304, below the frozen 1e-6 criterion. All 800 candidate attempts are retained. Thirty-one author and forty independent controls, configured Ruff and strict mypy pass. Actual producer 4.5844 s/RSS150650880 B; observer 1.70 s/RSS264077312 B.
 
 **Remaining input or review.** Strict native counts leave 2,668 undefined age rows; independently qualified original recorded zeros support a separately named local profile with one undefined empty-window row. Both unconditional quantities remain refused. Conditional moments retain declared age, pooled-count, shared diagonal-PPE, static physical and taxon-transfer assumptions without field calibration. Resolver: Analyst preserving each named source/conditioning population; source and field expertise for any broader taxon, physical-support or accuracy claim. Reopen when: A different unconditional quantity requires a declared estimand and genuinely defined support; a different uncertainty or field claim needs its own source/evidence protocol without relabelling either existing result.
 
@@ -233,11 +335,11 @@ scientific core/species/PPE approval or field admission has changed.
 
 **Precise next acceptance route.** Read each named conditional result under its own source rights, count support and conditioning event. Preserve both refused unconditional quantities and the original strict exports. Any different estimand or field interpretation needs its own defined support and evidence; do not silently change masks, bins, taxon transfer or stochastic laws.
 
-**Negative or refused result.** Strict unconditional moments remain null for 2,668 rows; the separate source-supported profile remains null for one empty bin-4 row. The failed first observer stopped before ledger traversal on its wrapper-shape assumption and is preserved; only its adapter/controls changed. No missing-value rule, row drop, clipped covariance, replacement chronology or field significance was adopted.
+**Negative or refused result.** Strict unconditional moments remain null for 2,668 rows; the separate source-supported profile remains null for one empty bin-4 row. The failed first observer stopped before ledger traversal on its wrapper-shape assumption and is preserved; only its adapter/controls changed. No missing-value rule, row drop, clipped covariance, replacement chronology or field significance was adopted. The common-covariance study retains signed bounds and predeclared loose/solver/domain refusal behavior; all actual 100 endpoints are tight, with 81 zero gaps and 19 positive gaps. It does not remove the undefined source-supported age row.
 
-**Matched denominator.** All 107 native samples, 99 native-complete panels and eight native omissions; the separate original-source profile has 107 analytically supported panels. Both retain two chains of 16,000 states and all 32,000 probability-denominator rows. C_native has 29,332 rows; C_source has 31,999: 2,667 newly complete, one jointly undefined, zero lost native-complete. Each conditional population retains all 20 components, six covariance matrices and 30 contrasts.
+**Matched denominator.** All 107 native samples, 99 native-complete panels and eight native omissions; the separate original-source profile has 107 analytically supported panels. Both retain two chains of 16,000 states and all 32,000 probability-denominator rows. C_native has 29,332 rows; C_source has 31,999: 2,667 newly complete, one jointly undefined, zero lost native-complete. Each conditional population retains all 20 components, six covariance matrices and 30 contrasts. Common-covariance sensitivity uses the same C_source, 20 components and 30 contrasts, with one parameter covariance shared across states; it introduces no new observation or draw.
 
-Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/source-supported-counts/protocol.json](source-supported-counts/protocol.json), [reports/science/abborrtjarnen-source-method.md](../../abborrtjarnen-source-method.md).
+Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json](result.json), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/components.csv](components.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/contrasts.csv](contrasts.csv), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/source-supported-counts/protocol.json](source-supported-counts/protocol.json), [reports/science/abborrtjarnen-source-method.md](../../abborrtjarnen-source-method.md), [reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/common-covariance/protocol.json](common-covariance/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
