@@ -1,0 +1,88 @@
+{
+  "schema_version": "spatial-field-radial-envelope-protocol.v1",
+  "question": "How much do one fixed finer radial partition and complementary coefficient propagation narrow the conditional numerical context for the existing exposed spatial forwarding comparison?",
+  "source_prediction": "artifacts/physical-core/spatial-field-forward/native-run/prediction-freeze.json",
+  "source_result": "artifacts/physical-core/spatial-field-forward/native-run/result.json",
+  "source_verification": "artifacts/spatial-field-forward/independent-check/summary.json",
+  "source_execution": "artifacts/spatial-field-forward/independent-check/execution.json",
+  "original_protocol": "reports/science/pollen-reconstruction/spatial-field-forward/protocol.json",
+  "prior_producer_source_commit": "dbe099e7df3718098d0dc13b1412335d44702af5",
+  "prior_observer_source_commit": "7deffa682499d0763b5c06f66b7aac77c962266c",
+  "repository_inputs": {
+    "artifacts/physical-core/spatial-field-forward/native-run/prediction-freeze.json": {
+      "bytes": 92013,
+      "sha256": "b9925425014270f53c8278c5e3690deff0a6d7f089d3e0f6cf11702b6f7319c9"
+    },
+    "artifacts/physical-core/spatial-field-forward/native-run/result.json": {
+      "bytes": 258956,
+      "sha256": "c02b2aee34eb2623ace446179df8e28801ab393b7b35559590a68989dac84319"
+    },
+    "artifacts/spatial-field-forward/independent-check/summary.json": {
+      "bytes": 2429,
+      "sha256": "021800d710026b9265bf17033fcde5905de23ce6463c3336e7427651f9da6e3f"
+    },
+    "artifacts/spatial-field-forward/independent-check/execution.json": {
+      "bytes": 1001,
+      "sha256": "a07a59b4b772fdafc52914db340e9441b89e394de1ac96414869e3ed1e89b509"
+    }
+  },
+  "cores": [
+    "BOKE",
+    "BUS",
+    "SOLSOE83"
+  ],
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "design": {
+    "coarse_rings": 8,
+    "subdivisions_per_coarse_ring": 16,
+    "refined_rings_per_geometry": 128,
+    "taxon_geometries": 6,
+    "fixed_homogeneous_ring_calls": 768,
+    "endpoint_lattice_bits": 96
+  },
+  "finite_target": "Use the finite serialized projected anchor coordinates and nested ring edges as exact rationals. Each returned positive binary64 ring mass M_j is an exact conditional constant, not a certified true integral. The new model class consists of positive radial measures with those exact ring masses/supports. Its K_refined=sum_j Fraction.from_float(M_j) is exact. Circle-mean monotonicity bounds weighted anchor coefficients over this class. No field, true-integral, directed quadrature-error or historical basin claim follows.",
+  "coefficient_law": "For a,b and radius r, S=|a+b|^2, Delta=|b|^2-|a|^2, u=2(r^2-a.dot(b)), D=sqrt(u^2+S*|b-a|^2). h=1/2+Delta/(2S)*(1-u/D); Delta=0 gives h=1/2. The derivative -2r*Delta*|b-a|^2/D^3 has fixed sign. Enclose D on a fixed 96-bit outward square-root lattice using exact integer inequalities, evaluate both rational endpoints, then round h outward to the common 2^-96 lattice. Endpoint extrema times positive exact masses give B1; B2=K_refined-B1. Do not substitute any old K, rescale coefficients, project or widen a bound after seeing outcomes.",
+  "deposition_law": "Keep both original source covers and PPE as finite exact constants. For each taxon use PPE*(K_refined*c2+(c1-c2)*B1), selecting endpoints by the sign of c1-c2. Positive two-component normalization yields conservative probability ranges. Separate taxa and contexts may attain incompatible endpoints; aggregate ranges do not assert a jointly attaining physical field.",
+  "ring_quadrature": {
+    "absolute_tolerance_per_ring": 7.8125e-12,
+    "relative_tolerance": 1e-08,
+    "quadrature_limit": 100,
+    "method": "Unchanged circular_receiver_annulus with the original physical parameters and fixed nested boundaries. Return all 768 ring outcomes once. Each warning, failure, nonfinite or nonpositive mass refuses its geometry envelope; retain remaining calls and the full outcome population, with no retry or adaptive partition."
+  },
+  "reference_correspondence": {
+    "mass_absolute_tolerance": 1e-09,
+    "mass_relative_tolerance": 1e-08,
+    "law": "Record K_refined minus the old standalone homogeneous K, old primary homogeneous K and old primary anchor sum separately, using exact finite arithmetic. The fixed mass diagnostic uses atol+rtol*abs(old standalone K). Old coefficients are not asserted jointly feasible in the different exact refined-K context. A mass gap beyond this diagnostic or an old scalar prediction/score outside the new range refuses legacy-point correspondence; never widen the range or change an old value. Passing scalar membership is only numerical correspondence, never true-integral coverage or an ecological ordering claim. Prediction membership checks each serialized component separately; finite components need not sum to exactly one. This is not joint feasibility of a single exact closed legacy vector or of its original coefficients."
+  },
+  "metrics": "Retain both observed binary64 components exactly; do not force the second to one minus the first. MAE and TV are half the sum of absolute errors and coincide for two predicted components. Their minimum occurs on the median interval between observed0 and 1-observed1; maximum is at an endpoint. Hellinger minimum occurs at p=observed0/(observed0+observed1), truncated only as the mathematical constrained minimizer to the probability domain; its maximum is at an endpoint. Use constructive square-root difference intervals, squared norms and a final 96-bit outward root. Old baseline scores remain fixed saved finite references, not newly certified metrics of rounded pairs.",
+  "prediction_boundary": "The original source targets were already exposed; no untouched claim is made. During actual execution, read the old prediction packet and existing independent qualification first. Persist and close all count-free refined coefficients and all 18 prediction ranges before parsing the old native scored-result observations. The predictor receives only frozen training covers, geometry and PPE. Score the closed new ranges against the existing observed fractions; no raw count input, age input, source inversion or new point prediction is needed.",
+  "aggregation": "Keep all 18 contexts, 54 family outcomes, six windows per place, three equally weighted places and all three metrics. Compute exact means of saved finite baseline scores and exact conditional spatial score intervals. Retain old printed floating aggregates separately as references; the extra rounding is not silently relabelled. Incomplete geometry refuses the corresponding full-cohort conditional comparison without dropping or reweighting rows. Pairwise finite-mass-context separation and legacy-point-correspondence status are separate.",
+  "scope": "The original study and its eight-ring context remain unchanged and unresolved in their original numerical context. This is one finer conditional finite-mass envelope, not a rerun of point predictions, a parameter search, a new physical model, measured vegetation accuracy or untouched confirmation. Quadrature estimates are nonrigorous and source/core/geometry assumptions persist. A refinement may remain unresolved; there is no promised winner, further resolution escalation or retry.",
+  "rights_and_use": "Reuse the previously qualified Neotoma/EPD CC BY 4.0 and public LandClimII PANGAEA.937075 source context, preserving investigator and native DOI attribution in the original account. No original count table or private author payload is redistributed. Derived local outputs are ordinary scientific calculation artifacts; the existing spatial-field-forward README is the sole readable account.",
+  "independent_correspondence": {
+    "angular_absolute_tolerance": 2e-12,
+    "angular_resolution_absolute_tolerance": 1e-11,
+    "projection_absolute_tolerance_m": 1e-05,
+    "projection_relative_tolerance": 1e-12,
+    "law": "Independently verify exact algebraic certificates, ring-mass use and complementary/affine/closure/scoring arithmetic without producer imports or another 768-call quadrature. Direct literal-circle Gauss-Legendre orders 256/512, generated once each, separately check angular correspondence. Finite-mass certificates do not certify the numerical masses or true projection."
+  },
+  "resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 5000000
+  },
+  "independent_resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 5000000
+  },
+  "model_fits": 0,
+  "new_point_predictions": 0,
+  "raw_count_or_age_inputs_read": false,
+  "prior_point_values_changed": false,
+  "true_integral_or_field_accuracy_claim": false,
+  "retune_or_retry_permitted": false
+}
