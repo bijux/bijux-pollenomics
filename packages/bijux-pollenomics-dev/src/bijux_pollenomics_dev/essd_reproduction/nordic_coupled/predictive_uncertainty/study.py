@@ -145,7 +145,7 @@ def produce(repository: Path, protocol_path: Path, output: Path) -> dict[str, An
         "outcome_access": {
             "prediction_manifest_sha256": manifest_pin["sha256"],
             "readback_verified": True,
-            "scope": "Previously exposed; postfreeze diagnostic only",
+            "scope": "previously exposed; postfreeze diagnostic only",
         },
     }
     pins["summary"] = _write(

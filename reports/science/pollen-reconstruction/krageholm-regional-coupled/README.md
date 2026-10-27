@@ -115,16 +115,109 @@ confirmation remain separate acceptance questions. This result closes neither
 those questions nor the broader physical-validation outcome.
 
 
+## Conditional count and PPE prediction uncertainty
+
+The separate [prospective bootstrap protocol](predictive-uncertainty/protocol.json)
+propagates the original fixed-total multinomial count law and whole-vector
+nonnegative normal PPE draws through these saved finite kernels. It uses 1,024
+replicates, seed 20261027, independent physical owner/window count streams and
+one shared Betula/Ulmus PPE vector per replicate. The same allowed training
+draws feed regional REVEALS, both signed local LOVE rings, interpolation and
+forward pollen. Each fold excludes its target's counts and quantitative ancestry;
+changing those counts leaves its predictions and allowed-input identities exact.
+The two-taxon panel, source point ages, static geometry, distances and kernels
+remain fixed. Source compatibility specifies a working law, not field calibration.
+
+Only the nine originally successful method slots enter propagation; all 45 older
+nominal refusals remain unchanged. Local final-ring domain failures are retained
+for every replicate, without clipping or replacing a missing predictor. The
+number of defined replicates is identical across the three spatial methods
+because each still requires both local training compositions.
+
+| Held target | Defined / 1,024 | Undefined fraction |
+| --- | ---: | ---: |
+| BOKE | 544 | 0.468750 |
+| BUS | 594 | 0.419922 |
+| SOLSOE83 | 860 | 0.160156 |
+| All three targets jointly | 525 | 0.487305 |
+
+All unconditional physical composition summaries therefore refuse. Saved
+conditional means, population covariance and empirical 2.5/50/97.5 percentiles
+summarize only the defined subset. The separately reported Monte Carlo standard
+error estimates the conditional working-law expectation; it is neither the
+finite ensemble spread nor uncertainty in field accuracy. Local signed covers
+and both ring diagnostics remain available, including invalid unselected rings.
+
+The direct counterpart uses the same two training count compositions and spatial
+weights, without KRAG or PPE. Comparisons below use exactly the 525 common-defined
+replicate IDs and equal weights across the three previously exposed targets.
+MAE equals total variation on this two-component panel. The empirical ranges
+are conditional training/working-model diagnostics, not predictive coverage,
+credible intervals or evidence of general method superiority.
+
+| Method | Physical mean MAE | Matched direct mean MAE | Physical minus direct MAE, mean | Empirical 2.5–97.5% contrast |
+| --- | ---: | ---: | ---: | --- |
+| Training mean | 0.062380 | 0.070176 | −0.007796 | [−0.010759, −0.005156] |
+| Nearest site | 0.095547 | 0.102889 | −0.007342 | [−0.009359, −0.005318] |
+| Inverse squared distance | 0.081528 | 0.087655 | −0.006128 | [−0.007994, −0.004343] |
+
+The maintained producer ran once at
+`d8886b48eb550282aa339c8a46d965bb12cac579`:
+
+```bash
+python -B -m bijux_pollenomics_dev.essd_reproduction.nordic_coupled.predictive_uncertainty.study \
+  --repository "$PWD" \
+  --protocol "$PWD/reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json" \
+  --output "$PWD/artifacts/physical-core/krageholm-regional-coupled/predictive-uncertainty"
+```
+
+It used the shared environment, bytecode suppression and all five numerical
+thread limits at one. Prediction members and their manifest were serialized,
+authenticated and reopened before outcome diagnostics. Process time was 6.14 s,
+peak RSS 195,379,200 bytes and all products/logs totaled 6,673,042 bytes, within
+180 s / 768 MiB / 16 MiB. All nine nominal vectors matched the original absolute
+1e-12 bound; 141 scientific files and 4,473 first-party Python/protocol files,
+HEAD and raw index remained stable through the original producer/observer pair.
+
+The first independent observer stopped solely on uppercase `Previously` versus
+its lowercase diagnostic-scope label. Its literal failure is retained. A second
+readback at the same committed source authenticated every original serialized
+member, normalized that presentation string in memory only, and ran independent
+`verification.sources.bind_sources` and `verification.audit`. It passed all
+141 source bindings, 24 owners, three saved-kernel folds, nine nominal references
+and 9,216 method-replicate slots, including RNG replay, scalar reconstruction,
+admission, covariance, Monte Carlo errors, matched losses and complete population
+accounting. Absolute 1e-13 / relative 1e-10 tolerances were unchanged. It took
+2.28 s with RSS 81,461,248 bytes; the observer directory including its failed
+attempt and successful logs/report totals 6,533 bytes. No predictions, draws,
+source files or saved products were regenerated or edited. Subsequent source
+normalizes the producer label to the observer's established lowercase spelling.
+
+Raw products remain under
+`artifacts/physical-core/krageholm-regional-coupled/predictive-uncertainty/`;
+the independent result and both attempts remain under
+`artifacts/verification/krageholm-predictive-uncertainty/`.
+The producer result is 1,476 bytes, SHA256
+`cb0e9db1f106296b8a29a72ef3d1ea1b585aeb42604b432111b02ee997e8584b`;
+its 142,305-byte summary has SHA256
+`185c89be761f081b70dbc51e8c582c6200fe09e6768fc0f4e84d4f1a34ae8ea2`.
+The qualified nominal input reading still reuses the saved 59 small-core supports;
+this study is not a fresh native-owner census. It does not propagate chronology,
+basin history, kernel integration error, regional representativeness or an
+empirically calibrated model-discrepancy law. It supplies no measured vegetation,
+untouched confirmation or full physical-validation acceptance.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** A fixed KRAG regional source and two local training places yield nine numerically checked conditional pollen predictions in 2700–3200 cal BP; all 45 failed method slots remain explicit across the other five windows.
+**Supported claim.** A fixed KRAG regional source and two local training places yield nine numerically checked conditional pollen predictions in 2700–3200 cal BP; all 45 failed method slots remain explicit across the other five windows. A separate 1,024-replicate count/PPE bootstrap retains explicit undefined mass and shared owner dependencies: BOKE544, BUS594 and SOLSOE83860 defined, with525 jointly defined replicates.
 
 **Unsupported claim.** Historical reproduction, measured vegetation accuracy, independent regional representativeness, full uncertainty, untouched confirmation, an isolated basin-size effect or broader scientific/field acceptance.
 
-**Actual verification performed.** One three-operation producer at 43995b359 returned native0 within all bounds; observer a98bc99a0 returned 0 in .590 s with 31,506,432 B RSS and checked all 54dispositions with maximum scalar difference 1.1102230246251565e-16 conditional on saved kernels/distances. Final 151 independent, 86 host and 16 producer controls plus an artificial compatibility fixture and configured lint/types pass. Three earlier metadata-observer failures remain preserved.
+**Actual verification performed.** One three-operation producer at 43995b359 returned native0 within all bounds; observer a98bc99a0 returned 0 in .590 s with 31,506,432 B RSS and checked all 54dispositions with maximum scalar difference 1.1102230246251565e-16 conditional on saved kernels/distances. Final 151 independent, 86 host and 16 producer controls plus an artificial compatibility fixture and configured lint/types pass. Three earlier metadata-observer failures remain preserved. Bootstrap producer at d8886b48e exited0 in6.14s/RSS195379200B/6673042allB. Independent source binding and scalar audit passed141files/24owners/9nominal/9216slots in2.28s/RSS81461248B; the original presentation-case-only observer failure is retained, and only that scope string was casefolded in memory for successful readback. All serialized products unchanged; original numerical tolerances unchanged. Integrated109 controls and final5 manifest/readback controls passed; configured lint/format/types pass.
 
-**Remaining input or review.** The fixed regional geometry, regional representativeness, abundance normalization, source/taxon parameter transfer and omitted uncertainty remain conditional; fifteen target folds cannot admit both required local compositions. Resolver: Source and field experts for physical/parameter comparability; analyst for the declared calculation and genuinely independent measurements Reopen when: Source-owned geometry/parameter/abundance evidence or an eligible independent measured target supports a new prospectively justified analysis; do not retune this profile to remove its refusals.
+**Remaining input or review.** The fixed regional geometry, regional representativeness, abundance normalization and source/taxon parameter transfer remain conditional. Count/PPE working-law variability is propagated separately; chronology, basin history and calibrated discrepancy are not. Fifteen older target folds cannot admit both local compositions. Resolver: Source and field experts for physical/parameter comparability; analyst for the declared calculation and genuinely independent measurements Reopen when: Source-owned geometry/parameter/abundance evidence or an eligible independent measured target supports a new prospectively justified analysis; do not retune this profile to remove its refusals.
 
 **Cause category.** data|assumption|comparability
 
@@ -132,11 +225,11 @@ those questions nor the broader physical-validation outcome.
 
 **Precise next acceptance route.** Qualify source-specific regional/geometry/parameter/abundance assumptions and use actually matched measured vegetation or untouched evidence for broader acceptance, preserving this fixed-profile result and all refusals.
 
-**Negative or refused result.** All 15 target folds in the five older windows refuse required local composition admission; no clipping, dropped window or one-predictor fallback. Twenty-four negative final-cover occurrences are retained among 36 fit references to 18distinct requests.
+**Negative or refused result.** All 15 target folds in the five older windows refuse required local composition admission; no clipping, dropped window or one-predictor fallback. Twenty-four negative final-cover occurrences are retained among 36 fit references to 18distinct requests. Bootstrap joint prediction undefined for499/1024replicates; every unconditional physical composition summary refuses. Finite-only loss contrasts do not calibrate field coverage.
 
-**Matched denominator.** Four source places/three targets × six windows = 18 folds and 54 method slots: 9 scored + 45 unscored. KRAG 96 original / 19 selected literal owners; small-core 20 + 21 + 18 = 59 qualified supports, not fresh owner-ID reconciliation.
+**Matched denominator.** Four source places/three targets × six windows = 18 folds and 54 method slots: 9 scored + 45 unscored. KRAG 96 original / 19 selected literal owners; small-core 20 + 21 + 18 = 59 qualified supports, not fresh owner-ID reconciliation. Bootstrap draws only4active owner/windows; preserves24metadataowners/18folds/54nominalslots, propagates9slots ×1024; aggregate comparisons use exactly525common-definedreplicateIDs.
 
-Retained evidence: [reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json](protocol.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json](result.json).
+Retained evidence: [reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json](protocol.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json](result.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json](predictive-uncertainty/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

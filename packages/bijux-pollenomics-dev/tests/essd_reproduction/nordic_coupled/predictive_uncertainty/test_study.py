@@ -99,6 +99,9 @@ def test_outcomes_open_only_after_all_closed_predictions_are_read_back(
     assert result["source_guards_passed"] is True
     summary = json.loads((output / "summary.json").read_text())
     assert summary["outcome_access"]["readback_verified"] is True
+    assert summary["outcome_access"]["scope"] == (
+        "previously exposed; postfreeze diagnostic only"
+    )
     assert len(summary["score_diagnostics"]["observed"]) == 3
     assert len(summary["score_diagnostics"]["cases"]) == 9
 
