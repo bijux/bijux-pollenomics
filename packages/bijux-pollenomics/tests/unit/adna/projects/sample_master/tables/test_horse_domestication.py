@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import replace
 from io import StringIO
 import json
 
@@ -11,12 +12,21 @@ import pytest
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
+from bijux_pollenomics.adna.projects.registry.localities import (
+    resolve_project_locality_leads,
+)
+from bijux_pollenomics.adna.projects.registry.samples import (
+    build_species_curated_sample_rows,
+)
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master,
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.horse_domestication import (
     HORSE_DOMESTICATION_ARCHIVE,
     _berel_archive_locator,
+)
+from bijux_pollenomics.adna.workflow.normalization.samples import (
+    _sample_record_is_admissible,
 )
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 from tests.support.repository import REPOSITORY_ROOT
@@ -63,6 +73,7 @@ def test_primary_identity_adds_one_owner_without_rewriting_comparators() -> None
     assert source["archive_native_sample_id"] == "SAMEA103910520"
     assert source["archive_native_experiment_id"] == ""
     assert source["source_native_scientific_name"] == "Equus caballus"
+    assert source["sample_evidence_status"] == "direct_table_extracted"
     assert source["chronology_text"] == "2,300 yBP"
     assert (
         source["political_entity"]
@@ -81,6 +92,28 @@ def test_primary_identity_adds_one_owner_without_rewriting_comparators() -> None
     assert chronology.time_end_bp is None
     assert chronology.time_mean_bp is None
     assert chronology.chronology_evidence_class == "unresolved"
+
+
+def test_table_identity_retains_missing_spatial_context() -> None:
+    assert any(
+        lead.locality_text == "Berel'" and lead.political_entity == "Kazakhstan"
+        for lead in resolve_project_locality_leads("PRJEB19970")
+    )
+    row = next(
+        row
+        for row in build_species_curated_sample_rows("horse")
+        if row.stable_sample_id == "prjeb19970:samea103910520"
+    )
+    assert _sample_record_is_admissible(row)
+    assert not _sample_record_is_admissible(
+        replace(row, sample_evidence_status="pdf_text_extracted")
+    )
+    assert row.sample_evidence_status == "direct_table_extracted"
+    assert row.site_label == "Berel'"
+    assert row.political_entity is None
+    assert row.latitude_text == row.longitude_text == ""
+    assert row.time_start_bp is None and row.time_end_bp is None
+    assert row.inclusion_status == "sample_context_blocked"
 
 
 @pytest.mark.parametrize(

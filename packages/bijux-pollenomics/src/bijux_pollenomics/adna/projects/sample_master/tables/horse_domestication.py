@@ -124,7 +124,7 @@ def _horse_domestication_primary_rows(
             supplementary_table_sample_label="BER11_L",
             preferred_sample_label="BER11_L",
             sample_basis="primary_supplement_archive_filename_join",
-            sample_evidence_status="pdf_text_extracted",
+            sample_evidence_status="direct_table_extracted",
             sample_lineage_path=f"{HORSE_DOMESTICATION_SUPPLEMENT} | {HORSE_DOMESTICATION_ARCHIVE}",
             sample_lineage_locator=f"PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | {archive_locator}",
             sample_lineage_excerpt=(
