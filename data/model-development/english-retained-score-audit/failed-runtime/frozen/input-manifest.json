@@ -1,0 +1,33 @@
+{
+  "schema_version": "english-retained-development-inputs.v1",
+  "source_candidate": "26a87699cabeed843a3f0da31beae55c8bf5f412",
+  "files": [
+    {
+      "name": "historical-design.json",
+      "source_path": "docs/report/pollen-reconstruction/author-development-design.json",
+      "sha256": "fba18f97abc529b4d35c95b187ca025f69970e6d63ff87c3141d885d941dc8ee",
+      "bytes": 3755
+    },
+    {
+      "name": "scores.csv",
+      "source_path": "docs/report/pollen-reconstruction/scores.csv",
+      "sha256": "ebea4f22cf1c8feddf8e6311afae095211f9c7bb5f396f40bcc97438d3f09666",
+      "bytes": 362738
+    },
+    {
+      "name": "predictions.csv.gz",
+      "source_path": "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
+      "sha256": "c18bd6d405ca5c31ab22f61fc0f8771098602f3eefebad305275553df5efbf92",
+      "bytes": 762912
+    },
+    {
+      "name": "source-custody.json",
+      "source_path": "docs/report/pollen-reconstruction/author-source-custody.json",
+      "sha256": "d3b40f62feafee3812ce5c73a8f5ac5c64f31553a6acd350b85cdbccf1ae3c13",
+      "bytes": 5498
+    }
+  ],
+  "original_source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "fresh_operation": "retained_score_audit_without_refitting",
+  "original_outcomes_previously_exposed": true
+}

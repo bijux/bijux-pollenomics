@@ -11,9 +11,9 @@
 The four mutually exclusive buckets partition `1468` species-normalized sample rows. The project source master has `1468` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `539`
-- sample with site and chronology: `372`
-- sample with site chronology and coordinates: `557`
+- sample with site: `789`
+- sample with site and chronology: `356`
+- sample with site chronology and coordinates: `323`
 
 ## Top Gap Projects
 

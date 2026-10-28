@@ -130,3 +130,29 @@ nonconvergences even under a higher-budget check. Neither result identifies
 universal LRA parameters. We list unresolved Swedish/Nordic basin geometry,
 selected chronology, PPE/taxon denominator, independent vegetation pairs and
 HYDE semantics in our [research-needs register](../needed/README.md).
+
+
+## Development evaluator split and target isolation
+
+Our [constructed development intake witness](../../docs/report/synthetic-validation/site-leakage/development-input-isolation.json)
+checks five direct experiment APIs: split files are flushed before reconstruction,
+verified cached-result consumption and spatial fitting, and checked again before
+publication. A known nine-record graph forms four site/core/publication/alias
+and derived-product groups; missing derived ownership is refused.
+
+For one withheld constructed target, changing valid raw pollen counts from
+`[600,400]` to `[100,900]` and changing the separately scored synthetic cover
+labels preserves all three baseline and both fitted-family training/prediction
+fingerprints. Its training-mean pollen MAE changes from `0.002610865` to
+`0.502610865`; fitted CLR/WGS84 RBF-ridge changes from `0.002610715` to
+`0.502610715`. The altered record becomes training data in three other folds,
+where negative-composition refusals remain explicit: baseline predictions
+12→3 of 12 and fitted predictions 8→2 of 8, with 30 failed-prediction score rows.
+The separate source account retains all actual metrics, 16 exact reconstruction
+cache hits, five spatial fits, failed whole-job receipts and independent checks.
+
+The verification-only consumer passes 57 focused guards and 676 independent
+checks, including 50 Decimal50 MAE comparisons within `8.5e-17`. This is an
+inspected constructed software contract, with no measured vegetation reference,
+qualified real-source alias graph or untouched confirmation. It does not change
+the source/population limits of the empirical development studies above.

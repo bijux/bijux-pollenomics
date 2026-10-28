@@ -108,7 +108,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         self.assertEqual(uppsala.political_entity, "Sweden")
         self.assertEqual(uppsala.latitude_text, "59.860999999999997")
         self.assertEqual(uppsala.longitude_text, "17.638999999999999")
-        self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
+        self.assertEqual(uppsala.chronology_text, "Age (years ago): 1217-1417")
 
         registration_missing = {
             row.preferred_sample_label: row
@@ -148,7 +148,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
         )
         self.assertEqual(berel.locality_text, "Berel'")
         self.assertEqual(berel.political_entity, "Kazakhstan")
-        self.assertEqual(berel.chronology_text, "2300 BP")
+        self.assertEqual(berel.chronology_text, "Age (years ago): 2300")
 
         missing_registration_rows = {
             row.preferred_sample_label: row

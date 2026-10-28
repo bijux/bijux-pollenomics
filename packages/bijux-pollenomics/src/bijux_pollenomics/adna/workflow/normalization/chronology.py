@@ -68,6 +68,15 @@ def normalize_chronology_text(
             time_mean_bp=None,
             dating_basis=basis,
         )
+    if text.startswith("Age (years ago):"):
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+            dating_basis=basis,
+            refusal_reason_code="source_age_epoch_or_scale_unresolved",
+        )
     if _CENSORED_CHRONOLOGY_RE.search(text):
         return AdnaChronology(
             original_text=text,

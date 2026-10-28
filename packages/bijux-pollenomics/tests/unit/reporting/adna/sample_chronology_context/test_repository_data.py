@@ -36,14 +36,14 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         "sample_master_row_count": 1475,
         "sample_chronology_row_count": 1475,
         "sample_site_row_count": 1475,
-        "admitted_node_count": 557,
-        "refused_master_row_count": 918,
+        "admitted_node_count": 323,
+        "refused_master_row_count": 1152,
     }
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 0,
         "sample_identity_not_final": 7,
-        "source_chronology_not_comparable": 539,
-        "source_coordinate_not_mappable": 372,
+        "source_chronology_not_comparable": 789,
+        "source_coordinate_not_mappable": 356,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
         "site_provenance_unavailable": 0,
@@ -60,14 +60,13 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert Counter(node.project_species_latin_name for node in corpus.nodes) == {
         "Bos taurus": 31,
         "Capra hircus": 9,
-        "Equus caballus": 476,
+        "Equus caballus": 242,
         "Felis catus": 35,
         "Ovis aries": 4,
         "Sus scrofa domesticus": 2,
     }
     assert Counter(node.project_accession for node in corpus.nodes) == {
         "PRJEB30282": 2,
-        "PRJEB31613": 234,
         "PRJEB44430": 242,
         "PRJEB59481": 4,
         "PRJEB75467": 31,
@@ -78,27 +77,27 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert (
         min(node.younger_bp for node in corpus.nodes),
         max(node.older_bp for node in corpus.nodes),
-    ) == (17, 68764)
+    ) == (320, 68764)
     assert Counter(node.chronology_precision_posture for node in corpus.nodes) == {
         "contextual_interval": 5,
         "sample_approximate_or_modeled": 39,
-        "sample_precise_interval": 127,
-        "sample_precise_point": 386,
+        "sample_precise_interval": 37,
+        "sample_precise_point": 242,
     }
     assert Counter(node.coordinate_basis for node in corpus.nodes) == {
         "archive_coordinates": 4,
         "named_site_geocoding": 2,
         "supplementary_proximal_site_coordinates": 31,
-        "supplementary_table_coordinates": 520,
+        "supplementary_table_coordinates": 286,
     }
     assert Counter(node.coordinate_confidence for node in corpus.nodes) == {
         "approximate": 33,
-        "exact": 520,
+        "exact": 286,
         "source_reported_two_decimal_degrees": 4,
     }
     assert Counter(node.source_native_taxonomy_status for node in corpus.nodes) == {
         "available": 72,
-        "unavailable": 485,
+        "unavailable": 251,
     }
 
 
@@ -167,7 +166,7 @@ def test_real_admitted_identity_set_equals_curated_fully_grounded_set() -> None:
             if fully_grounded:
                 curated_ids.add((row["project_accession"], row["master_id"]))
 
-    assert len(curated_ids) == 557
+    assert len(curated_ids) == 323
     assert source_ids == curated_ids
 
 

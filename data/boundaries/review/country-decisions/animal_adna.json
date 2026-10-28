@@ -28,13 +28,8 @@
   "source_artifacts": [
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc",
-      "bytes": 700614
-    },
-    {
-      "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29",
-      "bytes": 81103
+      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6",
+      "bytes": 681283
     },
     {
       "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
@@ -87,28 +82,28 @@
       "bytes": 2694
     }
   ],
-  "row_count": 170,
+  "row_count": 165,
   "summary": {
-    "row_count": 170,
+    "row_count": 165,
     "country_counts": {
       "SE": 2,
       "DK": 4,
       "NO": 0,
       "FI": 0,
-      "UNASSIGNED": 164
+      "UNASSIGNED": 159
     },
     "decision_status_counts": {
       "assigned": 6,
       "review": 1,
-      "unassigned": 163
+      "unassigned": 158
     },
     "decision_method_counts": {
       "boundary_proximity": 1,
-      "no_boundary_containment": 163,
+      "no_boundary_containment": 158,
       "strict_boundary_containment": 6
     },
     "review_requirement_counts": {
-      "no_point_review_required": 169,
+      "no_point_review_required": 164,
       "qualified_review_required": 1
     }
   },
@@ -123,7 +118,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[133]"
+          "locator": "rows[128]"
         },
         {
           "role": "source_native_row",
@@ -171,7 +166,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[54]"
+          "locator": "rows[49]"
         },
         {
           "role": "source_native_row",
@@ -219,7 +214,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[79]"
+          "locator": "rows[74]"
         },
         {
           "role": "source_native_row",
@@ -267,7 +262,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[108]"
+          "locator": "rows[103]"
         },
         {
           "role": "source_native_row",
@@ -363,7 +358,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[107]"
+          "locator": "rows[102]"
         },
         {
           "role": "source_native_row",
@@ -459,7 +454,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[137]"
+          "locator": "rows[132]"
         },
         {
           "role": "source_native_row",
@@ -555,7 +550,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[70]"
+          "locator": "rows[65]"
         },
         {
           "role": "source_native_row",
@@ -603,7 +598,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[93]"
+          "locator": "rows[88]"
         },
         {
           "role": "source_native_row",
@@ -651,7 +646,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[92]"
+          "locator": "rows[87]"
         },
         {
           "role": "source_native_row",
@@ -699,7 +694,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[94]"
+          "locator": "rows[89]"
         },
         {
           "role": "source_native_row",
@@ -747,7 +742,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[75]"
+          "locator": "rows[70]"
         },
         {
           "role": "source_native_row",
@@ -795,7 +790,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[167]"
+          "locator": "rows[162]"
         },
         {
           "role": "source_native_row",
@@ -849,7 +844,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[141]"
+          "locator": "rows[136]"
         },
         {
           "role": "source_native_row",
@@ -937,54 +932,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:19a9c1e3ec69118fe2a388c4f866ec90a5ad9486158e990af448c76f864c5447",
-      "source_family": "animal_adna",
-      "source_scope": "global_with_four_country_filter",
-      "source_record_id": "equus_caballus:locality:prjeb31613:taymyr:russia",
-      "source_native_lineage": [
-        {
-          "role": "point_record",
-          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[53]"
-        },
-        {
-          "role": "source_native_row",
-          "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "locator": "Sheet1!row212"
-        }
-      ],
-      "longitude": 109.708,
-      "latitude": 73.046,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Russia",
-      "published_country": "Russia",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [],
-      "candidate_country_codes": [],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "unassigned",
-      "boundary_decision_status": "unassigned",
-      "decision_method": "no_boundary_containment",
-      "ambiguity_reason": "outside_governed_boundaries",
-      "ambiguity_reason_codes": [
-        "outside_governed_boundaries"
-      ],
-      "refusal_reason": "outside_governed_boundaries",
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "no_point_review_required",
-      "review_reason_codes": [],
-      "qualified_review_status": "not_required",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:207d2c4a33b224c66da11064228228f2739f2de4d3e228cca36ff8897152e2bc",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -993,7 +940,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[163]"
+          "locator": "rows[158]"
         },
         {
           "role": "source_native_row",
@@ -1041,7 +988,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[135]"
+          "locator": "rows[130]"
         },
         {
           "role": "source_native_row",
@@ -1089,7 +1036,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[87]"
+          "locator": "rows[82]"
         },
         {
           "role": "source_native_row",
@@ -1137,7 +1084,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[66]"
+          "locator": "rows[61]"
         },
         {
           "role": "source_native_row",
@@ -1233,7 +1180,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[161]"
+          "locator": "rows[156]"
         },
         {
           "role": "source_native_row",
@@ -1281,7 +1228,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[91]"
+          "locator": "rows[86]"
         },
         {
           "role": "source_native_row",
@@ -1377,7 +1324,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[129]"
+          "locator": "rows[124]"
         },
         {
           "role": "source_native_row",
@@ -1425,7 +1372,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[102]"
+          "locator": "rows[97]"
         },
         {
           "role": "source_native_row",
@@ -1521,7 +1468,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[59]"
+          "locator": "rows[54]"
         },
         {
           "role": "source_native_row",
@@ -1569,7 +1516,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[106]"
+          "locator": "rows[101]"
         },
         {
           "role": "source_native_row",
@@ -1617,7 +1564,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[86]"
+          "locator": "rows[81]"
         },
         {
           "role": "source_native_row",
@@ -1665,7 +1612,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[127]"
+          "locator": "rows[122]"
         },
         {
           "role": "source_native_row",
@@ -1713,7 +1660,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[114]"
+          "locator": "rows[109]"
         },
         {
           "role": "source_native_row",
@@ -1857,7 +1804,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[120]"
+          "locator": "rows[115]"
         },
         {
           "role": "source_native_row",
@@ -1905,7 +1852,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[136]"
+          "locator": "rows[131]"
         },
         {
           "role": "source_native_row",
@@ -2001,7 +1948,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[159]"
+          "locator": "rows[154]"
         },
         {
           "role": "source_native_row",
@@ -2049,7 +1996,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[63]"
+          "locator": "rows[58]"
         },
         {
           "role": "source_native_row",
@@ -2097,7 +2044,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[157]"
+          "locator": "rows[152]"
         },
         {
           "role": "source_native_row",
@@ -2145,7 +2092,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[169]"
+          "locator": "rows[164]"
         },
         {
           "role": "source_native_row",
@@ -2248,7 +2195,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[85]"
+          "locator": "rows[80]"
         },
         {
           "role": "source_native_row",
@@ -2344,7 +2291,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[124]"
+          "locator": "rows[119]"
         },
         {
           "role": "source_native_row",
@@ -2392,7 +2339,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[97]"
+          "locator": "rows[92]"
         },
         {
           "role": "source_native_row",
@@ -2490,7 +2437,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[155]"
+          "locator": "rows[150]"
         },
         {
           "role": "source_native_row",
@@ -2586,7 +2533,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[153]"
+          "locator": "rows[148]"
         },
         {
           "role": "source_native_row",
@@ -2634,7 +2581,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[76]"
+          "locator": "rows[71]"
         },
         {
           "role": "source_native_row",
@@ -2682,7 +2629,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[68]"
+          "locator": "rows[63]"
         },
         {
           "role": "source_native_row",
@@ -2730,7 +2677,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[100]"
+          "locator": "rows[95]"
         },
         {
           "role": "source_native_row",
@@ -2826,7 +2773,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[134]"
+          "locator": "rows[129]"
         },
         {
           "role": "source_native_row",
@@ -2874,7 +2821,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[126]"
+          "locator": "rows[121]"
         },
         {
           "role": "source_native_row",
@@ -2922,7 +2869,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[143]"
+          "locator": "rows[138]"
         },
         {
           "role": "source_native_row",
@@ -3018,7 +2965,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[104]"
+          "locator": "rows[99]"
         },
         {
           "role": "source_native_row",
@@ -3066,7 +3013,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[152]"
+          "locator": "rows[147]"
         },
         {
           "role": "source_native_row",
@@ -3114,7 +3061,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[61]"
+          "locator": "rows[56]"
         },
         {
           "role": "source_native_row",
@@ -3162,7 +3109,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[90]"
+          "locator": "rows[85]"
         },
         {
           "role": "source_native_row",
@@ -3210,7 +3157,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[144]"
+          "locator": "rows[139]"
         },
         {
           "role": "source_native_row",
@@ -3258,7 +3205,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[119]"
+          "locator": "rows[114]"
         },
         {
           "role": "source_native_row",
@@ -3354,7 +3301,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[58]"
+          "locator": "rows[53]"
         },
         {
           "role": "source_native_row",
@@ -3402,7 +3349,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[88]"
+          "locator": "rows[83]"
         },
         {
           "role": "source_native_row",
@@ -3498,7 +3445,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[142]"
+          "locator": "rows[137]"
         },
         {
           "role": "source_native_row",
@@ -3546,7 +3493,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[128]"
+          "locator": "rows[123]"
         },
         {
           "role": "source_native_row",
@@ -3594,7 +3541,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[81]"
+          "locator": "rows[76]"
         },
         {
           "role": "source_native_row",
@@ -3690,7 +3637,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[154]"
+          "locator": "rows[149]"
         },
         {
           "role": "source_native_row",
@@ -3786,7 +3733,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[162]"
+          "locator": "rows[157]"
         },
         {
           "role": "source_native_row",
@@ -3834,7 +3781,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[57]"
+          "locator": "rows[52]"
         },
         {
           "role": "source_native_row",
@@ -3882,7 +3829,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[96]"
+          "locator": "rows[91]"
         },
         {
           "role": "source_native_row",
@@ -3978,7 +3925,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[164]"
+          "locator": "rows[159]"
         },
         {
           "role": "source_native_row",
@@ -4026,7 +3973,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[110]"
+          "locator": "rows[105]"
         },
         {
           "role": "source_native_row",
@@ -4074,7 +4021,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[158]"
+          "locator": "rows[153]"
         },
         {
           "role": "source_native_row",
@@ -4122,7 +4069,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[82]"
+          "locator": "rows[77]"
         },
         {
           "role": "source_native_row",
@@ -4170,7 +4117,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[138]"
+          "locator": "rows[133]"
         },
         {
           "role": "source_native_row",
@@ -4218,7 +4165,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[130]"
+          "locator": "rows[125]"
         },
         {
           "role": "source_native_row",
@@ -4314,7 +4261,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[62]"
+          "locator": "rows[57]"
         },
         {
           "role": "source_native_row",
@@ -4362,7 +4309,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[121]"
+          "locator": "rows[116]"
         },
         {
           "role": "source_native_row",
@@ -4410,7 +4357,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[89]"
+          "locator": "rows[84]"
         },
         {
           "role": "source_native_row",
@@ -4556,7 +4503,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[64]"
+          "locator": "rows[59]"
         },
         {
           "role": "source_native_row",
@@ -4652,7 +4599,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[149]"
+          "locator": "rows[144]"
         },
         {
           "role": "source_native_row",
@@ -4700,7 +4647,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[122]"
+          "locator": "rows[117]"
         },
         {
           "role": "source_native_row",
@@ -4748,7 +4695,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[148]"
+          "locator": "rows[143]"
         },
         {
           "role": "source_native_row",
@@ -4796,7 +4743,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[151]"
+          "locator": "rows[146]"
         },
         {
           "role": "source_native_row",
@@ -4940,7 +4887,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[165]"
+          "locator": "rows[160]"
         },
         {
           "role": "source_native_row",
@@ -5124,54 +5071,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:a2fcf593180ae16b8080bdb2447109aebcc3fc9c5dc5289dce053d9370e4f4f7",
-      "source_family": "animal_adna",
-      "source_scope": "global_with_four_country_filter",
-      "source_record_id": "equus_caballus:locality:prjeb31613:merzlyyar:russia",
-      "source_native_lineage": [
-        {
-          "role": "point_record",
-          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[52]"
-        },
-        {
-          "role": "source_native_row",
-          "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "locator": "Sheet1!row166"
-        }
-      ],
-      "longitude": 95.36277778,
-      "latitude": 53.36333333,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Russia",
-      "published_country": "Russia",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [],
-      "candidate_country_codes": [],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "unassigned",
-      "boundary_decision_status": "unassigned",
-      "decision_method": "no_boundary_containment",
-      "ambiguity_reason": "outside_governed_boundaries",
-      "ambiguity_reason_codes": [
-        "outside_governed_boundaries"
-      ],
-      "refusal_reason": "outside_governed_boundaries",
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "no_point_review_required",
-      "review_reason_codes": [],
-      "qualified_review_status": "not_required",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:a37a9c3afa80147856787fedb8a19f1412a58407673b3ace22222efbdc0671e9",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -5180,7 +5079,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[160]"
+          "locator": "rows[155]"
         },
         {
           "role": "source_native_row",
@@ -5324,7 +5223,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[118]"
+          "locator": "rows[113]"
         },
         {
           "role": "source_native_row",
@@ -5372,7 +5271,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[140]"
+          "locator": "rows[135]"
         },
         {
           "role": "source_native_row",
@@ -5420,7 +5319,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[103]"
+          "locator": "rows[98]"
         },
         {
           "role": "source_native_row",
@@ -5468,7 +5367,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[101]"
+          "locator": "rows[96]"
         },
         {
           "role": "source_native_row",
@@ -5516,7 +5415,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[166]"
+          "locator": "rows[161]"
         },
         {
           "role": "source_native_row",
@@ -5564,7 +5463,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[117]"
+          "locator": "rows[112]"
         },
         {
           "role": "source_native_row",
@@ -5612,7 +5511,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[84]"
+          "locator": "rows[79]"
         },
         {
           "role": "source_native_row",
@@ -5660,7 +5559,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[145]"
+          "locator": "rows[140]"
         },
         {
           "role": "source_native_row",
@@ -5708,7 +5607,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[74]"
+          "locator": "rows[69]"
         },
         {
           "role": "source_native_row",
@@ -5722,54 +5621,6 @@
       "coordinate_axis_order": "longitude,latitude",
       "raw_country": "Moldova",
       "published_country": "Moldova",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [],
-      "candidate_country_codes": [],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "unassigned",
-      "boundary_decision_status": "unassigned",
-      "decision_method": "no_boundary_containment",
-      "ambiguity_reason": "outside_governed_boundaries",
-      "ambiguity_reason_codes": [
-        "outside_governed_boundaries"
-      ],
-      "refusal_reason": "outside_governed_boundaries",
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "no_point_review_required",
-      "review_reason_codes": [],
-      "qualified_review_status": "not_required",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:b159cb944cb27d291fea10100839cafb7932615c3c168f8f9ed12e7032699b5b",
-      "source_family": "animal_adna",
-      "source_scope": "global_with_four_country_filter",
-      "source_record_id": "equus_caballus:locality:prjeb31613:batagai:russia",
-      "source_native_lineage": [
-        {
-          "role": "point_record",
-          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[49]"
-        },
-        {
-          "role": "source_native_row",
-          "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "locator": "Sheet1!row24"
-        }
-      ],
-      "longitude": 134.766666666666,
-      "latitude": 67.5666667,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Russia",
-      "published_country": "Russia",
       "derived_boundary_membership": null,
       "derived_country_code": null,
       "candidate_countries": [],
@@ -5852,7 +5703,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[116]"
+          "locator": "rows[111]"
         },
         {
           "role": "source_native_row",
@@ -5900,7 +5751,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[147]"
+          "locator": "rows[142]"
         },
         {
           "role": "source_native_row",
@@ -5996,7 +5847,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[115]"
+          "locator": "rows[110]"
         },
         {
           "role": "source_native_row",
@@ -6044,7 +5895,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[168]"
+          "locator": "rows[163]"
         },
         {
           "role": "source_native_row",
@@ -6099,7 +5950,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[132]"
+          "locator": "rows[127]"
         },
         {
           "role": "source_native_row",
@@ -6147,7 +5998,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[77]"
+          "locator": "rows[72]"
         },
         {
           "role": "source_native_row",
@@ -6339,7 +6190,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[78]"
+          "locator": "rows[73]"
         },
         {
           "role": "source_native_row",
@@ -6387,7 +6238,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[109]"
+          "locator": "rows[104]"
         },
         {
           "role": "source_native_row",
@@ -6435,7 +6286,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[125]"
+          "locator": "rows[120]"
         },
         {
           "role": "source_native_row",
@@ -6531,7 +6382,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[150]"
+          "locator": "rows[145]"
         },
         {
           "role": "source_native_row",
@@ -6675,7 +6526,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[72]"
+          "locator": "rows[67]"
         },
         {
           "role": "source_native_row",
@@ -6723,7 +6574,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[83]"
+          "locator": "rows[78]"
         },
         {
           "role": "source_native_row",
@@ -6819,7 +6670,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[146]"
+          "locator": "rows[141]"
         },
         {
           "role": "source_native_row",
@@ -6867,7 +6718,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[69]"
+          "locator": "rows[64]"
         },
         {
           "role": "source_native_row",
@@ -6907,54 +6758,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:dbde69e565d5e1b6451e956d1cfacc0077dbc1b3e8d566015bca967f92d913c4",
-      "source_family": "animal_adna",
-      "source_scope": "global_with_four_country_filter",
-      "source_record_id": "equus_caballus:locality:prjeb31613:kokorevo:russia",
-      "source_native_lineage": [
-        {
-          "role": "point_record",
-          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[51]"
-        },
-        {
-          "role": "source_native_row",
-          "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "locator": "Sheet1!row148"
-        }
-      ],
-      "longitude": 90.933,
-      "latitude": 53.933,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Russia",
-      "published_country": "Russia",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [],
-      "candidate_country_codes": [],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "unassigned",
-      "boundary_decision_status": "unassigned",
-      "decision_method": "no_boundary_containment",
-      "ambiguity_reason": "outside_governed_boundaries",
-      "ambiguity_reason_codes": [
-        "outside_governed_boundaries"
-      ],
-      "refusal_reason": "outside_governed_boundaries",
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "no_point_review_required",
-      "review_reason_codes": [],
-      "qualified_review_status": "not_required",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:dd27bc7a713877ae13004180957fcbffac9dcfaadef95c9fbe691e1db9c754d7",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -6963,7 +6766,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[111]"
+          "locator": "rows[106]"
         },
         {
           "role": "source_native_row",
@@ -7059,7 +6862,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[98]"
+          "locator": "rows[93]"
         },
         {
           "role": "source_native_row",
@@ -7107,7 +6910,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[112]"
+          "locator": "rows[107]"
         },
         {
           "role": "source_native_row",
@@ -7155,7 +6958,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[56]"
+          "locator": "rows[51]"
         },
         {
           "role": "source_native_row",
@@ -7203,7 +7006,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[80]"
+          "locator": "rows[75]"
         },
         {
           "role": "source_native_row",
@@ -7243,54 +7046,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:e00150dab045f96d9bf2178d252b933048e7c633625652d4b5d3f606d77c262b",
-      "source_family": "animal_adna",
-      "source_scope": "global_with_four_country_filter",
-      "source_record_id": "equus_caballus:locality:prjeb31613:goyet:belgium",
-      "source_native_lineage": [
-        {
-          "role": "point_record",
-          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[50]"
-        },
-        {
-          "role": "source_native_row",
-          "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "locator": "Sheet1!row137"
-        }
-      ],
-      "longitude": 5.00911,
-      "latitude": 50.44667,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Belgium",
-      "published_country": "Belgium",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [],
-      "candidate_country_codes": [],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "unassigned",
-      "boundary_decision_status": "unassigned",
-      "decision_method": "no_boundary_containment",
-      "ambiguity_reason": "outside_governed_boundaries",
-      "ambiguity_reason_codes": [
-        "outside_governed_boundaries"
-      ],
-      "refusal_reason": "outside_governed_boundaries",
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "not_supplied",
-      "review_requirement": "no_point_review_required",
-      "review_reason_codes": [],
-      "qualified_review_status": "not_required",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:e559197adb9912f52024122241a60d7c6a701b1a492e3452e7b86f96030857ba",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -7299,7 +7054,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[67]"
+          "locator": "rows[62]"
         },
         {
           "role": "source_native_row",
@@ -7347,7 +7102,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[139]"
+          "locator": "rows[134]"
         },
         {
           "role": "source_native_row",
@@ -7445,7 +7200,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[156]"
+          "locator": "rows[151]"
         },
         {
           "role": "source_native_row",
@@ -7493,7 +7248,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[71]"
+          "locator": "rows[66]"
         },
         {
           "role": "source_native_row",
@@ -7589,7 +7344,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[113]"
+          "locator": "rows[108]"
         },
         {
           "role": "source_native_row",
@@ -7637,7 +7392,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[60]"
+          "locator": "rows[55]"
         },
         {
           "role": "source_native_row",
@@ -7685,7 +7440,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[123]"
+          "locator": "rows[118]"
         },
         {
           "role": "source_native_row",
@@ -7733,7 +7488,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[131]"
+          "locator": "rows[126]"
         },
         {
           "role": "source_native_row",
@@ -7829,7 +7584,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[95]"
+          "locator": "rows[90]"
         },
         {
           "role": "source_native_row",
@@ -7877,7 +7632,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[105]"
+          "locator": "rows[100]"
         },
         {
           "role": "source_native_row",
@@ -7973,7 +7728,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[65]"
+          "locator": "rows[60]"
         },
         {
           "role": "source_native_row",
@@ -8021,7 +7776,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[73]"
+          "locator": "rows[68]"
         },
         {
           "role": "source_native_row",
@@ -8117,7 +7872,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[99]"
+          "locator": "rows[94]"
         },
         {
           "role": "source_native_row",
@@ -8165,7 +7920,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[55]"
+          "locator": "rows[50]"
         },
         {
           "role": "source_native_row",

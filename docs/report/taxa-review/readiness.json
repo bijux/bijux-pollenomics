@@ -1,0 +1,118 @@
+{
+  "accepted_samples": 0,
+  "basin_rows": 163,
+  "bundle_sha256": "74df58ba0befcf51b3d78937dc9c8ec2f3b078552c8026c1477a0316e79a76f5",
+  "candidate_datasets": 169,
+  "candidate_samples": 10637,
+  "candidate_taxon_rows": 1006,
+  "canonical_import_allowed": false,
+  "controlled_return_imports": {
+    "basin_rows": 163,
+    "chronology_rows": 10637,
+    "parameter_rows": 1006,
+    "taxon_rows": 10908
+  },
+  "full_denominator_negative_controls": [
+    {
+      "case": "full_taxon_stale_bundle",
+      "native_error": "Returned decisions target a stale or unsupported bundle",
+      "status": "refused"
+    },
+    {
+      "case": "full_taxon_duplicate_identity",
+      "native_error": "Unknown or duplicate decision identity",
+      "status": "refused"
+    },
+    {
+      "case": "full_taxon_stale_source",
+      "native_error": "Decision source identity is stale",
+      "status": "refused"
+    },
+    {
+      "case": "full_parameter_incomplete_denominator",
+      "native_error": "Returned decisions do not close the candidate denominator",
+      "status": "refused"
+    },
+    {
+      "case": "full_parameter_stale_source",
+      "native_error": "Returned decision targets stale source evidence",
+      "status": "refused"
+    },
+    {
+      "case": "full_prerequisite_incomplete_chronology_denominator",
+      "native_error": "Chronology decisions do not canonically close the denominator",
+      "status": "refused"
+    }
+  ],
+  "governed_prerequisite_sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809",
+  "original_attribution_bytes_replayed": false,
+  "original_publication_attribution_recorded_sha256": "9bb1bebdf9155fa8ba2ebb7afb5b743258730aad967201fba6c0bdef13a5eb63",
+  "parameter_authority_rows": 72,
+  "predecessor_partial_capture": {
+    "full_bundle_rebuilt": false,
+    "native_exit_code": 1,
+    "retained_products_verified": 7,
+    "terminal_sha256": "b98310e4b6fd2ae1061d0c0e5be1eba1d5e290f6b15b18e8c29165c3ef3e1a5c"
+  },
+  "private_output_hashes": {
+    "private-controlled-parameter-import.json": "479833a90cb0acd138209f8b2112ffb93118f7b2a9571c61e083bf59c3a6e098",
+    "private-controlled-parameter-return.json": "7f17d288894e7ffaa20937ca0cec8187dfdf60826675cdb89c18082c976891ee",
+    "private-controlled-prerequisite-import.json": "db33f4eecda512a92b01ca047aa98449720f336eff340d6364772774718983fc",
+    "private-controlled-prerequisite-return.json": "14d862329432070a0017ec2535f71c550ffb4d54ea4a8fc3f2339e9156421e46",
+    "private-controlled-taxon-import.json": "830242ec1f60ea2c9e017fd5c911239bfa8d2d034028fedf46420ef00d10ac20",
+    "private-controlled-taxon-return.json": "cbee11575cfd11de35af98590906bfcf78e41ed16d57ce32f5c1e1aa50f0f5b0",
+    "private-parameter-bindings/completion.json": "057507ccd8901237a7e64d15912e4f3470c8c47a96a3bc49a0aa42b884c955b4",
+    "private-parameter-bindings/priority.json": "715a34feb209cd9581cbf5e268e1243a9cda3e6de05fd86d8cdc6ec2f30572c8",
+    "private-parameter-bindings/provenance.json": "5b84016b4802aee1eb53af04cad4c466cb4dd274b06df819568583fcfceb4d64",
+    "private-prerequisite-review.json": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809",
+    "private-taxon-parameter-review.json": "27e7679b6dd0dba37eb4d28153a14dd138daaad336af08b0ebcbd8bba2754d14"
+  },
+  "publication_allowed": false,
+  "publication_capture_manifest_sha256": "d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da",
+  "publication_link_status_counts": {
+    "multiple_source_primary_publications": 7,
+    "no_publication_link": 11,
+    "no_source_primary_flag": 2,
+    "one_source_primary_publication": 149
+  },
+  "publication_records": 223,
+  "publication_reuse_scope": "Exact169 retained responses independently reclosed to current native dataset identities and parsed links; original full-review attribution bytes absent, recorded historical attribution digest is lineage only. No fresh acquisition or original-publication verification.",
+  "received_human_decisions": 0,
+  "review_rows": 10908,
+  "rights_admission": "not_evaluated",
+  "schema_version": "taxon-ppe-basin-review-readiness.v1",
+  "scientific_acceptance": "not_evaluated",
+  "scope": "Structural source-bound Anneli-ready package and return-intent import only. Full10908 taxon rows,1006 necessary taxon concepts with parameter authority rows counted from retained source rows,10637 sample chronology and163 basin rows remain unresolved; no source rights, reviewer authentication, biological/PPE/chronology/basin acceptance, canonical import, model execution or release admission. All synthetic unresolved returns are explicitly controlled fixtures, not received human decisions. Historical full-review attribution bytes absent;169 retained native publication responses may be reclosed to current exact native dataset identities and response hash/URLs without pretending original old attribution replay or verified primary-paper citations. Native empty publication links, multi-primary ambiguity and nullDOIs retained.",
+  "source_observation_counts": {
+    "neotoma": 370936,
+    "sead": 177763
+  },
+  "source_row_counts": {
+    "aadr": 1,
+    "animal_adna": 10,
+    "landclim": 31,
+    "lra_reference_resources": 81,
+    "neotoma": 1351,
+    "rootsi_private_quarantine": 7459,
+    "sead": 1975
+  },
+  "status": "qualified_structural_readiness",
+  "parameter_capability_counts": {
+    "fall_speed": 70,
+    "ppe": 62
+  },
+  "parameter_source_rows": 112,
+  "actual_capture": {
+    "plan_sha256": "6026bf18694bcefaf6d7ab39697f4039f933dd8c902d4e743ef58df290879e5c",
+    "terminal_sha256": "5f61cfaa66dfb357bc858303918c7fcb295afa35b6cdb2aefc1365dc50214ee0",
+    "native_exit_code": 0,
+    "source_inputs_before_after_unchanged": true,
+    "focused_tests_passed": 94
+  },
+  "independent_audit": {
+    "sha256": "7c45a4412ddfeb93a11c803d124ccd3440cca42a0049d839c5e69b7d7f4658a4",
+    "checks": 104617,
+    "status": "passed",
+    "scope": "Independent standard-library receipt, CSV/JSON, exact source/denominator and controlled-return identity audit; no producer import, model rerun or human/biological/rights acceptance."
+  }
+}

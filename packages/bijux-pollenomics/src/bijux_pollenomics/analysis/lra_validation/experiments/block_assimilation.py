@@ -31,6 +31,7 @@ from .fitted.admission import (
 from .inputs import channel_catalogue, make_request, verify_consumed_sources
 from .outputs import ExperimentProduct, publish_phase, stage_directory, write_json
 from .prediction import predict_assimilated_block_local
+from .split_authority import freeze_experiment_split
 from .workflow import _implementation
 
 
@@ -235,6 +236,7 @@ def prepare_spatial_block_local_pollen_predictions(
     binding = load_engine()
     code = capture_code_identity(binding)
     stage = stage_directory(destination)
+    split_authority = freeze_experiment_split(stage, folds, manifest=split)
     admitted: dict[
         str,
         tuple[
@@ -252,6 +254,7 @@ def prepare_spatial_block_local_pollen_predictions(
     consumed_geometry: set[str] = set()
     interrupted = False
     for fold in folds:
+        split_authority.verify()
         targets = tuple(by_record[record] for record in fold.test_record_ids)
         if interrupted:
             failures.extend(
@@ -362,6 +365,7 @@ def prepare_spatial_block_local_pollen_predictions(
                 )
             )
     elif items:
+        split_authority.verify()
         batch = run_lra_batch(
             items,
             input_root=input_root,
@@ -492,8 +496,6 @@ def prepare_spatial_block_local_pollen_predictions(
         },
     )
     for name, value in (
-        ("split_manifest.json", split),
-        ("folds.json", fold_rows),
         ("predictions.json", predictions),
         ("failures.json", failures),
         ("operations.json", operations),
@@ -508,6 +510,7 @@ def prepare_spatial_block_local_pollen_predictions(
         template_used=bool(consumed_pollen),
     )
     verify_block_supports(spec, input_root)
+    split_authority.verify()
     return publish_phase(
         stage,
         destination,

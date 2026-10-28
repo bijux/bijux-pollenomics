@@ -1,26 +1,26 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 318,
+  "page_count": 320,
   "quality_posture_counts": {
-    "reader_ready": 125,
+    "reader_ready": 129,
     "structured_reference": 20,
-    "thin_structure": 173
+    "thin_structure": 171
   },
   "rows": [
     {
       "repository_path": "docs/report/animal_atlas_exclusion_report.md",
-      "content_sha256": "be549f0e01b70a8c13b2ef7a16a23a7c94313c69250759ee47b91bfd75d05b38",
+      "content_sha256": "25df65a6f161c45ef689d7eb3fa1f2b2e8eabd5b5cd37f5cf5302c19b8b086f1",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 1139,
+      "table_line_count": 1148,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_atlas_readiness.md",
-      "content_sha256": "2edb7c6b118434725638db01e3a51b57f3122d8b975179c1d4c80469eb5c00fd",
+      "content_sha256": "a9a4f1728852d5074dfd2c144e8edb831915b215e05668a4602a85c600b8b678",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -42,7 +42,7 @@
     },
     {
       "repository_path": "docs/report/animal_cross_surface_drift.md",
-      "content_sha256": "ace3ad73635c08fcb203dc35298d7855623bb884d95d8337d6413cd06fd13621",
+      "content_sha256": "8d34f99404a36840e5bbd412986ff60e2ca0371807739ead12e7ef13499d932d",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -64,7 +64,7 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_review.md",
-      "content_sha256": "3adecce0f8bbfb9d36141974a60153d9d68eae93133ed102b27726c2c126cba7",
+      "content_sha256": "9cd6a7d8eed676268af9927929193f37187a06c83fbc4e1db3e41a987a78ba77",
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 11,
@@ -75,7 +75,7 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_validation.md",
-      "content_sha256": "46d2fd9ecbc8db83fe92d00a447d2b74565bfe54cce6726ce4a2c5d8e89645e4",
+      "content_sha256": "7889118561773be2afabe9b5d7696c105b41e412ec28f92154254990a4aaa7ec",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -97,7 +97,7 @@
     },
     {
       "repository_path": "docs/report/animal_intake_recovery_review.md",
-      "content_sha256": "21334309dc6b49e9bf3545abd2550689bbe13dd73e87d6c03a1f91671cace783",
+      "content_sha256": "11c6298ec0d96cc39ea1dc4eff8a0154d80ac849a0559053a5762c92b99b693b",
       "prose_paragraph_count": 4,
       "link_bullet_count": 0,
       "bullet_sentence_count": 13,
@@ -108,7 +108,7 @@
     },
     {
       "repository_path": "docs/report/animal_output_audit.md",
-      "content_sha256": "e8233c2d97b0700bbccdd321bc3e7d64628bd53973398bb98cea34021c47a19a",
+      "content_sha256": "afe3fd818dd0eacab72f556f4027e9c00b8682bf9c95136478ca6da4fba56907",
       "prose_paragraph_count": 2,
       "link_bullet_count": 0,
       "bullet_sentence_count": 2,
@@ -119,7 +119,7 @@
     },
     {
       "repository_path": "docs/report/animal_output_honesty.md",
-      "content_sha256": "d94cd6451921178a61b4e1a910264fa140c84d00102ca2dd7eabcd3b735eb80d",
+      "content_sha256": "93eeb18a90da669e5fc3133392dccec8398a06aeee2c8626423252b79294002e",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -130,11 +130,11 @@
     },
     {
       "repository_path": "docs/report/animal_point_evidence_review.md",
-      "content_sha256": "2c6a9fa14679f2ede15776e0ead3c50d79236738795e9354408aad3bbfd635af",
-      "prose_paragraph_count": 170,
+      "content_sha256": "9ae57814cd25885852ad68a5787e7f2b2a28a64f2bf7d4fcddcf3d63360707d2",
+      "prose_paragraph_count": 165,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 342,
-      "heading_count": 171,
+      "bullet_sentence_count": 332,
+      "heading_count": 166,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -152,12 +152,12 @@
     },
     {
       "repository_path": "docs/report/animal_project_publication_gap_review.md",
-      "content_sha256": "f52f5cd2e59d87d1e0533f46fae82d0e4771728eb1f9d80b2bdf66bc2be56133",
+      "content_sha256": "cb46113448a8b61358ac2cfa8803dc86f7f2782d11ba666dca8dc8723bf446bf",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 33,
+      "table_line_count": 34,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
@@ -174,7 +174,7 @@
     },
     {
       "repository_path": "docs/report/animal_sample_chronology_review.md",
-      "content_sha256": "597316141bd9ecbc1c2c74bf3b8c4cfe1ba253907dae4503420d440369d327e4",
+      "content_sha256": "7e0f3d764bd6de9d2e803b5fadd119dc48628e689ca048aee042a5d8fc78c4e1",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 3,
@@ -185,7 +185,7 @@
     },
     {
       "repository_path": "docs/report/animal_sample_database_review.md",
-      "content_sha256": "fc79792b824a2ac64cefb2fb276acaf59b64c1a5e71342cc23ea6d466e229502",
+      "content_sha256": "0a640897fe81eb48dbf6cb963acf55be3a78e247f3be6034f87696dccd4230d0",
       "prose_paragraph_count": 5,
       "link_bullet_count": 0,
       "bullet_sentence_count": 49,
@@ -1439,7 +1439,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "content_sha256": "0cf4060d62c1ad08259b433a2f022d1764e670e5f3030100913b1e7f92d7a425",
+      "content_sha256": "472ead0f15f2b84f7ec2b016ac51c01a377466f840a40014e15ef0152d1affa0",
       "prose_paragraph_count": 17,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -1714,10 +1714,10 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/README.md",
-      "content_sha256": "ec86b33dbbd9aa4c96bf26beca6799626251398406fd5b255f9f159c12c5edc1",
+      "content_sha256": "6c8893b2dda4044cf17ad0d4ec2d724e9686bd3d062199f8bc453bf296154a16",
       "prose_paragraph_count": 9,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 72,
+      "bullet_sentence_count": 71,
       "heading_count": 14,
       "table_line_count": 28,
       "quality_posture": "reader_ready",
@@ -1758,7 +1758,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_map_publication_contract.md",
-      "content_sha256": "1ffede6bc5f77da3447fab14127813c111004ae2394f555d0088f68b0c377320",
+      "content_sha256": "4754102a54e9de26213f5ae069334e34fbf6a8f5143e4286cce46ae02069e931",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
@@ -1769,7 +1769,7 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_point_traceability.md",
-      "content_sha256": "450582e4ed6a190af7fa242edf88f7915f59477ea5ee09f485eef294a54d51bd",
+      "content_sha256": "36f07e88a12d7cbe90e8a213008fc96293acebc85bb176c97b286ad4c6056505",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -1791,10 +1791,10 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/README.md",
-      "content_sha256": "884762fee0ec86933e093e7c38ed064af3a5ece5470247ebe7e0fb9420868740",
+      "content_sha256": "2e2103c0c2f073b6349721860d266ef8dd5088ac788625f8ad8529acf09520ff",
       "prose_paragraph_count": 10,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 309,
+      "bullet_sentence_count": 308,
       "heading_count": 14,
       "table_line_count": 38,
       "quality_posture": "reader_ready",
@@ -1956,7 +1956,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_map_publication_contract.md",
-      "content_sha256": "e2a4d923e39ed1ab188c83e4c205a9bb79e990ef7ad8b9e550c304a76f8b35c2",
+      "content_sha256": "25f5e8b5a4daee483c3b84910e0c8344f9739b32ccfe40611bbddd8fdb3c6321",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 19,
@@ -1967,7 +1967,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_point_traceability.md",
-      "content_sha256": "65e311e849e238031ade8a04145a396c910c4474c474a3ef42694caee958ceaa",
+      "content_sha256": "93157fa61c260916a597117634a1aa14d9ae9666b7858b142c970f6a16611ed9",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -3188,14 +3188,14 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/site-leakage/README.md",
-      "content_sha256": "c208ae68e953d7e2f0563bb3de22d55518d01e6071fd534f65f60ce08ff8bf0e",
-      "prose_paragraph_count": 6,
+      "content_sha256": "780780dc1f3cca68bc485a01d09446edbc88ee3f4f7a4ee70584d03f80dc62e9",
+      "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 1,
-      "table_line_count": 4,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
+      "heading_count": 2,
+      "table_line_count": 10,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/synthetic-validation/spatial-eligibility/README.md",
@@ -3210,12 +3210,12 @@
     },
     {
       "repository_path": "docs/report/taxa-review/README.md",
-      "content_sha256": "458c2341938bdc1b06499bd6d600b657671eee2f4e4b61c721023a0e29dddd4f",
-      "prose_paragraph_count": 10,
+      "content_sha256": "2dca3c7b1a15b0e6c4df560ec022f530e31a1ef797565e42f4f6ba54ed44a591",
+      "prose_paragraph_count": 17,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 3,
-      "table_line_count": 9,
+      "heading_count": 4,
+      "table_line_count": 14,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -3309,10 +3309,10 @@
     },
     {
       "repository_path": "docs/report/world/README.md",
-      "content_sha256": "7e3a4e5ab8af0407608e02c3d0e09ea2e679e43ecab3cf6abc7afcda91b43eea",
+      "content_sha256": "4149751d67592e01ac0786f62338ddf4ea27ed2010877e8538040cee1513d036",
       "prose_paragraph_count": 9,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 181,
+      "bullet_sentence_count": 169,
       "heading_count": 14,
       "table_line_count": 41,
       "quality_posture": "reader_ready",
@@ -3353,7 +3353,7 @@
     },
     {
       "repository_path": "docs/report/world/world_map_publication_contract.md",
-      "content_sha256": "378c4fad367b91fda3da8b37aa32dcfe87b4c783cf842ef2fb4e4601fdc978fe",
+      "content_sha256": "aa07d6d7994b8cce854b82b19088a3a57008fe4aff14f5d903c7dc985b810ff2",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
@@ -3364,7 +3364,7 @@
     },
     {
       "repository_path": "docs/report/world/world_point_traceability.md",
-      "content_sha256": "9e93f8992b59b2d8450a15c4fc79299e086ef5263b1ae13f05a47483cec22eb6",
+      "content_sha256": "642e10df884f517ff40cdbece9d979f0ca9b65e8ace9bb34fb6cb3aa20028f47",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -3375,7 +3375,7 @@
     },
     {
       "repository_path": "docs/report/world/world_scientific_review.md",
-      "content_sha256": "cb370a6612c86f94eab8d2cc318c448ab69da27b1d08496a1fe87ee423951d8c",
+      "content_sha256": "1faa83b145d53a785ccb74401f11f9e0c48df6e7f4ae1847ca8b02a7c539772b",
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 8,
@@ -3496,14 +3496,36 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "content_sha256": "5cdc9ab0d530b3bb746f0fb9b85ec446959a7b787e0400549405a038193dfde6",
-      "prose_paragraph_count": 6,
+      "content_sha256": "2075d2019e5bdcb8968e25d745afd439a2d8d7c1a0b47f80d5eec8848666914d",
+      "prose_paragraph_count": 11,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "content_sha256": "af0233317884b38ffc4df4fa508da3ccb9466f6d7a40d2da847d02859d6a5848",
+      "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
       "table_line_count": 0,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
+      "quality_posture": "reader_ready",
+      "note": "Page explains prior exposure, immutable design, all attempted and refused outcomes, runtime failures and limits of the retained-score audit."
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "content_sha256": "c9c07858406c3691f9fdc70f4bf58c2efecf19cd08155719e9db2dd9f03b815a",
+      "prose_paragraph_count": 9,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains exact selected source fields, preserved failed checks, native versus aggregate outcomes and unresolved interpretation/rights."
     }
   ]
 }

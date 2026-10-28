@@ -76,8 +76,8 @@ metadata rows do not contribute pollen or vegetation observations.
 
 We also checked [animal sample map membership](animal-entity-capability/README.md)
 without duplicating the existing per-ID decisions. Ten normalized species
-tables contain 1,468 sample IDs; 331 appear in 170 point features and all
-other 1,137 have a named map exclusion. Twelve mapped IDs occur in eight
+tables contain 1,468 sample IDs; 322 appear in 165 point features and all
+other 1,146 have a named map exclusion. Twelve mapped IDs occur in eight
 Nordic-labeled features. Their map placement and source labels are context,
 not a qualified source-country, pollen or ecological cohort.
 

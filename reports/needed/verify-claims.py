@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -36,11 +37,47 @@ FIELDS = {
 }
 
 
-def validate(root: Path, rows: list[dict[str, str]], packet_ids: set[str]) -> None:
-    """Check coverage and identities; text review remains a separate judgment."""
+def expected_report_paths(root: Path) -> set[str]:
+    """Include primary research accounts and explicitly owned public readers."""
     expected = {
         p.relative_to(root).as_posix() for p in (root / "reports/science").rglob("*.md")
     }
+    authority = json.loads(
+        (root / "reports/needed/claim-account-sources.json").read_text()
+    )
+    if (
+        not isinstance(authority, dict)
+        or set(authority) != {"schema_version", "supplemental_report_paths"}
+        or authority["schema_version"] != 1
+    ):
+        raise ValueError("Scientific claim account authority is invalid")
+    paths = authority["supplemental_report_paths"]
+    if not isinstance(paths, list) or not all(isinstance(p, str) for p in paths):
+        raise ValueError("Scientific supplemental accounts are invalid")
+    if len(paths) != len(set(paths)):
+        raise ValueError("Scientific supplemental accounts are duplicated")
+    for relative in paths:
+        native = PurePosixPath(relative)
+        local = root / relative
+        if (
+            native.is_absolute()
+            or ".." in native.parts
+            or native.parts[:2] != ("docs", "report")
+            or native.suffix != ".md"
+            or not local.is_file()
+            or not local.resolve().is_relative_to(root.resolve())
+            or relative in expected
+        ):
+            raise ValueError(
+                "Scientific supplemental account is unavailable or duplicated"
+            )
+        expected.add(relative)
+    return expected
+
+
+def validate(root: Path, rows: list[dict[str, str]], packet_ids: set[str]) -> None:
+    """Check coverage and identities; text review remains a separate judgment."""
+    expected = expected_report_paths(root)
     if len(rows) != len(expected) or {r["report_path"] for r in rows} != expected:
         raise ValueError("Scientific claim inventory is missing or duplicated")
     for row in rows:

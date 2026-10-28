@@ -126,7 +126,7 @@
       "label": "Horse aDNA site evidence (wild or progenitor context)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 15,
+      "count": 10,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -243,7 +243,7 @@
       "label": "Horse source-sample chronology",
       "source_name": "Governed animal project sample chronology",
       "coverage_label": "",
-      "count": 476,
+      "count": 242,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -374,7 +374,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1962
+        "record_count": 1723
       },
       "edges": {
         "status": "unavailable",
@@ -403,15 +403,15 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1958
+        "record_count": 1719
       }
     }
   },
   "animal_sample_chronology_context": {
     "artifact": "world_animal_sample_chronology_context.json",
-    "content_sha256": "cfbbf60566acba299bcf26388b77566b22cd731b02a5486bf9e6f32575ae96cd",
-    "input_identity_sha256": "cbbaf6ae61822903b94c4369ad1884003aabda9ca909c224edb86126a19553da",
-    "corpus_identity_sha256": "7fd60970cc622b9eef9f067fad252aa89f171cdab57e51ad02b9dd1dac1a382c",
+    "content_sha256": "a29d0d38703895ba87882a72e7c93a606bff746f8be49d3b5c54386a9f885785",
+    "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
+    "corpus_identity_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834",
     "scope": {
       "key": "world",
       "kind": "world",
@@ -422,10 +422,10 @@
         "Denmark"
       ]
     },
-    "global_admitted_node_count": 557,
-    "projected_node_count": 557,
+    "global_admitted_node_count": 323,
+    "projected_node_count": 323,
     "excluded_by_scope_count": 0,
-    "refusal_count": 918,
+    "refusal_count": 1152,
     "governed_country_rows": [
       {
         "country_name": "Denmark",
@@ -447,8 +447,8 @@
       },
       {
         "country_name": "Sweden",
-        "node_count": 5,
-        "time_min_bp": 1217,
+        "node_count": 4,
+        "time_min_bp": 3699,
         "time_max_bp": 9657
       }
     ]

@@ -113,7 +113,7 @@ def _assert_committed_static_publication_budgets() -> None:
     )
     rows = normalize_asset_inventory(manifest["assets"])
     paths = [bundle_root / cast(str, row["path"]) for row in rows]
-    assert len(rows) == 239
+    assert len(rows) == 238
     raa_rows = [row for row in rows if row.get("layer_key") == "raa-archaeology"]
     assert len(raa_rows) == 1
     assert raa_rows[0]["domain"] == "nodes"

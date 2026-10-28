@@ -12,6 +12,10 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.analysis.lra_validation.evaluation.cohort import (
+    reopen_cohort_admission,
+)
+from bijux_pollenomics_dev.lra_validation.development_cohort import PROFILE
 from bijux_pollenomics_dev.lra_validation.development_design import (
     DevelopmentDesignError,
     FrozenDevelopmentDesign,
@@ -24,6 +28,117 @@ from bijux_pollenomics_dev.lra_validation.experiment_ledger import (
     read_development_attempts,
     start_development_attempt,
 )
+
+
+def _prior_exposed_spec() -> dict[str, Any]:
+    spec = _spec("exposed-audit")
+    scope = {
+        "schema_version": "pollenomics-prior-exposed-development-scope.v1",
+        "experiment": "all_target_pollen_withheld",
+        "target": "pollen_composition",
+        "support": {"taxa": "31-author-prepared", "operation": "retained-score-audit"},
+        "split_manifest_sha256": spec["input_hashes"]["split_manifest"],
+    }
+    scope_json = _canonical(scope)
+    scope_sha = hashlib.sha256(scope_json.encode()).hexdigest()
+    payload = {
+        "profile": PROFILE,
+        "admission_class": "prior_exposed_development_only",
+        "outcome_access_status": "previously_exposed",
+        "scientific_acceptance": "not_evaluated",
+        "confirmatory_result": False,
+        "canonical_scope_json": scope_json,
+        "scope_sha256": scope_sha,
+        "source_manifest_sha256": "b" * 64,
+        "admitted_record_ids": ["author:declared-source"],
+    }
+    canonical = _canonical(payload)
+    binding = spec["evaluation_binding"]
+    binding.update(
+        {
+            "canonical_cohort_admission_json": canonical,
+            "cohort_admission_sha256": hashlib.sha256(canonical.encode()).hexdigest(),
+            "scope_sha256": scope_sha,
+            "experiment": "all_target_pollen_withheld",
+            "target": "pollen_composition",
+        }
+    )
+    spec["input_hashes"].update(
+        {"development_source_manifest": "b" * 64, "target_support": scope_sha}
+    )
+    spec["development_design"] = _design(binding)
+    return spec
+
+
+def test_exposed_development_is_recorded_without_reviewed_admission(
+    tmp_path: Path,
+) -> None:
+    spec = _prior_exposed_spec()
+    binding = spec["evaluation_binding"]
+    with pytest.raises(ValueError):
+        reopen_cohort_admission(
+            binding["canonical_cohort_admission_json"],
+            binding["cohort_admission_sha256"],
+        )
+    start_development_attempt(tmp_path / "ledger", spec)
+    finish_development_attempt(
+        tmp_path / "ledger",
+        spec["run_id"],
+        {
+            "status": "refused",
+            "elapsed_seconds": 0.0,
+            "metrics": {},
+            "reason_code": "no_common_scored_support",
+        },
+    )
+    attempt = read_development_attempts(tmp_path / "ledger")[0]
+    assert attempt["result"]["status"] == "refused"
+    with pytest.raises(ExperimentLedgerError, match="run_id_already_exists"):
+        start_development_attempt(tmp_path / "ledger", spec)
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        "admission_class",
+        "outcome_access",
+        "confirmatory",
+        "source",
+        "support",
+        "target",
+        "split",
+    ],
+)
+def test_exposed_binding_changes_cannot_reserve_attempt(
+    tmp_path: Path, change: str
+) -> None:
+    spec = _prior_exposed_spec()
+    binding = spec["evaluation_binding"]
+    if change in {"admission_class", "outcome_access", "confirmatory"}:
+        payload = json.loads(binding["canonical_cohort_admission_json"])
+        field, value = {
+            "admission_class": ("admission_class", "reviewed_evaluation"),
+            "outcome_access": ("outcome_access_status", "not_started"),
+            "confirmatory": ("confirmatory_result", True),
+        }[change]
+        payload[field] = value
+        binding["canonical_cohort_admission_json"] = _canonical(payload)
+        binding["cohort_admission_sha256"] = hashlib.sha256(
+            binding["canonical_cohort_admission_json"].encode()
+        ).hexdigest()
+        spec["development_design"] = _design(binding)
+    elif change in {"source", "support", "split"}:
+        key = {
+            "source": "development_source_manifest",
+            "support": "target_support",
+            "split": "split_manifest",
+        }[change]
+        spec["input_hashes"][key] = "f" * 64
+    else:
+        binding["target"] = "vegetation_cover"
+    with pytest.raises(ExperimentLedgerError, match="invalid_cohort_admission"):
+        start_development_attempt(tmp_path / "ledger", spec)
+    assert read_development_attempts(tmp_path / "ledger") == ()
 
 
 def _canonical(value: object) -> str:

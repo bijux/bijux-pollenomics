@@ -46,16 +46,16 @@
         "equus_caballus:project:PRJEB19970"
       ],
       "chronology": {
-        "original_text": "2727 BP",
-        "time_start_bp": 2727,
-        "time_end_bp": 2727,
-        "time_mean_bp": 2727,
+        "original_text": "Age (years ago): 2727",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -118,16 +118,16 @@
         "equus_caballus:project:PRJEB19970"
       ],
       "chronology": {
-        "original_text": "2300 BP",
-        "time_start_bp": 2300,
-        "time_end_bp": 2300,
-        "time_mean_bp": 2300,
+        "original_text": "Age (years ago): 2300",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -181,16 +181,16 @@
         "equus_caballus:project:PRJEB19970"
       ],
       "chronology": {
-        "original_text": "4023 BP",
-        "time_start_bp": 4023,
-        "time_end_bp": 4023,
-        "time_mean_bp": 4023,
+        "original_text": "Age (years ago): 4023",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1965,16 +1965,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2127-2319 BP",
-        "time_start_bp": 2127,
-        "time_end_bp": 2319,
-        "time_mean_bp": 2223,
+        "original_text": "Age (years ago): 2143",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2028,16 +2028,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "817-1217 BP",
-        "time_start_bp": 817,
-        "time_end_bp": 1217,
-        "time_mean_bp": 1017,
+        "original_text": "Age (years ago): 817-1217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2156,16 +2156,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2717-2817 BP",
-        "time_start_bp": 2717,
-        "time_end_bp": 2817,
-        "time_mean_bp": 2767,
+        "original_text": "Age (years ago): 2727",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2222,16 +2222,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2500-2667 BP",
-        "time_start_bp": 2500,
-        "time_end_bp": 2667,
-        "time_mean_bp": 2584,
+        "original_text": "Age (years ago): 2617-2667",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2285,16 +2285,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1717-1917 BP",
-        "time_start_bp": 1717,
-        "time_end_bp": 1917,
-        "time_mean_bp": 1817,
+        "original_text": "Age (years ago): 1717-1917",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2349,16 +2349,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1617-1887 BP",
-        "time_start_bp": 1617,
-        "time_end_bp": 1887,
-        "time_mean_bp": 1752,
+        "original_text": "Age (years ago): 1617-1817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2412,16 +2412,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1817-2217 BP",
-        "time_start_bp": 1817,
-        "time_end_bp": 2217,
-        "time_mean_bp": 2017,
+        "original_text": "Age (years ago): 1817-2217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2475,16 +2475,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1305 BP",
-        "time_start_bp": 1305,
-        "time_end_bp": 1305,
-        "time_mean_bp": 1305,
+        "original_text": "Age (years ago): 1305",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2538,16 +2538,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "5155 BP",
-        "time_start_bp": 5155,
-        "time_end_bp": 5155,
-        "time_mean_bp": 5155,
+        "original_text": "Age (years ago): 5155",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2602,16 +2602,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3318-3350 BP",
-        "time_start_bp": 3318,
-        "time_end_bp": 3350,
-        "time_mean_bp": 3334,
+        "original_text": "Age (years ago): 3318",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2665,16 +2665,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "317-517 BP",
-        "time_start_bp": 317,
-        "time_end_bp": 517,
-        "time_mean_bp": 417,
+        "original_text": "Age (years ago): 317-517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2728,16 +2728,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "417-517 BP",
-        "time_start_bp": 417,
-        "time_end_bp": 517,
-        "time_mean_bp": 467,
+        "original_text": "Age (years ago): 417-517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2791,16 +2791,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "485 BP",
-        "time_start_bp": 485,
-        "time_end_bp": 485,
-        "time_mean_bp": 485,
+        "original_text": "Age (years ago): 485",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2928,16 +2928,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2300 BP",
-        "time_start_bp": 2300,
-        "time_end_bp": 2300,
-        "time_mean_bp": 2300,
+        "original_text": "Age (years ago): 2300",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2991,16 +2991,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "917-1217 BP",
-        "time_start_bp": 917,
-        "time_end_bp": 1217,
-        "time_mean_bp": 1067,
+        "original_text": "Age (years ago): 917-1217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3058,16 +3058,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4974-5015 BP",
-        "time_start_bp": 4974,
-        "time_end_bp": 5015,
-        "time_mean_bp": 4994,
+        "original_text": "Age (years ago): 4974",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3148,16 +3148,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4692-5500 BP",
-        "time_start_bp": 4692,
-        "time_end_bp": 5500,
-        "time_mean_bp": 5096,
+        "original_text": "Age (years ago): 4692",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3211,16 +3211,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1617-1817 BP",
-        "time_start_bp": 1617,
-        "time_end_bp": 1817,
-        "time_mean_bp": 1717,
+        "original_text": "Age (years ago): 1617-1817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3275,16 +3275,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1217 BP",
-        "time_start_bp": 1217,
-        "time_end_bp": 1217,
-        "time_mean_bp": 1217,
+        "original_text": "Age (years ago): 1217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3341,16 +3341,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1317-1517 BP",
-        "time_start_bp": 1317,
-        "time_end_bp": 1517,
-        "time_mean_bp": 1417,
+        "original_text": "Age (years ago): 1317-1517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3404,16 +3404,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3617-4217 BP",
-        "time_start_bp": 3617,
-        "time_end_bp": 4217,
-        "time_mean_bp": 3917,
+        "original_text": "Age (years ago): 3617-4217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3467,16 +3467,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4496-4861 BP",
-        "time_start_bp": 4496,
-        "time_end_bp": 4861,
-        "time_mean_bp": 4678,
+        "original_text": "Age (years ago): 4496-4861",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3530,16 +3530,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4791 BP",
-        "time_start_bp": 4791,
-        "time_end_bp": 4791,
-        "time_mean_bp": 4791,
+        "original_text": "Age (years ago): 4791",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3593,16 +3593,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "317-517 BP",
-        "time_start_bp": 317,
-        "time_end_bp": 517,
-        "time_mean_bp": 417,
+        "original_text": "Age (years ago): 317-517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3656,16 +3656,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2117-2217 BP",
-        "time_start_bp": 2117,
-        "time_end_bp": 2217,
-        "time_mean_bp": 2167,
+        "original_text": "Age (years ago): 2117-2217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3735,16 +3735,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1917 BP",
-        "time_start_bp": 1917,
-        "time_end_bp": 1917,
-        "time_mean_bp": 1917,
+        "original_text": "Age (years ago): 1917",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3798,16 +3798,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "17-617 BP",
-        "time_start_bp": 17,
-        "time_end_bp": 617,
-        "time_mean_bp": 317,
+        "original_text": "Age (years ago): 17-617",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3925,16 +3925,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4077 BP",
-        "time_start_bp": 4077,
-        "time_end_bp": 4077,
-        "time_mean_bp": 4077,
+        "original_text": "Age (years ago): 4077",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3988,16 +3988,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1217-1417 BP",
-        "time_start_bp": 1217,
-        "time_end_bp": 1417,
-        "time_mean_bp": 1317,
+        "original_text": "Age (years ago): 1217-1417",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4052,16 +4052,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3993-4058 BP",
-        "time_start_bp": 3993,
-        "time_end_bp": 4058,
-        "time_mean_bp": 4026,
+        "original_text": "Age (years ago): 4058",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4115,16 +4115,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2672 BP",
-        "time_start_bp": 2672,
-        "time_end_bp": 2672,
-        "time_mean_bp": 2672,
+        "original_text": "Age (years ago): 2672",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4180,16 +4180,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1717-1917 BP",
-        "time_start_bp": 1717,
-        "time_end_bp": 1917,
-        "time_mean_bp": 1817,
+        "original_text": "Age (years ago): 1717-1917",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4243,16 +4243,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2820 BP",
-        "time_start_bp": 2820,
-        "time_end_bp": 2820,
-        "time_mean_bp": 2820,
+        "original_text": "Age (years ago): 2820",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4306,16 +4306,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1863 BP",
-        "time_start_bp": 1863,
-        "time_end_bp": 1863,
-        "time_mean_bp": 1863,
+        "original_text": "Age (years ago): 1863",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4369,16 +4369,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1872 BP",
-        "time_start_bp": 1872,
-        "time_end_bp": 1872,
-        "time_mean_bp": 1872,
+        "original_text": "Age (years ago): 1872",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4432,16 +4432,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3574 BP",
-        "time_start_bp": 3574,
-        "time_end_bp": 3574,
-        "time_mean_bp": 3574,
+        "original_text": "Age (years ago): 3574",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4500,16 +4500,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1988-2011 BP",
-        "time_start_bp": 1988,
-        "time_end_bp": 2011,
-        "time_mean_bp": 2000,
+        "original_text": "Age (years ago): 2007",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4566,15 +4566,15 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "31750-35870 BP",
-        "time_start_bp": 31750,
-        "time_end_bp": 35870,
-        "time_mean_bp": 33810,
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved",
         "refusal_reason_code": ""
       },
       "sample_namespace": "equus_caballus:sample_locality",
@@ -4629,16 +4629,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "917-1217 BP",
-        "time_start_bp": 917,
-        "time_end_bp": 1217,
-        "time_mean_bp": 1067,
+        "original_text": "Age (years ago): 917-1217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4692,16 +4692,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1192 BP",
-        "time_start_bp": 1192,
-        "time_end_bp": 1192,
-        "time_mean_bp": 1192,
+        "original_text": "Age (years ago): 1192",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4755,16 +4755,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2217-2867 BP",
-        "time_start_bp": 2217,
-        "time_end_bp": 2867,
-        "time_mean_bp": 2542,
+        "original_text": "Age (years ago): 2217-2867",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4818,16 +4818,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3817-4217 BP",
-        "time_start_bp": 3817,
-        "time_end_bp": 4217,
-        "time_mean_bp": 4017,
+        "original_text": "Age (years ago): 3817-4217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4881,16 +4881,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1979 BP",
-        "time_start_bp": 1979,
-        "time_end_bp": 1979,
-        "time_mean_bp": 1979,
+        "original_text": "Age (years ago): 1979",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4944,16 +4944,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2312 BP",
-        "time_start_bp": 2312,
-        "time_end_bp": 2312,
-        "time_mean_bp": 2312,
+        "original_text": "Age (years ago): 2312",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5007,16 +5007,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1177-1406 BP",
-        "time_start_bp": 1177,
-        "time_end_bp": 1406,
-        "time_mean_bp": 1292,
+        "original_text": "Age (years ago): 1177-1406",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5070,16 +5070,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "14450 BP",
-        "time_start_bp": 14450,
-        "time_end_bp": 14450,
-        "time_mean_bp": 14450,
+        "original_text": "Age (years ago): 14450",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5133,16 +5133,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1446 BP",
-        "time_start_bp": 1446,
-        "time_end_bp": 1446,
-        "time_mean_bp": 1446,
+        "original_text": "Age (years ago): 1446",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5197,16 +5197,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "4000-5000 BP",
-        "time_start_bp": 4000,
-        "time_end_bp": 5000,
-        "time_mean_bp": 4500,
+        "original_text": "Age (years ago): 4000-5000",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5260,16 +5260,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1694 BP",
-        "time_start_bp": 1694,
-        "time_end_bp": 1694,
-        "time_mean_bp": 1694,
+        "original_text": "Age (years ago): 1694",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5386,16 +5386,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "217-317 BP",
-        "time_start_bp": 217,
-        "time_end_bp": 317,
-        "time_mean_bp": 267,
+        "original_text": "Age (years ago): 217-317",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5449,16 +5449,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1717-1817 BP",
-        "time_start_bp": 1717,
-        "time_end_bp": 1817,
-        "time_mean_bp": 1767,
+        "original_text": "Age (years ago): 1717-1817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5512,16 +5512,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1373 BP",
-        "time_start_bp": 1373,
-        "time_end_bp": 1373,
-        "time_mean_bp": 1373,
+        "original_text": "Age (years ago): 1373",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5583,16 +5583,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1087-1189 BP",
-        "time_start_bp": 1087,
-        "time_end_bp": 1189,
-        "time_mean_bp": 1138,
+        "original_text": "Age (years ago): 1087-1189",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5646,16 +5646,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "23789 BP",
-        "time_start_bp": 23789,
-        "time_end_bp": 23789,
-        "time_mean_bp": 23789,
+        "original_text": "Age (years ago): 23789",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5709,16 +5709,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "467-517 BP",
-        "time_start_bp": 467,
-        "time_end_bp": 517,
-        "time_mean_bp": 492,
+        "original_text": "Age (years ago): 467-517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5772,16 +5772,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3017-3517 BP",
-        "time_start_bp": 3017,
-        "time_end_bp": 3517,
-        "time_mean_bp": 3267,
+        "original_text": "Age (years ago): 3017-3517",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5837,16 +5837,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "89-118 BP",
-        "time_start_bp": 89,
-        "time_end_bp": 118,
-        "time_mean_bp": 104,
+        "original_text": "Age (years ago): 89",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5900,16 +5900,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "617-817 BP",
-        "time_start_bp": 617,
-        "time_end_bp": 817,
-        "time_mean_bp": 717,
+        "original_text": "Age (years ago): 617-817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5964,16 +5964,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1187 BP",
-        "time_start_bp": 1187,
-        "time_end_bp": 1187,
-        "time_mean_bp": 1187,
+        "original_text": "Age (years ago): 1187",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6028,16 +6028,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "659-830 BP",
-        "time_start_bp": 659,
-        "time_end_bp": 830,
-        "time_mean_bp": 744,
+        "original_text": "Age (years ago): 830",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6092,16 +6092,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2317-2417 BP",
-        "time_start_bp": 2317,
-        "time_end_bp": 2417,
-        "time_mean_bp": 2367,
+        "original_text": "Age (years ago): 2317-2417",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6155,16 +6155,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1184 BP",
-        "time_start_bp": 1184,
-        "time_end_bp": 1184,
-        "time_mean_bp": 1184,
+        "original_text": "Age (years ago): 1184",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6218,16 +6218,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1308 BP",
-        "time_start_bp": 1308,
-        "time_end_bp": 1308,
-        "time_mean_bp": 1308,
+        "original_text": "Age (years ago): 1308",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6281,16 +6281,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3757-4042 BP",
-        "time_start_bp": 3757,
-        "time_end_bp": 4042,
-        "time_mean_bp": 3900,
+        "original_text": "Age (years ago): 3757-4042",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6344,16 +6344,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1017-1217 BP",
-        "time_start_bp": 1017,
-        "time_end_bp": 1217,
-        "time_mean_bp": 1117,
+        "original_text": "Age (years ago): 1017-1217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6408,16 +6408,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2617-2817 BP",
-        "time_start_bp": 2617,
-        "time_end_bp": 2817,
-        "time_mean_bp": 2717,
+        "original_text": "Age (years ago): 2617-2817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6471,16 +6471,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1017 BP",
-        "time_start_bp": 1017,
-        "time_end_bp": 1017,
-        "time_mean_bp": 1017,
+        "original_text": "Age (years ago): 1017",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6534,16 +6534,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3117 BP",
-        "time_start_bp": 3117,
-        "time_end_bp": 3117,
-        "time_mean_bp": 3117,
+        "original_text": "Age (years ago): 3117",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6597,16 +6597,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2250 BP",
-        "time_start_bp": 2250,
-        "time_end_bp": 2250,
-        "time_mean_bp": 2250,
+        "original_text": "Age (years ago): 2250",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6660,16 +6660,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1817-2017 BP",
-        "time_start_bp": 1817,
-        "time_end_bp": 2017,
-        "time_mean_bp": 1917,
+        "original_text": "Age (years ago): 1817-2017",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6723,16 +6723,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2677 BP",
-        "time_start_bp": 2677,
-        "time_end_bp": 2677,
-        "time_mean_bp": 2677,
+        "original_text": "Age (years ago): 2677",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6786,16 +6786,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3617-4217 BP",
-        "time_start_bp": 3617,
-        "time_end_bp": 4217,
-        "time_mean_bp": 3917,
+        "original_text": "Age (years ago): 3617-4217",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6850,16 +6850,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1557-1694 BP",
-        "time_start_bp": 1557,
-        "time_end_bp": 1694,
-        "time_mean_bp": 1626,
+        "original_text": "Age (years ago): 1557",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6915,16 +6915,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3550-4023 BP",
-        "time_start_bp": 3550,
-        "time_end_bp": 4023,
-        "time_mean_bp": 3786,
+        "original_text": "Age (years ago): 3550-3604",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6979,16 +6979,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1717-2017 BP",
-        "time_start_bp": 1717,
-        "time_end_bp": 2017,
-        "time_mean_bp": 1867,
+        "original_text": "Age (years ago): 1717-1917",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7042,16 +7042,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1617-1717 BP",
-        "time_start_bp": 1617,
-        "time_end_bp": 1717,
-        "time_mean_bp": 1667,
+        "original_text": "Age (years ago): 1617-1717",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7106,16 +7106,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2217-2417 BP",
-        "time_start_bp": 2217,
-        "time_end_bp": 2417,
-        "time_mean_bp": 2317,
+        "original_text": "Age (years ago): 2317",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7169,16 +7169,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3604 BP",
-        "time_start_bp": 3604,
-        "time_end_bp": 3604,
-        "time_mean_bp": 3604,
+        "original_text": "Age (years ago): 3604",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7234,16 +7234,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "649-811 BP",
-        "time_start_bp": 649,
-        "time_end_bp": 811,
-        "time_mean_bp": 730,
+        "original_text": "Age (years ago): 649-811",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7298,16 +7298,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "16056-42758 BP",
-        "time_start_bp": 16056,
-        "time_end_bp": 42758,
-        "time_mean_bp": 29407,
+        "original_text": "Age (years ago): 42758",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7369,16 +7369,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2287-2930 BP",
-        "time_start_bp": 2287,
-        "time_end_bp": 2930,
-        "time_mean_bp": 2608,
+        "original_text": "Age (years ago): 2417-2287",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7432,16 +7432,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "192 BP",
-        "time_start_bp": 192,
-        "time_end_bp": 192,
-        "time_mean_bp": 192,
+        "original_text": "Age (years ago): 192",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7495,16 +7495,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1217-1417 BP",
-        "time_start_bp": 1217,
-        "time_end_bp": 1417,
-        "time_mean_bp": 1317,
+        "original_text": "Age (years ago): 1217-1417",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7570,16 +7570,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "3039-3130 BP",
-        "time_start_bp": 3039,
-        "time_end_bp": 3130,
-        "time_mean_bp": 3084,
+        "original_text": "Age (years ago): 3039-3130",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7633,16 +7633,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1717-1767 BP",
-        "time_start_bp": 1717,
-        "time_end_bp": 1767,
-        "time_mean_bp": 1742,
+        "original_text": "Age (years ago): 1717-1767",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7696,16 +7696,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1617-1817 BP",
-        "time_start_bp": 1617,
-        "time_end_bp": 1817,
-        "time_mean_bp": 1717,
+        "original_text": "Age (years ago): 1617-1817",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7759,16 +7759,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1617-1717 BP",
-        "time_start_bp": 1617,
-        "time_end_bp": 1717,
-        "time_mean_bp": 1667,
+        "original_text": "Age (years ago): 1617-1717",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7827,16 +7827,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "117-317 BP",
-        "time_start_bp": 117,
-        "time_end_bp": 317,
-        "time_mean_bp": 217,
+        "original_text": "Age (years ago): 117-317",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7906,16 +7906,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1156-1730 BP",
-        "time_start_bp": 1156,
-        "time_end_bp": 1730,
-        "time_mean_bp": 1443,
+        "original_text": "Age (years ago): 1289",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7969,16 +7969,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "2853 BP",
-        "time_start_bp": 2853,
-        "time_end_bp": 2853,
-        "time_mean_bp": 2853,
+        "original_text": "Age (years ago): 2853",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8032,16 +8032,16 @@
         "equus_caballus:project:PRJEB31613"
       ],
       "chronology": {
-        "original_text": "1143 BP",
-        "time_start_bp": 1143,
-        "time_end_bp": 1143,
-        "time_mean_bp": 1143,
+        "original_text": "Age (years ago): 1143",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
-        "refusal_reason_code": ""
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": "source_age_epoch_or_scale_unresolved"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [

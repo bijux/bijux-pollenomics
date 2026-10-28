@@ -4,7 +4,7 @@
 
 | Species | Status | Candidate points | Mapped samples | Blocked samples | Unresolved samples | Mappable coordinate provenance | Refused coordinate provenance | Coordinate-provenance denominator | Mappable share | Publication share of mappable coordinates | Reason |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Equus caballus | publishable | 78 | 157 | 393 | 2 | 208 | 0 | 208 | 1.0000 | 0.3750 | 78 candidate point rows now survive the current atlas contract. |
+| Equus caballus | publishable | 73 | 148 | 402 | 2 | 208 | 0 | 208 | 1.0000 | 0.3510 | 73 candidate point rows now survive the current atlas contract. |
 | Sus scrofa domesticus | thin | 2 | 2 | 341 | 341 | 2 | 0 | 2 | 1.0000 | 1.0000 | 2 candidate point rows remain too thin for broad atlas claims. |
 | Ovis aries | thin | 2 | 5 | 195 | 1 | 2 | 0 | 2 | 1.0000 | 1.0000 | 2 candidate point rows remain too thin for broad atlas claims. |
 | Bos taurus | publishable | 22 | 31 | 101 | 33 | 24 | 1 | 25 | 0.9600 | 0.9167 | 22 candidate point rows now survive the current atlas contract. |

@@ -144,9 +144,9 @@ are distinct observation units.
 
 ## Read Candidate Accountability Correctly
 
-The current animal accountability surface contains 170 locality candidates,
-and all 170 pass its complete sample-accountability test. Together they
-represent 331 distinct admitted samples. Wadi Halfa is outside that candidate
+The current animal accountability surface contains 165 locality candidates,
+and all 165 pass its complete sample-accountability test. Together they
+represent 322 distinct admitted samples. Wadi Halfa is outside that candidate
 surface and remains visible only in not-materialized readiness accounting.
 
 | Question | Correct authority |

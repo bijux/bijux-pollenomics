@@ -112,9 +112,9 @@ The animal surfaces expose three counts that must not be collapsed:
 | ---: | --- | --- |
 | 1,468 | final sample-foundation rows across 10 species and 22 contributing projects | grounding and blocker accounting |
 | 1,475 raw / 1,468 final | project sample-master rows within the 40-project registry | project recovery and stable sample identity |
-| 170 features / 331 samples | published animal locality features and the distinct admitted samples they represent | map membership under the point contract |
+| 165 features / 322 samples | published animal locality features and the distinct admitted samples they represent | map membership under the point contract |
 
-The 170 features comprise 117 domesticated-core and 53 wild/progenitor-context
+The 165 features comprise 117 domesticated-core and 48 wild/progenitor-context
 localities, all backed by admitted samples. The other populations are not
 implied denominators for that layer. A rate or completeness claim is invalid
 unless its numerator, denominator, observation unit, and governing contract are
@@ -127,19 +127,19 @@ The current animal point surface illustrates the repository boundary:
 | Class | Members | Supported statement | Unsupported promotion |
 | --- | ---: | --- | --- |
 | domesticated-core locality | 117 | these product members resolve to admitted final samples and governed locality evidence | the tracked project or species collection is complete |
-| wild or progenitor context locality | 53 | these product members retain admitted sample backing and an explicit context role | wild/progenitor context proves domestication |
+| wild or progenitor context locality | 48 | these product members retain admitted sample backing and an explicit context role | wild/progenitor context proves domestication |
 | Wadi Halfa retained context | 0 published | paper-backed place context remains in readiness accounting under `no_admitted_sample_backed_locality_candidate` | rendering a point without admitted sample backing |
 
 The two published scope classes can be visible because each satisfies the
 sample-backed point contract. A sample-count analysis still cannot treat
-locality features as sample rows. The stronger analysis uses the 331 distinct
+locality features as sample rows. The stronger analysis uses the 322 distinct
 sample identities and preserves the domesticated versus wild/progenitor role.
 
 ```mermaid
 flowchart LR
-    Layer["170-feature animal locality surface"] --> Domestic["117 domesticated-core features"]
-    Layer --> Context["53 wild/progenitor-context features"]
-    Domestic --> Samples["331 distinct admitted samples across both roles"]
+    Layer["165-feature animal locality surface"] --> Domestic["117 domesticated-core features"]
+    Layer --> Context["48 wild/progenitor-context features"]
+    Domestic --> Samples["322 distinct admitted samples across both roles"]
     Context --> Samples
     Wadi["Wadi Halfa retained context"] --> Excluded["not published"]
 ```

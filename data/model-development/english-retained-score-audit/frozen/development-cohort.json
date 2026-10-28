@@ -1,0 +1,29 @@
+{
+  "profile": "pollenomics-prior-exposed-development-cohort.v1",
+  "admission_class": "prior_exposed_development_only",
+  "outcome_access_status": "previously_exposed",
+  "scientific_acceptance": "not_evaluated",
+  "confirmatory_result": false,
+  "canonical_scope_json": "{\"experiment\":\"all_target_pollen_withheld\",\"schema_version\":\"pollenomics-prior-exposed-development-scope.v1\",\"split_manifest_sha256\":\"f90cf0db01c2e5c24758cb79c6f8a75da9013a26af38fd5afe0235c45af69fa0\",\"support\":{\"consumer\":\"retained_prediction_scoring_without_training\",\"independent_vegetation_truth\":false,\"original_target_outcomes_previously_exposed\":true,\"response\":\"closed_original_31_author_prepared_taxon_counts\",\"source_manifest_sha256\":\"48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb\",\"spatial\":\"three_grid_stratified_whole_site_folds_17_author_site_ids\",\"split_manifest_sha256\":\"f90cf0db01c2e5c24758cb79c6f8a75da9013a26af38fd5afe0235c45af69fa0\",\"taxon_names\":[\"Abies alba\",\"Alnus glutinosa\",\"Amanranthaceae/Chenopodiaceae\",\"Artemisia\",\"Betula\",\"Buxus sempervirens\",\"Calluna vulgaris\",\"Carpinus betulus\",\"Carpinus orientalis\",\"Castanea\",\"Cerealia-t\",\"Corylus avellana\",\"Cyperaceae\",\"Ericaceae\",\"Fagus sylvatica\",\"Filipendula\",\"Fraxinus\",\"Juniperus\",\"Phillyrea\",\"Picea\",\"Pinus\",\"Pistacia\",\"Plantago lanceolata type\",\"Poaceae\",\"Quercus deciduous\",\"Quercus evergreen\",\"Rumex acetosa-t\",\"Salix\",\"Secale\",\"Tilia\",\"Ulmus\"],\"temporal\":\"same_retained_author_TW_bin_label_per_target_and_training\"},\"target\":\"pollen_composition\"}",
+  "scope_sha256": "41d787677e3a49f5e65b188ea5b39b15714d56687079e9e3f530e1cfec40cbc5",
+  "source_manifest_sha256": "5ab9bee0a5b666c256a7cf40017db16160e7c0bc1cb3f886a60c170f8bb502df",
+  "admitted_record_ids": [
+    "author:BECKHAM",
+    "author:BROADOWN",
+    "author:COMERSLA",
+    "author:CUTHILL2",
+    "author:EXEBRID",
+    "author:GOURTEMIRES",
+    "author:HANGINGS",
+    "author:HARESDOWN",
+    "author:LARKBARR",
+    "author:LOBBSBOG",
+    "author:LONGBREACH",
+    "author:MOLECHAM",
+    "author:NTWITCHEN",
+    "author:WHH05",
+    "author:WHH11",
+    "author:WINDMILL",
+    "author:WINNEYS"
+  ]
+}

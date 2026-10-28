@@ -147,20 +147,20 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual((botai.time_start_bp, botai.time_end_bp), (5500, 5500))
         self.assertIn("aao3297_tables15.xlsx", botai.chronology_provenance_path)
 
-    def test_horse_nordic_sample_chronology_rows_publish_direct_ranges(self) -> None:
+    def test_horse_nordic_elapsed_age_retains_source_range_without_bp_promotion(
+        self,
+    ) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "PRJEB31613")
 
         uppsala = next(
             row for row in rows if row.preferred_sample_label == "Uppsala_Upps02_1317"
         )
-        self.assertEqual(uppsala.chronology_strength, "sample_owned_interval")
-        self.assertEqual(uppsala.chronology_evidence_class, "direct_radiocarbon_date")
-        self.assertEqual(
-            uppsala.chronology_precision_posture, "sample_precise_interval"
-        )
-        self.assertEqual(uppsala.chronology_normalization_status, "normalized_interval")
-        self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
-        self.assertEqual((uppsala.time_start_bp, uppsala.time_end_bp), (1217, 1417))
+        self.assertEqual(uppsala.chronology_strength, "sample_owned_text_only")
+        self.assertEqual(uppsala.chronology_evidence_class, "unresolved")
+        self.assertEqual(uppsala.chronology_precision_posture, "unresolved")
+        self.assertEqual(uppsala.chronology_normalization_status, "text_only_unparsed")
+        self.assertEqual(uppsala.chronology_text, "Age (years ago): 1217-1417")
+        self.assertEqual((uppsala.time_start_bp, uppsala.time_end_bp), (None, None))
         self.assertIn(
             "1-s2.0-S0092867419303848-mmc1.xlsx", uppsala.chronology_provenance_path
         )
@@ -293,13 +293,13 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1475)
-        self.assertEqual(audit["normalized_interval_count"], 405)
-        self.assertEqual(audit["normalized_point_count"], 528)
+        self.assertEqual(audit["normalized_interval_count"], 315)
+        self.assertEqual(audit["normalized_point_count"], 368)
         self.assertEqual(audit["unresolved_count"], 406)
         audit_precision_counts = _count_mapping(audit["precision_counts"])
         self.assertEqual(audit_precision_counts["contextual_interval"], 32)
         self.assertEqual(audit_precision_counts["sample_approximate_or_modeled"], 200)
-        self.assertEqual(audit_precision_counts["sample_precise_interval"], 329)
+        self.assertEqual(audit_precision_counts["sample_precise_interval"], 239)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -350,7 +350,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         horse_species = next(
             row for row in species_rows if row["species_latin_name"] == "Equus caballus"
         )
-        self.assertEqual(horse_species["normalized_row_count"], 540)
+        self.assertEqual(horse_species["normalized_row_count"], 290)
         horse_dom2 = next(
             row for row in project_rows if row["project_accession"] == "PRJEB44430"
         )
@@ -380,15 +380,18 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             row
             for row in provenance_rows
             if row["project_accession"] == "PRJEB31613"
-            and _mapping(row["temporal_semantics"])["comparability_posture"]
-            == "numeric_interval"
+            and row["preferred_sample_label"] == "Uppsala_Upps02_1317"
         )
         horse_semantics = _mapping(horse_provenance["temporal_semantics"])
         published_wording = _text(horse_provenance["published_wording"])
-        self.assertIn("BP", published_wording)
+        self.assertEqual(published_wording, "Age (years ago): 1217-1417")
+        self.assertIsNone(horse_provenance["time_start_bp"])
+        self.assertIsNone(horse_provenance["time_end_bp"])
+        self.assertEqual(horse_provenance["evidence_class"], "unresolved")
+        self.assertEqual(horse_provenance["precision_posture"], "unresolved")
         self.assertEqual(
             horse_semantics["comparability_posture"],
-            "numeric_interval",
+            "contextual_label_only",
         )
         self.assertEqual(
             horse_semantics["summary_label"],

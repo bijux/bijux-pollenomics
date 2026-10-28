@@ -1,0 +1,351 @@
+{
+  "schema_version": "development-input-isolation-source-account.v1",
+  "scope": "Controlled development software-contract witness only. Existing openly inspected analytical fixture inputs reused, all source identities and alias/core/publication/chronology/derived relationships declared by construction. Retained actual baseline runs and new actual fitted runs compare target-only raw pollen perturbation while preserving target-fold training inputs and predictions; scores open outcomes only after durable predictions. Five direct evaluator APIs receive a flushed immutable split before numerical work and refuse changed custody. Prior exposure preserved; no real biological/reference admission, independent measured vegetation accuracy, untouched confirmation, whole benchmark or release acceptance.",
+  "published_surface": "Aggregate known constructed identities, target metrics, training/prediction fingerprints and scoped execution receipts only; detailed source products and read journals retained privately.",
+  "source_provenance": "Existing inspected analytical four-site software fixture family. All labels and relationships were deliberately constructed and known during development. This is not an independent physical-source or vegetation reference population.",
+  "prefit_call_sites": [
+    {
+      "source_path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/assimilation.py",
+      "sha256": "ce125ee5b2e2e669064dba95d15a0e6ecc4ceab05e6246acc26833244e11b67e"
+    },
+    {
+      "source_path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/block_assimilation.py",
+      "sha256": "9db4ec483a09608a47ba37419963ead02e38a8902ebfc35d8f9cc6f4855bf65a"
+    },
+    {
+      "source_path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/fitted/blocks.py",
+      "sha256": "ade89c0cf0eb8040433c2b7dfd8fa930a215fb66fd78b61570dc6856d1142bcd"
+    },
+    {
+      "source_path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/fitted/workflow.py",
+      "sha256": "48bb700276602fbcd5d72e45c583f77180b9d86e4abd999f742dec51ad29d0e9"
+    },
+    {
+      "source_path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/workflow.py",
+      "sha256": "cca658909bfca605ce02dd9a84708b17403596fa6725df4dfcba81cebece6a5f"
+    }
+  ],
+  "maintained_sources": {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/assimilation.py": "ce125ee5b2e2e669064dba95d15a0e6ecc4ceab05e6246acc26833244e11b67e",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/block_assimilation.py": "9db4ec483a09608a47ba37419963ead02e38a8902ebfc35d8f9cc6f4855bf65a",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/fitted/blocks.py": "ade89c0cf0eb8040433c2b7dfd8fa930a215fb66fd78b61570dc6856d1142bcd",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/fitted/workflow.py": "48bb700276602fbcd5d72e45c583f77180b9d86e4abd999f742dec51ad29d0e9",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/split_authority.py": "229435575b480895ac2a4fffadd1986d904ba17f6ea1efc9259b854a1bff8704",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/workflow.py": "cca658909bfca605ce02dd9a84708b17403596fa6725df4dfcba81cebece6a5f",
+    "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_split_authority.py": "aa2139620f9d29467d3c84cf0af18208f3899935cb5d0b7350a3f17943e1706a"
+  },
+  "software_checks": {
+    "strict_mypy_source_and_test_files": 7,
+    "strict_mypy_status": "passed",
+    "new_prefit_guards": 12,
+    "focused_guard_tests": 57,
+    "junit_sha256": "fbf385df8d8842168fa1465875e7caaf6c6b86a12849809770d051db59d030d6",
+    "ruff_status": "passed"
+  },
+  "physical_source_identity_scope": {
+    "records": 9,
+    "groups": 4,
+    "full_membership": {
+      "site-group:235d824e85e73458dcedfa167048ef21875624dda1c8ed5e32ae9b8c206478fa": [
+        "f"
+      ],
+      "site-group:3dae53b9257b8be23ea32ae7af154e37e49add0670cb1deac42645d0e7e8ada8": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "i"
+      ],
+      "site-group:8b2e20a7057cb9a314a33887d82a8d038ac70e8d8420232a8e702d55470ce86c": [
+        "g"
+      ],
+      "site-group:b4fc9b40515a6a0831536bd2785ca0204e8025478458def2c5a6347f30ae472a": [
+        "h"
+      ]
+    },
+    "candidate_identity_manifest_groups": [
+      {
+        "group_id": "a",
+        "record_ids": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "i"
+        ],
+        "spatial_block_id": "block-target"
+      },
+      {
+        "group_id": "f",
+        "record_ids": [
+          "f"
+        ],
+        "spatial_block_id": "block-f"
+      },
+      {
+        "group_id": "g",
+        "record_ids": [
+          "g"
+        ],
+        "spatial_block_id": "block-g"
+      },
+      {
+        "group_id": "h",
+        "record_ids": [
+          "h"
+        ],
+        "spatial_block_id": "block-h"
+      }
+    ],
+    "relationships": "Explicit known site/core/publication/alias, alternative chronology and transitive derived source membership; no discovery of missing real-source aliases. Unowned derived test ancestry refused."
+  },
+  "actual_read_journal": {
+    "events": 185,
+    "sha256": "b61155b88eec07d8ef801e696ec7fa7c6ec162f44e571c501df36c1a12a8b224",
+    "ordering": "Split verified and events flushed before every cached reconstruction item and every actual spatial fit; outcomes opened after retained/new immutable prediction publication.",
+    "missing_prior_baseline_reader_ledger": true
+  },
+  "retained_numerical_reuse": {
+    "cache_identity_preflight_sha256": "6f0b64480d49e885de1a961946d832c6357da006a649d2f7f0f7ec51d8630de9",
+    "request_items": 16,
+    "unique_products": 10,
+    "new_basin_inversions": 0,
+    "actual_spatial_fit_operations": 5,
+    "all_items_cache_hits": true,
+    "boundaries": "Exact request, numerical profile, host/engine file identity and runtime/thread environment checked; all original negative numerical compositions retained.",
+    "negative_transfer_score_denominators": {
+      "baselines": {
+        "reference": {
+          "scored": 24
+        },
+        "target-perturbed": {
+          "prediction_failed": 18,
+          "scored": 6
+        }
+      },
+      "fitted": {
+        "reference": {
+          "scored": 16
+        },
+        "target-perturbed": {
+          "prediction_failed": 12,
+          "scored": 4
+        }
+      }
+    }
+  },
+  "target_metrics_and_fingerprints": "development-input-isolation.json includes all20 actual target metric cells and four canonical source-training/prediction fingerprint rows. Equal target fingerprints across variants are separately independently verified; metric changes are numerical, not metadata-only.",
+  "independent_audit": {
+    "status": "passed",
+    "whole_capture_native_exit": 1,
+    "scope": "Separate qualification of completed numerical products from a failed whole job; independent standard-library graph traversal, immutable output hashes, actual source/event ordering, targetfold inputs/prediction identities and Decimal50 score MAE. No producer import or extra model run; inspected constructed development exposure preserved.",
+    "checks": 676,
+    "scalar_score_cells": 50,
+    "max_decimal_mae_error": "8.5E-17",
+    "tolerance": "2e-13",
+    "actual_new_basin_inversions": 0,
+    "verified_cached_reconstruction_items": 16,
+    "actual_spatial_fit_operations": 5,
+    "target_prediction_comparisons": 5,
+    "unchanged_target_predictions": true,
+    "actual_numeric_scores_changed": true,
+    "unsupported_alternative_folds": 3,
+    "alternative_numerical_inversions": 0,
+    "prior_exposure": "constructed_development",
+    "terminal_sha256": "30db72a6da0e0593cff7b9fc758c9485ff2dc5caecb13df2f459726cd072f885",
+    "audit_source_sha256": "81b3d809f513fd11b1019b2f47a5e8456b5451a38cc8ee39d06079f3d20591c9",
+    "target_score_cells": [
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "training_mean",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.28469725597979615"
+      },
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "training_mean",
+        "target": "pollen_composition",
+        "mae_fraction": "0.0026108650859363"
+      },
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "nearest_site",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.283250173021825875"
+      },
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "nearest_site",
+        "target": "pollen_composition",
+        "mae_fraction": "0.00206215521404615"
+      },
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "inverse_distance_squared",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.2841407929280263"
+      },
+      {
+        "lane": "baselines",
+        "variant": "reference",
+        "method": "inverse_distance_squared",
+        "target": "pollen_composition",
+        "mae_fraction": "0.00239988449218035"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "training_mean",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.36530274402020385"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "training_mean",
+        "target": "pollen_composition",
+        "mae_fraction": "0.5026108650859363"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "nearest_site",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.366749826978174125"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "nearest_site",
+        "target": "pollen_composition",
+        "mae_fraction": "0.50206215521404615"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "inverse_distance_squared",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.3658592070719737"
+      },
+      {
+        "lane": "baselines",
+        "variant": "target-perturbed",
+        "method": "inverse_distance_squared",
+        "target": "pollen_composition",
+        "mae_fraction": "0.50239988449218035"
+      },
+      {
+        "lane": "fitted",
+        "variant": "reference",
+        "method": "clr-wgs84-rbf-ridge-v1",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.28469685914295753"
+      },
+      {
+        "lane": "fitted",
+        "variant": "reference",
+        "method": "clr-wgs84-rbf-ridge-v1",
+        "target": "pollen_composition",
+        "mae_fraction": "0.002610714636277115"
+      },
+      {
+        "lane": "fitted",
+        "variant": "reference",
+        "method": "training_mean",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.28469725597979615"
+      },
+      {
+        "lane": "fitted",
+        "variant": "reference",
+        "method": "training_mean",
+        "target": "pollen_composition",
+        "mae_fraction": "0.0026108650859363"
+      },
+      {
+        "lane": "fitted",
+        "variant": "target-perturbed",
+        "method": "clr-wgs84-rbf-ridge-v1",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.36530314085704247"
+      },
+      {
+        "lane": "fitted",
+        "variant": "target-perturbed",
+        "method": "clr-wgs84-rbf-ridge-v1",
+        "target": "pollen_composition",
+        "mae_fraction": "0.502610714636277115"
+      },
+      {
+        "lane": "fitted",
+        "variant": "target-perturbed",
+        "method": "training_mean",
+        "target": "vegetation_cover",
+        "mae_fraction": "0.36530274402020385"
+      },
+      {
+        "lane": "fitted",
+        "variant": "target-perturbed",
+        "method": "training_mean",
+        "target": "pollen_composition",
+        "mae_fraction": "0.5026108650859363"
+      }
+    ]
+  },
+  "independent_audit_sha256": "5cd6dd1c4fab82daa1fedc87a7c8c421f86f3797357aa1d6ecc57dafa436d1d0",
+  "actual_verification_execution": {
+    "plan_sha256": "d8c3be46b7f16b9f311612b9d6c519e1deb1b6fa90099e79df16abba2b1cd9fb",
+    "writer_sha256": "2d85ad5375079c0d3d432188f8f68468696fab7208296228ad099bb83a79e6d9",
+    "terminal_sha256": "30265fa0e280e646cdc750b4324f5e2896f31b6493753383ff5af15f071eb01d",
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/development-split-leakage/scope-verification/qualify.py"
+    ],
+    "native_exit_code": 0,
+    "wall_seconds": 3.352322291000746,
+    "measured_child_peak_rss_bytes": 202080256,
+    "rss_scope": "resource.getrusage(RUSAGE_CHILDREN).ru_maxrss after waiting for native child; platform-reported child peak, not summed simultaneous process-tree RSS",
+    "source_inputs_before_after_unchanged": true,
+    "new_model_fits": 0,
+    "new_basin_inversions": 0
+  },
+  "preserved_failed_attempts": [
+    {
+      "plan_sha256": "19d0a7a96da8c91a89b171702e36568f52ea2367c34ad80c7bf2fd0b57da2c60",
+      "terminal_sha256": "0b561aa2522c98f5300165511f45e5b69fd6a5c3b72bd06f04bf5992ff6fb9dd",
+      "native_exit_code": 1,
+      "scope": "Observer compared parsed JSON lists with typed Fold tuples before any numerical call; corrected by canonical-byte comparison, without source or kernel changes."
+    },
+    {
+      "plan_sha256": "63b0bc7d1f36baf62a970f6999898c61bc541e622a32b4eab7de87dd8b69f44b",
+      "terminal_sha256": "51145c2b04fcd42abd03460837cd57817d10c0f073a6eec41ae15622763286eb",
+      "native_exit_code": 1,
+      "scope": "Both actual baseline runs completed; three otherfolds legitimately refused invalid compositions when perturbedtarget joined training. Overstrict allfoldsuccess harness assertion stopped later work. Reference/perturbed outputs reused intact."
+    },
+    {
+      "plan_sha256": "2562fcd792b8aabe70866df3e94d4c31e6fe60fa5b1ab79f31a43a404cb76e94",
+      "terminal_sha256": "30db72a6da0e0593cff7b9fc758c9485ff2dc5caecb13df2f459726cd072f885",
+      "native_exit_code": 1,
+      "scope": "All numerical/spatialfit/prediction/score and isolation assertions completed, then13testfixture setup errors from missingchecksparent. Whole capture remainsfailed; completed products verified separately without numerical rerun."
+    }
+  ],
+  "unlaunched_preparation": {
+    "plan_sha256": "140ec33356e8298c5592be39878f2fe6dff38e7ea6d6dcb24faa4f40af7fe231",
+    "scope": "Original prospective source-hook plan retained unlaunched; successor restored reader hooks before mock software tests so event populations stay distinct."
+  },
+  "received_qualified_human_decisions": 0,
+  "scientific_acceptance": "not_evaluated",
+  "measured_vegetation_accuracy": false,
+  "untouched_confirmation": false,
+  "qualified_real_source_graph": false,
+  "release_acceptance": false
+}
