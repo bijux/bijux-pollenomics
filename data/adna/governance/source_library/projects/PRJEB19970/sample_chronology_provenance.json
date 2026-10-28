@@ -639,10 +639,10 @@
       "repo_stable_sample_id": "prjeb19970:samea103910520",
       "preferred_sample_label": "BER11_L",
       "published_wording": "2,300 yBP",
-      "source_wording_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+      "source_wording_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
       "provenance_surface": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
       "provenance_kind": "article_or_archive_text",
-      "provenance_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+      "provenance_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
       "dating_basis": "unknown",
       "evidence_class": "unresolved",
       "precision_posture": "unresolved",
@@ -668,8 +668,8 @@
         "comparison_note": "Chronology comes from the recovered sample-owned source row.",
         "refusal_reason_code": "",
         "provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
-        "provenance_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
-        "provenance_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+        "provenance_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+        "provenance_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
         "original_labels": [
           "2,300 yBP"
         ],

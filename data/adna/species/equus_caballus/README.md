@@ -24,7 +24,7 @@ flowchart LR
 - Curation class: `paper_pinned_core`
 - Curated sample rows: `567`
 - Curated projects: `4`
-- Curated site rows: `245`
+- Curated site rows: `244`
 - Direct-coordinate rows: `212`
 - Geocoded rows: `1`
 - Unresolved sample rows: `3`

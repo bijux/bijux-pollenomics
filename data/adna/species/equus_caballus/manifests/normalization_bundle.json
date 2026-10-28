@@ -1284,9 +1284,9 @@
       },
       "locality_identity": {
         "namespace": "equus_caballus:sample_locality",
-        "stable_token": "equus_caballus:locality:prjeb19970:berel",
+        "stable_token": "equus_caballus:locality:prjeb19970:berel:kazakhstan",
         "locality_text": "Berel'",
-        "political_entity": null,
+        "political_entity": "Kazakhstan",
         "source_anchor_tokens": [
           "PRJEB19970",
           "primary_supplement_archive_filename_join"
@@ -1302,7 +1302,7 @@
       "master_id": "prjeb19970:samea103910520",
       "group_id": "PRJEB19970",
       "locality": "Berel'",
-      "political_entity": null,
+      "political_entity": "Kazakhstan",
       "coordinates": {
         "latitude": null,
         "longitude": null,
@@ -1340,8 +1340,8 @@
       "chronology_normalization_status": "text_only_unparsed",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
       "chronology_provenance_kind": "article_or_archive_text",
-      "chronology_provenance_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
-      "chronology_provenance_text": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+      "chronology_provenance_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+      "chronology_provenance_text": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
       "chronology_conflict_note": "",
       "sample_basis": "primary_supplement_archive_filename_join",
       "archive_native_sample_id": "SAMEA103910520",
@@ -1349,8 +1349,8 @@
       "supplementary_table_sample_label": "BER11_L",
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
-      "sample_lineage_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
-      "sample_lineage_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+      "sample_lineage_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+      "sample_lineage_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "source_native_tax_id": "9796",
@@ -56372,33 +56372,7 @@
       "coordinate_basis": "site_level_localities",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "Age (years ago): 2300",
-      "time_start_bp": null,
-      "time_end_bp": null,
-      "dating_basis": "unknown",
-      "comparator_context": false,
-      "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
-      "support_gap_note": ""
-    },
-    {
-      "project_accession": "PRJEB19970",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "site_label": "Berel'",
-      "political_entity": null,
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
-      "source_artifact_kind": "article_or_archive_text",
-      "source_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
-      "exact_source_text": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
-      "source_support_status": "supplementary_table_row",
-      "paper_doi": "10.1126/science.aam5298",
-      "paper_url": "https://doi.org/10.1126/science.aam5298",
-      "supplementary_source": "",
-      "coordinate_basis": "site_level_localities",
-      "latitude_text": "",
-      "longitude_text": "",
-      "chronology_text": "2,300 yBP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
@@ -62827,100 +62801,6 @@
     {
       "identity": {
         "namespace": "equus_caballus:project_locality",
-        "stable_token": "equus_caballus:locality:prjeb19970:berel",
-        "locality_text": "Berel'",
-        "political_entity": "",
-        "source_anchor_tokens": [
-          "PRJEB19970",
-          "",
-          ""
-        ]
-      },
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "source_family": "ENA",
-      "source_releases": [
-        "PRJEB19970"
-      ],
-      "record_modalities": [
-        "archive_reads"
-      ],
-      "review_strengths": [
-        "primary_paper_pinned"
-      ],
-      "provenance_qualities": [
-        "primary_paper_pinned"
-      ],
-      "locality": "Berel'",
-      "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "unknown"
-      },
-      "sample_count": 1,
-      "sample_ids": [
-        "prjeb19970:samea103910520"
-      ],
-      "datasets": [
-        "equus_caballus:project:PRJEB19970"
-      ],
-      "chronology": {
-        "original_text": "2,300 yBP",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "source_mean_bp_text": "",
-        "dating_basis": "locality_sample_coverage",
-        "evidence_class": "locality_sample_coverage_hull",
-        "precision_posture": "display_coverage_only",
-        "refusal_reason_code": ""
-      },
-      "chronology_role": "locality_sample_coverage_hull",
-      "sample_chronologies": [
-        {
-          "schema_version": "adna-sample-chronology-support.v1",
-          "sample_id": "prjeb19970:samea103910520",
-          "chronology": {
-            "original_text": "2,300 yBP",
-            "time_start_bp": null,
-            "time_end_bp": null,
-            "time_mean_bp": null,
-            "date_stddev_bp": "",
-            "source_mean_bp_text": "",
-            "dating_basis": "unknown",
-            "evidence_class": "unresolved",
-            "precision_posture": "unresolved",
-            "refusal_reason_code": ""
-          },
-          "source_release": "PRJEB19970",
-          "provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
-          "provenance_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
-          "provenance_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
-          "provenance_kind": "article_or_archive_text",
-          "chronology_strength": "sample_owned_text_only",
-          "normalization_status": "text_only_unparsed",
-          "conflict_note": "",
-          "reference_epoch": "not_separately_declared",
-          "age_type": "not_separately_declared",
-          "calibration_status": "not_separately_declared",
-          "model": "not_separately_declared"
-        }
-      ],
-      "sample_namespace": "equus_caballus:sample_locality",
-      "project_accessions": [
-        "PRJEB19970"
-      ],
-      "original_location_text": "Berel'",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
-      "identity": {
-        "namespace": "equus_caballus:project_locality",
         "stable_token": "equus_caballus:locality:prjeb19970:berel:kazakhstan",
         "locality_text": "Berel'",
         "political_entity": "Kazakhstan",
@@ -62953,7 +62833,7 @@
         "longitude_text": "",
         "confidence": "unknown"
       },
-      "sample_count": 10,
+      "sample_count": 11,
       "sample_ids": [
         "prjeb19970:cgg_1_016168",
         "prjeb19970:cgg_1_016169",
@@ -62964,7 +62844,8 @@
         "prjeb19970:cgg_1_016175",
         "prjeb19970:cgg_1_016176",
         "prjeb19970:cgg_1_016177",
-        "prjeb19970:cgg_1_016179"
+        "prjeb19970:cgg_1_016179",
+        "prjeb19970:samea103910520"
       ],
       "datasets": [
         "equus_caballus:project:PRJEB19970"
@@ -63255,6 +63136,34 @@
           "provenance_locator": "Sheet1!row16",
           "provenance_excerpt": "Berel_BER12_M_2300 | CGG_1_016179 | Iron Age | 2300 | Scythian | Berel' | Kazakhstan | male | PRJEB19970 | Librado et al. 2017 | 5.7 | 151",
           "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb19970:samea103910520",
+          "chronology": {
+            "original_text": "2,300 yBP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "unknown",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB19970",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+          "provenance_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+          "provenance_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+          "provenance_kind": "article_or_archive_text",
           "chronology_strength": "sample_owned_text_only",
           "normalization_status": "text_only_unparsed",
           "conflict_note": "",
