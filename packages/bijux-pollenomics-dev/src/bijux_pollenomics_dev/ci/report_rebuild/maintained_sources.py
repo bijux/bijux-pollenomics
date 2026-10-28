@@ -45,7 +45,6 @@ from .scientific_captures.swedish_source_chronology import (
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
 )
-
 from .scientific_captures.vegetation_reference.slu_guide import (
     validated_slu_guide_capture,
 )
