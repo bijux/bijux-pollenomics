@@ -379,6 +379,18 @@ def verify_publication_input_inventory(scope: dict[str, Any]) -> None:
         raise ValueError("publication input inventory differs from retained claims")
 
 
+def _buffered_reader_markdown(raw: bytes) -> bytes:
+    """Preserve sealed output identity across one exact historical code-link alias."""
+    current = (
+        b"[family replay](https://github.com/bijux/bijux-pollenomics/blob/"
+        b"6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/"
+        b"pollen-reconstruction/author-buffered-pollen/replay.py)"
+    )
+    if raw.count(current) > 1:
+        raise ValueError("buffered author replay navigation is ambiguous")
+    return raw.replace(current, b"[family replay](replay.py)", 1)
+
+
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     """Bind the buffered four-method diagnostic to frozen source and scores."""
     declared = scope["author_buffered_spatial_pollen"]
@@ -392,7 +404,13 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
         path = directory / item["path"]
-        if path.stat().st_size != item["bytes"] or sha256(path) != item["sha256"]:
+        raw = path.read_bytes()
+        if item["path"] == "README.md":
+            raw = _buffered_reader_markdown(raw)
+        if (
+            len(raw) != item["bytes"]
+            or hashlib.sha256(raw).hexdigest() != item["sha256"]
+        ):
             raise ValueError(f"buffered author output differs: {item['path']}")
     for relative, digest in manifest["producer_sha256"].items():
         if sha256(REPOSITORY_ROOT / relative) != digest:

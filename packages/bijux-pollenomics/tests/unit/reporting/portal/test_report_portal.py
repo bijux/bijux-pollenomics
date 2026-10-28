@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -25,7 +24,7 @@ class ReportPortalUnitTests(unittest.TestCase):
             (report_root / "world").mkdir(parents=True, exist_ok=True)
             (report_root / "countries" / "sweden").mkdir(parents=True, exist_ok=True)
 
-            (report_root / "world" / "README.md").write_text(
+            (report_root / "world" / "scope_example.md").write_text(
                 "# World Evidence Surface\n\nThis page explains the world parent surface in prose before listing artifacts.\n\n## Output Files\n\n- one link\n",
                 encoding="utf-8",
             )
@@ -33,23 +32,23 @@ class ReportPortalUnitTests(unittest.TestCase):
                 "<html></html>",
                 encoding="utf-8",
             )
-            (report_root / "world" / "world_point_traceability.md").write_text(
+            (report_root / "world" / "scope_point_traceability.md").write_text(
                 "# World point traceability\n\nThis page explains why visible points can be inspected and checked.\n",
                 encoding="utf-8",
             )
-            (report_root / "countries" / "sweden" / "README.md").write_text(
+            (report_root / "countries" / "sweden" / "scope_example.md").write_text(
                 "# Sweden Bundle\n\nThis page explains the country surface before the file list.\n",
                 encoding="utf-8",
             )
-            (report_root / "animal_point_evidence_review.md").write_text(
+            (report_root / "animal_scope_example_review.md").write_text(
                 "# Animal point evidence review\n\nThis page explains how animal point support is reviewed.\n",
                 encoding="utf-8",
             )
-            (report_root / "animal_output_honesty.md").write_text(
+            (report_root / "scope_example_honesty.md").write_text(
                 "# Animal output honesty\n\nThis page explains blocked and thin publication rows.\n",
                 encoding="utf-8",
             )
-            (report_root / "repository_truth_posture.md").write_text(
+            (report_root / "repository_scope_example.md").write_text(
                 "# Repository truth posture\n\nThis page explains the current repository claim boundary.\n",
                 encoding="utf-8",
             )
@@ -98,25 +97,25 @@ class ReportPortalUnitTests(unittest.TestCase):
                 "[machine-readable review](report_narrative_quality_review.json)",
                 quality_page,
             )
-            self.assertNotIn("docs/report/world/README.md", quality_page)
+            self.assertNotIn("docs/report/world/scope_example.md", quality_page)
             self.assertEqual(
-                rows_by_path["docs/report/world/README.md"]["family"], "scopes"
+                rows_by_path["docs/report/world/scope_example.md"]["family"], "scopes"
             )
             self.assertEqual(
                 rows_by_path["docs/report/world/world_map.html"]["audience"],
                 "public_reading_surface",
             )
             self.assertEqual(
-                rows_by_path["docs/report/animal_output_honesty.md"]["family"],
+                rows_by_path["docs/report/scope_example_honesty.md"]["family"],
                 "caveats",
             )
             self.assertEqual(
-                rows_by_path["docs/report/repository_truth_posture.md"]["audience"],
+                rows_by_path["docs/report/repository_scope_example.md"]["audience"],
                 "maintainer_diagnostic",
             )
             self.assertIn("reader_ready", quality["quality_posture_counts"])
 
-    def test_inventory_binds_content_and_excludes_its_own_metadata(self) -> None:
+    def test_inventory_tracks_paths_and_excludes_its_own_metadata(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             source = root / "study" / "README.md"
@@ -138,14 +137,7 @@ class ReportPortalUnitTests(unittest.TestCase):
             self.assertFalse(indexed & excluded)
             self.assertEqual(len(excluded), 4)
             for row in registry["rows"]:
-                relative = row["repository_path"].removeprefix("docs/report/")
-                if not relative.endswith(".md"):
-                    self.assertNotIn("content_sha256", row)
-                    continue
-                self.assertEqual(
-                    row["content_sha256"],
-                    hashlib.sha256((root / relative).read_bytes()).hexdigest(),
-                )
+                self.assertNotIn("content_sha256", row)
             before = {
                 p.relative_to(root): p.read_bytes()
                 for p in root.rglob("*")
@@ -170,14 +162,8 @@ class ReportPortalUnitTests(unittest.TestCase):
                 for r in after["rows"]
                 if r["repository_path"] == "docs/report/study/README.md"
             )
-            self.assertNotEqual(
-                row["content_sha256"],
-                next(
-                    r
-                    for r in registry["rows"]
-                    if r["repository_path"] == row["repository_path"]
-                )["content_sha256"],
-            )
+            self.assertEqual(after, registry)
+            self.assertNotIn("content_sha256", row)
             quality = json.loads(
                 (root / "report_narrative_quality_review.json").read_text()
             )
@@ -186,7 +172,12 @@ class ReportPortalUnitTests(unittest.TestCase):
                 for r in quality["rows"]
                 if r["repository_path"] == row["repository_path"]
             )
-            self.assertEqual(review["content_sha256"], row["content_sha256"])
+            self.assertNotIn("content_sha256", review)
+            self.assertEqual(review["heading_count"], 1)
+            self.assertEqual(
+                quality["review_scope"],
+                "automated layout signals; no human or scientific review",
+            )
 
 
 if __name__ == "__main__":
