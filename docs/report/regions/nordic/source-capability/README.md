@@ -112,6 +112,32 @@ only semantic stage addition: every legacy stage field, all 187 capability audit
 rows, and every count/status/source field in the 198 country cells agree. Required
 parent/build identities were refreshed through the existing generators.
 
+## Current country-ledger authority
+
+The 28 October 2026 [governed ledger](../../../../../data/country_dimension_coverage.json)
+retains all 198 count, availability and lifecycle cells while identifying each
+partition's actual assignment authority. The current Finnish boundary profile
+includes both `FIN` and `ALD`; the historical SEAD admission retains its original
+2,069-site cohort and boundary digest. Source-country fields and publications
+are not labeled as fresh current-boundary replays without evidence.
+
+The updated writer and independent full-cube check are documented in
+[the country account](../../../../../reports/science/country-evidence-status.md#current-assignment-authority-accounting).
+The existing source-capability consumer was then run at `47da870a2` on the
+committed current parents: 0.96 s, RSS 49,332,224 bytes. Its independent 1.03 s
+readback, RSS 42,172,416 bytes, verifies all 66 entries/198 dimension projections,
+all 20 parent pins and the unchanged 187 capability rows, source stages, counts
+and lifecycle states. Both meet their 60 s / 512 MiB / 8 MiB envelopes.
+The new raw result remains under
+`artifacts/root/source-capability-boundary-authority/` and its independent
+observation under `artifacts/verification/source-capability-boundary-authority/`.
+
+The retained report download above keeps its own earlier parent identities.
+It has not been overwritten or relabeled as this later execution. The command
+below evaluates the current governed parents; exact replay of an earlier
+snapshot requires its recorded input bytes. Source receipt, assignment metadata
+and scientific admission remain separate.
+
 ## Reproduce
 
 From the repository root, use a fresh output directory:
