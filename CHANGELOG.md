@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Retain execution reference source ownership and corrections in Git while removing current programme copies and authenticating exact historical source inputs ([#271](https://github.com/bijux/bijux-pollenomics/pull/271)).
+- **Pending review:** Authenticate retained Linux R source and result custody with exact historical runtime provenance and strict current scientific source checks ([#270](https://github.com/bijux/bijux-pollenomics/pull/270)).
+- **Verified merge (2026-10-28 23:15:47 UTC):** Retain execution reference source ownership and corrections in Git while removing current programme copies and authenticating exact historical source inputs ([#271](https://github.com/bijux/bijux-pollenomics/pull/271)).
 - **Verified merge (2026-10-28 22:24:30 UTC):** Reject archive extraction destinations beneath symlink ancestors before writing selected members ([#269](https://github.com/bijux/bijux-pollenomics/pull/269)).
 - **Verified merge (2026-10-28 22:33:36 UTC):** Retain sample-owned atlas chronology, authenticated native source custody, and historical map templates through accepted shared standards ([#268](https://github.com/bijux/bijux-pollenomics/pull/268)).
 - **Verified merge (2026-10-28 20:37:34 UTC):** Retain exact source-bound constrained comparison products and dated radius input witnesses without repeating model fits or changing scientific result scope ([#267](https://github.com/bijux/bijux-pollenomics/pull/267)).
