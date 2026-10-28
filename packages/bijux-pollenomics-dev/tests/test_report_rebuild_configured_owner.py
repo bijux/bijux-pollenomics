@@ -1488,7 +1488,7 @@ def _native_capture_configuration(profile: object) -> dict[str, Any]:
     }
 
 
-@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+@pytest.mark.parametrize("profile", ["annulus", "count-domain", "finite-covariance"])
 def test_native_capture_configuration_accepts_finite_profile(profile: str) -> None:
     row = owner_runner._configuration_owner(
         _native_capture_configuration(profile), _NATIVE_CAPTURE_OWNER
@@ -1518,12 +1518,12 @@ def test_native_capture_configuration_stays_with_named_owner(
         )
 
 
-def test_actual_native_capture_owner_emits_explicit_count_profile() -> None:
+def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() -> None:
     repository = Path(__file__).resolve().parents[3]
     selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
     offset = selected.command.index("--capture-profile")
-    assert selected.command[offset + 1] == "count-domain"
-    assert len(selected.inputs) == 378
+    assert selected.command[offset + 1] == "finite-covariance"
+    assert len(selected.inputs) == 386
     assert selected.source_paths == {
         "source-products/report.json": "method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",

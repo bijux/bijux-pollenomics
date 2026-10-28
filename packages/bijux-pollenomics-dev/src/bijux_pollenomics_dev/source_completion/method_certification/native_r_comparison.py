@@ -88,9 +88,9 @@ def _consumer_inputs(
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 98
+        or len(code) != 107
         or len(set(code)) != len(code)
-        or len(data) != 280
+        or len(data) != 285
         or len(set(data)) != len(data)
         or _POLICY not in data
         or selected_manifest not in data
@@ -162,13 +162,18 @@ def build(
     evidence = _evidence_destination(repository, output)
     before = validated_current_capture(repository, profile=capture_profile)
     consumer = _consumer_inputs(repository, before.manifest_sha256, capture_profile)
-    report = summarize(
+    comparison_paths = (
         repository,
         before.directory,
         repository
         / "docs/report/method-certification/original-r-reference/reference-bundle",
         evidence,
         before.source_archives,
+    )
+    report = (
+        summarize(*comparison_paths, retained_capture_profile="finite-covariance")
+        if capture_profile == "finite-covariance"
+        else summarize(*comparison_paths)
     )
     after = validated_current_capture(repository, profile=capture_profile)
     if (
@@ -209,7 +214,9 @@ def main() -> None:
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
-        "--capture-profile", choices=("annulus", "count-domain"), default="annulus"
+        "--capture-profile",
+        choices=("annulus", "count-domain", "finite-covariance"),
+        default="annulus",
     )
     args = parser.parse_args()
     build(args.repository, args.output, capture_profile=args.capture_profile)

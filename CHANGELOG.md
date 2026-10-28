@@ -12,6 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Authenticate retained native R control sources through reachable Git history; qualify Nordic chronology windows, synthetic coverage diagnostics and declared basin-area sensitivity ([#260](https://github.com/bijux/bijux-pollenomics/pull/260)).
 - Lock audited fixed versions of development-tool dependencies while retaining scientific runtime versions ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
 - Refuse unrepresentable covariance correction factors; qualify Namibia and Pyrenees source comparisons, Nordic dataset attribution and scientific reader identities ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
 

@@ -1614,7 +1614,7 @@
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison",
-      "native_capture_profile": "count-domain",
+      "native_capture_profile": "finite-covariance",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "owner_id": "method-certification/current-r-oracle/report-products",
@@ -1918,6 +1918,16 @@
         "source-products/source-account.json": "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json"
       },
       "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-grouped-mapped-area.json"
+    },
+    {
+      "owner_id": "synthetic-validation/recovery-evidence/report-products",
+      "module": "bijux_pollenomics_dev.lra_validation.recovery_evidence",
+      "output_mode": "single_file",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/recovery-evidence/report.json"
+      },
+      "timeout_seconds": 30
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

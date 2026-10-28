@@ -1,0 +1,38 @@
+{
+  "schema_version": "swedish-native-chronology-contrast-protocol.v1",
+  "dataset_chronology_pairs": [
+    [
+      4042,
+      25402,
+      25404
+    ],
+    [
+      19909,
+      11514,
+      11513
+    ],
+    [
+      21790,
+      12503,
+      12504
+    ],
+    [
+      45311,
+      29525,
+      29524
+    ],
+    [
+      45314,
+      29528,
+      29529
+    ]
+  ],
+  "physical_profile": "metadata_radius_wind_3",
+  "literal_panel": [
+    "Betula",
+    "Poaceae"
+  ],
+  "windows": 25,
+  "scope": "Five pairs exhaust125fixed domain slots on unchanged original two-taxon models; first/second order is the retained producer order, not accuracy preference. Native namedCalBP fields inherit documented AD1950 source datum; age model identities, controls, missingbounds and signedpoints preserved. Compare deterministic original covers at fixed PPE/geometry/transport after verifying source sample/window/count identities. No original chronology refit, new physical/model runs, probability allocation, independentage/vegetation accuracy, historical-selected-cohort or rawsource redistribution. Paired SE explicitly uncomputed because marginal SE lacks cross-profile count/PPE covariance.",
+  "absolute_scalar_tolerance": 2e-13
+}

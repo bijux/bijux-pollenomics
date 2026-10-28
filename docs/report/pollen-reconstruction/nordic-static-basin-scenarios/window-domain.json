@@ -1,0 +1,4332 @@
+{
+  "schema_version": "nordic-complete-source-window-domain.v1",
+  "original_reconstruction_candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "original_native_status_preserved": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "original_native_exit": 0,
+  "source_sha256": {
+    "local-native-source-support.json": {
+      "sha256": "10c250757923f37ac383b2efd6fcc41af3d5d73b21f69f65ff6fee99443e2fa7",
+      "bytes": 1483086
+    },
+    "native-terminal.json": {
+      "sha256": "b00ad8785bacb49d6e48e3060acd9229e31e2ea26e356b6057bc82b6f924577c",
+      "bytes": 3991
+    },
+    "protocol.json": {
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    },
+    "report.json": {
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    "source-census.json": {
+      "sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+      "bytes": 148001
+    },
+    "source-domain.json": {
+      "sha256": "ff04f7d71ab6abbf988bcbc70b3b82d8e0c8fd7119d677a11955f9d411dc4869",
+      "bytes": 14222
+    }
+  },
+  "cores": [
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "source_samples": 150,
+      "accepted_point_samples": 150,
+      "excluded_point_samples": 0,
+      "full_source_reported_pollen_NISP": 85303,
+      "accepted_reported_pollen_NISP": 85303,
+      "excluded_reported_pollen_NISP": 0,
+      "declared_windows": 25,
+      "occupied_windows": 24,
+      "unobserved_windows": 1,
+      "reported_bound_support_counts": {
+        "reported_bounds_missing": 150
+      }
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "source_samples": 72,
+      "accepted_point_samples": 72,
+      "excluded_point_samples": 0,
+      "full_source_reported_pollen_NISP": 47085,
+      "accepted_reported_pollen_NISP": 47085,
+      "excluded_reported_pollen_NISP": 0,
+      "declared_windows": 25,
+      "occupied_windows": 22,
+      "unobserved_windows": 3,
+      "reported_bound_support_counts": {
+        "reported_bounds_missing": 72
+      }
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "source_samples": 66,
+      "accepted_point_samples": 65,
+      "excluded_point_samples": 1,
+      "full_source_reported_pollen_NISP": 101991,
+      "accepted_reported_pollen_NISP": 101470,
+      "excluded_reported_pollen_NISP": 521,
+      "declared_windows": 25,
+      "occupied_windows": 23,
+      "unobserved_windows": 2,
+      "reported_bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 46,
+        "reported_bounds_extend_outside_point_domain": 2,
+        "reported_bounds_wholly_within_point_window": 17
+      }
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "source_samples": 26,
+      "accepted_point_samples": 26,
+      "excluded_point_samples": 0,
+      "full_source_reported_pollen_NISP": 28950,
+      "accepted_reported_pollen_NISP": 28950,
+      "excluded_reported_pollen_NISP": 0,
+      "declared_windows": 25,
+      "occupied_windows": 11,
+      "unobserved_windows": 14,
+      "reported_bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 20,
+        "reported_bounds_wholly_within_point_window": 6
+      }
+    }
+  ],
+  "native_source_samples": 314,
+  "accepted_point_samples": 313,
+  "excluded_source_points": 1,
+  "declared_core_windows": 100,
+  "observed_core_windows": 80,
+  "absent_core_windows": 20,
+  "declared_geometry_case_windows": 225,
+  "retained_actual_case_results": 182,
+  "absent_geometry_case_windows": 43,
+  "saved_count_support_scalar_comparisons": 1064,
+  "reported_bound_support_counts": {
+    "reported_bounds_cross_point_window_boundary": 66,
+    "reported_bounds_extend_outside_point_domain": 2,
+    "reported_bounds_missing": 222,
+    "reported_bounds_wholly_within_point_window": 23
+  },
+  "source_window_rows": [
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        188,
+        163
+      ],
+      "reported_pollen_NISP": 503,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        567,
+        634
+      ],
+      "reported_pollen_NISP": 1724,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        529,
+        602
+      ],
+      "reported_pollen_NISP": 1598,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        676,
+        882
+      ],
+      "reported_pollen_NISP": 2161,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        812,
+        1061
+      ],
+      "reported_pollen_NISP": 2892,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 5
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        669,
+        750
+      ],
+      "reported_pollen_NISP": 2242,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        872,
+        883
+      ],
+      "reported_pollen_NISP": 2823,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 5
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "observed_point_support",
+      "native_samples": 9,
+      "pooled_panel_counts": [
+        1582,
+        1503
+      ],
+      "reported_pollen_NISP": 5072,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 9
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "observed_point_support",
+      "native_samples": 7,
+      "pooled_panel_counts": [
+        1702,
+        1006
+      ],
+      "reported_pollen_NISP": 4304,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 7
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1381,
+        810
+      ],
+      "reported_pollen_NISP": 3322,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1421,
+        797
+      ],
+      "reported_pollen_NISP": 3489,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1669,
+        723
+      ],
+      "reported_pollen_NISP": 3546,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1713,
+        710
+      ],
+      "reported_pollen_NISP": 3341,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "observed_point_support",
+      "native_samples": 7,
+      "pooled_panel_counts": [
+        2105,
+        948
+      ],
+      "reported_pollen_NISP": 4147,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 7
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "observed_point_support",
+      "native_samples": 7,
+      "pooled_panel_counts": [
+        2080,
+        1021
+      ],
+      "reported_pollen_NISP": 4076,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 7
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "observed_point_support",
+      "native_samples": 7,
+      "pooled_panel_counts": [
+        2438,
+        873
+      ],
+      "reported_pollen_NISP": 4242,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 7
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "observed_point_support",
+      "native_samples": 10,
+      "pooled_panel_counts": [
+        3064,
+        1244
+      ],
+      "reported_pollen_NISP": 5633,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 10
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "observed_point_support",
+      "native_samples": 16,
+      "pooled_panel_counts": [
+        4785,
+        2103
+      ],
+      "reported_pollen_NISP": 8751,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 16
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "observed_point_support",
+      "native_samples": 9,
+      "pooled_panel_counts": [
+        2933,
+        1323
+      ],
+      "reported_pollen_NISP": 5341,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 9
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1861,
+        984
+      ],
+      "reported_pollen_NISP": 3544,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1686,
+        1134
+      ],
+      "reported_pollen_NISP": 3375,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "observed_point_support",
+      "native_samples": 7,
+      "pooled_panel_counts": [
+        2130,
+        1311
+      ],
+      "reported_pollen_NISP": 3909,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 7
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        2472,
+        350
+      ],
+      "reported_pollen_NISP": 3247,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 6
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1219,
+        238
+      ],
+      "reported_pollen_NISP": 2021,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "named_cal_bp_chronology_id": 37160,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        411,
+        211,
+        33
+      ],
+      "reported_pollen_NISP": 753,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        1788,
+        1193,
+        109
+      ],
+      "reported_pollen_NISP": 3650,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 5
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1167,
+        1211,
+        71
+      ],
+      "reported_pollen_NISP": 2832,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        910,
+        964,
+        54
+      ],
+      "reported_pollen_NISP": 2191,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        927,
+        901,
+        49
+      ],
+      "reported_pollen_NISP": 2155,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        896,
+        836,
+        57
+      ],
+      "reported_pollen_NISP": 2110,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        1452,
+        1285,
+        90
+      ],
+      "reported_pollen_NISP": 3392,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 5
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1149,
+        1202,
+        80
+      ],
+      "reported_pollen_NISP": 2766,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        806,
+        1163,
+        38
+      ],
+      "reported_pollen_NISP": 2230,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        214,
+        486,
+        18
+      ],
+      "reported_pollen_NISP": 782,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        411,
+        775,
+        20
+      ],
+      "reported_pollen_NISP": 1325,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        726,
+        1786,
+        47
+      ],
+      "reported_pollen_NISP": 2824,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        792,
+        1752,
+        44
+      ],
+      "reported_pollen_NISP": 2923,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        860,
+        1756,
+        38
+      ],
+      "reported_pollen_NISP": 2959,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        424,
+        1461,
+        30
+      ],
+      "reported_pollen_NISP": 2122,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        315,
+        624,
+        29
+      ],
+      "reported_pollen_NISP": 1175,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1074,
+        545,
+        93
+      ],
+      "reported_pollen_NISP": 2257,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1202,
+        570,
+        163
+      ],
+      "reported_pollen_NISP": 2470,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1537,
+        261,
+        177
+      ],
+      "reported_pollen_NISP": 2270,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        1272,
+        85,
+        84
+      ],
+      "reported_pollen_NISP": 1592,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1164,
+        31,
+        80
+      ],
+      "reported_pollen_NISP": 1469,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        519,
+        10,
+        48
+      ],
+      "reported_pollen_NISP": 838,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_missing": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "named_cal_bp_chronology_id": 11601,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        49,
+        134
+      ],
+      "reported_pollen_NISP": 1173,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_extend_outside_point_domain": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        72,
+        339
+      ],
+      "reported_pollen_NISP": 1227,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        155,
+        710
+      ],
+      "reported_pollen_NISP": 2225,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        228,
+        1185
+      ],
+      "reported_pollen_NISP": 3286,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        384,
+        1714
+      ],
+      "reported_pollen_NISP": 4619,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        611,
+        1570
+      ],
+      "reported_pollen_NISP": 4909,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2,
+        "reported_bounds_wholly_within_point_window": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        989,
+        2062
+      ],
+      "reported_pollen_NISP": 7743,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 3,
+        "reported_bounds_wholly_within_point_window": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "observed_point_support",
+      "native_samples": 9,
+      "pooled_panel_counts": [
+        1639,
+        3929
+      ],
+      "reported_pollen_NISP": 12784,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 6,
+        "reported_bounds_wholly_within_point_window": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "observed_point_support",
+      "native_samples": 6,
+      "pooled_panel_counts": [
+        1301,
+        2834
+      ],
+      "reported_pollen_NISP": 9861,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 5,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        278,
+        554
+      ],
+      "reported_pollen_NISP": 2099,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        1034,
+        1372
+      ],
+      "reported_pollen_NISP": 6346,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        463,
+        208
+      ],
+      "reported_pollen_NISP": 2110,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        490,
+        161
+      ],
+      "reported_pollen_NISP": 2148,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        624,
+        162
+      ],
+      "reported_pollen_NISP": 2740,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        1181,
+        340
+      ],
+      "reported_pollen_NISP": 5499,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        1123,
+        227
+      ],
+      "reported_pollen_NISP": 4425,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        1898,
+        327
+      ],
+      "reported_pollen_NISP": 8217,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 4,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        658,
+        162
+      ],
+      "reported_pollen_NISP": 3202,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        1055,
+        243
+      ],
+      "reported_pollen_NISP": 4819,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "observed_point_support",
+      "native_samples": 4,
+      "pooled_panel_counts": [
+        1946,
+        276
+      ],
+      "reported_pollen_NISP": 7626,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 4
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        1523,
+        30
+      ],
+      "reported_pollen_NISP": 2731,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        455,
+        31
+      ],
+      "reported_pollen_NISP": 1095,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "named_cal_bp_chronology_id": 25732,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        112,
+        11
+      ],
+      "reported_pollen_NISP": 586,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_extend_outside_point_domain": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        106,
+        166,
+        338,
+        83,
+        4,
+        8
+      ],
+      "reported_pollen_NISP": 1171,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "observed_point_support",
+      "native_samples": 3,
+      "pooled_panel_counts": [
+        396,
+        471,
+        762,
+        292,
+        10,
+        36
+      ],
+      "reported_pollen_NISP": 3138,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 3
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        311,
+        393,
+        455,
+        245,
+        12,
+        30
+      ],
+      "reported_pollen_NISP": 2206,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        860,
+        1103,
+        708,
+        753,
+        33,
+        76
+      ],
+      "reported_pollen_NISP": 5611,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 5
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "observed_point_support",
+      "native_samples": 5,
+      "pooled_panel_counts": [
+        908,
+        1123,
+        428,
+        761,
+        49,
+        71
+      ],
+      "reported_pollen_NISP": 5379,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 3,
+        "reported_bounds_wholly_within_point_window": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        358,
+        600,
+        93,
+        266,
+        22,
+        37
+      ],
+      "reported_pollen_NISP": 2121,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 2
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        377,
+        656,
+        124,
+        296,
+        14,
+        34
+      ],
+      "reported_pollen_NISP": 2311,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        338,
+        568,
+        153,
+        306,
+        20,
+        53
+      ],
+      "reported_pollen_NISP": 2135,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "observed_point_support",
+      "native_samples": 2,
+      "pooled_panel_counts": [
+        366,
+        639,
+        157,
+        366,
+        40,
+        83
+      ],
+      "reported_pollen_NISP": 2388,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1,
+        "reported_bounds_wholly_within_point_window": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        246,
+        283,
+        81,
+        300,
+        30,
+        56
+      ],
+      "reported_pollen_NISP": 1357,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "observed_point_support",
+      "native_samples": 1,
+      "pooled_panel_counts": [
+        140,
+        267,
+        43,
+        313,
+        5,
+        24
+      ],
+      "reported_pollen_NISP": 1133,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {
+        "reported_bounds_cross_point_window_boundary": 1
+      },
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "named_cal_bp_chronology_id": 25740,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "no_native_point_support",
+      "native_samples": 0,
+      "pooled_panel_counts": null,
+      "reported_pollen_NISP": null,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "bound_support_counts": {},
+      "vegetation_zero_inferred": false
+    }
+  ],
+  "geometry_case_window_rows": [
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 1,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 1,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 23,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 23,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "native_dataset_id": 52082,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "native_dataset_id": 52082,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 1,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 1,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 1,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 23,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 23,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 23,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.metadata_static_radius",
+      "native_dataset_id": 20034,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "native_dataset_id": 20034,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 0,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 1,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 1,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 2,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 3,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 4,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 5,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 6,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 11,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 11,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 13,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 13,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 16,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 18,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 19,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 20,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 22,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 23,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 23,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "native_dataset_id": 4445,
+      "window_index": 24,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4445,
+      "window_index": 24,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 0,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 0,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 1,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 1,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 2,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 2,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 3,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 3,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 4,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 4,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 5,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 5,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 6,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 6,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 7,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 8,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 9,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 10,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 11,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 12,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 13,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 14,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 15,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 16,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 16,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 17,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 18,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 18,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 19,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 19,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 20,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 20,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 21,
+      "status": "observed_point_support",
+      "saved_numerical_result_retained": true,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 22,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 22,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 23,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 23,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "native_dataset_id": 4446,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "native_dataset_id": 4446,
+      "window_index": 24,
+      "status": "no_native_point_support",
+      "saved_numerical_result_retained": false,
+      "new_reconstruction_performed": false
+    }
+  ],
+  "scope": "Exhaustive source-point support and retained-count reconciliation on four named native CalBP models under their previously declared AD1950 source datum. Bounds are classified by literal numeric containment only, with no confidence interpretation or probability allocation. Absent windows have null counts and no inferred zero vegetation. No sample calibration, chronology fit, model reconstruction, physical quadrature, historical-selection, source-rights broadening or independent vegetation/chronology accuracy claim."
+}

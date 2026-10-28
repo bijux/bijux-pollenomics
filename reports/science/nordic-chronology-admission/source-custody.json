@@ -1,0 +1,26 @@
+{
+  "local-native-source-support.json": {
+    "sha256": "10c250757923f37ac383b2efd6fcc41af3d5d73b21f69f65ff6fee99443e2fa7",
+    "bytes": 1483086
+  },
+  "native-terminal.json": {
+    "sha256": "b00ad8785bacb49d6e48e3060acd9229e31e2ea26e356b6057bc82b6f924577c",
+    "bytes": 3991
+  },
+  "protocol.json": {
+    "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+    "bytes": 13224
+  },
+  "report.json": {
+    "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+    "bytes": 604997
+  },
+  "source-census.json": {
+    "sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+    "bytes": 148001
+  },
+  "source-domain.json": {
+    "sha256": "ff04f7d71ab6abbf988bcbc70b3b82d8e0c8fd7119d677a11955f9d411dc4869",
+    "bytes": 14222
+  }
+}
