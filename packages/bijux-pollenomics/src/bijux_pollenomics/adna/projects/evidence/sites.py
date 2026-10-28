@@ -185,6 +185,8 @@ def _direct_sample_site_rows(
                 source_artifact_kind=(
                     "ena_sample_xml"
                     if baltic_sheep_sample is not None
+                    else "article_or_archive_text"
+                    if first.sample_basis == "primary_supplement_archive_filename_join"
                     else "supplementary_spreadsheet_row"
                 ),
                 source_locator=(

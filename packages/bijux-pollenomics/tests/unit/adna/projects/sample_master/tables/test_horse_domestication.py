@@ -137,6 +137,16 @@ def test_same_locality_name_does_not_merge_unknown_and_known_countries() -> None
     assert "prjeb19970:samea103910520" not in known.sample_ids
     assert set(unknown.sample_ids).isdisjoint(known.sample_ids)
     assert len(unknown.sample_chronologies) == 1
+    primary = next(
+        row
+        for row in bundle.site_evidence_records
+        if row.project_accession == "PRJEB19970"
+        and row.site_label == "Berel'"
+        and row.political_entity is None
+    )
+    assert primary.source_artifact_kind == "article_or_archive_text"
+    assert "aam5298_librado.sm.pdf" in primary.source_artifact_path
+    assert "archive_metadata.html" in primary.source_artifact_path
 
 
 @pytest.mark.parametrize(
