@@ -129,9 +129,29 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
 
 
 RETAINED_BUILD_CONTEXT_PATH = "presentation/retained-build-source-context.json"
-RETAINED_BUILD_CONTEXT_SHA256 = (
-    "1ad22d57414a717c243d03f8a94c23374aca9c9dff0d1d2ff650a11eaf57ebd7"
-)
+RETAINED_BUILD_CONTEXT_SCHEMA = "retained-deck-current-source-correspondence.v1"
+RETAINED_BUILD_RECORD = {
+    "accepted_revision": "4ec5f1f614ba2e0e1c8b16f3e9b3aa1abd73c3c3",
+    "source_revision": "2f526aee907574df061318ef2982af11012626e4",
+    "source_lock_path": "presentation/source-lock.json",
+    "source_lock_sha256": "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e",
+    "source_count": 121,
+    "native_terminal_sha256": "6e018822b26df4db52f844ae923fbfd5c328796d8f64e601c2a6eeeeff33d31b",
+    "pdf_sha256": {
+        "presentation/big-picture.pdf": "d1c924e807c77c79c98fe64ad29c1b7bac3df41f6862cbd006591655f129e739",
+        "presentation/developer.pdf": "ddb85077744cf4a9cefd2223280572e0c534bb51d8d1336c1083a4495738fde6",
+        "presentation/scientific-evidence.pdf": "7a9ec3066a0a577b5b4775a937ddae6df3e50cafd6049adc6a48778df7478031",
+    },
+    "scope": "Three retained actual native PDF builds; original121-source lock and PDF bytes remain unchanged. Current source correspondence does not rerun slides or scientific models.",
+}
+RETAINED_PREVIOUS_DECK_EPOCH = {
+    "context_path": "presentation/retained-source-context.json",
+    "context_sha256": "14f1d06e8f1470e5810865f4ae6d56b8d7cd08e30f3b73ad07d43fdda9bd0818",
+    "source_revision": "11079034b7dc0c1a0d94d26c97c70ec59fcf27f7",
+    "source_lock_sha256": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
+    "source_count": 98,
+    "scope": "Original deck epoch remains historical; it is not the source lock of the later121-source PDFs.",
+}
 RETAINED_BUILD_LOCK_SHA256 = (
     "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"
 )
@@ -139,12 +159,78 @@ RETAINED_BUILD_WITNESS = "094939c4f7fc286dc93363a3f9ec584b1cc34efb"
 RETIRED_DECK_REGISTER = "reports/needed/README.md"
 
 
+def _validated_retained_build_context(raw: bytes) -> dict[str, Any]:
+    """Validate a finite source-owned review manifest; prose grants no admission."""
+    context = json.loads(raw, object_pairs_hook=_json_object)
+    if (
+        not isinstance(context, dict)
+        or set(context)
+        != {
+            "schema_version",
+            "retained_build",
+            "previous_deck_epoch",
+            "current_source_sha256",
+            "reviewed_deltas",
+            "qualification",
+        }
+        or context["schema_version"] != RETAINED_BUILD_CONTEXT_SCHEMA
+        or json.dumps(context["retained_build"], sort_keys=True)
+        != json.dumps(RETAINED_BUILD_RECORD, sort_keys=True)
+        or json.dumps(context["previous_deck_epoch"], sort_keys=True)
+        != json.dumps(RETAINED_PREVIOUS_DECK_EPOCH, sort_keys=True)
+        or not isinstance(context["current_source_sha256"], dict)
+        or not isinstance(context["reviewed_deltas"], list)
+        or not isinstance(context["qualification"], str)
+        or len(context["qualification"].strip()) < 20
+    ):
+        raise ValueError(
+            "Retained deck committed source context manifest schema differs"
+        )
+    current = context["current_source_sha256"]
+
+    def source_hash(value: object) -> bool:
+        return (
+            isinstance(value, str)
+            and len(value) == 64
+            and all(c in "0123456789abcdef" for c in value)
+        )
+
+    for name, value in current.items():
+        path = PurePosixPath(name)
+        if (
+            path.is_absolute()
+            or path.as_posix() != name
+            or ".." in path.parts
+            or any(c in name for c in "\\\n\r\0")
+            or not source_hash(value)
+        ):
+            raise ValueError("Retained deck source context path/hash differs")
+    deltas = context["reviewed_deltas"]
+    for row in deltas:
+        if (
+            not isinstance(row, dict)
+            or set(row) != {"path", "retained_sha256", "current_sha256", "review"}
+            or not isinstance(row["path"], str)
+            or row["path"] not in current
+            or not source_hash(row["retained_sha256"])
+            or not source_hash(row["current_sha256"])
+            or row["current_sha256"] != current[row["path"]]
+            or not isinstance(row["review"], str)
+            or len(row["review"].strip()) < 20
+        ):
+            raise ValueError(
+                "Retained deck source context reviewed delta schema differs"
+            )
+    names = [row["path"] for row in deltas]
+    if names != sorted(set(names)):
+        raise ValueError("Retained deck source context delta ordering differs")
+    return cast(dict[str, Any], context)
+
+
 def _retained_build_sources(root: Path) -> dict[str, Any]:
     """Authenticate historical PDFs without freezing maintained prose or tooling."""
     raw = _read(root, RETAINED_BUILD_CONTEXT_PATH)
-    if hashlib.sha256(raw).hexdigest() != RETAINED_BUILD_CONTEXT_SHA256:
-        raise ValueError("Retained deck build context changed")
-    context = json.loads(raw, object_pairs_hook=_json_object)
+    context = _validated_retained_build_context(raw)
     previous_raw = _read(root, RETAINED_CONTEXT_PATH)
     if (
         hashlib.sha256(previous_raw).hexdigest() != RETAINED_CONTEXT_SHA256
@@ -185,8 +271,23 @@ def _retained_build_sources(root: Path) -> dict[str, Any]:
         raise ValueError("Retained deck historical register is not a current input")
     current_paths = [path for path in paths if path != RETIRED_DECK_REGISTER]
     current_revision = _git(root, "rev-parse", "--verify", "HEAD").decode().strip()
-    committed = _committed_inputs(root, current_revision, current_paths)
-    modes = _git(root, "ls-tree", "-r", "-z", current_revision, "--", *current_paths)
+    committed = _committed_inputs(
+        root, current_revision, [*current_paths, RETAINED_BUILD_CONTEXT_PATH]
+    )
+    if committed[RETAINED_BUILD_CONTEXT_PATH] != raw:
+        raise ValueError(
+            "Retained deck source context manifest differs from current committed source"
+        )
+    modes = _git(
+        root,
+        "ls-tree",
+        "-r",
+        "-z",
+        current_revision,
+        "--",
+        *current_paths,
+        RETAINED_BUILD_CONTEXT_PATH,
+    )
     for record in modes.split(b"\0"):
         if record:
             metadata, name = record.split(b"\t", 1)
@@ -224,6 +325,13 @@ def _retained_build_sources(root: Path) -> dict[str, Any]:
     for relative, expected in context["retained_build"]["pdf_sha256"].items():
         if hashlib.sha256(_read(root, relative)).hexdigest() != expected:
             raise ValueError("Retained deck original PDF changed")
+    if (
+        _git(root, "rev-parse", "--verify", "HEAD").decode().strip() != current_revision
+        or _read(root, RETAINED_BUILD_CONTEXT_PATH) != raw
+    ):
+        raise ValueError(
+            "Retained deck committed source context changed during validation"
+        )
     return {
         "context": context,
         "historical_inputs": historical_inputs,

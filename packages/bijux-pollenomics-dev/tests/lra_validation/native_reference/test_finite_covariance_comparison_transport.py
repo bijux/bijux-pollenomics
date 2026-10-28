@@ -34,7 +34,10 @@ def test_retained_profile_requires_guarded_capture_and_exact_routes(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, change: str | None
 ) -> None:
     run, archives = tmp_path / "run", tmp_path / "archives"
-    expected = {"source.py": "a" * 64}
+    expected = {
+        "source.py": "a" * 64,
+        **{f"science-{i}.py": "a" * 64 for i in range(67)},
+    }
     receipt = {"current_inputs_sha256": dict(expected)}
     calls: list[Path] = []
 
@@ -55,7 +58,8 @@ def test_retained_profile_requires_guarded_capture_and_exact_routes(
     )
     if change == "hash":
         receipt["current_inputs_sha256"]["source.py"] = "b" * 64
-    profile = "other" if change == "unknown-profile" else "finite-covariance"
+    # The unknown-profile case deliberately crosses the typed input boundary.
+    profile: Any = "other" if change == "unknown-profile" else "finite-covariance"
     if change is None:
         comparison._require_current_inputs(
             tmp_path,

@@ -1,0 +1,67 @@
+{
+  "schema_version": "raa-native-lead-support-source-account.v1",
+  "status": "Original source-native support execution qualified; current maintained reproduction is verified separately through the declared configured owner.",
+  "native_capture": {
+    "descriptor_path": "data/raa/raw/national_geopackage_source.json",
+    "descriptor_sha256": "9ba437ea5d8e075a2509ab5fdec1233d529a0ce498cdf21183020737a42be8d0",
+    "source_sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+    "source_bytes": 2291224576,
+    "capture_date": "2026-09-13",
+    "source_role": "unadmitted national source candidate; finite read-only local source comparison"
+  },
+  "actual_execution": {
+    "source_candidate": "22499eadfdf25afc44ccb46968c6ecdce7c77324",
+    "plan_sha256": "404a608fa9f8c454c327ce8dd0b2134b29fcfb43ce5d560dc76d0f012ff1a255",
+    "terminal_sha256": "b57798c0eeb376294a2337f40b8a988911d70e29c550c5511b6a6bb224cba550",
+    "native_exit": 0,
+    "six_stages_passed": true,
+    "protected_input_count": 29812,
+    "scientific_stage": "native-complete-indexed-lead-support-streams"
+  },
+  "independent_review": {
+    "native_exit": 0,
+    "scope": "Independent saved stream/native identity/null/refusal/Decimal50 point-envelope arithmetic only; no new original source query or chronology/field/rights admission.",
+    "geometry_occurrences": 48219,
+    "native_uuids": 21467,
+    "support_links": 58936,
+    "decimal_bound_comparisons": 235744,
+    "maximum_absolute_error_metres": "1.818966734670459031555237510340430E-12"
+  },
+  "preserved_predecessor": {
+    "plan_sha256": "cabf9cdf42d54ade3fee38efbf80a2ce8e303db4f3212a2cdca850bd23cead38",
+    "terminal_sha256": "cfa1986af00c5b31b636634da546e2c641e6e7c2a0faeab8224f660f62a79dfb",
+    "native_exit": 1,
+    "cause": "25,000-geometry memory-retention ceiling reached before output; original spatial/query inputs unchanged in completed streaming successor."
+  },
+  "public_raw_native_rows": 0,
+  "raw_witness_scope": "Three private deterministic gzip NDJSON streams retain source-native identifiers, field values/nulls, geometry roles and projected support. No raw national source or individual archaeology coordinates are included in the public aggregate.",
+  "source_rights": "Existing provider description version 3.0 is recorded as Public Domain in the retained descriptor; no new legal, linked-media, scientific or field-access decision is made.",
+  "scientific_admission": false,
+  "canonical_source_adoption": false,
+  "chronology_intervals": null,
+  "governed_field_candidate_count": 0,
+  "unanswered_field_questions": 40,
+  "limits": "No original historical 106-cell/WFS equivalence, no date calibration, no numeric interpretation of native period text, no geodesic/exact polygon intersection, no independent archaeological events or ecological/causal inference. Four rounded source brief coordinates are modern-reference leads, not authenticated historical basins; Uppåkra/Lund remains physically unresolved.",
+  "maintained_route": {
+    "module": "bijux_pollenomics_dev.source_completion.archaeology.native_lead_support.cli",
+    "source_descriptor": "configs/ci/qualified-report-sources/raa-native-lead-support.json",
+    "scope": "Actual original source read plus independent saved stream/Decimal check; aggregate and source account are public, three raw typed gzip witnesses remain private. This declaration is not itself an execution receipt."
+  },
+  "source_method_correspondence": {
+    "original_native_reader": {
+      "plan_sha256": "404a608fa9f8c454c327ce8dd0b2134b29fcfb43ce5d560dc76d0f012ff1a255",
+      "terminal_sha256": "b57798c0eeb376294a2337f40b8a988911d70e29c550c5511b6a6bb224cba550",
+      "native_exit": 0
+    },
+    "unchanged_helper_functions": {
+      "native": "c9d4f7198c79bd76e34b3f79b4a6cd9a5620167dae576ba770d5c48cb591346c",
+      "inspect_local_schema": "7e72b9d19f484b3cbcbf1464966ba8f6f6e0f038e6b94ef66e880fd44493434a",
+      "allow_native_rtree_reads": "cb0febc19c19526998ed0fca44d1ee3a7947b19a24425cf557f2d3d2310bc280",
+      "indexed_rows": "cf12fd0560ade5eda45dc78344060dc494b9fbd2ebd6da4668e7e3f94c668d35",
+      "candidates": "e88fc31250e630b63f1330f6130cb65f23fcf90f3ed6ef9b9de5362b8364efd1",
+      "envelope_distances": "200a543d0cf9b1c4248228f1fe2640fe2fac7e4e28e903db77c29755f2bee2b5",
+      "support_class": "3998a1814eb15bb434b58cf97d05215075b1b86a32b226a4c6d4698c82c17466"
+    },
+    "maintained_producer_scope": "Portable source/protocol metadata and owned public/private output boundaries differ; seven source/query/distance helper function AST identities remain unchanged. Separately executed maintained replay must preserve all three original private gzip byte identities and scientific counts/supports."
+  }
+}

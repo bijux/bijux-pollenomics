@@ -1,0 +1,47 @@
+{
+  "schema_version": "synthetic-counting-source-packet.v1",
+  "candidate": "2b076418e86577058f70db216783ae3b2b74040b",
+  "files": {
+    "actual-multinomial-draws.jsonl": {
+      "sha256": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3",
+      "bytes": 1030536
+    },
+    "execution-custody.json": {
+      "sha256": "a99c15d2502ff5fa54f5fc2c0e13c56a368c04af2ffbf2b0e958f5bf6fd833c1",
+      "bytes": 22680
+    },
+    "historical-manifest.json": {
+      "sha256": "ab01db90693839bf45d5ce6287bcf31791b6f6826d22cb89dab4bdb0072c7e7d",
+      "bytes": 1060
+    },
+    "independent-review.json": {
+      "sha256": "aad55dcb279a33c23ef8fd046e502a1501eb5fe24011ba814494ec46ea0225ce",
+      "bytes": 859
+    },
+    "maintained-independent-review.json": {
+      "sha256": "4c5672887f66777e0be2f06e63184950fe463f79110d537bed8340c2f44d61b0",
+      "bytes": 859
+    },
+    "maintained-report.json": {
+      "sha256": "2648d797eb1d9d9b6e9385422516b763b026dda6ac563d4cbff72a121b6ea147",
+      "bytes": 42591
+    },
+    "protocol.json": {
+      "sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+      "bytes": 8212
+    },
+    "replicate-taxon-results.csv": {
+      "sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+      "bytes": 5308787
+    },
+    "report.json": {
+      "sha256": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd",
+      "bytes": 42591
+    },
+    "source-author-uncertainty.json": {
+      "sha256": "7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8",
+      "bytes": 10125
+    }
+  },
+  "source_scope": "Immutable actual synthetic counting diagnostic; retained after original execution without new simulation. No observed count, field vegetation, PPE uncertainty or coverage certification."
+}

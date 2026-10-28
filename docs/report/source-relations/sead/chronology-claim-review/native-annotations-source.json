@@ -1,0 +1,125 @@
+{
+  "schema_version": "sead-native-annotations-source-account.v1",
+  "actual_source_candidate": "a9baa699b5e143d035f7a78960fa6e93b07a63f9",
+  "original_producer_plan_sha256": "231a5805499cd61dbb042471c73f056ae14b3e4828551badda588974c8d2db63",
+  "original_producer_native_exit": 0,
+  "original_controller_native_exit": 1,
+  "original_observer_failure": "Historical successful receipt used integer unchanged-pin count2130, not Boolean true. Original failure retained.",
+  "receipt_only_successor_native_exit": 1,
+  "receipt_only_successor_failure": "After complete typed-field/aggregate comparisons and product copy, final receipt writer requested nonexistent native_field_cells_verified instead of native_field_cells_compared. Original failure retained.",
+  "final_independent_controller_native_exit": 0,
+  "final_independent_wall_seconds": 17.407632292015478,
+  "final_independent_peak_rss_bytes": 1059241984,
+  "final_independent_scoped_output_and_retained_product_bytes": 248847434,
+  "actual_independent_verification": {
+    "native_exit": 0,
+    "claims_independently_verified": 25109,
+    "native_fields_independently_verified": 202546,
+    "all_actual_witness_fields_types_and_native_population_equal": true,
+    "native_primary_keys_and_all_parent_path_cardinalities_checked": true,
+    "nullable_method_reference_and_uncertainty_ownership_checked": true,
+    "claim_witness_sha256": "eecfc2cff5071f3dce144bfadef8e32a1f8de591d1c5a902b53b9e6169a68ffe",
+    "eligible_events": 0,
+    "scientific_admission": false,
+    "scope": "Original raw typed fields preserved in sidecar; every normalized-field difference/omission retained without approving harmlessness. Exact native field comparison and ownership; retained unknown models, unresolved calibration and refused events. No date conversion/model or positive scientific chronology admission."
+  },
+  "actual_receipts": [
+    {
+      "path": "artifacts/science/sead-native-age-annotations/typed-source-custody/plan.json",
+      "sha256": "231a5805499cd61dbb042471c73f056ae14b3e4828551badda588974c8d2db63"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/typed-source-custody/execution/terminal.json",
+      "sha256": "1b1abc891c83a7862c18446e35ca301188644edffae188853e2a0bdd52d29959"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/receipt-schema-verification/plan.json",
+      "sha256": "3051039225f7695afe197929138af8cb790dea1b8221c6fef44ffe468561d310"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/receipt-schema-verification/execution/terminal.json",
+      "sha256": "4661a32c3ea9b1a476d02959bf89ef56ac82d4725ecefb7cb7b966d910292e21"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/result-schema-verification/plan.json",
+      "sha256": "3082d49627c8461aa7888523eccce7780e5ba49c936efe52dde7cd19a889ec04"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/result-schema-verification/execution/terminal.json",
+      "sha256": "13fbcee87ae3d0784c136aa26869b00bb8ddb1a341fef9fb7407f474d295bf23"
+    },
+    {
+      "path": "artifacts/science/sead-native-age-annotations/result-schema-verification/execution/independent-verification.json",
+      "sha256": "6d138d0433f7a5545990cfd30190fa94ef09eea658d16e2993861b828977baeb"
+    }
+  ],
+  "report_sha256": "09940763f6124591f1696fa253d52b259ff410d79798abcb82d56d4868e3f240",
+  "private_witness": {
+    "sha256": "602d6ab888223e4038e480c9d8e46ac6d1f884d881afd278bfd8126cab338182",
+    "bytes": 99753930,
+    "redistributed": false,
+    "hash_scope": "Physical compact JSON serialization; different from canonical per-row line-joined claim_witness_sha256."
+  },
+  "source_inputs_sha256": {
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json": "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json": "94d23e550507a99f56dc80c0cefa697c0a8c299537ef55779b1e73756f85d829",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json": "3ef1c9fd7ce62c7ff6f15524b5d8de70106c71ece825bc0db16061d5fd332ee2",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json": "d0f404fee3b0e125c1b7584a901ce4be74d2f4137dc4ac1ec8a3baff29d857eb",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json": "2d702ed777d0a5586e0d8d0c3e5a481516c844029023170797fad0a93920659f",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json": "532f8cc2c4e8c95f1943499bdc60b26c566dc1fe4f0647f75ba0c09ef14b685e",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json": "4cc48ca1836cd128e303b56920ee826bfb362771d578f8a019e7c8f0a3de4bbf",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entities.json": "511208fed7e47db0eb166f56857092ab3a47390a03c743f32bce4ec6101705a5",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json": "591d9daa71af52f5772d50d888601ccef95db1a1e4ad87a82d922c85c15fe818",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json": "aa7e68c8aaafb2b7499f6b163a4abeba4e5dffccd411a8158fad283b4fb15065",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_datasets.json": "c8591339a40fd48134510f4ff2916e14c5abced87aa0f526953035602be0fd63",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_methods.json": "a47ab8d9d2952945e5e9ba64173ae31e85497f2a99702ae87b7752c0b3724da6",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_biblio.json": "2ef1e49385185b4aee49edfa46d37b9d05025b3a0afb76e4f36ef12f12231846",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json": "c26d76957028ac747fa26b77c0af6d038cbda10ed08599430f1f0f1a97d33503",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_site_references.json": "72c7003e749286973d8118247f16ba9f9e679356d600d50143c448b0324b63f8",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_references.json": "68e55bcac462a9d66d9b1a671baf79e99806c4c4904e3b149b522d7b66c35fcf",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_age_refs.json": "91231584adc2f570b0376ab32dd7883e45c2bb7a20db59531f43380ca4f7e1a7",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json": "d8f789b05966c07e7435159d96ee30de715133787556f18686f7011cecdba860",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json": "b3d3b749eff439f92e9e39915682522b40d21ee6ae9156ba24a2ac5a42c93cbf",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json": "56aea4298888e1aa74cf8e155b8cf7a2f2e149f06b11451f75177b219aff8bb8",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json": "2202cec94d5d43eaaa91b2366620f41deb325a98b89b086f20b08a687ff3af11",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json": "88272c0f4cea6b6c5123fcb2729abf8498bb451e5f0db36fb8badfdb508b1274",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json": "6f3d502ec3f1df6d339e7da946bf20e4179b1272ddddb0d68ba87df58295c26a"
+  },
+  "actual_maintained_source_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/__init__.py": "23d8e5888be1126a054bbc11e9ea1bdb768248e7ea16581ce554284087687c1a",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/comparison.py": "048e08f270a818b656bc60f902105f9a9993eea4aabe4053259ccdf8232d80e9",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/cli.py": "e701a3c064c9ae69e4b71c81248ef1d49939d093a8832d6d6266259f81b2f8f1",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/source.py": "acd477c4bd69465b7a43bf738919e61a388cd015958877b4c4dde53c3f35f9e6",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/__main__.py": "aa0a84fb0429924752717874fb8c09ccf25435d98d4b639bd3ba95d8401532bd",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/report.py": "fb77af822dacdff620e47d7829e319f09267762ef3954227974539888cadca4f",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/custody.py": "e72ca3a51fa5a196455b47fb1ae09faac4d4568f1a3e96e9e1c4d22da1721766"
+  },
+  "public_replay_qualification": "Two actual separate maintained configured reference/replay commands passed against complete detached owned85 source with explicit source/docs/owner overlays. Both public aggregate and private typed witness match original source-qualified products exactly. Full report-owner assembly not executed; canonical current ownership/reader checks follow separately.",
+  "scientific_equivalence_of_stored_differences_approved": false,
+  "scientific_chronology_admission": false,
+  "ecological_event_admission": false,
+  "rights_admission": false,
+  "limits": "This is a typed native-source/normalized-representation audit, not biological acceptance, chronology calibration or event inference. Unknown native values and absent lookup/model authority remain unknown. Private raw annotations and row-level ownership vectors are not redistributed.",
+  "independent_clause_review": {
+    "path": "artifacts/science/sead-native-age-annotations/independent-clause-review/adjudication.json",
+    "sha256": "8b19395955ded3f11891c66ba412a5dc436932b92b086fcb0233e2a40ac36459",
+    "scope": "All nine source-processing/accounting/refusal bullets reviewed against exact retained reports and actual all-field observer; not a second raw-witness scan or scientific equivalence approval."
+  },
+  "canonical_claim_witness_sha256": "eecfc2cff5071f3dce144bfadef8e32a1f8de591d1c5a902b53b9e6169a68ffe",
+  "configured_reference_replay": {
+    "candidate": "39e08b6beae1fe8f455bdfa359e48e00ff26e6ad",
+    "terminal_path": "artifacts/science/sead-native-age-annotations/publication/configured-owner-index-custody/execution/terminal.json",
+    "terminal_sha256": "2242beedbba62e42dc238a325a56fd4e60fac16a16963cf920b0906870f64c45",
+    "native_exit": 0,
+    "sequential_stages": 5,
+    "wall_seconds": 34.24190808401909,
+    "peak_rss_bytes": 810237952,
+    "scoped_output_and_retained_bytes": 348702889,
+    "whole_owner_assembly_executed": false,
+    "public_report_sha256": "09940763f6124591f1696fa253d52b259ff410d79798abcb82d56d4868e3f240",
+    "private_witness_redistributed": false,
+    "known_owned_index_stat_cache_refresh": "Original unlaunched plan retained; successor independently verifies unchanged tracked path/mode/blob map and explicitly pins refreshed stat cache."
+  }
+}

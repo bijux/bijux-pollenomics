@@ -1,0 +1,84 @@
+{
+  "native_candidate": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5",
+  "native_plan": {
+    "path": "data/method-certification/native-r-finite-covariance/execution-evidence/plan.json",
+    "sha256": "abda4d3682420119c992fa0e04f06107ed8a874b28d2a28faf9ddf667027cf7a"
+  },
+  "shared_runtime_receipt": {
+    "path": "artifacts/science/runtime/receipt.json",
+    "sha256": "8f61fb49462ba29f38d5f34dc8ea21dea804d23449d57f7616940e1bbb0b6176",
+    "exit_code": 0
+  },
+  "runtime_plan": {
+    "path": "artifacts/science/runtime/plan.json",
+    "sha256": "463c4973e2112c2ce7cf240cfcb3faa463955b8153354743047c63ea12d4ee05",
+    "actual_argv": [
+      "/opt/homebrew/bin/uv",
+      "sync",
+      "--frozen",
+      "--group",
+      "dev",
+      "--python",
+      "/opt/homebrew/bin/python3.11"
+    ]
+  },
+  "historical_uv_lock": {
+    "path": "artifacts/science/retained-oracle-diagnostics/historical-uv.lock",
+    "sha256": "084b925243d89451ef89b55e54b0757f10e2ac5ed4556796a155fadc4a68b8b7",
+    "git_candidate": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "locked_versions": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1"
+    },
+    "selection": {
+      "executed_python": "3.11.13",
+      "selected_marker": "python_full_version < '3.12'",
+      "all_branches": [
+        {
+          "name": "numpy",
+          "version": "2.4.6",
+          "resolution_markers": [
+            "python_full_version < '3.12'"
+          ]
+        },
+        {
+          "name": "numpy",
+          "version": "2.5.3",
+          "resolution_markers": [
+            "python_full_version >= '3.12'"
+          ]
+        },
+        {
+          "name": "pandas",
+          "version": "2.3.3",
+          "resolution_markers": []
+        },
+        {
+          "name": "scipy",
+          "version": "1.17.1",
+          "resolution_markers": [
+            "python_full_version < '3.12'"
+          ]
+        },
+        {
+          "name": "scipy",
+          "version": "1.18.1",
+          "resolution_markers": [
+            "python_full_version >= '3.12'"
+          ]
+        }
+      ]
+    }
+  },
+  "python_version_recorded_in_native_report": "3.11.13",
+  "R_session_path": "data/method-certification/native-r-finite-covariance/capture/oracle/R_session_info.txt",
+  "R_session_sha256": "bf8c8e969038f6e9814c967e519355dbaa3304f4ac544b227801e3967a17579c",
+  "BLAS": "Actual native R session records libRblas.0.dylib and libRlapack.dylib/LAPACK3.12.1 on aarch64macOS. A fresh Python show_config observation would be current, not a historical native measurement.",
+  "scope": "Historical frozen uv sync receipt and exact original lock identify admitted Python dependencies; they are not a new historical pip-freeze or Python-BLAS measurement. No execution receipt timestamp or runtime identity is relabelled.",
+  "import_preflight": {
+    "path": "artifacts/science/retained-oracle-diagnostics/import-origin-preflight.json",
+    "sha256": "050c02df7be3f721264eb028b474767212a86a9ba4579116f098807b76f9b172",
+    "scope": "Current admitted3.11runtime imports corroborate selected branch; not a backdated historical import probe."
+  }
+}

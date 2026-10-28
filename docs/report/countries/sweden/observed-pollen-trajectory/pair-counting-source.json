@@ -1,0 +1,148 @@
+{
+  "schema_version": "literal-pair-count-trajectory-source.v1",
+  "capture_sha256": {
+    "report.json": "5d7752d21f0d17b81991f35c0f52095b8f66a3510ec64bb6e7dfb0a6ab077f4b",
+    "terminal.json": "50066bd9c4176e1492c6404a73aaeb48683c66062ca6c57006332017a23e5599",
+    "independent-verification.json": "ece762411f867b852ab20b3182ebad2c7521dddd8a1431d0bf9541a50fbd0a84",
+    "protocol.json": "0a93de9e717f584d143b1d36fa34ab33a8c812fc5337ee37dfd11e019f23fc9f",
+    "method.md": "dfbe9950d9ce41f79131354960367d5d3434fbca1261bf17b2279a9c251d4583"
+  },
+  "native_plan_sha256": "c0e52eeac4ca792f2d41211d63780d9a67c53e7dee003b1b42d440cae8ef2e4d",
+  "source_candidate": "410ab4bf928fb0ed8e5d6f0147615df9c8c65b78",
+  "source_overlay": [
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/arithmetic.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/report.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/literal_pair_trajectory/source.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/literal_pair_trajectory/test_arithmetic.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/literal_pair_trajectory/test_report.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/literal_pair_trajectory/test_source.py"
+  ],
+  "controller_recorded_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "artifacts/science/swedish-pair-count-source-custody/run.py",
+    "--registered-plan-sha256",
+    "c0e52eeac4ca792f2d41211d63780d9a67c53e7dee003b1b42d440cae8ef2e4d"
+  ],
+  "native_exit": 0,
+  "stages": [
+    {
+      "id": "actual-owned-source-and-public-interval-origins",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/bootstrap.py",
+        "imports"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "wall_seconds": 0.9840428339666687,
+      "stdout_sha256": "1355d0bbf7811046564e0a269295979d728b2778f58ff5fab93163927a3bc01a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "source-free-allocation-refusal-writer-and-rational-controls",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/bootstrap.py",
+        "pytest",
+        "-q",
+        "-c",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/source-view/configs/pytest.ini",
+        "--rootdir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/source-view",
+        "--import-mode=importlib",
+        "-p",
+        "pytest_asyncio.plugin",
+        "-p",
+        "pytest_timeout",
+        "--strict-config",
+        "-o",
+        "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/execution/pytest-cache",
+        "--basetemp",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/execution/pytest",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/source-view/packages/bijux-pollenomics-dev/tests/source_completion/literal_pair_trajectory"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "wall_seconds": 1.2679554999922402,
+      "stdout_sha256": "d383630a024ca9a0d6aee749ef2ea4c35a8d01af417c4088754bf80c290ef6d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "actual-native-aliquot-counting-trajectory",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/bootstrap.py",
+        "module",
+        "bijux_pollenomics_dev.source_completion.literal_pair_trajectory.report",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/source-view",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/source-view/artifacts/pair-count-trajectory"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "wall_seconds": 1.1490705410251394,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "independent-all-source-rational-and-directed-tail-verification",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/bootstrap.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/verify.py"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "wall_seconds": 0.2612147919717245,
+      "stdout_sha256": "ece762411f867b852ab20b3182ebad2c7521dddd8a1431d0bf9541a50fbd0a84",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "configured-strict-source-types-lint-and-format",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-pair-count-source-custody/checks.py"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "wall_seconds": 9.116695707954932,
+      "stdout_sha256": "79ea6c5443441c03e42ce6248fbfbe8e826d0f36e9ef660a6b411745355056ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "wall_seconds": 23.939913875015918,
+  "observed_child_peak_rss_bytes": 625852416,
+  "all_controlled_output_bytes": 50245636,
+  "actual_source_guards": 44,
+  "strict_source_and_test_files": 8,
+  "independent_verification": {
+    "native_exit": 0,
+    "all_native_samples": 121,
+    "actual_intervals_checked": 80,
+    "bins_verified": 26,
+    "transitions_verified": 24,
+    "independent_source_and_rational_aggregation": true,
+    "independent_directed_positive_combinatorial_tail_sum": true,
+    "independent_binomial_implementation_or_general_coverage_proof": false,
+    "report_sha256": "5d7752d21f0d17b81991f35c0f52095b8f66a3510ec64bb6e7dfb0a6ab077f4b",
+    "scientific_admission": false
+  },
+  "original_source_and_runtime_unchanged": true,
+  "verification_limits": "All 121 native source objects, 80 actual intervals, 26 bins and 24 directions were independently reconstructed. Every nontrivial returned endpoint was checked by directed 110 digit positive combinatorial tail summation, separately from production recurrence. This finite-request verification reuses the maintained general API proof and establishes neither independent ecological accuracy nor nominal coverage conditional on observed source admission. Public projection performs zero new interval fits or source-count analyses.",
+  "scientific_admission": false,
+  "rights_admission": false,
+  "release_admission": false,
+  "public_summary_sha256": "98d3061987fdf098c6f8b8091faef5f90aae7490e4527726ca3a46326c3707cd"
+}

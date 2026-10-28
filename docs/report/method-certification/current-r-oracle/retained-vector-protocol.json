@@ -1,0 +1,415 @@
+{
+  "schema_version": "retained-oracle-residual-protocol.v1",
+  "scope": "Read original authenticated saved R vectors and saved Python expectations only. No source-model execution or expectation regeneration. Frozen before this diagnostics comparison, after original native execution.",
+  "original_native_source": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5",
+  "core_cases": [
+    {
+      "id": "C0000",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 3
+    },
+    {
+      "id": "C0001",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0002",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 3
+    },
+    {
+      "id": "C0003",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0004",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 3
+    },
+    {
+      "id": "C0005",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0006",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 3
+    },
+    {
+      "id": "C0007",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0008",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 3
+    },
+    {
+      "id": "C0009",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0010",
+      "rtol": 0,
+      "atol": 3e-13,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0011",
+      "rtol": 0,
+      "atol": 3e-13,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0012",
+      "rtol": 0,
+      "atol": 3e-13,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0013",
+      "rtol": 0,
+      "atol": 3e-13,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0014",
+      "rtol": 0,
+      "atol": 3e-13,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0015",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 78
+    },
+    {
+      "id": "C0016",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 78
+    },
+    {
+      "id": "C0017",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 28
+    },
+    {
+      "id": "C0018",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 15
+    },
+    {
+      "id": "C0019",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 10
+    },
+    {
+      "id": "C0020",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 360
+    },
+    {
+      "id": "C0021",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0022",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0023",
+      "rtol": 1e-10,
+      "atol": 3e-10,
+      "exact_indices": [],
+      "values": 420
+    },
+    {
+      "id": "C0024",
+      "rtol": 1e-10,
+      "atol": 3e-08,
+      "exact_indices": [],
+      "values": 620
+    },
+    {
+      "id": "C0025",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 430
+    },
+    {
+      "id": "C0026",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 10
+    },
+    {
+      "id": "C0027",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 36
+    },
+    {
+      "id": "C0028",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [
+        611,
+        612,
+        613,
+        614,
+        616,
+        617,
+        618,
+        619,
+        621,
+        622,
+        623,
+        624,
+        626,
+        627,
+        628,
+        629
+      ],
+      "values": 630
+    },
+    {
+      "id": "C0029",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0030",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0031",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 466
+    },
+    {
+      "id": "C0032",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 10
+    },
+    {
+      "id": "C0033",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 36
+    },
+    {
+      "id": "C0034",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [
+        733,
+        734,
+        735,
+        736,
+        738,
+        739,
+        740,
+        741,
+        743,
+        744,
+        745,
+        746,
+        748,
+        749,
+        750,
+        751,
+        753,
+        754,
+        755,
+        756,
+        758,
+        759,
+        760,
+        761
+      ],
+      "values": 762
+    },
+    {
+      "id": "C0035",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0036",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0037",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 514
+    },
+    {
+      "id": "C0038",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 10
+    },
+    {
+      "id": "C0039",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 36
+    },
+    {
+      "id": "C0040",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [
+        916,
+        917,
+        918,
+        919,
+        921,
+        922,
+        923,
+        924,
+        926,
+        927,
+        928,
+        929,
+        931,
+        932,
+        933,
+        934,
+        936,
+        937,
+        938,
+        939,
+        941,
+        942,
+        943,
+        944,
+        946,
+        947,
+        948,
+        949,
+        951,
+        952,
+        953,
+        954,
+        956,
+        957,
+        958,
+        959
+      ],
+      "values": 960
+    },
+    {
+      "id": "C0041",
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "exact_indices": [],
+      "values": 1
+    },
+    {
+      "id": "C0042",
+      "rtol": 0,
+      "atol": 0,
+      "exact_indices": [],
+      "values": 1
+    }
+  ],
+  "domain_tolerance": {
+    "cases": 23,
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "origin": "Exact original source-domain comparator literals, unchanged."
+  },
+  "petrkunes_serialized_comparison": {
+    "cases": 4,
+    "taxa_per_case": 31,
+    "quantities": [
+      "cover",
+      "se"
+    ],
+    "rtol": 0,
+    "atol": 0,
+    "scope": "Equality of original/tagged R values at the retained CSV precision; no new R or full-precision author rerun."
+  },
+  "relative_error_definition": "abs(actual-expected)/abs(expected) for finite pairs and nonzero expected. Zero-reference unequal entries have null relative error and remain explicit; equal nonfinite values are not finite residuals.",
+  "difference_definition": "Every nonidentical finite/string entry, even when within original tolerance, with index, actual/reference and original threshold outcome; matching NaNs and signed infinities are equal.",
+  "rationale_timing": "This explanation is retrospective relative to original native execution and prospective relative to this retained-data diagnostics run. It does not claim a missing original rationale was preregistered. Original numerical thresholds and exact coordinates are not changed.",
+  "rationale_by_family": {
+    "kernel": "Original kernel cases use branch-specific absolute envelopes3e-10 or3e-13 and exact source rounding cases, preserving source integral/rounding numerical differences; they are bounded declared-source comparisons, not arbitrary-domain error guarantees.",
+    "closed_and_wrapper": "Original fixed/supplied-draw estimates and source wrappers retain their captured absolute/relative tolerances. Source wrapper cover1e-4 and pollen1e-2 rounding are coarser than prospective1e-10 thresholds. Exact axes/candidate indices are never approximate.",
+    "domain": "Original1e-10relative/3e-10absolute threshold belongs to the declared fixed three-taxon/ring cases. It allows cross-runtime arithmetic/quadrature residue while source-refusal and corrected-matrix semantics remain separate.",
+    "ill_conditioned": "These envelopes do not certify arbitrary near-zero denominators, stochastic optimizer trajectories, parameter identifiability, covariance extensions, or ecological validity."
+  },
+  "historical_environment_provenance_sha256": "50a644274edddf3ac4740e807ee9f69c9d88206ea651d5681ec90dee7e064ffc",
+  "original_inputs_unchanged": true
+}

@@ -24,6 +24,56 @@ from bijux_pollenomics_dev.source_completion.method_certification.native_r_compa
 ROOT = Path(__file__).resolve().parents[5]
 
 
+def _consumer_declaration(profile: str = "annulus") -> dict[str, Any]:
+    """Declare own code/data strings with the real role classes and no retained payload."""
+    code = sorted(
+        {
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
+            "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
+            "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
+            *[f"packages/constructed/input_{index:03d}.py" for index in range(109)],
+        }
+    )
+    data = sorted(
+        {
+            "configs/ci/report-ownership.json",
+            "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+            "configs/ci/report-capture-projections/native-finite-generated-source.json",
+            "configs/ci/source-retention/index.json",
+            "data/atlas/source-view-capture/capture.json",
+            "data/atlas/source-view-capture/source-transport.json",
+            f"data/method-certification/native-r-{profile}/capture/capture.json",
+            f"data/method-certification/native-r-{profile}/capture/oracle/C0000.csv",
+            *(
+                [
+                    "data/method-certification/native-r-finite-covariance/source-transport.json"
+                ]
+                if profile == "finite-covariance"
+                else []
+            ),
+            *[
+                f"data/constructed/input_{index:03d}.json"
+                for index in range(281 if profile == "finite-covariance" else 282)
+            ],
+        }
+    )
+    assert (len(code), len(data)) == (116, 290)
+    return {
+        "owner_id": "method-certification/current-r-oracle/report-products",
+        "role": "generated_owner",
+        "paths": [
+            "docs/report/method-certification/current-r-oracle/report.json",
+            "docs/report/method-certification/current-r-oracle/source-replay.json",
+        ],
+        "producer_paths": code,
+        "producer_inputs": data,
+    }
+
+
 @pytest.fixture
 def reader() -> ModuleType:
     path = (
@@ -45,22 +95,17 @@ def records(
     request: pytest.FixtureRequest,
 ) -> tuple[Path, dict[str, Any], dict[str, Any]]:
     repository = tmp_path / "repository"
-    policy_path = ROOT / "configs/ci/report-ownership.json"
-    policy = json.loads(policy_path.read_text())
-    owner = next(
-        row
-        for row in policy["owners"]
-        if row["owner_id"] == "method-certification/current-r-oracle/report-products"
-    )
+    profile = request.param
+    owner = _consumer_declaration(profile)
     profile = request.param
     owner["producer_inputs"] = [
-        name.replace("native-r-finite-covariance/", f"native-r-{profile}/")
+        name.replace("native-r-annulus/", f"native-r-{profile}/")
         for name in owner["producer_inputs"]
     ]
     for name in owner["producer_paths"] + owner["producer_inputs"]:
         path = repository / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(b"synthetic declared consumer source\n")
+        path.write_bytes(b"")
     (repository / "configs/ci/report-ownership.json").write_text(
         json.dumps({"owners": [owner]})
     )
@@ -77,13 +122,49 @@ def records(
     monkeypatch.setattr(
         reader, "validated_current_capture", lambda root, *, profile: capture
     )
-    report = json.loads(
-        (
-            ROOT / "docs/report/method-certification/current-r-oracle/report.json"
-        ).read_text()
-    )
-    # Use the retained fields as a serializer-shape fixture; no fresh native call.
-    report["schema_version"] = "current-native-r-reference.1"
+    # These are serializer contracts and synthetic vector identities, not retained measurements.
+    numeric_paths = {
+        *[f"oracle/C{index:04d}.csv" for index in range(43)],
+        *[
+            f"source-domains/{prefix}{index:03d}-{kind}.csv"
+            for prefix, size in (("F", 13), ("S", 10))
+            for index in range(1, size + 1)
+            for kind in ("R", "rings")
+        ],
+        *[
+            f"source-domains/S{index:03d}-{kind}-output.csv"
+            for index in (3, 4)
+            for kind in ("corrected", "legacy")
+        ],
+        "oracle/R_case_status.csv",
+        "source-domains/R_case_status.csv",
+        "source-domains/case_manifest.csv",
+        "source-domains/parameters.csv",
+    }
+    assert len(numeric_paths) == 97
+    report: dict[str, Any] = {
+        "schema_version": "current-native-r-reference.1",
+        "status": "passed",
+        "fresh_R_executed": True,
+        "release_certificate": False,
+        "r_version": "constructed serializer fixture; no native execution",
+        "rscript_sha256": "c" * 64,
+        "source_lock_sha256": "d" * 64,
+        "original_certificate_sha256": "e" * 64,
+        "runner_sha256": "f" * 64,
+        "current_inputs_sha256": {"captured/science.py": "a" * 64},
+        "analysis_inputs_sha256": {"analysis.py": "b" * 64},
+        "raw_results_sha256": dict.fromkeys(sorted(numeric_paths), "c" * 64),
+        "current_core_attempted": 43,
+        "current_core_passed": 43,
+        "current_domains_attempted": 23,
+        "current_domains_passed": 23,
+        "original_R_to_current_R_compared": 48,
+        "new_core_cases": [{"id": f"C{index:04d}"} for index in range(25, 43)],
+        "original_R_to_current_R_cases": [
+            {"id": f"own-{index}"} for index in range(48)
+        ],
+    }
     replay = build_source_replay(report, capture.source_revision)
     scope = {
         "native_capture_profile": profile,
@@ -115,8 +196,8 @@ def test_retained_consumer_and_case_vector_identity(
     result = reader._require_retained_comparison(repository, report, replay)
     assert result.manifest_sha256 == "b" * 64
     assert (report, replay) == before
-    assert len(report["consumer_inputs"]["code_sha256"]) == 99
-    assert len(report["consumer_inputs"]["data_sha256"]) == 287
+    assert len(report["consumer_inputs"]["code_sha256"]) == 116
+    assert len(report["consumer_inputs"]["data_sha256"]) == 290
     assert replay["retained_numeric_csv"]["file_count"] == 97
 
 
@@ -251,3 +332,79 @@ def test_report_and_replay_capture_profiles_must_agree(
     )
     with pytest.raises(ValueError, match="scope"):
         reader._require_retained_comparison(repository, report, replay)
+
+
+def test_reader_uses_authenticated_finite_source_context_and_current_analysis(
+    reader: ModuleType, tmp_path: Path
+) -> None:
+    """Historical source names stay sealed while present analysis code stays byte-bound."""
+    source = {f"captured/source-{index}.py": "a" * 64 for index in range(68)}
+    analysis = tmp_path / "analysis.py"
+    analysis.write_bytes(b"current analysis\n")
+    capture = AnnulusCapture(
+        tmp_path / "capture",
+        tmp_path / "archives",
+        "a" * 40,
+        "b" * 64,
+        (),
+        {},
+        {},
+        {"protected_science_sha256": source},
+    )
+    replay = {
+        "native_capture_profile": "finite-covariance",
+        "current_inputs_sha256": dict(source),
+        "analysis_inputs_sha256": {"analysis.py": reader.sha256(analysis)},
+    }
+    reader._require_replay_source_inputs(tmp_path, replay, capture)
+    analysis.write_bytes(b"changed analysis\n")
+    with pytest.raises(ValueError, match="R replay source changed"):
+        reader._require_replay_source_inputs(tmp_path, replay, capture)
+
+
+@pytest.mark.parametrize("change", ["missing", "extra", "digest"])
+def test_reader_refuses_unsealed_finite_source_map(
+    reader: ModuleType, tmp_path: Path, change: str
+) -> None:
+    """The authenticated context authorizes exactly its original 68 source hashes."""
+    source = {f"captured/source-{index}.py": "a" * 64 for index in range(68)}
+    capture = AnnulusCapture(
+        tmp_path / "capture",
+        tmp_path / "archives",
+        "a" * 40,
+        "b" * 64,
+        (),
+        {},
+        {},
+        {"protected_science_sha256": source},
+    )
+    changed = dict(source)
+    if change == "missing":
+        changed.pop(next(iter(changed)))
+    elif change == "extra":
+        changed["unknown.py"] = "b" * 64
+    else:
+        changed[next(iter(changed))] = "b" * 64
+    replay = {
+        "native_capture_profile": "finite-covariance",
+        "current_inputs_sha256": changed,
+        "analysis_inputs_sha256": {},
+    }
+    with pytest.raises(ValueError, match="sealed source hashes"):
+        reader._require_replay_source_inputs(tmp_path, replay, capture)
+
+
+@pytest.mark.parametrize("profile", [None, "annulus", "count-domain"])
+def test_reader_keeps_legacy_raw_source_hashes_strict(
+    reader: ModuleType, tmp_path: Path, profile: object
+) -> None:
+    """The source-custody branch cannot relax standalone or older profile checks."""
+    path = tmp_path / "source.py"
+    path.write_bytes(b"current source\n")
+    replay = {
+        "native_capture_profile": profile,
+        "current_inputs_sha256": {"source.py": "a" * 64},
+        "analysis_inputs_sha256": {},
+    }
+    with pytest.raises(ValueError, match="R replay source changed"):
+        reader._require_replay_source_inputs(tmp_path, replay, None)

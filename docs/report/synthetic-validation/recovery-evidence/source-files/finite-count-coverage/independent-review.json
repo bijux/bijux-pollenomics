@@ -1,0 +1,16 @@
+{
+  "native_exit": 0,
+  "scope": "Independent scalar review of retained synthetic counting diagnostics; no empirical truth or coverage certification.",
+  "draws_reviewed": 3000,
+  "marginals_reviewed": 30000,
+  "scalar_cover_and_variance_comparisons": 60000,
+  "max_cover_absolute_difference": 5.551115123125783e-17,
+  "max_variance_absolute_difference": 5.421010862427522e-20,
+  "source_pins_unchanged": {
+    "protocol.json": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+    "products/report.json": "46f0283bc12d5a6e3d7566839b613c68d790f3f65f83cc1964f60dd0bd4556cd",
+    "products/replicate-taxon-results.csv": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+    "products/actual-multinomial-draws.jsonl": "a1702023111a8c25d7da90d57992870d2f7fdb1e480bc811930b71c1765e58e3"
+  },
+  "poor_outcomes_preserved": true
+}

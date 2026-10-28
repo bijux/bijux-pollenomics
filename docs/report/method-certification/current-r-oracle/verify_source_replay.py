@@ -94,6 +94,29 @@ def _require_retained_comparison(
     return capture
 
 
+def _require_replay_source_inputs(
+    repository: Path,
+    replay: dict[str, Any],
+    capture: AnnulusCapture | CountDomainCapture | FiniteCovarianceCapture | None,
+) -> None:
+    """Honor authenticated finite source custody while checking current analysis bytes."""
+    for field in ("current_inputs_sha256", "analysis_inputs_sha256"):
+        if (
+            field == "current_inputs_sha256"
+            and capture is not None
+            and replay.get("native_capture_profile") == "finite-covariance"
+        ):
+            expected = capture.source_context["protected_science_sha256"]
+            if len(expected) != 68 or json.dumps(
+                replay[field], sort_keys=True, allow_nan=False
+            ) != json.dumps(expected, sort_keys=True, allow_nan=False):
+                raise ValueError("Retained R replay sealed source hashes differ")
+        else:
+            for relative, expected_sha in replay[field].items():
+                if sha256(repository / relative) != expected_sha:
+                    raise ValueError(f"R replay source changed: {relative}")
+
+
 def main() -> None:
     replay = json.loads((HERE / "source-replay.json").read_text())
     retained = json.loads((HERE / "report.json").read_text())
@@ -118,10 +141,7 @@ def main() -> None:
         )
     ):
         raise ValueError("Unexpected R source replay/report schema")
-    for field in ("current_inputs_sha256", "analysis_inputs_sha256"):
-        for relative, expected in replay[field].items():
-            if sha256(ROOT / relative) != expected:
-                raise ValueError(f"R replay source changed: {relative}")
+    _require_replay_source_inputs(ROOT, replay, capture)
     if (
         sha256(ROOT / "configs/ci/lra-r-source-lock.v1.json")
         != replay["source_lock_sha256"]

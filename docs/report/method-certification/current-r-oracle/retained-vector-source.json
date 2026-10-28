@@ -1,0 +1,663 @@
+{
+  "schema_version": "retained-native-oracle-diagnostics-source.v1",
+  "scope": "Independent observations of authenticated retained vectors. No native R/model/optimizer execution, new expectations or scientific/release admission.",
+  "original_native_source": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5",
+  "native_capture": {
+    "path": "data/method-certification/native-r-finite-covariance/capture/capture.json",
+    "sha256": "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b"
+  },
+  "products": {
+    "docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json": {
+      "sha256": "aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f",
+      "bytes": 726654
+    },
+    "docs/report/method-certification/current-r-oracle/retained-vector-review.json": {
+      "sha256": "c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22",
+      "bytes": 596
+    },
+    "docs/report/method-certification/current-r-oracle/retained-vector-protocol.json": {
+      "sha256": "5562dd553ea12363478926beca399e257b9f2e97b49a408aafad3884d0db5ccb",
+      "bytes": 8903
+    },
+    "docs/report/method-certification/current-r-oracle/retained-vector-historical-environment.json": {
+      "sha256": "50a644274edddf3ac4740e807ee9f69c9d88206ea651d5681ec90dee7e064ffc",
+      "bytes": 3123
+    },
+    "docs/report/method-certification/current-r-oracle/retained-vector-historical-uv.lock": {
+      "sha256": "084b925243d89451ef89b55e54b0757f10e2ac5ed4556796a155fadc4a68b8b7",
+      "bytes": 558707
+    }
+  },
+  "maintained_source": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py": "ca844dca8751054f17055c99c227c8a54084981da745e8c13e3071d2093e911e",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py": "c8abeb8902e199073e61e9860535605c17c9d882205729562bc058d9a01c51bd",
+    "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py": "56616a305e3eb7040c84c61168255924f21f9d7c2b5af480ffb76e867acc6b36",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/retained_vector_diagnostics.py": "e2196822de942799675bfaffb43442d192854cabafb962a282800abc0d415ae3",
+    "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_retained_vector_diagnostics.py": "499c76a41673cdb08e3ecabe46ed8f741d263b7751e5d85044d321f8088080f6"
+  },
+  "diagnostic_execution": {
+    "original_terminal_sha256": "4154760bfae6ecf94410abec83008eeae7cd6caaed0de7f7118e18761c112a10",
+    "receipt": {
+      "candidate": "e272626df597bf4c0b8e2ca95e883a778c3951c8",
+      "plan_sha256": "b572916c0a0a2f4324f7011a2a1c52c9a9070f28f071f5c6ceac964497b302ed",
+      "actual_launch_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/run.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source-origin-plan.json",
+        "--registered-plan-sha256",
+        "b572916c0a0a2f4324f7011a2a1c52c9a9070f28f071f5c6ceac964497b302ed"
+      ],
+      "actual_exit": 0,
+      "stages": [
+        {
+          "id": "controlled-vector-residual-and-tamper-guards",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-c",
+            "configs/pytest.ini",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py",
+            "-q",
+            "--junitxml",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/guards.xml",
+            "--basetemp",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/guards-work",
+            "-o",
+            "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/guards-cache"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 2.105040625028778,
+          "stdout_sha256": "c2682b548e75989f5ccc94242c9bd8c8538c0b15b976161754c4df0c73a47826",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "authenticated-retained74row-diagnostics",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "bijux_pollenomics_dev.lra_validation.native_reference.diagnostics",
+            "--repository",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source",
+            "--protocol",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/retained-case-protocol.json",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source/artifacts/retained-oracle-diagnostics/report.json"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 1.1071322080097161,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "independent-stdlib74row-source-review",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "bijux_pollenomics_dev.lra_validation.native_reference.diagnostics_verification",
+            "--repository",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source",
+            "--protocol",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/retained-case-protocol.json",
+            "--report",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source/artifacts/retained-oracle-diagnostics/report.json",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source/artifacts/retained-oracle-diagnostics/independent-review.json"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.19673479197081178,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "strict-three-maintained-files",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "mypy",
+            "--strict",
+            "--config-file",
+            "configs/mypy.ini",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/mypy",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 60,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 4.532848124974407,
+          "stdout_sha256": "8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-lint",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.14747750002425164,
+          "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-format",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.0835508750169538,
+          "stdout_sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source_pins_before_mismatches": [],
+      "source_pins_after_mismatches": [],
+      "output_bytes": 38949591,
+      "completed_child_peak_rss_bytes_macos": 436715520,
+      "elapsed_seconds": 8.926693166024052,
+      "scope": "Actual retained-only comparison of43core and23domain R/Python saved vectors plus eight31taxon mean/SE serialized original/taggedR rows. Original case tolerances/exactindices unchanged. Independent stdlib NPY/NPZ decoder/scalar observer.14meaningful controlled boundary/tamper guards. No R/model/optimizer/browser/draw or new Python expectation execution. All native source/execution/version/failed-predecessor/hosted/ecology/rights boundaries retained. Historical3.11environment selects exactNumPy2.4.6/SciPy1.17.1 branch;>=3.12versions explicitlyseparate. FullphysicalNumPy/SciPy package+distmetadata pinned before/after.",
+      "resources": {
+        "sequential_stages": 6,
+        "direct_stage_processes": 1,
+        "coordinator_processes": 1,
+        "numerical_threads": 1,
+        "overall_timeout_seconds": 180,
+        "declared_memory_bytes": 2147483648,
+        "declared_storage_bytes": 268435456,
+        "immutable_source_input_bytes": 112538636,
+        "limits": "Remaining overall wall and process-group deadlines enforced; observed completed-child macOS RSS and measured run/cache output bytes qualify after return, not OS quotas or full descendant census."
+      }
+    },
+    "producer_source_unchanged_in_observer_successor": true
+  },
+  "independent_scalar_execution": {
+    "original_terminal_sha256": "67b6ab1fee1a41e0acc5f15d0dd783a5523ce7cdf90c8aae16f7b823a3c18fda",
+    "receipt": {
+      "candidate": "e272626df597bf4c0b8e2ca95e883a778c3951c8",
+      "plan_sha256": "e35749542f390b7645b736a8b988ecb31e2aaa5ccb37bc8f8557c42a5f56a669",
+      "actual_launch_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/run.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/plan.json",
+        "--registered-plan-sha256",
+        "e35749542f390b7645b736a8b988ecb31e2aaa5ccb37bc8f8557c42a5f56a669"
+      ],
+      "actual_exit": 0,
+      "stages": [
+        {
+          "id": "nine-affected-mask-kind-and-difference-tamper-guards",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-c",
+            "configs/pytest.ini",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py::test_independent_scalar_review_refuses_modified_diagnostics",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py::test_independent_review_refuses_each_mask_or_kind_claim",
+            "-q",
+            "--junitxml",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/guards.xml",
+            "--basetemp",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/guards-work",
+            "-o",
+            "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/guards-cache"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 3.973811083997134,
+          "stdout_sha256": "c35f08bbf348bc55574d4654a5022a0b46e7b2d0a6ae4de56557391d97dc6902",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "independent-stdlib74row-complete-scalar-claims-review",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "bijux_pollenomics_dev.lra_validation.native_reference.diagnostics_verification",
+            "--repository",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/source",
+            "--protocol",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/retained-case-protocol.json",
+            "--report",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source/artifacts/retained-oracle-diagnostics/report.json",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/source/artifacts/scalar-metadata-review/independent-review.json"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.5127412499859929,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "strict-two-observer-control-files",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "mypy",
+            "--strict",
+            "--config-file",
+            "configs/mypy.ini",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/mypy",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 60,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 7.737894624995533,
+          "stdout_sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-lint",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.6399385410477407,
+          "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-format",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 1.2455211660126224,
+          "stdout_sha256": "3bc53bf3e981a98a34a852e175bf9b77af841edea74fca595d9aedcbaf9a4938",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source_pins_before_mismatches": [],
+      "source_pins_after_mismatches": [],
+      "output_bytes": 38204785,
+      "completed_child_peak_rss_bytes_macos": 437043200,
+      "elapsed_seconds": 16.6150730419904,
+      "scope": "Nine affected tamper controls and a new standard-library scalar observation of the unchanged 74-row/6076-pair diagnostic report and authenticated 154-input retained packet. Each zero-reference difference, signed nonfinite mask/value, comparison kind, difference value/residual/threshold and maximum is independently derived; source labels/profiles/populations and exact original case tolerances retained. The original producer is byte-identical and is not executed. Original successful six-stage receipt remains historical, without retroactive revision. No fresh R, model, optimizer, draws, expectations, native execution, browser or scientific admission.",
+      "resources": {
+        "sequential_stages": 5,
+        "direct_stage_processes": 1,
+        "coordinator_processes": 1,
+        "numerical_threads": 1,
+        "overall_timeout_seconds": 180,
+        "declared_memory_bytes": 2147483648,
+        "declared_storage_bytes": 268435456,
+        "immutable_source_input_bytes": 206751118,
+        "limits": "Remaining overall wall and process-group deadlines enforced; completed-child macOS RSS and measured run/cache output bytes are postrun observations, not OS quotas or a full descendant census."
+      }
+    }
+  },
+  "historical_runtime": {
+    "record": "docs/report/method-certification/current-r-oracle/retained-vector-historical-environment.json",
+    "record_sha256": "50a644274edddf3ac4740e807ee9f69c9d88206ea651d5681ec90dee7e064ffc",
+    "actual_sync_plan_sha256": "463c4973e2112c2ce7cf240cfcb3faa463955b8153354743047c63ea12d4ee05",
+    "actual_sync_plan": {
+      "candidate": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+      "command": [
+        "/opt/homebrew/bin/uv",
+        "sync",
+        "--frozen",
+        "--group",
+        "dev",
+        "--python",
+        "/opt/homebrew/bin/python3.11"
+      ],
+      "cwd": "/Users/bijan/bijux/bijux-pollenomics",
+      "environment": {
+        "UV_PROJECT_ENVIRONMENT": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment",
+        "UV_CACHE_DIR": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/uv-cache",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "UV_CONCURRENT_INSTALLS": "2",
+        "UV_CONCURRENT_BUILDS": "1"
+      },
+      "timeout_seconds": 540,
+      "source_files": {
+        "uv.lock": "084b925243d89451ef89b55e54b0757f10e2ac5ed4556796a155fadc4a68b8b7",
+        "pyproject.toml": "a3d3d57eceaba706062cc94626bbc9f41c4bc0894f574d29b098d9abd332af04",
+        "packages/bijux-pollenomics-dev/pyproject.toml": "6133aa86666db4999acf1b498e1f217c8e8c2baf8c41c51e9e424ac654e5a09f",
+        "packages/bijux-pollenomics/pyproject.toml": "b5dbcee8e9d908d1ece3597a9bd64d45e6d79f061bb9fe9bd7a2db92ee4b2664",
+        "packages/bijux-pollenomics-lra/pyproject.toml": "9b4c51ffd746a722f3670d035d942e60fcbd15aa23fc38b519ce73648e1b9dc9",
+        "packages/pollenomics/pyproject.toml": "127e2df50936606252b4ab0e42f12968fe9b125a541fdd02c6bf0cb9a27f005a"
+      },
+      "outputs": [
+        "prepare.log",
+        "receipt.json",
+        "environment"
+      ],
+      "scope": "One frozen supported Python3.11 developer/science runtime initialization, sole integrator writer; later workers use read-only runtime and independent caches/output roots."
+    },
+    "actual_sync_receipt_sha256": "8f61fb49462ba29f38d5f34dc8ea21dea804d23449d57f7616940e1bbb0b6176",
+    "actual_sync_receipt": {
+      "candidate": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+      "plan_sha256": "463c4973e2112c2ce7cf240cfcb3faa463955b8153354743047c63ea12d4ee05",
+      "command": [
+        "/opt/homebrew/bin/uv",
+        "sync",
+        "--frozen",
+        "--group",
+        "dev",
+        "--python",
+        "/opt/homebrew/bin/python3.11"
+      ],
+      "exit_code": 0,
+      "status": "completed",
+      "wall_seconds": 5.094280124991201,
+      "source_unchanged": true,
+      "log_sha256": "0ea179da9e1de33501fc3adf99fc1eeb4d055ac08db9a7bc5047cc0d5b764177",
+      "scope": "One frozen supported Python3.11 developer/science runtime initialization, sole integrator writer; later workers use read-only runtime and independent caches/output roots."
+    },
+    "interpretation": "Original lock marker and successful frozen sync identify the 3.11 branch; no historical Python BLAS show_config or new historical observation is claimed."
+  },
+  "tolerance_chronology": "Original thresholds/exact indices unchanged. The rationale is retrospective to native execution and frozen prospectively only for the retained-vector diagnostics.",
+  "petr_2022_identity": "Pinned tagged v0.1.2 is selected computational source; it is not authenticated as the executable used by the 2022 study.",
+  "historical_failed_and_unlaunched_records": "Original diagnostic successful packet is unchanged; its unlaunched wrong-marker predecessor remains separate. Initial scalar observer success does not imply that its previously unchecked mask/kind metadata had been independently verified.",
+  "configured_recipe_comparison": {
+    "original_terminal_sha256": "8f52e8840f4564e66c553f02306419c7e3ca8e5b265243487689c6f5199e564f",
+    "receipt": {
+      "candidate": "7dc579c57d2d474710a7eac8e0d6b122b0b44f2d",
+      "plan_sha256": "0fdaef93ba114c8d2242e570017ed23f63242fa5eba2b5b71c7438442de0b235",
+      "actual_launch_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "artifacts/science/retained-oracle-comparison-publication/run.py",
+        "--plan",
+        "artifacts/science/retained-oracle-comparison-publication/plan.json",
+        "--registered-plan-sha256",
+        "0fdaef93ba114c8d2242e570017ed23f63242fa5eba2b5b71c7438442de0b235"
+      ],
+      "actual_exit": 0,
+      "stages": [
+        {
+          "id": "eight-source-origin-output-review-and-source-stability-contracts",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-c",
+            "configs/pytest.ini",
+            "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_retained_vector_diagnostics.py",
+            "-q",
+            "--junitxml",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/guards.xml",
+            "--basetemp",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/work",
+            "-o",
+            "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/pytest-cache"
+          ],
+          "timeout_seconds": 30,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 1.946558833005838,
+          "stdout_sha256": "5ebea2affe88ad358e97d5c734756ce5ba2afb0e744383e096b507f614e0e59a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "reference-retained-vector-configured-recipe-argv",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics",
+            "--repository",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/reference/producer-output/source-products"
+          ],
+          "timeout_seconds": 60,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 1.1176675410242751,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "replay-retained-vector-configured-recipe-argv",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics",
+            "--repository",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/replay/producer-output/source-products"
+          ],
+          "timeout_seconds": 60,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 1.1497169160284102,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "four-products-byte-exact-to-original-executed-evidence",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/compare_products.py",
+            "--reference",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/reference/producer-output/source-products",
+            "--replay",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/replay/producer-output/source-products",
+            "--original-report",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-diagnostics/source/artifacts/retained-oracle-diagnostics/report.json",
+            "--original-review",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-scalar-metadata-review/source/artifacts/scalar-metadata-review/independent-review.json",
+            "--output",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/exact-product-review.json"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.13441850000526756,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "strict-five-maintained-source-contract-files",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "mypy",
+            "--strict",
+            "--config-file",
+            "configs/mypy.ini",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/mypy",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/retained_vector_diagnostics.py",
+            "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_retained_vector_diagnostics.py"
+          ],
+          "timeout_seconds": 60,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 5.516385999973863,
+          "stdout_sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-lint",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/retained_vector_diagnostics.py",
+            "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_retained_vector_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.09060633298940957,
+          "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "id": "configured-format",
+          "argv": [
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+            "-B",
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "--config",
+            "configs/ruff.toml",
+            "--cache-dir",
+            "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/check-artifacts/ruff",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py",
+            "packages/bijux-pollenomics-dev/tests/lra_validation/native_reference/test_diagnostics.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/retained_vector_diagnostics.py",
+            "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_retained_vector_diagnostics.py"
+          ],
+          "timeout_seconds": 20,
+          "actual_exit": 0,
+          "timed_out": false,
+          "seconds": 0.08031720801955089,
+          "stdout_sha256": "f114d83b30c5c657ee43a847a45bafccaea255d82673feb87c26d252c61e29c1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source_pins_before_mismatches": [],
+      "source_pins_after_mismatches": [],
+      "output_bytes": 48879319,
+      "completed_child_peak_rss_bytes_macos": 533004288,
+      "elapsed_seconds": 10.645507709006779,
+      "scope": "Eight new writer-only controlled contracts and two actual source-confined maintained configured-recipe argv executions. Each reads authenticated saved native/Petr vectors, reproduces only diagnostics/review and must match original report aecd97c0 and complete scalar review exactly. No source model, R, optimizer, draws, Python expectation generation, browser or changed tolerances. Original diagnostic14controls and complete scalar9controls are reused by exact unchanged source identity; they are not repeated. The selected tracked84 source export is not complete Git; maintained recipe parsing/origins are preflighted, while full canonical configured-owner inventory resolution/checker follows guarded adoption and staging.",
+      "resources": {
+        "sequential_stages": 7,
+        "direct_stage_processes": 1,
+        "coordinator_processes": 1,
+        "numerical_threads": 1,
+        "overall_timeout_seconds": 180,
+        "declared_memory_bytes": 2147483648,
+        "declared_storage_bytes": 268435456,
+        "immutable_source_input_bytes": 130765038,
+        "limits": "Remaining aggregate wall/process-group deadlines enforced. Completed-child macOS RSS and generated run/cache bytes are postrun qualifications, not OS quotas or all-descendant process observations."
+      }
+    },
+    "byte_equality_review_sha256": "072d8578be80312ae1224ea8db488511432f739b044372392c5acc2c0cb3e992",
+    "byte_equality_review": {
+      "status": "passed",
+      "exact_output_comparisons": [
+        {
+          "lane": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/reference/producer-output/source-products",
+          "member": "retained-vector-diagnostics.json",
+          "sha256": "aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f",
+          "bytes": 726654,
+          "byte_identical_to_original": true
+        },
+        {
+          "lane": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/reference/producer-output/source-products",
+          "member": "retained-vector-review.json",
+          "sha256": "c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22",
+          "bytes": 596,
+          "byte_identical_to_original": true
+        },
+        {
+          "lane": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/replay/producer-output/source-products",
+          "member": "retained-vector-diagnostics.json",
+          "sha256": "aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f",
+          "bytes": 726654,
+          "byte_identical_to_original": true
+        },
+        {
+          "lane": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/retained-oracle-comparison-publication/source/artifacts/replay/producer-output/source-products",
+          "member": "retained-vector-review.json",
+          "sha256": "c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22",
+          "bytes": 596,
+          "byte_identical_to_original": true
+        }
+      ],
+      "source_native_R_executed": false,
+      "source_model_or_expectations_executed": false
+    },
+    "scope": "Two actual source-confined maintained recipe argv lanes, each reading only original saved vectors and producing report/review. Full canonical configured-owner Git inventory/checker resolution follows adoption; this selected source export does not claim it. No R, source model, optimizer, draws or expectation generation."
+  }
+}

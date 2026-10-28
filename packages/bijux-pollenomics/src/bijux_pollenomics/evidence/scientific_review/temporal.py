@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ...adna import AdnaLocalitySummary
+from ...adna.domain.locality import locality_sample_intervals
 from ...collection.contracts.models import ContextPointRecord
 from ...core.temporal_semantics import (
     BpInterval,
@@ -20,13 +21,14 @@ _PERIOD_BINS = (
 
 
 def _period_label_for(locality: AdnaLocalitySummary) -> str:
-    mean_bp = locality.time_mean_bp
-    if mean_bp is None:
+    intervals = _locality_intervals(locality)
+    if not intervals:
         return "project_level_or_unresolved"
     for label, start, end in _PERIOD_BINS:
-        if end is None and mean_bp >= start:
-            return label
-        if end is not None and start <= mean_bp <= end:
+        if all(
+            interval.younger_bp >= start and (end is None or interval.older_bp <= end)
+            for interval in intervals
+        ):
             return label
     return "project_level_or_unresolved"
 
@@ -35,15 +37,26 @@ def _locality_overlaps_point(
     locality: AdnaLocalitySummary,
     point: ContextPointRecord,
 ) -> bool:
-    locality_interval = _locality_interval(locality)
+    locality_intervals = _locality_intervals(locality)
     point_interval = _context_point_interval(point)
-    if locality_interval is None or point_interval is None:
+    if point_interval is None:
         return False
-    return closed_bp_intervals_overlap(locality_interval, point_interval)
+    return any(
+        closed_bp_intervals_overlap(interval, point_interval)
+        for interval in locality_intervals
+    )
 
 
 def _locality_interval(locality: AdnaLocalitySummary) -> BpInterval | None:
-    return _validated_interval(locality.time_start_bp, locality.time_end_bp)
+    intervals = _locality_intervals(locality)
+    distinct = {(interval.younger_bp, interval.older_bp) for interval in intervals}
+    return intervals[0] if len(distinct) == 1 else None
+
+
+def _locality_intervals(locality: AdnaLocalitySummary) -> tuple[BpInterval, ...]:
+    return tuple(
+        interval for _sample_id, interval in locality_sample_intervals(locality)
+    )
 
 
 def _context_point_interval(point: ContextPointRecord) -> BpInterval | None:

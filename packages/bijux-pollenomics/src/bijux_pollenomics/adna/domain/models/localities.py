@@ -9,6 +9,38 @@ from .identity import AdnaLocalityIdentity
 
 
 @dataclass(frozen=True)
+class AdnaSampleChronologySupport:
+    """Exact sample-owned chronology retained alongside a display coverage hull."""
+
+    sample_id: str
+    chronology: AdnaChronology
+    source_release: str = ""
+    provenance_path: str = ""
+    provenance_locator: str = ""
+    provenance_excerpt: str = ""
+    reference_epoch: str = "not_separately_declared"
+    age_type: str = "not_separately_declared"
+    calibration_status: str = "not_separately_declared"
+    model: str = "not_separately_declared"
+
+    def as_dict(self) -> dict[str, object]:
+        """Serialize sample chronology with its source and provenance metadata."""
+        return {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": self.sample_id,
+            "chronology": self.chronology.as_dict(),
+            "source_release": self.source_release,
+            "provenance_path": self.provenance_path,
+            "provenance_locator": self.provenance_locator,
+            "provenance_excerpt": self.provenance_excerpt,
+            "reference_epoch": self.reference_epoch,
+            "age_type": self.age_type,
+            "calibration_status": self.calibration_status,
+            "model": self.model,
+        }
+
+
+@dataclass(frozen=True)
 class AdnaLocalitySummary:
     """Species-aware locality summary derived from normalized ancient-DNA samples."""
 
@@ -32,56 +64,70 @@ class AdnaLocalitySummary:
     nordic_inclusion: bool = False
     nordic_inclusion_reason: str = ""
     interpretation_note: str = ""
+    sample_chronologies: tuple[AdnaSampleChronologySupport, ...] = ()
 
     @property
     def latitude(self) -> float | None:
+        """Return the locality latitude."""
         return self.coordinates.latitude
 
     @property
     def longitude(self) -> float | None:
+        """Return the locality longitude."""
         return self.coordinates.longitude
 
     @property
     def latitude_text(self) -> str:
+        """Return the source latitude text."""
         return self.coordinates.latitude_text
 
     @property
     def longitude_text(self) -> str:
+        """Return the source longitude text."""
         return self.coordinates.longitude_text
 
     @property
     def coordinate_confidence(self) -> str:
+        """Return the coordinate evidence confidence."""
         return self.coordinates.confidence
 
     @property
     def locality_namespace(self) -> str:
+        """Return the shared locality identity namespace."""
         return self.identity.namespace
 
     @property
     def locality_token(self) -> str:
+        """Return the locality's stable identity token."""
         return self.identity.stable_token
 
     @property
     def time_start_bp(self) -> int | None:
+        """Return the stored locality chronology start bound in BP."""
         return self.chronology.time_start_bp
 
     @property
     def time_end_bp(self) -> int | None:
+        """Return the stored locality chronology end bound in BP."""
         return self.chronology.time_end_bp
 
     @property
     def time_mean_bp(self) -> int | None:
+        """Return the stored locality chronology mean in BP."""
         return self.chronology.time_mean_bp
 
     @property
     def time_label(self) -> str:
+        """Return the source chronology label."""
         return self.chronology.original_text
 
     @property
     def dating_basis(self) -> str:
+        """Return the source dating basis."""
         return self.chronology.dating_basis
 
     def as_dict(self) -> dict[str, object]:
+        """Serialize locality coverage and sample-owned chronology supports."""
         return {
             "identity": self.identity.as_dict(),
             "species_latin_name": self.species_latin_name,
@@ -97,6 +143,8 @@ class AdnaLocalitySummary:
             "sample_ids": list(self.sample_ids),
             "datasets": list(self.datasets),
             "chronology": self.chronology.as_dict(),
+            "chronology_role": "locality_sample_coverage_hull",
+            "sample_chronologies": [row.as_dict() for row in self.sample_chronologies],
             "sample_namespace": self.sample_namespace,
             "project_accessions": list(self.project_accessions),
             "original_location_text": self.original_location_text,
