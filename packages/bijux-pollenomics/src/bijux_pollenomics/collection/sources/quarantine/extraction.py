@@ -28,7 +28,11 @@ def extract_zip_members(
 ) -> tuple[Path, ...]:
     """Copy explicitly selected regular members after fresh validation."""
     limits = limits or ArchiveLimits()
-    if destination.is_symlink() or not destination.is_dir():
+    if (
+        destination.is_symlink()
+        or not destination.is_dir()
+        or any(parent.is_symlink() for parent in destination.absolute().parents)
+    ):
         raise IntakeRefusal("invalid_extraction_target", str(destination))
     if any(destination.iterdir()):
         raise IntakeRefusal("extraction_target_not_empty", str(destination))

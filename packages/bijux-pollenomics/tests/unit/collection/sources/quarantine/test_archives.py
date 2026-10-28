@@ -130,6 +130,32 @@ def test_extraction_refuses_symlink_destination(tmp_path: Path) -> None:
     assert list(real_destination.iterdir()) == []
 
 
+@pytest.mark.parametrize("relative", (False, True))
+def test_extraction_refuses_symlink_destination_ancestor(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: bool
+) -> None:
+    archive_path = tmp_path / "source.zip"
+    with ZipFile(archive_path, "w") as archive:
+        archive.writestr("source/data.csv", "x\n")
+    inventory = inspect_zip_archive(archive_path, expected_sha256=_digest(archive_path))
+    parent = tmp_path / "real-parent"
+    parent.mkdir()
+    real_destination = parent / "output"
+    real_destination.mkdir()
+    alias = tmp_path / "linked-parent"
+    alias.symlink_to(parent, target_is_directory=True)
+    destination = alias / "output"
+    assert destination.is_dir() and not destination.is_symlink()
+    if relative:
+        monkeypatch.chdir(tmp_path)
+        destination = destination.relative_to(tmp_path)
+
+    with pytest.raises(IntakeRefusal, match="invalid_extraction_target"):
+        extract_zip_members(archive_path, destination, inventory, ("source/data.csv",))
+
+    assert list(real_destination.iterdir()) == []
+
+
 def test_duplicate_members_and_changed_archive_are_refused(tmp_path: Path) -> None:
     duplicate_path = tmp_path / "duplicate.zip"
     with ZipFile(duplicate_path, "w") as archive:
