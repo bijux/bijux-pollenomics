@@ -491,20 +491,20 @@
       "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.",
       "qualification": {
         "fields": {
-          "supported_claim": "The chronology ledger retains 1475 source review rows with explicit normalized, context-only and unresolved precision/evidence classes. The exact OB20-04 source stratigraphic caution now reaches conflict and review notes without changing dates or class partitions.",
+          "supported_claim": "The current saved chronology ledger retains 1,492 source owners with normalized, contextual and unresolved evidence. Seventeen qualified source owners are added; four Qinghai labels preserve archaeological-context evidence. All 1,471 unaffected old rows and every original numeric date and coordinate remain exact.",
           "unsupported_claim": "A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.",
-          "actual_verification_performed": "The supplied matched chronology/provenance consumer at 6e68f1a9d reconciled all 1475 owners and changed only six identity/provenance fields on four goat rows. All 1471 other rows, dates and class partitions are unchanged: 315+368+386+406=1475. No original-project builder or date parser was rerun. A later maintained chronology materializer at e9aff4a34 and independent260-product/1475-owner comparison preserve all dates/classes and identify only this owner note change plus explicit pre-existing horse provenance additions, left outside the installed caution projection. Producer11.02s/RSS262864896B; successful independent1.69s/RSS151863296B; first literal table-header observer failure retained. Supplied-population reader serialization verifies only two note fields change on one owner; matching authored Markdown and all aggregates remain unchanged. Its first whole-page/footer comparison failure is retained.",
+          "actual_verification_performed": "At 4a156c434 the saved-row native consumer produced sixteen outputs in 2.94 seconds, peak RSS 248,250,368 B. Independent literal JSON readback took 1.46 seconds, peak RSS 174,735,360 B, and reconciles all 1,492 owners, 335 admitted nodes, 1,157 refusals and 6,454 source entries plus HEAD/index. Native exit one remains explicit: the final collector included pre-existing failed products. Independent current-run measurement is 14,308,341 B, within the original 16 MiB. No native or model replay; all failures retained.",
           "remaining_input_or_review": "Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.",
           "cause_category": "Heterogeneous source chronology with explicit epoch and precision refusals.",
-          "consequence": "1475 chronology review rows are not 1464 unique normalized sample IDs; multiple source/native row views and taxonomic normalization must retain their own identity units.",
+          "consequence": "The 1,492 source chronology owners and 1,481 normalized animal records are distinct units. The 335 displayable source nodes are not independent animals or ecological events. Current saved maps and index still need consequential qualification.",
           "precise_next_acceptance_route": "Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.",
-          "negative_or_refused_result": "386 text-only/context-only and 406 unresolved rows remain; numeric/caveated rows do not override source dating class. PRJEB31613 unqualified elapsed-year claims stay weak chronology. OB20-04 is newly present in the conflict/attention ledger; the unchanged publication owner gate blocks its nonempty conflict note. No whole publication gate or map was rerun.",
-          "matched_denominator": "1475 rows=315 normalized intervals+368 normalized points+386 text-only+406 unresolved. Comparability: 547 numeric+136 numeric-with-caveat+386 context+406 unresolved. These partitions must not be summed together."
+          "negative_or_refused_result": "The 1,157 source chronology refusals comprise eleven unresolved identities, 790 noncomparable chronologies and 356 unavailable mappable coordinates. New PGULL remains undated. The native collector accounting failure remains explicit; no source date, independence, field permission or scientific endorsement is inferred.",
+          "matched_denominator": "1,492 rows = 315 normalized intervals + 384 normalized points + 386 text-only + 407 unresolved. Comparability: 559 numeric + 140 numeric with caveat + 386 contextual + 407 unresolved. Fresh chronology has 335 world nodes and thirteen each in Europe-plus and Nordic; these remain candidate map context until consequential checks pass. Earlier maps retain their historical scope."
         },
         "evidence_pins": [
           {
             "path": "docs/report/animal_sample_chronology_review.json",
-            "sha256": "019d1a03ae1f708fe0a04e68f4edaaccfec1b3de8b4b52d2a202093aa84e1714"
+            "sha256": "75638214935901d3ad1e0071a2ed0dc8a2ce5e425f45846da08b7ff77124d8b7"
           }
         ]
       }
@@ -7198,7 +7198,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/animal_sample_chronology_review.json",
-            "sha256": "019d1a03ae1f708fe0a04e68f4edaaccfec1b3de8b4b52d2a202093aa84e1714"
+            "sha256": "75638214935901d3ad1e0071a2ed0dc8a2ce5e425f45846da08b7ff77124d8b7"
           },
           {
             "path": "reports/science/animal-sample-chronology.md"

@@ -1,16 +1,16 @@
 # Animal sample chronology review
 
-- Sample chronology rows: `1475`
+- Sample chronology rows: `1492`
 - Normalized intervals: `315`
-- Normalized points: `368`
+- Normalized points: `384`
 - Text-only rows: `386`
-- Unresolved rows: `406`
-- Direct radiocarbon rows: `573`
+- Unresolved rows: `407`
+- Direct radiocarbon rows: `585`
 - Modeled rows: `6`
-- Contextual rows: `117`
+- Contextual rows: `121`
 - Broad period rows: `1`
-- Numeric interval rows: `547`
-- Numeric rows with caveat: `136`
+- Numeric interval rows: `559`
+- Numeric rows with caveat: `140`
 - Context-only rows: `386`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
@@ -246,6 +246,7 @@
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-1971 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 11th - 12th centuries (A; SU12) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-1972 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 8th - 9th centuries (B; SU7) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-1974 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 5th - 6th centuries (C; SU12) |
+| Capra hircus | PRJEB90261 | prjeb90261:pgull-2131 | unresolved | unresolved | unresolved | unresolved |  |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2143 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 15th century CE (SU3) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2144 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 13th - 14th centuries CE (SU13) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2145 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 13th - 14th centuries CE (SU13) |
@@ -264,11 +265,11 @@
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2228 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 12th - 13th centuries CE (SU3) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2230 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 17th - 18th centuries CE (SU201) |
 | Capra hircus | PRJEB90261 | prjeb90261:pgull-2235 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 11th - 12th centuries (A; SU15) |
-| Capra hircus | PRJNA1328209 | prjna1328209:dc23 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
-| Capra hircus | PRJNA1328209 | prjna1328209:dc27-he | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
-| Capra hircus | PRJNA1328209 | prjna1328209:dc40 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
+| Capra hircus | PRJNA1328209 | prjna1328209:dc23 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 3480-3580 BP |
+| Capra hircus | PRJNA1328209 | prjna1328209:dc27-he | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 3480-3580 BP |
+| Capra hircus | PRJNA1328209 | prjna1328209:dc40 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 3480-3580 BP |
 | Capra hircus | PRJNA1328209 | prjna1328209:dc47_4he | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
-| Capra hircus | PRJNA1328209 | prjna1328209:dc48-1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3480-3580 BP |
+| Capra hircus | PRJNA1328209 | prjna1328209:dc48-1 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 3480-3580 BP |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016168 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016169 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_016171 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2300 |
@@ -606,6 +607,10 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533202 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5278 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533203 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5171 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533204 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5132 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533205 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5278 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533206 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5143 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533207 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5278 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533208 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5451 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533209 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 13750 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533210 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5400 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533211 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2821 BP |
@@ -622,6 +627,7 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533223 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 17009 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533224 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4961 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533225 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4944 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533226 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4009 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533227 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2611 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533228 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2609 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533229 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2604 BP |
@@ -629,9 +635,11 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533231 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 15558 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533232 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 15765 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533233 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 15643 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533234 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2750 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533235 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2425 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533236 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2725 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533237 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2725 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533238 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3489 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533239 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 20874 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533240 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 18450 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533241 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 23605 BP |
@@ -652,8 +660,13 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533256 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3806 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533257 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3806 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533258 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2725 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533259 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2613 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533260 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2718 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533261 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2818 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533262 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2740 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533263 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2718 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533264 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2863 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533265 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2828 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533266 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2718 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533267 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4629 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533268 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4631 BP |
@@ -673,6 +686,8 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533282 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3413 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533283 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3426 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533284 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5292 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533285 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3905 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533286 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3845 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533287 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 8269 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533288 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2530 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533289 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5194 BP |
@@ -787,6 +802,7 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533400 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2610 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533401 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 82 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533402 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2607 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533403 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3528 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533404 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2567 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533405 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2614 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533406 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2688 BP |
@@ -818,6 +834,7 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533434 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2725 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533435 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7494 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533436 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7499 BP |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533437 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 36264 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533438 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4509 BP |
 | Felis catus | PRJEB81815 | prjeb81815:samea120246515 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 10-11 ka (Epigravettian) |
 | Felis catus | PRJEB81815 | prjeb81815:samea120246516 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1610-1740 BP |
@@ -1503,25 +1520,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The chronology ledger retains 1475 source review rows with explicit normalized, context-only and unresolved precision/evidence classes. The exact OB20-04 source stratigraphic caution now reaches conflict and review notes without changing dates or class partitions.
+**Supported claim.** The current saved chronology ledger retains 1,492 source owners with normalized, contextual and unresolved evidence. Seventeen qualified source owners are added; four Qinghai labels preserve archaeological-context evidence. All 1,471 unaffected old rows and every original numeric date and coordinate remain exact.
 
 **Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
 
-**Actual verification performed.** The supplied matched chronology/provenance consumer at 6e68f1a9d reconciled all 1475 owners and changed only six identity/provenance fields on four goat rows. All 1471 other rows, dates and class partitions are unchanged: 315+368+386+406=1475. No original-project builder or date parser was rerun. A later maintained chronology materializer at e9aff4a34 and independent260-product/1475-owner comparison preserve all dates/classes and identify only this owner note change plus explicit pre-existing horse provenance additions, left outside the installed caution projection. Producer11.02s/RSS262864896B; successful independent1.69s/RSS151863296B; first literal table-header observer failure retained. Supplied-population reader serialization verifies only two note fields change on one owner; matching authored Markdown and all aggregates remain unchanged. Its first whole-page/footer comparison failure is retained.
+**Actual verification performed.** At 4a156c434 the saved-row native consumer produced sixteen outputs in 2.94 seconds, peak RSS 248,250,368 B. Independent literal JSON readback took 1.46 seconds, peak RSS 174,735,360 B, and reconciles all 1,492 owners, 335 admitted nodes, 1,157 refusals and 6,454 source entries plus HEAD/index. Native exit one remains explicit: the final collector included pre-existing failed products. Independent current-run measurement is 14,308,341 B, within the original 16 MiB. No native or model replay; all failures retained.
 
 **Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
 
 **Cause category.** Heterogeneous source chronology with explicit epoch and precision refusals.
 
-**Consequence.** 1475 chronology review rows are not 1464 unique normalized sample IDs; multiple source/native row views and taxonomic normalization must retain their own identity units.
+**Consequence.** The 1,492 source chronology owners and 1,481 normalized animal records are distinct units. The 335 displayable source nodes are not independent animals or ecological events. Current saved maps and index still need consequential qualification.
 
 **Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
 
-**Negative or refused result.** 386 text-only/context-only and 406 unresolved rows remain; numeric/caveated rows do not override source dating class. PRJEB31613 unqualified elapsed-year claims stay weak chronology. OB20-04 is newly present in the conflict/attention ledger; the unchanged publication owner gate blocks its nonempty conflict note. No whole publication gate or map was rerun.
+**Negative or refused result.** The 1,157 source chronology refusals comprise eleven unresolved identities, 790 noncomparable chronologies and 356 unavailable mappable coordinates. New PGULL remains undated. The native collector accounting failure remains explicit; no source date, independence, field permission or scientific endorsement is inferred.
 
-**Matched denominator.** 1475 rows=315 normalized intervals+368 normalized points+386 text-only+406 unresolved. Comparability: 547 numeric+136 numeric-with-caveat+386 context+406 unresolved. These partitions must not be summed together.
+**Matched denominator.** 1,492 rows = 315 normalized intervals + 384 normalized points + 386 text-only + 407 unresolved. Comparability: 559 numeric + 140 numeric with caveat + 386 contextual + 407 unresolved. Fresh chronology has 335 world nodes and thirteen each in Europe-plus and Nordic; these remain candidate map context until consequential checks pass. Earlier maps retain their historical scope.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `019d1a03ae1f708fe0a04e68f4edaaccfec1b3de8b4b52d2a202093aa84e1714`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `75638214935901d3ad1e0071a2ed0dc8a2ce5e425f45846da08b7ff77124d8b7`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 
