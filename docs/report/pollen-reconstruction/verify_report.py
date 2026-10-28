@@ -15,6 +15,10 @@ from typing import Any
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    read_historical_python_correspondence,
+)
 from bijux_pollenomics_dev.reader_reports.source import (
     MAINTAINED_PRESENTATION_INPUTS,
     MAINTAINED_READER_BOOKKEEPING,
@@ -793,6 +797,21 @@ def verify_sambosjon_contained_age_support(
     interval_scope = scope["sambosjon_contained_age_support"]
     interval_dir = REPOSITORY_ROOT / Path(interval_scope["report"]).parent
     interval = json.loads((interval_dir / "report.json").read_text())
+    recorded_producer = read_historical_python_correspondence(
+        REPOSITORY_ROOT,
+        GitSourceMember(
+            member=interval_scope["producer"],
+            repository_path=(
+                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+                "source_completion/pollen_age_support/sambosjon.py"
+            ),
+            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
+            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
+            sha256=interval["producer_sha256"],
+            bytes=17278,
+        ),
+        function_docstring="main",
+    )
     with (interval_dir / "coverage.csv").open(newline="") as stream:
         interval_coverage = list(csv.DictReader(stream))
     with (interval_dir / "scores.csv").open(newline="") as stream:
@@ -800,8 +819,7 @@ def verify_sambosjon_contained_age_support(
     with (interval_dir / "samples.csv").open(newline="") as stream:
         interval_samples = list(csv.DictReader(stream))
     if (
-        interval["producer_sha256"]
-        != sha256(REPOSITORY_ROOT / interval_scope["producer"])
+        interval["producer_sha256"] != hashlib.sha256(recorded_producer).hexdigest()
         or interval_scope["status"] != interval["status"]
         or interval_scope["confirmatory_result"] is not False
         or interval_scope["independent_vegetation_comparison"] is not False

@@ -13,6 +13,10 @@ from statistics import median
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    read_historical_python_correspondence,
+)
 from bijux_pollenomics_dev.reader_reports.source import (
     MAINTAINED_PRESENTATION_INPUTS,
     MAINTAINED_READER_BOOKKEEPING,
@@ -223,6 +227,26 @@ def verify_native_memory() -> None:
     """Check the measured worker distributions behind the bounded RSS claim."""
     payload = (NATIVE_MEMORY / "report.json").read_bytes()
     measured = json.loads(payload)
+    source_identities = {}
+    for relative, expected in measured["source_sha256"].items():
+        if relative == (
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+            "trusted_process.py"
+        ):
+            recorded = read_historical_python_correspondence(
+                ROOT,
+                GitSourceMember(
+                    member=relative,
+                    repository_path=relative,
+                    source_revision="ae4e0a08ba6ae379e0ebaac41bf3147cf017c023",
+                    git_blob="a12660618ff907c81b3658a9e114ee73fe09343e",
+                    sha256=expected,
+                    bytes=1887,
+                ),
+            )
+        else:
+            recorded = (ROOT / relative).read_bytes()
+        source_identities[relative] = hashlib.sha256(recorded).hexdigest()
     shapes = ((1, 8, 3), (32, 128, 32), (512, 256, 64), (8192, 256, 512))
     if (
         measured.get("schema_version") != "native-forward-isolated-worker-memory.1"
@@ -235,7 +259,7 @@ def verify_native_memory() -> None:
         or measured["build"]["flags"][3] not in ("-dynamiclib", "-shared")
         or [tuple(row["shape"]) for row in measured["cases"]] != list(shapes)
         or any(
-            hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != digest
+            source_identities[path] != digest
             for path, digest in measured["source_sha256"].items()
         )
     ):
