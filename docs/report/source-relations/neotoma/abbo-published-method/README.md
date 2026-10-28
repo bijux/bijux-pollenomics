@@ -11,7 +11,25 @@ has been admitted. This page remains a citation for earlier website links.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This earlier-link citation routes to the detailed Abborrtjärnen source-method decision.
+
+**Unsupported claim.** The pointer supplies no additional observed pollen, fit, age control or independent scientific check.
+
+**Actual verification performed.** Read the citation pointer and pinned primary method decision; no source acquisition or numerical replay.
+
+**Remaining input or review.** The primary account still distinguishes original count/chronology methods from later exports and unadmitted Swedish inputs.
+
+**Cause category.** Citation provenance does not create source qualification.
+
+**Consequence.** Only the relationship to the maintained method decision is supported here.
+
+**Precise next acceptance route.** Use the primary decision and its original-source requirements before admitting any Swedish LRA request.
+
+**Negative or refused result.** No Swedish LRA input is admitted by the pointer or its link.
+
+**Matched denominator.** 0 new observations, fits, control dates or independent checks; the linked account owns the underlying source populations.
+
+- [Retained qualification evidence: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 

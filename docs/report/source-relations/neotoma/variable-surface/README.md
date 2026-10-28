@@ -49,7 +49,25 @@ without its ledger row, and an unidentified native taxon ID.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All 1,262 native variable identities and 1,325 semantic variants match the retained relational variable surface.
+
+**Unsupported claim.** Preserved source groups/names/units do not establish taxonomic acceptance, count denominator, chronology or original HTTP authority.
+
+**Actual verification performed.** Read full reconciliation totals and explicit empty mismatch/conflict lists, including 14 source-group populations; no raw datum reconciliation rerun.
+
+**Remaining input or review.** Qualified pollen-concept, measurement/counting and chronology/use decisions remain.
+
+**Cause category.** Variable identity transport is separate from ecological interpretation.
+
+**Consequence.** Laboratory, algae, charcoal and unidentified groups remain source categories rather than being recast as pollen taxa.
+
+**Precise next acceptance route.** Use exact native concept IDs and source semantics for scoped expert review before scientific mapping/admission.
+
+**Negative or refused result.** 0 missing/unexpected/duplicate IDs or attribute mismatches in this snapshot; no LRA admission is supplied.
+
+**Matched denominator.** 370,936 datum rows→1,262 variables/1,325 variants across 14 source groups; 316,806 rows source-labelled Vascular plants.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/variable-surface/report.json](report.json) (SHA-256 `d2c60c1f63927410bc8341b9ed0c16257c0d6a9e9ffa78179e8a2ccb65eb099b`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

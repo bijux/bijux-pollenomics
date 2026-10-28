@@ -94,7 +94,31 @@ the LegacyAge S5 source is [Li et al. (2021), PANGAEA
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** A previously exposed three-lake direct-pollen study is rescored on four selected bins after replacing ABBO point assignment with full containment of each published LegacyAge S5 marginal 95% interval. The reported paired score changes are conditional development sensitivity.
+
+**Unsupported claim.** A more accurate age model, joint 95% membership confidence, independent confirmation, a common uncertainty treatment across all lakes, LRA reconstruction or measured vegetation accuracy.
+
+**Actual verification performed.** The reader, unchanged source/support ledger, configuration, input manifest and retained same-support comparison/summary were inspected. They describe separate prediction files saved before target-count scoring. This qualification runs no prepare, prediction, scoring or independent numerical replay.
+
+**Remaining input or review.** The four bins were selected after inspecting ABBO support, and outcomes were already exposed. S5 supplies marginal intervals rather than a joint age posterior; Bussjösjön and Bökesjön still use point ages. Basin/PPE/dispersal and independent vegetation truth are outside this experiment.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Interpret the small same-support score reductions as a sparse conditional sensitivity. Interval containment cannot certify true membership, chronology accuracy or transfer skill; keep all unassigned source samples visible.
+
+**Precise next acceptance route.** For joint age or chronology-quality claims, obtain and qualify a joint depth-consistent age model and comparable uncertainty sources for all sites. Freeze bin selection and a new evaluation before unexposed outcomes; assess vegetation/LRA claims separately with their required physical/reference inputs.
+
+**Negative or refused result.** Only 8 of 107 ABBO samples are interval-contained in the four selected bins; 37 overlap without full containment and 62 are outside those four bins. Unresolved intervals are not assigned by their mean or duplicated as independent observations.
+
+**Matched denominator.** 3 physical lakes; 4 selected 500-calibrated-year BP bins; 12 identical scored site-bin targets for each of 4 fixed methods. ABBO contributes 8/107 source samples and 3,543 NISP on the selected closed 16-taxon axis. Scores average bins within each site and weight the 3 sites equally.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv](age-bin-support.csv) (SHA-256 `26ca6dc862790c71a3a7821b027413307dd2334856080a1b07e186177cfb8e01`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json](comparison.json) (SHA-256 `29ebcf5719161541c4241436e56feb02e282559780d5225c1e2a2b450f7eeab1`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/age-interval-sensitivity/summary.json](summary.json) (SHA-256 `2a1e979eeb338e789fbb57e7e75353ff9a2737d782a82173a6aa2be9038ff0e8`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json](input-manifest.json) (SHA-256 `29c59ac308596444ee7abae1a1e4fe81e530157ee073dce5adc593a3fc99f4f4`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 

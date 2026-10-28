@@ -18,7 +18,7 @@ remain open.
 
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
-The scientific accounts cover all 55
+The scientific claim and cause ledger covers all 61
 root scientific accounts, with supported and unsupported claims, retained
 checks, negative/refused results, matched denominators and precise acceptance
 routes. It distinguishes missing outcomes from measured zero accuracy.
@@ -34,7 +34,7 @@ updating that lock.
 | How did fixed predictors transfer to further Swedish lakes? | [Three-lake Swedish transfer](science/sweden-lake-transfer.md) | Gilltjärnen, Lake Avegöl and Flinkasjön add 63 scored bins; three-site development evidence only. |
 | Which cohorts and source fields are fit for each analysis? | [Source cohort account](science/source-cohorts.md) | Four-country count mass and LRA source gates remain separate. |
 | Which AADR human IDs reach the four country products? | [Nordic AADR entity account](science/aadr-nordic-entities/README.md) | 1,325 source IDs reconcile to 1,231 country rows and 94 missing-coordinate exclusions; no scientific or map admission. |
-| Which animal sample IDs reach the map? | [Animal entity account](science/animal-entity-capability/README.md) | The 1,468 normalized IDs partition into 331 mapped and 1,137 map-excluded samples; scientific admission remains open. |
+| Which animal sample IDs reach the map? | [Animal entity account](science/animal-entity-capability/README.md) | The 1,468 normalized IDs partition into 322 mapped and 1,146 map-excluded samples; scientific admission remains open. |
 | Which Norwegian core has the strongest LRA source lineage? | [Dalmutladdo source correspondence](science/dalmutladdo-lra-input/README.md) | 72 samples and all 11 radiocarbon source controls match; conflicting areas and missing age-specific basin/count/PPE evidence keep LRA admission at zero. |
 | Which Finnish core has the strongest LRA source lineage? | [Laihalampi source correspondence](science/laihalampi-lra-input/README.md) | 150 source samples and the 25.5 ha reported area correspond; selected ages, dated basin and analytical use remain open. |
 | What do the 2024 LOVE and LOVEoptim paper and our numerical receipts establish? | [LOVE/LOVEoptim paper account](science/loveoptim-paper.md) | Eight-pond published simulation, printed parameters and later source-code fixtures have distinct inputs; Figure 2 reproduction and independent vegetation accuracy remain unavailable. |

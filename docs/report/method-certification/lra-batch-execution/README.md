@@ -85,7 +85,25 @@ PY
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained installed macOS batch diagnostic exercises three synthetic routes, cache identity and an exact invalid-PPE refusal with two workers and one numerical thread per worker.
+
+**Unsupported claim.** The batch timings establish neither speedup, per-worker memory, scientific source admission, field accuracy, a current wheel build nor official release certification.
+
+**Actual verification performed.** Reviewed the retained installed-run account, attempt/refusal/cache transitions and actual whole-command timing scope and bound its report bytes. No installation, CLI batch or model execution was repeated for this reader qualification.
+
+**Remaining input or review.** A current-candidate installed diagnostic must retain its own archive/import identity; scientific use additionally needs admitted observations and justified parameters, while release requires its hosted admission evidence.
+
+**Cause category.** Installed execution/cache contract on synthetic inputs.
+
+**Consequence.** The account demonstrates bounded installed behavior for its recorded wheels and inputs; a cache hit cannot independently validate the scientific result.
+
+**Precise next acceptance route.** Use the maintained installed distribution and batch consumers at the intended source candidate, preserve the invalid-PPE case and independently qualify any scientific inputs before release admission.
+
+**Negative or refused result.** The initial invalid PPE attempt has two passes, one refusal and exit 2. Corrected, warm and changed-PPE attempts retain their distinct hit/miss patterns rather than converting the failed attempt to a pass.
+
+**Matched denominator.** Three synthetic routes, two taxa, seven evidence files and four batch attempts; corrected three-route execution has two hits, warm execution three, changed PPE two; observed whole-command times are about 3.13–3.48 seconds.
+
+- [Retained qualification evidence: docs/report/method-certification/lra-batch-execution/report.json](report.json) (SHA-256 `9ca39ea4568c844ef9fb3454bde2d3438f168b89bf6a8009bb1095df2c8d5ac5`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

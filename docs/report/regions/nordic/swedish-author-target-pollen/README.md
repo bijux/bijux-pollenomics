@@ -12,7 +12,27 @@ producer-owned path. This page preserves earlier website citations.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This citation pointer maintains the relationship to the retained Swedish31-author-target observed-pollen study account and its producer-owned numeric products; it reports no new observations, fits or independent scientific checks.
+
+**Unsupported claim.** Author-target lookup coverage does not admit LRA, complete pollen or vegetation and the retained Swedish outcomes remain exposed.
+
+**Actual verification performed.** Read the citation body and named retained primary account, checked exact account/result identities and distinguished own support from linked study support; no predictor, scorer or independent scientific consumer was rerun.
+
+**Remaining input or review.** The linked study's source, exposure, support and independent-review requirements remain separate from citation routing.
+
+**Cause category.** Citation-only pointer to a conditional exposed-development account.
+
+**Consequence.** A maintained citation does not replicate its linked experiment or enlarge its scientific population.
+
+**Precise next acceptance route.** Inspect the linked country-excluded study and its selected/assigned/excluded/unmapped support before any new source-specific or independent scientific claim.
+
+**Negative or refused result.** All linked failed, missing, refused and poorer results remain part of the primary account; a pointer supplies no new accepted case.
+
+**Matched denominator.** Own population:zero new observations, fits and independent scientific checks; the linked study's native site/bin/taxon denominator remains its own.
+
+- [Retained qualification evidence: reports/science/sweden-author-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-author-pollen.md).
+
+- [Retained qualification evidence: docs/report/regions/nordic/swedish-author-target-pollen/report.json](report.json) (SHA-256 `f8c75a8e5cef4387bee3755a99fc55daf528a48a380e06129093a228384ec8bc`).
 
 - [Canonical scientific account: reports/science/sweden-author-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-author-pollen.md).
 

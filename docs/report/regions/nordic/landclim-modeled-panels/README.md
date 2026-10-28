@@ -26,7 +26,25 @@ The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained panel inventory summarizes source PANGAEA937075 model quality and individual-cell cover/SE ranges by country and published window, keeping AL within OL rather than a fourth disjoint cover class.
+
+**Unsupported claim.** The table gives no area-weighted country mean, pooled SE/confidence interval, physical sample chronology, independent vegetation truth or authorized temporal interpolation.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source-classification authority, historical input authenticity and any independent vegetation comparison remain separate review decisions.
+
+**Cause category.** Descriptive source-model coverage rather than measured reconstruction validation.
+
+**Consequence.** Blank ranges represent no usable modeled cell; no-pollen placeholders cannot become zero cover or support an ecological absence claim.
+
+**Precise next acceptance route.** Replay the maintained panel consumer against the complete normalized model manifest and source labels, then separately qualify any matched scientific comparison.
+
+**Negative or refused result.** 307no-pollen cell/window placeholders are excluded from numeric ranges; AL is not summed with its enclosing OL as an independent category.
+
+**Matched denominator.** 400rows=four countries×25published windows×four labeled metrics;1,875source cell/window rows,307no-pollen placeholders; cellwise estimates remain percent cover.
+
+- [Retained qualification evidence: docs/report/regions/nordic/landclim-modeled-panels/report.json](report.json) (SHA-256 `4bb8b1e1bec5a200743c67dc48b8f79c74b48a15fae588f7f21e7cf599343b5c`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

@@ -45,6 +45,17 @@ def _records(value: object) -> list[dict[str, object]]:
     return [_record(row) for row in _array(value)]
 
 
+def _module_origin_count(value: object) -> int:
+    """Count a retained module-to-origin object without treating its keys as rows."""
+    origins = _record(value)
+    if not origins or any(
+        not name or not isinstance(origin, str) or not origin
+        for name, origin in origins.items()
+    ):
+        raise ValueError("scientific account module-origin mapping differs")
+    return len(origins)
+
+
 def _integer(value: object) -> int:
     """Keep native integer identities distinct from booleans and fractions."""
     if type(value) is not int:
@@ -556,8 +567,8 @@ def products(directory: Path, scope: str) -> dict[str, dict[str, object]]:
         "observed_import_capture_sha256": digest(
             directory / "observed-import-origins.json"
         ),
-        "observed_module_origin_count": len(
-            _array(origins["actual_loaded_module_origins"])
+        "observed_module_origin_count": _module_origin_count(
+            origins["actual_loaded_module_origins"]
         ),
         "scope": "Actual immutable native result custody; maintained publisher replays accounts and scalar covariance, not physical fits, integrations or raw-source acquisition",
     }

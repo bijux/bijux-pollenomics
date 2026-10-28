@@ -85,7 +85,7 @@ def current_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> SimpleNa
                 "actual_exit": 0,
             }
         )
-    manifest = {
+    manifest: dict[str, Any] = {
         "schema_version": "scientific-reader-downloads.v1",
         "files": rows,
         "inputs": {
@@ -150,6 +150,22 @@ def current_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> SimpleNa
         return bytes(original_read(repository, relative))
 
     monkeypatch.setattr(HOOK, "_read", read)
+
+    def paper_sources(repository: Path) -> dict[str, dict[str, object]]:
+        return {
+            row["path"]: {
+                "canonical_source": row["canonical_source"],
+                "source_sha256": hashlib.sha256(
+                    read(repository, row["canonical_source"])
+                ).hexdigest(),
+                "sha256": hashlib.sha256(read(repository, row["path"])).hexdigest(),
+                "bytes": len(read(repository, row["path"])),
+            }
+            for row in manifest["files"]
+            if row["path"].startswith("reports/exports/papers/")
+        }
+
+    monkeypatch.setattr(HOOK, "_paper_sources", paper_sources)
 
     def save() -> None:
         write(HOOK.MANIFEST, json.dumps(manifest).encode())
@@ -315,4 +331,33 @@ def test_distributed_pdf_raw_and_scientific_source_integrity_remain(
     target = current_fixture.root / path
     target.write_bytes(target.read_bytes() + b"unreviewed changes")
     with pytest.raises(ValueError):
+        HOOK.download_bytes(current_fixture.root)
+
+
+def test_compiled_physical_source_mode_remains_owned(
+    current_fixture: SimpleNamespace,
+) -> None:
+    path = current_fixture.root / "presentation/shared.tex"
+    path.chmod(path.stat().st_mode | 0o100)
+    with pytest.raises(ValueError, match="physical source mode"):
+        HOOK.download_bytes(current_fixture.root)
+
+
+def test_compiled_input_late_physical_mutation_refuses(
+    current_fixture: SimpleNamespace, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    committed = HOOK._committed_inputs
+    reads = 0
+
+    def changed(root: Path, revision: str, paths: list[str]) -> dict[str, bytes]:
+        nonlocal reads
+        result = dict(committed(root, revision, paths))
+        if revision == CURRENT:
+            reads += 1
+            if reads == 2:
+                (root / "presentation/shared.tex").write_bytes(b"late input mutation")
+        return result
+
+    monkeypatch.setattr(HOOK, "_committed_inputs", changed)
+    with pytest.raises(ValueError, match="input changed during validation"):
         HOOK.download_bytes(current_fixture.root)

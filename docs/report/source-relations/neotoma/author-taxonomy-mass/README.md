@@ -86,7 +86,27 @@ names, changed Swedish source scope and any native count that fails to close.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The author lookup partitions three Swedish native NISP cohorts into assigned, excluded and unmapped source mass.
+
+**Unsupported claim.** Author name assignments and size-variant candidates are not independent biological validation, accepted denominator or LRA reconstruction.
+
+**Actual verification performed.** Read the 39-bin report/CSV, site closure totals and unapplied BUS size-name candidate fields; no taxon remapping or fitting.
+
+**Remaining input or review.** Counting-mask qualification, site-age geometry, core identity and source-specific taxonomy/parameter/use decisions remain.
+
+**Cause category.** Author-selected subcomposition and unresolved native variants.
+
+**Consequence.** Excluded Humulus/Cannabis and unmapped BUS size classes cannot disappear from interpretations.
+
+**Precise next acceptance route.** Review the two source-specific size-name variants and full counted support before applying changes and rerunning affected results.
+
+**Negative or refused result.** BUS 6,258 counts remain unmapped; 6,254 size-variant candidates are not applied; all 39 bins unadmitted for LRA.
+
+**Matched denominator.** 3 sites×13 bins=39; ABB 88,004=86,691+1,311+2; BUS 56,450=40,915+9,277+6,258; BOKE 42,548=41,407+1,110+31 native NISP.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-taxonomy-mass/report.json](report.json) (SHA-256 `557a31ea6392d63c4e0dc0e8d090d2f3dcd78d31658ea2a823558cc841e11221`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv](bins.csv) (SHA-256 `517233709c946b71fd19c172eb499f326c27bcc764ced37e3eb307b9b00198f0`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

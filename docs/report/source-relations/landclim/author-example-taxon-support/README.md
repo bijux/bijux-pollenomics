@@ -110,7 +110,29 @@ cmp docs/report/source-relations/landclim/author-example-taxon-support/sites.csv
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The author examples distinguish literal raw taxon support from the always 31-row prepared target axis.
+
+**Unsupported claim.** An all-zero prepared row is not evidence that its taxon was measured, and parser parity does not authenticate 1128 historical study inputs.
+
+**Actual verification performed.** Read the 17-site support report, site ledger and WHH05 header/count witness; retained R parser evidence is inspected, not rerun.
+
+**Remaining input or review.** Original counting semantics and a reviewed measured-taxon mask/denominator remain necessary for uncertainty and joint draws.
+
+**Cause category.** Prepared structural zeros and parser whitespace behavior differ from observed taxon support.
+
+**Consequence.** The measured mask cannot be inferred from prepared matrix shape.
+
+**Precise next acceptance route.** Resolve site-specific counted/uncounted taxa and source rights, preserving unmatched raw names and the exact author parser behavior.
+
+**Negative or refused result.** 168 prepared target rows lack literal raw-name leads; 5 positive WHH05 gaps have parser whitespace explanations; 163 other gaps remain.
+
+**Matched denominator.** 17 example sites across 2 grids, 31 prepared targets/site; 12–24 literal supported targets/site; 5 positive whitespace witnesses.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/author-example-taxon-support/report.json](report.json) (SHA-256 `a00d3fa98f1eeacf512ee3afd8243be45305aed2dcc7c420e9624a5f13b2a65e`).
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/author-example-taxon-support/sites.csv](sites.csv) (SHA-256 `13b26b7828ade00ba4037ac334207c9b865a5032f33c40ffe17dc951397321ba`).
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/author-example-taxon-support/whh05-header-parity.csv](whh05-header-parity.csv) (SHA-256 `cc35ef288f3327debc58c88e10bef891ffdda873d135feab2ae63f811aa37d1e`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

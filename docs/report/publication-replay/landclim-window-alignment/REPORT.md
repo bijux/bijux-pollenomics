@@ -40,7 +40,27 @@ Only exact time-window support permits a direct same-window numeric comparison. 
 
 Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All 25 author time intervals are compared by sharedTW index with documented archive filename bounds; onlyTW 2100–350 BP matches both endpoints exactly.
+
+**Unsupported claim.** A sharedTW label does not authenticate matching temporal support, raw sample/chronology cohort, archived output values, historical reconstruction or measured vegetation accuracy.
+
+**Actual verification performed.** The generated complete 25-row endpoint table was inspected against its ledger and exact-window report. The retained source-bound replay reproduces its three products with LF CSV. This qualification repeats no axis consumer, archive payload reconstruction, model or R execution.
+
+**Remaining input or review.** Original selected chronologies and historical raw cohorts remain unauthenticated. Other 24 intervals need a separately declared common-support strategy and source data; endpoint relabeling or subtracting 50 years cannot recover those observations.
+
+**Cause category.** data | comparability | assumption
+
+**Consequence.** Permit direct same-window numerical correspondence only for the exact shared interval. Keep 25 window comparisons distinct from numerical cover/SE agreement and from historical data identity.
+
+**Precise next acceptance route.** Authenticate historical chronology/sample selection and define a justified rebinning consumer from native observations before comparing nonmatching intervals. PreserveTW 2 exact support without generalizing to all 25 labels.
+
+**Negative or refused result.** Twenty-four of 25 intervals differ: TW 1 starts−65 versus 0 BP, TW 3 ends 750 versus 700 BP, later author endpoints are 50 years older. These remain nonmatches; no window or age is silently relabeled.
+
+**Matched denominator.** 25 interval pairs and 50 endpoint comparisons; one exact pair(TW2),24 nonexact. The numerical two-grid 31 taxon correspondence is a separate 124-value shared-window population, not produced by this axis check.
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-window-alignment/report.json](report.json) (SHA-256 `5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6`).
+
+- [Retained qualification evidence: docs/report/publication-replay/landclim-window-alignment/window-correspondence.csv](window-correspondence.csv) (SHA-256 `3dbfc4914257a0862410a7c3b451a578f2c30b57991c9b0a59bef1b973f9a598`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

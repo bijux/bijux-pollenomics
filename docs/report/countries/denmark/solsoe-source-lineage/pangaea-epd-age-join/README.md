@@ -35,7 +35,25 @@ execution and byte comparison remain separate verification requirements.
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained published 2013 EPD age table matches 92 distinct Solsø core/depth rows to Neotoma calibrated ages and both bounds within 0.5 BP conversion/rounding.
+
+**Unsupported claim.** Shared EPD chronology lineage is not independent age validation and absence of other core handles from one 2013 table does not prove they have no chronology elsewhere.
+
+**Actual verification performed.** Read the joined report and exact qualified table descriptor; checked 66+26 matches,all three residual maxima 0.5 BP and the preserved negative-younger-bound identity. No source download or age join was rerun.
+
+**Remaining input or review.** Historical LandClim 79 sample selection, author chronology, basin geometry and qualified source reuse remain unresolved.
+
+**Cause category.** Published source-age correspondence, separate from independent chronology and LRA admission.
+
+**Consequence.** The join corroborates source lineage and its refusal; it does not repair or truncate the negative age bound.
+
+**Precise next acceptance route.** Authenticate the exact 3,613,957-byte PANGAEA804596 table and four relational inputs, execute the source-bound route, and obtain independent historical input/basin evidence before LRA.
+
+**Negative or refused result.** Sample 352996 retains−0.04091 ka younger bound/negative_bp refusal; five handles at four other Danish sites are absent from this table; LRA-admitted 0.
+
+**Matched denominator.** 92 published Solsø rows=66 SOLSOE81 + 26 SOLSOE83,92 distinct depth matches; age/younger/older residual≤0.5 BP; one negative-bound sample; zero LRA samples.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json](report.json) (SHA-256 `5039c9ff04263799f5b1e95c2027cdba710203c561220d9bfbea884bf6d52f49`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 

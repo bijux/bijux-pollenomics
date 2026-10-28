@@ -1157,7 +1157,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This ledger preserves 1146 tracked sample rows excluded from the current animal atlas and names their native sample/project/locality refusal reasons.
+
+**Unsupported claim.** An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.
+
+**Actual verification performed.** Read the exclusion classes and current machine ledger; reconciled 1146 rows with 1468 tracked minus 322 mapped sample IDs. No sample extraction, geocoding or chronology normalization was rerun.
+
+**Remaining input or review.** Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.
+
+**Cause category.** Sample-owned publication refusals from incomplete source evidence or chronology.
+
+**Consequence.** The atlas remains a selected 322-sample subset; plotting an excluded row would exceed its governed identity/time support.
+
+**Precise next acceptance route.** Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.
+
+**Negative or refused result.** 1146 exclusions remain; PRJEB31613 elapsed ages retain an unspecified reference epoch and cannot acquire a BP default merely to become mappable.
+
+**Matched denominator.** Current 1468 normalized sample IDs=322 mapped+1146 excluded; 165 published locality features represent those 322 samples. Historical 170/331 pre-correction atlas is not the current denominator.
+
+- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

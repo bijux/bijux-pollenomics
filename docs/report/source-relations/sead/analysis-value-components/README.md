@@ -45,7 +45,27 @@ classification, source rights or release.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The component census closes 68,705 analysis-value parents into typed and untyped strata with native unit-link posture.
+
+**Unsupported claim.** Untyped text is not an inferred measure, and this Swedish analysis table is not the four-country sample/observation population.
+
+**Actual verification performed.** Read the full 63-group report and country/class CSV, checking component totals and unit gaps; no source census rerun.
+
+**Remaining input or review.** Source-specific semantics, comparable measurement support, taxonomy, chronology and rights remain unqualified.
+
+**Cause category.** Absent component or unit relations must remain missing.
+
+**Consequence.** 27,541 untyped parents and 51,767 unlinked units cannot become observed zeros or assumed denominators.
+
+**Precise next acceptance route.** Resolve exact class/type/unit authority and qualified biological/date use before accepting any measurement or event.
+
+**Negative or refused result.** All events refused; 27,541 parents have no typed component; 51,767 expose no unit relation.
+
+**Matched denominator.** 68,705 Swedish parents=41,164 typed+27,541 untyped; typed 24,701 integer+11,603 boolean+4,800 categorical+60 numerical; 16,938 linked units.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-components/report.json](report.json) (SHA-256 `b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-components/rows.csv](rows.csv) (SHA-256 `c935541d8da42d7cdfd9308ec6343349380ef3b8e682912eed32f67ab2a92cce`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

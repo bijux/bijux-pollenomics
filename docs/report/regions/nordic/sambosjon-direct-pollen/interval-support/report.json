@@ -42,7 +42,7 @@
     }
   },
   "primary_method": "inverse_distance_squared",
-  "producer_sha256": "02bfa94a1fe33a526b0089d52c525b1c743b9badf192fcef5027601977a9fdd5",
+  "producer_sha256": "a9543747920168d0a5d0dc3df4abb7fd963b6f468ae4f1d9b209657fc934708a",
   "refused_or_failed_bins": 1,
   "sample_mass": {
     "contained": {

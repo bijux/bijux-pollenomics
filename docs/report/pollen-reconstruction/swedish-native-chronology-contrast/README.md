@@ -40,7 +40,27 @@ The [aggregate report](report.json) retains every pair/window slot, model identi
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All retained same-dataset native calibrated chronology pairs in the Swedish common panel yield conditional Betula/Poaceae contrasts on the complete 125 pair/window domain. The comparison reconciles actual sample membership without refitting ages or rerunning reconstruction.
+
+**Unsupported claim.** A more accurate chronology, measured vegetation change, whole-landscape cover, historical LandClim reproduction, independent samples under alternate ages or paired standard errors without an explicit cross-chronology covariance model.
+
+**Actual verification performed.** The reader and aggregate comparison were inspected. The retained bounded consumer reconciles native identities and pooled counts; independent Decimal 50 checks cover 898 sample-side memberships,663 pooled-support count cells,442 cover cells and 212 contrasts, with discrepancy below 2.04e-16 at unchanged 2e-13 tolerance. This qualification reruns no age/model/physical consumer.
+
+**Remaining input or review.** Unknown raw age bounds and missing cross-chronology covariance remain explicit. Point-window changes alter pooled counts and sometimes cohort membership; native calibrated-BP scale and AD 1950 datum do not identify historical chronology selection or chronological accuracy.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Preserve absent and one-sided windows as null contrasts and keep chronology order descriptive. Neither near-equal sample totals nor marginal covariance supplies independent paired uncertainty or an ecological history.
+
+**Precise next acceptance route.** Declare and qualify a source-compatible joint age/membership and cross-chronology count/PPE model before paired uncertainty; use external chronology evidence for age-quality claims and independent matched vegetation for ecological claims. Historical reproduction needs the actual selected historical source/preparation identity.
+
+**Negative or refused result.** Of 125 slots,5 have only the first model,4 only the second and 10 neither; all 19 retain null contrasts.3 samples are selected only by the first model and 17 are outside both;76 shared-selected samples migrate windows. Paired SEs are withheld.
+
+**Matched denominator.** 5 same-native-dataset chronology pairs ×25 windows =125 slots:106 paired,5 first-only,4 second-only,10 empty.449 source samples supply 898 sample-side checks;76 change windows while selected in both and 3 more leave the second cohort. The panel is 2 literal taxa; no new physical quadrature or observations are added.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json](report.json) (SHA-256 `27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json](../swedish-observed-common-panel/attribution.json) (SHA-256 `b760890e945c1efdbd3a7c5a81f986d50da762945f8220136da7a4953d34ea58`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -75,7 +75,33 @@ The captured Neotoma policy supplies the preferred database references: Williams
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Four native cores support conditional literal-panel reconstructions under nine fixed circular-basin scenarios, complete point-window support accounting and shared-count/PPE covariance. Native dataset-publication follow-through identifies all four returned primary relations without claiming article-content or historical selection verification.
+
+**Unsupported claim.** The closed panels are not whole vegetation, mutually comparable taxon axes, authenticated historical LandClim output, measured paleobasin geometry, chronology calibration, independent vegetation accuracy, calibrated interval coverage or a release certificate.
+
+**Actual verification performed.** The authored reader and retained numerical, complete-domain, attribution and joint-covariance accounts were inspected and exact bytes bound. Actual retained Decimal 50 review covers all 6,840 original values; a distinct scalar lens integral checks 23 physical tuples/29 uses, and joint review covers 804,972 covariance cells, 121,212 derivatives and 124 contrasts. This qualification repeats none of those calculations or HTTP requests.
+
+**Remaining input or review.** All 222 accepted Finnish/Norwegian samples lack raw age bounds; Danish bounds retain signed/crossing semantics. Constant radii, metre transport, literal parameter equivalence, diagonal PPE covariance, count independence and historical selection remain assumptions. Source pending-admission fields, private original-copy permissions, matched vegetation and qualified external review remain separate.
+
+**Cause category.** data | assumption | algorithm/numerical | comparability | access/rights | qualified review
+
+**Consequence.** Keep point-domain absence as null support, alternative basin cases as shared observations, and global conditional covariance separate from omitted chronology, shoreline and ecological uncertainty. Complete returned citation inventories do not authenticate original article content or historical source membership.
+
+**Precise next acceptance route.** Qualify age bounds, chronology interpretation, taxon/parameter transfer, basin history and source-use scope for the intended physical claim. Preserve original failed execution-control registration and postexecution audit explicitly; run the ordinary combined six-output owner separately when claiming that route. Supply matched independent vegetation and external review for accuracy or coverage.
+
+**Negative or refused result.** One Solsø81 point at 12,417 calBP is excluded with 521 reported counts. Twenty core windows/43 geometry slots lack point support, never zero vegetation. The joint numerical run passed but its execution-record assertion failed and prelaunch registration was absent; original unused-footnote and signed-bound failures retain their scopes. Historical reproduction and independent ecological validation remain absent.
+
+**Matched denominator.** 314 native points, 313 accepted across four cores (two Solsø cores are one lake); 100 core/window and 225 geometry/window slots in 25 windows, 80 occupied core windows and 182 results. Nine geometries yield 518 panel components, 80 count supports and eight shared parameter rows. Bound categories are 222 missing, 66 crossing, two outside-domain and 23 contained. Four returned primary relations refer to three publications.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json](report.json) (SHA-256 `50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/window-domain.json](window-domain.json) (SHA-256 `445cdd970ab434c66273ad0e1dc7d4b3372b70494cefd1688973ece8c3154b31`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty.json](joint-uncertainty.json) (SHA-256 `2b431f7d287abb027fefce51624caa5c94987b5b5a6bbd205fe2de18aa193964`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-capture-authority.json](joint-capture-authority.json) (SHA-256 `2c2b051f26871b211a9ddb758188e1a3d4506e9917e677408031d343ffc68dfd`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification.json](verification/publication-metadata/qualification.json) (SHA-256 `7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

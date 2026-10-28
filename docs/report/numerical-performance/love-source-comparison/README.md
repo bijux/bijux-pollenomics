@@ -68,7 +68,25 @@ this result.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained R 4.6/DISQOVER 0.9.14 and Python comparison agrees on one exactly shared LOVEexample input set with deterministic fixed candidates and preserved missing values.
+
+**Unsupported claim.** Fixed-candidate correspondence supplies no optimizer trajectory or convergence comparison, stochastic draw parity, timing comparison or empirical vegetation accuracy.
+
+**Actual verification performed.** Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification.
+
+**Remaining input or review.** A different candidate, random-draw algorithm or ecological landscape needs its own source-bound comparison and qualified interpretation; this historical result does not certify a later release.
+
+**Cause category.** Bounded historical source-method correspondence on a computational fixture.
+
+**Consequence.** Agreement can support this exact fixed-candidate calculation while leaving optimizer and ecological claims unadmitted.
+
+**Precise next acceptance route.** For a changed mathematical surface, declare identical inputs and candidate semantics before the named native R and Python comparison, preserving undefined rings and the original tolerances.
+
+**Negative or refused result.** Six local rings remain undefined, and choosing candidate one in every active call is retained without asserting optimizer convergence.
+
+**Matched denominator.** One local and one regional row, ten taxa, 36 rings, maximum local ring ten, two repeats, eight active ring/repeat calls with 32 candidates each (256 evaluations); five decimal tables plus five hexadecimal sidecars. Absolute tolerance 3e-10 and relative 1e-10.
+
+- [Retained qualification evidence: docs/report/numerical-performance/love-source-comparison/report.json](report.json) (SHA-256 `73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

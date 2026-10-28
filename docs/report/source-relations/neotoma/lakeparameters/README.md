@@ -44,7 +44,25 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Five lake-parameter rows join five of 54 retained Nordic candidate sites in the captured API pages.
+
+**Unsupported claim.** Maximum water depth is not lake radius; live offset pagination cannot certify absence for 49 unmatched sites.
+
+**Actual verification performed.** Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit.
+
+**Remaining input or review.** Historical/time-specific basin meaning, unqualified native area fields, count/taxon/PPE support and use review remain.
+
+**Cause category.** Live pagination and site-level geometry are not complete historical basin evidence.
+
+**Consequence.** Three source area leads do not admit any pollen sample to LRA.
+
+**Precise next acceptance route.** Bind each site’s physical core and dated basin or justified static scenario, then review the remaining scientific inputs and source terms.
+
+**Negative or refused result.** 49 sites lack an observed parameter row in this capture; absence is uncertified; 0 LRA samples admitted.
+
+**Matched denominator.** 54 candidate sites; 24,554 captured parameter rows/21 types; 5 matched rows/sites: 2 Swedish depth and 3 Norwegian area values.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/lakeparameters/report.json](report.json) (SHA-256 `9c5c48936b10f62b2501a9d26ddad102d606929ee55fbe76614431e731a21fa7`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -66,7 +66,25 @@ The score command must use the committed prediction file. The [report manifest](
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained three-lake development study chooses targets from metadata, freezes predictions before opening separate outcomes and compares three fixed observed-pollen predictors on the31-target count subcomposition.
+
+**Unsupported claim.** Three source groups and prior Nordic design exposure do not establish independent confirmation, a Swedish population skill estimate, LRA vegetation reconstruction or measured ecological accuracy.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Basin/parameter/source-period decisions and independent vegetation truth remain separate; frozen historical producer identity must not be silently rewritten as current.
+
+**Cause category.** Metadata-selected development transfer with historical freeze custody.
+
+**Consequence.** Lowest aggregate error in these lakes does not establish uniform site superiority or justify outcome-selected changes to the fixed study.
+
+**Precise next acceptance route.** Replay source preparation and the current predictor separately, score the exact committed frozen prediction and verify all matched numeric products before making a current-source correspondence claim.
+
+**Negative or refused result.** Fiveof273source samples remain age-excluded; nearest site beatsIDWatLakeAvegöl despiteIDWhaving the lower three-site aggregate.
+
+**Matched denominator.** Three lakes/cores,268of273samples,63bins,31targets and189score rows;238,797native NISP=231,115assigned+3,825excluded+3,857unmapped; equal-siteIDWMAE0.0173343.
+
+- [Retained qualification evidence: docs/report/regions/nordic/swedish-lake-transfer/report.json](report.json) (SHA-256 `9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

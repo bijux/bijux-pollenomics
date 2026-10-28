@@ -27,6 +27,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
             {"Route", "load_routes", "render_route"}
         ),
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications": frozenset(
+            {"validate_evidence"}
+        ),
     },
     "bijux_pollenomics_dev/ci/atlas_browser/artifact_candidate.py": {
         "bijux_pollenomics.analysis.lra.api": frozenset({"read_lra_product"}),
@@ -1157,3 +1160,18 @@ def test_import_boundary_rejects_new_symbols_modules_and_dynamic_imports() -> No
         'script = "from bijux_pollenomics.analysis.lra.api import read_lra_product"',
         path,
     )
+
+
+def test_scientific_evidence_binding_stays_symbol_and_reader_specific() -> None:
+    path = "bijux_pollenomics_dev/reader_reports/scientific_routes.py"
+    module = "bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications"
+    assert not host_import_violations(f"from {module} import validate_evidence", path)
+    for statement, reader in (
+        (f"from {module} import validate_evidence", path + ".other"),
+        (f"from {module} import parse_qualification", path),
+        (f"from {module} import Qualification", path),
+        (f"from {module} import *", path),
+        (f"import {module}", path),
+        (f"__import__({module!r})", path),
+    ):
+        assert host_import_violations(statement, reader)

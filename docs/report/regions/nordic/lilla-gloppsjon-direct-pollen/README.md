@@ -137,7 +137,27 @@ or broad Swedish generalization.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained single-core study freezes69predictions before separate target scoring and reports direct16-label pollen transfer with all23positive candidate bins scored.
+
+**Unsupported claim.** The historical all-part validation parse prevents an untouched-lockbox claim; this is not LRA, basin-buffer validation, measured vegetation accuracy or broad Swedish generalization.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Source age bounds lack a stated confidence level and are not propagated in nominal bins; the nearby LandClim identity/radius remains unqualified.
+
+**Cause category.** Exposed development transfer with separate metadata/prediction/scoring reads.
+
+**Consequence.** The fixed primary can perform worse than a baseline without changing the frozen method; site-center proximity cannot transfer another record's basin geometry.
+
+**Precise next acceptance route.** Replay prepare/predict/score with the retained freeze and source identities, retain every source count/refusal, and qualify a genuinely untouched new target separately.
+
+**Negative or refused result.** Two negative-bound age samples stay refused. PrimaryIDW MAE0.017295 exceeds training mean0.016272, while nearest site has lower Hellinger; no outcome-selected method switch follows.
+
+**Matched denominator.** One core4071/dataset4200 atsite3234;86source samples,84age-selected,23bins,three methods/69rows;127,027native NISP,55,638closed-axis,71,389outside-axis.
+
+- [Retained qualification evidence: docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json](scored/report.json) (SHA-256 `7bea12c4d1e3e7d4b7e8cb34331934d43f8b9071da9d488a6ae7e55a17389cea`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json](frozen/freeze.json) (SHA-256 `bc89f334d95b727d2a051efaa794a131f1d13eee0613f1c32f6e6ace67a6e997`).
 
 - [Canonical scientific account: reports/science/lilla-gloppsjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/lilla-gloppsjon-direct-pollen.md).
 

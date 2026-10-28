@@ -14,7 +14,27 @@ The focused certificate and release-gate selection passed **56 tests** in 1.12 s
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This reader describes the required release admission contract:43 core plus 23 domain R cases and a linked native-parity artifact from the same hosted run, attempt and source revision.
+
+**Unsupported claim.** A documented gate or passing synthetic gate tests is not an actual hosted Linux certificate, scientific source endorsement, measured accuracy result or authority to publish.
+
+**Actual verification performed.** Reviewed the authored gate contract and stable correspondence accounts and bound their bytes. This reader qualification executed no hosted job, R process, gate test or publication action.
+
+**Remaining input or review.** Actual completed same-revision hosted Linux/R certification, native parity, provider identity and all publication-gate inputs remain required at the real release candidate.
+
+**Cause category.** Required release evidence contract with absent current hosted admission.
+
+**Consequence.** Local numerical and contract evidence can prepare admission inputs; official LRA release remains unqualified until the actual artifacts pass the maintained gate.
+
+**Precise next acceptance route.** Collect the locked Linux source-built R and native-parity artifacts from one actual GitHub run/attempt/source commit, verify provider and source identity, then execute the maintained admission gate before any separately authorized publication.
+
+**Negative or refused result.** The historical 25-core certificate remains historical and insufficient for the 43-core gate;56 focused and 90 full synthetic gate tests are not a replacement hosted certificate.
+
+**Matched denominator.** Required artifact scope:43 core R cases,23 domain cases and matching native-parity identities. Own population: zero new R cases, hosted runs or measured observations.
+
+- [Retained qualification evidence: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+- [Retained qualification evidence: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

@@ -26,7 +26,7 @@ await new Promise(accept => server.listen(0, '127.0.0.1', accept));
 const browser = spawn(browserBinary, ['--headless=new','--disable-gpu','--disable-background-networking','--no-first-run','--no-default-browser-check','--remote-debugging-port=0',`--user-data-dir=${join(output,'browser-profile')}`,'about:blank'], {stdio:['ignore','pipe','pipe']});
 const closed = new Promise(accept => browser.once('close',accept));
 let log = '', cdp;
-const receipt = {schema_version:'atlas-provider-accessibility-verification.v1',status:'FAIL',provider_fallbacks:[],tile_free_modes:[],keyboard_routes:[],downloads:[],runtime_errors:[]};
+const receipt = {schema_version:'atlas-provider-accessibility-verification.v1',status:'FAIL',provider_fallbacks:[],tile_free_modes:[],keyboard_routes:[],downloads:[],layout_observations:[],layout_negative_controls:[],runtime_errors:[]};
 const tileRequests=[];
 const budget = setTimeout(()=>browser.kill('SIGKILL'),120000);
 try {
@@ -65,7 +65,8 @@ try {
     if(width<=640)assert.ok(fallbackLegend.rect.height>=44,'Fallback legend toggle is below mobile touch target height');
     assert.ok(fallbackScale.line.includes('km')||fallbackScale.line.includes('m'));
     assert.equal(fallbackScale.center_hit,true,'Fallback scale is obscured at its center');
-    if(width<=640)assert.ok(fallbackScale.rect.bottom<fallbackScale.status_top,'Fallback scale is below the mobile status panel');
+    receipt.layout_observations.push({width,scenario:'provider-failure',scale_control:fallbackScale});
+    assert.ok(scaleLayoutReadable(fallbackScale),'Fallback scale must be visible inside its footer, separate from map/status');
     const failedShot=await screenshot(width,'provider-failure');
     receipt.provider_fallbacks.push({width,street_tile_failures:street.length,terrain_tile_failures:terrain.length,keyless_requests:true,final_basemap:fallback.basemap,visible_source_sites:fallback.visible_points,readout:fallback.readout,legend_touch_target:fallbackLegend,scale_control:fallbackScale,screenshot:failedShot});
     await inspectSource(width,'provider-failure',expectedSource);
@@ -81,7 +82,9 @@ try {
     const legend=await legendTarget();
     const scale=await scaleControl();
     assert.equal(scale.center_hit,true,'No-basemap scale is obscured at its center');
-    if(width<=640)assert.ok(scale.rect.bottom<scale.status_top,'No-basemap scale is below the mobile status panel');
+    receipt.layout_observations.push({width,scenario:'tile-free',scale_control:scale});
+    assert.ok(scaleLayoutReadable(scale),'No-basemap scale must be visible inside its footer, separate from map/status');
+    await inspectScaleRefusals(width);
     const tileFreeShot=await screenshot(width,'tile-free');
     receipt.tile_free_modes.push({width,tile_requests:0,visible_source_sites:8,scale:tileFree.scale,coordinates:tileFree.coordinates,readout:tileFree.readout,legend_touch_target:legend,scale_control:scale,screenshot:tileFreeShot});
     assert.equal(legend.center_hit,true,'No-basemap legend toggle is obscured at touch center');
@@ -90,7 +93,7 @@ try {
   }
   assert.equal(receipt.runtime_errors.length,0);
   receipt.status='PASS';
-} catch(error) { receipt.error=String(error.stack||error);if(cdp)receipt.diagnostic=await evaluate("({hash:location.hash,title:document.getElementById('focus-title')?.textContent,detail:document.getElementById('focus-detail')?.textContent,snapshot:globalThis.BijuxPollenomicsAtlasCapture?.snapshot(),state:document.getElementById('topbar-state-pill')?.textContent})");process.exitCode=1; }
+} catch(error) { receipt.error=String(error.stack||error);if(cdp)receipt.diagnostic=await evaluate("({hash:location.hash,title:document.getElementById('focus-title')?.textContent,detail:document.getElementById('focus-detail')?.textContent,snapshot:globalThis.BijuxPollenomicsAtlasCapture?.snapshot(),state:document.getElementById('topbar-state-pill')?.textContent})");if(cdp)receipt.failure_screenshot=await screenshot(await evaluate('innerWidth'),'failed-layout').catch(error=>({error:String(error)}));process.exitCode=1; }
 finally {
   clearTimeout(budget);if(cdp)cdp.close();browser.kill('SIGTERM');const kill=setTimeout(()=>browser.kill('SIGKILL'),4000);await closed;clearTimeout(kill);
   await new Promise(accept=>server.close(accept));
@@ -103,7 +106,37 @@ finally {
 
 async function capture(){return evaluate(`(()=>{const snapshot=BijuxPollenomicsAtlasCapture.snapshot();return {basemap:snapshot.basemap,visible_points:snapshot.visible_point_count,countries:snapshot.countries,scale:document.querySelector('.leaflet-control-scale-line')?.textContent||'',coordinates:document.getElementById('center-readout').textContent,readout:document.getElementById('basemap-readout').textContent,readout_live:document.getElementById('basemap-readout').getAttribute('aria-live')}})()`);}
 async function legendTarget(){return evaluate(`(()=>{const button=document.getElementById('legend-toggle'),rect=button.getBoundingClientRect(),center=[rect.left+rect.width/2,rect.top+rect.height/2],hit=document.elementFromPoint(...center);return {rect:{left:rect.left,top:rect.top,right:rect.right,bottom:rect.bottom,height:rect.height},center_hit:button.contains(hit),hit_id:hit?.id||null,hit_class:String(hit?.className||'')}})()`);}
-async function scaleControl(){return evaluate(`(()=>{const line=document.querySelector('.leaflet-control-scale-line'),rect=line.getBoundingClientRect(),status=document.querySelector('.map-status').getBoundingClientRect(),center=[rect.left+rect.width/2,rect.top+rect.height/2],hit=document.elementFromPoint(...center);return {line:line.textContent,rect:{left:rect.left,top:rect.top,right:rect.right,bottom:rect.bottom},status_top:status.top,center_hit:line.contains(hit),hit_class:String(hit?.className||'')}})()`);}
+function scaleLayoutReadable(facts) {
+  const valid = rect => rect && ['left','top','right','bottom'].every(key => Number.isFinite(rect[key])) && rect.right > rect.left && rect.bottom > rect.top;
+  const contains = (outer, inner) => outer.left <= inner.left && outer.top <= inner.top && inner.right <= outer.right && inner.bottom <= outer.bottom;
+  const separate = (a, b) => a.right <= b.left || b.right <= a.left || a.bottom <= b.top || b.bottom <= a.top;
+  return Boolean(facts.footer_contains_scale && facts.scale_visible && facts.center_hit &&
+    [facts.rect,facts.footer,facts.map,facts.status,facts.viewport].every(valid) &&
+    contains(facts.footer,facts.rect) && contains(facts.viewport,facts.footer) && contains(facts.viewport,facts.map) &&
+    contains(facts.map,facts.status) && facts.map.bottom <= facts.footer.top &&
+    separate(facts.rect,facts.status) && separate(facts.rect,facts.map) &&
+    Number.isFinite(facts.document_width) && facts.document_width <= facts.viewport.right &&
+    Number.isFinite(facts.document_height) && facts.document_height <= facts.viewport.bottom);
+}
+
+async function inspectScaleRefusals(width) {
+  const original = await evaluate("document.querySelector('.leaflet-control-scale-line').getAttribute('style')");
+  try {
+    for (const mutation of ['status-overlap','viewport-escape']) {
+      await evaluate(`(()=>{const line=document.querySelector('.leaflet-control-scale-line'),status=document.querySelector('.map-status').getBoundingClientRect();line.style.position='fixed';line.style.zIndex='999999';line.style.left=(${JSON.stringify(mutation)}==='status-overlap'?status.left:0)+'px';line.style.top=(${JSON.stringify(mutation)}==='status-overlap'?status.top:-100)+'px';})()`);
+      const facts = await scaleControl();
+      const refused = !scaleLayoutReadable(facts);
+      receipt.layout_negative_controls.push({width,mutation,refused,facts});
+      assert.equal(refused,true,`Injected scale ${mutation} must be refused`);
+    }
+  } finally {
+    await evaluate(`(()=>{const line=document.querySelector('.leaflet-control-scale-line'),original=${JSON.stringify(original)};if(original===null)line.removeAttribute('style');else line.setAttribute('style',original);})()`);
+  }
+  assert.ok(scaleLayoutReadable(await scaleControl()),'Scale layout must recover after negative controls');
+}
+
+async function scaleControl(){return evaluate(`(()=>{const line=document.querySelector('.leaflet-control-scale-line'),footer=document.querySelector('.map-reader-footer'),map=document.querySelector('.map-viewport'),status=document.querySelector('.map-status'),bounds=node=>{if(!node)return null;const r=node.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom}},rect=bounds(line),hit=rect?document.elementFromPoint((rect.left+rect.right)/2,(rect.top+rect.bottom)/2):null,style=line?getComputedStyle(line):null;return {line:line?.textContent||'',rect,footer:bounds(footer),map:bounds(map),status:bounds(status),viewport:{left:0,top:0,right:innerWidth,bottom:innerHeight},status_top:bounds(status)?.top,footer_contains_scale:Boolean(footer&&line&&footer.contains(line)),scale_visible:Boolean(line&&line.getClientRects().length&&style.display!=='none'&&style.visibility==='visible'&&Number(style.opacity)>0),center_hit:Boolean(line&&hit&&line.contains(hit)),hit_class:String(hit?.className||''),document_width:document.documentElement.scrollWidth,document_height:document.documentElement.scrollHeight}})()`);}
+
 async function screenshot(width,scenario){const result=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});const bytes=Buffer.from(result.data,'base64');const path=join(output,`${width}-${scenario}.png`);await writeFile(path,bytes);return {path:relative(output,path),sha256:createHash('sha256').update(bytes).digest('hex')};}
 async function inspectSource(width,scenario,expected){
   await evaluate("document.getElementById('search-toggle').focus()");await key('Enter',13);

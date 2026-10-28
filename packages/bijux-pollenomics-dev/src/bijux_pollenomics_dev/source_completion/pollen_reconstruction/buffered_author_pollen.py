@@ -25,8 +25,8 @@ SOURCE_MANIFEST_SHA256 = (
     "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb"
 )
 FAMILY = Path("docs/report/pollen-reconstruction/author-buffered-pollen")
-REPLAY_SHA256 = "f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634"
-MANIFEST_SHA256 = "6ea5f219f9bc1d3878ef50ff831d3eb95f7d4d6293dd61ce34e6e5c442412026"
+REPLAY_SHA256 = "6cda97438a16f174b93f1fb620be148835555f315e20b912941c886eaa5fb38e"
+MANIFEST_SHA256 = "5b243b240ba16b3523fe679aed97860e506a15bbf781c84a215b22e9edca3c60"
 RUN = Path("docs/report/publication-replay/landclim-method-profile/reference")
 RUN_INPUTS = (
     RUN / "report.json",
@@ -85,6 +85,20 @@ def run(
     ):
         raise ValueError("buffered-pollen manifest source pins differ")
     inputs = dict(qualified.inputs)
+    # Freeze current comparison helpers and authority as well as scientific inputs.
+    for relative, expected in manifest_payload["producer_sha256"].items():
+        producer = _regular_path(repository / relative)
+        if _sha256(producer) != expected:
+            raise ValueError("buffered-pollen declared producer identity differs")
+        inputs[producer.relative_to(repository).as_posix()] = producer
+    authority = _regular_path(
+        repository
+        / manifest_payload.get(
+            "reader_qualification_authority",
+            "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+        )
+    )
+    inputs[authority.relative_to(repository).as_posix()] = authority
     inputs[(FAMILY / "manifest.json").as_posix()] = manifest
     inputs[(FAMILY / "replay.py").as_posix()] = replay
     for relative in RUN_INPUTS:

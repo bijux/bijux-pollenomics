@@ -85,6 +85,12 @@ def setup(
         path = repository / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("fixture retained reference\n")
+    authority = (
+        repository
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+    )
+    authority.parent.mkdir(parents=True)
+    authority.write_text("fixture reader authority\n")
     source_root = tmp_path / "sources"
     source_dir = source_root / "landclim/author-reference"
     source_dir.mkdir(parents=True)
@@ -208,4 +214,59 @@ def test_refuses_symlinked_intermediate(
     monkeypatch.setattr(module.subprocess, "run", child)
     with pytest.raises(ValueError, match="non-real"):
         module.run(repository, source_root, module.DESCRIPTOR, output)
+    assert not (output.parent.parent / "retained-work").exists()
+
+
+def test_refuses_changed_reader_authority_after_child(
+    setup: tuple[ModuleType, Path, Path, Path, Path], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A reused scientific payload cannot mask changed reader qualification facts."""
+    module, repository, source_root, _, output = setup
+    authority = (
+        repository
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+    )
+
+    def child(_command: list[str], **_kwargs: object) -> None:
+        output.mkdir()
+        (output / "report.json").write_text("fixture output\n")
+        authority.write_text("changed reader facts\n")
+
+    monkeypatch.setattr(module.subprocess, "run", child)
+    with pytest.raises(ValueError, match="source changed"):
+        module.run(repository, source_root, module.DESCRIPTOR, output)
+    assert not (output.parent.parent / "retained-work").exists()
+
+
+@pytest.mark.parametrize("when", ["before", "during"])
+def test_refuses_changed_declared_comparison_helper(
+    setup: tuple[ModuleType, Path, Path, Path, Path],
+    monkeypatch: pytest.MonkeyPatch,
+    when: str,
+) -> None:
+    """Current comparison code is part of the same before/after source closure."""
+    module, repository, source_root, _, output = setup
+    helper = repository / "packages/bijux-pollenomics/src/reader_helper.py"
+    helper.parent.mkdir(parents=True, exist_ok=True)
+    helper.write_text('"""Source-free comparison helper."""\n')
+    manifest = repository / module.FAMILY / "manifest.json"
+    payload = json.loads(manifest.read_text())
+    payload["producer_sha256"][helper.relative_to(repository).as_posix()] = _digest(
+        helper
+    )
+    manifest.write_text(json.dumps(payload))
+    monkeypatch.setattr(module, "MANIFEST_SHA256", _digest(manifest))
+    commands: list[list[str]] = []
+
+    def child(command: list[str], **_kwargs: object) -> None:
+        commands.append(command)
+        output.mkdir()
+        helper.write_text("changed helper\n")
+
+    monkeypatch.setattr(module.subprocess, "run", child)
+    if when == "before":
+        helper.write_text("changed helper\n")
+    with pytest.raises(ValueError, match="producer identity|source changed"):
+        module.run(repository, source_root, module.DESCRIPTOR, output)
+    assert len(commands) == (0 if when == "before" else 1)
     assert not (output.parent.parent / "retained-work").exists()

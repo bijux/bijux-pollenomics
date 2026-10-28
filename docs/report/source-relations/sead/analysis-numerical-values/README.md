@@ -52,7 +52,27 @@ It refuses an existing output directory. Compare `values.csv` and
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 60 numerical components preserve exact typed and parent source spellings and admitted relational links.
+
+**Unsupported claim.** Measurement/Percentage source labels do not supply physical units, accepted assays, vegetation evidence or dated events.
+
+**Actual verification performed.** Read report.json and 60-row values.csv, including 17 precision differences and missing unit links; no source value consumer rerun.
+
+**Remaining input or review.** Source laboratory meaning, unit/entity authority and scientific event qualification remain required.
+
+**Cause category.** Native numerical precision and semantic authority are separate.
+
+**Consequence.** Typed 3.90122 cannot silently overwrite parent 3.9012199999999995.
+
+**Precise next acceptance route.** Return scoped source unit/class/entity decisions before analytical normalization or scientific event use.
+
+**Negative or refused result.** 43 numeric equalities/17 precision differences retained; all 60 observations event-refused.
+
+**Matched denominator.** 60 components/60 parents at 1 site 6486,5 physical samples/10 datasets/9 classes/2 source types; 0 eligible events.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-numerical-values/report.json](report.json) (SHA-256 `68005ba9c3e0040e1ba3a3b5dcccf1b0faa3d80e9bbebee26e6cbef0c67f75b3`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-numerical-values/values.csv](values.csv) (SHA-256 `f6250fbcb8769e31ac7511a79701a2550b51b66cb63da00523494de983c71110`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

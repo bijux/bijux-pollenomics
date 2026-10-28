@@ -22,6 +22,7 @@ MAX_TOTAL_BYTES = 256 * 1024**2
 MAX_PATH_BYTES = 1024
 DOC_SOURCES = frozenset(
     {
+        "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
         "configs/docs/publication/admission.py",
         "configs/docs/publication/controls.py",
         "configs/docs/publish_site_assets.py",

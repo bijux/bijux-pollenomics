@@ -57,7 +57,25 @@ The four mutually exclusive buckets partition `1468` species-normalized sample r
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The intake account separates sample evidence depth from project recovery and preserves incomplete source capture/site/chronology work.
+
+**Unsupported claim.** Coordinate text or a minimum expected sample floor is not an admitted mapped point, complete paper recovery or publication approval.
+
+**Actual verification performed.** Read the project/gap account and four mutually exclusive evidence-depth buckets; reconciled 1468 species-normalized samples with the source master. No extraction or source download was run.
+
+**Remaining input or review.** Source paper linkage, site/chronology evidence and coordinate precision require native project/sample resolution; ready for publication review remains a request for review.
+
+**Cause category.** Partial source intake and evidence-depth recovery.
+
+**Consequence.** A project can meet its sample floor while remaining unpublishable because chronology or locality evidence is weak.
+
+**Precise next acceptance route.** Resolve the named project gaps from authentic supplementary/native records, retain exact sample identities, and rerun source recovery and publication guards without promoting coordinate text alone.
+
+**Negative or refused result.** 23 projects remain blocked; PRJEB31613 retains a chronology gap despite minimum floor met. Zero implausibly-low-recovery flags does not mean zero source gaps.
+
+**Matched denominator.** 40 tracked projects: 11 ready for publication review and 23 blocked are named statuses, not an asserted exhaustive two-way partition.1468 samples=0 identity-only+789 site-only+356 site/chronology+323 with coordinate text.
+
+- [Retained qualification evidence: docs/report/animal_intake_recovery_review.json](animal_intake_recovery_review.json) (SHA-256 `b18e3340a62396e03a13a2232ec984160569706d69c6228237ff713aacf99db0`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

@@ -21,7 +21,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The readiness table distinguishes four publishable, two thin and four blocked tracked-species publication surfaces with their mapped and blocked support.
+
+**Unsupported claim.** Publishable is a software/metadata posture, not reference-grade biological evidence, complete species coverage or an ecological field recommendation.
+
+**Actual verification performed.** Read all ten species rows and retained status counts; distinguished candidate features, mapped samples and coordinate-provenance denominators. No readiness producer or source review was rerun.
+
+**Remaining input or review.** Blocked samples, unresolved site/chronology and coordinate refusals need native evidence; thin pig/sheep footprints require broader source-qualified support before broad claims.
+
+**Cause category.** Species-asymmetric source and publication readiness.
+
+**Consequence.** 73 horse locality features representing 148 samples do not imply 208 distinct eligible sampling sites; coordinate-provenance records and atlas features use different denominators.
+
+**Precise next acceptance route.** Resolve species-owned missing identity/date/coordinate evidence and replay the publication contract; retain separate feature, sample and coordinate-provenance counts rather than ranking by a mixed share.
+
+**Negative or refused result.** Four species remain blocked; two thin surfaces have only two locality features each. No readiness label grants scientific admission.
+
+**Matched denominator.** 10 tracked-species rows=4 publishable+2 thin+4 blocked; candidate locality total 165 and mapped samples 322. Horse 73/148, goat 27/82, cat 39/54, cattle 22/31, sheep 2/5, pig 2/2.
+
+- [Retained qualification evidence: docs/report/animal_atlas_readiness.json](animal_atlas_readiness.json) (SHA-256 `f88f5cb2da735b255f13795e335ab13dd99de323f4a153237dfa1242d10412d8`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

@@ -24,7 +24,29 @@ This is a source-accounting projection. It admits zero ecological events and doe
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 28-group projection preserves class/type/method/unit metadata for 27,541 parents without typed child rows.
+
+**Unsupported claim.** A source-declared method is not proof a laboratory procedure occurred; tree species and age text are not accepted pollen or dated events.
+
+**Actual verification performed.** Read the method report and grouped rows against component census totals, including Years-link and source-null distinctions; no source projection rerun.
+
+**Remaining input or review.** Qualified entity/taxonomy, measurement and age parsers with source units/chronology/use authority remain.
+
+**Cause category.** Declared metadata and absent typed values have different evidential roles.
+
+**Consequence.** Age in years without unit_id stays unlinked and source-null text stays null.
+
+**Precise next acceptance route.** Qualify each source class/type/entity/parser and chronology relation before deriving measures or ecological events.
+
+**Negative or refused result.** 0 Palynology-method links in this population; 4,797 tree-age parents lack unit relation; all event eligibility refused.
+
+**Matched denominator.** 27,541 untyped Swedish parents/28 groups: 27,451 Dendrochronology, 90 Ancient DNA; 12,508 unit-linked/15,033 unlinked; 44 null displays.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-methods/report.json](report.json) (SHA-256 `2ac12565c062668a35ba9a26e7da0bd300fda73e5af1fffaf7476d8bdf749f05`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-methods/rows.csv](rows.csv) (SHA-256 `0ed363bae34ec4feef96cd79fbce88e95ddb2ca4a4468d7dfed9f1daec34afa3`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-value-components/report.json](../analysis-value-components/report.json) (SHA-256 `b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -12,7 +12,25 @@ earlier website citations.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This citation pointer identifies the retained country cropland account and governed result; it reports zero new observations, fits or independent scientific checks.
+
+**Unsupported claim.** It neither reproduces native grids nor establishes formal CRS/BP timing, redistribution rights or independent vegetation truth.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The linked HYDE account retains conflicting release licence/version/coverage declarations and requires their source-owner resolution before stronger use.
+
+**Cause category.** Citation-only pointer to modeled source totals.
+
+**Consequence.** Source-modeled cropland remains contextual model output; lower/upper source alternatives are not confidence intervals.
+
+**Precise next acceptance route.** Inspect the linked primary account and its exact native country/year/scenario table; resolve the named rights/time questions before any admitted downstream comparison.
+
+**Negative or refused result.** Source rights/version conflicts and missing temporal/CRS qualification remain open despite a complete numeric table.
+
+**Matched denominator.** Own population:zero new model runs or scientific checks. Linked account:four countries×sevenCElabels×three scenarios=84rows/28country-years.
+
+- [Retained qualification evidence: docs/report/regions/nordic/hyde-country-cropland/report.json](report.json) (SHA-256 `55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb`).
 
 - [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
 

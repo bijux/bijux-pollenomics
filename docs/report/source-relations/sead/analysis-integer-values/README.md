@@ -54,7 +54,25 @@ replay.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** All 24,701 typed integer components reconcile to exact parent observations and source class/entity/chronology links.
+
+**Unsupported claim.** A typed count or nearby eligible chronology is not a measured ecological event; qualified text is not an exact integer measurement.
+
+**Actual verification performed.** Read the integer report including all 5 precision differences, 1,763 nonnumeric displays and 16 class groups; no normalized-source replay.
+
+**Remaining input or review.** Meaning/unit/entity classification and scientific event eligibility remain unaccepted.
+
+**Cause category.** Typed values and parent display qualifiers carry distinct information.
+
+**Consequence.** Tree-age/growth-year bounds are not selected ages, and laboratory read counts are not pollen NISP.
+
+**Precise next acceptance route.** Qualify source class, count unit, entity and date roles before interpreting or aggregating these components scientifically.
+
+**Negative or refused result.** 22,933 parent displays agree numerically, 1,763 fail plain numeric parse, 5 differ; all observations remain event-refused.
+
+**Matched denominator.** 24,701 integer parents across 394 sites/4,769 samples/15,429 datasets; 3,989 eligible-claim links, 64 context links, 20,648 absent links; 0 events.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/analysis-integer-values/report.json](report.json) (SHA-256 `04ff5aac5ea51873b8483ebaebc9aa30a0628fab8ae913a02806f3d243a4b132`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

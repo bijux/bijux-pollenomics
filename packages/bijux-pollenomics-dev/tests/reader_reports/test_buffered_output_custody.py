@@ -29,6 +29,8 @@ def buffered(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> SimpleNamespace
     verifier = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(verifier)
     monkeypatch.setattr(verifier, "REPOSITORY_ROOT", tmp_path)
+    monkeypatch.setattr(verifier, "BUFFERED_NUMERICAL_SOURCES", {"producer.py"})
+    monkeypatch.setattr(verifier, "BUFFERED_READER_WITNESSES", {})
     directory = tmp_path / "buffered"
     files: dict[str, bytes] = {
         "README.md": b"Synthetic mean: 0.1. See [family replay](replay.py).\n"
@@ -152,4 +154,23 @@ def test_alias_never_exempts_other_scientific_or_source_mutation(
         buffered.producer.write_bytes(b"synthetic_producer = False\n")
     path.write_bytes(raw)
     with pytest.raises(ValueError, match="buffered author"):
+        buffered.verifier.verify_author_buffered_pollen(buffered.scope)
+
+
+@pytest.mark.parametrize("mutation", ["missing", "extra"])
+def test_manifest_producer_population_is_exact_in_the_synthetic_scope(
+    buffered: SimpleNamespace, mutation: str
+) -> None:
+    path = buffered.directory / "manifest.json"
+    manifest = json.loads(path.read_bytes())
+    if mutation == "missing":
+        manifest["producer_sha256"].pop("producer.py")
+    else:
+        extra = buffered.producer.with_name("extra.py")
+        extra.write_bytes(b"extra_synthetic_producer = True\n")
+        manifest["producer_sha256"]["extra.py"] = hashlib.sha256(
+            extra.read_bytes()
+        ).hexdigest()
+    path.write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="source roles differ"):
         buffered.verifier.verify_author_buffered_pollen(buffered.scope)

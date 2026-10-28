@@ -55,7 +55,27 @@ Compare the replayed `report.json` byte-for-byte with this directory.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The coherent author profile binds all 31 ordered lookup targets to mean RPP, fall speed and diagonal covariance inputs.
+
+**Unsupported claim.** Name/parameter binding does not complete the native pollen denominator or authenticate Swedish historical core ages/basin geometry.
+
+**Actual verification performed.** Read all 31 parameter rows and covariance posture plus assigned native mass; no reconstruction or covariance estimation.
+
+**Remaining input or review.** Excluded/unmapped count decisions, physical core/chronology/basin review and scoped rights remain.
+
+**Cause category.** Author parameter correspondence is source-version-specific.
+
+**Consequence.** The 90.3803% assigned fraction remains a subcomposition, not all measured pollen.
+
+**Precise next acceptance route.** Qualify the complete native mask/counting scheme and site support before applying the exact pinned author profile.
+
+**Negative or refused result.** 0 nonzero off-diagonal covariance cells in this version; 0 Swedish LRA samples admitted.
+
+**Matched denominator.** 31 target rows, 24 targets with Swedish NISP; 169,013 assigned of 187,002 native NISP across 3 sites.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-parameter-binding/report.json](report.json) (SHA-256 `94ae944d1bb1f09fd0234f879915ce32c3d58e1587ad04165ef545f8d13ed202`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-taxonomy-mass/report.json](../author-taxonomy-mass/report.json) (SHA-256 `557a31ea6392d63c4e0dc0e8d090d2f3dcd78d31658ea2a823558cc841e11221`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

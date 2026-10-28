@@ -22,6 +22,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
     GitSourceMember,
+    read_blob,
     read_historical_python_correspondence,
 )
 from bijux_pollenomics_dev.reader_reports.source import (
@@ -415,6 +416,86 @@ def _buffered_reader_markdown(raw: bytes) -> bytes:
     return raw.replace(current, b"[family replay](replay.py)", 1)
 
 
+BUFFERED_READER_WITNESSES = {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py": GitSourceMember(
+        member="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        repository_path="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        source_revision="4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+        git_blob="cc4d3d8a8435e719632efc8d0ab9bfb6afcdd944",
+        sha256="5058747e742a80bc8caf73e0420b5dfa7297b18bbe866a7b50cbb38a962c0646",
+        bytes=9282,
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py": GitSourceMember(
+        member="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py",
+        repository_path="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py",
+        source_revision="4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+        git_blob="cb4d0ba96aba527708d51f39f72ab5df2865e08f",
+        sha256="f091d85f2d0088e7d3b389c2262db51ac7d24dafae2537a10dd0d3dcb944bd2b",
+        bytes=5227,
+    ),
+}
+
+BUFFERED_NUMERICAL_SOURCES = frozenset(
+    [
+        "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/scoring.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/taxon_errors.py",
+    ]
+)
+
+
+def _buffered_historical_reader_source(
+    repository: Path, relative: str, expected: str
+) -> bytes:
+    """Authenticate recorded reader bytes, not current execution or the missing old epoch."""
+    witness = BUFFERED_READER_WITNESSES.get(relative)
+    if (
+        witness is None
+        or witness.member != relative
+        or witness.repository_path != relative
+        or witness.sha256 != expected
+    ):
+        raise ValueError("Buffered historical reader source role or identity differs")
+    return read_blob(repository, witness)
+
+
+BUFFERED_REPLAY_OUTPUT_WITNESS = GitSourceMember(
+    member="docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+    repository_path="docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+    source_revision="f530ef2e7aea4dea15758350729cacc152f74e01",
+    git_blob="7720c03ab62b18f6d71c4809da9d1bf2d44b8ff1",
+    sha256="f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634",
+    bytes=8290,
+)
+
+
+def _buffered_historical_replay_output(
+    repository: Path, record: dict[str, Any]
+) -> bytes:
+    """Read the original controller as an output witness, separate from current execution."""
+    witness = BUFFERED_REPLAY_OUTPUT_WITNESS
+    expected_path = "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py"
+    if (
+        witness.member != expected_path
+        or witness.repository_path != expected_path
+        or not isinstance(record, dict)
+        or set(record) != {"path", "sha256", "bytes"}
+        or record["path"] != "replay.py"
+        or type(record["bytes"]) is not int
+        or record["bytes"] != witness.bytes
+        or record["sha256"] != witness.sha256
+    ):
+        raise ValueError("Buffered historical output role or identity differs")
+    return read_blob(repository, witness)
+
+
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     """Bind the buffered four-method diagnostic to frozen source and scores."""
     declared = scope["author_buffered_spatial_pollen"]
@@ -428,7 +509,10 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
         path = directory / item["path"]
-        raw = _sealed_reader_content(path, path.read_bytes())
+        if item["path"] == "replay.py":
+            raw = _buffered_historical_replay_output(REPOSITORY_ROOT, item)
+        else:
+            raw = _sealed_reader_content(path, path.read_bytes())
         if item["path"] == "README.md":
             raw = _buffered_reader_markdown(raw)
         if (
@@ -436,8 +520,14 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
             or hashlib.sha256(raw).hexdigest() != item["sha256"]
         ):
             raise ValueError(f"buffered author output differs: {item['path']}")
+    if set(manifest["producer_sha256"]) != BUFFERED_NUMERICAL_SOURCES | set(
+        BUFFERED_READER_WITNESSES
+    ):
+        raise ValueError("Buffered numerical and historical reader source roles differ")
     for relative, digest in manifest["producer_sha256"].items():
-        if sha256(REPOSITORY_ROOT / relative) != digest:
+        if relative in BUFFERED_READER_WITNESSES:
+            _buffered_historical_reader_source(REPOSITORY_ROOT, relative, digest)
+        elif sha256(REPOSITORY_ROOT / relative) != digest:
             raise ValueError(f"buffered author producer differs: {relative}")
 
     comparison = json.loads(
@@ -810,6 +900,30 @@ def _same_or_adjacent_float(observed: float, expected: float) -> bool:
     )
 
 
+def _sambosjon_declared_source(repository: Path, relative: str, expected: str) -> bytes:
+    """Read a declared identity under the fixed historical main-docstring boundary."""
+    historical = read_historical_python_correspondence(
+        repository,
+        GitSourceMember(
+            member=relative,
+            repository_path=(
+                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+                "source_completion/pollen_age_support/sambosjon.py"
+            ),
+            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
+            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
+            sha256="02bfa94a1fe33a526b0089d52c525b1c743b9badf192fcef5027601977a9fdd5",
+            bytes=17278,
+        ),
+        function_docstring="main",
+    )
+    current = (repository / relative).read_bytes()
+    for raw in (historical, current):
+        if hashlib.sha256(raw).hexdigest() == expected:
+            return raw
+    raise ValueError("Sambosjon declared producer identity lacks source correspondence")
+
+
 def verify_sambosjon_contained_age_support(
     scope: dict[str, Any], results: list[list[str]]
 ) -> None:
@@ -817,20 +931,8 @@ def verify_sambosjon_contained_age_support(
     interval_scope = scope["sambosjon_contained_age_support"]
     interval_dir = REPOSITORY_ROOT / Path(interval_scope["report"]).parent
     interval = json.loads((interval_dir / "report.json").read_text())
-    recorded_producer = read_historical_python_correspondence(
-        REPOSITORY_ROOT,
-        GitSourceMember(
-            member=interval_scope["producer"],
-            repository_path=(
-                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
-                "source_completion/pollen_age_support/sambosjon.py"
-            ),
-            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
-            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
-            sha256=interval["producer_sha256"],
-            bytes=17278,
-        ),
-        function_docstring="main",
+    recorded_producer = _sambosjon_declared_source(
+        REPOSITORY_ROOT, interval_scope["producer"], interval["producer_sha256"]
     )
     with (interval_dir / "coverage.csv").open(newline="") as stream:
         interval_coverage = list(csv.DictReader(stream))

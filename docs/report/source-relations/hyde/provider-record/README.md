@@ -35,7 +35,27 @@ calendar and matched ecological estimand remain separate scientific gates.
 
 Provider release/rights and modeled cropland estimand; not measured vegetation reference.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained DataCite record identifies a HYDE provider release and its stated CC BY 4.0 metadata terms.
+
+**Unsupported claim.** Matching title/version does not license the locally retained HYDE bytes under those terms or authorize derived-cell publication.
+
+**Actual verification performed.** Read the retained DOI metadata rights/version/date fields and the HYDE primary source account; no provider request or raster consumer rerun.
+
+**Remaining input or review.** The provider release must be bound to the exact local metadata, license and NetCDF/README bytes with source-owner rights clarification.
+
+**Cause category.** Conflicting release-specific rights statements and unresolved byte identity.
+
+**Consequence.** Provider metadata cannot silently replace local CC BY-NC 4.0 and CC BY 3.0 statements.
+
+**Precise next acceptance route.** Obtain an exact-release rights and byte correspondence decision, then qualify matched CRS/calendar/estimand before publishing derivatives.
+
+**Negative or refused result.** The Yoda landing access refusal and incompatible local/provider terms remain unresolved.
+
+**Matched denominator.** 1 retained provider DOI record versus distinct local metadata/license/README/NetCDF claims; 0 qualified new raster cells.
+
+- [Retained qualification evidence: docs/report/source-relations/hyde/provider-record/datacite-response.json](datacite-response.json) (SHA-256 `522de6f01689dd8913d8dcde79d7f0f26917ec942bf823bad0f95e63500582d5`).
+
+- [Retained qualification evidence: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
 
 - [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
 

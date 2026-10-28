@@ -18,7 +18,27 @@ The workbook gives UTM easting and northing, but no UTM zone. It provides no sou
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The preprint Table S3 source supports eighteen ancient reindeer interval/alias correspondences in its own revision.
+
+**Unsupported claim.** A preprint is not byte-equivalent to the final appendix; unzoned UTM coordinates and derived midpoints are not source points or medians.
+
+**Actual verification performed.** Read the supplement account against the retained published-appendix correspondence and current animal chronology account; no workbook reread or reprojection.
+
+**Remaining input or review.** Final-publication revision correspondence, sample coordinates with CRS/zone, and missing source medians remain separately qualified questions.
+
+**Cause category.** Source revisions and coordinate/date roles are not interchangeable.
+
+**Consequence.** The primary R20 interval stays 0–450 BP and a 225 BP midpoint remains derived.
+
+**Precise next acceptance route.** Retain each revision and obtain source-owned coordinate and final-table bindings before changing sample point/date fields.
+
+**Negative or refused result.** B20 is locality-only; six ancient rows lack medians; 90 modern rows do not enlarge the ancient cohort.
+
+**Matched denominator.** 18 ancient rows 3–20 versus 90 modern rows 21–110; all 18 primary intervals correspond, with R20 secondary 41–252 BP retained separately.
+
+- [Retained qualification evidence: reports/science/reindeer-appendix-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reindeer-appendix-correspondence.md).
+
+- [Retained qualification evidence: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
 
 - [Canonical scientific account: reports/science/reindeer-appendix-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reindeer-appendix-correspondence.md).
 

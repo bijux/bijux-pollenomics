@@ -73,7 +73,29 @@ The projection authenticates source bytes before parsing and before/after atomic
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** One exposed Bökesjön window supports a signed analytical local/regional mixture under 3 declared abundance-density ratios. Ratio 0.5 yields feasible two-taxon cover; ratios 1/2 retain negative Poaceae and Betula above one as infeasible outcomes.
+
+**Unsupported claim.** Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel.
+
+**Actual verification performed.** The reader, aggregate report and source proof were inspected. Original model stage passed 40 source controls but its overall oracle envelope failed; a separate oracle-only successor reused 7 outputs, passed 47 guards and checked 4 physical factors plus 48 cover/covariance/SE cells. No model or oracle is rerun by this qualification.
+
+**Remaining input or review.** 20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.
+
+**Cause category.** data | assumption | algorithm/numerical | comparability | access/rights | qualified review
+
+**Consequence.** Keep the signed infeasible cases and original failed overall envelope. Marginal conditional SEs do not rehabilitate negative cover or form a joint scenario posterior; three ratios reuse the same samples/PPE rather than independent experiments.
+
+**Precise next acceptance route.** Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.
+
+**Negative or refused result.** At ratio 1 Poaceae is−0.00165398 and at ratio 2 it is−0.44875096; both maintained forward calls refuse negative cover. Ratio 0.5 is feasible with Betula 0.77810549/Poaceae 0.22189451. An earlier finite-depth oracle failure remains preserved separately from the later accepted numerical checks.
+
+**Matched denominator.** One[100,350) calibrated-BP window;3 cores and 29 samples: BOKE 5, KRAG 9, BJARE 15. Literal Betula/Poaceae panel 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts.20 bounds unknown;3 scenarios reuse these 29 samples and shared PPE. Each exported 2×2 covariance is marginal, not cross-scenario joint covariance.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/report.json](report.json) (SHA-256 `2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json](source-proof.json) (SHA-256 `bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json](../krageholm-static-geometry-sensitivity/report.json) (SHA-256 `07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

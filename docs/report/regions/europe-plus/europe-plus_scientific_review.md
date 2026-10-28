@@ -237,7 +237,25 @@
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained europe-plus review surface separates descriptive locality inventory, comparative context and exploratory farming scenarios and records source-specific uncertainties.
+
+**Unsupported claim.** The filename and populated review table are not a qualified independent scientist's decision, proof of farming causality or biological/event admission.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** An independent reviewer must assess the exact source entities, temporal scales and claimed relationship; current chronology and animal precision caveats remain.
+
+**Cause category.** Recorded review issues and exploratory scenario scope.
+
+**Consequence.** Scenario and overlap tables expose what still needs review rather than authorizing cross-species or historical causal inference.
+
+**Precise next acceptance route.** Select a named scenario and its source population, resolve each listed uncertainty with source evidence and obtain an actual independent claim-scoped decision.
+
+**Negative or refused result.** Farming-arrival interpretation remains exploratory; mapped animals and overlapping intervals do not remove species/precision asymmetry.
+
+**Matched denominator.** 64 country/species coverage rows,21 period rows,48 overlap rows,46 uncertainty entries and four scenarios in the Europe-plus retained review; these are review/accounting units, not accepted hypotheses.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_scientific_review.json](europe-plus_scientific_review.json) (SHA-256 `596820d4324c9a11d5795e5d470660954609c3ba1ce924bcf6ed4fff63550c22`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -61,7 +61,25 @@ for deeper source-family review files.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained ledger exposes a governed record/source chain for each visible point-layer row in the world publication.
+
+**Unsupported claim.** A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.
+
+**Actual verification performed.** Read the 16 layer ledger and 1719 row total; distinguished source family and repeated chronology-overlay membership. No map or browser traceability consumer was rerun.
+
+**Remaining input or review.** Primary source-family interpretation, identity/time/geographic admission and current browser behavior still require their own qualified checks.
+
+**Cause category.** Publication traceability across overlapping source entity layers.
+
+**Consequence.** Source locators support inspection and audit; they do not remove coordinate/date/taxon uncertainty or grant scientific approval.
+
+**Precise next acceptance route.** Follow exact record IDs to family-owned source/evidence rows, verify current bundle/source custody in native consumers, and qualify source semantics before any scientific join.
+
+**Negative or refused result.** Marker traceability leaves existing source refusals intact; unqualified horse elapsed ages cannot appear as BP events merely because a source row is addressable.
+
+**Matched denominator.** 1719 visible point-layer rows across 16 layers; 1231 human metadata+165 animal locality+323 sample chronology record uses. These include overlapping memberships and are not 1719 independent specimens.
+
+- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `5cdae6172126ab2f96ab62abaab5799c4cdec3899871c0b95b9caaaac862f7b4`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

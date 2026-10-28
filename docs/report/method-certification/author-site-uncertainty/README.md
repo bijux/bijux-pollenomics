@@ -62,7 +62,27 @@ done
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained grid 512 example at 225 BP propagates selected-count, site-resampling and shared positive PPE draws for six sites and ten prepared taxa, conditional on fixed chronology, geometry and transport.
+
+**Unsupported claim.** It supplies no historical source-R parity, calibrated field coverage, scientific admission of all 31 author targets or independent vegetation accuracy; shared author lineage is not independent evidence.
+
+**Actual verification performed.** Reviewed the retained report and authored reader and compared all four declared repository-code hashes with physical current files: all four match. The reader cites a different historical report hash; no fresh bootstrap or current-source replay occurred in this qualification.
+
+**Remaining input or review.** The maintained author-site owner replay must reconcile the stale reader report reference before claiming a current replay. Scientific use also needs source parameter, geometry and chronology justification and independent review.
+
+**Cause category.** Conditional uncertainty account with a stale authored report reference; its four declared code dependencies currently match.
+
+**Consequence.** The retained 1,024-draw result remains inspectable as historical development evidence; it cannot certify later source bytes or uncertainty omitted by its fixed assumptions.
+
+**Precise next acceptance route.** Run the configured author-site uncertainty owner with exact retained inputs, preserve its selected-count denominator and paired draw construction, and compare native numeric products before advancing current-source or scientific acceptance.
+
+**Negative or refused result.** Targets without selected positive prepared support are not silently treated as measured absences. Missing historical R parity and ecological accuracy remain explicit false claims.
+
+**Matched denominator.** One grid/window, six sites, ten selected taxa from 31 prepared targets; selected site counts 289,293,2223,2786,4251,562 sum 10,404 against full 10,747; 1,024 explicit paired replicates.
+
+- [Retained qualification evidence: docs/report/method-certification/author-site-uncertainty/report.json](report.json) (SHA-256 `7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8`).
+
+- [Retained qualification evidence: docs/report/method-certification/author-site-uncertainty/draws.json](draws.json) (SHA-256 `84da401dc862452bc329d11df074d2c6d7353b3e34b223892b5fd6702fae4390`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

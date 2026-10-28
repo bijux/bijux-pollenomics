@@ -70,7 +70,27 @@ cmp docs/report/method-certification/joint-site-draws/joint-cover-draws.csv \
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained synthetic account propagates 2,048 explicit paired draws across site resampling, counts for each original site and correlated shared positive PPE, while duplicated site selections reuse the same original-site count draw.
+
+**Unsupported claim.** The four paired ablations do not define additive variance components, and these conditional draws do not certify field coverage, historical R correspondence, chronological or geometry uncertainty, or measured vegetation accuracy.
+
+**Actual verification performed.** Reviewed the draw rules, retained scenario summaries and exact report bytes, including the mismatch between its historical fixed-site source-report hash and the current fixed-site report. No draws or model calculations were regenerated for this qualification.
+
+**Remaining input or review.** The configured joint-draw owner must replay against the qualified current fixed-site report and preserve the original-site coupling. Scientific use needs measurement and parameter justification and independent assessment of omitted uncertainty.
+
+**Cause category.** Conditional paired resampling with a historical dependency mismatch.
+
+**Consequence.** Shared-site and PPE dependence can dominate selected taxa; neither differing ablation SEs nor increasing replicate count establishes scientific validity or current-source correspondence.
+
+**Precise next acceptance route.** Replay fixed-site covariance first, then joint-site draws with explicit input arrays and measurement refusals; compare all five native scenarios and preserve nonadditive interpretation before scientific review.
+
+**Negative or refused result.** Unresolved measurement remains refused. The joint SEs 0.056571,0.165329,0.173418 exceed some fixed-site components; this is retained rather than explained away as failure or improvement.
+
+**Matched denominator.** Two synthetic sites, three taxa,2,048 paired replicates and five scenario summaries; only four ordered site-resampling patterns are possible with two draws from two sites.
+
+- [Retained qualification evidence: docs/report/method-certification/joint-site-draws/report.json](report.json) (SHA-256 `ab16d5edfffb56d2377782e75857d0f60ab76b19563d38ed2563d5af8a634152`).
+
+- [Retained qualification evidence: docs/report/method-certification/joint-site-draws/draws.json](draws.json) (SHA-256 `75acab9c92bc36f94209ffba8e0bd1b69716f78b45a2e43c25673ecea88beca6`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

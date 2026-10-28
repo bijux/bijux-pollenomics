@@ -71,7 +71,33 @@ admit LRA input or validate vegetation against independent field observations.
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This prior-exposed one-site development sensitivity reuses 4 fixed methods on the closed 16 literal pollen labels native-NISP subcomposition under strict full 95%-interval containment.
+
+**Unsupported claim.** It supplies neither independent-site uncertainty, an untouched model ranking, measured vegetation accuracy, age posterior, historical LandClim chronology nor LRA admission.
+
+**Actual verification performed.** Read the retained protocol,report and score/sample ledgers; checked 92 sample decisions,15 retained in 8 bins and 32 method/bin predictions. No refit, private taxonomy mapping or fresh score producer was run.
+
+**Remaining input or review.** A historical interpretation still needs the 79 author samples/chronology and dated basins; an accuracy claim needs qualified independent observations and a fresh predeclared evaluation.
+
+**Cause category.** Prior-exposed restricted-support chronology sensitivity.
+
+**Consequence.** Nearest-site strict MAE 0.032310 versus parent same-bin 0.032104; all four strict MAEs are slightly worse than their parent same-bin values. The same retained samples stay in their nominal bins, so no improvement can be credited to age reassignment.
+
+**Precise next acceptance route.** Replay the exact frozen 16 literal pollen labels protocol/Denmark-excluded predictions before opening observations, then compare strict and nominal scores on identical samples; retain separate 16/31 target denominators.
+
+**Negative or refused result.** One negative source-age refusal and 76 crossing intervals remain;16 of 24 parent bins have no retained sample. The source restriction is not repaired by interpolating ages.
+
+**Matched denominator.** 92 source samples=91 comparable+1 refused;91=15 contained+76 crossing;15=14 SOLSOE81 + 1 SOLSOE83; 8 of 24 bins supported,32 reused predictions=4 methods×8 bins;closed 16 literal pollen labels, not vegetation cover.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json](report.json) (SHA-256 `74973466ec934c81b0db2c424927cbcdbbe033e8bb96c39428940a6f3c490206`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/protocol.json](protocol.json) (SHA-256 `3598c4d8ae3c2c3249e5c562612f4c396463d37568e6d35c8267d01610f61f85`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv](sample-support.csv) (SHA-256 `fa5c7a3f74c2f750d3f4a3f4cea18382aeab9970c87f6321342b569d3365c619`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv](scores.csv) (SHA-256 `67b6170d7e41d9488b59a1de92ddd4774f9d4bb2a4601a9580c8c8113a2cf851`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json](predictions.json) (SHA-256 `b9b3e3ca2c1fb439d29b20fc0e0299b7d200a802d3092ca9d15a35accb7c3a1e`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 

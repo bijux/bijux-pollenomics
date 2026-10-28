@@ -59,7 +59,27 @@ cmp docs/report/source-relations/landclim/author-preparation-audit/report.json \
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The author preparation account closes raw counts into retained and explicitly excluded/unmapped/out-of-window categories.
+
+**Unsupported claim.** Reproducing an example formatter does not establish the historical study selection, complete count denominator, vegetation truth or source rights.
+
+**Actual verification performed.** Read the 17-site report and independent count reference, including the exact category partition; no R formatter or numerical reconstruction rerun.
+
+**Remaining input or review.** Historical selected inputs, source count semantics and scoped analytical rights remain unqualified.
+
+**Cause category.** Source preparation correspondence is narrower than scientific input admission.
+
+**Consequence.** The 202,053 removed counts must remain visible when interpreting the prepared subcomposition.
+
+**Precise next acceptance route.** Bind the original selected run and qualify its masks/counting rules and rights before using these examples as scientific study evidence.
+
+**Negative or refused result.** 200,247 excluded, 418 unmapped and 1,388 out-of-window counts are retained; leading-space Plantago is not silently normalized.
+
+**Matched denominator.** 17 examples: 501,713 raw=299,660 prepared+202,053 removed; 9 grid 512 sites and 8 grid 562 sites.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/author-preparation-audit/report.json](report.json) (SHA-256 `595c8e21c4bda3f8fee259c435aa0ff2a339ed7aea39e2d50b09f36523bd725c`).
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json](independent-counts.json) (SHA-256 `753458772b750d1dd392ca964f74a5bebd584f1d4191b81991dc0b1861ab98d7`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

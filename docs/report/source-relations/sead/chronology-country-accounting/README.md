@@ -64,7 +64,29 @@ country/site drift, and status or denominator changes.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Country accounting preserves all 25,109 claim/review joins and assigned site denominators with display-only eligibility.
+
+**Unsupported claim.** Group-site and overlapping reason counts cannot be summed as independent sites/events, and country assignment is governed rather than source-native.
+
+**Actual verification performed.** Read country summary and 16 grouped rows against chronology-age review/public custody; no claim or country producer rerun.
+
+**Remaining input or review.** Scientific classification, chronology/uncertainty decisions and excluded-site country authority remain.
+
+**Cause category.** Claim rows, distinct sites and overlapping refusal reasons have different denominators.
+
+**Consequence.** A site with multiple claim groups remains one site; display-eligible claims remain propagation-refused.
+
+**Precise next acceptance route.** Resolve scoped source chronology/classification decisions and qualified country questions before changing public/scientific eligibility.
+
+**Negative or refused result.** All 25,109 propagation claims refused; 1,216 assigned sites lack captured claims; 126 excluded decisions remain outside totals.
+
+**Matched denominator.** 2,069 assigned sites/853 claim sites/25,109 claims:SE 22,643, DK 1,939, NO 468, FI 59; 13,170 display eligible/11,939 refused.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-country-accounting/report.json](report.json) (SHA-256 `855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-country-accounting/rows.csv](rows.csv) (SHA-256 `afdf52ee1b5dea2945fbc0c652dce92ce30eb5cfab2b01d2fa0f2e57f5e1fb8a`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/report.json](../chronology-claim-review/report.json) (SHA-256 `6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

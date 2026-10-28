@@ -138,12 +138,19 @@ def test_declared_candidate_mismatch_refuses(repository: Path) -> None:
         load_scope(repository, "0" * 40)
 
 
-def test_bound_historical_claim_refuses(repository: Path) -> None:
+@pytest.mark.parametrize(
+    "claim",
+    [
+        "historical_replay_claim",
+        "accepted_taxonomy_mapping_claim",
+        "complete31source_measurement_claim",
+        "vegetation_accuracy_claim",
+    ],
+)
+def test_bound_historical_claim_refuses(repository: Path, claim: str) -> None:
     """Verify bound historical claim refuses."""
     with (
-        changed_protocol(
-            repository, lambda p: p.update(historical_replay_claim=True), rebind=True
-        ),
+        changed_protocol(repository, lambda p: p.update({claim: True}), rebind=True),
         pytest.raises(ValueError, match="conditional historical"),
     ):
         load_scope(
@@ -213,3 +220,48 @@ def test_report_serialization_refuses_nonfinite_scientific_values() -> None:
     """Verify report serialization refuses nonfinite scientific values."""
     with pytest.raises(ValueError, match="Out of range float"):
         producer.serialize_report({"cover": [float("nan")]})
+
+
+def test_current_covariance_source_bytes_changed_refuse(repository: Path) -> None:
+    """Keep mathematical engine bytes inside the declared source authority."""
+    relative = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py"
+    path = repository / relative
+    before = path.read_bytes()
+    try:
+        path.write_bytes(before + b"\n")
+        with pytest.raises(ValueError, match="identity mismatch"):
+            load_scope(
+                repository,
+                json.loads((repository / DECLARATION).read_bytes())[
+                    "producer_source_candidate"
+                ],
+            )
+    finally:
+        path.write_bytes(before)
+
+
+def test_rebound_outer_authority_cannot_override_nested_engine_pin(
+    repository: Path,
+) -> None:
+    """An outer descriptor cannot silently replace the shared loader authority."""
+    nested = "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json"
+    engine = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py"
+    path = repository / nested
+    before = path.read_bytes()
+    authority = repository / DECLARATION
+    authority_before = authority.read_bytes()
+    try:
+        changed = json.loads(before)
+        changed["source_files"][engine]["sha256"] = "0" * 64
+        path.write_text(json.dumps(changed) + "\n")
+        outer = json.loads(authority_before)
+        outer["source_files"][nested] = {
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "bytes": path.stat().st_size,
+        }
+        authority.write_text(json.dumps(outer) + "\n")
+        with pytest.raises(ValueError, match="identity mismatch"):
+            load_scope(repository, outer["producer_source_candidate"])
+    finally:
+        path.write_bytes(before)
+        authority.write_bytes(authority_before)

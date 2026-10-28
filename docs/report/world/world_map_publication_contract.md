@@ -66,7 +66,25 @@ The opening extent keeps a broad trans-Atlantic and Eurasian frame so the root p
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained contract defines world scope, shared document engine, eligible layers, filters and visible publication counts.
+
+**Unsupported claim.** A consistent renderer or broad opening extent is not scientific source admission, complete world coverage or proof of valid chronology at every point.
+
+**Actual verification performed.** Read 17 layer rows and source-role contract; reconciled 16 point layers plus 4 boundarypolygons, with human, animal-locality and sample-chronology layer units separate. No browser or publisher was run.
+
+**Remaining input or review.** Current native asset/browser qualification and qualified family-specific geography, chronology, rights and biological interpretation remain separate requirements.
+
+**Cause category.** Map software/publication contract with incomplete scientific/global coverage.
+
+**Consequence.** World filters may expose declared records but cannot manufacture environmental coverage or turn present-day framing boundaries into historical nationality.
+
+**Precise next acceptance route.** Run exact current source/assets through maintained map publication and native browser consumers; retain source-family refusals and separately qualify scientific roles before inference.
+
+**Negative or refused result.** Nordic environmental/archaeology overlays are withheld from world; source metadata country assignments and scientific flags remain separately governed.
+
+**Matched denominator.** 17 layer rows=16 point layers+1 boundary layer carrying 4 polygons; visible point records 1719=1231 human+165 animal-locality+323 sample-chronology record uses. Shared identities can appear in multiple layers.
+
+- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `0c0f9dd06622b6dfc4a12a91048242cac639690295f14646fce10dac6559d384`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

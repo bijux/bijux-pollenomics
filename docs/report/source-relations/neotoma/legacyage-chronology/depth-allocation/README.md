@@ -46,7 +46,27 @@ Compare the resulting `report.json` byte for byte with the governed result.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The authors’ interior depth-allocation rule yields a declared midpoint of rounded 4 cm/5 cm age summaries for one 4.5 cm DALMUT sample.
+
+**Unsupported claim.** Interpolated rounded summaries are not an exact S5 source row, unrounded Bacon output, joint age posterior or selected historical LandClim age.
+
+**Actual verification performed.** Read the exact bracketing and derived summary values and source-procedure commit in report.json; no posterior generation or calibration.
+
+**Remaining input or review.** A use-specific chronology choice and all independent LRA prerequisites remain unresolved.
+
+**Cause category.** Derived age-summary interpolation has limited numerical and probabilistic scope.
+
+**Consequence.** The exact-row join remains 71 of 72 despite this separate allocation.
+
+**Precise next acceptance route.** Declare the alternative chronology and rounded-summary allocation explicitly in any future sensitivity protocol, then qualify remaining inputs.
+
+**Negative or refused result.** No exact-source-row or LRA admission is created; original unmatched status remains.
+
+**Matched denominator.** 1 sample at 4.5 cm, 2 bracketing S5 rows; derived cal BP minimum −94, maximum 541.5, median 257, mean 215; 72 S4 depths correspond.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json](report.json) (SHA-256 `469e755a507fd0325b7d78d3c3ac4a5d79402036072cbd4a3d6e2e3a82226e43`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/legacyage-chronology/report.json](../report.json) (SHA-256 `544020c69762d5b86a0c6f9cd4e06b10894c8e4139058f988e28d2970edd0a74`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

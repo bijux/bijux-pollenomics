@@ -42,7 +42,27 @@ samples, full taxon/PPE denominators and age-qualified basin geometry.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This decision reader retains the measured refusal to adopt the artifact-only compiled forward candidate: all three conversion-inclusive validated speed ratios are below the prospective twofold gate.
+
+**Unsupported claim.** It supplies no production C++ backend, portable wheel, full LOVE/REVEALS speed claim, field result or independent new benchmark execution.
+
+**Actual verification performed.** Read this decision and the separately retained forward and isolated-memory accounts; verified their physical identities. No compiler, timing worker or numerical model ran for this reader qualification.
+
+**Remaining input or review.** Adoption requires a real representative bottleneck, passing full-call speed and memory gates, source parity, supported-platform packaging and an explicit maintained boundary.
+
+**Cause category.** Negative measured adoption decision rather than an implementation deliverable.
+
+**Consequence.** The compiled artifact remains experimental; a lower RSS observation on one large stress shape does not overturn slower full-call latency.
+
+**Precise next acceptance route.** Only reopen adoption on a newly declared representative workload and source-bound implementation that passes the existing twofold conversion-inclusive gate and required distribution qualification.
+
+**Negative or refused result.** Ratios 0.928, 0.897 and 0.722 fail the speed gate. On the large stress case native 12.507 ms is slower than NumPy 9.388 ms despite lower observed RSS.
+
+**Matched denominator.** This reader adds zero new benchmarks or compiled products. Linked forward comparison has three shapes; linked memory study has four shapes, two methods and five workers per method/shape (40 workers).
+
+- [Retained qualification evidence: docs/report/numerical-performance/native-forward/report.json](../native-forward/report.json) (SHA-256 `4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5`).
+
+- [Retained qualification evidence: docs/report/numerical-performance/native-memory/report.json](../native-memory/report.json) (SHA-256 `6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

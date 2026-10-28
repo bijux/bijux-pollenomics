@@ -67,7 +67,25 @@ Peak RSS and timing depend on the operating system and current process state.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Fresh-worker measurements retain whole-process high-water RSS and latency for NumPy and the compiled spike, including a large synthetic shape that exposes import-baseline limitations.
+
+**Unsupported claim.** Zero high-water increments do not mean zero allocations; this study establishes no whole LOVE/REVEALS throughput, original R parity or compiled adoption.
+
+**Actual verification performed.** Read the retained five-worker-per-method/shape design, native peak-RSS semantics and stress-case limitation and bound the report; no worker, compiler or kernel was rerun.
+
+**Remaining input or review.** Any adoption claim still needs a representative prospective full-call gate and platform/distribution qualification rather than an exploratory stress result.
+
+**Cause category.** Isolated-worker measurement with import and input high-water confounding.
+
+**Consequence.** The large-case memory reduction can be reported alongside its slower latency; smaller zero increments cannot be interpreted as allocation-free execution.
+
+**Precise next acceptance route.** Compare the declared representative complete call against speed and memory criteria, retaining import/setup scope and all workers rather than selecting the best RSS result.
+
+**Negative or refused result.** At 8192×256×512, NumPy 304.6 MB versus native 273.5 MB comes with 9.388 ms versus 12.507 ms latency; the slower result remains explicit.
+
+**Matched denominator.** Four synthetic shapes, two methods, five fresh workers each: 40 workers. Memory includes imports, input preparation and NPY export; macOS native ru_maxrss bytes are whole-worker high-water observations.
+
+- [Retained qualification evidence: docs/report/numerical-performance/native-memory/report.json](report.json) (SHA-256 `6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

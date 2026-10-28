@@ -46,7 +46,27 @@ cmp docs/report/source-relations/neotoma/swedish-cohort-availability/report.json
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The metadata-only search identifies no qualified new physical core in its bounded Swedish Neotoma/PANGAEA surfaces.
+
+**Unsupported claim.** A missing literal handle is not proof of a distinct core, and metadata discovery does not validate an untouched independent holdout.
+
+**Actual verification performed.** Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request.
+
+**Remaining input or review.** A truly distinct physical core, selected calibrated sample ages, permitted use and frozen pre-exposure prediction protocol remain needed.
+
+**Cause category.** Cross-archive identity collisions and absent age/use authority.
+
+**Consequence.** Three retained UNASSIGNED cores cannot be marketed as fresh Swedish observations.
+
+**Precise next acceptance route.** Resolve ADRAN/GARASEL/LEVEANIE identity, selected sample ages and access terms before inspecting target counts or freezing evaluation.
+
+**Negative or refused result.** All 99 queried sites already retained; SAMBOTOT/KLOT collide; 3 unmatched named handles remain leads, not admitted prediction samples.
+
+**Matched denominator.** 102 queried dataset records/99 sites; 66 metadata titles: 62 retained handles, 3 unmatched named handles, 1 generic; 37 final-age events all retained.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/report.json](report.json) (SHA-256 `dc915089ee968411dafb97c269693613b89dbcbfecbd3e92a580405ea50cad89`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json](sources.json) (SHA-256 `c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

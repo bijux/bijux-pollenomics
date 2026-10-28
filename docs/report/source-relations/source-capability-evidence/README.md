@@ -27,7 +27,25 @@ Compare `artifacts/source-capability-evidence/replay.json` byte-for-byte with `r
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The capability review separates declared support, materialization and present evidence bytes for 187 source-dimension cells.
+
+**Unsupported claim.** A present file or complete materialization does not approve semantics, rights, source coverage or scientific admission.
+
+**Actual verification performed.** Two actual ordinary maintained evidence producers returned zero and emitted identical current outputs. Independent comparison verifies all 74 present evidence-file bytes; only four evidence identities/byte counts changed following source chronology corrections. Every support, materialization, missingness and human-review value is unchanged. Old tracked-byte checkers correctly refused the new evidence metadata; no acquisition or scientific source review was performed.
+
+**Remaining input or review.** 126 human review rows and missing/partial supported evidence require source-specific decisions rather than hash stamping.
+
+**Cause category.** Capability support and evidence availability are independent axes.
+
+**Consequence.** Unsupported taxon identity remains not_provided_by_source; missing evidence never becomes an observed zero.
+
+**Precise next acceptance route.** Resolve each source-dimension missing materialization and qualified review requirement independently; rerun this evidence consumer when its declared physical evidence bytes or source capability contracts change.
+
+**Negative or refused result.** 61 unsupported cells/49 missing materializations/30 missing paths retained; scientific admission unchanged.
+
+**Matched denominator.** 11 source families×17 dimensions=187 cells; 68 supported/58 partial/61 unsupported; 73 complete materializations/4 partial/49 missing/61 not applicable; 126 review-required.
+
+- [Retained qualification evidence: docs/report/source-relations/source-capability-evidence/report.json](report.json) (SHA-256 `6d6e1bd14823d292ef8d1a2c990eb40d6af20ecd9309a499473fe1a10f58cde9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -11,7 +11,25 @@ sample identity; it does not provide pollen or vegetation truth.
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This citation pointer directs earlier links to the maintained published reindeer appendix comparison.
+
+**Unsupported claim.** The pointer adds no independent specimen, dating comparison, model fit or pollen/vegetation evidence.
+
+**Actual verification performed.** Read the pointer and exact linked appendix account revision; no numerical consumer or acquisition was run for this page.
+
+**Remaining input or review.** The linked account retains its source-revision, coordinate and chronology limitations and qualified review needs.
+
+**Cause category.** Citation routing supplies provenance rather than new scientific evidence.
+
+**Consequence.** Acceptance can extend only to the stated relationship with the pinned primary account.
+
+**Precise next acceptance route.** Consult the linked source-bound appendix comparison and resolve its sample-specific limitations before changing admission.
+
+**Negative or refused result.** No independent scientific admission or vegetation truth is supplied by this pointer.
+
+**Matched denominator.** 0 new source rows, specimens, fits or independent numerical checks; the primary account owns its own specimen denominator.
+
+- [Retained qualification evidence: reports/science/reindeer-appendix-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reindeer-appendix-correspondence.md).
 
 - [Canonical scientific account: reports/science/reindeer-appendix-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/reindeer-appendix-correspondence.md).
 
