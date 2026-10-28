@@ -1,0 +1,685 @@
+{
+  "schema_version": "classification-source-custody-account.v1",
+  "scope": "Local zero-admission source accounting and product authority custody. Native captures, metadata-only derivative, and subsequent consumer execution have separate identities. This account is an immutable retained execution summary, not a fresh accounting job or classification review.",
+  "source_identity": {
+    "source_family": "neotoma",
+    "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    "classification_contract_version": "1.0.0",
+    "classification_contract_digest": "sha256:311dbdb3f7ff4df9b1012d40e9ebc612c35775d4d391e10c4fa6564aab3dc772"
+  },
+  "historical_native_capture": {
+    "source_candidate": "b0ff74ad281fcf3b76ce29b514d44f604073d105",
+    "source_count": 17,
+    "producer_digest": "efb43ee09bb2f08e9e6e170aa5f875e94f8db1a37a167678dcc7f123b7e3b6c3",
+    "manifest_sha256": "ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a",
+    "native_exit": 0,
+    "wall_seconds": 20.058419750013854,
+    "source_records": [
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py",
+        "sha256": "cdf755312d22f0b6e1a3edc8f7bd7fac0a8c9bd41b180273d6b22f16c7e47974"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/accounting.py",
+        "sha256": "77688a26c2c8c0ea804e8297b03ab8d5cc51b3aebd667a699a7df43ba0d96f7b"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/concepts.py",
+        "sha256": "5846baffed1a818dc4ebcd675d8d4e5f49de489440ecffa8a2a45e5e5725849e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/countries.py",
+        "sha256": "31eb4ed87f3d99ea0422e87c1d3cbf77a8acd6924b4d3dc16710dc4b9fc16bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/partitions.py",
+        "sha256": "e13031d1217c46ceb29cfac94bde98c455b76cbf03117c6b0beb2fbf32812ef9"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/rows.py",
+        "sha256": "28998898a069b9716d9281a10d6d703a72f94b565bfc94a994250678f59fcf54"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/__init__.py",
+        "sha256": "4547408b024d58cce511fc6c415a5bd663b73bd53157d4acdded73c093305bc7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/accounting.py",
+        "sha256": "57b14d0357eae74540bc93fc954035da8db460269e1b2e7728e3b28314988339"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/constants.py",
+        "sha256": "1609d0f8b06a5e5f1446f9071272633f607d6dc68774b31ae385356ffdc4ec28"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/manifest.py",
+        "sha256": "81c135a9557ae7817eeef784248f2461dcd6ae1dd7a40b9a451e2c22169e6bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/models.py",
+        "sha256": "be0c4c944f9b06425033b79b03df2f873a9603edd30bb05b93c0611f385d464e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/partitions.py",
+        "sha256": "c47d9b3aecf1e771d92fe5e2fa0fbe7d168039f9787685a5ac4542162f8a28c7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/payloads.py",
+        "sha256": "8f7a93279acdb26ee167ef5cfd4543d76baa431084f66f9773774ae34d4991e3"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/publication.py",
+        "sha256": "596c283e4aeb0c376115e7f00a22b3ac4729724c31e3026dbb08143d1c8c8e35"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/queues.py",
+        "sha256": "a5b64b6d40cbcf594f9dd4b1fafe891e1bffb1f9f72471e31a573a4aa59be9d4"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/values.py",
+        "sha256": "462f256efc487a1c9346d190b62a7397c882af9935780e64ce80877443859a53"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/workflow.py",
+        "sha256": "374296478cf80f62cb0e8a1e9b47a0c5efaa2b5acebafa1392e8588ee7ca8a9e"
+      }
+    ]
+  },
+  "current_native_capture": {
+    "source_candidate": "f02670c3e123effe1a277b3de422247e575d0ded",
+    "declared_source_count": 17,
+    "producer_digest": "38e286826ab7fe8a49582960ae0e4b216a5d0e9fe62aae2e89c24e1011a2d355",
+    "manifest_sha256": "dc27649646c6b098441d2a5493319e3c5b2841ce9943953c904b33ffae269bec",
+    "native_exit": 0,
+    "wall_seconds": 20.0856562909903,
+    "source_records": [
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py",
+        "sha256": "cdf755312d22f0b6e1a3edc8f7bd7fac0a8c9bd41b180273d6b22f16c7e47974"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/accounting.py",
+        "sha256": "77688a26c2c8c0ea804e8297b03ab8d5cc51b3aebd667a699a7df43ba0d96f7b"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/concepts.py",
+        "sha256": "5846baffed1a818dc4ebcd675d8d4e5f49de489440ecffa8a2a45e5e5725849e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/countries.py",
+        "sha256": "31eb4ed87f3d99ea0422e87c1d3cbf77a8acd6924b4d3dc16710dc4b9fc16bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/partitions.py",
+        "sha256": "e13031d1217c46ceb29cfac94bde98c455b76cbf03117c6b0beb2fbf32812ef9"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/rows.py",
+        "sha256": "28998898a069b9716d9281a10d6d703a72f94b565bfc94a994250678f59fcf54"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/__init__.py",
+        "sha256": "4547408b024d58cce511fc6c415a5bd663b73bd53157d4acdded73c093305bc7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/accounting.py",
+        "sha256": "57b14d0357eae74540bc93fc954035da8db460269e1b2e7728e3b28314988339"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/constants.py",
+        "sha256": "1609d0f8b06a5e5f1446f9071272633f607d6dc68774b31ae385356ffdc4ec28"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/manifest.py",
+        "sha256": "81c135a9557ae7817eeef784248f2461dcd6ae1dd7a40b9a451e2c22169e6bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/models.py",
+        "sha256": "be0c4c944f9b06425033b79b03df2f873a9603edd30bb05b93c0611f385d464e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/partitions.py",
+        "sha256": "c47d9b3aecf1e771d92fe5e2fa0fbe7d168039f9787685a5ac4542162f8a28c7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/payloads.py",
+        "sha256": "8f7a93279acdb26ee167ef5cfd4543d76baa431084f66f9773774ae34d4991e3"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/publication.py",
+        "sha256": "596c283e4aeb0c376115e7f00a22b3ac4729724c31e3026dbb08143d1c8c8e35"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/queues.py",
+        "sha256": "7efb7b612691bac29e47820de1a2672f835e3e6942aaef43cafa737f9e901971"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/values.py",
+        "sha256": "462f256efc487a1c9346d190b62a7397c882af9935780e64ce80877443859a53"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/workflow.py",
+        "sha256": "374296478cf80f62cb0e8a1e9b47a0c5efaa2b5acebafa1392e8588ee7ca8a9e"
+      }
+    ],
+    "additional_physically_pinned_and_imported_helper": {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/review.py",
+      "sha256": "39ceb9dc5494b1f7e2f17677a27d09c70ee0350ea198ae1d51fd4dca14cc4161"
+    }
+  },
+  "metadata_only_custody_derivative": {
+    "source_candidate": "f02670c3e123effe1a277b3de422247e575d0ded",
+    "native_capture_manifest_sha256": "dc27649646c6b098441d2a5493319e3c5b2841ce9943953c904b33ffae269bec",
+    "manifest_sha256": "444ae81c876b11e090741195ba77d592b07ce849fd5c2a0a370ef79ddf28578f",
+    "declared_source_count": 18,
+    "producer_digest": "sha256:6665be4e449e400cddebf1f7bc54020b8793ad7820890fb731f49d217e3ac726",
+    "input_accounting_sha256_preserved": "02a4c8141c0d60affb8009150d7912288cda7b771d462b2c6ccf22938f3ae978",
+    "source_records": [
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py",
+        "sha256": "cdf755312d22f0b6e1a3edc8f7bd7fac0a8c9bd41b180273d6b22f16c7e47974"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/accounting.py",
+        "sha256": "77688a26c2c8c0ea804e8297b03ab8d5cc51b3aebd667a699a7df43ba0d96f7b"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/concepts.py",
+        "sha256": "5846baffed1a818dc4ebcd675d8d4e5f49de489440ecffa8a2a45e5e5725849e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/countries.py",
+        "sha256": "31eb4ed87f3d99ea0422e87c1d3cbf77a8acd6924b4d3dc16710dc4b9fc16bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/partitions.py",
+        "sha256": "e13031d1217c46ceb29cfac94bde98c455b76cbf03117c6b0beb2fbf32812ef9"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/rows.py",
+        "sha256": "28998898a069b9716d9281a10d6d703a72f94b565bfc94a994250678f59fcf54"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/__init__.py",
+        "sha256": "4547408b024d58cce511fc6c415a5bd663b73bd53157d4acdded73c093305bc7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/accounting.py",
+        "sha256": "57b14d0357eae74540bc93fc954035da8db460269e1b2e7728e3b28314988339"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/constants.py",
+        "sha256": "1609d0f8b06a5e5f1446f9071272633f607d6dc68774b31ae385356ffdc4ec28"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/manifest.py",
+        "sha256": "81c135a9557ae7817eeef784248f2461dcd6ae1dd7a40b9a451e2c22169e6bfe"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/models.py",
+        "sha256": "be0c4c944f9b06425033b79b03df2f873a9603edd30bb05b93c0611f385d464e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/partitions.py",
+        "sha256": "c47d9b3aecf1e771d92fe5e2fa0fbe7d168039f9787685a5ac4542162f8a28c7"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/payloads.py",
+        "sha256": "8f7a93279acdb26ee167ef5cfd4543d76baa431084f66f9773774ae34d4991e3"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/publication.py",
+        "sha256": "596c283e4aeb0c376115e7f00a22b3ac4729724c31e3026dbb08143d1c8c8e35"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/queues.py",
+        "sha256": "7efb7b612691bac29e47820de1a2672f835e3e6942aaef43cafa737f9e901971"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/values.py",
+        "sha256": "462f256efc487a1c9346d190b62a7397c882af9935780e64ce80877443859a53"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/audit_outputs/workflow.py",
+        "sha256": "374296478cf80f62cb0e8a1e9b47a0c5efaa2b5acebafa1392e8588ee7ca8a9e"
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/review.py",
+        "sha256": "39ceb9dc5494b1f7e2f17677a27d09c70ee0350ea198ae1d51fd4dca14cc4161"
+      }
+    ],
+    "native_publication": "created",
+    "scientific_accounting_reexecuted": false,
+    "method": "The retained current nine payloads were parsed and compared exactly. Only each payload producer digest and the manifest producer/files/bundle hashes changed. Original input_accounting_sha256, source/build/contract, all scientific/source values and review/refusal posture were preserved. Maintained canonical serialization and atomic publication emitted the derivative. Every18 adopted source byte hash equals the already physically pinned current native execution, including the imported review helper."
+  },
+  "historical_current_comparison": {
+    "all_original_scalar_values_compared": 1924157,
+    "added_false_context_field_count": 5298,
+    "unique_source_concepts_with_additive_context_refusal": 1351,
+    "observation_membership_count": 370936,
+    "accepted_mapping_count": 0,
+    "source_change": "3e9141064b567f66ffb0a239d20b1fbdf5eb0a4f: queue_row adds context_review_complete and context_release_eligible; unmapped/not_applicable statuses short-circuit them to false. All remaining old fields/ids/counts/partitions/refusals remain exactly equal.",
+    "payload_comparisons": [
+      {
+        "path": "accepted_mapping_queue.json",
+        "record_count": 0,
+        "all_original_scalar_values_compared": 10,
+        "added_false_context_fields": 0,
+        "historical_sha256": "dce7289d30d5cd11363ed083e805e44aee99780e67531a00edeacb55bde98e18",
+        "current_sha256": "97c226670c2e2640d709c2ff8beb0c4783d0138bd1f92902a50883f6ada6c497",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "concept_denominators.json",
+        "record_count": 1351,
+        "all_original_scalar_values_compared": 20,
+        "added_false_context_fields": 0,
+        "historical_sha256": "0c97ed0452af42c8eb12e6e6165d5989c61abf3b41828b47370a64277cfd3296",
+        "current_sha256": "0891ffabaaf6f69d3f01d079525dc9eb280e6325b4dd3605ebce5da0ee18d437",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "country_partitions.json",
+        "record_count": 35,
+        "all_original_scalar_values_compared": 139,
+        "added_false_context_fields": 0,
+        "historical_sha256": "aa1fe5fd0bc6ce131cd6a2ae6a434141d2e0e42ddf9fbbfd717c66ffe1cc5be0",
+        "current_sha256": "9127ac05870594a9826fe83b73f6b4b3ab4335a3b99142b508123fba3837944c",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "not_applicable_mapping_queue.json",
+        "record_count": 53,
+        "all_original_scalar_values_compared": 1162,
+        "added_false_context_fields": 106,
+        "historical_sha256": "30ba188031ed9fb7617a63e9eaebbab17748510b1cf4abf9e28b3e54b2780485",
+        "current_sha256": "8c086be4bc18e835adab0dce6245e6e7dd9127159bf0a90a791f3bc068935e29",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "observation_denominators.json",
+        "record_count": 370936,
+        "all_original_scalar_values_compared": 26,
+        "added_false_context_fields": 0,
+        "historical_sha256": "c63c001e218e9e0ffc422941b42ea4ce2517e6672b740d6845cc31d806b0f147",
+        "current_sha256": "094c7f5dc94a5d071fb20ede0d54f76f9ab2c8c4c0c07636015abdb4014df6f7",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "observation_memberships.json",
+        "record_count": 370936,
+        "all_original_scalar_values_compared": 1854689,
+        "added_false_context_fields": 0,
+        "historical_sha256": "b3009f3f0465ed813efea377aa7c08c4e28cf6c0912b0aec94a835ee9a0b00c0",
+        "current_sha256": "bb0f775cf9ae6ca8247b95d1f431680605ea5ecbf999ebe28ed0f37e1bad8e70",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "release_metadata.json",
+        "record_count": 1,
+        "all_original_scalar_values_compared": 21,
+        "added_false_context_fields": 0,
+        "historical_sha256": "efb59e896d513e79a1394b9cd6032fb5f998754a58a89a69fe23ba578838ba8b",
+        "current_sha256": "a52ebdc96e443cf41b85290f42c75c8ee221223c80b4e1aded3c885b8500d3d9",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "review_queue.json",
+        "record_count": 1298,
+        "all_original_scalar_values_compared": 34734,
+        "added_false_context_fields": 2596,
+        "historical_sha256": "405e5935c04336565c65318b67b9fd367260a768523afe3e25017cf19c5f4bf2",
+        "current_sha256": "26a4272ea96305c1a41e89436b2912a3c0be61acad057a01be3a06265fd9c2a9",
+        "all_original_values_equal": true
+      },
+      {
+        "path": "unmapped_mapping_queue.json",
+        "record_count": 1298,
+        "all_original_scalar_values_compared": 33356,
+        "added_false_context_fields": 2596,
+        "historical_sha256": "6e0978e8f116dcfafa68d63c5c03e20e6b379f5561eb1b908815366e2933bbd8",
+        "current_sha256": "99e208314d6913c3fe5c4550880982790cb4f1d5671b4fe32fbcc01abd85e3a4",
+        "all_original_values_equal": true
+      }
+    ]
+  },
+  "original_provider_and_relational_custody": {
+    "historical_candidate": "b0ff74ad281fcf3b76ce29b514d44f604073d105",
+    "current_candidate": "f02670c3e123effe1a277b3de422247e575d0ded",
+    "changed_paths": [],
+    "identical_git_objects": [
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "git_blob": "14c00f18e7cd102e73013d54a1fdf49a17e54ef6"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "git_blob": "170dde2a1dd3939fbeaf4b66ac86c91fc46d8912"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "git_blob": "e58dfc6865be3977402711d0a51696f2f5ec89e9"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "git_blob": "6f2462a2aa75593ca8fa7216ab2d38d141278ffa"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "git_blob": "523ad738caeeb8004ea6f5fd298e6a6940737de2"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "git_blob": "b079463d627a3922c71e8fdfa56e9fe7da27eddf"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "git_blob": "6a6a647478a69fc8fc42cace65f48e50287aa50f"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "git_blob": "2e7cc5aaeca14f94e1d5d3f4fe68f3781ad07e71"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "git_blob": "bf33ce510b1e046d680a8b6ddfbba9e87d369a11"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "git_blob": "1e7bcdd2c20e1fb55af380d668021f5edb9cc2f9"
+      },
+      {
+        "path": "data/neotoma/relational/manifest.json",
+        "git_blob": "d89de229e4aee136d821ec5ae91d218ce68946f6"
+      },
+      {
+        "path": "data/neotoma/relational/reconciliation.json",
+        "git_blob": "85882c2973d4981c2369a79c4a62b9bafd2b27f5"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "git_blob": "4b2d6875076dc6bb7e6e630c78ebbb01e7352d36"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "git_blob": "22aa2ac897deb468ea2d223f4abb8a44891f7d72"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "git_blob": "7d65c3a522f548d7a40b831ad82c9292c7771814"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "git_blob": "193b92b9ebe377deca4cebaf3dda29eb96b679b9"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "git_blob": "2929aebaa72073423a3274e9f53ea6eed15af900"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "git_blob": "c4f5de90e4e3c8f0c0df7d21a8b3d0981d24b178"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "git_blob": "fb98f2b402e443089bfbb1087fb625a6f327a4a3"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "git_blob": "4d44ecc75352c9dd45461ed0e0b6af466d9801a3"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "git_blob": "25c9fbc0596c9ce547c23f644af44ad395744a71"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "git_blob": "009b95187e7a3eceef41e0293fab3d52aceb50ea"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "git_blob": "82c493e1b92de58dc7129fe70ec6c858c9f9395d"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "git_blob": "eb3a92e5f84256e5d6919a8a1e4de4f4f5847bd8"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "git_blob": "3fb5b913e332d945c1dc516fa935fb2450dcb13e"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "git_blob": "2c1dddb4c426bdb3d300c1b95e610eeb5f353d8f"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "git_blob": "83668a5703327d0579a5608635e195e74e532335"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "git_blob": "2d5b6a4d717cecaa053e73dadf74a82398f099b2"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "git_blob": "7a9990301aceb83e47b99b31531f7cd0710d2ce0"
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "git_blob": "0e5bfdc7e37e49430973dc9f5583165d8219b5a7"
+      }
+    ],
+    "relational_file_count": 20,
+    "relational_bytes": 585808308,
+    "relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "source_reprojection_or_reacquisition": false
+  },
+  "adopted_authority_consumer": {
+    "source_candidate": "c6a7270175afb6267ac9a5718312e8d50fa5abba",
+    "source_overlay_sha256": "c7787461b0c9bd7348e719ff2d36dac7f4d36331a88b454178c2032bd591c381",
+    "classification_manifest_sha256": "444ae81c876b11e090741195ba77d592b07ce849fd5c2a0a370ef79ddf28578f",
+    "physical_native_execution_source_count": 18,
+    "obsolete_full_identity_refusals": [
+      {
+        "identity": "historical-full-anchor",
+        "manifest_sha256": "ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a",
+        "reason_code": "invalid_classification_authority"
+      },
+      {
+        "identity": "native17-current-capture",
+        "manifest_sha256": "dc27649646c6b098441d2a5493319e3c5b2841ce9943953c904b33ffae269bec",
+        "reason_code": "invalid_classification_authority"
+      }
+    ],
+    "propagation_source_digest": "9db85b8b033c03046989f829a3da95925b5855850c79b4a03616cb5d6ede812c",
+    "propagation_source_count": 33,
+    "propagation_manifest_sha256": "29e01eb12ef91f8cf75811b33eeb5af067c114cf7825015a97adadd4b6594262",
+    "propagation_payloads": [
+      {
+        "path": "directed_candidates.geojson",
+        "sha256": "1059ba796b04fd774185ab1d92ca3308c2df26d6779e5333ec7e87da98bf252f",
+        "bytes": 1192
+      },
+      {
+        "path": "excluded_non_pollen_events.json",
+        "sha256": "641499cecbb3d08955708d46a328701ac0a91edd2bdacb8e445f12e066de2e97",
+        "bytes": 272
+      },
+      {
+        "path": "indeterminate_pairs.geojson",
+        "sha256": "faec1d1822bbe7cf621c401f52516c4c06aa5bfb76d5697f64925ed44c784365",
+        "bytes": 1193
+      },
+      {
+        "path": "lower_level_edge_union.json",
+        "sha256": "708f3476c4ac3f730633dcfefb1ca7b55bd259c7eedd8799a0bace5ea07744db",
+        "bytes": 1369
+      },
+      {
+        "path": "manifest.json",
+        "sha256": "29e01eb12ef91f8cf75811b33eeb5af067c114cf7825015a97adadd4b6594262",
+        "bytes": 3099
+      },
+      {
+        "path": "phenomenon_events.json",
+        "sha256": "0d307fbb235360c0ddd5b257c1bb21a03e3075a46b799cb9637699904a12a3c8",
+        "bytes": 436
+      },
+      {
+        "path": "primary_scenario_candidates.json",
+        "sha256": "1b014d88fde734b6d6d94014bbef444a55908b0591a57c3dc429070b4c9d1084",
+        "bytes": 455
+      },
+      {
+        "path": "primary_scenario_reconciliation.json",
+        "sha256": "fa3eafdba42b3a61d8076b3c4969412dad079ae2b7e6bb4ea81f27527472a529",
+        "bytes": 7641
+      },
+      {
+        "path": "primary_scenario_refusals.json",
+        "sha256": "64df3c9fe77aa154a353ca72cb288feae200938dc6c7ef1d2909f7a99f4c9e95",
+        "bytes": 328
+      },
+      {
+        "path": "release_metadata.json",
+        "sha256": "5c17da6bafa8fdc09895eff7e6c839d31cf85c768e0582973d1c9b85270accd6",
+        "bytes": 1192
+      },
+      {
+        "path": "sensitivity_summary.json",
+        "sha256": "ae715539ab777a4ab574d5782e4301216e13baefea644b9431ef006185e26fa4",
+        "bytes": 205080
+      }
+    ],
+    "eligible_events": 0,
+    "directed_candidates": 0,
+    "accepted_mappings": 0,
+    "release_status": "refused",
+    "native_stages": [
+      {
+        "consumer": "native-adopted-authority-and-affected33-source-empty-propagation",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 1.8014178749872372
+      },
+      {
+        "consumer": "classification-authority-refusal-regressions",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 1.0784486249904148
+      },
+      {
+        "consumer": "propagation-classification-identity-and-lineage-regressions",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 1.7708443750161678
+      },
+      {
+        "consumer": "maintained-scientific-policy-and-publication-regressions",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 1.0897901250282302
+      },
+      {
+        "consumer": "actual-current-product-inventory-source-and-full-bundle-contract",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 1.4990070830099285
+      },
+      {
+        "consumer": "configured-ruff-changed-source-and-test",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 0.040678458055481315
+      },
+      {
+        "consumer": "configured-format-changed-source-and-test",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 0.04522195796016604
+      },
+      {
+        "consumer": "strict-changed-source-and-test",
+        "native_exit": 0,
+        "timeout": false,
+        "wall_seconds": 3.224159667035565
+      }
+    ],
+    "tests": [
+      {
+        "consumer": "actual-current-product-inventory-source-and-full-bundle-contract",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "consumer": "classification-authority-refusal-regressions",
+        "tests": 45,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "consumer": "maintained-scientific-policy-and-publication-regressions",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "consumer": "propagation-classification-identity-and-lineage-regressions",
+        "tests": 37,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "source_pins": 4312,
+    "before_pin_mismatches": [],
+    "after_pin_mismatches": [],
+    "wall_seconds": 11.033158916980028,
+    "observed_completed_child_peak_rss_bytes_macos": 533856256,
+    "memory_storage_quotas_enforced": false
+  },
+  "retained_receipt_identities": [
+    {
+      "identity": "historical-native-capture",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/capture-comparison/historical-authority-recovery/terminal.json",
+      "sha256": "c92821b51d652c62c96af7da4b592dfe210d41929e7da5edbb5b5dbefc286f9f"
+    },
+    {
+      "identity": "current-native17-capture",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/capture-comparison/current-source-accounting/terminal.json",
+      "sha256": "a5b5364a0d1a86b252fb5470d3b23126bb695fdec511aae1410fbc646adb7191"
+    },
+    {
+      "identity": "preserved-failed-digest-only-comparison",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/capture-comparison/terminal.json",
+      "sha256": "5fe73e4eed5b69ce00088a0636160fb8d87a8df4e543588c5d2e97f75c033efb"
+    },
+    {
+      "identity": "context-evolution-and-metadata-derivative",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/source-custody-comparison/terminal.json",
+      "sha256": "788f6d0e5394e651b48bc239808031f532aa057033c416e0ae5f988c4493fea3"
+    },
+    {
+      "identity": "independent-metadata-derivative-review",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/source-custody-comparison/custody-derivative-review.json",
+      "sha256": "6f7f5055d1750a87df89b0cdf7c2429ccd61e33241c9d01ab0f2847cc62e62bf"
+    },
+    {
+      "identity": "guarded-authority-and-full-policy-consumers",
+      "repository_artifact_locator": "artifacts/science/classification-authority-capture/authority-adoption/qualification/terminal.json",
+      "sha256": "1284386c97aa5078570f1a453d524108fe4c5569705f71755aa958ff8bc42a8a"
+    }
+  ],
+  "limits": [
+    "No18-source full scientific accounting rerun: the18-source packet is explicitly a metadata-only derivative of actual17-declaration current execution with physically witnessed helper bytes.",
+    "No accepted scientific classification, human taxon/context review, taxonomy/PPE assignment or LRA input admission.",
+    "No source publication-rights clearance: source-level attribution/review constraints persist.",
+    "No positive empirical propagation, rate/velocity model, browser or hosted release certification.",
+    "Native large payloads remain local governed artifacts; this compact tracked account records identities and performed checks without redistributing source observations."
+  ]
+}

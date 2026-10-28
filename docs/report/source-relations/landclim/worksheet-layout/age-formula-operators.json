@@ -1,0 +1,43 @@
+{
+  "schema_version": "rootsi-age-formula-operator-inspection.v1",
+  "candidate": "523ddf594252a3e63c0fc3439346a4e326ce545c",
+  "plan_sha256": "5cd196e119e436f4c09eb86d5485286d58aa638a6f2c7889654dce87269b6866",
+  "source_workbook_artifact_payloads": 2,
+  "captured_FORMULA_records": 63,
+  "native_token_bytes": 1131,
+  "canonical_original_workbooks_read": 0,
+  "BIFF_record_censuses_repeated": 0,
+  "cached_cell_grids_loaded": 0,
+  "source_header_literal": "Sample age (cal AD/BC)",
+  "source_token_primitive_operator_counts": {
+    "multiply": 27,
+    "add": 27
+  },
+  "literal_1950_token_occurrences": 0,
+  "strict_pure_affine_templates_accepted": 0,
+  "strict_template_counts": {},
+  "refused_formula_records": 63,
+  "refusal_reason_occurrences": {
+    "expression_stack_not_closed": 27,
+    "operator_outside_qualified_template_multiply": 27,
+    "shared_definition_not_supplied": 36,
+    "formatting_attribute_outside_initial_selector_scope": 27
+  },
+  "shared_definitions_supplied": false,
+  "native_source_field_interpretation": "Literal/control/operator presence alone is not a qualified affine relation. Shared definitions, source reference values, functions and conditional semantics are unresolved when refused. Even a recognized1950template does not establish source epoch/scale or calibration validity.",
+  "formula_evaluations": 0,
+  "cached_age_values_decoded": 0,
+  "source_ages_converted": 0,
+  "scientific_or_rights_admission": false,
+  "lexical_attribute_correction": {
+    "raw_selector_reason": "conditional_attribute_not_qualified",
+    "source_flag": 64,
+    "native_attribute_occurrences": 78,
+    "field_interpretation": "Source flag0x40 is a formatting/space attribute. The original selector refused all attributes conservatively; its reason name does not establish conditional logic. No pinned original report or receipt was rewritten."
+  },
+  "native_report_identity": {
+    "path": "artifacts/science/rootsi-age-formula-lineage/native/report.json",
+    "sha256": "3beaf8311e89176bcc285519d5447e6031d49eae173368cf11a39f2fabe9feb1",
+    "bytes": 1438
+  }
+}

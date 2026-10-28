@@ -19,3 +19,18 @@ python -m bijux_pollenomics_dev.source_completion.openland_intake \
 ```
 
 The command requires an absent output directory and the exact pinned archive SHA-256. Its CSV and JSON can be compared byte for byte with this governed report. Default focused tests use only the tracked upstream metadata and synthetic member decisions. They do not require a private archive.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2078,
+  "surface_count": 2086,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "excluded_metadata_paths": [
     "docs/report/report_narrative_quality_review.json",
@@ -10,16 +10,16 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1179,
+    "maintenance": 1188,
     "maps": 88,
     "portal": 2,
-    "reviews": 39,
+    "reviews": 38,
     "scopes": 760
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1181,
+    "maintainer_diagnostic": 1190,
     "public_reading_surface": 769,
-    "scientific_review_surface": 128
+    "scientific_review_surface": 127
   },
   "geography_counts": {
     "denmark": 49,
@@ -27,7 +27,7 @@
     "finland": 14,
     "nordic": 497,
     "norway": 14,
-    "report_root": 1233,
+    "report_root": 1241,
     "sweden": 49,
     "world": 160
   },
@@ -24886,13 +24886,13 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "family": "reviews",
-      "family_label": "Evidence reviews",
-      "audience": "scientific_review_surface",
-      "audience_label": "Scientific review surface",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
-      "caution_level": "medium",
+      "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
     },
@@ -24958,6 +24958,102 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/physical-biff-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/physical-biff.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-operators-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-operators.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/classification/source-custody/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/classification/source-custody/native-captures.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-affine-structure-source.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/age-formula-affine-structure.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

@@ -44,7 +44,7 @@ def test_zero_accepted_mapping_universe_materializes_a_truthful_refusal(
     assert created.disposition == "created"
     assert unchanged.disposition == "unchanged"
     assert created.manifest_sha256 == unchanged.manifest_sha256
-    assert created.file_count == 8
+    assert created.file_count == 11
     assert created.eligible_event_count == 0
     assert created.excluded_non_pollen_event_count == 0
     assert events["record_count"] == 0
@@ -131,7 +131,7 @@ def test_manifest_hashes_and_counts_every_payload_file(
     manifest = _read_json(output_root / "manifest.json")
     entries = manifest["files"]
     assert isinstance(entries, list)
-    assert manifest["payload_file_count"] == 7
+    assert manifest["payload_file_count"] == 10
     assert [entry["path"] for entry in entries] == sorted(
         entry["path"] for entry in entries
     )
@@ -190,3 +190,41 @@ def test_materialization_preserves_non_pollen_exclusion_records(
     assert partitions["source_family"]["total_count"] == 2
     assert partitions["resolution"]["counts"] == {"taxon": 2}
     assert partitions["feature_key"]["counts"] == {"taxon:triticum_aestivum": 2}
+
+
+def test_fixture_materialization_preserves_cross_border_projection_properties(
+    tmp_path: Path, schema_root: Path
+) -> None:
+    """Closed unit-test authority exercises the public writer, not real admission."""
+    older = _event(
+        "norway", country_code="NO", latitude=60.0, longitude=12.0, age_bp=5600
+    )
+    younger = _event(
+        "sweden", country_code="SE", latitude=60.1, longitude=12.1, age_bp=5500
+    )
+    output_root = tmp_path / "propagation"
+    _materialize(
+        output_root=output_root,
+        allowed_output_parent=tmp_path,
+        schema_root=schema_root,
+        events=(older, younger),
+        accepted_mapping_count=1,
+    )
+    exported = _read_json(output_root / "directed_candidates.geojson")
+    primary = _read_json(output_root / "primary_scenario_candidates.json")
+    union = _read_json(output_root / "lower_level_edge_union.json")
+    indeterminate = _read_json(output_root / "indeterminate_pairs.geojson")
+    features, rows = exported["features"], primary["records"]
+    assert isinstance(features, list) and isinstance(rows, list)
+    assert len(features) == 1
+    properties = features[0]["properties"]
+    original = next(row for row in rows if row["edge_id"] == features[0]["id"])
+    assert all(properties[key] == value for key, value in original.items())
+    assert properties["source_country_code"] == "NO"
+    assert properties["target_country_code"] == "SE"
+    assert properties["cross_border"] is True
+    assert exported["build_id"] == "build-1"
+    assert exported["scientific_publication_authorized"] is False
+    assert indeterminate["record_count"] == 0
+    assert union["feature_edge_count"] == 1
+    assert union["endpoint_set_relation_count"] == 1

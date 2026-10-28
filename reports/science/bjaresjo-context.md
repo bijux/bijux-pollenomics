@@ -63,7 +63,7 @@ To reopen this decision, a source owner needs to bind the Neotoma core and
 model and basin history, and permitted use. A qualified SEAD record/event
 review must then identify a relevant source concept, age uncertainty and
 analytical right before we define a weighting rule or compare it with pollen.
-The source requirements above remain unresolved.
+The open research-needs register retains that request.
 
 We generated this screen with
 `bijux_pollenomics_dev.source_completion.bjaresjo_context`. From the
@@ -79,3 +79,31 @@ Compare its three output files byte for byte with the governed result directory.
 The [machine report](bjaresjo-context/report.json)
 pins every source SHA-256, the official lake and refused core decision, the
 SEAD release posture and the exact output hashes.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Modern Bjäresjö lake identity and nearby dated SEAD display context are source bound.
+
+**Unsupported claim.** A joined BJARE/Neotoma historical pollen core or measured land-use event at the lake.
+
+**Actual verification performed.** Retained lake, core-proximity, SEAD and window consumer checks are reported; index did not rerun.
+
+**Remaining input or review.** The modern lake and nearby SEAD intervals are identified, but Neotoma 28871 versus LandClim BJARE core identity, dated basin and independent event meaning are refused. Resolver: Lake/core and SEAD source owners plus qualified spatial/chronology reviewer Reopen when: One physical core and an independent permitted context observation are matched on site and time support.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Keep archaeological counts as proximity context, not independent vegetation or causal history.
+
+**Precise next acceptance route.** One physical core and an independent permitted context observation are matched on site and time support. Record the accepted evidence in this scientific account.
+
+**Negative or refused result.** Core-linked pollen and event propagation refused.
+
+**Matched denominator.** 25 published windows and 371 SEAD display intervals from 13 sites within 20 km; Neotoma 28871 and BJARE 1.02697 km apart.
+
+Retained evidence: [reports/science/bjaresjo-context/report.json](bjaresjo-context/report.json), [docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv](../../docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

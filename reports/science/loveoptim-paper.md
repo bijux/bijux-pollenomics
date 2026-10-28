@@ -58,3 +58,31 @@ python3 docs/report/method-certification/love-paper-correspondence/verify.py \
 The [original-reference replay](../../docs/report/method-certification/original-r-reference/README.md) checks the bundled R vectors against the current engine. A fresh native-R run needs the exact pinned source archives and isolated library described in the [current R instructions](../../docs/report/method-certification/current-r-oracle/README.md#reproduction); the [paired-draw](../../docs/report/method-certification/paired-love-draws/README.md) and [fixed-candidate](../../docs/report/numerical-performance/love-source-comparison/README.md) instructions write run products under `artifacts/`. The local Linux result has its own private runtime and container custody; its retained report is readable without that runtime. [Source adoption decision](../architecture/lra-source-adoption/README.md).
 
 To reproduce the paper's **Figure 2**, the source owner would need to identify the simulation's exact BÜK200 map extract and land-unit assignment, regional and eight pond coordinates and geometry, all ring areas and water/wetland fractions, generated local/regional pollen inputs, random draws and executable version. A qualified landscape-reconstruction reviewer would then assess the model's local-area and uncertainty assumptions for any proposed historical site. Before claiming vegetation accuracy, a reference owner would need independent measured cover, dated and matched to the pollen and the actual spatial estimand; our current [vegetation-reference review](vegetation-reference.md) does not supply such a Nordic pair. These are **unsent source and reviewer requests**. No colleague reading exercise, qualified scientific endorsement, Nordic ring admission or independent vegetation score is recorded here.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** 2024 paper population/results and later exact parameter/candidate arithmetic are separately documented.
+
+**Unsupported claim.** Paper Figure 2 eight-pond RMSE reproduction or Nordic radius selection.
+
+**Actual verification performed.** Retained printed Table 2 transcription, 30-cell comparison and later R/native fixture receipts are described; index did not rerun simulation.
+
+**Remaining input or review.** Printed 30 parameter cells match a later package, but original BÜK200 map extract, eight-pond geometry, generated pollen and random draws are absent; BÜK300 fixture parity does not reproduce Figure 2 or select Nordic radius. Resolver: 2024 paper simulation custodian and qualified LOVE/basin reviewer Reopen when: Exact original simulation inputs and random realizations are versioned and reviewed before Figure 2 replay or transfer.
+
+**Cause category.** data|assumption|comparability
+
+**Consequence.** Keep BÜK300 later fixture parity separate from BÜK200 paper output and real lake geometry.
+
+**Precise next acceptance route.** Exact original simulation inputs and random realizations are versioned and reviewed before Figure 2 replay or transfer. Then update reports/science/paper-accounts.md.
+
+**Negative or refused result.** Original BÜK200 simulated pollen and random draws unavailable; no Nordic cover score evaluated.
+
+**Matched denominator.** Paper: one regional lake and eight artificial ponds; 30/30 printed numeric parameter cells match later fixture by row, 9/10 names exactly.
+
+Retained evidence: [docs/report/method-certification/love-paper-correspondence/README.md](../../docs/report/method-certification/love-paper-correspondence/README.md), [reports/science/method-correspondence.md](method-correspondence.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

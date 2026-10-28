@@ -129,8 +129,7 @@ LRA run; its constrained SLSQP LOVE backend had three training
 nonconvergences even under a higher-budget check. Neither result identifies
 universal LRA parameters. We list unresolved Swedish/Nordic basin geometry,
 selected chronology, PPE/taxon denominator, independent vegetation pairs and
-HYDE semantics in our [source-cohort account](source-cohorts.md) and
-[modeled-cropland account](hyde-cropland-source-account.md).
+HYDE semantics in our research-needs register.
 
 
 ## Development evaluator split and target isolation
@@ -157,3 +156,31 @@ checks, including 50 Decimal50 MAE comparisons within `8.5e-17`. This is an
 inspected constructed software contract, with no measured vegetation reference,
 qualified real-source alias graph or untouched confirmation. It does not change
 the source/population limits of the empirical development studies above.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Aggregate development account separates 31-author, 16-literal and English forward-pollen scores. Separately, five development experiment entry points persist and guard split custody before fitting; an explicit nine-record/four-group constructed graph and held-out input perturbation preserve fitted target inputs and predictions.
+
+**Unsupported claim.** General model ranking, Nordic vegetation accuracy or untouched confirmation.
+
+**Actual verification performed.** Retained country, Swedish site and English fold receipts are synthesized; index did not rerun studies. A distinct source-bound development-input isolation consumer completed with native exit 0, 57 focused guards and 676 independent checks, including 50 Decimal score checks; retained failures and zero new basin inversions are explicit.
+
+**Remaining input or review.** Observed-pollen and English LRA-forward scores are development results on different axes and exposed sites; no admitted Nordic LRA core or independent measured-cover pair supports vegetation accuracy. Resolver: Independent cohort and vegetation-reference owners with qualified science reviewer Reopen when: A fresh grouped cohort and source-qualified same-estimand vegetation pair are frozen, predicted and scored.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Do not average unlike score axes or convert a failed fit into zero accuracy.
+
+**Precise next acceptance route.** A fresh grouped cohort and source-qualified same-estimand vegetation pair are frozen, predicted and scored. Then update reports/science/model-use.md.
+
+**Negative or refused result.** 94 NO country bins, 15 Sweden-only bins and one English outer fold refused in their respective studies; no measured vegetation score. In the separate constructed perturbation, three other folds legitimately refuse because the perturbed record enters training; three alternative-dataset folds refuse and perform no inversion.
+
+**Matched denominator.** Separate 31-, 16- and 30-target axes; English 14 paired target sites after one refusal; country/lake denominators remain separate. Distinct constructed intake population: nine identity records/four groups; reference predictions 12 to 3 and fitted predictions 8 to 2 after target-source perturbation; 80 score rows comprise 50 scored and 30 prediction_failed, five unchanged target method predictions, 16 retained request hits and five spatial fits.
+
+Retained evidence: [reports/science/nordic-observed-pollen-transfer.md](nordic-observed-pollen-transfer.md), [reports/science/english-lra-pollen-prediction.md](english-lra-pollen-prediction.md), [docs/report/synthetic-validation/site-leakage/development-input-isolation.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation.json), [docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json](../../docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

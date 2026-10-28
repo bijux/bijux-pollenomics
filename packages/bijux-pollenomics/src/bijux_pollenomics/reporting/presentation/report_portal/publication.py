@@ -1,3 +1,5 @@
+"""Publish report portal navigation and structural reader accounts."""
+
 from __future__ import annotations
 
 import json
@@ -9,6 +11,7 @@ from .markdown import (
 )
 from .narrative_quality import _build_report_narrative_quality_review
 from .pages import _render_portal_pages
+from .scientific_accounts import publish_scientific_routes
 from .surfaces import (
     _build_existing_surface_rows,
     _build_portal_rows,
@@ -19,6 +22,7 @@ from .surfaces import (
 def publish_report_portal(output_root: Path) -> dict[str, str]:
     """Publish a human-facing portal and classification registry for docs/report."""
     output_root = Path(output_root)
+    publish_scientific_routes(output_root)
     existing_rows = _build_existing_surface_rows(output_root)
     portal_pages = _render_portal_pages(output_root, existing_rows)
     portal_rows = _build_portal_rows(output_root, portal_pages)

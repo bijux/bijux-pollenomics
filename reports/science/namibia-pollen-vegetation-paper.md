@@ -60,3 +60,31 @@ The Namibian savanna taxa, soil sampling and calculated vegetation support diffe
 With the two exact original tables in a source directory, use the [join and sensitivity commands](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md) or the explicit reproduction blocks on that page. The producers write isolated outputs under `artifacts/`; comparing all four numeric outputs with the retained files checks the bounded calculations. The first producer refuses changed source bytes before deriving rows. Public readers can inspect source dataset identifiers and retained outputs without a private runtime.
 
 The precise **unsent** source request is for the full article methods and supplement, ERV input/design and parameter uncertainty, the exact ring-sector masks and spatial support construction, soil/imagery dates, mapped taxon-area construction and uncertainty, and the versioned Lake Otjikoto count/chronology/PPE/transport inputs. A qualified reviewer should first determine whether those source observations and spatial supports measure the proposed estimand. An independent reader exercise and scientific review are not recorded. These missing details keep calibration, historical reproduction and cross-domain vegetation validation open.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Original modern count/area tables support deterministic five-taxon descriptive comparisons; a separate prior-exposed nine group experiment predicts mapped-area composition with training-group exclusion and retains all 15 radii, both weighting rules and poorer comparisons.
+
+**Unsupported claim.** Calibrated PPE/ERV, recommended pollen-source radius, untouched confirmation, field vegetation or Nordic lake accuracy, historical Lake Otjikoto reproduction or causal shrub-encroachment inference.
+
+**Actual verification performed.** Original source hashes, event/coordinate joins, units and descriptive distances are retained. Independent 50 digit Decimal review verifies 7290 grouped experiment fields at unchanged 1e-12 tolerance; later source/numerical qualification and maintained aggregate writer receipts bind existing native results. This claim-index refresh reruns no model or acquisition and supplies no qualified human review.
+
+**Remaining input or review.** CC BY 4.0 modern tables and publisher 100 m ring description support actual source joins and a separate grouped mapped-area development experiment. Exact soil/image dates, sector masks/pixel construction, original ERV design/uncertainty, historical Otjikoto inputs and qualified ecological interpretation remain unbound; no Nordic measured-reference admission follows. Resolver: Namibian source custodian and independent qualified ERV/spatial/ecological reviewer Reopen when: A versioned packet supplies source sampling/imagery dates, sector masks and area construction, original ERV inputs/design/uncertainty and historical Otjikoto counts/ages/parameters with intended-use terms; qualified reviewer determines one comparable estimand.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Keep descriptive Hellinger distance distinct from squared-Hellinger prediction loss, development exposure explicit, and mapped-area composition separate from PPE/transport or independent field vegetation; retain all 110 poorer paired contrasts across two baselines.
+
+**Precise next acceptance route.** Obtain the versioned dates/masks/area/ERV/historical packet and separate source-use terms; qualify spatial independence and estimand, then freeze a genuinely new evaluation protocol before new outcomes. Reproduce only a supported original calibration/historical claim with exact inputs, and update the Namibia and vegetation-reference accounts.
+
+**Negative or refused result.** Correction is poorer than unchanged pollen in 20/150 site-radius contrasts and poorer than training mapped composition in 90/150; stronger mapped baseline wins mean loss at 8/15 radii by equal-site and 9/15 by equal-group weighting. No Nordic reference pair or empirical uncertainty calibration is admitted; exact dates/masks/original ERV and historical inputs remain missing.
+
+**Matched denominator.** Ten soil-pollen sites;150 site-radius rows;750 five-taxon source pairs. Nine declared groups hold T4/T5 together.450 prediction vectors and 450 squared-Hellinger losses across 15 radii/three methods;150 paired contrasts per baseline. Repeated radii are not independent pollen samples.
+
+Retained evidence: [docs/report/vegetation-reference/namibia-pollen-vegetation/report.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv](../../docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv), [docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json), [docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json), [docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json), [docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json](../../docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

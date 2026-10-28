@@ -19,3 +19,18 @@ cmp artifacts/jobs/landclim-map-export-lineage/check/rows.csv docs/report/source
 ```
 
 The output destination must not already exist. The producer refuses changed map shards, model manifest, window/country quality counts, metric keys, paired numeric/null posture, source archive custody, or the published download selector contract.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

@@ -112,3 +112,18 @@ This inspected software-contract exercise supplies no measured vegetation
 accuracy, qualified real-source identity graph, biological admission or
 untouched confirmation. The original 24-case forward challenge above retains
 its separate source, denominator and result.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

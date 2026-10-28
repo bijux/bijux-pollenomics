@@ -4,6 +4,26 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ## Unreleased
 
+### Added
+
+- Add source-preserving Nordic pollen windows, explicit same-core chronology
+  comparisons, and conditional basin-geometry and shared-input covariance accounts.
+- Persist development splits before fitting and bind model/cache products to their
+  training inputs, with transitive group isolation and retained refusal diagnostics.
+- Expose propagation country selection, separate directional and indeterminate
+  GeoJSON, and unions keyed by complete endpoint observation sets.
+
+### Changed
+
+- Preserve source-age epoch and scale as separate requirements. Animal records
+  with an undocumented age origin retain their raw source fields and no qualified
+  calendar-BP interval; publication year supplies no inferred origin.
+- Keep botanical projections, calculated vegetation targets, synthetic diagnostics,
+  source-code parity and independent field validation as separate evidence classes.
+  Poorer predictions, unsupported mappings and missing chronology remain visible.
+- Retain workbook visibility, encoding, native BIFF versions and bounded source-age
+  formula inspection without evaluating formulas or converting unresolved ages.
+
 ## 0.1.8 - 2026-09-08
 
 ### Added

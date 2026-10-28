@@ -318,3 +318,31 @@ prediction command. Retain each before invoking its consumer.
 The execution command requires the repository's installed package environment;
 the local package source roots can be supplied through `PYTHONPATH` when using
 an editable source checkout.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Bounded constrained LOVE and matched English LRA-forward pollen development comparison; 64 jointly propagated shared-PPE fits for one exposed training pair under fixed source geometry and diagonal moments.
+
+**Unsupported claim.** Ecological cover accuracy, calibrated uncertainty, field PPE covariance, physical receiving-radius selection or equal-information solver ranking.
+
+**Actual verification performed.** Retained folds and radius sensitivity are cited; maintained qualified producer matches retained 64-draw diagnostics and all 30-taxon summaries, with likelihood gaps and forward residuals checked. No new held-out score or ecological validation. The qualified original ten-stage source consumer on clean commit 3d6a963f1c5e37328d02260acc30a77c2496faca compared all numerical cells and native metadata chains: three of eleven outputs exact, eight identity-only differences from natural code/runtime-version provenance. Source bytes checked before and after; installed producer origin verified. This is commit-bound correspondence, not eleven-file byte reproduction.
+
+**Remaining input or review.** Constrained SLSQP still refuses one outer fold; local radius and fall-speed profile are conditional, sites were explored earlier, and forward pollen scores lack independent vegetation truth or a calibrated interval. Resolver: LRA solver/source-profile owners and independent ecology reviewer Reopen when: Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed.
+
+**Cause category.** algorithm/numerical|assumption|comparability|qualified review
+
+**Consequence.** Keep constrained positive output conditional on its source profile and compare only matched pollen support.
+
+**Precise next acceptance route.** Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed. Then update reports/science/pollen-prediction.md. Separately review conditional shared-PPE moments, source transport and physical geometry before any ecological uncertainty interpretation.
+
+**Negative or refused result.** One outer fold refused after three training fits failed; analytical 15/15 and differential-evolution 2/2 routes refused their declared asks.
+
+**Matched denominator.** 15 English sites; 20,732 source NISP; 159 Filipendula excluded; 30-target closed scoring axis; 14 scored outer folds. Shared-PPE sensitivity fixes one exposed 699-regional/553-local-count training pair, one nominal anchor and 63 stochastic vectors; summary moments exclude the anchor.
+
+Retained evidence: [docs/report/pollen-reconstruction/author-lra-constrained/report.json](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json), [docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

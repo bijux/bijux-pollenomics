@@ -242,6 +242,29 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
     }
 
 
+def _paper_sources(root: Path) -> dict[str, dict[str, object]]:
+    """Delegate historical rendered-source and PDF admission to the paper owner."""
+    manifest_path = "reports/exports/papers/manifest.json"
+    review_path = "reports/exports/papers/visual-review.json"
+    original = _read(root, manifest_path), _read(root, review_path)
+    runpy.run_path(str(root / "reports/exports/papers/verify.py"), run_name="__main__")
+    if original != (_read(root, manifest_path), _read(root, review_path)):
+        raise ValueError("Paper export authority changed during verification")
+    manifest = json.loads(original[0], object_pairs_hook=_json_object)
+    rows = {
+        "reports/exports/papers/" + row["pdf"]: {
+            "canonical_source": row["canonical_report"],
+            "source_sha256": row["source_sha256"],
+            "sha256": row["pdf_sha256"],
+            "bytes": row["pdf_bytes"],
+        }
+        for row in manifest["papers"]
+    }
+    if len(rows) != 9 or len(manifest["papers"]) != 9:
+        raise ValueError("Qualified paper export population differs")
+    return rows
+
+
 def download_bytes(root: Path) -> dict[str, bytes]:
     """Validate the exact population and freeze its bytes before site rendering."""
     manifest = json.loads(_read(root, MANIFEST), object_pairs_hook=_json_object)
@@ -291,12 +314,21 @@ def download_bytes(root: Path) -> dict[str, bytes]:
         )
         if deck_lock["decks"] != list(DECKS):
             raise ValueError("Scientific download deck identity differs")
+    papers = _paper_sources(root)
+    if set(papers) != {
+        path for path in expected if path.startswith("reports/exports/papers/")
+    }:
+        raise ValueError("Scientific download and qualified paper membership differ")
     retained_deck_sources(root)
     frozen = {}
     for row in rows:
         uri, source = expected[row["path"]]
         if row["site_uri"] != uri or row["canonical_source"] != source:
             raise ValueError("Scientific download route or canonical source differs")
+        if row["path"] in papers and any(
+            row.get(key) != value for key, value in papers[row["path"]].items()
+        ):
+            raise ValueError("Scientific download differs from qualified paper export")
         content = _read(root, row["path"])
         if (
             not content.startswith(b"%PDF-")
@@ -304,7 +336,11 @@ def download_bytes(root: Path) -> dict[str, bytes]:
             or hashlib.sha256(content).hexdigest() != row["sha256"]
             or (
                 not (
-                    "deck_build" in manifest and row["path"].startswith("presentation/")
+                    row["path"] in papers
+                    or (
+                        "deck_build" in manifest
+                        and row["path"].startswith("presentation/")
+                    )
                 )
                 and hashlib.sha256(_read(root, source)).hexdigest()
                 != row["source_sha256"]

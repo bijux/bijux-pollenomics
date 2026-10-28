@@ -190,3 +190,31 @@ retain the conflicting declarations. Provider-version authority, formal
 geography, category and temporal comparability, qualified source review and
 public redistribution permission remain open. The finite arithmetic success
 does not establish release readiness.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Selected Nordic source totals and grid conservation; independently checked local cropland/archived-AL contextual arithmetic with explicit support and refusal scopes.
+
+**Unsupported claim.** A licensed native-grid product or HYDE-assisted pollen-model effect.
+
+**Actual verification performed.** Original 84 totals/21 grids/one whole-member token check reused; actual new 45-context native consumer and independent Decimal/spherical account both exited zero. 24 source guards and four CLI refusals passed. Numerical cell outputs remain local.
+
+**Remaining input or review.** Country totals and selected grids conserve modeled source values, but retained file/version declarations and licences conflict; formal CRS, CE/0AD calendar, category overlap and scenario estimand are unbound. Resolver: HYDE release/licence provider and qualified geospatial/temporal reviewer Reopen when: Provider binds exact retained members to version, rights, CRS, time conversion, units and scenario meanings before matched ablation.
+
+**Cause category.** data|assumption|comparability|access/rights
+
+**Consequence.** Keep source scenarios as modeled alternatives, not confidence limits or measured land use.
+
+**Precise next acceptance route.** Provider binds exact retained members to version, rights, CRS, time conversion, units and scenario meanings before matched ablation. Then update reports/science/model-use.md.
+
+**Negative or refused result.** 90 complete-cell variants refused missing source quantities; 18 future CE-point cases refused. No matched no-HYDE/HYDE pollen ablation, ecological accuracy or common estimand admitted.
+
+**Matched denominator.** 84 country totals and 21 source grids; new three grids × five CE points × three scenarios = 45 contexts, two supports × two denominators = 180 variants: 90 ISO752 local finite contrasts, 90 complete-cell nulls, plus 18 future-point refusals.
+
+Retained evidence: [docs/report/regions/nordic/hyde-country-cropland/report.json](../../docs/report/regions/nordic/hyde-country-cropland/report.json), [docs/report/source-relations/hyde/provider-record/README.md](../../docs/report/source-relations/hyde/provider-record/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

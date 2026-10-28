@@ -1,403 +1,1125 @@
 {
   "defects": [],
-  "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b",
+  "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
   "inventory_sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
   "overall_status": "layout_pass",
-  "page_count": 32,
-  "page_evidence_sha256": "da4ff8c5cc723f284f3efedc67cf132ded9931dfbf7235d904ca6a2999d3a957",
+  "page_count": 41,
   "paper_count": 9,
   "papers": [
     {
       "all_fonts_embedded": true,
       "embedded_font_count": 7,
+      "fonts": [
+        {
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "MKDRVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
       "input_pdf": "landclim-regional-reconstruction.pdf",
-      "input_pdf_sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
-      "input_receipt_sha256": "434f23c8f45a219535c10697999bdeec81780a7addf8fc19fed1737bf68f8a4f",
-      "page_count": 10,
-      "page_evidence_sha256": "ef264bc41a14f0db6408232b89ad7f62a2544a750d3e6d6024d17ab7ef7af96d",
+      "input_pdf_sha256": "b9465a31c5f225fb73fe1da256fe4013105be1579927fb5d8758986c1b0c742c",
+      "input_receipt_sha256": "d5e820696cdcdd4bdaa12ffc39e122b01997d8e8edc844d4a9be6d0d432ec1cb",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 11,
+      "page_evidence_sha256": "8652433eb5e1bbd84adc97ad65ad019d4bbdfa54cf8fede499b4fb73be4472ae",
       "pages": [
         {
+          "height_pt": 841.89,
           "image": "page-01.png",
-          "observation": "Full citation, source fe7a731c and scientific scope readable. Original historical correspondence is distinguished from new conditional reconstruction; no clipping or footer overlap.",
+          "nonempty_word_count": 459,
+          "observation": "Full citation/source hash and distinction between author examples, archived products and recovered conditional cores readable; source footer clear. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 1,
-          "png_sha256": "88e61784c6001bad55bfb95a24318f17ec2d254ca1c20e6522e10c15134b14c0",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "103fc8219635a9707606ef0da7e180b534f3537e564a0cd0ace42794e16c177c",
+          "source_footer_visible": true,
+          "text_sha256": "a80f5c7bdb7c2ddb65cf03c1e65daf6acb44c1603c12a0620e0e54c9bb65256e",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-02.png",
-          "observation": "All six original flowchart boxes and arrows readable. Transport and LRA definitions and the 17-site profile fit; denominator paragraph continues correctly onto page 3.",
+          "nonempty_word_count": 392,
+          "observation": "All six flowchart nodes/edges and REVEALS/LOVE/PFT definitions legible;17-site and425-window paragraph continues correctly. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 2,
-          "png_sha256": "2cfdafa0ddbafe4b76ef5ffa8258239beaf14ea4fa268b3da7eb80eb28316574",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "a8123467d9366bd29ca1d4fdb232ea4b32c82d7d6da65df209eb2a08a65f9618",
+          "source_footer_visible": true,
+          "text_sha256": "ee0bebc211f1a60ef5524e0c51eb2262a25a422f70075582d355d6b4a58fc5f0",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-03.png",
-          "observation": "14,074-value denominator, WHH301-to297 trace, exact window, original means/SE exponents and two-grid numerical/archive results readable; continuation remains intact.",
+          "nonempty_word_count": 681,
+          "observation": "WHH301-to297 count trace,1500BP label and exact mean/SE scientific exponents readable;124-value archive comparison remains distinct. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 3,
-          "png_sha256": "20d6c456bdf325d9554a967d1c9f64fcc7949e53824b73fdb5d125c20109cb7b",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "52bba766b08777916a173a87713adc63ecdb39f9dc2d02d4e7297d4c45082467",
+          "source_footer_visible": true,
+          "text_sha256": "40e3f66e7ebcc51fe7979ab34ce9cb6f3742e5360be030f9c2d85f144f473062",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-04.png",
-          "observation": "Archive TW2 and PFT qualifications and all six acquired-asset table rows readable; filenames wrap within cells. All32 workbook tabs and79 metadata candidates remain explicit.",
+          "nonempty_word_count": 538,
+          "observation": "PFT11/12/13 discrepancy and six acquired-asset table rows fit; long spreadsheet filename wraps without loss. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 4,
-          "png_sha256": "800db7a7ca697f7c673d5621f96dacc05d0134d77137f389755576db48075333",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "6c72b3a18e528e2580856a239d6ce88d31986ff18ba5f62653ab30333adf9c68",
+          "source_footer_visible": true,
+          "text_sha256": "d28885d311ca246d2aea4f4c8a8de58ef797e4f305d30a11b7ea285809ccb966",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-05.png",
-          "observation": "84 Swedish metadata rows,59 datasets/4548 samples and complete four-core table readable.261/273 samples,77 windows, panel grain denominators, BUS refusal and wider assumed-zero scope fit.",
+          "nonempty_word_count": 595,
+          "observation": "84Swedish rows/59datasets4548IDs and four-core261/273/77 table readable; absent Poaceae and sparse-zero alternatives remain explicit. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 5,
-          "png_sha256": "4d1caaa06275f87034f46d7648102fb6c94a83976a2a86d930f95e63b4f21ae0",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "5036caba49383ea24146e218291faa539fdfc087fa692247702f57ee2e7173e1",
+          "source_footer_visible": true,
+          "text_sha256": "e182c25c84c32bd3aa59a93cafccef579090c2b26509e5ee015e1353cc7ad94b",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-06.png",
-          "observation": "Complete wider coverage/target table, residual conservation, transfer effects and static basin/PPE conditional uncertainty readable. AD1950, core-surface date, new0BP and negativeBP distinctions visible.",
+          "nonempty_word_count": 627,
+          "observation": "Wider-panel coverage table, source-label zero assumptions, basin factors and counting/PPE/age limits legible. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 6,
-          "png_sha256": "c840a2f09472f0aca3e742ec0a2e70acfb3f8aec30de5019b8b07600be01b9d5",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "9e3fba300112ab0f7070344a4a17603ec6352ad304af818af24efd7e909c0643",
+          "source_footer_visible": true,
+          "text_sha256": "1feaeb4fe5ff75ea08424bbe1a696cc35a1c0663f1328c69ff8ba47ef638b278",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-07.png",
-          "observation": "Tibetanus45point/eightcase changes and historical0/1128 scope readable. Four Nordic core rows fit, with313/314 samples,182 windows and explicit count denominators. Inclusive0 <= age <11700calBP is visible and complete;222 unknown age bounds remain explicit.",
+          "nonempty_word_count": 562,
+          "observation": "Tibetanus45point sensitivity and four Nordic source table rows readable; inclusive0<=age<11700 and222missing bounds are intact. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 7,
-          "png_sha256": "aa446fcd0cb03eb5b66fad763b60a473deec98a7eb584d5321c9cc0b6ef9b3b1",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "b47e7e9d63b9c02107d1b413252ee4f92c1890e40fd79a5e452d2eba107abff6",
+          "source_footer_visible": true,
+          "text_sha256": "fbf7743d34ea5ac539b52d80ecab4150dd3eefc573dab759bfdca01d9fcc76e1",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-08.png",
-          "observation": "Nordic static radius alternatives and conditional uncertainty limits readable.6840 independent Decimal cells and23 physical tuples/29 uses retain limits. Historical-input and source-citation distinctions intact; first three open-evidence rows fit.",
+          "nonempty_word_count": 461,
+          "observation": "Independent6840-cell and23-tuple checks and source-citation limits readable; first three historical/review gap table rows fit. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 8,
-          "png_sha256": "7364f89d82fe36f86e6ccb8782c2d4b1a18580556d6072aeede6976deba0f229",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "26d40372e0566b6aa5fafe92a6888dfd723abd5192cd914e2848cec5e5f25325",
+          "source_footer_visible": true,
+          "text_sha256": "332ff97d8c8fac07a10bbe185bd18aa1a0d13520220c730458911121dd7db792",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-09.png",
-          "observation": "Fourth open-evidence row readable. Original-input versus prepared-count replay requirements, EKE25positive/17zero and rights/accuracy distinctions fit. Reproduction command continues onto page10 without lost lines.",
+          "nonempty_word_count": 542,
+          "observation": "Final independent-reference gap row and distinct computational/historical replay requirements readable; EKE25positive17zero retained. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 9,
-          "png_sha256": "f42e8449cff967fe3002e3be7696d5de38866c33bd0c504ee324416ea163c566",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "d43295bd7e846f70fe72790d7f78c28750f184997cbb4a38133717feb18dd668",
+          "source_footer_visible": true,
+          "text_sha256": "77d468789a6298814900ffa67bbadb74e64e16b8ae3d65a916ebdf6adfc90c5c",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
+          "height_pt": 841.89,
           "image": "page-10.png",
-          "observation": "Command continuation and bounded reproduction routes legible. Complete unsent source/reviewer questions fit; no clipped text, footer overlap or independent endorsement claim.",
+          "nonempty_word_count": 511,
+          "observation": "Command continuation, precise unsent questions and first six verification fields readable; no footer overlap. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 10,
-          "png_sha256": "c46a8439df66fe21ae958828d14ab2cee7c7960dabd463e6ee551bd3175378f6",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "8a5fe17694a69049ef240d3eec8b3c6691deaa3edafe0b32c3e6127140931a13",
+          "source_footer_visible": true,
+          "text_sha256": "2b2ceeda755ec8bbd42b0d137e9a5a8e610345a931cff7804034f73281f9e884",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-11.png",
+          "nonempty_word_count": 216,
+          "observation": "All three final qualification fields and all 11 retained-evidence citations are complete and readable. Individual citation paragraphs wrap within margins; previous protrusions are absent. Scientific caveat and footer remain separate.",
+          "page": 11,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "46513c088ca5ce25697c8c5815258082af46e510fee6f97634d17e1dee2132c7",
+          "source_footer_visible": true,
+          "text_sha256": "0bbd3b2a09cb4782f1998f6f6a512076daba05564f30f56867055ff5c019df8e",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "landclim-regional-reconstruction",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
-      "review_scope": "Actual10-page rendered PNG/text/font/annotation inspection by the model, bound to this one-paper native export. No human reader feedback, scientific endorsement, accessibility certification or release admission.",
+      "review_scope": "Every actual current PDF page inspected by the model after native text/font/citation/Unicode and physical-bounds checks. No clipped or omitted scientific text; no human comprehension, scientific approval or accessibility certification.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
-      "source_sha256": "fe7a731caeb02d8577a5490d68f8aa39fcddb998978b5b194db510a3db6e4076",
-      "text_reading_order": "All ten actual page images inspected; extracted text, numerical notation, source tables and continued code checked. Inclusive age comparator is present; compiler missing-character and extracted replacement-character counts are zero."
+      "source_revision": "7b2008c740c0f66db669d37e6f24ede58ba81817",
+      "source_sha256": "b80fd7ad7f0d2a9f1f7b0901993d2bda69aa473f924aa8179c7fbefe832ba77e"
     },
     {
       "all_fonts_embedded": true,
+      "embedded_font_count": 9,
+      "fonts": [
+        {
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "TUMCEV+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "SGMGKO+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
       "input_pdf": "love-optimized-local-inference.pdf",
-      "input_pdf_sha256": "cd04def7764d2d72534fae9161f0c7e3bb23af8997d89b6cf8d49a02fb174d1e",
-      "page_count": 4,
+      "input_pdf_sha256": "2704fbc853565deed64239eb7c3564c9bf79f49852a5b4b229f2d0bacfbad6bd",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 5,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
       "pages": [
         {
-          "image": "page-1.png",
-          "observation": "2024 citation, simulation scope and entire flow diagram readable with distinct branches and measured/simulated evaluation annotation.",
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 428,
+          "observation": "Full2024citation/source hash, eight-pond boundary and all method/evaluation flowchart nodes legible.",
           "page": 1,
-          "png_sha256": "86daf32191de7d6aabaaaffc59c7fb9e32f78f2d0a491f9fb325f4457e865a6d",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "3764e3fd7eb188105267ac56392ad1e822b91678ea81240b26494b6ad2d64fc8",
+          "source_footer_visible": true,
+          "text_sha256": "f0f01e8952860aeba1bc367473d94325d1b58428861f1fc39efbd3e26a5c15fa",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-2.png",
-          "observation": "Table2 30/30 cells, Betula4/0.4/0.024 and 594/999 versus424/1000 counts readable; both long matched output decimals intact.",
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 668,
+          "observation": "100draw simulations,30parameter cells and later Betula value above1 readable; latter remains explicitly not physical vegetation cover.",
           "page": 2,
-          "png_sha256": "18c0d6c78d1b2697885a266567ae963e017809844336743107716be41ae487a9",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "54537ac9333d855927b237f2ff4b488d2cdd0879a3e8a9e010d17f0b119bd32a",
+          "source_footer_visible": true,
+          "text_sha256": "4d0af2d2cab90096ce07579be711f75bcd8a8b3d68ab002a18ab135f1dabab13",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-3.png",
-          "observation": "Four full numerical-evidence rows readable, retaining historical48/66 versus current66 and Linux platform scope; negative exponents and table borders intact.",
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 458,
+          "observation": "All four correspondence/platform/draw-comparison table rows legible; exact numerical exponents and negative scopes fit.",
           "page": 3,
-          "png_sha256": "a756f19807165bd21b57b447259f1e9807dc215214571238b855c1ca6de6a8e7",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "61ae1a48f59d3ac998414c63293e6d5e5d89d39ad291e98a8bc68a343dd16a8e",
+          "source_footer_visible": true,
+          "text_sha256": "0af674fb79a574b60d160af50edd83f30b29db8864fc1bee74d922b248d00921",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-4.png",
-          "observation": "Final table row3/10 rings and16 negative/six above1 cells visible; command and unsent requests stay inside margins.",
+          "height_pt": 841.89,
+          "image": "page-04.png",
+          "nonempty_word_count": 450,
+          "observation": "Fifth ring-support row,2026versus2024source distinction, reproduction command and unsent review questions readable; verification block begins intact.",
           "page": 4,
-          "png_sha256": "3249d0a7280edfc9f899452f72df91199892a57a09395779a701d0d90bb053ef",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "8a2010db50b1cedb6c1c8d6f36245e0f3c12d4e2a9c0f97fe4c8e297bc16fa60",
+          "source_footer_visible": true,
+          "text_sha256": "278fcd3d6d3a7763bde7f1aa04ad414554acf61a1aa76beb2a26781c11af7981",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-05.png",
+          "nonempty_word_count": 179,
+          "observation": "Remaining verification fields preserve unavailable originalFigure2 inputs and30/30versus9/10denominators; links/footer clear.",
+          "page": 5,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "4962e7a2f8945989b797b1694ab8e312bbfec53b9d9119d070b34d5ade324112",
+          "source_footer_visible": true,
+          "text_sha256": "f91b6caa99f930dd3a3b9dfe852c31b8c1da5f20d24a7e7800afd0472c86fa43",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "love-optimized-local-inference",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "0b1f1efc7de941e92dfc7044f4b03d742b3d26ef214705a62f0bf89a1c59b53c",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "51086eeb97b54eeb342e4826bc90da9d6fb349164c304567afeffe8fab4134a7"
     },
     {
       "all_fonts_embedded": true,
-      "input_pdf": "regional-reveals-theory.pdf",
-      "input_pdf_sha256": "dfc61dbe4329f600f47b4a44ca249560baa022029e605d25af48f160435ed04f",
-      "page_count": 2,
-      "pages": [
+      "embedded_font_count": 5,
+      "fonts": [
         {
-          "image": "page-1.png",
-          "observation": "2007a citation and abstract-only scope clear; regional104\u2013105-km2 support, flow code and WHH05 trace visible with separate footer.",
-          "page": 1,
-          "png_sha256": "908c92bc1a6861b956c509eca1ec2956a33a48976f2c6d301230e4207baba327",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "image": "page-2.png",
-          "observation": "31 mean/SE trace,184/425 supported bins, bounded command and explicit missing original simulation source remain readable.",
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
+      "input_pdf": "regional-reveals-theory.pdf",
+      "input_pdf_sha256": "6c4362e24297a236d980a6d4b45685fc469185aa3edc0a472c47dc903ff476a6",
+      "input_receipt_sha256": "0579a7c8d6e0c5622f18c3eab3be72458a3280f954b6ac854b05eed99f3fe95f",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 3,
+      "page_evidence_sha256": "8652433eb5e1bbd84adc97ad65ad019d4bbdfa54cf8fede499b4fb73be4472ae",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 558,
+          "observation": "Sugita2007a citation,large-lake104\u2013105km2scope, source-role code diagram andWHHdepth16trace readable. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "7015ec55f2e05a750bc6edc85c410c22ffd48528ce7d8ceddc3bafd4b0fe3b5e",
+          "source_footer_visible": true,
+          "text_sha256": "88cad73750b813a533a23b3891664db3bcfdf985d29991eca27ee6b6dab13279",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 475,
+          "observation": "WHHmean/SE exponents and14,074-value scope legible; commands/source requests and first verification fields retain original experiment limits. Actual current 7b2008 export page inspected; content, table/diagram operands and footer remain complete inside page margins.",
           "page": 2,
-          "png_sha256": "9ee9df932f5bccf4e0a929590d173ed41e2d04b96b88d65fdc02803bc88014f3",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "05f3822f175689358e6f73499e8936bd5bba420f431f28dd50ceaf23dae78fe1",
+          "source_footer_visible": true,
+          "text_sha256": "2a85ee23121c5fc93d040d15af5ff0a04106076dd656f757dd162cb0dd3eb29b",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 154,
+          "observation": "Original-scenario refusal, matched denominator and both source citations are complete. Citations occupy separate paragraphs inside margins; previous protrusion is absent. Footer is clear.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "cadd96c1f8dcf9f8306a0c067e5bc47460f64024f8fca6e9127d681988de3eb6",
+          "source_footer_visible": true,
+          "text_sha256": "1217faf04f10f080860e62c4f35e1144534de312e5019444a7dc1d7b6ab577b6",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "regional-reveals-theory",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "Every actual current PDF page inspected by the model after native text/font/citation/Unicode and physical-bounds checks. No clipped or omitted scientific text; no human comprehension, scientific approval or accessibility certification.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "02426d55c1252148f9ec7e518a6f92593988d78cb1c33ecff7e280a8d09fede4",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "7b2008c740c0f66db669d37e6f24ede58ba81817",
+      "source_sha256": "8db18fc38db75190e4ce1c87797a88297bf6bd22541c514704b3578aad097fef"
     },
     {
       "all_fonts_embedded": true,
-      "input_pdf": "local-love-theory.pdf",
-      "input_pdf_sha256": "6ba154e83cd7c8a3f1858d20450d2a85e0c9d96bc575e45f09d6f60882396f57",
-      "page_count": 2,
-      "pages": [
+      "embedded_font_count": 5,
+      "fonts": [
         {
-          "image": "page-1.png",
-          "observation": "2007b citation, code arrows and constructed200\u2013300m ring trace readable;31000 cells/8312negative and signed minimum preserved.",
-          "page": 1,
-          "png_sha256": "5740a86674a6a34a772a63f6d434e88e1c653baff02bc4933307ff70474289e8",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "image": "page-2.png",
-          "observation": "Draw uncertainty and3/10 ring limits readable; full command and unsent source/reviewer request within margins.",
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
+      "input_pdf": "local-love-theory.pdf",
+      "input_pdf_sha256": "f5e3a2788cb0c4b82f528e3d578feee6389589181709219f839b545946005acc",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 3,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 509,
+          "observation": "Sugita2007b scope and background/local ASCII flowchart readable;1000x1x31 tensor and negative-cover example remain clear.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "624907c8d99ad23fed2aa6e5e8ccd495779bd68c8b4f5493a037f3d0fd671a5c",
+          "source_footer_visible": true,
+          "text_sha256": "d46f96d935dcb36b7c3638d802800595c1818bf1b77c1aac6d9f99ae685873a1",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 501,
+          "observation": "8312negative cells, invalid ring examples, original-source limits and source-bound command visible; verification field transition intact.",
           "page": 2,
-          "png_sha256": "d2bac5f6588fc92f2ecb874fd47b8970e273e338a4d4b3538cacb8e470c1b840",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "713cc811f482c52a1e9a63023634f7de67e74a8a467d6c44b60d47ca7acb0207",
+          "source_footer_visible": true,
+          "text_sha256": "f7f7d84e026f2af6da3ea330bb1d2450c6c45f4aed510fbb1f4a52ebb8973b5d",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 122,
+          "observation": "Complete remaining fields preserve8312/31000 denominator and no measured accuracy; retained-source routes andfooter legible.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "6cecb4ffd66a09900334f821c5752497c6f0489f7107563d57cf12d5ac318aa4",
+          "source_footer_visible": true,
+          "text_sha256": "a8cbebfe0b8e03600380c9b7e1eb7c37859c75aba3cb6b18c793bc80d033b2e0",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "local-love-theory",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "c6c43f07ac3d550a72360a5cf1aee434eb45c72cf70ebe36aaccbe14d4e8864f",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "affd894dfe758395f7b93d60a1f39818bee3499c14047548871f24ac5ddca732"
     },
     {
       "all_fonts_embedded": true,
-      "input_pdf": "southern-sweden-regional-validation.pdf",
-      "input_pdf_sha256": "7f279ef718b889080ad7efd1b21ebeefa7f68a5c5f3a80f3c1ecc4b6d7bfc6b7",
-      "page_count": 2,
-      "pages": [
+      "embedded_font_count": 6,
+      "fonts": [
         {
-          "image": "page-1.png",
-          "observation": "2008a citation/2007 online date distinction,26taxa/10lakes and Skane Pinus arithmetic readable; equation continues correctly on next page.",
-          "page": 1,
-          "png_sha256": "c83866cb5c642ba6b0aedfb9b62d2414ef5b534b3edec69319124368852b7803",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "image": "page-2.png",
-          "observation": "Zero percentage-point continuation and five/four label denominator clear; SHA hash wraps without loss, command and precise missing ten-lake inputs fit.",
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+STIXTwoText-BoldItalic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "OQMMMS+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
+      "input_pdf": "southern-sweden-regional-validation.pdf",
+      "input_pdf_sha256": "215a3c2ff7cd498118cdd3225b09216cb4d1c3c741f90c9df7e858e334a99565",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 3,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 553,
+          "observation": "2008citation versus2007online date readable; grain/cover distinction and nine-label Figure6 trace intact.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "222fa111476f958f9c764ea5fbf9755d2bddc6abe0cddb21e26528e37c6c3f51",
+          "source_footer_visible": true,
+          "text_sha256": "b74f1f656cc03137627b706057861b3063604ae8bdfbcdbcafcfe1f71adbbe82",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 478,
+          "observation": "Continuation completes zero-percentage-point example;5+4label/two-region limits, source hash/command and unsent questions fit; verification fields readable.",
           "page": 2,
-          "png_sha256": "3a8ab0f11da6180d78fc7fefa2ef967e7950db5e689ebd2bf3b0696195f6d2a5",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "04264f83422bfeed25b987f74a7ef9f421767db22da5604d3f03a73b269035fb",
+          "source_footer_visible": true,
+          "text_sha256": "2ac10ebc7fcfd34ce4e3d458be78e652f895834ecd0b231286ada31ed45b9c90",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 99,
+          "observation": "Consequence/next route/negative/denominator fields preserve10lakes26taxa versus9printed labels; links/footer clear.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "596783ccc3d73e31b1fb306262ec3482f1e97458d43e57c67b8bd9369b7edd89",
+          "source_footer_visible": true,
+          "text_sha256": "9ad8843adfe8dc14145f9fbeabc67062592d2bf56c23467532afc1b29b569417",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "southern-sweden-regional-validation",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "12154c4ec5ec1c5c3bf645d76f0c1b8eb91751bc66fdecf40da17bfb8040ddc1",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "a2dcdcb6bd219cf4a9b0029a04dab27a56459920de29d76cf018fae613bbe40c"
     },
     {
       "all_fonts_embedded": true,
-      "input_pdf": "southern-sweden-sampling-design.pdf",
-      "input_pdf_sha256": "6fee1371a5e3334f9adf8954a1b254f6a9eb874e696d3420a94c72c483533f35",
-      "page_count": 2,
-      "pages": [
+      "embedded_font_count": 7,
+      "fonts": [
         {
-          "image": "page-1.png",
-          "observation": "2008b citation,25/20/four samples,200km radius versus100x100km2 square and25minus20equals5 visible.",
-          "page": 1,
-          "png_sha256": "93c03a4c181fea6abbe0a18d6466ac57789450aeb001a5f2a2415adf2c5061e4",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "image": "page-2.png",
-          "observation": "Sm\u00e5land Picea16/54/44 percentages and28/10-point differences visible; full command, hash and scenario-specific unsent questions readable.",
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+STIXTwoText-BoldItalic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "UWPXZX+CMSY10",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "OQMMMS+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
+      "input_pdf": "southern-sweden-sampling-design.pdf",
+      "input_pdf_sha256": "a7b1ba7215ec2277720680188c71cfe826b0d846a1e996b60a238f18504fe431",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 3,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 473,
+          "observation": "2008b citation,25/20/4sample alternatives,200km characteristic radius and25-20=5trace legible.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "9413a33caad877bfba65a718107b186cf7635a81719cdd60a98d9fff6cec9228",
+          "source_footer_visible": true,
+          "text_sha256": "0c6f60a4ae585944c486cd836a229a625c36c558c71cf966214a21a49e124b40",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 473,
+          "observation": "Sm\u00e5land16/54/44example, selected-nine-label limitation, hash/command and precise source/review requests readable; on-page limits intact.",
           "page": 2,
-          "png_sha256": "3be93d2f1c6a8cb8d1ee4824be35b6f9d4d6a93fd67109b1c53e419f2a42cc52",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "a44e9d36260a82ac514a81ed66af9cd613234f8ef178ae9716e44b678523aa71",
+          "source_footer_visible": true,
+          "text_sha256": "5ffad245563d3d9c7097150797ca32396842224f6611fa6366a22d5511b6b96e",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 82,
+          "observation": "Finalfields preserve25/20/4 and5outliers as scenario scope, not five landscapes; retained links/footer clear.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "ac1a885e20472ae976f954acd3404031fdc23c64975335047988da65ab3f6205",
+          "source_footer_visible": true,
+          "text_sha256": "5937b03cd385bdfcdfed3e01800bb1bca21ba285746b0a34d5ac2db205f8d68d",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "southern-sweden-sampling-design",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "6a276522c3b3b6cde654c1ea22c896c2eb68daa0f3f72a1f47a127b3c1ae3456",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "45a8ab1c2299481935f3da3be62b2b42b79955c255aab93641a34427500e198b"
     },
     {
       "all_fonts_embedded": true,
-      "input_pdf": "southern-sweden-validation-synthesis.pdf",
-      "input_pdf_sha256": "db84fa8b5d085db16eb35afa49f94b376bbaf5e369f2c451262bf8abb41db75d",
-      "page_count": 2,
-      "pages": [
+      "embedded_font_count": 5,
+      "fonts": [
         {
-          "image": "page-1.png",
-          "observation": "2010 citation and Figure6 scope, selected-label rule and Cerealia4/32/41 to37/9-point calculation readable.",
-          "page": 1,
-          "png_sha256": "745fe66b03995081138f57b0b96f342bc7bd345bdb883e36808337fdf254f50c",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "image": "page-2.png",
-          "observation": "Three-row table preserves Skane5/14.80/4.20,Sm\u00e5land4/20.50/6.25,pooled9/17.33/5.11; hash/code and unsent inputs fit.",
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
+      "input_pdf": "southern-sweden-validation-synthesis.pdf",
+      "input_pdf_sha256": "28f3a290c0d63d4a4536f6c718aa3c8fea4c53f41e5c18be82c60fd25c2709fa",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 3,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 568,
+          "observation": "2010citation, regional grain/area/model distinction and Cerealia4/32/41 to37/9 trace readable.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "e9f5ee81420ea9d1cd0ad8ef96eb2732b5b49cff942f9b887c794b015f84b9c0",
+          "source_footer_visible": true,
+          "text_sha256": "9c8081d1642304dafbda8917dc5a688d9c9567b944b995faa4695f5a55be4e62",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 387,
+          "observation": "All3table rows and17.33versus5.11point figures legible; zero16Nordicpair limit and complete reproduction command preserve original input scope.",
           "page": 2,
-          "png_sha256": "f50a08982843e70d543a65de0ffb320b666f2b024ef0a5469c78f9f25857ad2d",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "61ef34700269822aed994cb48cbcfc6f2e5e2683c4b28c07f404d115d4257f59",
+          "source_footer_visible": true,
+          "text_sha256": "e4aa8ab9a1be8323521fd4514bbc1688022ab3ab51873cab9c4a7a0197f90ce9",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 206,
+          "observation": "All9verification fields readable; two-region9label denominator and no independent repository score remain explicit.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "d7f8b7441ddc613ebbe4aec07be586fbebc6b4a4b5adb070eecb1afb16f59ebf",
+          "source_footer_visible": true,
+          "text_sha256": "b1089e27f9e59c2da9c00aa588eab4ef95ec72f8329e25aaa9fcacc1d1d1961a",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "southern-sweden-validation-synthesis",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "7f21016c60627940a1d1eec37f6809e38cd39d9a19667859509da13b63bd7eed"
     },
     {
       "all_fonts_embedded": true,
+      "embedded_font_count": 7,
+      "fonts": [
+        {
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "TETIDN+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "CJSQVU+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        }
+      ],
       "input_pdf": "smaland-historical-map-reference.pdf",
-      "input_pdf_sha256": "ab3cb9fb5d3ce33e4c8dfb82a22aa36f1fab4b7b21c9928562aed982fb83d9a1",
-      "page_count": 4,
+      "input_pdf_sha256": "b53099b00a4301b90f77fbb582aa4834fa64f5eb50f73ac7c0e628ff253a3bad",
+      "input_receipt_sha256": "62223aa9b20201055f54eab0015c5ede33affcb99db9b96c6159ddbfb5d51268",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 5,
+      "page_evidence_sha256": "f6958e4bca169c4184ac8da44432b209bd465012d4c40d47a49e20b870c05fd0",
       "pages": [
         {
-          "image": "page-1.png",
-          "observation": "2014 citation, three bogs/two regional lakes,25taxa/fourLuVs/3km map support readable.",
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 438,
+          "observation": "2014citation,three bogs/two regional lakes,25taxa and3km map-support explanation readable.",
           "page": 1,
-          "png_sha256": "f53fe80883cef2556e2d92b8286b410fb485a22dc41ec1bce66e010b2da0d4ee",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "1eedb7e373547abf1198fe1215dae6d928871952d6e65cfd38f9216fb7ef5ed9",
+          "source_footer_visible": true,
+          "text_sha256": "9f0afdd72008da0da5122681be6ec60fa1023656df227a373c11ab2478ae34b8",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-2.png",
-          "observation": "Entire source-to-comparison flowchart and four CE windows visible;Stavs\u00e5kra617grains/1930 and100/75/24/10% support trace fit.",
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 400,
+          "observation": "All source-map flowchart nodes/edges fit; fourCEwindows and same1930sample acrossTW1/TW2 remain explicit;617grain trace legible.",
           "page": 2,
-          "png_sha256": "74109679d667e359319a6039628cf3300547bd55c6a556822a13cf7e36db1474",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "d65fb3320bb6a468fcb4e33e304e636d35ce00cf79bbd5761576a126123e1b9d",
+          "source_footer_visible": true,
+          "text_sha256": "65116bc0c4a573f99a6f1c56167abd699a045d5b7dd6d7b23e08c812a49c8cbf",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-3.png",
-          "observation": "Notteryd841/1993 and Storasj\u00f6574/1935 traces,1.3\u20131.7km/\u00b150years limits and first two table rows readable; long refusal identifier wraps within cell.",
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 482,
+          "observation": "Three shared pollen anchors and source map percentages readable; first two gap table rows preserve unavailable numeric reference rather than zero.",
           "page": 3,
-          "png_sha256": "8336e898040076e4ee43cb505cc3c045168ad97ed4c8732004a828559f24e121",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "fe133c868135395d0fb4d76985039da77b6b15ed90536c8746167967adb50693",
+          "source_footer_visible": true,
+          "text_sha256": "366740d664c54a4cf2d2648aff5371506675210d84b27d4e8ad2eadd23a9ae02",
+          "visual_status": "readable",
+          "width_pt": 595.28
         },
         {
-          "image": "page-4.png",
-          "observation": "Table continuation preserves shared three anchors, complete coverage reproduction command and precise unsent numeric-reference questions within margins.",
+          "height_pt": 841.89,
+          "image": "page-04.png",
+          "nonempty_word_count": 443,
+          "observation": "Continued gap table,rights/source scope, complete reproduction command and precise unsent requests legible; verification block starts intact.",
           "page": 4,
-          "png_sha256": "c0d678a52dc51d545258edb3c183f7b2b3e70e9a46629e10844756014c270892",
-          "visual_status": "readable"
+          "physical_page_bounds_pass": true,
+          "png_sha256": "e183ca950c902af0580274319009677fff2012acc784486f34e3835e70be5529",
+          "source_footer_visible": true,
+          "text_sha256": "4cecfaed7ac84d0e1dd1ea8440a72cf3c38ff3dfdebcebefbbe2118e0cbcfc13",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-05.png",
+          "nonempty_word_count": 193,
+          "observation": "Remaining seven verification fields preserve3bogsx4windows and one shared modern anchor perbog; links/footer clear.",
+          "page": 5,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "08f1575f3ea8f580033d2fe6722afb6953a2375facab0993aab9a01aa31f4515",
+          "source_footer_visible": true,
+          "text_sha256": "d565becb7e7b97157f608e53a66d263f5a88ade18637520cf4075e6c758bb2b8",
+          "visual_status": "readable",
+          "width_pt": 595.28
         }
       ],
       "paper_id": "smaland-historical-map-reference",
       "primary_source_url_annotated": true,
+      "replacement_characters": 0,
       "repository_revision_in_annotations": true,
+      "review_scope": "All actual page images inspected by the model, with native text/fonts/annotations/Unicode/physical bounds evidence. No human comprehension, independent scientific endorsement, accessibility certification or release admission.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible.",
-      "source_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-      "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b"
+      "source_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+      "source_sha256": "2a4648f0fde3b5321c09a219afd315445bb7f71454496b2a37aee2cf63f74dff"
     },
     {
-      "paper_id": "namibia-modern-pollen-vegetation-reference",
-      "input_pdf": "namibia-modern-pollen-vegetation-reference.pdf",
-      "input_pdf_sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
-      "source_sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
-      "source_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
-      "input_receipt_sha256": "9b931e98926e1e1952d6b5584c3989e5a79a51e4ae384662ffef5a0ddb215600",
-      "review_status": "layout_pass",
       "all_fonts_embedded": true,
       "embedded_font_count": 8,
-      "page_count": 4,
-      "page_evidence_sha256": "da30a3bc0d7b000d8a315b1d6e31d7673e508fe9e1f2264aaacfe7c76062a638",
-      "pages": [
+      "fonts": [
         {
-          "page": 1,
-          "image": "page-1.png",
-          "png_sha256": "a7e763fc5b88bdfed1305c06a0169ae06d423233e068a89df5b80110abdc3242",
-          "observation": "Citation/source identity and descriptive versus fitted-development scope readable; no clipping or footer overlap.",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "NHKUCT+STIXTwoText-Regular-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "page": 2,
-          "image": "page-2.png",
-          "png_sha256": "d1af4bf6ed436a8d2d4b609fcbb4bb539f1881300dd2a8a97c00d338d8f31318",
-          "observation": "All source-flowchart labels and ring-area/count trace readable; equation continues intact onto next page.",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "LGEHBC+Menlo-Regular",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "page": 3,
-          "image": "page-3.png",
-          "png_sha256": "a58c6810e375291752d13d67bd3a39a50f7bd5eb6d88e4c009c97a619d729564",
-          "observation": "Complete development section, squared-loss distinction, all110poorer outcomes and uncertainty/accuracy limits readable; table and URLs fit.",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "WSIFHN+STIXTwoText-Bold-Identity-H",
+          "subset": true,
+          "unicode_map": true
         },
         {
-          "page": 4,
-          "image": "page-4.png",
-          "png_sha256": "289c7fa0cf729f4c8db7d1a7989c3fb27247b7b6a29c1a87a172d4ac9dce9733",
-          "observation": "Nordic refusal, source/reproduction route and exact unsent input request readable; no independent endorsement claim.",
-          "visual_status": "readable"
+          "embedded": true,
+          "name": "HROAID+STIXTwoText-Italic-Identity-H",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "KUEGKA+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "HGQCVV+ArialMT",
+          "subset": true,
+          "unicode_map": true
+        },
+        {
+          "embedded": true,
+          "name": "[none]",
+          "subset": false,
+          "unicode_map": true
         }
       ],
-      "limitations": "Model layout/text/font check only; untaggedPDF, no qualified human/scientific review."
+      "input_pdf": "namibia-modern-pollen-vegetation-reference.pdf",
+      "input_pdf_sha256": "e783c376cb54c722a976431ea909fe0a19cfd0ab7c4d30520bd56b436c5a09e9",
+      "input_receipt_sha256": "a967f4e0c343033ebfbf44dfe5732efc7633f827dc4b3b3c0de8fbe408cfdbf4",
+      "missing_character_warnings": [],
+      "overfull_warnings": [],
+      "page_count": 5,
+      "page_evidence_sha256": "cf50307f40c81cc9a8566e437625c32d68dea2414846870317f600decf1cc284",
+      "pages": [
+        {
+          "height_pt": 841.89,
+          "image": "page-01.png",
+          "nonempty_word_count": 403,
+          "observation": "Citation, source SHA-256, source roles, ten-site/15-radius empirical scope, rights attribution and unresolved historical calibration are readable; footer does not overlap.",
+          "page": 1,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "3ca7f5bbef676c8e819a00d6375ce6a4411503b25bbbb15ccdf52446cdc4d91f",
+          "source_footer_visible": true,
+          "text_sha256": "299768c3f9f7264adf41991b662922863c288ef3598ef45c301622d83b2508f8",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-02.png",
+          "nonempty_word_count": 374,
+          "observation": "750-pair diagram, ring/disk distinctions and worked652-grain count/area trace are complete. Numerical atoms remain contiguous; the descriptive Hellinger formula ends with its comma on its own line inside margins.",
+          "page": 2,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "1b000aa6c8c1a29d05045dbfb47660f39cf41945086eaecee985fa09fa56471e",
+          "source_footer_visible": true,
+          "text_sha256": "274b388b4c0c59915268320e37787685a7d0f13b6601d1575f41bf1150223cf8",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-03.png",
+          "nonempty_word_count": 504,
+          "observation": "Continuation starts with the p/v definition; no leading punctuation is stranded. The radius table,450 prediction account and complete squared-Hellinger formula fit inside margins. Its period stays with the formula, followed by explanatory prose; poorer outcomes remain explicit.",
+          "page": 3,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "f86407f9f26e8f42f34b53216fc443fb2eb3464f039956797f51a2851cef708b",
+          "source_footer_visible": true,
+          "text_sha256": "4dec70003d0bd3b320278c6c10fe57aebfc10a4935bd1b6fb50af2367072d17e",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-04.png",
+          "nonempty_word_count": 493,
+          "observation": "Source/reference limits, reproduction route and first seven scientific qualification fields remain complete, readable and separate from the source footer. Human and ecological review remain unresolved.",
+          "page": 4,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "fa48147e799cfc1ede2b0c0d24248ed77e812a167558342df090c42ace220609",
+          "source_footer_visible": true,
+          "text_sha256": "a82c5ec538edbb71ef66c4fa1e4b19b4e34567e81f733570f6bfc466488fdf25",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        },
+        {
+          "height_pt": 841.89,
+          "image": "page-05.png",
+          "nonempty_word_count": 147,
+          "observation": "Continuation, all poorer contrasts, matched denominator and six source citations remain readable. Citation paragraphs fit inside margins; final caveat and footer do not overlap.",
+          "page": 5,
+          "physical_page_bounds_pass": true,
+          "png_sha256": "a9e73c396ac464854782f79ca0e104ef78558a7d188831ae79deb2c2ea3539ae",
+          "source_footer_visible": true,
+          "text_sha256": "d1cecf71460e86c28ec19502170f1c19e8e14b88178ab45bae85da925b2dce56",
+          "visual_status": "readable",
+          "width_pt": 595.28
+        }
+      ],
+      "paper_id": "namibia-modern-pollen-vegetation-reference",
+      "primary_source_url_annotated": true,
+      "replacement_characters": 0,
+      "repository_revision_in_annotations": true,
+      "review_scope": "All five actual pages inspected by the model after native text/font/citation/Unicode/physical-bounds checks. No clipped or omitted text and no stranded formula punctuation. No human comprehension, qualified scientific review or accessibility certification.",
+      "review_status": "layout_pass",
+      "source_hash_and_citation_year_on_page_one": true,
+      "source_path_in_each_page_footer": true,
+      "source_revision": "2f526aee907574df061318ef2982af11012626e4",
+      "source_sha256": "a8c92d02c7e7a9d2155f193b5e59451d741184afbfdd626eb5d8c4c3ae8e4bcc"
     }
   ],
-  "repository_revision": "46289be052e0250c3b72cef77cf0520075e13fb5",
-  "review_scope": "Seven unchanged baseline page-review records plus separately inspected ten-page LandClim and four-page Namibia successors. Each successor binds its actual source, build and page evidence; baseline production and review identities remain historical.",
-  "scientific_or_release_admission": false,
-  "source_date_epoch": 1790812800,
-  "library_scope": "Seven unchanged baseline paper exports plus separately produced LandClim and Namibia accounts. Per-paper source, producer, build and layout identities retain their own actual revision; current inventory binds the complete nine-paper library."
+  "repository_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
+  "schema_version": 1,
+  "scope": "Every actual page inspected by the model after native PDF text/font/citation/Unicode and physical-bounds checks. Untagged documents; this is not human comprehension, accessibility certification or qualified scientific review."
 }

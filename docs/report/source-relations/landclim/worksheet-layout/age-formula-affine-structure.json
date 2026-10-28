@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "purpose": "Retained source-age expression syntax and same-sheet shared/array definition custody",
+  "candidate": "2f526aee907574df061318ef2982af11012626e4",
+  "plan_sha256": "e40a5264ee45a642550eb4fe887e5da99806ef4ace5727e992eeb632d091cf10",
+  "artifact_workbooks": 2,
+  "canonical_original_workbooks_read": 0,
+  "full79_census_repeated": false,
+  "cached_cell_grids_loaded": 0,
+  "cached_age_values_decoded": 0,
+  "formula_evaluations": 0,
+  "source_ages_converted": 0,
+  "native_source_header_literal": "Sample age (cal AD/BC)",
+  "retained_FORMULA_records": 63,
+  "original_strict_1950_template_refusals_preserved": 63,
+  "new_definition_records": 5,
+  "definition_kinds": {
+    "shared": 5
+  },
+  "qualified_affine_syntax_records": 63,
+  "qualified_expression_contexts": {
+    "direct": 27,
+    "shared": 36
+  },
+  "refused_formula_records": 0,
+  "refusal_reason_occurrences": {},
+  "address_only_oracle_comparisons": 63,
+  "formatting_space_attributes_in_qualified_expansions": 156,
+  "literal1950_occurrences_in_qualified_expansions": 0,
+  "private_products": [
+    {
+      "path": "private-definition-packets.jsonl",
+      "sha256": "c040833b28d34382a2d1cb4f1ef4883f8f40b8b8fd32b1d9e5bd54e5051ecbfc",
+      "bytes": 2594
+    },
+    {
+      "path": "private-reference-oracle.jsonl",
+      "sha256": "c03554e35a9425f8a490005d3c05dfb63aca6a6c581ebe8ea1866d7032b60990",
+      "bytes": 11947
+    },
+    {
+      "path": "private-symbolic-expressions.jsonl",
+      "sha256": "fb9996244e06181d463b03fd2da97938c357ff1f595c99e55b8b30017aab62a3",
+      "bytes": 213652
+    }
+  ],
+  "limits": [
+    "Affine syntax qualification builds a symbolic tree and resolves same-sheet cell addresses without reading source reference values or calculating source ages.",
+    "Multiplication with one constant-only operand is structurally affine. No literal1950 or other literal alone establishes an epoch or makes a transform impossible.",
+    "Native Ref/RefN flags, exact definition ranges/anchors and source literal binary64 encodings are retained; unsupported grammar refuses.",
+    "Original63strict-selector refusals are predecessor evidence and are not rewritten or retrospectively changed.",
+    "Source Sample and cal AD/BC labels do not independently qualify reference units, calibration, year-zero convention, chronology accuracy, historical selected inputs or intended-use rights.",
+    "The address oracle shares pinned xlrd and CompDoc provenance; it is not independent source authentication. No full archive intake/security or source scientific admission is conferred."
+  ],
+  "scientific_or_rights_admission": false
+}

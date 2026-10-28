@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "purpose": "Retained source-age affine syntax and shared definition correspondence; no source age computation or scientific admission",
+  "candidate": "2f526aee907574df061318ef2982af11012626e4",
+  "actual_plan": {
+    "path": "artifacts/science/rootsi-shared-age-formula-structure/plan.json",
+    "sha256": "e40a5264ee45a642550eb4fe887e5da99806ef4ace5727e992eeb632d091cf10",
+    "bytes": 8739
+  },
+  "actual_terminal": {
+    "path": "artifacts/science/rootsi-shared-age-formula-structure/execution/terminal.json",
+    "sha256": "69399a89cf1e6e3212ac0abd81ad59485dacbcf902103fb562563d6da798413b",
+    "bytes": 8654
+  },
+  "actual_argv": [
+    "python3",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-shared-age-formula-structure/run.py"
+  ],
+  "native_exit": 0,
+  "wall_seconds": 0.12161324999760836,
+  "peak_child_rss_bytes": 25608192,
+  "output_bytes": 241907,
+  "source_pins_unchanged": true,
+  "source_pins": 29,
+  "runtime_pins": 3,
+  "native_aggregate": {
+    "path": "artifacts/science/rootsi-shared-age-formula-structure/native/report.json",
+    "sha256": "f6d8ffb1227bb235b9fb3e9ab381bf80fb854e14199a16bbeb6099e4df53a2b2",
+    "bytes": 2646
+  },
+  "private_products": [
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/native/private-definition-packets.jsonl",
+      "sha256": "c040833b28d34382a2d1cb4f1ef4883f8f40b8b8fd32b1d9e5bd54e5051ecbfc",
+      "bytes": 2594
+    },
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/native/private-reference-oracle.jsonl",
+      "sha256": "c03554e35a9425f8a490005d3c05dfb63aca6a6c581ebe8ea1866d7032b60990",
+      "bytes": 11947
+    },
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/native/private-symbolic-expressions.jsonl",
+      "sha256": "fb9996244e06181d463b03fd2da97938c357ff1f595c99e55b8b30017aab62a3",
+      "bytes": 213652
+    }
+  ],
+  "producer_controls": [
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/structure.py",
+      "sha256": "eb6779c51308ebaad2215db0aee97e57a797d93d36f7d58b25029c9fdf9b98d4",
+      "bytes": 9295
+    },
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/consume.py",
+      "sha256": "cfeeaf7ac9dd18f1de6df5959a335e341d7c98778bd549c342e83991ffedf4b7",
+      "bytes": 8948
+    },
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/protocol.json",
+      "sha256": "d6ffda7de65aa6596b6d06358e22dd6d83f9fa237679773cfc041a3960744278",
+      "bytes": 2042
+    },
+    {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/run.py",
+      "sha256": "003866da1d3c7969527cc40a647077a77293e65cbfda2086114df5900f7861c6",
+      "bytes": 2226
+    }
+  ],
+  "synthetic_controls": {
+    "controls": 36,
+    "address_comparisons": 48,
+    "actual_native_exit": 0,
+    "evidence": {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/execution/synthetic-preflight.json",
+      "sha256": "2aa81462913397b3a75708e03982ffb4db9de3fdd69675a5e6ac72909273daf0",
+      "bytes": 4799
+    }
+  },
+  "address_oracle": {
+    "actual_comparisons": 63,
+    "native_exact_match": true,
+    "method": "Pinned xlrd get_cell_addr address-only helper; comparison preserves flags and resolves same-sheet coordinates. It reads no source cell values and shares pinned xlrd/CompDoc provenance."
+  },
+  "preserved_initial_strict_inspection": {
+    "native_report": {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/inputs/operator-report.json",
+      "sha256": "3beaf8311e89176bcc285519d5447e6031d49eae173368cf11a39f2fabe9feb1",
+      "bytes": 1438
+    },
+    "native_terminal": {
+      "path": "artifacts/science/rootsi-shared-age-formula-structure/inputs/operator-terminal.json",
+      "sha256": "fd71f0eb567f070b79e9e5f13b4a495e794625c92e405b8fa27d9b61a68a1bbf",
+      "bytes": 5037
+    },
+    "original_refusals": 63,
+    "original_native_products_rewritten": false
+  },
+  "source_dependencies": "Exactly two prior artifact-copied XLS byte payloads HAGG/KYLL, previous physical record locators and63private token packets. New read walks only their already selected source worksheet record headers for SHRFMLA/ARRAY payloads; cached-cell record bodies are skipped. Canonical original store and other77workbooks are not read.",
+  "qualified_grammar": "BIFF8 finite native literals, same-sheet Ref/RefN, Add/Sub, unary signs/parentheses and multiplication with one constant-only subtree. Exact0x40 attributes are formatting. Shared/array anchors must bind uniquely in the same sheet and include the consumer in their declared range; unsupported syntax refuses.",
+  "result": "Five native shared definitions bind36shared consumers;27direct formulas and36shared expansions all qualify affine syntax. No ARRAY record was observed in the two selected worksheets.156formatting attributes and zero literal1950 tokens occur across63qualified expansions.",
+  "limitations": [
+    "Affine syntax qualification builds a symbolic tree and resolves same-sheet cell addresses without reading source reference values or calculating source ages.",
+    "Multiplication with one constant-only operand is structurally affine. No literal1950 or other literal alone establishes an epoch or makes a transform impossible.",
+    "Native Ref/RefN flags, exact definition ranges/anchors and source literal binary64 encodings are retained; unsupported grammar refuses.",
+    "Original63strict-selector refusals are predecessor evidence and are not rewritten or retrospectively changed.",
+    "Source Sample and cal AD/BC labels do not independently qualify reference units, calibration, year-zero convention, chronology accuracy, historical selected inputs or intended-use rights.",
+    "The address oracle shares pinned xlrd and CompDoc provenance; it is not independent source authentication. No full archive intake/security or source scientific admission is conferred."
+  ],
+  "source_literal_or_address_content_published": false,
+  "formula_or_cached_value_evaluation": false,
+  "source_age_conversion": false,
+  "scientific_admission": false,
+  "source_rights_admission": false
+}

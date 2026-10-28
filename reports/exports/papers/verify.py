@@ -8,7 +8,9 @@ import json
 from pathlib import Path
 import re
 import subprocess
+from typing import Any
 
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import source_revision
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -18,20 +20,40 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def committed_digest(revision: str, relative: str) -> str:
+def committed_bytes(revision: str, relative: str) -> bytes:
     if not re.fullmatch(r"[0-9a-f]{40}", revision):
         raise ValueError("Invalid source revision")
     result = subprocess.run(
-        ["git", "show", f"{revision}:{relative}"],
+        [
+            "git",
+            "--no-replace-objects",
+            "show",
+            f"{source_revision(ROOT, revision)}:{relative}",
+        ],
         cwd=ROOT,
         capture_output=True,
         check=True,
         timeout=10,
     )
-    return hashlib.sha256(result.stdout).hexdigest()
+    return result.stdout
 
 
-def verify_producer(manifest: dict, paper: dict) -> None:
+def committed_digest(revision: str, relative: str) -> str:
+    return hashlib.sha256(committed_bytes(revision, relative)).hexdigest()
+
+
+def exported_content(source: bytes) -> bytes:
+    """Remove only historical metadata lines suppressed by the paper renderer."""
+    return re.sub(
+        rb"^<!-- scientific-(?:claim-semantic|authored-source)-sha256: "
+        rb"[0-9a-f]{64} -->\n",
+        b"",
+        source,
+        flags=re.MULTILINE,
+    )
+
+
+def verify_producer(manifest: dict[str, Any], paper: dict[str, Any]) -> None:
     """Verify the historical renderer that actually made each retained export."""
     override = {"producer_revision", "producer_sha256"} & paper.keys()
     if override and override != {"producer_revision", "producer_sha256"}:
@@ -47,7 +69,14 @@ def verify_producer(manifest: dict, paper: dict) -> None:
     ):
         raise ValueError("A paper needs its complete exact historical producer closure")
     accepted = subprocess.run(
-        ["git", "merge-base", "--is-ancestor", revision, "HEAD"],
+        [
+            "git",
+            "--no-replace-objects",
+            "merge-base",
+            "--is-ancestor",
+            source_revision(ROOT, revision),
+            "HEAD",
+        ],
         cwd=ROOT,
         capture_output=True,
         check=False,
@@ -122,11 +151,10 @@ def main() -> None:
             != source_revision
         ):
             raise ValueError("Paper layout review belongs to another export revision")
-        if (
-            digest(source) != row["source_sha256"]
-            or committed_digest(source_revision, row["canonical_report"])
-            != row["source_sha256"]
-        ):
+        historical_source = committed_bytes(source_revision, row["canonical_report"])
+        if hashlib.sha256(historical_source).hexdigest() != row[
+            "source_sha256"
+        ] or source.read_bytes() != exported_content(historical_source):
             raise ValueError(f"Canonical report changed: {source}")
         pdf = HERE / row["pdf"]
         if digest(pdf) != row["pdf_sha256"] or pdf.stat().st_size != row["pdf_bytes"]:

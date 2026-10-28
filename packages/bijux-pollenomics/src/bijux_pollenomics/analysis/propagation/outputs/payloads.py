@@ -17,6 +17,9 @@ from bijux_pollenomics.analysis.propagation.network import (
     PropagationNetworkResult,
     PropagationScenarioResult,
 )
+from bijux_pollenomics.analysis.propagation.projection import (
+    project_propagation_network,
+)
 
 from .codec import _refuse
 from .inputs import _validate_records
@@ -94,7 +97,7 @@ def _build_payloads(
     )
     release_status = "refused" if release_refused else "review_required"
 
-    return {
+    payloads: dict[str, dict[str, object]] = {
         "phenomenon_events.json": {
             "schema_version": "propagation-events-artifact.v1",
             "record_schema_id": event_schema["$id"],
@@ -198,6 +201,10 @@ def _build_payloads(
             "record_count": 1,
         },
     }
+
+    for name, projection in project_propagation_network(primary_network).items():
+        payloads[name] = {**projection, "build_id": build_id}
+    return payloads
 
 
 def _event_schema_record(

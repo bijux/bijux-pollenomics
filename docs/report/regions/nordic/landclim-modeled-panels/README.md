@@ -19,3 +19,16 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 ```
 
 The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_modeled_panels.py) refuses changed source labels or an incomplete model manifest. The [focused checks](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_modeled_panels.py) exercise the four-panel inventory, no-pollen denominators, paired standard-error fields, and label drift. Qualified scientific interpretation and comparison to independently measured vegetation are separate decisions.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

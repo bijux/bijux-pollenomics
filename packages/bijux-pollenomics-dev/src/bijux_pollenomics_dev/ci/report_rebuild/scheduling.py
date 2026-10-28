@@ -23,7 +23,9 @@ from .scheduling_custody.context import _owner_schedule_context
 from .source_paths import safe_source_file as _safe_file
 
 SCHEMA = "configured-report-owner-schedule.v1"
-MAX_OWNERS = 141
+# One matrix job owns a producer and its two independent lane executions.
+MAX_OWNER_JOBS = 256
+OWNER_LANES = ("reference", "replay")
 IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
 
 
@@ -47,8 +49,8 @@ def configured_owner_schedule(
     rows = configuration.get("owners")
     if not isinstance(rows, list) or not rows:
         raise ReportRebuildError("configured owner list is empty")
-    if len(rows) > MAX_OWNERS:
-        raise ReportRebuildError(f"two-lane owner schedule exceeds {MAX_OWNERS} owners")
+    if len(rows) > MAX_OWNER_JOBS:
+        raise ReportRebuildError(f"owner schedule exceeds {MAX_OWNER_JOBS} matrix jobs")
     with _owner_schedule_context(
         repository,
         Path(relative),
@@ -114,6 +116,13 @@ def configured_owner_schedule(
         "schema_version": SCHEMA,
         "configuration_sha256": hashlib.sha256(before).hexdigest(),
         "owners": matrix,
+        "execution_budget": {
+            "owner_jobs": len(matrix),
+            "lanes_per_owner": len(OWNER_LANES),
+            "owner_executions": len(matrix) * len(OWNER_LANES),
+            "maximum_owner_jobs": MAX_OWNER_JOBS,
+            "maximum_owner_executions": MAX_OWNER_JOBS * len(OWNER_LANES),
+        },
         "owner_ids": " ".join(identities),
     }
 

@@ -74,3 +74,31 @@ We verify the supplied freeze digest, producer, selection, published
 fixed-study manifest and all three prediction/input hashes before reading
 target observations. We apply [Neotoma source terms and attribution](../../docs/public/pollenomics-data/sources/neotoma.md)
 to the observed counts and source investigators.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Frozen selected predictors were paired against IDW on the same country-excluded 16-label pollen support.
+
+**Unsupported claim.** Independent model-selection confirmation or vegetation skill.
+
+**Actual verification performed.** Retained freeze, per-country predictions, paired scores and report are cited; index did not rerun.
+
+**Remaining input or review.** Paired transfer shows selected RBF fails to beat IDW on exposed target-country support; Denmark has one site, response is closed pollen only and independent confirmation/vegetation truth is absent. Resolver: Fresh cohort owner and qualified pollen/vegetation reviewer Reopen when: New grouped source-qualified targets and measured cover are frozen before outcome access for stronger generalization or ecological claims.
+
+**Cause category.** comparability|qualified review
+
+**Consequence.** Do not promote the inner-fold RBF winner or one-site Danish score to general Nordic skill.
+
+**Precise next acceptance route.** New grouped source-qualified targets and measured cover are frozen before outcome access for stronger generalization or ecological claims. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Selected RBF loses to IDW in FI and NO; Norway refuses 94 of 1,178 bins.
+
+**Matched denominator.** DK 1 site/24 bins; FI 28/435; NO 52/1,084 scored of 1,178 attempted on 16 labels.
+
+Retained evidence: [docs/report/regions/nordic/selected-pollen-transfer/paired-scores.csv](../../docs/report/regions/nordic/selected-pollen-transfer/paired-scores.csv), [docs/report/regions/nordic/selected-pollen-transfer/report.json](../../docs/report/regions/nordic/selected-pollen-transfer/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

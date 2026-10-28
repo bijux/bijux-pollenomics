@@ -17,3 +17,16 @@ The shared 31-taxon means are summed without renormalization. L1 is the sum of a
 | 562 | 100.000000 | 100.000000 | 22.140770 | 0.110704 | 0.101288 | Calluna.vulgaris, Poaceae | 0.940 |
 
 On this author example, the archive difference also appears in the independent R replay; it is not a Python-only numerical discrepancy. The 2016 author-example and June 2021 archive historical raw-input cohorts are not closed as identical. This does not reproduce the 1,128-row published study or evaluate measured vegetation accuracy.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/publication-correspondence/published-window-provenance.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/published-window-provenance.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

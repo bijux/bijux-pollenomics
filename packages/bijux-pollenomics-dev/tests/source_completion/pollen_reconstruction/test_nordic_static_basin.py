@@ -127,7 +127,7 @@ def test_every_retained_source_is_pinned(captured_repository: Path, name: str) -
 @pytest.mark.parametrize(
     "mutation,reason",
     [
-        ("fractional_count", "nonnegative integer"),
+        ("fractional_count", "Nordic retained report field shapes differ"),
         ("residual", "NISP conservation"),
         ("hypothesized_mask", "imputation"),
         ("duplicate_case", "case, source or panel"),

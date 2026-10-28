@@ -926,6 +926,7 @@ def test_schedule_sorts_full_ids_and_separates_duplicate_leaf_names(
         "configuration_sha256",
         "owners",
         "owner_ids",
+        "execution_budget",
     }
 
 
@@ -1004,9 +1005,7 @@ def test_schedule_cli_preserves_existing_artifact(repository: Path) -> None:
     assert output.read_text() == "retained\n"
 
 
-@pytest.mark.parametrize(
-    "count", [128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142]
-)
+@pytest.mark.parametrize("count", [1, 127, 128, 129, 141, 143, 255, 256, 257])
 def test_two_lane_schedule_capacity(
     repository: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -1028,13 +1027,20 @@ def test_two_lane_schedule_capacity(
     ]
     inventory_path.write_text(json.dumps(inventory))
     monkeypatch.setattr(scheduling, "resolve_configured_owner", lambda *_args: None)
-    if count == 142:
-        with pytest.raises(ReportRebuildError, match="exceeds 141 owners"):
+    if count == 257:
+        with pytest.raises(ReportRebuildError, match="exceeds 256 matrix jobs"):
             scheduling.configured_owner_schedule(repository)
     else:
         report = scheduling.configured_owner_schedule(repository)
         assert isinstance(report["owners"], list)
         assert len(report["owners"]) == count
+        assert report["execution_budget"] == {
+            "owner_jobs": count,
+            "lanes_per_owner": 2,
+            "owner_executions": count * 2,
+            "maximum_owner_jobs": 256,
+            "maximum_owner_executions": 512,
+        }
 
 
 def test_schedule_refuses_ancestor_owner_namespace(repository: Path) -> None:
@@ -1523,7 +1529,7 @@ def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() 
     selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
     offset = selected.command.index("--capture-profile")
     assert selected.command[offset + 1] == "finite-covariance"
-    assert len(selected.inputs) == 386
+    assert len(selected.inputs) == 392
     assert selected.source_paths == {
         "source-products/report.json": "method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",

@@ -131,16 +131,24 @@ def test_nonobject_preparation_is_refused(tmp_path: Path) -> None:
         swedish_chronology_block._checked_preparation(ROOT, prepared)
 
 
-def test_unavailable_score_is_refused_before_publication(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    ("status", "mae_fraction"),
+    [("unavailable", None), ("scored", None), ("unavailable", 0.0)],
+)
+def test_unavailable_score_is_refused_before_publication(
+    tmp_path: Path, status: str, mae_fraction: float | None
+) -> None:
     freeze_sha256 = sha256((RESULT / "frozen/freeze.json").read_bytes()).hexdigest()
     output = tmp_path / "scores"
     with (
         patch.object(
             swedish_chronology_block,
             "score_pollen",
-            return_value=SimpleNamespace(mae_fraction=None),
+            return_value=SimpleNamespace(status=status, mae_fraction=mae_fraction),
         ),
-        pytest.raises(ValueError, match="target score is unavailable"),
+        pytest.raises(
+            ValueError, match="matched chronology-block score must be admitted"
+        ),
     ):
         score(ROOT, RESULT / "prepared", RESULT / "frozen", freeze_sha256, output)
     assert not output.exists()

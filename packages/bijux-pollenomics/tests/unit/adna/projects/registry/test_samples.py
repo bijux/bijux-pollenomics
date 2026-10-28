@@ -44,7 +44,10 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         )
         self.assertEqual(nordic.political_entity, "Sweden")
         self.assertEqual(nordic.coordinate_basis, "supplementary_table_coordinates")
-        self.assertEqual(nordic.chronology_text, "1217-1417 BP")
+        self.assertEqual(nordic.chronology_text, "Age (years ago): 1217-1417")
+        # The source elapsed-age label does not authenticate a BP epoch.
+        self.assertIsNone(nordic.time_start_bp)
+        self.assertIsNone(nordic.time_end_bp)
 
         ginnerup = next(
             row

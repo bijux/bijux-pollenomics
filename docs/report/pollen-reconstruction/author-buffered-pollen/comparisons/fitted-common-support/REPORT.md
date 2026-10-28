@@ -12,3 +12,18 @@ All four methods use the same author-prepared 31-taxon counts, 17 site IDs, two 
 | clr_rbf_ridge_half_count | 140 | 0.040564 | 0.628745 | +0.015266 |
 
 This fixed fitted configuration is a development diagnostic. Its zero replacement, length scale rule and ridge penalty were declared before scoring; these outer-block results do not select a model. The author-prepared English pollen cohort is not a source-complete Swedish LRA cohort or measured vegetation reference.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md).
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

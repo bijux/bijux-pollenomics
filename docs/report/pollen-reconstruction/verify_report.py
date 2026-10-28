@@ -13,6 +13,11 @@ from pathlib import Path, PurePosixPath
 import re
 from typing import Any
 
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+    authored_reader,
+    load_routes,
+    render_route,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
@@ -383,6 +388,21 @@ def verify_publication_input_inventory(scope: dict[str, Any]) -> None:
         raise ValueError("publication input inventory differs from retained claims")
 
 
+def _sealed_reader_content(path: Path, raw: bytes) -> bytes:
+    """Validate the declared terminal reading route before comparing sealed output."""
+    if path.suffix != ".md":
+        return raw
+    relative = path.relative_to(REPOSITORY_ROOT).as_posix()
+    route = load_routes().get(relative)
+    if route is None:
+        if b"scientific-account-route:" in raw:
+            raise ValueError("Sealed reader has an undeclared managed account")
+        return raw
+    if raw != render_route(raw, route):
+        raise ValueError("Sealed reader route differs from its source authority")
+    return authored_reader(raw)
+
+
 def _buffered_reader_markdown(raw: bytes) -> bytes:
     """Preserve sealed output identity across one exact historical code-link alias."""
     current = (
@@ -408,7 +428,7 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
         path = directory / item["path"]
-        raw = path.read_bytes()
+        raw = _sealed_reader_content(path, path.read_bytes())
         if item["path"] == "README.md":
             raw = _buffered_reader_markdown(raw)
         if (
@@ -1163,7 +1183,14 @@ def main() -> None:
         "site_scores_sha256": "site-scores.csv",
         "training_sources_sha256": "training-sources.csv",
     }.items():
-        if nordic[field] != sha256(nordic_dir / filename):
+        path = nordic_dir / filename
+        if filename == "RESULTS.md":
+            actual_digest = hashlib.sha256(
+                _sealed_reader_content(path, path.read_bytes())
+            ).hexdigest()
+        else:
+            actual_digest = sha256(path)
+        if nordic[field] != actual_digest:
             raise ValueError(f"Nordic direct-pollen digest mismatch: {filename}")
     for country in sorted(countries):
         prediction_path = nordic_dir / f"predictions-{country}.json"

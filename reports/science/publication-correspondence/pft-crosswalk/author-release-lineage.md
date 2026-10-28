@@ -36,3 +36,31 @@ places `Quercus.deciduous` in `ISTS`. The source owner would need to identify
 the archive-producing PFT/LCT transformation and its input version before
 the biological classification, 11/12/13 PFT count and SE covariance can be
 certified. The archived numeric columns remain unaltered.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Released wrapper’s 31 taxon output headers align exactly to corresponding archive positions.
+
+**Unsupported claim.** That wrapper generated the archive’s 13 PFT and three LCT columns.
+
+**Actual verification performed.** Retained public Git blob and private capsule hashes were compared in the report; index did not rerun source lineage.
+
+**Remaining input or review.** Released scripts write 31 taxon columns but not the archive 13 PFT and three LCT columns; script lineage cannot identify the later grouped-output producer. Resolver: LandClim archive-producing code custodian Reopen when: Authenticated PFT/LCT producing revision and input/output hashes are supplied.
+
+**Cause category.** data|algorithm/numerical
+
+**Consequence.** Seek a later authenticated producing transform rather than attributing grouping to the taxon-only wrapper.
+
+**Precise next acceptance route.** Authenticated PFT/LCT producing revision and input/output hashes are supplied. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** The released script contains no PFT/LCT output stage.
+
+**Matched denominator.** 31 taxon positions match; 16 additional archive columns comprise 13 PFT and three LCT outputs.
+
+Retained evidence: [reports/science/publication-correspondence/pft-crosswalk/README.md](README.md), [reports/science/publication-correspondence/pft-crosswalk/columns.csv](columns.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

@@ -23,7 +23,7 @@ The [manifest](manifest.json) binds each PDF to its canonical source and
 committed renderer, compiler versions, deterministic clock and build receipts.
 The [layout record](visual-review.json) records model inspection of every page,
 font embedding, representative Unicode, extractable text order and citations.
-All retained pages are readable without clipping. These PDFs are untagged;
+All retained pages are readable without clipping. Every paper includes its nine-field scientific verification and limits account. Six exports retain their reviewed source revision; LandClim, REVEALS theory and Namibia were separately rebuilt after safe line-break corrections to long paths or inline formulas. Their per-paper records identify the actual source revision and producer. These PDFs are untagged;
 this review does not establish assistive-technology accessibility, actual
 colleague comprehension or qualified scientific approval.
 

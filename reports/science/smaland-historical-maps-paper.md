@@ -62,3 +62,31 @@ cmp artifacts/jobs/vegetation-reference/smaland-map-coverage.json \
 The [public source review](../../docs/report/vegetation-reference/smaland-historical-maps/README.md) links the article and the retained result. A reader without the source packet can still inspect the three-site ledger and the primary article. Replaying coverage does not regenerate the paper's map digitization or LOVE calculation.
 
 To reopen a numerical reference for **one named bog and one named window**, ask the source owner for the actual rectified/digitized map parcels, original class labels and attached descriptions, map footprints and missing-area treatment, harmonized class assignment, per-class area and distance-weighting factors, and the final LuV percentage table with provenance and reuse terms. Ask the pollen source owner for the exact bog and regional lake count rows, age-model/selection decisions, 25-taxon PPE and basin inputs, and the *Calluna* scenario used for that comparison. A qualified landscape/palynology reviewer must then decide whether map and pollen support the same local estimand and whether the class/chronology assumptions are acceptable for a new score. These requests are **prepared but unsent**; no independent review or colleague reading exercise is claimed. [Paper, model-data comparison method](https://pmc.ncbi.nlm.nih.gov/articles/PMC4224531/); [current vegetation-reference boundary](vegetation-reference.md).
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Original three-bog map/pollen scope and exact coverage/sample anchors are retained.
+
+**Unsupported claim.** Numeric reconstructed LuV cover or independent score against this repository’s prediction.
+
+**Actual verification performed.** Retained article/appendix source-packet coverage result is described; index did not acquire missing parcel table.
+
+**Remaining input or review.** Published map coverage and pollen anchors omit the class-area/distance-weighted LuV numeric array, missing-area handling and exact pollen/parameter binding; TW1/TW2 share one sample per bog. Resolver: Map and pollen source custodians plus qualified landscape/palynology reviewer Reopen when: For one bog/window, rectified parcels, class weights, final fractions, count/age/PPE inputs and permitted use are paired and reviewed.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Do not infer numeric vegetation fractions from map coverage alone or duplicate modern-window pollen rows.
+
+**Precise next acceptance route.** For one bog/window, rectified parcels, class weights, final fractions, count/age/PPE inputs and permitted use are paired and reviewed. Then update reports/science/vegetation-reference.md.
+
+**Negative or refused result.** Full distance-weighted class fractions absent; TW1/TW2 use one shared local pollen sample per bog, not six independent samples.
+
+**Matched denominator.** Three bogs × four windows; one modern pollen anchor per bog; map reference area 3 km radius.
+
+Retained evidence: [reports/science/vegetation-reference/smaland-historical-maps/coverage.json](vegetation-reference/smaland-historical-maps/coverage.json), [docs/report/vegetation-reference/smaland-historical-maps/README.md](../../docs/report/vegetation-reference/smaland-historical-maps/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

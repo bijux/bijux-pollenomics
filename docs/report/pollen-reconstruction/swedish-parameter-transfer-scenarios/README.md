@@ -32,3 +32,18 @@ The [independent source-mask and scalar review](execution/independent-source-mas
 The separate [physical response review](execution/independent-physical-response-review.json) recomputes all 300 distinct newly used parameter/geometry tuples and 1,340 actual uses with analytical circle-overlap geometry and scalar radial integration. Fifty tuples also occurred in the original footprint and 250 did not; every tuple has its own result here. The maximum absolute response difference is 1.5019e-11. Declared tolerance comparisons and quadrature estimates are nonrigorous diagnostics, not certified physical-error bounds. Three failed reviewer-consumer predecessors remain preserved in that review's source/run custody. The [scientific source inspection](execution/independent-scientific-source-review.json) checks the exact maintained mask, population and covariance contracts. These independent calculations and code inspections do not substitute for qualified external scientific review or vegetation validation.
 
 The configured publication adapter uses a distinct retained-artifacts root for the unchanged scientific producer and its private source-mask capsule. Only the aggregate report enters the generated report tree. The original scientific producer and its source records retain their own qualification; the adapter has separate publication-boundary evidence.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+- [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

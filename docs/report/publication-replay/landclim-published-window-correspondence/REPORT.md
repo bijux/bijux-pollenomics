@@ -6,3 +6,16 @@ The retained Python REVEALS publication-profile output for author grids 512 and 
 - Grid 562: 5 author sites in this bin; maximum/median absolute mean residual 10.5527/0.0322 percentage points; maximum/median absolute SE residual 4.2581/0.0145 percentage points. Largest mean discrepancy: Calluna.vulgaris; largest SE discrepancy: Calluna.vulgaris.
 
 These are candidate-minus-archive residuals, with no fitted or declared pass tolerance. Matching keys, bin bounds and units do not establish matching historical raw-input cohorts: the local author example uses the pinned 2016 source revision while the archive is a June 2021 published product. The other author bins differ from the published time bounds and are excluded. Functional-type columns, including the unresolved ISTS mapping, are excluded. This is a numerical published-product correspondence on one window, not whole-paper reproduction or measured vegetation accuracy.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

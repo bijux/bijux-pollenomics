@@ -1,0 +1,2846 @@
+{
+  "schema_version": 2,
+  "routes": [
+    {
+      "reader_path": "docs/report/animal_atlas_exclusion_report.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_atlas_readiness.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_country_species_coverage.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_cross_surface_drift.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_first_appearance_by_country.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_foundation_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_foundation_validation.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_human_chronology_overlap.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_intake_recovery_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_output_audit.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_output_honesty.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_point_evidence_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_pollen_chronology_overlap.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_project_publication_gap_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_publication_release_gate.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_sample_chronology_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_sample_database_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_scientific_caveat_ledger.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/animal_temporal_comparison_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/denmark_aadr_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/denmark_animal_adna_v66_citations.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/denmark_animal_adna_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/denmark_animal_adna_v66_warnings.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Danish pollen source/age support and distinct source cohort populations."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/solsoe-lra-input.md"
+        }
+      ],
+      "scope_reason": "Sols\u00f8 two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection."
+    },
+    {
+      "reader_path": "docs/report/countries/finland/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/finland/finland_aadr_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/finland/finland_animal_adna_v66_citations.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/finland/finland_animal_adna_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/finland/finland_animal_adna_v66_warnings.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/norway/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/norway/norway_aadr_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/norway/norway_animal_adna_v66_citations.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/norway/norway_animal_adna_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/norway/norway_animal_adna_v66_warnings.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/bjaresjo-context-screen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/bjaresjo-context.md"
+        }
+      ],
+      "scope_reason": "Bj\u00e4resj\u00f6sj\u00f6n identity and SEAD context screen; proximity is not a validated pollen/vegetation pair."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/land-use-replay/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/pollen-model-lineage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_aadr_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/aadr-nordic-entities/README.md"
+        }
+      ],
+      "scope_reason": "AADR source Political Entity and country-product row disposition; scientific chronology/geography/rights admission remains false."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_animal_adna_v66_citations.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Country animal sample/context wrapper; broader entity ledger is not an ecological event admission."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation."
+    },
+    {
+      "reader_path": "docs/report/method-certification/analytical-love-ring-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/analytical-love-ring-sensitivity/README.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/author-site-profile-comparison/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/author-site-uncertainty/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/current-r-oracle/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/disqover-source-identity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/fixed-site-covariance/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/joint-site-draws/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/linux-r-oracle/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/love-paper-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/love-theory-paper.md"
+        },
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/lra-batch-execution/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/optimizer-solution-quality/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/original-r-reference/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/paired-love-draws/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/petrkunes-r-comparison/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/method-certification/reference-release-gate/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate."
+    },
+    {
+      "reader_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Previously exposed English retained-score ledger, not new fitting or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/nordic_farming_history_scenario.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        },
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        }
+      ],
+      "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/love-source-comparison/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/love-source-profile/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/native-adoption/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/native-forward/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/native-memory/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/python-baseline/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/python-isolated/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/runtime-metadata/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-development-interpretation.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-analytical-love/README.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/vegetation-reference.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/vegetation-reference.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty-method.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/norwegian-one-family-forward/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/paper-correspondence.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
+    },
+    {
+      "reader_path": "docs/report/propagation/governed-edge-ledger/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/propagation/source-first-observed/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-example-reexecution/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/author-example-reexecution.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-method-profile/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/author-method-profile.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/pft-crosswalk/README.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/published-window-provenance.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/published-window-provenance.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-study-inputs/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence/published-inventory/README.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-window-alignment/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_candidate_site_sensitivity.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_candidate_sites.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_evidence_surface.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_map_publication_contract.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_point_traceability.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/europe-plus/europe-plus_scientific_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/author-target-pollen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/author-taxonomy-mass/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/dalmutladdo-lra-input/README.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/dalmutladdo-lra-input/README.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/direct-pollen/source-measures/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/hyde-country-cropland/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/hyde-cropland-source-account.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/hyde-cropland-source-account.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/landclim-modeled-panels/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/lilla-gloppsjon-direct-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/lilla-gloppsjon-direct-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_candidate_site_sensitivity.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_candidate_sites.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_evidence_surface.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_map_publication_contract.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_point_traceability.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/nordic_scientific_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/pollen-development/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-observed-pollen-selection.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sambosjon-direct-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sambosjon-direct-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sambosjon-direct-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/selected-pollen-transfer/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/nordic-observed-pollen-transfer.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/source-capability/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-author-pollen.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-chronology-block/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-support-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/regions/nordic/swedish-training-scope/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/nordic-pollen-study.md"
+        }
+      ],
+      "scope_reason": "Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/galician-cattle-paper.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/galician-cattle-samples/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/obishir-v-chronology.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/animal-sample-chronology.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/reindeer-appendix-correspondence.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/reindeer-appendix-correspondence.md"
+        }
+      ],
+      "scope_reason": "Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension."
+    },
+    {
+      "reader_path": "docs/report/source-relations/hyde/provider-record/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/hyde-cropland-source-account.md"
+        }
+      ],
+      "scope_reason": "Provider release/rights and modeled cropland estimand; not measured vegetation reference."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/browser-export/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/landclim/workbook-chronology/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-age-controls/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-core-identity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-native-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/abbo-published-method/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/abborrtjarnen-source-method.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/acquisition-scope/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/author-parameter-binding/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/author-taxonomy-mass/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/boke-basin/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/boke-native-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/bus-native-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/bussjosjon-basin/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/compact-summary/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/landclim-site-identity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/legacyage-chronology/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/lra-prerequisites/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/native-roundtrip/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/observation-attributes/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/parameter-candidates/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/parameter-correspondence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/parameter-coverage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/pollen-screen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/taxon-priority/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/neotoma/variable-surface/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance."
+    },
+    {
+      "reader_path": "docs/report/source-relations/openland-intake/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/openland-intake/doi-lineage.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/publication-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead-country-retrieval/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-boolean-values/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-integer-values/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-numerical-values/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/analysis-value-methods/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/country-coverage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/interval-sets/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/map-candidate/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/pollen-named-dataset-screen/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/public-custody/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/sead/source-unit-accounting/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/source-capability-evidence/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/source-reconciliation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/source-relations/svar/normalized-export/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/change-time/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/propagation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/reconstruction/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/site-leakage/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/spatial-eligibility/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation."
+    },
+    {
+      "reader_path": "docs/report/validation/empd2-nfi-pairing/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/vegetation-reference.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/farskesjon/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/vegetation-reference.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/namibia-pollen-vegetation-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/namibia-pollen-vegetation-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/namibia-pollen-vegetation-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/namibia-pollen-vegetation-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/smaland-historical-maps-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/southern-sweden-validation-paper.md"
+        }
+      ],
+      "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits."
+    },
+    {
+      "reader_path": "docs/report/world/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_candidate_site_sensitivity.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_candidate_sites.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_evidence_surface.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_map_publication_contract.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_point_traceability.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    },
+    {
+      "reader_path": "docs/report/world/world_scientific_review.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/country-evidence-status.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        },
+        {
+          "report_path": "reports/science/animal-entity-capability/README.md"
+        }
+      ],
+      "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate."
+    }
+  ]
+}

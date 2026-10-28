@@ -82,7 +82,7 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.country_name, "Sweden")
         self.assertEqual(uppsala.coordinate_basis, "supplementary_table_coordinates")
         self.assertEqual(uppsala.coordinate_confidence, "exact")
-        self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
+        self.assertEqual(uppsala.chronology_text, "Age (years ago): 1217-1417")
 
     def test_camel_paper_table_s1_assigns_sample_sites_without_wadi_context(
         self,

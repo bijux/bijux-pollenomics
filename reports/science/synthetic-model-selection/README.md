@@ -78,3 +78,31 @@ transport/support mismatches. It also remains synthetic-only. For real model
 use, our [source and parameter guide](../model-use.md) requires admitted
 chronology, geometry, taxon denominator, PPE and an independent reference
 before any vegetation-accuracy claim.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Historical synthetic trial ranking and selection audit are retained.
+
+**Unsupported claim.** Real-core PPE/transport recommendation or independent final-test result.
+
+**Actual verification performed.** Retained 12-trial result and selection audit are cited; index did not rerun engine inputs.
+
+**Remaining input or review.** The 12-trial two-case synthetic winner can compensate for a transport-law mismatch; original private trial envelopes are unavailable for fresh engine replay and no ecological holdout supports real-core tuning. Resolver: Synthetic trial custodian and qualified transport/field reviewer Reopen when: Authenticated trial inputs permit numerical replay; an admitted real-core cohort and independent reference permit separate parameter evaluation.
+
+**Cause category.** assumption|comparability|access/rights
+
+**Consequence.** Best-in-sweep candidate cannot be transferred across different transport laws or real cores.
+
+**Precise next acceptance route.** Authenticated trial inputs permit numerical replay; an admitted real-core cohort and independent reference permit separate parameter evaluation. Then update reports/science/model-use.md.
+
+**Negative or refused result.** All 12 trial cases completed without refusal; no held-out ecological target was tested.
+
+**Matched denominator.** Two related synthetic cases × six parameter combinations =12 trials on three taxa; winner mean MAE 0.039861593480655426.
+
+Retained evidence: [reports/science/synthetic-model-selection/report.json](report.json), [reports/science/synthetic-model-selection/selection-audit.json](selection-audit.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->
