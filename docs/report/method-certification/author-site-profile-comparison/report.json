@@ -134,8 +134,8 @@
   "input_identities": [
     {
       "path": "docs/report/method-certification/author-site-uncertainty/report.json",
-      "bytes": 10125,
-      "sha256": "415185927514de10a71b6a7ba6c26d7bc1fd3ed8cc140760ec2e3e9f58f1c243"
+      "bytes": 10137,
+      "sha256": "7da46aa0ca1c17b6915f6ee99e51c4911632472a244aefdc1a62828f1d4c41d4"
     },
     {
       "path": "docs/report/method-certification/author-site-uncertainty/draws.json",
@@ -174,8 +174,8 @@
     },
     {
       "path": "docs/report/method-certification/author-site-profile-comparison/replay.py",
-      "bytes": 6938,
-      "sha256": "4591e8129a0f3d893d9a8839a8dc013bfc05554891c20eae161862d29098488d"
+      "bytes": 6883,
+      "sha256": "0c86df8b7c4964eea0f01e445361a73782495a199a71974631d39430915ec51f"
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
@@ -183,9 +183,9 @@
       "sha256": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03"
     },
     {
-      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
-      "bytes": 4145,
-      "sha256": "368d6fa8d4f6c02e80719c5fb8233f9b6e31fdc4c2d6a69569ed11b02df98ac2"
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+      "bytes": 5871,
+      "sha256": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814"
     }
   ],
   "chronology_geometry_transport_fixed": true,
