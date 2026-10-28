@@ -36,16 +36,21 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 ## Current reconciliation and source epochs
 
-At committed source `10bf26d617ad47f5087e839f63438b9626f9969b`, the unchanged
-[producer](replay.py) reconciles the newly installed source and map products in
-**0.100 seconds**, peak native RSS **43,532,288 B**. All thirteen raw inputs,
-the producer source, HEAD and index remain unchanged. Its partition independently
-matches the complete saved-atlas readback: **1,481 = 335 mapped + 1,146 excluded**
-IDs, in 167 locality features. The twelve-ID/eight-feature Nordic subset remains
-DK five / FI two / SE five. No old mapped owner was removed; seventeen recovered
-source owners add eleven mapped records and six exclusions. The latter comprise
-five point-contract exclusions and the undated PGULL-2131 chronology refusal.
-All original dates, coordinates and source identities remain unchanged.
+At committed source `988d1ff127bad598ff359cd14fc7bc1409ce5325`, the unchanged
+[producer](replay.py) completes in **0.129 seconds**, peak native RSS
+**45,236,224 B**. Only the cattle CSV input size and SHA-256 differ from the
+previous report, reflecting eleven publication-metadata bindings. Every other
+report value is exact: **1,481 = 335 mapped + 1,146 excluded**, 167 locality
+features, the twelve-ID/eight-feature Nordic subset and false country/scientific
+admission. All 6,544 files consumed across the paired source reports plus HEAD
+and index remain unchanged. This refresh adds no mapped owner, selected date,
+coordinate, scientific decision or new map/browser execution.
+
+The earlier `10bf26d6` run remains qualified at 0.100 seconds, RSS 43,532,288 B,
+under its original cattle CSV identity. That source/map epoch introduced
+seventeen recovered owners: eleven mapped and six excluded (five point-contract
+and the undated PGULL-2131 chronology refusal). Those observations and all older
+source identities remain unchanged; they are not rerun or retagged here.
 
 The owning [chronology account](../animal-sample-chronology.md#current-locality-atlas-maps-and-temporal-runtime)
 records the current source, three-scope map and temporal qualification. World
@@ -72,8 +77,10 @@ qualified 1,464 = 324 mapped + 1,140 excluded IDs in 163 features, with 225
 child-support intervals and sixty gaps; its 22 served cases are retained under
 their own producing inputs. At `04f1c4857`, it qualified 1,464 = 318 + 1,146 in
 161 features. Neither older execution is relabelled or rerun for the current
-source population. Current actuals and their thirteen input pins are under
+source population. The original current-population actuals remain under
 `artifacts/root/animal-source-consumers/entity-capability-{candidate,result.json}`.
+The publication-metadata refresh is retained under
+`artifacts/root/source-population-review/current-animal-reports/`.
 
 ## Historical source and country-record lifecycle verification
 
@@ -94,7 +101,7 @@ The retained atlas source-view packet authenticates all captured software bodies
 
 **Unsupported claim.** Scientific animal/ecological admission or source-country authority.
 
-**Actual verification performed.** At committed source 10bf26d617ad47f5087e839f63438b9626f9969b the existing thirteen-input entity reconciliation passes in 0.100 seconds, native RSS 43,532,288 B. All thirteen source inputs, producer source and HEAD/index remain unchanged; the partition matches the independently qualified complete saved-atlas result. Current map/source/temporal qualification is described in the owning animal chronology account. Earlier a18530b5/04f1c4857 entity and 1,468-ID lifecycle captures remain their original epochs; no model, source census, country producer or map replay ran for this summary.
+**Actual verification performed.** At committed source988d1ff127bad598ff359cd14fc7bc1409ce5325, the unchanged thirteen-input entity producer passes0.129seconds, RSS45,236,224B. Compared with the earlier10bf report, only cattleCSV input size/SHA changes; all populations, memberships and decisions are exact. Parallel current source reports preserve6544source files+HEAD/index. Earlier10bf/a185/04f and1468-ID lifecycle actuals remain their original source epochs; no model, country, census, map or browser replay.
 
 **Remaining input or review.** The current ID partition is complete, but 1,146 point-map exclusions and unresolved specimen, chronology and source-country interpretations prevent stronger biological/ecological admission. Resolver: Animal source custodian and qualified provenance/biological reviewer Reopen when: Source-backed locality, coordinates, chronology, paper links and admission are decided per sample.
 

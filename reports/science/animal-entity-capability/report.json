@@ -3,8 +3,8 @@
   "inputs": [
     {
       "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
-      "bytes": 165617,
-      "sha256": "3bf9b510d7af34fb199bd8f58bfa4c07ca8b98c30a29f29b62cc34ef1109fc2c"
+      "bytes": 167685,
+      "sha256": "460997b7d37282e58fc0b89e8375d924a6ede73ae028ad9dcdee5630d7ed6219"
     },
     {
       "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.csv",

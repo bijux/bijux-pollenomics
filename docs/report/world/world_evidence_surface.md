@@ -80,7 +80,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 - [Retained qualification evidence: docs/report/world/world_evidence_surface.json](world_evidence_surface.json) (SHA-256 `2070f4b89c44bcbab8ca72f9b3bb6a09e214205062af4aba6c8ae34c0b14a27a`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `a397c3e5d71adb1b77f3aca3a0f0e991dbac4e81f0946554b5b78ee9228089e4`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 
