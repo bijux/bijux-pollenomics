@@ -9,7 +9,6 @@ from typing import Any
 
 import pytest
 
-
 PRODUCER = (
     Path(__file__).resolve().parents[5]
     / "reports/science/nordic-source-attribution/qualify.py"
