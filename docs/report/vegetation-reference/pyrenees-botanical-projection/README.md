@@ -124,7 +124,7 @@ accuracy is established. Those channels remain unadmitted and unscored.
 
 **Matched denominator.** 125 recovered plots, 208 taxon rows, 1,757 positive observations; sixteen scenarios create 2,000 repeated plot contexts and 34,000 raw axis cells, not additional independent observations.
 
-Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](source-account.json), [reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json](../../../../reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json).
+Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](source-account.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json](source-files/input-custody.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

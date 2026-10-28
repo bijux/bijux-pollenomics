@@ -27,6 +27,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 )
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
+from .source_custody import observed_source_inputs
+
 SOURCE_SELECTION = {
     "Denmark": {"neotoma-pollen": "neotoma:site:27349", "sead-sites": "sead:site:3797"},
     "Finland": {"neotoma-pollen": "neotoma:site:2966", "sead-sites": "sead:site:5070"},
@@ -268,6 +270,7 @@ def generate_nordic_source_candidate(
             != checksum
         ):
             raise ValueError("frozen source input mutated during generation")
+    inputs.update(observed_source_inputs(repository))
     receipt = {
         "schema_version": "atlas-nordic-retained-source-candidate.v1",
         "source_atlas_build_id": manifest["build_id"],

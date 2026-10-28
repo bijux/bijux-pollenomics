@@ -75,6 +75,12 @@ def test_animal_chronology_contract_and_admitted_bounds_survive_static_chunking(
             "time_end_bp": 8173,
         },
     ]
+    for feature in admitted:
+        feature["temporal_semantics"] = {
+            "comparability_posture": "numeric_interval_with_caveat",
+            "evidence_class": "direct_numeric_sample_date",
+            "precision_posture": "sample_precise_interval",
+        }
     inadmissible: list[JsonObject] = [
         {"time_start_bp": None, "time_end_bp": None},
         {"time_start_bp": 100, "time_end_bp": None},

@@ -9,6 +9,7 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 
 
 def _locality(
@@ -50,6 +51,24 @@ def _locality(
             time_end_bp=3500,
             time_mean_bp=3000,
             dating_basis="bp_window",
+            precision_posture="sample_precise_interval",
+            evidence_class="controlled_numeric_sample_date",
+        ),
+        sample_chronologies=tuple(
+            AdnaSampleChronologySupport(
+                sample_id=f"S{index}",
+                chronology=AdnaChronology(
+                    original_text="3000 BP",
+                    time_start_bp=2500,
+                    time_end_bp=3500,
+                    time_mean_bp=3000,
+                    dating_basis="bp_window",
+                    precision_posture="sample_precise_interval",
+                    evidence_class="controlled_numeric_sample_date",
+                ),
+                source_release="v66",
+            )
+            for index in range(sample_count)
         ),
         sample_namespace="shared:sample",
     )

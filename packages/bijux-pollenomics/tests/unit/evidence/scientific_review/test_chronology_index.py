@@ -10,7 +10,7 @@ from bijux_pollenomics.evidence.scientific_review.chronology import (
     _LayerIntervals,
 )
 from bijux_pollenomics.evidence.scientific_review.temporal import (
-    _context_point_interval,
+    _context_point_intervals,
     _locality_overlaps_point,
 )
 
@@ -60,8 +60,8 @@ def test_layer_intervals_are_validated_once_across_species_and_localities() -> N
         locality(species="Ovis aries", younger_bp=300, older_bp=200),
     )
     with patch(
-        "bijux_pollenomics.evidence.scientific_review.chronology._context_point_interval",
-        wraps=_context_point_interval,
+        "bijux_pollenomics.evidence.scientific_review.chronology._context_point_intervals",
+        wraps=_context_point_intervals,
     ) as validate:
         rows = _build_chronology_overlaps(
             direct_localities=humans,

@@ -226,9 +226,9 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases. The residual account has 43 core + 23 domain + 8 Petr quantity rows: 6076 entries, 169 labels, 5907 numeric pairs, 1408 nonidentical entries and 0 threshold failures.
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `d3c57d302a601be7b883e0dd77af0153d7bd77a2e78a1b7c1a5479506ad25d31`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `a5238a9499c9bdc5289b2d8ac3c270f61388725df867d935c205b13517141881`).
 
-- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `ef33eaee7d8bf1766864fd97b2fc57f0104184c927e2e2bfc614d23a5e35a3ff`).
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/source-replay.json](source-replay.json) (SHA-256 `bd07ea13e3224052f781c4652a0c4b4d8023e66d85f797a9197bf6d60ee2a033`).
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json](retained-vector-diagnostics.json) (SHA-256 `aecd97c08078e68a703b6601fa9d49a17fffdab5d2bda33b4fbbd1e57d7b2c2f`).
 

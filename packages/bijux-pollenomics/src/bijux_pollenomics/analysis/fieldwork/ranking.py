@@ -13,12 +13,12 @@ from bijux_pollenomics.analysis.propagation.candidates import (
     score_candidate_site,
 )
 
+from ...adna.domain.locality import locality_sample_intervals
 from ...collection.contracts.models import ContextPointRecord
+from ...collection.contracts.occurrence_chronology import occurrence_support_intervals
 from ...core import haversine_km
 from ...core.temporal_semantics import (
     BpInterval,
-    InvalidBpIntervalError,
-    canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
 
@@ -82,39 +82,24 @@ class CandidateSensitivityReport:
 def temporal_overlap(
     locality: LocalitySummary, context_point: ContextPointRecord
 ) -> bool:
-    """Return whether one context point overlaps the locality time window."""
-    if locality.time_start_bp is None or locality.time_end_bp is None:
-        return False
-    context_interval = _admitted_context_interval(context_point)
-    if context_interval is None:
-        return False
-    try:
-        locality_interval = canonical_bp_interval(
-            locality.time_start_bp, locality.time_end_bp
-        )
-    except InvalidBpIntervalError:
-        return False
-    if locality_interval is None:
-        return False
-    return closed_bp_intervals_overlap(locality_interval, context_interval)
+    """Compare actual sample-owned supports, preserving gaps in display coverage."""
+    context_intervals = _admitted_context_intervals(context_point)
+    return any(
+        closed_bp_intervals_overlap(interval, context_interval)
+        for _, interval in locality_sample_intervals(locality)
+        for context_interval in context_intervals
+    )
 
 
-def _admitted_context_interval(point: ContextPointRecord) -> BpInterval | None:
-    """Use only comparable BP intervals for ranking chronology support."""
-    semantics = point.temporal_semantics
-    if semantics:
-        posture = str(semantics.get("comparability_posture", "")).strip()
-        refusal = str(semantics.get("refusal_reason_code", "")).strip()
-        if refusal or posture not in {
-            "numeric_interval",
-            "numeric_interval_with_caveat",
-            "mixed_interval_and_context",
-        }:
-            return None
-    try:
-        return canonical_bp_interval(point.time_start_bp, point.time_end_bp)
-    except InvalidBpIntervalError:
-        return None
+def _admitted_context_intervals(point: ContextPointRecord) -> tuple[BpInterval, ...]:
+    """Use dated member supports rather than site, sequence or locality coverage."""
+    return occurrence_support_intervals(
+        source_layer_key=point.layer_key,
+        temporal_semantics=point.temporal_semantics,
+        time_start_bp=point.time_start_bp,
+        time_end_bp=point.time_end_bp,
+        occurrence_supports=point.occurrence_supports,
+    )
 
 
 def build_candidate_context(
@@ -166,7 +151,7 @@ def build_candidate_context(
         if distance_km <= radius_km:
             nearby_context_points += 1
             nearby_context_layers.add(point.layer_key)
-            if _admitted_context_interval(point) is not None:
+            if _admitted_context_intervals(point):
                 time_aware_context_points += 1
             if any(temporal_overlap(evidence, point) for evidence in direct_evidence):
                 temporal_overlap_points += 1

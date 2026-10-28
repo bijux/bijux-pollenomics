@@ -21,6 +21,16 @@ def build_point_layers(*, large: bool = False) -> list[JsonObject]:
                     "longitude": 18.0 + index / 1000,
                     "time_start_bp": index,
                     "time_end_bp": index + 100,
+                    "temporal_semantics": {
+                        "schema_version": "temporal-semantics.v1",
+                        "source_family": "synthetic_fixture",
+                        "evidence_class": "declared_model_window",
+                        "precision_posture": "declared_interval",
+                        "comparability_posture": "numeric_interval",
+                        "time_start_bp": index,
+                        "time_end_bp": index + 100,
+                        "refusal_reason_code": "",
+                    },
                     "description": description,
                 }
                 for index in range(count)

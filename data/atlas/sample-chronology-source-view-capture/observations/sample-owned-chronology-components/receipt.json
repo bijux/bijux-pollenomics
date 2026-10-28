@@ -1,0 +1,181 @@
+{
+  "schema_version": "atlas-sample-owned-chronology-browser.v1",
+  "status": "PASS",
+  "source_cases": [
+    {
+      "width": 1440,
+      "label": "disjoint-source-gap",
+      "start_bp": 4141,
+      "end_bp": 4142,
+      "expected_visible_features": 0,
+      "actual_visible_features": 0,
+      "time_window_bp": {
+        "younger_bp": 4141,
+        "older_bp": 4142
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 1440,
+      "label": "dated-source-component-1",
+      "start_bp": 3860,
+      "end_bp": 3861,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 3860,
+        "older_bp": 3861
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 1440,
+      "label": "dated-source-component-2",
+      "start_bp": 4217,
+      "end_bp": 4218,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 4217,
+        "older_bp": 4218
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 1440,
+      "label": "dated-source-component-3",
+      "start_bp": 4598,
+      "end_bp": 4599,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 4598,
+        "older_bp": 4599
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 390,
+      "label": "disjoint-source-gap",
+      "start_bp": 4141,
+      "end_bp": 4142,
+      "expected_visible_features": 0,
+      "actual_visible_features": 0,
+      "time_window_bp": {
+        "younger_bp": 4141,
+        "older_bp": 4142
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 390,
+      "label": "dated-source-component-1",
+      "start_bp": 3860,
+      "end_bp": 3861,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 3860,
+        "older_bp": 3861
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 390,
+      "label": "dated-source-component-2",
+      "start_bp": 4217,
+      "end_bp": 4218,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 4217,
+        "older_bp": 4218
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    },
+    {
+      "width": 390,
+      "label": "dated-source-component-3",
+      "start_bp": 4598,
+      "end_bp": 4599,
+      "expected_visible_features": 1,
+      "actual_visible_features": 1,
+      "time_window_bp": {
+        "younger_bp": 4598,
+        "older_bp": 4599
+      },
+      "missing_source_sample_contributes_no_dated_feature": true
+    }
+  ],
+  "control_replays": [
+    {
+      "width": 1440,
+      "input_events": "window span and younger BP",
+      "gap_bp": 4141,
+      "visible_points": 0
+    },
+    {
+      "width": 390,
+      "input_events": "window span and younger BP",
+      "gap_bp": 4141,
+      "visible_points": 0
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "1440-disjoint-source-gap.png",
+      "sha256": "98fb904a7397bb7c3522dec58c9368f14356005dd2de2914b4977973fc486db5",
+      "bytes": 100564,
+      "width": 1440
+    },
+    {
+      "path": "1440-dated-source-component-1.png",
+      "sha256": "502d0df28ba4803a71406489c22df01bfac60ceb1c0e4aca1cabee7661ba2e1d",
+      "bytes": 81528,
+      "width": 1440
+    },
+    {
+      "path": "390-disjoint-source-gap.png",
+      "sha256": "8204963f4157f73805627c495dd5c0d792233f0213974d3ef1cbb72d2e7bedcb",
+      "bytes": 79450,
+      "width": 390
+    },
+    {
+      "path": "390-dated-source-component-1.png",
+      "sha256": "2a444df56ef655fc402cadc8c7df018475e97bd627be773bb8e75aac737669c5",
+      "bytes": 64396,
+      "width": 390
+    }
+  ],
+  "runtime_errors": [],
+  "source_review_or_event_admission": false,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@b01cdf43be4b4d5559bf7e58229e666e24454f5",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "source_support_download": {
+    "source_records": 2,
+    "selected_sample_rows": 55,
+    "all_selected_fields_exact": true,
+    "undated_original_sample_id": "CGG_2_105338.SG",
+    "undated_is_null_not_zero": true,
+    "sha256": "ac5fdbbfde34623840a3203627488a6ecc014e6ac393b36fd62fc7035c6d1ec1"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "bcd12d609026883d03eb88941e00c9fbe1d5cf7de15da20aab678396355babdf",
+    "sample-chronology.atlas-edges.0003.c963ef6981e93cdd.js": "c963ef6981e93cdd504fc0817f13e854cee0aac3b8627949f0e9d357b8eff50f",
+    "sample-chronology.atlas-nodes.0002.476cb8dadb119603.js": "476cb8dadb11960385f093e4a1e57f1ec8be5b9767c7c775470fbf4bb71ab1f3",
+    "sample-chronology.atlas-provenance.0000.085e949be64d192f.js": "085e949be64d192f921ab4e68d54650273e6182cc396c3b267fdac906ae47768",
+    "sample-chronology.atlas-sequences.0004.815e62985fffde75.js": "815e62985fffde7517fc07ff7c1ca06b621d73c3d55bf68f3e864c0f59ab2987",
+    "sample-support.json": "ac5fdbbfde34623840a3203627488a6ecc014e6ac393b36fd62fc7035c6d1ec1"
+  },
+  "verifier_sha256": "6fbbbdb96479821c7280ce67448c2e904157a345797e6fb881dce0a20f6af9b8"
+}

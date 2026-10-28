@@ -7,6 +7,9 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    occurrence_support_interval,
+)
 
 from .inputs import (
     _load_review_payload,
@@ -21,7 +24,6 @@ from .models import (
 )
 from .temporal import (
     _context_point_has_numeric_interval,
-    _validated_interval,
 )
 
 __all__ = []
@@ -257,7 +259,13 @@ def _temporal_navigation_summary(
             1
             for candidate in candidates
             if any(
-                _validated_interval(point.time_start_bp, point.time_end_bp) is not None
+                occurrence_support_interval(
+                    source_layer_key=point.source_layer_key,
+                    temporal_semantics=point.temporal_semantics,
+                    time_start_bp=point.time_start_bp,
+                    time_end_bp=point.time_end_bp,
+                )
+                is not None
                 for point in candidate.supporting_source_points
             )
         ),

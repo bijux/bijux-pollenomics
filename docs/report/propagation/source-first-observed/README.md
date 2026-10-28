@@ -84,7 +84,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Matched denominator.** Site 12: 135 samples, 2580 positive observations, 58 variables; site 3009: 28 samples, 523 positive observations, 70 variables. Two profiles×128 variables=256 attempts; 14 full-coverage attempts represent seven variables twice, not 14 independent events.
 
-- [Retained qualification evidence: docs/report/propagation/source-first-observed/report.json](report.json) (SHA-256 `e6fca4919948723ae635d488b783985b9287e19ab48374265ed4ea3e8d77ef82`).
+- [Retained qualification evidence: docs/report/propagation/source-first-observed/report.json](report.json) (SHA-256 `9d399326f4c9a476df31a062a7f97aeb9f97570dbbf0477449e29d840c75cb45`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

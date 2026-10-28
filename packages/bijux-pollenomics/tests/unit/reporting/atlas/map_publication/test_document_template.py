@@ -48,7 +48,7 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "function pointFeatureInTimeWindow", block_start
         )
         parser_source = MAP_DOCUMENT_TEMPLATE[block_start:block_end]
-        cases = [
+        cases: list[dict[str, object]] = [
             {"time_start_bp": 0, "time_end_bp": 100},
             {"time_start_bp": 0, "time_mean_bp": 25},
             {"time_start_bp": 100, "time_end_bp": 50},
@@ -56,6 +56,13 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             {"time_mean_bp": 25},
             {"time_year_bp": -1},
         ]
+        for index in (0, 4):
+            cases[index]["temporal_semantics"] = {
+                "comparability_posture": "numeric_interval_with_caveat",
+                "evidence_class": "direct_numeric_sample_date",
+                "precision_posture": "sample_precise_interval",
+            }
+        cases.append({"time_start_bp": 0, "time_end_bp": 100})
         encoded_cases = json.dumps(cases)
         script = parser_source + (
             "\nconst cases = " + encoded_cases + "; console.log(JSON.stringify({"
@@ -80,11 +87,12 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
                 None,
                 {"start": 25, "end": 25},
                 None,
+                None,
             ],
         )
         self.assertEqual(
             json.loads(result.stdout)["labels"],
-            ["source label", "", "", "", "source label", ""],
+            ["source label", "", "", "", "source label", "", "source label"],
         )
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:

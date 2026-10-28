@@ -44,6 +44,12 @@ def _layers(view: dict[str, Any]) -> list[Any]:
                     "age_type": "calendar_bp",
                     "time_start_bp": 10,
                     "time_end_bp": 20,
+                    "temporal_semantics": {
+                        "schema_version": "temporal-semantics.v1",
+                        "comparability_posture": "numeric_interval_with_caveat",
+                        "evidence_class": "declared_stationarity_envelope",
+                        "precision_posture": "declared_model_bin",
+                    },
                 }
             ],
         }

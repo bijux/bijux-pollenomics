@@ -2,7 +2,7 @@
   "schema_version": "atlas-keyless-cache-matrix.v1",
   "status": "PASS",
   "candidate_build_id": "atlas-ee0c85dd860bce72123c877990bc3bf54a39795dfa77735379ffe5b6350de6ee",
-  "generation_sha256": "a0904569d0971de312648a533b6951f266bb3548d1d3e673271b9b547e195433",
+  "generation_sha256": "bafc4f5f9a2542542da205023f78abaf0d546a1cf53a512f309af186a663b30a",
   "scenarios": [
     {
       "width": 1440,
@@ -42,7 +42,7 @@
         ],
         "basemap": "none",
         "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "center": "64.435, 19.512"
+        "center": "64.437, 19.500"
       },
       "local_server_requests": 0,
       "browser_cache_events": 1,
@@ -88,7 +88,7 @@
         ],
         "basemap": "none",
         "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "center": "64.437, 19.500"
+        "center": "64.473, 19.512"
       },
       "local_server_requests": 17,
       "browser_cache_events": 1,
@@ -174,7 +174,7 @@
     },
     "index.html": {
       "count": 2,
-      "sha256": "3ba800559bf6f9ec66adb0764c61ef37ca94145c893b438bb1f1dd3102d1ef71"
+      "sha256": "d02668ca0de9f52f2b4a067d72d9447466b41f4429042f7bd9bab35a602d5101"
     },
     "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": {
       "count": 2,

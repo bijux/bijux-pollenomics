@@ -45,6 +45,7 @@ def build_species_normalization_bundle(
     locality_records, locality_refusals = build_species_project_locality_records(
         species_name,
         project_summaries,
+        sample_records=sample_records,
     )
     study_summaries = _build_study_summaries(project_summaries)
     lineage_records = _build_lineage_records(

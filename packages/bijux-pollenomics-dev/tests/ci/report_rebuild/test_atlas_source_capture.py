@@ -115,40 +115,53 @@ class _GitPipe:
         pass
 
 
-def _refresh_transport(root: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    directory = (root / capture.CAPTURE_PATH).parent
+def _refresh_transport(
+    root: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capture_path: str = capture.CAPTURE_PATH,
+) -> None:
+    directory = (root / capture_path).parent
     descriptor_path = directory / "source-transport.json"
     descriptor = json.loads(descriptor_path.read_bytes())
-    manifest = root / capture.CAPTURE_PATH
+    manifest = root / capture_path
     descriptor["capture"] = {
         "name": "capture.json",
         "sha256": _sha(manifest),
         "bytes": manifest.stat().st_size,
     }
     _write(descriptor_path, descriptor)
-    index = {
-        "schema_version": "retained-source-index.v1",
-        "capsules": {
-            directory.relative_to(root).as_posix(): {
-                "descriptor": "source-transport.json",
-                "sha256": _sha(descriptor_path),
-                "bytes": descriptor_path.stat().st_size,
-            }
-        },
-        "source_revisions": {},
-    }
     index_path = root / retained_index.INDEX_PATH
+    index: dict[str, Any] = (
+        json.loads(index_path.read_bytes())
+        if index_path.exists()
+        else {
+            "schema_version": "retained-source-index.v1",
+            "capsules": {},
+            "source_revisions": {},
+        }
+    )
+    index["capsules"][directory.relative_to(root).as_posix()] = {
+        "descriptor": "source-transport.json",
+        "sha256": _sha(descriptor_path),
+        "bytes": descriptor_path.stat().st_size,
+    }
     _write(index_path, index)
     monkeypatch.setattr(retained_index, "INDEX_SHA256", _sha(index_path))
     monkeypatch.setattr(retained_index, "INDEX_BYTES", index_path.stat().st_size)
 
 
 def _install_transport(
-    root: Path, bodies: dict[str, bytes], monkeypatch: pytest.MonkeyPatch
+    root: Path,
+    bodies: dict[str, bytes],
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    capture_path: str = capture.CAPTURE_PATH,
+    source_candidate: str = capture.SOURCE_CANDIDATE,
+    package_members: int = 393,
 ) -> None:
     state = _GitTransport(root, bodies)
     _STATES[root] = state
-    (root / ".git").mkdir()
+    (root / ".git").mkdir(exist_ok=True)
     (root / ".git/HEAD").write_text("e" * 40 + "\n")
     monkeypatch.setattr(objects, "query", state.query)
     monkeypatch.setattr(objects, "GitPipe", _GitPipe)
@@ -156,7 +169,7 @@ def _install_transport(
         objects, "git_executable", lambda: Path(sys.executable).resolve()
     )
     groups = []
-    for prefix, count in (("configs/", 6), ("packages/", 393)):
+    for prefix, count in (("configs/", 6), ("packages/", package_members)):
         mapping = sorted(
             [
                 [name, _oid(raw)]
@@ -167,7 +180,7 @@ def _install_transport(
         assert len(mapping) == count
         groups.append(
             {
-                "historical_source_commit": capture.SOURCE_CANDIDATE,
+                "historical_source_commit": source_candidate,
                 "source_revision": STORAGE_REVISION,
                 "member_count": count,
                 "git_entries_sha256": hashlib.sha256(
@@ -182,10 +195,10 @@ def _install_transport(
     descriptor = {
         "schema_version": "git-retained-source.v1",
         "capture": {},
-        "historical_native_epochs": [capture.SOURCE_CANDIDATE],
+        "historical_native_epochs": [source_candidate],
         "source_revision_correspondence": [
             {
-                "historical_source_commit": capture.SOURCE_CANDIDATE,
+                "historical_source_commit": source_candidate,
                 "source_revision": STORAGE_REVISION,
             }
         ],
@@ -209,8 +222,8 @@ def _install_transport(
         ],
         "rewritten_source_epoch_executed": False,
     }
-    _write((root / capture.CAPTURE_PATH).parent / "source-transport.json", descriptor)
-    _refresh_transport(root, monkeypatch)
+    _write((root / capture_path).parent / "source-transport.json", descriptor)
+    _refresh_transport(root, monkeypatch, capture_path)
 
 
 @pytest.fixture
@@ -889,3 +902,652 @@ def test_historical_reader_git_bodies_remain_authenticated(
     _STATES[root].bodies[relative] = b"# Tampered historical witness\n"
     with pytest.raises((ReportRebuildError, ValueError)):
         capture.validated_atlas_source_views(root)
+
+
+@pytest.fixture
+def sample_chronology_packet(
+    packet: tuple[Path, Path, dict[str, Any]], monkeypatch: pytest.MonkeyPatch
+) -> tuple[Path, Path, dict[str, Any]]:
+    """Create controlled current-profile receipts without claiming native execution."""
+    import copy
+    import shutil
+
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, selector, historical = packet
+    directory = root / Path(current.CURRENT_CAPTURE_PATH).parent
+    shutil.copytree(root / Path(capture.CAPTURE_PATH).parent, directory)
+    document = copy.deepcopy(historical)
+    document.update(
+        schema_version="atlas-sample-chronology-source-capture.v2",
+        source_candidate=current.CURRENT_SOURCE_CANDIDATE,
+        sample_chronology_admission=False,
+        source_context={"not_a_clean_git_tree": True},
+    )
+
+    def retain(name: str, value: object) -> str:
+        path = directory / name
+        _write(path, value)
+        document["files"] = [row for row in document["files"] if row["path"] != name]
+        document["files"].append(
+            {"path": name, "sha256": _sha(path), "bytes": path.stat().st_size}
+        )
+        return name
+
+    generation = retain(
+        "generations/sample-chronology.json",
+        {"inputs_sha256": {"source.txt": _sha(root / "source.txt")}},
+    )
+    document["generations"]["sample-chronology"] = generation
+    verifier = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/components.mjs"
+    _write(root / verifier, {"controlled_verifier_fixture": True})
+    document["verifier_sources"][verifier] = _sha(root / verifier)
+    receipt = retain(
+        "observations/sample-chronology.json",
+        {
+            "status": "PASS",
+            "runtime_errors": [],
+            "browser": {"product": "Chrome/155.0.8059.40"},
+            "verifier_sha256": _sha(root / verifier),
+            "served_files_sha256": {"map.json": _sha(directory / "served/map.json")},
+        },
+    )
+    document["cases"].append(
+        {
+            "case_id": "sample-owned-chronology-components",
+            "generation": generation,
+            "receipt": receipt,
+            "source_candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "served_files": {"map.json": "served/map.json"},
+            "native_execution": {
+                "native_exit": 0,
+                "timeout": False,
+                "actual_argv": ["node", verifier],
+            },
+        }
+    )
+    stages = []
+    document["generator_executions"].append(
+        {"id": "generate-sample-chronology", "native_exit": 0, "timeout": False}
+    )
+    for execution in document["generator_executions"]:
+        execution.update(
+            actual_argv=["python", "controlled-fixture-generator"],
+            stdout_sha256="a" * 64,
+            stderr_sha256="b" * 64,
+        )
+        stages.append({**execution, "passed": True})
+    for case in document["cases"]:
+        case["source_candidate"] = current.CURRENT_SOURCE_CANDIDATE
+        case["native_execution"].update(
+            id="capture-" + case["case_id"],
+            stdout_sha256="a" * 64,
+            stderr_sha256="b" * 64,
+        )
+        stages.append(
+            {
+                **case["native_execution"],
+                "passed": True,
+                "browser_receipt": {"sha256": _sha(directory / case["receipt"])},
+            }
+        )
+    document["native_terminal"] = retain(
+        "native-terminal.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "native_exit": 0,
+            "status": "passed",
+            "resource_bounds_met": True,
+            "stages": stages,
+        },
+    )
+    document["native_plan"] = retain(
+        "execution/plan.json", {"controlled_source_plan": True}
+    )
+    review = retain(
+        "independent-review.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "qualified_current_plan_sha256": _sha(directory / document["native_plan"]),
+            "qualified_current_terminal_sha256": _sha(
+                directory / document["native_terminal"]
+            ),
+            "counts": {
+                "successful_probes": 9,
+                "visually_inspected_PNGs": 12,
+                "authentic_component_source_sample_rows": 55,
+                "normalized_sample_chronologies_checked": 55,
+                "authentic_disjoint_components": 3,
+                "native_browser_viewports": 2,
+            },
+            "served_and_output_hashes_all_match": True,
+            "all_selected_source_tables_exact": True,
+        },
+    )
+    document["independent_review"] = {"member": review}
+    source_plan = retain(
+        "source-normalization/plan.json", {"controlled_source_transport": True}
+    )
+    document["source_normalization_reference"] = {
+        "plan": source_plan,
+        "terminal": retain(
+            "source-normalization/terminal.json",
+            {
+                "native_exit_code": 0,
+                "status": "passed",
+                "protected_inputs_unchanged": True,
+                "plan_sha256": _sha(directory / source_plan),
+            },
+        ),
+        "producer": retain(
+            "source-normalization/producer.json",
+            {"human_records": 1231, "animal_records": 1468},
+        ),
+        "observer": retain(
+            "source-normalization/observer.json",
+            {
+                "native_exit": 0,
+                "counts": {"samples": 2699},
+                "exact_cross_format_chronology_native_identity_and_provenance": True,
+            },
+        ),
+        "human-sweden": retain("source-normalization/human-sweden.json", []),
+        "human-denmark": retain("source-normalization/human-denmark.json", []),
+    }
+    producer_stage = {
+        "name": "maintained-source-owned-locality-wire-products",
+        "actual_argv": ["python", "controlled-locality-producer"],
+        "native_exit_code": 0,
+        "timed_out": False,
+    }
+    source_directory = str(root)
+    producer_plan = retain(
+        "source-producer/plan.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "source_directory": source_directory,
+            "stages": [
+                {"name": producer_stage["name"], "argv": producer_stage["actual_argv"]},
+                {
+                    "name": "controlled-reader-predecessor",
+                    "argv": ["python", "controlled-reader-predecessor"],
+                },
+                {
+                    "name": "controlled-observer-predecessor",
+                    "argv": ["python", "controlled-observer-predecessor"],
+                },
+            ],
+        },
+    )
+    producer_terminal = retain(
+        "source-producer/terminal.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "native_exit_code": 1,
+            "status": "failed",
+            "protected_inputs_unchanged": True,
+            "plan_sha256": _sha(directory / producer_plan),
+            "stages": [
+                producer_stage,
+                {
+                    "name": "controlled-reader-predecessor",
+                    "actual_argv": ["python", "controlled-reader-predecessor"],
+                    "native_exit_code": 1,
+                    "timed_out": False,
+                },
+            ],
+        },
+    )
+    origins = retain(
+        "source-producer/producer-import-origins.json",
+        {
+            "native_exit": 0,
+            "source_root": source_directory,
+            "actual_origins": [
+                {
+                    "module": "controlled_source",
+                    "path": str(root / "source.txt"),
+                    "sha256": _sha(root / "source.txt"),
+                },
+            ],
+        },
+    )
+    locality_producer = retain(
+        "current-reader/locality-producer.json",
+        {
+            "native_exit": 0,
+            "animal_localities": 547,
+            "human_selected_localities": 2,
+            "animal_source_samples": 1468,
+            "human_source_samples": 55,
+        },
+    )
+    reader_proof = retain(
+        "current-reader/reader.json",
+        {
+            "native_exit": 0,
+            "actual_sample_records": 2699,
+            "new_locality_records": 549,
+            "new_locality_producer_proof_sha256": _sha(directory / locality_producer),
+        },
+    )
+    observer_proof = retain(
+        "current-reader/observer.json",
+        {
+            "native_exit": 0,
+            "actual_original_samples": 2699,
+            "locality_producer_sha256": _sha(directory / locality_producer),
+            "reader_proof_sha256": _sha(directory / reader_proof),
+            "original_sample_producer_sha256": _sha(
+                directory / document["source_normalization_reference"]["producer"]
+            ),
+            "all_reader_cases_joined_to_exact_source_membership": True,
+        },
+    )
+    reader_stages = [
+        {
+            "name": "actual-declared-public-reader-transport",
+            "argv": ["python", "controlled-reader"],
+        },
+        {
+            "name": "independent-original-membership-reader-observer",
+            "argv": ["python", "controlled-observer"],
+        },
+    ]
+    reader_plan = retain(
+        "current-reader/plan.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "source_directory": source_directory,
+            "stages": reader_stages,
+            "reused_source_producer": {
+                "original_plan_sha256": _sha(directory / producer_plan),
+                "original_terminal_sha256": _sha(directory / producer_terminal),
+                "reused_source_producer_proof_sha256": _sha(
+                    directory / locality_producer
+                ),
+                "reused_source_producer_stage": producer_stage,
+                "source_directory": source_directory,
+            },
+        },
+    )
+    reader_terminal = retain(
+        "current-reader/terminal.json",
+        {
+            "candidate": current.CURRENT_SOURCE_CANDIDATE,
+            "plan_sha256": _sha(directory / reader_plan),
+            "native_exit_code": 0,
+            "status": "passed",
+            "protected_inputs_unchanged": True,
+            "stages": [
+                {
+                    "name": stage["name"],
+                    "actual_argv": stage["argv"],
+                    "native_exit_code": 0,
+                    "timed_out": False,
+                }
+                for stage in reader_stages
+            ],
+        },
+    )
+    document["current_reader_reference"] = {
+        "plan": reader_plan,
+        "terminal": reader_terminal,
+        "locality-producer": locality_producer,
+        "reader": reader_proof,
+        "observer": observer_proof,
+    }
+    document["reused_source_producer_reference"] = {
+        "plan": producer_plan,
+        "terminal": producer_terminal,
+        "producer-import-origins": origins,
+    }
+    review_payload = json.loads((directory / review).read_bytes())
+    for group in ("current_reader_reference", "reused_source_producer_reference"):
+        review_payload[group] = {
+            role: {"path": str(directory / member), "sha256": _sha(directory / member)}
+            for role, member in document[group].items()
+        }
+    retain(review, review_payload)
+    generated_name = GENERATED_MEMBER.removeprefix("source/")
+    generated_sha = document["source_footprint"].pop(generated_name)
+    document["source_members"].pop(generated_name)
+    document["runtime_resources"] = {
+        generated_name: {
+            "member": GENERATED_MEMBER,
+            "sha256": generated_sha,
+            "generated_by": "vcs-versioning",
+        }
+    }
+    git_bodies = dict(_STATES[root].bodies)
+    for i in range(387, 1159):
+        name = (
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/"
+            f"fixture_{i:04}.py"
+        )
+        raw = ("# own synthetic source " + name + "\n").encode()
+        target = root / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+        git_bodies[name] = raw
+        member = "source/" + name
+        digest = hashlib.sha256(raw).hexdigest()
+        document["files"].append({"path": member, "sha256": digest, "bytes": len(raw)})
+        document["source_footprint"][name] = digest
+        document["source_members"][name] = member
+    for i in (52, 53):
+        name = f"docs/report/fixture/source-{i}.json"
+        value = {"own_source": i}
+        _write(root / name, value)
+        member = retain("source/" + name, value)
+        document["source_footprint"][name] = _sha(root / name)
+        document["source_members"][name] = member
+    for i in range(1472 - len(document["files"])):
+        retain(f"current-products/fixture/member-{i}.json", {"own_product": i})
+    assert len(git_bodies) == 1171
+    assert len(document["source_footprint"]) == 1226
+    assert len(document["files"]) == 1472
+    assert len(document["cases"]) == 9
+    assert len(document["generations"]) == len(document["generator_executions"]) == 5
+    assert len(document["products"]) == 43
+    manifest = root / current.CURRENT_CAPTURE_PATH
+    _write(manifest, document)
+    _install_transport(
+        root,
+        git_bodies,
+        monkeypatch,
+        capture_path=current.CURRENT_CAPTURE_PATH,
+        source_candidate=current.CURRENT_SOURCE_CANDIDATE,
+        package_members=1165,
+    )
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    monkeypatch.setattr(publication, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    _write(
+        selector,
+        {
+            "schema_version": publication.CURRENT_SELECTOR_SCHEMA,
+            "profile": publication.CURRENT_PROFILE,
+            "owner_id": document["products"][0]["owner_id"],
+            "capture_sha256": _sha(manifest),
+        },
+    )
+    return root, selector, document
+
+
+def test_current_profile_requires_complete_native_scope_and_preserves_historical(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, selector, document = sample_chronology_packet
+    assert current.validated_sample_chronology_capture(root).document == document
+    assert (
+        capture.validated_atlas_source_views(root).document["schema_version"]
+        == "atlas-source-view-native-capture.v1"
+    )
+    assert publication.build_capture_products(root, selector)
+
+
+@pytest.mark.parametrize(
+    "mutation", ["unknown_profile", "old_schema_with_new_fields", "missing_profile"]
+)
+def test_current_selector_refuses_unknown_or_ambiguous_profile(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]], mutation: str
+) -> None:
+    root, selector, _ = sample_chronology_packet
+    selected = json.loads(selector.read_bytes())
+    if mutation == "unknown_profile":
+        selected["profile"] = "unreviewed-source"
+    elif mutation == "old_schema_with_new_fields":
+        selected["schema_version"] = publication.SELECTOR_SCHEMA
+    else:
+        del selected["profile"]
+    _write(selector, selected)
+    with pytest.raises(ReportRebuildError):
+        publication.build_capture_products(root, selector)
+
+
+def test_current_source_byte_change_is_refused_without_compatibility_waiver(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, _ = sample_chronology_packet
+    (root / "source.txt").write_text("controlled source\n\n", encoding="utf-8")
+    with pytest.raises(ReportRebuildError, match="current source footprint differs"):
+        current.validated_sample_chronology_capture(root)
+
+
+@pytest.mark.parametrize(
+    "mutation", ["incomplete_scope", "failed_native_stage", "different_case_argv"]
+)
+def test_current_profile_refuses_incomplete_failed_or_unbound_native_lineage(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, document = sample_chronology_packet
+    directory = root / Path(current.CURRENT_CAPTURE_PATH).parent
+    native_path = directory / document["native_terminal"]
+    native = json.loads(native_path.read_bytes())
+    if mutation == "incomplete_scope":
+        native["stages"].pop()
+    elif mutation == "failed_native_stage":
+        native["stages"][-1]["native_exit"] = 1
+        native["stages"][-1]["passed"] = False
+    else:
+        document["cases"][-1]["native_execution"]["actual_argv"][0] = "different-node"
+    _write(native_path, native)
+    for row in document["files"]:
+        if row["path"] == document["native_terminal"]:
+            row.update(sha256=_sha(native_path), bytes=native_path.stat().st_size)
+    manifest = root / current.CURRENT_CAPTURE_PATH
+    _write(manifest, document)
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    with pytest.raises(ReportRebuildError):
+        current.validated_sample_chronology_capture(root)
+
+
+@pytest.mark.parametrize(
+    "change", ["current_version", "captured_version", "unknown_resource"]
+)
+def test_current_profile_separates_generated_runtime_from_maintained_source(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+    monkeypatch: pytest.MonkeyPatch,
+    change: str,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, document = sample_chronology_packet
+    resource_path = (
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+    )
+    resource = document["runtime_resources"][resource_path]
+    _write(root / resource_path, {"different_current_generated_version": True})
+    if change == "captured_version":
+        resource["sha256"] = "0" * 64
+    elif change == "unknown_resource":
+        document["runtime_resources"] = {"maintained_source.py": resource}
+    manifest = root / current.CURRENT_CAPTURE_PATH
+    _write(manifest, document)
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    if change == "current_version":
+        current.validated_sample_chronology_capture(root)
+    else:
+        with pytest.raises((ReportRebuildError, ValueError)):
+            current.validated_sample_chronology_capture(root)
+
+
+@pytest.mark.parametrize(
+    "binding", ["qualified_current_plan_sha256", "qualified_current_terminal_sha256"]
+)
+def test_current_profile_refuses_review_from_another_native_execution(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+    monkeypatch: pytest.MonkeyPatch,
+    binding: str,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, document = sample_chronology_packet
+    directory = (root / current.CURRENT_CAPTURE_PATH).parent
+    member = document["independent_review"]["member"]
+    review_path = directory / member
+    review = json.loads(review_path.read_bytes())
+    review[binding] = "0" * 64
+    _write(review_path, review)
+    for row in document["files"]:
+        if row["path"] == member:
+            row.update(sha256=_sha(review_path), bytes=review_path.stat().st_size)
+    manifest = root / current.CURRENT_CAPTURE_PATH
+    _write(manifest, document)
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    with pytest.raises(
+        ReportRebuildError, match="review native execution binding differs"
+    ):
+        current.validated_sample_chronology_capture(root)
+
+
+@pytest.mark.parametrize(
+    "mutation", ["native_failure", "boolean_exit", "wrong_plan", "wrong_population"]
+)
+def test_current_profile_requires_qualified_source_normalization_transport(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, document = sample_chronology_packet
+    directory = (root / current.CURRENT_CAPTURE_PATH).parent
+    member = document["source_normalization_reference"][
+        "producer" if mutation == "wrong_population" else "terminal"
+    ]
+    path = directory / member
+    payload = json.loads(path.read_bytes())
+    if mutation == "native_failure":
+        payload["native_exit_code"] = 1
+    elif mutation == "boolean_exit":
+        payload["native_exit_code"] = False
+    elif mutation == "wrong_plan":
+        payload["plan_sha256"] = "0" * 64
+    else:
+        payload["human_records"] = 1230
+    _write(path, payload)
+    for row in document["files"]:
+        if row["path"] == member:
+            row.update(sha256=_sha(path), bytes=path.stat().st_size)
+    manifest = root / current.CURRENT_CAPTURE_PATH
+    _write(manifest, document)
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(manifest))
+    with pytest.raises(
+        ReportRebuildError, match="source normalization native proof differs"
+    ):
+        current.validated_sample_chronology_capture(root)
+
+
+@pytest.mark.parametrize("fixture_name", ["packet", "sample_chronology_packet"])
+@pytest.mark.parametrize(
+    "operation,owner_id",
+    [
+        ("keyless-identity", "atlas/keyless-cache-matrix/candidate-identity"),
+        ("provider-review", "atlas/provider-accessibility/browser-evidence"),
+        ("modeled-review", "atlas/modeled-panel-browser/browser-evidence"),
+    ],
+)
+def test_projected_metadata_preserves_exact_capture_source_epoch(
+    request: pytest.FixtureRequest,
+    monkeypatch: pytest.MonkeyPatch,
+    fixture_name: str,
+    operation: str,
+    owner_id: str,
+) -> None:
+    """Every derived metadata surface names its admitted packet path and digest."""
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    controlled: tuple[Path, Path, dict[str, Any]] = request.getfixturevalue(
+        fixture_name
+    )
+    root, selector, document = controlled
+    product = next(row for row in document["products"] if row["owner_id"] == owner_id)
+    product["operation"] = operation
+    product.pop("source")
+    is_current = fixture_name == "sample_chronology_packet"
+    capture_path = current.CURRENT_CAPTURE_PATH if is_current else capture.CAPTURE_PATH
+    manifest = root / capture_path
+    _write(manifest, document)
+    digest = _sha(manifest)
+    if is_current:
+        _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+        monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", digest)
+        monkeypatch.setattr(publication, "CURRENT_CAPTURE_SHA256", digest)
+        selection = {
+            "schema_version": publication.CURRENT_SELECTOR_SCHEMA,
+            "profile": publication.CURRENT_PROFILE,
+            "owner_id": owner_id,
+            "capture_sha256": digest,
+        }
+    else:
+        monkeypatch.setattr(capture, "CAPTURE_SHA256", digest)
+        monkeypatch.setattr(publication, "CAPTURE_SHA256", digest)
+        selection = {
+            "schema_version": publication.SELECTOR_SCHEMA,
+            "owner_id": owner_id,
+            "capture_sha256": digest,
+        }
+    _write(selector, selection)
+    raw = publication.build_capture_products(root, selector)[product["output_path"]]
+    source = json.loads(raw)["source_capture"]
+    assert source["capture_path"] == capture_path
+    assert source["capture_sha256"] == digest
+    assert source["source_candidate"] == document["source_candidate"]
+    assert source["browser_executed_by_this_projection"] is False
+    assert source["numerical_execution"] is False
+    assert source["scientific_admission"] is False
+
+
+@pytest.mark.parametrize("declaration", [None, False, 1])
+def test_current_profile_requires_explicit_owned_source_context(
+    sample_chronology_packet: tuple[Path, Path, dict[str, Any]],
+    monkeypatch: pytest.MonkeyPatch,
+    declaration: object,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+        sample_chronology_capture as current,
+    )
+
+    root, _, document = sample_chronology_packet
+    if declaration is None:
+        document["source_context"].pop("not_a_clean_git_tree")
+    else:
+        document["source_context"]["not_a_clean_git_tree"] = declaration
+    path = root / current.CURRENT_CAPTURE_PATH
+    _write(path, document)
+    _refresh_transport(root, monkeypatch, current.CURRENT_CAPTURE_PATH)
+    monkeypatch.setattr(current, "CURRENT_CAPTURE_SHA256", _sha(path))
+    with pytest.raises(
+        ReportRebuildError, match="selected-source/browser scope differs"
+    ):
+        current.validated_sample_chronology_capture(root)

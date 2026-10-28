@@ -216,9 +216,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         registry_temporal_evidence = json.loads(
             registry_rows[0]["direct_pollen_temporal_evidence"]
         )
-        assert registry_temporal_evidence[0]["source_record"] == "neotoma-pollen:n1"
-        assert registry_temporal_evidence[0]["time_start_bp"] == 2400
-        assert registry_temporal_evidence[0]["time_end_bp"] == 3600
+        assert registry_temporal_evidence == []
         scenario_temporal_evidence = json.loads(
             scenario_rows[0]["direct_pollen_temporal_evidence"]
         )
@@ -226,7 +224,6 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         context_evidence = json.loads(registry_rows[0]["temporal_context_evidence"])
         assert {row["source_layer_key"] for row in context_evidence} == {
             "human-adna",
-            "neotoma-pollen",
         }
         assert all(
             row["evidence_role"] == "nearby_temporal_context"
@@ -235,13 +232,12 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert payload["methodology"]["temporal_navigation"] == {
             "candidate_count": 1,
             "candidate_with_numeric_context_count": 1,
-            "candidate_with_direct_numeric_pollen_count": 1,
-            "context_summary_count": 2,
+            "candidate_with_direct_numeric_pollen_count": 0,
+            "context_summary_count": 1,
             "context_source_layer_counts": {
                 "human-adna": 1,
-                "neotoma-pollen": 1,
             },
-            "context_window_counts": {"late_holocene": 2},
+            "context_window_counts": {"late_holocene": 1},
             "context_radius_km": 50,
             "interpretation_rule": (
                 "Temporal context summaries support time navigation for the ranked "
@@ -313,7 +309,7 @@ def test_source_spatiotemporal_registry_does_not_override_scoped_counts() -> Non
         )["landclim_pollen"]
         landclim_summary = require_mapping(landclim_summary)
         assert landclim_summary["record_count"] == 1
-        assert landclim_summary["numeric_interval_record_count"] == 1
+        assert landclim_summary["numeric_interval_record_count"] == 0
 
 
 def test_lake_evidence_geojson_matches_report_candidate_count() -> None:

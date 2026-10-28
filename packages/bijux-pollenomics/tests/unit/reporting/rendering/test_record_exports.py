@@ -41,7 +41,7 @@ def test_csv_exports_use_repository_native_line_endings(
     monkeypatch.setattr(
         record_exports,
         serializer_name,
-        lambda _record: dict.fromkeys(fields, ""),
+        lambda _record, **_options: dict.fromkeys(fields, ""),
     )
     output_path = tmp_path / "records.csv"
 

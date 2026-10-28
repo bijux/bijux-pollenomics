@@ -8,6 +8,7 @@ from ..coordinates import point_coordinate_pair
 from ..temporal_admission import (
     calendar_profile_metadata,
     feature_interval,
+    feature_occurrence_intervals,
     feature_temporal_admission,
     finite_number,
 )
@@ -22,6 +23,7 @@ def build_indexes(
     spatial_cells: dict[str, dict[str, list[int]]] = {}
     time_intervals: list[list[object]] = []
     signals: dict[str, list[str]] = {}
+    component_time_support = False
     for layer in point_layers:
         layer_key = str(layer.get("key", "")).strip()
         group = str(layer.get("group", "")).strip()
@@ -46,8 +48,19 @@ def build_indexes(
                 spatial_cells.setdefault(cell, {}).setdefault(layer_key, []).append(
                     feature_index
                 )
-            interval = feature_interval(feature, temporal_profile=temporal_profile)
-            if interval is not None:
+            component_time_support = component_time_support or (
+                temporal_profile is None and "sample_chronologies" in feature
+            )
+            # Index the union for one feature, while retaining sample identities in nodes.
+            components: list[tuple[float, float]] = []
+            for start, end in sorted(
+                feature_occurrence_intervals(feature, temporal_profile=temporal_profile)
+            ):
+                if components and start <= components[-1][1]:
+                    components[-1] = (components[-1][0], max(end, components[-1][1]))
+                else:
+                    components.append((start, end))
+            for interval in components:
                 time_intervals.append(
                     [interval[0], interval[1], layer_key, feature_index]
                 )
@@ -56,6 +69,7 @@ def build_indexes(
         if temporal_profile is not None
         else "atlas-static-indexes.v2",
         **profile_fields,
+        **({"component_time_support": True} if component_time_support else {}),
         "country_feature_indexes": _sorted_nested_indexes(countries),
         "spatial_degree_feature_indexes": _sorted_nested_indexes(spatial_cells),
         "time_interval_feature_indexes": sorted(

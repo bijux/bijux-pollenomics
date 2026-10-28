@@ -8,6 +8,7 @@ from bijux_pollenomics.adna import (
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 
 
 def locality(
@@ -19,9 +20,20 @@ def locality(
     review_strength: str = "curated_release_metadata",
     provenance_quality: str = "release_manifest_pinned",
     locality_token: str = "shared:sweden:lake-example",
-    chronology: tuple[int | None, int | None, int | None] = (3500, 2500, 3000),
+    chronology: tuple[int | None, int | None, int | None] = (2500, 3500, 3000),
 ) -> AdnaLocalitySummary:
     """Build a locality with explicit evidence and chronology posture."""
+    owned_chronology = AdnaChronology(
+        original_text="3000 BP" if chronology[2] is not None else "",
+        time_start_bp=chronology[0],
+        time_end_bp=chronology[1],
+        time_mean_bp=chronology[2],
+        dating_basis="bp_window" if chronology[0] is not None else "unknown",
+        evidence_class="direct_numeric_sample_date",
+        precision_posture="sample_precise_interval"
+        if chronology[0] is not None and chronology[1] is not None
+        else "unresolved",
+    )
     return AdnaLocalitySummary(
         identity=AdnaLocalityIdentity(
             namespace="shared_locality",
@@ -48,12 +60,12 @@ def locality(
         sample_count=sample_count,
         sample_ids=tuple(f"I{index}" for index in range(sample_count)),
         datasets=("dataset",),
-        chronology=AdnaChronology(
-            original_text="3000 BP" if chronology[2] is not None else "",
-            time_start_bp=chronology[0],
-            time_end_bp=chronology[1],
-            time_mean_bp=chronology[2],
-            dating_basis="bp_window" if chronology[0] is not None else "unknown",
+        chronology=owned_chronology,
+        sample_chronologies=tuple(
+            AdnaSampleChronologySupport(
+                sample_id=f"I{index}", chronology=owned_chronology, source_release="v66"
+            )
+            for index in range(sample_count)
         ),
         sample_namespace="shared:sample",
     )

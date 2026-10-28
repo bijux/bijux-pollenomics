@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from math import isfinite
 from typing import cast
@@ -9,6 +10,7 @@ from .bp_time import (
     mean_bp_year_from_interval,
     normalize_bp_interval,
 )
+from .chronology.source_metadata import _json_metadata_copy, _source_metadata_copy
 
 __all__ = [
     "TEMPORAL_COMPARABILITY_POSTURES",
@@ -27,6 +29,8 @@ __all__ = [
     "resolve_temporal_window",
     "temporal_semantics_has_numeric_interval",
 ]
+
+_MAX_EXACT_BP_INTEGER = 2**53 - 1
 
 TEMPORAL_COMPARABILITY_POSTURES = (
     "numeric_interval",
@@ -69,17 +73,33 @@ class BpInterval:
 
 @dataclass(frozen=True)
 class BpIntervalAdmission:
-    """Reason-coded admission of source bounds to the canonical BP domain."""
+    """Reason-coded admission to the integer BP-year projection."""
 
     interval: BpInterval | None
     refusal_reason_code: str = ""
+
+    def __post_init__(self) -> None:
+        if self.interval is None:
+            return
+        endpoints = (self.interval.younger_bp, self.interval.older_bp)
+        reason = (
+            "unsafe_integer_bp"
+            if any(value > _MAX_EXACT_BP_INTEGER for value in endpoints)
+            else "fractional_bp"
+            if any(not value.is_integer() for value in endpoints)
+            else ""
+        )
+        if reason:
+            object.__setattr__(self, "interval", None)
+            if not self.refusal_reason_code:
+                object.__setattr__(self, "refusal_reason_code", reason)
 
     @property
     def admitted(self) -> bool:
         return self.interval is not None and not self.refusal_reason_code
 
     def as_tuple(self) -> tuple[int, int] | None:
-        if self.interval is None:
+        if self.interval is None or self.refusal_reason_code:
             return None
         return (int(self.interval.younger_bp), int(self.interval.older_bp))
 
@@ -110,28 +130,29 @@ def admit_bp_interval(
     younger_bp: object,
     older_bp: object,
 ) -> BpIntervalAdmission:
-    """Admit source bounds without coercion, reordering, or loss of refusal reason."""
+    """Admit integer-year source bounds without rounding, reordering or lost refusal."""
     if younger_bp is None and older_bp is None:
         return BpIntervalAdmission(interval=None)
     if younger_bp is None or older_bp is None:
         return BpIntervalAdmission(
             interval=None, refusal_reason_code="partial_interval"
         )
-    if isinstance(younger_bp, bool) or not isinstance(younger_bp, (int, float)):
-        return BpIntervalAdmission(interval=None, refusal_reason_code="non_finite")
-    if isinstance(older_bp, bool) or not isinstance(older_bp, (int, float)):
-        return BpIntervalAdmission(interval=None, refusal_reason_code="non_finite")
-    younger = float(younger_bp)
-    older = float(older_bp)
-    if not isfinite(younger) or not isfinite(older):
-        return BpIntervalAdmission(interval=None, refusal_reason_code="non_finite")
-    if younger < 0 or older < 0:
-        return BpIntervalAdmission(interval=None, refusal_reason_code="negative_bp")
-    if younger > older:
+    reasons = (
+        _bp_value_refusal_reason(younger_bp),
+        _bp_value_refusal_reason(older_bp),
+    )
+    for reason in ("non_finite", "negative_bp", "unsafe_integer_bp"):
+        if reason in reasons:
+            return BpIntervalAdmission(interval=None, refusal_reason_code=reason)
+    assert isinstance(younger_bp, (int, float))
+    assert isinstance(older_bp, (int, float))
+    if younger_bp > older_bp:
         return BpIntervalAdmission(
             interval=None, refusal_reason_code="reversed_interval"
         )
-    return BpIntervalAdmission(interval=BpInterval(younger, older))
+    if "fractional_bp" in reasons:
+        return BpIntervalAdmission(interval=None, refusal_reason_code="fractional_bp")
+    return BpIntervalAdmission(interval=BpInterval(younger_bp, older_bp))
 
 
 def directional_lag_bounds(
@@ -148,14 +169,23 @@ def directional_lag_bounds(
 
 
 def closed_bp_intervals_overlap(left: BpInterval, right: BpInterval) -> bool:
-    """Return whether two canonical closed BP intervals share any supported age."""
-    return max(left.younger_bp, right.younger_bp) <= min(left.older_bp, right.older_bp)
+    """Return closed interval algebra; source comparability is a separate admission."""
+    # Relations consume interval values. Import here to preserve that dependency
+    # direction while keeping the established value and boolean API owners.
+    from .chronology.relations import TemporalRelationKind, bp_interval_relation_kind
+
+    return bp_interval_relation_kind(left, right) is TemporalRelationKind.OVERLAPPING
 
 
 def _canonical_bp_endpoint(value: object, *, field_name: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise InvalidBpIntervalError(f"{field_name} must be a finite number")
-    endpoint = float(value)
+    try:
+        endpoint = float(value)
+    except OverflowError as error:
+        raise InvalidBpIntervalError(f"{field_name} must be finite") from error
+    if isinstance(value, int) and endpoint != value:
+        raise InvalidBpIntervalError(f"{field_name} must be exactly representable")
     if not isfinite(endpoint):
         raise InvalidBpIntervalError(f"{field_name} must be finite")
     if endpoint < 0:
@@ -186,9 +216,10 @@ class TemporalSemantics:
     original_labels: tuple[str, ...] = ()
     normalized_labels: tuple[str, ...] = ()
     uncertainty_notes: tuple[str, ...] = ()
+    source_metadata: Mapping[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
-        return {
+        payload: dict[str, object] = {
             "schema_version": "temporal-semantics.v1",
             "source_family": self.source_family,
             "evidence_class": self.evidence_class,
@@ -210,6 +241,8 @@ class TemporalSemantics:
             "normalized_labels": list(self.normalized_labels),
             "uncertainty_notes": list(self.uncertainty_notes),
         }
+        payload.update(_source_metadata_copy(self.source_metadata, reserved=payload))
+        return payload
 
 
 def build_temporal_semantics(
@@ -230,6 +263,7 @@ def build_temporal_semantics(
     original_labels: tuple[str, ...] = (),
     normalized_labels: tuple[str, ...] = (),
     uncertainty_notes: tuple[str, ...] = (),
+    source_metadata: Mapping[str, object] | None = None,
 ) -> TemporalSemantics:
     """Build one normalized temporal semantics payload."""
     admission = admit_bp_interval(time_start_bp, time_end_bp)
@@ -240,13 +274,14 @@ def build_temporal_semantics(
     if not resolved_refusal:
         if time_mean_bp is None:
             resolved_mean = mean_bp_year_from_interval(interval)
-        elif (
-            not isinstance(time_mean_bp, bool)
-            and isinstance(time_mean_bp, (int, float))
-            and isfinite(float(time_mean_bp))
-            and float(time_mean_bp) >= 0
-        ):
-            resolved_mean = round(float(time_mean_bp))
+        else:
+            mean_refusal = _bp_value_refusal_reason(time_mean_bp)
+            if mean_refusal:
+                resolved_refusal = mean_refusal
+                resolved_posture = "refused"
+                interval = None
+            else:
+                resolved_mean = int(time_mean_bp)
     duration_years = None
     if interval is not None:
         duration_years = max(0, interval[1] - interval[0])
@@ -286,6 +321,7 @@ def build_temporal_semantics(
         original_labels=_normalize_string_tuple(original_labels),
         normalized_labels=_normalize_string_tuple(normalized_labels),
         uncertainty_notes=_normalize_string_tuple(uncertainty_notes),
+        source_metadata=source_metadata,
     )
 
 
@@ -325,10 +361,25 @@ def temporal_semantics_has_numeric_interval(payload: dict[str, object] | None) -
         "mixed_interval_and_context",
     }:
         return False
-    return any(
-        payload.get(key) is not None
-        for key in ("time_start_bp", "time_end_bp", "time_mean_bp")
+    if payload.get("refusal_reason_code"):
+        return False
+    if (
+        payload.get("schema_version", "temporal-semantics.v1")
+        != "temporal-semantics.v1"
+    ):
+        return False
+    admission = admit_bp_interval(
+        payload.get("time_start_bp"), payload.get("time_end_bp")
     )
+    if admission.refusal_reason_code:
+        return False
+    if payload.get("time_mean_bp") is not None and _bp_value_refusal_reason(
+        payload["time_mean_bp"]
+    ):
+        return False
+    if admission.admitted:
+        return True
+    return _as_optional_int(payload.get("time_mean_bp")) is not None
 
 
 def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
@@ -357,6 +408,24 @@ def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
         "normalized_labels": _normalize_string_list(value.get("normalized_labels")),
         "uncertainty_notes": _normalize_string_list(value.get("uncertainty_notes")),
     }
+    extensions = {key: item for key, item in value.items() if key not in payload}
+    payload.update(_source_metadata_copy(extensions, reserved=payload))
+    if value.get("schema_version", "temporal-semantics.v1") != "temporal-semantics.v1":
+        payload["schema_version"] = _json_metadata_copy(
+            value["schema_version"], seen=set()
+        )
+        payload["comparability_posture"] = "refused"
+        payload["refusal_reason_code"] = "unsupported_temporal_semantics_schema"
+        payload["time_start_bp"] = None
+        payload["time_end_bp"] = None
+        payload["time_mean_bp"] = None
+        payload["duration_years"] = None
+        payload["temporal_window_key"] = "unresolved"
+        payload["temporal_window_label"] = "Unresolved time window"
+        notes = cast(list[str], payload["uncertainty_notes"])
+        if "unsupported_temporal_semantics_schema" not in notes:
+            notes.append("unsupported_temporal_semantics_schema")
+        return payload
     admission = admit_bp_interval(
         payload.get("time_start_bp"), payload.get("time_end_bp")
     )
@@ -368,12 +437,19 @@ def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
         and not interval[0] <= mean <= interval[1]
     ):
         mean = None
-    if admission.refusal_reason_code:
+    interval_refusal = admission.refusal_reason_code
+    if (
+        not interval_refusal
+        and payload.get("time_mean_bp") is not None
+        and _bp_value_refusal_reason(payload["time_mean_bp"])
+    ):
+        interval_refusal = _bp_value_refusal_reason(payload["time_mean_bp"])
+    if interval_refusal:
         payload["comparability_posture"] = "refused"
-        payload["refusal_reason_code"] = admission.refusal_reason_code
+        payload["refusal_reason_code"] = interval_refusal
         notes = cast(list[str], payload["uncertainty_notes"])
-        if admission.refusal_reason_code not in notes:
-            notes.append(admission.refusal_reason_code)
+        if interval_refusal not in notes:
+            notes.append(interval_refusal)
         interval = None
         mean = None
     elif payload.get("time_mean_bp") is not None and mean is None and interval is None:
@@ -417,16 +493,20 @@ def _normalize_string_list(values: object) -> list[str]:
 def _as_optional_int(value: object) -> int | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
-    number = float(value)
-    if not isfinite(number) or number < 0:
+    if _bp_value_refusal_reason(value):
         return None
-    return round(number)
+    return int(value)
 
 
 def _bp_value_refusal_reason(value: object) -> str:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return "non_finite"
-    number = float(value)
-    if not isfinite(number):
+    if isinstance(value, float) and not isfinite(value):
         return "non_finite"
-    return "negative_bp" if number < 0 else ""
+    if value < 0:
+        return "negative_bp"
+    if value > _MAX_EXACT_BP_INTEGER:
+        return "unsafe_integer_bp"
+    if isinstance(value, float) and not value.is_integer():
+        return "fractional_bp"
+    return ""

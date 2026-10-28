@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import cast
 
 from ....core.text import slugify
+from ...domain.models.localities import AdnaSampleChronologySupport
 from .chronology import _atlas_public_chronology, _parse_chronology
 from .models import AnimalAtlasEvidenceRow
 from .sample_support import (
@@ -46,6 +47,42 @@ def _build_evidence_row(
         source_native_scientific_names,
         taxon_alignment_statuses,
     ) = _source_native_taxonomy_for(sample_rows)
+    sample_ids_raw = locality.get("sample_ids", [])
+    if not isinstance(sample_ids_raw, list) or any(
+        not isinstance(value, str) for value in sample_ids_raw
+    ):
+        raise TypeError("Animal locality sample IDs must be text")
+    original_supports = tuple(
+        AdnaSampleChronologySupport.from_sample_payload(row) for row in sample_rows
+    )
+    source_supports = {support.sample_id: support for support in original_supports}
+    if len(source_supports) != len(original_supports):
+        raise ValueError("Animal chronology sample source identities must be unique")
+    if "sample_chronologies" in locality:
+        payloads = locality["sample_chronologies"]
+        if not isinstance(payloads, list) or any(
+            not isinstance(item, dict) for item in payloads
+        ):
+            raise TypeError(
+                "Animal locality sample chronology supports must be objects"
+            )
+        supports = tuple(
+            AdnaSampleChronologySupport.from_dict(item) for item in payloads
+        )
+    else:
+        supports = tuple(
+            support
+            for support in original_supports
+            if support.sample_id in sample_ids_raw
+        )
+    if any(
+        support.sample_id not in sample_ids_raw
+        or source_supports.get(support.sample_id) != support
+        for support in supports
+    ):
+        raise ValueError(
+            "Animal chronology support requires exact matched original sample values"
+        )
     return AnimalAtlasEvidenceRow(
         feature_id=f"animal-atlas-feature:{feature_token}",
         evidence_row_id=f"animal-atlas-row:{evidence_token}",
@@ -83,6 +120,8 @@ def _build_evidence_row(
         project_accessions=project_accessions,
         primary_project_accession=primary_project_accession,
         sample_record_ids=_sample_record_ids_for(sample_rows),
+        sample_chronologies=supports,
+        sample_ids=tuple(sample_ids_raw),
         sample_group_ids=_sample_group_ids_for(sample_rows),
         source_native_taxon_labels=source_native_taxon_labels,
         source_native_tax_ids=source_native_tax_ids,

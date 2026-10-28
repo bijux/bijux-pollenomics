@@ -110,7 +110,7 @@ def _locality_summaries_payload(
     bundle: AdnaSpeciesNormalizationBundle,
 ) -> dict[str, object]:
     return {
-        "schema_version": "adna-locality-summary-export.v1",
+        "schema_version": "adna-locality-summary-export.v2",
         "species_latin_name": bundle.species.latin_name,
         "localities": [summary.as_dict() for summary in bundle.locality_records],
     }

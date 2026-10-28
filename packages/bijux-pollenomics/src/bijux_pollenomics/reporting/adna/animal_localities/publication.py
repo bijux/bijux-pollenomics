@@ -54,6 +54,9 @@ def _write_feature_collection(
                     "coordinate_confidence": feature["coordinate_confidence"],
                     "sample_count": feature["sample_count"],
                     "sample_record_ids": feature["sample_record_ids"],
+                    "chronology_role": feature["chronology_role"],
+                    "sample_ids": feature["sample_ids"],
+                    "sample_chronologies": feature["sample_chronologies"],
                     "sample_group_ids": feature["sample_group_ids"],
                     "source_native_taxon_labels": feature["source_native_taxon_labels"],
                     "source_native_tax_ids": feature["source_native_tax_ids"],
@@ -94,7 +97,7 @@ def _write_feature_collection(
     path.write_text(
         json.dumps(
             {
-                "schema_version": "animal-atlas-locality-collection.v1",
+                "schema_version": "animal-atlas-locality-collection.v2",
                 "type": "FeatureCollection",
                 "layer_key": layer_key,
                 "layer_label": layer_label,
@@ -112,6 +115,10 @@ def _write_animal_atlas_evidence_csv(
     rows: tuple[AnimalAtlasEvidenceRow, ...],
 ) -> None:
     fieldnames = (
+        "schema_version",
+        "chronology_role",
+        "sample_chronologies",
+        "sample_ids",
         "feature_id",
         "evidence_row_id",
         "site_record_id",
@@ -143,6 +150,14 @@ def _write_animal_atlas_evidence_csv(
         for row in rows:
             writer.writerow(
                 {
+                    "sample_ids": ";".join(row.sample_ids),
+                    "schema_version": "animal-atlas-evidence-rows.v2",
+                    "chronology_role": "locality_sample_coverage_hull",
+                    "sample_chronologies": json.dumps(
+                        [support.as_dict() for support in row.sample_chronologies],
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    ),
                     "feature_id": row.feature_id,
                     "evidence_row_id": row.evidence_row_id,
                     "site_record_id": row.site_record_id,
@@ -182,7 +197,7 @@ def _write_animal_atlas_evidence_json(
     path.write_text(
         json.dumps(
             {
-                "schema_version": "animal-atlas-evidence-rows.v1",
+                "schema_version": "animal-atlas-evidence-rows.v2",
                 "rows": [row.as_dict() for row in rows],
             },
             indent=2,

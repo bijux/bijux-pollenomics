@@ -15,6 +15,7 @@ from bijux_pollenomics.analysis.fieldwork.land_use import (
     _intervals_overlap as synthesis_intervals_overlap,
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.evidence.scientific_review import _locality_overlaps_point
 from bijux_pollenomics.reporting.adna.comparison_contracts import (
     build_animal_comparison_contract_payload,
@@ -310,6 +311,8 @@ def _locality(*, younger_bp: int | None, older_bp: int | None) -> AdnaLocalitySu
         datasets=("fixture",),
         chronology=AdnaChronology(
             original_text="fixture",
+            precision_posture="sample_precise_interval",
+            evidence_class="controlled_numeric_sample_date",
             time_start_bp=younger_bp,
             time_end_bp=older_bp,
             time_mean_bp=None,
@@ -339,4 +342,12 @@ def _context_point(
         popup_rows=(),
         time_start_bp=younger_bp,
         time_end_bp=older_bp,
+        temporal_semantics=build_temporal_semantics(
+            source_family="controlled_source",
+            evidence_class="controlled_context_date",
+            precision_posture="controlled_source_interval",
+            comparability_posture="numeric_interval",
+            time_start_bp=younger_bp,
+            time_end_bp=older_bp,
+        ).as_dict(),
     )

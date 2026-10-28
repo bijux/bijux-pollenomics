@@ -8,6 +8,10 @@ from math import isfinite
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SourceChronologyNode,
 )
+from bijux_pollenomics.core.temporal_semantics import (
+    BpInterval,
+    closed_bp_intervals_overlap,
+)
 
 TIME_DENSITY_BIN_COUNT = 12
 TIME_DENSITY_SCHEMA_VERSION = "source-chronology-time-density.v1"
@@ -175,10 +179,13 @@ def _bin(
     older_bp: float,
     nodes: Sequence[SourceChronologyNode],
 ) -> dict[str, object]:
+    frame = BpInterval(younger_bp, older_bp)
     overlapping = [
         node
         for node in nodes
-        if node.younger_bp <= older_bp and node.older_bp >= younger_bp
+        if closed_bp_intervals_overlap(
+            BpInterval(node.younger_bp, node.older_bp), frame
+        )
     ]
     return {
         "ordinal": ordinal,

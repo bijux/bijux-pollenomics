@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from bijux_pollenomics.adna import (
@@ -60,6 +62,12 @@ def _sample_with_interval(
             time_start_bp=younger_bp,
             time_end_bp=older_bp,
             time_mean_bp=None,
+            precision_posture=(
+                "sample_precise_interval"
+                if younger_bp is not None and older_bp is not None
+                else "unresolved_precision"
+            ),
+            evidence_class="controlled_numeric_sample_date",
         ),
         data_type="genome",
         molecular_sex="U",
@@ -138,8 +146,13 @@ def test_homo_sapiens_uses_the_shared_sample_query_matcher() -> None:
     )
 
 
-def test_both_runtime_loaders_reject_open_ended_bp_queries_before_loading() -> None:
-    manifest = build_species_runtime_manifest("Homo sapiens", version="v66")
+def test_both_runtime_loaders_reject_open_ended_bp_queries_before_loading(
+    tmp_path: Path,
+) -> None:
+    (tmp_path / "adna/species/homo_sapiens/raw/aadr/v66").mkdir(parents=True)
+    manifest = build_species_runtime_manifest(
+        "Homo sapiens", version="v66", data_root=tmp_path
+    )
     query = AdnaSampleQuery(time_start_bp=100, time_end_bp=None)
 
     with pytest.raises(InvalidBpIntervalError):

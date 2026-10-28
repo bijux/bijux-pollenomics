@@ -8,6 +8,10 @@ import hashlib
 import json
 from math import isfinite
 
+from bijux_pollenomics.core.chronology.relations import (
+    TemporalRelationKind,
+    bp_interval_relation_kind,
+)
 from bijux_pollenomics.core.temporal_semantics import canonical_bp_interval
 
 from .network import PhenomenonEvent
@@ -243,9 +247,8 @@ def estimate_first_observed(
         return result("chronology_unresolved")
     for older, younger in zip(intervals, intervals[1:], strict=False):
         if (
-            older is not None
-            and younger is not None
-            and older.younger_bp <= younger.older_bp
+            bp_interval_relation_kind(older, younger)
+            is not TemporalRelationKind.LEFT_OLDER
         ):
             return result("chronology_order_indeterminate")
     minimum = (

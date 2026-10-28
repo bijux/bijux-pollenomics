@@ -67,7 +67,11 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
     compatibility = assets.manifest.get("compatibility")
     requires_decoded_counts = isinstance(compatibility, Mapping) and compatibility.get(
         "index_schema"
-    ) in {"atlas-static-indexes.v3", "atlas-static-indexes.v4"}
+    ) in {
+        "atlas-static-indexes.v3",
+        "atlas-static-indexes.v4",
+        "atlas-static-indexes.v5",
+    }
     if assets.manifest.get("transport_integrity") != {
         "http_https": "subresource_integrity_plus_payload_sha256",
         "file": "payload_sha256_after_script_registration",

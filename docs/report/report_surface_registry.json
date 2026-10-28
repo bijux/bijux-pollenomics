@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2131,
+  "surface_count": 2132,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "excluded_metadata_paths": [
     "docs/report/report_narrative_quality_review.json",
@@ -10,14 +10,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1228,
+    "maintenance": 1229,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 767
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1230,
+    "maintainer_diagnostic": 1231,
     "public_reading_surface": 776,
     "scientific_review_surface": 125
   },
@@ -27,7 +27,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1279,
+    "report_root": 1280,
     "sweden": 55,
     "world": 160
   },
@@ -25099,6 +25099,18 @@
       "caution_level": "medium",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/native-memory/retained-trusted-process.txt",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "txt",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/numerical-performance/native-memory/source-context.json",

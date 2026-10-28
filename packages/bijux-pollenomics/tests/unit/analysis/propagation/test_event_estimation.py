@@ -242,3 +242,31 @@ def test_native_ownership_fields_are_required_nonempty(field: str) -> None:
             if field == "source_snapshot_id"
             else sample.source_snapshot_id,
         )
+
+
+@pytest.mark.parametrize(
+    ("older_bounds", "younger_bounds", "accepted"),
+    [
+        ((2.5, 4.5), (0.0, 2.25), True),
+        ((2.5, 4.5), (0.0, 2.5), False),
+        ((2.5, 4.5), (2.25, 2.75), False),
+        ((0.0, 2.25), (2.5, 4.5), False),
+        ((0.0, 0.0), (0.0, 0.0), False),
+    ],
+)
+def test_first_observed_requires_strict_older_sequence_without_boundary_overlap(
+    older_bounds: tuple[float, float],
+    younger_bounds: tuple[float, float],
+    accepted: bool,
+) -> None:
+    original = _samples()
+    samples = (
+        replace(original[0], younger_bp=older_bounds[0], older_bp=older_bounds[1]),
+        replace(original[1], younger_bp=younger_bounds[0], older_bp=younger_bounds[1]),
+    )
+    result = estimate_first_observed(samples, event_template=event("template"))
+    assert (result.event is not None) is accepted
+    if accepted:
+        assert result.supporting_observation_ids == ("sample:1",)
+    else:
+        assert result.reason_code == "chronology_order_indeterminate"

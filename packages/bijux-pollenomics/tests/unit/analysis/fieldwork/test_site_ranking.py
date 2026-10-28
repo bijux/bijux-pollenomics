@@ -78,8 +78,9 @@ def test_build_candidate_context_counts_nearby_points_and_layers() -> None:
 
     assert context.nearby_context_points == 2
     assert context.nearby_context_layer_count == 2
-    assert context.time_aware_context_points == 2
-    assert context.temporal_overlap_points == 2
+    # SEAD site coverage remains spatial context without dated occurrence support.
+    assert context.time_aware_context_points == 1
+    assert context.temporal_overlap_points == 1
 
 
 def test_candidate_context_reuses_exact_coordinate_distance_without_collapsing_rows(
@@ -218,7 +219,9 @@ def test_context_chronology_requires_comparable_interval_for_ranking() -> None:
     )
     valid = replace(
         _point("comparable", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500),
-        temporal_semantics={"comparability_posture": "numeric_interval"},
+        temporal_semantics=_point(
+            "comparable", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500
+        ).temporal_semantics,
     )
     points = (
         contextual,

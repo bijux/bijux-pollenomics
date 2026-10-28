@@ -1,0 +1,70 @@
+{
+  "local_love/aux_Kloc.csv": {
+    "sha256": "a41152d27a3a0f19d4aee6a0bcb3c62928e57c6bb8e90a8532e717bc898fc5f7",
+    "bytes": 63
+  },
+  "local_love/aux_Kreg.csv": {
+    "sha256": "c1df40f37a91a65cddd03d80d8cb0472d4434ffc5f7d0c2f9671e229682428aa",
+    "bytes": 63
+  },
+  "local_love/aux_valid_ring.csv": {
+    "sha256": "d5fe9b9f888333c1caebe2230fb19b7c2769742a555f2232c71be134308669cc",
+    "bytes": 23
+  },
+  "local_love/cover_mean.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "local_love/cover_q10.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "local_love/cover_q90.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "local_love/cover_sd.csv": {
+    "sha256": "2bd0352a1744175c8046cbfa9aaf3759ef0569cd16e61d01c2852b1aafda890c",
+    "bytes": 27
+  },
+  "local_love/outliers.csv": {
+    "sha256": "c2ff9f037972ff5b617faea0ecab410f3261737d35eca8d6bf67eb79690e6b41",
+    "bytes": 34
+  },
+  "local_love/outliers_quantiles.csv": {
+    "sha256": "ef612e417cdce7571db14c93c74b8823667222d8941a8b5f93e4e48978d7a41c",
+    "bytes": 42
+  },
+  "local_love/result_contract.json": {
+    "sha256": "32bf9d587a2cb77f63ce9f906422bec4cc0b65b2a821b7e3411aa85730499e32",
+    "bytes": 259
+  },
+  "local_love/run_manifest.json": {
+    "sha256": "0ab40a6f78870f7800dc991782dda465fb50075632ed74cb24e4fee59e74d645",
+    "bytes": 1789
+  },
+  "product_manifest.json": {
+    "sha256": "f95aa1a91c0be48ef2216a9c81105b3308cfc2dc8ab415e81e2130904277972e",
+    "bytes": 600
+  },
+  "regional_reveals/deposition_factors.csv": {
+    "sha256": "e93b7822018b0f00694914a9b892d4ff3a010913d68fcfaf2105c2cba367c2fe",
+    "bytes": 59
+  },
+  "regional_reveals/reconstruction.csv": {
+    "sha256": "ef26369c24e3ba952a29a642637edd8e0036baf6e9cf983979e798dffacb7162",
+    "bytes": 216
+  },
+  "regional_reveals/result_contract.json": {
+    "sha256": "a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253",
+    "bytes": 242
+  },
+  "regional_reveals/run_manifest.json": {
+    "sha256": "40d6d364361beb7bd6828d8a8b84a49da33ed3d08dc09dbb3968041b0e41f5d6",
+    "bytes": 1182
+  },
+  "run_manifest.json": {
+    "sha256": "02eb1ba0d6db87c18a23c2b1763d92407424a3a9c3968280bcffcfbc87b912d2",
+    "bytes": 2103
+  }
+}

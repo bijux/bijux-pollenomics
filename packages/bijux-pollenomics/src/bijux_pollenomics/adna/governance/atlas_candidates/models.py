@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from ...domain.models.chronology import AdnaChronology
+from ...domain.models.localities import AdnaSampleChronologySupport
 
 
 @dataclass(frozen=True)
@@ -63,6 +64,8 @@ class AnimalAtlasEvidenceRow:
     nordic_inclusion: bool
     nordic_inclusion_reason: str
     interpretation_note: str
+    sample_chronologies: tuple[AdnaSampleChronologySupport, ...] = ()
+    sample_ids: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -92,6 +95,11 @@ class AnimalAtlasEvidenceRow:
             "coordinate_supplementary_source": self.coordinate_supplementary_source,
             "coordinate_support_gap_note": self.coordinate_support_gap_note,
             "chronology": self.chronology.as_dict(),
+            "sample_ids": list(self.sample_ids),
+            "chronology_role": "locality_sample_coverage_hull",
+            "sample_chronologies": [
+                support.as_dict() for support in self.sample_chronologies
+            ],
             "project_accessions": list(self.project_accessions),
             "primary_project_accession": self.primary_project_accession,
             "sample_record_ids": list(self.sample_record_ids),

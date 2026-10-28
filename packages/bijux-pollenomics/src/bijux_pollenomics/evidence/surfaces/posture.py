@@ -7,6 +7,7 @@ from ...adna import (
     AdnaSpeciesDatasetReview,
     AdnaSpeciesNormalizationBundle,
 )
+from ...adna.domain.locality import locality_sample_intervals
 
 
 def _contribution_role_for(
@@ -78,7 +79,20 @@ def _chronology_posture_for(
 ) -> str:
     if species_localities:
         if all(
-            locality.time_start_bp is not None and locality.time_end_bp is not None
+            type(locality.sample_count) is int
+            and locality.sample_count > 0
+            and len(locality.sample_ids) == locality.sample_count
+            and all(
+                isinstance(identifier, str) and identifier.strip()
+                for identifier in locality.sample_ids
+            )
+            and len(set(locality.sample_ids)) == locality.sample_count
+            and len(locality.sample_chronologies) == locality.sample_count
+            and all(
+                isinstance(support.sample_id, str) and support.sample_id.strip()
+                for support in locality.sample_chronologies
+            )
+            and len(locality_sample_intervals(locality)) == locality.sample_count
             for locality in species_localities
         ):
             return "mapped_locality_bp_windows_available"

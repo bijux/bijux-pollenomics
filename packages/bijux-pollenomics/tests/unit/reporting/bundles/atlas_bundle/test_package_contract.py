@@ -121,7 +121,10 @@ def test_context_projection_refuses_malformed_declared_feature_count() -> None:
         )
 
 
-def test_context_projection_preserves_standalone_mean_with_null_interval() -> None:
+@pytest.mark.parametrize("declared", [False, True])
+def test_context_projection_preserves_standalone_mean_with_null_interval(
+    declared: bool,
+) -> None:
     records = atlas_bundle._extract_context_points(
         [
             {
@@ -139,6 +142,17 @@ def test_context_projection_preserves_standalone_mean_with_null_interval() -> No
                         "time_start_bp": None,
                         "time_end_bp": None,
                         "time_mean_bp": 123,
+                        **(
+                            {
+                                "temporal_semantics": {
+                                    "schema_version": "temporal-semantics.v1",
+                                    "comparability_posture": "numeric_interval_with_caveat",
+                                    "precision_posture": "source_reported_mean",
+                                }
+                            }
+                            if declared
+                            else {}
+                        ),
                     }
                 ],
             }
@@ -148,7 +162,9 @@ def test_context_projection_preserves_standalone_mean_with_null_interval() -> No
     assert len(records) == 1
     assert records[0].time_start_bp is None
     assert records[0].time_end_bp is None
-    assert records[0].time_mean_bp == 123
+    assert records[0].time_mean_bp == (123 if declared else None)
+    assert records[0].source_record is not None
+    assert records[0].source_record["time_mean_bp"] == 123
     assert records[0].site_uuid == "site-uuid-1"
 
 
@@ -157,7 +173,6 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
     modules = sorted(path.name for path in package_root.glob("*.py"))
     assert modules == [
         "__init__.py",
-        "context.py",
         "contracts.py",
         "evidence.py",
         "finalization.py",
@@ -168,6 +183,14 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
         "workflow.py",
     ]
     assert len(modules) <= 10
+    context_modules = sorted((package_root / "context").glob("*.py"))
+    assert [path.name for path in context_modules] == [
+        "__init__.py",
+        "animal_summary.py",
+        "extraction.py",
+        "source_bindings.py",
+    ]
+    assert all(len(path.read_text().splitlines()) <= 220 for path in context_modules)
     assert all(
         len(path.read_text(encoding="utf-8").splitlines()) <= 220
         for path in package_root.glob("*.py")

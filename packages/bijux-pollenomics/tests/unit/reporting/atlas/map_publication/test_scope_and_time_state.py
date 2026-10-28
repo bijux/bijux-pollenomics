@@ -74,6 +74,12 @@ class ScopeAndTimeStateTests(MapPublicationTestCase):
                             "longitude": 13.00,
                             "time_start_bp": 0,
                             "time_end_bp": 100,
+                            "temporal_semantics": {
+                                "schema_version": "temporal-semantics.v1",
+                                "comparability_posture": "numeric_interval_with_caveat",
+                                "evidence_class": "direct_numeric_sample_date",
+                                "precision_posture": "sample_precise_interval",
+                            },
                         },
                     ]
                 }
@@ -116,7 +122,16 @@ class ScopeAndTimeStateTests(MapPublicationTestCase):
             point_layers=[
                 {
                     "features": [
-                        {"time_start_bp": 340, "time_end_bp": 527},
+                        {
+                            "time_start_bp": 340,
+                            "time_end_bp": 527,
+                            "temporal_semantics": {
+                                "schema_version": "temporal-semantics.v1",
+                                "comparability_posture": "numeric_interval_with_caveat",
+                                "evidence_class": "direct_numeric_sample_date",
+                                "precision_posture": "sample_precise_interval",
+                            },
+                        },
                         {
                             "time_start_bp": 1,
                             "time_end_bp": 999_999,

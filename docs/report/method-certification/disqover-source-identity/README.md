@@ -5,7 +5,7 @@ The supplied `disqover_0.9.14.tar.gz`, the prototype's vendored copy and the
 are byte identical: each has SHA-256
 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`.
 Every one of the archive's 80 regular-file members matches the supplied
-extracted source tree byte for byte; that tree has no extra files. All 13 R
+extracted source tree byte for byte; that tree has no extra files. All 12 R
 source members are included in that equality. This comparison establishes
 local copy identity without requiring the old workspace copies for future
 execution. The product's archive remains the durable source copy.
@@ -46,7 +46,7 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Negative or refused result.** The DESCRIPTION date 22 January 2026 and LOVEr/LOVEoptim additions in 0.9.12 prevent an automatic identity inference from the paper's 23 February 2024 access date.
 
-**Matched denominator.** One retained archive,80 regular members and 13 R files; three byte-identical local copies; zero new model cases or independent scientific checks.
+**Matched denominator.** One retained archive,80 regular members and 12 R files; three byte-identical local copies; zero new model cases or independent scientific checks.
 
 - [Retained qualification evidence: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 
 from .cardinality import require_nonnegative_count
 from .families import SourceFamilyStateRow
+from .occurrence_chronology import ContextOccurrenceSupport
 
 
 @dataclass(frozen=True)
@@ -86,6 +88,8 @@ class ContextPointRecord:
     time_label: str = ""
     temporal_semantics: dict[str, object] | None = None
     site_uuid: str | None = None
+    occurrence_supports: tuple[ContextOccurrenceSupport, ...] | None = None
+    source_record: dict[str, object] | None = None
 
     def __post_init__(self) -> None:
         """Reject malformed cardinalities at the shared context-record boundary."""
@@ -93,6 +97,29 @@ class ContextPointRecord:
             self.record_count,
             field="context point record_count",
         )
+        if self.occurrence_supports is not None and (
+            not isinstance(self.occurrence_supports, tuple)
+            or any(
+                not isinstance(support, ContextOccurrenceSupport)
+                for support in self.occurrence_supports
+            )
+        ):
+            raise ValueError(
+                "Context occurrence_supports must contain typed source components"
+            )
+        identifiers = [
+            support.support_id for support in (self.occurrence_supports or ())
+        ]
+        if len(set(identifiers)) != len(identifiers):
+            raise ValueError(
+                "Context occurrence_supports contains duplicate source identifiers"
+            )
+        if self.source_record is not None:
+            if not isinstance(self.source_record, dict):
+                raise ValueError(
+                    "Context source_record must preserve an object or absence"
+                )
+            object.__setattr__(self, "source_record", deepcopy(self.source_record))
 
 
 @dataclass(frozen=True)
