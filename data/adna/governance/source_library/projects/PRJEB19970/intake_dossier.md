@@ -8,7 +8,7 @@
 - Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `15`
+- Final recovered sample rows: `16`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
 
@@ -55,6 +55,6 @@
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 4 item(s), blocks chronology honesty and publication precision
+- `chronology_recovery`: 32 item(s), blocks chronology honesty and publication precision
 - `locality_string_resolution`: 2 item(s), blocks coordinate derivation and exact locality publication
 - `site_resolution`: 2 item(s), blocks exact site, coordinate, and publication recovery
