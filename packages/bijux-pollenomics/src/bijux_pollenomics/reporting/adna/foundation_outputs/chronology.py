@@ -14,6 +14,7 @@ from ....adna.projects.evidence.chronology import (
     build_sample_chronology_provenance_rows,
     build_sample_chronology_review_rows,
 )
+from ...map_document.temporal_admission import feature_temporal_admission
 from .repository import _load_json_if_present
 
 
@@ -201,6 +202,13 @@ def _published_temporal_feature_findings(report_root: Path) -> list[str]:
                 findings.append(
                     f"{feature_id}: missing temporal semantics in {path.name}"
                 )
+                continue
+            if (
+                properties.get("chronology_role") == "locality_sample_coverage_hull"
+                and "sample_chronologies" in properties
+                and feature_temporal_admission(properties)[0] == "admitted"
+            ):
+                # Valid owned intervals carry comparison authority; the hull stays contextual.
                 continue
             posture = str(semantics.get("comparability_posture", "")).strip()
             if posture in {"contextual_label_only", "unresolved"} and any(
