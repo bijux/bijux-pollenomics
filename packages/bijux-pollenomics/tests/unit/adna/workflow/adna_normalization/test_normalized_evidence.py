@@ -199,19 +199,34 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 "Bundsø": (
                     4700,
                     4700,
-                    "archaeological_context",
-                    "archaeological_context_date",
-                    "sample_approximate_or_modeled",
+                    "locality_sample_coverage",
+                    "locality_sample_coverage_hull",
+                    "display_coverage_only",
                 ),
                 "Trelleborg": (
                     1000,
                     1000,
-                    "archaeological_context",
-                    "archaeological_context_date",
-                    "sample_approximate_or_modeled",
+                    "locality_sample_coverage",
+                    "locality_sample_coverage_hull",
+                    "display_coverage_only",
                 ),
             },
         )
+        for locality in pig_sites.values():
+            self.assertTrue(locality.sample_chronologies)
+            for support in locality.sample_chronologies:
+                sample = samples[support.sample_id]
+                self.assertEqual(support.chronology, sample.chronology)
+                self.assertEqual(
+                    support.chronology.dating_basis, "archaeological_context"
+                )
+                self.assertEqual(
+                    support.chronology.evidence_class, "archaeological_context_date"
+                )
+                self.assertEqual(
+                    support.chronology.precision_posture,
+                    "sample_approximate_or_modeled",
+                )
 
     def test_aurochs_samples_preserve_source_means_and_locality_dating_basis(
         self,
@@ -298,14 +313,35 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if name in admitted_locality_names
         }
         self.assertEqual(
-            {name: locality.dating_basis for name, locality in localities.items()},
             {
-                "Hjørring, Tofte Bæk": "radiocarbon",
-                "Lundby I": "mitochondrial_phylogenetic_model",
-                "Nevishög": "radiocarbon",
-                "Skåne": "radiocarbon",
+                name: {
+                    support.chronology.dating_basis
+                    for support in locality.sample_chronologies
+                }
+                for name, locality in localities.items()
+            },
+            {
+                "Hjørring, Tofte Bæk": {"radiocarbon"},
+                "Lundby I": {"mitochondrial_phylogenetic_model"},
+                "Nevishög": {"radiocarbon"},
+                "Skåne": {"radiocarbon"},
             },
         )
+        for locality in localities.values():
+            self.assertEqual(locality.dating_basis, "locality_sample_coverage")
+            self.assertEqual(
+                locality.chronology.evidence_class, "locality_sample_coverage_hull"
+            )
+            self.assertEqual(
+                locality.chronology.precision_posture, "display_coverage_only"
+            )
+            for support in locality.sample_chronologies:
+                sample = next(
+                    sample
+                    for sample in samples.values()
+                    if sample.master_id == support.sample_id
+                )
+                self.assertEqual(support.chronology, sample.chronology)
         self.assertEqual(
             {locality.coordinate_confidence for locality in localities.values()},
             {"approximate"},
