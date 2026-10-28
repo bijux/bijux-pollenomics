@@ -86,7 +86,7 @@ def replay(
     prepared_targets = sorted(
         set.intersection(
             *(
-                set(key for key, value in counts.items() if value > 0)
+                {key for key, value in counts.items() if value > 0}
                 for _, _, counts in site_data
             )
         )
@@ -163,8 +163,7 @@ def replay(
         / "docs/report/method-certification/author-site-uncertainty/replay.py",
         repository
         / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
-        repository
-        / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        Path(joint_site_cover_draws.__code__.co_filename).resolve(),
         repository
         / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
     ]
