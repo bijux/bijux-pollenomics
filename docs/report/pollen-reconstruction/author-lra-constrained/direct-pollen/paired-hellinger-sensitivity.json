@@ -1,6 +1,6 @@
 {
   "schema_version": "author-lra-paired-hellinger-sensitivity.v1",
-  "paired_hellinger_sha256": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+  "paired_hellinger_sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
   "excluded_site": "author:BECKHAM",
   "matched_sites": 14,
   "method_summaries": [

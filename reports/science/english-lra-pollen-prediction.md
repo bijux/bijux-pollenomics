@@ -50,28 +50,29 @@ or that a different budget would settle the refused sites.
 
 ## Source-bound result
 
-Our [retained report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json)
-binds the source, prediction and score manifests. A source-qualified run of the
+Our [published report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json)
+binds the source, prediction and score manifests from the genuinely completed
 [maintained ten-stage consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/constrained_author_lra.py)
-on a clean `3d6a963f1c5e37328d02260acc30a77c2496faca` checkout reproduced
-three of the eleven governed files byte for byte: the fold table, the direct
-prediction manifest and the direct prediction rows. The other eight changed
-only prediction or score identities and hashes derived from them. All numerical
-cells, denominators and refusal outcomes compared equal. The run used the
-qualified 193-file author snapshot, retained its complete native stages in
-ignored artifacts, checked source bytes before and after, and verified the
-installed producer origin. These are scoped source and numerical-correspondence
-checks; the eleven governed files as a set have **not** been reproduced byte
-for byte by this run.
+on clean commit `22c6e480ba4690cc508202925a8773afe95ab36e`. Its independent
+observer verified all eleven products, 195 native training attempts and the
+complete prediction-to-score chain against the qualified 193-file author
+snapshot. We retain 192 completed training products and three refusals, yielding
+14 scored outer folds and the refused BECKHAM fold.
 
-The fresh prediction manifest includes the installed LRA code inventory and
-runtime package version in its scientific identity. Its natural build version
-at that commit was `0.1.9.dev1213`; a later source commit changes that
-version and can change dependent manifest and report hashes without changing
-prediction fractions or scores. We preserve the historical governed bytes and
-their unresolved generated-output custody. We do not replace their identity
-fields with older values or infer independent vegetation accuracy from this
-recheck.
+The eleven published files now equal that execution's actual output bytes.
+Three also equal the earlier retained files byte for byte: the fold table,
+the direct prediction manifest and direct prediction rows. Eight differ only
+in independently authenticated prediction or score identities and downstream
+hashes; all scientific values, ordered populations and negative outcomes are
+unchanged. The execution used the installed `0.1.9.dev1462` binding and its exact
+current numerical source inventory. It supplies current source custody, not
+an independent vegetation evaluation or evidence that the previously exposed
+English outcomes are a new cohort.
+
+An earlier version of this account cited a run on
+`3d6a963f1c5e37328d02260acc30a77c2496faca`. Its original terminal is unavailable
+for current custody and is not used as the execution authority here. We keep
+that historical limitation distinct from the completed source-bound run above.
 
 We rotated all 15 sites as
 targets. Fourteen folds produced three predictions each. We refused the
@@ -327,7 +328,7 @@ an editable source checkout.
 
 **Unsupported claim.** Ecological cover accuracy, calibrated uncertainty, field PPE covariance, physical receiving-radius selection or equal-information solver ranking.
 
-**Actual verification performed.** Retained folds and radius sensitivity are cited; maintained qualified producer matches retained 64-draw diagnostics and all 30-taxon summaries, with likelihood gaps and forward residuals checked. No new held-out score or ecological validation. The qualified original ten-stage source consumer on clean commit 3d6a963f1c5e37328d02260acc30a77c2496faca compared all numerical cells and native metadata chains: three of eleven outputs exact, eight identity-only differences from natural code/runtime-version provenance. Source bytes checked before and after; installed producer origin verified. This is commit-bound correspondence, not eleven-file byte reproduction.
+**Actual verification performed.** The maintained ten-stage source consumer and independent observer genuinely passed on clean commit 22c6e480ba4690cc508202925a8773afe95ab36e, terminal c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539. All eleven products preserve complete scientific values, ordered support and refusals; three also equal earlier bytes and eight have independently authenticated current prediction/score identity differences. Current publication uses the exact new eleven product bytes. All 195 native training attempts were retained and source-verified: 192 completed, 3 refused, 14 scored folds and BECKHAM refused. The historical 3d6 terminal is unavailable and supplies no current custody. This does not qualify ecology, uncertainty calibration, rights, Nordic inputs or human review.
 
 **Remaining input or review.** Constrained SLSQP still refuses one outer fold; local radius and fall-speed profile are conditional, sites were explored earlier, and forward pollen scores lack independent vegetation truth or a calibrated interval. Resolver: LRA solver/source-profile owners and independent ecology reviewer Reopen when: Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed.
 
