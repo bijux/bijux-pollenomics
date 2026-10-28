@@ -9,6 +9,71 @@ from ..models import _ProjectIntakeExpectation
 
 def population_expectation(project_accession: str) -> _ProjectIntakeExpectation | None:
     """Keep source-population authority separate from archive capture counts."""
+    if project_accession == "PRJEB31613":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained Cell article Results and Table S1 describe 278 "
+                "ancient equids: 245 horses, 27 mules, three asses and three "
+                "hemiones. The 87 new high-coverage horse genomes are an "
+                "analysis subset. Data Availability assigns aligned sequencing "
+                "data to PRJEB31613 without equating the project to that subset "
+                "or the horse-only master. The archive capture contains 440 "
+                "runs across 223 BioSamples: 190 Equus caballus, 27 hybrids, "
+                "three asses and three hemiones. These distinct populations "
+                "do not close a project-wide specimen denominator or establish "
+                "that 55 horses are missing from the archive."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.cell.2019.03.049/"
+                "supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve all 245 horse master rows and the full mixed-equid "
+                "source population. Resolve specimen-owned author/native "
+                "accession correspondence and the new/reused/deposited scope "
+                "without counting hybrids as horses, selecting the 87-genome "
+                "analysis subset as the project, or inferring biological gaps."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
+    if project_accession == "PRJEB22390":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained Science supplement p.2 selects 42 ancient horse "
+                "samples from 17 sites for deeper sequencing after low-depth "
+                "screening, without enumerating all screened remains. Page 13 "
+                "assigns alignments to PRJEB22390 and describes 156 libraries "
+                "(one to seven per sample), including 154 USER-treated libraries. "
+                "Forty-two selected genomes, 156 technical libraries and the "
+                "captured 42 runs/BioSamples are separate populations; they "
+                "do not establish the initial screening denominator or an "
+                "exhaustive project deposition roster."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aao3297/"
+                "supplementary/aao3297_gaunitz_sm.pdf"
+            ),
+            sample_identifier_status="manual_curation_required",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve all 42 recovered sample rows and their independent "
+                "dating evidence. Recover source-owned screening and deposition "
+                "scope before defining a project expectation; do not count "
+                "libraries as animals or infer failed and missing specimens "
+                "from technical library counts."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
     if project_accession == "PRJEB19970":
         return _ProjectIntakeExpectation(
             expected_sample_count=None,

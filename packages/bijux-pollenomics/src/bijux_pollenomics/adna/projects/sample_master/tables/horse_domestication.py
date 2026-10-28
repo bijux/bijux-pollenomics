@@ -80,7 +80,7 @@ def _berel_archive_locator(archive_text: str) -> str:
             raise ValueError("PRJEB19970 BER11_L duplicate run identity")
         matched_runs.add(run)
         lines.append(line)
-    if matched_runs != _BEREL_RUNS:
+    if frozenset(matched_runs) != _BEREL_RUNS:
         raise ValueError("PRJEB19970 BER11_L thirteen-run population drift")
     return (
         f"sample_accession:{_BEREL_SAMPLE};submitted_filename_label:BER11_L;"
