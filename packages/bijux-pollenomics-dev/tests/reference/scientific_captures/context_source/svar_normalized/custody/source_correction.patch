@@ -1,0 +1,229 @@
+--- original/contracts.py
++++ successor/contracts.py
+@@ -122,3 +122,38 @@
+     require(
+         len(report["inputs"]) == 6, "Exact private/public input membership required"
+     )
++
++
++def frozen_pin_union(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
++    """Keep original declared identities; an overlapping role cannot replace a pin."""
++    by_path: dict[str, dict[str, Any]] = {}
++    for row in rows:
++        require(set(row) == {"path", "sha256", "bytes"}, "Pin fields differ")
++        require(
++            type(row["path"]) is str and type(row["bytes"]) is int, "Pin types differ"
++        )
++        previous = by_path.get(row["path"])
++        require(previous is None or exact(previous, row), "Conflicting input roles")
++        by_path[row["path"]] = dict(row)
++    return [by_path[key] for key in sorted(by_path)]
++
++
++def verify_frozen_pins(rows: list[dict[str, Any]]) -> None:
++    """Compare against the frozen census rather than recording changed bytes anew."""
++    for row in rows:
++        require(
++            exact(pin(Path(row["path"])), row), "Frozen input changed: " + row["path"]
++        )
++
++
++def output_products(output: Path) -> list[dict[str, Any]]:
++    """Count every regular output and refuse every alias or special entry."""
++    products = []
++    for path in sorted(output.rglob("*")):
++        require(
++            not path.is_symlink() and (path.is_file() or path.is_dir()),
++            "Output alias/special refused",
++        )
++        if path.is_file():
++            products.append(pin(path))
++    return products
+--- original/prepare.py
++++ successor/prepare.py
+@@ -17,13 +17,15 @@
+     confined_output,
+     dump,
+     exact,
++    frozen_pin_union,
+     load,
+     pin,
+     require,
+     sha,
+     source_namespace,
++    verify_frozen_pins,
+ )
+-from runtime import runtime_inputs
++from runtime import absent_path, check_aliases, runtime_inputs, tree_membership
+ 
+ 
+ def identity() -> dict[str, str]:
+@@ -62,17 +64,18 @@
+         and review["source_manifest_sha256"] == sha(manifest),
+         "Held independent source approval required",
+     )
+-    files = set()
++    expected = []
+     for row in load(manifest)["files"]:
+         file = SOURCE / row["path"]
+         require(exact(pin(file), {**row, "path": str(file)}), "Held controller differs")
+-        files.add(file)
+-    files.update((manifest, peer))
++        expected.append({**row, "path": str(file)})
++    expected.extend((pin(manifest), pin(peer)))
+     declared = load(SOURCE / "declared-inputs.json")
+     for row in declared["inputs"]:
+         require(exact(pin(Path(row["path"])), row), "Science/source input differs")
+-        files.add(Path(row["path"]))
++        expected.append(dict(row))
+     policy = ROOT / "configs/ci/report-ownership.json"
++    policy_pin = pin(policy)
+     owners = [x for x in load(policy)["owners"] if x["owner_id"] == declared["owner"]]
+     require(
+         len(owners) == 1
+@@ -80,9 +83,11 @@
+         and owners[0]["paths"] == [declared["report"]],
+         "Expected unresolved owner differs",
+     )
+-    files.add(policy)
++    expected.append(policy_pin)
+     runtime_files, runtime = runtime_inputs()
+-    files.update(runtime_files)
++    expected.extend(pin(file) for file in sorted(runtime_files))
++    frozen_inputs = frozen_pin_union(expected)
++    frozen_by_path = {row["path"]: row for row in frozen_inputs}
+     source = ROOT / declared["maintained_source"]
+     report = ROOT / declared["report"]
+     output_parent = output.parent
+@@ -92,7 +97,30 @@
+         shutil.disk_usage(output_parent).free >= 1024**3,
+         "Need128MiB outputs and available reserve",
+     )
++    source_namespace()
++    verify_frozen_pins(frozen_inputs)
++    require(
++        tree_membership(Path(runtime["framework_root"]))
++        == runtime["framework_membership"],
++        "Runtime namespace changed during preparation",
++    )
++    require(
++        check_aliases(runtime["tree_aliases"] + runtime["native_aliases"])
++        and absent_path(Path(runtime["absent_stdlib_zip"])),
++        "Runtime alias or absence changed during preparation",
++    )
++    framework_files = {
++        str(Path(runtime["framework_root"]) / row["path"])
++        for row in runtime["framework_membership"]
++        if row["kind"] == "file"
++    }
++    require(
++        framework_files.issubset({row["path"] for row in frozen_inputs}),
++        "Unpinned framework namespace entry",
++    )
+     require(identity() == before, "Candidate changed during preparation")
++    confined_output(output, absent=True)
++    verify_frozen_pins(frozen_inputs)
+     output.mkdir()
+     (output / "scratch").mkdir()
+     plan_path = output / "plan.json"
+@@ -103,10 +131,10 @@
+         "repository": str(ROOT),
+         "canonical_identity": before,
+         "output": str(output),
+-        "input_pins": [pin(x) for x in sorted(files)],
++        "input_pins": frozen_inputs,
+         "absent_input_paths": [runtime["absent_stdlib_zip"]],
+         "runtime_profile": runtime,
+-        "maintained_source": pin(source),
++        "maintained_source": frozen_by_path[str(source)],
+         "maintained_source_argv": [
+             str(source),
+             "--repository",
+@@ -116,7 +144,7 @@
+             "--output",
+             str(output / "producer"),
+         ],
+-        "historical_report": pin(report),
++        "historical_report": frozen_by_path[str(report)],
+         "declared_owner": owners[0],
+         "common_runner": str(SOURCE / "common_runner.py"),
+         "resources": {
+--- original/run.py
++++ successor/run.py
+@@ -13,7 +13,7 @@
+ from typing import Any
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parent))
+-from contracts import BASE, dump, exact, load, pin, require, sha
++from contracts import BASE, dump, exact, load, output_products, pin, require, sha
+ from runtime import (
+     absent_path,
+     check_aliases,
+@@ -126,11 +126,7 @@
+     absences_stable = all(
+         absent_path(Path(value)) for value in plan["absent_input_paths"]
+     )
+-    products = []
+-    for path in sorted(output.rglob("*")):
+-        require(not path.is_symlink(), "Output alias refused")
+-        if path.is_file():
+-            products.append(pin(path))
++    products = output_products(output)
+     used = sum(row["bytes"] for row in products)
+     rss = max(
+         (
+--- original/check_contracts.py
++++ successor/check_contracts.py
+@@ -87,6 +87,40 @@
+         link.symlink_to(c.ROOT / "artifacts", target_is_directory=True)
+         refused(c.confined_output, link / "future")
+         count += 1
++    with tempfile.TemporaryDirectory(dir=c.SOURCE / "preflight") as name:
++        root = Path(name)
++        input_file = root / "declared-input"
++        input_file.write_bytes(b"reviewed")
++        frozen = c.frozen_pin_union([c.pin(input_file), c.pin(input_file)])
++        assert len(frozen) == 1
++        count += 1
++        bad = dict(frozen[0])
++        bad["sha256"] = "0" * 64
++        refused(c.frozen_pin_union, [frozen[0], bad])
++        count += 1
++        # Simulate an input changing while the preparer inspects native closure.
++        input_file.write_bytes(b"changed-during-census")
++        refused(c.verify_frozen_pins, frozen)
++        assert frozen[0]["bytes"] == len(b"reviewed")
++        count += 1
++        output = root / "products"
++        output.mkdir()
++        (output / "subdirectory").mkdir()
++        (output / "regular.json").write_text("{}")
++        assert len(c.output_products(output)) == 1
++        extra = output / "special"
++        os.mkfifo(extra)
++        try:
++            refused(c.output_products, output)
++        finally:
++            extra.unlink()
++        count += 1
++        extra.symlink_to(output / "regular.json")
++        try:
++            refused(c.output_products, output)
++        finally:
++            extra.unlink()
++        count += 1
+     assert expand_dependency(
+         "/opt/homebrew/opt/openssl@3/lib/crypto", Path("/lib/foo"), c.BASE
+     ) == Path("/opt/homebrew/opt/openssl@3/lib/crypto")
+--- original/protocol.json
++++ successor/protocol.json
+@@ -9,5 +9,8 @@
+   "observer": "Separate standard-library process, no producer import; full private source hashes, source summary/manifest date/count claims, current review40523/subset99/zero ranked/refusal, exact six-member source ledger and complete typed/byte current result. Raw process import/native origin snapshots before/after. Source40565 is retained metadata claim, no new GeoJSON feature census or WFS-export proof.",
+   "authority": "Source checks and independent held-source approval before root-owned prepare0; unique STATE job/readback0; separate launch; actual native terminal collection before evidence admission. Hold canonical through terminal. All registered paths immutable; successors disjoint.",
+   "scientific_limits": "40565claimed vs40523review difference42 remains unresolved; original WFS acquisition, source field semantics, qualified review/rights and ranking admission remain absent. No private raw redistribution or ecological accuracy claim.",
+-  "actual_preparer_or_native_execution": false
++  "actual_preparer_or_native_execution": false,
++  "predecessor_source_manifest_sha256": "f7aea2a2cb253c0b620839adf88ad44be56ac52106885be5c046add2ac69548b",
++  "final_census": "Original held/declaration/policy rows and runtime snapshot are frozen into a duplicate-rejecting exact union before any output creation. Final pins, source import boundary, framework membership, raw aliases and absent ZIP must still match before mkdir. Plan source/report references use the same original union, never freshly adopted changed bytes.",
++  "output_accounting": "Every traversed entry must be a regular file or directory and never a symlink; all special entries including FIFO refuse. No source/science/tolerance or original launcher change."
+ }

@@ -1,0 +1,317 @@
+--- held/prepare.py
++++ import-custody/prepare.py
+@@ -9,9 +9,38 @@
+ import subprocess
+ import sys
+ 
+-sys.path.insert(0, str(Path(__file__).resolve().parent))
+-from cache_contract import validate_cache
+-from contracts import (
++# Authenticate the physical helper namespace before Python can select local imports.
++_entrypoint_path = Path(__file__).absolute()
++_source_directory = _entrypoint_path.parent
++if _entrypoint_path != _entrypoint_path.resolve() or any(
++    _ancestor.is_symlink()
++    for _ancestor in (_entrypoint_path, *_entrypoint_path.parents)
++):
++    raise ValueError("Controller entrypoint or ancestor is an alias")
++_source_modules = {
++    "observe.py",
++    "common_runner.py",
++    "prepare.py",
++    "cache_contract.py",
++    "runtime.py",
++    "contracts.py",
++    "run.py",
++    "execute_source.py",
++    "independent.py",
++    "check_contracts.py",
++}
++for _entry in _source_directory.iterdir():
++    if _entry.is_symlink() or (not _entry.is_file() and not _entry.is_dir()):
++        raise ValueError("Controller namespace contains an alias/special entry")
++    if _entry.is_dir() and _entry.name != "preflight":
++        raise ValueError("Unexpected controller import directory")
++    if _entry.suffix in {".py", ".pyc", ".so"} and _entry.name not in _source_modules:
++        raise ValueError("Unexpected controller import member")
++sys.path.insert(0, str(_source_directory))
++from cache_contract import (  # noqa: E402 — authenticate local imports first.
++    validate_cache,
++)
++from contracts import (  # noqa: E402 — authenticate local imports first.
+     BASE,
+     CACHE,
+     LANES,
+@@ -30,7 +59,12 @@
+     source_namespace,
+     verify_frozen_pins,
+ )
+-from runtime import absent_path, check_aliases, runtime_inputs, tree_membership
++from runtime import (  # noqa: E402 — authenticate local imports first.
++    absent_path,
++    check_aliases,
++    runtime_inputs,
++    tree_membership,
++)
+ 
+ 
+ def identity() -> dict[str, str]:
+--- held/execute_source.py
++++ import-custody/execute_source.py
+@@ -10,8 +10,35 @@
+ import traceback
+ from typing import Any
+ 
+-sys.path.insert(0, str(Path(__file__).resolve().parent))
+-from contracts import (
++# Authenticate the physical helper namespace before Python can select local imports.
++_entrypoint_path = Path(__file__).absolute()
++_source_directory = _entrypoint_path.parent
++if _entrypoint_path != _entrypoint_path.resolve() or any(
++    _ancestor.is_symlink()
++    for _ancestor in (_entrypoint_path, *_entrypoint_path.parents)
++):
++    raise ValueError("Controller entrypoint or ancestor is an alias")
++_source_modules = {
++    "observe.py",
++    "common_runner.py",
++    "prepare.py",
++    "cache_contract.py",
++    "runtime.py",
++    "contracts.py",
++    "run.py",
++    "execute_source.py",
++    "independent.py",
++    "check_contracts.py",
++}
++for _entry in _source_directory.iterdir():
++    if _entry.is_symlink() or (not _entry.is_file() and not _entry.is_dir()):
++        raise ValueError("Controller namespace contains an alias/special entry")
++    if _entry.is_dir() and _entry.name != "preflight":
++        raise ValueError("Unexpected controller import directory")
++    if _entry.suffix in {".py", ".pyc", ".so"} and _entry.name not in _source_modules:
++        raise ValueError("Unexpected controller import member")
++sys.path.insert(0, str(_source_directory))
++from contracts import (  # noqa: E402 — authenticate local imports first.
+     LANES,
+     SOURCE,
+     confined_output,
+@@ -23,7 +50,7 @@
+     source_namespace,
+     verify_frozen_pins,
+ )
+-from runtime import (
++from runtime import (  # noqa: E402 — authenticate local imports first.
+     enable_xlrd,
+     profile_guard,
+     qualify_process_snapshot,
+--- held/observe.py
++++ import-custody/observe.py
+@@ -7,9 +7,38 @@
+ from pathlib import Path
+ import sys
+ 
+-sys.path.insert(0, str(Path(__file__).resolve().parent))
+-from cache_contract import validate_cache
+-from contracts import (
++# Authenticate the physical helper namespace before Python can select local imports.
++_entrypoint_path = Path(__file__).absolute()
++_source_directory = _entrypoint_path.parent
++if _entrypoint_path != _entrypoint_path.resolve() or any(
++    _ancestor.is_symlink()
++    for _ancestor in (_entrypoint_path, *_entrypoint_path.parents)
++):
++    raise ValueError("Controller entrypoint or ancestor is an alias")
++_source_modules = {
++    "observe.py",
++    "common_runner.py",
++    "prepare.py",
++    "cache_contract.py",
++    "runtime.py",
++    "contracts.py",
++    "run.py",
++    "execute_source.py",
++    "independent.py",
++    "check_contracts.py",
++}
++for _entry in _source_directory.iterdir():
++    if _entry.is_symlink() or (not _entry.is_file() and not _entry.is_dir()):
++        raise ValueError("Controller namespace contains an alias/special entry")
++    if _entry.is_dir() and _entry.name != "preflight":
++        raise ValueError("Unexpected controller import directory")
++    if _entry.suffix in {".py", ".pyc", ".so"} and _entry.name not in _source_modules:
++        raise ValueError("Unexpected controller import member")
++sys.path.insert(0, str(_source_directory))
++from cache_contract import (  # noqa: E402 — authenticate local imports first.
++    validate_cache,
++)
++from contracts import (  # noqa: E402 — authenticate local imports first.
+     CACHE,
+     LANES,
+     LEDGER,
+@@ -27,13 +56,13 @@
+     source_namespace,
+     verify_frozen_pins,
+ )
+-from independent import (
++from independent import (  # noqa: E402 — authenticate local imports first.
+     AGE_INTERPRETATION,
+     WITNESS_INTERPRETATION,
+     neotoma_findings,
+     workbook_age_findings,
+ )
+-from runtime import (
++from runtime import (  # noqa: E402 — authenticate local imports first.
+     enable_xlrd,
+     profile_guard,
+     qualify_process_snapshot,
+--- held/run.py
++++ import-custody/run.py
+@@ -12,9 +12,38 @@
+ import time
+ from typing import Any
+ 
+-sys.path.insert(0, str(Path(__file__).resolve().parent))
+-from cache_contract import validate_cache
+-from contracts import (
++# Authenticate the physical helper namespace before Python can select local imports.
++_entrypoint_path = Path(__file__).absolute()
++_source_directory = _entrypoint_path.parent
++if _entrypoint_path != _entrypoint_path.resolve() or any(
++    _ancestor.is_symlink()
++    for _ancestor in (_entrypoint_path, *_entrypoint_path.parents)
++):
++    raise ValueError("Controller entrypoint or ancestor is an alias")
++_source_modules = {
++    "observe.py",
++    "common_runner.py",
++    "prepare.py",
++    "cache_contract.py",
++    "runtime.py",
++    "contracts.py",
++    "run.py",
++    "execute_source.py",
++    "independent.py",
++    "check_contracts.py",
++}
++for _entry in _source_directory.iterdir():
++    if _entry.is_symlink() or (not _entry.is_file() and not _entry.is_dir()):
++        raise ValueError("Controller namespace contains an alias/special entry")
++    if _entry.is_dir() and _entry.name != "preflight":
++        raise ValueError("Unexpected controller import directory")
++    if _entry.suffix in {".py", ".pyc", ".so"} and _entry.name not in _source_modules:
++        raise ValueError("Unexpected controller import member")
++sys.path.insert(0, str(_source_directory))
++from cache_contract import (  # noqa: E402 — authenticate local imports first.
++    validate_cache,
++)
++from contracts import (  # noqa: E402 — authenticate local imports first.
+     BASE,
+     CACHE,
+     SOURCE,
+@@ -26,7 +55,7 @@
+     require,
+     sha,
+ )
+-from runtime import (
++from runtime import (  # noqa: E402 — authenticate local imports first.
+     absent_path,
+     check_aliases,
+     profile_guard,
+--- held/check_contracts.py
++++ import-custody/check_contracts.py
+@@ -2,11 +2,13 @@
+ 
+ from __future__ import annotations
+ 
++import ast
+ from collections.abc import Callable
+ from copy import deepcopy
+ import json
+ import os
+ from pathlib import Path
++import runpy
+ import shutil
+ import sys
+ import tempfile
+@@ -41,6 +43,71 @@
+     qualify_process_snapshot,
+     require_environment,
+ )
++
++
++def entrypoint_import_guards(root: Path) -> int:
++    """Exercise real entrypoint refusal before a poisoned local helper could run."""
++    total = 0
++    for name in ("prepare.py", "execute_source.py", "observe.py", "run.py"):
++        source = (SOURCE / name).read_text()
++        parsed = ast.parse(source)
++        insertion = next(
++            i
++            for i, node in enumerate(parsed.body)
++            if isinstance(node, ast.Expr)
++            and isinstance(node.value, ast.Call)
++            and isinstance(node.value.func, ast.Attribute)
++            and node.value.func.attr == "insert"
++        )
++        prefix = ast.Module(body=parsed.body[:insertion], type_ignores=[])
++        boundary = root / name.removesuffix(".py")
++        boundary.mkdir()
++        target = boundary / name
++        target.write_text(source)
++        namespace: dict[str, Any] = {"__file__": str(target)}
++        exec(compile(prefix, str(target), "exec"), namespace)
++        total += 1
++        marker = boundary / "import-executed.json"
++        poison = boundary / "contracts.py"
++        poison.write_text(
++            "from pathlib import Path\nPath("
++            + repr(str(marker))
++            + ").write_text('unsafe')\n"
++        )
++        for bad_name, kind in (
++            ("contracts.cpython-311-darwin.so", "file"),
++            ("unselected.pyc", "file"),
++            ("unselected.py", "file"),
++            ("unselected-package", "directory"),
++            ("unselected-link", "symlink"),
++            ("unselected-fifo", "fifo"),
++        ):
++            bad = boundary / bad_name
++            if kind == "file":
++                bad.write_bytes(b"unselected import shadow")
++            elif kind == "directory":
++                bad.mkdir()
++            elif kind == "symlink":
++                bad.symlink_to(poison)
++            else:
++                os.mkfifo(bad)
++            try:
++                refused(runpy.run_path, str(target))
++                assert not marker.exists(), "Local helper ran before namespace refusal"
++            finally:
++                if kind == "directory":
++                    bad.rmdir()
++                else:
++                    bad.unlink()
++            total += 1
++        alias = root / (name + "-alias")
++        alias.symlink_to(boundary, target_is_directory=True)
++        with_alias: dict[str, Any] = {"__file__": str(alias / name)}
++        refused(exec, compile(prefix, str(target), "exec"), with_alias)
++        alias.unlink()
++        assert not marker.exists()
++        total += 1
++    return total
+ 
+ 
+ def refused(function: Callable[..., Any], *args: Any) -> None:
+@@ -396,6 +463,8 @@
+     bad["FLINK"].rows[0][2] = "other taxon"
+     refused(neotoma_findings, bad, ledger, raw)
+     count += 1
++    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as boundary_root:
++        count += entrypoint_import_guards(Path(boundary_root))
+     assert "xlrd" not in sys.modules
+     print(
+         json.dumps(
