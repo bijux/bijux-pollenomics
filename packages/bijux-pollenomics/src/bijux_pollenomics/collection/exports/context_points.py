@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from copy import deepcopy
 import csv
 import json
 from pathlib import Path
+from typing import cast
 
 from ...core.files import write_json
 from ..contracts.models import ContextPointRecord
@@ -16,6 +18,11 @@ def _normalize_csv_text(value: str) -> str:
 
 def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) -> None:
     """Write normalized context point records as CSV."""
+    records = tuple(records)
+    include_source = any(
+        record.source_record is not None or record.occurrence_supports is not None
+        for record in records
+    )
     fieldnames = [
         "source",
         "layer_key",
@@ -39,6 +46,8 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
         "popup_rows_json",
         "site_uuid",
     ]
+    if include_source:
+        fieldnames.extend(("occurrence_supports_json", "source_record_json"))
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
@@ -76,6 +85,29 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                         record.popup_rows, ensure_ascii=False
                     ),
                     "site_uuid": record.site_uuid or "",
+                    **(
+                        {
+                            "occurrence_supports_json": json.dumps(
+                                [
+                                    support.as_dict()
+                                    for support in record.occurrence_supports
+                                ],
+                                ensure_ascii=False,
+                                allow_nan=False,
+                            )
+                            if record.occurrence_supports is not None
+                            else "",
+                            "source_record_json": json.dumps(
+                                record.source_record,
+                                ensure_ascii=False,
+                                allow_nan=False,
+                            )
+                            if record.source_record is not None
+                            else "",
+                        }
+                        if include_source
+                        else {}
+                    ),
                 }
             )
 
@@ -119,6 +151,19 @@ def write_context_points_geojson(
                 },
             }
         )
+        properties = cast(dict[str, object], features[-1]["properties"])
+        if record.source_record is not None:
+            properties.update(deepcopy(record.source_record))
+            properties["source_record"] = deepcopy(record.source_record)
+            if (
+                "temporal_semantics" not in record.source_record
+                and record.temporal_semantics is None
+            ):
+                properties.pop("temporal_semantics", None)
+        if record.occurrence_supports is not None:
+            properties["occurrence_supports"] = [
+                support.as_dict() for support in record.occurrence_supports
+            ]
     write_json(path, {"type": "FeatureCollection", "features": features})
 
 

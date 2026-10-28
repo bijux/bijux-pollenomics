@@ -67,11 +67,6 @@
     },
     {
       "original_module": "_version",
-      "definition": "NUMERICAL_BACKEND",
-      "destination": "version"
-    },
-    {
-      "original_module": "_version",
       "definition": "REFERENCE_ARCHIVE_SHA256",
       "destination": "version"
     },
@@ -535,5 +530,15 @@
     "standalone CLI",
     "host product envelopes",
     "reference oracle runtime API"
+  ],
+  "introduced_bindings": [
+    {
+      "definition": "NUMERICAL_BACKEND",
+      "destination": "version",
+      "provenance": "Current engine backend declaration; no binding in the received _version module.",
+      "received_module": "_version",
+      "received_module_sha256": "f812bbdd47eb01f83b5e25c6104938a9f5d75530b575c58b5716520c394ee99b",
+      "received_binding_present": false
+    }
   ]
 }

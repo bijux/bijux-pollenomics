@@ -1,8 +1,12 @@
 """Guard authored prose, claim custody and complete on-page verification fields."""
 
 import csv
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
+import posixpath
+import re
 from types import ModuleType
 
 import pytest
@@ -213,3 +217,57 @@ def test_embedded_limits_require_complete_visible_structure(damage: str) -> None
         raw = raw.replace(b"Retained evidence:", b"Unbound sources:")
     with pytest.raises(ValueError):
         api.validate_embedded_report(raw)
+
+
+@pytest.mark.parametrize(
+    "report_path,attachment_count",
+    [
+        (
+            "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+            4,
+        ),
+        ("docs/report/synthetic-validation/recovery-evidence/README.md", 3),
+        ("docs/report/vegetation-reference/pyrenees-botanical-projection/README.md", 1),
+    ],
+)
+def test_primary_reader_evidence_uses_sealed_public_attachments(
+    report_path: str, attachment_count: int
+) -> None:
+    """First-party source custody remains downloadable inside the documentation site."""
+    api = module()
+    raw = (ROOT / report_path).read_bytes()
+    api.validate_embedded_report(raw)
+    block = raw[len(api.authored_bytes(raw)) :].decode("utf-8")
+    evidence_line = next(
+        line for line in block.splitlines() if line.startswith("Retained evidence: ")
+    )
+    links = re.findall(r"\[([^]\n]+)\]\(([^)\n]+)\)", evidence_line)
+    assert links
+    for label, target in links:
+        assert (
+            posixpath.normpath(posixpath.join(posixpath.dirname(report_path), target))
+            == label
+        )
+        assert not label.startswith(("/", "../"))
+    manifest = json.loads(
+        (ROOT / "configs/docs/scientific-source-files.json").read_bytes()
+    )
+    sources = {row["source"] for row in manifest["files"]}
+    evidence = [label for label, _target in links]
+    assert not sources.intersection(evidence)
+    public = {row["destination"]: row for row in manifest["files"]}
+    selected = [path for path in evidence if path in public]
+    assert len(selected) == attachment_count
+    for path in selected:
+        pin = public[path]
+        attachment = (ROOT / path).read_bytes()
+        assert attachment == (ROOT / pin["source"]).read_bytes()
+        assert len(attachment) == pin["bytes"]
+        assert hashlib.sha256(attachment).hexdigest() == pin["sha256"]
+        assert (
+            hashlib.sha1(
+                b"blob " + str(len(attachment)).encode() + b"\0" + attachment,
+                usedforsecurity=False,
+            ).hexdigest()
+            == pin["git_blob"]
+        )

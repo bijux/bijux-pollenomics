@@ -166,6 +166,22 @@ def project_sites(
                 source, declared = supports[role]
                 feature["source_calendar_support"] = dict(source)
                 feature["declared_calendar_support"] = dict(declared)
+            else:
+                feature["temporal_semantics"] = {
+                    "schema_version": "temporal-semantics.v1",
+                    "source_family": "lra_product",
+                    "evidence_class": "declared_stationarity_envelope",
+                    "precision_posture": "declared_model_bin",
+                    "comparability_posture": "numeric_interval_with_caveat",
+                    "time_start_bp": window["younger_bp"],
+                    "time_end_bp": window["older_bp"],
+                    "source_age_type": included[0]["age_type"],
+                    "comparison_note": (
+                        "Declared synthetic model bin for display; "
+                        "not observed occurrence chronology or scientific admission."
+                    ),
+                    "refusal_reason_code": "",
+                }
             for row in values:
                 if row["statistic"] != "mean":
                     continue

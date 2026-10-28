@@ -9,6 +9,7 @@ from bijux_pollenomics.adna import (
     AdnaLocalitySummary,
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.evidence.models import AtlasEvidenceSpeciesRow
 
 
@@ -54,6 +55,8 @@ def locality(
             time_end_bp=older_bp,
             time_mean_bp=mean_bp,
             dating_basis="bp_window",
+            precision_posture="sample_precise_interval",
+            evidence_class="controlled_numeric_sample_date",
         ),
         sample_namespace="test-sample",
     )
@@ -85,6 +88,14 @@ def context_point(
         time_end_bp=older_bp,
         time_mean_bp=None,
         time_label="test chronology",
+        temporal_semantics=build_temporal_semantics(
+            source_family="controlled_source",
+            evidence_class="controlled_context_date",
+            precision_posture="controlled_source_interval",
+            comparability_posture="numeric_interval",
+            time_start_bp=younger_bp,
+            time_end_bp=older_bp,
+        ).as_dict(),
     )
 
 

@@ -1,0 +1,464 @@
+{
+  "native_exit": 0,
+  "new_required_locality_products": true,
+  "animal_source_samples": 1468,
+  "animal_localities": 547,
+  "human_source_samples": 55,
+  "human_selected_localities": 2,
+  "groups": [
+    {
+      "group": "animal-horse",
+      "localities": 239,
+      "native_samples": 550,
+      "unchanged_normalized_sample_values_sha256": "3612a452b1982a18dd1c59e96e27587fc9345a44b4e47263fb3daf3b7ce69cc8",
+      "prior_canonical_json_sha256": "08fdedc11dfc3fa8358d8b5148f506d13245e8886a6cd8d4ab854f1f74616864",
+      "prior_native_csv_sha256": "06c1d33462136f32d6389abf3df26b81984d46efefc56937a4cb8d4fa35eaeaf",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/equus_caballus/normalized/locality_summaries.json": {
+          "sha256": "c47c84dda511b205a445aeaa85a1185bdfdd7775952818fb5b165aa0647e1b65",
+          "bytes": 500821
+        },
+        "data/adna/species/equus_caballus/normalized/locality_summaries.csv": {
+          "sha256": "fc4be5f47acb1c99d2fdf9d50c6fed797e7c68438a3d7e4db2afbec56d4a7617",
+          "bytes": 129111
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "577b8f8b07649d9242d285e2b990074359db94b57e80b236b64031450ea67582",
+          "bytes": 1323954
+        },
+        "species-localities.csv": {
+          "sha256": "06c1d33462136f32d6389abf3df26b81984d46efefc56937a4cb8d4fa35eaeaf",
+          "bytes": 880198
+        },
+        "species-localities.json": {
+          "sha256": "d269bf837bb162c1fb893906bf997054ffc8607a11282afe32670bfd13290f7e",
+          "bytes": 1386927
+        },
+        "standalone-localities.csv": {
+          "sha256": "cf65d03ae6c94098a51ab19ca0d9c468cbad12d697dff8026b26cf0f7a38f0c3",
+          "bytes": 865752
+        },
+        "standalone-localities.json": {
+          "sha256": "c4ffcf3f995053b6aee71a4c77993df4ffa8aed10a530e6beb3038ffe6b30d58",
+          "bytes": 1121050
+        }
+      }
+    },
+    {
+      "group": "animal-pig",
+      "localities": 105,
+      "native_samples": 343,
+      "unchanged_normalized_sample_values_sha256": "55adf5d09ede4da9e6faff913bfd485eb2fe8f073ac164fb4c19f25c00e6e3e5",
+      "prior_canonical_json_sha256": "b2e16d0e85fa1a692a187641ff22b043e045c028fde4fa5b4c3efc2c1408c277",
+      "prior_native_csv_sha256": "e5e13ae368052093113adf16e8a6852b470a3b2f305a6e59f6f60aa4595b19dc",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/sus_scrofa_domesticus/normalized/locality_summaries.json": {
+          "sha256": "7634be10c11f90bcd15802d058af6c0def1950110a75c30b7b96214fb6c4f2d2",
+          "bytes": 217520
+        },
+        "data/adna/species/sus_scrofa_domesticus/normalized/locality_summaries.csv": {
+          "sha256": "7978d1a0c484de3ca14edb422b5368e6f8ea8a3a7b1117597c54524e107142de",
+          "bytes": 51249
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "b5e00d986eedfea06bf4d857a7a217c7d931ef1fef5b3b6b4bf6009ca88bc58f",
+          "bytes": 550325
+        },
+        "species-localities.csv": {
+          "sha256": "e5e13ae368052093113adf16e8a6852b470a3b2f305a6e59f6f60aa4595b19dc",
+          "bytes": 338636
+        },
+        "species-localities.json": {
+          "sha256": "c7bda91c3d505077f6f185e8acadd762216a6ee117be23a379b90f2435a0d2e8",
+          "bytes": 582661
+        },
+        "standalone-localities.csv": {
+          "sha256": "0e86385fcbd3fdf144641ca914dcd7095171959d943efa624d2d4a026d8b5e5f",
+          "bytes": 336075
+        },
+        "standalone-localities.json": {
+          "sha256": "c36c7674061dcd7b0af8b9ca29f794ed0daba855ba16475e5a2b4aa0e91bfdad",
+          "bytes": 465411
+        }
+      }
+    },
+    {
+      "group": "animal-sheep",
+      "localities": 9,
+      "native_samples": 200,
+      "unchanged_normalized_sample_values_sha256": "5f4c73dea9041a6d271efcf780d78edbadbb412104f9d58db679ee24fb09ce95",
+      "prior_canonical_json_sha256": "6bb1432d3013d0a1ecc18db20aa9aa7a0b1866a90d30023fe4d44f1487dc22d4",
+      "prior_native_csv_sha256": "6d9033dab1d29b78bdf754bf99e4646cd8a5569ff2e9c21b278a3f462318322a",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/ovis_aries/normalized/locality_summaries.json": {
+          "sha256": "8f414b2b066e5d734d89d12df20a203f19db01c4ab3a83fbb7f7a52d0e9b2ea9",
+          "bytes": 23355
+        },
+        "data/adna/species/ovis_aries/normalized/locality_summaries.csv": {
+          "sha256": "105477acc41e31cb55edc14dd24b749c78129f8a023ed5df94a00c1e2eb47e16",
+          "bytes": 5019
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "c8346d91f71827aaa9d38438860a01d195f48fb30ad8a9cb392d8f1075f85d6a",
+          "bytes": 296102
+        },
+        "species-localities.csv": {
+          "sha256": "6d9033dab1d29b78bdf754bf99e4646cd8a5569ff2e9c21b278a3f462318322a",
+          "bytes": 242573
+        },
+        "species-localities.json": {
+          "sha256": "2e533f428b551971c2e0d69ff04f22d182e68851d16ee81808a06dd9fd878c43",
+          "bytes": 308987
+        },
+        "standalone-localities.csv": {
+          "sha256": "541cb070f16cf7f928744ba8a5596431cea5b6830d6e3d5ce2db393a9242e9b4",
+          "bytes": 241613
+        },
+        "standalone-localities.json": {
+          "sha256": "87339698b787871203acfdbfc7d5d0afdf31d7cc32c4f6550358a9c0b93f7c26",
+          "bytes": 288561
+        }
+      }
+    },
+    {
+      "group": "animal-cattle",
+      "localities": 64,
+      "native_samples": 132,
+      "unchanged_normalized_sample_values_sha256": "868aae6e39ad804da2145fa09ec706ee291a6109e14684b0394840bce90a8694",
+      "prior_canonical_json_sha256": "0f469ae6f75f43c305b1a31cd69ebc97ce00f4ce6e431caaf70c9260b096b90d",
+      "prior_native_csv_sha256": "103b24e3d9e3a12241b8b1ffe4df174c91f8743738effa35189c295dae39a2e5",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/bos_taurus/normalized/locality_summaries.json": {
+          "sha256": "025cde57b2a78be803e9ed77788368165a8e809e9beea538e57b6fb5c3a17897",
+          "bytes": 128694
+        },
+        "data/adna/species/bos_taurus/normalized/locality_summaries.csv": {
+          "sha256": "6f63ed31ced094c98f4a7b5d5d535e1d8480aba3a152a402edfdb5ff30af8d06",
+          "bytes": 33225
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "5a94b4916dc3a5cba104f903a68bb448be10976314d2e8b7a4c3171b9568cfc8",
+          "bytes": 292798
+        },
+        "species-localities.csv": {
+          "sha256": "103b24e3d9e3a12241b8b1ffe4df174c91f8743738effa35189c295dae39a2e5",
+          "bytes": 186778
+        },
+        "species-localities.json": {
+          "sha256": "21b2637c73864389b159251d13df081fb6ceeaef81c35aa531d6030e0c8b07a3",
+          "bytes": 306975
+        },
+        "standalone-localities.csv": {
+          "sha256": "21d6ad0b505ea341fb9d3e163d7766c4102b042da2ac4beeb829241a0aa27afb",
+          "bytes": 181053
+        },
+        "standalone-localities.json": {
+          "sha256": "5350a05a040e0d34a69a17089830ed86e50a7388e1a5c1261c30ba571ad613a1",
+          "bytes": 238660
+        }
+      }
+    },
+    {
+      "group": "animal-goat",
+      "localities": 27,
+      "native_samples": 82,
+      "unchanged_normalized_sample_values_sha256": "f56455010176756e572eb71f7158ef745cdfb8f679a28a3535e6e4bdf062b24d",
+      "prior_canonical_json_sha256": "178f1a55ca212c1943de45bc18df4aa87cbbc283d361deca0eacc0cae34e03b1",
+      "prior_native_csv_sha256": "5fdb36343f59104a72707f53fd7d24dee0589965f327ea4a253e90d8763914ba",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/capra_hircus/normalized/locality_summaries.json": {
+          "sha256": "f57745e6f4d738cd0ead9c8ed6efc8e23ab17424ec2e76558d3673db5849a844",
+          "bytes": 58261
+        },
+        "data/adna/species/capra_hircus/normalized/locality_summaries.csv": {
+          "sha256": "0a9b9cb28eb3194a809209ec97d9ee8a86efda57b0f6c00561833fceb9240147",
+          "bytes": 16077
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "6c53d47bf3e932a89db0008ff03bb94366380efdf065c0ff4ea35704c5c143e8",
+          "bytes": 186355
+        },
+        "species-localities.csv": {
+          "sha256": "5fdb36343f59104a72707f53fd7d24dee0589965f327ea4a253e90d8763914ba",
+          "bytes": 132502
+        },
+        "species-localities.json": {
+          "sha256": "f7fb2248fb596fc1830ab4b1e5de850c229821ad96b558e1efaf5909860620c6",
+          "bytes": 194738
+        },
+        "standalone-localities.csv": {
+          "sha256": "b590fe0c7f09d1493046860eb5665bfa48f8501fb82b98bb1b088945947a0912",
+          "bytes": 130528
+        },
+        "standalone-localities.json": {
+          "sha256": "feae2a9af56c07ff4585b053c186ec42f0fdbb9f99c160844a4281a89bdbba8f",
+          "bytes": 163446
+        }
+      }
+    },
+    {
+      "group": "animal-dog",
+      "localities": 3,
+      "native_samples": 4,
+      "unchanged_normalized_sample_values_sha256": "1b1fb674ec7af933c2e62d96be9ee441c3275ea0aac890a7ef763f7263948c0d",
+      "prior_canonical_json_sha256": "725ff7e1908c632a3c58a9c332f5081ec09dbdf0b1ba2fc75977231cee6d0787",
+      "prior_native_csv_sha256": "0c9b7b83a7e162a5e04b3606c9d718c4d41259a9bb288c1bd53209219fb348bf",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/canis_lupus_familiaris/normalized/locality_summaries.json": {
+          "sha256": "c2cafe0d5b8e95a7753237cec761db80a5edaadbaffb284b5d02956b27773a72",
+          "bytes": 6323
+        },
+        "data/adna/species/canis_lupus_familiaris/normalized/locality_summaries.csv": {
+          "sha256": "a16ba8f19f12aae3f5bd6b3ee62e5744b3ab3b2665d3394f2d6b4d580e47542d",
+          "bytes": 2118
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "ec2835e69fda1cef6f0b5749a5dadcc02a086fd8e3214f0467ff03e24f9766e8",
+          "bytes": 10244
+        },
+        "species-localities.csv": {
+          "sha256": "0c9b7b83a7e162a5e04b3606c9d718c4d41259a9bb288c1bd53209219fb348bf",
+          "bytes": 6003
+        },
+        "species-localities.json": {
+          "sha256": "d0fbd0202c7371e3e38eb49a5b74da286bdb956587a063bf47ea040766c755e9",
+          "bytes": 10935
+        },
+        "standalone-localities.csv": {
+          "sha256": "555f9ebfc7f2448b7ee8c352753995af99c0236dbbd1ccaf7246da193448d23a",
+          "bytes": 5616
+        },
+        "standalone-localities.json": {
+          "sha256": "1475bcc80037c80923e759923c9616cef44b47ab2d2bcee0d11ed999b9ed0de5",
+          "bytes": 7696
+        }
+      }
+    },
+    {
+      "group": "animal-cat",
+      "localities": 75,
+      "native_samples": 106,
+      "unchanged_normalized_sample_values_sha256": "e1f8f94ba15534c7865a657e847ce6589b8e5c77185fff8250b363b4a7c732e9",
+      "prior_canonical_json_sha256": "7e8e7dc15534e8c8f00e795bc496709e585b34b64951510949686a93c52f6e5f",
+      "prior_native_csv_sha256": "68c81f7c3ef8c3c5de3b0e5caed34f79eb56ad50ff236b4a754de463aec026b0",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/felis_catus/normalized/locality_summaries.json": {
+          "sha256": "223be15556e926a07b6cbf55d0169e8dfdaeeffc836b747a346ed462e4610784",
+          "bytes": 156358
+        },
+        "data/adna/species/felis_catus/normalized/locality_summaries.csv": {
+          "sha256": "2154c209c2070576d310271c7793eb6960cf21a7b248fd6c9042e84348423f15",
+          "bytes": 44208
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "b510cb3b86afaadb59a371f4b4ea4d33060fe3e5efa93a42149151cd205b8875",
+          "bytes": 308013
+        },
+        "species-localities.csv": {
+          "sha256": "68c81f7c3ef8c3c5de3b0e5caed34f79eb56ad50ff236b4a754de463aec026b0",
+          "bytes": 184943
+        },
+        "species-localities.json": {
+          "sha256": "8f258d9a52ff8170a45c0a423c5ccbe321fb1d78e6ff8790965c477261c9cec1",
+          "bytes": 324027
+        },
+        "standalone-localities.csv": {
+          "sha256": "cfe78038c2206768444f2cabd2286cd796b696c3648d4917807a26ebcccfdc7c",
+          "bytes": 174088
+        },
+        "standalone-localities.json": {
+          "sha256": "bc974f5b56e5229baaf6d77bd2bf8e04bbf5f9afee5f3fd82e63d01ecf18dcfd",
+          "bytes": 240128
+        }
+      }
+    },
+    {
+      "group": "animal-camel",
+      "localities": 16,
+      "native_samples": 31,
+      "unchanged_normalized_sample_values_sha256": "9b7e0542af43862e694d39c3ebc4554123cde83c8b522bd0b94fd77d8dd55e53",
+      "prior_canonical_json_sha256": "bc4c302c80b391c820d7ba6140ed140cb21da291a2066df1d3dad6f8d88f328b",
+      "prior_native_csv_sha256": "e7e64d2b7bbc29e30d2ba095ab4a6d107e6ccb9f7941cc51eb9d750d8713f577",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/camelus_dromedarius/normalized/locality_summaries.json": {
+          "sha256": "07f53e3136fff644bd7ef8346f4cf9f18f6a6dd7b32406ca0ee366b1b3ab9272",
+          "bytes": 33033
+        },
+        "data/adna/species/camelus_dromedarius/normalized/locality_summaries.csv": {
+          "sha256": "0f6901f6b312ff59bbcd70e6f278c7a991f4f692f94c5ed5a48028dba7f8af7f",
+          "bytes": 8821
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "fbf2a059afe2b10501ffbbe44e8d9a2f4c9168f339b49afcf6fe7ef979a9ed9a",
+          "bytes": 77299
+        },
+        "species-localities.csv": {
+          "sha256": "e7e64d2b7bbc29e30d2ba095ab4a6d107e6ccb9f7941cc51eb9d750d8713f577",
+          "bytes": 49452
+        },
+        "species-localities.json": {
+          "sha256": "e542ca99636c0adeddf12ca2275de09db14585aa2546afbf3909b51bc2595aa0",
+          "bytes": 81301
+        },
+        "standalone-localities.csv": {
+          "sha256": "22d4aa37055fc2d6f66fd2fc6c73e9ffb37cf707a74a386f8092c8d77f9f2625",
+          "bytes": 48375
+        },
+        "standalone-localities.json": {
+          "sha256": "7ac6b47af983e1af2b2717878d5b6b007f50487c96214f90d3ff74147ed1c9d2",
+          "bytes": 63926
+        }
+      }
+    },
+    {
+      "group": "animal-reindeer",
+      "localities": 9,
+      "native_samples": 20,
+      "unchanged_normalized_sample_values_sha256": "8fac721de5d0e261b6bb5b5bbace4d21a259d2e12b6da53ab84c54d6edc00baa",
+      "prior_canonical_json_sha256": "8f68615cdef524a4a4794e94855991d66a01586e5a33cf85a160c5460a704774",
+      "prior_native_csv_sha256": "548066a6bcc6be5116d9744fda127dccf88963ad1e2f8a3e2a0816f563e14a87",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/rangifer_tarandus/normalized/locality_summaries.json": {
+          "sha256": "3f1b424a1230b59b380e13f6ebcfe83ff1c67d2aaca206d1d7a01d577e276e3c",
+          "bytes": 18249
+        },
+        "data/adna/species/rangifer_tarandus/normalized/locality_summaries.csv": {
+          "sha256": "35120eff628729698152434fef6ffa8bc7bd949d77de8760bd7bd6d1a37ec213",
+          "bytes": 4767
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "7af4f2dc507d7f3111004da191d63b3ea284141518f74bb9338f51252775be44",
+          "bytes": 49173
+        },
+        "species-localities.csv": {
+          "sha256": "548066a6bcc6be5116d9744fda127dccf88963ad1e2f8a3e2a0816f563e14a87",
+          "bytes": 33305
+        },
+        "species-localities.json": {
+          "sha256": "dced3923d40e53402e98ab23812be1d423fbfdd3dd7d032fc168309a5a833015",
+          "bytes": 51625
+        },
+        "standalone-localities.csv": {
+          "sha256": "27dbafd106b3441808ee4b92785cd77edc8a70899f2d999c6ba91f681224cb7e",
+          "bytes": 32596
+        },
+        "standalone-localities.json": {
+          "sha256": "df4f9ee3b7a2f4a8c8ce642994f537ae10126bb95202d2f61898e4daf4180293",
+          "bytes": 41744
+        }
+      }
+    },
+    {
+      "group": "animal-donkey",
+      "localities": 0,
+      "native_samples": 0,
+      "unchanged_normalized_sample_values_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "prior_canonical_json_sha256": "f466c9e3bf0ddf38b7ebfcbbd17742fea1c432c970042722f450a578460a42c2",
+      "prior_native_csv_sha256": "46a4fd8740670e2c9f7648ba80510d679e02a14bb9724793ef240969b6a692e0",
+      "retained_legacy_locality_inputs": {
+        "data/adna/species/equus_asinus/normalized/locality_summaries.json": {
+          "sha256": "6d6ff4c433b31343086868e1a22f3efc7d33a4f3b1d8ab796b4843fb5ddf0b24",
+          "bytes": 117
+        },
+        "data/adna/species/equus_asinus/normalized/locality_summaries.csv": {
+          "sha256": "511b23e45ef640f35a6aeaa1084e2d4172fa410e8d4ec6bdfbbcf841f3929b4b",
+          "bytes": 462
+        }
+      },
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "species-localities.csv": {
+          "sha256": "46a4fd8740670e2c9f7648ba80510d679e02a14bb9724793ef240969b6a692e0",
+          "bytes": 524
+        },
+        "species-localities.json": {
+          "sha256": "12ca6bd35d5238a2ef178ed9af47e8913d406a7a9f7a24035b3c4d12fa7538b4",
+          "bytes": 118
+        },
+        "standalone-localities.csv": {
+          "sha256": "2254ba88d28cbbb722d7f9138376a28968708a32d5cfb97a99478d87d6a11fb1",
+          "bytes": 302
+        },
+        "standalone-localities.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        }
+      }
+    },
+    {
+      "group": "human-sweden",
+      "localities": 1,
+      "native_samples": 54,
+      "source_path": "docs/report/countries/sweden/sweden_aadr_v66_samples.csv",
+      "source_sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b",
+      "all_source_models_equal_46110_witnesses": true,
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "78fe249418e29712261e44d59e550bf4aa374331454ba623ef2356206bfd791f",
+          "bytes": 60663
+        },
+        "standalone-localities.csv": {
+          "sha256": "59d8f4ce7ffea26afccb99965e15abf7294945a8b554f15faf90cc9eb3a2fb8d",
+          "bytes": 48401
+        },
+        "standalone-localities.json": {
+          "sha256": "9ad2177cd03b4c29d92c8aa12fa449472980db72a1e7e5b72ea163b1d19cf718",
+          "bytes": 60030
+        }
+      }
+    },
+    {
+      "group": "human-denmark",
+      "localities": 1,
+      "native_samples": 1,
+      "source_path": "docs/report/countries/denmark/denmark_aadr_v66_samples.csv",
+      "source_sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5",
+      "all_source_models_equal_46110_witnesses": true,
+      "products": {
+        "source-locality-models.json": {
+          "sha256": "e437e1c69713ee9faf68e11e6c1b185ab1b7fe1c665708b6f8c33cb2184f69d4",
+          "bytes": 2882
+        },
+        "standalone-localities.csv": {
+          "sha256": "22177d90b4b8fc89d25e04ea1204b3c32851ebce575cf700f3c17eaa2e6b579e",
+          "bytes": 1731
+        },
+        "standalone-localities.json": {
+          "sha256": "4c95c1831bbb557d198e50285b077bf15d43815659058487853a3f9d764a6e44",
+          "bytes": 2244
+        }
+      }
+    }
+  ],
+  "prior_locality_native_report": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/source/artifacts/temporal-semantics/animal.json",
+    "sha256": "77fb0edf9d40b7b8e2c1504e206b470b0277db0cb59265495258392f2726687e"
+  },
+  "prior_sample_export_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/article-acceptance-review/source-identity-transport/source/artifacts/standalone-sample-exports/producer-proof.json",
+    "sha256": "b6ae2e5f1ab212b814275f80d0674e74e862ac9cd3c6e24f229f2f3ee38911bd"
+  },
+  "unchanged2699_sample_exporters_rerun": false,
+  "scope": "New required maintained locality JSON/CSV products and pre-export model witnesses only. Existing animal normalization and original native logicalJSON/physicalCSV hashes must match;55 published human source models must match original2699 witnesses. These are newly produced locality files, never relabelled retained original bytes; no new scientific source review/age/calibration/ecology/R or physical model."
+}

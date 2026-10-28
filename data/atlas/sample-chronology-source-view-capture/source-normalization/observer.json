@@ -1,0 +1,17 @@
+{
+  "native_exit": 0,
+  "groups": 14,
+  "counts": {
+    "samples": 2699,
+    "source_missing_both_endpoints": 793,
+    "source_genuine_zero_endpoint": 44,
+    "source_explicit_refusals": 254,
+    "source_negative_endpoint": 0,
+    "source_nonempty_chronology_provenance": 1065
+  },
+  "expected_source_snapshot": "Pre-export actual SampleRecord.as_dict witnesses from registered canonical reconstructed published human chronology / unchanged ten animal normalizers; all original source pins remain independently guarded before/after.",
+  "production_serializer_imported": false,
+  "exact_cross_format_chronology_native_identity_and_provenance": true,
+  "new_source_or_scientific_admission": false,
+  "remaining_scope": "No raw AADR reauthentication, omitted legacy source-metadata recovery, age-epoch calibration decision, browser proof, canonical adoption or full Article4 acceptance is established by this transport observer."
+}

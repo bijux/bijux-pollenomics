@@ -16,6 +16,8 @@ from bijux_pollenomics_dev.ci.atlas_browser.source_detail_candidate import (
     generate_source_detail_candidate,
 )
 
+from .source_repository import generate_fixture_candidate
+
 
 def retained_repository(root: Path) -> tuple[Path, list[dict[str, object]]]:
     retained = root / "docs/report/regions/nordic"
@@ -107,7 +109,9 @@ def test_source_detail_replay_preserves_refused_contextual_and_comparable_claims
 ) -> None:
     retained_repository(tmp_path)
     destination = tmp_path / "artifacts/candidate"
-    receipt = generate_source_detail_candidate(tmp_path, destination)
+    receipt = generate_fixture_candidate(
+        tmp_path, destination, "source_detail_candidate"
+    )
     assert len(receipt["source_records"]) == 2
     assert receipt["source_records"][0]["chronology_status_counts"] == [
         {"calibration": "calibrated", "comparability": "comparable", "count": 1},

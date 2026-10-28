@@ -16,6 +16,7 @@ def test_models_are_grouped_by_durable_scientific_responsibility() -> None:
         "evidence.py",
         "identity.py",
         "localities.py",
+        "occurrence_support.py",
         "samples.py",
         "vocabularies.py",
     }

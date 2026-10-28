@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "6d6f3dc8c7805ed03b7ac5567cd85ff289306bcfb57f05aaf92ea66bd668cfe6",
-      "bytes": 6196423
+      "sha256": "6a791133377c23c5db28c0ddbc4b6c205d45f763172c5b35379579d0570b8029",
+      "bytes": 7466596
     },
     {
       "path": "configs/release_evidence_policy.json",
-      "sha256": "77334fbc7ce009119fa70d1f613902e024dbc1ac9b96bad405b6c8892717842d",
-      "bytes": 36184
+      "sha256": "c10605879db67aa3b81fedb8ff6f4e1e12413c99bbed481e849e784e1338ad09",
+      "bytes": 36674
     },
     {
       "path": "configs/scientific-contracts/phenomenon-event.schema.json",
@@ -1066,7 +1066,7 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "ef33eaee7d8bf1766864fd97b2fc57f0104184c927e2e2bfc614d23a5e35a3ff",
+      "sha256": "bd07ea13e3224052f781c4652a0c4b4d8023e66d85f797a9197bf6d60ee2a033",
       "bytes": 94295
     },
     {

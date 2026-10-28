@@ -143,7 +143,34 @@ def test_analysis_value_components_use_absent_child_output() -> None:
         "source-products/report.json": "source-relations/sead/analysis-value-components/report.json",
         "source-products/rows.csv": "source-relations/sead/analysis-value-components/rows.csv",
     }
-    assert len(selected.inputs) == 1042
+    inventory = json.loads(
+        (repository / "configs/ci/report-ownership.json").read_text()
+    )
+    declaration = next(
+        row
+        for row in inventory["owners"]
+        if row["owner_id"]
+        == "source-relations/sead/analysis-value-components/report-products"
+    )
+    code, data = set(declaration["producer_paths"]), set(declaration["producer_inputs"])
+    assert code.isdisjoint(data)
+    assert selected.inputs == {name: repository / name for name in sorted(code | data)}
+    required_helpers = {
+        "packages/bijux-pollenomics/src/bijux_pollenomics/" + suffix
+        for suffix in (
+            "collection/contracts/occurrence_chronology.py",
+            "reporting/map_document/adna_exports.py",
+            "core/chronology/__init__.py",
+            "core/chronology/relations.py",
+            "core/chronology/source_metadata.py",
+        )
+    }
+    assert required_helpers <= code
+    assert required_helpers.isdisjoint(data)
+    assert (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_relations.py"
+        not in code
+    )
 
 
 def test_neotoma_entity_map_assets_resolve_as_code_only() -> None:

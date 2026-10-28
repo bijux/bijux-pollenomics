@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Reject archive extraction destinations beneath symlink ancestors before writing selected members ([#269](https://github.com/bijux/bijux-pollenomics/pull/269)).
+- **Verified merge (2026-10-28 22:24:30 UTC):** Reject archive extraction destinations beneath symlink ancestors before writing selected members ([#269](https://github.com/bijux/bijux-pollenomics/pull/269)).
+- **Pending review:** Retain sample-owned atlas chronology, authenticated native source custody, and historical map templates through accepted shared standards ([#268](https://github.com/bijux/bijux-pollenomics/pull/268)).
 - **Verified merge (2026-10-28 20:37:34 UTC):** Retain exact source-bound constrained comparison products and dated radius input witnesses without repeating model fits or changing scientific result scope ([#267](https://github.com/bijux/bijux-pollenomics/pull/267)).
 - Authenticate retained author replay readers and callable source ownership while preserving original scientific output and execution provenance ([#266](https://github.com/bijux/bijux-pollenomics/pull/266)).
 - Preserve retained native diagnostics, source replay and public evidence exports through authenticated logical sources; refuse finite production with detached raw programs ([#265](https://github.com/bijux/bijux-pollenomics/pull/265)).

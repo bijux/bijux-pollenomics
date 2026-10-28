@@ -17,6 +17,8 @@ from .serialization import canonical_gzip_compress, canonical_json
 
 INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v3"
 INDEX_SHARD_SCHEMA = "atlas-static-index-shard.v1"
+COMPONENT_INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v5"
+COMPONENT_INDEX_SHARD_SCHEMA = "atlas-static-index-shard.v3"
 SIGNED_INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v4"
 SIGNED_INDEX_SHARD_SCHEMA = "atlas-static-index-shard.v2"
 INDEX_KINDS = (
@@ -32,6 +34,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
     """Encode the exact v2 logical indexes as bounded deterministic shards."""
     profile = read_calendar_profile(indexes)
     profile_fields = calendar_profile_metadata(profile)
+    component_fields = _component_fields(indexes, profile)
     identities = {
         field: _required_text(indexes.get(field), field)
         for field in ("scope_slug", "version", "build_id")
@@ -39,12 +42,20 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
     encoded_shards: list[dict[str, object]] = []
     for kind in INDEX_KINDS:
         entries = _index_entries(kind, indexes.get(kind))
-        for part in _partition_entries(kind, entries, temporal_profile=profile):
+        for part in _partition_entries(
+            kind,
+            entries,
+            temporal_profile=profile,
+            component_time_support=bool(component_fields),
+        ):
             shard = {
                 "schema_version": SIGNED_INDEX_SHARD_SCHEMA
                 if profile is not None
+                else COMPONENT_INDEX_SHARD_SCHEMA
+                if component_fields
                 else INDEX_SHARD_SCHEMA,
                 **profile_fields,
+                **component_fields,
                 "index_kind": kind,
                 "entries": part,
             }
@@ -68,11 +79,16 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
         **identities,
         "schema_version": SIGNED_INDEX_BUNDLE_SCHEMA
         if profile is not None
+        else COMPONENT_INDEX_BUNDLE_SCHEMA
+        if component_fields
         else INDEX_BUNDLE_SCHEMA,
         "shard_schema": SIGNED_INDEX_SHARD_SCHEMA
         if profile is not None
+        else COMPONENT_INDEX_SHARD_SCHEMA
+        if component_fields
         else INDEX_SHARD_SCHEMA,
         **profile_fields,
+        **component_fields,
         "shard_count": len(encoded_shards),
         "reference_count": index_reference_count(dict(indexes)),
         "shards": encoded_shards,
@@ -84,15 +100,26 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
     profile = read_calendar_profile(payload)
     profile_fields = calendar_profile_metadata(profile)
     schema = payload.get("schema_version")
+    component_fields = _component_fields(payload, profile)
+    if bool(component_fields) != (schema == COMPONENT_INDEX_BUNDLE_SCHEMA):
+        raise ValueError("static atlas component index schema is invalid")
     if profile is None and schema in {
         "atlas-static-indexes.v1",
         "atlas-static-indexes.v2",
     }:
         return dict(payload)
     if schema != (
-        SIGNED_INDEX_BUNDLE_SCHEMA if profile is not None else INDEX_BUNDLE_SCHEMA
+        SIGNED_INDEX_BUNDLE_SCHEMA
+        if profile is not None
+        else COMPONENT_INDEX_BUNDLE_SCHEMA
+        if component_fields
+        else INDEX_BUNDLE_SCHEMA
     ) or payload.get("shard_schema") != (
-        SIGNED_INDEX_SHARD_SCHEMA if profile is not None else INDEX_SHARD_SCHEMA
+        SIGNED_INDEX_SHARD_SCHEMA
+        if profile is not None
+        else COMPONENT_INDEX_SHARD_SCHEMA
+        if component_fields
+        else INDEX_SHARD_SCHEMA
     ):
         raise ValueError("static atlas index bundle schema is invalid")
     raw_shards = payload.get("shards")
@@ -105,6 +132,7 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         if profile is not None
         else "atlas-static-indexes.v2",
         **profile_fields,
+        **component_fields,
         "country_feature_indexes": {},
         "spatial_degree_feature_indexes": {},
         "time_interval_feature_indexes": [],
@@ -132,7 +160,12 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         if not isinstance(shard_digest, str) or shard_digest in observed_digests:
             raise ValueError("static atlas index shard identity is duplicated")
         observed_digests.add(shard_digest)
-        shard = _decode_shard(raw_envelope, kind, temporal_profile=profile)
+        shard = _decode_shard(
+            raw_envelope,
+            kind,
+            temporal_profile=profile,
+            component_time_support=bool(component_fields),
+        )
         entries = shard["entries"]
         if not isinstance(entries, list):
             raise AssertionError("decoded index shard lost validated entries")
@@ -147,6 +180,16 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
     if payload.get("reference_count") != index_reference_count(merged):
         raise ValueError("static atlas index bundle reference count changed")
     return merged
+
+
+def _component_fields(
+    payload: Mapping[str, object], profile: str | None
+) -> dict[str, bool]:
+    if "component_time_support" not in payload:
+        return {}
+    if payload["component_time_support"] is not True or profile is not None:
+        raise ValueError("static atlas component time support declaration is invalid")
+    return {"component_time_support": True}
 
 
 def _required_text(value: object, label: str) -> str:
@@ -178,14 +221,21 @@ def _index_entries(kind: str, value: object) -> list[object]:
 
 
 def _partition_entries(
-    kind: str, entries: list[object], *, temporal_profile: str | None = None
+    kind: str,
+    entries: list[object],
+    *,
+    temporal_profile: str | None = None,
+    component_time_support: bool = False,
 ) -> list[list[object]]:
     empty_size = len(
         canonical_json(
             {
                 "schema_version": SIGNED_INDEX_SHARD_SCHEMA
                 if temporal_profile is not None
+                else COMPONENT_INDEX_SHARD_SCHEMA
+                if component_time_support
                 else INDEX_SHARD_SCHEMA,
+                **({"component_time_support": True} if component_time_support else {}),
                 **calendar_profile_metadata(temporal_profile),
                 "index_kind": kind,
                 "entries": [],
@@ -213,7 +263,11 @@ def _partition_entries(
 
 
 def _decode_shard(
-    envelope: Mapping[str, object], kind: str, *, temporal_profile: str | None = None
+    envelope: Mapping[str, object],
+    kind: str,
+    *,
+    temporal_profile: str | None = None,
+    component_time_support: bool = False,
 ) -> dict[str, object]:
     if envelope.get("payload_encoding") != "gzip_base64":
         raise ValueError("static atlas index shard encoding is invalid")
@@ -251,8 +305,11 @@ def _decode_shard(
         != (
             SIGNED_INDEX_SHARD_SCHEMA
             if temporal_profile is not None
+            else COMPONENT_INDEX_SHARD_SCHEMA
+            if component_time_support
             else INDEX_SHARD_SCHEMA
         )
+        or bool(_component_fields(shard, temporal_profile)) != component_time_support
         or read_calendar_profile(shard) != temporal_profile
         or shard.get("index_kind") != kind
     ):
@@ -286,6 +343,8 @@ def _validate_merged_indexes(indexes: Mapping[str, object]) -> None:
     if not isinstance(intervals, list):
         raise ValueError("static atlas time interval indexes are invalid")
     interval_references: set[tuple[str, int]] = set()
+    component_mode = bool(_component_fields(indexes, profile))
+    component_ends: dict[tuple[str, int], float] = {}
     for row in intervals:
         if (
             not isinstance(row, list)
@@ -309,8 +368,11 @@ def _validate_merged_indexes(indexes: Mapping[str, object]) -> None:
                 row[0], row[1], support_kind="declared_stationarity_envelope"
             )
         reference = (row[2], row[3])
-        if reference in interval_references:
+        if reference in interval_references and (
+            not component_mode or row[0] <= component_ends[reference]
+        ):
             raise ValueError("static atlas time index shards overlap")
+        component_ends[reference] = float(row[1])
         interval_references.add(reference)
     signals = indexes.get("signal_layer_indexes")
     details = indexes.get("detail_record_asset_keys")
@@ -363,6 +425,8 @@ def _merge_entries(merged: dict[str, object], kind: str, entries: list[object]) 
 
 
 __all__ = [
+    "COMPONENT_INDEX_BUNDLE_SCHEMA",
+    "COMPONENT_INDEX_SHARD_SCHEMA",
     "INDEX_BUNDLE_SCHEMA",
     "INDEX_KINDS",
     "INDEX_SHARD_SCHEMA",

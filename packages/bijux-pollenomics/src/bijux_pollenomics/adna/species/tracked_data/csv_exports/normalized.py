@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+
 from bijux_pollenomics.adna.workflow.normalization import AdnaSpeciesNormalizationBundle
 
 from .common import _render_csv
@@ -338,6 +340,10 @@ def _render_coordinate_provenance_csv(bundle: AdnaSpeciesNormalizationBundle) ->
 
 def _render_locality_summaries_csv(bundle: AdnaSpeciesNormalizationBundle) -> str:
     fieldnames = (
+        "schema_version",
+        "chronology_role",
+        "sample_ids",
+        "sample_chronologies",
         "locality_token",
         "species_latin_name",
         "species_common_name",
@@ -370,6 +376,14 @@ def _render_locality_summaries_csv(bundle: AdnaSpeciesNormalizationBundle) -> st
     for summary in bundle.locality_records:
         rows.append(
             {
+                "schema_version": "adna-locality-summary-export.v2",
+                "chronology_role": "locality_sample_coverage_hull",
+                "sample_ids": ";".join(summary.sample_ids),
+                "sample_chronologies": json.dumps(
+                    [support.as_dict() for support in summary.sample_chronologies],
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                ),
                 "locality_token": summary.locality_token,
                 "species_latin_name": summary.species_latin_name,
                 "species_common_name": summary.species_common_name,

@@ -7,6 +7,8 @@ import re
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 
+from ....collection.contracts.occurrence_chronology import ContextOccurrenceSupport
+
 __all__ = [
     "DEFAULT_LAKE_EVIDENCE_RADII_KM",
     "LakeEvidenceBandScore",
@@ -283,6 +285,8 @@ class _PointEvidence:
     source_url: str = ""
     time_label: str = ""
     temporal_semantics: dict[str, object] | None = None
+    occurrence_supports: tuple[ContextOccurrenceSupport, ...] | None = None
+    source_locality_key: tuple[str, str] | None = None
 
 
 @dataclass(frozen=True)

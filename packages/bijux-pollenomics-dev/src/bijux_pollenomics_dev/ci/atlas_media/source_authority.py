@@ -11,6 +11,10 @@ import math
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.core.temporal_semantics import (
+    BpInterval,
+    closed_bp_intervals_overlap,
+)
 from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
     MEMBERSHIP_SEMANTICS,
     NEOTOMA_SOURCE_LABEL_PRESETS,
@@ -36,7 +40,10 @@ _SOURCE_LAYER_LEVELS = {
 
 @dataclass(frozen=True, slots=True)
 class SourceFacetAuthority:
-    """Exact denominator and temporal facts for one source selector."""
+    """Exact denominator and temporal facts for one source selector.
+
+    Frame queries require canonical nonnegative closed BP bounds.
+    """
 
     selector_kind: str
     selector_value: str
@@ -54,27 +61,36 @@ class SourceFacetAuthority:
 
     def visible_count(self, younger_bp: float, older_bp: float) -> int:
         """Count closed source intervals overlapping one closed playback frame."""
+        frame = BpInterval(younger_bp, older_bp)
         return sum(
-            feature_older >= younger_bp and feature_younger <= older_bp
+            closed_bp_intervals_overlap(
+                BpInterval(feature_younger, feature_older), frame
+            )
             for feature_younger, feature_older in self.intervals
         )
 
     def visible_site_count(self, younger_bp: float, older_bp: float) -> int:
         """Count unique source sites whose closed intervals overlap one frame."""
+        frame = BpInterval(younger_bp, older_bp)
         return len(
             {
                 site_id
                 for site_id, feature_younger, feature_older in self.site_intervals
-                if feature_older >= younger_bp and feature_younger <= older_bp
+                if closed_bp_intervals_overlap(
+                    BpInterval(feature_younger, feature_older), frame
+                )
             }
         )
 
     def visible_observation_count(self, younger_bp: float, older_bp: float) -> int:
         """Sum observations from source nodes overlapping one closed frame."""
+        frame = BpInterval(younger_bp, older_bp)
         return sum(
             count
             for count, feature_younger, feature_older in self.observation_intervals
-            if feature_older >= younger_bp and feature_younger <= older_bp
+            if closed_bp_intervals_overlap(
+                BpInterval(feature_younger, feature_older), frame
+            )
         )
 
 

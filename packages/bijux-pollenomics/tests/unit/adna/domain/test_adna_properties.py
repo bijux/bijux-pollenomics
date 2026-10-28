@@ -13,7 +13,9 @@ from bijux_pollenomics.adna import (
     normalize_explicit_bp_window,
     resolve_species_definition,
 )
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.evidence import build_scientific_review_surface
 
 
@@ -102,6 +104,16 @@ def test_scientific_review_marks_overlapping_human_and_context_windows_as_overla
     point_end = locality_end + point_right_extension
     assume(point_start <= point_end)
 
+    owned_chronology = AdnaChronology(
+        original_text=f"{locality_start}-{locality_end} BP",
+        time_start_bp=locality_start,
+        time_end_bp=locality_end,
+        time_mean_bp=(locality_start + locality_end) // 2,
+        dating_basis="bp_window",
+        evidence_class="direct_numeric_sample_date",
+        precision_posture="sample_precise_interval",
+    )
+
     surface = build_scientific_review_surface(
         countries=("Sweden",),
         human_localities=(
@@ -131,12 +143,11 @@ def test_scientific_review_marks_overlapping_human_and_context_windows_as_overla
                 sample_count=1,
                 sample_ids=("SE1",),
                 datasets=("ho",),
-                chronology=AdnaChronology(
-                    original_text=f"{locality_start}-{locality_end} BP",
-                    time_start_bp=locality_start,
-                    time_end_bp=locality_end,
-                    time_mean_bp=(locality_start + locality_end) // 2,
-                    dating_basis="bp_window",
+                chronology=owned_chronology,
+                sample_chronologies=(
+                    AdnaSampleChronologySupport(
+                        "SE1", owned_chronology, source_release="v66"
+                    ),
                 ),
                 sample_namespace="aadr-sample",
             ),
@@ -163,6 +174,15 @@ def test_scientific_review_marks_overlapping_human_and_context_windows_as_overla
                 time_end_bp=point_end,
                 time_mean_bp=(point_start + point_end) // 2,
                 time_label=f"{point_start}-{point_end} BP",
+                temporal_semantics=build_temporal_semantics(
+                    source_family="Context",
+                    evidence_class="direct_numeric_sample_date",
+                    precision_posture="sample_precise_interval",
+                    comparability_posture="numeric_interval_with_caveat",
+                    time_start_bp=point_start,
+                    time_end_bp=point_end,
+                    time_mean_bp=(point_start + point_end) // 2,
+                ).as_dict(),
             ),
         ),
     )

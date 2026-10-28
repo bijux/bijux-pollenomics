@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import shlex
 import subprocess
 
 from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
@@ -57,9 +58,15 @@ def test_doc_count_gate_attests_exact_shard_receipt_reconciliation() -> None:
         "artifacts/execution-control/doc-count-shards",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards",
     } <= set(specification.input_paths)
-    assert dict(specification.environment)["PYTHONPATH"].endswith(
-        "/packages/bijux-pollenomics-dev/src"
-    )
+    assert dict(specification.environment)["PYTHONPATH"].split(os.pathsep) == [
+        str(REPOSITORY_ROOT / "packages" / name / "src")
+        for name in (
+            "bijux-pollenomics",
+            "bijux-pollenomics-dev",
+            "bijux-pollenomics-lra",
+            "pollenomics",
+        )
+    ]
     assert specification.timeout_seconds == 120.0
 
 
@@ -169,7 +176,14 @@ def test_make_release_evidence_does_not_rerun_recorded_gates() -> None:
     )
 
     assert " -m pytest" not in completed.stdout
-    assert "provenance.gates" not in completed.stdout
+    modules = [
+        words[words.index("-m") + 1]
+        for line in completed.stdout.replace("\\\n", " ").splitlines()
+        if "-m" in (words := shlex.split(line))
+    ]
+    assert "bijux_pollenomics.provenance.gates.temporary" in modules
+    assert "bijux_pollenomics.provenance.gates" not in modules
+    assert "bijux_pollenomics.provenance.gate_runner" not in modules
     assert "provenance request" in completed.stdout
     assert "provenance write" in completed.stdout
 

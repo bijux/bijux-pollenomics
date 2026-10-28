@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 import re
 
 from bijux_pollenomics.adna.domain.models import (
@@ -30,6 +30,8 @@ from .models.localities import AdnaSampleChronologySupport
 __all__ = [
     "build_locality_identity",
     "locality_sample_intervals",
+    "mapping_sample_chronologies",
+    "mapping_sample_intervals",
     "summarize_sample_localities",
 ]
 
@@ -139,6 +141,10 @@ def summarize_sample_localities(
                         provenance_path=record.chronology_provenance_path,
                         provenance_locator=record.chronology_provenance_locator,
                         provenance_excerpt=record.chronology_provenance_text,
+                        provenance_kind=record.chronology_provenance_kind,
+                        chronology_strength=record.chronology_strength,
+                        normalization_status=record.chronology_normalization_status,
+                        conflict_note=record.chronology_conflict_note,
                     )
                     for record in sorted(records, key=lambda item: item.genetic_id)
                 ),
@@ -183,7 +189,13 @@ def locality_sample_intervals(
         if support.sample_id not in allowed or support.sample_id in seen:
             return ()
         seen.add(support.sample_id)
-        if support.chronology.refusal_reason_code:
+        semantics = support.chronology.as_temporal_semantics(
+            source_family=locality.source_family
+        )
+        if semantics["comparability_posture"] not in {
+            "numeric_interval",
+            "numeric_interval_with_caveat",
+        }:
             continue
         endpoints = (support.chronology.time_start_bp, support.chronology.time_end_bp)
         if any(
@@ -200,4 +212,71 @@ def locality_sample_intervals(
             continue
         if interval is not None:
             result.append((support.sample_id, interval))
+    return tuple(result)
+
+
+def mapping_sample_chronologies(
+    locality: Mapping[str, object],
+) -> tuple[AdnaSampleChronologySupport, ...]:
+    """Validate serialized sample ownership without deriving any source dates."""
+    identifiers = locality.get("sample_ids", locality.get("sample_record_ids", []))
+    payloads = locality.get("sample_chronologies", [])
+    if not isinstance(identifiers, (list, tuple)) or not all(
+        isinstance(item, str) and bool(item.strip()) for item in identifiers
+    ):
+        raise TypeError("Sample chronology ownership requires explicit sample IDs")
+    if len(set(identifiers)) != len(identifiers):
+        raise ValueError("Sample chronology ownership IDs must be unique")
+    declared_count = locality.get("sample_count")
+    if declared_count is not None and (
+        type(declared_count) is not int or declared_count != len(identifiers)
+    ):
+        raise ValueError(
+            "Sample chronology count must equal its explicit native ID population"
+        )
+    if not isinstance(payloads, (list, tuple)) or not all(
+        isinstance(item, Mapping) for item in payloads
+    ):
+        raise TypeError("Sample chronology supports must be objects")
+    allowed = set(identifiers)
+    seen: set[str] = set()
+    result: list[AdnaSampleChronologySupport] = []
+    for payload in payloads:
+        support = AdnaSampleChronologySupport.from_dict(payload)
+        if support.sample_id not in allowed or support.sample_id in seen:
+            raise ValueError(
+                "Sample chronology support requires unique owned sample membership"
+            )
+        seen.add(support.sample_id)
+        if not support.chronology.refusal_reason_code:
+            canonical_bp_interval(
+                support.chronology.time_start_bp, support.chronology.time_end_bp
+            )
+        result.append(support)
+    return tuple(result)
+
+
+def mapping_sample_intervals(
+    locality: Mapping[str, object],
+) -> tuple[tuple[AdnaSampleChronologySupport, BpInterval], ...]:
+    """Read exact serialized sample ownership; never infer members from a hull."""
+    try:
+        supports = mapping_sample_chronologies(locality)
+    except (TypeError, ValueError):
+        return ()
+    result: list[tuple[AdnaSampleChronologySupport, BpInterval]] = []
+    for support in supports:
+        semantics = support.chronology.as_temporal_semantics(
+            source_family=str(locality.get("source_family", ""))
+        )
+        if semantics["comparability_posture"] not in {
+            "numeric_interval",
+            "numeric_interval_with_caveat",
+        }:
+            continue
+        interval = canonical_bp_interval(
+            support.chronology.time_start_bp, support.chronology.time_end_bp
+        )
+        if interval is not None:
+            result.append((support, interval))
     return tuple(result)

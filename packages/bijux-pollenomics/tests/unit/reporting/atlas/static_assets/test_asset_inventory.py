@@ -178,11 +178,13 @@ def test_columnar_inventory_refuses_structural_drift(
         )
         if mutation == "negative_time":
             node[indexes["time_min_bp"]] = -1
+            node[indexes["time_max_bp"]] = 100
         elif mutation == "reversed_time":
             node[indexes["time_min_bp"]] = 200
             node[indexes["time_max_bp"]] = 100
         elif mutation == "asymmetric_time":
             node[indexes["time_min_bp"]] = None
+            node[indexes["time_max_bp"]] = 100
         elif mutation == "excess_untimed_count":
             node[indexes["untimed_record_count"]] = (
                 cast(int, node[indexes["record_count"]]) + 1
@@ -204,6 +206,8 @@ def test_columnar_inventory_refuses_structural_drift(
             node[indexes["refused_chronology_record_count"]] = 0
             node[indexes["contextual_chronology_record_count"]] = 0
             node[indexes["untimed_record_count"]] = node[indexes["record_count"]]
+            node[indexes["time_min_bp"]] = 0
+            node[indexes["time_max_bp"]] = 100
 
     with pytest.raises(ValueError, match=message):
         normalize_asset_inventory(inventory)

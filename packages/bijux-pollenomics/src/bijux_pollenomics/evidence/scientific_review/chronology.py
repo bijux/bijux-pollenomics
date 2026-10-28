@@ -12,7 +12,7 @@ from ...core.temporal_semantics import BpInterval
 from ..models import AtlasEvidenceSpeciesRow
 from .models import ChronologyOverlapRow
 from .temporal import (
-    _context_point_interval,
+    _context_point_intervals,
     _locality_intervals,
 )
 
@@ -29,7 +29,7 @@ class _LayerIntervals:
         bounds = sorted(
             (interval.younger_bp, interval.older_bp)
             for point in points
-            if (interval := _context_point_interval(point)) is not None
+            for interval in _context_point_intervals(point)
         )
         maximum_ends: list[float] = []
         for _, end in bounds:

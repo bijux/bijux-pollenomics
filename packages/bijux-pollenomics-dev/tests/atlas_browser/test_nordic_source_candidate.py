@@ -18,6 +18,8 @@ from bijux_pollenomics_dev.ci.atlas_browser.nordic_source_candidate import (
     generate_nordic_source_candidate,
 )
 
+from .source_repository import generate_fixture_candidate
+
 
 def nordic_repository(root: Path) -> Path:
     retained = root / "docs/report/regions/nordic"
@@ -99,8 +101,8 @@ def test_nordic_replay_retains_exact_eight_country_source_records(
     tmp_path: Path,
 ) -> None:
     nordic_repository(tmp_path)
-    receipt = generate_nordic_source_candidate(
-        tmp_path, tmp_path / "artifacts/candidate"
+    receipt = generate_fixture_candidate(
+        tmp_path, tmp_path / "artifacts/candidate", "nordic_source_candidate"
     )
     assert receipt["selected_source_record_equality"] is True
     assert receipt["countries"] == ["Denmark", "Finland", "Norway", "Sweden"]

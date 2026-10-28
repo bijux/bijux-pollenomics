@@ -27,8 +27,6 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
 from .index_bundles import (
-    INDEX_BUNDLE_SCHEMA,
-    SIGNED_INDEX_BUNDLE_SCHEMA,
     build_index_bundle,
 )
 from .indexes import build_indexes, index_reference_count
@@ -228,11 +226,12 @@ def write_static_atlas_assets(
         "version": version,
         "build_id": build_id,
     }
+    index_bundle = build_index_bundle(logical_indexes)
     payloads.append(
         (
             "indexes",
             index_reference_count(logical_indexes),
-            build_index_bundle(logical_indexes),
+            index_bundle,
         )
     )
 
@@ -306,9 +305,7 @@ def write_static_atlas_assets(
             "detail_schema": "atlas-details-chunk.v1",
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
-            "index_schema": SIGNED_INDEX_BUNDLE_SCHEMA
-            if temporal_profile is not None
-            else INDEX_BUNDLE_SCHEMA,
+            "index_schema": index_bundle["schema_version"],
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,

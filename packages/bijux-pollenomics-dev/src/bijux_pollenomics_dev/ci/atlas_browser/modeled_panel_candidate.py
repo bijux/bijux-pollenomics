@@ -33,6 +33,8 @@ from bijux_pollenomics_dev.ci.atlas_browser.context_frame_candidate import (
     record_digest,
 )
 
+from .source_custody import observed_source_inputs
+
 COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
 LAYER_KEY = "landclim-reveals-temporal-grid"
 METRICS = ("ET", "ST", "OL", "AL")
@@ -206,6 +208,7 @@ def generate_modeled_panel_candidate(
     for key, digest in inputs.items():
         if hashlib.sha256((repository / key).read_bytes()).hexdigest() != digest:
             raise ValueError("frozen source input mutated during rendering")
+    inputs.update(observed_source_inputs(repository))
     receipt = {
         "schema_version": "atlas-modeled-panel-candidate.v1",
         "inputs_sha256": inputs,

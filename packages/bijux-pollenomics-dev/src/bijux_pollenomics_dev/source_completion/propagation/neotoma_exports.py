@@ -1,4 +1,4 @@
-"""Authenticate one named two-site operational URL transition, with no data waiver."""
+"""Authenticate retained and current named browser export custody without data waivers."""
 
 from __future__ import annotations
 
@@ -10,9 +10,11 @@ import json
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-CERTIFICATE = "data/neotoma/source-selection-reference/selection-custody.json"
-CERTIFICATE_SHA256 = "a1e77040087e80b35f458a9033a97b237636f302db2a6ebad887de7032df08dd"
-EXPECTED_EXPORTS = (
+RETAINED_CERTIFICATE = "data/neotoma/source-selection-reference/selection-custody.json"
+RETAINED_CERTIFICATE_SHA256 = (
+    "a1e77040087e80b35f458a9033a97b237636f302db2a6ebad887de7032df08dd"
+)
+RETAINED_EXPECTED_EXPORTS = (
     (
         "12",
         "8284262561d27ad8d1d49c5561ef60c1a3a6c884f55d547db60640ef3d893780",
@@ -22,6 +24,22 @@ EXPECTED_EXPORTS = (
         "3009",
         "e6f66cf65da67d3d4a701de51d1500e0f670fb849c6f59c032eb1c41a6011647",
         "83a18e2b5955023fdfad5d76f4cc6af7e8c6fdeed019525caf56785e7ebf2b58",
+    ),
+)
+
+
+CERTIFICATE = "data/neotoma/source-selection-reference/browser-selection-custody.json"
+CERTIFICATE_SHA256 = "fe0f79fd940c67fcb5810408d480407df5034506dc488f4384af378e6ef1b169"
+EXPECTED_EXPORTS = (
+    (
+        "12",
+        "8284262561d27ad8d1d49c5561ef60c1a3a6c884f55d547db60640ef3d893780",
+        "77a9a3b8d5b897989c6290866554ff5b59848aebe967641863c648715cf99cfd",
+    ),
+    (
+        "3009",
+        "e6f66cf65da67d3d4a701de51d1500e0f670fb849c6f59c032eb1c41a6011647",
+        "952111b8ecab280eca3a534092ce54f252c7372c06d51b4cf021f7d5a57e41ae",
     ),
 )
 
@@ -124,21 +142,20 @@ def validate_selection_transition(
     return _hash(_canonical(original))
 
 
-def validate_neotoma_export_custody(repository: Path) -> None:
-    """Bind original physical exports, current captured exports and native manifest."""
-    if not repository.is_absolute() or repository.resolve(strict=True) != repository:
-        raise ValueError("Real absolute repository required")
-    certificate_raw = _file(repository, CERTIFICATE).read_bytes()
-    if _hash(certificate_raw) != CERTIFICATE_SHA256:
-        raise ValueError("Named Neotoma export custody certificate differs")
-    proof = _object(certificate_raw)
+def _validate_captured_exports(
+    repository: Path,
+    proof: dict[str, Any],
+    expected_exports: tuple[tuple[str, str, str], ...],
+    *,
+    published: bool,
+) -> None:
+    """Bind each sealed capture to original source bytes; publication is a separate epoch."""
     if (
-        proof["schema_version"] != "neotoma-export-selection-custody.v1"
-        or tuple(
+        tuple(
             (row["site_id"], row["reference_sha256"], row["export_sha256"])
             for row in proof["exports"]
         )
-        != EXPECTED_EXPORTS
+        != expected_exports
     ):
         raise ValueError("Named two-export scope differs")
     manifest = proof["source_manifest"]
@@ -147,7 +164,7 @@ def validate_neotoma_export_custody(repository: Path) -> None:
     capture_ref = proof["browser_capture"]
     capture_raw = _file(repository, capture_ref["path"]).read_bytes()
     if _hash(capture_raw) != capture_ref["sha256"]:
-        raise ValueError("Current physical browser capture differs")
+        raise ValueError("Named physical browser capture differs")
     capture = _object(capture_raw)
     if (
         capture["source_candidate"] != capture_ref["source_candidate"]
@@ -163,12 +180,16 @@ def validate_neotoma_export_custody(repository: Path) -> None:
             row["reference_sha256"],
             row["content_bytes"],
         )
-        current = _file(repository, row["export_path"]).read_bytes()
         member = members[row["captured_member"]]
         captured = _file(
             repository,
             str(PurePosixPath(capture_ref["path"]).parent / row["captured_member"]),
         ).read_bytes()
+        current = (
+            _file(repository, row["export_path"]).read_bytes()
+            if published
+            else captured
+        )
         if (
             _hash(current) != row["export_sha256"]
             or current != captured
@@ -186,6 +207,32 @@ def validate_neotoma_export_custody(repository: Path) -> None:
             != row["all_other_ordered_json_sha256"]
         ):
             raise ValueError("Original non-URL export fields differ")
+
+
+def validate_neotoma_export_custody(repository: Path) -> None:
+    """Authenticate immutable preceding capture and exact current published exports."""
+    if not repository.is_absolute() or repository.resolve(strict=True) != repository:
+        raise ValueError("Real absolute repository required")
+    retained_raw = _file(repository, RETAINED_CERTIFICATE).read_bytes()
+    current_raw = _file(repository, CERTIFICATE).read_bytes()
+    if (
+        _hash(retained_raw) != RETAINED_CERTIFICATE_SHA256
+        or _hash(current_raw) != CERTIFICATE_SHA256
+    ):
+        raise ValueError("Named Neotoma export custody certificate differs")
+    retained = _object(retained_raw)
+    current = _object(current_raw)
+    if (
+        retained["schema_version"] != "neotoma-export-selection-custody.v1"
+        or current["schema_version"] != "neotoma-export-selection-custody.v2"
+        or current["preceding_export_custody"]
+        != {"path": RETAINED_CERTIFICATE, "sha256": RETAINED_CERTIFICATE_SHA256}
+    ):
+        raise ValueError("Named retained/current custody epochs differ")
+    _validate_captured_exports(
+        repository, retained, RETAINED_EXPECTED_EXPORTS, published=False
+    )
+    _validate_captured_exports(repository, current, EXPECTED_EXPORTS, published=True)
 
 
 def validate_retained_readiness(repository: Path, report: dict[str, Any]) -> None:

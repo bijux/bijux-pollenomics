@@ -6,7 +6,7 @@ from dataclasses import MISSING, fields
 import hashlib
 import inspect
 import json
-from typing import Any
+from typing import Any, cast
 
 from bijux_pollenomics.adna.domain import models
 
@@ -58,7 +58,7 @@ def test_exports_retain_exact_order() -> None:
 
 def test_dataclass_fields_annotations_defaults_and_signatures_are_frozen() -> None:
     schemas = [
-        _schema(getattr(models, name))
+        _frozen_schema(getattr(models, name))
         for name in models.__all__
         if isinstance(getattr(models, name), type)
     ]
@@ -74,3 +74,41 @@ def test_dataclass_fields_annotations_defaults_and_signatures_are_frozen() -> No
 def test_legacy_support_imports_remain_reachable() -> None:
     assert callable(models.dataclass)
     assert callable(models.build_temporal_semantics)
+
+
+def _frozen_schema(model_type: Any) -> dict[str, object]:
+    schema = _schema(model_type)
+    if model_type is not models.AdnaLocalitySummary:
+        return schema
+    current = cast(list[dict[str, object]], schema["fields"])
+    assert current[-1] == {
+        "name": "sample_chronologies",
+        "type": "tuple[AdnaSampleChronologySupport, ...]",
+        "default": "()",
+        "factory": "<MISSING>",
+        "init": True,
+        "repr": True,
+        "compare": True,
+        "hash": None,
+        "kw_only": False,
+    }
+    signature = inspect.signature(model_type)
+    assert tuple(signature.parameters)[-1] == "sample_chronologies"
+    # Freeze every preexisting field and positional argument independently of
+    # the explicitly admitted optional occurrence-support extension.
+    schema["fields"] = current[:-1]
+    annotations = dict(model_type.__annotations__)
+    assert annotations.pop("sample_chronologies") == (
+        "tuple[AdnaSampleChronologySupport, ...]"
+    )
+    schema["annotations"] = annotations
+    schema["signature"] = str(
+        signature.replace(
+            parameters=[
+                parameter
+                for name, parameter in signature.parameters.items()
+                if name != "sample_chronologies"
+            ]
+        )
+    )
+    return schema

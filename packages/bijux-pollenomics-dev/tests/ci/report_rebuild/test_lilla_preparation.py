@@ -47,8 +47,28 @@ def test_preparation_has_exact_source_and_output_boundary() -> None:
     assert isinstance(protocol_paths, list)
     assert prepared["role"] == "generated_owner"
     assert set(prepared_paths) == PREPARED
-    assert len(code_paths) == 1019
-    assert len(source_paths) == 12
+    assert code_paths == sorted(set(code_paths))
+    assert source_paths == sorted(set(source_paths))
+    assert not set(code_paths) & set(source_paths)
+    assert hashlib.sha256(("\n".join(code_paths) + "\n").encode()).hexdigest() == (
+        "2f23f86aba95091e700e422fe343fe4b5edfffcb27ae4230a9e61ecd41083559"
+    )
+    assert hashlib.sha256(("\n".join(source_paths) + "\n").encode()).hexdigest() == (
+        "a29391f231b9096552d09aa9ae12b3ab57c8d1448058981787e80190cce8d286"
+    )
+    required_helpers = {
+        "packages/bijux-pollenomics/src/bijux_pollenomics/" + suffix
+        for suffix in (
+            "collection/contracts/occurrence_chronology.py",
+            "reporting/map_document/adna_exports.py",
+            "core/chronology/__init__.py",
+            "core/chronology/relations.py",
+            "core/chronology/source_metadata.py",
+        )
+    }
+    assert required_helpers <= set(code_paths)
+    assert required_helpers.isdisjoint(source_paths)
+    assert all((REPOSITORY / path).is_file() for path in (*code_paths, *source_paths))
     assert DESCRIPTOR in source_paths
     # Reviewed configuration custody does not admit predictions or scores.
     assert protocols["role"] == "maintained_configuration"

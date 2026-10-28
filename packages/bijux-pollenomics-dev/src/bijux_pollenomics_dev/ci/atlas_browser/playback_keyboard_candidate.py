@@ -36,6 +36,10 @@ def fixture_points() -> list[dict[str, Any]]:
             "longitude": longitude,
             "country": country,
             "age_type": "calendar_bp",
+            "temporal_semantics": {
+                "schema_version": "temporal-semantics.v1",
+                "comparability_posture": "numeric_interval",
+            },
             "time_start_bp": bp,
             "time_end_bp": bp,
             "fixture_status": "controlled_bp_chronology_only",

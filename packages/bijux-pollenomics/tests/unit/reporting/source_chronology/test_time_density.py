@@ -114,3 +114,61 @@ def test_density_rejects_malformed_or_impossible_bin_counts(
     bins[0][field] = value
 
     assert time_density_matches_facet(tampered, facet) is False
+
+
+def test_fractional_density_keeps_separate_nodes_and_full_observation_weights() -> None:
+    source_node = next(
+        node
+        for node in source_result().nodes
+        if node.node_level == "source_sample_presence"
+    )
+    nodes = [
+        replace(
+            source_node,
+            node_id="instant",
+            younger_bp=0,
+            older_bp=0,
+            observation_ids=("a", "b"),
+        ),
+        replace(
+            source_node,
+            node_id="younger",
+            younger_bp=2.5,
+            older_bp=4.5,
+            observation_ids=("c", "d", "e"),
+        ),
+        replace(
+            source_node,
+            node_id="older",
+            younger_bp=4.5,
+            older_bp=6,
+            observation_ids=("f", "g", "h", "i", "j"),
+        ),
+    ]
+    density = build_time_density(nodes)
+    bins = density["bins"]
+    assert isinstance(bins, list)
+    assert density["node_count"] == 3
+    assert density["observation_denominator"] == 10
+    assert [
+        (
+            row["younger_bp"],
+            row["older_bp"],
+            row["node_count"],
+            row["observation_denominator"],
+        )
+        for row in bins
+    ] == [
+        (5.5, 6, 1, 5),
+        (5, 5.5, 1, 5),
+        (4.5, 5, 2, 8),
+        (4, 4.5, 2, 8),
+        (3.5, 4, 1, 3),
+        (3, 3.5, 1, 3),
+        (2.5, 3, 1, 3),
+        (2, 2.5, 1, 3),
+        (1.5, 2, 0, 0),
+        (1, 1.5, 0, 0),
+        (0.5, 1, 0, 0),
+        (0, 0.5, 1, 2),
+    ]

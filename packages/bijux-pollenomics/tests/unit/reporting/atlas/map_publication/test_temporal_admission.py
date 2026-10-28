@@ -18,9 +18,23 @@ def test_static_index_exports_share_the_canonical_temporal_admission() -> None:
 
 
 def test_temporal_admission_preserves_zero_and_refuses_invalid_intervals() -> None:
-    assert feature_temporal_admission({"time_start_bp": 0, "time_end_bp": 100}) == (
+    assert feature_temporal_admission(
+        {
+            "time_start_bp": 0,
+            "time_end_bp": 100,
+            "temporal_semantics": {
+                "comparability_posture": "numeric_interval_with_caveat",
+                "evidence_class": "direct_numeric_sample_date",
+                "precision_posture": "sample_precise_interval",
+            },
+        }
+    ) == (
         "admitted",
         (0.0, 100.0),
+    )
+    assert feature_temporal_admission({"time_start_bp": 0, "time_end_bp": 100}) == (
+        "contextual",
+        None,
     )
     assert feature_temporal_admission({"time_start_bp": None, "time_end_bp": None}) == (
         "absent",

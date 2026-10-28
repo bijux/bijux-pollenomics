@@ -99,6 +99,11 @@ def test_unknown_external_schema_remains_an_explicit_fixture_refusal(
             "epd/pangaea",
             {"abbo-pollen-profile-pangaea-738429.tsv"},
         ),
+        (
+            "abbo-age-controls.json",
+            "epd/pangaea",
+            {"abbo-age-determination-pangaea-740080.tsv"},
+        ),
     ],
 )
 def test_retained_source_fixture_preserves_exact_descriptor_dependency_population(
@@ -171,3 +176,87 @@ def test_retained_source_fixture_refuses_unreviewed_schema_or_native_dependency(
     with pytest.raises(AssertionError):
         _fixture_sources(repository, tmp_path / "source-store", relative)
     assert not (tmp_path / "source-store").exists()
+
+
+@pytest.mark.parametrize("field", ["path", "sha256", "size", "scientific_admission"])
+def test_abbo_age_fixture_requires_the_reviewed_table_identity(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, field: str
+) -> None:
+    repository = tmp_path / "repository"
+    relative = Path("configs/ci/qualified-report-sources/abbo-age-controls.json")
+    descriptor = json.loads((IMPACT.REPO_ROOT / relative).read_bytes())
+    if field == "scientific_admission":
+        descriptor[field] = True
+    else:
+        descriptor["table"][field] = "unreviewed" if field != "size" else 1
+    target = repository / relative
+    target.parent.mkdir(parents=True)
+    target.write_text(json.dumps(descriptor))
+    monkeypatch.setattr(IMPACT, "REPO_ROOT", repository)
+    with pytest.raises(AssertionError):
+        _fixture_sources(repository, tmp_path / "source-store", relative)
+    assert not (tmp_path / "source-store").exists()
+
+
+def test_every_configured_source_schema_has_a_reviewed_scheduling_fixture() -> None:
+    configuration = json.loads(
+        (IMPACT.REPO_ROOT / "configs/ci/report-owner-execution.json").read_bytes()
+    )
+    descriptors = {
+        row["external_source_descriptor"]
+        for row in configuration["owners"]
+        if "external_source_descriptor" in row
+    }
+    schemas = {
+        json.loads((IMPACT.REPO_ROOT / path).read_bytes())["schema_version"]
+        for path in descriptors
+    }
+    assert schemas == IMPACT.SYNTHETIC_SCHEDULING_SCHEMAS
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [
+        "configs/ci/report-sources/swedish-literal-pair-counting.json",
+        "configs/ci/qualified-report-sources/raa-native-lead-support.json",
+    ],
+)
+@pytest.mark.parametrize("altered", [None, "source_id", "files", "sha256"])
+def test_retained_native_capture_scheduling_fixtures_are_exact_and_unauthenticated(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    relative: str,
+    altered: str | None,
+) -> None:
+    repository = tmp_path / "repository"
+    target = repository / relative
+    raw = (IMPACT.REPO_ROOT / relative).read_bytes()
+    original = json.loads(raw)
+    descriptor = json.loads(raw)
+    if altered == "source_id":
+        descriptor["source_id"] = "unreviewed/source"
+    elif altered == "files":
+        descriptor["files"] = descriptor["files"][:-1]
+    elif altered == "sha256":
+        descriptor["files"][0]["sha256"] = "0" * 64
+    target.parent.mkdir(parents=True)
+    target.write_bytes(raw if altered is None else json.dumps(descriptor).encode())
+    monkeypatch.setattr(IMPACT, "REPO_ROOT", repository)
+    store = tmp_path / "source-store"
+    if altered is not None:
+        with pytest.raises(AssertionError):
+            _fixture_sources(repository, store, Path(relative))
+        assert not store.exists()
+        return
+    result = _fixture_sources(repository, store, Path(relative))
+    identity = original["source_id"]
+    expected = {f"external/{identity}/{row['path']}" for row in original["files"]}
+    assert set(result.inputs) == {relative} | expected
+    assert result.directory == store / identity
+    assert result.descriptor_sha256 == "a" * 64
+    assert target.read_bytes() == raw
+    for name in expected:
+        assert result.inputs[name].read_text() == "synthetic archive-layout fixture\n"
+        assert result.inputs[name].stat().st_size == len(
+            b"synthetic archive-layout fixture\n"
+        )

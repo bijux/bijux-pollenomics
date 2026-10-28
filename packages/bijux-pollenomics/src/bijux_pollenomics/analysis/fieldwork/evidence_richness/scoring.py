@@ -78,12 +78,12 @@ def _build_raw_band_metrics(
             for point in nearby_pollen_points
             if _context_point_overlaps_any_human(point, nearby_human_points)
         )
-    human_locality_count = 0
+    human_localities: set[tuple[str, str] | int] = set()
     human_sample_count = 0
     for point in nearby_human_points:
-        human_locality_count += 1
+        human_localities.add(point.source_locality_key or id(point))
         human_sample_count += point.sample_count
-    animal_locality_count = 0
+    animal_localities: set[tuple[str, str] | int] = set()
     animal_sample_count = 0
     for point in animal_points:
         if (
@@ -95,8 +95,10 @@ def _build_raw_band_metrics(
             )
             <= radius_km
         ):
-            animal_locality_count += 1
+            animal_localities.add(point.source_locality_key or id(point))
             animal_sample_count += point.sample_count
+    human_locality_count = len(human_localities)
+    animal_locality_count = len(animal_localities)
     nearby_sead_points = tuple(
         point
         for point in sead_points

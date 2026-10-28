@@ -13,6 +13,7 @@ from ....adna import (
     AdnaLocalitySummary,
     build_species_support_matrix,
 )
+from ....adna.domain.models.localities import AdnaSampleChronologySupport
 from ....adna.workflow.paths import adna_species_dir
 from .chronology import (
     _atlas_public_chronology,
@@ -27,8 +28,8 @@ def load_tracked_animal_mappable_localities(
     data_root: Path,
 ) -> tuple[AdnaLocalitySummary, ...]:
     """Load only the locality rows that are actually eligible for point publication."""
-    visible_site_ids = {
-        row.site_record_id
+    visible_sites = {
+        row.site_record_id: row
         for row in build_tracked_animal_atlas_evidence_rows(data_root)
     }
     localities: list[AdnaLocalitySummary] = []
@@ -48,8 +49,15 @@ def load_tracked_animal_mappable_localities(
             identity = row.get("identity", {})
             if not isinstance(identity, dict):
                 continue
-            if str(identity.get("stable_token", "")).strip() not in visible_site_ids:
+            admitted = visible_sites.get(str(identity.get("stable_token", "")).strip())
+            if admitted is None:
                 continue
+            if "sample_chronologies" not in row:
+                row = row | {
+                    "sample_chronologies": [
+                        support.as_dict() for support in admitted.sample_chronologies
+                    ]
+                }
             localities.append(_parse_locality_summary(row))
     localities.sort(
         key=lambda locality: (
@@ -73,6 +81,12 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
         raise TypeError(
             "Tracked locality summary must include identity, coordinates, and chronology"
         )
+    support_rows = payload.get("sample_chronologies", [])
+    if not isinstance(support_rows, list) or any(
+        not isinstance(row, dict) for row in support_rows
+    ):
+        raise TypeError("Tracked sample chronologies must be a list of objects")
+    supports = tuple(AdnaSampleChronologySupport.from_dict(row) for row in support_rows)
     return AdnaLocalitySummary(
         identity=AdnaLocalityIdentity(
             namespace=str(identity.get("namespace", "")),
@@ -121,6 +135,7 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
             str(item) for item in cast(Iterable[object], payload.get("datasets", []))
         ),
         chronology=_atlas_public_chronology(_parse_chronology(chronology)),
+        sample_chronologies=supports,
         sample_namespace=str(payload.get("sample_namespace", "")),
         project_accessions=tuple(
             str(item)

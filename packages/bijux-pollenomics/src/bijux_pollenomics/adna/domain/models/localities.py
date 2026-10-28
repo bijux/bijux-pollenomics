@@ -6,38 +6,9 @@ from dataclasses import dataclass
 
 from .chronology import AdnaChronology, AdnaCoordinate
 from .identity import AdnaLocalityIdentity
-
-
-@dataclass(frozen=True)
-class AdnaSampleChronologySupport:
-    """Exact sample-owned chronology retained alongside a display coverage hull."""
-
-    sample_id: str
-    chronology: AdnaChronology
-    source_release: str = ""
-    provenance_path: str = ""
-    provenance_locator: str = ""
-    provenance_excerpt: str = ""
-    reference_epoch: str = "not_separately_declared"
-    age_type: str = "not_separately_declared"
-    calibration_status: str = "not_separately_declared"
-    model: str = "not_separately_declared"
-
-    def as_dict(self) -> dict[str, object]:
-        """Serialize sample chronology with its source and provenance metadata."""
-        return {
-            "schema_version": "adna-sample-chronology-support.v1",
-            "sample_id": self.sample_id,
-            "chronology": self.chronology.as_dict(),
-            "source_release": self.source_release,
-            "provenance_path": self.provenance_path,
-            "provenance_locator": self.provenance_locator,
-            "provenance_excerpt": self.provenance_excerpt,
-            "reference_epoch": self.reference_epoch,
-            "age_type": self.age_type,
-            "calibration_status": self.calibration_status,
-            "model": self.model,
-        }
+from .occurrence_support import (
+    AdnaSampleChronologySupport as AdnaSampleChronologySupport,
+)
 
 
 @dataclass(frozen=True)

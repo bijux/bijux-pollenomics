@@ -41,10 +41,13 @@ def run_recorded_gate(
     timeout_seconds: float | None = None,
 ) -> dict[str, object]:
     """Run exact argv without a shell and atomically publish its evidence record."""
+    from .temporary import prepare_execution_temporary_directories
+
     root = _repository_root(repository_root)
     _validate_gate_id(gate_id)
     command = _exact_argv(argv)
     execution_environment = _exact_environment(environment)
+    prepare_execution_temporary_directories(root, command, execution_environment)
     if timeout_seconds is not None and (
         isinstance(timeout_seconds, bool) or timeout_seconds <= 0
     ):

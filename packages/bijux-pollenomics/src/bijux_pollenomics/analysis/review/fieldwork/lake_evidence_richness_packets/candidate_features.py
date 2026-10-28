@@ -7,6 +7,9 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment,
     LakeEvidenceSourceAnchor,
 )
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    occurrence_support_interval,
+)
 
 from ..lake_fieldwork_priority import band_score as _band_score
 from .presentation import (
@@ -167,8 +170,13 @@ def _candidate_direct_temporal_sources(
     return tuple(
         source_point
         for source_point in candidate.supporting_source_points
-        if source_point.time_start_bp is not None
-        and source_point.time_end_bp is not None
+        if occurrence_support_interval(
+            source_layer_key=source_point.source_layer_key,
+            temporal_semantics=source_point.temporal_semantics,
+            time_start_bp=source_point.time_start_bp,
+            time_end_bp=source_point.time_end_bp,
+        )
+        is not None
     )
 
 

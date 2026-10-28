@@ -262,7 +262,7 @@
         },
         "screenshot": {
           "path": "390-tile-free.png",
-          "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed"
+          "sha256": "ed93b5d142cdc9815850a2f6a06b25a4d6c40f36159c965783aecd2c250f9c19"
         }
       }
     ],
@@ -338,7 +338,7 @@
         "scenario": "provider-failure",
         "record_id": "neotoma:site:12",
         "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
-        "sha256": "c1aa338447230f3a07e25334d36e0b6151a7c4eaf06966c70c16e9b0a14dc17e",
+        "sha256": "660e5936d082653a32ea17670516b3ccc333fad27c7fe1e299d99492ba9b99b2",
         "source_tables_equal": true,
         "chronology_claims": 270,
         "pollen_observations": 2580
@@ -348,7 +348,7 @@
         "scenario": "tile-free",
         "record_id": "neotoma:site:12",
         "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
-        "sha256": "00c122f04466867eb39d7b63152da31d88030e45811a6c329ba3794422d5b3f5",
+        "sha256": "352717350d9c3d86abe90fc5254a05309edbe1dc5ebb77d423c1c07886375a17",
         "source_tables_equal": true,
         "chronology_claims": 270,
         "pollen_observations": 2580
@@ -358,7 +358,7 @@
         "scenario": "provider-failure",
         "record_id": "neotoma:site:12",
         "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
-        "sha256": "fcaa1dc7175718e38ed02a51cbee574f0e9ffab237a013df7e617af29e076636",
+        "sha256": "99f43590356dd879666344a3bd1a1f4bc0ea089310bf6b74b09481c6158dfb10",
         "source_tables_equal": true,
         "chronology_claims": 270,
         "pollen_observations": 2580
@@ -368,7 +368,7 @@
         "scenario": "tile-free",
         "record_id": "neotoma:site:12",
         "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
-        "sha256": "3d801da2872b544ba92021f4e66b0d5fd5958cb609314598d0bb4063055e861f",
+        "sha256": "c047791ec11ebe25fb0562a2cecd8760cb3d53e163b6527bdc64c3cca899c38c",
         "source_tables_equal": true,
         "chronology_claims": 270,
         "pollen_observations": 2580
@@ -748,7 +748,7 @@
       "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
       "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
       "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
-      "index.html": "3ba800559bf6f9ec66adb0764c61ef37ca94145c893b438bb1f1dd3102d1ef71",
+      "index.html": "d02668ca0de9f52f2b4a067d72d9447466b41f4429042f7bd9bab35a602d5101",
       "nordic-source.atlas-details.0009.e4b1948334c0b0ac.js": "e4b1948334c0b0ac27515025ab417bfe19c972c989dddd00a934cd2c526b3986",
       "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": "616412a6d2c998b2ffa59e81a8ca0aaf9e02ca326f98fef17c01473fefe0d3f1",
       "nordic-source.atlas-indexes.0012.b85c8937582b8a48.js": "b85c8937582b8a48ba88d39fc2b5ccf3614e574b23dfa590e3c77fb5398b35d3",
@@ -768,23 +768,23 @@
   "browser_receipt_path": "browser-receipt.json",
   "candidate_generation_path": "candidate-generation.json",
   "retained_observations_sha256": {
-    "1440-provider-failure-source/neotoma-site-12.pollen-series.json": "c1aa338447230f3a07e25334d36e0b6151a7c4eaf06966c70c16e9b0a14dc17e",
+    "1440-provider-failure-source/neotoma-site-12.pollen-series.json": "660e5936d082653a32ea17670516b3ccc333fad27c7fe1e299d99492ba9b99b2",
     "1440-provider-failure.png": "f6aa07796eccadb3e2411bdc4bb701cc6da32ac8486602732f55a1554f599e39",
-    "1440-tile-free-source/neotoma-site-12.pollen-series.json": "00c122f04466867eb39d7b63152da31d88030e45811a6c329ba3794422d5b3f5",
+    "1440-tile-free-source/neotoma-site-12.pollen-series.json": "352717350d9c3d86abe90fc5254a05309edbe1dc5ebb77d423c1c07886375a17",
     "1440-tile-free.png": "6f9ae3a1aafe2e4174a696934c86818db0607ccadcf6895fd73360eb4a042bfd",
-    "390-provider-failure-source/neotoma-site-12.pollen-series.json": "fcaa1dc7175718e38ed02a51cbee574f0e9ffab237a013df7e617af29e076636",
+    "390-provider-failure-source/neotoma-site-12.pollen-series.json": "99f43590356dd879666344a3bd1a1f4bc0ea089310bf6b74b09481c6158dfb10",
     "390-provider-failure.png": "d0d2ecf748de8b4d7cecb4f365c80eb677e8533355d0703187797b9f16ff6b89",
-    "390-tile-free-source/neotoma-site-12.pollen-series.json": "3d801da2872b544ba92021f4e66b0d5fd5958cb609314598d0bb4063055e861f",
-    "390-tile-free.png": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed"
+    "390-tile-free-source/neotoma-site-12.pollen-series.json": "c047791ec11ebe25fb0562a2cecd8760cb3d53e163b6527bdc64c3cca899c38c",
+    "390-tile-free.png": "ed93b5d142cdc9815850a2f6a06b25a4d6c40f36159c965783aecd2c250f9c19"
   },
   "verifier": {
     "sha256": "a37e8b178e492e441c07e462af2f047e2f761247445b700d5c4dc84efc7ce5af",
     "actual_argv": [
       "/opt/homebrew/bin/node",
-      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
-      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/current-candidate/candidates/Nordic-source-contexts",
-      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/footer-followthrough/observations/provider-accessibility",
-      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-browser-owner-replay/browser-launcher.sh"
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/chronology-domain-capture/source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/chronology-domain-capture/source/artifacts/sample-export-browser-candidates/Nordic-source-contexts",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/execution/observations/provider-accessibility",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/temporal-semantics-adjudication/browser-capture-adoption/sample-chronology-capture/chronology-domain-browser-capture/browser-launcher.sh"
     ]
   },
   "selected_checks": {
@@ -977,19 +977,19 @@
     ]
   },
   "source_capture": {
-    "capture_path": "data/atlas/source-view-capture/capture.json",
-    "capture_sha256": "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd",
-    "source_candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+    "capture_path": "data/atlas/sample-chronology-source-view-capture/capture.json",
+    "capture_sha256": "2491a59a0d5cde5dffd05397c4a7dcc95ab98ba922019863e5ea2662681dba62",
+    "source_candidate": "63fe7e57c597d6a0a0b8b80befa8331950b231cd",
     "operation": "retained byte transport and metadata projection",
     "browser_executed_by_this_projection": false,
     "numerical_execution": false,
     "scientific_admission": false
   },
   "limitations": [
-    "Original six successful observations belonged to an aggregate native1 job; two separately registered successful successor observations are distinct.",
-    "The provider verifier successor carries its actual adopted source identity; prior failed assertions remain historical.",
-    "Source records and modeled values are retained displays, with zero new classifications, propagation admission, numerical fitting or R execution.",
-    "Historical public product hashes remain separate from these fresh capture bytes; browser generation,source custody and scientific acceptance are distinct.",
-    "The signed synthetic native display keeps its original missing-evidence/source-custody limits; browser observations do not authenticate its numerical computation."
+    "Retained actual local browser observations and source transport do not execute a new browser or establish source ages, epochs, calibration, review, ecological accuracy, rights, hosted native-R certification or release readiness.",
+    "Imported source custody is not a claim that every imported function executed.",
+    "The two native source controls preserve 54 published Swedish sample rows and one genuinely undated Danish row; a missing age does not become zero, a disconnected locality hull does not become sample support.",
+    "Modeled frame JavaScript number spellings are compared only in explicitly named coordinate/estimate/standard-error fields at exact finite values; raw physical input/output hashes remain separate.",
+    "Visual inspection is model inspection of actual native PNGs, not qualified independent human scientific review."
   ]
 }

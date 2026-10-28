@@ -5,16 +5,20 @@ from __future__ import annotations
 from collections.abc import Iterable, Sequence
 from dataclasses import replace
 
-from bijux_pollenomics.collection.contracts.cardinality import (
-    require_nonnegative_count,
-    resolve_declared_count,
+from bijux_pollenomics.adna.domain.locality import (
+    locality_sample_intervals,
+    mapping_sample_intervals,
 )
+from bijux_pollenomics.adna.domain.models import AdnaLocalitySummary
+from bijux_pollenomics.collection.contracts.cardinality import require_nonnegative_count
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    occurrence_support_intervals,
+)
 from bijux_pollenomics.core import (
     build_temporal_semantics,
     haversine_km,
     resolve_temporal_window,
-    temporal_semantics_has_numeric_interval,
 )
 from bijux_pollenomics.core.temporal_semantics import (
     BpInterval,
@@ -42,39 +46,55 @@ def _extract_human_points(localities: Iterable[object]) -> tuple[_PointEvidence,
             longitude, (int, float)
         ):
             continue
-        sample_count = getattr(locality, "sample_count", 0)
-        locality_token = str(getattr(locality, "locality_token", "")).strip()
-        locality_name = str(getattr(locality, "locality", "") or "").strip()
-        chronology = getattr(locality, "chronology", None)
-        temporal_semantics: dict[str, object] | None = None
-        if chronology is not None and hasattr(chronology, "as_temporal_semantics"):
-            resolved_temporal_semantics = chronology.as_temporal_semantics(
-                source_family="human_adna",
-                comparison_note=(
-                    "Nearby human aDNA provides dated regional context; it is not "
-                    "chronology measured from the candidate lake."
-                ),
+        if not isinstance(locality, AdnaLocalitySummary):
+            continue
+        require_nonnegative_count(locality.sample_count, field="sample_count")
+        support_index = {
+            support.sample_id: support for support in locality.sample_chronologies
+        }
+        admitted_samples = locality_sample_intervals(locality)
+        for sample_id, interval in admitted_samples:
+            support = support_index.get(sample_id)
+            chronology = (
+                support.chronology if support is not None else locality.chronology
             )
-            if isinstance(resolved_temporal_semantics, dict):
-                temporal_semantics = resolved_temporal_semantics
-        rows.append(
-            _PointEvidence(
-                latitude=float(latitude),
-                longitude=float(longitude),
-                sample_count=require_nonnegative_count(
-                    sample_count,
-                    field=f"human aDNA {locality_token or locality_name} sample_count",
-                ),
-                time_start_bp=_optional_int(getattr(locality, "time_start_bp", None)),
-                time_end_bp=_optional_int(getattr(locality, "time_end_bp", None)),
-                time_mean_bp=_optional_int(getattr(locality, "time_mean_bp", None)),
-                source_record=f"human-adna:{locality_token or locality_name}",
-                source_name=locality_name or locality_token or "Human aDNA locality",
-                source_layer_key="human-adna",
-                time_label=str(getattr(locality, "time_label", "")).strip(),
-                temporal_semantics=temporal_semantics,
+            rows.append(
+                _PointEvidence(
+                    latitude=float(latitude),
+                    longitude=float(longitude),
+                    sample_count=1,
+                    time_start_bp=int(interval.younger_bp),
+                    time_end_bp=int(interval.older_bp),
+                    time_mean_bp=chronology.time_mean_bp,
+                    source_record=f"human-adna:{locality.locality_token}:sample:{sample_id}",
+                    source_locality_key=(
+                        locality.locality_namespace,
+                        locality.locality_token,
+                    ),
+                    source_name=locality.locality or locality.locality_token,
+                    source_layer_key="human-adna",
+                    time_label=chronology.original_text,
+                    temporal_semantics=chronology.as_temporal_semantics(
+                        source_family="human_adna"
+                    ),
+                )
             )
-        )
+        remainder = locality.sample_count - len(admitted_samples)
+        if remainder > 0 or not admitted_samples:
+            rows.append(
+                _PointEvidence(
+                    latitude=float(latitude),
+                    longitude=float(longitude),
+                    sample_count=max(0, remainder),
+                    source_record=f"human-adna:{locality.locality_token}",
+                    source_locality_key=(
+                        locality.locality_namespace,
+                        locality.locality_token,
+                    ),
+                    source_name=locality.locality or locality.locality_token,
+                    source_layer_key="human-adna",
+                )
+            )
     return tuple(rows)
 
 
@@ -82,44 +102,74 @@ def _extract_animal_points(
     animal_localities: Iterable[dict[str, object]],
 ) -> tuple[_PointEvidence, ...]:
     rows: list[_PointEvidence] = []
-    for locality in animal_localities:
+    for locality_index, locality in enumerate(animal_localities):
         latitude = locality.get("latitude")
         longitude = locality.get("longitude")
         if not isinstance(latitude, (int, float)) or not isinstance(
             longitude, (int, float)
         ):
             continue
-        sample_count = resolve_declared_count(
-            locality,
-            "sample_count",
-            field="animal aDNA locality sample_count",
-            absent_default=0,
-        )
+        if "sample_count" in locality:
+            require_nonnegative_count(locality["sample_count"], field="sample_count")
         source_token = str(
             locality.get("site_record_id")
             or locality.get("feature_id")
             or locality.get("locality")
             or "unresolved-locality"
         ).strip()
-        temporal_semantics = locality.get("temporal_semantics")
-        rows.append(
-            _PointEvidence(
-                latitude=float(latitude),
-                longitude=float(longitude),
-                sample_count=sample_count,
-                time_start_bp=_optional_int(locality.get("time_start_bp")),
-                time_end_bp=_optional_int(locality.get("time_end_bp")),
-                time_mean_bp=_optional_int(locality.get("time_mean_bp")),
-                source_record=f"animal-adna:{source_token}",
-                source_name=str(locality.get("locality") or source_token).strip(),
-                source_layer_key="animal-adna",
-                source_url=str(locality.get("source_url") or "").strip(),
-                time_label=str(locality.get("time_label") or "").strip(),
-                temporal_semantics=(
-                    temporal_semantics if isinstance(temporal_semantics, dict) else None
-                ),
+        admitted_samples = mapping_sample_intervals(locality)
+        native_identity = locality.get("locality_identity", locality.get("identity"))
+        source_locality_key = ("animal-row", str(locality_index))
+        if isinstance(native_identity, dict) and all(
+            isinstance(native_identity.get(key), str)
+            and str(native_identity[key]).strip()
+            for key in ("namespace", "stable_token")
+        ):
+            source_locality_key = (
+                str(native_identity["namespace"]),
+                str(native_identity["stable_token"]),
             )
+        for support, interval in admitted_samples:
+            chronology = support.chronology
+            rows.append(
+                _PointEvidence(
+                    latitude=float(latitude),
+                    longitude=float(longitude),
+                    sample_count=1,
+                    time_start_bp=int(interval.younger_bp),
+                    time_end_bp=int(interval.older_bp),
+                    time_mean_bp=chronology.time_mean_bp,
+                    source_record=f"animal-adna:{source_token}:sample:{support.sample_id}",
+                    source_locality_key=source_locality_key,
+                    source_name=str(locality.get("locality") or source_token),
+                    source_layer_key="animal-adna",
+                    source_url=str(locality.get("source_url") or ""),
+                    time_label=chronology.original_text,
+                    temporal_semantics=chronology.as_temporal_semantics(
+                        source_family="animal_adna",
+                        provenance_path=support.provenance_path,
+                        provenance_locator=support.provenance_locator,
+                        provenance_excerpt=support.provenance_excerpt,
+                    ),
+                )
+            )
+        sample_count = require_nonnegative_count(
+            locality.get("sample_count", len(admitted_samples)), field="sample_count"
         )
+        remainder = sample_count - len(admitted_samples)
+        if remainder > 0 or not admitted_samples:
+            rows.append(
+                _PointEvidence(
+                    latitude=float(latitude),
+                    longitude=float(longitude),
+                    sample_count=max(0, remainder),
+                    source_record=f"animal-adna:{source_token}",
+                    source_locality_key=source_locality_key,
+                    source_name=str(locality.get("locality") or source_token),
+                    source_layer_key="animal-adna",
+                    source_url=str(locality.get("source_url") or ""),
+                )
+            )
     return tuple(rows)
 
 
@@ -135,16 +185,18 @@ def _attach_temporal_context(
         *(_context_point_evidence(point) for point in pollen_points),
         *human_points,
         *animal_points,
-        *(
-            _context_point_evidence(point)
-            for point in sead_points
-            if not _is_sead_site_display_envelope(point)
-        ),
+        *(_context_point_evidence(point) for point in sead_points),
     )
     numeric_evidence = tuple(
         point
         for point in evidence
-        if _validated_interval(point.time_start_bp, point.time_end_bp) is not None
+        if occurrence_support_intervals(
+            source_layer_key=point.source_layer_key,
+            temporal_semantics=point.temporal_semantics,
+            time_start_bp=point.time_start_bp,
+            time_end_bp=point.time_end_bp,
+            occurrence_supports=point.occurrence_supports,
+        )
     )
     return tuple(
         replace(
@@ -172,6 +224,7 @@ def _context_point_evidence(point: ContextPointRecord) -> _PointEvidence:
         source_url=point.source_url,
         time_label=point.time_label,
         temporal_semantics=point.temporal_semantics,
+        occurrence_supports=point.occurrence_supports,
     )
 
 
@@ -191,23 +244,28 @@ def _summarize_candidate_temporal_context(
             > 50
         ):
             continue
-        interval = _validated_interval(point.time_start_bp, point.time_end_bp)
-        if interval is None:
-            continue
-        window_key, _ = resolve_temporal_window(
-            time_start_bp=int(interval.younger_bp),
-            time_end_bp=int(interval.older_bp),
-            time_mean_bp=point.time_mean_bp,
-        )
-        if window_key == "unresolved":
-            continue
-        groups.setdefault((point.source_layer_key, window_key), []).append(
-            (point, interval)
-        )
+        for interval in occurrence_support_intervals(
+            source_layer_key=point.source_layer_key,
+            temporal_semantics=point.temporal_semantics,
+            time_start_bp=point.time_start_bp,
+            time_end_bp=point.time_end_bp,
+            occurrence_supports=point.occurrence_supports,
+        ):
+            window_key, _ = resolve_temporal_window(
+                time_start_bp=int(interval.younger_bp),
+                time_end_bp=int(interval.older_bp),
+                time_mean_bp=None
+                if point.occurrence_supports is not None
+                else point.time_mean_bp,
+            )
+            if window_key != "unresolved":
+                groups.setdefault((point.source_layer_key, window_key), []).append(
+                    (point, interval)
+                )
 
     anchors: list[LakeEvidenceSourceAnchor] = []
     for (source_layer_key, window_key), grouped_evidence in sorted(groups.items()):
-        points = [point for point, _ in grouped_evidence]
+        points = list({id(point): point for point, _ in grouped_evidence}.values())
         intervals = [interval for _, interval in grouped_evidence]
         observed_end_bp = max(int(interval.older_bp) for interval in intervals)
         governed_interval = _TEMPORAL_NAVIGATION_INTERVALS.get(window_key)
@@ -216,12 +274,22 @@ def _summarize_candidate_temporal_context(
             time_end_bp = max(6001, observed_end_bp)
         else:
             time_start_bp, time_end_bp = governed_interval
-        means = [
-            point.time_mean_bp
-            if point.time_mean_bp is not None
-            else round((interval.younger_bp + interval.older_bp) / 2)
-            for point, interval in zip(points, intervals, strict=True)
-        ]
+        means = []
+        for point in points:
+            member_intervals = [
+                interval for member, interval in grouped_evidence if member is point
+            ]
+            means.append(
+                point.time_mean_bp
+                if point.occurrence_supports is None and point.time_mean_bp is not None
+                else round(
+                    sum(
+                        (interval.younger_bp + interval.older_bp) / 2
+                        for interval in member_intervals
+                    )
+                    / len(member_intervals)
+                )
+            )
         time_mean_bp = min(
             time_end_bp,
             max(time_start_bp, round(sum(means) / len(means))),
@@ -300,18 +368,15 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
 
 
 def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
-    if _is_sead_site_display_envelope(point):
-        return False
-    if point.temporal_semantics and not temporal_semantics_has_numeric_interval(
-        point.temporal_semantics
-    ):
-        return False
-    return _validated_interval(point.time_start_bp, point.time_end_bp) is not None
-
-
-def _is_sead_site_display_envelope(point: ContextPointRecord) -> bool:
-    """Site-level SEAD spans are display context, not one continuous dated event."""
-    return point.source == "SEAD" and point.layer_key == "sead-sites"
+    return bool(
+        occurrence_support_intervals(
+            source_layer_key=point.layer_key,
+            temporal_semantics=point.temporal_semantics,
+            time_start_bp=point.time_start_bp,
+            time_end_bp=point.time_end_bp,
+            occurrence_supports=point.occurrence_supports,
+        )
+    )
 
 
 def _human_context_overlap_ratio(
@@ -330,16 +395,24 @@ def _context_point_overlaps_any_human(
     point: ContextPointRecord,
     human_points: Sequence[_PointEvidence],
 ) -> bool:
-    if not _context_point_has_numeric_interval(point):
-        return False
+    intervals = occurrence_support_intervals(
+        source_layer_key=point.layer_key,
+        temporal_semantics=point.temporal_semantics,
+        time_start_bp=point.time_start_bp,
+        time_end_bp=point.time_end_bp,
+        occurrence_supports=point.occurrence_supports,
+    )
     return any(
-        _intervals_overlap(
-            point.time_start_bp,
-            point.time_end_bp,
-            human_point.time_start_bp,
-            human_point.time_end_bp,
-        )
+        closed_bp_intervals_overlap(interval, human_interval)
+        for interval in intervals
         for human_point in human_points
+        for human_interval in occurrence_support_intervals(
+            source_layer_key=human_point.source_layer_key,
+            temporal_semantics=human_point.temporal_semantics,
+            time_start_bp=human_point.time_start_bp,
+            time_end_bp=human_point.time_end_bp,
+            occurrence_supports=human_point.occurrence_supports,
+        )
     )
 
 

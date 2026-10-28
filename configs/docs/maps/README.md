@@ -20,6 +20,14 @@ exact historical document and producer closure. The current Nordic document is
 immutable data registrations are bound by this descriptor; the earlier scientific
 results and historical publication receipts keep their original identities.
 
+The three retained atlas documents use the executable template preserved in
+`data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html`.
+Their publication recipes bind that exact committed source. The maintained map
+template has separate current source and browser qualification in
+`data/atlas/sample-chronology-source-view-capture/capture.json`. This qualification
+does not transfer current chronology behavior to the retained documents or claim
+that they were regenerated from the current template.
+
 The Swedish chart has no inert bootstrap. Its independently reviewed original
 script reads exactly three same-origin files and displays retained sample and
 native-taxon rows. Its complete six-file data closure includes the original source

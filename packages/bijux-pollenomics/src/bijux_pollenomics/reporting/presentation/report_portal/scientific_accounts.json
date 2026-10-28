@@ -2101,11 +2101,11 @@
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/current-r-oracle/report.json",
-            "sha256": "d3c57d302a601be7b883e0dd77af0153d7bd77a2e78a1b7c1a5479506ad25d31"
+            "sha256": "a5238a9499c9bdc5289b2d8ac3c270f61388725df867d935c205b13517141881"
           },
           {
             "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-            "sha256": "ef33eaee7d8bf1766864fd97b2fc57f0104184c927e2e2bfc614d23a5e35a3ff"
+            "sha256": "bd07ea13e3224052f781c4652a0c4b4d8023e66d85f797a9197bf6d60ee2a033"
           },
           {
             "path": "docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json",
@@ -2143,7 +2143,7 @@
           "consequence": "Readers can identify the retained 2026 package precisely without treating it as the package actually used by the 2024 study.",
           "precise_next_acceptance_route": "Obtain and authenticate the paper's original software/version/source packet and match its declared inputs and outputs before claiming historical publication reproduction.",
           "negative_or_refused_result": "The DESCRIPTION date 22 January 2026 and LOVEr/LOVEoptim additions in 0.9.12 prevent an automatic identity inference from the paper's 23 February 2024 access date.",
-          "matched_denominator": "One retained archive,80 regular members and 13 R files; three byte-identical local copies; zero new model cases or independent scientific checks."
+          "matched_denominator": "One retained archive,80 regular members and 12 R files; three byte-identical local copies; zero new model cases or independent scientific checks."
         },
         "evidence_pins": [
           {
@@ -4288,7 +4288,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/propagation/source-first-observed/report.json",
-            "sha256": "e6fca4919948723ae635d488b783985b9287e19ab48374265ed4ea3e8d77ef82"
+            "sha256": "9d399326f4c9a476df31a062a7f97aeb9f97570dbbf0477449e29d840c75cb45"
           }
         ]
       }

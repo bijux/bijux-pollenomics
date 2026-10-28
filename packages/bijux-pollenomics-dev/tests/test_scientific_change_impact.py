@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from fnmatch import fnmatchcase
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -352,6 +353,23 @@ def test_scientific_verification_requires_explicit_manual_dispatch() -> None:
     assert 'echo "select_all=true"' in script
 
 
+SYNTHETIC_SCHEDULING_SCHEMAS = {
+    "qualified-report-source-bundle.v1",
+    "qualified-publisher-report-tables.v1",
+    "qualified-pangaea-solsoe-age-table.v1",
+    "qualified-pangaea-epd-age-table.v1",
+    "qualified-pangaea-abbo-profile.v1",
+    "qualified-pangaea-abbo-age-table.v1",
+    "qualified-author-snapshot.v1",
+    "qualified-landclim-two-grid-packet.v1",
+    "qualified-neotoma-publication-link.v1",
+    "qualified-rootsi-bokesjon-workbook.v1",
+    "qualified-rootsi-native-workbook.v1",
+    "qualified-swedish-literal-pair-counting-capture.v1",
+    "qualified-raa-native-geopackage.v1",
+}
+
+
 def synthetic_scheduling_sources(
     repository: Path, source_root: Path, descriptor_path: Path
 ) -> QualifiedReportSources:
@@ -360,19 +378,9 @@ def synthetic_scheduling_sources(
     descriptor = json.loads(descriptor_file.read_text())
     inputs = {descriptor_path.as_posix(): descriptor_file}
     schema = descriptor["schema_version"]
-    reviewed_schemas = {
-        "qualified-report-source-bundle.v1",
-        "qualified-publisher-report-tables.v1",
-        "qualified-pangaea-solsoe-age-table.v1",
-        "qualified-pangaea-epd-age-table.v1",
-        "qualified-pangaea-abbo-profile.v1",
-        "qualified-author-snapshot.v1",
-        "qualified-landclim-two-grid-packet.v1",
-        "qualified-neotoma-publication-link.v1",
-        "qualified-rootsi-bokesjon-workbook.v1",
-        "qualified-rootsi-native-workbook.v1",
-    }
-    assert schema in reviewed_schemas, f"Unreviewed synthetic source schema: {schema}"
+    assert schema in SYNTHETIC_SCHEDULING_SCHEMAS, (
+        f"Unreviewed synthetic source schema: {schema}"
+    )
     if schema == "qualified-rootsi-native-workbook.v1":
         base_path = Path(descriptor["base_descriptor"])
         assert base_path == Path(
@@ -390,6 +398,29 @@ def synthetic_scheduling_sources(
         identity = base["source_id"]
     else:
         identity = descriptor["source_id"]
+    if schema == "qualified-pangaea-abbo-age-table.v1":
+        assert identity == "epd/pangaea"
+        assert descriptor["scientific_admission"] is False
+        assert descriptor["capture_custody"] == "not_established"
+        assert descriptor["doi"] == "10.1594/PANGAEA.740080"
+        assert descriptor["license"] == "CC-BY-NC-3.0"
+        assert descriptor["table"] == {
+            "path": "abbo-age-determination-pangaea-740080.tsv",
+            "sha256": "9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d",
+            "size": 2977,
+        }
+    if schema in {
+        "qualified-swedish-literal-pair-counting-capture.v1",
+        "qualified-raa-native-geopackage.v1",
+    }:
+        reviewed_descriptor_sha256 = {
+            "qualified-swedish-literal-pair-counting-capture.v1": "ce732135ba63a7977521557983caf9e6c7de79d553422f3913cb9d6b866a1a6b",
+            "qualified-raa-native-geopackage.v1": "139571ef19897d135b480aec77fd0151887165d01553024c590b86f1e213db4d",
+        }
+        assert (
+            hashlib.sha256(descriptor_file.read_bytes()).hexdigest()
+            == (reviewed_descriptor_sha256[schema])
+        )
     directory = source_root / identity
     directory.mkdir(parents=True, exist_ok=True)
     if schema in {
@@ -401,6 +432,7 @@ def synthetic_scheduling_sources(
         "qualified-pangaea-solsoe-age-table.v1",
         "qualified-pangaea-epd-age-table.v1",
         "qualified-pangaea-abbo-profile.v1",
+        "qualified-pangaea-abbo-age-table.v1",
     }:
         packets = [(identity, Path(), [descriptor["table"]])]
     elif schema == "qualified-rootsi-bokesjon-workbook.v1":
@@ -413,6 +445,11 @@ def synthetic_scheduling_sources(
                 [base["manifest"], base["workbook"], descriptor["workbook"]],
             )
         ]
+    elif schema in {
+        "qualified-swedish-literal-pair-counting-capture.v1",
+        "qualified-raa-native-geopackage.v1",
+    }:
+        packets = [(identity, Path(), descriptor["files"])]
     elif schema == "qualified-author-snapshot.v1":
         packets = [(identity, Path(), [descriptor["manifest"], *descriptor["files"]])]
     elif schema == "qualified-landclim-two-grid-packet.v1":
@@ -451,6 +488,7 @@ def synthetic_scheduling_sources(
         "qualified-pangaea-solsoe-age-table.v1",
         "qualified-pangaea-epd-age-table.v1",
         "qualified-pangaea-abbo-profile.v1",
+        "qualified-pangaea-abbo-age-table.v1",
     }:
         assert set(inputs) == {
             descriptor_path.as_posix(),

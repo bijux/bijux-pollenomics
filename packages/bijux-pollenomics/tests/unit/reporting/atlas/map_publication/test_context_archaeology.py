@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import tempfile
 
@@ -43,6 +44,17 @@ class ContextArchaeologyPublicationTests(MapPublicationTestCase):
                 time_start_bp=1000,
                 time_end_bp=1200,
             )
+            discovery_path = derived / "sweden_archaeology_site_discovery.geojson"
+            discovery_source = json.loads(discovery_path.read_text(encoding="utf-8"))
+            discovery_source["features"][0]["properties"]["temporal_semantics"] = {
+                "source_family": "sead",
+                "evidence_class": "sead_dating_range",
+                "precision_posture": "linked_record_interval",
+                "comparability_posture": "numeric_interval",
+                "time_start_bp": 1000,
+                "time_end_bp": 1200,
+            }
+            discovery_path.write_text(json.dumps(discovery_source), encoding="utf-8")
             for name in (
                 "sweden_archaeology_site_discovery.json",
                 "sweden_archaeology_site_discovery.csv",
