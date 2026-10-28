@@ -422,7 +422,9 @@ def verify_source_lock(root: Path, lock: dict[str, object]) -> tuple[int, int]:
         path = _source_file(root, relative)
         native = PurePosixPath(relative)
         if relative not in (
-            MAINTAINED_REPORT_ENTRYPOINTS | MAINTAINED_PRESENTATION_INPUTS
+            MAINTAINED_REPORT_ENTRYPOINTS
+            | MAINTAINED_PRESENTATION_INPUTS
+            | MAINTAINED_READER_BOOKKEEPING
         ) and (
             native.parts[0] not in {"docs", "packages", "reports", "configs"}
             or (

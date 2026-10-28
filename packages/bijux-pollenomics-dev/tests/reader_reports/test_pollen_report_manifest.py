@@ -276,3 +276,43 @@ def test_source_evidence_cannot_be_relabelled_as_ordinary_maintained_content(
     manifest["maintained_paths"] = sorted([*manifest["maintained_paths"], relative])
     with pytest.raises(ValueError, match="not maintained prose or code"):
         verifier.verify_report_manifest(tmp_path, manifest)
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [
+        ".github/workflows/scientific-verification.yml",
+        "mkdocs.yml",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "presentation/source-lock.json",
+        "pyproject.toml",
+        "reports/exports/site-downloads.json",
+        "uv.lock",
+    ],
+)
+def test_current_repository_bookkeeping_keeps_exact_paths_without_body_pins(
+    tmp_path: Path, verifier: ModuleType, manifest: dict[str, Any], relative: str
+) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(b"Current repository bookkeeping")
+    manifest["maintained_paths"] = sorted([*manifest["maintained_paths"], relative])
+    before = verifier.verify_report_manifest(tmp_path, manifest)
+    path.write_bytes(b"Changed ordinary current bookkeeping")
+    assert verifier.verify_report_manifest(tmp_path, manifest) == before
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [".github/workflows/other.yml", "other.toml", "configs/ci/report-ownership.json"],
+)
+def test_unlisted_metadata_and_scientific_ownership_cannot_be_unpinned(
+    tmp_path: Path, verifier: ModuleType, manifest: dict[str, Any], relative: str
+) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(b"Unlisted metadata or scientific custody")
+    manifest["maintained_paths"] = sorted([*manifest["maintained_paths"], relative])
+    with pytest.raises(ValueError):
+        verifier.verify_report_manifest(tmp_path, manifest)

@@ -958,6 +958,7 @@ def verify_report_manifest(
         if relative not in (
             MAINTAINED_REPORT_ENTRYPOINTS
             | MAINTAINED_PRESENTATION_INPUTS
+            | MAINTAINED_READER_BOOKKEEPING
             | MAINTAINED_FAMILY_SOURCES
         ) and (
             native.parts[0] not in {"docs", "packages", "reports", "configs"}
