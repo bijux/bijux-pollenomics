@@ -458,7 +458,7 @@
       "supplementary_table_sample_label": "BER11_L",
       "preferred_sample_label": "BER11_L",
       "sample_basis": "primary_supplement_archive_filename_join",
-      "sample_evidence_status": "pdf_text_extracted",
+      "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
       "sample_lineage_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
       "sample_lineage_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",

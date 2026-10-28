@@ -389,7 +389,7 @@
       "repo_stable_sample_id": "prjeb19970:samea103910520",
       "preferred_sample_label": "BER11_L",
       "sample_basis": "primary_supplement_archive_filename_join",
-      "sample_evidence_status": "pdf_text_extracted",
+      "sample_evidence_status": "direct_table_extracted",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Berel'",

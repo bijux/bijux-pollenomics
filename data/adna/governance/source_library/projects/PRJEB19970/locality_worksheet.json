@@ -2,7 +2,7 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJEB19970",
   "species_latin_name": "Equus caballus",
-  "row_count": 4,
+  "row_count": 5,
   "rows": [
     {
       "project_accession": "PRJEB19970",
@@ -23,6 +23,26 @@
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Sheet1!row3",
       "source_excerpt": "ArzhanI_I-K2_Arz1_2727 | CGG_1_017079 | Iron Age | 2727 | Scythian | Arzhan I | Russia | male | PRJEB19970 | Librado et al. 2017 | 2.82 | 150"
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 1,
+      "original_locality_text": "Berel'",
+      "resolved_locality_text": "Berel'",
+      "locality_class": "excavation_site",
+      "site_name": "Berel'",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "Berel'",
+      "geocoding_safe_token": "berel",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+      "source_artifact_kind": "article_or_archive_text",
+      "source_locator": "PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+      "source_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted."
     },
     {
       "project_accession": "PRJEB19970",
