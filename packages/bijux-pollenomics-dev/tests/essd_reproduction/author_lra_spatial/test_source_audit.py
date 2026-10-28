@@ -11,6 +11,8 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.author_lra_spatial.source_audit import (
+    _same,
+    _same_radius,
     bind_sources,
 )
 
@@ -193,7 +195,7 @@ def _fixture(root: Path) -> tuple[Path, Path, dict[str, Any], dict[str, Any]]:
                 "fixture_full_forward": [1.0, 2.0, 3.0],
                 "forward_inputs": {"taxa": taxa, "ppe": [2.0] * 30},
                 "support_profile": experiment["support_profile"],
-                "local_support_radius_m": 1000,
+                "local_support_radius_m": 1000.0,
             }
             references = [
                 {
@@ -456,6 +458,37 @@ def test_repository_authority_cannot_escape_root(
     protocol["authority"]["path"] = "../authority.json"
     with pytest.raises(ValueError, match="authority path"):
         bind_sources(repository, archive, protocol, packet)
+
+
+def test_radius_accepts_equal_typed_values_without_relaxing_literal_custody() -> None:
+    _same_radius(1000.0, 1000)
+    _same_radius(1000, 1000.0)
+    with pytest.raises(ValueError, match="other source field"):
+        _same(1000.0, 1000, "other source field")
+    for first, second in ((1000.0000000000001, 1000), (1000, 1000.0000000000001)):
+        with pytest.raises(ValueError, match="source forward support radius"):
+            _same_radius(first, second)
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        True,
+        False,
+        "1000",
+        None,
+        float("nan"),
+        float("inf"),
+        float("-inf"),
+        0,
+        0.0,
+        -1000,
+        10**1000,
+    ],
+)
+def test_equal_but_invalid_radius_values_are_refused(value: Any) -> None:
+    with pytest.raises(ValueError, match="source forward support radius"):
+        _same_radius(value, value)
 
 
 def _replace_source(

@@ -39,6 +39,23 @@ def _same(value: Any, source: Any, label: str) -> None:
     _check(_canonical(value) == _canonical(source), label)
 
 
+def _same_radius(value: Any, source: Any) -> None:
+    """The saved typed radius may serialize an original integer as a float."""
+    try:
+        valid = (
+            type(value) in (int, float)
+            and type(source) in (int, float)
+            and math.isfinite(value)
+            and math.isfinite(source)
+            and value > 0
+            and source > 0
+            and value == source
+        )
+    except OverflowError:
+        valid = False
+    _check(valid, "source forward support radius")
+
+
 def _decode(raw: bytes) -> Any:
     def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
         value: dict[str, Any] = {}
@@ -419,10 +436,9 @@ def _contexts(
             experiment["support_profile"],
             "source forward support profile",
         )
-        _same(
+        _same_radius(
             forward["local_support_radius_m"],
             experiment["local_support_radius_m"],
-            "source forward support radius",
         )
         _same(forward["regional_cover"], regional, "forward regional source cover")
         _same(forward["outer_fold"], fold, "forward source fold")
