@@ -25,20 +25,24 @@ RUNTIME_MEMBER = "runtime/" + RUNTIME_PATH
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA256 identity of an owned synthetic fixture."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def oid(raw: bytes) -> str:
+    """Return the Git blob identity of an owned synthetic body."""
     return hashlib.sha1(
         f"blob {len(raw)}\0".encode() + raw, usedforsecurity=False
     ).hexdigest()
 
 
 def encoded(value: object) -> bytes:
+    """Encode a deterministic synthetic JSON body."""
     return (json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n").encode()
 
 
 def write(path: Path, raw: bytes) -> None:
+    """Write an owned synthetic JSON fixture beneath its parent."""
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(raw)
 
@@ -60,6 +64,7 @@ class GitTransport:
         deadline: float,
         executable: Path,
     ) -> bytes:
+        """Emulate bounded Git metadata queries for synthetic bodies."""
         assert repository == self.repository
         assert executable == Path(sys.executable).resolve()
         assert limit >= 0 and deadline > 0
@@ -90,12 +95,14 @@ class GitPipe:
     """Supply exact own batch bytes through the maintained Git stream interface."""
 
     def __init__(self, state: GitTransport) -> None:
+        """Bind the synthetic blob pipe to its owned transport state."""
         self.state = state
         self.stdin = self
         self.header = b""
         self.buffer = b""
 
     def write(self, request: bytes) -> int:
+        """Queue the exact synthetic blob requested by the decoder."""
         revision, name = request.decode().strip().split(":", 1)
         assert revision == STORAGE
         original = self.state.bodies[name]
@@ -106,20 +113,23 @@ class GitPipe:
         return len(request)
 
     def flush(self) -> None:
-        pass
+        """Complete the synthetic input flush without external I/O."""
 
     def line(self) -> bytes:
+        """Return the queued synthetic Git blob header."""
         return self.header
 
     def exact(self, size: int) -> bytes:
+        """Consume the requested bytes from the synthetic blob stream."""
         body, self.buffer = self.buffer[:size], self.buffer[size:]
         return body
 
     def finish(self) -> None:
+        """Require the synthetic stream to be fully consumed."""
         assert not self.buffer
 
     def close(self) -> None:
-        pass
+        """Close the synthetic pipe without external resources."""
 
 
 @dataclass
@@ -135,6 +145,7 @@ class Catalogue:
 
     @property
     def directory(self) -> Path:
+        """Return the owned synthetic packet directory."""
         return self.repository / PREFIX
 
     def refresh(self, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -165,6 +176,7 @@ class Catalogue:
         monkeypatch.setattr(retained, "INDEX_BYTES", len(index))
 
     def validate(self, *, indexed: bool = False) -> retained.SourceCapsule:
+        """Validate the synthetic capsule through real decoder checks."""
         authority = (
             {}
             if indexed

@@ -78,6 +78,9 @@ DOCUMENTED_CAPTURE_DEFINITIONS = {
         "PropagationSelection.__post_init__",
         "PropagationSelection.as_dict",
     ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": (
+        "main",
+    ),
 }
 DOCUMENTED_CAPTURE_STRINGS = {
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py": {
@@ -116,6 +119,9 @@ DOCUMENTED_CAPTURE_STRINGS = {
     },
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py": {
         "AdnaSampleChronologySupport.as_dict": "Serialize sample chronology with its source and provenance metadata."
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": {
+        "main": "Generate the declared sample chronology atlas candidate."
     },
 }
 

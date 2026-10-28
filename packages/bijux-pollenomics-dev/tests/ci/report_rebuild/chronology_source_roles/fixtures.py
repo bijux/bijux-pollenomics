@@ -56,12 +56,16 @@ DOCS = {
         "PropagationSelection.__post_init__",
         "PropagationSelection.as_dict",
     ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": (
+        "main",
+    ),
 }
 MULTI_DOC_PATH = ROOT_SOURCE + "analysis/fieldwork/land_use/context.py"
 DOCUMENTATION = '"""Own named documentation."""'
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA256 identity of a synthetic source body."""
     return hashlib.sha256(raw).hexdigest()
 
 
@@ -119,12 +123,14 @@ def source_pair(name: str, *, adjacent_blank: bool = False) -> tuple[bytes, byte
 
 @pytest.fixture
 def repository(tmp_path: Path) -> Path:
+    """Create an isolated directory for source-role controls."""
     root = tmp_path / "repository"
     root.mkdir()
     return root
 
 
 def current_file(repository: Path, name: str, raw: bytes) -> Path:
+    """Write the declared current-source fixture with exact bytes."""
     path = repository / name
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(raw)
@@ -133,7 +139,7 @@ def current_file(repository: Path, name: str, raw: bytes) -> Path:
 
 @pytest.fixture(autouse=True)
 def literal_authority(monkeypatch: pytest.MonkeyPatch) -> None:
-    """Bind only own doc literals; keep the real seven-path/23-definition policy intact."""
+    """Bind own doc literals within the exact named source-role authority."""
     from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
         sample_chronology_capture as capture,
     )

@@ -28,8 +28,8 @@ from .fixtures import (
 def test_finite_approved_role_names_remain_closed() -> None:
     assert capture.HISTORICAL_PORTAL_READER_SOURCES == PORTAL
     assert capture.DOCUMENTED_CAPTURE_DEFINITIONS == DOCS
-    assert len(PORTAL) == 6 and len(DOCS) == 7
-    assert sum(map(len, DOCS.values())) == 23
+    assert len(PORTAL) == 6 and len(DOCS) == 8
+    assert sum(map(len, DOCS.values())) == 24
     assert not set(DOCS) & PORTAL
 
 

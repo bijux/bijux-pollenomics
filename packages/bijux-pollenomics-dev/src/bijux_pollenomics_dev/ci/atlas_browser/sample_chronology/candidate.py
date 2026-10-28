@@ -178,6 +178,7 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Generate the declared sample chronology atlas candidate."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--destination", type=Path, required=True)
