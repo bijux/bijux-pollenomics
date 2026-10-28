@@ -66,7 +66,25 @@ topology.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained source-readiness screen preserves all native variables, sample missingness and two explicit chronology profiles for Neotoma sites 12 and 3009, with zero admitted first-observed events.
+
+**Unsupported claim.** It estimates no ecological change time, first appearance, propagation edge, empirical threshold or accepted whole-pollen feature by relabeling a native variable.
+
+**Actual verification performed.** Read native site/sample denominators, profile decisions and overlapping blocker counts in the retained report; bound its bytes. No source download, screen or estimator was rerun.
+
+**Remaining input or review.** Every attempted variable lacks an accepted taxon-concept mapping; unreported observations and noncomparable, refused or overlapping chronology still prevent complete ordered event support.
+
+**Cause category.** Native observation and chronology admission refusal rather than missing values imputed as absence.
+
+**Consequence.** The zero-event result retains all requested attempts and cannot be promoted to ecological absence or a four-country event census.
+
+**Precise next acceptance route.** Qualify one exact native variable and accepted concept under a reviewed named chronology, retain null cells and all age refusals, and invoke the public estimator only on complete definitely ordered comparable support.
+
+**Negative or refused result.** All 256 attempts refuse and the public event estimator is invoked zero times. Native default ages are context-only; the alternative includes four refused site 12 claims and remaining interval-order uncertainty.
+
+**Matched denominator.** Site 12: 135 samples, 2580 positive observations, 58 variables; site 3009: 28 samples, 523 positive observations, 70 variables. Two profiles×128 variables=256 attempts; 14 full-coverage attempts represent seven variables twice, not 14 independent events.
+
+- [Retained qualification evidence: docs/report/propagation/source-first-observed/report.json](report.json) (SHA-256 `dfa81aec856e4fd253d3435095c9dfa54a470ca102b34b7d250ab82a266c599d`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

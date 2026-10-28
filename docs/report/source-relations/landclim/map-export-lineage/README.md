@@ -26,7 +26,27 @@ The output destination must not already exist. The producer refuses changed map 
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The source-to-static lineage preserves published LandClim modeled values and source metric families through map transport.
+
+**Unsupported claim.** Transport parity does not prove raw pollen contributors, independent vegetation truth, explicit source polygon CRS or a fresh browser download.
+
+**Actual verification performed.** Read the current lineage JSON and row ledger, distinguishing refreshed map/shard custody from the retained historical browser capture; no model rerun.
+
+**Remaining input or review.** Exact grid/window contributors, source-core identities and any current browser outcome remain separately required.
+
+**Cause category.** Derived modeled context and incomplete contributor/geometry authority.
+
+**Consequence.** LandClim estimates/SE remain context-only and cannot certify Rootsi/Neotoma predictions independently.
+
+**Precise next acceptance route.** Recover the authentic selected core-to-grid/window contribution ledger and qualify geometry/use; rerun browser only for a current UI claim.
+
+**Negative or refused result.** 79 Rootsi candidates have unresolved contributor identity; 0 Swedish same-name physical identities are admitted.
+
+**Matched denominator.** 2,515 full source features; LandClim II 1,875 cell-windows=75 centers×25 windows; 47 metrics yield 73,696 numeric/14,429 null pairs across 100 country-window slices.
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](report.json) (SHA-256 `d620dab202ff00693e8b31b8fc18f0fa5b6d7dcfee8b95b0ef59e05e60e074ca`).
+
+- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/rows.csv](rows.csv) (SHA-256 `fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

@@ -82,7 +82,25 @@ authenticated by SHA-256 and is not copied into this report.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained Storasjö development result counts one physical core once after matching both parallel datasets at all77depths and freezes three observed-pollen predictors before scoring.
+
+**Unsupported claim.** Two duplicate datasets are not two independent cores; this exposed-design bog result does not establish confirmatory method superiority, country-wide performance, LRA or vegetation accuracy.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** A genuinely independent target and qualified source/physical/ecological evidence are required for stronger claims; the historical predictor/review bytes remain explicit custody.
+
+**Cause category.** Single-core development transfer with parallel-dataset deduplication.
+
+**Consequence.** An additional repository dataset cannot double the response mass or provide replication when its source count vectors are identical.
+
+**Precise next acceptance route.** Replay the parallel-dataset review and maintained study consumers, retain dataset54004as the single target and score committed predictions before evaluating independent confirmation separately.
+
+**Negative or refused result.** Dataset54005remains identified but excluded as duplicate support; prior Nordic outcomes informed the design and the core has no admitted vegetation label.
+
+**Matched denominator.** One core with two77sample datasets matching77/77depths;one target contributes35,767native NISP=35,505assigned+253excluded+9unmapped,22bins/66method rows/31taxa.
+
+- [Retained qualification evidence: docs/report/regions/nordic/swedish-neotoma-holdout/report.json](report.json) (SHA-256 `4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

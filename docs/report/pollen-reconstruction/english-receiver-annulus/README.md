@@ -70,7 +70,27 @@ The law's normalization and these geometric identities establish the bounded con
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** A declared uniformly receiving 80 m disk changes local transport for one exposed English training pair while retaining its regional historical-lake factor.64 conditional likelihood fits and independent kernel/objective/gap checks establish bounded mathematical behavior under these explicit assumptions.
+
+**Unsupported claim.** Original historical reproduction, a measured paleobasin or empirically validated GPM law, independent vegetation accuracy, held-out model selection, calibrated PPE confidence coverage or source-rights admission.
+
+**Actual verification performed.** The reader and maintained compact/diagnostic outputs were inspected. Retained evidence records 60 independent physical comparisons for 20 fall speeds ×3 rings, all 64 accepted simplex-gap fits and two byte-identical maintained writer products. Independent numerical checks remain distinct from writer parity. This qualification reruns neither quadrature nor any fit.
+
+**Remaining input or review.** The receiver is an analyst-declared area-weighted disk, sources are homogeneous annuli, and the GPM law is stationary/isotropic with an empirical metre convention. Diagonal PPE moments omit sampling, chronology, field covariance and model discrepancy. Historical basin/source rights, measured vegetation, untouched outcomes and qualified external review remain separate.
+
+**Cause category.** data | assumption | algorithm/numerical | comparability | access/rights | qualified review
+
+**Consequence.** Interpret the improved nominal training likelihood as a conditional kernel comparison only. Probability normalization and small numerical residuals do not authenticate historical geometry, empirical transport or ecological accuracy; percentiles remain PPE-only sensitivity summaries.
+
+**Precise next acceptance route.** Qualify physical/source transport and metre/parameter conventions, independent geometry and empirical PPE covariance for the named estimand. Freeze a new external evaluation with matched vegetation before ecological claims; retain existing independent optimizer failure and all source/rights questions.
+
+**Negative or refused result.** An independently initialized optimizer first reported success but failed its 1e-6 gradient-gap requirement; the failure remains and a tighter stopping tolerance yields a new 1.4598545251e-7 gap without relaxing acceptance. Guard strip 80–81 m and sources beyond 10,000 m are excluded. No held-out/vegetation score is supplied.
+
+**Matched denominator.** One TW 5 regional/local pair: BECKHAM 699/741 grains and LARKBARR 553/563;30-taxon closure. The distinct 15-site cohort retains 20,573/20,732 after 159 exclusions. Physical capture 20 fall speeds ×3 rings =60 comparisons; one nominal +63 stochastic PPE vectors give 64 fits, with moments excluding the anchor. Regional radius 150 m/cutoff 100,000 m remains a separate hybrid component.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/english-receiver-annulus/report.json](report.json) (SHA-256 `55d6a85df0d2f087b6a8254be74a82fa351b6b5f2ecaf02d9df7f3750caa4a64`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json](diagnostics.json) (SHA-256 `0b36f844b2bba7b243ecdff7aa6eda724191088d970e6fa8396b8549a288b677`).
 
 - [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 

@@ -62,7 +62,27 @@ python -m bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Five fixed physical profiles and two source-publication grouping rules predict a literal Betula/Poaceae pollen response on identical matched support. Complete attempt statuses and all poorer physical contrasts remain part of an exposed development comparison.
+
+**Unsupported claim.** Independent 210-observation evidence, identified PPE, independent vegetation accuracy, calibrated interval coverage, historical LandClim reproduction, untouched confirmation or validated basin/chronology/parameter transfer.
+
+**Actual verification performed.** Two actual ordinary maintained source-account publishers returned zero. All reported scores, attempt/refusal counts and captured source values remain byte-exact; only three current writer-module SHA strings changed in the source proof, matching physical producer.py, sources.py and summary.py. Old tracked-byte checkers refused that metadata change. Original independent review of 1,890 score values and count/K then target-K routes retains its own scope. No fresh fit, physical integration, prediction, scoring or untouched evaluation was run.
+
+**Remaining input or review.** Only 21 distinct target windows from 3 native units are scored, all in declared grid 779. Most declared attempts lack 2 permitted dependency groups, source chronologies/geometry are fixed, targets were already exposed and native deduplication is not empirical independence. Shared PPE cancels from final pollen prediction under this pooling rule.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Keep large absolute errors and coverage refusal visible alongside modest relative improvements. Repeated profiles/grouping rules do not create independent outcomes, and lower pollen error cannot identify PPE or validate vegetation.
+
+**Precise next acceptance route.** Qualify additional independent source groups, full taxon/age/geometry support and source-use scope; freeze new profile/model selection before unexposed outcomes. Supply an explicit predictive uncertainty model and independent matched vegetation before coverage or ecological accuracy claims.
+
+**Negative or refused result.** Across both rules 4,480 support refusals and 60 unavailable target outcomes remain. Every profile is poorer than pooled pollen in 3/21 windows and equal-source pollen in 9/21. Fixed-profile mean per-taxon error remains about 32.0–33.5 percentage points; no profile is selected. Missing-publication/alternate-unit diagnostic cause counts overlap.
+
+**Matched denominator.** 4,750 total attempts;270 predictions;210 scored records =21 distinct windows ×5 profiles ×2 grouping rules;60 predicted records lack target panels. Unique paired literal-panel counts 37,300. Each grouping rule has 2,375 attempts,135 predictions,105 scores,30 target absences and 2,240 support refusals; they yield identical captured ledgers on these inputs.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json](report.json) (SHA-256 `a87afba1ba06736efdc8d7f1d9b8212acf6aaaa634c9a56435f2889e081c6439`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json](source-proof.json) (SHA-256 `b2ff8e0b3f8d27e8abedb644b338e6238a8534bdad220270c2808e5d7f527559`).
 
 - [Canonical scientific account: reports/science/pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-prediction.md).
 

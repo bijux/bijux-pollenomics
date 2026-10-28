@@ -41,7 +41,29 @@ use LF; the replay changes only those line endings before the byte comparison.
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** An untuned leave-one-author-site-ID-out within-grid baseline predicts the equal-site mean of available training pollen fractions at the same bin. Retained site-macro MAE is 0.018949 fraction and total variation 0.293703 on scored support.
+
+**Unsupported claim.** An independent selected-model improvement, a spatial-block evaluation, Swedish LRA/transfer or vegetation accuracy, calibrated uncertainty, reviewed cross-database aliases or certified raw-core grain denominator/redistribution rights.
+
+**Actual verification performed.** The retained report, prediction and score ledgers were inspected for method, source and scored/refused support. They record target counts excluded from their own prediction. This qualification does not execute the private-source producer or independent numerical verification; the replay’s CSV line-ending normalization is distinct from changing numeric values.
+
+**Remaining input or review.** Author outcomes were previously exposed; site IDs lack reviewed cross-database alias closure. Prepared 31-taxon counts and within-site correlated bins are not a complete raw-core denominator or independent uncertainty sample. Independent vegetation truth and intended redistribution rights remain unbound.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Interpret this as the untuned observed-pollen baseline on its own 177-bin support. The later search’s 174 common bins and the buffered study’s 148/140 bins are different evaluation supports, so their aggregate MAEs are not a direct paired improvement claim.
+
+**Precise next acceptance route.** Compare methods only on explicitly identical scored targets, qualify physical groups/aliases and full source/use scope, and freeze a new evaluation before previously unexposed outcomes. Admit measured vegetation and LRA inputs separately for ecological claims.
+
+**Negative or refused result.** 7 of 184 observed site-bin targets lack another same-bin training site and remain refusals; zero-count bins are unavailable, not scored zeros. Different support prevents direct comparison with the selected development search.
+
+**Matched denominator.** 17 English author site IDs in 2 grids;31 prepared taxa;184 observed site-bin targets;177 scored and 7 refused. Site-macro scores weight the 17 site-level mean errors equally after averaging correlated bins within each site.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json](report.json) (SHA-256 `a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv](scores.csv) (SHA-256 `baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv](predictions.csv) (SHA-256 `ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d`).
 
 - [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md).
 

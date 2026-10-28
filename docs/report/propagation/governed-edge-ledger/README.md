@@ -26,7 +26,25 @@ PYTHONDONTWRITEBYTECODE=1 python3 docs/report/propagation/governed-edge-ledger/r
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained ledger accounts for all ordered four-country reporting bins under the actual zero-event Neotoma release and explicitly prohibits ecological propagation publication.
+
+**Unsupported claim.** Empty reporting bins establish no observed route, rate, distance threshold, ecological absence or full replay of the external per-observation classification membership.
+
+**Actual verification performed.** Read the ledger narrative and physical report including concept-status and observation denominators; no ledger producer, classification capture or propagation estimator was rerun.
+
+**Remaining input or review.** Accepted taxon mapping, comparable reviewed sample ages and at least one admitted source event are missing before real route evaluation can begin.
+
+**Cause category.** Source and classification admission refusal with an empty derived event population.
+
+**Consequence.** All country bins remain inspectable without manufacturing sixteen biological routes or interpreting zero candidates as evidence of absence.
+
+**Precise next acceptance route.** Admit exact concepts and chronology against the native source, rerun the source-first screen, and rebuild the ledger and actual public propagation consumers if an event becomes admissible.
+
+**Negative or refused result.** All 1351 concept rows are unaccepted (1298 unmapped, 53 not applicable); public_release_allowed remains false and all sixteen scenarios contain zero events, pairs and candidates.
+
+**Matched denominator.** Two screened sites, 128 variables, 256 profile attempts; 16 ordered source/target country bins per scenario across 16 scenarios. Classification denominator 370936 source observations is distinct from zero admitted events.
+
+- [Retained qualification evidence: docs/report/propagation/governed-edge-ledger/report.json](report.json) (SHA-256 `a72a95f33a0213f61df572e19301788946809ecb7651cd27df28e4eb226c8b29`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

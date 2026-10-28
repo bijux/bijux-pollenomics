@@ -29,8 +29,8 @@
       "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py": {
-      "bytes": 5376,
-      "sha256": "4dde1a078ae7d57f3c93e93fa8cc4e73756f551e774d78aadb606fa47c483448"
+      "bytes": 5910,
+      "sha256": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py": {
       "bytes": 7383,
@@ -44,6 +44,13 @@
   "model_consumer": "Maintained circular_receiver_annulus physical deposition and fixed_site_cover_covariance conditional inverse correction. Declared per-core source point ages and literal panels retained in report/protocol.",
   "source_epoch": "Neotoma manual7.5 BP datumAD1950; each exact selected native chronology is calibrated radiocarbon yearsBP, not automatically recalibrated and never publication-year zero.",
   "native_count_identity": "Rootsi private workbook counts, private author LUTs and sparse absence conversions are not used in this new consumer.",
-  "producer_source_candidate": "8d60365e15b0e4cf57e4f4ef21b6185296f177dc",
-  "producer_source_candidate_scope": "Declared maintained base8d60365 with finite producer overlay, including accepted source/workflow import boundary correction. Independent frozen execution custody authenticates consumed files; original scientific5fe plus4dde captures remain separately scoped."
+  "producer_source_candidate": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+  "producer_source_candidate_scope": "Shared loader/source authority for the current conditional transfer consumer; this declaration does not establish fresh static-basin reconstruction execution.",
+  "historical_source_authority": {
+    "candidate": "8d60365e15b0e4cf57e4f4ef21b6185296f177dc",
+    "sha256": "834fd5d2975f9c777a94de374b58eeaaa1541aaf2aa8c08056e0624a5c9f458c",
+    "repository_commit": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+    "scope": "Original declaration and original numerical captures remain separately scoped and recoverable without relabelling."
+  }
 }

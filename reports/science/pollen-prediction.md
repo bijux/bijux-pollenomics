@@ -67,6 +67,18 @@ source-validation screen parsed the target partition, so the result is
 descriptive development, not untouched independent confirmation. We keep
 the two lakes separate because site histories and age support differ.
 
+## Retained buffered results and historical replay
+
+The retained [buffered author-pollen results](../../docs/report/pollen-reconstruction/author-buffered-pollen/README.md)
+remain checked against their frozen outputs, ten exact numerical/replay sources
+and two authenticated historical reader-code witnesses. Current account routes,
+all nine scientific fields and their structured evidence are checked separately.
+This readback does not admit a new execution of the historical model. The full
+producer requires all twelve declared source hashes to match the current
+software and refuses the changed reader implementations. Its recorded source
+revision remains historical; its execution ancestry has not been reconstructed.
+No model or original R rerun forms part of this readback.
+
 ## Matched English direct pollen and LRA forward pollen
 
 In our [constrained LOVE source study](english-lra-pollen-prediction.md), we

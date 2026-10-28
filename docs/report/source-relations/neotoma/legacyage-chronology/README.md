@@ -68,7 +68,29 @@ with the governed files in this directory.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Published LegacyAge summaries join 178 exact ABBO/DALMUT sample depths and retain one unmatched half-centimetre sample.
+
+**Unsupported claim.** Range inclusion does not equate age models, provide a joint posterior, or authenticate a historical LandClim chronology.
+
+**Actual verification performed.** Read the two-core summary, 178-row exact join and unmatched-sample export; no source table download or age model rerun.
+
+**Remaining input or review.** Historical selected chronology remains separate from this CC BY 4.0 alternative; basin, count, taxon/PPE and other material rights need qualification.
+
+**Cause category.** Alternative age-model correspondence is not historical selection authority.
+
+**Consequence.** The source-backed alternative can support a separately declared development sensitivity only.
+
+**Precise next acceptance route.** Freeze a new age-aware protocol using the chosen published model and explicit support rules; obtain missing source/scientific decisions before LRA admission.
+
+**Negative or refused result.** DALMUT sample 175354 at 4.5 cm is not an exact S5 row; 0 ABBO/DALMUT LRA samples admitted.
+
+**Matched denominator.** ABBO 107/107 and DALMUT 71/72 exact depth joins; 178 point ages inside corresponding S5 ranges; 1 unmatched sample.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/legacyage-chronology/report.json](report.json) (SHA-256 `544020c69762d5b86a0c6f9cd4e06b10894c8e4139058f988e28d2970edd0a74`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv](sample-depth-join.csv) (SHA-256 `00fb70fc6201b07873d2ec13ea59ec6018c656ae5f680f881c055d1a0a4b4ac6`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/legacyage-chronology/unmatched-samples.csv](unmatched-samples.csv) (SHA-256 `a4de894f8e001d1ae66db2338fe555145f3bef00e502acdfc83c9c1faabb29fb`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -57,7 +57,27 @@ cmp docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/s
 
 Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained primary 1981 profile comparison matches all 66 depths and 2881 positive count cells exactly to Neotoma sparseNISP observations.
+
+**Unsupported claim.** Identical 66-depth count vectors do not qualify ecological synonymy, terrestrial-only pollen totals,31PPE-target denominators, author 79 sample selection or LRA basins.
+
+**Actual verification performed.** Read the report and sample ledger; reconciled 9702 cells=2881 positive+6821 zero,128653 total counts and 129 literal-name+18 numerical candidate names. No private profile replay or taxonomic approval was performed.
+
+**Remaining input or review.** The 18 numeric rename candidates require qualified taxonomy; historical sample/chronology selection, dated basins and noncommercial source reuse remain separate requirements.
+
+**Cause category.** Primary count/depth correspondence with sparse-zero and taxonomic interpretation limits.
+
+**Consequence.** Sparse absent Neotoma rows correspond to source zeros here; the all 147 parameter total cannot silently become a terrestrial pollen or author-target denominator.
+
+**Precise next acceptance route.** Replay the exact private PANGAEA739834 text and pinned sample/eight observation parts, review all 18 name candidates explicitly, then resolve historical input/basin requirements before LRA.
+
+**Negative or refused result.** The 18 names remain numeric_source_name_candidate_not_ecological_approval; author 79 selection and chronology are unidentified; LRA-admitted 0.
+
+**Matched denominator.** 66 depths×147 parameters=9702 cells;2881 positive observations+6821 zeros;totalNISP128653;129 same-name parameters+18 numeric rename candidates; zero admitted LRA samples.
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json](report.json) (SHA-256 `e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv](samples.csv) (SHA-256 `a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 

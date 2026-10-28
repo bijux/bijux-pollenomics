@@ -115,7 +115,29 @@ remains open with that exact source input requirement.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained LOVE paper packet binds its public PDF and 151 transcribed cells and distinguishes package-parameter correspondence from unavailable Figure 2 geometry and observation inputs.
+
+**Unsupported claim.** Parameter agreement and paper transcription do not reproduce the eight-pond Figure 2 experiment, identify its historical software versions or establish measured vegetation accuracy for a replacement fixture.
+
+**Actual verification performed.** Reviewed the retained paper/parameter correspondence accounts and bound the two local JSON accounts and stable primary paper explanation. This qualification performed no PDF extraction, new 151-cell transcription check, R execution or Figure 2 model rerun.
+
+**Remaining input or review.** Actual pond positions, the paper's BÜK200 map geometry, map areas and distance rings, pollen counts/draws, source units and 2024 LRA/LOVE/REVEALS software provenance remain required.
+
+**Cause category.** Partial paper input correspondence with missing native experimental support.
+
+**Consequence.** The retained parameter table can support a narrow source correspondence claim; it cannot support a reproduced relevant source area, RMSE or empirical Figure 2 validation.
+
+**Precise next acceptance route.** Acquire the named lawful native eight-pond packet and authenticate units, geometry and historical software, then run its frozen original comparison with all missing and negative cases retained.
+
+**Negative or refused result.** The retained PDF's BÜK200 description and package documentation's BÜK300 are not silently reconciled; the single packaged regional/local pair is not substituted for eight study ponds.
+
+**Matched denominator.** 151 transcribed cells comprise 121 map fractions and 30 fall-speed/PPE/SD values;30 package parameters have zero retained difference, nine of ten taxon labels match literally, and zero complete eight-pond Figure 2 reproductions are supplied.
+
+- [Retained qualification evidence: docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json](paper-parameter-tables.json) (SHA-256 `7f2f12b62645cf46f077304ca2cec06b3dd4bd361271e4e45237bd7fb74c3409`).
+
+- [Retained qualification evidence: docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json](source-parameter-correspondence.json) (SHA-256 `b6781ddabd8c4aff178754876e4da597c3d7f8c4996f9db037b48696dea77a3a`).
+
+- [Retained qualification evidence: reports/science/love-theory-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/love-theory-paper.md).
 
 - [Canonical scientific account: reports/science/love-theory-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/love-theory-paper.md).
 

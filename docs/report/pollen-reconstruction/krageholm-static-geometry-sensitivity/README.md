@@ -1,4 +1,4 @@
-# Krageholm static geometry sensitivity
+# Krageholm geometry and wind sensitivity
 
 For the same 95 selected native samples and fixed Betula–Poaceae panel, substituting a static circle equivalent to 186 ha for the workbook's 837 m radius changes conditional cover by at most **0.10518 percentage points**. This is a declared geometry sensitivity; it does not authenticate the historical basin, sampled core, shoreline date or original paper input selection.
 
@@ -24,29 +24,58 @@ An independent implementation uses 50-digit Decimal arithmetic, explicit two-tax
 
 The maintained derived producer is `reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py`, with `--source-root` for its exact nine-file retained source packet and `--output-root` for an absent, separate artifact destination. Its [source and execution account](paired-covariance-source.json) binds the protocol, sources, native receipts, independent review and maintained output equality. Detailed joint matrices and native membership remain private. This calculation supplies a conditional paired count/PPE contrast; it does not establish empirical interval coverage, source-use permission, a time-varying basin reconstruction or completed chronology and geometry uncertainty propagation.
 
+## Fixed-radius wind sensitivity
+
+A separate [wind account](wind-sensitivity.json) keeps the same 95 samples, literal Betula–Poaceae panel, 837 m receiving circle, 100 km land annulus, diffusion 0.12, turbulence 0.25 and PPE scenario fixed. It compares analyst-declared winds of **1.5 and 6 m/s** with the retained assumed 3 m/s baseline. These are twofold sensitivity choices, not measured historical winds, fitted parameters or a selected best model.
+
+| Fixed wind compared with 3 m/s | Betula conditional cover change across 24 windows | Conditional paired SE |
+| --- | --- | --- |
+| 1.5 m/s | −15.03 to −2.57 percentage points | 0.195–0.989 percentage points |
+| 6 m/s | +2.35 to +9.50 percentage points | 0.0314–0.581 percentage points |
+
+Poaceae changes by the opposite amount in this closed two-taxon panel. All 25 window slots are retained; the empty slot remains refused. No target vegetation measurement or withheld pollen outcome was scored. The range of changes is a scenario response, not an accuracy or uncertainty interval. The size of an analyst-chosen wind change cannot select a true wind or validate either basin geometry.
+
+The actual native calculation evaluates four new response tuples, two fall speeds at each alternative wind, and reuses only the two exact previously qualified nominal factors. The original source packet, independent baseline factor records and all 24 baseline marginal cover/covariance results agree. No baseline quadrature, old radius reconstruction or R run was repeated. A separate analytical circle-lens integral checks the four new factors, agreeing within 7.52 × 10⁻¹¹ under the unchanged 2 × 10⁻⁸ absolute plus relative comparison tolerance. Production instead averages angular fractions across receiver offsets. Both share source assumptions and Python/SciPy; agreement does not authenticate historical wind.
+
+The public joint fixed-site API retains 72 result vectors and 144 closed-panel axes. Each occupied window has one shared count support across all three winds; the same declared PPE parameters span all windows. Disjoint fixed-point windows are assumed counting-independent, and count–PPE covariance is assumed zero. The full matrices and 96 alternative-minus-nominal contrast axes remain private. The [conditional covariance derivation](../nordic-static-basin-scenarios/joint-uncertainty-method.md) describes this first-order shared-latent model. Fixed wind scenarios do not supply a probability distribution for wind or propagate chronology and dated-basin uncertainty.
+
+An independent standard-library Decimal50 implementation checks **97,392 scalar values**, including every 144 × 144 covariance block and 96 × 96 contrast block, covers, Jacobians and conditional paired standard errors. Maximum absolute discrepancy is 2.20 × 10⁻¹⁶ against the unchanged 2 × 10⁻¹³ tolerance. Thirteen actual negative controls refuse incompatible count/parameter/chronology support, invalid counts or measurement masks, and zero, negative or nonfinite wind. The original source exclusions, diagonal PPE assumption and all effect directions remain visible; no empirical confidence coverage or significant-difference claim follows.
+
+The maintained report CLI is `reports/science/krageholm-static-geometry-sensitivity/wind_sensitivity.py`. It accepts `--source-root` for the exact nine-file retained source packet and `--output-root` for an absent separate artifact destination. Two actual CLI executions through an isolated source bootstrap reproduced the public report, private matrices and engine-origin records byte for byte against the original independently checked calculation. Seven focused custody tests, strict typing of producer/test, and configured Ruff/format passed. The [wind source account](wind-sensitivity-source.json) preserves the actual plans, terminal receipts, source/runtime identities and comparison evidence. Individual native counts, ages, depths and sample identities remain private.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python \
+  reports/science/krageholm-static-geometry-sensitivity/wind_sensitivity.py \
+  --source-root /path/to/retained-krageholm-source \
+  --output-root artifacts/science/krageholm-wind-replay
+```
+
+This extends conditional transport sensitivity only. Source core/basin correspondence, historical wind justification, chronology uncertainty, original selected membership, intended-use rights and independent qualified review remain separate acceptance.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Same 95 selected samples and literal two-taxon panel: two fixed geometries differ by at most 0.10518 percentage points. A declared count/PPE scenario preserves shared counts across alternatives and shared PPE across windows, producing conditional paired SE 0.001525–0.006552 percentage points.
+**Supported claim.** Same 95 selected samples and literal two-taxon panel: two fixed geometries differ by at most 0.10518 percentage points. A declared count/PPE scenario preserves shared counts across alternatives and shared PPE across windows, producing conditional paired SE 0.001525–0.006552 percentage points. Same837m source geometry with declared1.5/6m/s winds vs assumed3m/s changes conditional Betula by-15.03to-2.57/+2.35to+9.50percentage points; source95samples and24occupied+1empty slots preserved, shared-count/PPE covariance retained across3winds.
 
-**Unsupported claim.** Historical Krageholm reproduction, accepted time-varying geometry, field vegetation accuracy, significant paired difference or empirically calibrated uncertainty.
+**Unsupported claim.** Historical Krageholm reproduction, accepted time-varying geometry, field vegetation accuracy, significant paired difference or empirically calibrated uncertainty. Estimated historical wind, model selection by scenario magnitude, wind-distribution uncertainty or fullLCI-030physical admission.
 
-**Actual verification performed.** Original lens-factor and 816-scalar audit retained. Actual public joint API and independent Decimal50 quotient/multinomial implementation agree over 39,552 scalar comparisons within 2.43e-15 <=2e-13. Maintained producer report and private matrix match byte for byte; 33 joint API tests, ten negative API controls, seven custody tests, configured Ruff/format and strict typing pass.
+**Actual verification performed.** Original lens-factor and 816-scalar audit retained. Actual public joint API and independent Decimal50 quotient/multinomial implementation agree over 39,552 scalar comparisons within 2.43e-15 <=2e-13. Maintained producer report and private matrix match byte for byte; 33 joint API tests, ten negative API controls, seven custody tests, configured Ruff/format and strict typing pass. Four new wind response tuples independently lens-checked (max7.52e-11);97,392Decimal50 cover/Jacobian/covariance/paired-SE comparisons max2.20e-16<=2e-13.13actual negative controls refuse. Original/ref/replay3products byte-identical;7custodytests,strict2,Ruff/formatpass;45engine origins bound to copied5243source.
 
-**Remaining input or review.** Two static geometries are analyst-declared alternatives. Historical basin/core correspondence and time-specific geometry remain unauthenticated; a conditional shared-count/PPE scenario now supplies paired covariance without a geometry or chronology probability distribution. Resolver: Krageholm source custodian and independent chronology, historical-basin and statistical reviewer Reopen when: Source-qualified original core, dated basin geometry, chronology uncertainty and parameter/use terms, plus independent review of the declared joint dependence model.
+**Remaining input or review.** Two static geometries are analyst-declared alternatives. Historical basin/core correspondence and time-specific geometry remain unauthenticated; a conditional shared-count/PPE scenario now supplies paired covariance without a geometry or chronology probability distribution. Wind1.5/6m/s alternatives are declared assumptions, not measured historical winds or a wind uncertainty distribution. Resolver: Krageholm source custodian and independent chronology, historical-basin and statistical reviewer Reopen when: Source-qualified original core, dated basin geometry, chronology uncertainty and parameter/use terms, plus independent review of the declared joint dependence model.
 
 **Cause category.** data|assumption|comparability|access/rights|qualified review
 
-**Consequence.** Use conditional paired count/PPE contrasts under explicit shared-support and independence assumptions, preserving source scope and the empty-window refusal. PPE SD 0.303/0 is a declared scenario, not newly estimated or calibrated uncertainty.
+**Consequence.** Use conditional paired count/PPE contrasts under explicit shared-support and independence assumptions, preserving source scope and the empty-window refusal. PPE SD 0.303/0 is a declared scenario, not newly estimated or calibrated uncertainty. Treat wind effects as conditional responses under fixed analyst scenarios, not accuracy, significant change or parameter-selection evidence.
 
-**Precise next acceptance route.** Authenticate original core, dated geometry and intended-use terms; supply and review chronology/geometry uncertainty and cross-profile parameter authority before historical, empirical coverage or joint ensemble claims.
+**Precise next acceptance route.** Authenticate original core, dated geometry and intended-use terms; supply and review chronology/geometry uncertainty and cross-profile parameter authority before historical, empirical coverage or joint ensemble claims. Supply source-supported wind and transport authority, or independently review a prospectively declared new profile; fixed scenarios do not estimate historical wind.
 
-**Negative or refused result.** One source point outside the domain; one of 25 windows remains empty. Alternate chronologies, overlapping support, incompatible counts/panels/parameter identities and invalid count inputs are refused. No historical basin or empirical uncertainty admission.
+**Negative or refused result.** One source point outside the domain; one of 25 windows remains empty. Alternate chronologies, overlapping support, incompatible counts/panels/parameter identities and invalid count inputs are refused. No historical basin or empirical uncertainty admission. Wind alternatives retain oneemptywindow and all effect directions; invalid0/negative/nonfinitewind refuses. No calibrated interval or historical wind admission.
 
-**Matched denominator.** 96 native samples; 95 selected in 24 of 25 slots; two taxa and two fixed geometries; 48 vectors, 96 axes, 24 distinct count supports; 39,552 independent scalar comparisons.
+**Matched denominator.** 96 native samples; 95 selected in 24 of 25 slots; two taxa and two fixed geometries; 48 vectors, 96 axes, 24 distinct count supports; 39,552 independent scalar comparisons. Wind extension reuses same95selected/96native samples and24occupied+1empty slots;3fixedwinds/72vectors/144axes/24count supports/96contrast axes;4newresponse tuples and2retainednominalfactors.
 
-Retained evidence: [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json](report.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json](source-account.json), [reports/science/krageholm-static-geometry-sensitivity/source-custody.json](../../../../reports/science/krageholm-static-geometry-sensitivity/source-custody.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json](paired-covariance.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json](paired-covariance-source.json), [reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json](../../../../reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json).
+Retained evidence: [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json](report.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json](source-account.json), [reports/science/krageholm-static-geometry-sensitivity/source-custody.json](../../../../reports/science/krageholm-static-geometry-sensitivity/source-custody.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json](paired-covariance.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json](paired-covariance-source.json), [reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json](../../../../reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity.json](wind-sensitivity.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity-source.json](wind-sensitivity-source.json), [reports/science/krageholm-static-geometry-sensitivity/wind-protocol.json](../../../../reports/science/krageholm-static-geometry-sensitivity/wind-protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

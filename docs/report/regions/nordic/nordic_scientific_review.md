@@ -365,7 +365,25 @@
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained nordic review surface separates descriptive locality inventory, comparative context and exploratory farming scenarios and records source-specific uncertainties.
+
+**Unsupported claim.** The filename and populated review table are not a qualified independent scientist's decision, proof of farming causality or biological/event admission.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** An independent reviewer must assess the exact source entities, temporal scales and claimed relationship; current chronology and animal precision caveats remain.
+
+**Cause category.** Recorded review issues and exploratory scenario scope.
+
+**Consequence.** Scenario and overlap tables expose what still needs review rather than authorizing cross-species or historical causal inference.
+
+**Precise next acceptance route.** Select a named scenario and its source population, resolve each listed uncertainty with source evidence and obtain an actual independent claim-scoped decision.
+
+**Negative or refused result.** Farming-arrival interpretation remains exploratory; mapped animals and overlapping intervals do not remove species/precision asymmetry.
+
+**Matched denominator.** 64 country/species coverage rows, 21 period rows, 176 overlap rows, 46 uncertainty entries and four scenarios in the current Nordic retained review. These are review/accounting cells with reused source populations, not accepted hypotheses or independent experiments.
+
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_scientific_review.json](nordic_scientific_review.json) (SHA-256 `ba1e4c9fdf16ce10fda1216edda7b761a1068e98afebddfd35ce00f5491f869b`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

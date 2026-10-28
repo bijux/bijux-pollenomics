@@ -16,7 +16,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained exploratory interval comparison records source-local animal/human overlap under an implemented_unverified comparison contract.
+
+**Unsupported claim.** Interval overlap does not establish migration, co-occurrence at a specimen locality, domestication or a causal event; qualified comparison review is missing.
+
+**Actual verification performed.** Read all five comparison rows and contract disposition; reconciled 750 right-record comparisons, 746 comparable and 4 non-comparable. No comparison producer or chronology authentication was rerun.
+
+**Remaining input or review.** Sample-owned comparable animal chronology, human locality-date interpretation and an independent qualified scientific comparison review remain required.
+
+**Cause category.** Exploratory numeric interval overlap without qualified scientific review.
+
+**Consequence.** A human locality can appear in more than one species comparison; 750 comparisons cannot be read as 750 unique people or sites.
+
+**Precise next acceptance route.** Authenticate both record populations and interval semantics, declare the biological question and matched support, and qualify the comparison before interpreting overlap scientifically.
+
+**Negative or refused result.** Contractstatus implemented_unverified; four comparisons non-comparable and qualifying review absent. Non-overlap does not prove biological absence.
+
+**Matched denominator.** 5 country/species comparisons: 77 SE human localities×2, 6 FI×1, 295 DK×2=750 right-record uses; 746 comparable. Overlap counts 3, 14, 0, 15, 40 are comparison-cell results, not 72 distinct events.
+
+- [Retained qualification evidence: docs/report/animal_human_chronology_overlap.json](animal_human_chronology_overlap.json) (SHA-256 `64067916b7e4cfcf0f152d7d92ee1f616e5c2b9cc1f66e74b2d0bd39147fc3fe`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

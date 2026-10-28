@@ -52,7 +52,25 @@ cmp docs/report/method-certification/author-site-profile-comparison/report.json 
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** For the retained six-site 225 BP author example and ten selected taxa, the same first 1,000 paired indices compare ratio-of-unclosed-means with arithmetic mean-of-closed-vectors; the largest retained mean difference is 0.0016233449666228639 fraction.
+
+**Unsupported claim.** This compares two aggregation definitions on shared prepared inputs; it establishes neither independent field vegetation accuracy, an exact new ten-taxon historical R reproduction nor additive uncertainty components.
+
+**Actual verification performed.** Reviewed the authored explanation and retained report, checked the report's physical identity and selected/total support; no author R execution, bootstrap or model fit was rerun for this reader qualification.
+
+**Remaining input or review.** Current-source owner replay and independent interpretation of the selected taxon population remain required; a new ecological claim also needs a matched measured vegetation target and justified source assumptions.
+
+**Cause category.** Conditional aggregation semantics on shared author-derived data.
+
+**Consequence.** A mean-profile discrepancy can follow closure order even with shared draws; it cannot identify which profile is ecologically more accurate.
+
+**Precise next acceptance route.** Replay the named profile-comparison owner against the qualified current author-site account, retain the same 1,000 indices and distinguish definition correspondence from any later measured-target comparison.
+
+**Negative or refused result.** The nonzero mean discrepancy is retained; the near-zero maximum standard-error difference 2.55351295663786e-15 does not establish equivalence of the two mean definitions.
+
+**Matched denominator.** Six sites in one grid and window; ten selected taxa from 31 prepared targets, 10,404 selected counts from 10,747 author-target counts; first 1,000 of 1,024 paired draws.
+
+- [Retained qualification evidence: docs/report/method-certification/author-site-profile-comparison/report.json](report.json) (SHA-256 `4fa285302a1d19b3122d1e3ea2ec318f0a635e1abd1140b3f247faf5bd66ccdf`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

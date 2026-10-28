@@ -22,7 +22,27 @@
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This retained table displays every radius and all three methods under both equal-site and equal-group weighting without selecting a favorable radius.
+
+**Unsupported claim.** Ninety mean cells are not ninety independent cohorts, uncertainty intervals or an independent new experiment; lower correction error than pollen is not superiority to the mapped baseline.
+
+**Actual verification performed.** Read all 15 table rows and their six score columns against the retained experiment account and bound its source/report identities. No means, predictions or scores were recomputed.
+
+**Remaining input or review.** The table inherits exposed map-target, mask, date and dependence limitations; field interpretation and independent measurement validation remain missing.
+
+**Cause category.** Complete descriptive summary of a previously exposed conditional experiment.
+
+**Consequence.** Both weighting schemes and the stronger-baseline failures remain visible, preventing a cherry-picked best-radius interpretation.
+
+**Precise next acceptance route.** Use the source-bound prediction and contrast account for interpretation, retain all 15 radii, and require a separate frozen independent cohort before predictive confirmation.
+
+**Negative or refused result.** Mapped baseline has lower loss at 8 of 15equal-site and 9 of 15equal-group radii; the table retains those negative comparisons alongside pollen improvements.
+
+**Matched denominator.** Fifteen radius rows × three methods × two weighting schemes = 90 displayed mean cells. The retained machine population counts 45 method/radius summary objects, each with both weighted means. They reuse ten sites/nine nominal groups; this table adds zero new fits or independent observations.
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json](report.json) (SHA-256 `a19f533e08c589507698cc9bfa89d97f2ac210f5c85db6eed3f7967b32d2b499`).
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json](source-account.json) (SHA-256 `00c21f87b989dfce82e7a74fe7bb6fd89a4b7b3e52de072e83b0d224addab2b7`).
 
 - [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md).
 

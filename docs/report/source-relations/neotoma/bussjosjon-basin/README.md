@@ -87,7 +87,27 @@ valid for its declared coordinate-based estimand.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The Bussjösjön review preserves incompatible source coordinates, elevations and modern/past basin descriptions as separate evidence.
+
+**Unsupported claim.** A community polygon or similar lake name does not establish the BUS core, dated shorelines, or an authorized historical radius.
+
+**Actual verification performed.** Read the original-source review and native BUS/core reports, including source-specific lake versus catchment areas; no map/PDF acquisition or chronology conversion.
+
+**Remaining input or review.** The physical core must be tied to the correct lake and its calibrated ages, with source-qualified geometry and use rights.
+
+**Cause category.** Unresolved physical identity and time-dependent basin assumptions.
+
+**Consequence.** The 69 m radius, 0.3 ha field description, 3 ha inventory and mapped 2.27 ha water polygon cannot be silently substituted.
+
+**Precise next acceptance route.** Reconcile inventory/Neotoma/1986 core coordinates and vertical references, then bind a justified basin model to the exact sample ages.
+
+**Negative or refused result.** 2.5264 km coordinate gap and 49/40/~24 m elevation claims remain; 8,500–9,600 uncalibrated 14C BP is not calibrated bin geometry.
+
+**Matched denominator.** 1 BUS core candidate with 69 native samples; multiple differently dated lake/catchment records; 0 admitted historical outlines or LRA samples.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/bus-native-correspondence/report.json](../bus-native-correspondence/report.json) (SHA-256 `2c17e6ae80fcdfeb24219193eb9a37ef843ce408d39d3af49f65bc52d2c3d6a8`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json](../swedish-lake-core-identity/report.json) (SHA-256 `d2b80a81ed26c7d3f327488290927de6220a3ca39c8d7d15514c258c75dc7594`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

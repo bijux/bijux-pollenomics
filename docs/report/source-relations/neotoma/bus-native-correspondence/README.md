@@ -52,7 +52,25 @@ CSV in the local run area while workbook rights remain unresolved.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** BUS and Neotoma share 69 depths and 1,195 exact NISP cells under unique casefold-matched labels.
+
+**Unsupported claim.** Casefold equality and zero-only duplicate candidates do not approve taxon mappings or make missing-source rows observed zeros.
+
+**Actual verification performed.** Read the native correspondence and both unapplied BETULA/PINUS duplicate-column candidates; no private cell rescan.
+
+**Remaining input or review.** Core/coordinate identity, source counting semantics, selected ages, basin support and analytical rights need qualification.
+
+**Cause category.** Duplicate native headers and absent workbook chronology.
+
+**Consequence.** The candidate 9,076 additional counts remain outside the primary 44,079-count comparison.
+
+**Precise next acceptance route.** Obtain source-backed duplicate-column and sample-age decisions and reconcile the 2.5264 km basin conflict before forming an LRA request.
+
+**Negative or refused result.** All four repeated BETULA/PINUS columns are excluded from the primary join; 2,807 missing-source workbook zeros remain; no age column.
+
+**Matched denominator.** 69 depths; 58 unique matched labels; 1,195 primary pairs/44,079 count units; unapplied 138 duplicate-candidate pairs/9,076 count units; 0 admitted samples.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/bus-native-correspondence/report.json](report.json) (SHA-256 `2c17e6ae80fcdfeb24219193eb9a37ef843ce408d39d3af49f65bc52d2c3d6a8`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

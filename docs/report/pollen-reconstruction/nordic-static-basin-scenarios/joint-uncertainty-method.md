@@ -22,7 +22,25 @@ These are first-order conditional delta covariances at the observed plug-in frac
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The declared first-order joint delta covariance carries reused native counts and shared PPE through closed panel compositions. Its multinomial/PSD/closure identities explain conditional cross-result covariance and same-count geometry contrast variance.
+
+**Unsupported claim.** Empirical independence of distinct native IDs/windows, chronology or geography accuracy, calibrated confidence intervals, field PPE correlation, joint age posterior, measured vegetation accuracy or proof of absence from zero plug-in variance.
+
+**Actual verification performed.** The maintained mathematical derivation was inspected against its explicit count/PPE Jacobians, shared-row embedding and fractional alternative. It describes the independently expressed Decimal 50 fraction route used by retained numerical qualification; this reader contributes no new observation or numerical model execution.
+
+**Remaining input or review.** The model assumes independent declared count groups and zero count–PPE covariance. The Nordic profile supplies only diagonal covariance for 8 native PPE rows; off-diagonal field covariance, temporal/environmental dependence and overlapping or alternative-chronology count coupling are not supplied.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Reusing observations under another geometry must retain their shared errors. Singular closure-direction covariance is expected; adding independent marginal SEs or treating alternate chronology supports as independent would invent an unsupported joint model.
+
+**Precise next acceptance route.** Bind authentic native count supports and an explicit joint covariance model, including overlap/chronology, count–PPE cross terms or field parameter dependence where relevant, before extending paired uncertainty. Test empirical coverage against an independent matched reference before interpreting conditional delta covariance as calibrated uncertainty.
+
+**Negative or refused result.** Overlapping observations and alternate same-unit chronology/dataset projections are refused when their cross-count covariance is absent. Identical same-count geometries have zero contrast variance; boundary zero covariance is not biological absence.
+
+**Matched denominator.** One latent count vector per authenticated native collection-unit/dataset/chronology/window/count-support identity, with its own fixed panel N. The Nordic parameter profile shares 8 exact native PPE row identities across applicable results. This method reader adds 0 independent samples, fits or source measurements.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json](report.json) (SHA-256 `50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

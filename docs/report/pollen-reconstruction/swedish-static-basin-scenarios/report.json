@@ -1,14 +1,14 @@
 {
   "producer_source_sha256": {
-    "reconstruction.py": "cb1c2b64eccaccfac87849a2902ffd3ea2642a515b38a66c6eeeaa229a719bf8",
+    "reconstruction.py": "166089639ed7dda4646ba4f202316f0485d00e5d0c5a7e17ef6eea8fb84bd43c",
     "__init__.py": "d188265c5a71902313b8a1a8b8872215edfc9d19ac2775e5cc3e79392723cb6e",
-    "producer.py": "39e652762133b45a87598c474c8a736bb8e262af178dc06f5a142a8e2a565409",
-    "sources.py": "c3a33898f0aecc42f0c48f04e176f79d6444cead076e550a19ba7dafd25ccd0d",
+    "producer.py": "72f7d7a4b6d8d3cf737657df9b547f817aa7685b9bd4141f656a3ba44eeb8121",
+    "sources.py": "52555e72f5add6cee95014d874208daadac56a22bc161dc6988ac5be0db7679f",
     "__main__.py": "890e68ea96524268c4277fb65ac99162c0eb907ad9396f204dde0d98b23e2d0a"
   },
   "candidate_binding_scope": "Declared exact source revision; external immutable execution receipt establishes actual checkout/overlay custody. The SHA argument alone does not authenticate Git history.",
   "schema_version": "swedish-static-basin-maintained-producer.v1",
-  "producer_candidate": "8d60365e15b0e4cf57e4f4ef21b6185296f177dc",
+  "producer_candidate": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
   "protocol": {
     "kind": "new explicitly supported pollen-panel reconstruction, separate from historical LandClim replay",
     "taxon_support": "literal source strings and integer NISP with both source element labels pollen; each panel target must be actually present in every included sample datum matrix. Missing rows never turned into zero; parameter application is a declared scenario, not a reviewed taxon-equivalence decision.",
@@ -150,8 +150,8 @@
       "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py": {
-      "bytes": 5376,
-      "sha256": "4dde1a078ae7d57f3c93e93fa8cc4e73756f551e774d78aadb606fa47c483448"
+      "bytes": 5910,
+      "sha256": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4"
     },
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py": {
       "bytes": 7383,
@@ -162,7 +162,7 @@
       "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d"
     }
   },
-  "source_identity_declaration_sha256": "834fd5d2975f9c777a94de374b58eeaaa1541aaf2aa8c08056e0624a5c9f458c",
+  "source_identity_declaration_sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
   "protocol_authority": "Authored scientific assumption input; exact bytes bound by the independent execution receipt, not a generated numerical-output authority.",
   "protocol_sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
   "cores": [

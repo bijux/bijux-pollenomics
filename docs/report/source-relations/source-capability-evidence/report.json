@@ -14,9 +14,9 @@
       "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
     },
     {
-      "bytes": 18126,
+      "bytes": 18127,
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
+      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099"
     },
     {
       "bytes": 166123,
@@ -39,19 +39,19 @@
       "sha256": "27a1921730cc99817e62fa16efc0268adeb92182eaea62e21c0cfa1753a0764a"
     },
     {
-      "bytes": 41922,
+      "bytes": 41920,
       "path": "data/adna/governance/source_library/sample_chronology_normalization_audit.json",
-      "sha256": "1ddb8f3d01e5eb8cccd9e9a2bb0f98cee2a2b6b7ef14ba87c0a0c5c2fc771c9c"
+      "sha256": "b7cd069fa31764d55af0b723bfd3bafb6b149e226a52c853da198b84961a82f8"
     },
     {
-      "bytes": 1147419,
+      "bytes": 1142649,
       "path": "data/adna/governance/source_library/sample_chronology_precision_audit.json",
-      "sha256": "a148554429f59a3108dde5a560b56a172760bc63a5a78774e5ead5fe2fa0ba41"
+      "sha256": "1adaf422cc5d4c7c74d7c33545f2e1fd1e037fb1ce908e022d56d626ca60b916"
     },
     {
-      "bytes": 2135244,
+      "bytes": 2133262,
       "path": "data/adna/governance/source_library/sample_chronology_review.json",
-      "sha256": "01f9e85b65900b277ac9d0f9fa2992fa14cfa02fbdc39087b1247844ec923e6e"
+      "sha256": "ce1f8f6daf3223dfc5390be6573ebc7212fa10545c1c7de7275115157b7e0875"
     },
     {
       "bytes": 209278,

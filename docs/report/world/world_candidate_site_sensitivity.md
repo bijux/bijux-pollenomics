@@ -460,7 +460,25 @@ fieldwork-triage weighting.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained table describes how 447 human-locality anchor ranks change among four declared heuristic profiles.
+
+**Unsupported claim.** Rank stability or movement does not validate biological evidence quality, choose a sampling site or make source chronology independent.
+
+**Actual verification performed.** Read the 447 retained sensitivity rows and four profile declarations; distinguished rank positions from independent sites or model accuracy. No ranking engine or browser was run.
+
+**Remaining input or review.** Qualified cross-species, non-metadata evidence and source-compatible chronology are needed before any recommendation; profile weights need their own scientific justification.
+
+**Cause category.** Heuristic design-profile sensitivity without recommendation admission.
+
+**Consequence.** A large rank shift indicates dependence on a weighting design, not a historical ecological change.
+
+**Precise next acceptance route.** Authenticate the same candidate/evidence population, declare profile rules and matched comparison, then execute source-bound ranking and qualify fieldwork gates before recommending.
+
+**Negative or refused result.** Recommendation-ready profiles remain none in the retained table; the sensitivity does not repair weak source support.
+
+**Matched denominator.** 447 locality anchors compared under 4 profiles including atlas_exploration baseline; rank shifts are repeated evaluations of the same anchors, not 1788 independent sites.
+
+- [Retained qualification evidence: docs/report/world/world_candidate_site_sensitivity.json](world_candidate_site_sensitivity.json) (SHA-256 `9069fb4e77add09717ed14ee3690fd12811eb281276c7922f6df5b3302c6120f`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

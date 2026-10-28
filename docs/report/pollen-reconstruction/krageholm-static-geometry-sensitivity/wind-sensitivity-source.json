@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "purpose": "Declared fixed-radius Krageholm wind sensitivity with shared count and PPE covariance",
+  "source_candidate": "5243aadb7337471946fd769df6954ab948d359ad",
+  "source_export": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/engine-source-custody.json",
+    "sha256": "a8606d2726f3caf2968dccdd5609401470a0e810d30e8a3d0005877094d90983",
+    "bytes": 26005
+  },
+  "protocol": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/proposal/reports/science/krageholm-static-geometry-sensitivity/wind-protocol.json",
+    "sha256": "2152fde730bc4a80ba7b919ece7351a89bc3d4c1a947b27a660b2245be8e7b90",
+    "bytes": 5249
+  },
+  "source_packet_custody": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/proposal/reports/science/krageholm-static-geometry-sensitivity/wind-source-custody.json",
+    "sha256": "bc9d7955e9948752cadada5f1de3202bb1531d9722caff1683872bab75286e5d",
+    "bytes": 1285
+  },
+  "native_plan": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/plan.json",
+    "sha256": "4dba55644fe196af2685f1495526cbe7d0f9d54f6716cbf19d951d1e369cbc96",
+    "bytes": 1279456
+  },
+  "native_terminal": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/execution/terminal.json",
+    "sha256": "4c2780a92134d317ca7f3f85d2d7d1237ae8a21e2a166708f875ba84a42fb2e1",
+    "bytes": 6877
+  },
+  "native_exit": 0,
+  "native_argv": [
+    "python3",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-wind-speed-sensitivity/run.py"
+  ],
+  "wall_seconds": 3.6885576670174487,
+  "peak_child_rss_bytes": 215941120,
+  "owned_output_bytes": 2616353,
+  "source_runtime_pins_unchanged": true,
+  "source_pin_count": 5367,
+  "interpreter_pin_count": 3,
+  "original_public_report": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/native/report.json",
+    "sha256": "e27cdd607d9e565344472428d815efcb1db5edd6b8ab1e3e8821e3d625c4d4fa",
+    "bytes": 88275
+  },
+  "original_private_matrices": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/native/joint-matrices.json",
+    "sha256": "1b8dc9cfd89b12fe409ebfc9c958d87be1c53f3ed57b24b609c413312cd1ef28",
+    "bytes": 2499725
+  },
+  "native_origin_witness": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/native/runtime-origin-witness.json",
+    "sha256": "6eadf861245e5454ec1a12502099302ccb4447b566ab64e0797c01bb3ee81fbd",
+    "bytes": 14900
+  },
+  "actual_owned_engine_module_origins": 45,
+  "independent_physical_review": {
+    "evidence": {
+      "path": "artifacts/science/krageholm-wind-speed-sensitivity/independent-physical-review.json",
+      "sha256": "56cd6c1ba904e678473e46e0763de25c348b94a44f0ba13fab6ff93bb45f15c9",
+      "bytes": 2393
+    },
+    "producer": {
+      "path": "artifacts/science/krageholm-wind-speed-sensitivity/independent_physics.py",
+      "sha256": "df5c714b4c7a8d2dbc3f2edf09577cd4a90abf32001a7c77e47f1253cdd70162",
+      "bytes": 4366
+    },
+    "new_response_tuples": 4,
+    "maximum_absolute_factor_difference": 7.516408676022657e-11,
+    "comparison_absolute_plus_relative": [
+      2e-08,
+      2e-08
+    ],
+    "method": "Analytical circle-intersection area integrated against explicitly derived GPM radial survival density; maintained code instead averages angular fractions over receiver offsets. No engine, production geometry helper or GPM kernel import.",
+    "limitations": "Shared source numbers, declared geometry/transport assumptions and Python/SciPy runtime; nonrigorous quadrature estimates, no measured historical wind or independent source authentication."
+  },
+  "independent_scalar_review": {
+    "evidence": {
+      "path": "artifacts/science/krageholm-wind-speed-sensitivity/independent-review.json",
+      "sha256": "9ca6b257d6b377c142f800afc526cb5a93fff4fe2505569d6c56002145df0d72",
+      "bytes": 2267
+    },
+    "producer": {
+      "path": "artifacts/science/krageholm-wind-speed-sensitivity/independent_covariance.py",
+      "sha256": "99bb4a61243534e8573fb8ff0befbe9c59ebf27c712fc863f3c7a61209a0618a",
+      "bytes": 4428
+    },
+    "scalar_checks": 97392,
+    "maximum_absolute_difference": "2.1948202862702843755956335733736859E-16",
+    "absolute_tolerance": "2e-13",
+    "scope": "All144x144 count/PPE/total blocks,96x96 contrast blocks, covers, count/PPE Jacobians and conditional paired SE; stdlib Decimal50, no engine or NumPy import. Interpreter and source numbers shared."
+  },
+  "maintained_producer": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/proposal/reports/science/krageholm-static-geometry-sensitivity/wind_sensitivity.py",
+    "sha256": "cc0be00084f78793298e00148d8dbf288bbb6ee2c8332051061c74369a9c3f5a",
+    "bytes": 23974
+  },
+  "maintained_plan": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/maintained-plan.json",
+    "sha256": "a0cbe228613ceab6a3a43e730766a4e2149b7cfddb7c88ba8aa5729875acd984",
+    "bytes": 1282728
+  },
+  "maintained_terminal": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/maintained-execution/terminal.json",
+    "sha256": "0d670ac3c0b858c0fec90cc2b9b80e8f0c1cfaec1b5f6fa2ae7fd839ccab1d17",
+    "bytes": 3622
+  },
+  "maintained_native_exit": 0,
+  "maintained_actual_argv": [
+    "python3",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-wind-speed-sensitivity/run_maintained.py"
+  ],
+  "maintained_wall_seconds": 3.319225999992341,
+  "maintained_peak_child_rss_bytes": 186155008,
+  "maintained_source_runtime_pins_unchanged": true,
+  "maintained_comparison": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/maintained-comparison.json",
+    "sha256": "1f3ec1606a32c1af70020bc3e1bfb8395534e0a1a4b76b38ec9e3189bfb90ddc",
+    "bytes": 1264
+  },
+  "maintained_result": "Two actual maintained CLI executions through an explicit isolated source-import bootstrap. Public report, private matrices and source origins match original/reference/replay byte for byte. Four new wind tuple evaluations per CLI, two nominal factors reused; original independent physical/Decimal evidence reused because inputs and numerical products match exactly.",
+  "focused_checks": {
+    "path": "artifacts/science/krageholm-wind-speed-sensitivity/checks/receipt.json",
+    "sha256": "d33f7dbcb8543cb60fc224b259f2f46b071ed7a3a83defc0fd97635bbacb3c74",
+    "bytes": 996
+  },
+  "focused_check_result": "Seven source custody tests, strict typing of producer/test and configured Ruff/format passed; unchanged generic mathematical tests not repeated.",
+  "baseline_authority": "Exact retained workbook_static_circle factors match their original independently checked values and source packet. Every3m/s window cover/counting/PPE/total marginal matches the previous configuration within2e-13. No baseline transport quadrature or original radius comparison was rerun.",
+  "parameter_authority": "Wind1.5/6m/s are prospectively declared analyst sensitivity choices around retained assumed3m/s, not estimates, fitted values or historical measurements. PPE5.106/1 and SD0.303/0 retain the earlier analyst-declared conditional covariance scenario; no empirical PPE covariance calibration.",
+  "support": "Same96native samples/95point-domain eligible samples,24occupied+1empty slot, Betula\u2013Poaceae literal closed panel, fixed837m radius/100km annulus/diffusion0.12/turbulence0.25.72vectors/144axes/24count latents/2sharedPPE axes/96contrast axes.",
+  "limits": [
+    "No native source recapture, source chronology refit, cached workbook decoding, historical basin/wind authentication or untouched target-outcome score.",
+    "Fixed scenarios are not a wind probability distribution; paired SE includes only the declared conditional counting/PPE model, not chronology, dated shoreline or transport estimation uncertainty.",
+    "Shared counts across wind alternatives and shared PPE across windows are retained. Counting independence between disjoint fixed-point windows and count\u2013PPE independence are working assumptions, not empirical independence.",
+    "No ecological vegetation accuracy, significant difference, calibrated coverage, source-use rights, qualified human decision or wholeLCI-030 admission follows.",
+    "Installed LRA version0.1.9.dev1462 is captured runtime metadata, separate from exact5243source export; this is not an installed artifact or release qualification."
+  ],
+  "private_native_counts_ages_depths_or_ids_published": false,
+  "scientific_admission": false,
+  "source_rights_admission": false
+}

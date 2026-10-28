@@ -27,7 +27,27 @@ What does the currently shipped Nordic animal aDNA surface actually support abou
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This context reader reports the shipped source signal and explicit non-support categories; its Sus scrofa domesticus/Denmark/4700 BP label is a retained source interpretation, not an authenticated first farming event.
+
+**Unsupported claim.** A generic BP label, publication-map membership or country annotation does not establish calibrated sample chronology, biological domestication, country-assignment admission or historical first appearance.
+
+**Actual verification performed.** Read the authored support/non-support statements and retained farming JSON alongside the current animal entity capability account; bound those bytes. No dating, source acquisition, map replay or historical inference was performed.
+
+**Remaining input or review.** The named PRJEB30282 signal requires sample-level source dating with documented epoch and scale, accepted taxonomy/evidence class, reviewed country provenance and qualified historical interpretation.
+
+**Cause category.** Contextual source narrative with unadmitted chronology, biological and country interpretation.
+
+**Consequence.** The page remains a hypothesis/source lead and cannot be cited as an accepted earliest Nordic farming date.
+
+**Precise next acceptance route.** Recover the exact PRJEB30282 sample and chronology evidence, qualify its epoch/scale and domestication role, and obtain the named scientific/country reviews before advancing a historical claim.
+
+**Negative or refused result.** Bos taurus wild/progenitor context remains outside domesticated-core support; seven named country-localized species claims remain unsupported. The current animal account explicitly sets scientific and country admission false.
+
+**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current animal account: 1468 normalized IDs, 322 mapped across 165 features, 1146 excluded; Nordic 12 mapped IDs across 8 features are not 12 admitted farming events.
+
+- [Retained qualification evidence: docs/report/nordic_farming_history_scenario.json](nordic_farming_history_scenario.json) (SHA-256 `62736772e789063f7f7eac3657ef418e0777b1a4ad3363a359327919d5604b56`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

@@ -53,7 +53,25 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained age-only diagnostic compares111selected calibrated point ages with their own marginal younger/older bounds and fixed500-cal-BP bins without opening pollen observations or changing scores.
+
+**Unsupported claim.** Interval overlap is not a joint age posterior, simultaneous sample reallocation, a probability of bin membership or an uncertainty-adjusted pollen score.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** The source gives no bound confidence level or joint chronology; actual source-qualified age distributions are required for probabilistic propagation.
+
+**Cause category.** Marginal source-age support diagnostic.
+
+**Consequence.** Every nominal bin includes a crossing sample, so point-age membership is conditional even though each point age lies inside its reported interval.
+
+**Precise next acceptance route.** Replay the age-only owner against exact chronology/source pins, preserve positive-width endpoint rules, then use a separately justified joint-age consumer for any probabilistic score.
+
+**Negative or refused result.** Nominal bin1has no wholly contained sample. Boundary touching alone is not counted as crossing or assigned new probability.
+
+**Matched denominator.** 111samples:58crossing and53contained;22nominal bins and21internal boundaries all crossed, maximum two overlap bins per sample; zero pollen observation parts read.
+
+- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json](report.json) (SHA-256 `6635c81d545db1114736814e1efcadc8f62c1ce0d6400f1d7f92de685b9a6223`).
 
 - [Canonical scientific account: reports/science/sambosjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sambosjon-direct-pollen.md).
 

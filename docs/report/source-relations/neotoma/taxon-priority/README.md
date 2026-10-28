@@ -65,7 +65,27 @@ ledger plus the governed priority table to replay the dataset attribution.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The priority table preserves 1,006 review concepts and 228,323 source-pollen count observations with separate native/digitized units and dataset attribution.
+
+**Unsupported claim.** Review frequency or a source-listed DOI does not approve taxonomy, PPE, rights, pollen denominator or original-publication identity.
+
+**Actual verification performed.** Read priority state/denominators and dataset-attribution export, distinguishing scoped 1,351-row review from the larger private union; no priority replay.
+
+**Remaining input or review.** Qualified concept/use decisions and source-specific dataset/publication authority remain.
+
+**Cause category.** Review prioritization does not constitute biological admission.
+
+**Consequence.** High-mass leads remain needs_discussion rather than accepted taxa.
+
+**Precise next acceptance route.** Return source-population-bound concept and parameter decisions, then rerun the same scoped priority/attribution consumer on affected inputs.
+
+**Negative or refused result.** All 1,006 selected concepts need discussion; 0 samples admitted; publication_allowed=false.
+
+**Matched denominator.** 10,637 sample leads/1,006 concepts/228,323 observations; 228,028 NISP observations sum 9,808,390; 295 digitized sum 12,911; 169 dataset IDs.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/taxon-priority/priority.json](priority.json) (SHA-256 `d2e3b1947c0cb698a6a2ab48aa6be3a85680b495f596dda1ec50cd411c17924f`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json](dataset-attribution.json) (SHA-256 `aa4920ea2466ee16b00cbc1aecf5d8b3f512ac009e6c4d7a02096063512d1c52`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

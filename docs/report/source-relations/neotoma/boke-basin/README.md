@@ -34,7 +34,27 @@ basin geometry, workbook-to-Neotoma core identity and LRA radius remain
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Two modern Bökesjön area sources and nearby points provide a same-lake lead with an explicit circular-radius comparison.
+
+**Unsupported claim.** Neither the 1984 sediment station A nor a modern lake point identifies the pollen core or its age-specific basin.
+
+**Actual verification performed.** Read the source-specific area/coordinate review and bound Swedish core-comparison report; no PDF recapture, polygon digitization or new geometry calculation.
+
+**Remaining input or review.** Original pollen-core identity, source-area temporal meaning and a justified sample-age basin model remain required.
+
+**Cause category.** Modern geometry evidence lacks temporal and physical-core authority.
+
+**Consequence.** The 80 m LandClim radius is not transferred; 1.5 ha, 1.6 ha and 2.0106 ha circle values remain distinct source/scenario quantities.
+
+**Precise next acceptance route.** Link the physical pollen core to dated geometry or justify an explicit alternative static basin profile with permitted use and sensitivity.
+
+**Negative or refused result.** Historical basin geometry and every Bökesjön LRA input remain unadmitted.
+
+**Matched denominator.** 1 named lake lead; 2 reported modern areas; 1 published 80 m radius comparison; 0 reconstructed ages or admitted basin samples.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json](../swedish-lake-core-identity/report.json) (SHA-256 `d2b80a81ed26c7d3f327488290927de6220a3ca39c8d7d15514c258c75dc7594`).
+
+- [Retained qualification evidence: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -33,7 +33,27 @@ observation, or atlas point through this change.
 
 Native DNA specimen/publication/chronology scope and unsupported ecological or pollen extension.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The Galician sample account preserves eight Bos taurus and three Bos primigenius through normalized and curated consumers.
+
+**Unsupported claim.** Species resolution does not resolve locality, calibrated sample chronology, Nordic relevance or point eligibility.
+
+**Actual verification performed.** Read report.json and the eleven-row samples.csv, comparing curated species, context-blocked posture and absent sample context; no consumer regeneration.
+
+**Remaining input or review.** Source-owned site and date evidence, project-paper linkage promotion and scoped context review remain absent.
+
+**Cause category.** Sample identity is resolved more narrowly than spatial and temporal context.
+
+**Consequence.** All eleven remain outside atlas points despite their resolved sample species.
+
+**Precise next acceptance route.** Qualify each sample-owned locality/date and project-paper relation, then rerun the scoped sample consumer.
+
+**Negative or refused result.** All eleven have sample_context_blocked; no atlas point, sample chronology or site is admitted.
+
+**Matched denominator.** 11 BioSamples/curated samples, 8 domestic and 3 aurochs; 18 paper specimens are a distinct denominator.
+
+- [Retained qualification evidence: docs/report/source-relations/dna-scope/galician-cattle-samples/report.json](report.json) (SHA-256 `8100babee63c9e86912d097ac5ecebc048f4db4c5b1bdfce8f09120a660fdd9b`).
+
+- [Retained qualification evidence: docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv](samples.csv) (SHA-256 `a423250b6e9d7f963bbda64f8ff483a906147b611ef32e51ec6a5745341adc39`).
 
 - [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
 

@@ -67,7 +67,27 @@ denominators.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The four-country account reconciles assigned site retrieval and all 177,763 source observation dispositions within one bounding-box capture.
+
+**Unsupported claim.** Scoped query completeness is not national completeness, eligible events, source-native country reporting or complete source-unit accounting.
+
+**Actual verification performed.** Read all four country rows and 61-table/19,005-query receipt totals in retained report; no acquisition or event rerun.
+
+**Remaining input or review.** Excluded-coordinate review and source ecological/chronological admission remain; other unit denominators are owned by the separate unit account.
+
+**Cause category.** Governed coverage and refused dispositions do not imply scientific support.
+
+**Consequence.** 103 review/23 unassigned sites are excluded scope, not retrieval losses or country zeros.
+
+**Precise next acceptance route.** Qualify excluded source coordinates and scientific event endpoints before expanding country/event claims.
+
+**Negative or refused result.** 0 terminal assigned-site retrieval loss but 0 eligible events/sites; all 177,763 dispositions refused; no whole-workpack closure.
+
+**Matched denominator.** 2,069 assigned sites; observations SE 163,107, DK 5,264, NO 8,950, FI 442=177,763; 61 table/19,005 query receipts, 0 recorded failures/retries.
+
+- [Retained qualification evidence: docs/report/source-relations/sead/country-coverage/report.json](report.json) (SHA-256 `6b9887b73eacadca8ddad35a114a7d234b5e235500272faa2be84e7d3a50936d`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/country-coverage/rows.csv](rows.csv) (SHA-256 `f4a3ca6b21f4e0d0715b0510ede9446ddc6d66732d3b0b833d4eebfa4166fdc3`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

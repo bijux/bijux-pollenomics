@@ -75,7 +75,25 @@ chronology robustness over the other 20 bins.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The prior-exposed16-label sensitivity reuses frozen Norway-excluded predictions on two samples whose entire95%LegacyAge intervals fit their original500-cal-BP bins.
+
+**Unsupported claim.** Two-bin support cannot establish Nordic transfer quality, a joint age posterior, historical LandClim chronology, LRA or independent vegetation accuracy.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Historical study chronology and a source-qualified joint age model remain missing for those stronger claims; independent site support is absent.
+
+**Cause category.** Conditional age-bound sample restriction on exposed development data.
+
+**Consequence.** Differences from complete parent-bin scores follow excluded samples; the two retained samples do not change bins or imply an improved model.
+
+**Precise next acceptance route.** Replay freeze then score with the same16labels and frozen predictions, retain all72sample decisions and compare the same two bins before any broader chronology claim.
+
+**Negative or refused result.** 69crossing samples and one missing exact-depth join are refused;20of22parent bins have no supported sample.
+
+**Matched denominator.** One site/dataset20034;72parent samples,71exact joins,two contained samples,two bins,four fixed methods/eight prediction rows; own response denominator is16-label NISP.
+
+- [Retained qualification evidence: docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/report.json](report.json) (SHA-256 `80fcb5907888ba9983dbc32c6e19a4298947756a56fa8210fef6769e2a1ea33a`).
 
 - [Canonical scientific account: reports/science/dalmutladdo-lra-input/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/dalmutladdo-lra-input/README.md).
 

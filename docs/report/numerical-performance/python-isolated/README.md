@@ -45,7 +45,25 @@ Memory and timing depend on the machine and process state. The producer pins its
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Five fresh single-thread workers for each of seven workloads preserve the baseline output and nonfinite digests while measuring startup-inclusive duration and peak RSS.
+
+**Unsupported claim.** Process isolation does not make filesystem caches cold, isolate allocations or establish native adoption, R parity or ecological performance.
+
+**Actual verification performed.** Read the retained worker counts, baseline relationship and RSS/startup semantics and bound the account; no fresh worker was launched for this qualification.
+
+**Remaining input or review.** A later optimization or platform claim requires its own exact-source full-call comparison and relevant numerical qualification.
+
+**Cause category.** Whole-worker performance observations with explicit startup and import scope.
+
+**Consequence.** The observed duration and high-water increments describe complete workers rather than kernel-only time or memory ownership.
+
+**Precise next acceptance route.** Use an admitted identical workload and source closure, retain each worker and compare full-call costs without subtracting unmeasured import effects.
+
+**Negative or refused result.** Observed zero RSS increments remain compatible with real allocations below an earlier import high-water mark; they are not memory-free results.
+
+**Matched denominator.** Seven workloads×five workers=35 fresh workers; whole RSS 158.2–161.6 MiB, increments 0–2.6 MiB and durations 1.38–1.53 s include imports and setup.
+
+- [Retained qualification evidence: docs/report/numerical-performance/python-isolated/report.json](report.json) (SHA-256 `1c5f2444bce9d941cf6e7fa45f8c61e0ed04afa067008ab085a3163007c2c17c`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

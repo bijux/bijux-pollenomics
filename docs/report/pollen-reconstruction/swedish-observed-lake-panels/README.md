@@ -40,7 +40,25 @@ Actual independent integration terminal 9eeaa5f127fdf9e19dd02ac2298fe907c3475985
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Forty-nine separately named native radius/chronology/literal-panel cases yield 5,040 new conditional compositions/covariances, including prespecified Betula/Ulmus pooled scenarios. Complete-domain source support and exact published model-panel comparisons are retained as separate outcomes.
+
+**Unsupported claim.** Optimized/measured paleobasin geometry, biological equivalence from literal parameter tokens, independent 5040 observations, vegetation accuracy, historical selection identity, R parity, calibrated coverage or published panel-ratio SE without archive covariance.
+
+**Actual verification performed.** The reader and retained result/source qualification products were inspected. Original native execution records exit 0 for 5,040 results with frozen inputs unchanged; independent Decimal 50 checks cover all compositions/covariances. Separate circle-lens integration qualifies 284 tuples/10,600 uses. Later publication and 225-result comparator have their own actual receipts. This qualification reruns none of them.
+
+**Remaining input or review.** Alternative dataset/chronology/radius associations remain scenarios, and 29 native units are not proven empirically independent. Public PPE transfer, bog receiver-law applicability, unknown physical basins and field covariance remain unresolved. Three native publication responses remain empty; current citations/use policy do not authenticate historical private-author-copy selection/rights.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Interpret estimates within each two-taxon panel and conditional fixed assumptions. Keep covariance within a result distinct from a joint time series, and treat published archive differences as model discrepancies rather than independently measured vegetation errors.
+
+**Precise next acceptance route.** Qualify native taxon/receiver/chronology and historical source/rights decisions for the intended claim. Obtain archive cross-taxon covariance for ratio SE, and independently matched vegetation plus an external uncertainty model/review for ecological accuracy or empirical coverage.
+
+**Negative or refused result.** The 75 pooled grid/window slots contain 45 complete,27 partial and 3 wholly absent combinations;30 domain refusals are retained. Publication endpoints 1438/53969/53970 remain empty. Published-model baseline maximum ratio gaps are 0.353006/0.218681/0.271167 across the 3 grids; no missing window or taxon is filled as measured zero.
+
+**Matched denominator.** 30 datasets,29 collection units,49 declared cases;4,815 individual plus 225 pooled =5,040 results. Betula/Ulmus uses 7 distinct original units over 3 grids ×25 windows =75 slots,45 complete. Five finite transport scenarios use 284 distinct tuples/10,600 uses. Current primary citations cover 27/30 dataset designations; all 37 associated publication records remain visible.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-observed-lake-panels/report.json](report.json) (SHA-256 `a68d112c80202cb2b97245434a2cfe01af8f8f71733141f54768c711388ff7c2`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -90,7 +90,27 @@ MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Two explicitly bounded optimized-LOVE requests refuse convergence for one exposed English training pair. A separate finite-candidate diagnostic preserves best vectors/objectives without publishing a valid LRA product or held-out score.
+
+**Unsupported claim.** Proof that every optimized budget fails, original R optimizer parity, a converged product, held-out skill, vegetation accuracy, source-authenticated Swedish geometry or Nordic transfer.
+
+**Actual verification performed.** The retained request/refusal report, finite-candidate diagnostics and cited source behavior were inspected. Retained preparation reconstructs the exact private-source request digests; actual numerical execution is attributed to product `83e3b4119` and its recorded limits. This qualification launches no private preparation, differential-evolution run or forward fit.
+
+**Remaining input or review.** The optimized profile excludes Filipendula because its 0.006 m/s source fall speed lies below the profile’s 0.01–0.15 m/s interval. Circular terrestrial geometry, source rights, physical/historical basin interpretation and external vegetation review remain separate; finite candidates do not resolve nonconvergence.
+
+**Cause category.** assumption | algorithm/numerical | comparability | access/rights | qualified review
+
+**Consequence.** Keep both bounded refusals and finite diagnostic vectors separate from publishable constrained cover. Further tuning on these exposed rows would be a new development study with its own fixed selection rule.
+
+**Precise next acceptance route.** Declare a justified new optimizer/development protocol and bounds, preserve the same source/count/method identities and failed asks, then require its actual convergence/product gate before any prediction. Ecological or transfer claims additionally need independently admitted geometry/cohort/reference inputs.
+
+**Negative or refused result.** The first request’s 4 runs and second request’s 2 runs all refuse convergence. Separate finite-candidate local-ring fits hit 20,000 evaluations without convergence, with forward MAEs 4.3355/4.4585 percentage points and maximum taxon error exceeding 62 points in each ring; no product or held-out score is accepted.
+
+**Matched denominator.** One selected regional/local pair,30 retained taxa and 2 local rings. The wider 15-site source loses 159/20,732 grains to the explicit Filipendula exclusion; selected regional/local rows lose 42 and 10 grains. Budgets 40 iterations/1,000 evaluations versus 120/20,000 are caps, not claimed consumption.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json](report.json) (SHA-256 `2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json](finite-candidate.json) (SHA-256 `0de8b9f2558c60c8dd405c01a31cae6542f908e225aa28b698e7c645a2cc2cf1`).
 
 - [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 

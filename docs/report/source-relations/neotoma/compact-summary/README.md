@@ -40,7 +40,25 @@ rights, original acquisition receipts or scientific admission.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** One Ageröds Mosse compact popup Samples value is derived from 135 distinct relational sample identities.
+
+**Unsupported claim.** One checked popup field and reverse trace do not derive every compact attribute or qualify chronology, taxa, rights or denominator.
+
+**Actual verification performed.** Read the compact derivation report, its source/materialization identity and representative sample/observation locators; no relational reader replay.
+
+**Remaining input or review.** Other compact fields and source scientific prerequisites retain their independent acceptance requirements.
+
+**Cause category.** A bounded display derivation has one-field scope.
+
+**Consequence.** 135 is a source-sample count, not an accepted dated/pollen cohort count.
+
+**Precise next acceptance route.** Replay the same relational-sample consumer on changed inputs and qualify each additional claimed field separately.
+
+**Negative or refused result.** No chronology selection, taxon denominator, original acquisition authority or scientific admission is supplied.
+
+**Matched denominator.** 1 site/1 Samples popup field; 135 distinct samples and 1 representative sample-to-observation reverse trace.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/compact-summary/report.json](report.json) (SHA-256 `0bb4bc99626e03dd80607fe9791ce5063777d5b2746b8035834cf81e2daa8909`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -76,8 +76,15 @@ def test_all_retained_method_means_are_equal_or_adjacent() -> None:
     assert comparisons == 12
 
 
-def test_retained_scope_passes_and_material_summary_change_refuses(
-    monkeypatch: pytest.MonkeyPatch,
+@pytest.mark.parametrize(
+    ("change", "message"),
+    [
+        ("metric", "interval method summaries differ"),
+        ("producer", "contained-age scope differs"),
+    ],
+)
+def test_retained_scope_passes_and_material_change_refuses(
+    monkeypatch: pytest.MonkeyPatch, change: str, message: str
 ) -> None:
     verifier = _verifier()
     scope, results = _scope_and_results()
@@ -85,7 +92,10 @@ def test_retained_scope_passes_and_material_summary_change_refuses(
     path = INTERVAL / "report.json"
     original_read_text = Path.read_text
     altered = json.loads(path.read_text(encoding="utf-8"))
-    altered["methods"]["nearest_site"]["mae_fraction"] += 1e-9
+    if change == "metric":
+        altered["methods"]["nearest_site"]["mae_fraction"] += 1e-9
+    else:
+        altered["producer_sha256"] = "0" * 64
 
     def changed_read_text(
         self: Path, encoding: str | None = None, errors: str | None = None
@@ -95,5 +105,5 @@ def test_retained_scope_passes_and_material_summary_change_refuses(
         return original_read_text(self, encoding=encoding, errors=errors)
 
     monkeypatch.setattr(Path, "read_text", changed_read_text)
-    with pytest.raises(ValueError, match="interval method summaries differ"):
+    with pytest.raises(ValueError, match=message):
         verifier.verify_sambosjon_contained_age_support(scope, results)

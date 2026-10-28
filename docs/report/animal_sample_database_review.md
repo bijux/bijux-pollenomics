@@ -82,7 +82,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The database review supports a partial sample-owned animal metadata surface while explicitly refusing region-agnostic readiness and broader world-map expansion.
+
+**Unsupported claim.** Meeting numerical readiness floors is not reference grade, global representativeness or scientific admission of every mapped source.
+
+**Actual verification performed.** Read counts, readiness thresholds and four blockers; checked 1468 samples, 165 features and 322 mapped share 0.2193. No source database or threshold evaluation was rerun.
+
+**Remaining input or review.** Primary paper linkage, unresolved sample sites, coordinate refusals and named-site geocoding need source-owner and qualified scientific resolution.
+
+**Cause category.** Partial sample database with source-depth and publication limits.
+
+**Consequence.** A supported database structure/Nordic view does not authorize expanding scientific claims to world coverage.
+
+**Precise next acceptance route.** Resolve native source/sample/site/chronology gaps and replay the database/publication contracts, then independently review geographic representativeness before broader deployment.
+
+**Negative or refused result.** region_agnostic_contract_ready false; world expansion unsupported; 23 intake projects blocked. The historic 170/331 atlas no longer describes the current 165/322 surface.
+
+**Matched denominator.** 40 tracked projects, 18 papers, 75 supplements; 1468 normalized samples versus 1475 sample-site/chronology rows; 553 site-evidence/308 coordinate rows; 165 features/322 mapped samples; 4 country bundles.
+
+- [Retained qualification evidence: docs/report/animal_sample_database_review.json](animal_sample_database_review.json) (SHA-256 `2ccfbe1b1c17555e341378d3b4582d14e9447145f2a5f5da20a4544e3f80a610`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

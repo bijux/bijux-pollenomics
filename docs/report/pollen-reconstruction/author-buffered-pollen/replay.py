@@ -10,6 +10,15 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+from typing import Any
+
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+    load_routes,
+    verified_authored_reader,
+)
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
+    validate_evidence,
+)
 
 FAMILY = Path(__file__).resolve().parent
 REPOSITORY = FAMILY.parents[3]
@@ -56,7 +65,23 @@ def _method_paths(family_output: Path) -> list[str]:
     ]
 
 
-def _compare(family_output: Path, manifest: dict[str, object]) -> list[str]:
+def _compare(family_output: Path, manifest: dict[str, Any]) -> list[str]:
+    routes = load_routes()
+
+    def compared_bytes(path: Path, relative: str) -> bytes:
+        raw = path.read_bytes()
+        if Path(relative).suffix != ".md":
+            return raw
+        key = (FAMILY.relative_to(REPOSITORY) / relative).as_posix()
+        route = routes.get(key)
+        if route is None:
+            if b"scientific-account-route:" in raw:
+                raise ValueError("Buffered reader has an undeclared managed account")
+            return raw
+        if route.qualification is not None:
+            validate_evidence(REPOSITORY, route.qualification, portal=False)
+        return verified_authored_reader(raw, route)
+
     entries = {
         item["path"]: item
         for item in manifest["files"]
@@ -70,12 +95,13 @@ def _compare(family_output: Path, manifest: dict[str, object]) -> list[str]:
         produced = family_output / relative
         tracked = FAMILY / relative
         item = entries[relative]
-        if produced.stat().st_size != item["bytes"]:
+        produced_bytes = compared_bytes(produced, relative)
+        if len(produced_bytes) != item["bytes"]:
             differences.append(f"size differs: {relative}")
-        produced_hash = _sha256(produced)
+        produced_hash = hashlib.sha256(produced_bytes).hexdigest()
         if produced_hash != item["sha256"]:
             differences.append(f"manifest hash differs: {relative} ({produced_hash})")
-        if not tracked.is_file() or produced.read_bytes() != tracked.read_bytes():
+        if not tracked.is_file() or produced_bytes != compared_bytes(tracked, relative):
             differences.append(f"tracked bytes differ: {relative}")
     return differences
 

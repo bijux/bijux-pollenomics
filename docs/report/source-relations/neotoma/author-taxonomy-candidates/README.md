@@ -107,7 +107,27 @@ the mapping, denominator or affected prediction.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The literal author-lookup ledger preserves 1,006 candidate concepts and their target, excluded or unmatched status.
+
+**Unsupported claim.** Botanical synonym/name equality does not approve pollen-type identity or generalize a scoped two-count decision to 34 occurrences.
+
+**Actual verification performed.** Read the concept ledger, status totals and source-unit separation alongside the authored cereal/Rhododendron questions; no remapping or botanical lookup rerun.
+
+**Remaining input or review.** Qualified source-specific pollen concept decisions, including combined cereal and Rhododendron synonym applicability, remain not_received.
+
+**Cause category.** Taxonomic candidates require scoped biological authority.
+
+**Consequence.** All 1,006 concepts retain needs_discussion and author-excluded/unmatched mass stays in the denominator.
+
+**Precise next acceptance route.** Return a qualified decision bound to native concept/population, lookup/parameter revision and rights before changing mappings.
+
+**Negative or refused result.** 668 excluded and 202 unmatched concepts remain; Hordeum/Secale cannot be narrowed toSecale; Rhododendron is still literal-unmatched.
+
+**Matched denominator.** 1,006 concepts/228,323 priority observations: 136 author-target, 668 excluded, 202 unmatched; native NISP and NISP digitized are separate.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json](report.json) (SHA-256 `5727ed9f735436aa6c806368be0bf1f39402c4f84575cb94562e8c879b6bb057`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/taxon-priority/priority.json](../taxon-priority/priority.json) (SHA-256 `d2e3b1947c0cb698a6a2ab48aa6be3a85680b495f596dda1ec50cd411c17924f`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

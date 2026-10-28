@@ -97,7 +97,25 @@ estimator.
 
 Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The fixed synthetic schedules expose first-observed sampling and shuffle bias while retaining all estimator input and chronology refusals against independently declared 5500 cal BP change truth.
+
+**Unsupported claim.** Passing calculation/refusal expectations does not mean all change times were recovered, establish continuous presence, empirical profile thresholds or validate historical first appearance.
+
+**Actual verification performed.** Read the prospective profiles, every outcome category and retained denominator/error account; bound the report. No estimator or scoring calculation was rerun for this qualification.
+
+**Remaining input or review.** Real events need accepted source ownership, native measurement semantics, definitely ordered comparable sample ages and independently reviewed threshold/interpretation support.
+
+**Cause category.** Synthetic observed-event calculation and sampling-bias challenge.
+
+**Consequence.** Observed sample events can lag or precede declared ecological truth under the controls; refused attempts remain in the requested denominator with null error.
+
+**Precise next acceptance route.** For real data, admit the exact feature/source/snapshot and ordered sample chronology before the public estimator; freeze an independent truth and scoring protocol before accuracy evaluation.
+
+**Negative or refused result.** Three of seven estimates are biased, including the falsely early shuffled control; twelve attempts refuse. Uncalibrated numeric radiocarbon ages remain context-only with null canonical bounds.
+
+**Matched denominator.** Nineteen requested attempts: seven estimates and twelve refusals; four estimates exactly recover truth and three are biased. All 19 contract expectations pass; estimate-only MAE is 300/7 years, not zero over all attempts.
+
+- [Retained qualification evidence: docs/report/synthetic-validation/change-time/report.json](report.json) (SHA-256 `04a0150e0b4157a79cfdb36b7b4bc3681a3651fe3cad8023f96fd3420c17a4e1`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

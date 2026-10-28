@@ -42,7 +42,29 @@ denominators.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The current comparison retains every 77-site Swedish candidate and its identity/radius-transfer refusal against 84 published sequences.
+
+**Unsupported claim.** A shared name or sub 10 m point gap does not prove physical core identity or permit radius transfer.
+
+**Actual verification performed.** Read the current summary, 77-row ledger and source manifest, retaining the 37-site historical cohort as a subset; no geographic consumer rerun.
+
+**Remaining input or review.** Original core/coordinate reconciliation, chronology, count support, basin model and rights decisions remain required.
+
+**Cause category.** Metadata proximity is an identity lead only.
+
+**Consequence.** The 34 same-name point leads cannot become 34 admitted cores.
+
+**Precise next acceptance route.** Resolve exact physical core/sample selection with source-holder evidence before attaching published radius or chronology.
+
+**Negative or refused result.** Every row refuses identity/radius transfer; Klotjärnen’s 6.773038 km gap forbids assigning its 56 m radius by name.
+
+**Matched denominator.** 77 Neotoma candidate sites, 68 with points, 84 LandClim sequences; 34 same-name point leads, 16 within 10 m; 0 admitted identities/LRA samples.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/landclim-site-identity/report.json](report.json) (SHA-256 `9a0b6aee4ead3f8a658b63a279e74c11210bb680c78d538ed83a4b0b4c90f4cf`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv](site-comparison.csv) (SHA-256 `104049578ccd4f6fb0e0df869ffa33ed5033bb8a68d5208e019428de7ee43e8c`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/landclim-site-identity/manifest.json](manifest.json) (SHA-256 `9913f7c86614a73c37ab2417e12a299129f9377213f8623f0da182251cd7d4c4`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

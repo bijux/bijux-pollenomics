@@ -21,7 +21,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained audit finds no declared identity/count drift across sample, atlas and country surfaces for ten source-native taxon rows.
+
+**Unsupported claim.** No drift is not completeness, scientific validity or permission to merge source-native Bos primigenius into domesticated Bos taurus.
+
+**Actual verification performed.** Read the ten retained drift rows and their separate sample/atlas/country counts; no producer replay or independent source extraction was run.
+
+**Remaining input or review.** Source-native taxonomy, mapping exclusions and scientific geography/chronology admission still need qualified interpretation even where generated counts agree.
+
+**Cause category.** Cross-product bookkeeping consistency with unresolved scientific admission.
+
+**Consequence.** Consistent outputs can preserve the same source limitation; drift false does not authenticate biological claims.
+
+**Precise next acceptance route.** Reproduce each governed surface from exact native sample identities and inspect any population delta by lineage before revising counts or admitting a scientific comparison.
+
+**Negative or refused result.** Several species retain zero atlas and country rows; their drift false status does not create positive evidence.
+
+**Matched denominator.** 10 source-native taxon rows summarize 1468 sample records, 165 atlas locality features and 12 country sample publications. Source-native taxon rows differ from nine project-species honesty rows.
+
+- [Retained qualification evidence: docs/report/animal_cross_surface_drift.json](animal_cross_surface_drift.json) (SHA-256 `102eb515b7b8b943decaf77b6aed68206babe9ec241a8b15a692986a5c4a3d50`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

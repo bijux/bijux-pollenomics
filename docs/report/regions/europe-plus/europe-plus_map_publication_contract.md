@@ -60,7 +60,25 @@ The opening extent centers the European frame while keeping enough margin for fu
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained europe-plus contract declares its parent scope, eligible layers and shared renderer; the default distance circle is30 km diameter.
+
+**Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Actual provider/browser/export behavior and each layer's scientific/source rights decisions remain separate requirements.
+
+**Cause category.** Map delivery and scope contract.
+
+**Consequence.** Shared rendering makes publication behavior consistent without conferring scientific equivalence on mixed layers.
+
+**Precise next acceptance route.** Replay the configured scope and its browser/export checks using exact layer/source identities, then review scientific use under the appropriate data contract.
+
+**Negative or refused result.** Nordic-specific overlays remain excluded from Europe-plus; approximate and country-unresolved animals keep their caveats.
+
+**Matched denominator.** Four represented countries,11declared layer rows; circle30 km is a display diameter, not a scientific sampling denominator.
+
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_map_publication_contract.json](europe-plus_map_publication_contract.json) (SHA-256 `20c59f4f2ebed816f8363b19996edbe4dbdba683677c41052ca39bf5b7217dbf`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

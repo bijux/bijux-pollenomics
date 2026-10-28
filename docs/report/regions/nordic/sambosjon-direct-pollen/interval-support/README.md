@@ -40,7 +40,25 @@ A second independent invocation reproduced all four retained files byte for byte
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained sensitivity keeps53wholly contained samples and fixed predictions, comparing the same21supported bins against the original full-bin response.
+
+**Unsupported claim.** It is not an age posterior, refit, independent confirmation, NordicLRA or measured vegetation comparison; the original22-bin score answers a different support question.
+
+**Actual verification performed.** Executed the maintained source-owned contained-age replay without refitting on the frozen source candidate. All 111 native sample IDs and 66 frozen predictions were reaggregated; all three CSV files and every report scientific value match the retained account exactly. Only the producer identity changed. The maintained verifier accepted the fresh result and refused a 1e-9 summary alteration and incorrect producer hash. No chronology model, fit, ecological validation or human scientific review was performed.
+
+**Remaining input or review.** Current-source contained-age correspondence is established for the frozen inputs; scientific chronology qualification and collaborator review remain outstanding.
+
+**Cause category.** Conditional marginal age support; chronology and qualified review remain unresolved.
+
+**Consequence.** Withholding crossing samples alters count composition and slightly worsens the fixed primary paired score without implying a model-selection result.
+
+**Precise next acceptance route.** Obtain source-qualified chronology support and qualified review of the same-bin comparison. If source samples, frozen predictions or producer behavior change, repeat the named contained-age consumer and preserve all refusals before changing the claim.
+
+**Negative or refused result.** 58crossing samples remain excluded; bin1has three refused/null method rows, rather than zero error or omitted failure.
+
+**Matched denominator.** 53of111samples in21of22bins;63scored of66method/bin rows;185,150retained native NISP/108,163closed-axis; primaryMAE0.023054versus0.022881on the same bins.
+
+- [Retained qualification evidence: docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json](report.json) (SHA-256 `89d33e6a2a0f5a352764093972c02e29f4c7d9eef1988fbff3fb3029a71326dc`).
 
 - [Canonical scientific account: reports/science/sambosjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sambosjon-direct-pollen.md).
 

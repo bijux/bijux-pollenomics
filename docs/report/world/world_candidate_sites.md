@@ -464,7 +464,25 @@ Species-aware evidence boundary: mapped Homo sapiens localities are direct atlas
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The 447-row atlas-adjacent heuristic orders current human-locality anchors using declared evidence, chronology, species, context and missingness components.
+
+**Unsupported claim.** A total score or ranked status is not measured ecological quality, a fieldwork recommendation or a biological causation/arrival estimate.
+
+**Actual verification performed.** Read retained ranking/evidence boundary and explicit recommendation gate; checked 447 rows and their publication posture. No heuristic producer, profile selection or field validation was run.
+
+**Remaining input or review.** Cross-species support, admitted chronology/context and non-metadata direct evidence are required before the fieldwork_triage recommendation gate can be considered.
+
+**Cause category.** Exploratory atlas ordering under unqualified scientific/source support.
+
+**Consequence.** Nearby animal/context records remain explicit contextual support; one human species at a locality is not a multispecies verified sampling target.
+
+**Precise next acceptance route.** Reproduce the frozen 447 anchor population and score components, then qualify cross-species/chronology/context/independent-evidence gates under a predeclared fieldwork protocol.
+
+**Negative or refused result.** Sampling recommendation disabled; ranked and downgraded rows retain exploratory_only posture. Weak/missing source support is not filled by proximity.
+
+**Matched denominator.** 447 human locality anchors, derived from 1231 published AADR sample records; components and nearby context counts reuse source evidence rather than adding independent biological observations.
+
+- [Retained qualification evidence: docs/report/world/world_candidate_sites.json](world_candidate_sites.json) (SHA-256 `46e15cf7e4ffcb25900790004661f0119f374e895ec9fb36c125bf2d5508f18f`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

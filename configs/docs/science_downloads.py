@@ -128,6 +128,112 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
+RETAINED_BUILD_CONTEXT_PATH = "presentation/retained-build-source-context.json"
+RETAINED_BUILD_CONTEXT_SHA256 = (
+    "0c15e691d437c8bc6dc4fd58b0215fd93cdb4ad000de42d688b28e71e967f1d0"
+)
+RETAINED_BUILD_LOCK_SHA256 = (
+    "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"
+)
+RETAINED_BUILD_WITNESS = "094939c4f7fc286dc93363a3f9ec584b1cc34efb"
+RETIRED_DECK_REGISTER = "reports/needed/README.md"
+
+
+def _retained_build_sources(root: Path) -> dict[str, Any]:
+    """Authenticate historical PDFs without freezing maintained prose or tooling."""
+    raw = _read(root, RETAINED_BUILD_CONTEXT_PATH)
+    if hashlib.sha256(raw).hexdigest() != RETAINED_BUILD_CONTEXT_SHA256:
+        raise ValueError("Retained deck build context changed")
+    context = json.loads(raw, object_pairs_hook=_json_object)
+    previous_raw = _read(root, RETAINED_CONTEXT_PATH)
+    if (
+        hashlib.sha256(previous_raw).hexdigest() != RETAINED_CONTEXT_SHA256
+        or json.loads(previous_raw, object_pairs_hook=_json_object) != RETAINED_CONTEXT
+    ):
+        raise ValueError("Retained deck original context differs")
+    previous_revision = RETAINED_CONTEXT["source_revision"]
+    for revision in (previous_revision, RETAINED_BUILD_WITNESS):
+        _git(root, "merge-base", "--is-ancestor", revision, "HEAD")
+    previous_lock = _committed_inputs(
+        root, previous_revision, ["presentation/source-lock.json"]
+    )["presentation/source-lock.json"]
+    if (
+        hashlib.sha256(previous_lock).hexdigest()
+        != RETAINED_CONTEXT["source_lock_sha256"]
+    ):
+        raise ValueError("Retained deck original source lock differs")
+    original_lock = json.loads(previous_lock, object_pairs_hook=_json_object)
+    if original_lock["decks"] != list(DECKS) or len(original_lock["sources"]) != 98:
+        raise ValueError("Retained deck original source population differs")
+    lock_raw = _read(root, "presentation/source-lock.json")
+    if hashlib.sha256(lock_raw).hexdigest() != RETAINED_BUILD_LOCK_SHA256:
+        raise ValueError("Retained deck build source lock changed")
+    lock = json.loads(lock_raw, object_pairs_hook=_json_object)
+    paths = sorted(lock["sources"])
+    if lock["decks"] != list(DECKS) or len(paths) != 121:
+        raise ValueError("Retained deck build source population differs")
+    historical = _committed_inputs(
+        root, RETAINED_BUILD_WITNESS, paths + ["presentation/source-lock.json"]
+    )
+    if historical["presentation/source-lock.json"] != lock_raw:
+        raise ValueError("Retained deck source lock differs from its Git witness")
+    reviewed = context["current_source_sha256"]
+    if set(reviewed) != set(paths) or RETIRED_DECK_REGISTER not in paths:
+        raise ValueError("Retained deck reviewed source population differs")
+    retired = root / RETIRED_DECK_REGISTER
+    if retired.exists() or retired.is_symlink():
+        raise ValueError("Retained deck historical register is not a current input")
+    current_paths = [path for path in paths if path != RETIRED_DECK_REGISTER]
+    current_revision = _git(root, "rev-parse", "--verify", "HEAD").decode().strip()
+    committed = _committed_inputs(root, current_revision, current_paths)
+    modes = _git(root, "ls-tree", "-r", "-z", current_revision, "--", *current_paths)
+    for record in modes.split(b"\0"):
+        if record:
+            metadata, name = record.split(b"\t", 1)
+            physical = (
+                b"100755"
+                if (root / name.decode()).stat().st_mode & 0o100
+                else b"100644"
+            )
+            if metadata.split()[0] != physical:
+                raise ValueError("Retained deck physical mode differs")
+    historical_inputs, current_inputs = [], []
+    for relative in paths:
+        original_hash = hashlib.sha256(historical[relative]).hexdigest()
+        if original_hash != lock["sources"][relative]:
+            raise ValueError("Retained deck historical source changed")
+        historical_inputs.append({"path": relative, "sha256": original_hash})
+        if relative == RETIRED_DECK_REGISTER:
+            continue
+        current = _read(root, relative)
+        if current != committed[relative]:
+            raise ValueError(
+                f"Retained deck source differs from committed input: {relative}"
+            )
+        current_hash = hashlib.sha256(current).hexdigest()
+        # Machine evidence retains its reviewed bytes; maintained readers and tooling
+        # are Git-owned current inputs, not a claim that historical PDFs used them.
+        if (
+            PurePosixPath(relative).suffix in {".json", ".csv"}
+            and current_hash != reviewed[relative]
+        ):
+            raise ValueError(
+                f"Retained deck reviewed machine source changed: {relative}"
+            )
+        current_inputs.append({"path": relative, "sha256": current_hash})
+    for relative, expected in context["retained_build"]["pdf_sha256"].items():
+        if hashlib.sha256(_read(root, relative)).hexdigest() != expected:
+            raise ValueError("Retained deck original PDF changed")
+    return {
+        "context": context,
+        "historical_inputs": historical_inputs,
+        "current_inputs": current_inputs,
+        "historical_only_inputs": [RETIRED_DECK_REGISTER],
+        "source_witness_revision": RETAINED_BUILD_WITNESS,
+        "retained_build_source_lock_sha256": RETAINED_BUILD_LOCK_SHA256,
+    }
+
+
 def retained_deck_sources(root: Path) -> dict[str, Any]:
     """Keep current compiled Git inputs separate from the historical deck context."""
     manifest = json.loads(_read(root, MANIFEST), object_pairs_hook=_json_object)
@@ -142,6 +248,11 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
             dict[str, Any],
             scope["admitted_sources"](root, manifest, _read, _committed_inputs, _git),
         )
+    if (
+        hashlib.sha256(_read(root, "presentation/source-lock.json")).hexdigest()
+        == RETAINED_BUILD_LOCK_SHA256
+    ):
+        return _retained_build_sources(root)
     context_bytes = _read(root, RETAINED_CONTEXT_PATH)
     context = json.loads(context_bytes, object_pairs_hook=_json_object)
     if hashlib.sha256(context_bytes).hexdigest() != RETAINED_CONTEXT_SHA256:
@@ -319,7 +430,15 @@ def download_bytes(root: Path) -> dict[str, bytes]:
         path for path in expected if path.startswith("reports/exports/papers/")
     }:
         raise ValueError("Scientific download and qualified paper membership differ")
-    retained_deck_sources(root)
+    deck_authority = retained_deck_sources(root)
+    retained_build = (
+        deck_authority.get("retained_build_source_lock_sha256")
+        == RETAINED_BUILD_LOCK_SHA256
+    )
+    retained_sources = {
+        row["path"]: row["sha256"]
+        for row in deck_authority.get("historical_inputs", [])
+    }
     frozen = {}
     for row in rows:
         uri, source = expected[row["path"]]
@@ -329,6 +448,9 @@ def download_bytes(root: Path) -> dict[str, bytes]:
             row.get(key) != value for key, value in papers[row["path"]].items()
         ):
             raise ValueError("Scientific download differs from qualified paper export")
+        retained_slide = retained_build and row["path"].startswith("presentation/")
+        if retained_slide and row["source_sha256"] != retained_sources.get(source):
+            raise ValueError("Scientific download differs from retained deck source")
         content = _read(root, row["path"])
         if (
             not content.startswith(b"%PDF-")
@@ -337,6 +459,7 @@ def download_bytes(root: Path) -> dict[str, bytes]:
             or (
                 not (
                     row["path"] in papers
+                    or retained_slide
                     or (
                         "deck_build" in manifest
                         and row["path"].startswith("presentation/")

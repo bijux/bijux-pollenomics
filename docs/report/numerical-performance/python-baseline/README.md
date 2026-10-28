@@ -83,7 +83,25 @@ certify source-R/C++ parity, parallel scaling or the full backend investigation.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained single-thread baseline characterizes seven fixed Python workloads with stable scientific-output and missingness digests before a native boundary is considered.
+
+**Unsupported claim.** It supplies no source-R/C++ parity, empirical vegetation accuracy, cold filesystem-cache benchmark, per-workload allocation measurement or cross-platform speed guarantee.
+
+**Actual verification performed.** Read the workload identities, repetition counts and process-wide RSS/cache limitations and bound the retained report; no timing, reconstruction or optimizer execution was repeated.
+
+**Remaining input or review.** A proposed optimization must bind the exact scientific workload and demonstrate representative conversion-inclusive benefit with independently qualified mathematical behavior.
+
+**Cause category.** Historical performance baseline on declared computational fixtures.
+
+**Consequence.** These timings can identify a candidate cost boundary without converting copied synthetic coordinates into independent physical sites.
+
+**Precise next acceptance route.** Preserve output and nonfinite digests and evaluate any new boundary against the declared full-call gate on the same qualified support.
+
+**Negative or refused result.** Eight synthetic coordinate replicas are not eight independent ecological sites; the optimized fixture is fixed-candidate replay rather than convergence evidence.
+
+**Matched denominator.** Seven workloads, one first call and seven warm calls each plus separate profiling; Tiefer input 45 rows/21 taxa, LOVE input 10 taxa/36 rings, forward batch 128 rings/32 taxa. Whole-process peak 164.78 MiB is not per-workload RSS.
+
+- [Retained qualification evidence: docs/report/numerical-performance/python-baseline/report.json](report.json) (SHA-256 `3f4006947d0b0830580ca06e9e44d8eebb5a10faa5381fb1c8986601d95f1da8`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

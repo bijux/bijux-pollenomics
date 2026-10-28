@@ -65,7 +65,27 @@ and does not run the complete 15-fold consumer.
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** An exact derivative of the same normalized log-Euclidean LOVE objective reduces SLSQP evaluation counts and recovers HANGINGS under fixed source inputs, objective, constraints, start and budgets; the BECKHAM outer fold remains incomplete.
+
+**Unsupported claim.** A completed BECKHAM held-out prediction/score, permission to score nonconverged fits, measured vegetation accuracy or Nordic LRA source admission.
+
+**Actual verification performed.** The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks.
+
+**Remaining input or review.** CUTHILL2 and LONGBREACH still refuse under the unchanged analytic-gradient request. Exact derivatives cannot supply source-compatible valid convergence, missing physical basin interpretation, independent vegetation truth or qualified ecological review.
+
+**Cause category.** algorithm/numerical | assumption | comparability | qualified review
+
+**Consequence.** Retain convergence as an acceptance requirement. Lower evaluation counts or a slightly lower refused objective do not turn the incomplete outer fold into a scored prediction.
+
+**Precise next acceptance route.** Diagnose the remaining source-bound convergence failures under a separately declared development protocol, preserve fixed objective/constraint checks and all refused outcomes, then run only a newly justified evaluation. Independent ecological claims require their own admitted cohort and vegetation measurements.
+
+**Negative or refused result.** HANGINGS converges in both rings; CUTHILL2 and LONGBREACH still refuse in both. BECKHAM receives no LRA prediction or score. Largest scaled derivative differences are 2.79e-8 tangent and 7.42e-9 ambient; these checks do not waive fit convergence.
+
+**Matched denominator.** 3 failed training sites ×2 local rings =6 original diagnostics and 6 analytic-gradient ring fits, on a closed 30-taxon axis. Uniform start, one repeat,300 iterations,16,000 objective evaluations and ftol 1e-8 are fixed caps/settings; no held-out target pollen is opened or scored.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json](baseline.json) (SHA-256 `68afb09419754130f482783397f58b12c7c06ee041430b24d264dc7f9c30e009`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json](report.json) (SHA-256 `8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d`).
 
 - [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 

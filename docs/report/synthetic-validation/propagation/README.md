@@ -93,7 +93,25 @@ event or edge for these ecological partitions.
 
 Known constructed method/identity challenge; no empirical biological accuracy or untouched confirmation.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The fabricated sample-event network matches independently declared distance, lag, status and annotation expectations across all sixteen fixed rectangular sensitivity scenarios.
+
+**Unsupported claim.** These equations and pairwise rules do not establish real Nordic routes, independent alias occurrences, ecological hierarchy validation, empirical thresholds or causal spread.
+
+**Actual verification performed.** Read the full derivation and scenario denominators, boundary controls and retained alias limitations in the authored and machine reports; no network, source screen or numerical oracle was rerun.
+
+**Remaining input or review.** Real-source classification currently admits no ecological event; accepted concepts, source chronology and scientific interpretation are required before historical propagation use.
+
+**Cause category.** Constructed pairwise topology and threshold contract with explicit dependent aliases.
+
+**Consequence.** The network can retain definite, possible, excluded and refused pairs without declaring those synthetic arrows historical or treating dependent aliases as new biology.
+
+**Precise next acceptance route.** Admit a source-qualified event population, preserve feature ownership and observation ancestry, and run the actual public network with thresholds declared before scientific outcomes.
+
+**Negative or refused result.** One derivation refuses chronology; same-site and duplicate-observation pairs refuse. A dependent alias can still form other pairwise candidates, which are retained without an independence claim.
+
+**Matched denominator.** Nine derivation attempts yield eight events and one refusal; eight events×seven ordered partners×16 scenarios=896 pair attempts/comparisons. At 100 km/100 years there are 14 directed candidates, not 14 observed routes.
+
+- [Retained qualification evidence: docs/report/synthetic-validation/propagation/report.json](report.json) (SHA-256 `6221c2efb076e2136b48d6d4330ab97aa407141d192b6efcd3478c2cc40e0540`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

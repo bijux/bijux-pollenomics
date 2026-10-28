@@ -33,7 +33,31 @@ The [assumptions](assumptions/protocol.json), [aggregate report](report.json) an
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The same 45 Tibetanus sample counts yield different conditional mapped-panel cover when native points versus depth-matched Arctic TP points allocate counts to the same declared windows. This is a source-bound point-age scenario sensitivity, not chronology validation.
+
+**Unsupported claim.** Calibration or chronological accuracy of TP ages, a full 25-window source census, measured vegetation change/accuracy, historical LandClim identity or chronology uncertainty coverage from conditional counting/PPE SEs.
+
+**Actual verification performed.** The reader, protocol and actual capture/source-output review were inspected. Retained native execution exits 0 for 8 cases/184 results, exactly reproducing 92 native-age baseline windows; later source/output review checks memberships, support hashes and changed pooled windows. It is explicitly not an independent numerical oracle, and this qualification reruns nothing.
+
+**Remaining input or review.** Both scenarios have unknown sample-age error bounds. AD 1950 interpretation of TP endpoints is scoped source evidence, not calibration or age-model identity. Taxonomic/sparse-zero/partition assumptions, static 100 m geometry, historical selection, ecological validity and raw-source redistribution rights remain open.
+
+**Cause category.** data | assumption | comparability | access/rights | qualified review
+
+**Consequence.** Interpret cover differences within each mapped parameter panel, not as measured landscape change or proof of a better age model. Point scenarios and conditional delta SEs omit chronology, taxonomy, basin history and model discrepancy.
+
+**Precise next acceptance route.** Qualify TP/native chronology and joint age uncertainties for the named sample support, preserve the full declared source window domain separately, and obtain authentic historical preparation or independent vegetation measurements for those stronger claims. Retain distinct taxon/sparse-zero and rights decisions.
+
+**Negative or refused result.** 12/45 points migrate windows and 16/23 occupied windows change pooled counts. All 45 samples remain. Largest literal-map Pinus decrease is 22.768 percentage points; shared-birch and large-grass Tibetanus mappings are identical. Two earlier source-comparison failures were capture-control failures, not failed reconstruction cases.
+
+**Matched denominator.** 45 samples,4 parameter maps ×2 age scenarios =8 cases,23 occupied windows each and 184 results; all 43,851 reported grains accounted for. Native baseline 92 windows are matched exactly. Literal/major/shared-birch/large-grass mapped totals are 12,259/38,384/42,275/42,275 of 43,851; occupied-window union is not all 25 possible windows.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/report.json](report.json) (SHA-256 `5abb9af22673ec7e93fb38642b2d5f7958bd002218a5edd4514e11ffa093e5fe`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/protocol.json](assumptions/protocol.json) (SHA-256 `3943070ee7076b042279a8f0c4d534c4de0cf72cb05c2001379ae78ff86bb586`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json](execution/native-capture.json) (SHA-256 `cb8111b4ee4d660a2633e967cf561af551a69ed5838df045af8dab87f90e0c0f`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/actual-source-output-review.json](execution/actual-source-output-review.json) (SHA-256 `2625f8ce8d37f520db3078f925cbdf549273f8dd7065bb6bd28025426d19af8f`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

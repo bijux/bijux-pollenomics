@@ -56,7 +56,25 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained marginal-bound sensitivity reuses all69frozen predictions and scores only bins supported by samples whose full source bounds stay in their original point-age bin.
+
+**Unsupported claim.** This is not a joint age posterior, probabilistic correction, forward-time or untouched score, LRA admission or measured vegetation comparison.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Bounds have no stated confidence level; scientific interpretation and correlated chronology require actual source evidence rather than invented draws.
+
+**Cause category.** Conditional sample-support restriction on previously exposed outcomes.
+
+**Consequence.** Changed response composition within a bin can change the score even when predictions and bin labels remain fixed.
+
+**Precise next acceptance route.** Replay the contained-age owner, reproduce original source/count products first, then compare each method on the same20bins while retaining unsupported bins20–22.
+
+**Negative or refused result.** 42boundary-crossing and two originally age-refused samples remain visible; three unsupported bins retain refusals and null scores.
+
+**Matched denominator.** 86samples=42contained+42crossing+two age-refused;20of23supported bins,60scored of69method/bin rows;28,310contained closed-axis NISP from61,647native; primary paired MAE0.019316versus0.018367.
+
+- [Retained qualification evidence: docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/report.json](report.json) (SHA-256 `b72ce5bc316171a87635685a0f5a30ceefccc8a0eeab68c7df9ef1e46466b87f`).
 
 - [Canonical scientific account: reports/science/lilla-gloppsjon-direct-pollen.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/lilla-gloppsjon-direct-pollen.md).
 

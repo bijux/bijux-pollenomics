@@ -63,7 +63,25 @@ outcomes. Compare the replayed files byte for byte with the retained products.
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained31-taxon development comparison uses source pollen from exactly two500-BPbins older, excludes target/adjacent source bins and target physical groups, and scores frozen predictions on the same target outcomes as its baseline.
+
+**Unsupported claim.** Nominal1,000-BPseparation is not nonoverlap of true ages, a chronology posterior, independent confirmation, LRA reconstruction or measured vegetation skill.
+
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+
+**Remaining input or review.** Age-model uncertainty and scientific generalization need source-qualified distributions and independent targets; previously exposed data remain development support.
+
+**Cause category.** Nominal temporal source separation on exposed pollen.
+
+**Consequence.** Matched scores diagnose sensitivity to the declared training-time rule, while equal-site and sample-weighted summaries remain different estimands.
+
+**Precise next acceptance route.** Replay prepare/predict/score under the exact older-bin rule and compare only identical target bins; obtain untouched and source-qualified support before a confirmatory claim.
+
+**Negative or refused result.** PrimaryIDWequal-siteMAE0.0240227681is poorer than the matched baseline0.0236473232; zero refusals is retained support, not scientific validation.
+
+**Matched denominator.** Three physical sites with21/20/13target bins=54bins,31taxa,three methods/162predictions; zero refused or failed bins.
+
+- [Retained qualification evidence: docs/report/regions/nordic/swedish-chronology-block/report.json](report.json) (SHA-256 `d6ecc8d8805c778efe63b3527ddb6c8406ed43f536dd991fd0f672205e586487`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

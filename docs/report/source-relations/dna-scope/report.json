@@ -1,6 +1,6 @@
 {
   "animal": {
-    "distinct_point_sample_ids": 331,
+    "distinct_point_sample_ids": 322,
     "foundation_missing_paper_link_projects": [
       "PRJNA705960"
     ],
@@ -12,19 +12,15 @@
     "point_chronology_evidence_counts": {
       "archaeological_context_date": 3,
       "broad_period_label": 1,
-      "direct_radiocarbon_date": 129,
+      "direct_radiocarbon_date": 124,
       "historical_or_recent_date": 35,
       "modeled_sample_date": 2
     },
-    "point_features": 170,
+    "point_features": 165,
     "point_project_paper_pairs": [
       {
         "paper_doi": "10.1073/pnas.1901169116",
         "project_accession": "PRJEB30282"
-      },
-      {
-        "paper_doi": "10.1016/j.cell.2019.03.049",
-        "project_accession": "PRJEB31613"
       },
       {
         "paper_doi": "10.1038/s41586-021-04018-9",
@@ -57,14 +53,9 @@
     ],
     "point_scope_counts": {
       "domesticated_core": 117,
-      "wild_or_progenitor_context": 53
+      "wild_or_progenitor_context": 48
     },
     "point_source_artifacts": [
-      {
-        "bytes": 81103,
-        "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-        "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29"
-      },
       {
         "bytes": 171355,
         "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
@@ -117,7 +108,7 @@
       }
     ],
     "point_source_path_field_status_counts": {
-      "all_paths_present": 338,
+      "all_paths_present": 328,
       "partial_alternative_paths": 2
     },
     "point_source_path_issues": [
@@ -160,24 +151,24 @@
       "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049"
     },
     {
-      "bytes": 18126,
+      "bytes": 18127,
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
+      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099"
     },
     {
-      "bytes": 700614,
+      "bytes": 681283,
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc"
+      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6"
     },
     {
-      "bytes": 265714,
+      "bytes": 258326,
       "path": "data/adna/final/atlas/animal_atlas_candidate_accountability.json",
-      "sha256": "887bd050d0343146a25c9612a6f462f0d76dc9231618a19a8d4e3aa6541308af"
+      "sha256": "be4803d9438c846603768e5c0f01224189fbf1bd2c021913180e90c5e3af3b80"
     },
     {
       "bytes": 2099,
       "path": "docs/report/animal_foundation_validation.json",
-      "sha256": "1dd272dbdb777b4b70b38fb057ac18fcfc5f48c55c40f30cf1a33b159ecf8d27"
+      "sha256": "62aea5043cd03eb408d198873770bc33dd5a9ab074117b7ef8c0262a9f897dc2"
     }
   ],
   "pollen_evidence_admitted": false,

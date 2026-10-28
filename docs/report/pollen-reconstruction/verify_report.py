@@ -22,6 +22,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
     GitSourceMember,
+    read_blob,
     read_historical_python_correspondence,
 )
 from bijux_pollenomics_dev.reader_reports.source import (
@@ -415,6 +416,56 @@ def _buffered_reader_markdown(raw: bytes) -> bytes:
     return raw.replace(current, b"[family replay](replay.py)", 1)
 
 
+BUFFERED_READER_WITNESSES = {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py": GitSourceMember(
+        member="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        repository_path="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        source_revision="4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+        git_blob="cc4d3d8a8435e719632efc8d0ab9bfb6afcdd944",
+        sha256="5058747e742a80bc8caf73e0420b5dfa7297b18bbe866a7b50cbb38a962c0646",
+        bytes=9282,
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py": GitSourceMember(
+        member="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py",
+        repository_path="packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py",
+        source_revision="4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+        git_blob="cb4d0ba96aba527708d51f39f72ab5df2865e08f",
+        sha256="f091d85f2d0088e7d3b389c2262db51ac7d24dafae2537a10dd0d3dcb944bd2b",
+        bytes=5227,
+    ),
+}
+
+BUFFERED_NUMERICAL_SOURCES = frozenset(
+    [
+        "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/scoring.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/taxon_errors.py",
+    ]
+)
+
+
+def _buffered_historical_reader_source(
+    repository: Path, relative: str, expected: str
+) -> bytes:
+    """Authenticate recorded reader bytes, not current execution or the missing old epoch."""
+    witness = BUFFERED_READER_WITNESSES.get(relative)
+    if (
+        witness is None
+        or witness.member != relative
+        or witness.repository_path != relative
+        or witness.sha256 != expected
+    ):
+        raise ValueError("Buffered historical reader source role or identity differs")
+    return read_blob(repository, witness)
+
+
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     """Bind the buffered four-method diagnostic to frozen source and scores."""
     declared = scope["author_buffered_spatial_pollen"]
@@ -436,8 +487,14 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
             or hashlib.sha256(raw).hexdigest() != item["sha256"]
         ):
             raise ValueError(f"buffered author output differs: {item['path']}")
+    if set(manifest["producer_sha256"]) != BUFFERED_NUMERICAL_SOURCES | set(
+        BUFFERED_READER_WITNESSES
+    ):
+        raise ValueError("Buffered numerical and historical reader source roles differ")
     for relative, digest in manifest["producer_sha256"].items():
-        if sha256(REPOSITORY_ROOT / relative) != digest:
+        if relative in BUFFERED_READER_WITNESSES:
+            _buffered_historical_reader_source(REPOSITORY_ROOT, relative, digest)
+        elif sha256(REPOSITORY_ROOT / relative) != digest:
             raise ValueError(f"buffered author producer differs: {relative}")
 
     comparison = json.loads(

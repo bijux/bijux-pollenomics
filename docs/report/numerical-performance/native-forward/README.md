@@ -94,7 +94,25 @@ numerical tolerance and refusal contracts are explicit.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The private C++17 forward spike matches the declared NumPy and independent R-equation outputs within absolute 1e-12 plus relative 1e-10 on three synthetic shapes, while failing its full-call speed gate.
+
+**Unsupported claim.** Independent equation agreement is not original DISQOVER domain parity, production ABI adoption, portable packaging, parallel scaling or whole-workflow acceleration.
+
+**Actual verification performed.** Read the retained compiler/platform, prospective gate and conversion-inclusive measurement scope and bound report bytes; no compilation, R or timing runs were repeated.
+
+**Remaining input or review.** A production proposal needs representative whole-call benefit, complete source parity and supported-platform distribution/ABI ownership before adoption.
+
+**Cause category.** Numerical spike verification with a negative performance decision.
+
+**Consequence.** Correct arithmetic in a standalone candidate does not justify adding its native binary to the production package.
+
+**Precise next acceptance route.** Retain validated facade/conversion costs and the twofold speed and 1.25 RSS-ratio gates in a newly declared representative comparison before changing adoption.
+
+**Negative or refused result.** Validated ratios 0.928, 0.897, 0.722 are slower than NumPy and below 2.0. A two-call concurrency check is not a scaling experiment.
+
+**Matched denominator.** Three batch/ring/taxon shapes: 1×8×3, 32×128×32, 512×256×64; one warmup, nine blocks, 200 calls per block for the first two and 40 for the largest. Original DISQOVER parity and isolated RSS are separate scopes.
+
+- [Retained qualification evidence: docs/report/numerical-performance/native-forward/report.json](report.json) (SHA-256 `4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

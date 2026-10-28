@@ -277,7 +277,29 @@ World is the governing publication surface. It keeps every published country ins
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The world bundle is a governing publication scope with 1231AADR metadata samples from four Nordic country products and 165 governed animal locality features.
+
+**Unsupported claim.** World is a scope name, not worldwide source completeness, genotype analysis, scientific country/chronology admission or validated fieldwork advice.
+
+**Actual verification performed.** Read retained bundle/summary and layer inventory; checked humancountry counts sum 1231 and animal 165 feature total. No native browser, asset loader, map publisher or source review was rerun.
+
+**Remaining input or review.** Broader context-source coverage, qualified sample chronology/geography/rights and scientific admission remain incomplete; current browser/network behavior requires its own retained execution.
+
+**Cause category.** Publication scope and heterogeneous metadata layers with incomplete scientific/global coverage.
+
+**Consequence.** Withheld Nordic environmental/context overlays do not become globally available by widening the map frame; source-sample chronology overlays are not additional biological samples.
+
+**Precise next acceptance route.** Reproduce exact current bundle/assets and native browser contract, then qualify broader source coverage and each family role before asserting worldwide science or historical inference.
+
+**Negative or refused result.** Nordic-onlycontext overlays remain withheld; animal comparator layer count 0 is not absence of all wild/progenitor context; historical 170 features/331 memberships are superseded by 165/322.
+
+**Matched denominator.** Human 1231=SE 416+NO 130+FI 32+DK 653 at 447 localities; animal 165 features represent 322 samples across 6 mapped species. Source-chronology overlays 323 record uses overlap these memberships and must not be added as independent evidence.
+
+- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `2e03ba699986ad6bc8067a0772ded3650c7b234324fde03e0f75098e219f7132`).
+
+- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `0c0f9dd06622b6dfc4a12a91048242cac639690295f14646fce10dac6559d384`).
+
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -24,7 +24,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This honesty account keeps mapped, blocked, unresolved and country-published sample units and source-native taxon mismatches explicit.
+
+**Unsupported claim.** Project-species labels cannot erase Bos primigenius or Capra hircus source taxonomy mismatches; published membership is not domestication or farming evidence.
+
+**Actual verification performed.** Read all nine project-species rows and totals; checked 1468=322+1146 and separate 378 unresolved/12 country-published values. No taxonomic or output producer was rerun.
+
+**Remaining input or review.** Qualified taxonomic interpretation and sample-level date/location/source review remain needed, especially when project and source-native taxa differ.
+
+**Cause category.** Project versus source-native taxonomy and asymmetric publication support.
+
+**Consequence.** Mapped and country-published are nested/overlapping memberships, not additive sample populations; unresolved is a diagnostic subset.
+
+**Precise next acceptance route.** Trace each mismatched source-native sample through project and taxonomy records, retain explicit wild/progenitor scope, and rerun source-owned output contracts before changing biological labels.
+
+**Negative or refused result.** Three cattle-project samples retain Bos primigenius andone sheep-project sample retains Capra hircus native labels; 1146 samples remain blocked.
+
+**Matched denominator.** 9 project-species rows total 1468 tracked, 322 mapped, 1146 blocked, 378 unresolved and 12 country-published sample rows. Historical 331 mapped is not current 322; sample memberships are not 165 atlas features.
+
+- [Retained qualification evidence: docs/report/animal_output_honesty.json](animal_output_honesty.json) (SHA-256 `e31a154caf4951ffdf2b8ae5d53e65a4967d78e3c3d405af1b6219812c394aee`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

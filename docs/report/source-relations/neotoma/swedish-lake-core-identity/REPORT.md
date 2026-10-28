@@ -24,7 +24,27 @@ Source NISP categories, age claims, series-end labels, elevations and exact inpu
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The generated two-lake report preserves native/prerequisite sample denominators and source NISP partitions without merging their roles.
+
+**Unsupported claim.** This prose is not a second independent source study or an accepted historical radius/chronology input.
+
+**Actual verification performed.** Read generated tables against the owning two-lake JSON and manifest, including first-sample count categories; no new numerical run.
+
+**Remaining input or review.** Core/elevation/chronology reconciliation, eligible mask/parameters and analytical rights remain.
+
+**Cause category.** Generated interpretation inherits bounded metadata comparison.
+
+**Consequence.** Native counts, prerequisite candidates and time-end labels cannot substitute for one another.
+
+**Precise next acceptance route.** Resolve source-specific core and model provenance before transferring radii or admitting pollen counts.
+
+**Negative or refused result.** No radius transfer or LRA sample admitted; source elevations/chronology labels remain unresolved.
+
+**Matched denominator.** 1 generated report of 2 lakes: 69/52 native samples and 66/50 candidates; first-sample pure pollen 1,963/540 versus other 142/279 NISP.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json](report.json) (SHA-256 `d2b80a81ed26c7d3f327488290927de6220a3ca39c8d7d15514c258c75dc7594`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json](manifest.json) (SHA-256 `bf8f76d4513859615b84ec7d408a774c26591bd89a8d0d5a34b43d18d70b907a`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

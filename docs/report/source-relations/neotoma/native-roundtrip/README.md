@@ -38,7 +38,25 @@ observation convenience fields, compact-site derivation or refresh review.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The native round trip records zero missing or unexpected parent-scoped payloads across eight relational surfaces.
+
+**Unsupported claim.** Payload preservation does not verify original HTTP capture, convenience-field semantics, selected ages, denominators or rights.
+
+**Actual verification performed.** Read raw/distinct/accepted/conflict-variant counts and multiplicity posture in the retained comparison; no archive rematerialization.
+
+**Remaining input or review.** Acquisition scope and independent semantic/scientific source qualifications remain necessary.
+
+**Cause category.** Lossless transport is separate from meaning and admission.
+
+**Consequence.** Retained conflict variants preserve evidence rather than adjudicate it.
+
+**Precise next acceptance route.** Resolve each intended chronology, taxon, count and use decision using the exact source revision before analytical admission.
+
+**Negative or refused result.** 70 control variants are retained in conflict records; original acquisition and scientific eligibility are not certified.
+
+**Matched denominator.** 209 downloads/9 parts/8 surfaces, 23,281 age claims/370,936 observations; 2,867 raw controls versus 2,836 distinct payloads and 2,798 accepted rows.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/native-roundtrip/report.json](report.json) (SHA-256 `d8ea1c10cb91dee71af6554c4e43e246ba9a972f48df9a47df7afe294717f869`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

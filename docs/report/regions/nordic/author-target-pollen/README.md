@@ -35,7 +35,33 @@ python -m bijux_pollenomics_dev.source_completion.nordic.author_target_preparati
 
 Named Nordic source/development wrapper; its own source denominator remains separate from canonical study/account limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** This reader retains the relationship to the31-author-target Nordic study and documents a separate source-snapshot preparation boundary; preparation writes ten source products without prediction or scoring.
+
+**Unsupported claim.** Prepared custody does not establish source-use rights, LRA readiness, historical LandClim authenticity, measured vegetation skill or independent confirmation.
+
+**Actual verification performed.** Read the citation/preparation body, current result, source input manifest and three compressed metadata products. Reconciled 81 sites, 5,432 samples and 1,637 candidate site bins with nine compressed output bindings plus the manifest. No preparation, prediction, scoring, fitting or source-acquisition consumer was rerun.
+
+**Remaining input or review.** The external193-file author snapshot needs its qualified source route and scientific/rights review; prediction and scoring remain independently owned consumers.
+
+**Cause category.** Source preparation boundary and retained study citation.
+
+**Consequence.** A complete prepared matrix cannot be counted as another fit, score or scientifically admitted cohort.
+
+**Precise next acceptance route.** Run the qualified author-target preparation against the exact external descriptor, then use separately frozen country-excluded prediction and scoring consumers for any computational reproduction.
+
+**Negative or refused result.** All current scientific/source-rights refusals remain; preparation admits no target to LRA and evaluates no predictor.
+
+**Matched denominator.** Preparation:31targets,81Nordic sites,5,432 samples,1,637 site bins and ten products (nine compressed matrices plus input manifest). These are not ten scientific experiments.
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-target-pollen/report.json](report.json) (SHA-256 `4a5845c1adc4cd510e396c4698963d7f1102db9f170713f7c5007e32dbe77db3`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz](inputs/metadata-DK.json.gz) (SHA-256 `2f33131a93644d2c645cbc5cade1f9df75abd70d66386de50cdd8a12d2ed38a9`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz](inputs/metadata-FI.json.gz) (SHA-256 `4f88132d091289e6fbc58215abf8f2a294b579ec1c0bb80d472841866e11e71c`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz](inputs/metadata-NO.json.gz) (SHA-256 `f1a2f8d408cdfbd8c46bde9e1ca9f1bae5e1acb14881247fe62c62d4620b3371`).
+
+- [Retained qualification evidence: docs/report/regions/nordic/author-target-pollen/input-manifest.json](input-manifest.json) (SHA-256 `86645e8d2f29f60c6c206cb9b594030e7ec01d6b568009eb1e6dec3fc3481500`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

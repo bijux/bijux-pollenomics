@@ -28,7 +28,27 @@ The [source/result qualification](source-account.json) binds the exact source, p
 
 Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The exposed Namibian development experiment fits a training-only five-quantity compositional correction that improves on unchanged pollen but often loses to a training mapped-composition baseline.
+
+**Unsupported claim.** Neither a map-derived target nor group exclusion establishes independent field accuracy, untouched confirmation, Nordic transfer, identified PPE/ERV or calibrated uncertainty.
+
+**Actual verification performed.** Read the source-qualified retained native account and actual numerical-review population; bound its report and source account. No prediction, fit, scorer, Decimal oracle or source acquisition was repeated.
+
+**Remaining input or review.** Exact soil/image dates, image masks, taxonomic classification uncertainty and campaign dependence remain unresolved; qualified environmental interpretation and genuinely independent measurements are absent.
+
+**Cause category.** Prior-exposed conditional algorithm development on deposited map quantities.
+
+**Consequence.** The fitted correction has a bounded development result and retained failures; its numerical agreement cannot be promoted to physical pollen-productivity or field validity.
+
+**Precise next acceptance route.** Retain all radii, methods and paired contrasts, qualify actual target masks/times/quantities, then freeze an independent measurement protocol before any confirmation or transfer claim.
+
+**Negative or refused result.** The correction is poorer in 20 of 150 contrasts against pollen and 90 of 150 against mapped training baseline; the stronger baseline wins 8 of 15 site-weighted and 9 of 15 group-weighted means. All 110 poorer contrasts remain.
+
+**Matched denominator.** Ten sites, five taxa, 6894 grains, 15 ring labels and nine nominal groups (T4/T5 shared); 450 vectors/450 scores/300 contrasts, 45 method/radius summary objects containing 90 weighted mean values and 7290 independent Decimal field comparisons. Repeated 150 site/radius targets are not 150 independent samples.
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json](report.json) (SHA-256 `a19f533e08c589507698cc9bfa89d97f2ac210f5c85db6eed3f7967b32d2b499`).
+
+- [Retained qualification evidence: docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json](source-account.json) (SHA-256 `00c21f87b989dfce82e7a74fe7bb6fd89a4b7b3e52de072e83b0d224addab2b7`).
 
 - [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md).
 

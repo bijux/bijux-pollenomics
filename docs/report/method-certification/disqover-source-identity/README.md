@@ -30,7 +30,27 @@ numerical parity therefore have distinct provenance claims.
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The retained source-identity account distinguishes DISQOVER 0.9.14 and its archive/member identity from the software provenance of the 2024 LOVE publication; three retained copies agree byte for byte.
+
+**Unsupported claim.** Matching archives and DESCRIPTION metadata do not establish the historical 2024 software build, paper-result reproduction, data-use rights or independent numerical accuracy.
+
+**Actual verification performed.** Reviewed the exact archive identity and package metadata reported by the retained account and bound stable primary correspondence accounts; no archive acquisition, model evaluation or new source authentication occurred for this reader qualification.
+
+**Remaining input or review.** The actual historical paper software/version packet and lawful use route remain required; contemporary package availability cannot supply historical provenance.
+
+**Cause category.** Software artifact identity with unresolved historical publication correspondence.
+
+**Consequence.** Readers can identify the retained 2026 package precisely without treating it as the package actually used by the 2024 study.
+
+**Precise next acceptance route.** Obtain and authenticate the paper's original software/version/source packet and match its declared inputs and outputs before claiming historical publication reproduction.
+
+**Negative or refused result.** The DESCRIPTION date 22 January 2026 and LOVEr/LOVEoptim additions in 0.9.12 prevent an automatic identity inference from the paper's 23 February 2024 access date.
+
+**Matched denominator.** One retained archive,80 regular members and 13 R files; three byte-identical local copies; zero new model cases or independent scientific checks.
+
+- [Retained qualification evidence: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+- [Retained qualification evidence: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

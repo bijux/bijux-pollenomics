@@ -75,7 +75,29 @@ before/after comparator.
 
 Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** Caching three immutable dependency-version strings per worker preserves the retained scientific and missingness outputs and reduces measured cost for several metadata-producing workloads.
+
+**Unsupported claim.** This is no numerical-kernel change, uniform speedup, R parity extension, cross-machine guarantee or ecological accuracy result.
+
+**Actual verification performed.** Read the comparison against its own frozen historical reference, exact dependency equality and seven-workload measurement scope; bound all three accounts without timing or model runs.
+
+**Remaining input or review.** Current-candidate performance or a changed dependency environment needs a new declared comparison; caller dictionaries must remain independent and unknown-version semantics preserved.
+
+**Cause category.** Bounded dependency-metadata optimization with workload-dependent timing.
+
+**Consequence.** A shared immutable string cache may reduce manifest overhead without altering scientific outputs; small below-one ratios cannot be hidden as universal improvement.
+
+**Precise next acceptance route.** Compare the same seven source-bound workloads against the correct frozen reference, verify version/missingness identity and dictionary independence, and retain all timing ratios.
+
+**Negative or refused result.** Warm ratios 0.922 and 0.918 do not improve; tiny forward workloads do not construct manifests, so their variation does not establish a metadata-kernel regression or gain.
+
+**Matched denominator.** Seven workloads with one first and seven warm calls before/after; three dependency names NumPy/SciPy/pandas. Reference is historical commit 3d6b0495 and its own reference-baseline.json, not the later Python baseline.
+
+- [Retained qualification evidence: docs/report/numerical-performance/runtime-metadata/report.json](report.json) (SHA-256 `1b9712f5d477320913757600eeae60192f07f7bdfc4b8e9df13160f4e3bc4590`).
+
+- [Retained qualification evidence: docs/report/numerical-performance/runtime-metadata/comparison.json](comparison.json) (SHA-256 `2ff33c5a49ed9cfe185fdcdcbddc25a5d3998c40873619ccb676d03b51939a4f`).
+
+- [Retained qualification evidence: docs/report/numerical-performance/runtime-metadata/reference-baseline.json](reference-baseline.json) (SHA-256 `dbe8e46ccfa0bdc2df0db4acd5328c498e00eaaea958971aa06a51939912b656`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

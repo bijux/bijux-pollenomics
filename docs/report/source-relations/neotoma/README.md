@@ -99,7 +99,27 @@ still reaches and tests country reconciliation independently of ownership.
 
 Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
 
-The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+**Supported claim.** The Neotoma ownership summary records preserved relational counts and parent/country consistency for one pinned snapshot.
+
+**Unsupported claim.** Relational integrity does not establish original HTTP pagination, comparable selected ages, taxon acceptance or measured vegetation accuracy.
+
+**Actual verification performed.** Read the ownership summary and native round-trip account, including corrected same-age-type default-conflict policy; no materialization rerun.
+
+**Remaining input or review.** Original acquisition authority and source-specific chronology, taxon, count and rights decisions remain.
+
+**Cause category.** Transport validity and scientific eligibility are separate.
+
+**Consequence.** 33 conflicts and 52 orphans stay explicit instead of becoming accepted source evidence.
+
+**Precise next acceptance route.** Review exact source alternatives and acquisition records before scientific admission or a separately identified refreshed capture.
+
+**Negative or refused result.** 32 control-payload conflicts and 1 same-age-type default conflict remain; source null chronology references stay null.
+
+**Matched denominator.** 200 sites, 206 units, 209 datasets, 384 chronologies, 2,798 controls, 12,388 samples, 23,281 age claims, 1,262 variables/370,936 observations.
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/summary.json](summary.json) (SHA-256 `e59999e4726e27491b7ed0c2a3595c3b401bc74aaae5ce56b11e0099a84282ff`).
+
+- [Retained qualification evidence: docs/report/source-relations/neotoma/native-roundtrip/report.json](native-roundtrip/report.json) (SHA-256 `d8ea1c10cb91dee71af6554c4e43e246ba9a972f48df9a47df7afe294717f869`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 
