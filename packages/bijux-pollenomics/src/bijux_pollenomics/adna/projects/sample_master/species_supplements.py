@@ -34,6 +34,7 @@ from .tables import (
     _read_xlsx_rows,
 )
 from .tables.goat_imputation import _qualify_goat_imputation_rows
+from .tables.horse_chronology import HORSE_COMPARATIVE_SUPPLEMENT
 from .tables.horse_domestication import _horse_domestication_primary_rows
 
 
@@ -179,20 +180,14 @@ def _horse_domestication_supplementary_sample_rows(
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
     comparative_path = _resolve_data_relative_path(
         output_root,
-        (
-            f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.cell.2019.03.049/"
-            "supplementary/1-s2.0-S0092867419303848-mmc3.xlsx"
-        ),
+        HORSE_COMPARATIVE_SUPPLEMENT,
     )
     if not comparative_path.is_file():
         return ()
     comparative_rows = _build_horse_comparative_panel_rows(
         species=species,
         project=project,
-        source_path=(
-            f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.cell.2019.03.049/"
-            "supplementary/1-s2.0-S0092867419303848-mmc3.xlsx"
-        ),
+        source_path=HORSE_COMPARATIVE_SUPPLEMENT,
         rows=_read_xlsx_rows(comparative_path, sheet_name="Sheet1"),
     )
     return comparative_rows + _horse_domestication_primary_rows(
