@@ -2,16 +2,28 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Callable
+from dataclasses import dataclass, field
 import hashlib
 import json
 import math
 from pathlib import Path
-import stat
 from typing import Any
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import validated_descriptor
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.capsule import (
+    native_reference_members,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.descriptor import (
+    json_object,
+    object_fields,
+    pinned_bytes,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.generated import (
+    reconstruct,
+)
 from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
-    _checked,
     _file,
     _relative,
 )
@@ -22,6 +34,17 @@ from bijux_pollenomics_dev.lra_validation.native_reference.count_domain_capture 
     REPORT_SOURCE_MEMBERS,
 )
 from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
+
+GENERATED_SOURCE = (
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+)
+GENERATED_CONFIG = (
+    "configs/ci/report-capture-projections/native-finite-generated-source.json"
+)
+GENERATED_CONFIG_SHA256 = (
+    "34ea05d479fbf99d7c24485f6df5bca44d8c0eb984ba992033810bf2bb3825e8"
+)
+GENERATED_CONFIG_BYTES = 677
 
 CAPTURE_ROOT = "data/method-certification/native-r-finite-covariance"
 CAPTURE_MANIFEST_SHA256 = (
@@ -42,10 +65,74 @@ class FiniteCovarianceCapture:
     raw_sha256: dict[str, str]
     input_sha256: dict[str, str]
     source_context: dict[str, Any]
+    read_input: Callable[[str], bytes] = field(compare=False, repr=False)
+
+
+def _generated_source(repository: Path, context: dict[str, Any]) -> bytes:
+    """Recover exact metadata content without claiming its original generation."""
+    row = object_fields(
+        json_object(
+            pinned_bytes(
+                repository / GENERATED_CONFIG,
+                GENERATED_CONFIG_SHA256,
+                GENERATED_CONFIG_BYTES,
+                8192,
+            )
+        ),
+        {"schema_version", "source_path", "identity", "correspondence"},
+    )
+    identity = object_fields(row["identity"], {"sha256", "bytes"})
+    correspondence = object_fields(
+        row["correspondence"],
+        {
+            "member",
+            "generator",
+            "scalars",
+            "original_generator_execution_claimed",
+            "original_version_derivation_claimed",
+        },
+    )
+    expected = context["protected_science_sha256"][GENERATED_SOURCE]
+    if (
+        row["schema_version"] != "native-finite-generated-source.v1"
+        or row["source_path"] != GENERATED_SOURCE
+        or correspondence["member"] != GENERATED_SOURCE
+        or identity["sha256"] != expected
+        or context["generated_source_sha256"] != {GENERATED_SOURCE: expected}
+    ):
+        raise ValueError("Finite covariance generated source correspondence differs")
+    return reconstruct(correspondence, identity)
+
+
+def _require_current_sources(repository: Path, context: dict[str, Any]) -> None:
+    """Keep every tracked scientific identity and exact historical metadata content."""
+    for name, digest in context["protected_science_sha256"].items():
+        try:
+            body = (
+                _generated_source(repository, context)
+                if name == GENERATED_SOURCE
+                else _file(repository, name)
+            )
+        except (OSError, ValueError, ReportRebuildError) as error:
+            raise ValueError(
+                "Current protected source differs from finite covariance capture"
+            ) from error
+        if hashlib.sha256(body).hexdigest() != digest:
+            raise ValueError(
+                "Current protected source differs from finite covariance capture"
+            )
 
 
 def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCapture:
-    """Require reviewed physical bytes and the exact current scientific source closure."""
+    """Preserve native identities while reading detached control source through Git."""
+    try:
+        return _validated_finite_covariance_capture(repository)
+    except ReportRebuildError as error:
+        raise ValueError(str(error)) from error
+
+
+def _validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCapture:
+    """Require retained bytes, every tracked science input and exact generated metadata."""
     repository = repository.resolve(strict=True)
     manifest_path = f"{CAPTURE_ROOT}/capture/capture.json"
     payload = _file(repository, manifest_path)
@@ -81,17 +168,54 @@ def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCap
         or record["independent_terminal_review"] is None
     ):
         raise ValueError("Reviewed committed scientific source custody required")
+    resolver = validated_descriptor(
+        repository, CAPTURE_ROOT, native_reference_members(record)
+    )
     inputs = {manifest_path: CAPTURE_MANIFEST_SHA256}
+
+    def read_input(path: str) -> bytes:
+        if path not in inputs:
+            raise ValueError("Unlisted native input read")
+        try:
+            pinned_bytes(
+                repository / GENERATED_CONFIG,
+                GENERATED_CONFIG_SHA256,
+                GENERATED_CONFIG_BYTES,
+                8192,
+            )
+            if path == manifest_path:
+                body = _file(repository, path)
+            else:
+                prefix = CAPTURE_ROOT + "/"
+                if not path.startswith(prefix):
+                    raise ValueError("Native input escaped its capture")
+                body = resolver.read_source(path.removeprefix(prefix))
+        except ReportRebuildError as error:
+            raise ValueError(str(error)) from error
+        if hashlib.sha256(body).hexdigest() != inputs[path]:
+            raise ValueError("Native admission changed during validation")
+        return body
 
     def member(name: str, identity: dict[str, Any]) -> bytes:
         path = f"{CAPTURE_ROOT}/{_relative(name, 'finite covariance native member')}"
-        body = _checked(repository, path, identity)
+        if (
+            set(identity) != {"sha256", "size"}
+            or type(identity["size"]) is not int
+            or identity["size"] < 0
+        ):
+            raise ValueError("native R capture member identity is invalid")
+        body = resolver.read_source(path.removeprefix(CAPTURE_ROOT + "/"))
+        if (
+            len(body) != identity["size"]
+            or hashlib.sha256(body).hexdigest() != identity["sha256"]
+        ):
+            raise ValueError("native R capture member bytes changed")
         inputs[path] = identity["sha256"]
         return body
 
     raw = record["raw_members"]
     reports = record["report_source_members"]
-    if set(raw) != RAW_MEMBERS or tuple(reports) != REPORT_SOURCE_MEMBERS:
+    if frozenset(raw) != RAW_MEMBERS or tuple(reports) != REPORT_SOURCE_MEMBERS:
         raise ValueError("Exact native numeric/raw membership differs")
     raw_digests = {}
     for name, identity in raw.items():
@@ -177,26 +301,13 @@ def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCap
         )
     public = record["public_acquisition"]
     member(public["path"], {key: public[key] for key in ("sha256", "size")})
-    physical = set()
-    for path in (repository / CAPTURE_ROOT).rglob("*"):
-        mode = path.lstat().st_mode
-        if stat.S_ISDIR(mode):
-            continue
-        if not stat.S_ISREG(mode):
-            raise ValueError("Native source packet has aliases or irregular members")
-        physical.add(path.relative_to(repository).as_posix())
-    if physical != set(inputs):
-        raise ValueError("Native source packet has extra/missing members")
-    for name, digest in science.items():
-        if hashlib.sha256(_file(repository, name)).hexdigest() != digest:
-            raise ValueError(
-                "Current protected source differs from finite covariance capture"
-            )
+    resolver.fresh()
+    _require_current_sources(repository, context)
     certificate = "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json"
     if hashlib.sha256(_file(repository, certificate)).hexdigest() != CERTIFICATE_SHA256:
         raise ValueError("Original R certificate changed")
     if any(
-        hashlib.sha256(_file(repository, name)).hexdigest() != digest
+        hashlib.sha256(read_input(name)).hexdigest() != digest
         for name, digest in inputs.items()
     ):
         raise ValueError("Native admission changed during validation")
@@ -209,4 +320,5 @@ def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCap
         raw_digests,
         inputs,
         context,
+        read_input,
     )

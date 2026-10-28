@@ -20,6 +20,9 @@ from bijux_pollenomics_dev.lra_validation.reference_replay import (
     compare_vectors,
 )
 
+from .native_reference.finite_covariance_capture import (
+    validated_finite_covariance_capture,
+)
 from .native_reference.source_replay import build_source_replay
 
 _SAFE_ENVIRONMENT = frozenset(
@@ -54,8 +57,43 @@ def _read_vector(path: Path) -> np.ndarray:
     ).to_numpy(float)
 
 
+def _require_current_inputs(
+    repository: Path,
+    run: Path,
+    private_sources: Path,
+    receipt: dict[str, Any],
+    *,
+    retained_capture_profile: str | None = None,
+) -> None:
+    """Keep direct inputs strict or authenticate the exact retained finite packet."""
+    if retained_capture_profile is None:
+        if any(
+            hashlib.sha256((repository / path).read_bytes()).hexdigest() != digest
+            for path, digest in receipt["current_inputs_sha256"].items()
+        ):
+            raise ValueError("Current R/Python input changed")
+        return
+    if retained_capture_profile != "finite-covariance":
+        raise ValueError("Retained comparison source profile must be finite-covariance")
+    capture = validated_finite_covariance_capture(repository)
+    expected = capture.source_context["protected_science_sha256"]
+    if (
+        run != capture.directory
+        or private_sources != capture.source_archives
+        or json.dumps(receipt["current_inputs_sha256"], sort_keys=True, allow_nan=False)
+        != json.dumps(expected, sort_keys=True, allow_nan=False)
+    ):
+        raise ValueError("Retained comparison source routes or sealed hashes differ")
+
+
 def summarize(
-    repository: Path, run: Path, original: Path, output: Path, private_sources: Path
+    repository: Path,
+    run: Path,
+    original: Path,
+    output: Path,
+    private_sources: Path,
+    *,
+    retained_capture_profile: str | None = None,
 ) -> dict[str, Any]:
     """Validate exact inputs and all output denominators before retaining raw R."""
     repository, run, original, output = (
@@ -89,11 +127,13 @@ def summarize(
         or receipt.get("r_version") != lock["runtime_policy"]["r_version"]
     ):
         raise ValueError("Native R runtime/lock differs")
-    if any(
-        hashlib.sha256((repository / p).read_bytes()).hexdigest() != h
-        for p, h in receipt["current_inputs_sha256"].items()
-    ):
-        raise ValueError("Current R/Python input changed")
+    _require_current_inputs(
+        repository,
+        run,
+        private_sources,
+        receipt,
+        retained_capture_profile=retained_capture_profile,
+    )
     for command in receipt["commands"]:
         if command["exit_code"] != 0 or command["timed_out"]:
             raise ValueError("R command failed")

@@ -1,10 +1,12 @@
 """Keep same-core chronology contrasts separate from source-age repair."""
 
 from __future__ import annotations
+
 import importlib.util
 from pathlib import Path
 from types import ModuleType
 from typing import Any
+
 import pytest
 
 PRODUCER = (
