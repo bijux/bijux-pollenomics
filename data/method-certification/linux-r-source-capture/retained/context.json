@@ -1,0 +1,25 @@
+{
+  "schema_version": "current-local-linux-execution-context.v1",
+  "candidate": "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36",
+  "canonical_identity_before_and_after": {
+    "candidate": "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36",
+    "status": "",
+    "tracked_inventory_sha256": "96979b6e78d7dae5a10f1d3022f5c4468a5895ea20ee20869ea2ec3f3d292724"
+  },
+  "source_reference": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-linux-r-source-products/source-reference.json",
+    "sha256": "6b0bd9bc2d126d0f668d9fc5acb469b50e088f41bcd5b9ef369979f0620ecd3b",
+    "bytes": 1591754
+  },
+  "executed_source_file_count": 2148,
+  "executed_source_set_sha256": "4d71f12b5331d9e20cbc93b0afb7570884cf0a05dc360ecbf4dd7db07464e6fb",
+  "report_sha256": "e67f3d4fb6316094f37b6d3a4a4db7bdb604dba5d564b54522b825ffe62ee1f7",
+  "source_tree_is_git_checkout": false,
+  "in_container_git_head_observed": false,
+  "release_certificate": false,
+  "release_refusal_codes": [
+    "local_linux_arm_is_not_locked_ubuntu_x86_64_ci",
+    "github_run_attempt_and_artifact_absent"
+  ],
+  "relationship": "The complete exported executable source closure is pinned before and after execution and mounted readonly. Parent clean Git identity is independently observed outside the container; no in-container Git HEAD observation or historical source recovery is claimed."
+}

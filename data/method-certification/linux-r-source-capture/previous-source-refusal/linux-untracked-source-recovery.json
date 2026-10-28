@@ -1,0 +1,44 @@
+{
+  "schema_version": "linux-untracked-execution-source-recovery.v1",
+  "original_recovery_sha256": "61a196b282671aa84f53ed38e8680d1e9b58ee3e31282f9552e1a3efb253dc92",
+  "annotation_git_commit": "a862468a8ad93cc2e522bdf0173f81f6b84e8cc9",
+  "rows": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary-orientation.mjs",
+      "expected_sha256": "987d4f499e83baf96d0324541f893269564a72497c73a24ad76dda73af5f412a",
+      "annotation_git_missing": true,
+      "current_sha256": "a99de4b83bf46e8b8d092bacd2e6a93fdac2b012167eb6616f40f52e34a89abb",
+      "current_exact": false
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py",
+      "expected_sha256": "7acc6cf1b2328b90997dc97b953bf270460a770628650d9e341e441587d98f4f",
+      "annotation_git_missing": true,
+      "current_sha256": "187cb3780910ffec28c090ddbaf1743d61e933d2f4c68083d42c7bcf5b879149",
+      "current_exact": false
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py",
+      "expected_sha256": "1a3a1f129f44a208086846c83a8d7c428430792b0fe770e79cc859eb8a1253a7",
+      "annotation_git_missing": true,
+      "current_sha256": "45a6e61e42997d24da13a5f0b2ea62201310e2ca200354fcc1aafc4fcbbabdc2",
+      "current_exact": false
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/source_capability.py",
+      "expected_sha256": "14b554a50a667c91d7e0fddb70b365b06f5605c70102bb0dd9b799dc3f776584",
+      "annotation_git_sha256": "14b554a50a667c91d7e0fddb70b365b06f5605c70102bb0dd9b799dc3f776584",
+      "annotation_git_exact": true,
+      "current_sha256": "8083b5bf201d8e34606645fee5bbbbe6b6a63e4c8c2f82aecf7d7cbfa616f489",
+      "current_exact": false
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "expected_sha256": "f8313262a25b1ddee87f05b0a119d314b3ec031096cc003a124c49bfca0a9513",
+      "annotation_git_missing": true,
+      "current_sha256": "84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5",
+      "current_exact": false
+    }
+  ],
+  "scope": "Five declared original source paths only; no later commit or current HEAD is labelled execution-time identity."
+}

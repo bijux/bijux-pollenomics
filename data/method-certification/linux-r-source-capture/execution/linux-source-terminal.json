@@ -1,0 +1,20 @@
+{
+  "candidate": "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36",
+  "registered_plan_sha256": "008efb7e328104d972bd4d527108c7e2d54292efe02cb039d56aa92823d7f470",
+  "common_actual_exit": 0,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-linux-r-source-products/terminal.json",
+    "sha256": "e18ad4ab4a77cc18ff46377c693f1aac0a258edffac4107af3c9f74040ae8a56",
+    "bytes": 781126
+  },
+  "all_protected_inputs_unchanged": true,
+  "completed_host_child_peak_rss_bytes_macos": 183861248,
+  "container_enforced_memory_bytes": 4294967296,
+  "nominal_combined_memory_bytes": 6442450944,
+  "inclusive_owned_regular_output_bytes_before_receipt": 24381615,
+  "receipt_reserved_bytes": 16384,
+  "memory_bound_passed": true,
+  "storage_bound_passed": true,
+  "actual_exit": 0,
+  "scope": "Complete output root includes source export, metadata, native outputs, retained raw products and logs. Completed host RSS is not a full live descendant census; Docker separately enforces 4GiB. Historical report and release refusals remain unchanged. Common raw terminal is preserved."
+}

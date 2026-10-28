@@ -809,10 +809,10 @@
     },
     {
       "repository_path": "docs/report/method-certification/linux-r-oracle/README.md",
-      "prose_paragraph_count": 19,
+      "prose_paragraph_count": 20,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

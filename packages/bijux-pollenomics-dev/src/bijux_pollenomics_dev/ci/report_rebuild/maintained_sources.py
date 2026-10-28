@@ -6,8 +6,8 @@ import ast
 import hashlib
 import json
 import math
-from pathlib import Path
 import subprocess
+from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import (
@@ -29,6 +29,9 @@ from .ownership import (
     _load_inventory,
     _regular_confined_file,
     check_report_ownership,
+)
+from .scientific_captures.linux_r_reference import (
+    validated_linux_r_reference_capture,
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
@@ -218,8 +221,15 @@ def validated_maintained_report_sources(
     nordic_entries, nordic_evidence = validated_nordic_static_basin_captures(
         repository, tracked_by_path, inventory["owners"]
     )
+    linux_entries, linux_evidence = validated_linux_r_reference_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
-        capture_entries + parameter_entries + chronology_entries + nordic_entries
+        capture_entries
+        + parameter_entries
+        + chronology_entries
+        + nordic_entries
+        + linux_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -258,4 +268,6 @@ def validated_maintained_report_sources(
         evidence["retained_source_chronology_captures"] = chronology_evidence
     if nordic_entries:
         evidence["retained_nordic_static_basin_captures"] = nordic_evidence
+    if linux_entries:
+        evidence["retained_linux_r_reference_capture"] = linux_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
