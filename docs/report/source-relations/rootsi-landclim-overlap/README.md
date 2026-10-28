@@ -136,6 +136,20 @@ admitted sample chronologies and authorize no data normalization or scientific
 use of the workbooks.
 
 
+The historical intake `EXT-2026-09-04-ROOTSI-001` additionally accounts for
+`rootsi/Metadata table_SWE_climate.xlsx`, `rootsi/r_rootsi.R` and the `rootsi/`
+directory. Together with the 79 XLS workbooks these are **82 entries / 81 files**.
+The metadata workbook is a reference input, separately pinned above, with 81
+Swedish metadata rows and reference-only DK/NO/FI lists. Its coordinate columns
+have unresolved CRS/conflicts; metadata age and sample-count claims do not
+become admitted observation ages or measures. The R scratch script is a
+reference-only code artifact with unresolved rights: execution and production
+reuse remain prohibited, and no CRS, calendar, measurement meaning or derived
+output is inferred from its code. The directory is a container with no scientific
+CRS/time/measurement applicability. All three retain the receipt's unresolved
+source/citation/rights posture; these dispositions add no scientific admission.
+
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
