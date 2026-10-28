@@ -118,26 +118,20 @@ def test_repository_make_entrypoint_has_no_evidence_byte_pin() -> None:
 
 
 @pytest.mark.parametrize(
-    "relative",
-    [
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
-        "docs/report/method-certification/current-r-oracle/source-domains/"
-        "run_source_domains.py",
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
-    ],
+    "member", ["r_support.R", "run_source_domains.py", "source_domains.R"]
 )
-def test_canonical_oracle_references_retain_exact_evidence_bytes(
-    verifier: ModuleType, relative: str
+def test_detached_finite_oracle_references_retain_exact_evidence_bytes(
+    verifier: ModuleType, member: str
 ) -> None:
     manifest = json.loads(
         (ROOT / "docs/report/pollen-reconstruction/manifest.json").read_text()
     )
-    assert relative not in manifest["maintained_paths"]
-    original = (
-        "data/method-certification/native-r-count-domain/capture/source-domains/"
-        + Path(relative).name
+    relative = (
+        "data/method-certification/native-r-finite-covariance/"
+        "capture/source-domains/" + member
     )
-    assert original not in {row["path"] for row in manifest["files"]}
+    assert relative not in manifest["maintained_paths"]
+    assert not (ROOT / relative).exists()
     (row,) = [item for item in manifest["files"] if item["path"] == relative]
     manifest["files"] = [row.copy()]
     manifest["maintained_paths"] = []
