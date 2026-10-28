@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `1140`
+- Excluded tracked sample rows: `1146`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -141,6 +141,7 @@
 | Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Capra hircus | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | Obishir V | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-2131 | Tubo Volcánico - Los Roques de García | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016168 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016169 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016171 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -469,6 +470,10 @@
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533202 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533203 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533204 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533205 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533206 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533207 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533208 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533209 | Tureau des Gardes 6 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533210 | Aygurskiy 2 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533213 | Çadır Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -478,6 +483,7 @@
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533223 | Divnogor'ye 9 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533224 | Ginnerup | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533225 | Ginnerup | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533226 | Dunaújváros-Kosziderpadlás | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533230 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533231 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533232 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -1151,11 +1157,11 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** This ledger preserves 1140 tracked sample rows excluded from the current animal atlas and names their native sample/project/locality refusal reasons.
+**Supported claim.** All 1,481 current normalized animal source records have exactly one source-bound map disposition: 335 mapped records in 167 locality features and 1,146 explicitly reason-coded exclusions.
 
 **Unsupported claim.** An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.
 
-**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch.
+**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
 
 **Remaining input or review.** Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.
 
@@ -1165,11 +1171,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.
 
-**Negative or refused result.** 1140 exclusions remain: 378 unresolved localities, 409 missing coordinate-provenance rows, 327 other point-contract refusals and 26 chronology refusals. PRJEB31613 elapsed ages retain their unspecified reference epoch.
+**Negative or refused result.** The 1,146 exclusions remain explicit. Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.
 
-**Matched denominator.** Current 1464 normalized IDs=324 mapped+1140 excluded; 163 locality features represent those 324 samples. Earlier 161/318, 1468/322/165 and 170/331 populations remain historical.
+**Matched denominator.** 1,481 normalized source records = 335 mapped + 1,146 excluded; 167 locality features. Source taxonomy can differ from the owning normalization bundle, including the existing Obishir Capra/Ovis mismatch. These are not independent biological observations.
 
-- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `c26058c1db2e17a99f3afe94c4b206622a7684979f5d221c848f8ffa871877fe`).
+- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc`).
 
 - [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 

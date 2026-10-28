@@ -7,7 +7,7 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `world`
-- Visible point rows: `1713`
+- Visible point rows: `1733`
 - Visible point layers: `15`
 
 ## Example Rows
@@ -61,11 +61,11 @@ for deeper source-family review files.
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-**Supported claim.** The retained ledger exposes a governed record/source chain for each visible point-layer row in the world publication.
+**Supported claim.** The current world publication retains the human metadata population and carries 167 animal locality features for 335 mapped normalized records plus 335 distinct source-chronology record uses. Typed child supports preserve original dates and gaps; these display populations do not establish independent animals or ecological events.
 
 **Unsupported claim.** A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.
 
-**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.
+**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
 
 **Remaining input or review.** Primary source-family interpretation and identity/time/geographic admission remain separate from completed current preservation/index and narrow World served-temporal checks.
 
@@ -77,9 +77,9 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Negative or refused result.** Marker traceability leaves existing source refusals intact; unqualified horse elapsed ages cannot appear as BP events merely because a source row is addressable.
 
-**Matched denominator.** 1713 point-layer record uses across 15 layers=1231 human metadata+163 animal localities+319 source-chronology uses. Memberships overlap; these are not 1713 independent specimens.
+**Matched denominator.** 1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,481 normalized records = 335 mapped + 1,146 exclusions. All 1,492 source chronology owners = 335 displayable + 1,157 refusals. Do not pool these units.
 
-- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `81ae146c8c932d8c6b401c4bd598dec41e9bf0199fc5d14546f4b32e14517c8e`).
+- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `db50a3d9774966f9af8dbde787a1e4f0b60589ff5ce1cbc02aebe4176d1fbd2b`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

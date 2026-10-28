@@ -6710,6 +6710,281 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.00911,
+          50.44667
+        ]
+      },
+      "properties": {
+        "name": "Goyet",
+        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-goyet-belgium",
+        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-goyet-belgium",
+        "site_record_id": "equus_caballus:locality:prjeb44430:goyet:belgium",
+        "category": "Horse atlas evidence row",
+        "country": "Belgium",
+        "layer_key": "progenitor-animal-localities",
+        "layer_label": "Wild and progenitor animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus caballus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "wild or progenitor context"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "equus_caballus:sample:prjeb44430:samea9533437"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "not reported"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB44430"
+          },
+          {
+            "label": "Paper title",
+            "value": "The origins and spread of domestic horses from the Western Eurasian steppes"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1038/s41586-021-04018-9"
+          },
+          {
+            "label": "Publication year",
+            "value": "2021"
+          },
+          {
+            "label": "Journal",
+            "value": "Nature"
+          },
+          {
+            "label": "Chronology",
+            "value": "36264 BP"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "locality sample coverage hull"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "display coverage only"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Unresolved time window"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "contextual label only"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_table_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "exact"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_supplementary_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the supplementary table ships coordinates"
+          },
+          {
+            "label": "Original place text",
+            "value": "Goyet"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Goyet"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The published supplementary table provides direct coordinates for this locality."
+          },
+          {
+            "label": "Source locator",
+            "value": "SI Table 1!row141"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "Vert311_Bel_m34314 | 50.44667 N, 5.00911 E | Goyet | Belgium | Vert311 | cave, Upper Palaeolithic | 182689 | 31930 | 360 | -35104 | -33524 | 34314 | 36264 | F | this study + Fages et al. (2019) | 1 | 5 | 3 | 1028731561 | 855825064 | 1884556625 | 37731651 | 23064168 | 60795819 | 182.23559017400001 |"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Wild or progenitor evidence: keep visible as evolutionary context, not domesticated-core farming support."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "animal_scope": "wild_or_progenitor_context",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "locality_sample_coverage_hull",
+          "precision_posture": "display_coverage_only",
+          "comparability_posture": "contextual_label_only",
+          "summary_label": "36264 BP",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+          "refusal_reason_code": "",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row141",
+          "provenance_excerpt": "Vert311_Bel_m34314 | 50.44667 N, 5.00911 E | Goyet | Belgium | Vert311 | cave, Upper Palaeolithic | 182689 | 31930 | 360 | -35104 | -33524 | 34314 | 36264 | F | this study + Fages et al. (2019) | 1 | 5 | 3 | 1028731561 | 855825064 | 1884556625 | 37731651 | 23064168 | 60795819 | 182.23559017400001 |",
+          "original_labels": [
+            "36264 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_basis": "supplementary_table_coordinates",
+        "coordinate_confidence": "exact",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "equus_caballus:sample:prjeb44430:samea9533437"
+        ],
+        "chronology_role": "locality_sample_coverage_hull",
+        "sample_ids": [
+          "prjeb44430:samea9533437"
+        ],
+        "sample_chronologies": [
+          {
+            "schema_version": "adna-sample-chronology-support.v1",
+            "sample_id": "prjeb44430:samea9533437",
+            "chronology": {
+              "original_text": "36264 BP",
+              "time_start_bp": 36264,
+              "time_end_bp": 36264,
+              "time_mean_bp": 36264,
+              "date_stddev_bp": "",
+              "source_mean_bp_text": "",
+              "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+              "evidence_class": "direct_radiocarbon_date",
+              "precision_posture": "sample_precise_point",
+              "refusal_reason_code": ""
+            },
+            "source_release": "PRJEB44430",
+            "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+            "provenance_locator": "SI Table 1!row141",
+            "provenance_excerpt": "Vert311_Bel_m34314 | 50.44667 N, 5.00911 E | Goyet | Belgium | Vert311 | cave, Upper Palaeolithic | 182689 | 31930 | 360 | -35104 | -33524 | 34314 | 36264 | F | this study + Fages et al. (2019) | 1 | 5 | 3 | 1028731561 | 855825064 | 1884556625 | 37731651 | 23064168 | 60795819 | 182.23559017400001 |",
+            "provenance_kind": "supplementary_spreadsheet_row",
+            "chronology_strength": "sample_owned_interval",
+            "normalization_status": "normalized_point",
+            "conflict_note": "",
+            "reference_epoch": "not_separately_declared",
+            "age_type": "not_separately_declared",
+            "calibration_status": "not_separately_declared",
+            "model": "not_separately_declared"
+          }
+        ],
+        "sample_group_ids": [
+          "PRJEB44430"
+        ],
+        "source_native_taxon_labels": [],
+        "source_native_tax_ids": [],
+        "source_native_scientific_names": [],
+        "taxon_alignment_statuses": [
+          "not_reported"
+        ],
+        "sample_namespace": "equus_caballus:sample_locality",
+        "inclusion_notes": [
+          "Sample-level locality comes directly from the recovered sample source row."
+        ],
+        "latitude_text": "50.44667",
+        "longitude_text": "5.00911",
+        "geocoding_method": "direct_supplementary_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+        "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
+        "original_place_text": "Goyet",
+        "resolved_place_text": "Goyet",
+        "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+        "paper_doi": "10.1038/s41586-021-04018-9",
+        "journal_title": "Nature",
+        "publication_year": "2021",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB44430"
+        ],
+        "primary_project_accession": "PRJEB44430",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "SI Table 1!row141",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "Vert311_Bel_m34314 | 50.44667 N, 5.00911 E | Goyet | Belgium | Vert311 | cave, Upper Palaeolithic | 182689 | 31930 | 360 | -35104 | -33524 | 34314 | 36264 | F | this study + Fages et al. (2019) | 1 | 5 | 3 | 1028731561 | 855825064 | 1884556625 | 37731651 | 23064168 | 60795819 | 182.23559017400001 |",
+        "time_start_bp": 36264,
+        "time_end_bp": 36264,
+        "time_mean_bp": 36264,
+        "time_year_bp": 36264,
+        "time_label": "36264 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           82.967972,
           51.17025
         ]

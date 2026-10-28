@@ -14,20 +14,20 @@
       "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.",
       "qualification": {
         "fields": {
-          "supported_claim": "This ledger preserves 1140 tracked sample rows excluded from the current animal atlas and names their native sample/project/locality refusal reasons.",
+          "supported_claim": "All 1,481 current normalized animal source records have exactly one source-bound map disposition: 335 mapped records in 167 locality features and 1,146 explicitly reason-coded exclusions.",
           "unsupported_claim": "An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.",
-          "actual_verification_performed": "Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.",
           "cause_category": "Sample-owned publication refusals from incomplete source evidence or chronology.",
           "consequence": "The atlas remains a selected 324-sample subset; plotting an excluded row would exceed its governed identity/time support.",
           "precise_next_acceptance_route": "Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.",
-          "negative_or_refused_result": "1140 exclusions remain: 378 unresolved localities, 409 missing coordinate-provenance rows, 327 other point-contract refusals and 26 chronology refusals. PRJEB31613 elapsed ages retain their unspecified reference epoch.",
-          "matched_denominator": "Current 1464 normalized IDs=324 mapped+1140 excluded; 163 locality features represent those 324 samples. Earlier 161/318, 1468/322/165 and 170/331 populations remain historical."
+          "negative_or_refused_result": "The 1,146 exclusions remain explicit. Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.",
+          "matched_denominator": "1,481 normalized source records = 335 mapped + 1,146 excluded; 167 locality features. Source taxonomy can differ from the owning normalization bundle, including the existing Obishir Capra/Ovis mismatch. These are not independent biological observations."
         },
         "evidence_pins": [
           {
             "path": "docs/report/animal_atlas_exclusion_report.json",
-            "sha256": "c26058c1db2e17a99f3afe94c4b206622a7684979f5d221c848f8ffa871877fe"
+            "sha256": "8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc"
           },
           {
             "path": "reports/science/animal-entity-capability/report.json",
@@ -584,20 +584,20 @@
       "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.",
       "qualification": {
         "fields": {
-          "supported_claim": "The review separates sample-owned animal chronology from SEAD site-level archaeology context and retains two unsafe-comparison findings.",
+          "supported_claim": "Two source-family reviews preserve sample-owned animal chronology and contextual SEAD time semantics separately. The current 1,492 animal provenance rows retain all contextual and unresolved dispositions without rebuilding raw source evidence.",
           "unsupported_claim": "Numeric contextual spans are not direct event dates; temporal overlap cannot establish migration, farming or causation.",
-          "actual_verification_performed": "Read the two retained family rows and unsafe findings; distinguished 1475 animal chronology review rows from 2069SEADsite-context rows. No temporal comparison or source-review producer was run.",
+          "actual_verification_performed": "The saved-provenance comparison at 2b0c0dbeb reads the independently qualified current maps and all 1,492 saved animal packets. It independently reconciles posture counts and preserves the separate 2,069 SEAD context records. The report guard now honors only validated owned child intervals; missing, duplicate, unowned or hull-only support remains refused. Seventeen targeted tests, lint, formatting and strict typing pass. The first collector assertion and 290 false legacy hull warnings are retained; no map, model or source-census replay.",
           "remaining_input_or_review": "Comparable sample-owned chronology, source role and qualified ecological/event interpretation remain required before joining these families.",
           "cause_category": "Temporal entity/precision mismatch between direct sample evidence and context.",
           "consequence": "Broad-period animal labels and cultural/geologic SEAD spans remain context; display-time navigation cannot upgrade them to event chronology.",
           "precise_next_acceptance_route": "Authenticate native date ownership, type, unit and precision in each family, declare matched biological support, and qualify the comparison before numerical/event inference.",
-          "negative_or_refused_result": "Two unsafe findings remain: animal broad periods are not sample numeric dates, and mixed SEADlabels remain context. Zero published-feature guard findings is no scientific endorsement.",
-          "matched_denominator": "2 family rows describe 1475 animal chronology review records and 2069SEAD context records; not 3544 matched pairs or independent events."
+          "negative_or_refused_result": "Animal unresolved/context-only evidence and mixed SEAD chronology remain visible. Unsupported elapsed-age epochs and unqualified specimen identities are not admitted. Valid locality hulls retain contextual display labels; only their individually validated sample supports carry numeric comparison authority.",
+          "matched_denominator": "Two family rows: 1,492 animal chronology owners and 2,069 SEAD context records, not 3,561 matched pairs or independent events. Animal postures: 559 numeric, 140 numeric with caveat, 386 contextual and 407 unresolved. SEAD retains its original separate partitions."
         },
         "evidence_pins": [
           {
             "path": "docs/report/animal_temporal_comparison_review.json",
-            "sha256": "79f8eaf1d578ed31e0f20c92c48e3791e26077104b82f945a3bc24fed4cb7729"
+            "sha256": "664d0b5b67d60cfa83d8548711f6a4fbd11f345578214b6bb74a78000be8c625"
           }
         ]
       }
@@ -5753,7 +5753,7 @@
         "fields": {
           "supported_claim": "The retained Europe-plus bundle filters the world publication surface to four currently represented countries and keeps source metadata, animal context and traceability alongside a shared map engine.",
           "unsupported_claim": "The bundle is not a second independent source collection, genotype-aware analysis, excavation recommendation, historical ecological reconstruction or vegetation validation.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Source chronology, biological/locality authority and rights need their own decisions. The current shared runtime has narrow World served-temporal qualification; external provider behavior, broader browser cases and latency remain separate.",
           "cause_category": "Regional publication selection of metadata and context.",
           "consequence": "Visible markers identify retained publication records, while Nordic-only overlays are withheld rather than generalized beyond their governed scope.",
@@ -5764,7 +5764,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/europe-plus/europe-plus_summary.json",
-            "sha256": "3c4b7a75febd54b3ccd4615dcb4f255ca9be0614d8deb478873a6684e4adecd7"
+            "sha256": "ad8067f76e4dbdbeb63b893a2b1d6419807a6836f2ef0444387e3a3fe2601c00"
           }
         ]
       }
@@ -5889,7 +5889,7 @@
         "fields": {
           "supported_claim": "The retained europe-plus contract declares its parent scope, eligible layers and shared renderer; the default distance circle is30 km diameter.",
           "unsupported_claim": "A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Broader browser/provider/export behavior, query latency and each layer's scientific/source-rights decisions remain separate from the completed source-bound preservation/index and narrow served-temporal checks.",
           "cause_category": "Map delivery and scope contract.",
           "consequence": "Shared rendering makes publication behavior consistent without conferring scientific equivalence on mixed layers.",
@@ -5900,7 +5900,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/europe-plus/europe-plus_map_publication_contract.json",
-            "sha256": "89aeb60757144d912d4d2df522a273a74bc19688e31a14996efbbaef014e70e6"
+            "sha256": "8085e6868003fc3aa37b7d3a22de7bcfed97041863b59bdff6a1238015ce85f9"
           }
         ]
       }
@@ -5923,7 +5923,7 @@
         "fields": {
           "supported_claim": "The retained europe-plus ledger associates every published point-layer row with its native source or deeper traceability surface.",
           "unsupported_claim": "A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Deeper source-family identity, chronology, biological and rights decisions remain required. Current decoded preservation and actual index-factory checks do not independently validate historical observations.",
           "cause_category": "Publication point lineage rather than source validity.",
           "consequence": "Readers can follow marker provenance while preserving the distinction between feature rows, source observations and physical sites.",
@@ -5991,7 +5991,7 @@
         "fields": {
           "supported_claim": "The retained Nordic bundle adds governed pollen, archaeology, modeled, boundary and fieldwork overlays to the same shared human/animal publication engine.",
           "unsupported_claim": "Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Each layer retains its own chronology, entity, rights and scientific decisions. Actual shared-runtime World temporal cases do not substitute broader browser/provider, latency or ecological qualification.",
           "cause_category": "Regional context publication with mixed source families.",
           "consequence": "Nordic overlays remain local scope evidence; a map display cannot transfer biological or chronological authority between layers.",
@@ -6002,7 +6002,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/nordic_summary.json",
-            "sha256": "80999020ea8c0778081526f1cca83d6eddd34d3d14ea961ce3f80876ae683fa1"
+            "sha256": "6372185a9d02c344da3211b96739ab33c069db9bc4daf25dbb8b160d5e44a789"
           }
         ]
       }
@@ -6491,7 +6491,7 @@
         "fields": {
           "supported_claim": "The retained nordic contract declares its parent scope, eligible layers and shared renderer; the default distance circle is20 km diameter.",
           "unsupported_claim": "A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Broader browser/provider/export behavior, query latency and each layer's scientific/source-rights decisions remain separate from the completed source-bound preservation/index and narrow served-temporal checks.",
           "cause_category": "Map delivery and scope contract.",
           "consequence": "Shared rendering makes publication behavior consistent without conferring scientific equivalence on mixed layers.",
@@ -6502,7 +6502,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/nordic_map_publication_contract.json",
-            "sha256": "d13e319c7986452f3f375249ab653032d40cc7e54cbf7feb7c463b404e2716dd"
+            "sha256": "0325fc93569ba08387aa28c77e6d143a6b5214ac766a6a2ac28e0cd652fed1cd"
           }
         ]
       }
@@ -6525,7 +6525,7 @@
         "fields": {
           "supported_claim": "The retained nordic ledger associates every published point-layer row with its native source or deeper traceability surface.",
           "unsupported_claim": "A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Deeper source-family identity, chronology, biological and rights decisions remain required. Current decoded preservation and actual index-factory checks do not independently validate historical observations.",
           "cause_category": "Publication point lineage rather than source validity.",
           "consequence": "Readers can follow marker provenance while preserving the distinction between feature rows, source observations and physical sites.",
@@ -9856,24 +9856,24 @@
       "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.",
       "qualification": {
         "fields": {
-          "supported_claim": "The current world bundle is a governing publication scope with 1231 AADR metadata samples from four Nordic country products and 163 governed animal locality features.",
+          "supported_claim": "The current world publication retains the human metadata population and carries 167 animal locality features for 335 mapped normalized records plus 335 distinct source-chronology record uses. Typed child supports preserve original dates and gaps; these display populations do not establish independent animals or ecological events.",
           "unsupported_claim": "World is a scope name, not worldwide source completeness, genotype analysis, scientific country/chronology admission or validated fieldwork advice.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Broader source coverage, sample chronology/geography/rights and scientific admission remain incomplete. The narrow served World temporal cases do not qualify all browser/network behavior or query latency.",
           "cause_category": "Publication scope and heterogeneous metadata layers with incomplete scientific/global coverage.",
           "consequence": "Withheld Nordic environmental/context overlays do not become globally available by widening the map frame; source-sample chronology overlays are not additional biological samples.",
           "precise_next_acceptance_route": "Use the qualified current bundle/assets and source-bound temporal/index evidence; qualify broader source coverage and each family role before worldwide scientific or historical inference.",
           "negative_or_refused_result": "Nordic-only context overlays remain withheld; zero comparator layers do not imply absence of wild/progenitor context. Earlier 161/318, 165/322 and 170/331 animal populations remain historical.",
-          "matched_denominator": "Human 1231=SE416+NO130+FI32+DK653 at 447 localities; animal 163 locality features represent 324 mapped samples across 6 mapped species. The 319 retained source-chronology record uses overlap those memberships and are not additional independent evidence."
+          "matched_denominator": "1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,481 normalized records = 335 mapped + 1,146 exclusions. All 1,492 source chronology owners = 335 displayable + 1,157 refusals. Do not pool these units."
         },
         "evidence_pins": [
           {
             "path": "docs/report/world/world_summary.json",
-            "sha256": "4024f52d6f032e139771a9727902f4a06f362a0be526f659409dbc34910812cd"
+            "sha256": "abcec5e43b4e2ef10b970108aa2596c1fe16dfced1d4964df55a34d3fc058832"
           },
           {
             "path": "docs/report/world/world_map_publication_contract.json",
-            "sha256": "9fda0df60f16a49b954d846fc3e933c1ad1f43ba734fe6fb58147080e0f30431"
+            "sha256": "c786a6feed15289ee5f54904703044361da2f6b4caab8b19c63abe22ece68153"
           },
           {
             "path": "reports/science/animal-entity-capability/report.json",
@@ -10004,20 +10004,20 @@
       "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.",
       "qualification": {
         "fields": {
-          "supported_claim": "The retained contract defines world scope, shared document engine, eligible layers, filters and visible publication counts.",
+          "supported_claim": "The current world publication retains the human metadata population and carries 167 animal locality features for 335 mapped normalized records plus 335 distinct source-chronology record uses. Typed child supports preserve original dates and gaps; these display populations do not establish independent animals or ecological events.",
           "unsupported_claim": "A consistent renderer or broad opening extent is not scientific source admission, complete world coverage or proof of valid chronology at every point.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Qualified family-specific geography, chronology, rights and biological interpretation remain separate. Completed preservation/index and narrow World temporal checks do not qualify all browser/provider/export behavior or query latency.",
           "cause_category": "Map software/publication contract with incomplete scientific/global coverage.",
           "consequence": "World filters may expose declared records but cannot manufacture environmental coverage or turn present-day framing boundaries into historical nationality.",
           "precise_next_acceptance_route": "Retain the qualified current source/assets and exact native identities; qualify source-family scientific roles and any additional delivery/latency claim through its own scoped check.",
           "negative_or_refused_result": "Nordic environmental/archaeology overlays are withheld from world; source metadata country assignments and scientific flags remain separately governed.",
-          "matched_denominator": "16 layer rows=15 point layers+1 boundary layer with 4 polygons; 1713 point uses=1231 human+163 animal-locality+319 source-chronology record uses. Shared identities can appear in multiple layers."
+          "matched_denominator": "1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,481 normalized records = 335 mapped + 1,146 exclusions. All 1,492 source chronology owners = 335 displayable + 1,157 refusals. Do not pool these units."
         },
         "evidence_pins": [
           {
             "path": "docs/report/world/world_map_publication_contract.json",
-            "sha256": "9fda0df60f16a49b954d846fc3e933c1ad1f43ba734fe6fb58147080e0f30431"
+            "sha256": "c786a6feed15289ee5f54904703044361da2f6b4caab8b19c63abe22ece68153"
           }
         ]
       }
@@ -10038,20 +10038,20 @@
       "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.",
       "qualification": {
         "fields": {
-          "supported_claim": "The retained ledger exposes a governed record/source chain for each visible point-layer row in the world publication.",
+          "supported_claim": "The current world publication retains the human metadata population and carries 167 animal locality features for 335 mapped normalized records plus 335 distinct source-chronology record uses. Typed child supports preserve original dates and gaps; these display populations do not establish independent animals or ecological events.",
           "unsupported_claim": "A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.",
-          "actual_verification_performed": "The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.",
+          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.",
           "remaining_input_or_review": "Primary source-family interpretation and identity/time/geographic admission remain separate from completed current preservation/index and narrow World served-temporal checks.",
           "cause_category": "Publication traceability across overlapping source entity layers.",
           "consequence": "Source locators support inspection and audit; they do not remove coordinate/date/taxon uncertainty or grant scientific approval.",
           "precise_next_acceptance_route": "Follow exact record IDs to family-owned source/evidence rows, verify current bundle/source custody in native consumers, and qualify source semantics before any scientific join.",
           "negative_or_refused_result": "Marker traceability leaves existing source refusals intact; unqualified horse elapsed ages cannot appear as BP events merely because a source row is addressable.",
-          "matched_denominator": "1713 point-layer record uses across 15 layers=1231 human metadata+163 animal localities+319 source-chronology uses. Memberships overlap; these are not 1713 independent specimens."
+          "matched_denominator": "1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,481 normalized records = 335 mapped + 1,146 exclusions. All 1,492 source chronology owners = 335 displayable + 1,157 refusals. Do not pool these units."
         },
         "evidence_pins": [
           {
             "path": "docs/report/world/world_point_traceability.json",
-            "sha256": "81ae146c8c932d8c6b401c4bd598dec41e9bf0199fc5d14546f4b32e14517c8e"
+            "sha256": "db50a3d9774966f9af8dbde787a1e4f0b60589ff5ce1cbc02aebe4176d1fbd2b"
           }
         ]
       }
