@@ -80,9 +80,21 @@ def build_animal_temporal_comparison_review(
     *,
     data_root: Path,
     report_root: Path,
+    provenance_rows: Sequence[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """Publish one cross-family review of direct and contextual time semantics."""
-    animal_rows = list(build_sample_chronology_provenance_rows(data_root))
+    """Compare saved provenance or rebuild source evidence when none is supplied."""
+    animal_rows = list(
+        build_sample_chronology_provenance_rows(data_root)
+        if provenance_rows is None
+        else provenance_rows
+    )
+    if provenance_rows is not None:
+        owners = [
+            (row["project_accession"], row["repo_stable_sample_id"])
+            for row in animal_rows
+        ]
+        if len(set(owners)) != len(owners):
+            raise ValueError("Temporal comparison requires unique provenance owners")
     sead_payload = _load_json_if_present(
         data_root / "sead" / "review" / "temporal_review.json"
     )

@@ -11,6 +11,7 @@ import pytest
 
 from bijux_pollenomics.reporting.adna.foundation_outputs.chronology import (
     build_animal_sample_chronology_review,
+    build_animal_temporal_comparison_review,
 )
 
 
@@ -110,3 +111,77 @@ def test_saved_review_refuses_mixed_or_duplicate_source_owners(change: str) -> N
             chronology_rows=chronology,
             provenance_rows=provenance,
         )
+
+
+def test_temporal_comparison_uses_saved_context_and_preserves_missing_dates() -> None:
+    _, provenance = _rows()
+    provenance[0]["temporal_semantics"] = {
+        "comparability_posture": "numeric_interval_with_caveat",
+        "time_start_bp": 3480,
+        "time_end_bp": 3580,
+    }
+    provenance.append(
+        {
+            "project_accession": "PRJEB90261",
+            "repo_stable_sample_id": "prjeb90261:undated-source-owner",
+            "temporal_semantics": {"comparability_posture": "contextual_label_only"},
+        }
+    )
+    before = deepcopy(provenance)
+    owner = "bijux_pollenomics.reporting.adna.foundation_outputs.chronology"
+    with (
+        patch(f"{owner}.build_sample_chronology_provenance_rows") as source,
+        patch(f"{owner}._load_json_if_present", return_value={}),
+        patch(f"{owner}._published_temporal_feature_findings", return_value=[]),
+    ):
+        result = build_animal_temporal_comparison_review(
+            data_root=Path("unavailable-source-data"),
+            report_root=Path("unused-report"),
+            provenance_rows=provenance,
+        )
+        source.assert_not_called()
+    assert result["family_rows"][0]["row_count"] == 2
+    assert result["family_rows"][0]["comparability_counts"] == {
+        "numeric_interval_with_caveat": 1,
+        "contextual_label_only": 1,
+    }
+    assert len(result["unsafe_comparison_findings"]) == 1
+    assert provenance == before
+
+
+def test_temporal_comparison_refuses_duplicate_saved_owners() -> None:
+    _, provenance = _rows()
+    provenance.append(deepcopy(provenance[0]))
+    with pytest.raises(ValueError, match="unique provenance owners"):
+        build_animal_temporal_comparison_review(
+            data_root=Path("unavailable-source-data"),
+            report_root=Path("unused-report"),
+            provenance_rows=provenance,
+        )
+
+
+@pytest.mark.parametrize("supplied_empty", [False, True])
+def test_temporal_comparison_distinguishes_default_and_empty_saved_population(
+    supplied_empty: bool,
+) -> None:
+    _, provenance = _rows()
+    data_root = Path("unused-source-data")
+    owner = "bijux_pollenomics.reporting.adna.foundation_outputs.chronology"
+    with (
+        patch(
+            f"{owner}.build_sample_chronology_provenance_rows", return_value=provenance
+        ) as source,
+        patch(f"{owner}._load_json_if_present", return_value={}),
+        patch(f"{owner}._published_temporal_feature_findings", return_value=[]),
+    ):
+        result = build_animal_temporal_comparison_review(
+            data_root=data_root,
+            report_root=Path("unused-report"),
+            provenance_rows=[] if supplied_empty else None,
+        )
+        if supplied_empty:
+            source.assert_not_called()
+            assert result["family_rows"][0]["row_count"] == 0
+        else:
+            source.assert_called_once_with(data_root)
+            assert result["family_rows"][0]["row_count"] == 1
