@@ -505,7 +505,7 @@
       "chronology_precision_posture": "",
       "source_native_tax_id": "",
       "source_native_scientific_name": "",
-      "taxon_alignment_status": "not_reported",
+      "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
       "source_native_identity_kind": "biological_sample",
       "chronology_time_mean_bp": null
