@@ -2024,18 +2024,18 @@
         "fields": {
           "supported_claim": "For the retained six-site 225 BP author example and ten selected taxa, the same first 1,000 paired indices compare ratio-of-unclosed-means with arithmetic mean-of-closed-vectors; the largest retained mean difference is 0.0016233449666228639 fraction.",
           "unsupported_claim": "This compares two aggregation definitions on shared prepared inputs; it establishes neither independent field vegetation accuracy, an exact new ten-taxon historical R reproduction nor additive uncertainty components.",
-          "actual_verification_performed": "Reviewed the authored explanation and retained report, checked the report's physical identity and selected/total support; no author R execution, bootstrap or model fit was rerun for this reader qualification.",
-          "remaining_input_or_review": "Current-source owner replay and independent interpretation of the selected taxon population remain required; a new ecological claim also needs a matched measured vegetation target and justified source assumptions.",
-          "cause_category": "Conditional aggregation semantics on shared author-derived data.",
-          "consequence": "A mean-profile discrepancy can follow closure order even with shared draws; it cannot identify which profile is ecologically more accurate.",
-          "precise_next_acceptance_route": "Replay the named profile-comparison owner against the qualified current author-site account, retain the same 1,000 indices and distinguish definition correspondence from any later measured-target comparison.",
+          "actual_verification_performed": "Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed.",
+          "remaining_input_or_review": "Current-source owner replay and its reader/report references are reconciled. Independent interpretation of the selected taxon population, justified chronology and geometry, source rights and any matched measured vegetation target remain separate scientific acceptance.",
+          "cause_category": "Current-source conditional aggregation comparison on shared author-derived data, with authenticated upstream uncertainty and unchanged paired scientific values.",
+          "consequence": "The current calculation and reader now bind the same source report and code epoch. The retained mean discrepancy still follows closure order even with shared draws and cannot identify which profile is ecologically more accurate.",
+          "precise_next_acceptance_route": "Use this source-bound comparison alongside the adopted conditional uncertainty account; distinguish the two definitions on the preserved 1,000 paired indices from any later independent measured-target, chronology, geometry or scientific-release assessment.",
           "negative_or_refused_result": "The nonzero mean discrepancy is retained; the near-zero maximum standard-error difference 2.55351295663786e-15 does not establish equivalence of the two mean definitions.",
           "matched_denominator": "Six sites in one grid and window; ten selected taxa from 31 prepared targets, 10,404 selected counts from 10,747 author-target counts; first 1,000 of 1,024 paired draws."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/author-site-profile-comparison/report.json",
-            "sha256": "4fa285302a1d19b3122d1e3ea2ec318f0a635e1abd1140b3f247faf5bd66ccdf"
+            "sha256": "73649b9d5e5c3b4699840148140b4b0edab8fd939e82b357852e2e162792dde4"
           }
         ]
       }
@@ -2055,18 +2055,18 @@
         "fields": {
           "supported_claim": "The retained grid 512 example at 225 BP propagates selected-count, site-resampling and shared positive PPE draws for six sites and ten prepared taxa, conditional on fixed chronology, geometry and transport.",
           "unsupported_claim": "It supplies no historical source-R parity, calibrated field coverage, scientific admission of all 31 author targets or independent vegetation accuracy; shared author lineage is not independent evidence.",
-          "actual_verification_performed": "Reviewed the retained report and authored reader and compared all four declared repository-code hashes with physical current files: all four match. The reader cites a different historical report hash; no fresh bootstrap or current-source replay occurred in this qualification.",
-          "remaining_input_or_review": "The maintained author-site owner replay must reconcile the stale reader report reference before claiming a current replay. Scientific use also needs source parameter, geometry and chronology justification and independent review.",
-          "cause_category": "Conditional uncertainty account with a stale authored report reference; its four declared code dependencies currently match.",
-          "consequence": "The retained 1,024-draw result remains inspectable as historical development evidence; it cannot certify later source bytes or uncertainty omitted by its fixed assumptions.",
-          "precise_next_acceptance_route": "Run the configured author-site uncertainty owner with exact retained inputs, preserve its selected-count denominator and paired draw construction, and compare native numeric products before advancing current-source or scientific acceptance.",
+          "actual_verification_performed": "Executed the maintained author-site uncertainty replay on local main1180a97d7d7356d0f7a6b05d116f342587861997 and an independent complete three-product observer; both native stages exited zero. All 13 original private input identities, six sites, ten taxa, selected counts and 1,024 joint draw rows were authenticated. Every typed scientific value matched the retained result, and draws.json plus cover-draws.csv were byte-identical. Only replay-code byte/hash metadata and the moved joint-draw module path changed.",
+          "remaining_input_or_review": "Current-source replay and the stale report reference are reconciled. Scientific use still needs source parameter, age-specific geometry and chronology justification, rights and independent scientific review; this replay supplies no historical source-R parity or ecological accuracy.",
+          "cause_category": "Current-source conditional uncertainty replay with exact retained scientific values and shared-draw identities; scientific applicability remains separately qualified.",
+          "consequence": "The 1,024-draw calculation now binds its actual current code provenance and reader reference. It remains conditional on the selected ten-taxon denominator and fixed chronology, geometry and transport, without a new field-accuracy or scientific-release claim.",
+          "precise_next_acceptance_route": "Use the adopted source-bound report and unchanged stored draw products for the maintained paired author-site profile comparison; qualify any scientific application against its original source, chronology, geometry, rights and independent review requirements.",
           "negative_or_refused_result": "Targets without selected positive prepared support are not silently treated as measured absences. Missing historical R parity and ecological accuracy remain explicit false claims.",
           "matched_denominator": "One grid/window, six sites, ten selected taxa from 31 prepared targets; selected site counts 289,293,2223,2786,4251,562 sum 10,404 against full 10,747; 1,024 explicit paired replicates."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/author-site-uncertainty/report.json",
-            "sha256": "7151663080298759739596e2d36f2bc9c6392f51b92593a7ade79886e3f702a8"
+            "sha256": "7da46aa0ca1c17b6915f6ee99e51c4911632472a244aefdc1a62828f1d4c41d4"
           },
           {
             "path": "docs/report/method-certification/author-site-uncertainty/draws.json",
@@ -3355,7 +3355,7 @@
         "fields": {
           "supported_claim": "An untuned leave-one-author-site-ID-out within-grid baseline predicts the equal-site mean of available training pollen fractions at the same bin. Retained site-macro MAE is 0.018949 fraction and total variation 0.293703 on scored support.",
           "unsupported_claim": "An independent selected-model improvement, a spatial-block evaluation, Swedish LRA/transfer or vegetation accuracy, calibrated uncertainty, reviewed cross-database aliases or certified raw-core grain denominator/redistribution rights.",
-          "actual_verification_performed": "The retained report, prediction and score ledgers were inspected for method, source and scored/refused support. They record target counts excluded from their own prediction. This qualification does not execute the private-source producer or independent numerical verification; the replay’s CSV line-ending normalization is distinct from changing numeric values.",
+          "actual_verification_performed": "Executed the maintained advertised family replay on local main at cacf5c5d956f379cf21b94b64791e1daf7650f1a, including the unchanged observed-pollen site-ID holdout producer, and an independent complete four-product/source observer; both native stages exited zero. All 193 original author snapshot members were authenticated. Final report.json, scores.csv, predictions.csv and the fully managed REPORT.md were byte-identical to the governed family. CSV CRLF-to-LF conversion preserved every cell, and verified_authored_reader/render_route authenticated the original prose and current footer. This reader retains its own authored body. Support remains17sites/2grids/31taxa,184 observed site-bin targets,177 scored and7 refused; no new R, ecological model, rights or human acceptance is claimed.",
           "remaining_input_or_review": "Author outcomes were previously exposed; site IDs lack reviewed cross-database alias closure. Prepared 31-taxon counts and within-site correlated bins are not a complete raw-core denominator or independent uncertainty sample. Independent vegetation truth and intended redistribution rights remain unbound.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
           "consequence": "Interpret this as the untuned observed-pollen baseline on its own 177-bin support. The later search’s 174 common bins and the buffered study’s 148/140 bins are different evaluation supports, so their aggregate MAEs are not a direct paired improvement claim.",
@@ -3394,7 +3394,7 @@
         "fields": {
           "supported_claim": "An untuned leave-one-author-site-ID-out within-grid baseline predicts the equal-site mean of available training pollen fractions at the same bin. Retained site-macro MAE is 0.018949 fraction and total variation 0.293703 on scored support.",
           "unsupported_claim": "An independent selected-model improvement, a spatial-block evaluation, Swedish LRA/transfer or vegetation accuracy, calibrated uncertainty, reviewed cross-database aliases or certified raw-core grain denominator/redistribution rights.",
-          "actual_verification_performed": "The retained report, prediction and score ledgers were inspected for method, source and scored/refused support. They record target counts excluded from their own prediction. This qualification does not execute the private-source producer or independent numerical verification; the replay’s CSV line-ending normalization is distinct from changing numeric values.",
+          "actual_verification_performed": "Executed the maintained advertised family replay on local main at cacf5c5d956f379cf21b94b64791e1daf7650f1a, including the unchanged observed-pollen site-ID holdout producer, and an independent complete four-product/source observer; both native stages exited zero. All 193 original author snapshot members were authenticated. Final report.json, scores.csv, predictions.csv and the fully managed REPORT.md were byte-identical to the governed family. CSV CRLF-to-LF conversion preserved every cell, and verified_authored_reader/render_route authenticated the original prose and current footer. This reader retains its own authored body. Support remains17sites/2grids/31taxa,184 observed site-bin targets,177 scored and7 refused; no new R, ecological model, rights or human acceptance is claimed.",
           "remaining_input_or_review": "Author outcomes were previously exposed; site IDs lack reviewed cross-database alias closure. Prepared 31-taxon counts and within-site correlated bins are not a complete raw-core denominator or independent uncertainty sample. Independent vegetation truth and intended redistribution rights remain unbound.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
           "consequence": "Interpret this as the untuned observed-pollen baseline on its own 177-bin support. The later search’s 174 common bins and the buffered study’s 148/140 bins are different evaluation supports, so their aggregate MAEs are not a direct paired improvement claim.",

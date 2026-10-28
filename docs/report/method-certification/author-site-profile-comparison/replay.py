@@ -102,8 +102,7 @@ def replay(repository: Path, source_root: Path) -> dict[str, object]:
         / "docs/report/method-certification/author-site-profile-comparison/replay.py",
         repository
         / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
-        repository
-        / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        Path(joint_site_cover_draws.__code__.co_filename).resolve(),
     ]
     return {
         "schema_version": "author-site-profile-comparison.v1",
