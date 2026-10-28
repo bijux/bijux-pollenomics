@@ -1,4 +1,4 @@
-"""Freeze only authenticated Swedish metadata source bytes and an isolated standard-library runtime."""
+"""Freeze one corrected observer over an unchanged completed Swedish source replay."""
 
 from __future__ import annotations
 
@@ -20,17 +20,17 @@ _expected_python = {
     "contracts.py",
     "run.py",
     "check_contracts.py",
+    "custody.py",
 }
 for _entry in _entry_directory.iterdir():
     if _entry.is_symlink() or (not _entry.is_file() and not _entry.is_dir()):
-        raise ValueError("Controller namespace contains an alias or special entry")
+        raise ValueError("Controller alias/special entry")
     if _entry.is_dir() and _entry.name != "preflight":
         raise ValueError("Unexpected controller import directory")
     if _entry.suffix in {".py", ".pyc", ".so"} and _entry.name not in _expected_python:
         raise ValueError("Unexpected controller module before helper import")
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from contracts import (  # noqa: E402 - closed namespace must precede owned imports.
+sys.path.insert(0, str(_entry_directory))
+from contracts import (  # noqa: E402
     BASE,
     ROOT,
     SOURCE,
@@ -45,12 +45,8 @@ from contracts import (  # noqa: E402 - closed namespace must precede owned impo
     source_namespace,
     verify_frozen_pins,
 )
-from runtime import (  # noqa: E402
-    absent_path,
-    check_aliases,
-    runtime_inputs,
-    tree_membership,
-)
+from custody import ORIGINAL_CANDIDATE, RETAINED, authenticate_retained  # noqa: E402
+from runtime import profile_guard  # noqa: E402
 
 
 def identity() -> dict[str, str]:
@@ -68,120 +64,56 @@ def identity() -> dict[str, str]:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser()
-    p.add_argument("--candidate", required=True)
-    p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--review-sha256", required=True)
-    a = p.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--review-sha256", required=True)
+    args = parser.parse_args()
     source_namespace()
-    before = identity()
+    profile_guard()
+    canonical = identity()
     require(
-        before["candidate"] == a.candidate and before["status"] == "",
-        "Exact clean candidate required",
+        canonical["candidate"] == args.candidate == ORIGINAL_CANDIDATE
+        and canonical["status"] == "",
+        "Exact original clean candidate required; no unreviewed Git bridge",
     )
-    output = confined_output(a.output, absent=True)
+    output = confined_output(args.output, absent=True)
+    for protected in (SOURCE, RETAINED):
+        require(
+            not output.is_relative_to(protected)
+            and not protected.is_relative_to(output),
+            "Output overlaps protected root",
+        )
     manifest = SOURCE / "prepared-source-manifest.json"
     peer = SOURCE / "independent-source-review.json"
-    require(sha(peer) == a.review_sha256, "Peer reference differs")
-    review = load(peer)
     require(
-        review["approved"] is True
-        and review["source_manifest_sha256"] == sha(manifest),
-        "Held independent source approval required",
+        sha(peer) == args.review_sha256
+        and load(peer)["approved"] is True
+        and load(peer)["source_manifest_sha256"] == sha(manifest),
+        "Exact source approval required",
     )
-    expected = []
+    expected = [pin(manifest), pin(peer)]
     for row in load(manifest)["files"]:
-        file = SOURCE / row["path"]
-        require(exact(pin(file), {**row, "path": str(file)}), "Held controller differs")
-        expected.append({**row, "path": str(file)})
-    expected.extend((pin(manifest), pin(peer)))
-    declared = load(SOURCE / "declared-inputs.json")
-    for row in declared["inputs"]:
-        path = Path(row["path"])
-        require(
-            path.is_absolute()
-            and ".." not in path.parts
-            and not any(part.is_symlink() for part in (path, *path.parents)),
-            "Declared metadata source must be physical",
-        )
-        require(exact(pin(Path(row["path"])), row), "Science/source input differs")
-        expected.append(dict(row))
-    policy = ROOT / "configs/ci/report-ownership.json"
-    policy_pin = pin(policy)
-    owners = [x for x in load(policy)["owners"] if x["owner_id"] == declared["owner"]]
-    require(
-        len(owners) == 1
-        and owners[0]["role"] == "unresolved"
-        and owners[0]["paths"] == [declared["report"]],
-        "Expected unresolved owner differs",
-    )
-    expected.append(policy_pin)
-    # These stdlib readers are used by both genuine metadata consumers.
-    # Import before the inherited full runtime/native origin census; no parsing occurs.
-    for module in ("csv", "xml.etree.ElementTree"):
-        __import__(module)
-    runtime_files, runtime = runtime_inputs()
-    expected.extend(pin(file) for file in sorted(runtime_files))
-    frozen_inputs = frozen_pin_union(expected)
-    frozen_by_path = {row["path"]: row for row in frozen_inputs}
-    source = ROOT / declared["maintained_source"]
-    report = ROOT / declared["report"]
-    output_parent = output.parent
-    while not output_parent.exists():
-        output_parent = output_parent.parent
-    require(
-        shutil.disk_usage(output_parent).free >= 1024**3,
-        "Need128MiB outputs and available reserve",
-    )
-    source_namespace()
-    verify_frozen_pins(frozen_inputs)
-    require(
-        tree_membership(Path(runtime["framework_root"]))
-        == runtime["framework_membership"],
-        "Runtime namespace changed during preparation",
-    )
-    require(
-        check_aliases(runtime["tree_aliases"] + runtime["native_aliases"])
-        and absent_path(Path(runtime["absent_stdlib_zip"])),
-        "Runtime alias or absence changed during preparation",
-    )
-    framework_files = {
-        str(Path(runtime["framework_root"]) / row["path"])
-        for row in runtime["framework_membership"]
-        if row["kind"] == "file"
-    }
-    require(
-        framework_files.issubset({row["path"] for row in frozen_inputs}),
-        "Unpinned framework namespace entry",
-    )
-    require(identity() == before, "Candidate changed during preparation")
-    confined_output(output, absent=True)
-    verify_frozen_pins(frozen_inputs)
-    output.mkdir()
-    (output / "scratch").mkdir()
-    plan_path = output / "plan.json"
+        path = SOURCE / row["path"]
+        require(exact(pin(path), {**row, "path": str(path)}), "Held source differs")
+        expected.append({**row, "path": str(path)})
+    original, products = authenticate_retained()
+    inputs = frozen_pin_union([*expected, *original["input_pins"], *products])
     plan = {
-        "id": "swedish-cohort-metadata-source-" + a.candidate[:12],
-        "schema_version": "swedish-cohort-metadata-source-replay-plan.v1",
-        "candidate": a.candidate,
+        "schema_version": "swedish-cohort-observer-only-plan.v1",
+        "candidate": args.candidate,
         "repository": str(ROOT),
-        "canonical_identity": before,
+        "canonical_identity": canonical,
         "output": str(output),
-        "input_pins": frozen_inputs,
-        "absent_input_paths": [runtime["absent_stdlib_zip"]],
-        "runtime_profile": runtime,
-        "maintained_source": frozen_by_path[str(source)],
-        "maintained_source_argv": [
-            str(source),
-            "--repository",
-            str(ROOT),
-            "--private-root",
-            declared["private_root"],
-            "--output",
-            str(output / "producer/report.json"),
-        ],
-        "historical_report": frozen_by_path[str(report)],
-        "declared_owner": owners[0],
+        "input_pins": inputs,
+        "absent_input_paths": original["absent_input_paths"],
+        "runtime_profile": original["runtime_profile"],
+        "original_plan": pin(RETAINED / "plan.json"),
+        "original_common": pin(RETAINED / "terminal.json"),
+        "original_outer": pin(RETAINED / "swedish-cohort-terminal.json"),
+        "retained_output_members": products,
+        "retained_producer_native_exit": 0,
+        "original_whole_actual_exit": 1,
         "common_runner": str(SOURCE / "common_runner.py"),
         "resources": {
             "overall_timeout_seconds": 110,
@@ -195,37 +127,62 @@ def main() -> None:
             "PYTHONDONTWRITEBYTECODE": "1",
             "TMPDIR": str(output / "scratch"),
         },
-        "scope": "Metadata-only current maintained Swedish cohort/source collision replay. No new acquisition, pollen/count table, selected sample age/chronology, distinct untouched cohort, LRA, rights/human or ecological acceptance.",
+        "scope": "One corrected independent full metadata source join over genuine unchanged source0/observer1. No producer rerun, new acquisition/count table/selected age/physical fresh cohort/rights/ecology/LRA/human acceptance.",
     }
+    plan_path = output / "plan.json"
     plan["stages"] = [
         {
-            "id": name,
+            "id": "independent-nested-swedish-metadata-observer",
             "argv": [
                 str(BASE),
                 "-I",
                 "-S",
                 "-B",
-                str(SOURCE / script),
+                str(SOURCE / "observe.py"),
                 "--plan",
                 str(plan_path),
             ],
             "timeout_seconds": 45,
             "must_succeed": True,
         }
-        for name, script in [
-            ("maintained-swedish-cohort-source", "execute_source.py"),
-            ("independent-swedish-cohort-metadata-observer", "observe.py"),
-        ]
     ]
+    parent = output.parent
+    while not parent.exists():
+        parent = parent.parent
+    require(
+        shutil.disk_usage(parent).free >= 1024**3,
+        "Need128MiB output budget plus physical reserve",
+    )
+    source_namespace()
+    verify_frozen_pins(inputs)
+    checked, retained = authenticate_retained()
+    require(
+        exact(checked, original) and exact(retained, products),
+        "Retained source changed during preparation",
+    )
+    require(identity() == canonical, "Git changed during census")
+    confined_output(output, absent=True)
+    output.mkdir()
+    (output / "scratch").mkdir()
     dump(plan_path, plan)
     dump(
         output / "preparation.json",
         {
             "actual_exit": 0,
-            "candidate": a.candidate,
             "plan": pin(plan_path),
-            "protected_input_count": len(plan["input_pins"]),
-            "native_consumers_launched": 0,
+            "original_whole_exit": 1,
+            "producer_rerun": False,
+            "launch_argv": [
+                str(BASE),
+                "-I",
+                "-S",
+                "-B",
+                str(SOURCE / "run.py"),
+                "--plan",
+                str(plan_path),
+                "--registered-plan-sha256",
+                sha(plan_path),
+            ],
         },
     )
     print(plan_path)

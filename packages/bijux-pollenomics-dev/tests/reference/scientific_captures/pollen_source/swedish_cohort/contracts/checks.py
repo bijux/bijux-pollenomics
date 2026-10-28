@@ -14,6 +14,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contracts as c
+from custody import RETAINED, retained_contract, validate_launch_log
 from metadata import (
     PROFILES,
     age_events,
@@ -72,16 +73,37 @@ def main() -> None:
         refuses(c.validate_scope, changed)
     cases.append("dataset-site-count-type-and-outside-site-refusals")
     records: list[dict[str, Any]] = [
-        {"datasetid": index, "site": {"siteid": index % 99}} for index in range(102)
+        {"site": {"siteid": index % 99, "datasets": [{"datasetid": index}]}}
+        for index in range(102)
     ]
     assert len(dataset_sites(records)) == 99
-    records[-1]["datasetid"] = records[0]["datasetid"]
+    records[-1]["site"]["datasets"][0]["datasetid"] = records[0]["site"]["datasets"][0][
+        "datasetid"
+    ]
     refuses(dataset_sites, records)
-    records[-1]["datasetid"] = 101
+    records[-1]["site"]["datasets"][0]["datasetid"] = 101
     records[-1]["site"]["siteid"] = True
     refuses(dataset_sites, records)
     cases.append(
         "complete102-unique-native-datasets99sites-duplicate-and-boolean-refusals"
+    )
+    for mutate in (
+        lambda x: x[-1].update(datasetid=101),
+        lambda x: x[-1]["site"].pop("datasets"),
+        lambda x: x[-1]["site"].update(datasets=[]),
+        lambda x: x[-1]["site"]["datasets"].append({"datasetid": 200}),
+        lambda x: x[-1]["site"]["datasets"][0].update(datasetid=True),
+        lambda x: x[-1]["site"]["datasets"][0].update(datasetid=101.0),
+        lambda x: x[-1]["site"].update(siteid="2"),
+    ):
+        nested = [
+            {"site": {"siteid": index % 99, "datasets": [{"datasetid": index}]}}
+            for index in range(102)
+        ]
+        mutate(nested)
+        refuses(dataset_sites, nested)
+    cases.append(
+        "actual-declared-nested-schema-missing-multiple-flattened-and-ID-type-refusals"
     )
     for key, value in (
         ("retained_neotoma_all_country_core_handles", 203),
@@ -267,6 +289,73 @@ def main() -> None:
     cases.append(
         "all-four-native-entrypoints-refuse-compiled-helper-shadow-before-import"
     )
+    stdout_prefix = b"original stage summaries\n"
+    original_log = {
+        "bytes": len(stdout_prefix),
+        "sha256": __import__("hashlib").sha256(stdout_prefix).hexdigest(),
+    }
+    common_pin = {"path": "/retained/terminal.json", "sha256": "a" * 64, "bytes": 10}
+    outer_pin = {"path": "/retained/outer.json", "sha256": "b" * 64, "bytes": 11}
+    tail = (
+        json.dumps(
+            {
+                "terminal": common_pin["path"],
+                "sha256": common_pin["sha256"],
+                "status": "failed",
+            }
+        )
+        + "\n"
+        + json.dumps({"terminal": outer_pin, "actual_exit": 1})
+        + "\n"
+    ).encode()
+    validate_launch_log(
+        stdout_prefix + tail, original_log, common_pin, outer_pin, "failed"
+    )
+    for content in (
+        b"X" + stdout_prefix[1:] + tail,
+        stdout_prefix + tail[:-1],
+        stdout_prefix + tail + b"unrecorded",
+    ):
+        refuses(
+            validate_launch_log, content, original_log, common_pin, outer_pin, "failed"
+        )
+    refuses(
+        validate_launch_log,
+        stdout_prefix + tail,
+        original_log,
+        common_pin,
+        outer_pin,
+        "passed",
+    )
+    cases.append(
+        "original-stdout-stdout_prefix-and-only-source-defined-failed-terminal-tails"
+    )
+    original = c.load(RETAINED / "plan.json")
+    common = c.load(RETAINED / "terminal.json")
+    outer = c.load(RETAINED / "swedish-cohort-terminal.json")
+    retained_contract(original, common, outer)
+    cases.append("genuine-original-plan3537-source0-observer1-whole1-declared-contract")
+    for mutate in (
+        lambda x: x.update(actual_exit=0),
+        lambda x: x["stages"][0].update(actual_exit=1),
+        lambda x: x["stages"][1].update(actual_exit=0),
+        lambda x: x["stages"][0].update(timed_out=True),
+        lambda x: x["stages"][0]["argv"].append("unregistered"),
+        lambda x: x["stages"].pop(),
+        lambda x: x["after_pin_mismatches"].append("changed input"),
+    ):
+        altered = deepcopy(common)
+        mutate(altered)
+        refuses(retained_contract, original, altered, outer)
+    cases.append("original-native-exit-command-timeout-membership-and-custody-refusals")
+    for value in (0, True):
+        altered = deepcopy(outer)
+        altered["actual_exit"] = value
+        refuses(retained_contract, original, common, altered)
+    altered = deepcopy(original)
+    altered["input_pins"][-1] = altered["input_pins"][0]
+    refuses(retained_contract, altered, common, outer)
+    cases.append("no-relabelling-original-whole-failure-or-duplicate-original-pin")
     c.dump(
         output / "receipt.json",
         {

@@ -17,6 +17,7 @@ _expected_python = {
     "execute_source.py",
     "observe.py",
     "metadata.py",
+    "custody.py",
     "common_runner.py",
     "runtime.py",
     "prepare.py",
@@ -43,6 +44,7 @@ from contracts import (  # noqa: E402
     require,
     sha,
 )
+from custody import authenticate_retained  # noqa: E402
 from runtime import (  # noqa: E402 - closed namespace must precede owned imports.
     absent_path,
     check_aliases,
@@ -62,6 +64,8 @@ def main() -> None:
     profile_guard()
     require(sha(args.plan) == args.registered_plan_sha256, "Registered plan differs")
     plan = load(args.plan)
+    retained, products = authenticate_retained()
+    require(exact(products, plan["retained_output_members"]), "Retained members differ")
     output = Path(plan["output"])
     aliases = (
         plan["runtime_profile"]["tree_aliases"]
@@ -81,7 +85,7 @@ def main() -> None:
         all(absent_path(Path(value)) for value in plan["absent_input_paths"]),
         "Prelaunch absence differs",
     )
-    terminal_path = output / "swedish-cohort-terminal.json"
+    terminal_path = output / "swedish-metadata-observer-terminal.json"
     require(not terminal_path.exists(), "No terminal overwrite")
     child = subprocess.Popen(
         [
@@ -155,6 +159,11 @@ def main() -> None:
     absences_stable = all(
         absent_path(Path(value)) for value in plan["absent_input_paths"]
     )
+    checked, checked_products = authenticate_retained()
+    require(
+        exact(checked, retained) and exact(checked_products, products),
+        "Retained production changed",
+    )
     products = output_products(output)
     used = sum(row["bytes"] for row in products)
     rss = max(
@@ -190,6 +199,9 @@ def main() -> None:
             "plan_sha256": args.registered_plan_sha256,
             "common_terminal": pin(common_path) if common_path.is_file() else None,
             "common_actual_exit": returncode,
+            "original_whole_actual_exit": 1,
+            "retained_producer_native_exit": 0,
+            "producer_rerun": False,
             "outer_timed_out": timed_out,
             "observed_elapsed_seconds": elapsed,
             "completed_whole_wall_bound_pass": wall_pass,

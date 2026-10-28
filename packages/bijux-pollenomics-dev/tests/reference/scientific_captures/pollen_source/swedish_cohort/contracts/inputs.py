@@ -24,6 +24,7 @@ MODULES = {
     "observe.py",
     "check_contracts.py",
     "metadata.py",
+    "custody.py",
 }
 
 
