@@ -20,8 +20,14 @@
       "sha256": "5d4e6e72c8794e40d6a741d40a74d7c0e3dbe6de9791e0c555f3043da5bf0def"
     },
     {
-      "path": "data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
-      "sha256": "8148da4b439da1deea7eca7ec355ab106ee31d16d564860ddf375ba783a72ae6"
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+      "sha256": "8148da4b439da1deea7eca7ec355ab106ee31d16d564860ddf375ba783a72ae6",
+      "storage": {
+        "role": "retained-template",
+        "commit": "4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+        "blob": "65a7bfa4269b1ba4d0f96624ef4011cb11facecd",
+        "bytes": 449031
+      }
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js",
@@ -3214,7 +3220,7 @@
       "bootstrap_id": "atlas-static-bootstrap",
       "bootstrap_sha256": "72eff15249250b4f5285e143293ee4f66a2890d6fc00db196537953e8f43d056",
       "recipe": {
-        "template": "data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
           {
             "token": "__SOURCE_RECORD_EXPORT_CONTROLLER__",
@@ -3698,7 +3704,7 @@
       "bootstrap_id": "atlas-static-bootstrap",
       "bootstrap_sha256": "e1bc059dcabe51e153b9239ad0a1ddeee2643cd7d0e3d58940115c59443d84a0",
       "recipe": {
-        "template": "data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
           {
             "token": "__SOURCE_RECORD_EXPORT_CONTROLLER__",
@@ -5456,7 +5462,7 @@
       "bootstrap_id": "atlas-static-bootstrap",
       "bootstrap_sha256": "a740ffa5b9cd4e5fb54d580a56f0df53af8ff9aed3f429f7b80d2a6e1c8bedf3",
       "recipe": {
-        "template": "data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
           {
             "token": "__SOURCE_RECORD_EXPORT_CONTROLLER__",
