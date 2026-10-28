@@ -30,6 +30,9 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.land_use.hyde_country import (
+    validated_hyde_country_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -47,10 +50,6 @@ from .scientific_captures.swedish_static_basin import (
 )
 from .scientific_captures.vegetation_reference.slu_guide import (
     validated_slu_guide_capture,
-)
-
-from .scientific_captures.land_use.hyde_country import (
-    validated_hyde_country_capture,
 )
 
 # This independent admission set is reviewed separately from mutable role labels.
