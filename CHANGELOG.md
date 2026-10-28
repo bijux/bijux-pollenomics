@@ -12,6 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Expose shared-aliquot covariance and fixed two-taxon counting intervals; authenticate retained atlas source custody and current uncertainty ownership ([#264](https://github.com/bijux/bijux-pollenomics/pull/264)).
 - Bind conditional wind/covariance studies and individual scientific reader qualifications to exact evidence and historical source witnesses while preserving current producer refusals ([#263](https://github.com/bijux/bijux-pollenomics/pull/263)).
 - Preserve propagation projection identity and physical BIFF evidence; bind scientific account routes and paper/briefing exports to retained source custody ([#262](https://github.com/bijux/bijux-pollenomics/pull/262)).
 - Bind source-qualified chronology, taxon imports, exposed development ledgers, experiment splits and shared covariance evidence; retire human registers and preserve scientific reader/download custody ([#261](https://github.com/bijux/bijux-pollenomics/pull/261)).
