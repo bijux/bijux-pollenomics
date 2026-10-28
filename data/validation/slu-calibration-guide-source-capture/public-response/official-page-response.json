@@ -1,0 +1,78 @@
+{
+  "requested_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+  "final_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+  "status": 200,
+  "redirects": [],
+  "bytes": 921362,
+  "sha256": "f2a2730afa7616d255fe5b2ab79fe752fff6ffc31dadd780233603b2d799d124",
+  "started_UTC": "2026-10-14T21:59:37.646201+00:00",
+  "completed_UTC": "2026-10-14T21:59:37.930811+00:00",
+  "TLS": {
+    "certificate_verification_required": true,
+    "hostname_verification": true,
+    "CA": {
+      "path": "/opt/homebrew/etc/ca-certificates/cert.pem",
+      "sha256": "ea7dd6b1af098dedb253a88c2ab29ded2752145f3c41b8e67abbad75c2d63cee",
+      "bytes": 287837
+    },
+    "OpenSSL": "OpenSSL 3.6.3 9 Jun 2026"
+  },
+  "proxy_handler": {},
+  "request_headers": {
+    "Host": "www.slu.se",
+    "User-agent": "bijux-source-custody/1",
+    "Accept": "text/html",
+    "Accept-encoding": "identity"
+  },
+  "headers": [
+    [
+      "Cache-Control",
+      "no-cache,no-store"
+    ],
+    [
+      "Pragma",
+      "no-cache"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Content-Type",
+      "text/html; charset=utf-8"
+    ],
+    [
+      "Expires",
+      "-1"
+    ],
+    [
+      "Vary",
+      "Accept-Encoding"
+    ],
+    [
+      "Server",
+      "Microsoft-IIS/10.0"
+    ],
+    [
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains"
+    ],
+    [
+      "X-Powered-By",
+      "ASP.NET"
+    ],
+    [
+      "Date",
+      "Wed, 14 Oct 2026 21:59:37 GMT"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "projection_schema": "slu-public-http-response.v1",
+  "original_response_sha256": "a32fd0dc3db356af24948171210eb21439a96fb25ff9ff613362c9950e26e4bd",
+  "omitted_header_names": [
+    "Set-Cookie"
+  ]
+}

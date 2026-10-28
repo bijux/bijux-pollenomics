@@ -1,0 +1,62 @@
+{
+  "scope": "Read-only used-module native dependency metadata census; no preparer/network.",
+  "source_manifest_sha256": "a4db26620063d04ac49b761253dd9a90ebb842b5024cbdc34fa388eafbde9a02",
+  "native_runtime_files": 125,
+  "native_dependency_rows": 38,
+  "actual_native_lexical_alias_components": {
+    "/opt/homebrew/opt/xz": {
+      "literal_link": "../Cellar/xz/5.8.4",
+      "resolved_target": "/opt/homebrew/Cellar/xz/5.8.4"
+    },
+    "/opt/homebrew/opt/openssl@3": {
+      "literal_link": "../Cellar/openssl@3/3.6.3",
+      "resolved_target": "/opt/homebrew/Cellar/openssl@3/3.6.3"
+    }
+  },
+  "native_dependencies_with_aliases": [
+    {
+      "loader": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_lzma.cpython-311-darwin.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/xz/lib/liblzma.5.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/xz/5.8.4/lib/liblzma.5.dylib",
+        "sha256": "41cdf225f3e10fb54f952c8eca11c8a847d095470540dc42736ae7bd761beaa4",
+        "bytes": 167520
+      },
+      "lexical_path": "/opt/homebrew/opt/xz/lib/liblzma.5.dylib"
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_hashlib.cpython-311-darwin.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib",
+        "sha256": "34bc039f5c725691e757ef42d26f1709830b18046c3ad6d93985153c83d0bbbc",
+        "bytes": 4846032
+      },
+      "lexical_path": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib"
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_ssl.cpython-311-darwin.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/openssl@3/lib/libssl.3.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libssl.3.dylib",
+        "sha256": "4c3c554adc8ace6ec2245b4962b181451d245edfab92c3a09fc7b3be094e7438",
+        "bytes": 884992
+      },
+      "lexical_path": "/opt/homebrew/opt/openssl@3/lib/libssl.3.dylib"
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_ssl.cpython-311-darwin.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib",
+        "sha256": "34bc039f5c725691e757ef42d26f1709830b18046c3ad6d93985153c83d0bbbc",
+        "bytes": 4846032
+      },
+      "lexical_path": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib"
+    }
+  ]
+}

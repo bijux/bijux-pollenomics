@@ -1,0 +1,80 @@
+{
+  "schema_version": "official-guide-native-alias-source-qualification.v1",
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/acquire.py",
+      "sha256": "89ee879ff97bbce3893815afe0e089a310c1c58b4d265ac2b9b530b2f46984ae",
+      "bytes": 7028
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/check_contracts.py",
+      "sha256": "53ef89397e41afcda029caa15db4a7b5cc00998ada10add5cdc9d85ecfa77ac0",
+      "bytes": 12030
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/contracts.py",
+      "sha256": "5ddcb86b3b486ab249644ddfc8184f30c7320891829a8a5eabee12b7ce2f2253",
+      "bytes": 8130
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/observe.py",
+      "sha256": "d6363b7df0bf76d6e38ad587f28aeb3cb2da3e84dbfaa6d81037df4bfc9c731b",
+      "bytes": 4632
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/prepare.py",
+      "sha256": "9524977ba91041ba037a5d8a5c55d5042090b8c74beaba389eeada0304af25e3",
+      "bytes": 10252
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/run.py",
+      "sha256": "633d080a67e85133a0cf334cbd78459e195d0281f0536bd6746b372abd7ff45b",
+      "bytes": 4088
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/runtime_custody.py",
+      "sha256": "0964eec589d0f69f97201b1bfbde558f33f41ab1e775fc53f879c85493af4d20",
+      "bytes": 12005
+    }
+  ],
+  "controlled_groups": 15,
+  "controlled_log": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/controls.log",
+    "sha256": "83ad79a1e26467e2445a1816751b66d64a11dbbbac25b9002f6e48960864f468",
+    "bytes": 114
+  },
+  "strict6": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/strict.log",
+    "sha256": "ab35ee42183d4d6d3ba483825ab037d18a5a15622d03be01d82220b1564851ff",
+    "bytes": 43
+  },
+  "configured_Ruff7": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/lint.log",
+    "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "bytes": 19
+  },
+  "configured_format7": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/format.log",
+    "sha256": "0321fffcb91606a42c0a19d8c1121d5c544379d663821fce616c71a7bb62f6b5",
+    "bytes": 26
+  },
+  "AST7": true,
+  "help4": true,
+  "all_actual_exit_zero": true,
+  "actual_used_native_aliases": {
+    "/opt/homebrew/opt/xz": "/opt/homebrew/Cellar/xz/5.8.4",
+    "/opt/homebrew/opt/openssl@3": "/opt/homebrew/Cellar/openssl@3/3.6.3"
+  },
+  "actual_raw_links": {
+    "/opt/homebrew/opt/xz": "../Cellar/xz/5.8.4",
+    "/opt/homebrew/opt/openssl@3": "../Cellar/openssl@3/3.6.3"
+  },
+  "actual_aliases_unchanged": true,
+  "actual_source_only_census": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/actual-native-alias-census.json",
+    "sha256": "fcada26d8164106b679e49a80300b106c76783310fc3a3238f489225ab4bda1e",
+    "bytes": 2852
+  },
+  "negative": "Controlled parentalias retarget and samephysicaltarget/differentliteral both refuse through unchanged runtime beforeafter aliases_unchanged; declared lexical target shape independently refuses retarget even identicalbytes.",
+  "actual_network_or_preparer_or_plan": false
+}

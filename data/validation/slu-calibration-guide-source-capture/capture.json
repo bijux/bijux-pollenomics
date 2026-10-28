@@ -1,0 +1,132 @@
+{
+  "schema_version": "slu-current-guide-source-capture.v1",
+  "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+  "original_execution_candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "original_plan_sha256": "036f80b72208fbf561c9246836a3fe764a754853f1a611b814f22431076eb84d",
+  "guide": {
+    "path": "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "raw_page_identity": {
+    "sha256": "f2a2730afa7616d255fe5b2ab79fe752fff6ffc31dadd780233603b2d799d124",
+    "bytes": 921362
+  },
+  "original_input_identity_count": 2509,
+  "members": {
+    "execution/current-official-page-and-literal-guide-acquisition.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "execution/current-official-page-and-literal-guide-acquisition.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "execution/current-retrieval.json": {
+      "sha256": "796d1a10c00c53673d4fb2d4a03d864403dbfffe7c8c01a7dedfa4226e5f14cf",
+      "bytes": 2447
+    },
+    "execution/independent-current-response-link-and-guide-byte-review.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "execution/independent-current-response-link-and-guide-byte-review.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "execution/independent-current-source-review.json": {
+      "sha256": "66ae4d283d153dd5aa438bdfde9340de3cccc2af6fb583f2d0729bf7e0e215d5",
+      "bytes": 2317
+    },
+    "execution/literal-guide-link.json": {
+      "sha256": "ded7d0632841bc13c0ab271c4e1b79e857ce26f31a8370fd943f2fc4b2bf36dd",
+      "bytes": 993
+    },
+    "execution/official-guide-terminal.json": {
+      "sha256": "3ff95924e8f6d8ef0116b000c60740db9e1e468287ef5fdf35f6b99f1707b424",
+      "bytes": 915
+    },
+    "execution/plan.json": {
+      "sha256": "036f80b72208fbf561c9246836a3fe764a754853f1a611b814f22431076eb84d",
+      "bytes": 712133
+    },
+    "execution/terminal.json": {
+      "sha256": "a9656e1e6e6f4f81e78f01ceff6f05317c6d907d0b3c6b6631c9760da83ad0bf",
+      "bytes": 8660
+    },
+    "public-response/official-PDF-response.json": {
+      "sha256": "c1bba9b2c8f9cb2cd6c2c15c1a604e3a43c9a2c658db6034bea2b08b88beee92",
+      "bytes": 2113
+    },
+    "public-response/official-page-response.json": {
+      "sha256": "3619732c48f97525f21ec540523d49ee70aac5bed5dec48649a88f6c74af3dd1",
+      "bytes": 1869
+    },
+    "source-code/artifacts/science/current-report-custody/run_account_qualification.py": {
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/acquire.py": {
+      "sha256": "89ee879ff97bbce3893815afe0e089a310c1c58b4d265ac2b9b530b2f46984ae",
+      "bytes": 7028
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/check_contracts.py": {
+      "sha256": "53ef89397e41afcda029caa15db4a7b5cc00998ada10add5cdc9d85ecfa77ac0",
+      "bytes": 12030
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/contracts.py": {
+      "sha256": "5ddcb86b3b486ab249644ddfc8184f30c7320891829a8a5eabee12b7ce2f2253",
+      "bytes": 8130
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/independent-source-review.json": {
+      "sha256": "72b39e2e399889eb449f50b1d22a9de14f6bfab84abff112f20d3b67251530b3",
+      "bytes": 1438
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/observe.py": {
+      "sha256": "d6363b7df0bf76d6e38ad587f28aeb3cb2da3e84dbfaa6d81037df4bfc9c731b",
+      "bytes": 4632
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/preflight/actual-native-alias-census.json": {
+      "sha256": "fcada26d8164106b679e49a80300b106c76783310fc3a3238f489225ab4bda1e",
+      "bytes": 2852
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/prepare.py": {
+      "sha256": "9524977ba91041ba037a5d8a5c55d5042090b8c74beaba389eeada0304af25e3",
+      "bytes": 10252
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/prepared-source-manifest.json": {
+      "sha256": "7ae352ab97a68661ebaa9e079eafc018012b3878d79713b67b4f59b2e2cca892",
+      "bytes": 1911
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/protocol.json": {
+      "sha256": "9f3e1a1df2b3fd73622718b52676c13f46fb5e6a4d8fc9594a42906eeb619a37",
+      "bytes": 5993
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/run.py": {
+      "sha256": "633d080a67e85133a0cf334cbd78459e195d0281f0536bd6746b372abd7ff45b",
+      "bytes": 4088
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/runtime_custody.py": {
+      "sha256": "0964eec589d0f69f97201b1bfbde558f33f41ab1e775fc53f879c85493af4d20",
+      "bytes": 12005
+    },
+    "source-code/artifacts/science/official-slu-guide-native-alias-custody/source-qualification.json": {
+      "sha256": "3eeee1e6c3a7ebd15c873406091febdb6e865d08eae8abc6d0bb4d173b0cc0c4",
+      "bytes": 3844
+    }
+  },
+  "scope": {
+    "current_official_page_link_and_PDF_chain": true,
+    "original_2026_09_21_copy_recovered": false,
+    "historical_a063_receipt_recovered": false,
+    "prior_8be8_documentary_use_review_available": false,
+    "new_documentary_license_revalidation": false,
+    "raw_page_payload_redistributed": false,
+    "runtime_payloads_redistributed": false,
+    "workbook_metadata_record_rewritten": false,
+    "workbook_outcomes_decoded": 0,
+    "measured_pairs_admitted": 0,
+    "human_or_ecological_acceptance": false,
+    "new_network_requests": 0
+  }
+}
