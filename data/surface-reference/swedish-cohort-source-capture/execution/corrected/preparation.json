@@ -1,0 +1,21 @@
+{
+  "actual_exit": 0,
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json",
+    "sha256": "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084",
+    "bytes": 1464228
+  },
+  "original_whole_exit": 1,
+  "producer_rerun": false,
+  "launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/run.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json",
+    "--registered-plan-sha256",
+    "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084"
+  ]
+}

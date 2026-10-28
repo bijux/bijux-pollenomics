@@ -25,6 +25,11 @@
       "descriptor": "source-transport.json",
       "sha256": "a0c3bd883bde0aa55b82bde5d5551ea4ced47b5bdc8576727273690451b7e8d3",
       "bytes": 2778
+    },
+    "data/surface-reference/swedish-cohort-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "d46ec7249c60f39c108df8b22b7ab71f10fa72ae38e213af32616d60653ac328",
+      "bytes": 6476
     }
   },
   "source_revisions": {

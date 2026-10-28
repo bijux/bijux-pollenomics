@@ -1,0 +1,54 @@
+{
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "8b7e3f52baee6f1cfdd1b654cc7d0992504ad838b910c5e798ea2c351528b08a",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/prepared-source-manifest.json",
+    "sha256": "8b7e3f52baee6f1cfdd1b654cc7d0992504ad838b910c5e798ea2c351528b08a",
+    "bytes": 5976
+  },
+  "source_qualification_sha256": "53319462cd9b93ebe44059fda606af1766ddf813c6cd7f9e8e9d680944eb6df6",
+  "held_members_authenticated": 20,
+  "declared_input_members_authenticated": 33,
+  "private_metadata_member_count": 26,
+  "private_metadata_bytes_hashed_not_parsed": 5903857,
+  "source_runtime_and_common_bytes_exact_SVAR_c3fb": true,
+  "source_execution_function_AST_exact_SVAR_c3fb": true,
+  "independent_controls": {
+    "meaningful_guard_groups": 18,
+    "actual_exit": 0,
+    "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "receipt": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-independent-review/controlled-source-guards/receipt.json",
+      "sha256": "52772b8585777354375f2addbdf50b43e0131bd6740bf857131984f1d6a59177",
+      "bytes": 1539
+    },
+    "log": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-independent-review/independent-guards.log",
+      "sha256": "8fc436ce6f66a2f68ced8c320337acdd981422ae02f9f63e37a7fa2f775c7251",
+      "bytes": 62
+    }
+  },
+  "source_authentication": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-independent-review/authenticated-source-correspondence.json",
+    "sha256": "a74956ce8cf6e9048441c00a0f4a4346baaa51c9293109770df82f891ea3a267",
+    "bytes": 963
+  },
+  "source_authentication_log": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-independent-review/independent-authentication.log",
+    "sha256": "0cbf01e77fbad2bab6d2223fc3766f2f0d7b870a733d7eebf15c0a18dcca3565",
+    "bytes": 101
+  },
+  "reviewed_boundaries": [
+    "Exact33 metadata/reference/code/report identities and whole owner policy pin freeze before long original-base runtime census; overlapping role conflicts and final source/helper/framework/alias/absence/candidate drift refuse.",
+    "Four native entrypoints close the source import namespace before own imports. Full unchanged execute_source function bodies preserve source exit independently of runtime metadata exit, with partial raw observations written before qualification.",
+    "BASE3.11.13 -I-S-B framework/native/namespace/alias/absentZIP profile remains a separate stdlib-only runtime; no scientific installed environment or vanished historical runtime identity is inferred.",
+    "Maintained CLI accepts an absent JSON file --output, not a destination directory. Two45second stages,100second outer and110second passing whole bound,1GiB completed child RSS and128MiB inclusive logical output remain honest postchecks. Outer timeout explicitly leaves independent child-session cleanup unconfirmed and cannot pass.",
+    "Independent observer does not import producer: explicit source manifest/epoch/hash/title/ID/native core/site/dataset/DOI/coordinates/reference joins, complete typed report and exact tracked bytes are required after genuine native execution.",
+    "All-country206 core handles retain UNASSIGNED collisions;66 titles/62 retained/3 unmatched/1 generic and37 age metadata events never establish a distinct untouched site or selected calibrated sample-age sequence."
+  ],
+  "actual_producer_private_parser_join_preparer_native_inspector_R_or_model_called": false,
+  "whole_workpack_or_scientific_eligibility_closed": false,
+  "future_native_registration_and_actual_result_required": true,
+  "scope": "Independent source-only admission of exact held metadata consumer and18pure source controls; actual source-join totals and byte reproduction remain future native evidence, with rights/human/fresh-cohort/LRA/ecological refusals preserved."
+}

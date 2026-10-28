@@ -1,0 +1,38 @@
+{
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/prepared-source-manifest.json",
+    "sha256": "8b7e3f52baee6f1cfdd1b654cc7d0992504ad838b910c5e798ea2c351528b08a",
+    "bytes": 5976
+  },
+  "original_failed_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+    "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+    "bytes": 1451833
+  },
+  "original_failed_common": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/terminal.json",
+    "sha256": "324e7e084d6a111608b84f2863f6536ee6d03ae69cb53adcc9936390107ac02a",
+    "bytes": 7398
+  },
+  "original_failed_outer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/swedish-cohort-terminal.json",
+    "sha256": "9baf18964647c6a0d2a66d9d6d546362f3da7daff2adb62aed6a982925b2113f",
+    "bytes": 1330
+  },
+  "unchanged_byte_files": [
+    "runtime.py",
+    "common_runner.py"
+  ],
+  "unchanged_function_AST_files": [
+    "contracts.py",
+    "execute_source.py"
+  ],
+  "independent_metadata_functions_changed": [
+    "dataset_sites"
+  ],
+  "all_other_independent_metadata_function_AST_exact": true,
+  "all10Python_AST_parsed": true,
+  "old_source_paths_unchanged": 20,
+  "new_producer_stage_count": 0,
+  "future_observer_stage_count": 1
+}

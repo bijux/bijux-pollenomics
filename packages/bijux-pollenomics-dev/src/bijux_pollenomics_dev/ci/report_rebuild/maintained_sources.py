@@ -6,8 +6,8 @@ import ast
 import hashlib
 import json
 import math
-from pathlib import Path
 import subprocess
+from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import (
@@ -35,6 +35,9 @@ from .scientific_captures.linux_r_reference import (
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
+)
+from .scientific_captures.pollen_source.swedish_cohort import (
+    validated_swedish_cohort_capture,
 )
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
@@ -232,6 +235,11 @@ def validated_maintained_report_sources(
     )
     if slu_guide_entries:
         raise ReportRebuildError("Original owner acceptance remains unresolved")
+    swedish_entries, swedish_evidence = validated_swedish_cohort_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    if swedish_entries:
+        raise ReportRebuildError("Original owner acceptance remains unresolved")
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -280,4 +288,6 @@ def validated_maintained_report_sources(
         evidence["retained_linux_r_reference_capture"] = linux_evidence
     if slu_guide_evidence:
         evidence["current_slu_guide_partial_evidence"] = slu_guide_evidence
+    if swedish_evidence:
+        evidence["current_swedish_cohort_partial_evidence"] = swedish_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

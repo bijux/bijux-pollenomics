@@ -1,0 +1,154 @@
+{
+  "schema_version": "swedish-cohort-metadata-prepared-source.v1",
+  "source_only": true,
+  "source_only_actual_exit": 0,
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "0c4538d7f9fece8605404decb2ed52697dcbf745f1477026f2d34c5516ca583b",
+      "bytes": 11760
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "616902d4a03bd0dfccd25c927465c2fa263adadd125d2b878d623bde4aede92b",
+      "bytes": 7640
+    },
+    {
+      "path": "declared-inputs.json",
+      "sha256": "2285665dc8cea9788440ff961069cb957f40f9240b3cfad35a6adeedf3d24911",
+      "bytes": 8751
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "d4212ecebaf682f4a3b7a82c2d5b86f5eb10963ddc00ece34334f14ed7517883",
+      "bytes": 3821
+    },
+    {
+      "path": "inherited-source-custody.json",
+      "sha256": "cdf305b3867a3cd7386c5a1252317296bbfe5a6f5eb2a8f733ac180c661009c2",
+      "bytes": 2704
+    },
+    {
+      "path": "metadata.py",
+      "sha256": "d8996588abe6d4e6ec54d25a1aed9477a11670b0065f4ccab44dc7ca967febdd",
+      "bytes": 17591
+    },
+    {
+      "path": "observe.py",
+      "sha256": "60d1631f4e65df30ee7f1f0b089b5221f4c8ae57defcce43f2d9127792f2f079",
+      "bytes": 4944
+    },
+    {
+      "path": "preflight/CLI-and-source-custody.json",
+      "sha256": "4569803381632cbe81516dd1b0a5e46b7485e2029d5349deccc8f075c419b22f",
+      "bytes": 716
+    },
+    {
+      "path": "preflight/check_tools.py",
+      "sha256": "3fec86eb3aa48b41980f12ce267f4601ab7e0f2c379f24f8611990678928c3fe",
+      "bytes": 1174
+    },
+    {
+      "path": "preflight/closed-entry-configured-style.log",
+      "sha256": "a8575dd9c1fb27c2bb53d534e93fc74462b392760ff85d93556f611075b6baef",
+      "bytes": 122
+    },
+    {
+      "path": "preflight/closed-entry-guards.log",
+      "sha256": "8fc436ce6f66a2f68ced8c320337acdd981422ae02f9f63e37a7fa2f775c7251",
+      "bytes": 62
+    },
+    {
+      "path": "preflight/closed-entry-source-controls/receipt.json",
+      "sha256": "52772b8585777354375f2addbdf50b43e0131bd6740bf857131984f1d6a59177",
+      "bytes": 1539
+    },
+    {
+      "path": "preflight/closed-entry-strict.log",
+      "sha256": "157a09cfcdfdfb5977479c5a1c08345149263a3e990a2ec976ef28aaeec9cae6",
+      "bytes": 43
+    },
+    {
+      "path": "preparation-recipe.json",
+      "sha256": "4052109ceac4374799af1b0edde8305f504e84fd375b5e5427503a16c1dd2bdf",
+      "bytes": 1127
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "fa796beb4c77c03009963507d9dcebb01c41e17512e476e1b2d5ea434f7b1313",
+      "bytes": 8235
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "61ebbfcf26c101ec9f52b85cf02c1363950acbd6c93bd91d5b0f3b544fedbad2",
+      "bytes": 4477
+    },
+    {
+      "path": "run.py",
+      "sha256": "df448db63fc8af05e47a03321c57b161c0679c26374b212e7d6319a1e768d43a",
+      "bytes": 7979
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "53319462cd9b93ebe44059fda606af1766ddf813c6cd7f9e8e9d680944eb6df6",
+      "bytes": 5522
+    }
+  ],
+  "reference_inputs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepared-source-manifest.json",
+      "sha256": "c3fb17c77a15c3d2b082f2d75a79897f35e4be86b67f3a406c621a08465d1402",
+      "bytes": 4020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/independent-source-review.json",
+      "sha256": "28473882eebe39972b3536e9a4ffa7d9c89d63e9176bc6e788d5975046a989e9",
+      "bytes": 2255
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "bytes": 8826542
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "sha256": "491c5379cbb1a004a5cc3084a2d45846d7c74843beed5dce34b89ddbaabefb38",
+      "bytes": 3710
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/source-qualification.json",
+    "sha256": "53319462cd9b93ebe44059fda606af1766ddf813c6cd7f9e8e9d680944eb6df6",
+    "bytes": 5522
+  },
+  "controls": {
+    "meaningful_pure_source_groups": 18,
+    "strict_files": 8,
+    "configured_lint_and_format_files": 8,
+    "AST_files": 9,
+    "actual_maintained_metadata_producer_observer_or_preparer_calls": 0,
+    "actual_native_inspector_or_model_calls": 0
+  },
+  "declared_inputs": {
+    "members": 33,
+    "logical_bytes": 6888314,
+    "private_metadata_members": 26,
+    "private_metadata_bytes": 5903857,
+    "no_private_raw_redistribution": true
+  },
+  "owner": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+  "candidate": "Actual future clean main supplied only by root preparation after independent approval; no native candidate frozen by these source checks.",
+  "custody": "Exact original base stdlib/native runtime and corrected SVAR frozen pin union/final census reused; runtime.py/common906 byteexact. Loader function AST exact with only pre-import source namespace guard; complete CLI output file role checked. Full actual33-source metadata join remains unexecuted until separately registered root job.",
+  "science_scope": "Metadata-only102 datasets/99 sites,206 all-country handles including UNASSIGNED,66 title hits/62 retained3 unmatched1 generic,37 final-age metadata events, complete native core/DOI/source epoch/refusals. No raw pollen/count data, new acquisition, untouched-site proof, selected sample chronology, LRA/ecology, rights or human acceptance.",
+  "independent_approval_required": true
+}
