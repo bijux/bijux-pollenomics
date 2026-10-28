@@ -129,7 +129,8 @@ LRA run; its constrained SLSQP LOVE backend had three training
 nonconvergences even under a higher-budget check. Neither result identifies
 universal LRA parameters. We list unresolved Swedish/Nordic basin geometry,
 selected chronology, PPE/taxon denominator, independent vegetation pairs and
-HYDE semantics in our [research-needs register](../needed/README.md).
+HYDE semantics in our [source-cohort account](source-cohorts.md) and
+[modeled-cropland account](hyde-cropland-source-account.md).
 
 
 ## Development evaluator split and target isolation

@@ -10,6 +10,7 @@ from pathlib import Path, PurePosixPath
 import runpy
 import subprocess
 import tomllib
+from typing import Any, cast
 
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
@@ -127,8 +128,20 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
-def retained_deck_sources(root: Path) -> dict:
-    """Keep original deck context and one reviewed security metadata delta distinct."""
+def retained_deck_sources(root: Path) -> dict[str, Any]:
+    """Keep current compiled Git inputs separate from the historical deck context."""
+    manifest = json.loads(_read(root, MANIFEST), object_pairs_hook=_json_object)
+    if "deck_build" in manifest:
+        relative = "configs/docs/publication/deck_build.py"
+        scope: dict[str, Any] = {
+            "__file__": str(root / relative),
+            "__name__": "bijux_deck_build",
+        }
+        exec(compile(_read(root, relative), str(root / relative), "exec"), scope)
+        return cast(
+            dict[str, Any],
+            scope["admitted_sources"](root, manifest, _read, _committed_inputs, _git),
+        )
     context_bytes = _read(root, RETAINED_CONTEXT_PATH)
     context = json.loads(context_bytes, object_pairs_hook=_json_object)
     if hashlib.sha256(context_bytes).hexdigest() != RETAINED_CONTEXT_SHA256:
@@ -267,15 +280,17 @@ def download_bytes(root: Path) -> dict[str, bytes]:
         "reports/science/paper-accounts.csv",
         "reports/exports/papers/manifest.json",
         "reports/exports/papers/visual-review.json",
-        "presentation/source-lock.json",
     }
+    if "deck_build" not in manifest:
+        required_inputs.add("presentation/source-lock.json")
     if not required_inputs <= set(manifest["inputs"]):
         raise ValueError("Scientific download input closure incomplete")
-    deck_lock = json.loads(
-        _read(root, "presentation/source-lock.json"), object_pairs_hook=_json_object
-    )
-    if deck_lock["decks"] != list(DECKS):
-        raise ValueError("Scientific download deck identity differs")
+    if "deck_build" not in manifest:
+        deck_lock = json.loads(
+            _read(root, "presentation/source-lock.json"), object_pairs_hook=_json_object
+        )
+        if deck_lock["decks"] != list(DECKS):
+            raise ValueError("Scientific download deck identity differs")
     retained_deck_sources(root)
     frozen = {}
     for row in rows:
@@ -287,7 +302,13 @@ def download_bytes(root: Path) -> dict[str, bytes]:
             not content.startswith(b"%PDF-")
             or len(content) != row["bytes"]
             or hashlib.sha256(content).hexdigest() != row["sha256"]
-            or hashlib.sha256(_read(root, source)).hexdigest() != row["source_sha256"]
+            or (
+                not (
+                    "deck_build" in manifest and row["path"].startswith("presentation/")
+                )
+                and hashlib.sha256(_read(root, source)).hexdigest()
+                != row["source_sha256"]
+            )
         ):
             raise ValueError(f"Scientific download identity changed: {row['path']}")
         frozen[uri] = content

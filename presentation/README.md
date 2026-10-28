@@ -12,10 +12,15 @@ reader needs:
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution. Intermediate files and the compiler log go
 to `artifacts/jobs/presentation/`; only the final PDFs are retained here.
-The build checks the SHA-256 identities of cited reports, package contracts
-and slide sources in `source-lock.json`. If one changes, review its affected
-slides, then update that lock deliberately before rebuilding. This guard
-prevents an older PDF from being silently presented as current evidence.
+The build requires committed, unchanged copies of the three authored TeX
+files, `shared.tex` and `build.py`. The download manifest records their actual
+Git revision, compiler commands and exits, and PDF byte identities. A cited
+report is an evidence reference, not a compiled input. Review scientific claims
+and run the relevant report validators before building; changing ordinary
+prose or unrelated code does not require refreshing an inventory of hashes.
+The compiler recorder refuses undeclared repository inputs. Historical
+`source-lock.json` and export contexts retain their original execution epochs;
+they are not rewritten to describe a new build.
 Each compiler invocation has a 180-second timeout. A timeout preserves its
 log and refuses the build; inspect the affected source or TeX environment and
 rerun after correction.

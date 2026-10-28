@@ -12,6 +12,24 @@ from urllib.parse import unquote, urlsplit
 
 PAPER_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 REPORT_PREFIX = PurePosixPath("reports/science")
+MAINTAINED_REPORT_ENTRYPOINTS = frozenset({"makes/pollenomics-verification.mk"})
+MAINTAINED_PRESENTATION_INPUTS = frozenset(
+    {
+        "presentation/big-picture.tex",
+        "presentation/developer.tex",
+        "presentation/scientific-evidence.tex",
+        "presentation/shared.tex",
+        "presentation/build.py",
+    }
+)
+MAINTAINED_READER_BOOKKEEPING = frozenset(
+    {
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/"
+        "report_portal/scientific_accounts.json",
+        "docs/report/report_surface_registry.json",
+        "docs/report/report_narrative_quality_review.json",
+    }
+)
 
 
 class SourceError(ValueError):

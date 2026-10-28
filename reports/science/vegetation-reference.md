@@ -123,5 +123,5 @@ vegetation fractions and pollen counts, with linked physical cores, dates,
 taxon mapping, landscape support and rights. The full Hellman ten-lake
 source data or another independently matched cohort could meet that need.
 We will freeze the benchmark and predictions before viewing its outcomes.
-The [open research need](../needed/README.md) records the requested source
+The open research need records the requested source
 packet and resolver.

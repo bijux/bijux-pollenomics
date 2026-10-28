@@ -108,13 +108,13 @@ set across the following evidence, recording a failure or unknown explicitly.
 
 | Surface | Required evidence and current limit |
 | --- | --- |
-| Source and rights | Exact capture/source identities, permitted use, counts, chronology, basin and parameter admission; [source requests](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/source-requests.md) retain unresolved inputs. |
+| Source and rights | Exact capture/source identities, permitted use, counts, chronology, basin and parameter admission; source requests retain unresolved inputs. |
 | Four-country science | Country-specific eligible inputs, LRA outputs, development comparisons and independent measured vegetation; [country status](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) retains the current refusals and unadmitted comparisons. |
 | Method correspondence | Source-bound publication profiles and numerical/uncertainty scope; [method correspondence](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) distinguishes numerical parity from scientific validation. |
 | Package installation | Matching host, alias and engine artifacts, legal assets, optional-engine discovery and installed API/CLI tests on supported platforms; source-checkout execution is a separate check. |
 | Report reproduction | Exact publisher namespace plus independent owner inputs/certificates and two-lane whole-tree equality; [report ownership](https://github.com/bijux/bijux-pollenomics/blob/main/reports/architecture/ownership.md) retains unresolved custody. |
 | Reader and application delivery | Current exported documents, built local routes and browser/provider/export behavior, followed by actual collaborator use and deployed revision evidence where claimed. |
-| Qualified review | Claim-specific scope, version identities, reviewer qualifications and returned decisions; [review questions](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/scientific-review.md) are prepared questions, not received approval. |
+| Qualified review | Claim-specific scope, version identities, reviewer qualifications and returned decisions; review questions are prepared questions, not received approval. |
 
 Run the complete repository and release-specific matrix on the final stable
 candidate after affected focused checks. Preserve earlier receipts with their

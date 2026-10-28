@@ -92,7 +92,7 @@ basin outlines or defensible age-specific radii, exact terrestrial count
 denominator, reviewed taxon/PPE/fall-speed mapping and permitted analytical
 use. The 7.2/8.00 ha difference and two printed age intervals need a source
 explanation or a declared sensitivity treatment before numerical use. The
-[open Nordic LRA need](../../needed/README.md) retains the resolver. Once
+open Nordic LRA need retains the resolver. Once
 those fields refer to the same 72 samples and windows, run the existing LRA
 consumer and withheld pollen prediction; observed-pollen scores do not settle
 this source gate.

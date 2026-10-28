@@ -90,11 +90,10 @@ account remains 88,004 native NISP = 86,691 author-assigned + 1,311 excluded +
 two unmapped. All 34 screened counts remain unmapped and no LRA sample is
 admitted by this review preparation.
 
-The unsent request `rhododendron-pollen-synonym` in the
-[source register](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/source-requests.csv) asks for
+The unresolved Rhododendron pollen-synonym question needs
 the native determination and its source-specific pollen concept, lookup/use
 authority, and a qualified decision on the proposed Ericaceae aggregation.
-The matching [review question](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/scientific-review.csv) asks whether that
+The matching review question asks whether that
 botanical synonym supports this native pollen concept on the stated population.
 Its decision is `not_received`; the reviewer is unassigned. An answer for the
 two Abborrtjärnen counts would not automatically approve the other Swedish or

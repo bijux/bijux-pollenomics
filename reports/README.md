@@ -18,7 +18,7 @@ remain open.
 
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
-The [scientific claim and cause ledger](needed/report-claims.md) covers all 55
+The scientific accounts cover all 55
 root scientific accounts, with supported and unsupported claims, retained
 checks, negative/refused results, matched denominators and precise acceptance
 routes. It distinguishes missing outcomes from measured zero accuracy.
@@ -54,9 +54,10 @@ updating that lock.
 | Why is the LRA backend still Python? | [Our native-backend decision](architecture/native-backend.md) | The measured C++ forward batch failed its latency gate; a future kernel has explicit source-parity, build and release conditions. |
 | Which LRA source and prototype functions did we adopt? | [Our source-adoption decision](architecture/lra-source-adoption/README.md) | Original R, candidate Python and adopted engine have separate identities, notices and function dispositions. |
 
-The [open research needs](needed/README.md) list exact evidence questions that
-would change current conclusions. An answered question moves into its owning
-report and is removed from that open list.
+Each scientific account states the evidence or review needed to change its
+conclusions. Accepted evidence is incorporated into that owning report. Human
+request queues and review assignments are maintained outside this library;
+repository builds and report checks do not depend on those private registers.
 
 The [report ownership decision](architecture/ownership.md) explains how this
 reader library, governed numeric outputs, the website and source-locked

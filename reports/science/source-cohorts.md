@@ -53,8 +53,8 @@ matches 72 samples and all 11 radiocarbon source controls, while conflicting
 reported areas and missing time-matched basin and analytical-use fields still
 prevent LRA admission. Finnish Laihalampi has an exact 150-sample, single-core
 lead and consistent modern area claims, but its [source decision](laihalampi-lra-input/README.md)
-still needs the selected age vector and dated basin. We recorded these exact gaps in
-[research needs](../needed/README.md); we have not substituted study-wide
+still needs the selected age vector and dated basin. These exact gaps remain in
+the respective source decisions; we have not substituted study-wide
 assumptions for a named core's missing evidence.
 
 The existing [site-level author-taxonomy mass ledger](../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)

@@ -6,11 +6,18 @@ import csv
 import hashlib
 import json
 import math
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import re
 import runpy
 from statistics import median
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
+from bijux_pollenomics_dev.reader_reports.source import (
+    MAINTAINED_PRESENTATION_INPUTS,
+    MAINTAINED_READER_BOOKKEEPING,
+    MAINTAINED_REPORT_ENTRYPOINTS,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORTS = ROOT / "reports"
@@ -332,10 +339,134 @@ def verify_empd2_nfi_pairing() -> None:
         raise ValueError("EMPD2–NFI pairing refusal or source identity changed")
 
 
+REPORT_SOURCE_FAMILIES = (
+    "method-certification/love-paper-correspondence",
+    "numerical-performance",
+    "synthetic-validation",
+    "validation/empd2-nfi-pairing",
+)
+
+
+HISTORICAL_SOURCE_PARTS = {
+    "reference-bundle",
+    "reference",
+    "retained",
+    "historical",
+    "source-snapshot",
+    "source-capture",
+    "original-source",
+}
+
+
+def _source_file(root: Path, relative: object) -> Path:
+    if not isinstance(relative, str):
+        raise ValueError("Research source path must be text")
+    native = PurePosixPath(relative)
+    path = root / relative
+    if (
+        not native.parts
+        or native.is_absolute()
+        or ".." in native.parts
+        or "\\" in relative
+        or native.as_posix() != relative
+        or not path.is_file()
+        or not path.resolve().is_relative_to(root.resolve())
+    ):
+        raise ValueError(f"Research source is unavailable or unsafe: {relative}")
+    return path
+
+
+def _source_bytes(root: Path, relative: str) -> bytes:
+    """Read named finite native controls from their authenticated Git custody."""
+    native = PurePosixPath(relative)
+    if relative.startswith(
+        "data/method-certification/native-r-finite-covariance/"
+    ) and native.suffix in {".py", ".R"}:
+        if ".." in native.parts or "\\" in relative or native.as_posix() != relative:
+            raise ValueError(f"Research source is unavailable or unsafe: {relative}")
+        try:
+            return read_source_path(root, relative)
+        except ReportRebuildError as error:
+            raise ValueError(
+                f"Research source is unavailable or unsafe: {relative}"
+            ) from error
+    return _source_file(root, relative).read_bytes()
+
+
+def verify_source_lock(root: Path, lock: dict[str, object]) -> tuple[int, int]:
+    """Inventory maintained source paths and authenticate byte-bound evidence."""
+    if set(lock) != {"schema_version", "reports", "sources", "maintained_paths"} or (
+        lock.get("schema_version") != "research-report-source-lock.v2"
+    ):
+        raise ValueError("Unexpected research report source lock")
+    sources = lock["sources"]
+    maintained = lock["maintained_paths"]
+    reports = lock["reports"]
+    if not isinstance(sources, dict) or not all(
+        isinstance(path, str)
+        and isinstance(digest, str)
+        and re.fullmatch(r"[0-9a-f]{64}", digest)
+        for path, digest in sources.items()
+    ):
+        raise ValueError("Research evidence identities are invalid")
+    if not isinstance(maintained, list) or not isinstance(reports, list):
+        raise ValueError("Research source inventories must be lists")
+    for inventory in (maintained, reports):
+        if not all(isinstance(path, str) for path in inventory) or inventory != sorted(
+            set(inventory)
+        ):
+            raise ValueError("Research source inventory is invalid or duplicated")
+    if set(sources) & set(maintained):
+        raise ValueError("Research source roles overlap")
+    for relative in maintained:
+        path = _source_file(root, relative)
+        native = PurePosixPath(relative)
+        if relative not in (
+            MAINTAINED_REPORT_ENTRYPOINTS | MAINTAINED_PRESENTATION_INPUTS
+        ) and (
+            native.parts[0] not in {"docs", "packages", "reports", "configs"}
+            or (
+                path.suffix not in {".md", ".py"}
+                and relative not in MAINTAINED_READER_BOOKKEEPING
+            )
+            or set(native.parts) & HISTORICAL_SOURCE_PARTS
+        ):
+            raise ValueError(
+                f"Research source is not maintained prose or code: {relative}"
+            )
+    for relative, expected in sources.items():
+        if hashlib.sha256(_source_bytes(root, relative)).hexdigest() != expected:
+            raise ValueError(
+                f"Review changed research evidence before publishing: {relative}"
+            )
+    all_sources = set(sources) | set(maintained)
+    for family in REPORT_SOURCE_FAMILIES:
+        family_files = {
+            path.relative_to(root).as_posix()
+            for path in (root / "docs/report" / family).rglob("*")
+            if path.is_file()
+        }
+        family_locked = {
+            path for path in all_sources if path.startswith(f"docs/report/{family}/")
+        }
+        if family_files != family_locked:
+            raise ValueError(f"{family} report ownership changed")
+    actual_reports = sorted(
+        path.relative_to(root).as_posix() for path in (root / "reports").rglob("*.md")
+    )
+    if reports != actual_reports:
+        raise ValueError("Research report inventory changed; review its source lock")
+    for relative in reports:
+        _source_file(root, relative)
+    return len(sources), len(maintained)
+
+
 def main() -> None:
+    if (REPORTS / "needed").exists():
+        raise ValueError(
+            "Human request and review registers must remain outside the research library"
+        )
     runpy.run_path(str(REPORTS / "exports/papers/verify.py"), run_name="__main__")
-    runpy.run_path(str(REPORTS / "needed/verify-claims.py"), run_name="__main__")
-    runpy.run_path(str(REPORTS / "needed/verify-review.py"), run_name="__main__")
     portal_module = runpy.run_path(
         str(
             ROOT
@@ -366,42 +497,8 @@ def main() -> None:
     verify_native_memory()
     verify_empd2_nfi_pairing()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    if lock.get("schema_version") != "research-report-source-lock.v1":
-        raise ValueError("Unexpected research report source lock")
-    for family in (
-        "method-certification/love-paper-correspondence",
-        "numerical-performance",
-        "synthetic-validation",
-        "validation/empd2-nfi-pairing",
-    ):
-        family_root = ROOT / "docs/report" / family
-        family_files = {
-            path.relative_to(ROOT).as_posix()
-            for path in family_root.rglob("*")
-            if path.is_file()
-        }
-        family_locked = {
-            path
-            for path in lock["sources"]
-            if path.startswith(f"docs/report/{family}/")
-        }
-        if family_files != family_locked:
-            raise ValueError(f"{family} report ownership changed")
-    reports = sorted(
-        path.relative_to(ROOT).as_posix() for path in REPORTS.rglob("*.md")
-    )
-    if reports != lock["reports"]:
-        raise ValueError("Research report inventory changed; review its source lock")
-    for relative, expected in lock["sources"].items():
-        path = ROOT / relative
-        if (
-            not path.is_file()
-            or not path.resolve().is_relative_to(ROOT)
-            or hashlib.sha256(path.read_bytes()).hexdigest() != expected
-        ):
-            raise ValueError(
-                f"Review changed research source before publishing: {relative}"
-            )
+    locked_count, maintained_count = verify_source_lock(ROOT, lock)
+    reports = lock["reports"]
     checked = 0
     for relative in reports:
         page = ROOT / relative
@@ -413,8 +510,8 @@ def main() -> None:
                 raise ValueError(f"Broken research link: {relative} -> {target}")
             checked += 1
     print(
-        f"verified {len(reports)} research pages, {len(lock['sources'])} "
-        f"locked sources and {checked} local links"
+        f"verified {len(reports)} research pages, {locked_count} byte-locked "
+        f"sources, {maintained_count} maintained paths and {checked} local links"
     )
 
 

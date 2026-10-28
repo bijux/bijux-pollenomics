@@ -27,7 +27,7 @@ declare unknown licensing and require login for data access. A common event
 name is a lead for core reconciliation, not proof of an independent physical
 core. GARASEL still contributes zero admitted prediction samples.
 
-We opened metadata only, before any new candidate pollen observation or count table. This result does not validate an independent holdout or admit LRA inputs. The next candidate needs a distinct physical core, a source-linked selected calibrated sample-age sequence, permitted use, and a frozen prediction protocol before target counts are inspected. The [research need](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/README.md#independent-confirmation) remains open.
+We opened metadata only, before any new candidate pollen observation or count table. This result does not validate an independent holdout or admit LRA inputs. The next candidate needs a distinct physical core, a source-linked selected calibrated sample-age sequence, permitted use, and a frozen prediction protocol before target counts are inspected. The research need remains open.
 
 The [source declaration](sources.json) binds seven Neotoma/PANGAEA responses, 17 EPD/PANGAEA metadata and age-table sources, and the relational snapshot by exact digest. Reproduce the machine result from the repository root, with the private source store adjacent to the repository:
 

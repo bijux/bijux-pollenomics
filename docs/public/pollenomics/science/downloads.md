@@ -58,6 +58,6 @@ readable offline. Citation and repository evidence links require a connection.
 The paper PDFs use commit-pinned evidence links whose public availability has
 not been verified for this local candidate. Follow [results and model use](results.md)
 for current scope, or the repository's
-[source requests](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/source-requests.md)
+source requests
 for the exact missing data and reviewer decisions. A missing measurement is not
 a zero accuracy score.

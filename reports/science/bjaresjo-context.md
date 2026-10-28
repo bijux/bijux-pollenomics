@@ -63,7 +63,7 @@ To reopen this decision, a source owner needs to bind the Neotoma core and
 model and basin history, and permitted use. A qualified SEAD record/event
 review must then identify a relevant source concept, age uncertainty and
 analytical right before we define a weighting rule or compare it with pollen.
-The open [research-needs register](../needed/README.md) retains that request.
+The source requirements above remain unresolved.
 
 We generated this screen with
 `bijux_pollenomics_dev.source_completion.bjaresjo_context`. From the

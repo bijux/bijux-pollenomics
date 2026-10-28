@@ -2,7 +2,7 @@
 
 The [research library](../README.md) explains a question, our result and its limits. The
 [claim index](../evidence-index.md) connects an interpretation to numeric evidence; the
-[open evidence register](../needed/README.md) names missing sources and decisions.
+scientific accounts name missing sources and decisions.
 `docs/report/` holds governed outputs from several producers. The [public science
 pages](../../docs/public/pollenomics/science/index.md) and [PDF
 briefings](../../presentation/README.md) are reader routes to rights-safe explanations.
@@ -67,9 +67,7 @@ what reproduced bytes mean and what remains open:
 | Constructed method checks | [Synthetic validation](../../docs/report/synthetic-validation/README.md), [covariance](../../docs/report/method-certification/fixed-site-covariance/README.md), [joint draws](../../docs/report/method-certification/joint-site-draws/README.md) | Deterministic fixtures test code contracts; they do not supply empirical ecological accuracy. |
 
 Detailed machine products, literal denominators and per-family refusal reasons remain with
-those accounts and the paths they cite. The [source requests](../needed/source-requests.md)
-and [scientific review register](../needed/scientific-review.md) identify the exact missing
-source or qualified decision. A closed local producer route does not settle those decisions.
+those accounts and the paths they cite. Each scientific account identifies the exact missing source or qualified decision. A closed local producer route does not settle those decisions.
 
 ## Check a declaration and reproduce its own output
 
