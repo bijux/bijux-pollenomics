@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 import csv
 import hashlib
 import json
-from copy import deepcopy
 from math import pi
 from pathlib import Path
 from statistics import mean
@@ -23,11 +23,10 @@ from bijux_pollenomics.analysis.lra_validation.metrics import (
     score_pollen,
 )
 
-
 FACTORS = (0.8, 1.0, 1.2)
 EXPERIMENT_SHA = "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
 PUBLISHED_PREDICTIONS_SHA = (
-    "2c6bc4fa02d9ec37747f5b53f9c2c17a5910130c83ec454bb6cc0cfc16ca2d4b"
+    "85ce8fd89d992db10a17f15b799fa5c96de0c658eb0eec1a9e117e51a008e110"
 )
 
 

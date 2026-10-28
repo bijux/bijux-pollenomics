@@ -30,6 +30,12 @@ DOC_SOURCES = frozenset(
         "configs/docs/science_downloads.py",
     }
 )
+PUBLICATION_INPUT_SOURCES = frozenset(
+    {
+        "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
+        "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
+    }
+)
 RETAINED_METADATA_PATHS = frozenset(
     {
         "configs/ci/report-ownership.json",
@@ -104,6 +110,7 @@ class GitSourceMember:
             require(
                 self.repository_path.startswith("packages/")
                 or self.repository_path in DOC_SOURCES
+                or self.repository_path in PUBLICATION_INPUT_SOURCES
                 or self.repository_path in RETAINED_METADATA_PATHS
                 or self.repository_path in CANONICAL_CAPTURE_SOURCE_PATHS,
                 "Git storage must be canonical source or exact retained metadata",

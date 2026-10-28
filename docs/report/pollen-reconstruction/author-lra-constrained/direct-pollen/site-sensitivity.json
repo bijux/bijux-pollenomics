@@ -1,7 +1,7 @@
 {
   "schema_version": "author-lra-paired-site-sensitivity.v1",
-  "comparison_sha256": "db9be74067336118a16dec6b7111a861bead644529dac3f26fb29cf248cbb514",
-  "matched_scores_sha256": "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
+  "comparison_sha256": "d1f023460709e373e2c7d27b5007a90141ae831ad46f4ca421e6ab94363b3e34",
+  "matched_scores_sha256": "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
   "excluded_site": "author:BECKHAM",
   "method_summaries": [
     {

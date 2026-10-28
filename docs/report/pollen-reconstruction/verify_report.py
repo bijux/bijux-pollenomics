@@ -88,6 +88,40 @@ def verify_swedish_landclim_support(
             raise ValueError(f"Swedish LandClim support differs: {dataset_id}")
 
 
+def _radius_paired_retained_sha256(name: str, path: Path) -> str:
+    """Authenticate only the two original inputs of the retained radius pairing."""
+    sources = {
+        "direct_mae": (
+            "docs/report/pollen-reconstruction/author-lra-constrained/"
+            "direct-pollen/matched-scores.csv",
+            "a1299c24ad4ac875b0cf9d0ec10251719a63ed46",
+            "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
+            12440,
+        ),
+        "direct_hellinger": (
+            "docs/report/pollen-reconstruction/author-lra-constrained/"
+            "direct-pollen/paired-hellinger.json",
+            "0f552f401fc02e27e8745abdfce44e9c4a181b2c",
+            "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+            26709,
+        ),
+    }
+    if name not in sources:
+        raise ValueError("Unknown retained radius pairing input")
+    relative, blob, checksum, size = sources[name]
+    if path != REPOSITORY_ROOT / relative:
+        raise ValueError("Retained radius pairing input path differs")
+    member = GitSourceMember(
+        member=relative,
+        repository_path=relative,
+        source_revision="a734ef042e20ae18042583caa2bd9894cb018b1e",
+        git_blob=blob,
+        sha256=checksum,
+        bytes=size,
+    )
+    return hashlib.sha256(read_blob(REPOSITORY_ROOT, member)).hexdigest()
+
+
 def verify_author_radius_sensitivity() -> None:
     """Keep frozen forward projections and paired scores bound to the old study."""
     root = REPORT_DIR / "author-lra-constrained"
@@ -167,7 +201,14 @@ def verify_author_radius_sensitivity() -> None:
     }
     if (
         paired_report["source_sha256"]
-        != {name: sha256(path) for name, path in expected_sources.items()}
+        != {
+            name: (
+                _radius_paired_retained_sha256(name, path)
+                if name in {"direct_mae", "direct_hellinger"}
+                else sha256(path)
+            )
+            for name, path in expected_sources.items()
+        }
         or paired_report["producer_sha256"] != sha256(study / "paired_comparison.py")
         or paired_report["matched_sites"] != 14
         or paired_report["paired_rows"] != 126
