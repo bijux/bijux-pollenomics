@@ -1,0 +1,160 @@
+{
+  "schema_version": "swedish-native-chronology-aliquot-source.v1",
+  "candidate": "fa783a83de162cd017701b1f7e83a5f542414a2b",
+  "source_status": "Actual consumer used a selected immutable source export plus the proposed module/API overlays; not a full clean worktree, installed distribution, new source capture or historical reconstruction claim.",
+  "protocol": {
+    "path": "reports/science/swedish-native-chronology-contrast/aliquot-protocol.json",
+    "sha256": "40ae33ff37f64253b317e8aadfe59f4ffbacc00a2c9c32c4564ae2460fe8ed74",
+    "bytes": 21672
+  },
+  "producer_sources_at_actual_execution": {
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": {
+      "sha256": "171f340b3770535af3d9c3001d7b727cb5169e02d9654590914d3cad103bf86e",
+      "bytes": 5765
+    },
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_aliquot_covariance.py": {
+      "sha256": "52f37de62d246dccac463a473d964795d572827596c1f26d2050db01a1a1ea8f",
+      "bytes": 10657
+    },
+    "reports/science/swedish-native-chronology-contrast/paired_uncertainty.py": {
+      "sha256": "005050997e01b08a3deee38fb2dad8d0164ddcd717667e8d48920fa23a4f24b1",
+      "bytes": 13041
+    },
+    "reports/science/swedish-native-chronology-contrast/independent_aliquot.py": {
+      "sha256": "f78d3b90af436cda1911db41714507fef64979751d400a6a4f64636ec965a54f",
+      "bytes": 18385
+    },
+    "reports/science/swedish-native-chronology-contrast/aliquot-protocol.json": {
+      "sha256": "40ae33ff37f64253b317e8aadfe59f4ffbacc00a2c9c32c4564ae2460fe8ed74",
+      "bytes": 21672
+    },
+    "reports/science/swedish-native-chronology-contrast/qualify.py": {
+      "sha256": "4d06db4ce402507800deed94b91cebc0f929e66ae8d8c8f0239014267e65b779",
+      "bytes": 16869
+    }
+  },
+  "source_custody_manifest": {
+    "path": "reports/science/swedish-native-chronology-contrast/source-custody.json",
+    "sha256": "108ac1c7483501df7e3eb5261ca776b20f3cb98b3dcd2911474c1e4431ea1531",
+    "bytes": 1429
+  },
+  "public_api": "bijux_pollenomics_lra.api.joint_aliquot_covariance",
+  "original_point_report": {
+    "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/report.json",
+    "sha256": "27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a",
+    "bytes": 125409,
+    "all_125_paired_SE_fields_remain_null": true
+  },
+  "original_native_receipts": {
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "actual_execution": {
+    "terminal": {
+      "path": "artifacts/science/swedish-paired-chronology-uncertainty/lint-qualified/execution/terminal.json",
+      "sha256": "352b1fd34246d062c1417e2b9861b9a4e222d217e30383c00e7a0ad9d5f1248d",
+      "bytes": 12031
+    },
+    "plan_sha256": "0b05d71c86c4b5b5c400af6666e14b24efbbe8678d9bb81930047cc97656073d",
+    "native_exit_code": 0,
+    "stages": [
+      {
+        "name": "focused-source-contracts",
+        "native_exit_code": 0,
+        "seconds": 1.5024342919932678
+      },
+      {
+        "name": "strict-types",
+        "native_exit_code": 0,
+        "seconds": 5.3447221660171635
+      },
+      {
+        "name": "configured-lint",
+        "native_exit_code": 0,
+        "seconds": 0.04407970799366012
+      },
+      {
+        "name": "configured-format",
+        "native_exit_code": 0,
+        "seconds": 0.04296941700158641
+      },
+      {
+        "name": "native-aliquot-covariance",
+        "native_exit_code": 0,
+        "seconds": 6.309439625008963
+      }
+    ],
+    "elapsed_seconds": 18.591863874986302,
+    "peak_child_rss_bytes": 466534400,
+    "memory_enforcement": "Postrun getrusage qualification; not an enforced address-space limit",
+    "protected_inputs_unchanged": true,
+    "protected_input_count": 28456,
+    "output_bytes": 62624519,
+    "focused_test_count": 83,
+    "scope": "Exact actual argv and complete source/runtime/byte products are bound by the terminal; no official tagged release or current installed/runtime claim."
+  },
+  "retained_predecessor": {
+    "terminal": {
+      "path": "artifacts/science/swedish-paired-chronology-uncertainty/execution/terminal.json",
+      "sha256": "e9980094b8f59f7c0d051710459599e7ae7703590a4b57bf1fb8c04dced2478a",
+      "bytes": 6709
+    },
+    "native_exit_code": 1,
+    "focused_test_count": 79,
+    "failure": "Strict typing20errors in3files; original source-conditioned mathematical consumer never executed. Prepared-only typing successor had Ruffunused-variable refusal; preserved separately. No failed timing/model outcome suppressed."
+  },
+  "public_product": {
+    "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty.json",
+    "sha256": "248c94af458b2f941426ef518b4a2493b772bcd3501b6208eb3106049cb8c5a4",
+    "bytes": 168749
+  },
+  "private_qualified_products": {
+    "private-joint-covariance.json": {
+      "path": "artifacts/science/swedish-paired-chronology-uncertainty/lint-qualified/execution/native/private-joint-covariance.json",
+      "sha256": "a7d26f9641765cf4c48fb1b2ee23061ca10a3e6de27a0efe1406dcb4f66c0629",
+      "bytes": 23335114
+    },
+    "independent-audit.json": {
+      "path": "artifacts/science/swedish-paired-chronology-uncertainty/lint-qualified/execution/native/independent-audit.json",
+      "sha256": "2e4a25ac0df1df95f6e0d582fa4cdfbd89175863d921dabac6ed0bc22b65a481",
+      "bytes": 101130
+    },
+    "actual-module-origins.json": {
+      "path": "artifacts/science/swedish-paired-chronology-uncertainty/lint-qualified/execution/native/actual-module-origins.json",
+      "sha256": "b75f2a45e50c384bfc09309ccbefc328499fe6e94599380ad2ebb966b31ae5b2",
+      "bytes": 354264
+    }
+  },
+  "independent_protocol_review": {
+    "path": "artifacts/science/swedish-paired-chronology-uncertainty/independent-protocol-review.json",
+    "sha256": "15965421c2a2d6eaab49a90b8c1caa7614251c7f7419d200a8293f3d57fcc004",
+    "bytes": 4715
+  },
+  "comparisons": {
+    "all_scalar_checks": 1105676,
+    "covariance_scalar_checks": 720924,
+    "full_joint_axes": 442,
+    "full_matched_contrast_axes": 212,
+    "independent_decimal_precision": 50,
+    "point_absolute_tolerance": 2e-13,
+    "covariance_rule": "absoluteerror<=1e-18+5e-10*max(abs(actual),abs(Decimal50)); bothnearzero<=1e-14 alsoerror<=5e-18; original2e-13 absolute ceiling unchanged.",
+    "worst_error_to_scale_aware_bound": 0.028217982413137832
+  },
+  "protocol_status_scope": "Frozen protocol status token records preparation at freeze. The actual terminal above establishes successful execution; frozen protocol bytes were not rewritten after the run.",
+  "publication_scope": "Only derived two-taxon conditional aggregate results and source identities. Individual432sample count/age associations,fullJacobians and matrices remain private; public source analytical-use and historical/private-source rights decisions remain distinct.",
+  "scientific_admission": {
+    "chronology_posterior": false,
+    "chronology_accuracy": false,
+    "environmental_independence": false,
+    "interval_coverage": false,
+    "measured_vegetation_accuracy": false,
+    "historical_LandClim_reproduction": false,
+    "new_source_licensing_or_qualified_review": false
+  }
+}

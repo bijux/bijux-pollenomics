@@ -1,0 +1,1904 @@
+{
+  "schema_version": "atlas-populated-frame-url-replay-verification.v1",
+  "status": "PASS",
+  "modeled_frames": [
+    {
+      "width": 1440,
+      "stage": "baseline-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/1440-baseline-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-baseline-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-baseline-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/1440-baseline-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "hash-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/1440-hash-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "hash-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-hash-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "hash-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-hash-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "hash-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/1440-hash-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "back-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-back-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "back-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-back-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "back-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/1440-back-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "forward-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-forward-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "forward-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/1440-forward-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 1440,
+      "stage": "forward-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/1440-forward-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "baseline-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/390-baseline-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "baseline-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-baseline-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "baseline-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-baseline-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "baseline-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/390-baseline-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "hash-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/390-hash-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "hash-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-hash-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "hash-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-hash-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "hash-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/390-hash-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "back-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-back-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "back-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-back-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "back-0",
+      "window": "11200-11700 BP",
+      "family": "source_land_cover_types",
+      "metric": "OL",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 48,
+      "path": "modeled/390-back-0/pangaea-937075-ol-11200-11700-bp.geojson",
+      "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "forward-1",
+      "window": "5200-5700 BP",
+      "family": "source_pft_codes",
+      "metric": "ISTS",
+      "countries": [
+        "Denmark"
+      ],
+      "source_records_equal": true,
+      "features": 6,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-forward-1/pangaea-937075-ists-5200-5700-bp.geojson",
+      "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "forward-2",
+      "window": "0-100 BP",
+      "family": "exact_taxa",
+      "metric": "Alnus.glutinosa",
+      "countries": [
+        "Finland"
+      ],
+      "source_records_equal": true,
+      "features": 19,
+      "no_pollen_data_null_records": 3,
+      "path": "modeled/390-forward-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+      "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    },
+    {
+      "width": 390,
+      "stage": "forward-3",
+      "window": "0-100 BP",
+      "family": "source_land_cover_types",
+      "metric": "ET",
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "source_records_equal": true,
+      "features": 75,
+      "no_pollen_data_null_records": 10,
+      "path": "modeled/390-forward-3/pangaea-937075-et-0-100-bp.geojson",
+      "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+      "evidence_role": "context_only",
+      "interpolation_allowed": false,
+      "propagation_use_allowed": false
+    }
+  ],
+  "native_selections": [
+    {
+      "width": 1440,
+      "stage": "baseline-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/1440-baseline-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/1440-baseline-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/1440-baseline-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "baseline-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/1440-baseline-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "hash-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/1440-hash-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "hash-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/1440-hash-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "hash-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/1440-hash-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "hash-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/1440-hash-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "back-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/1440-back-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "back-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/1440-back-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "back-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/1440-back-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "forward-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/1440-forward-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "forward-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/1440-forward-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "forward-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/1440-forward-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 1440,
+      "stage": "refusal-back-recovery",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/1440-refusal-back-recovery/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "baseline-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/390-baseline-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "baseline-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/390-baseline-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "baseline-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/390-baseline-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "baseline-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/390-baseline-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "hash-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/390-hash-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "hash-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/390-hash-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "hash-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/390-hash-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "hash-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/390-hash-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "back-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/390-back-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "back-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/390-back-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "back-0",
+      "selection": {
+        "roles": [
+          "local",
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.75,
+        0.75
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 18,
+      "missing_values": 4,
+      "path": "native/390-back-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+      "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "forward-1",
+      "selection": {
+        "roles": [
+          "regional"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.25,
+        0.25
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 5,
+      "missing_values": 1,
+      "path": "native/390-forward-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+      "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "forward-2",
+      "selection": {
+        "roles": [
+          "local"
+        ],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        0,
+        0
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 8,
+      "missing_values": 2,
+      "path": "native/390-forward-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+      "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "forward-3",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/390-forward-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    },
+    {
+      "width": 390,
+      "stage": "refusal-back-recovery",
+      "selection": {
+        "roles": [],
+        "site_ids": [
+          "local-site",
+          "regional-site"
+        ],
+        "taxa": [
+          "Alnus",
+          "Betula"
+        ],
+        "bin_ids": [
+          "test-bin"
+        ]
+      },
+      "calendar_window": [
+        -0.5,
+        0.5
+      ],
+      "profile": "calendar-bp1950-signed.v1",
+      "source_rows_equal": true,
+      "selected_rows": 0,
+      "missing_values": 0,
+      "path": "native/390-refusal-back-recovery/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+      "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+      "scientific_acceptance": "not_evaluated",
+      "publication_authorized": false,
+      "posterior_draw_channel": "unavailable_in_retained_paired_view"
+    }
+  ],
+  "hash_replays": [
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "index": 0,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "index": 1,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "index": 2,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "index": 3,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "index": 0,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "index": 1,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "index": 2,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "index": 3,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "index": 0,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "index": 1,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "index": 2,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "index": 3,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "index": 0,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "index": 1,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "index": 2,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "index": 3,
+      "same_document_command": true,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    }
+  ],
+  "history_replays": [
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 0,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 3,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "back",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "back",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "back",
+      "index": 0,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "forward",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "forward",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 1440,
+      "kind": "native",
+      "direction": "forward",
+      "index": 3,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "back",
+      "index": 0,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "modeled",
+      "direction": "forward",
+      "index": 3,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "back",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "back",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "back",
+      "index": 0,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "forward",
+      "index": 1,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "forward",
+      "index": 2,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    },
+    {
+      "width": 390,
+      "kind": "native",
+      "direction": "forward",
+      "index": 3,
+      "complete_state_and_download_equal": true,
+      "no_reload_loop": true
+    }
+  ],
+  "native_refusals": [
+    {
+      "width": 1440,
+      "profile": "calendar-bp1950-incompatible",
+      "visible_refusal": true,
+      "no_selected_rows": true,
+      "export_refused": true,
+      "incoming_invalid_profile_preserved": true,
+      "history_recovery_equal": true
+    },
+    {
+      "width": 390,
+      "profile": "calendar-bp1950-incompatible",
+      "visible_refusal": true,
+      "no_selected_rows": true,
+      "export_refused": true,
+      "incoming_invalid_profile_preserved": true,
+      "history_recovery_equal": true
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@b01cdf43be4b4d5559bf7e58229e666e24454f5",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "served_files_sha256": {
+    "modeled/_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "modeled/_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "modeled/_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "modeled/_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "modeled/_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "modeled/index.html": "6b9600f56b257ff289162cac3c668bac7827475510e9f7e36e4ed31e4250b2ca",
+    "modeled/modeled-source.atlas-edges.0006.888ed0134ce4b69e.js": "888ed0134ce4b69eec75c17bf43fadf4bb187a4d8b928ba3dedfea4c4ae01123",
+    "modeled/modeled-source.atlas-nodes.0001.8d2927acad83dc63.js": "8d2927acad83dc6311ba99fb7bb3a5f136f23172388e4d582f5eef6d4bc6f769",
+    "modeled/modeled-source.atlas-nodes.0002.35a7a8d7263c8263.js": "35a7a8d7263c8263b99af7c4879bde02db0eedc19b6ab716808ed9a6822cfb8e",
+    "modeled/modeled-source.atlas-nodes.0003.7ceaff5413b6bdaa.js": "7ceaff5413b6bdaac3263b76e71b3860cc5796272213a457d6d94732044934b0",
+    "modeled/modeled-source.atlas-nodes.0004.8ec319d16051c543.js": "8ec319d16051c543a056ab86596b67f9c46e8aac13207d69ed5be563ec9caff9",
+    "modeled/modeled-source.atlas-nodes.0005.a89264c609e13cc9.js": "a89264c609e13cc9d7bce65e56810124749c3618ec2a6acfc45c5d0ef616ae4f",
+    "modeled/modeled-source.atlas-provenance.0000.cfa6e1230d4c7c11.js": "cfa6e1230d4c7c110f841d5e3d96a8552f9c2e97b24d941d49df78ff94855e65",
+    "modeled/modeled-source.atlas-sequences.0007.a119ff4c79247a07.js": "a119ff4c79247a07051a2cf36be303204dcdb402fa28eb90ceea7764a79854d4",
+    "native/_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "native/_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "native/_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "native/_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "native/_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "native/lra-exploratory.atlas-edges.0003.67b2c05078930730.js": "67b2c05078930730c0dea514677f939add14d46f449e261e366c1cb2ffc2921a",
+    "native/lra-exploratory.atlas-nodes.0001.86c6024f94b6a294.js": "86c6024f94b6a2940d7cdb7853273a09c3648139c3ef2997b2c3dddaca3dcdea",
+    "native/lra-exploratory.atlas-nodes.0002.fafec6db8f9eed00.js": "fafec6db8f9eed00aa4e23a48cc059e56c479730e7e79870faf78039ff50461f",
+    "native/lra-exploratory.atlas-provenance.0000.443b946a24e2e99c.js": "443b946a24e2e99c862e750066703d76154a022e1b1f242b5208f9a2e72bd556",
+    "native/lra-exploratory.atlas-sequences.0004.b29cf96a71d76dbf.js": "b29cf96a71d76dbf41571124be7cf055e371f501a42381179c7d977a5ad01b5d",
+    "native/map.html": "f3e6586c8510c9985bc37908b109aa8fbf2e805da05247970935937e243b6bf3"
+  },
+  "verifier_sha256": "99387f169108bd5cb840d2896fa879e79ae8e84a9d4e6e5db5d587a72e96c6e7",
+  "verifier_imports_sha256": {
+    "native-lra.mjs": "283a9dd9bdc5203f866b5cf843102590f362530fbe559142e9ac42c67354ac4d",
+    "signed-native-lra.mjs": "7389819c720123843eb132da915c5896dc115aad249322efb9673298d4660fea"
+  }
+}

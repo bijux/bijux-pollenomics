@@ -22,7 +22,7 @@ At widths 1440 and 390, the browser establishes 16 full-document canonical basel
 
 Comparison includes canonical URL, country set, active layer keys, time window, visible source/edge counts, classification posture, source chronology and modeled-context snapshot, focus title/tab, complete rendered chronology text, density, diameter, cross-border control, and panel state. The source classification and relation remain unapproved; zero accepted propagation edges are displayed. The unresolved Swedish SEAD record uses the full time extent, preserving its unavailable chronology reason; narrowed numeric windows continue to exclude unresolved context.
 
-The current selection passed 139 map document and browser semantics tests and 12 atlas browser candidate producer regressions. The browser replay passed with zero runtime errors.
+The earlier selection passed 139 map document/browser semantics tests and 12 candidate producer regressions; those are separate from the native capture retained here. The browser replay passed with zero runtime errors.
 
 ## Reproduction
 
@@ -42,3 +42,19 @@ The verification receipt records the current candidate and browser result byte i
 ## Scope
 
 This evidence covers URL replay for the retained source candidate and selected shared filter/presentation keys. It does not certify new source acquisition, scientific approval, eligible cross-border edges, native numerical replay, modeled-context frame selection in a populated modeled atlas, full accessibility, performance, provider modes, or deployment. The controller preserves all incoming URL fields; browser evidence for native and modeled scientific consumers remains a separate requirement.
+
+## Source-owned retained capture
+
+The published observations now come from the immutable [source-view capture](../../../../data/atlas/source-view-capture/capture.json) on source candidate `fa79ae6eff0f344b5a2dbff2cc858f92746c1f67`, using Chrome 155.0.8059.40. The packet retains original generation, verifier, served-file, screenshot and download identities. Six successful browser observations belonged to an aggregate run that also contained two failed probes; two separately recorded successful successor probes supply the provider and modeled-panel observations. Those failures remain part of the execution history.
+
+These report files are reproduced by guarded retained transport and explicit metadata projection. That operation executes no browser, estimator or R program, and grants no scientific, source-rights, ecological or cross-browser acceptance. Earlier public file identities remain in the capture certificate. The direct browser commands above start separately qualified new observations.
+
+For this owner's retained projection, use an absent output under `artifacts/`:
+
+```sh
+mkdir -p artifacts/atlas-source-views
+python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection \
+  --repository . \
+  --receipt configs/ci/report-capture-projections/atlas-source-views/source-url-replay-browser-evidence.json \
+  --output artifacts/atlas-source-views/source-url-replay
+```

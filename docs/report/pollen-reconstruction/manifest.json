@@ -56,13 +56,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "d98836813570c38787383c03eab8785b393906d325288e39a5ddb47474fb3b58",
-      "bytes": 111576
+      "sha256": "ff9f1934a5307c16561469fa971bb912add244fd789afe7f5d823a5f362e7c5b",
+      "bytes": 127054
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0f4dd7f5469b8fe39d802feffbeee980fc9589e25f110fcb37d279767bfd9093",
-      "bytes": 5092975
+      "sha256": "3782557fc5e1dbde2139bb9dd5068821fc07f6105f19c9e1c6dc67eb8eb94cd9",
+      "bytes": 5916388
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3216,7 +3216,7 @@
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
-      "sha256": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778",
+      "sha256": "2f3b2bbfc27f8392d92ca00b1d9c9002612b8be2351844365aebb5f3efe4d80e",
       "bytes": 4141
     },
     {
@@ -3241,7 +3241,7 @@
     },
     {
       "path": "docs/report/source-relations/sead/map-candidate/report.json",
-      "sha256": "59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f",
+      "sha256": "20d564598838620c15405a16b36ad4885a8c85a4f919fa21f888904795a8242f",
       "bytes": 3081
     },
     {
@@ -5528,7 +5528,6 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
-    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
@@ -5536,6 +5535,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
@@ -5557,13 +5557,13 @@
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_joint_site_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_reveals_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_analytical_preparation.py",
-    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_fixed_site_covariance.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_homogeneous_likelihood.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love_draws.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_reveals.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_shared_ppe_likelihood.py",
+    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_fixed_site_covariance.py",
     "packages/bijux-pollenomics-lra/tests/unit/workflows/test_multisite.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/contracts.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/galician_cattle/species.py",

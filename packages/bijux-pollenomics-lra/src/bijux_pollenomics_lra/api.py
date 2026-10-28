@@ -52,10 +52,6 @@ from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
     JointFixedSiteCovariance,
     joint_fixed_site_covariance,
 )
-from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
-    JointSiteDrawResult,
-    joint_site_cover_draws,
-)
 from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
     HomogeneousLikelihoodFit,
     fit_homogeneous_likelihood,
@@ -63,6 +59,20 @@ from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood impo
 from bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood import (
     SharedPpeLikelihoodResult,
     fit_shared_ppe_likelihood,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.joint_aliquot_covariance import (
+    AliquotCountInput,
+    AliquotResultInput,
+    JointAliquotCovariance,
+    joint_aliquot_covariance,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws import (
+    JointSiteDrawResult,
+    joint_site_cover_draws,
+)
+from bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting import (
+    TwoTaxonCountingInterval,
+    fixed_two_taxon_counting_interval,
 )
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import (
@@ -95,6 +105,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.reveals.multisite.publication-source",
             "lra.reveals.multisite.fixed-site-delta-covariance",
             "lra.reveals.multisite.joint-fixed-site-delta-covariance",
+            "lra.reveals.multisite.joint-aliquot-delta-covariance",
             "lra.reveals.multisite.joint-site-count-ppe-draws",
             "lra.love.analytical",
             "lra.love.analytical.fall-speed-profile."
@@ -108,6 +119,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.love.homogeneous-shared-ppe-conditional-draws",
             "lra.forward.prepare-target-geometry",
             "lra.observation.conditional-multinomial",
+            "lra.reveals.two-taxon.fixed-response-binomial-interval",
         ],
         "extension_group": "bijux_pollenomics.extensions",
         "extension_name": "lra",
@@ -116,6 +128,10 @@ def extension_descriptor() -> dict[str, Any]:
 
 
 __all__ = [
+    "AliquotCountInput",
+    "AliquotResultInput",
+    "JointAliquotCovariance",
+    "joint_aliquot_covariance",
     "BasinType",
     "ConvergenceError",
     "ConditionalResultInput",
@@ -146,6 +162,8 @@ __all__ = [
     "RevealsResult",
     "SharedPpeLikelihoodResult",
     "ValidationError",
+    "TwoTaxonCountingInterval",
+    "fixed_two_taxon_counting_interval",
     "extension_descriptor",
     "forward_deposition",
     "fixed_site_cover_covariance",

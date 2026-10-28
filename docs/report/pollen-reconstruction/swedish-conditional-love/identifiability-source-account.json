@@ -1,0 +1,301 @@
+{
+  "actual_execution": {
+    "candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+    "elapsed_seconds": 2.8634330829954706,
+    "memory_enforcement": "Postrun getrusage qualification; not an enforced address-space limit",
+    "native_exit_code": 0,
+    "output_bytes": 66465,
+    "peak_child_rss_bytes": 61554688,
+    "plan_sha256": "08c429e2d20769fb4572aecb35571347cbc1bd661eec1f3e299f75fa14607602",
+    "protected_input_count": 30398,
+    "protected_inputs_unchanged": true,
+    "source_scope": "Selected owned source export and nested identifiability additions; not a complete worktree, installed distribution or official release.",
+    "terminal": {
+      "bytes": 2633,
+      "path": "artifacts/science/conditional-love-identifiability/source-correspondence-execution/terminal.json",
+      "sha256": "38830d8efaae9b333fa093ad44f12354e32fe7a58023fb52943a58870a75385d"
+    }
+  },
+  "actual_module_origins": {
+    "modules": {
+      "bijux_pollenomics_dev": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c"
+      },
+      "bijux_pollenomics_dev.ci": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "sha256": "2659d71b0db5010973bc85bc8ea99261eb38d34edcbc6509c694eb99a2260be6"
+      },
+      "bijux_pollenomics_dev.ci.rebuild_reports": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+        "sha256": "98dbf9940a6bcf23243efee2d774332db4b65dd645ad8a5df9a58482f8cb134f"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "sha256": "aa45b08e55db17641179736a6e1032628f2bcd107cb2f082f7075d7e29462858"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.author_snapshot": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "sha256": "4f2dc88b65c83ea20c52e73d7f42c35877257a5e0cd9681ff21839a67c8cb4cd"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.contracts": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "sha256": "fda58e268123ad12e851f358271217f7c7c56ec1eafa3c36505451202e2a5ac6"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.evidence": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
+        "sha256": "48e22b4ababcad1cb122b669afc579cb486e00ffe8f9d58fa192c4f9ac3b97e3"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.publisher_tables": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+        "sha256": "23642b49fc7dc7eceeb01fd8e0d48caf8dd25f4fb298c3ea03eab035845ff88f"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.qualified_sources": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "sha256": "087406d6f3f2f7b5af1d1dac40d490abe332d2c2ad9a555344a9f32c231b8987"
+      },
+      "bijux_pollenomics_dev.ci.report_rebuild.source_qualification": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "sha256": "7c6d544114683a02c40dfbe26adc65ef6436d86365c3371671012a71c63d9a67"
+      },
+      "bijux_pollenomics_dev.source_completion": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "sha256": "7939298f093c66e345e210e8d8b2da93e809623887b314261ae2652f6551e99e"
+      },
+      "bijux_pollenomics_dev.source_completion.audit": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "sha256": "b19cf8d2675d5ec8e2236c6a2b22b058adeee8c045f6701cc23161395c5d06f7"
+      },
+      "bijux_pollenomics_dev.source_completion.evidence": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "sha256": "2e376d9f75b4a8f0b18a25195671d9fbb1f40abf23f6d4382f648f77e9ce5a58"
+      },
+      "bijux_pollenomics_dev.source_completion.landclim": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "sha256": "6a9b76cca58905075e649a9bb3456d2eca5130b403a60116abe556d84dbaef30"
+      },
+      "bijux_pollenomics_dev.source_completion.manifests": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "sha256": "62646c940fa2511b3b33609f97eeb89d794f3717fd1f5b209ebac00e143c5161"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "sha256": "1510bfa1ce7c0f9d695a31e3e4242ea5f484336db2f4b8d3ed85420781559df4"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__init__.py",
+        "sha256": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.authority": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/authority.py",
+        "sha256": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.identifiability": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/__init__.py",
+        "sha256": "b20f5ebc434e726c40ee93285b483dd837861d357731f112aaa7321b1d3bd2de"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.identifiability.algebra": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/algebra.py",
+        "sha256": "03d04b26c00e8bbdb2d57cbedc590430167849f19f3658c01462ad4fea2f1705"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.identifiability.independent": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/independent.py",
+        "sha256": "8948ad7a7f9dc3e6550c46b66fad19cb26ffb3fa9339212658fc7dd1a1242404"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.identifiability.producer": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/producer.py",
+        "sha256": "dc1608fca65118befb72931a603e0160063b080cf6824f8433db53341f0c8870"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.sources": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "sha256": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b"
+      },
+      "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.summary": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+        "sha256": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866"
+      },
+      "bijux_pollenomics_dev.trusted_process": {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "sha256": "08cdb29a7557b9b3969b37e1adf86423cc002fe0859c4125a6e4296767f3a670"
+      }
+    }
+  },
+  "failed_predecessor": {
+    "bytes": 2156,
+    "native_exit_code": 1,
+    "path": "artifacts/science/conditional-love-identifiability/execution/terminal.json",
+    "scope": "Historical/current writer hash mismatch refused before any numerical family consumer ran.",
+    "sha256": "f155b6c3b2d460aff02ef411a508b40ac617c866bdc643ae1dc214a7cf4a1c02"
+  },
+  "failed_predecessor_physical_preservation": {
+    "bytes": 4285,
+    "path": "artifacts/science/conditional-love-identifiability/historical-writer-refusal-controls/preservation-receipt.json",
+    "sha256": "bdbe48e4689077c77b47ed5ae7d8dc6ff608517049991e87d8e35acc750f27bd"
+  },
+  "independent_audit": {
+    "bytes": 5012,
+    "sha256": "ef549c44b3cb7c41fcf34a2b1cf75b9d369b30d79b195a189a3956644f5b944c"
+  },
+  "maintained_sources": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/__init__.py": {
+      "bytes": 80,
+      "sha256": "b20f5ebc434e726c40ee93285b483dd837861d357731f112aaa7321b1d3bd2de"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/algebra.py": {
+      "bytes": 5303,
+      "sha256": "03d04b26c00e8bbdb2d57cbedc590430167849f19f3658c01462ad4fea2f1705"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/independent.py": {
+      "bytes": 7589,
+      "sha256": "8948ad7a7f9dc3e6550c46b66fad19cb26ffb3fa9339212658fc7dd1a1242404"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/producer.py": {
+      "bytes": 9713,
+      "sha256": "dc1608fca65118befb72931a603e0160063b080cf6824f8433db53341f0c8870"
+    },
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_conditional_love_identifiability.py": {
+      "bytes": 8031,
+      "sha256": "079095b6f080548cd55adf2045692009624b2c4879492f469a59194230c4e606"
+    },
+    "reports/science/swedish-conditional-love-identifiability/protocol.json": {
+      "bytes": 17363,
+      "sha256": "294020db18537f35689d9c697bdadc766a850236a6cdb512c4f70e338fd83a57"
+    }
+  },
+  "new_engine_calls": 0,
+  "new_quadrature_calls": 0,
+  "new_report": {
+    "bytes": 24143,
+    "path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json",
+    "sha256": "2541362623d0428ccddd51a9ba4cc6293316c553f02c623d1124ebf768cdff2f"
+  },
+  "new_source_acquisitions": 0,
+  "original_capture_files": 14,
+  "original_direct_writer_modules_byte_identical_to_current": false,
+  "original_report": {
+    "bytes": 9738,
+    "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
+    "sha256": "2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60"
+  },
+  "original_source_proof": {
+    "bytes": 3558,
+    "path": "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json",
+    "sha256": "bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd"
+  },
+  "preflight": {
+    "configured_format_exit": 0,
+    "configured_ruff_exit": 0,
+    "receipt": {
+      "bytes": 9197,
+      "sha256": "ddbff499b16655f418f132f1058d6dacc41f4745569a4a1dce04973324230749"
+    },
+    "strict_source_files": 4,
+    "tests": 27
+  },
+  "retained_original_execution_scope": {
+    "model_stage_native_exit": 0,
+    "oracle_only_plan_sha256": "08a15d88d83c69efff35fdeb5ce38a160c3d1898aa0fbeadff680501bc99095e",
+    "overall_model_status": "FAIL"
+  },
+  "schema_version": "swedish-conditional-love-identifiability-custody.v1",
+  "scientific_limits": [
+    "The feasible ratio interval is a deterministic conditional model domain, not a confidence, credible or calibrated interval.",
+    "No measured regional/local abundance ratio, source age distribution, mask or basin truth, whole-landscape vegetation accuracy, untouched confirmation or historical equation reproduction is established.",
+    "The same 29 samples and shared PPE inputs are reused; no new cross-scenario covariance or posterior is supplied and no old marginal SE is replaced.",
+    "Original model overall FAIL, model stage exit zero and separate oracle-only exit zero remain distinct immutable outcomes. Raw source samples and individual age/depth/count associations remain external; identity is not redistribution permission or qualified scientific review."
+  ],
+  "scope": "Source-conditioned algebra and exact rational verification on the unchanged historical conditional LOVE capture. No physical model, quadrature, acquisition or fit is executed.",
+  "writer_source_correspondence": {
+    "durable_review_account": {
+      "path": "reports/architecture/library-source-correspondence.json",
+      "sha256": "ac3d44c2ebd293d36130e0ff634cee9d8dbe0aaa5800e2e0d26c422029cdd7c6"
+    },
+    "exact_diff_review": "producer.py adds two function docstrings and reorders the same typing.Any import; sources.py adds one function docstring; summary.py adds nine function docstrings. Historical source identities remain unchanged in the original proof. Current helper execution is separately qualified, not relabelled as the historical writer.",
+    "historical_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+      "sources.py": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+      "summary.py": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6"
+    },
+    "qualified_current_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+      "sources.py": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+      "summary.py": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866"
+    },
+    "reviewed_deltas": [
+      {
+        "classification": "function_annotation_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "182094ed9bbdff5ed668578a374ff0f072e6ae0c",
+          "original_blob": "239ff9731febdea99280b6d5936576c8a77dc708",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+        "reviewed_sha256": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "main",
+            "publish"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Function annotations/local annotations and unused typing-only imports explain difference under conservative normalizer. Reflection/type metadata semantics remain possible; no universal equivalence or unchanged closure assertion."
+      },
+      {
+        "classification": "documentation_or_format_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "8fc528f6b9922adf987427c7a9ecca20e7762310",
+          "original_blob": "40466aeb7a29ba4f4c0b36fa617c34955845c438",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "reviewed_sha256": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "load_inputs"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit."
+      },
+      {
+        "classification": "documentation_or_format_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "acead5b0364b1cd1da4f3231950681224dc8c64a",
+          "original_blob": "0bcc51391ac20c402b076e56e1c18cdd24853ba7",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+        "reviewed_sha256": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "close",
+            "integer",
+            "matrix",
+            "native_scope",
+            "require",
+            "source_totals",
+            "summarize",
+            "vector"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit."
+      }
+    ]
+  }
+}

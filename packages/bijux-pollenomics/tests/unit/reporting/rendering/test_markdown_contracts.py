@@ -17,6 +17,10 @@ from bijux_pollenomics.adna import (
     AdnaSampleRecord,
 )
 from bijux_pollenomics.reporting.models import CountryReport
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+    load_routes,
+    verified_authored_reader,
+)
 from bijux_pollenomics.reporting.rendering.markdown import (
     render_multi_country_map_markdown,
     render_sample_markdown,
@@ -146,7 +150,8 @@ def _sample() -> AdnaSampleRecord:
 
 def test_world_readme_matches_tracked_publication_bytes() -> None:
     expected = (_repository_root() / "docs/report/world/README.md").read_bytes()
-    assert _render_world().encode() == expected
+    route = load_routes()["docs/report/world/README.md"]
+    assert _render_world().encode() == verified_authored_reader(expected, route)
 
 
 def test_map_contract_refuses_malformed_layer_and_label_containers() -> None:

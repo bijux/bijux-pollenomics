@@ -88,9 +88,9 @@ def _consumer_inputs(
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 107
+        or len(code) != 116
         or len(set(code)) != len(code)
-        or len(data) != 285
+        or len(data) != 290
         or len(set(data)) != len(data)
         or _POLICY not in data
         or selected_manifest not in data

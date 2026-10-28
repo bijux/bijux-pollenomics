@@ -3815,7 +3815,6 @@
       }
     },
     {
-      "reader_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
       "canonical_accounts": [
         {
           "report_path": "reports/science/source-cohorts.md"
@@ -3824,19 +3823,7 @@
           "report_path": "reports/science/pollen-prediction.md"
         }
       ],
-      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
       "qualification": {
-        "fields": {
-          "supported_claim": "One exposed B\u00f6kesj\u00f6n window supports a signed analytical local/regional mixture under 3 declared abundance-density ratios. Ratio 0.5 yields feasible two-taxon cover; ratios 1/2 retain negative Poaceae and Betula above one as infeasible outcomes.",
-          "unsupported_claim": "Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel.",
-          "actual_verification_performed": "The reader, aggregate report and source proof were inspected. Original model stage passed 40 source controls but its overall oracle envelope failed; a separate oracle-only successor reused 7 outputs, passed 47 guards and checked 4 physical factors plus 48 cover/covariance/SE cells. No model or oracle is rerun by this qualification.",
-          "remaining_input_or_review": "20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.",
-          "cause_category": "data | assumption | algorithm/numerical | comparability | access/rights | qualified review",
-          "consequence": "Keep the signed infeasible cases and original failed overall envelope. Marginal conditional SEs do not rehabilitate negative cover or form a joint scenario posterior; three ratios reuse the same samples/PPE rather than independent experiments.",
-          "precise_next_acceptance_route": "Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.",
-          "negative_or_refused_result": "At ratio 1 Poaceae is\u22120.00165398 and at ratio 2 it is\u22120.44875096; both maintained forward calls refuse negative cover. Ratio 0.5 is feasible with Betula 0.77810549/Poaceae 0.22189451. An earlier finite-depth oracle failure remains preserved separately from the later accepted numerical checks.",
-          "matched_denominator": "One[100,350) calibrated-BP window;3 cores and 29 samples: BOKE 5, KRAG 9, BJARE 15. Literal Betula/Poaceae panel 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts.20 bounds unknown;3 scenarios reuse these 29 samples and shared PPE. Each exported 2\u00d72 covariance is marginal, not cross-scenario joint covariance."
-        },
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
@@ -3849,9 +3836,30 @@
           {
             "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json",
             "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json",
+            "sha256": "2541362623d0428ccddd51a9ba4cc6293316c553f02c623d1124ebf768cdff2f"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-conditional-love/identifiability-source-account.json",
+            "sha256": "0aaaaca4ff820358ddba2b80b6285589fbe52999125d92d80d2c5c40b54d3009"
           }
-        ]
-      }
+        ],
+        "fields": {
+          "actual_verification_performed": "The actual retained-source consumer passed with 91 independent exact rational scalar comparisons, eight family points, all three original signed-case comparisons, endpoint inequalities and rank/null certificates. Its 27 focused source contracts, strict checks of four files and configured Ruff checks passed. No model, quadrature, acquisition or fit was run. The original overall failed envelope remains distinct from its passed model stage and later accepted oracle-only successor.",
+          "cause_category": "data | assumption | algorithm/numerical | comparability | access/rights | qualified review",
+          "consequence": "Retain the feasible continuum and both original negative-cover cases. The point observation cannot select local composition and abundance ratio simultaneously. Marginal conditional SEs remain the original products; they do not turn the family into a posterior or give coverage to its feasible domain.",
+          "matched_denominator": "One [100,350) calibrated-BP window; three cores and 29 samples: BOKE 5, KRAG 9 and BJARE 15. The literal Betula/Poaceae panel has 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts; 20 age bounds remain unknown. Eight deterministic family controls reuse these sources and the fixed shared PPE, including the three unchanged original scenarios. No independent scenario experiments or ratio probabilities are implied.",
+          "negative_or_refused_result": "The original ratios 1 and 2 still give negative Poaceae cover and are refused by the maintained forward model. A continuum of feasible covers gives the same pollen, so a forward roundtrip cannot identify the ratio. Exact endpoint checks preserve any signed binary64 rounding difference without clipping. The original overall oracle failure remains retained.",
+          "precise_next_acceptance_route": "Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.",
+          "remaining_input_or_review": "20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.",
+          "supported_claim": "The original three conditional scenarios are retained. A new fixed-response affine family shows structural non-identifiability: the same local pollen supports every nonnegative ratio from zero through approximately 0.996300618715; the response Jacobian has rank one. This domain is conditional on the fixed regional proxy, physical responses and literal two-taxon panel.",
+          "unsupported_claim": "Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel."
+        }
+      },
+      "reader_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
+      "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links."
     },
     {
       "reader_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
@@ -3941,15 +3949,15 @@
       "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
       "qualification": {
         "fields": {
-          "supported_claim": "All retained same-dataset native calibrated chronology pairs in the Swedish common panel yield conditional Betula/Poaceae contrasts on the complete 125 pair/window domain. The comparison reconciles actual sample membership without refitting ages or rerunning reconstruction.",
-          "unsupported_claim": "A more accurate chronology, measured vegetation change, whole-landscape cover, historical LandClim reproduction, independent samples under alternate ages or paired standard errors without an explicit cross-chronology covariance model.",
-          "actual_verification_performed": "The reader and aggregate comparison were inspected. The retained bounded consumer reconciles native identities and pooled counts; independent Decimal 50 checks cover 898 sample-side memberships,663 pooled-support count cells,442 cover cells and 212 contrasts, with discrepancy below 2.04e-16 at unchanged 2e-13 tolerance. This qualification reruns no age/model/physical consumer.",
-          "remaining_input_or_review": "Unknown raw age bounds and missing cross-chronology covariance remain explicit. Point-window changes alter pooled counts and sometimes cohort membership; native calibrated-BP scale and AD 1950 datum do not identify historical chronology selection or chronological accuracy.",
+          "supported_claim": "The original deterministic comparison retains all 125 chronology/window combinations. A separate model of counting error per aliquot and shared PPE uncertainty now gives conditional joint covariance on 442 axes and 212 matched contrast axes. Its point estimates agree with the retained comparison.",
+          "unsupported_claim": "An age-model probability distribution, better chronology or vegetation accuracy, environmental independence, calibrated interval coverage, historical LandClim reproduction or empirically estimated shared-PPE covariance. The new counting model does not replace the original pooled-window marginal errors.",
+          "actual_verification_performed": "The public API and maintained consumer passed 83 focused tests, strict typing, lint and format checks. An independent Decimal50 calculation checked 1,105,676 scalar values, including 720,924 covariance cells. All 28,456 source and runtime pins stayed unchanged. Point differences were below 1.85 \u00d7 10\u207b\u00b9\u2076; joint and contrast covariance errors were below 1.15 \u00d7 10\u207b\u00b9\u2078 and satisfied the frozen scale-aware bounds. No new source capture, quadrature, calibration or age fit was performed.",
+          "remaining_input_or_review": "Raw age bounds remain unknown. Cross-profile covariance is conditional on plug-in multinomial counts for each aliquot and one global diagonal PPE covariance; it is not a source age posterior. Historical geometry and selection, biological and environmental dependence, independent chronology and vegetation accuracy, qualified review and rights decisions remain open.",
           "cause_category": "data | assumption | comparability | access/rights | qualified review",
-          "consequence": "Preserve absent and one-sided windows as null contrasts and keep chronology order descriptive. Neither near-equal sample totals nor marginal covariance supplies independent paired uncertainty or an ecological history.",
-          "precise_next_acceptance_route": "Declare and qualify a source-compatible joint age/membership and cross-chronology count/PPE model before paired uncertainty; use external chronology evidence for age-quality claims and independent matched vegetation for ecological claims. Historical reproduction needs the actual selected historical source/preparation identity.",
-          "negative_or_refused_result": "Of 125 slots,5 have only the first model,4 only the second and 10 neither; all 19 retain null contrasts.3 samples are selected only by the first model and 17 are outside both;76 shared-selected samples migrate windows. Paired SEs are withheld.",
-          "matched_denominator": "5 same-native-dataset chronology pairs \u00d725 windows =125 slots:106 paired,5 first-only,4 second-only,10 empty.449 source samples supply 898 sample-side checks;76 change windows while selected in both and 3 more leave the second cohort. The panel is 2 literal taxa; no new physical quadrature or observations are added."
+          "consequence": "Preserve the original 125 null paired standard errors and pooled marginals. All 19 unpaired combinations also remain null in the new scenario. Identical membership and response can cancel to exact zero contrast covariance; narrower conditional variance does not establish improved accuracy.",
+          "precise_next_acceptance_route": "Qualify a source age and membership probability model before describing chronology-distribution uncertainty. Obtain external chronology and matched vegetation evidence for accuracy. Qualify sample dependence and PPE uncertainty empirically before interpreting conditional delta standard errors as calibrated intervals.",
+          "negative_or_refused_result": "The 19 unpaired combinations comprise five reference-only, four alternative-only and ten empty combinations. Three samples leave the second cohort and 17 are refused by both. Identical support and response produce 44 exact zero contrast variances in 22 combinations. No zero taxon axis or degenerate primitive covariance occurs among the 432 selected samples. Generic taxon-zero plug-in undercoverage remains a limitation; the existing pooled-overlap and extreme-arithmetic refusals are preserved.",
+          "matched_denominator": "449 source samples supply 432 selected counting primitives across five native same-dataset chronology pairs and 25 windows: 125 combinations, 106 matched and 19 unpaired. The 221 occupied profile windows produce 442 joint axes and 212 matched contrast axes. Of the shared selected samples, 76 migrate windows. Each sample uses a fixed total over two literal taxa; unparameterized NISP is excluded."
         },
         "evidence_pins": [
           {
@@ -3959,6 +3967,14 @@
           {
             "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
             "sha256": "b760890e945c1efdbd3a7c5a81f986d50da762945f8220136da7a4953d34ea58"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty.json",
+            "sha256": "248c94af458b2f941426ef518b4a2493b772bcd3501b6208eb3106049cb8c5a4"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/paired-uncertainty-source.json",
+            "sha256": "a68a0568f8298f78d394c015ce4f951a208d81ebd327b7e12a33c6ec08559a72"
           }
         ]
       }
@@ -4221,7 +4237,7 @@
         "fields": {
           "supported_claim": "The retained source-readiness screen preserves all native variables, sample missingness and two explicit chronology profiles for Neotoma sites 12 and 3009, with zero admitted first-observed events.",
           "unsupported_claim": "It estimates no ecological change time, first appearance, propagation edge, empirical threshold or accepted whole-pollen feature by relabeling a native variable.",
-          "actual_verification_performed": "Read native site/sample denominators, profile decisions and overlapping blocker counts in the retained report; bound its bytes. No source download, screen or estimator was rerun.",
+          "actual_verification_performed": "Executed the maintained native readiness CLI against all 14 original Neotoma parts and both current site exports; the independent comparison found exactly two export-digest metadata changes, with every other ordered JSON field and type unchanged. Exact physical historical/current/captured export custody permits only the two named operational shared URLs. All 49 regional guards passed; no source download, accepted event or public-estimator invocation occurred.",
           "remaining_input_or_review": "Every attempted variable lacks an accepted taxon-concept mapping; unreported observations and noncomparable, refused or overlapping chronology still prevent complete ordered event support.",
           "cause_category": "Native observation and chronology admission refusal rather than missing values imputed as absence.",
           "consequence": "The zero-event result retains all requested attempts and cannot be promoted to ecological absence or a four-country event census.",
@@ -4232,7 +4248,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/propagation/source-first-observed/report.json",
-            "sha256": "dfa81aec856e4fd253d3435095c9dfa54a470ca102b34b7d250ab82a266c599d"
+            "sha256": "e6fca4919948723ae635d488b783985b9287e19ab48374265ed4ea3e8d77ef82"
           }
         ]
       }
@@ -7900,18 +7916,18 @@
         "fields": {
           "supported_claim": "Country accounting preserves all 25,109 claim/review joins and assigned site denominators with display-only eligibility.",
           "unsupported_claim": "Group-site and overlapping reason counts cannot be summed as independent sites/events, and country assignment is governed rather than source-native.",
-          "actual_verification_performed": "Read country summary and 16 grouped rows against chronology-age review/public custody; no claim or country producer rerun.",
+          "actual_verification_performed": "The maintained chronology-country producer regenerated the account of 25,109 claims from its six current sources. The grouped CSV rows are byte-identical and every scientific report value is unchanged; only the public-custody parent input identity changed. The downstream map audit then consumed this regenerated report. No source classification, new scientific review or age calibration occurred.",
           "remaining_input_or_review": "Scientific classification, chronology/uncertainty decisions and excluded-site country authority remain.",
           "cause_category": "Claim rows, distinct sites and overlapping refusal reasons have different denominators.",
           "consequence": "A site with multiple claim groups remains one site; display-eligible claims remain propagation-refused.",
-          "precise_next_acceptance_route": "Resolve scoped source chronology/classification decisions and qualified country questions before changing public/scientific eligibility.",
+          "precise_next_acceptance_route": "Preserve the source-native claim/review/site joins and all refusal roles; actually replay this producer when a custody parent changes before publishing downstream map correspondence. Stronger chronology or ecological claims require the missing source-specific uncertainty, classification and qualified evidence.",
           "negative_or_refused_result": "All 25,109 propagation claims refused; 1,216 assigned sites lack captured claims; 126 excluded decisions remain outside totals.",
           "matched_denominator": "2,069 assigned sites/853 claim sites/25,109 claims:SE 22,643, DK 1,939, NO 468, FI 59; 13,170 display eligible/11,939 refused."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
-            "sha256": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778"
+            "sha256": "2f3b2bbfc27f8392d92ca00b1d9c9002612b8be2351844365aebb5f3efe4d80e"
           },
           {
             "path": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv",
@@ -8000,18 +8016,18 @@
         "fields": {
           "supported_claim": "The retained historical map candidate verified bounded SEAD details and gap-aware time filtering for its exact atlas/browser builds.",
           "unsupported_claim": "Its historical PASS/current-sync fields do not certify the changed current renderer, browser engine, hosted release or ecological events.",
-          "actual_verification_performed": "Read the historical build IDs, browser 16-table receipt summary and time-filter witness alongside current source interval report; no fresh browser execution.",
-          "remaining_input_or_review": "Current browser capture is required after renderer changes; source release/classification/chronology acceptance remains separately refused.",
+          "actual_verification_performed": "The maintained map audit ran on the current selected source context after its chronology-country parent was regenerated. All 76 dependencies of the retained browser candidate and all 19 actually served payload hashes match current source bytes. The browser receipt records 16 chronology-table checks and zero runtime errors. The map time-filter JavaScript was executed again. No new browser session, source capture or model run occurred.",
+          "remaining_input_or_review": "Source classifications and event and propagation eligibility remain unaccepted. The browser evidence covers eight retained source details in four countries at two widths. It does not certify all source records, hosted deployment, other engines, chronology accuracy or source release rights.",
           "cause_category": "Historical presentation qualification and refused scientific endpoints.",
           "consequence": "Old browser success remains retained evidence only for its pinned candidate, not current browser adoption.",
-          "precise_next_acceptance_route": "Run the owned current browser/static consumer with exact candidate bytes and retain negative gap controls before a current UI claim.",
-          "negative_or_refused_result": "Acquisition release refused; 0 eligible ecological events/accepted propagation edges; current browser qualification not established by this packet.",
+          "precise_next_acceptance_route": "Use the maintained chronology-country producer before the map audit when its custody parent changes. Reuse a browser capture only after every declared candidate dependency and served byte is verified unchanged; recapture when that exact footprint changes. Source classification and ecological event admission require separate qualified evidence.",
+          "negative_or_refused_result": "All 25,109 typed source chronology claims retain their display, context or refusal roles. There are zero eligible ecological events and zero accepted propagation edges. The 84\u2013104 BP gap admits no record for site 3840; the 82 BP test admits two. A numeric 0 BP envelope remains numeric, and unresolved support remains outside the test window. The current account audit supplies no new browser execution.",
           "matched_denominator": "Historical 2,069 context sites/1,219 untimed; 8,799 discovery records=7,244 numeric+1,555 unresolved; 16 chronology tables/two widths/0 recorded runtime errors."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/sead/map-candidate/report.json",
-            "sha256": "59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f"
+            "sha256": "20d564598838620c15405a16b36ad4885a8c85a4f919fa21f888904795a8242f"
           },
           {
             "path": "docs/report/source-relations/sead/interval-sets/report.json",

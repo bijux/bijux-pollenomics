@@ -23,6 +23,10 @@ from bijux_pollenomics.reporting.adna.public_outputs.rendering import (
     _render_animal_atlas_exclusion_report_markdown,
     _render_animal_atlas_readiness_markdown,
 )
+from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+    load_routes,
+    verified_authored_reader,
+)
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -41,13 +45,13 @@ def test_atlas_readiness_never_combines_sample_and_site_denominators() -> None:
         },
         "publication": {
             "denominator": 304,
-            "published": 170,
-            "not_materialized": 134,
+            "published": 165,
+            "not_materialized": 139,
         },
         "samples": {
             "denominator": 1468,
-            "mapped": 331,
-            "blocked": 1137,
+            "mapped": 322,
+            "blocked": 1146,
             "unresolved_subset_of_blocked": 378,
         },
     }
@@ -83,9 +87,11 @@ def test_atlas_exclusions_preserve_missing_political_entity_as_null() -> None:
         )
         == payload
     )
-    assert (report_root / "animal_atlas_exclusion_report.md").read_text(
-        encoding="utf-8"
-    ) == _render_animal_atlas_exclusion_report_markdown(payload)
+    reader = "docs/report/animal_atlas_exclusion_report.md"
+    authored = verified_authored_reader(
+        (REPOSITORY_ROOT / reader).read_bytes(), load_routes()[reader]
+    )
+    assert authored.decode() == _render_animal_atlas_exclusion_report_markdown(payload)
 
 
 def test_published_animal_honesty_uses_the_canonical_renderer() -> None:
@@ -97,9 +103,11 @@ def test_published_animal_honesty_uses_the_canonical_renderer() -> None:
         (report_root / "animal_atlas_exclusion_report.json").read_text(encoding="utf-8")
     )
     assert honesty["totals"]["blocked_sample_count"] == exclusions["row_count"]
-    assert (report_root / "animal_output_honesty.md").read_text(
-        encoding="utf-8"
-    ) == render_public_animal_output_honesty_markdown(honesty)
+    reader = "docs/report/animal_output_honesty.md"
+    authored = verified_authored_reader(
+        (REPOSITORY_ROOT / reader).read_bytes(), load_routes()[reader]
+    )
+    assert authored.decode() == render_public_animal_output_honesty_markdown(honesty)
 
 
 def test_undefined_shares_remain_null_and_render_as_not_applicable() -> None:

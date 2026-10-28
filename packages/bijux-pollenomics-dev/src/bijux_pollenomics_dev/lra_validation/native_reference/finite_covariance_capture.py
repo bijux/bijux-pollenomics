@@ -106,13 +106,16 @@ def _generated_source(repository: Path, context: dict[str, Any]) -> bytes:
 
 def _require_current_sources(repository: Path, context: dict[str, Any]) -> None:
     """Keep every tracked scientific identity and exact historical metadata content."""
+    from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+        validate_current_native_source,
+    )
+
     for name, digest in context["protected_science_sha256"].items():
         try:
-            body = (
-                _generated_source(repository, context)
-                if name == GENERATED_SOURCE
-                else _file(repository, name)
-            )
+            if name != GENERATED_SOURCE:
+                validate_current_native_source(repository, name, digest)
+                continue
+            body = _generated_source(repository, context)
         except (OSError, ValueError, ReportRebuildError) as error:
             raise ValueError(
                 "Current protected source differs from finite covariance capture"

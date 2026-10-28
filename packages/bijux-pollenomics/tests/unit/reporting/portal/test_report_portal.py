@@ -115,6 +115,29 @@ class ReportPortalUnitTests(unittest.TestCase):
             )
             self.assertIn("reader_ready", quality["quality_posture_counts"])
 
+    def test_unqualified_animal_source_is_refused_before_portal_indexing(self) -> None:
+        from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
+            load_routes,
+            render_route,
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            report_root = Path(tmp) / "report"
+            report_root.mkdir()
+            route = load_routes()["docs/report/animal_output_honesty.md"]
+            (report_root / "animal_output_honesty.md").write_bytes(
+                render_route(b"# Own synthetic animal source account\n", route)
+            )
+            (report_root / "animal_output_honesty.json").write_text(
+                '{"unsupported_fixture": true}'
+            )
+            with self.assertRaisesRegex(
+                ValueError,
+                "Scientific qualification evidence changed: docs/report/animal_output_honesty.json",
+            ):
+                publish_report_portal(report_root)
+            self.assertFalse((report_root / "index.md").exists())
+
     def test_inventory_tracks_paths_and_excludes_its_own_metadata(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

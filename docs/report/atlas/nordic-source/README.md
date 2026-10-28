@@ -15,11 +15,11 @@ These are geographic source contexts. Site age extrema do not establish continuo
 
 ## Browser result
 
-Brave Chromium at widths 1440 and 390 passed 12 country-filter outcomes, 16 exact record URL/navigation outcomes, and 16 chronology-display outcomes, with zero runtime errors. Each single-country selection contains exactly two source sites; all-country selection contains eight. Selecting none hides all sites and the drawer, and restoring all recovers eight.
+Chrome 155.0.8059.40 at widths 1440 and 390 passed 12 country-filter outcomes, 16 exact record URL/navigation outcomes, and 16 chronology-display outcomes, with zero runtime errors. Each single-country selection contains exactly two source sites; all-country selection contains eight. Selecting none hides all sites and the drawer, and restoring all recovers eight.
 
 Every cell of all 626 retained chronology rows was compared independently with the rendered table across all pages at each width: 1,252 row comparisons. The checks include nested source age values, source relation paths, source-native identifiers, alternate chronology statuses, refusal reasons, uncertainty nulls, and numeric nulls. The unresolved Swedish SEAD site shows its original unavailable reason. Source build identities and classification/relation refusals remain visible when switching tabs. Keyboard activation of Next reaches the other selected source in the focal country and writes its exact record identity to the URL.
 
-The browser receipt preserves actual served byte hashes and verifier identity. The producer receipt preserves original source build, source provenance, selected feature/detail hashes, and every consumed input byte hash. Source graph/detail equality and input integrity were checked after generation. Twelve focused atlas browser candidate producer regressions passed. The current source navigation verifier passed at both viewport widths with zero runtime errors.
+The browser receipt preserves actual served byte hashes and verifier identity. The producer receipt preserves original source build, source provenance, selected feature/detail hashes, and every consumed input byte hash. Source graph/detail equality and input integrity were checked after generation. Twelve earlier atlas browser candidate producer regressions remain historical source checks. The current source navigation verifier passed at both viewport widths with zero runtime errors.
 
 ## Reproduction
 
@@ -41,3 +41,19 @@ The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd
 This result verifies four-country retained source display, full-document shared record URL loading, country filter denominators, source inspection, and context/refusal navigation. It does not certify complete four-country acquisition, same-document hash/history replay, performance, full accessibility, provider modes, deployment, or continuous time-series support.
 
 The candidate contains zero accepted propagation edges. Cross-border endpoint context, ordered country-pair edge filters, edge-matrix denominators, eligible pair generation, independent scientific signal comparison, and partition deduplication require source-supported accepted edge evidence and remain unverified here.
+
+## Source-owned retained capture
+
+The published observations now come from the immutable [source-view capture](../../../../data/atlas/source-view-capture/capture.json) on source candidate `fa79ae6eff0f344b5a2dbff2cc858f92746c1f67`, using Chrome 155.0.8059.40. The packet retains original generation, verifier, served-file, screenshot and download identities. Six successful browser observations belonged to an aggregate run that also contained two failed probes; two separately recorded successful successor probes supply the provider and modeled-panel observations. Those failures remain part of the execution history.
+
+These report files are reproduced by guarded retained transport and explicit metadata projection. That operation executes no browser, estimator or R program, and grants no scientific, source-rights, ecological or cross-browser acceptance. Earlier public file identities remain in the capture certificate. The direct browser commands above start separately qualified new observations.
+
+For this owner's retained projection, use an absent output under `artifacts/`:
+
+```sh
+mkdir -p artifacts/atlas-source-views
+python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection \
+  --repository . \
+  --receipt configs/ci/report-capture-projections/atlas-source-views/nordic-source-browser-evidence.json \
+  --output artifacts/atlas-source-views/nordic-source
+```

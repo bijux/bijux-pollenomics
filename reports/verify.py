@@ -18,6 +18,12 @@ from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
     GitSourceMember,
     read_historical_python_correspondence,
 )
+from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+    API_PATH as SOURCE_LAYOUT_API_PATH,
+)
+from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+    api_adoption_preimage,
+)
 from bijux_pollenomics_dev.reader_reports.source import (
     MAINTAINED_PRESENTATION_INPUTS,
     MAINTAINED_READER_BOOKKEEPING,
@@ -538,9 +544,20 @@ def _source_file(root: Path, relative: object) -> Path:
 def _source_bytes(root: Path, relative: str) -> bytes:
     """Read named finite native controls from their authenticated Git custody."""
     native = PurePosixPath(relative)
-    if relative.startswith(
-        "data/method-certification/native-r-finite-covariance/"
-    ) and native.suffix in {".py", ".R"}:
+    if (
+        relative
+        == "data/source-custody/lra-uncertainty-layout/api-before-relocation.py"
+    ):
+        try:
+            return api_adoption_preimage(root, root / SOURCE_LAYOUT_API_PATH)
+        except (OSError, ReportRebuildError) as error:
+            raise ValueError(
+                f"Research source is unavailable or unsafe: {relative}"
+            ) from error
+    if (
+        relative.startswith("data/method-certification/native-r-finite-covariance/")
+        and native.suffix in {".py", ".R"}
+    ) or relative.startswith("data/atlas/source-view-capture/source/"):
         if ".." in native.parts or "\\" in relative or native.as_posix() != relative:
             raise ValueError(f"Research source is unavailable or unsafe: {relative}")
         try:

@@ -23,7 +23,7 @@ calibrated claims and 28 contextual uncalibrated claims. The site aggregate age
 ranges remain context; they do not provide continuous numerical time support.
 No reviewed pollen sum, taxon classification or propagation eligibility is added.
 
-The actual Brave/Chromium receipt has 34 assertion entries at 1440 and 390 pixel
+The actual Chrome 155.0.8059.40 receipt has 34 assertion entries at 1440 and 390 pixel
 widths: 32 passed checks and two recorded keyboard routes, with zero runtime
 errors. It used keyboard search, drawer tab navigation,
 sample paging, chronology/composition/provenance inspection, next/previous source
@@ -33,7 +33,7 @@ including identifiers, count, native `NISP` unit, null denominator and denominat
 status. No-basemap mode was active and tile provider requests were blocked.
 
 The browser records its route through Chromium's keyboard-focusable overflow
-tables before reaching sample paging. Twelve current candidate producer regressions passed. The original
+tables before reaching sample paging. Twelve earlier candidate producer regressions remain historical source checks. The original
 [synthetic drawer evidence](../detail-focus/README.md) retains its own verifier
 identity.
 
@@ -64,3 +64,19 @@ Run package checks separately because their test packages share the `tests` name
 This result covers two retained Swedish source contexts. It does not certify the
 full atlas, SEAD record navigation, four-country coverage, palette simulations,
 screen-reader behavior, 200% zoom, performance, deployment or release readiness.
+
+## Source-owned retained capture
+
+The published observations now come from the immutable [source-view capture](../../../../data/atlas/source-view-capture/capture.json) on source candidate `fa79ae6eff0f344b5a2dbff2cc858f92746c1f67`, using Chrome 155.0.8059.40. The packet retains original generation, verifier, served-file, screenshot and download identities. Six successful browser observations belonged to an aggregate run that also contained two failed probes; two separately recorded successful successor probes supply the provider and modeled-panel observations. Those failures remain part of the execution history.
+
+These report files are reproduced by guarded retained transport and explicit metadata projection. That operation executes no browser, estimator or R program, and grants no scientific, source-rights, ecological or cross-browser acceptance. Earlier public file identities remain in the capture certificate. The direct browser commands above start separately qualified new observations.
+
+For this owner's retained projection, use an absent output under `artifacts/`:
+
+```sh
+mkdir -p artifacts/atlas-source-views
+python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection \
+  --repository . \
+  --receipt configs/ci/report-capture-projections/atlas-source-views/source-detail-browser-evidence.json \
+  --output artifacts/atlas-source-views/source-detail
+```

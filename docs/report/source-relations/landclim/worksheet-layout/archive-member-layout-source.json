@@ -1,0 +1,2629 @@
+{
+  "schema_version": "rootsi-original-archive-member-layout-source.v1",
+  "purpose": "Exact native archive/member correspondence and maintained worksheet layout/error accounting, with no scientific or source-rights admission",
+  "candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "actual_plan": {
+    "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/plan.json",
+    "sha256": "0d1faa7ffc8f629572432149593f22394f2d770f39bacd67ea62957153a1f3fc",
+    "bytes": 9867256
+  },
+  "actual_terminal": {
+    "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/execution/terminal.json",
+    "sha256": "70b05535acaa2e8f5c1f953d0e4fc605b0895bdb97665d00c5071e89f49b83f4",
+    "bytes": 1652
+  },
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/run.py",
+    "--registered-plan-sha256",
+    "0d1faa7ffc8f629572432149593f22394f2d770f39bacd67ea62957153a1f3fc"
+  ],
+  "actual_consumer_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/consume.py"
+  ],
+  "native_exit": 0,
+  "consumer_native_exit": 0,
+  "wall_seconds": 19.124260124983266,
+  "largest_completed_child_rss_bytes": 146636800,
+  "output_bytes_excluding_terminal": 9121074,
+  "resources": {
+    "wall_seconds": 240,
+    "postrun_largest_completed_child_rss_bytes": 1073741824,
+    "postrun_output_bytes": 67108864,
+    "maximum_processes": 3,
+    "threads": 1,
+    "enforcement": "Process-group wall deadline; max20second per tar command; declared storage/completed-child RSS checked after, not OS quotas. System tar binary pinned; system shared libraries are host provenance, not separately file-hashed."
+  },
+  "input_pins_checked_unchanged": 34636,
+  "source_plan_input_pins_sha256": "194815242db4ecb6f2248f6bf5b6a3e47493a7f10ca43eb0f095dd6b92c57843",
+  "native_report": {
+    "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/execution/products/report.json",
+    "sha256": "8652a182fd42b2b1e4a8ac1f262d1657a5ac8f25afbccb561a3829572feb110f",
+    "bytes": 1982
+  },
+  "published_report": {
+    "path": "docs/report/source-relations/landclim/worksheet-layout/archive-member-layout.json",
+    "sha256": "8652a182fd42b2b1e4a8ac1f262d1657a5ac8f25afbccb561a3829572feb110f",
+    "byte_exact_native_report": true
+  },
+  "original_archive": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+    "sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+    "bytes": 509919
+  },
+  "native_tar": {
+    "path": "/usr/bin/tar",
+    "sha256": "f96200d5be4a3f99cdbc88892a2e26f14d501d354c72b224472462cc67fa271d",
+    "bytes": 274448
+  },
+  "native_tar_version": "bsdtar 3.5.3 - libarchive 3.7.4 zlib/1.2.12 liblzma/5.4.3 bz2lib/1.0.8",
+  "host_source_origin": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src",
+  "parser_site": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site",
+  "import_preflight": {
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "-c",
+      "import sys;sys.path.insert(0,'/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src');sys.path.append('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site');from bijux_pollenomics.collection.sources.rootsi.cells.decoding import parser;import xlrd;print(parser().__file__);assert xlrd.__version__=='2.0.2'"
+    ],
+    "native_exit": 0,
+    "stdout_sha256": "ccf2c24154bb194a9c0f0c9817ea4608e7d18c7614bdd19116016ae87e4d93dc",
+    "scope": "Owned host decoder API and selected copied xlrd2.0.2 import/metadata only; no workbook/archive consumer."
+  },
+  "maintained_and_runtime_physical_pins": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/__init__.py",
+      "sha256": "965ee0ae64aaa016912dba7ce22842a4b6015eca9724928d551ae22592d55402",
+      "bytes": 356
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+      "sha256": "7e028d95b06135ee5e669b4ec958596845111527fd338837a9dae6adf5c56e16",
+      "bytes": 12018
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/decoding.py",
+      "sha256": "55c7ac2c26dcd12ff9da0e852d69359d86a29b5e2843b651edca525b0d5817b9",
+      "bytes": 4474
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/inputs.py",
+      "sha256": "ce9a2b87b5bfff8d6c230a09717b73ba1fe59d592d8c5bbd8184f03dc1816f68",
+      "bytes": 5344
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/layout.py",
+      "sha256": "cfda990ae91ec2a9b6686ac2b7ec26d54d67d3f4a83ba62b27cc8782c64c23e4",
+      "bytes": 4778
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/models.py",
+      "sha256": "6f0d4a72faf7383a1588fad95091ebb22ebe2b50859bb765021587928f945dea",
+      "bytes": 4678
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/projection.py",
+      "sha256": "d3bc218c330f5f176128280dfa663af72b2794bd16e666871df87bfa90003a8c",
+      "bytes": 5500
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/publication.py",
+      "sha256": "5c73e3c9d883f0a9873fa2d5cac01bf76ed45eb92a3f889208abe5638c3cbe62",
+      "bytes": 4658
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/reading.py",
+      "sha256": "20a8837ff0efec95ddaf2f2ab7fe4932bd2185fcfb8b11af45b742dc4262e1ed",
+      "bytes": 12184
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/certified-enclosure/source-view/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/service.py",
+      "sha256": "33d328fb796772cd47cb5a8783590ebed6c27227cb8bed77f1614db4990f7fe8",
+      "bytes": 1841
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/pyvenv.cfg",
+      "sha256": "d168ad641c24cae2f293beae150e0e15b61f81bbf1b8507d0c18069b0b2c5ccf",
+      "bytes": 177
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Python",
+      "sha256": "0852d0ce1823c2c17e8631db6db23e8cc3b179918e78403fbef60ec7d67feaef",
+      "bytes": 4927904
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4",
+      "bytes": 52640
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/__init__.py",
+      "sha256": "926b88133f1cbad6ad1a38d6dc499a0294c481c1e672c628d027161ffb61d8fd",
+      "bytes": 7320
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/biffh.py",
+      "sha256": "1a3b41a08f4f34811d6d99864ef7c343c1ee85988b25dda87dda36aa6ba7ce60",
+      "bytes": 16651
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/book.py",
+      "sha256": "d4b1f1c9631be74641230525642e14b4815e9b9cbca3c337cc00dc74f085ffce",
+      "bytes": 57527
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/compdoc.py",
+      "sha256": "df191fb896cb44644c74f899541b160201a4b70ec99dafb0de9fe5713093e984",
+      "bytes": 21091
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/formatting.py",
+      "sha256": "e8c87a18e33b1594e3d1c2781474a5d02568fbc227603bf6288653332704c3a4",
+      "bytes": 45573
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/formula.py",
+      "sha256": "72011735609a6152b3219c1aec85b4b43702d485f352f86a25750e2fbe57a1ac",
+      "bytes": 94460
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/info.py",
+      "sha256": "030b2f2f9ed9fa598a0c368205f515a24c0cc0fbc92e7f638c6b6a3fd81ebcec",
+      "bytes": 36
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/sheet.py",
+      "sha256": "9a1c04a84b5e508418f632b90b25fceecb6e9363265d444e35ff3a91940c858d",
+      "bytes": 106806
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/timemachine.py",
+      "sha256": "ec2b54ec563a9905bb1d23f91633352bda487cd7b1542b7f3c95c6d8cdc51007",
+      "bytes": 1757
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd/xldate.py",
+      "sha256": "4beb9468b5fc91ab86cb64a45ff33e4be141aaa43a1fd11f4c0569bf914c5f42",
+      "bytes": 7934
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/INSTALLER",
+      "sha256": "e6184ce10e266134fdcfa401e8f1a95005bcd4f18d16b62b757323e2833fe9a9",
+      "bytes": 2
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/LICENSE",
+      "sha256": "b5a5dbce60265e305a815a6cb83ed07f24519d8ba644f2a307994488bced8815",
+      "bytes": 3771
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/METADATA",
+      "sha256": "ae263dba4d616210bb2d709cd091ba453984314f79f8f50f44af864352656dec",
+      "bytes": 3513
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/RECORD",
+      "sha256": "b48ce8f755b749eed1d3ea5bc693dc6c66918cdece2cd7a1649cbe32680c4e1b",
+      "bytes": 1342
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/WHEEL",
+      "sha256": "5b367c7308e1f25d23b542cd8d8ab51e9afe582a824603ebfbe4d7e0fe48d56a",
+      "bytes": 110
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-archive-member-layout/pinned-decoder/parser-site/xlrd-2.0.2.dist-info/top_level.txt",
+      "sha256": "9d9faddd273f0aa36c72d4b72fe577eaa5f00b90ee005be40758a7240a45fef3",
+      "bytes": 5
+    }
+  ],
+  "consumer_controls": [
+    {
+      "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/consume.py",
+      "sha256": "4963b79a59fd9a636fa986eb74a32f02dba8ba7968441407a7cda87236763206",
+      "bytes": 8097
+    },
+    {
+      "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/run.py",
+      "sha256": "569a8510f42a298e2a09e9decb62cbf112c78d73acec8bc757967722c22779b7",
+      "bytes": 2750
+    }
+  ],
+  "source_custody": {
+    "capture_inventory": {
+      "path": "artifacts/science/rootsi-physical-biff-custody/inputs/capture-inventory.json",
+      "sha256": "3353156471c2d04f2dce4138d29ad1a4891896d223c2c37dd5c531ba51c17b5a",
+      "bytes": 7818076
+    },
+    "retained_sheet_records": {
+      "path": "artifacts/science/rootsi-physical-biff-custody/inputs/sheets.jsonl",
+      "sha256": "6032592929bc031662cbb7227579adee4570ccc794a7b2b99b231f3ea8adb46a",
+      "bytes": 19722
+    },
+    "retained_workbook_roster": [
+      {
+        "archive_member": "rootsi/ABB.xls",
+        "bytes": 74240,
+        "sha256": "205e7f77adde19b2c590d222acdd526d472e76ac22d0b8f27f7728acf451fa49"
+      },
+      {
+        "archive_member": "rootsi/AGE.xls",
+        "bytes": 59904,
+        "sha256": "0c222bb5005482ea24b2cf66dd5f4cb9057fae7023ecfcd3fdfcececd666452b"
+      },
+      {
+        "archive_member": "rootsi/ALAN.xls",
+        "bytes": 41984,
+        "sha256": "6bd6f4cb859ff006855190761b76366a8d3510a6e5518f231951365190df1296"
+      },
+      {
+        "archive_member": "rootsi/AVEG.xls",
+        "bytes": 59392,
+        "sha256": "f6e40811551b9755b1746f9c0fb4d4f7ab60d5403dd2bb378bc37f6c77569514"
+      },
+      {
+        "archive_member": "rootsi/BAD.xls",
+        "bytes": 24064,
+        "sha256": "676feecec924e2cff71da190371203088371e7bcf468abdd874ecbc8be029007"
+      },
+      {
+        "archive_member": "rootsi/BJARA.xls",
+        "bytes": 54272,
+        "sha256": "309382c96924c79f595819978ae2b1a66287931357121cae39cf4a44e52297e3"
+      },
+      {
+        "archive_member": "rootsi/BJARE.xls",
+        "bytes": 84480,
+        "sha256": "c0ffc9ea8656e46f08666608b18d47b987f520de9523ffff1515b9d933394679"
+      },
+      {
+        "archive_member": "rootsi/BJARS.xls",
+        "bytes": 74240,
+        "sha256": "6aa9c8f51882525e61bfeb682b0cc3d056f6809bf321ee1a61ad5e32e67bca25"
+      },
+      {
+        "archive_member": "rootsi/BOCK1.xls",
+        "bytes": 76800,
+        "sha256": "82a2081293929463789a39b370e84689b828632d57de7e8b1839edc11182eeb7"
+      },
+      {
+        "archive_member": "rootsi/BOKE.xls",
+        "bytes": 68096,
+        "sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4"
+      },
+      {
+        "archive_member": "rootsi/BUS.xls",
+        "bytes": 59904,
+        "sha256": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e"
+      },
+      {
+        "archive_member": "rootsi/DAG.xls",
+        "bytes": 87040,
+        "sha256": "b91a3f992f724c76a591d179a7cdb0575180b8fd4c1650825cd63846a6e380ac"
+      },
+      {
+        "archive_member": "rootsi/DJAK.xls",
+        "bytes": 19456,
+        "sha256": "01e06b0ffb2d048a9661712bc15956fe2b77a1abe608df940c1a8335e3cd3842"
+      },
+      {
+        "archive_member": "rootsi/EKE.xls",
+        "bytes": 27648,
+        "sha256": "f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e"
+      },
+      {
+        "archive_member": "rootsi/ERIK.xls",
+        "bytes": 26624,
+        "sha256": "da99458240c8d93291da86a48cdb324b69aac33d64f04af07ae4e681da10fb1f"
+      },
+      {
+        "archive_member": "rootsi/EXHU.xls",
+        "bytes": 155136,
+        "sha256": "7448daf13d2b40eab5bf2cacd12a706e9c9a65b830c50bdd6816300fbc54fbe3"
+      },
+      {
+        "archive_member": "rootsi/FARAR.xls",
+        "bytes": 64000,
+        "sha256": "7a65e8ed4718faee61749c1556b880fa4a76ff8d57adf892d84674d7c2fc4cad"
+      },
+      {
+        "archive_member": "rootsi/FARSK.xls",
+        "bytes": 149504,
+        "sha256": "7b2474135531f3d3df967ba4309230150d8d9222acece58ad9a98a98458eb252"
+      },
+      {
+        "archive_member": "rootsi/FJALLNAS.xls",
+        "bytes": 50176,
+        "sha256": "708d2240686b3378324a5708458b2c067bbb5094e84fb090d130b8b898c4d4fd"
+      },
+      {
+        "archive_member": "rootsi/FLA.xls",
+        "bytes": 54784,
+        "sha256": "68b9f61f63e4113fb4c8d84b6f587009a765d77d53b752b98a55cb78ace6624e"
+      },
+      {
+        "archive_member": "rootsi/FLAH.xls",
+        "bytes": 68096,
+        "sha256": "865d10338ee684111280e5b9992717e02046b1406cb0aebb17275f2528a4a649"
+      },
+      {
+        "archive_member": "rootsi/FLINK.xls",
+        "bytes": 135680,
+        "sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195"
+      },
+      {
+        "archive_member": "rootsi/GARASEL.xls",
+        "bytes": 19968,
+        "sha256": "fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797"
+      },
+      {
+        "archive_member": "rootsi/GIL.xls",
+        "bytes": 159232,
+        "sha256": "8803c91e4d1ccde5a1f4778a62860173e5637e5223736b762079fa19a7ea526d"
+      },
+      {
+        "archive_member": "rootsi/GLA.xls",
+        "bytes": 44544,
+        "sha256": "f0348ab11bd11fc225e0b0169f54c96e70a135d368e5311b1795ce48dcc106ab"
+      },
+      {
+        "archive_member": "rootsi/GRIS.xls",
+        "bytes": 47616,
+        "sha256": "c6ba0675a9926e66092438fc487084173d0d3e4e0a4c16c170da092a2d5f5df2"
+      },
+      {
+        "archive_member": "rootsi/HAGG.xls",
+        "bytes": 41472,
+        "sha256": "6b0f69b4de78c08d6b7b4dce3fd23522ea7948ba3f6d656bb26ad2dca175b81e"
+      },
+      {
+        "archive_member": "rootsi/HALL.xls",
+        "bytes": 26624,
+        "sha256": "b97c1259b45555907be87d1e75d0fabca860293d86a07d57cfffbc7ca29853f3"
+      },
+      {
+        "archive_member": "rootsi/HOL.xls",
+        "bytes": 70144,
+        "sha256": "b13ec476c28de86cda8823e51ae0cd4cccfb7ef1684d860204291ceab10c4c27"
+      },
+      {
+        "archive_member": "rootsi/HOLK.xls",
+        "bytes": 39936,
+        "sha256": "d0f781973de3ec66e59bc16ca856b637309ae131424cae4bb55693ded5e34060"
+      },
+      {
+        "archive_member": "rootsi/IRE_V.xls",
+        "bytes": 27136,
+        "sha256": "279667b7fc149318b870468b22ca47d2870ade360fac549fe7d5f0de4e5a6a82"
+      },
+      {
+        "archive_member": "rootsi/KALV.xls",
+        "bytes": 35840,
+        "sha256": "bd0726ab618f9f466d12d165a740205864b2980dcbcf68bed351fafbc9d65f52"
+      },
+      {
+        "archive_member": "rootsi/KAN.xls",
+        "bytes": 31232,
+        "sha256": "cb01c4fe6913393bdd84c4e4820f392392600962e8957db2fbe2944f2af4903e"
+      },
+      {
+        "archive_member": "rootsi/KASSJON.xls",
+        "bytes": 48640,
+        "sha256": "a114db500ccbc3b5cd76a950b1f1c7548492f96c33eabc8cd6acf5a36a405f21"
+      },
+      {
+        "archive_member": "rootsi/KLO.xls",
+        "bytes": 87040,
+        "sha256": "237f864799d9ee12a47de652d7490e58393bf11c849545cade7590c41c5180a5"
+      },
+      {
+        "archive_member": "rootsi/KRA.xls",
+        "bytes": 93184,
+        "sha256": "29e0503544e0cf3744296eb1248d4893973e3f51c786d8270d9567182bba81aa"
+      },
+      {
+        "archive_member": "rootsi/KRO_NY.xls",
+        "bytes": 21504,
+        "sha256": "81c950ca0881c5f17bdcffbc3e0b9804511af5fb6befce83fbd64dcdc7eb9d17"
+      },
+      {
+        "archive_member": "rootsi/KULL.xls",
+        "bytes": 64000,
+        "sha256": "025cb1aa083fff0565fe3db83897029043d4306dd8b57b11022263e7238532c7"
+      },
+      {
+        "archive_member": "rootsi/KYLL.xls",
+        "bytes": 32768,
+        "sha256": "73843b2f9b17f2b6c21d8cbb2259f5d228f3f7e555aaa8caa4f57c82df8eda7a"
+      },
+      {
+        "archive_member": "rootsi/LEVEANIE.xls",
+        "bytes": 18944,
+        "sha256": "625db4d016958622f3c6b05f330a79c82d75658f47e6641e2a930c9dce6eb3ec"
+      },
+      {
+        "archive_member": "rootsi/LJU_NY.xls",
+        "bytes": 81408,
+        "sha256": "907e7fe600d5f1888e5cf0b55c1e2ec1ad7a684d6b18ef402fa30a5de0da5c4b"
+      },
+      {
+        "archive_member": "rootsi/MABO.xls",
+        "bytes": 101376,
+        "sha256": "bcadb0bb5345c72174414ea363c3a6e41bfb4312092100d19362ee98bd13bfba"
+      },
+      {
+        "archive_member": "rootsi/MATT.xls",
+        "bytes": 78336,
+        "sha256": "08baf9be5f235c79c243558ab1370f5406e0c37fa3f0e6af52c7a3e1a87ec135"
+      },
+      {
+        "archive_member": "rootsi/MOC.xls",
+        "bytes": 51200,
+        "sha256": "b906a8de305c350c2b188fc6c7cb65025a93bb0b51141765bb5b45c696266eea"
+      },
+      {
+        "archive_member": "rootsi/OSIN.xls",
+        "bytes": 39936,
+        "sha256": "48e03f2d271a12339a8fe6b57128adc65c50cf539fac46d5b52dfb60ac7bd95e"
+      },
+      {
+        "archive_member": "rootsi/OSUT.xls",
+        "bytes": 33792,
+        "sha256": "d1bfc0eb85df87cee9637546a0dbb355e7d841915047846530764fa64e287d65"
+      },
+      {
+        "archive_member": "rootsi/OVRE_NY.xls",
+        "bytes": 20992,
+        "sha256": "ce19feec7508b8bfe7480eed670fbd7e94acc8b42a8bc26c4d7bbcfbab9eb631"
+      },
+      {
+        "archive_member": "rootsi/O_RING.xls",
+        "bytes": 57344,
+        "sha256": "05a24f3ff7d38cae053ec196e6ac893c1e08d61f517987b7afdadf561cd24134"
+      },
+      {
+        "archive_member": "rootsi/RANV.xls",
+        "bytes": 60416,
+        "sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed"
+      },
+      {
+        "archive_member": "rootsi/RASH.xls",
+        "bytes": 40960,
+        "sha256": "33bc384d8c508fa9f79162be61ee3cd289328be74fe20999b553c8a4285e2d1c"
+      },
+      {
+        "archive_member": "rootsi/ROGB.xls",
+        "bytes": 74752,
+        "sha256": "100ba89f5c07b2fcf57ea473dfab4cef7a61ee6f96d69011c2993d294c8aa3f1"
+      },
+      {
+        "archive_member": "rootsi/SAMBOTOT.xls",
+        "bytes": 75776,
+        "sha256": "0671f8a9d8f095e3afed26d084453e20ee0068112536b3a538a7aefe5ae7c8b3"
+      },
+      {
+        "archive_member": "rootsi/SIGG.xls",
+        "bytes": 91648,
+        "sha256": "c3f1b13ae88ff13fa3702679952015f2f7151e97d5bdc60df742dbd62e9c6a21"
+      },
+      {
+        "archive_member": "rootsi/SKAR.xls",
+        "bytes": 36864,
+        "sha256": "37fc0db34253fecfa74bd8a18abe9121ecde04af7e301765b86e6bb57bccaae7"
+      },
+      {
+        "archive_member": "rootsi/SKE.xls",
+        "bytes": 56832,
+        "sha256": "7139447c11f9b8c30db0359f926bfaea8794649541091a695b830de6c88d2700"
+      },
+      {
+        "archive_member": "rootsi/STAV.xls",
+        "bytes": 49152,
+        "sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e"
+      },
+      {
+        "archive_member": "rootsi/STE.xls",
+        "bytes": 15872,
+        "sha256": "89c5715fd510035e39c1b17593682e2cefd70a71b8a4fa14c2ff36756f800c79"
+      },
+      {
+        "archive_member": "rootsi/STF_NY.xls",
+        "bytes": 39936,
+        "sha256": "933040a90a650884c744be215b2a4639f8115e4ab9b33cdc1bb4fccbdb036e8a"
+      },
+      {
+        "archive_member": "rootsi/STMO.xls",
+        "bytes": 24064,
+        "sha256": "f02291be6b83bf3217e609fcf1477f780e06cd885adf2038263b6d9bd2353d17"
+      },
+      {
+        "archive_member": "rootsi/STO.xls",
+        "bytes": 99840,
+        "sha256": "3e2eab83200667b875b9dadfd7cec0dbf374976dac3a7a9bebec5ff5e27350f6"
+      },
+      {
+        "archive_member": "rootsi/STOB.xls",
+        "bytes": 87552,
+        "sha256": "99b285daf8c49f6d97a4c979cc369930c49fd0fee89694d6b7e526bda3572bf3"
+      },
+      {
+        "archive_member": "rootsi/STOR.xls",
+        "bytes": 27648,
+        "sha256": "7d6a039bfbbe605e46efe0e301f52225569c45014ebbf293579977e72234ab77"
+      },
+      {
+        "archive_member": "rootsi/STORA.xls",
+        "bytes": 46080,
+        "sha256": "f8d12765e197b2abc3d50e54b8e8d1a2965a29a164f468e6cf57c7b82085ed4a"
+      },
+      {
+        "archive_member": "rootsi/STORN_NY.xls",
+        "bytes": 70144,
+        "sha256": "9e9958991e5af5a81df3f82457987d002ec381b06c2dc0d60fca7210115d3368"
+      },
+      {
+        "archive_member": "rootsi/SVA.xls",
+        "bytes": 27136,
+        "sha256": "defb3d93c9091998131b70eb48ba7ace97009da8bb17860cb3cba35a62c83229"
+      },
+      {
+        "archive_member": "rootsi/TIB.xls",
+        "bytes": 25088,
+        "sha256": "0f01d211e6e1b1774782f40c151c8f0d14092395c4aab282e3a19f4197db2d3a"
+      },
+      {
+        "archive_member": "rootsi/TOR1.xls",
+        "bytes": 50176,
+        "sha256": "814df8c2f0fef300ed185e74cfc67e0fc8a6c4b27ac3c6b5cccfc59543498af1"
+      },
+      {
+        "archive_member": "rootsi/TOR7.xls",
+        "bytes": 21504,
+        "sha256": "f4cd03bcfce77e4eda47d4ececd7aad123521e988906ef73233cf5136359c09f"
+      },
+      {
+        "archive_member": "rootsi/TORU.xls",
+        "bytes": 35840,
+        "sha256": "27ec3ec678bc663e2772cf06de188f5e67c28fddbef328875bc11ca7bded5623"
+      },
+      {
+        "archive_member": "rootsi/TRAL.xls",
+        "bytes": 55808,
+        "sha256": "4b525897cf80e8f22e3798fdda4f4e13c0d060d40945e2659e6535139908bcc9"
+      },
+      {
+        "archive_member": "rootsi/TRE.xls",
+        "bytes": 146432,
+        "sha256": "05ee3bfbb08a8675cf4702bdb7f967893211d9ae014f7b80bd9fdb894068ed76"
+      },
+      {
+        "archive_member": "rootsi/TRU.xls",
+        "bytes": 40960,
+        "sha256": "59e07d62bc3908112dc2af0933192ac3d7ce04df28a31047c220c23f0893b7e5"
+      },
+      {
+        "archive_member": "rootsi/TRY_NY.xls",
+        "bytes": 26624,
+        "sha256": "a5d4cd764df8655c9c037ca1666df45b7936585cfa1f5c13cf74688155da6ac7"
+      },
+      {
+        "archive_member": "rootsi/UDDA.xls",
+        "bytes": 75264,
+        "sha256": "c50991b3cf7f9b4534e6fd101d884dba1f1637baf3328a5a7913780d8ced4d7b"
+      },
+      {
+        "archive_member": "rootsi/UND.xls",
+        "bytes": 23040,
+        "sha256": "2c3053639bb310df8952f15f9515b65df3ff498d7b1541c948e67c202a03d8eb"
+      },
+      {
+        "archive_member": "rootsi/VASA.xls",
+        "bytes": 26112,
+        "sha256": "0aa4bc641b0c15402d406989fabc5bfd5eda97b72f02b3d0ce25cf65f241a5bc"
+      },
+      {
+        "archive_member": "rootsi/VONJ.xls",
+        "bytes": 19456,
+        "sha256": "18ec828fd19464a6c316dc48baefc7167a5728c532916dc887751460a91e0459"
+      },
+      {
+        "archive_member": "rootsi/VOUS.xls",
+        "bytes": 59904,
+        "sha256": "3869b53bc195fc2edc440a1f9519f661afdc0c18836b55e5290c3411db3eefbd"
+      },
+      {
+        "archive_member": "rootsi/V_UTM.xls",
+        "bytes": 45568,
+        "sha256": "4453af285ddd37cdd8ea2c2d0deb9856357bf67e31bfebdcfd1995fd2033a52d"
+      }
+    ],
+    "private_member_streams": {
+      "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/execution/products/private-member-streams.json",
+      "sha256": "6445b7b739527b6a3b2eb7bed505cf4f1176874d88a4c8f543e4272e6dfdbe20",
+      "bytes": 25538
+    },
+    "private_worksheet_layout": {
+      "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/execution/products/private-worksheet-layout.jsonl",
+      "sha256": "dd08f0aa4fbc8aa1e30a5fff3667fc6e8854a3633599b5ea76c982c49b8885c0",
+      "bytes": 88685
+    },
+    "original_capture_identity": "Unchanged archive and79-retained-member identities; byte correspondence does not authenticate historical study selection."
+  },
+  "native_commands": {
+    "receipt": {
+      "path": "artifacts/science/rootsi-archive-member-layout/pinned-decoder/execution/products/native-commands.json",
+      "sha256": "4b9c2950faa18ebb32005b55658c11db5a910bc0930ab9fbceede5ceba781f58",
+      "bytes": 63923
+    },
+    "command_count": 161,
+    "version_queries": 1,
+    "listings": 2,
+    "member_streams": 158,
+    "successful_exit_count": 161,
+    "commands": [
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "--version"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "e7cce3d387120ee09a085cb3cafba70e9031c5f497229c6d60846a7b2c1e4241",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-tf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "017f827b9af944369954eb98872e581c03e5f31890182d9d875ae00ef85c4889",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-tvf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "ebbd6c7b6be0174f9a0ba0e245c7afdc39cbb81fbb079ae93de7e59712c6f05e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ABB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "205e7f77adde19b2c590d222acdd526d472e76ac22d0b8f27f7728acf451fa49",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/AGE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0c222bb5005482ea24b2cf66dd5f4cb9057fae7023ecfcd3fdfcececd666452b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ALAN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6bd6f4cb859ff006855190761b76366a8d3510a6e5518f231951365190df1296",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/AVEG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f6e40811551b9755b1746f9c0fb4d4f7ab60d5403dd2bb378bc37f6c77569514",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BAD.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "676feecec924e2cff71da190371203088371e7bcf468abdd874ecbc8be029007",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "309382c96924c79f595819978ae2b1a66287931357121cae39cf4a44e52297e3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c0ffc9ea8656e46f08666608b18d47b987f520de9523ffff1515b9d933394679",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6aa9c8f51882525e61bfeb682b0cc3d056f6809bf321ee1a61ad5e32e67bca25",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BOCK1.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "82a2081293929463789a39b370e84689b828632d57de7e8b1839edc11182eeb7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BOKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BUS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/DAG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b91a3f992f724c76a591d179a7cdb0575180b8fd4c1650825cd63846a6e380ac",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/DJAK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "01e06b0ffb2d048a9661712bc15956fe2b77a1abe608df940c1a8335e3cd3842",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/EKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ERIK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "da99458240c8d93291da86a48cdb324b69aac33d64f04af07ae4e681da10fb1f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/EXHU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7448daf13d2b40eab5bf2cacd12a706e9c9a65b830c50bdd6816300fbc54fbe3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FARAR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7a65e8ed4718faee61749c1556b880fa4a76ff8d57adf892d84674d7c2fc4cad",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FARSK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7b2474135531f3d3df967ba4309230150d8d9222acece58ad9a98a98458eb252",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FJALLNAS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "708d2240686b3378324a5708458b2c067bbb5094e84fb090d130b8b898c4d4fd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "68b9f61f63e4113fb4c8d84b6f587009a765d77d53b752b98a55cb78ace6624e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLAH.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "865d10338ee684111280e5b9992717e02046b1406cb0aebb17275f2528a4a649",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLINK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GARASEL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GIL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "8803c91e4d1ccde5a1f4778a62860173e5637e5223736b762079fa19a7ea526d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GLA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f0348ab11bd11fc225e0b0169f54c96e70a135d368e5311b1795ce48dcc106ab",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GRIS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c6ba0675a9926e66092438fc487084173d0d3e4e0a4c16c170da092a2d5f5df2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HAGG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6b0f69b4de78c08d6b7b4dce3fd23522ea7948ba3f6d656bb26ad2dca175b81e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HALL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b97c1259b45555907be87d1e75d0fabca860293d86a07d57cfffbc7ca29853f3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HOL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b13ec476c28de86cda8823e51ae0cd4cccfb7ef1684d860204291ceab10c4c27",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HOLK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d0f781973de3ec66e59bc16ca856b637309ae131424cae4bb55693ded5e34060",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/IRE_V.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "279667b7fc149318b870468b22ca47d2870ade360fac549fe7d5f0de4e5a6a82",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KALV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bd0726ab618f9f466d12d165a740205864b2980dcbcf68bed351fafbc9d65f52",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KAN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "cb01c4fe6913393bdd84c4e4820f392392600962e8957db2fbe2944f2af4903e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KASSJON.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "a114db500ccbc3b5cd76a950b1f1c7548492f96c33eabc8cd6acf5a36a405f21",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KLO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "237f864799d9ee12a47de652d7490e58393bf11c849545cade7590c41c5180a5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KRA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "29e0503544e0cf3744296eb1248d4893973e3f51c786d8270d9567182bba81aa",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KRO_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "81c950ca0881c5f17bdcffbc3e0b9804511af5fb6befce83fbd64dcdc7eb9d17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KULL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "025cb1aa083fff0565fe3db83897029043d4306dd8b57b11022263e7238532c7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KYLL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "73843b2f9b17f2b6c21d8cbb2259f5d228f3f7e555aaa8caa4f57c82df8eda7a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/LEVEANIE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "625db4d016958622f3c6b05f330a79c82d75658f47e6641e2a930c9dce6eb3ec",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/LJU_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "907e7fe600d5f1888e5cf0b55c1e2ec1ad7a684d6b18ef402fa30a5de0da5c4b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MABO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bcadb0bb5345c72174414ea363c3a6e41bfb4312092100d19362ee98bd13bfba",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MATT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "08baf9be5f235c79c243558ab1370f5406e0c37fa3f0e6af52c7a3e1a87ec135",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MOC.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b906a8de305c350c2b188fc6c7cb65025a93bb0b51141765bb5b45c696266eea",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OSIN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "48e03f2d271a12339a8fe6b57128adc65c50cf539fac46d5b52dfb60ac7bd95e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OSUT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d1bfc0eb85df87cee9637546a0dbb355e7d841915047846530764fa64e287d65",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OVRE_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "ce19feec7508b8bfe7480eed670fbd7e94acc8b42a8bc26c4d7bbcfbab9eb631",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/O_RING.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "05a24f3ff7d38cae053ec196e6ac893c1e08d61f517987b7afdadf561cd24134",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/RANV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/RASH.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "33bc384d8c508fa9f79162be61ee3cd289328be74fe20999b553c8a4285e2d1c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ROGB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "100ba89f5c07b2fcf57ea473dfab4cef7a61ee6f96d69011c2993d294c8aa3f1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SAMBOTOT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0671f8a9d8f095e3afed26d084453e20ee0068112536b3a538a7aefe5ae7c8b3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SIGG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c3f1b13ae88ff13fa3702679952015f2f7151e97d5bdc60df742dbd62e9c6a21",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SKAR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "37fc0db34253fecfa74bd8a18abe9121ecde04af7e301765b86e6bb57bccaae7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7139447c11f9b8c30db0359f926bfaea8794649541091a695b830de6c88d2700",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STAV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "89c5715fd510035e39c1b17593682e2cefd70a71b8a4fa14c2ff36756f800c79",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STF_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "933040a90a650884c744be215b2a4639f8115e4ab9b33cdc1bb4fccbdb036e8a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STMO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f02291be6b83bf3217e609fcf1477f780e06cd885adf2038263b6d9bd2353d17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "3e2eab83200667b875b9dadfd7cec0dbf374976dac3a7a9bebec5ff5e27350f6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STOB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "99b285daf8c49f6d97a4c979cc369930c49fd0fee89694d6b7e526bda3572bf3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STOR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7d6a039bfbbe605e46efe0e301f52225569c45014ebbf293579977e72234ab77",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STORA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f8d12765e197b2abc3d50e54b8e8d1a2965a29a164f468e6cf57c7b82085ed4a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STORN_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "9e9958991e5af5a81df3f82457987d002ec381b06c2dc0d60fca7210115d3368",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SVA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "defb3d93c9091998131b70eb48ba7ace97009da8bb17860cb3cba35a62c83229",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TIB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0f01d211e6e1b1774782f40c151c8f0d14092395c4aab282e3a19f4197db2d3a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TOR1.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "814df8c2f0fef300ed185e74cfc67e0fc8a6c4b27ac3c6b5cccfc59543498af1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TOR7.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f4cd03bcfce77e4eda47d4ececd7aad123521e988906ef73233cf5136359c09f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TORU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "27ec3ec678bc663e2772cf06de188f5e67c28fddbef328875bc11ca7bded5623",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRAL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "4b525897cf80e8f22e3798fdda4f4e13c0d060d40945e2659e6535139908bcc9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "05ee3bfbb08a8675cf4702bdb7f967893211d9ae014f7b80bd9fdb894068ed76",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "59e07d62bc3908112dc2af0933192ac3d7ce04df28a31047c220c23f0893b7e5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRY_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "a5d4cd764df8655c9c037ca1666df45b7936585cfa1f5c13cf74688155da6ac7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/UDDA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c50991b3cf7f9b4534e6fd101d884dba1f1637baf3328a5a7913780d8ced4d7b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/UND.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "2c3053639bb310df8952f15f9515b65df3ff498d7b1541c948e67c202a03d8eb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VASA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0aa4bc641b0c15402d406989fabc5bfd5eda97b72f02b3d0ce25cf65f241a5bc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VONJ.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "18ec828fd19464a6c316dc48baefc7167a5728c532916dc887751460a91e0459",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VOUS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "3869b53bc195fc2edc440a1f9519f661afdc0c18836b55e5290c3411db3eefbd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/V_UTM.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "4453af285ddd37cdd8ea2c2d0deb9856357bf67e31bfebdcfd1995fd2033a52d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ABB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "205e7f77adde19b2c590d222acdd526d472e76ac22d0b8f27f7728acf451fa49",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/AGE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0c222bb5005482ea24b2cf66dd5f4cb9057fae7023ecfcd3fdfcececd666452b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ALAN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6bd6f4cb859ff006855190761b76366a8d3510a6e5518f231951365190df1296",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/AVEG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f6e40811551b9755b1746f9c0fb4d4f7ab60d5403dd2bb378bc37f6c77569514",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BAD.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "676feecec924e2cff71da190371203088371e7bcf468abdd874ecbc8be029007",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "309382c96924c79f595819978ae2b1a66287931357121cae39cf4a44e52297e3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c0ffc9ea8656e46f08666608b18d47b987f520de9523ffff1515b9d933394679",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BJARS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6aa9c8f51882525e61bfeb682b0cc3d056f6809bf321ee1a61ad5e32e67bca25",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BOCK1.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "82a2081293929463789a39b370e84689b828632d57de7e8b1839edc11182eeb7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BOKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/BUS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f807c5dc0b624db382ce81959ea7d48c348b637018faa873b7ab9ad1f23e197e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/DAG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b91a3f992f724c76a591d179a7cdb0575180b8fd4c1650825cd63846a6e380ac",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/DJAK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "01e06b0ffb2d048a9661712bc15956fe2b77a1abe608df940c1a8335e3cd3842",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/EKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ERIK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "da99458240c8d93291da86a48cdb324b69aac33d64f04af07ae4e681da10fb1f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/EXHU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7448daf13d2b40eab5bf2cacd12a706e9c9a65b830c50bdd6816300fbc54fbe3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FARAR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7a65e8ed4718faee61749c1556b880fa4a76ff8d57adf892d84674d7c2fc4cad",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FARSK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7b2474135531f3d3df967ba4309230150d8d9222acece58ad9a98a98458eb252",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FJALLNAS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "708d2240686b3378324a5708458b2c067bbb5094e84fb090d130b8b898c4d4fd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "68b9f61f63e4113fb4c8d84b6f587009a765d77d53b752b98a55cb78ace6624e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLAH.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "865d10338ee684111280e5b9992717e02046b1406cb0aebb17275f2528a4a649",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/FLINK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GARASEL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GIL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "8803c91e4d1ccde5a1f4778a62860173e5637e5223736b762079fa19a7ea526d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GLA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f0348ab11bd11fc225e0b0169f54c96e70a135d368e5311b1795ce48dcc106ab",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/GRIS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c6ba0675a9926e66092438fc487084173d0d3e4e0a4c16c170da092a2d5f5df2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HAGG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "6b0f69b4de78c08d6b7b4dce3fd23522ea7948ba3f6d656bb26ad2dca175b81e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HALL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b97c1259b45555907be87d1e75d0fabca860293d86a07d57cfffbc7ca29853f3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HOL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b13ec476c28de86cda8823e51ae0cd4cccfb7ef1684d860204291ceab10c4c27",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/HOLK.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d0f781973de3ec66e59bc16ca856b637309ae131424cae4bb55693ded5e34060",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/IRE_V.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "279667b7fc149318b870468b22ca47d2870ade360fac549fe7d5f0de4e5a6a82",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KALV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bd0726ab618f9f466d12d165a740205864b2980dcbcf68bed351fafbc9d65f52",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KAN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "cb01c4fe6913393bdd84c4e4820f392392600962e8957db2fbe2944f2af4903e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KASSJON.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "a114db500ccbc3b5cd76a950b1f1c7548492f96c33eabc8cd6acf5a36a405f21",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KLO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "237f864799d9ee12a47de652d7490e58393bf11c849545cade7590c41c5180a5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KRA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "29e0503544e0cf3744296eb1248d4893973e3f51c786d8270d9567182bba81aa",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KRO_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "81c950ca0881c5f17bdcffbc3e0b9804511af5fb6befce83fbd64dcdc7eb9d17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KULL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "025cb1aa083fff0565fe3db83897029043d4306dd8b57b11022263e7238532c7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/KYLL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "73843b2f9b17f2b6c21d8cbb2259f5d228f3f7e555aaa8caa4f57c82df8eda7a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/LEVEANIE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "625db4d016958622f3c6b05f330a79c82d75658f47e6641e2a930c9dce6eb3ec",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/LJU_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "907e7fe600d5f1888e5cf0b55c1e2ec1ad7a684d6b18ef402fa30a5de0da5c4b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MABO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bcadb0bb5345c72174414ea363c3a6e41bfb4312092100d19362ee98bd13bfba",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MATT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "08baf9be5f235c79c243558ab1370f5406e0c37fa3f0e6af52c7a3e1a87ec135",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/MOC.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "b906a8de305c350c2b188fc6c7cb65025a93bb0b51141765bb5b45c696266eea",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OSIN.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "48e03f2d271a12339a8fe6b57128adc65c50cf539fac46d5b52dfb60ac7bd95e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OSUT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "d1bfc0eb85df87cee9637546a0dbb355e7d841915047846530764fa64e287d65",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/OVRE_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "ce19feec7508b8bfe7480eed670fbd7e94acc8b42a8bc26c4d7bbcfbab9eb631",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/O_RING.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "05a24f3ff7d38cae053ec196e6ac893c1e08d61f517987b7afdadf561cd24134",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/RANV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/RASH.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "33bc384d8c508fa9f79162be61ee3cd289328be74fe20999b553c8a4285e2d1c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/ROGB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "100ba89f5c07b2fcf57ea473dfab4cef7a61ee6f96d69011c2993d294c8aa3f1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SAMBOTOT.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0671f8a9d8f095e3afed26d084453e20ee0068112536b3a538a7aefe5ae7c8b3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SIGG.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c3f1b13ae88ff13fa3702679952015f2f7151e97d5bdc60df742dbd62e9c6a21",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SKAR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "37fc0db34253fecfa74bd8a18abe9121ecde04af7e301765b86e6bb57bccaae7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SKE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7139447c11f9b8c30db0359f926bfaea8794649541091a695b830de6c88d2700",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STAV.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "89c5715fd510035e39c1b17593682e2cefd70a71b8a4fa14c2ff36756f800c79",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STF_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "933040a90a650884c744be215b2a4639f8115e4ab9b33cdc1bb4fccbdb036e8a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STMO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f02291be6b83bf3217e609fcf1477f780e06cd885adf2038263b6d9bd2353d17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STO.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "3e2eab83200667b875b9dadfd7cec0dbf374976dac3a7a9bebec5ff5e27350f6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STOB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "99b285daf8c49f6d97a4c979cc369930c49fd0fee89694d6b7e526bda3572bf3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STOR.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "7d6a039bfbbe605e46efe0e301f52225569c45014ebbf293579977e72234ab77",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STORA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f8d12765e197b2abc3d50e54b8e8d1a2965a29a164f468e6cf57c7b82085ed4a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/STORN_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "9e9958991e5af5a81df3f82457987d002ec381b06c2dc0d60fca7210115d3368",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/SVA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "defb3d93c9091998131b70eb48ba7ace97009da8bb17860cb3cba35a62c83229",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TIB.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0f01d211e6e1b1774782f40c151c8f0d14092395c4aab282e3a19f4197db2d3a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TOR1.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "814df8c2f0fef300ed185e74cfc67e0fc8a6c4b27ac3c6b5cccfc59543498af1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TOR7.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "f4cd03bcfce77e4eda47d4ececd7aad123521e988906ef73233cf5136359c09f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TORU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "27ec3ec678bc663e2772cf06de188f5e67c28fddbef328875bc11ca7bded5623",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRAL.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "4b525897cf80e8f22e3798fdda4f4e13c0d060d40945e2659e6535139908bcc9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRE.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "05ee3bfbb08a8675cf4702bdb7f967893211d9ae014f7b80bd9fdb894068ed76",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRU.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "59e07d62bc3908112dc2af0933192ac3d7ce04df28a31047c220c23f0893b7e5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/TRY_NY.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "a5d4cd764df8655c9c037ca1666df45b7936585cfa1f5c13cf74688155da6ac7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/UDDA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "c50991b3cf7f9b4534e6fd101d884dba1f1637baf3328a5a7913780d8ced4d7b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/UND.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "2c3053639bb310df8952f15f9515b65df3ff498d7b1541c948e67c202a03d8eb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VASA.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "0aa4bc641b0c15402d406989fabc5bfd5eda97b72f02b3d0ce25cf65f241a5bc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VONJ.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "18ec828fd19464a6c316dc48baefc7167a5728c532916dc887751460a91e0459",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/VOUS.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "3869b53bc195fc2edc440a1f9519f661afdc0c18836b55e5290c3411db3eefbd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "argv": [
+          "/usr/bin/tar",
+          "-xOf",
+          "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+          "--",
+          "rootsi/V_UTM.xls"
+        ],
+        "native_exit": 0,
+        "stdout_sha256": "4453af285ddd37cdd8ea2c2d0deb9856357bf67e31bfebdcfd1995fd2033a52d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "preserved_failed_predecessor": {
+    "plan": {
+      "path": "artifacts/science/rootsi-archive-member-layout/plan.json",
+      "sha256": "6b2dcd556462c799623764539cf44994c7af5d8eea1273067800fbf7fd4d6166",
+      "bytes": 9860765
+    },
+    "terminal": {
+      "path": "artifacts/science/rootsi-archive-member-layout/execution/terminal.json",
+      "sha256": "98097c0b446849baa37c195cd39ecfd10453d1f7694f8c178262671e7dfee810",
+      "bytes": 1670
+    },
+    "native_exit": 1,
+    "reason": "Both79native7z stream passes completed before optional xlrd unavailable at layout parser import. Preserve all original raw outputs; successor explicitly selects retained xlrd2.0.2 package and distribution metadata.",
+    "scope": "Both79-member stdout stream lanes completed before maintained layout import refused missing optional xlrd. This failed overall execution remains failed; successor explicitly pins copied xlrd2.0.2."
+  },
+  "interpretation": {
+    "source_codepage_counts_denominator": "Worksheet records, not workbooks: codepage 1252 occurs on 62 sheets and codepage 1200 on 45 sheets, totaling 107. The separate physical-BIFF account has 79 workbook-global headers (62 BIFF5/7 and 17 BIFF8); these denominators differ.",
+    "rectangle_positions": "547330 decoded cached positions were scanned for cached errors/dimensions only; no grain-count or observed-sample interpretation.",
+    "two_extra_members": "The metadata OOXML workbook and R source were listed only; their bytes were not read or executed.",
+    "parser_independence": "Archive stdout comparison and maintained layout decoder share the same pinned source roster. Layout is compared with retained xlrd-derived sheet records; it is not an independent decoder or historical-source authentication.",
+    "stdout_artifact_custody": "Actual -xOf member stdout is retained in 158 binary .stdout artifact files (two copies totaling 8,932,352 bytes). file_extraction_to_filesystem=false means no archive-named filesystem destinations were restored, not that streamed bytes were never written to owned artifacts. Each command receipt pins its stdout bytes.",
+    "execution_vs_adoption": "This publication copies the actual native report byte-exactly and describes retained receipts. It launches no new archive, parser, formula, source-code or scientific execution."
+  },
+  "remaining_limits": [
+    "General adversarial7z/archive parser qualification, malicious/signature/authenticity review and complete container security remain unestablished.",
+    "No formula evaluation, source age/chronology conversion, taxonomy or feature-unit qualification, pollen-count/sample interpretation, historical study membership, scientific approval or analytical/source-rights admission.",
+    "System tar binary is pinned; host shared libraries are provenance rather than separately hashed inputs.",
+    "The original physical79-workbook BIFF-record census was not repeated."
+  ]
+}

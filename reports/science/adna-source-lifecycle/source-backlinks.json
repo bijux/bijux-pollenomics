@@ -1,0 +1,412 @@
+{
+  "scope": "Every nonempty literal sample lineage and chronology source pointer across all1468 retained animal records; exact bytes/member identities, no reinterpretation/source authentication.",
+  "references": [
+    {
+      "reference": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "kind": "retained-gzip-content",
+      "sha256": "8bf627fe5a4eb0e3eca2651ab677a15bdd1f8f04668e7bb82c94bcb3b104139f",
+      "storage_path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html.gz",
+      "storage_sha256": "b26f2a3ed0da32787440271aa259b4fdad26fe1fe950703ee681e93045fdc544",
+      "metadata_path": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html.metadata.json",
+      "metadata_sha256": "bf097a662bfe2d73798715379d61a97bf36da2c17ee5a072f12edb260ab6ee09",
+      "historical_metadata_digest_present": false
+    },
+    {
+      "reference": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "kind": "retained-gzip-content",
+      "sha256": "3fa8687dde75e6db278336a0f01b58d246abf2c180e005dc6993004b47260e15",
+      "storage_path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz",
+      "storage_sha256": "2b783acff6af3e3a4be315334962370042a51d758d52312785a0a9a13bc563d1",
+      "metadata_path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.metadata.json",
+      "metadata_sha256": "15618675ec1fac537c6d320cad847bc6407ff540e54e036ea0f06a281486ad48",
+      "historical_metadata_digest_present": false
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
+      "sha256": "887c99e7f9cb5d5be943a6d3ade2e579d33d54432ad6c1941b41180bb723c962",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "sha256": "f8dcf0155fe3a1352c02a86bae8db1085e6429ddac25ca6e29b07d6be605db6b",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "sha256": "c4b042517528c3e4f99e40aca6df9713acb7e55f3cf5b3eca299b92908b55505",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "sha256": "d6fcdfae2d835883c68585aa6ff87ad197cc8561c434f654099322fefeb156a9",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+      "path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+      "sha256": "f99a65b2b80618c64bff71f29f415de9207ba4f2775127b5e752168bd8fb440f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "sha256": "e6367f3a2b877d7940e520dd90bc3066b9530b7dac738de5b35ade9ba4a91640",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "sha256": "2c4676aef05f1d9cc272eba1dabfc3d30fb7604c8fa3fc0713518414e213655f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+      "sha256": "1a11850c94d8a08f91a11feecc298dc9be9003911bd6dc39df6f6796c2348988",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip#Supplementary_Data_1.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+      "sha256": "a4f7d6f164c534daa2ef7bf2e214a66b39a9e7d2005cc27e4bf170b8119a376d",
+      "kind": "zip-member",
+      "member": "Supplementary_Data_1.xlsx",
+      "member_bytes": 19788,
+      "member_sha256": "ccf49d056d349c8682c5ae283c92366066186d9fe55319a8533dfcde4db5669d"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip#Supplementary_Data_2.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+      "sha256": "a4f7d6f164c534daa2ef7bf2e214a66b39a9e7d2005cc27e4bf170b8119a376d",
+      "kind": "zip-member",
+      "member": "Supplementary_Data_2.xlsx",
+      "member_bytes": 13694,
+      "member_sha256": "51afecb368025820f46d0c0e1acc0422defa27c1e258f2bfcb1a3ab5a800f4a0"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "sha256": "aaa7a6db334acdb81ac4c9f205a31e7dc746c40faa8bdd43e232425f4eb7f7a1",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
+      "sha256": "a2a8071103e4171f0ef8d11a0d3bdea9690413cf846a5e8dad7d6749e2836bd7",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "sha256": "6be3492f07b3602598f77025afae03db65851570e2144e668bb3ef7012385862",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "sha256": "57ba7ad100ef756aa53bb1cd23340f6b0f9b3000851a31fd92e167258640745b",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+      "sha256": "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
+      "sha256": "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "sha256": "fe4066aecc10fb4573613ac1641756c80503cb4bf41c7bf9a49ab25aa2ecfe97",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx",
+      "sha256": "81cc00377f5898004b8f4f724c0aa1b787fdb30d7df9874b31f1a27241268462",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx",
+      "sha256": "bff93c33770648d645f48284bc334fa55dd27341b99903f27a29c8195ab14d31",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx",
+      "sha256": "a5c81d6140129165b6606b77e22a787e47cebe93b7c40652b8228aead0e8b336",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "sha256": "bc076874345613dc71269f66db8b4941589d3be1eacae90043f3d94618b5e56c",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "sha256": "79e5fe0ba0bf86a217bb4d91dd8a350a27e89c976866c6ec067c700bb5eda0d2",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "sha256": "b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "6ceeb9e5dd9d6c574fe69d308bb9fe0af4067cb1ff8e8895d52a41ecbc9a16b8",
+      "storage_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
+      "storage_sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2",
+      "metadata_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.metadata.json",
+      "metadata_sha256": "78ae373ea41bdbc07c62297978cadc1c7d58898ad7f74cae4beef27c5e7ef814",
+      "historical_metadata_digest_present": true
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "3fa7867b615e14cb5333e8c70d8df3329084a932ebd29d65fd00502d95781ced",
+      "storage_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.gz",
+      "storage_sha256": "6f958dbaf61775f20e5acf59fe3a3616ab6ec3ef9ac9b8399a00e1e9e82a6487",
+      "metadata_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.metadata.json",
+      "metadata_sha256": "5f11e8730a4071f457cca8c15516b6c0daaddd705879b252dabfbadc99ad3341",
+      "historical_metadata_digest_present": true
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml",
+      "sha256": "21e9298cfdc5e99c6aeeac372978d31b2c2e456bfa535a7379035eab815446f2",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml",
+      "sha256": "81f90329eea391e921b48734395796fcc96e9ae00d6cdd1bc2fbb3a1d27cf922",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml",
+      "sha256": "ad869666aeb669ba463f20b55b25a1149b1b25dc0ada399404207288c48d99fc",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml",
+      "sha256": "14392aa0e88bb10ed81f204c1f78dbfdf9bc79e51d60f0d59ae17a274e76e7fd",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml",
+      "sha256": "3d619c7e456b526fc896dcd3f9a3fbddf7f39a82b7567f1d878e37a7b8644094",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
+      "sha256": "763790b7b4c26ca4af9183aa88ee0a9b38903876744f49a7bfa4d3ad8cf65218",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757324.xml",
+      "sha256": "5ff8e23e75222343c0d872f272ef82f4bd3c1b36c709cd4dc21b2b7fe8e4a752",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757325.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757325.xml",
+      "sha256": "c399fe2b22c9688fdc10c9a5116c5c199f70893d0d364c6196b91210d501db20",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757326.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757326.xml",
+      "sha256": "1483bddc93d0d0ea28bd44b1cea5f7443a1ac8ea818789ce3091560f9aa06230",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml",
+      "sha256": "68b69221bb6f4583f2826e78c9b3486a2d357de84dfe3fbc1f471fab8d26ce62",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757328.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757328.xml",
+      "sha256": "98b7166ed3cb1376ac65ce7fd9543db1a413f5570523e7ed5878de9c80e7a348",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757329.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757329.xml",
+      "sha256": "73c574451fee3f6143db7aced8609dadb4ee9d802879fc9e9ac9b2a9b80632c2",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757330.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757330.xml",
+      "sha256": "de1a5b42434129676f61d4f69a8cacad6b5a16be75a1c12fde109dfcd4b9f134",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757331.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757331.xml",
+      "sha256": "96a50408ea0fde6204bb2fbfe7cd50bb8064056f6aa5f2e0e98e580f6fb9a44f",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757332.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757332.xml",
+      "sha256": "dda3e813da33a0daf7d704057124ef2eb7c204ecfafdf512a75a1795b3e487b0",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757333.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757333.xml",
+      "sha256": "83a72919817e9019e1a392d52356dfcc0236840003976150e6564d4f14616c2e",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757334.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757334.xml",
+      "sha256": "27920381a5d0ac5add5ef788bd44b31cb4b4fd72e9e574a072e758d2fc2758dc",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757335.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757335.xml",
+      "sha256": "84dbca49899964650ccc309f8f5eb134419dff4a720b5a08b91d9e8afe7b6f02",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757336.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757336.xml",
+      "sha256": "08d6a8d6b73dfd3d8c43a4bf430853b5be2c9d7e933e8fab5d792860a181af34",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml",
+      "sha256": "3eca516f6339e19d538548ee06e891f37843ba057ebe1712b0ffc81e0b324c7d",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757338.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757338.xml",
+      "sha256": "cebef6bab705c29d6d0228e92b9255170898ef52c5e71ffae0eaf8b6a0ccaaf3",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757339.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757339.xml",
+      "sha256": "d91cf7bb7e83272970f47b6563369fb89d3efcd7afa37c90c6e38b70ee0a2885",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757340.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757340.xml",
+      "sha256": "fd6f181fa8eaed489abffe7c54fdf57085c843f7500887dbc5e7c8c512d26c08",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857470.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857470.xml",
+      "sha256": "3dd310877004840068d04ea826af3f512f9dfe2a5ab8a6f49bd95ae40b0329ff",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857471.xml",
+      "path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA114857471.xml",
+      "sha256": "85d7bb3e60a33c1154572ad8323c00955e7bcf2fa78f7aaa77c4665db7018f61",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "18a982463818f35cc349ca399c4ba1607f293381f6df30b2550e32406c329647",
+      "storage_path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.gz",
+      "storage_sha256": "cbffd4932b227542a5e7c74a5c0a5cbb35eab6d7fa6e2fddd6197bc6d8114896",
+      "metadata_path": "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.metadata.json",
+      "metadata_sha256": "a70b2425fbd1ecef72cfd3d8ed06b7466fe16545e45124a2897f4fb5b4b150ce",
+      "historical_metadata_digest_present": true
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "d7918701812ac839f1cac8616050c0c30a3dfc3cd2d13a95b6fd46f7f22351a8",
+      "storage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "storage_sha256": "8ed410e6f0087bed960f68b96b9443ff10cf596e9cde831f5c2a6a4db6bd8d11",
+      "metadata_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.metadata.json",
+      "metadata_sha256": "ca775c568a631097a7d0f3b47de2dabae3423db44171a108701269743e73e64a",
+      "historical_metadata_digest_present": true
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "7dfd6a5d3c761307b54f47868a731b463732ac9fdd8533cf13e956c78c130d70",
+      "storage_path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html.gz",
+      "storage_sha256": "a173a52daf955ef12fa99963b87ef4fd5bd0afaf86f5cd39735e90f2db2eefcc",
+      "metadata_path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html.metadata.json",
+      "metadata_sha256": "dc1f5f983075da6c556d7bd40f9af9bde97b26642ca40448fdffc476129ae0ee",
+      "historical_metadata_digest_present": true
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv",
+      "path": "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv",
+      "sha256": "fda2ea49e06d0380110fc846cd99ae6274259dfb91c7e8a414e1157e6542d384",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+      "path": "data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+      "sha256": "7f42433a4a046874217ba6eb9d8d5d31e093c78e3240ce725be65f3b1d619e5d",
+      "kind": "regular"
+    },
+    {
+      "reference": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "kind": "retained-gzip-content",
+      "sha256": "04406a06112ebe27b659deadb22db74c665ada0a026c8112791bc9ce599aa257",
+      "storage_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html.gz",
+      "storage_sha256": "6dafd968bf99e9acfee48ae380ebb127880a8e9c2b8c5676b73314ced8f2fe5d",
+      "metadata_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html.metadata.json",
+      "metadata_sha256": "d3d968bf41ad17078b3c27b620c95b13c3503254ed5b3e030d32c1bcc8a167e5",
+      "historical_metadata_digest_present": false
+    }
+  ],
+  "missing": []
+}

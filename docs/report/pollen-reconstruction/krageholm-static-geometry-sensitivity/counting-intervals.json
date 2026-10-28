@@ -1,0 +1,124 @@
+{
+  "schema_version": "source-native-fixed-pair-counting-intervals.v1",
+  "source_custody": {
+    "dataset-23013-sample-eligibility.json": {
+      "sha256": "b3cc484f4d9e427cfa46cbae6a1b567cf30e7cad03d232c54b0e4a05b24a7d2c",
+      "bytes": 182173
+    },
+    "native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "site": {
+    "dataset_id": 23013,
+    "collection_unit_id": 16622,
+    "chronology_id": 13366,
+    "site_name": "Krageholmssj\u00f6n",
+    "native_samples": 96,
+    "selected_samples": 95,
+    "outside_declared_age_domain": 1,
+    "raw_native_count_fields": {
+      "Betula": {
+        "literal_parameter_name": "Betula",
+        "unit": "NISP",
+        "both_pollen_elements": true
+      },
+      "Poaceae": {
+        "literal_parameter_name": "Poaceae",
+        "unit": "NISP",
+        "both_pollen_elements": true
+      }
+    },
+    "count_axis": [
+      "Betula",
+      "Poaceae"
+    ],
+    "native_pair_total_domain": [
+      70,
+      558
+    ],
+    "observed_zero_axis_count": 0,
+    "explicit_zero_datum_rows": 0,
+    "age_selection": "Preserve named source calibrated point ages and [0,11700) half-open domain. Native age bounds and missing bounds remain unchanged; no age probability or calibration."
+  },
+  "fixed_response": {
+    "profile": "metadata_radius_wind_3",
+    "deposition": [
+      0.1911218730806804,
+      0.12498007031341973
+    ],
+    "ppe": [
+      5.106,
+      1.0
+    ],
+    "ppe_SD_retained_but_omitted_from_interval": [
+      0.303,
+      0.0
+    ],
+    "radius_m": 837.0,
+    "wind_speed_m_s": 3.0,
+    "diffusion_coefficient": 0.12,
+    "turbulence_parameter": 0.25,
+    "fall_speed_m_s": [
+      0.024,
+      0.035
+    ],
+    "extent_m": 100000.0,
+    "binding": "Exact saved physical response and parameter scalars, not new quadrature or inferred basin truth. Source PPE is treated as fixed conditional input, not estimated-PPE confidence."
+  },
+  "counting_model": {
+    "api": "bijux_pollenomics_lra.api.fixed_two_taxon_counting_interval",
+    "confidence_level": 0.95,
+    "one_request": "One native aliquot, two actual measured literal taxa and its pair total N. Counts are assumed Binomial(N,p) conditional on the selected pair; this is a new declared counting model.",
+    "interpretation": "A confidence set for pair-relative conditional cover under fixed response/PPE, not entire vegetation cover or a Bayesian probability of the true cover.",
+    "exclusions": [
+      "No pooling independent/heterogeneous aliquots into one binomial request.",
+      "No full-panel count total substituted for the pair denominator.",
+      "No simultaneous 95-interval family coverage or time-series correlation model.",
+      "No PPE/response/chronology/geometry/sampling-design uncertainty.",
+      "No empirical field validation, historical reproduction, rights or scientific admission."
+    ],
+    "zero_edges": "No actual zero count axes occur in this source population. Retain separately identified existing synthetic API edge controls; missing taxa are refused, never zero-filled."
+  },
+  "native_input_samples": 96,
+  "interval_requests": 95,
+  "outside_domain_refusals": 1,
+  "native_zero_axis_requests": 0,
+  "counts_denominator": "Individual measured Betula + Poaceae grains only; never full reported pollen NISP or pooled-window count mass",
+  "pair_total_range": [
+    70,
+    558
+  ],
+  "conditional_cover_interval_width": {
+    "minimum": 0.02329494891025144,
+    "maximum": 0.21081806056607658,
+    "mean": 0.08567389704413428
+  },
+  "independent": {
+    "exact_binomial_tail_inequalities": 190,
+    "exact_complementary_cover_enclosures": 380,
+    "individual_point_checks": 190,
+    "original_occupied_window_point_checks": 48,
+    "maximum_individual_point_absolute_error": 0.0,
+    "maximum_original_point_absolute_error": 1.1102230246251565e-16,
+    "certificate_tails_enclose_exact_polynomials": true
+  },
+  "scientific_admission": false,
+  "empirical_coverage_verified": false,
+  "full_vegetation_interval": false,
+  "old_marginal_errors_replaced": false,
+  "joint_or_simultaneous_intervals": false
+}

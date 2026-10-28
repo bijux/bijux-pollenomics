@@ -1,0 +1,764 @@
+{
+  "schema_version": "atlas-provider-accessibility-verification.v1",
+  "status": "PASS",
+  "provider_fallbacks": [
+    {
+      "width": 1440,
+      "street_tile_failures": 24,
+      "terrain_tile_failures": 24,
+      "keyless_requests": true,
+      "final_basemap": "none",
+      "visible_source_sites": 8,
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "legend_touch_target": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 670,
+          "right": 1413,
+          "bottom": 699,
+          "height": 29
+        },
+        "center_hit": true,
+        "hit_id": "legend-toggle",
+        "hit_class": "legend-toggle"
+      },
+      "scale_control": {
+        "line": "300 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 79,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 332.625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 1440,
+        "document_height": 900
+      },
+      "screenshot": {
+        "path": "1440-provider-failure.png",
+        "sha256": "f6aa07796eccadb3e2411bdc4bb701cc6da32ac8486602732f55a1554f599e39"
+      }
+    },
+    {
+      "width": 390,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "keyless_requests": true,
+      "final_basemap": "none",
+      "visible_source_sites": 8,
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "legend_touch_target": {
+        "rect": {
+          "left": 308.3125,
+          "top": 567,
+          "right": 371,
+          "bottom": 611,
+          "height": 44
+        },
+        "center_hit": true,
+        "hit_id": "legend-toggle",
+        "hit_class": "legend-toggle"
+      },
+      "scale_control": {
+        "line": "500 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 68,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 661,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 661,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 390,
+        "document_height": 900
+      },
+      "screenshot": {
+        "path": "390-provider-failure.png",
+        "sha256": "d0d2ecf748de8b4d7cecb4f365c80eb677e8533355d0703187797b9f16ff6b89"
+      }
+    }
+  ],
+  "tile_free_modes": [
+    {
+      "width": 1440,
+      "tile_requests": 0,
+      "visible_source_sites": 8,
+      "scale": "300 km",
+      "coordinates": "64.437, 19.500",
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "legend_touch_target": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 670,
+          "right": 1413,
+          "bottom": 699,
+          "height": 29
+        },
+        "center_hit": true,
+        "hit_id": "legend-toggle",
+        "hit_class": "legend-toggle"
+      },
+      "scale_control": {
+        "line": "300 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 79,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 524.5625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 1440,
+        "document_height": 900
+      },
+      "screenshot": {
+        "path": "1440-tile-free.png",
+        "sha256": "6f9ae3a1aafe2e4174a696934c86818db0607ccadcf6895fd73360eb4a042bfd"
+      }
+    },
+    {
+      "width": 390,
+      "tile_requests": 0,
+      "visible_source_sites": 8,
+      "scale": "500 km",
+      "coordinates": "64.437, 19.500",
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "legend_touch_target": {
+        "rect": {
+          "left": 308.3125,
+          "top": 567,
+          "right": 371,
+          "bottom": 611,
+          "height": 44
+        },
+        "center_hit": true,
+        "hit_id": "legend-toggle",
+        "hit_class": "legend-toggle"
+      },
+      "scale_control": {
+        "line": "500 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 68,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 677,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 677,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 390,
+        "document_height": 900
+      },
+      "screenshot": {
+        "path": "390-tile-free.png",
+        "sha256": "334abaf9f9d83c8fff4237ac63d69f860b658cfdbdb072012b9b5ff5cd702eed"
+      }
+    }
+  ],
+  "keyboard_routes": [
+    {
+      "width": 1440,
+      "scenario": "provider-failure",
+      "search_announcement": "1 matches · 8 visible",
+      "drawer_roles": {
+        "card": "polite",
+        "tabs": "tablist",
+        "panel": "tabpanel",
+        "selected": "true"
+      },
+      "arrow_home_end_tabs": true,
+      "clear_returns_to_search": true,
+      "help_modal_escape_returns_to_help": true,
+      "source_chronology_context_refusal_visible": true,
+      "refusal_table_page": 1
+    },
+    {
+      "width": 1440,
+      "scenario": "tile-free",
+      "search_announcement": "1 matches · 8 visible",
+      "drawer_roles": {
+        "card": "polite",
+        "tabs": "tablist",
+        "panel": "tabpanel",
+        "selected": "true"
+      },
+      "arrow_home_end_tabs": true,
+      "clear_returns_to_search": true,
+      "help_modal_escape_returns_to_help": true,
+      "source_chronology_context_refusal_visible": true,
+      "refusal_table_page": 1
+    },
+    {
+      "width": 390,
+      "scenario": "provider-failure",
+      "search_announcement": "1 matches · 8 visible",
+      "drawer_roles": {
+        "card": "polite",
+        "tabs": "tablist",
+        "panel": "tabpanel",
+        "selected": "true"
+      },
+      "arrow_home_end_tabs": true,
+      "clear_returns_to_search": true,
+      "help_modal_escape_returns_to_help": true,
+      "source_chronology_context_refusal_visible": true,
+      "refusal_table_page": 1
+    },
+    {
+      "width": 390,
+      "scenario": "tile-free",
+      "search_announcement": "1 matches · 8 visible",
+      "drawer_roles": {
+        "card": "polite",
+        "tabs": "tablist",
+        "panel": "tabpanel",
+        "selected": "true"
+      },
+      "arrow_home_end_tabs": true,
+      "clear_returns_to_search": true,
+      "help_modal_escape_returns_to_help": true,
+      "source_chronology_context_refusal_visible": true,
+      "refusal_table_page": 1
+    }
+  ],
+  "downloads": [
+    {
+      "width": 1440,
+      "scenario": "provider-failure",
+      "record_id": "neotoma:site:12",
+      "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
+      "sha256": "c1aa338447230f3a07e25334d36e0b6151a7c4eaf06966c70c16e9b0a14dc17e",
+      "source_tables_equal": true,
+      "chronology_claims": 270,
+      "pollen_observations": 2580
+    },
+    {
+      "width": 1440,
+      "scenario": "tile-free",
+      "record_id": "neotoma:site:12",
+      "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
+      "sha256": "00c122f04466867eb39d7b63152da31d88030e45811a6c329ba3794422d5b3f5",
+      "source_tables_equal": true,
+      "chronology_claims": 270,
+      "pollen_observations": 2580
+    },
+    {
+      "width": 390,
+      "scenario": "provider-failure",
+      "record_id": "neotoma:site:12",
+      "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
+      "sha256": "fcaa1dc7175718e38ed02a51cbee574f0e9ffab237a013df7e617af29e076636",
+      "source_tables_equal": true,
+      "chronology_claims": 270,
+      "pollen_observations": 2580
+    },
+    {
+      "width": 390,
+      "scenario": "tile-free",
+      "record_id": "neotoma:site:12",
+      "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
+      "sha256": "3d801da2872b544ba92021f4e66b0d5fd5958cb609314598d0bb4063055e861f",
+      "source_tables_equal": true,
+      "chronology_claims": 270,
+      "pollen_observations": 2580
+    }
+  ],
+  "layout_observations": [
+    {
+      "width": 1440,
+      "scenario": "provider-failure",
+      "scale_control": {
+        "line": "300 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 79,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 332.625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 1440,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 1440,
+      "scenario": "tile-free",
+      "scale_control": {
+        "line": "300 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 79,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 524.5625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 1440,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 390,
+      "scenario": "provider-failure",
+      "scale_control": {
+        "line": "500 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 68,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 661,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 661,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 390,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 390,
+      "scenario": "tile-free",
+      "scale_control": {
+        "line": "500 km",
+        "rect": {
+          "left": 8,
+          "top": 869.40625,
+          "right": 68,
+          "bottom": 892
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 677,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 677,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 390,
+        "document_height": 900
+      }
+    }
+  ],
+  "layout_negative_controls": [
+    {
+      "width": 1440,
+      "mutation": "status-overlap",
+      "refused": true,
+      "facts": {
+        "line": "300 km",
+        "rect": {
+          "left": 524.5625,
+          "top": 713,
+          "right": 595.5625,
+          "bottom": 735.59375
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 524.5625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 1440,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 1440,
+      "mutation": "viewport-escape",
+      "refused": true,
+      "facts": {
+        "line": "300 km",
+        "rect": {
+          "left": 0,
+          "top": -100,
+          "right": 71,
+          "bottom": -77.40625
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 1440,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 796
+        },
+        "status": {
+          "left": 524.5625,
+          "top": 713,
+          "right": 1424,
+          "bottom": 772
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900
+        },
+        "status_top": 713,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": false,
+        "hit_class": "",
+        "document_width": 1440,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 390,
+      "mutation": "status-overlap",
+      "refused": true,
+      "facts": {
+        "line": "500 km",
+        "rect": {
+          "left": 8,
+          "top": 677,
+          "right": 68,
+          "bottom": 699.59375
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 677,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 677,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": true,
+        "hit_class": "leaflet-control-scale-line",
+        "document_width": 390,
+        "document_height": 900
+      }
+    },
+    {
+      "width": 390,
+      "mutation": "viewport-escape",
+      "refused": true,
+      "facts": {
+        "line": "500 km",
+        "rect": {
+          "left": 0,
+          "top": -100,
+          "right": 60,
+          "bottom": -77.40625
+        },
+        "footer": {
+          "left": 0,
+          "top": 796,
+          "right": 390,
+          "bottom": 900
+        },
+        "map": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 796
+        },
+        "status": {
+          "left": 8,
+          "top": 677,
+          "right": 382,
+          "bottom": 788
+        },
+        "viewport": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 900
+        },
+        "status_top": 677,
+        "footer_contains_scale": true,
+        "scale_visible": true,
+        "center_hit": false,
+        "hit_class": "",
+        "document_width": 390,
+        "document_height": 900
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@b01cdf43be4b4d5559bf7e58229e666e24454f5",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "3ba800559bf6f9ec66adb0764c61ef37ca94145c893b438bb1f1dd3102d1ef71",
+    "nordic-source.atlas-details.0009.e4b1948334c0b0ac.js": "e4b1948334c0b0ac27515025ab417bfe19c972c989dddd00a934cd2c526b3986",
+    "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": "616412a6d2c998b2ffa59e81a8ca0aaf9e02ca326f98fef17c01473fefe0d3f1",
+    "nordic-source.atlas-indexes.0012.b85c8937582b8a48.js": "b85c8937582b8a48ba88d39fc2b5ccf3614e574b23dfa590e3c77fb5398b35d3",
+    "nordic-source.atlas-nodes.0001.1447f39e6a66baf2.js": "1447f39e6a66baf2eb8f5ac7bf3289eef6365f9060a11f174420b87e04deac58",
+    "nordic-source.atlas-nodes.0002.77c7e342901b7a7c.js": "77c7e342901b7a7ce44eda70e89d7e8d7b6ae46bd91aa4678610b7f561bd27f7",
+    "nordic-source.atlas-nodes.0003.b6f3d598a8c93aae.js": "b6f3d598a8c93aaec762f0b81e0bb0219437f1ee27d971ea57de4d8dd6d217ac",
+    "nordic-source.atlas-nodes.0004.92d041c1d633210d.js": "92d041c1d633210d5ffb40fcdd200c10a01cb59133e413db8dc14c4a9b7da0b4",
+    "nordic-source.atlas-nodes.0005.cff0e4eb52487930.js": "cff0e4eb524879302ef865be8cb5b2bb299436cce8f853de6aea4c32afc0bdda",
+    "nordic-source.atlas-nodes.0006.0cd63937eac79294.js": "0cd63937eac79294f53a1b8d0e1fd14ee2bc2eb2545946d32ea1228717ba67a1",
+    "nordic-source.atlas-nodes.0007.3c3727616489cfd8.js": "3c3727616489cfd8764e08c4536e82c131770be96ef3a69a2010d50e993c07c6",
+    "nordic-source.atlas-nodes.0008.97f86eadfb4b2256.js": "97f86eadfb4b2256fed90e8ffcbe7edb949452722ada25ba7227f33b38154427",
+    "nordic-source.atlas-provenance.0000.9349a52b7633a210.js": "9349a52b7633a210afa6bb41a47e1741ae813096de596f50cdb9f9f730ba8135",
+    "nordic-source.atlas-sequences.0011.9ad125061a96796f.js": "9ad125061a96796fb9cab775c3c2cbbe36eba70505f897619d0315995d370543"
+  },
+  "verifier_sha256": "a37e8b178e492e441c07e462af2f047e2f761247445b700d5c4dc84efc7ce5af"
+}

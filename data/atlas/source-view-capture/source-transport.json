@@ -1,0 +1,62 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd",
+    "bytes": 368759
+  },
+  "historical_native_epochs": [
+    "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+      "source_revision": "4d1a0d1abc9969efae3d94e71fc420f579e2301f"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+      "source_revision": "4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+      "member_count": 6,
+      "git_entries_sha256": "d413ab45515e20d3f7221ff769895e1efe9157b6c7007d6b1c460f4fedcc59a9",
+      "prefixes": {
+        "member_prefix": "source/configs/",
+        "repository_prefix": "configs/"
+      }
+    },
+    {
+      "historical_source_commit": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+      "source_revision": "4d1a0d1abc9969efae3d94e71fc420f579e2301f",
+      "member_count": 393,
+      "git_entries_sha256": "8f7a3885c196ece4b6b14241c7e209b7978d17722f4d531c169b98cdb1d1e953",
+      "prefixes": {
+        "member_prefix": "source/packages/",
+        "repository_prefix": "packages/"
+      }
+    }
+  ],
+  "generated_members": [
+    {
+      "member": "source/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "generator": {
+        "provider": "vcs-versioning.default-python",
+        "sha256": "dd7ded849d3bacc8e13b0b675ed991904eb896fc79b4607f4f70ee32e47171d9",
+        "bytes": 4479
+      },
+      "scalars": {
+        "version": "0.1.9.dev1462",
+        "version_tuple": [
+          0,
+          1,
+          9,
+          "dev1462"
+        ],
+        "short_node": null
+      },
+      "original_generator_execution_claimed": false,
+      "original_version_derivation_claimed": false
+    }
+  ],
+  "rewritten_source_epoch_executed": false
+}

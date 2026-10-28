@@ -1,0 +1,19 @@
+{
+  "schema_version": "atlas-captured-root-api-additive-adoption.v1",
+  "captured_source_candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67",
+  "adopted_source_candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "adopted_source_kind": "exact reviewed overlay on recorded source candidate; not a claim these postimages existed at that Git commit",
+  "reviewed_overlay_plan_sha256": "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f",
+  "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+  "captured_sha256": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
+  "adopted_sha256": "4b8438dee8e9bed9a8ddbd5b875cb115eb5a91b5085dcc305323d6dfbe6acea1",
+  "additional_import_names": [
+    "TwoTaxonCountingInterval",
+    "fixed_two_taxon_counting_interval"
+  ],
+  "additional_exports": [
+    "TwoTaxonCountingInterval",
+    "fixed_two_taxon_counting_interval"
+  ],
+  "scope": "Exact original package-root executable AST and existing relative from.api import/export order remain after removing only these two named aliases and exports. No arbitrary module or source drift admission; no new browser execution."
+}
