@@ -3,13 +3,13 @@
   "title": "World Evidence Surface",
   "scope_key": "world",
   "scope_label": "World",
-  "row_count": 1711,
+  "row_count": 1713,
   "layer_counts": {
     "aadr": 1231,
     "animal-bos-taurus-wild-or-progenitor-context": 22,
     "animal-capra-hircus": 23,
     "animal-equus-caballus": 63,
-    "animal-equus-caballus-wild-or-progenitor-context": 10,
+    "animal-equus-caballus-wild-or-progenitor-context": 12,
     "animal-felis-catus": 24,
     "animal-felis-catus-wild-or-progenitor-context": 15,
     "animal-ovis-aries": 2,
@@ -8463,16 +8463,25 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 10,
+      "row_count": 12,
       "field_counts": {
-        "title": 10,
-        "country": 10,
-        "source_url": 10,
-        "species_latin_name": 10,
-        "animal_scope": 10,
-        "coordinate_confidence": 10
+        "title": 12,
+        "country": 12,
+        "source_url": 12,
+        "species_latin_name": 12,
+        "animal_scope": 12,
+        "coordinate_confidence": 12
       },
       "records": [
+        {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-hyenaslair-russia",
+          "title": "Hyena's Lair",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "exact"
+        },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-iguedugral-france",
           "title": "Igue du Gral",
@@ -8557,6 +8566,15 @@
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-verkhnegubakhinskaya-russia",
           "title": "Verkhnegubakhinskaya",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-yana-russia",
+          "title": "Yana",
           "country": "Russia",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",

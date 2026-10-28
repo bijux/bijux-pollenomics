@@ -38,8 +38,8 @@
     },
     {
       "path": "data/adna/species/ovis_aries/normalized/sample_records.csv",
-      "bytes": 230865,
-      "sha256": "d327b862b86cbed1b0334e503292f940417940ce8104c33a0fc3044dece73941"
+      "bytes": 231066,
+      "sha256": "84234a98190f6ca9ce77d233ff2532175cf191e164e923dce10f85c72f2d041d"
     },
     {
       "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.csv",
@@ -58,23 +58,23 @@
     },
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "bytes": 1220950,
-      "sha256": "822a03706aace1e7b60ca0c2a9623b048c9bbb16484a3a01ef472e5bc3f1b684"
+      "bytes": 1238007,
+      "sha256": "9278b4944501d15c903f0a309a224e441b378103424f52a42af3d9734f308a5e"
     },
     {
       "path": "docs/report/animal_atlas_exclusion_report.json",
-      "bytes": 1401887,
-      "sha256": "7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb"
+      "bytes": 1390530,
+      "sha256": "c26058c1db2e17a99f3afe94c4b206622a7684979f5d221c848f8ffa871877fe"
     }
   ],
   "normalized_sample_ids": 1464,
-  "map_feature_count": 161,
-  "mapped_sample_ids": 318,
-  "excluded_sample_ids": 1146,
+  "map_feature_count": 163,
+  "mapped_sample_ids": 324,
+  "excluded_sample_ids": 1140,
   "map_exclusion_reasons": {
     "chronology remains unresolved enough that the sample stays out of the public map": 26,
     "no coordinate provenance row currently supports point publication": 409,
-    "sample is tracked but does not yet satisfy the full atlas point contract": 333,
+    "sample is tracked but does not yet satisfy the full atlas point contract": 327,
     "sample locality remains unresolved and cannot be mapped honestly": 378
   },
   "nordic_map_feature_count": 8,

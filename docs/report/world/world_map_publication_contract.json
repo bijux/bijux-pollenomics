@@ -113,7 +113,7 @@
       "label": "Horse aDNA site evidence (wild or progenitor context)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 10,
+      "count": 12,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -361,7 +361,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1715
+        "record_count": 1717
       },
       "edges": {
         "status": "unavailable",
@@ -390,7 +390,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1711
+        "record_count": 1713
       }
     }
   },

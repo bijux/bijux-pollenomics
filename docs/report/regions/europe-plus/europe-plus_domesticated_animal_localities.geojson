@@ -79,23 +79,23 @@
           },
           {
             "label": "Chronology evidence class",
-            "value": "direct radiocarbon date"
+            "value": "locality sample coverage hull"
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample precise interval"
+            "value": "display coverage only"
           },
           {
             "label": "Temporal window",
-            "value": "Recent and historical (0-1000 BP)"
+            "value": "Unresolved time window"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "numeric interval"
+            "value": "contextual label only"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
           },
           {
             "label": "Support note",
@@ -169,17 +169,17 @@
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
-          "evidence_class": "direct_radiocarbon_date",
-          "precision_posture": "sample_precise_interval",
-          "comparability_posture": "numeric_interval",
+          "evidence_class": "locality_sample_coverage_hull",
+          "precision_posture": "display_coverage_only",
+          "comparability_posture": "contextual_label_only",
           "summary_label": "340-527 BP",
-          "temporal_window_key": "recent_historical",
-          "temporal_window_label": "Recent and historical (0-1000 BP)",
-          "time_start_bp": 340,
-          "time_end_bp": 527,
-          "time_mean_bp": 434,
-          "duration_years": 187,
-          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
           "provenance_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
@@ -190,10 +190,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "recent_historical",
-        "temporal_window_label": "Recent and historical (0-1000 BP)",
-        "temporal_comparability_posture": "numeric_interval",
-        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence.",
         "coordinate_basis": "archive_coordinates",
@@ -390,23 +390,23 @@
           },
           {
             "label": "Chronology evidence class",
-            "value": "direct radiocarbon date"
+            "value": "locality sample coverage hull"
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample precise interval"
+            "value": "display coverage only"
           },
           {
             "label": "Temporal window",
-            "value": "Mid-Holocene (3001-6000 BP)"
+            "value": "Unresolved time window"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "numeric interval"
+            "value": "contextual label only"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
           },
           {
             "label": "Support note",
@@ -480,17 +480,17 @@
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
-          "evidence_class": "direct_radiocarbon_date",
-          "precision_posture": "sample_precise_interval",
-          "comparability_posture": "numeric_interval",
+          "evidence_class": "locality_sample_coverage_hull",
+          "precision_posture": "display_coverage_only",
+          "comparability_posture": "contextual_label_only",
           "summary_label": "3699-4151 BP",
-          "temporal_window_key": "mid_holocene",
-          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-          "time_start_bp": 3699,
-          "time_end_bp": 4151,
-          "time_mean_bp": 3925,
-          "duration_years": 452,
-          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
           "provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
@@ -501,10 +501,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "mid_holocene",
-        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-        "temporal_comparability_posture": "numeric_interval",
-        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
         "coordinate_basis": "archive_coordinates",
@@ -731,23 +731,23 @@
           },
           {
             "label": "Chronology evidence class",
-            "value": "archaeological context date"
+            "value": "locality sample coverage hull"
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample approximate or modeled"
+            "value": "display coverage only"
           },
           {
             "label": "Temporal window",
-            "value": "Mid-Holocene (3001-6000 BP)"
+            "value": "Unresolved time window"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "numeric interval with caveat"
+            "value": "contextual label only"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
           },
           {
             "label": "Support note",
@@ -829,17 +829,17 @@
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
-          "evidence_class": "archaeological_context_date",
-          "precision_posture": "sample_approximate_or_modeled",
-          "comparability_posture": "numeric_interval_with_caveat",
+          "evidence_class": "locality_sample_coverage_hull",
+          "precision_posture": "display_coverage_only",
+          "comparability_posture": "contextual_label_only",
           "summary_label": "4700 BP",
-          "temporal_window_key": "mid_holocene",
-          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-          "time_start_bp": 4700,
-          "time_end_bp": 4700,
-          "time_mean_bp": 4700,
-          "duration_years": 0,
-          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
@@ -850,10 +850,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "mid_holocene",
-        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-        "temporal_comparability_posture": "numeric_interval_with_caveat",
-        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
         "coordinate_basis": "named_site_geocoding",
@@ -1023,23 +1023,23 @@
           },
           {
             "label": "Chronology evidence class",
-            "value": "archaeological context date"
+            "value": "locality sample coverage hull"
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample approximate or modeled"
+            "value": "display coverage only"
           },
           {
             "label": "Temporal window",
-            "value": "Recent and historical (0-1000 BP)"
+            "value": "Unresolved time window"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "numeric interval with caveat"
+            "value": "contextual label only"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
           },
           {
             "label": "Support note",
@@ -1121,17 +1121,17 @@
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
-          "evidence_class": "archaeological_context_date",
-          "precision_posture": "sample_approximate_or_modeled",
-          "comparability_posture": "numeric_interval_with_caveat",
+          "evidence_class": "locality_sample_coverage_hull",
+          "precision_posture": "display_coverage_only",
+          "comparability_posture": "contextual_label_only",
           "summary_label": "1000 BP",
-          "temporal_window_key": "recent_historical",
-          "temporal_window_label": "Recent and historical (0-1000 BP)",
-          "time_start_bp": 1000,
-          "time_end_bp": 1000,
-          "time_mean_bp": 1000,
-          "duration_years": 0,
-          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
@@ -1142,10 +1142,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "recent_historical",
-        "temporal_window_label": "Recent and historical (0-1000 BP)",
-        "temporal_comparability_posture": "numeric_interval_with_caveat",
-        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
         "coordinate_basis": "named_site_geocoding",
