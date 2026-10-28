@@ -151,7 +151,7 @@ def _csv_join(row: dict[str, str], locality: dict[str, Any], schema: str) -> Non
         "dating_basis": locality["chronology"]["dating_basis"],
         "chronology_evidence_class": locality["chronology"]["evidence_class"],
         "chronology_precision_posture": locality["chronology"]["precision_posture"],
-        "nordic_inclusion": str(locality["nordic_inclusion"]),
+        "nordic_inclusion": str(locality["nordic_inclusion"]).lower(),
         "nordic_inclusion_reason": locality["nordic_inclusion_reason"],
         "interpretation_note": locality["interpretation_note"],
     }

@@ -72,6 +72,7 @@ def csv_body(localities: list[dict[str, Any]]) -> bytes:
             )
         }
         row.update(
+            nordic_inclusion="true" if record["nordic_inclusion"] else "false",
             schema_version="adna-locality-summary-export.v2",
             locality_token=record["identity"]["stable_token"],
             political_entity=record["identity"]["political_entity"],

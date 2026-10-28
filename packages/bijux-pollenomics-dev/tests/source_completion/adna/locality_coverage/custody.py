@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import stat
 import subprocess
+import sys
 from typing import Any
 
 from .verification import compare_payloads, decode, require, same
@@ -169,13 +170,28 @@ def _readset(repository: Path, readset: dict[str, Any]) -> None:
     directories = readset["directory_discoveries"]
     require(
         type(directories) is list
-        and directories == sorted(set(directories))
-        and all(
-            type(name) is str and Path(name).is_absolute() and Path(name).is_dir()
-            for name in directories
-        ),
-        "actual directory discoveries retained",
+        and all(type(name) is str and Path(name).is_absolute() for name in directories)
+        and directories == sorted(set(directories)),
+        "ordered unique absolute directory attempts retained",
     )
+    runtime_probe_path = (
+        Path(sys.base_prefix)
+        / "lib"
+        / f"python{sys.version_info.major}{sys.version_info.minor}.zip"
+    )
+    runtime_probe = runtime_probe_path.resolve()
+    for name in directories:
+        path = Path(name)
+        require(
+            path.is_dir()
+            or (
+                path == runtime_probe
+                and not path.exists()
+                and not path.is_symlink()
+                and not runtime_probe_path.is_symlink()
+            ),
+            "only the absent canonical standard-library ZIP probe may lack a directory",
+        )
 
 
 def compare(repository: Path, protocol_path: Path, products: Path) -> dict[str, Any]:

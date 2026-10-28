@@ -253,3 +253,84 @@ def test_read_pin_rejects_escape_even_when_payload_bytes_match(tmp_path: Path) -
             },
             100,
         )
+
+
+def _runtime_probe(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
+    from types import SimpleNamespace
+
+    prefix = tmp_path / "runtime"
+    (prefix / "lib").mkdir(parents=True)
+    monkeypatch.setattr(
+        custody,
+        "sys",
+        SimpleNamespace(
+            base_prefix=str(prefix), version_info=SimpleNamespace(major=3, minor=11)
+        ),
+    )
+    return prefix / "lib/python311.zip"
+
+
+def test_absent_runtime_probe_retains_complete_original_attempt_inventory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository, protocol, products, state, stash = closed_fixture(tmp_path)
+    _bind(monkeypatch, state, stash)
+    probe = _runtime_probe(tmp_path, monkeypatch)
+    result = _result(products)
+    readset = json.loads((products / result["readset"]["path"]).read_bytes())
+    readset["directory_discoveries"] = sorted(
+        [*readset["directory_discoveries"], str(probe)]
+    )
+    _manifest(products, result, "readset", readset)
+    original = (products / "readset.json").read_bytes()
+    facts = custody.compare(repository, protocol, products)
+    assert facts["directory_discoveries_recorded"] == 2
+    assert (products / "readset.json").read_bytes() == original
+    assert not probe.exists() and not probe.is_symlink()
+
+
+@pytest.mark.parametrize(
+    "defect",
+    [
+        "unknown_missing",
+        "wrong_version",
+        "dangling_symlink",
+        "resolved_dangling_target",
+        "regular_file",
+        "probe_appears_after_comparison",
+    ],
+)
+def test_no_other_negative_directory_attempt_is_accepted(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, defect: str
+) -> None:
+    repository, protocol, products, state, stash = closed_fixture(tmp_path)
+    _bind(monkeypatch, state, stash)
+    probe = _runtime_probe(tmp_path, monkeypatch)
+    declared = probe
+    if defect == "unknown_missing":
+        declared = tmp_path / "absent_scientific_directory"
+    elif defect == "wrong_version":
+        declared = probe.with_name("python312.zip")
+    elif defect in ("dangling_symlink", "resolved_dangling_target"):
+        probe.symlink_to(tmp_path / "absent_zip_target")
+        if defect == "resolved_dangling_target":
+            declared = probe.resolve()
+    elif defect == "regular_file":
+        probe.write_bytes(b"not a directory and not absent")
+    else:
+        original = compare_payloads
+
+        def appearing(*args: Any) -> dict[str, Any]:
+            facts = original(*args)
+            probe.write_bytes(b"runtime discovery changed during observation")
+            return facts
+
+        monkeypatch.setattr(custody, "compare_payloads", appearing)
+    result = _result(products)
+    readset = json.loads((products / result["readset"]["path"]).read_bytes())
+    readset["directory_discoveries"] = sorted(
+        [*readset["directory_discoveries"], str(declared)]
+    )
+    _manifest(products, result, "readset", readset)
+    with pytest.raises(ValueError):
+        custody.compare(repository, protocol, products)

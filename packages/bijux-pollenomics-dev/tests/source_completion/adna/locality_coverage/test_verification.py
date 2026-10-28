@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import csv
+import io
 import json
+from typing import Any
 
 import pytest
 
@@ -148,3 +151,52 @@ def test_csv_must_preserve_source_columns_and_match_owned_support_json() -> None
 def test_duplicate_keys_and_nonfinite_json_refuse(body_bytes: bytes) -> None:
     with pytest.raises(ValueError):
         decode(body_bytes)
+
+
+def _inclusion_fixture(
+    value: bool,
+) -> tuple[dict[str, Any], dict[str, bytes], dict[str, bytes], bytes]:
+    normalization, baseline, candidate, canonical = fixture()
+    for collection in (baseline, candidate):
+        local = json.loads(collection["locality_json"])
+        bundle = json.loads(collection["bundle"])
+        local["localities"][0]["nordic_inclusion"] = value
+        bundle["locality_records"] = local["localities"]
+        collection.update(
+            locality_json=body(local),
+            locality_csv=csv_body(local["localities"]),
+            bundle=body(bundle),
+        )
+    return normalization, baseline, candidate, canonical
+
+
+@pytest.mark.parametrize("value,wire", [(False, b"false"), (True, b"true")])
+def test_native_lowercase_boolean_wires_are_accepted(value: bool, wire: bytes) -> None:
+    normalization, baseline, candidate, canonical = _inclusion_fixture(value)
+    assert (
+        next(csv.DictReader(io.StringIO(candidate["locality_csv"].decode())))[
+            "nordic_inclusion"
+        ]
+        == wire.decode()
+    )
+    assert (
+        compare_payloads(normalization, baseline, candidate, canonical)["status"]
+        == "passed"
+    )
+
+
+@pytest.mark.parametrize("value,capitalized", [(False, "False"), (True, "True")])
+def test_python_boolean_spelling_is_not_the_native_csv_wire(
+    value: bool, capitalized: str
+) -> None:
+    normalization, baseline, candidate, canonical = _inclusion_fixture(value)
+    for collection in (baseline, candidate):
+        rows = list(csv.DictReader(io.StringIO(collection["locality_csv"].decode())))
+        rows[0]["nordic_inclusion"] = capitalized
+        stream = io.StringIO(newline="")
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+        collection["locality_csv"] = stream.getvalue().encode()
+    with pytest.raises(ValueError):
+        compare_payloads(normalization, baseline, candidate, canonical)
