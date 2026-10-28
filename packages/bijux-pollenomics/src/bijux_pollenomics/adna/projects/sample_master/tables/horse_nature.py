@@ -13,6 +13,14 @@ from ..identity import (
 )
 from ..models import AdnaProjectSampleMasterRow
 
+_NEW_SEQUENCING_PUBLICATIONS = frozenset(
+    {
+        "this study",
+        "this study + fages et al. (2019)",
+        "this study + gaunitz et al. (2018)",
+    }
+)
+
 
 def _build_horse_nature_rows(
     *,
@@ -41,7 +49,10 @@ def _build_horse_nature_rows(
     for row_number, row in enumerate(rows[5:], start=6):
         sample_label = _cell_value(row, sample_index)
         publication = _cell_value(row, publication_index)
-        if not sample_label or publication.casefold() != "this study":
+        if (
+            not sample_label
+            or publication.casefold() not in _NEW_SEQUENCING_PUBLICATIONS
+        ):
             continue
         sample_accession = archive_sample_labels.get(
             _normalize_sample_label(sample_label), ""
