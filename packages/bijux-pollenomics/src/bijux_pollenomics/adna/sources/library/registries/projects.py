@@ -107,6 +107,34 @@ def _project_intake_expectation(
             ),
         )
 
+    if project.project_accession == "PRJEB41594":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained Reporting Summary p. 2 selects six specimens for "
+                "genomic sequencing; p. 3 describes six extracted teeth and five "
+                "samples advanced to deep shotgun sequencing. The final article "
+                "assigns shotgun files to PRJEB41594 without a closed project "
+                "count. Five retained ENA sample aliases, including one Capra "
+                "record, do not resolve that source-stage population boundary."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41562-021-01083-y/"
+                "supplementary/41562_2021_1083_MOESM2_ESM.pdf"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Recover the source-owned six-to-five specimen/analysis-stage "
+                "crosswalk and closed project submission roster. Preserve all "
+                "five archive identities and the Capra taxonomic mismatch; "
+                "do not infer an expected count or independent individuals."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
     if project.project_accession == "PRJEB59481":
         return _ProjectIntakeExpectation(
             expected_sample_count=5,
