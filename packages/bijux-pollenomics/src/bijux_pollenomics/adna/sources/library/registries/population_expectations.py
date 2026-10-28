@@ -9,6 +9,40 @@ from ..models import _ProjectIntakeExpectation
 
 def population_expectation(project_accession: str) -> _ProjectIntakeExpectation | None:
     """Keep source-population authority separate from archive capture counts."""
+    if project_accession == "PRJEB19970":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained 2017 primary supplement Table S12 lists fourteen "
+                "new ancient genomes, separately from thirty-eight comparators; "
+                "p.2 assigns shotgun reads to PRJEB19970. The retained archive "
+                "contains 241 run records and fourteen BioSamples. The later "
+                "2019 comparative workbook labels fifteen rows with this project: "
+                "thirteen ancient horses and two modern outgroups. Its omission "
+                "of BER11_L is resolved by the primary table and thirteen native "
+                "run filenames joining SAMEA103910520, making sixteen curated "
+                "source records without establishing sixteen independent animals "
+                "or a closed project denominator."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aam5298/"
+                "supplementary/aam5298_librado.sm.pdf"
+            ),
+            sample_identifier_status="manual_curation_required",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve all fifteen later-workbook rows and the separate "
+                "primary BER11_L-to-BioSample join. Resolve the remaining "
+                "author-registration/native-accession correspondence and modern "
+                "outgroup deposition scope before defining a project denominator. "
+                "Do not infer CGG aliases, remove comparators, count files as "
+                "animals, or turn the Table S12 date label into a precise date."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
     if project_accession == "PRJNA1328209":
         return _ProjectIntakeExpectation(
             expected_sample_count=5,

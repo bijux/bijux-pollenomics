@@ -34,6 +34,7 @@ from .tables import (
     _read_xlsx_rows,
 )
 from .tables.goat_imputation import _qualify_goat_imputation_rows
+from .tables.horse_domestication import _horse_domestication_primary_rows
 
 
 def _sheep_supplementary_sample_rows(
@@ -185,7 +186,7 @@ def _horse_domestication_supplementary_sample_rows(
     )
     if not comparative_path.is_file():
         return ()
-    return _build_horse_comparative_panel_rows(
+    comparative_rows = _build_horse_comparative_panel_rows(
         species=species,
         project=project,
         source_path=(
@@ -193,6 +194,9 @@ def _horse_domestication_supplementary_sample_rows(
             "supplementary/1-s2.0-S0092867419303848-mmc3.xlsx"
         ),
         rows=_read_xlsx_rows(comparative_path, sheet_name="Sheet1"),
+    )
+    return comparative_rows + _horse_domestication_primary_rows(
+        output_root, species, project
     )
 
 
