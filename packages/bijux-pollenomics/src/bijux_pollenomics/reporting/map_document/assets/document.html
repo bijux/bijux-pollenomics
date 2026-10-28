@@ -6552,22 +6552,29 @@ __URL_STATE_CONTROLLER__
         if (Object.prototype.hasOwnProperty.call(feature,'schema_version') && typeof feature.schema_version !== 'string') return {status:'refused',window:null};
         const semantics = feature?.temporal_semantics;
         let posture = '';
+        let refusalReason = '';
         if (semantics && typeof semantics === 'object' && !Array.isArray(semantics)) {
           if (['schema_version','comparability_posture','refusal_reason_code'].some(key=>Object.prototype.hasOwnProperty.call(semantics,key) && typeof semantics[key] !== 'string')) return {status:'refused',window:null};
           if (Object.prototype.hasOwnProperty.call(semantics,'schema_version') && semantics.schema_version !== 'temporal-semantics.v1') return {status:'refused',window:null};
           posture = typeof semantics.comparability_posture === 'string'
             ? semantics.comparability_posture.trim()
             : '';
-          const refusalReason = typeof semantics.refusal_reason_code === 'string'
+          refusalReason = typeof semantics.refusal_reason_code === 'string'
             ? semantics.refusal_reason_code.trim()
             : '';
-          if (posture === 'refused' || refusalReason) return { status: 'refused', window: null };
         }
         if (Object.prototype.hasOwnProperty.call(feature,'temporal_semantics')) {
           if (!semantics || typeof semantics !== 'object' || Array.isArray(semantics)) return {status:'refused',window:null};
-          if (!['numeric_interval','numeric_interval_with_caveat','mixed_interval_and_context'].includes(posture)) return {status:'contextual',window:null};
         }
+        if (posture === 'refused' || refusalReason) return {status:'refused',window:null};
         const exportSchema = feature.schema_version;
+        const reservedExport = typeof exportSchema === 'string' && ['adna-sample-record-export.','adna-locality-summary-export.','adna-sample-geojson.','adna-sample-geojson-collection.'].some(prefix=>exportSchema.startsWith(prefix));
+        const hasSampleChronologies = Object.prototype.hasOwnProperty.call(feature,'sample_chronologies');
+        if (hasSampleChronologies && feature.chronology_role !== 'locality_sample_coverage_hull') return {status:'refused',window:null};
+        const ownedLocality = hasSampleChronologies && feature.chronology_role === 'locality_sample_coverage_hull' && (!reservedExport || exportSchema === 'adna-locality-summary-export.v2');
+        if (!ownedLocality) {
+          if (Object.prototype.hasOwnProperty.call(feature,'temporal_semantics') && !['numeric_interval','numeric_interval_with_caveat','mixed_interval_and_context'].includes(posture)) return {status:'contextual',window:null};
+        }
         if (['adna-sample-record-export.v1','adna-locality-summary-export.v1'].includes(exportSchema)) return {status:'contextual',window:null};
         if (exportSchema === 'adna-sample-record-export.v2') {
           const support = feature.sample_chronology, identity = feature.sample_identity;
@@ -6615,7 +6622,7 @@ __URL_STATE_CONTROLLER__
         if (Object.prototype.hasOwnProperty.call(feature,'sample_chronology')) return {status:'refused',window:null};
         if (Object.prototype.hasOwnProperty.call(feature, 'sample_chronologies')) {
           if (feature.chronology_role !== 'locality_sample_coverage_hull' || !Array.isArray(feature.sample_chronologies)) return {status:'refused',window:null};
-          const identifiers = feature.sample_ids || feature.sample_record_ids;
+          const identifiers = Object.prototype.hasOwnProperty.call(feature,'sample_ids') ? feature.sample_ids : feature.sample_record_ids;
           if (!Array.isArray(identifiers) || identifiers.some(value => typeof value !== 'string' || !value.trim()) || new Set(identifiers).size !== identifiers.length) return {status:'refused',window:null};
           if (feature.sample_count !== undefined && feature.sample_count !== null && (!Number.isSafeInteger(feature.sample_count) || feature.sample_count !== identifiers.length)) return {status:'refused',window:null};
           const allowed = new Set(identifiers);
@@ -6640,6 +6647,7 @@ __URL_STATE_CONTROLLER__
             if (!numericPostures.includes(chronology.precision_posture)) continue;
             windows.push({start,end,sample_id:support.sample_id});
           }
+          if (seen.size !== allowed.size) return {status:'refused',window:null};
           if (!windows.length) return {status:'contextual',window:null};
           return {status:'valid',window:{start:Math.min(...windows.map(value=>value.start)),end:Math.max(...windows.map(value=>value.end))},windows};
         }
