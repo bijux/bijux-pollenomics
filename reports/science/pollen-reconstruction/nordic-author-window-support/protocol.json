@@ -1,0 +1,445 @@
+{
+  "schema_version": "nordic-author-window-support-protocol.v1",
+  "question": "Does the explicit published-author Betula/Pinus target panel have complete source-owned count support on the same six windows across all seven retained cores, and bind one coherent author parameter profile, before any Swedish-only versus four-country physical comparison?",
+  "scientific_consumer": "A new declared author-target harmonization prerequisite for a possible matched physical comparison. It does not rerun or replace the qualified literal Betula/Ulmus audit, prior direct-pollen transfer, or existing three-place forward-pollen results.",
+  "provenance": {
+    "raw_manifest": {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+      "bytes": 9449,
+      "sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d"
+    },
+    "relational_baseline": {
+      "path": "data/neotoma/review/relational_baseline.json",
+      "bytes": 3981,
+      "sha256": "3e1f2c126da5dec9cc0e572ff815760b9d66d41fcffd612142458949e45a18b5"
+    },
+    "count_policy": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-source-support/protocol.json",
+      "bytes": 6826,
+      "sha256": "a872f27bd95e7c1e971efb93e610cea5941466ca3e9cb387f117d451c9c93e3c"
+    },
+    "chronology_metadata": {
+      "path": "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+      "bytes": 472100,
+      "sha256": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569"
+    },
+    "collection_metadata": {
+      "path": "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+      "bytes": 196711,
+      "sha256": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780"
+    },
+    "author_parameter_binding": {
+      "path": "docs/report/source-relations/neotoma/author-parameter-binding/report.json",
+      "bytes": 8286,
+      "sha256": "94ae944d1bb1f09fd0234f879915ce32c3d58e1587ad04165ef545f8d13ed202"
+    }
+  },
+  "external_input_root_role": "Explicit original_data_root supplied by the caller; author source paths below are relative to this one shared original root, not copied into the repository.",
+  "author_sources": {
+    "lookup": {
+      "path": "landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
+    },
+    "mean": {
+      "path": "landclim/author-reference/author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+    },
+    "covariance": {
+      "path": "landclim/author-reference/author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918"
+    },
+    "driver": {
+      "path": "landclim/author-reference/author/Kunes_REVEALS_iterate_across_sitelists.R",
+      "bytes": 2685,
+      "sha256": "bc20b58bc1dc5933eb046233d44739d7da006624031aa4863e9a2731b077e341"
+    }
+  },
+  "author_lookup_contract": {
+    "encoding": "latin-1",
+    "source_fields": [
+      "oldvar",
+      "RPP.LANDCLIMII"
+    ],
+    "data_rows": 10788,
+    "unique_source_names": 9731,
+    "parameter_targets": 31,
+    "excluded_targets": [
+      "zz.do not use",
+      "aage.cal.BP"
+    ],
+    "selected_targets": [
+      "Betula",
+      "Pinus"
+    ],
+    "source_binding": "Use the exact retained author lookup. Consistent duplicate source-name assignments are allowed; conflicting duplicates, missing required native-name mappings or unexpected additional measured concepts mapping onto this two-target panel refuse. Do not lowercase, infer synonyms, collapse missing native rows or assert botanical equivalence."
+  },
+  "parameters": {
+    "targets": [
+      "Betula",
+      "Pinus"
+    ],
+    "alpha_text": [
+      "5.10571",
+      "6.05833"
+    ],
+    "fall_speed_m_s_text": [
+      "0.024",
+      "0.031"
+    ],
+    "covariance_text": [
+      [
+        "0.092006056",
+        "0"
+      ],
+      [
+        "0",
+        "0.056016002"
+      ]
+    ],
+    "literal_file_line_numbers": [
+      6,
+      22
+    ],
+    "binding": "Bind all31 unique ordered A.series labels in mean and covariance files, with matching row/column axes, finite positive means/fall speeds and a symmetric nonnegative covariance diagonal. Preserve source strings and the selected exact2x2 block; line6/22 include the header. Do not substitute rounded published-table values or interpret the profile as an approved local PPE."
+  },
+  "taxa": [
+    "Betula",
+    "Pinus"
+  ],
+  "windows": [
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ]
+  ],
+  "cores": [
+    {
+      "key": "abborrtjarnen",
+      "country": "Sweden",
+      "physical_family": "neotoma:site:13338",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "bytes": 20614788,
+        "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+      },
+      "identity": {
+        "site_id": 13338,
+        "dataset_id": 19913,
+        "collection_unit_id": 14910,
+        "handle": "ABBO",
+        "source_sample_count": 107
+      },
+      "chronology": {
+        "selected_id": 11516,
+        "selected_name": "EPD 1",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 11516,
+        "source_default_flags": {
+          "11516": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 1287,
+          "source_name": "Pinus sylvestris"
+        }
+      ]
+    },
+    {
+      "key": "bokesjon",
+      "country": "Sweden",
+      "physical_family": "neotoma:site:28872",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "bytes": 24477671,
+        "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+      },
+      "identity": {
+        "site_id": 28872,
+        "dataset_id": 54001,
+        "collection_unit_id": 39241,
+        "handle": "BOKE",
+        "source_sample_count": 52
+      },
+      "chronology": {
+        "selected_id": 38422,
+        "selected_name": "LANDCLIM",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 38422,
+        "source_default_flags": {
+          "38422": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 385,
+          "source_name": "Pinus"
+        }
+      ]
+    },
+    {
+      "key": "bussjosjon",
+      "country": "Sweden",
+      "physical_family": "neotoma:site:28869",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "bytes": 24477671,
+        "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+      },
+      "identity": {
+        "site_id": 28869,
+        "dataset_id": 53995,
+        "collection_unit_id": 39238,
+        "handle": "BUS",
+        "source_sample_count": 69
+      },
+      "chronology": {
+        "selected_id": 38418,
+        "selected_name": "LANDCLIM",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 38418,
+        "source_default_flags": {
+          "38418": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 385,
+          "source_name": "Pinus"
+        }
+      ]
+    },
+    {
+      "key": "solsoe81",
+      "country": "Denmark",
+      "physical_family": "neotoma:site:3432",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "bytes": 12871994,
+        "sha256": "d7b9f9e0616b71ab74be03e15ae3f81fa856582463d51e0c1559d763bb3552af"
+      },
+      "identity": {
+        "site_id": 3432,
+        "dataset_id": 4445,
+        "collection_unit_id": 4303,
+        "handle": "SOLSOE81",
+        "source_sample_count": 66
+      },
+      "chronology": {
+        "selected_id": 25732,
+        "selected_name": "Giesecke et al. 2014 (MADCAP)",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 25731,
+        "source_default_flags": {
+          "25732": true,
+          "25731": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 385,
+          "source_name": "Pinus"
+        }
+      ]
+    },
+    {
+      "key": "solsoe83",
+      "country": "Denmark",
+      "physical_family": "neotoma:site:3432",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "bytes": 12871994,
+        "sha256": "d7b9f9e0616b71ab74be03e15ae3f81fa856582463d51e0c1559d763bb3552af"
+      },
+      "identity": {
+        "site_id": 3432,
+        "dataset_id": 4446,
+        "collection_unit_id": 4304,
+        "handle": "SOLSOE83",
+        "source_sample_count": 26
+      },
+      "chronology": {
+        "selected_id": 25740,
+        "selected_name": "Giesecke et al. 2014 (MADCAP)",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 25739,
+        "source_default_flags": {
+          "25740": true,
+          "25739": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 385,
+          "source_name": "Pinus"
+        }
+      ]
+    },
+    {
+      "key": "laihalampi",
+      "country": "Finland",
+      "physical_family": "neotoma:site:28072",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "bytes": 26666672,
+        "sha256": "8a37070b8796030365585eb2cf7b30d6555e39fc1c5bea8167104845c35adc1d"
+      },
+      "identity": {
+        "site_id": 28072,
+        "dataset_id": 52082,
+        "collection_unit_id": 37925,
+        "handle": "LAIH",
+        "source_sample_count": 150
+      },
+      "chronology": {
+        "selected_id": 37160,
+        "selected_name": "cal yr BP",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 37159,
+        "source_default_flags": {
+          "37160": true,
+          "37159": true
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 1287,
+          "source_name": "Pinus sylvestris"
+        }
+      ]
+    },
+    {
+      "key": "dalmutladdo",
+      "country": "Norway",
+      "physical_family": "neotoma:site:13388",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "bytes": 20614788,
+        "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+      },
+      "identity": {
+        "site_id": 13388,
+        "dataset_id": 20034,
+        "collection_unit_id": 14989,
+        "handle": "DALMUT",
+        "source_sample_count": 72
+      },
+      "chronology": {
+        "selected_id": 11601,
+        "selected_name": "author preferred",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 11600,
+        "source_default_flags": {
+          "11601": true,
+          "11600": true,
+          "11602": false
+        }
+      },
+      "native_axes": [
+        {
+          "author_target": "Betula",
+          "taxon_id": 29,
+          "source_name": "Betula"
+        },
+        {
+          "author_target": "Pinus",
+          "taxon_id": 1287,
+          "source_name": "Pinus sylvestris"
+        }
+      ]
+    }
+  ],
+  "population": {
+    "native_owner_count": 542,
+    "core_sequence_count": 7,
+    "physical_site_count": 6,
+    "country_count": 4,
+    "requested_window_count": 42,
+    "shared_physical_family": "SOLS81/83 collection units4303/4304 belong to one site3432. Keep separate core ledgers; never pool or count them as independent places."
+  },
+  "chronology_policy": "Use each explicit selected ID/name/type above, preserve every source age wrapper/declaration/default flag and native collection reference. ABB/BOKE/BUS legitimately select their collection reference; other cores select explicit calibrated alternatives. Multiple source defaults across age types are retained without silently selecting an alternate model. BP reference is1950 CE, not preparation/publication year. These source points do not authenticate historical LandClim vectors or a joint age posterior.",
+  "bound_policy": "A finite source-selected point may have absent/null uncertainty bounds. Preserve absence versus null and all signed original bounds; present bounds must be finite and contain the point. Missing, duplicate, incompatible, invalid or conflicting selected points are unassignable. SOLSOE81 owner352996 point7BP/younger-41 remains native outside-window context; its prior field-comparability refusal is not a missing point, cannot suppress these windows and cannot justify substituting its uncalibrated720BP alternative.",
+  "owner_and_window_policy": "Retain all542 ordered native sample/analysis-unit/depth/thickness owners and all native ages. Assign exact finite selected points to fixed half-open windows. Negative/outside-window states remain explicit. Any unassignable selected-age owner suppresses all six windows of its own core only. Keep all42 requested windows including empty/refused ones; do not choose only complete-count samples, interpolate, calibrate or create observations.",
+  "count_and_mass_policy": "Reuse the established strict native pollen NISP/count eligibility and full-mass policy. Inspect every native pollen datum against the complete lookup; retain original datum index, taxonID/name, count state/value and mapping evidence for the selected author targets, with complete source mass and explicit rejected/excluded classifications. Required per-core native concepts are declared above, not discovered by outcome optimization. Missing/null/invalid/duplicate counts are not measured zero. The two-axis panel NISP, full source pollen NISP and excluded mass must reconcile where defined; incomplete panel mass and composition remain null. Original counts, authorship/use metadata and full populations remain unchanged.",
+  "aggregation_policy": "For every core/window emit ordered native members, selected-age disposition, original native count-axis evidence, source-supported author target totals, complete panel/full/excluded mass if defined and explicit empty/incomplete/zero/invalid/unassignable refusals. Keep whole-core subtotals separate from complete window support. Publish no fit, kernel, prediction or score.",
+  "preservation_and_reuse": "Existing literal-window source contracts and qualified outputs remain unchanged. Extract reusable pure native-window mechanics under their durable owner instead of copying a second engine. Do not invoke the broad31-target preparation path whose absent-target initialization is zero. Existing source and chronology qualification is reused in its real scope; no source acquisition, materialization, native census or archive copy.",
+  "rights_and_attribution": "Retain exact native dataset/contact/citation metadata and the author-source identities. Local curation of retained sources and a published-author lookup do not confer new analytical or redistribution rights, native species determination, field admission, historical equivalence or scientific endorsement. Detailed owner/count products remain local artifacts; commit no raw source table.",
+  "guards": "Before and after producer and independent observer, require exact source/protocol/runner identities, consumed tracked Python, HEAD/index and all opened input bytes. Read the four raw parts sequentially, reuse shared originals and preserve source bytes. Every result and owner/core/window partition is closed and independently checked; no network or source writes.",
+  "source_max_bytes": 33554432,
+  "limits": {
+    "producer_wall_seconds": 90,
+    "observer_wall_seconds": 90,
+    "max_rss_bytes": 1073741824,
+    "max_output_bytes": 16777216
+  },
+  "engine_calls": 0,
+  "model_fits": 0,
+  "source_acquisition": false,
+  "scientific_or_field_admission": false
+}
