@@ -133,6 +133,114 @@ ecological mapping, human approval, inferred propagation or ecological accuracy.
 The [release policy](../../configs/release_evidence_policy.json) owns the bounded
 regenerable output paths.
 
+## Seven-core author Betula/Pinus source support
+
+The new source audit establishes complete **author-mapped Betula/Pinus counts
+for all 542 native owners** in seven core sequences at **six physical sites**
+across Sweden, Denmark, Finland and Norway. Forty-one of 42 predeclared windows
+are supported. Solsø 81 has no source member in [4700,5200) BP; that window stays
+empty, with null panel and full-mass aggregates. No owner was dropped to obtain
+complete support. The two Solsø cores share site 3432 and cannot count as two
+independent places.
+
+This is a different estimand from the qualified literal Betula/Ulmus study:
+Dalmutladdo's missing Ulmus still refuses that older panel. Here the exact
+published-author lookup maps native Betula (29) to Betula, and native Pinus (385) or
+Pinus sylvestris (1287) to Pinus, with each core's native identity retained. This is
+a declared author harmonization, with no claim of native botanical equivalence,
+reviewed local parameter applicability or whole-vegetation composition.
+
+| Core | Country | All owners | Window members | Supported windows | Panel N | Full pollen NISP | Outside panel N |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Abborrtjärnen | Sweden | 107 | 37 | 6/6 | 41,506 | 46,402 | 4,896 |
+| Bökesjön | Sweden | 52 | 20 | 6/6 | 4,340 | 18,207 | 13,867 |
+| Bussjösjön | Sweden | 69 | 21 | 6/6 | 1,711 | 22,991 | 21,280 |
+| Solsø 81 | Denmark | 66 | 20 | 5/6 | 5,835 | 33,200 | 27,365 |
+| Solsø 83 | Denmark | 26 | 18 | 6/6 | 4,400 | 19,626 | 15,226 |
+| Laihalampi | Finland | 150 | 40 | 6/6 | 15,017 | 23,074 | 8,057 |
+| Dalmutladdo | Norway | 72 | 19 | 6/6 | 11,455 | 13,319 | 1,864 |
+
+The 175 window members contribute **84,264 panel counts, 176,819 full source
+pollen NISP and 92,555 outside-panel counts**. These are counts under the strict
+source NISP law, not independent-grain or vegetation-area estimates. All 542
+owners retain finite selected chronology points; 367 are outside these windows,
+including six negative source points. All original age wrappers, alternative
+models, default flags, signed/absent/null bounds, native depths, count rows and
+attribution remain in the detailed local ledgers. ABBO/BOKE/BUS legitimately
+select their native collection reference. Other cores select the explicit
+calibrated alternative; none is selected merely by a generic default flag.
+Solsø 81's point 7 BP / younger bound −41 remains outside these windows without substitution.
+
+The [prospective protocol](pollen-reconstruction/nordic-author-window-support/protocol.json)
+fixes all seven native core identities, six half-open 500-year windows from
+2700 to 5700 calibrated BP, AD 1950, and the exact retained source/lookup/parameter
+bytes. All 31 ordered author parameter axes bind before selecting Betula/Pinus:
+RPP 5.10571/6.05833, fall speed 0.024/0.031 m/s and covariance diagonal
+0.092006056/0.056016002, cross0. This supplies a coherent declared parameter
+profile; it supplies no Pinus transport factor, dated geometry or fitted model.
+
+### Correction, actual execution and independent readback
+
+The first actual pair at `cce1a547bf11afcb25245b8b3c6b576e236f6909` passed its
+software comparisons but exposed a shared domain mistake during root source
+review. The ID/name-only selectors counted Pinus stomata as duplicate pollen
+in two Bökesjön owners. Their original rows separately declare stomate/stomate
+and pollen/pollen; all datum accounting already retained those distinctions.
+The first 40-supported/one-empty/one-incomplete result is retained as diagnostic
+evidence and is not the accepted pollen-support finding.
+
+Correction `352d7bce7275fa2b9451e058a213494201b237c0` excludes only explicit,
+consistent nonempty non-pollen element roles from the pollen-axis selector.
+Stomate-only is missing pollen, never measured zero. Unknown, blank or
+contradictory metadata and genuine pollen duplicates still refuse. All original
+non-pollen rows remain preserved, outside the panel and full pollen mass.
+The protocol, original counts, strict full-mass law, literal-panel results and
+90 s / 1 GiB / 16 MiB budgets remain unchanged. The corrected pair used fresh outputs;
+neither first result was overwritten.
+
+At frozen committed `352d7bce7`, the corrected producer exited zero in
+**3.190 process seconds**, peak RSS **330,219,520 B**, with **7,144,029 B**
+of final products. Independent source/Decimal traversal exited zero in
+**1.616 seconds**, peak RSS **334,659,584 B**, verifying every ordered owner,
+all 42 dispositions, complete count/full/excluded mass, native metadata and all 31
+parameter axes. The 8,074-byte verification SHA-256 is
+`c2614d70a60607647dc1993ed7791676f1806132329b1848b11c03a93f4d70c6`;
+producer result SHA-256 is
+`15c65ede7fdd1d39e7d0383ff07beb4f928855846c0f0697fb837c76460a40c4`.
+Both jobs preserve all 4,851 parent-frozen files, 4,600 tracked Python files,
+14 scientific input pins, protocol and HEAD/index. Source code was committed
+before the runs. Preceding integration passed 190 controls including 83 old
+literal regressions; the corrected producer/oracle integration passed 153
+controls with configured scoped Ruff/format and strict types. Earlier fixture
+construction failures remain recorded; no numerical threshold was relaxed.
+
+Detailed products remain local under
+`artifacts/root/nordic-author-window-support/pollen-element-study/`; the
+independent check is under
+`artifacts/verification/nordic-author-window-pollen-elements/`. First-pair
+products remain under the original `study/` and verification directory. To
+reproduce, use an absent output path and the canonical shared original root:
+
+```sh
+PYTHONPATH=packages/bijux-pollenomics-dev:packages/bijux-pollenomics-dev/src \
+PYTHONDONTWRITEBYTECODE=1 PYTHONOPTIMIZE=0 \
+.venv/bin/python -B -m \
+  bijux_pollenomics_dev.essd_reproduction.nordic_coupled.author_window_support.study \
+  --repository "$PWD" --original-data-root /path/to/shared/original-data \
+  --protocol "$PWD/reports/science/pollen-reconstruction/nordic-author-window-support/protocol.json" \
+  --output "$PWD/artifacts/nordic-author-window-support"
+```
+
+Use the independent CLI module
+`tests.source_completion.pollen_reconstruction.test_nordic_author_window_support_result`
+with the same repository/original-root/protocol, `--products` pointing to that
+producer directory and a separate absent `--output`. Set OMP/OPENBLAS/MKL/
+VECLIB/NUMEXPR numeric thread counts to one for both actuals. No source was
+acquired or rewritten, and no kernel, reconstruction, prediction or score ran.
+The ready next question is a separately declared matched physical comparison;
+source-use, historical geometry, parameter transfer, independent vegetation and
+untouched confirmation retain their distinct evidence requirements.
+
 ## Scope and conclusion
 
 We produced exploratory observed-pollen predictions on the previously exposed
@@ -365,11 +473,11 @@ of the full Nordic LRA and vegetation-validation objective.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results. A distinct saved-metadata-geometry physical inverse-to-forward consumer now supplies conditional restricted-panel point-pollen results at Swedish targets. One authentic BOKE download replayed twice preserves all nine normalized tables while separately counting repeated native entity visits.
+**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results. A distinct saved-metadata-geometry physical inverse-to-forward consumer now supplies conditional restricted-panel point-pollen results at Swedish targets. One authentic BOKE download replayed twice preserves all nine normalized tables while separately counting repeated native entity visits. A distinct author Betula/Pinus source audit now accounts for all542 native owners at six physical places in four countries, with41 supported windows and one empty Solsø81 window.
 
 **Unsupported claim.** Full historical LandClim reproduction, independently validated Nordic LRA/vegetation accuracy, untouched generalization or causal multi-evidence history.
 
-**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. At committed source a0dce0304, the maintained scientific-evidence consumer also reproduced the unchanged Neotoma source audit: 1351 concepts and 370936 memberships, zero accepted mappings, zero eligible propagation events and zero directed candidates. Independent historical comparison isolates only a retained cf marker for one concept with two observations; all scientific partitions and all 16 scenario records remain identical. The release refusal and absence of human approval are preserved. The opt-in native check passed at 5aa3c58cec6ded98454d09875ad6c81ccd87a675 in 1.395913625 s, maximum sampled RSS 160743424 bytes. Exact source-payload/ID/unit/age checks, eight occurrence partitions and public materialization/read-back passed. The initial test at c7d7cfc56 failed on its incorrect age-claim parent selector; correcting the test to subject_id preserved the original failure and changed no normalizer or raw input.
+**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. At committed source a0dce0304, the maintained scientific-evidence consumer also reproduced the unchanged Neotoma source audit: 1351 concepts and 370936 memberships, zero accepted mappings, zero eligible propagation events and zero directed candidates. Independent historical comparison isolates only a retained cf marker for one concept with two observations; all scientific partitions and all 16 scenario records remain identical. The release refusal and absence of human approval are preserved. The opt-in native check passed at 5aa3c58cec6ded98454d09875ad6c81ccd87a675 in 1.395913625 s, maximum sampled RSS 160743424 bytes. Exact source-payload/ID/unit/age checks, eight occurrence partitions and public materialization/read-back passed. The initial test at c7d7cfc56 failed on its incorrect age-claim parent selector; correcting the test to subject_id preserved the original failure and changed no normalizer or raw input. Corrected source-only producer/independent observer at352d7bce7 check all542 owners,42 windows and31 ordered author parameter axes, with4851 parent-frozen files/4600 Python/14 scientific pins and HEAD/index stable. Producer3.190s/RSS330219520B; observer1.616s/RSS334659584B;153 corrected integration controls and scoped static checks pass. The first actual pair atcce1a547b retained an ID-only pollen/stomate selector error, diagnosed against two native BOKE owners and corrected without changing data, protocol, budgets or genuine duplicate refusals; first artifacts remain unchanged.
 
 **Remaining input or review.** The synthesis retains no source-complete historical Nordic LRA reconstruction, independent Nordic vegetation pairs or fully authenticated historical LandClim input cohort. Completed conditional physical-forward point-pollen predictions use saved metadata geometry and previously exposed panels; source rights and qualified review remain open. Resolver: Country core/archive/reference custodians and qualified scientific reviewers Reopen when: Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation.
 
@@ -377,13 +485,13 @@ of the full Nordic LRA and vegetation-validation objective.
 
 **Consequence.** Keep modeled maps, aDNA/SEAD context and observed pollen in separate evidence units.
 
-**Precise next acceptance route.** Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation. Then update reports/science/model-use.md.
+**Precise next acceptance route.** The qualified author Betula/Pinus panels permit a separately declared conditional Sweden-only versus four-country physical-forward comparison, with whole-place/country exclusions, sampling sensitivity and frozen predictions before scoring. Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation. Then update reports/science/model-use.md.
 
-**Negative or refused result.** Zero historical authenticated primary inputs, zero historically qualified Nordic LRA cores and zero measured-cover pairs; country bins include refusals. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539). The BOKE check preserves two refused age claims, UNASSIGNED country and zero propagation eligibility; replayed visits are not new independent observations.
+**Negative or refused result.** Zero historical authenticated primary inputs, zero historically qualified Nordic LRA cores and zero measured-cover pairs; country bins include refusals. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539). The BOKE check preserves two refused age claims, UNASSIGNED country and zero propagation eligibility; replayed visits are not new independent observations. Author Betula/Pinus has one genuinely empty SOLSOE81[4700,5200)BP window; its aggregate remains null. The first BOKE duplicate-axis result was a selector error, not a source absence. No new kernel, reconstruction, prediction, score, geometry/rights/field approval was produced by this source audit.
 
-**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score. Separate native structure check: one BOKE dataset54001/site28872/unit39241, 52 samples and age claims, 29 controls, 1885 observations and 142 derived variables; all nine tables are identical after replay, with eight native registered populations doubled and one-copy repeat exclusions.
+**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score. Separate native structure check: one BOKE dataset54001/site28872/unit39241, 52 samples and age claims, 29 controls, 1885 observations and 142 derived variables; all nine tables are identical after replay, with eight native registered populations doubled and one-copy repeat exclusions. Separate author Betula/Pinus source support:542 owners/seven sequences/six sites/four countries;175 window members/41 supported+one empty of42 requested windows;84264 panel=176819 fullNISP minus92555 outside-panel counts. Solsø81/83 share one physical site and are never independent places.
 
-Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json), [reports/science/source-lineage/neotoma-occurrence-accounting.csv](source-lineage/neotoma-occurrence-accounting.csv), [docs/report/source-relations/neotoma/boke-native-correspondence/report.json](../../docs/report/source-relations/neotoma/boke-native-correspondence/report.json).
+Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json), [reports/science/source-lineage/neotoma-occurrence-accounting.csv](source-lineage/neotoma-occurrence-accounting.csv), [docs/report/source-relations/neotoma/boke-native-correspondence/report.json](../../docs/report/source-relations/neotoma/boke-native-correspondence/report.json), [reports/science/pollen-reconstruction/nordic-author-window-support/protocol.json](pollen-reconstruction/nordic-author-window-support/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
