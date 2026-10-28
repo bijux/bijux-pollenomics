@@ -5,12 +5,14 @@ from __future__ import annotations
 from copy import deepcopy
 from fractions import Fraction
 import hashlib
+import math
 from typing import Any
 
 from pyproj import Geod
 import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.author_lra_spatial.blocks.audit import (
+    LOWER_METRIC,
     audit_block_screen,
     distance_bounds,
 )
@@ -344,6 +346,8 @@ def test_broad_metric_bound_must_refuse_an_undecidable_admission() -> None:
     for row in value["sites"]:
         row["latitude"] = 0.0
         row["longitude"] = 0.0 if row["block_id"] == "512" else 2.0
+    lower, upper = distance_bounds(value["sites"][0], value["sites"][-1])
+    assert lower < 121000 < upper
     with pytest.raises(ValueError, match="metric_bound_unresolved"):
         audit_block_screen(value, reported(value))
 
@@ -358,3 +362,82 @@ def test_bounds_handle_antimeridian_and_poles_with_exact_rational_outputs() -> N
     )
     assert isinstance(lower, Fraction) and isinstance(upper, Fraction)
     assert 19_000_000 < lower < upper < 20_200_000
+
+
+def test_east_west_block_admission_is_certified_without_latitude_separation() -> None:
+    value = packet()
+    for row in value["sites"]:
+        row["latitude"] = 55.5
+        row["longitude"] = 0.0 if row["block_id"] == "512" else 8.0
+    facts = audit_block_screen(value, reported(value))
+    assert facts["pair_classifications"] == {"admitted": 112}
+
+
+@pytest.mark.parametrize("swedish_longitude", [13.4, 13.8])
+def test_supplied_nordic_coordinate_pair_has_a_positive_121km_certificate(
+    swedish_longitude: float,
+) -> None:
+    first = {"latitude": 56.12843278, "longitude": 8.6145225}
+    second = {"latitude": 55.5, "longitude": swedish_longitude}
+    lower, upper = distance_bounds(first, second)
+    observed = float(
+        Geod(ellps="WGS84").inv(
+            first["longitude"],
+            first["latitude"],
+            second["longitude"],
+            second["latitude"],
+        )[2]
+    )
+    assert lower > 121000
+    assert float(lower) <= observed <= float(upper)
+
+
+@pytest.mark.parametrize("latitude", [-60.0, 0.0, 60.0])
+def test_longitude_lower_bound_includes_both_exact_60_degree_boundaries(
+    latitude: float,
+) -> None:
+    lower, _ = distance_bounds(
+        {"latitude": latitude, "longitude": 0.0},
+        {"latitude": latitude, "longitude": 6.0},
+    )
+    assert lower == LOWER_METRIC * Fraction(6, 180)
+
+
+@pytest.mark.parametrize(
+    "latitude",
+    [math.nextafter(60.0, math.inf), math.nextafter(-60.0, -math.inf), 89.0, -90.0],
+)
+def test_longitude_lower_bound_is_not_extended_beyond_its_latitude_proof(
+    latitude: float,
+) -> None:
+    lower, _ = distance_bounds(
+        {"latitude": latitude, "longitude": 0.0},
+        {"latitude": latitude, "longitude": 180.0},
+    )
+    assert lower == 0
+    if abs(latitude) == 89:
+        observed = abs(
+            float(Geod(ellps="WGS84").inv(0.0, latitude, 180.0, latitude)[2])
+        )
+        assert observed < LOWER_METRIC  # The unguarded proposed term would be false.
+
+
+def test_shorter_antimeridian_arc_and_latitude_bound_remain_independent() -> None:
+    lower, _ = distance_bounds(
+        {"latitude": 55.0, "longitude": 179.0}, {"latitude": 55.0, "longitude": -179.0}
+    )
+    assert lower == LOWER_METRIC * Fraction(2, 180)
+    lower, _ = distance_bounds(
+        {"latitude": -60.0, "longitude": 0.0}, {"latitude": 60.0, "longitude": 6.0}
+    )
+    assert lower == 2 * LOWER_METRIC
+
+
+def test_one_endpoint_outside_60_degrees_disables_only_the_longitude_term() -> None:
+    first_latitude = math.nextafter(60.0, math.inf)
+    lower, _ = distance_bounds(
+        {"latitude": first_latitude, "longitude": 0.0},
+        {"latitude": 59.0, "longitude": 180.0},
+    )
+    difference = Fraction.from_float(first_latitude) - 59
+    assert lower == LOWER_METRIC * difference * 3 / 180

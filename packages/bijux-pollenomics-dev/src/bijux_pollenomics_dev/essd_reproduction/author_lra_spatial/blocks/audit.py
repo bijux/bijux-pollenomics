@@ -4,6 +4,8 @@ WGS84's metric is bounded by L=b²/a and U=a²/b times the unit-sphere
 metric. Every path must cover the latitude difference; a meridian/parallel
 path covers at most the latitude-plus-shortest-longitude difference.
 Using 3 < pi < 22/7 gives conservative, trigonometry-free distance bounds.
+When both endpoint latitudes have magnitude at most 60 degrees, haversine
+also gives central angle >= shortest longitude difference in degrees / 180.
 These certify admission only when the entire clearance interval agrees.
 """
 
@@ -57,8 +59,13 @@ def distance_bounds(
     latitude_difference = abs(latitudes[0] - latitudes[1])
     longitude_difference = abs(longitudes[0] - longitudes[1])
     longitude_difference = min(longitude_difference, 360 - longitude_difference)
+    angular_lower = latitude_difference * 3 / 180
+    if all(abs(value) <= 60 for value in latitudes):
+        # cos(phi1)*cos(phi2)>=1/4, sigma>=2*sin(sigma/2), and
+        # sin(delta_lambda/2)>=delta_lambda/pi on the shorter longitude arc.
+        angular_lower = max(angular_lower, longitude_difference / 180)
     return (
-        LOWER_METRIC * latitude_difference * 3 / 180,
+        LOWER_METRIC * angular_lower,
         UPPER_METRIC
         * (latitude_difference + longitude_difference)
         * Fraction(22, 7)
