@@ -900,6 +900,30 @@ def _same_or_adjacent_float(observed: float, expected: float) -> bool:
     )
 
 
+def _sambosjon_declared_source(repository: Path, relative: str, expected: str) -> bytes:
+    """Read a declared identity under the fixed historical main-docstring boundary."""
+    historical = read_historical_python_correspondence(
+        repository,
+        GitSourceMember(
+            member=relative,
+            repository_path=(
+                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+                "source_completion/pollen_age_support/sambosjon.py"
+            ),
+            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
+            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
+            sha256="02bfa94a1fe33a526b0089d52c525b1c743b9badf192fcef5027601977a9fdd5",
+            bytes=17278,
+        ),
+        function_docstring="main",
+    )
+    current = (repository / relative).read_bytes()
+    for raw in (historical, current):
+        if hashlib.sha256(raw).hexdigest() == expected:
+            return raw
+    raise ValueError("Sambosjon declared producer identity lacks source correspondence")
+
+
 def verify_sambosjon_contained_age_support(
     scope: dict[str, Any], results: list[list[str]]
 ) -> None:
@@ -907,20 +931,8 @@ def verify_sambosjon_contained_age_support(
     interval_scope = scope["sambosjon_contained_age_support"]
     interval_dir = REPOSITORY_ROOT / Path(interval_scope["report"]).parent
     interval = json.loads((interval_dir / "report.json").read_text())
-    recorded_producer = read_historical_python_correspondence(
-        REPOSITORY_ROOT,
-        GitSourceMember(
-            member=interval_scope["producer"],
-            repository_path=(
-                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
-                "source_completion/pollen_age_support/sambosjon.py"
-            ),
-            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
-            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
-            sha256=interval["producer_sha256"],
-            bytes=17278,
-        ),
-        function_docstring="main",
+    recorded_producer = _sambosjon_declared_source(
+        REPOSITORY_ROOT, interval_scope["producer"], interval["producer_sha256"]
     )
     with (interval_dir / "coverage.csv").open(newline="") as stream:
         interval_coverage = list(csv.DictReader(stream))
