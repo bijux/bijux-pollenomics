@@ -1,0 +1,61 @@
+{
+  "schema_version": "official-guide-native-alias-source-manifest.v1",
+  "files": [
+    {
+      "path": "acquire.py",
+      "sha256": "89ee879ff97bbce3893815afe0e089a310c1c58b4d265ac2b9b530b2f46984ae",
+      "bytes": 7028
+    },
+    {
+      "path": "check_contracts.py",
+      "sha256": "53ef89397e41afcda029caa15db4a7b5cc00998ada10add5cdc9d85ecfa77ac0",
+      "bytes": 12030
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "5ddcb86b3b486ab249644ddfc8184f30c7320891829a8a5eabee12b7ce2f2253",
+      "bytes": 8130
+    },
+    {
+      "path": "observe.py",
+      "sha256": "d6363b7df0bf76d6e38ad587f28aeb3cb2da3e84dbfaa6d81037df4bfc9c731b",
+      "bytes": 4632
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "9524977ba91041ba037a5d8a5c55d5042090b8c74beaba389eeada0304af25e3",
+      "bytes": 10252
+    },
+    {
+      "path": "run.py",
+      "sha256": "633d080a67e85133a0cf334cbd78459e195d0281f0536bd6746b372abd7ff45b",
+      "bytes": 4088
+    },
+    {
+      "path": "runtime_custody.py",
+      "sha256": "0964eec589d0f69f97201b1bfbde558f33f41ab1e775fc53f879c85493af4d20",
+      "bytes": 12005
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "9f3e1a1df2b3fd73622718b52676c13f46fb5e6a4d8fc9594a42906eeb619a37",
+      "bytes": 5993
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "3eeee1e6c3a7ebd15c873406091febdb6e865d08eae8abc6d0bb4d173b0cc0c4",
+      "bytes": 3844
+    },
+    {
+      "path": "preflight/actual-native-alias-census.json",
+      "sha256": "fcada26d8164106b679e49a80300b106c76783310fc3a3238f489225ab4bda1e",
+      "bytes": 2852
+    }
+  ],
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-source-custody/prepared-source-manifest.json",
+    "sha256": "a4db26620063d04ac49b761253dd9a90ebb842b5024cbdc34fa388eafbde9a02",
+    "bytes": 1731
+  },
+  "actual_network_or_preparer_or_plan": false
+}

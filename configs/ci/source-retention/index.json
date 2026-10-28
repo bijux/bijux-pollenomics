@@ -20,6 +20,11 @@
       "descriptor": "source-transport.json",
       "sha256": "f616a4891c2d946828cc86286394ba37d6beaef034abd077d91387023ac194bc",
       "bytes": 3169
+    },
+    "data/validation/slu-calibration-guide-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "a0c3bd883bde0aa55b82bde5d5551ea4ced47b5bdc8576727273690451b7e8d3",
+      "bytes": 2778
     }
   },
   "source_revisions": {

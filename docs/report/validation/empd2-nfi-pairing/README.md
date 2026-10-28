@@ -10,8 +10,22 @@ The original source dossier, spatial screen, EMPD2 SQLite and NFI workbook are
 preserved in the external private source store. The [result](report.json)
 records the exact input hashes checked by its producer. The dossier and screen
 contain exact NFI row locations and are not tracked in Git. The tracked [SLU
-calibration guide](inputs/slu-calibration-guide.pdf) is an exact byte copy of
-its original.
+calibration guide](inputs/slu-calibration-guide.pdf) retains its pinned local
+bytes. Its original retained2026-09-21/a063 provider retrieval/copy chain
+remains unqualified. A separate official SLU page-to-PDF acquisition on source
+commit `d027effd6c0ac91512cd586c3a51db987ea46d54` and its independent observer
+both returned native zero. Their [retained current-source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json)
+binds the HTTP200/TLS-verified page, literal download href and exact same
+136,339-byte guide. This guide source owner is independent of the workbook
+metadata owner; the older metadata capsule's guide-admitted-false claim remains
+literal. The current acquisition does not recover the missing historical copy.
+
+The public source capsule omits raw HTML and runtime binaries and removes
+cookie headers from its declared HTTP metadata projections while preserving
+the original raw-response hashes. The earlier documentary licence/use review
+receipt is not currently authenticated; this admission performs no fresh PDF
+text extraction or licence/use revalidation. It grants no additional workbook
+or observation rights and does not turn plot measurements into regional totals.
 The producer checks the private inputs' exact hashes and reads only the NFI
 workbook's first six identity/coordinate fields to bind every selected plot-year
 to an original row and recompute each geodesic distance. The source-native NFI
@@ -41,6 +55,21 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --private-source-store /path/to/private/source-store \
   --output artifacts/jobs/empd2-nfi-pairing/nfi-measurement-schema.json
 ```
+
+The original bounded metadata producer was genuinely replayed on source commit
+`60bf419979bdc682ef227fb01e42a4f5ed6e2722`. Both the producer and its
+independent dictionary/header/area/time observer returned native zero; the public
+schema is byte-identical to the retained JSON. The replay selected columns D, G
+and H for 43,892 plot-year rows, or 131,676 metadata cells. It streamed the
+complete worksheet XML and decoded zero tree measurement outcome cells.
+
+The [retained source and execution capsule](https://github.com/bijux/bijux-pollenomics/blob/main/data/validation/nfi-measurement-metadata-capture/capture.json)
+contains the original receipts, logs, public output and 2,139 declared first-party
+source files, including 1,161 observed import origins. Its separate metadata-only
+assembly on commit `d027effd6c0ac91512cd586c3a51db987ea46d54` reran no workbook
+projection or scientific model. Private workbook and runtime payloads are omitted;
+their original registered identities remain explicit. These receipts establish the
+bounded metadata replay, with zero admitted measured pairs or new guide acquisition.
 
 ## Current decision
 
@@ -84,7 +113,7 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Unsupported claim.** Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.
 
-**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification.
+**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The original SLU guide ownership criterion remains verbatim and unresolved: exact current guide bytes and a genuine current download do not establish the original provider retrieval/copy receipt or the publication/use statement bound to those bytes. Native results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.
 
 **Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.
 
@@ -101,6 +130,10 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json](nfi-measurement-schema.json) (SHA-256 `5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505`).
+
+- [Retained qualification evidence: reports/science/vegetation-reference/slu-current-guide-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json) (SHA-256 `b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/original-owner-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/original-owner-acceptance.json) (SHA-256 `e03c2de940f5a127ebd9886ae038b278b7c6e6b8ef8d35cb4755d633a532ab05`).
 
 - [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
 
