@@ -22,6 +22,8 @@ HOOKS = {
     'bda022ee3efa9393f03cda2d49684ba186d67714a362f4225890b8d4b15583d5':'source-assets-and-root-icons',
     '3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906':'scientific-pdf-downloads',
     '6007e8ae8a101b74102df0385dd0a9bb93efe85bf0edc9962ee3cff346a0b5bf':'retained-scientific-pdf-downloads',
+    'f21163129fc42a4a3cc2e5d4d09c6b9fd1cd9096d14b5c7340a8dd6d8487fa26':'retained-build-scientific-pdf-downloads',
+    '1ba76967b9519a4495708ff577694a170dfabb4849449a0381bb3e1512ce632b':'committed-retained-scientific-pdf-downloads',
     'f714e9c71a7213f573007baf2f54aab1f5ec3375b7481bb48b64f2d06923a88b':'root-icons-and-custom-domain',
 }
 ICONS=('favicon.ico','apple-touch-icon.png','apple-touch-icon-precomposed.png')
@@ -93,7 +95,20 @@ def reviewed_hook_functions(hook, source, path):
                 'Producer capability: loaded callback differs from reviewed source')
 
 
-def scientific_downloads(hook, root, path, source, *, retained=False):
+def retained_build_context(hook, root, *, committed=False):
+    """Capture the current retained build through one source-owned helper."""
+    helper_path = Path(__file__).absolute().with_name('retained_scientific_downloads.py')
+    helper_source = helper_path.read_bytes()
+    helper = types.ModuleType('bijux_retained_scientific_downloads')
+    helper.__file__ = str(helper_path)
+    exec(compile(helper_source, str(helper_path), 'exec'), vars(helper))
+    capture = helper.capture_committed if committed else helper.capture
+    context = capture(hook, root, regular, require, digest, RETAINED_DECK_CONTEXT)
+    require(helper_source == helper_path.read_bytes(), 'Producer capability: retained-build helper source changed')
+    return context
+
+
+def scientific_downloads(hook, root, path, source, *, retained=False, retained_build=False, committed=False):
     """Preserve the reviewed finite PDF exports and all of their source inputs."""
     import runpy
     from pathlib import PurePosixPath
@@ -110,7 +125,10 @@ def scientific_downloads(hook, root, path, source, *, retained=False):
     require(digest(regular(root, root/PDF_VERIFIER)) in PDF_VERIFIER_SHA256,
             'Producer capability: scientific export verifier differs from reviewed source')
     retained_context = None
-    if retained:
+    require(not (retained and (retained_build or committed)) and not (retained_build and committed), 'Producer capability: retained source epochs cannot be mixed')
+    if retained_build or committed:
+        retained_context = retained_build_context(hook, root, committed=committed)
+    elif retained:
         import io
         import tomllib
         require(hook.RETAINED_CONTEXT_PATH == RETAINED_DECK_CONTEXT_PATH
@@ -145,8 +163,10 @@ def scientific_downloads(hook, root, path, source, *, retained=False):
     names={hook.MANIFEST,PDF_VERIFIER,'presentation/source-lock.json',
            'reports/exports/papers/manifest.json','reports/exports/papers/visual-review.json',
            'reports/science/paper-accounts.csv',paper_manifest['inventory']}
-    if retained:
+    if retained or retained_build or committed:
         names.add(RETAINED_DECK_CONTEXT_PATH)
+    if retained_build or committed:
+        names.add('presentation/retained-build-source-context.json')
     names.update(manifest['inputs'])
     names.update(deck_lock['sources'])
     names.update(paper_manifest['producer_sha256'])
@@ -161,9 +181,11 @@ def scientific_downloads(hook, root, path, source, *, retained=False):
                 'Producer capability: canonical scientific source path required')
         inputs.append({'path':name,'sha256':digest(regular(root,root/name))})
     record = {'source':path.relative_to(root).as_posix(),'source_sha256':digest(source),
-              'recipe':'retained-scientific-pdf-downloads' if retained else 'scientific-pdf-downloads',
+              'recipe':('committed-retained-scientific-pdf-downloads' if committed else
+                        'retained-build-scientific-pdf-downloads' if retained_build else
+                        'retained-scientific-pdf-downloads' if retained else 'scientific-pdf-downloads'),
               'inputs':inputs,'outputs':{name:digest(value) for name,value in sorted(frozen.items())}}
-    if retained:
+    if retained or retained_build or committed:
         record['retained_source_context'] = retained_context
     return record
 
@@ -234,9 +256,12 @@ def hooks(configuration,root,*,publication=False):
         if recipe=='core-contract-assets':
             records.append(core_contract_assets(hook,configuration,root,path,source,publication=publication))
             continue
-        if recipe in {'scientific-pdf-downloads', 'retained-scientific-pdf-downloads'}:
+        if recipe in {'scientific-pdf-downloads', 'retained-scientific-pdf-downloads',
+                      'retained-build-scientific-pdf-downloads', 'committed-retained-scientific-pdf-downloads'}:
             records.append(scientific_downloads(hook,root,path,source,
-                                                retained=recipe=='retained-scientific-pdf-downloads'))
+                                                retained=recipe=='retained-scientific-pdf-downloads',
+                                                retained_build=recipe=='retained-build-scientific-pdf-downloads',
+                                                committed=recipe=='committed-retained-scientific-pdf-downloads'))
             continue
         require(tuple(hook.ROOT_ICON_FILENAMES)==ICONS,'Producer capability: loaded icon contract changed')
         docs=Path(configuration.docs_dir).absolute();assets=docs/'assets'
