@@ -12,6 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Authenticate retained author replay readers and callable source ownership while preserving original scientific output and execution provenance ([#266](https://github.com/bijux/bijux-pollenomics/pull/266)).
 - Preserve retained native diagnostics, source replay and public evidence exports through authenticated logical sources; refuse finite production with detached raw programs ([#265](https://github.com/bijux/bijux-pollenomics/pull/265)).
 - Expose shared-aliquot covariance and fixed two-taxon counting intervals; authenticate retained atlas source custody and current uncertainty ownership ([#264](https://github.com/bijux/bijux-pollenomics/pull/264)).
 - Bind conditional wind/covariance studies and individual scientific reader qualifications to exact evidence and historical source witnesses while preserving current producer refusals ([#263](https://github.com/bijux/bijux-pollenomics/pull/263)).
