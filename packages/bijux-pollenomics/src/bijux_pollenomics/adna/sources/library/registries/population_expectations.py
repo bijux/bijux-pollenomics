@@ -51,7 +51,7 @@ def population_expectation(project_accession: str) -> _ProjectIntakeExpectation 
                 "libraries were deposited or close the project specimen roster."
             ),
             expected_sample_count_artifact_path=(
-                "adna/review/galician_cattle/article.html"
+                "data/adna/review/galician_cattle/article.html"
             ),
             sample_identifier_status="paper_or_supplement_targets_curated",
             inventory_disposition="tracked_intake_candidate",
