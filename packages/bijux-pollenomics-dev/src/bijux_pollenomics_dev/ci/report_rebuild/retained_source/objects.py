@@ -164,6 +164,7 @@ class GitPipe:
         deadline: float,
         executable: Path | None = None,
     ) -> None:
+        """Own one isolated Git process and its bounded protocol streams."""
         self.deadline = deadline
         self.error = bytearray()
         self.stderr_open = True
