@@ -108,3 +108,111 @@ def test_historical_reader_refuses_wrong_roles_and_source_custody(
         api(member)["_buffered_historical_reader_source"](
             witness.repository, relative, expected
         )
+
+
+OUTPUT = "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py"
+
+
+def output_api(member: GitSourceMember) -> dict[str, Any]:
+    path = ROOT / "docs/report/pollen-reconstruction/verify_report.py"
+    tree = ast.parse(path.read_text())
+    tree.body = [
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_buffered_historical_replay_output"
+    ]
+    namespace: dict[str, Any] = {
+        "Path": Path,
+        "Any": Any,
+        "read_blob": read_blob,
+        "BUFFERED_REPLAY_OUTPUT_WITNESS": member,
+    }
+    exec(compile(tree, str(path), "exec"), namespace)
+    return namespace
+
+
+@pytest.fixture
+def output_witness(witness: SimpleNamespace) -> SimpleNamespace:
+    repository = witness.repository
+    path = repository / OUTPUT
+    path.parent.mkdir(parents=True)
+    raw = b"# Synthetic historical output controller\n"
+    path.write_bytes(raw)
+    subprocess.run(["git", "-C", str(repository), "add", "--", OUTPUT], check=True)
+    subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repository),
+            "commit",
+            "-qm",
+            "test(source): retain synthetic historical output",
+        ],
+        check=True,
+    )
+
+    def git(*args: str) -> str:
+        return (
+            subprocess.check_output(["git", "-C", str(repository), *args])
+            .decode()
+            .strip()
+        )
+
+    member = GitSourceMember(
+        member=OUTPUT,
+        repository_path=OUTPUT,
+        source_revision=git("rev-parse", "HEAD"),
+        git_blob=git("rev-parse", "HEAD:" + OUTPUT),
+        sha256=hashlib.sha256(raw).hexdigest(),
+        bytes=len(raw),
+    )
+    return SimpleNamespace(repository=repository, member=member, raw=raw)
+
+
+@pytest.mark.parametrize(
+    "damage",
+    [
+        None,
+        "role",
+        "escape",
+        "hash",
+        "size",
+        "bool_size",
+        "extra",
+        "witness_path",
+        "blob",
+        "ancestor",
+    ],
+)
+def test_historical_output_custody_keeps_exact_role_and_identity(
+    output_witness: SimpleNamespace, damage: str | None
+) -> None:
+    sample = output_witness
+    member = sample.member
+    record = {"path": "replay.py", "sha256": member.sha256, "bytes": member.bytes}
+    if damage == "role":
+        record["path"] = "prediction.py"
+    elif damage == "escape":
+        record["path"] = "../replay.py"
+    elif damage == "hash":
+        record["sha256"] = "0" * 64
+    elif damage == "size":
+        record["bytes"] = member.bytes + 1
+    elif damage == "bool_size":
+        record["bytes"] = True
+    elif damage == "extra":
+        record["current_execution"] = True
+    elif damage == "witness_path":
+        member = replace(member, repository_path=READER)
+    elif damage == "blob":
+        member = replace(member, git_blob="0" * 40)
+    elif damage == "ancestor":
+        member = replace(member, source_revision="0" * 40)
+    api = output_api(member)["_buffered_historical_replay_output"]
+    if damage:
+        with pytest.raises((ReportRebuildError, ValueError)):
+            api(sample.repository, record)
+    else:
+        (sample.repository / OUTPUT).write_text("# Current controller differs.\n")
+        assert api(sample.repository, record) == sample.raw

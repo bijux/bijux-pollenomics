@@ -56,11 +56,9 @@ def example(
         "canonical_accounts": [
             {
                 "report_path": "reports/science/account.md",
-                "source_sha256": hashlib.sha256(account.read_bytes()).hexdigest(),
             }
         ],
         "qualification": {
-            "authored_reader_sha256": hashlib.sha256(prose).hexdigest(),
             "fields": {key: f"Scoped fixture {label}." for key, label in FIELDS},
             "evidence_pins": [
                 {
@@ -70,7 +68,7 @@ def example(
             ],
         },
     }
-    routes = parse_routes(json.dumps({"schema_version": 1, "routes": [record]}))
+    routes = parse_routes(json.dumps({"schema_version": 2, "routes": [record]}))
     tracked = family / "REPORT.md"
     tracked.write_bytes(render_route(prose, routes[record["reader_path"]]))
     (generated / "REPORT.md").write_bytes(prose)
@@ -94,7 +92,7 @@ def test_source_produced_prose_matches_verified_tracked_reader(
 
 
 @pytest.mark.parametrize(
-    "change", ["managed_claim", "trailing_html", "malformed", "authored", "evidence"]
+    "change", ["managed_claim", "trailing_html", "malformed", "evidence"]
 )
 def test_malformed_or_changed_reader_cannot_be_peeled(
     example: tuple[ModuleType, Path, dict[str, Any], Path, Path], change: str
@@ -108,8 +106,6 @@ def test_malformed_or_changed_reader_cannot_be_peeled(
         tracked.write_bytes(tracked.read_bytes() + b"<script>unqualified</script>")
     elif change == "malformed":
         tracked.write_bytes(tracked.read_bytes().replace(b"route:end", b"missing:end"))
-    elif change == "authored":
-        tracked.write_bytes(tracked.read_bytes().replace(b"140/184", b"184/184"))
     else:
         evidence.write_bytes(b'{"scored":184,"observed":184}\n')
     with pytest.raises(ValueError):
@@ -134,3 +130,72 @@ def test_undeclared_managed_reader_refuses(
     monkeypatch.setattr(module, "load_routes", dict)
     with pytest.raises(ValueError, match="undeclared managed account"):
         module._compare(generated, manifest)
+
+
+def test_changed_authored_reader_stays_in_the_raw_comparison(
+    example: tuple[ModuleType, Path, dict[str, Any], Path, Path],
+) -> None:
+    module, generated, manifest, tracked, _ = example
+    tracked.write_bytes(tracked.read_bytes().replace(b"140/184", b"184/184"))
+    assert module._compare(generated, manifest) == ["tracked bytes differ: REPORT.md"]
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "old_schema",
+        "account_hash",
+        "authored_hash",
+        "reader_escape",
+        "account_escape",
+        "duplicate_route",
+        "duplicate_account",
+        "self_account",
+        "evidence_escape",
+        "self_evidence",
+        "missing_field",
+        "missing_raw_hash",
+    ],
+)
+def test_core_authority_parser_retains_scope_and_identity_refusals(
+    mutation: str,
+) -> None:
+    reader = "docs/report/fixture/README.md"
+    record: dict[str, Any] = {
+        "reader_path": reader,
+        "scope_reason": "Explicit constructed reader scope.",
+        "canonical_accounts": [{"report_path": "reports/science/fixture.md"}],
+        "qualification": {
+            "fields": {key: f"Constructed {label}." for key, label in FIELDS},
+            "evidence_pins": [
+                {"path": "docs/report/fixture/report.json", "sha256": "a" * 64}
+            ],
+        },
+    }
+    authority: dict[str, Any] = {"schema_version": 2, "routes": [record]}
+    if mutation == "old_schema":
+        authority["schema_version"] = 1
+    elif mutation == "account_hash":
+        record["canonical_accounts"][0]["source_sha256"] = "a" * 64
+    elif mutation == "authored_hash":
+        record["qualification"]["authored_reader_sha256"] = "a" * 64
+    elif mutation == "reader_escape":
+        record["reader_path"] = "docs/report/../outside.md"
+    elif mutation == "account_escape":
+        record["canonical_accounts"][0]["report_path"] = "../outside.md"
+    elif mutation == "duplicate_route":
+        authority["routes"].append(record)
+    elif mutation == "duplicate_account":
+        record["canonical_accounts"].append(record["canonical_accounts"][0])
+    elif mutation == "self_account":
+        record["canonical_accounts"][0]["report_path"] = reader
+    elif mutation == "evidence_escape":
+        record["qualification"]["evidence_pins"][0]["path"] = "../outside.json"
+    elif mutation == "self_evidence":
+        record["qualification"]["evidence_pins"] = [{"path": reader}]
+    elif mutation == "missing_field":
+        record["qualification"]["fields"].pop(FIELDS[0][0])
+    else:
+        record["qualification"]["evidence_pins"][0].pop("sha256")
+    with pytest.raises(ValueError):
+        parse_routes(json.dumps(authority))

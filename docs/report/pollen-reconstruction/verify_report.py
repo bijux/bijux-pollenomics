@@ -466,6 +466,36 @@ def _buffered_historical_reader_source(
     return read_blob(repository, witness)
 
 
+BUFFERED_REPLAY_OUTPUT_WITNESS = GitSourceMember(
+    member="docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+    repository_path="docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+    source_revision="f530ef2e7aea4dea15758350729cacc152f74e01",
+    git_blob="7720c03ab62b18f6d71c4809da9d1bf2d44b8ff1",
+    sha256="f5d3461cb17ed39db6f4465b4219bc2a8954224b95796c682bcebda739b89634",
+    bytes=8290,
+)
+
+
+def _buffered_historical_replay_output(
+    repository: Path, record: dict[str, Any]
+) -> bytes:
+    """Read the original controller as an output witness, separate from current execution."""
+    witness = BUFFERED_REPLAY_OUTPUT_WITNESS
+    expected_path = "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py"
+    if (
+        witness.member != expected_path
+        or witness.repository_path != expected_path
+        or not isinstance(record, dict)
+        or set(record) != {"path", "sha256", "bytes"}
+        or record["path"] != "replay.py"
+        or type(record["bytes"]) is not int
+        or record["bytes"] != witness.bytes
+        or record["sha256"] != witness.sha256
+    ):
+        raise ValueError("Buffered historical output role or identity differs")
+    return read_blob(repository, witness)
+
+
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     """Bind the buffered four-method diagnostic to frozen source and scores."""
     declared = scope["author_buffered_spatial_pollen"]
@@ -479,7 +509,10 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
         path = directory / item["path"]
-        raw = _sealed_reader_content(path, path.read_bytes())
+        if item["path"] == "replay.py":
+            raw = _buffered_historical_replay_output(REPOSITORY_ROOT, item)
+        else:
+            raw = _sealed_reader_content(path, path.read_bytes())
         if item["path"] == "README.md":
             raw = _buffered_reader_markdown(raw)
         if (
