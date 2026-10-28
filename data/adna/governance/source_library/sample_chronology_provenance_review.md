@@ -1,6 +1,6 @@
 # Sample chronology provenance review
 
-- Provenance packets: `1492`
+- Provenance packets: `1493`
 
 | Project accession | Sample id | Published wording | Provenance surface | Provenance locator | Normalization rule | Uncertainty note |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -33,6 +33,7 @@
 | PRJEB19970 | prjeb19970:cgg_1_017079 | Age (years ago): 2727 | data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx | Sheet1!row3 | publish the wording as text and refuse fake numeric precision | Chronology comes from the recovered sample-owned source row. |
 | PRJEB19970 | prjeb19970:cgg_1_017088 | Age (years ago): 2727 | data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx | Sheet1!row4 | publish the wording as text and refuse fake numeric precision | Chronology comes from the recovered sample-owned source row. |
 | PRJEB19970 | prjeb19970:connemara_0004a |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| PRJEB19970 | prjeb19970:samea103910520 | 2,300 yBP | data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html | PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240 | publish the wording as text and refuse fake numeric precision | Chronology comes from the recovered sample-owned source row. |
 | PRJEB19970 | prjeb19970:somali_0226a |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
 | PRJEB22390 | prjeb22390:cgg_1_017139 | 1979 BP | data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx || data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx | Sheet1!row204 || Sheet1!row16 | keep one sample-owned point without widening it into a fake interval | Chronology comes from the recovered sample-owned source row. |
 | PRJEB22390 | prjeb22390:cgg_1_018064 | 3101 BP | data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx || data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx | Sheet1!row202 || Sheet1!row33 | keep one sample-owned point without widening it into a fake interval | Chronology comes from the recovered sample-owned source row. |
