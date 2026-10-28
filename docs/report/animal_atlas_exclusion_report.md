@@ -1162,7 +1162,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.
 
-**Actual verification performed.** Unchanged savedatlasproducer at7e1f7bd8a38283decbf76401092fb64b8bf74c5b emits40files in4.514s/RSS155942912B/16729101B. Independent2.645s/RSS107331584B source/child/support/CSV/output comparisonPASS. HEAD/index/trackedresources/saveddata/reads stable; all21scopedlocalityoutputs andmappedcandidateJSON/CSV exact. No newsource/date/model/map/index generation.
+**Actual verification performed.** Unchanged savedatlasproducer at7e1f7bd8a38283decbf76401092fb64b8bf74c5b emits40files in4.514s/RSS155942912B/16729101B. Independent2.645s/RSS107331584B source/child/support/CSV/output comparisonPASS. HEAD/index/trackedresources/saveddata/reads stable; all21scopedlocalityoutputs andmappedcandidateJSON/CSV exact. No newsource/date/model/map/index generation. Current entity reconciliation at a1801f5be43845a9d34b0cd09be4607958ba09ac completes in0.127s/RSS43696128B,13inputs+producer/HEAD/indexstable:1482source IDs=335mapped+1147excluded/167features. OnlyBER11_L is added asoneexcluded source; alloldmappedIDs/Nordic12IDs8features/falseadmissions unchanged. No originalcountry, map, source, chronology or model producer is rerun; previous actuals retain their sourceepochs.
 
 **Remaining input or review.** Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.
 
@@ -1172,13 +1172,13 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.
 
-**Negative or refused result.** The 1,146 exclusions remain explicit. Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.
+**Negative or refused result.** The current1,147 exclusions remain explicit. The earlier seventeen-owner source recovery remains historical: Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.
 
 **Matched denominator.** 1482normalized source records=335mapped+1147excluded;167localityfeatures. World236individualintervals/67gaps and regional8features/12owners/11intervals unchanged. Existingtaxonomic disagreements and scientific/field/biological refusals remain; these are not independentanimals.
 
 - [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `0dfe52030955bdd0988117e8e73947b521f946742f9128e435b5ad1c2024eada`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

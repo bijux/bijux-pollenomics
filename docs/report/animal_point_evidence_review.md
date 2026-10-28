@@ -1498,7 +1498,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A coordinate basis called exact does not prove a specimen findspot; approximate and geocoded coordinates cannot become precise ecological sites through traceability.
 
-**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch. The retained point-evidence capture describes the earlier 165-feature epoch and was not regenerated. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
+**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch. The retained point-evidence capture describes the earlier 165-feature epoch and was not regenerated. The earlier thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun. Current entity reconciliation at a1801f5be43845a9d34b0cd09be4607958ba09ac completes in0.127s/RSS43696128B,13inputs+producer/HEAD/indexstable:1482source IDs=335mapped+1147excluded/167features. OnlyBER11_L is added asoneexcluded source; alloldmappedIDs/Nordic12IDs8features/falseadmissions unchanged. No originalcountry, map, source, chronology or model producer is rerun; previous actuals retain their sourceepochs.
 
 **Remaining input or review.** Each point needs qualified geographic/chronological interpretation, taxon scope and primary-source review before a biological or historical join.
 
@@ -1510,11 +1510,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Named-site/proximal coordinate caveats remain explicit. Hyena's Lair has two context-only owners; Yana has four owners with one numeric child support. Neither a locality hull nor an unspecified elapsed-age epoch becomes a specimen BP date.
 
-**Matched denominator.** The retained point-evidence capture keeps its original source epoch. Current linked entity accounting has 167 locality features for 335 mapped IDs; 1,146 records are excluded. Earlier 165/322, 161/318 and 170/331 captures remain distinct. Nordic has eight locality features/twelve mapped IDs.
+**Matched denominator.** The retained point-evidence capture keeps its original source epoch. Current linked entity accounting has 167 locality features for 335 mapped IDs; 1,147 records are excluded. Earlier 165/322, 161/318 and 170/331 captures remain distinct. Nordic has eight locality features/twelve mapped IDs.
 
 - [Retained qualification evidence: docs/report/animal_point_evidence_review.json](animal_point_evidence_review.json) (SHA-256 `38c98f138fd2e8fc1cd3caa53b5fc6337d0e513ad4f1a1ee7cab848bf48236f4`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 
