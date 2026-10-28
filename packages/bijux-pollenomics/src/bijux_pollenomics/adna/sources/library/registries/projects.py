@@ -28,6 +28,7 @@ from .paper_evidence import (
     _project_sample_table_extraction_status,
 )
 from .papers import build_paper_registry
+from .population_expectations import population_expectation
 
 
 def _accession_range_sample_count(project_accession: str) -> int | None:
@@ -107,133 +108,9 @@ def _project_intake_expectation(
             ),
         )
 
-    if project.project_accession == "PRJEB41594":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=None,
-            expected_sample_count_status="source_population_unresolved",
-            expected_sample_count_provenance=(
-                "The retained Reporting Summary p. 2 selects six specimens for "
-                "genomic sequencing; p. 3 describes six extracted teeth and five "
-                "samples advanced to deep shotgun sequencing. The final article "
-                "assigns shotgun files to PRJEB41594 without a closed project "
-                "count. Five retained ENA sample aliases, including one Capra "
-                "record, do not resolve that source-stage population boundary."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41562-021-01083-y/"
-                "supplementary/41562_2021_1083_MOESM2_ESM.pdf"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Recover the source-owned six-to-five specimen/analysis-stage "
-                "crosswalk and closed project submission roster. Preserve all "
-                "five archive identities and the Capra taxonomic mismatch; "
-                "do not infer an expected count or independent individuals."
-            ),
-            blocker_categories=("missing_sample_identifiers",),
-        )
-
-    if project.project_accession == "PRJEB31621":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=None,
-            expected_sample_count_status="source_population_unresolved",
-            expected_sample_count_provenance=(
-                "The retained Science Supplementary Table S1 lists 66 ancient "
-                "sample IDs; Table S6 separates nine new modern genomes from "
-                "reused comparators. The project capture has 77 BioSample "
-                "owners across 364 runs, while the 78-row master additionally "
-                "retains provisional Men1. These populations do not establish "
-                "a closed project specimen denominator or an MV013-to-Men1 join."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aav1002/"
-                "supplementary/aav1002_verdugo_sm.pdf"
-            ),
-            sample_identifier_status="manual_curation_required",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Recover explicit Men1/MV013 specimen correspondence and the "
-                "modern ERS-to-SAMEA crosswalk with project/reused-data scope. "
-                "Keep the 66 ancient source IDs, 77 captured archive owners "
-                "and 78-row curated union distinct."
-            ),
-            blocker_categories=("missing_sample_identifiers",),
-        )
-
-    if project.project_accession == "PRJEB75467":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=50,
-            expected_sample_count_status="known_from_source_table",
-            expected_sample_count_provenance=(
-                "The retained Nature supplement physical p. 3 identifies 50 "
-                "new samples, listed as 50 unique Analysis IDs in Supplementary "
-                "Data 1!A2:AB51. Final Data Availability assigns new reads and "
-                "alignments to PRJEB75467, separately from reused data. This "
-                "mixed-taxon source-sample denominator does not imply 50 "
-                "independent individuals or complete archive identity recovery."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41586-024-08112-6/"
-                "supplementary/41586_2024_8112_MOESM3_ESM.xlsx"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Reconcile all 50 source Analysis IDs with captured BioSamples "
-                "and submitted filenames. Preserve provisional Fre1, the six "
-                "unmatched source IDs, Borly4a/Borlya alias ambiguity, literal "
-                "taxa and sample-specific source-use restrictions."
-            ),
-        )
-
-    if project.project_accession == "PRJEB59481":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=5,
-            expected_sample_count_status="known_from_source_table",
-            expected_sample_count_provenance=(
-                "The retained Genome Biology and Evolution article Data Availability "
-                "explicitly assigns five new ancient individuals to PRJEB59481. "
-                "All five Table 1 sample labels join distinct official ENA BioSamples; "
-                "reused comparison genomes are outside this project-owned population."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evae114/"
-                "article_full_text.xml"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Preserve the five Table 1 to ENA identity bindings and keep "
-                "material disagreements and chronology evidence separate."
-            ),
-        )
-
-    if project.project_accession == "PRJEB60484":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=20,
-            expected_sample_count_status="known_from_source_table",
-            expected_sample_count_provenance=(
-                "The retained Molecular Ecology Appendix S1 Table S3 lists 20 "
-                "ancient specimens with PRJEB60484 in the project column; all "
-                "20 join distinct ENA BioSample aliases."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/"
-                "supplementary/mec17274-sup-0003-Table S3.xlsx"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Preserve the exact Table S3 to ENA alias join and source-specific "
-                "chronology alternatives in the generated sample master."
-            ),
-        )
+    population = population_expectation(project.project_accession)
+    if population is not None:
+        return population
 
     if paper_spec is not None and _paper_sample_extractability(
         paper_spec,
