@@ -1,0 +1,42 @@
+{
+  "dataset-19909-sample-eligibility.json": {
+    "sha256": "7ba4825d625f8bbd39da9a2c9c16b4959d5f7e9d9c222e674032df8043859029",
+    "bytes": 241603
+  },
+  "dataset-21790-sample-eligibility.json": {
+    "sha256": "d04ce5d94d5efc98a3b217e05abaefc50d1d3ff8166f0af988b29f78e0728836",
+    "bytes": 225719
+  },
+  "dataset-4042-sample-eligibility.json": {
+    "sha256": "9336f5c9f87a967764ed444017163e52e1f7e3b617e07856ad9de8611d5ac9a1",
+    "bytes": 245476
+  },
+  "dataset-45311-sample-eligibility.json": {
+    "sha256": "2158063bb2936adf66c8200fdfae5cf6cb8e584dd9771f0d83788a7ff28854d9",
+    "bytes": 118585
+  },
+  "dataset-45314-sample-eligibility.json": {
+    "sha256": "3f81054e023da5e9b2db66a4dc443f9b4d3b5c8851c4cb2528a89e3333deb496",
+    "bytes": 98527
+  },
+  "native-results.json": {
+    "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+    "bytes": 7105291
+  },
+  "native-terminal.json": {
+    "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+    "bytes": 3064
+  },
+  "protocol.json": {
+    "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+    "bytes": 40951
+  },
+  "source-eligibility.json": {
+    "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+    "bytes": 4565333
+  },
+  "source-terminal.json": {
+    "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+    "bytes": 12823
+  }
+}

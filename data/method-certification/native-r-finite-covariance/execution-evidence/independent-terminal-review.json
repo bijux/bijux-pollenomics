@@ -1,0 +1,353 @@
+{
+  "status": "passed",
+  "native_exit_code": 0,
+  "candidate": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5",
+  "terminal_sha256": "9614ee0d2dbb1725afd74fb7680ecbd37d968328c8d36e5d783308e3c4282a4e",
+  "plan_sha256": "abda4d3682420119c992fa0e04f06107ed8a874b28d2a28faf9ddf667027cf7a",
+  "checked_native_stages": 11,
+  "checked_output_files": 1220,
+  "checked_frozen_inputs": 762,
+  "protected_current_sources": 68,
+  "original_vectors": [
+    {
+      "profile": "core",
+      "original_id": "C0000",
+      "current_id": "C0000",
+      "values": 3,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0001",
+      "current_id": "C0001",
+      "values": 1,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0002",
+      "current_id": "C0002",
+      "values": 3,
+      "max_abs_error": 4.996003610813204e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0003",
+      "current_id": "C0003",
+      "values": 1,
+      "max_abs_error": 4.996003610813204e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0004",
+      "current_id": "C0004",
+      "values": 3,
+      "max_abs_error": 3.3306690738754696e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0005",
+      "current_id": "C0005",
+      "values": 1,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0006",
+      "current_id": "C0006",
+      "values": 3,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0007",
+      "current_id": "C0007",
+      "values": 1,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0008",
+      "current_id": "C0008",
+      "values": 3,
+      "max_abs_error": 6.938893903907228e-18
+    },
+    {
+      "profile": "core",
+      "original_id": "C0009",
+      "current_id": "C0009",
+      "values": 1,
+      "max_abs_error": 1.0408340855860843e-17
+    },
+    {
+      "profile": "core",
+      "original_id": "C0010",
+      "current_id": "C0010",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "core",
+      "original_id": "C0011",
+      "current_id": "C0011",
+      "values": 1,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0012",
+      "current_id": "C0012",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "core",
+      "original_id": "C0013",
+      "current_id": "C0013",
+      "values": 1,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0014",
+      "current_id": "C0014",
+      "values": 1,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0015",
+      "current_id": "C0015",
+      "values": 78,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "core",
+      "original_id": "C0016",
+      "current_id": "C0016",
+      "values": 78,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "core",
+      "original_id": "C0017",
+      "current_id": "C0017",
+      "values": 28,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "core",
+      "original_id": "C0018",
+      "current_id": "C0018",
+      "values": 15,
+      "max_abs_error": 3.197442310920451e-14
+    },
+    {
+      "profile": "core",
+      "original_id": "C0019",
+      "current_id": "C0019",
+      "values": 10,
+      "max_abs_error": 2.220446049250313e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0020",
+      "current_id": "C0020",
+      "values": 360,
+      "max_abs_error": 5.551115123125783e-17
+    },
+    {
+      "profile": "core",
+      "original_id": "C0021",
+      "current_id": "C0021",
+      "values": 1,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0022",
+      "current_id": "C0022",
+      "values": 1,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "profile": "core",
+      "original_id": "C0023",
+      "current_id": "C0023",
+      "values": 420,
+      "max_abs_error": 5.329070518200751e-15
+    },
+    {
+      "profile": "core",
+      "original_id": "C0024",
+      "current_id": "C0024",
+      "values": 620,
+      "max_abs_error": 1.7763568394002505e-15
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S001",
+      "current_id": "S001",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S002",
+      "current_id": "S002",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S003",
+      "current_id": "S003",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S004",
+      "current_id": "S004",
+      "values": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S005",
+      "current_id": "S005",
+      "values": 12,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S006",
+      "current_id": "S006",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S007",
+      "current_id": "S007",
+      "values": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S008",
+      "current_id": "S008",
+      "values": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S009",
+      "current_id": "S009",
+      "values": 6,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "S010",
+      "current_id": "S010",
+      "values": 8,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F001",
+      "current_id": "F001",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F002",
+      "current_id": "F002",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F003",
+      "current_id": "F003",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F004",
+      "current_id": "F004",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F005",
+      "current_id": "F005",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F006",
+      "current_id": "F006",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F007",
+      "current_id": "F007",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F008",
+      "current_id": "F008",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F009",
+      "current_id": "F009",
+      "values": 18,
+      "max_abs_error": 9.75781955236954e-19
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F010",
+      "current_id": "F010",
+      "values": 18,
+      "max_abs_error": 9.540979117872439e-18
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F011",
+      "current_id": "F011",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F012",
+      "current_id": "F012",
+      "values": 18,
+      "max_abs_error": 0.0
+    },
+    {
+      "profile": "source-domains",
+      "original_id": "F013",
+      "current_id": "F013",
+      "values": 18,
+      "max_abs_error": 0.0
+    }
+  ],
+  "compared_numeric_values": 1894,
+  "actual_scope": "Separate stdlib CSV consumer with exact original per-core tolerances/exact indices and unchanged1e-10relative/3e-10absolute domain tolerances; finite/NaN/kind/population/command/source/host custody checked. No freshRrun, covarianceRparity, hosted/Linux certificate, ecology or qualifiedexternalreview. RSS/process/storage budgets declared but not fully observed; elapsedaggregate bound passed.",
+  "failed_inspection_predecessor": "Initial reader assumed source-domain .csv filenames; observed missing S001.csv, corrected to actual unchanged -R.csv source contract. No data/tolerance/native execution changed.",
+  "release_certificate": false
+}

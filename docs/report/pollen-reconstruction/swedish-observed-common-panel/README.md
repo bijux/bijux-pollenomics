@@ -26,6 +26,10 @@ The precise public acquisition and offline qualification both exited successfull
 
 ## Numerical and retained-model evidence
 
+A separate [same-core native chronology comparison](../swedish-native-chronology-contrast/README.md) now checks all five existing paired calibrated-BP profiles against their retained native sample/count support. Of 125 declared pair/window slots, 106 support conditional-cover contrasts and 19 retain missing or one-sided support. Seventy-six jointly selected samples change windows; three additional samples occur in only the first selected cohort. The largest conditional Betula/Poaceae panel change is 14.395 percentage points at Holtjärnen under the original fixed parameter and physical scenario. Neither chronology accuracy nor measured vegetation accuracy is established, and paired standard errors remain withheld without cross-chronology count/shared-PPE covariance.
+
+A separate [Krageholm static geometry sensitivity](../krageholm-static-geometry-sensitivity/README.md) uses the same 95 selected native samples and fixed two-taxon panel in 24 supported windows. Replacing the workbook’s 837 m radius with a declared circle equivalent to 186 ha changes conditional cover by at most 0.10518 percentage points. The remaining window stays refused. Historical basin/core selection and paired uncertainty are not established by this static comparison.
+
 Actual physical plan: 4089e94dfc5063c466cb45eaebefcb6e49db3f3f578643d43583fa3f020f8bfd; exit 0 in 18.92018570797518 s, all 8,843 frozen members unchanged. Physical terminal: 20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950. Physical product: d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37.
 
 Distinct independent integration plan: 1c79793d29315ddf4f86c1e4e360e461a6e268617fcd7607a2b14536b50a28e7; exit 0 in 0.6877624160260893 s, all 3,485 frozen members unchanged. Independent review: 775baf664ac912495b123c9789c2c2572fc71a7270bc00336578bffe1b0da72a. The failed integration predecessor at its small-displacement lens fixture is preserved; the exact accepted equal-circle source branch corrected that numerical control without rerunning the physical model.

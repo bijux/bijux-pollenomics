@@ -40,8 +40,8 @@ def comparison(
         for row in policy["owners"]
         if row["owner_id"] == "method-certification/current-r-oracle/report-products"
     )
-    assert len(declaration["producer_paths"]) == 98
-    assert len(declaration["producer_inputs"]) == 280
+    assert len(declaration["producer_paths"]) == 99
+    assert len(declaration["producer_inputs"]) == 287
     assert {name for name in declaration["producer_paths"] if name.endswith(".R")} == {
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
@@ -49,7 +49,7 @@ def comparison(
     # Exercise the default historical profile independently of the configured
     # current-owner profile; both contracts declare their actual selected packet.
     declaration["producer_inputs"] = [
-        name.replace("native-r-count-domain/", "native-r-annulus/")
+        name.replace("native-r-finite-covariance/", "native-r-annulus/")
         for name in declaration["producer_inputs"]
     ]
     for name in declaration["producer_paths"] + declaration["producer_inputs"]:
@@ -123,7 +123,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         )
         assert "consumer_source_revision" not in report
         assert "source_revision" not in report
-        assert len(report["consumer_inputs"]["code_sha256"]) == 98
+        assert len(report["consumer_inputs"]["code_sha256"]) == 99
         assert (
             report["consumer_inputs"]["capture_manifest_sha256"]
             == source.manifest_sha256
@@ -384,7 +384,7 @@ def test_consumer_contract_refuses_before_comparison(
     assert not output.exists()
 
 
-@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+@pytest.mark.parametrize("profile", ["annulus", "count-domain", "finite-covariance"])
 def test_selected_capture_profile_binds_consumer_data_and_output(
     comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
     monkeypatch: pytest.MonkeyPatch,

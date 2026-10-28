@@ -1,6 +1,6 @@
 # Native R reference and retained comparisons
 
-The current mapped comparison explicitly selects the separate native count-domain source packet described below. The prior capture and its governed raw files remain historical evidence.
+The current mapped comparison explicitly selects the separate native finite-covariance source packet described below. The prior capture and its governed raw files remain historical evidence.
 
 ## Historical native capture
 
@@ -8,7 +8,7 @@ The historical authenticated native macOS R 4.6.0 capture passed **43 core cases
 
 The native source packet at `data/method-certification/native-r/capture/capture.json` independently binds 138 raw members, the actual execution receipt, five locked public dependency archives and their acquisition metadata. Nine additional raw scripts and process logs remain in that packet. The core run report retains its actual elapsed time. These immutable records are preserved as source evidence; rebuilding a comparison does not execute R again or reproduce process timing.
 
-The current [comparison report](report.json) and [source account](source-replay.json) are derived from the separate count-domain capture described below and the [original authenticated R bundle](../original-r-reference/reference-bundle/certificate.json). Their `native_capture_source_revision` identifies the actual native execution. The governed comparison identifies its consumer through deterministic code and data digests; the execution Git revision remains in the preserved run evidence. Both explicitly state that R and the captured 43 Python expectation vectors were not newly executed for this comparison. A changed protected scientific input refuses reuse of the capture and requires a new native execution decision.
+The current [comparison report](report.json) and [source account](source-replay.json) are derived from the separate finite-covariance capture described below and the [original authenticated R bundle](../original-r-reference/reference-bundle/certificate.json). Their `native_capture_source_revision` identifies the actual native execution. The governed comparison identifies its consumer through deterministic code and data digests; the execution Git revision remains in the preserved run evidence. Both explicitly state that R and the captured 43 Python expectation vectors were not newly executed for this comparison. A changed protected scientific input refuses reuse of the capture and requires a new native execution decision.
 
 The 18 prospective optimized LOVE cases have native R results in this capture. The original reference contains 25 core cases and 23 source-domain cases; it contains no R results for those 18 later cases. The separate [current Python account](../original-r-reference/report.json) compares current Python with the historical reference and must retain those missing historical results explicitly. Neither comparison establishes stochastic optimizer trajectory parity, a global optimum or uncertainty calibration.
 
@@ -37,9 +37,9 @@ Python expectation generation. The 43 core and 23 domain cases do not exercise
 the point-receiver annulus fallback; its separate 47-case Decimal mathematical regression
 evidence must not be inferred from these comparisons.
 
-## Count-domain source capture and current comparison
+## Historical count-domain source capture
 
-The current comparison and reader explicitly select
+The count-domain comparison and reader previously selected
 `data/method-certification/native-r-count-domain/capture/capture.json`. Its
 actual native R execution used base revision
 `60061f9d60c519673e479fc7bf8e478cd653c4e1` with exactly the reviewed count-domain
@@ -54,14 +54,47 @@ their original acquisition metadata. These archives were reused for this native
 execution; their older acquisition receipt does not establish fresh downloads.
 The historical native and annulus packets remain unchanged.
 
-The current producer declares 98 code inputs and 280 data inputs. Its configured
-owner selects `count-domain`; direct calls retain `annulus` as the default and
-must select `count-domain` explicitly for the current mapped comparison. An
+That historical producer declared 98 code inputs and 280 data inputs. Its configured
+owner selected `count-domain`; direct calls retained `annulus` as the default and
+required explicit `count-domain` selection for that mapped comparison. An
 unknown, missing or unauthenticated selected packet refuses without fallback.
 Rebuilding these comparisons executes neither R nor new Python expectations.
 The native case inventory does not exercise fixed-site covariance. Its separate
 Python count-domain regression and mathematical producer checks provide that
 function's evidence and establish no covariance R parity or ecological accuracy.
+
+## Current finite-covariance source capture
+
+The current configured comparison and reader explicitly select
+`data/method-certification/native-r-finite-covariance/capture/capture.json`.
+The actual native execution used the committed scientific source at
+`92a0adc1f00245c1a51b4e096e1eaac4c23325e5` with no scientific execution overlays.
+Its independently owned selected source export and separately identified generated
+version file bind all 68 protected scientific inputs. This custody statement does
+not describe a complete clean checkout or full Git history.
+
+The actual macOS R 4.6.0 run passed 43 core cases and 23 source-domain cases;
+48 comparisons against original R vectors also passed. The immutable packet retains
+138 raw members, 129 comparison inputs, the execution receipt, before/after source
+and host custody, and an independent local terminal/vector review. It also preserves
+five exact cached public dependency archives and their original acquisition metadata.
+These cached bytes do not establish fresh downloads. Historical native, annulus and
+count-domain packets remain unchanged and retain their original scope.
+
+The current producer declares 99 code inputs and 287 data inputs. Its configured
+owner selects `finite-covariance`; direct calls retain `annulus` as the default and
+must select `finite-covariance` explicitly for this mapped comparison. An unknown,
+missing, unauthenticated or scientifically stale selected packet refuses without
+fallback. Each rebuilt comparison identifies its actual consumer code and data
+bytes and executes neither R nor new Python expectations.
+
+The native case inventory witnesses the current protected source closure. It does
+not exercise the fixed-site or joint covariance extensions or establish covariance
+R parity. Their positive finite correction-factor domains and integer-count boundaries
+have separate Python mathematical and regression evidence. Native comparison does
+not establish ecological accuracy, statistical coverage, a Linux release certificate,
+external scientific approval or release readiness. Declared RSS, process and storage
+budgets were not measured during this local execution.
 
 ## Recompute the retained comparison
 
@@ -71,7 +104,7 @@ From an installed development environment at the repository root, choose an abse
 mkdir -p artifacts/jobs/native-r-comparison/producer-output
 python -m bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison \
   --repository . \
-  --capture-profile count-domain \
+  --capture-profile finite-covariance \
   --output artifacts/jobs/native-r-comparison/producer-output/source-products
 ```
 
@@ -91,7 +124,7 @@ python -m bijux_pollenomics_dev.lra_validation.live_reference \
   --output artifacts/jobs/native-r-reproduction \
   --r "$BIJUX_R" --rscript "$BIJUX_RSCRIPT" \
   --fortran "$BIJUX_FORTRAN" \
-  --source-cache data/method-certification/native-r-count-domain/source-archives
+  --source-cache data/method-certification/native-r-finite-covariance/source-archives
 ```
 
 ## Optimized LOVE objective and bounded search

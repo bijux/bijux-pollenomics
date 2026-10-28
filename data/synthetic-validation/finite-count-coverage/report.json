@@ -1,0 +1,1343 @@
+{
+  "candidate": "2b076418e86577058f70db216783ae3b2b74040b",
+  "cases": [
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "source_fixed_deposition",
+        "name": "uniform_matched_counting",
+        "seed": 2026101301,
+        "truth": "uniform_ten_taxa"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          115,
+          54,
+          2,
+          2,
+          17,
+          7,
+          37,
+          14,
+          8,
+          33
+        ],
+        [
+          129,
+          42,
+          6,
+          6,
+          11,
+          6,
+          37,
+          13,
+          7,
+          36
+        ],
+        [
+          925,
+          335,
+          48,
+          49,
+          92,
+          51,
+          312,
+          152,
+          66,
+          193
+        ],
+        [
+          1096,
+          418,
+          47,
+          61,
+          135,
+          64,
+          427,
+          178,
+          61,
+          299
+        ],
+        [
+          1704,
+          648,
+          93,
+          86,
+          196,
+          96,
+          628,
+          271,
+          96,
+          433
+        ],
+        [
+          235,
+          95,
+          8,
+          11,
+          20,
+          19,
+          75,
+          31,
+          12,
+          56
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": 5.500719584450309e-05,
+          "coverage": 0.956,
+          "coverage_monte_carlo_standard_error": 0.006485676526007139,
+          "covered": 956,
+          "empirical_variance": 5.057588911074443e-06,
+          "mean_plugin_counting_variance": 5.205541216038399e-06,
+          "rmse": 0.002248456607043606,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 2.342805430491368e-05,
+          "coverage": 0.946,
+          "coverage_monte_carlo_standard_error": 0.0071473071852271785,
+          "covered": 946,
+          "empirical_variance": 9.522718011923704e-06,
+          "mean_plugin_counting_variance": 9.289370561632993e-06,
+          "rmse": 0.0030844357940538,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 2.972777888812783e-06,
+          "coverage": 0.934,
+          "coverage_monte_carlo_standard_error": 0.007851369307324675,
+          "covered": 934,
+          "empirical_variance": 4.7022650678755456e-05,
+          "mean_plugin_counting_variance": 4.4391455495047166e-05,
+          "rmse": 0.006853877505871043,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 1.8538004704457545e-05,
+          "coverage": 0.947,
+          "coverage_monte_carlo_standard_error": 0.007084560677981384,
+          "covered": 947,
+          "empirical_variance": 5.0680407560114525e-05,
+          "mean_plugin_counting_variance": 4.9454174137384035e-05,
+          "rmse": 0.00711548106667236,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00015204124891127213,
+          "coverage": 0.948,
+          "coverage_monte_carlo_standard_error": 0.007021111023192843,
+          "covered": 948,
+          "empirical_variance": 2.286097513538611e-05,
+          "mean_plugin_counting_variance": 2.2321294956130035e-05,
+          "rmse": 0.004781341935233373,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0002408984498784017,
+          "coverage": 0.944,
+          "coverage_monte_carlo_standard_error": 0.007270763371201131,
+          "covered": 944,
+          "empirical_variance": 4.634539747605491e-05,
+          "mean_plugin_counting_variance": 4.601436362613778e-05,
+          "rmse": 0.006808603685171628,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0001673468671788414,
+          "coverage": 0.951,
+          "coverage_monte_carlo_standard_error": 0.006826346021115546,
+          "covered": 951,
+          "empirical_variance": 8.73315492242761e-06,
+          "mean_plugin_counting_variance": 9.1044408900371e-06,
+          "rmse": 0.002958450057286713,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -1.6198108899467822e-05,
+          "coverage": 0.963,
+          "coverage_monte_carlo_standard_error": 0.005969170796685251,
+          "covered": 963,
+          "empirical_variance": 1.682650940611329e-05,
+          "mean_plugin_counting_variance": 1.8348804633241086e-05,
+          "rmse": 0.004099993326267629,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00016214974776530833,
+          "coverage": 0.959,
+          "coverage_monte_carlo_standard_error": 0.006270486424512857,
+          "covered": 959,
+          "empirical_variance": 4.3009160851379526e-05,
+          "mean_plugin_counting_variance": 4.45510330326645e-05,
+          "rmse": 0.006556862377023671,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 1.0306396537415607e-05,
+          "coverage": 0.959,
+          "coverage_monte_carlo_standard_error": 0.006270486424512857,
+          "covered": 959,
+          "empirical_variance": 1.161286354408588e-05,
+          "mean_plugin_counting_variance": 1.2079885954940704e-05,
+          "rmse": 0.0034060764674844544,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          0.4285874204736708,
+          0.15022828909858088,
+          0.020109542337104082,
+          0.014112959827601515,
+          0.04897909330487781,
+          0.01992560953817369,
+          0.14421660920424015,
+          0.05922071043734052,
+          0.02070193198771293,
+          0.0939178337906976
+        ],
+        [
+          0.42488163956070135,
+          0.14961850518533723,
+          0.0204996839738367,
+          0.014978224175027772,
+          0.048857004637647576,
+          0.020206854772230436,
+          0.14526580296603595,
+          0.059454688249426985,
+          0.020994134828291364,
+          0.09524346165146456
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.4090542832005005,
+          0.1468624975813158,
+          0.022192266589428886,
+          0.01920928319544594,
+          0.0482745942798029,
+          0.021401780442709576,
+          0.14953650306651423,
+          0.06035752335988019,
+          0.022235616044373584,
+          0.10087565224002833
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.43128371318011344,
+          0.15066338623183997,
+          0.01982736604898553,
+          0.013511167330236643,
+          0.04906449730418455,
+          0.019720808027973383,
+          0.1434421595192482,
+          0.059045233594572144,
+          0.02048915119789442,
+          0.0929525175649517
+        ]
+      ]
+    },
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "source_fixed_deposition",
+        "name": "rare_alnus_matched_counting",
+        "seed": 2026101302,
+        "truth": "rare_alnus"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          0,
+          76,
+          15,
+          5,
+          21,
+          5,
+          83,
+          36,
+          7,
+          41
+        ],
+        [
+          0,
+          74,
+          12,
+          9,
+          22,
+          8,
+          79,
+          36,
+          6,
+          47
+        ],
+        [
+          0,
+          547,
+          65,
+          71,
+          185,
+          85,
+          586,
+          217,
+          90,
+          377
+        ],
+        [
+          0,
+          670,
+          100,
+          89,
+          224,
+          111,
+          759,
+          281,
+          97,
+          455
+        ],
+        [
+          0,
+          977,
+          147,
+          146,
+          368,
+          162,
+          1115,
+          445,
+          152,
+          739
+        ],
+        [
+          0,
+          139,
+          16,
+          14,
+          50,
+          26,
+          131,
+          67,
+          25,
+          94
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": -5.168766867528374e-07,
+          "coverage": 0.427,
+          "coverage_monte_carlo_standard_error": 0.015641962792437524,
+          "covered": 427,
+          "empirical_variance": 1.721364927037548e-10,
+          "mean_plugin_counting_variance": 1.79774676353529e-10,
+          "rmse": 1.3123700610740846e-05,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 525,
+          "zero_standard_error_replicates": 525
+        },
+        {
+          "accepted": 1000,
+          "bias": -5.9511913318557874e-05,
+          "coverage": 0.943,
+          "coverage_monte_carlo_standard_error": 0.007331507348424336,
+          "covered": 943,
+          "empirical_variance": 7.511254295725068e-06,
+          "mean_plugin_counting_variance": 7.138419773840727e-06,
+          "rmse": 0.0027399424645886596,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00017780566919543828,
+          "coverage": 0.948,
+          "coverage_monte_carlo_standard_error": 0.007021111023192843,
+          "covered": 948,
+          "empirical_variance": 3.1124697655519335e-05,
+          "mean_plugin_counting_variance": 3.220297270231487e-05,
+          "rmse": 0.005578995233360739,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.0002726737221201564,
+          "coverage": 0.962,
+          "coverage_monte_carlo_standard_error": 0.006046155803483734,
+          "covered": 962,
+          "empirical_variance": 3.062049927946542e-05,
+          "mean_plugin_counting_variance": 3.5679429380835725e-05,
+          "rmse": 0.0055375292088548685,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0001541218173169573,
+          "coverage": 0.953,
+          "coverage_monte_carlo_standard_error": 0.00669260786241059,
+          "covered": 953,
+          "empirical_variance": 1.589591267168873e-05,
+          "mean_plugin_counting_variance": 1.6432743414016288e-05,
+          "rmse": 0.003987953145861938,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.00017688822635754387,
+          "coverage": 0.949,
+          "coverage_monte_carlo_standard_error": 0.006956938982052382,
+          "covered": 949,
+          "empirical_variance": 3.478535241951676e-05,
+          "mean_plugin_counting_variance": 3.3313088729522574e-05,
+          "rmse": 0.0058976144763557715,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -3.1639710034642166e-05,
+          "coverage": 0.952,
+          "coverage_monte_carlo_standard_error": 0.006759881655768837,
+          "covered": 952,
+          "empirical_variance": 6.449259391703124e-06,
+          "mean_plugin_counting_variance": 7.02045076361004e-06,
+          "rmse": 0.0025384663093219293,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -1.3304077479153742e-05,
+          "coverage": 0.95,
+          "coverage_monte_carlo_standard_error": 0.006892024376045114,
+          "covered": 950,
+          "empirical_variance": 1.429745167013429e-05,
+          "mean_plugin_counting_variance": 1.3588713284612647e-05,
+          "rmse": 0.0037793294665776004,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0003365679990134929,
+          "coverage": 0.96,
+          "coverage_monte_carlo_standard_error": 0.00619677335393187,
+          "covered": 960,
+          "empirical_variance": 3.06277877712901e-05,
+          "mean_plugin_counting_variance": 3.228748569914385e-05,
+          "rmse": 0.005541699919833151,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": -0.00011396095952907748,
+          "coverage": 0.941,
+          "coverage_monte_carlo_standard_error": 0.007451107300260817,
+          "covered": 941,
+          "empirical_variance": 9.649349558320895e-06,
+          "mean_plugin_counting_variance": 9.117006335579538e-06,
+          "rmse": 0.0031068774209903043,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          6.7500526313616e-05,
+          0.26288911723736014,
+          0.03519030846167409,
+          0.02469670374965041,
+          0.08571002624915906,
+          0.034868438782987426,
+          0.2523690931458939,
+          0.10363214799594517,
+          0.036226949384922005,
+          0.16434971446609412
+        ],
+        [
+          6.648577091266895e-05,
+          0.26013524862847387,
+          0.035641917293140826,
+          0.026041993033931975,
+          0.08494556895160378,
+          0.03513278777690109,
+          0.25256739281664736,
+          0.10337130484450796,
+          0.036501597690286845,
+          0.16559570319359362
+        ],
+        [
+          6.151077919764361e-05,
+          0.24628226980411375,
+          0.03791577387929718,
+          0.0338942821855899,
+          0.0810561490514354,
+          0.03641317652986368,
+          0.2530468076237306,
+          0.10186744095445975,
+          0.03783187171933888,
+          0.17163071747297318
+        ],
+        [
+          6.229499459600119e-05,
+          0.24850564884058235,
+          0.03755147637330404,
+          0.032503977958046784,
+          0.08168531498230838,
+          0.036213896827639515,
+          0.2530303265428295,
+          0.10213080774179795,
+          0.037624827872872225,
+          0.17069142786602323
+        ],
+        [
+          6.151077919764361e-05,
+          0.24628226980411375,
+          0.03791577387929718,
+          0.0338942821855899,
+          0.0810561490514354,
+          0.03641317652986368,
+          0.2530468076237306,
+          0.10186744095445975,
+          0.03783187171933888,
+          0.17163071747297318
+        ],
+        [
+          6.824716324879392e-05,
+          0.26490028046416103,
+          0.03486099017554059,
+          0.02375568547006091,
+          0.0862664740371064,
+          0.03467363709422601,
+          0.25220373202393626,
+          0.10381486391926455,
+          0.036024558019975075,
+          0.16343153163248034
+        ]
+      ]
+    },
+    {
+      "accepted": 1000,
+      "attempts": 1000,
+      "case": {
+        "assumed_deposition": "multiply_only_Alnus_column_by_1.5",
+        "name": "uniform_alnus_transport_misspecified",
+        "seed": 2026101303,
+        "truth": "uniform_ten_taxa"
+      },
+      "first_actual_multinomial_counts": [
+        [
+          122,
+          48,
+          5,
+          5,
+          11,
+          12,
+          40,
+          19,
+          4,
+          23
+        ],
+        [
+          137,
+          35,
+          7,
+          8,
+          11,
+          9,
+          44,
+          14,
+          4,
+          24
+        ],
+        [
+          905,
+          306,
+          39,
+          49,
+          111,
+          51,
+          352,
+          130,
+          57,
+          223
+        ],
+        [
+          1117,
+          367,
+          56,
+          61,
+          144,
+          65,
+          441,
+          187,
+          60,
+          288
+        ],
+        [
+          1782,
+          602,
+          92,
+          100,
+          197,
+          91,
+          639,
+          232,
+          94,
+          422
+        ],
+        [
+          265,
+          79,
+          10,
+          7,
+          25,
+          14,
+          75,
+          32,
+          8,
+          47
+        ]
+      ],
+      "metrics": [
+        {
+          "accepted": 1000,
+          "bias": -0.030951302160679012,
+          "coverage": 0.0,
+          "coverage_monte_carlo_standard_error": 0.0,
+          "covered": 0,
+          "empirical_variance": 2.467253892947065e-06,
+          "mean_plugin_counting_variance": 2.6534890137851114e-06,
+          "rmse": 0.03099109375418537,
+          "taxon": "Alnus.glutinosa",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0036319872543302822,
+          "coverage": 0.793,
+          "coverage_monte_carlo_standard_error": 0.012812142677944232,
+          "covered": 793,
+          "empirical_variance": 1.007899983545108e-05,
+          "mean_plugin_counting_variance": 1.01045423752513e-05,
+          "rmse": 0.004822888372255078,
+          "taxon": "Betula",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0034628180768074696,
+          "coverage": 0.93,
+          "coverage_monte_carlo_standard_error": 0.008068457101577721,
+          "covered": 930,
+          "empirical_variance": 4.9178770928e-05,
+          "mean_plugin_counting_variance": 4.736618278992841e-05,
+          "rmse": 0.0078179729591587,
+          "taxon": "Calluna.vulgaris",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0033298487132232685,
+          "coverage": 0.936,
+          "coverage_monte_carlo_standard_error": 0.007739767438366605,
+          "covered": 936,
+          "empirical_variance": 5.3201107301968025e-05,
+          "mean_plugin_counting_variance": 5.2688406626806656e-05,
+          "rmse": 0.008014723865961986,
+          "taxon": "Cerealia.t",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0035937040231066725,
+          "coverage": 0.893,
+          "coverage_monte_carlo_standard_error": 0.009775019181566856,
+          "covered": 893,
+          "empirical_variance": 2.4425038992089723e-05,
+          "mean_plugin_counting_variance": 2.3939909890418123e-05,
+          "rmse": 0.0061086268963483755,
+          "taxon": "Corylus.avellana",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0031604636449142215,
+          "coverage": 0.917,
+          "coverage_monte_carlo_standard_error": 0.008724161850859943,
+          "covered": 917,
+          "empirical_variance": 5.266081796565963e-05,
+          "mean_plugin_counting_variance": 4.904101126015422e-05,
+          "rmse": 0.007911806847902603,
+          "taxon": "Cyperaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0035271245911486643,
+          "coverage": 0.803,
+          "coverage_monte_carlo_standard_error": 0.012577400367325513,
+          "covered": 803,
+          "empirical_variance": 1.0043395014387316e-05,
+          "mean_plugin_counting_variance": 9.917595325448686e-06,
+          "rmse": 0.004740670785960414,
+          "taxon": "Pinus",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0036499391912265255,
+          "coverage": 0.882,
+          "coverage_monte_carlo_standard_error": 0.01020176455325254,
+          "covered": 882,
+          "empirical_variance": 1.9201322169850816e-05,
+          "mean_plugin_counting_variance": 1.9735487681884977e-05,
+          "rmse": 0.005701243456241134,
+          "taxon": "Plantago.lanceolata.type",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.0033251928296465783,
+          "coverage": 0.919,
+          "coverage_monte_carlo_standard_error": 0.008627803892068941,
+          "covered": 919,
+          "empirical_variance": 4.9059177897065174e-05,
+          "mean_plugin_counting_variance": 4.740575983782658e-05,
+          "rmse": 0.00775029199924113,
+          "taxon": "Poaceae",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        },
+        {
+          "accepted": 1000,
+          "bias": 0.00327022383627526,
+          "coverage": 0.85,
+          "coverage_monte_carlo_standard_error": 0.011291589790636216,
+          "covered": 850,
+          "empirical_variance": 1.3426452102745367e-05,
+          "mean_plugin_counting_variance": 1.301954136431987e-05,
+          "rmse": 0.004909927656288383,
+          "taxon": "Quercus.deciduous",
+          "zero_pooled_count_replicates": 0,
+          "zero_standard_error_replicates": 0
+        }
+      ],
+      "refusals": [],
+      "site_probabilities": [
+        [
+          0.4285874204736708,
+          0.15022828909858088,
+          0.020109542337104082,
+          0.014112959827601515,
+          0.04897909330487781,
+          0.01992560953817369,
+          0.14421660920424015,
+          0.05922071043734052,
+          0.02070193198771293,
+          0.0939178337906976
+        ],
+        [
+          0.42488163956070135,
+          0.14961850518533723,
+          0.0204996839738367,
+          0.014978224175027772,
+          0.048857004637647576,
+          0.020206854772230436,
+          0.14526580296603595,
+          0.059454688249426985,
+          0.020994134828291364,
+          0.09524346165146456
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.4090542832005005,
+          0.1468624975813158,
+          0.022192266589428886,
+          0.01920928319544594,
+          0.0482745942798029,
+          0.021401780442709576,
+          0.14953650306651423,
+          0.06035752335988019,
+          0.022235616044373584,
+          0.10087565224002833
+        ],
+        [
+          0.4059952811556642,
+          0.14630182957087237,
+          0.022523534043066604,
+          0.02013460205514316,
+          0.04815069681478245,
+          0.021630929222162067,
+          0.1503202441323366,
+          0.06051346285379793,
+          0.0224736926983502,
+          0.10195572745382439
+        ],
+        [
+          0.43128371318011344,
+          0.15066338623183997,
+          0.01982736604898553,
+          0.013511167330236643,
+          0.04906449730418455,
+          0.019720808027973383,
+          0.1434421595192482,
+          0.059045233594572144,
+          0.02048915119789442,
+          0.0929525175649517
+        ]
+      ]
+    }
+  ],
+  "counting_only": true,
+  "empirical_vegetation_accuracy": false,
+  "independent_scalar_comparisons": 1500,
+  "independent_scalar_spot_checks": [
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 0
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 1
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 4.0657581468206416e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 2
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 3
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 4
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 5
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 6
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 7
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 8
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 9
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 10
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 11
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 12
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 13
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 14
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 15
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 16
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 17
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 18
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 19
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 20
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 21
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 22
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 23
+    },
+    {
+      "case": "uniform_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 24
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 0.0,
+      "replicate": 0
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 1
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 2
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 3
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 4
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 6.776263578034403e-21,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 5
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 6
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 6.776263578034403e-21,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 7
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.6940658945086007e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 8
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 9
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 10
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 11
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 12
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 6.776263578034403e-21,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 13
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 14
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 15
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 16
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 6.776263578034403e-21,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 17
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 18
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 19
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 0.0,
+      "replicate": 20
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 21
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.6940658945086007e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 22
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 23
+    },
+    {
+      "case": "rare_alnus_matched_counting",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 24
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 0
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 1
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 2
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 4.0657581468206416e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 3
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 4
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 4.163336342344337e-17,
+      "replicate": 5
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 6
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 7
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 8
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 9
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 3.3881317890172014e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 10
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 11
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 12
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 13
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 14
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 1.3552527156068805e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 15
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 16
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 17
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 18
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 4.0657581468206416e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 19
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 20
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 21
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 2.7755575615628914e-17,
+      "replicate": 22
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.710505431213761e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 23
+    },
+    {
+      "case": "uniform_alnus_transport_misspecified",
+      "max_count_variance_absolute_difference": 2.0328790734103208e-20,
+      "max_cover_absolute_difference": 1.3877787807814457e-17,
+      "replicate": 24
+    }
+  ],
+  "plan_sha256": "392ccbe855c2501674ec432a90c45ad506e27aee1b447e0cc2a6851e9eb8afb2",
+  "ppe_covariance_supplied": 0,
+  "protocol_sha256": "8c3b4cd0349f17d63e02d9713b841d35cff280d69aa5442f0ec6b3ea84aed22e",
+  "replicate_rows_sha256": "cb47f2dfe8f9c87df60b553468b124fe9ddb7eabb90b052c2771d5b0f97e924b",
+  "schema_version": "conditional-counting-coverage-stress.v1",
+  "scope": "Marginal normal-approximation diagnostic under a fixed conditional count model; closure constraints mean not simultaneous intervals. Positive controls use same inverse model and are inverse-crime numerical controls. Named transport misspecification is deliberate numerical sensitivity, not observed transport error. No accepted coverage threshold, fitted source model, parameter optimization, interval certification, historical replay, vegetation truth or release acceptance.",
+  "site_resampling": false,
+  "source_observed_counts_simulated": false,
+  "synthetic_profile_counts": true,
+  "uncertainty_coverage_certified": false
+}

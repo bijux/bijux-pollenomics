@@ -1,0 +1,3679 @@
+{
+  "schema_version": "swedish-native-chronology-contrast.v1",
+  "source_custody": {
+    "dataset-19909-sample-eligibility.json": {
+      "sha256": "7ba4825d625f8bbd39da9a2c9c16b4959d5f7e9d9c222e674032df8043859029",
+      "bytes": 241603
+    },
+    "dataset-21790-sample-eligibility.json": {
+      "sha256": "d04ce5d94d5efc98a3b217e05abaefc50d1d3ff8166f0af988b29f78e0728836",
+      "bytes": 225719
+    },
+    "dataset-4042-sample-eligibility.json": {
+      "sha256": "9336f5c9f87a967764ed444017163e52e1f7e3b617e07856ad9de8611d5ac9a1",
+      "bytes": 245476
+    },
+    "dataset-45311-sample-eligibility.json": {
+      "sha256": "2158063bb2936adf66c8200fdfae5cf6cb8e584dd9771f0d83788a7ff28854d9",
+      "bytes": 118585
+    },
+    "dataset-45314-sample-eligibility.json": {
+      "sha256": "3f81054e023da5e9b2db66a4dc443f9b4d3b5c8851c4cb2528a89e3333deb496",
+      "bytes": 98527
+    },
+    "native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "source-eligibility.json": {
+      "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+      "bytes": 4565333
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "protocol": {
+    "schema_version": "swedish-native-chronology-contrast-protocol.v1",
+    "dataset_chronology_pairs": [
+      [
+        4042,
+        25402,
+        25404
+      ],
+      [
+        19909,
+        11514,
+        11513
+      ],
+      [
+        21790,
+        12503,
+        12504
+      ],
+      [
+        45311,
+        29525,
+        29524
+      ],
+      [
+        45314,
+        29528,
+        29529
+      ]
+    ],
+    "physical_profile": "metadata_radius_wind_3",
+    "literal_panel": [
+      "Betula",
+      "Poaceae"
+    ],
+    "windows": 25,
+    "scope": "Five pairs exhaust125fixed domain slots on unchanged original two-taxon models; first/second order is the retained producer order, not accuracy preference. Native namedCalBP fields inherit documented AD1950 source datum; age model identities, controls, missingbounds and signedpoints preserved. Compare deterministic original covers at fixed PPE/geometry/transport after verifying source sample/window/count identities. No original chronology refit, new physical/model runs, probability allocation, independentage/vegetation accuracy, historical-selected-cohort or rawsource redistribution. Paired SE explicitly uncomputed because marginal SE lacks cross-profile count/PPE covariance.",
+    "absolute_scalar_tolerance": 2e-13
+  },
+  "original_numerical_candidate": "ea7b58bb6d7ab9b3cadc1f658f29d7c126757d7e",
+  "original_source_candidate": "302471a091481cde1f35ddce338672bf0343c40d",
+  "literal_panel": [
+    "Betula",
+    "Poaceae"
+  ],
+  "original_PPE": [
+    5.106,
+    1.0
+  ],
+  "original_PPE_SD": [
+    0.303,
+    0.0
+  ],
+  "original_physical_profile": "metadata_radius_wind_3",
+  "pair_count": 5,
+  "full_declared_pair_windows": 125,
+  "saved_support_scalar_comparisons": 884,
+  "pairs": [
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "source_site_name": "Lake Flarken",
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "reference_model": {
+        "chronologyname": "Madcap",
+        "agemodel": "Smooth spline with 0.00005",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2008-01-01",
+        "notes": "Age model in calibrated years surface set to -25"
+      },
+      "alternative_model": {
+        "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+        "agemodel": "clam",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2011-01-01",
+        "notes": "Smooth spline age model. Based on IntCal09 calibration curve."
+      },
+      "source_default_chronology": 25403,
+      "source_samples": 114,
+      "selected_reference_samples": 111,
+      "selected_alternative_samples": 111,
+      "shared_selected_samples": 111,
+      "selected_cohort_symmetric_difference": 0,
+      "sample_migrations": {
+        "both_refused": 3,
+        "changed_window": 14,
+        "same_window": 97
+      },
+      "reference_refusals": {
+        "source_point_outside_declared_windows": 3
+      },
+      "alternative_refusals": {
+        "source_point_outside_declared_windows": 3
+      },
+      "matched_windows": 24,
+      "max_absolute_Betula_panel_share_change": 0.05985104965779425,
+      "signed_Betula_change_at_max": -0.05985104965779425,
+      "current_native_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "source_site_name": "Klotjärnen",
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "reference_model": {
+        "chronologyname": "EPD 1",
+        "agemodel": "Clam",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2016-06-06",
+        "notes": "based on IntCal13 calibration curve\r\n\r\nClam command line:\r\nclam('KLOT',depths.file=TRUE,type=4)\r\n\r\nClam settings file:\r\nSettings (square brackets give names of the constants)\r\n\r\nCalibration curve: IntCal13.14C\r\nAge-depth model: smooth spline [type=4] with spar = 0.3 [smooth]\r\nWeighted by the calibrated probabilities [wghts=1]\r\nCalculations at 95% confidence ranges [prob=0.95]\r\nAmount of iterations: 1000 [its]\r\nCalendar age point estimates for depths based on weighted average of all age-depth curves [est=1]\r\nCalendar scale used: cal BP [BCAD=FALSE] at a resolution of 1 yr [yrsteps]\r\nAges were calculated every 1 [every] cm [depth], from 473 [dmin] to 805 [dmax] cm \r\n\r\nGoodness-of-fit (-log, lower is better):  7.28 \r\nAny models with age-depth reversals were removed\r\n\r\nProduced Mon Jun 06 11:00:17 2016"
+      },
+      "alternative_model": {
+        "chronologyname": "Giesecke 2005",
+        "agemodel": "polynomial",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": null,
+        "notes": null
+      },
+      "source_default_chronology": 11513,
+      "source_samples": 111,
+      "selected_reference_samples": 101,
+      "selected_alternative_samples": 100,
+      "shared_selected_samples": 100,
+      "selected_cohort_symmetric_difference": 1,
+      "sample_migrations": {
+        "both_refused": 10,
+        "changed_window": 17,
+        "reference_only": 1,
+        "same_window": 83
+      },
+      "reference_refusals": {
+        "literal_panel_missing_or_ambiguous": 10
+      },
+      "alternative_refusals": {
+        "literal_panel_missing_or_ambiguous": 10,
+        "source_point_outside_declared_windows": 1
+      },
+      "matched_windows": 20,
+      "max_absolute_Betula_panel_share_change": 0.09493145368848632,
+      "signed_Betula_change_at_max": 0.09493145368848632,
+      "current_native_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "source_site_name": "Holtjärnen",
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "reference_model": {
+        "chronologyname": "author preferred",
+        "agemodel": "Polynomial",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2008-01-01",
+        "notes": "4-term polynominal using wighted average of probability distribution for CAL 14C age"
+      },
+      "alternative_model": {
+        "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+        "agemodel": "clam",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2011-01-01",
+        "notes": "Smooth spline age model. Based on IntCal09 calibration curve."
+      },
+      "source_default_chronology": 12504,
+      "source_samples": 101,
+      "selected_reference_samples": 101,
+      "selected_alternative_samples": 100,
+      "shared_selected_samples": 100,
+      "selected_cohort_symmetric_difference": 1,
+      "sample_migrations": {
+        "changed_window": 9,
+        "reference_only": 1,
+        "same_window": 91
+      },
+      "reference_refusals": {},
+      "alternative_refusals": {
+        "source_point_outside_declared_windows": 1
+      },
+      "matched_windows": 23,
+      "max_absolute_Betula_panel_share_change": 0.14395236967517305,
+      "signed_Betula_change_at_max": -0.14395236967517305,
+      "current_native_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "source_site_name": "Vuoskkujávri",
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "reference_model": {
+        "chronologyname": "Cal yr BP",
+        "agemodel": "unspecified",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": null,
+        "notes": "From Alpadaba"
+      },
+      "alternative_model": {
+        "chronologyname": "CAL BP",
+        "agemodel": "linear interpolation",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2017-01-01",
+        "notes": "CAL BP age with CLAM (Blaauw) sigma 2"
+      },
+      "source_default_chronology": 29523,
+      "source_samples": 67,
+      "selected_reference_samples": 65,
+      "selected_alternative_samples": 65,
+      "shared_selected_samples": 65,
+      "selected_cohort_symmetric_difference": 0,
+      "sample_migrations": {
+        "both_refused": 2,
+        "changed_window": 22,
+        "same_window": 43
+      },
+      "reference_refusals": {
+        "literal_panel_missing_or_ambiguous": 1,
+        "source_point_outside_declared_windows": 1
+      },
+      "alternative_refusals": {
+        "literal_panel_missing_or_ambiguous": 1,
+        "source_point_outside_declared_windows": 1
+      },
+      "matched_windows": 22,
+      "max_absolute_Betula_panel_share_change": 0.1158644275579096,
+      "signed_Betula_change_at_max": 0.1158644275579096,
+      "current_native_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "source_site_name": "Alanen Laanijärvi",
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "reference_model": {
+        "chronologyname": "CAL BP",
+        "agemodel": "linear interpolation",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": "2017-01-01",
+        "notes": "CAL BP age with CLAM (Blaauw) sigma 2"
+      },
+      "alternative_model": {
+        "chronologyname": "Cal yr BP",
+        "agemodel": "unspecified",
+        "modelagetype": "Calibrated radiocarbon years BP",
+        "dateprepared": null,
+        "notes": "From Alpadaba"
+      },
+      "source_default_chronology": 29527,
+      "source_samples": 56,
+      "selected_reference_samples": 54,
+      "selected_alternative_samples": 53,
+      "shared_selected_samples": 53,
+      "selected_cohort_symmetric_difference": 1,
+      "sample_migrations": {
+        "both_refused": 2,
+        "changed_window": 14,
+        "reference_only": 1,
+        "same_window": 39
+      },
+      "reference_refusals": {
+        "literal_panel_missing_or_ambiguous": 2
+      },
+      "alternative_refusals": {
+        "literal_panel_missing_or_ambiguous": 2,
+        "source_point_outside_declared_windows": 1
+      },
+      "matched_windows": 17,
+      "max_absolute_Betula_panel_share_change": 0.07488207019084292,
+      "signed_Betula_change_at_max": 0.07488207019084292,
+      "current_native_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision"
+    }
+  ],
+  "window_rows": [
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.45707524508180725,
+        0.5429247549181928
+      ],
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.5169262947396015,
+        0.48307370526039844
+      ],
+      "alternative_cover": [
+        0.45707524508180725,
+        0.5429247549181928
+      ],
+      "alternative_minus_reference_cover": [
+        -0.05985104965779425,
+        0.059851049657794364
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.4525868042236181,
+        0.5474131957763818
+      ],
+      "alternative_cover": [
+        0.46993369082302733,
+        0.5300663091769726
+      ],
+      "alternative_minus_reference_cover": [
+        0.01734688659940925,
+        -0.017346886599409195
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.5907502540880786,
+        0.4092497459119215
+      ],
+      "alternative_cover": [
+        0.5522198013099354,
+        0.4477801986900645
+      ],
+      "alternative_minus_reference_cover": [
+        -0.038530452778143154,
+        0.03853045277814304
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.612462178944236,
+        0.38753782105576384
+      ],
+      "alternative_cover": [
+        0.6135569192798036,
+        0.38644308072019645
+      ],
+      "alternative_minus_reference_cover": [
+        0.0010947403355675567,
+        -0.0010947403355673901
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.663650798410106,
+        0.33634920158989406
+      ],
+      "alternative_cover": [
+        0.6450809634571887,
+        0.35491903654281126
+      ],
+      "alternative_minus_reference_cover": [
+        -0.018569834952917308,
+        0.018569834952917197
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.6013758042627175,
+        0.3986241957372824
+      ],
+      "alternative_cover": [
+        0.6013758042627175,
+        0.3986241957372824
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.6019488783393875,
+        0.3980511216606125
+      ],
+      "alternative_cover": [
+        0.6063787990946533,
+        0.3936212009053467
+      ],
+      "alternative_minus_reference_cover": [
+        0.004429920755265826,
+        -0.004429920755265826
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.7096325865770754,
+        0.29036741342292455
+      ],
+      "alternative_cover": [
+        0.6738434942113946,
+        0.32615650578860544
+      ],
+      "alternative_minus_reference_cover": [
+        -0.03578909236568084,
+        0.0357890923656809
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.721768856368311,
+        0.27823114363168894
+      ],
+      "alternative_cover": [
+        0.7184930518666734,
+        0.28150694813332666
+      ],
+      "alternative_minus_reference_cover": [
+        -0.003275804501637558,
+        0.0032758045016377246
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.7772882867160383,
+        0.22271171328396167
+      ],
+      "alternative_cover": [
+        0.7388224064497564,
+        0.26117759355024367
+      ],
+      "alternative_minus_reference_cover": [
+        -0.03846588026628195,
+        0.038465880266282004
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 8,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.8481316746014737,
+        0.15186832539852638
+      ],
+      "alternative_cover": [
+        0.8363649265630633,
+        0.16363507343693676
+      ],
+      "alternative_minus_reference_cover": [
+        -0.01176674803841038,
+        0.01176674803841038
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 7,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.8044182226722071,
+        0.1955817773277929
+      ],
+      "alternative_cover": [
+        0.8077547580710943,
+        0.1922452419289056
+      ],
+      "alternative_minus_reference_cover": [
+        0.0033365353988872304,
+        -0.003336535398887286
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.8226363554720867,
+        0.17736364452791337
+      ],
+      "alternative_cover": [
+        0.8213856389148733,
+        0.17861436108512682
+      ],
+      "alternative_minus_reference_cover": [
+        -0.0012507165572134271,
+        0.0012507165572134549
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.850015971820001,
+        0.14998402817999898
+      ],
+      "alternative_cover": [
+        0.8465426709308574,
+        0.15345732906914258
+      ],
+      "alternative_minus_reference_cover": [
+        -0.003473300889143549,
+        0.0034733008891436046
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 9,
+      "shared_sample_count": 8,
+      "reference_cover": [
+        0.8134071723473251,
+        0.18659282765267496
+      ],
+      "alternative_cover": [
+        0.8197042743965175,
+        0.18029572560348256
+      ],
+      "alternative_minus_reference_cover": [
+        0.006297102049192427,
+        -0.006297102049192399
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 9,
+      "alternative_samples": 9,
+      "shared_sample_count": 9,
+      "reference_cover": [
+        0.80473353611336,
+        0.19526646388664007
+      ],
+      "alternative_cover": [
+        0.80473353611336,
+        0.19526646388664007
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 7,
+      "shared_sample_count": 7,
+      "reference_cover": [
+        0.8279666480790363,
+        0.17203335192096372
+      ],
+      "alternative_cover": [
+        0.8299542417775098,
+        0.1700457582224902
+      ],
+      "alternative_minus_reference_cover": [
+        0.0019875936984734555,
+        -0.001987593698473511
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 8,
+      "shared_sample_count": 7,
+      "reference_cover": [
+        0.8114309318659436,
+        0.18856906813405638
+      ],
+      "alternative_cover": [
+        0.8119465998928593,
+        0.18805340010714056
+      ],
+      "alternative_minus_reference_cover": [
+        0.0005156680269157166,
+        -0.0005156680269158276
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.8222233275925759,
+        0.17777667240742415
+      ],
+      "alternative_cover": [
+        0.8226634603306947,
+        0.17733653966930538
+      ],
+      "alternative_minus_reference_cover": [
+        0.0004401327381188258,
+        -0.0004401327381187703
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.6971039168012912,
+        0.3028960831987088
+      ],
+      "alternative_cover": [
+        0.7156296081912865,
+        0.28437039180871354
+      ],
+      "alternative_minus_reference_cover": [
+        0.01852569138999527,
+        -0.01852569138999527
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.6506019248854376,
+        0.34939807511456233
+      ],
+      "alternative_cover": [
+        0.6506019248854376,
+        0.34939807511456233
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.6650626103923106,
+        0.3349373896076893
+      ],
+      "alternative_cover": [
+        0.6650626103923106,
+        0.3349373896076893
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.6703512788862169,
+        0.329648721113783
+      ],
+      "alternative_cover": [
+        0.659712689463589,
+        0.3402873105364111
+      ],
+      "alternative_minus_reference_cover": [
+        -0.010638589422627964,
+        0.010638589422628075
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 4042,
+      "native_collection_unit_id": 3915,
+      "reference_chronology_id": 25402,
+      "alternative_chronology_id": 25404,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.6770592614374755,
+        0.3229407385625244
+      ],
+      "alternative_cover": [
+        0.6808658278526909,
+        0.31913417214730916
+      ],
+      "alternative_minus_reference_cover": [
+        0.0038065664152153733,
+        -0.0038065664152152623
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 2,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": [
+        0.269184647132156,
+        0.7308153528678439
+      ],
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.34361337850645063,
+        0.6563866214935494
+      ],
+      "alternative_cover": [
+        0.37682646486236077,
+        0.6231735351376392
+      ],
+      "alternative_minus_reference_cover": [
+        0.03321308635591014,
+        -0.03321308635591025
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.5233738473709869,
+        0.4766261526290131
+      ],
+      "alternative_cover": [
+        0.6183053010594732,
+        0.38169469894052677
+      ],
+      "alternative_minus_reference_cover": [
+        0.09493145368848632,
+        -0.09493145368848632
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8111699697673895,
+        0.18883003023261039
+      ],
+      "alternative_cover": [
+        0.7576857607550096,
+        0.24231423924499035
+      ],
+      "alternative_minus_reference_cover": [
+        -0.053484209012379935,
+        0.05348420901237996
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.9035681439608052,
+        0.09643185603919478
+      ],
+      "alternative_cover": [
+        0.9300249329424848,
+        0.0699750670575152
+      ],
+      "alternative_minus_reference_cover": [
+        0.02645678898167958,
+        -0.02645678898167958
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9332666081454467,
+        0.06673339185455329
+      ],
+      "alternative_cover": [
+        0.9202221478739421,
+        0.0797778521260579
+      ],
+      "alternative_minus_reference_cover": [
+        -0.013044460271504632,
+        0.013044460271504604
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.9556428586486618,
+        0.044357141351338246
+      ],
+      "alternative_cover": [
+        0.9563656891758662,
+        0.04363431082413382
+      ],
+      "alternative_minus_reference_cover": [
+        0.0007228305272043434,
+        -0.0007228305272044266
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 10,
+      "alternative_samples": 9,
+      "shared_sample_count": 8,
+      "reference_cover": [
+        0.9700971651515341,
+        0.029902834848465794
+      ],
+      "alternative_cover": [
+        0.968703387470527,
+        0.031296612529473085
+      ],
+      "alternative_minus_reference_cover": [
+        -0.0013937776810071245,
+        0.001393777681007291
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 10,
+      "alternative_samples": 11,
+      "shared_sample_count": 9,
+      "reference_cover": [
+        0.9586620799695414,
+        0.04133792003045858
+      ],
+      "alternative_cover": [
+        0.9584698253800132,
+        0.041530174619986725
+      ],
+      "alternative_minus_reference_cover": [
+        -0.00019225458952820684,
+        0.0001922545895281444
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9621585917076733,
+        0.03784140829232671
+      ],
+      "alternative_cover": [
+        0.9648183830857555,
+        0.035181616914244436
+      ],
+      "alternative_minus_reference_cover": [
+        0.0026597913780822546,
+        -0.0026597913780822754
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9362198028519182,
+        0.06378019714808175
+      ],
+      "alternative_cover": [
+        0.9392188986703043,
+        0.06078110132969577
+      ],
+      "alternative_minus_reference_cover": [
+        0.0029990958183860883,
+        -0.002999095818385984
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 8,
+      "shared_sample_count": 7,
+      "reference_cover": [
+        0.9592637795758805,
+        0.040736220424119424
+      ],
+      "alternative_cover": [
+        0.960691788375426,
+        0.03930821162457396
+      ],
+      "alternative_minus_reference_cover": [
+        0.0014280087995455215,
+        -0.001428008799545466
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 7,
+      "shared_sample_count": 6,
+      "reference_cover": [
+        0.9659163954843772,
+        0.034083604515622645
+      ],
+      "alternative_cover": [
+        0.9690508489602427,
+        0.030949151039757226
+      ],
+      "alternative_minus_reference_cover": [
+        0.003134453475865495,
+        -0.003134453475865419
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9631761365352177,
+        0.03682386346478234
+      ],
+      "alternative_cover": [
+        0.9603385960778411,
+        0.039661403922158854
+      ],
+      "alternative_minus_reference_cover": [
+        -0.0028375404573766083,
+        0.002837540457376511
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.958921248389819,
+        0.04107875161018107
+      ],
+      "alternative_cover": [
+        0.958921248389819,
+        0.04107875161018107
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9609954651832602,
+        0.039004534816739836
+      ],
+      "alternative_cover": [
+        0.9609954651832602,
+        0.039004534816739836
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9284521386991939,
+        0.07154786130080608
+      ],
+      "alternative_cover": [
+        0.9302607846119928,
+        0.06973921538800723
+      ],
+      "alternative_minus_reference_cover": [
+        0.0018086459127989452,
+        -0.001808645912798848
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9587163427160048,
+        0.04128365728399507
+      ],
+      "alternative_cover": [
+        0.9409993483595748,
+        0.059000651640425304
+      ],
+      "alternative_minus_reference_cover": [
+        -0.017716994356430038,
+        0.017716994356430232
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.9332805812628163,
+        0.06671941873718372
+      ],
+      "alternative_cover": [
+        0.9388843178984774,
+        0.0611156821015226
+      ],
+      "alternative_minus_reference_cover": [
+        0.00560373663566105,
+        -0.005603736635661119
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9134147830462365,
+        0.08658521695376356
+      ],
+      "alternative_cover": [
+        0.9220945078177838,
+        0.07790549218221617
+      ],
+      "alternative_minus_reference_cover": [
+        0.008679724771547326,
+        -0.008679724771547395
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.8063960674888907,
+        0.19360393251110922
+      ],
+      "alternative_cover": [
+        0.8019107468814888,
+        0.19808925311851114
+      ],
+      "alternative_minus_reference_cover": [
+        -0.004485320607401921,
+        0.004485320607401921
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.7906805334043133,
+        0.2093194665956867
+      ],
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 19909,
+      "native_collection_unit_id": 14908,
+      "reference_chronology_id": 11514,
+      "alternative_chronology_id": 11513,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.4513160383636047,
+        0.5486839616363953
+      ],
+      "alternative_cover": [
+        0.3073636686884316,
+        0.6926363313115684
+      ],
+      "alternative_minus_reference_cover": [
+        -0.14395236967517305,
+        0.1439523696751731
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.3450933289956519,
+        0.6549066710043481
+      ],
+      "alternative_cover": [
+        0.28995044907813156,
+        0.7100495509218685
+      ],
+      "alternative_minus_reference_cover": [
+        -0.05514287991752037,
+        0.055142879917520427
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.7122344146397591,
+        0.287765585360241
+      ],
+      "alternative_cover": [
+        0.6855621905126675,
+        0.3144378094873325
+      ],
+      "alternative_minus_reference_cover": [
+        -0.02667222412709158,
+        0.026672224127091526
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.7959733706061976,
+        0.20402662939380237
+      ],
+      "alternative_cover": [
+        0.7959733706061976,
+        0.20402662939380237
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.8473658443648215,
+        0.1526341556351786
+      ],
+      "alternative_cover": [
+        0.8473658443648215,
+        0.1526341556351786
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.8685024273620677,
+        0.13149757263793224
+      ],
+      "alternative_cover": [
+        0.8804321309541421,
+        0.11956786904585785
+      ],
+      "alternative_minus_reference_cover": [
+        0.011929703592074348,
+        -0.01192970359207439
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9405282806053984,
+        0.059471719394601594
+      ],
+      "alternative_cover": [
+        0.9412832540732164,
+        0.05871674592678353
+      ],
+      "alternative_minus_reference_cover": [
+        0.0007549734678180542,
+        -0.0007549734678180611
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9297216926428957,
+        0.07027830735710427
+      ],
+      "alternative_cover": [
+        0.9297216926428957,
+        0.07027830735710427
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9367542809452089,
+        0.06324571905479126
+      ],
+      "alternative_cover": [
+        0.9367542809452089,
+        0.06324571905479126
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9423331221300533,
+        0.05766687786994677
+      ],
+      "alternative_cover": [
+        0.9423331221300533,
+        0.05766687786994677
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.92367307375625,
+        0.07632692624374995
+      ],
+      "alternative_cover": [
+        0.92367307375625,
+        0.07632692624374995
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9437205576161749,
+        0.05627944238382508
+      ],
+      "alternative_cover": [
+        0.9405610093985787,
+        0.05943899060142129
+      ],
+      "alternative_minus_reference_cover": [
+        -0.003159548217596231,
+        0.00315954821759621
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9354368145430385,
+        0.06456318545696146
+      ],
+      "alternative_cover": [
+        0.9379343593597632,
+        0.06206564064023678
+      ],
+      "alternative_minus_reference_cover": [
+        0.002497544816724706,
+        -0.0024975448167246853
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9485977539507701,
+        0.051402246049230035
+      ],
+      "alternative_cover": [
+        0.9485977539507701,
+        0.051402246049230035
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9346237411452293,
+        0.06537625885477075
+      ],
+      "alternative_cover": [
+        0.9346237411452293,
+        0.06537625885477075
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.9326943146133763,
+        0.06730568538662388
+      ],
+      "alternative_cover": [
+        0.9326943146133763,
+        0.06730568538662388
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.8995135773607704,
+        0.10048642263922959
+      ],
+      "alternative_cover": [
+        0.8995135773607704,
+        0.10048642263922959
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9071845800187557,
+        0.09281541998124426
+      ],
+      "alternative_cover": [
+        0.9071845800187557,
+        0.09281541998124426
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8675161306329431,
+        0.132483869367057
+      ],
+      "alternative_cover": [
+        0.8675161306329431,
+        0.132483869367057
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8305461700889962,
+        0.1694538299110038
+      ],
+      "alternative_cover": [
+        0.8075732450178064,
+        0.1924267549821936
+      ],
+      "alternative_minus_reference_cover": [
+        -0.022972925071189865,
+        0.02297292507118981
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.759749437904004,
+        0.24025056209599602
+      ],
+      "alternative_cover": [
+        0.7634912251602393,
+        0.2365087748397608
+      ],
+      "alternative_minus_reference_cover": [
+        0.003741787256235307,
+        -0.003741787256235224
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.7171551976995796,
+        0.2828448023004205
+      ],
+      "alternative_cover": [
+        0.7181088943825817,
+        0.28189110561741826
+      ],
+      "alternative_minus_reference_cover": [
+        0.0009536966830021587,
+        -0.0009536966830022142
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8725842426824689,
+        0.12741575731753105
+      ],
+      "alternative_cover": [
+        0.7825434117032697,
+        0.21745658829673037
+      ],
+      "alternative_minus_reference_cover": [
+        -0.09004083097919924,
+        0.09004083097919932
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": [
+        0.928739620364705,
+        0.071260379635295
+      ],
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 21790,
+      "native_collection_unit_id": 15810,
+      "reference_chronology_id": 12503,
+      "alternative_chronology_id": 12504,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 2,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": [
+        0.887126687310113,
+        0.1128733126898871
+      ],
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.7891973146031727,
+        0.21080268539682734
+      ],
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.6375939939081456,
+        0.3624060060918544
+      ],
+      "alternative_cover": [
+        0.7076719998952585,
+        0.29232800010474147
+      ],
+      "alternative_minus_reference_cover": [
+        0.07007800598711289,
+        -0.07007800598711295
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 1,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.7378725330482288,
+        0.26212746695177125
+      ],
+      "alternative_cover": [
+        0.7492527033478464,
+        0.2507472966521535
+      ],
+      "alternative_minus_reference_cover": [
+        0.011380170299617687,
+        -0.011380170299617742
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8020617261658033,
+        0.19793827383419674
+      ],
+      "alternative_cover": [
+        0.778003895968368,
+        0.22199610403163197
+      ],
+      "alternative_minus_reference_cover": [
+        -0.024057830197435237,
+        0.024057830197435237
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8934804288878548,
+        0.10651957111214516
+      ],
+      "alternative_cover": [
+        0.8264304142415662,
+        0.17356958575843387
+      ],
+      "alternative_minus_reference_cover": [
+        -0.06705001464628868,
+        0.06705001464628871
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8979645334022179,
+        0.10203546659778202
+      ],
+      "alternative_cover": [
+        0.891510425138948,
+        0.108489574861052
+      ],
+      "alternative_minus_reference_cover": [
+        -0.006454108263269975,
+        0.006454108263269975
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8094683209645998,
+        0.1905316790354003
+      ],
+      "alternative_cover": [
+        0.8375397872325241,
+        0.1624602127674759
+      ],
+      "alternative_minus_reference_cover": [
+        0.02807146626792434,
+        -0.028071466267924394
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8532072472565161,
+        0.14679275274348388
+      ],
+      "alternative_cover": [
+        0.8650800607508483,
+        0.13491993924915177
+      ],
+      "alternative_minus_reference_cover": [
+        0.011872813494332224,
+        -0.011872813494332113
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8822624752973185,
+        0.11773752470268153
+      ],
+      "alternative_cover": [
+        0.873340380455063,
+        0.12665961954493704
+      ],
+      "alternative_minus_reference_cover": [
+        -0.008922094842255479,
+        0.008922094842255507
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8582868102158984,
+        0.14171318978410158
+      ],
+      "alternative_cover": [
+        0.8477136535647632,
+        0.15228634643523675
+      ],
+      "alternative_minus_reference_cover": [
+        -0.010573156651135118,
+        0.010573156651135174
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8318109264627642,
+        0.16818907353723583
+      ],
+      "alternative_cover": [
+        0.8540911483416438,
+        0.1459088516583561
+      ],
+      "alternative_minus_reference_cover": [
+        0.02228022187887957,
+        -0.022280221878879736
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8832773507918299,
+        0.11672264920817009
+      ],
+      "alternative_cover": [
+        0.8304036573458594,
+        0.16959634265414067
+      ],
+      "alternative_minus_reference_cover": [
+        -0.05287369344597048,
+        0.05287369344597058
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8598219474403106,
+        0.1401780525596893
+      ],
+      "alternative_cover": [
+        0.8956283912761615,
+        0.1043716087238386
+      ],
+      "alternative_minus_reference_cover": [
+        0.035806443835850854,
+        -0.03580644383585069
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8668072259868886,
+        0.1331927740131113
+      ],
+      "alternative_cover": [
+        0.8655528556443723,
+        0.1344471443556276
+      ],
+      "alternative_minus_reference_cover": [
+        -0.0012543703425162978,
+        0.0012543703425162978
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8413916760749525,
+        0.1586083239250475
+      ],
+      "alternative_cover": [
+        0.8421474021675618,
+        0.1578525978324382
+      ],
+      "alternative_minus_reference_cover": [
+        0.0007557260926093212,
+        -0.0007557260926092935
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.7970883493881362,
+        0.20291165061186386
+      ],
+      "alternative_cover": [
+        0.8325590563848402,
+        0.16744094361515968
+      ],
+      "alternative_minus_reference_cover": [
+        0.03547070699670396,
+        -0.03547070699670418
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.7873988924480095,
+        0.2126011075519904
+      ],
+      "alternative_cover": [
+        0.7873988924480095,
+        0.2126011075519904
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 5,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8300010878066096,
+        0.16999891219339028
+      ],
+      "alternative_cover": [
+        0.8243013421805186,
+        0.1756986578194814
+      ],
+      "alternative_minus_reference_cover": [
+        -0.005699745626090991,
+        0.0056997456260911294
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.7835343809218042,
+        0.21646561907819584
+      ],
+      "alternative_cover": [
+        0.7692244804110457,
+        0.2307755195889543
+      ],
+      "alternative_minus_reference_cover": [
+        -0.014309900510758422,
+        0.01430990051075845
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.7938711434927562,
+        0.20612885650724372
+      ],
+      "alternative_cover": [
+        0.8084438656962304,
+        0.19155613430376972
+      ],
+      "alternative_minus_reference_cover": [
+        0.014572722203474164,
+        -0.014572722203473998
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8545002006481347,
+        0.1454997993518653
+      ],
+      "alternative_cover": [
+        0.850399877929346,
+        0.149600122070654
+      ],
+      "alternative_minus_reference_cover": [
+        -0.004100322718788685,
+        0.004100322718788713
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8529258914374368,
+        0.14707410856256317
+      ],
+      "alternative_cover": [
+        0.8343602334772042,
+        0.16563976652279577
+      ],
+      "alternative_minus_reference_cover": [
+        -0.018565657960232573,
+        0.0185656579602326
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 7,
+      "shared_sample_count": 5,
+      "reference_cover": [
+        0.5483120511554788,
+        0.4516879488445213
+      ],
+      "alternative_cover": [
+        0.6641764787133884,
+        0.33582352128661164
+      ],
+      "alternative_minus_reference_cover": [
+        0.1158644275579096,
+        -0.11586442755790965
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45311,
+      "native_collection_unit_id": 32166,
+      "reference_chronology_id": 29525,
+      "alternative_chronology_id": 29524,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 0,
+      "younger_cal_bp": 0,
+      "older_cal_bp_exclusive": 100,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.7772831887290418,
+        0.22271681127095824
+      ],
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 1,
+      "younger_cal_bp": 100,
+      "older_cal_bp_exclusive": 350,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": [
+        0.8689321985434558,
+        0.13106780145654418
+      ],
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 2,
+      "younger_cal_bp": 350,
+      "older_cal_bp_exclusive": 700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8069239414299827,
+        0.19307605857001725
+      ],
+      "alternative_cover": [
+        0.7918823335774813,
+        0.20811766642251875
+      ],
+      "alternative_minus_reference_cover": [
+        -0.015041607852501415,
+        0.015041607852501498
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 3,
+      "younger_cal_bp": 700,
+      "older_cal_bp_exclusive": 1200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8399680039443252,
+        0.1600319960556747
+      ],
+      "alternative_cover": [
+        0.7928587117128922,
+        0.20714128828710776
+      ],
+      "alternative_minus_reference_cover": [
+        -0.04710929223143301,
+        0.047109292231433064
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 4,
+      "younger_cal_bp": 1200,
+      "older_cal_bp_exclusive": 1700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.849915625939009,
+        0.1500843740609909
+      ],
+      "alternative_cover": [
+        0.924797696129852,
+        0.0752023038701481
+      ],
+      "alternative_minus_reference_cover": [
+        0.07488207019084292,
+        -0.0748820701908428
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 5,
+      "younger_cal_bp": 1700,
+      "older_cal_bp_exclusive": 2200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.9161316320570208,
+        0.08386836794297915
+      ],
+      "alternative_cover": [
+        0.844415435181541,
+        0.155584564818459
+      ],
+      "alternative_minus_reference_cover": [
+        -0.0717161968754797,
+        0.07171619687547985
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 6,
+      "younger_cal_bp": 2200,
+      "older_cal_bp_exclusive": 2700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8190431189388907,
+        0.1809568810611093
+      ],
+      "alternative_cover": [
+        0.8446526462183364,
+        0.15534735378166362
+      ],
+      "alternative_minus_reference_cover": [
+        0.025609527279445654,
+        -0.025609527279445682
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 7,
+      "younger_cal_bp": 2700,
+      "older_cal_bp_exclusive": 3200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.7871144047133836,
+        0.21288559528661644
+      ],
+      "alternative_cover": [
+        0.7147917240430519,
+        0.285208275956948
+      ],
+      "alternative_minus_reference_cover": [
+        -0.07232268067033165,
+        0.07232268067033154
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 8,
+      "younger_cal_bp": 3200,
+      "older_cal_bp_exclusive": 3700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.7539098921824373,
+        0.24609010781756266
+      ],
+      "alternative_cover": [
+        0.811100048107169,
+        0.18889995189283104
+      ],
+      "alternative_minus_reference_cover": [
+        0.057190155924731645,
+        -0.05719015592473162
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 9,
+      "younger_cal_bp": 3700,
+      "older_cal_bp_exclusive": 4200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "reference_cover": [
+        0.8147070352893464,
+        0.18529296471065346
+      ],
+      "alternative_cover": [
+        0.7977917148051166,
+        0.2022082851948835
+      ],
+      "alternative_minus_reference_cover": [
+        -0.016915320484229834,
+        0.016915320484230056
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 10,
+      "younger_cal_bp": 4200,
+      "older_cal_bp_exclusive": 4700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.7273340240263425,
+        0.2726659759736576
+      ],
+      "alternative_cover": [
+        0.7273340240263425,
+        0.2726659759736576
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 11,
+      "younger_cal_bp": 4700,
+      "older_cal_bp_exclusive": 5200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8512304429703799,
+        0.14876955702962003
+      ],
+      "alternative_cover": [
+        0.8512304429703799,
+        0.14876955702962003
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 12,
+      "younger_cal_bp": 5200,
+      "older_cal_bp_exclusive": 5700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8745188868440847,
+        0.12548111315591537
+      ],
+      "alternative_cover": [
+        0.8921436455391485,
+        0.10785635446085148
+      ],
+      "alternative_minus_reference_cover": [
+        0.017624758695063747,
+        -0.017624758695063886
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 13,
+      "younger_cal_bp": 5700,
+      "older_cal_bp_exclusive": 6200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8932510340466274,
+        0.1067489659533727
+      ],
+      "alternative_cover": [
+        0.8753546295759081,
+        0.1246453704240919
+      ],
+      "alternative_minus_reference_cover": [
+        -0.017896404470719274,
+        0.017896404470719204
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 14,
+      "younger_cal_bp": 6200,
+      "older_cal_bp_exclusive": 6700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9314482309278075,
+        0.06855176907219244
+      ],
+      "alternative_cover": [
+        0.9314482309278075,
+        0.06855176907219244
+      ],
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 15,
+      "younger_cal_bp": 6700,
+      "older_cal_bp_exclusive": 7200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.8604874914604878,
+        0.13951250853951233
+      ],
+      "alternative_cover": [
+        0.8888183385575861,
+        0.11118166144241387
+      ],
+      "alternative_minus_reference_cover": [
+        0.02833084709709832,
+        -0.02833084709709846
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 16,
+      "younger_cal_bp": 7200,
+      "older_cal_bp_exclusive": 7700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "reference_cover": [
+        0.9027450959216203,
+        0.09725490407837964
+      ],
+      "alternative_cover": [
+        0.869324420369722,
+        0.1306755796302779
+      ],
+      "alternative_minus_reference_cover": [
+        -0.033420675551898316,
+        0.03342067555189826
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 17,
+      "younger_cal_bp": 7700,
+      "older_cal_bp_exclusive": 8200,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "reference_cover": [
+        0.8692853038542451,
+        0.13071469614575493
+      ],
+      "alternative_cover": [
+        0.920556457080711,
+        0.07944354291928908
+      ],
+      "alternative_minus_reference_cover": [
+        0.051271153226465915,
+        -0.051271153226465846
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 18,
+      "younger_cal_bp": 8200,
+      "older_cal_bp_exclusive": 8700,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 5,
+      "shared_sample_count": 3,
+      "reference_cover": [
+        0.831638388080835,
+        0.16836161191916496
+      ],
+      "alternative_cover": [
+        0.8417913752903293,
+        0.15820862470967073
+      ],
+      "alternative_minus_reference_cover": [
+        0.010152987209494313,
+        -0.01015298720949423
+      ],
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Cross-chronology count and shared-PPE covariance not supplied; marginal errors cannot be assumed independent",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 19,
+      "younger_cal_bp": 8700,
+      "older_cal_bp_exclusive": 9200,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": [
+        0.8751169840843055,
+        0.12488301591569453
+      ],
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 20,
+      "younger_cal_bp": 9200,
+      "older_cal_bp_exclusive": 9700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 21,
+      "younger_cal_bp": 9700,
+      "older_cal_bp_exclusive": 10200,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 22,
+      "younger_cal_bp": 10200,
+      "older_cal_bp_exclusive": 10700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 23,
+      "younger_cal_bp": 10700,
+      "older_cal_bp_exclusive": 11200,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    },
+    {
+      "native_dataset_id": 45314,
+      "native_collection_unit_id": 32168,
+      "reference_chronology_id": 29528,
+      "alternative_chronology_id": 29529,
+      "window_index": 24,
+      "younger_cal_bp": 11200,
+      "older_cal_bp_exclusive": 11700,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "reference_cover": null,
+      "alternative_cover": null,
+      "alternative_minus_reference_cover": null,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast",
+      "vegetation_zero_inferred": false
+    }
+  ],
+  "age_epoch_and_scale_scope": "Use only the exact named native calibrated chronology point ages; BP datum AD1950 per official Neotoma manual7.5. Publication year and collection year never reset zeroBP. Source raw negative ages retained as outside these nonnegative windows, not invalid BP dates. No chronology posterior or zero-width certainty inferred from missing bounds.",
+  "uncertainty_scope": "Deterministic retained-output sensitivity at fixed parameter/physical inputs. Raw sample age bounds remain private unchanged; no age distribution or probability allocation. Paired SE withheld without cross-chronology count/PPE covariance.",
+  "publication_scope": "Only aggregate derived source-qualified comparisons. Private exact native sample/depth/age/count records and original archives are not redistributed. Existing current public analytical-use and historical/private-source rights scopes remain distinct.",
+  "scientific_limits": "Five pairs exhaust125fixed domain slots on unchanged original two-taxon models; first/second order is the retained producer order, not accuracy preference. Native namedCalBP fields inherit documented AD1950 source datum; age model identities, controls, missingbounds and signedpoints preserved. Compare deterministic original covers at fixed PPE/geometry/transport after verifying source sample/window/count identities. No original chronology refit, new physical/model runs, probability allocation, independentage/vegetation accuracy, historical-selected-cohort or rawsource redistribution. Paired SE explicitly uncomputed because marginal SE lacks cross-profile count/PPE covariance."
+}

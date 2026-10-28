@@ -37,7 +37,7 @@ def reader() -> ModuleType:
     return module
 
 
-@pytest.fixture(params=["annulus", "count-domain"])
+@pytest.fixture(params=["annulus", "count-domain", "finite-covariance"])
 def records(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -54,7 +54,7 @@ def records(
     )
     profile = request.param
     owner["producer_inputs"] = [
-        name.replace("native-r-count-domain/", f"native-r-{profile}/")
+        name.replace("native-r-finite-covariance/", f"native-r-{profile}/")
         for name in owner["producer_inputs"]
     ]
     for name in owner["producer_paths"] + owner["producer_inputs"]:
@@ -115,8 +115,8 @@ def test_retained_consumer_and_case_vector_identity(
     result = reader._require_retained_comparison(repository, report, replay)
     assert result.manifest_sha256 == "b" * 64
     assert (report, replay) == before
-    assert len(report["consumer_inputs"]["code_sha256"]) == 98
-    assert len(report["consumer_inputs"]["data_sha256"]) == 280
+    assert len(report["consumer_inputs"]["code_sha256"]) == 99
+    assert len(report["consumer_inputs"]["data_sha256"]) == 287
     assert replay["retained_numeric_csv"]["file_count"] == 97
 
 

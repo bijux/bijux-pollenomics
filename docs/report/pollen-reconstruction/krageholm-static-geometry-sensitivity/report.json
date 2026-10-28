@@ -1,0 +1,2404 @@
+{
+  "historical_basin_authenticated": false,
+  "literal_axis": [
+    "Betula",
+    "Poaceae"
+  ],
+  "maximum_absolute_paired_cover_difference": 0.001051800931035629,
+  "native_chronology_id": 13366,
+  "native_collection_unit_id": 16622,
+  "native_dataset_id": 23013,
+  "original_sample_count": 96,
+  "paired_standard_error_admitted": false,
+  "paired_windows": 24,
+  "physical_factors": [
+    {
+      "adaptive_nonrigorous_absolute_error_estimates": [
+        2.305733510026067e-09,
+        2.5887453053458064e-09
+      ],
+      "deposition": [
+        0.1911218730806804,
+        0.12498007031341973
+      ],
+      "receiver_radius_m": 837.0,
+      "scenario": "workbook_static_circle"
+    },
+    {
+      "adaptive_nonrigorous_absolute_error_estimates": [
+        2.2814816989673105e-09,
+        2.5584421441702548e-09
+      ],
+      "deposition": [
+        0.1948085668607836,
+        0.12793608445546129
+      ],
+      "receiver_radius_m": 769.4520051971082,
+      "scenario": "paper_area_declared_circle"
+    }
+  ],
+  "protocol": {
+    "axis": [
+      "Betula",
+      "Poaceae"
+    ],
+    "comparison": "Alternative minus reference two-taxon conditional cover in all24paired windows; one empty slot has both refusals and nullvalues. Conditional single-scenario counting/shared-PPE covariance shown separately.",
+    "fixed_selected_samples": 95,
+    "full_window_domain": 25,
+    "geometry_scenarios": {
+      "paper_area_declared_circle": {
+        "area_ha": 186.0,
+        "circle_radius_rule": "sqrt(186*10000/pi)",
+        "documentary_scope": "186ha named-lake statement previously checked in packSCIENCE.md; originalPDFnot restored here. Explicit analyst static-area transfer scenario, no sampled-core/date/shoreline match or source historical reconstruction admission.",
+        "paper": "Sugita et alCAA2007 printedp388",
+        "primary_documentary_url": "https://proceedings.caaconference.org/files/2007/125_Sugita_et_al_CAA2007.pdf"
+      },
+      "workbook_static_circle": {
+        "historical_identity_authenticated": false,
+        "historical_restriction": "NR",
+        "metadata_code": "KRA",
+        "publication_row": 1004,
+        "radius_m": 837.0,
+        "sample_claim": "96"
+      }
+    },
+    "native_cal_bp_reference": "AD1950 per Neotoma manual7.5; selected Giesecke2014MADCAP chronology, not original CAA uncalibrated radiocarbon chronology. Publication/collection year never resets BPzero.",
+    "native_chronology_id": 13366,
+    "native_collection_unit_id": 16622,
+    "native_dataset_id": 23013,
+    "original_native_samples": 96,
+    "paired_occupied_windows": 24,
+    "paired_uncertainty": "No cross-geometry covariance/age/basin uncertainty distribution supplied; paired standard error null, no significance/coverage/accuracy inference.",
+    "parameter_and_geometry_scope": "Source native PPE5.106/1.0, SD.303/0 shared and independent counting model, GPMneutral diffusion.12/turbulence.25/wind3m/s, disk receiver with shore-contiguous land annulus to100km. All fixed except declared static radius.",
+    "release_scope": "No originalR/full historical reproduction, source basin truth, entire31taxon vegetation, Nordic measured accuracy, reviewerdecision or gateclosure.",
+    "schema_version": "krageholm-static-geometry-protocol.v1",
+    "selection": "Exact named calibrated point ages and two unique literal count fields; half-open original0<=CalBP<11700 bins. Preserve one outside-domain sample, all raw younger/older bounds including two negative younger bounds. No interval posterior or certainty conversion.",
+    "source_count_populations": "96original native samples and96workbook sample claim are distinct identity assertions;95selected conditional samples exclude one native point outside fixeddomain. Equal original row count does not authenticate paper input selection.",
+    "source_rights": "Reuse existing retained native captures for local declared consumer. Private individual depths/ages/counts and original workbook/taxonomy remain private; no extension of historical NRscope or new redistribution rights. Prospective aggregate account may publish conditional outputs with attribution separately.",
+    "verification": "Four maintained circular_receiver_annulus factors independently checked by analytical disk-lens one-dimensional scalar integration at2e-8absolute+2e-8relative; pooledcounts/ages and fixed-site cover/counting/PPE/totalcovariance/SE/pairedcontrast via independently implemented Decimal50 at2e-13absolute. Same Python/SciPy runtime limitation preserved."
+  },
+  "refused_window_count": 1,
+  "schema_version": "krageholm-static-geometry-sensitivity.v1",
+  "selected_sample_count": 95,
+  "source_pins": {
+    "inputs/dataset-23013-sample-eligibility.json": {
+      "bytes": 182173,
+      "sha256": "b3cc484f4d9e427cfa46cbae6a1b567cf30e7cad03d232c54b0e4a05b24a7d2c"
+    },
+    "inputs/native-results.json": {
+      "bytes": 7105291,
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37"
+    },
+    "inputs/native-terminal.json": {
+      "bytes": 3064,
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950"
+    },
+    "inputs/protocol.json": {
+      "bytes": 40951,
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505"
+    },
+    "inputs/source-terminal.json": {
+      "bytes": 12823,
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e"
+    }
+  },
+  "source_sample_refusals": {
+    "source_point_outside_declared_windows": 1
+  },
+  "vegetation_accuracy_claimed": false,
+  "window_domain_count": 25,
+  "window_rows": [
+    {
+      "alternative_minus_reference_cover": null,
+      "older_cal_bp_exclusive": 100.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {},
+      "selected_native_sample_count": 0,
+      "status": "both_scenarios_refused_no_source_samples",
+      "window_index": 0,
+      "younger_cal_bp": 0.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0002219674435022037,
+        -0.0002219674435021135
+      ],
+      "older_cal_bp_exclusive": 350.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.05511393609205146,
+            0.9448860639079486
+          ],
+          "conditional_standard_error": [
+            0.004316547440782516,
+            0.004316547440782516
+          ],
+          "counting_covariance": [
+            [
+              9.082537645002738e-06,
+              -9.082537645002734e-06
+            ],
+            [
+              -9.082537645002736e-06,
+              9.082537645002732e-06
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              9.550044163523353e-06,
+              -9.550044163523355e-06
+            ],
+            [
+              -9.550044163523355e-06,
+              9.550044163523357e-06
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              1.863258180852609e-05,
+              -1.8632581808526087e-05
+            ],
+            [
+              -1.863258180852609e-05,
+              1.8632581808526087e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.054891968648549255,
+            0.9451080313514507
+          ],
+          "conditional_standard_error": [
+            0.0043001727898065445,
+            0.0043001727898065445
+          ],
+          "counting_covariance": [
+            [
+              9.013759855424548e-06,
+              -9.01375985542455e-06
+            ],
+            [
+              -9.01375985542455e-06,
+              9.013759855424551e-06
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              9.477726166768052e-06,
+              -9.477726166768052e-06
+            ],
+            [
+              -9.477726166768052e-06,
+              9.477726166768052e-06
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              1.84914860221926e-05,
+              -1.84914860221926e-05
+            ],
+            [
+              -1.84914860221926e-05,
+              1.84914860221926e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 9,
+      "status": "paired_conditional_results",
+      "window_index": 1,
+      "younger_cal_bp": 100.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0002535793951770893,
+        -0.00025357939517711703
+      ],
+      "older_cal_bp_exclusive": 700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.06352643093602181,
+            0.9364735690639782
+          ],
+          "conditional_standard_error": [
+            0.004762549848747837,
+            0.004762549848747838
+          ],
+          "counting_covariance": [
+            [
+              1.0218852292279806e-05,
+              -1.0218852292279808e-05
+            ],
+            [
+              -1.0218852292279806e-05,
+              1.0218852292279808e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.2463028769528244e-05,
+              -1.2463028769528244e-05
+            ],
+            [
+              -1.2463028769528244e-05,
+              1.2463028769528244e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              2.268188106180805e-05,
+              -2.2681881061808054e-05
+            ],
+            [
+              -2.268188106180805e-05,
+              2.2681881061808054e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.06327285154084472,
+            0.9367271484591553
+          ],
+          "conditional_standard_error": [
+            0.004744823568985554,
+            0.004744823568985554
+          ],
+          "counting_covariance": [
+            [
+              1.0142924424515906e-05,
+              -1.0142924424515906e-05
+            ],
+            [
+              -1.0142924424515906e-05,
+              1.0142924424515906e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.2370426276284912e-05,
+              -1.2370426276284912e-05
+            ],
+            [
+              -1.2370426276284912e-05,
+              1.2370426276284912e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              2.2513350700800817e-05,
+              -2.2513350700800817e-05
+            ],
+            [
+              -2.2513350700800817e-05,
+              2.2513350700800817e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 11,
+      "status": "paired_conditional_results",
+      "window_index": 2,
+      "younger_cal_bp": 350.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.00041788349371392475,
+        -0.0004178834937139664
+      ],
+      "older_cal_bp_exclusive": 1200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.11015104516926995,
+            0.88984895483073
+          ],
+          "conditional_standard_error": [
+            0.007259843306277756,
+            0.007259843306277756
+          ],
+          "counting_covariance": [
+            [
+              1.887287316514981e-05,
+              -1.8872873165149815e-05
+            ],
+            [
+              -1.8872873165149815e-05,
+              1.8872873165149818e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              3.383245166655613e-05,
+              -3.383245166655613e-05
+            ],
+            [
+              -3.383245166655613e-05,
+              3.383245166655613e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              5.2705324831705944e-05,
+              -5.2705324831705944e-05
+            ],
+            [
+              -5.2705324831705944e-05,
+              5.2705324831705944e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.10973316167555602,
+            0.890266838324444
+          ],
+          "conditional_standard_error": [
+            0.007235697783252798,
+            0.007235697783252798
+          ],
+          "counting_covariance": [
+            [
+              1.8747543299093646e-05,
+              -1.8747543299093646e-05
+            ],
+            [
+              -1.8747543299093646e-05,
+              1.8747543299093646e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              3.3607779111475814e-05,
+              -3.3607779111475814e-05
+            ],
+            [
+              -3.3607779111475814e-05,
+              3.3607779111475814e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              5.235532241056946e-05,
+              -5.235532241056946e-05
+            ],
+            [
+              -5.235532241056946e-05,
+              5.235532241056946e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 9,
+      "status": "paired_conditional_results",
+      "window_index": 3,
+      "younger_cal_bp": 700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0002748462675825625,
+        -0.0002748462675826735
+      ],
+      "older_cal_bp_exclusive": 1700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.06927798177703345,
+            0.9307220182229665
+          ],
+          "conditional_standard_error": [
+            0.004762768219816653,
+            0.004762768219816653
+          ],
+          "counting_covariance": [
+            [
+              8.043523211850738e-06,
+              -8.043523211850738e-06
+            ],
+            [
+              -8.043523211850738e-06,
+              8.043523211850738e-06
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.4640437903844756e-05,
+              -1.4640437903844756e-05
+            ],
+            [
+              -1.4640437903844756e-05,
+              1.4640437903844756e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              2.2683961115695493e-05,
+              -2.2683961115695493e-05
+            ],
+            [
+              -2.2683961115695493e-05,
+              2.2683961115695493e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.06900313550945089,
+            0.9309968644905492
+          ],
+          "conditional_standard_error": [
+            0.004745273794328468,
+            0.004745273794328467
+          ],
+          "counting_covariance": [
+            [
+              7.984541387380628e-06,
+              -7.984541387380625e-06
+            ],
+            [
+              -7.984541387380625e-06,
+              7.984541387380622e-06
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.4533081995759862e-05,
+              -1.4533081995759864e-05
+            ],
+            [
+              -1.4533081995759864e-05,
+              1.4533081995759865e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              2.2517623383140492e-05,
+              -2.251762338314049e-05
+            ],
+            [
+              -2.251762338314049e-05,
+              2.2517623383140485e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 8,
+      "status": "paired_conditional_results",
+      "window_index": 4,
+      "younger_cal_bp": 1200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0003069593354933925,
+        -0.00030695933549340637
+      ],
+      "older_cal_bp_exclusive": 2200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.07811081040683644,
+            0.9218891895931636
+          ],
+          "conditional_standard_error": [
+            0.005955056077804706,
+            0.005955056077804706
+          ],
+          "counting_covariance": [
+            [
+              1.720258378885402e-05,
+              -1.720258378885402e-05
+            ],
+            [
+              -1.720258378885402e-05,
+              1.720258378885402e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.8260109100944748e-05,
+              -1.8260109100944748e-05
+            ],
+            [
+              -1.8260109100944748e-05,
+              1.8260109100944748e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.5462692889798767e-05,
+              -3.5462692889798767e-05
+            ],
+            [
+              -3.5462692889798767e-05,
+              3.5462692889798767e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.07780385107134305,
+            0.922196148928657
+          ],
+          "conditional_standard_error": [
+            0.005933628987875224,
+            0.005933628987875223
+          ],
+          "counting_covariance": [
+            [
+              1.707901209898324e-05,
+              -1.7079012098983237e-05
+            ],
+            [
+              -1.7079012098983233e-05,
+              1.707901209898323e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.8128940866769914e-05,
+              -1.8128940866769914e-05
+            ],
+            [
+              -1.8128940866769914e-05,
+              1.8128940866769914e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.5207952965753154e-05,
+              -3.520795296575315e-05
+            ],
+            [
+              -3.520795296575315e-05,
+              3.520795296575315e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 5,
+      "status": "paired_conditional_results",
+      "window_index": 5,
+      "younger_cal_bp": 1700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0003030209798537825,
+        -0.00030302097985368537
+      ],
+      "older_cal_bp_exclusive": 2700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.07701766598562933,
+            0.9229823340143707
+          ],
+          "conditional_standard_error": [
+            0.006123003317759655,
+            0.006123003317759655
+          ],
+          "counting_covariance": [
+            [
+              1.969645122432472e-05,
+              -1.9696451224324715e-05
+            ],
+            [
+              -1.9696451224324715e-05,
+              1.9696451224324715e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.7794718404971026e-05,
+              -1.7794718404971026e-05
+            ],
+            [
+              -1.7794718404971026e-05,
+              1.7794718404971026e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.749116962929574e-05,
+              -3.749116962929574e-05
+            ],
+            [
+              -3.749116962929574e-05,
+              3.749116962929574e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.07671464500577554,
+            0.9232853549942244
+          ],
+          "conditional_standard_error": [
+            0.006100915072767015,
+            0.006100915072767016
+          ],
+          "counting_covariance": [
+            [
+              1.9554600797194963e-05,
+              -1.9554600797194966e-05
+            ],
+            [
+              -1.9554600797194966e-05,
+              1.9554600797194973e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.7666563927920792e-05,
+              -1.766656392792079e-05
+            ],
+            [
+              -1.7666563927920792e-05,
+              1.766656392792079e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.722116472511575e-05,
+              -3.722116472511575e-05
+            ],
+            [
+              -3.722116472511576e-05,
+              3.7221164725115765e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 4,
+      "status": "paired_conditional_results",
+      "window_index": 6,
+      "younger_cal_bp": 2200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.00031531080247516885,
+        -0.00031531080247515497
+      ],
+      "older_cal_bp_exclusive": 3200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.0804382600016004,
+            0.9195617399983996
+          ],
+          "conditional_standard_error": [
+            0.006118288409040799,
+            0.006118288409040798
+          ],
+          "counting_covariance": [
+            [
+              1.8166601202923987e-05,
+              -1.8166601202923984e-05
+            ],
+            [
+              -1.8166601202923984e-05,
+              1.816660120292398e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.9266851853279e-05,
+              -1.9266851853279e-05
+            ],
+            [
+              -1.9266851853279e-05,
+              1.9266851853279e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.743345305620299e-05,
+              -3.7433453056202985e-05
+            ],
+            [
+              -3.7433453056202985e-05,
+              3.743345305620298e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.08012294919912523,
+            0.9198770508008748
+          ],
+          "conditional_standard_error": [
+            0.0060963949557789505,
+            0.00609639495577895
+          ],
+          "counting_covariance": [
+            [
+              1.803682045463839e-05,
+              -1.8036820454638386e-05
+            ],
+            [
+              -1.8036820454638386e-05,
+              1.8036820454638386e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              1.9129211002208638e-05,
+              -1.9129211002208638e-05
+            ],
+            [
+              -1.9129211002208638e-05,
+              1.9129211002208638e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              3.716603145684703e-05,
+              -3.7166031456847025e-05
+            ],
+            [
+              -3.7166031456847025e-05,
+              3.7166031456847025e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 4,
+      "status": "paired_conditional_results",
+      "window_index": 7,
+      "younger_cal_bp": 2700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0003532857660223099,
+        -0.0003532857660222266
+      ],
+      "older_cal_bp_exclusive": 3700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.09118781479608715,
+            0.9088121852039129
+          ],
+          "conditional_standard_error": [
+            0.007358644907741415,
+            0.007358644907741414
+          ],
+          "counting_covariance": [
+            [
+              2.996468583781974e-05,
+              -2.996468583781973e-05
+            ],
+            [
+              -2.996468583781973e-05,
+              2.996468583781972e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              2.4184969040408925e-05,
+              -2.4184969040408925e-05
+            ],
+            [
+              -2.4184969040408925e-05,
+              2.4184969040408925e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              5.4149654878228664e-05,
+              -5.414965487822866e-05
+            ],
+            [
+              -5.414965487822866e-05,
+              5.4149654878228644e-05
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.09083452903006484,
+            0.9091654709699352
+          ],
+          "conditional_standard_error": [
+            0.007332985036236078,
+            0.007332985036236078
+          ],
+          "counting_covariance": [
+            [
+              2.9756074218759923e-05,
+              -2.9756074218759923e-05
+            ],
+            [
+              -2.9756074218759923e-05,
+              2.9756074218759923e-05
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              2.4016595322902305e-05,
+              -2.4016595322902305e-05
+            ],
+            [
+              -2.4016595322902305e-05,
+              2.4016595322902305e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              5.3772669541662224e-05,
+              -5.3772669541662224e-05
+            ],
+            [
+              -5.3772669541662224e-05,
+              5.3772669541662224e-05
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 4,
+      "status": "paired_conditional_results",
+      "window_index": 8,
+      "younger_cal_bp": 3200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.00048140115943615114,
+        -0.0004814011594361789
+      ],
+      "older_cal_bp_exclusive": 4200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.1297391736126056,
+            0.8702608263873944
+          ],
+          "conditional_standard_error": [
+            0.013409447849697777,
+            0.013409447849697775
+          ],
+          "counting_covariance": [
+            [
+              0.0001349217251527349,
+              -0.00013492172515273487
+            ],
+            [
+              -0.0001349217251527349,
+              0.00013492172515273487
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              4.4891566481029444e-05,
+              -4.4891566481029444e-05
+            ],
+            [
+              -4.4891566481029444e-05,
+              4.4891566481029444e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00017981329163376436,
+              -0.0001798132916337643
+            ],
+            [
+              -0.00017981329163376436,
+              0.0001798132916337643
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.12925777245316944,
+            0.8707422275468306
+          ],
+          "conditional_standard_error": [
+            0.013367081849559157,
+            0.013367081849559155
+          ],
+          "counting_covariance": [
+            [
+              0.00013407052469519926,
+              -0.00013407052469519923
+            ],
+            [
+              -0.0001340705246951992,
+              0.00013407052469519918
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              4.460835247761461e-05,
+              -4.460835247761461e-05
+            ],
+            [
+              -4.460835247761461e-05,
+              4.460835247761461e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00017867887717281386,
+              -0.00017867887717281384
+            ],
+            [
+              -0.0001786788771728138,
+              0.00017867887717281378
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 9,
+      "younger_cal_bp": 3700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0005227646039195066,
+        -0.0005227646039194234
+      ],
+      "older_cal_bp_exclusive": 4700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.14307039300168972,
+            0.8569296069983103
+          ],
+          "conditional_standard_error": [
+            0.01757276738734735,
+            0.017572767387347345
+          ],
+          "counting_covariance": [
+            [
+              0.0002558707425119157,
+              -0.00025587074251191567
+            ],
+            [
+              -0.00025587074251191567,
+              0.00025587074251191556
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              5.2931411137902916e-05,
+              -5.2931411137902916e-05
+            ],
+            [
+              -5.2931411137902916e-05,
+              5.2931411137902916e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0003088021536498186,
+              -0.00030880215364981857
+            ],
+            [
+              -0.00030880215364981857,
+              0.00030880215364981846
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.14254762839777022,
+            0.8574523716022298
+          ],
+          "conditional_standard_error": [
+            0.017519239277700018,
+            0.017519239277700018
+          ],
+          "counting_covariance": [
+            [
+              0.0002543143095540179,
+              -0.00025431430955401795
+            ],
+            [
+              -0.0002543143095540179,
+              0.00025431430955401795
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              5.260943531528914e-05,
+              -5.260943531528914e-05
+            ],
+            [
+              -5.260943531528914e-05,
+              5.260943531528914e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00030692374486930704,
+              -0.0003069237448693071
+            ],
+            [
+              -0.00030692374486930704,
+              0.0003069237448693071
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 10,
+      "younger_cal_bp": 4200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0006414879941658569,
+        -0.0006414879941658569
+      ],
+      "older_cal_bp_exclusive": 5200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.18443431524231044,
+            0.8155656847576896
+          ],
+          "conditional_standard_error": [
+            0.021673015788886713,
+            0.02167301578888671
+          ],
+          "counting_covariance": [
+            [
+              0.0003900440798929214,
+              -0.0003900440798929213
+            ],
+            [
+              -0.0003900440798929213,
+              0.0003900440798929212
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              7.967553349241139e-05,
+              -7.96755334924114e-05
+            ],
+            [
+              -7.96755334924114e-05,
+              7.967553349241142e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0004697196133853328,
+              -0.0004697196133853327
+            ],
+            [
+              -0.0004697196133853327,
+              0.0004697196133853326
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.18379282724814458,
+            0.8162071727518555
+          ],
+          "conditional_standard_error": [
+            0.02161462179612537,
+            0.021614621796125368
+          ],
+          "counting_covariance": [
+            [
+              0.0003879451059248675,
+              -0.0003879451059248674
+            ],
+            [
+              -0.0003879451059248674,
+              0.0003879451059248673
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              7.924676946467051e-05,
+              -7.924676946467052e-05
+            ],
+            [
+              -7.924676946467051e-05,
+              7.924676946467052e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00046719187538953803,
+              -0.0004671918753895379
+            ],
+            [
+              -0.0004671918753895379,
+              0.0004671918753895378
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 11,
+      "younger_cal_bp": 4700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0008322360696826903,
+        -0.0008322360696826347
+      ],
+      "older_cal_bp_exclusive": 5700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.26564550948841287,
+            0.7343544905115872
+          ],
+          "conditional_standard_error": [
+            0.027907682936720284,
+            0.02790768293672028
+          ],
+          "counting_covariance": [
+            [
+              0.0006448278731197546,
+              -0.0006448278731197545
+            ],
+            [
+              -0.0006448278731197545,
+              0.0006448278731197545
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00013401089377675383,
+              -0.00013401089377675386
+            ],
+            [
+              -0.00013401089377675386,
+              0.0001340108937767539
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0007788387668965084,
+              -0.0007788387668965083
+            ],
+            [
+              -0.0007788387668965083,
+              0.0007788387668965083
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.2648132734187302,
+            0.7351867265812698
+          ],
+          "conditional_standard_error": [
+            0.027851779848209128,
+            0.027851779848209128
+          ],
+          "counting_covariance": [
+            [
+              0.000642247095258507,
+              -0.000642247095258507
+            ],
+            [
+              -0.000642247095258507,
+              0.000642247095258507
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00013347454545460118,
+              -0.00013347454545460118
+            ],
+            [
+              -0.00013347454545460118,
+              0.00013347454545460118
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0007757216407131082,
+              -0.0007757216407131082
+            ],
+            [
+              -0.0007757216407131082,
+              0.0007757216407131082
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 12,
+      "younger_cal_bp": 5200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.000852946047305847,
+        -0.0008529460473059025
+      ],
+      "older_cal_bp_exclusive": 6200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.2762220209170136,
+            0.7237779790829864
+          ],
+          "conditional_standard_error": [
+            0.0318874850454634,
+            0.0318874850454634
+          ],
+          "counting_covariance": [
+            [
+              0.0008760608727161357,
+              -0.0008760608727161358
+            ],
+            [
+              -0.0008760608727161358,
+              0.0008760608727161359
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014075082980851588,
+              -0.00014075082980851588
+            ],
+            [
+              -0.00014075082980851588,
+              0.00014075082980851588
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0010168117025246516,
+              -0.0010168117025246516
+            ],
+            [
+              -0.0010168117025246516,
+              0.0010168117025246518
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.27536907486970774,
+            0.7246309251302923
+          ],
+          "conditional_standard_error": [
+            0.03182648187695276,
+            0.03182648187695276
+          ],
+          "counting_covariance": [
+            [
+              0.0008727121376742997,
+              -0.0008727121376742997
+            ],
+            [
+              -0.0008727121376742997,
+              0.0008727121376742997
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014021281098970255,
+              -0.00014021281098970255
+            ],
+            [
+              -0.00014021281098970255,
+              0.00014021281098970255
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0010129249486640023,
+              -0.0010129249486640023
+            ],
+            [
+              -0.0010129249486640023,
+              0.0010129249486640023
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 13,
+      "younger_cal_bp": 5700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0007014601332356873,
+        -0.0007014601332356873
+      ],
+      "older_cal_bp_exclusive": 6700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.20753558548499115,
+            0.7924644145150088
+          ],
+          "conditional_standard_error": [
+            0.024107846256643115,
+            0.024107846256643115
+          ],
+          "counting_covariance": [
+            [
+              0.0004859375186727897,
+              -0.0004859375186727897
+            ],
+            [
+              -0.0004859375186727897,
+              0.0004859375186727897
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              9.525073246115167e-05,
+              -9.525073246115167e-05
+            ],
+            [
+              -9.525073246115167e-05,
+              9.525073246115167e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0005811882511339414,
+              -0.0005811882511339414
+            ],
+            [
+              -0.0005811882511339414,
+              0.0005811882511339414
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.20683412535175547,
+            0.7931658746482445
+          ],
+          "conditional_standard_error": [
+            0.02404763016094872,
+            0.02404763016094872
+          ],
+          "counting_covariance": [
+            [
+              0.0004835130203812423,
+              -0.00048351302038124235
+            ],
+            [
+              -0.00048351302038124235,
+              0.0004835130203812424
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              9.477549597652824e-05,
+              -9.477549597652824e-05
+            ],
+            [
+              -9.477549597652824e-05,
+              9.477549597652824e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0005782885163577705,
+              -0.0005782885163577706
+            ],
+            [
+              -0.0005782885163577706,
+              0.0005782885163577706
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 14,
+      "younger_cal_bp": 6200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.000672764916301527,
+        -0.000672764916301416
+      ],
+      "older_cal_bp_exclusive": 7200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.196263699684,
+            0.8037363003160001
+          ],
+          "conditional_standard_error": [
+            0.025262637833206363,
+            0.025262637833206356
+          ],
+          "counting_covariance": [
+            [
+              0.0005505753185539128,
+              -0.0005505753185539127
+            ],
+            [
+              -0.0005505753185539127,
+              0.0005505753185539125
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              8.762555173783652e-05,
+              -8.762555173783653e-05
+            ],
+            [
+              -8.762555173783653e-05,
+              8.762555173783655e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0006382008702917494,
+              -0.0006382008702917493
+            ],
+            [
+              -0.0006382008702917493,
+              0.000638200870291749
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.19559093476769848,
+            0.8044090652323015
+          ],
+          "conditional_standard_error": [
+            0.025197114517159638,
+            0.02519711451715964
+          ],
+          "counting_covariance": [
+            [
+              0.0005477229848759388,
+              -0.0005477229848759388
+            ],
+            [
+              -0.0005477229848759388,
+              0.0005477229848759389
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              8.717159511491825e-05,
+              -8.717159511491825e-05
+            ],
+            [
+              -8.717159511491825e-05,
+              8.717159511491825e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.000634894579990857,
+              -0.000634894579990857
+            ],
+            [
+              -0.000634894579990857,
+              0.0006348945799908571
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 15,
+      "younger_cal_bp": 6700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0006791880787703486,
+        -0.0006791880787704319
+      ],
+      "older_cal_bp_exclusive": 7700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.19875030310092412,
+            0.8012496968990759
+          ],
+          "conditional_standard_error": [
+            0.02081207547601642,
+            0.02081207547601642
+          ],
+          "counting_covariance": [
+            [
+              0.0003438376466242647,
+              -0.0003438376466242647
+            ],
+            [
+              -0.0003438376466242647,
+              0.0003438376466242647
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              8.930483899513943e-05,
+              -8.930483899513943e-05
+            ],
+            [
+              -8.930483899513943e-05,
+              8.930483899513943e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00043314248561940414,
+              -0.00043314248561940414
+            ],
+            [
+              -0.00043314248561940414,
+              0.00043314248561940414
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.19807111502215377,
+            0.8019288849778463
+          ],
+          "conditional_standard_error": [
+            0.02075853580716505,
+            0.02075853580716505
+          ],
+          "counting_covariance": [
+            [
+              0.0003420708574372945,
+              -0.00034207085743729443
+            ],
+            [
+              -0.00034207085743729443,
+              0.0003420708574372944
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              8.884595142005913e-05,
+              -8.884595142005914e-05
+            ],
+            [
+              -8.884595142005913e-05,
+              8.884595142005916e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00043091680885735365,
+              -0.0004309168088573536
+            ],
+            [
+              -0.00043091680885735354,
+              0.00043091680885735354
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 16,
+      "younger_cal_bp": 7200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0007829893379086295,
+        -0.0007829893379086572
+      ],
+      "older_cal_bp_exclusive": 8200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.24222639197187174,
+            0.7577736080281283
+          ],
+          "conditional_standard_error": [
+            0.02158832454925281,
+            0.02158832454925281
+          ],
+          "counting_covariance": [
+            [
+              0.0003474118313238538,
+              -0.0003474118313238537
+            ],
+            [
+              -0.0003474118313238537,
+              0.00034741183132385367
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00011864392552001774,
+              -0.00011864392552001774
+            ],
+            [
+              -0.00011864392552001774,
+              0.00011864392552001774
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00046605575684387153,
+              -0.0004660557568438715
+            ],
+            [
+              -0.0004660557568438715,
+              0.0004660557568438714
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.2414434026339631,
+            0.758556597366037
+          ],
+          "conditional_standard_error": [
+            0.021540775549772434,
+            0.021540775549772434
+          ],
+          "counting_covariance": [
+            [
+              0.00034588314455303177,
+              -0.0003458831445530317
+            ],
+            [
+              -0.0003458831445530317,
+              0.00034588314455303166
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.0001181218667326422,
+              -0.00011812186673264223
+            ],
+            [
+              -0.00011812186673264222,
+              0.00011812186673264224
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.000464005011285674,
+              -0.000464005011285674
+            ],
+            [
+              -0.0004640050112856739,
+              0.0004640050112856739
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 17,
+      "younger_cal_bp": 7700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0008595669160536001,
+        -0.0008595669160536001
+      ],
+      "older_cal_bp_exclusive": 8700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.2797099507463229,
+            0.7202900492536771
+          ],
+          "conditional_standard_error": [
+            0.025739270417042534,
+            0.025739270417042534
+          ],
+          "counting_covariance": [
+            [
+              0.0005195698697941194,
+              -0.0005195698697941194
+            ],
+            [
+              -0.0005195698697941194,
+              0.0005195698697941194
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014294017180752145,
+              -0.00014294017180752145
+            ],
+            [
+              -0.00014294017180752145,
+              0.00014294017180752145
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0006625100416016409,
+              -0.0006625100416016409
+            ],
+            [
+              -0.0006625100416016409,
+              0.0006625100416016409
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.2788503838302693,
+            0.7211496161697307
+          ],
+          "conditional_standard_error": [
+            0.025690793840021736,
+            0.025690793840021736
+          ],
+          "counting_covariance": [
+            [
+              0.0005176146278460178,
+              -0.0005176146278460178
+            ],
+            [
+              -0.0005176146278460178,
+              0.0005176146278460178
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014240226028448095,
+              -0.00014240226028448095
+            ],
+            [
+              -0.00014240226028448095,
+              0.00014240226028448095
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0006600168881304988,
+              -0.0006600168881304988
+            ],
+            [
+              -0.0006600168881304988,
+              0.0006600168881304988
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 18,
+      "younger_cal_bp": 8200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0008536398512272725,
+        -0.000853639851227217
+      ],
+      "older_cal_bp_exclusive": 9200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.2765849782940042,
+            0.7234150217059958
+          ],
+          "conditional_standard_error": [
+            0.029561535308987613,
+            0.029561535308987613
+          ],
+          "counting_covariance": [
+            [
+              0.000732904904243834,
+              -0.000732904904243834
+            ],
+            [
+              -0.000732904904243834,
+              0.000732904904243834
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014097946558068724,
+              -0.00014097946558068724
+            ],
+            [
+              -0.00014097946558068724,
+              0.00014097946558068724
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008738843698245213,
+              -0.0008738843698245213
+            ],
+            [
+              -0.0008738843698245213,
+              0.0008738843698245213
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.2757313384427769,
+            0.724268661557223
+          ],
+          "conditional_standard_error": [
+            0.02950507323571437,
+            0.02950507323571437
+          ],
+          "counting_covariance": [
+            [
+              0.0007301079039443263,
+              -0.0007301079039443263
+            ],
+            [
+              -0.0007301079039443263,
+              0.0007301079039443263
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014044144270054231,
+              -0.0001404414427005423
+            ],
+            [
+              -0.0001404414427005423,
+              0.00014044144270054226
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008705493466448686,
+              -0.0008705493466448686
+            ],
+            [
+              -0.0008705493466448686,
+              0.0008705493466448686
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 19,
+      "younger_cal_bp": 8700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0009970227273769505,
+        -0.000997022727376784
+      ],
+      "older_cal_bp_exclusive": 9700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.37193111275479934,
+            0.6280688872452007
+          ],
+          "conditional_standard_error": [
+            0.029732746892973765,
+            0.029732746892973762
+          ],
+          "counting_covariance": [
+            [
+              0.000691876138095045,
+              -0.0006918761380950449
+            ],
+            [
+              -0.0006918761380950449,
+              0.0006918761380950447
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00019216009970659615,
+              -0.00019216009970659615
+            ],
+            [
+              -0.00019216009970659615,
+              0.00019216009970659615
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008840362378016412,
+              -0.0008840362378016409
+            ],
+            [
+              -0.0008840362378016409,
+              0.0008840362378016409
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.3709340900274224,
+            0.6290659099725775
+          ],
+          "conditional_standard_error": [
+            0.029700115835008405,
+            0.02970011583500841
+          ],
+          "counting_covariance": [
+            [
+              0.0006903583327102138,
+              -0.0006903583327102139
+            ],
+            [
+              -0.0006903583327102138,
+              0.0006903583327102139
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00019173854790270327,
+              -0.00019173854790270324
+            ],
+            [
+              -0.00019173854790270324,
+              0.00019173854790270321
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008820968806129171,
+              -0.0008820968806129172
+            ],
+            [
+              -0.0008820968806129171,
+              0.0008820968806129172
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 20,
+      "younger_cal_bp": 9200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.001020325451655979,
+        -0.00102032545165609
+      ],
+      "older_cal_bp_exclusive": 10200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.3952826055030604,
+            0.6047173944969396
+          ],
+          "conditional_standard_error": [
+            0.03373307529779127,
+            0.03373307529779127
+          ],
+          "counting_covariance": [
+            [
+              0.0009367129615186169,
+              -0.0009367129615186169
+            ],
+            [
+              -0.0009367129615186169,
+              0.0009367129615186169
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00020120740752783883,
+              -0.00020120740752783883
+            ],
+            [
+              -0.00020120740752783883,
+              0.00020120740752783883
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0011379203690464557,
+              -0.0011379203690464557
+            ],
+            [
+              -0.0011379203690464557,
+              0.0011379203690464557
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.3942622800514044,
+            0.6057377199485957
+          ],
+          "conditional_standard_error": [
+            0.03370277171518223,
+            0.033702771715182225
+          ],
+          "counting_covariance": [
+            [
+              0.0009350307544617225,
+              -0.0009350307544617222
+            ],
+            [
+              -0.0009350307544617222,
+              0.0009350307544617218
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00020084606682396508,
+              -0.00020084606682396514
+            ],
+            [
+              -0.00020084606682396517,
+              0.00020084606682396522
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0011358768212856875,
+              -0.0011358768212856873
+            ],
+            [
+              -0.0011358768212856873,
+              0.001135876821285687
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 21,
+      "younger_cal_bp": 9700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0010518009310355736,
+        -0.001051800931035629
+      ],
+      "older_cal_bp_exclusive": 10700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.43967929298225106,
+            0.5603207070177488
+          ],
+          "conditional_standard_error": [
+            0.029356873323087514,
+            0.02935687332308752
+          ],
+          "counting_covariance": [
+            [
+              0.0006480942787609768,
+              -0.000648094278760977
+            ],
+            [
+              -0.000648094278760977,
+              0.0006480942787609772
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00021373173254683064,
+              -0.0002137317325468306
+            ],
+            [
+              -0.0002137317325468306,
+              0.00021373173254683059
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008618260113078073,
+              -0.0008618260113078076
+            ],
+            [
+              -0.0008618260113078076,
+              0.0008618260113078078
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.4386274920512155,
+            0.5613725079487845
+          ],
+          "conditional_standard_error": [
+            0.02934162096371846,
+            0.02934162096371846
+          ],
+          "counting_covariance": [
+            [
+              0.0006474210191212754,
+              -0.0006474210191212755
+            ],
+            [
+              -0.0006474210191212755,
+              0.0006474210191212755
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.0002135097016572473,
+              -0.00021350970165724724
+            ],
+            [
+              -0.00021350970165724722,
+              0.00021350970165724716
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0008609307207785228,
+              -0.0008609307207785228
+            ],
+            [
+              -0.0008609307207785228,
+              0.0008609307207785227
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 22,
+      "younger_cal_bp": 10200.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0008732979975294985,
+        -0.0008732979975295541
+      ],
+      "older_cal_bp_exclusive": 11200.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.28712496948369814,
+            0.7128750305163019
+          ],
+          "conditional_standard_error": [
+            0.017290770047392157,
+            0.017290770047392157
+          ],
+          "counting_covariance": [
+            [
+              0.0001514366441793823,
+              -0.0001514366441793823
+            ],
+            [
+              -0.0001514366441793823,
+              0.0001514366441793823
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014753408465241146,
+              -0.00014753408465241146
+            ],
+            [
+              -0.00014753408465241146,
+              0.00014753408465241146
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00029897072883179376,
+              -0.00029897072883179376
+            ],
+            [
+              -0.00029897072883179376,
+              0.00029897072883179376
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.28625167148616865,
+            0.7137483285138314
+          ],
+          "conditional_standard_error": [
+            0.017259297125423886,
+            0.017259297125423886
+          ],
+          "counting_covariance": [
+            [
+              0.00015088585136220655,
+              -0.00015088585136220655
+            ],
+            [
+              -0.00015088585136220653,
+              0.00015088585136220653
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              0.00014699748590145867,
+              -0.0001469974859014587
+            ],
+            [
+              -0.00014699748590145867,
+              0.0001469974859014587
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0002978833372636652,
+              -0.0002978833372636652
+            ],
+            [
+              -0.0002978833372636652,
+              0.0002978833372636652
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 3,
+      "status": "paired_conditional_results",
+      "window_index": 23,
+      "younger_cal_bp": 10700.0
+    },
+    {
+      "alternative_minus_reference_cover": [
+        0.0006099073409291667,
+        -0.0006099073409291389
+      ],
+      "older_cal_bp_exclusive": 11700.0,
+      "paired_standard_error": null,
+      "paired_uncertainty_scope": "No cross-geometry covariance or basin uncertainty model supplied",
+      "scenarios": {
+        "paper_area_declared_circle": {
+          "conditional_panel_cover": [
+            0.1729223032596283,
+            0.8270776967403717
+          ],
+          "conditional_standard_error": [
+            0.014750353238834389,
+            0.01475035323883439
+          ],
+          "counting_covariance": [
+            [
+              0.0001455421140012227,
+              -0.00014554211400122274
+            ],
+            [
+              -0.00014554211400122274,
+              0.00014554211400122277
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              7.203080666916944e-05,
+              -7.203080666916944e-05
+            ],
+            [
+              -7.203080666916944e-05,
+              7.203080666916944e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.00021757292067039216,
+              -0.00021757292067039216
+            ],
+            [
+              -0.00021757292067039216,
+              0.00021757292067039222
+            ]
+          ]
+        },
+        "workbook_static_circle": {
+          "conditional_panel_cover": [
+            0.17231239591869912,
+            0.8276876040813008
+          ],
+          "conditional_standard_error": [
+            0.014709166764555822,
+            0.014709166764555824
+          ],
+          "counting_covariance": [
+            [
+              0.00014473047273495535,
+              -0.00014473047273495538
+            ],
+            [
+              -0.00014473047273495538,
+              0.0001447304727349554
+            ]
+          ],
+          "shared_ppe_covariance": [
+            [
+              7.162911417255825e-05,
+              -7.162911417255825e-05
+            ],
+            [
+              -7.162911417255825e-05,
+              7.162911417255825e-05
+            ]
+          ],
+          "total_conditional_covariance": [
+            [
+              0.0002163595869075136,
+              -0.00021635958690751364
+            ],
+            [
+              -0.00021635958690751364,
+              0.00021635958690751364
+            ]
+          ]
+        }
+      },
+      "selected_native_sample_count": 2,
+      "status": "paired_conditional_results",
+      "window_index": 24,
+      "younger_cal_bp": 11200.0
+    }
+  ],
+  "workbook_sample_claim": "96"
+}

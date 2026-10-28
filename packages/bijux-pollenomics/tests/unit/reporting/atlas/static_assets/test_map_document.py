@@ -91,7 +91,7 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "compatibility declaration mismatch" in html
     assert "path is invalid" in html
     assert "aria-busy" in html
-    assert ".density-ramp[hidden]{display: none;}" in html
+    assert ".density-ramp[hidden]{display:none;}" in html
     assert '<div id="density-ramp" class="density-ramp" hidden>' in html
     assert 'id="density-ramp-description"' in html
     assert "visibleRaaDensityLayer?.density_count_label" in html
@@ -316,34 +316,34 @@ def test_static_loader_suppresses_obsolete_selection_generations(
     [
         (
             ".a .b {\n color: red;\n display: none;\n }",
-            ".a .b{color: red;display: none;}",
+            ".a .b{color:red;display:none;}",
         ),
         (
             '[data-label="a  b"] .child { content: " } ;  { "; }',
-            '[data-label="a  b"] .child{content: " } ;  { ";}',
+            '[data-label="a  b"] .child{content:" } ;  { ";}',
         ),
-        (".a { width: calc(100% -  2px); }", ".a{width: calc(100% -  2px);}"),
+        (".a { width: calc(100% -  2px); }", ".a{width:calc(100% -  2px);}"),
         (
             ".a { background: url(data:image/svg+xml;a  b); }",
-            ".a{background: url(data:image/svg+xml;a  b);}",
+            ".a{background:url(data:image/svg+xml;a  b);}",
         ),
         (
             ".a /* { ; } \n retained */ .b { color: red; }",
-            ".a /* { ; } \n retained */ .b{color: red;}",
+            ".a /* { ; } \n retained */ .b{color:red;}",
         ),
-        (r".\31 a { color: red; }", r".\31 a{color: red;}"),
-        (r".a\;b .c { color: red; }", r".a\;b .c{color: red;}"),
-        ('.a { content: "a\\\n  b"; }', '.a{content: "a\\\n  b";}'),
+        (r".\31 a { color: red; }", r".\31 a{color:red;}"),
+        (r".a\;b .c { color: red; }", r".a\;b .c{color:red;}"),
+        ('.a { content: "a\\\n  b"; }', '.a{content:"a\\\n  b";}'),
         (
             "@media (min-width:  300px) { .a > .b { margin: 0; } }",
-            "@media (min-width:  300px){.a > .b{margin: 0;}}",
+            "@media (min-width:  300px){.a > .b{margin:0;}}",
         ),
         (
             ".a { --empty: ; --word: red blue; color: var(--word); }",
-            ".a{--empty: ;--word: red blue;color: var(--word);}",
+            ".a{--empty: ;--word: red blue;color:var(--word);}",
         ),
-        ('.a { content: "unfinished  ', '.a{content: "unfinished  '),
-        (".a { color: red; /* unfinished  ", ".a{color: red;/* unfinished  "),
+        ('.a { content: "unfinished  ', '.a{content:"unfinished  '),
+        (".a { color: red; /* unfinished  ", ".a{color:red;/* unfinished  "),
     ],
 )
 def test_stylesheet_layout_preserves_lexical_values(source: str, expected: str) -> None:
@@ -359,12 +359,13 @@ def test_stylesheet_compaction_changes_only_the_inline_style_boundary() -> None:
         _compact_inline_stylesheet,
     )
 
-    prefix = '<script>const literal = "a  b ; {";</script><style>'
+    prefix = (
+        '<script>const literal = "a  b ; {";</script>'
+        '<script type="application/json">{"label":"a:  b"}</script><style>'
+    )
     suffix = '</style><p data-label="a  b">  retained  </p>'
     document = prefix + ".a .b { color: red; }" + suffix
-    assert (
-        _compact_inline_stylesheet(document) == prefix + ".a .b{color: red;}" + suffix
-    )
+    assert _compact_inline_stylesheet(document) == prefix + ".a .b{color:red;}" + suffix
 
 
 def test_stylesheet_preserves_lexical_atoms_and_is_idempotent() -> None:
@@ -398,3 +399,91 @@ def test_stylesheet_preserves_lexical_atoms_and_is_idempotent() -> None:
 
     assert tokens(compact) == tokens(stylesheet)
     assert compact_stylesheet(compact) == compact
+
+
+@pytest.mark.parametrize(
+    ("source", "expected"),
+    [
+        (".a:hover, .b :focus { color: red; }", ".a:hover, .b :focus{color:red;}"),
+        (
+            ".a { --tone:  red; --empty: ; color: var(--tone); }",
+            ".a{--tone: red;--empty: ;color:var(--tone);}",
+        ),
+        (
+            "@supports (color: red) { @media (min-width: 2px) { .a { width: calc(1px +  2px); } } }",
+            "@supports (color: red){@media (min-width: 2px){.a{width:calc(1px +  2px);}}}",
+        ),
+        (
+            '.a { content: "a:  b"; background: url(data:x:a  b); /* a:  b */ color: red; }',
+            '.a{content:"a:  b";background:url(data:x:a  b);/* a:  b */ color: red;}',
+        ),
+    ],
+)
+def test_declaration_separators_preserve_selectors_and_literal_boundaries(
+    source: str,
+    expected: str,
+) -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets.stylesheet import (
+        compact_stylesheet,
+    )
+
+    assert compact_stylesheet(source) == expected
+
+
+def test_static_document_budget_accepts_exact_utf8_limit() -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets import (
+        validate_static_atlas_document,
+    )
+
+    assert ATLAS_DOCUMENT_MAX_BYTES == 524_288
+    validate_static_atlas_document("é" * (ATLAS_DOCUMENT_MAX_BYTES // 2))
+
+
+def test_static_document_budget_refuses_one_extra_utf8_byte() -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets import (
+        validate_static_atlas_document,
+    )
+
+    document = "é" * (ATLAS_DOCUMENT_MAX_BYTES // 2) + "x"
+    with pytest.raises(ValueError, match="exceeds 524288 bytes: 524289"):
+        validate_static_atlas_document(document)
+
+
+@pytest.mark.parametrize(
+    ("source", "expected"),
+    [
+        (
+            "a:hover, b:hover { color: rgba(1, 2, 3, 0.2); }",
+            "a:hover, b:hover{color:rgba(1,2,3,0.2);}",
+        ),
+        (
+            ".a { --palette: rgba(1, 2, 3, 0.2); background:linear-gradient( red , rgba(1, 2, 3, 0.2) , blue ); }",
+            ".a{--palette: rgba(1, 2, 3, 0.2);background:linear-gradient(red,rgba(1,2,3,0.2),blue);}",
+        ),
+        (
+            "@supports (color: rgba(1, 2, 3, 0.2)) { .a { color:rgba( calc(1 +  2), 3, 4, 0.2 ); } }",
+            "@supports (color: rgba(1, 2, 3, 0.2)){.a{color:rgba(calc(1 +  2),3,4,0.2);}}",
+        ),
+        (
+            '.a { background:linear-gradient("a , b", url("a , b"), var(--colors, red , blue), calc(1px +  2px)); }',
+            '.a{background:linear-gradient("a , b",url("a , b"),var(--colors, red , blue),calc(1px +  2px));}',
+        ),
+        (
+            ".a { background:linear-gradient(red, /* comma , spaces */  blue); }",
+            ".a{background:linear-gradient(red,/* comma , spaces */  blue);}",
+        ),
+        (
+            r".a { background:linear-gradient(\31 red,blue); }",
+            r".a{background:linear-gradient(\31 red,blue);}",
+        ),
+    ],
+)
+def test_color_and_gradient_layout_preserves_nonlayout_tokens(
+    source: str,
+    expected: str,
+) -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets.stylesheet import (
+        compact_stylesheet,
+    )
+
+    assert compact_stylesheet(source) == expected

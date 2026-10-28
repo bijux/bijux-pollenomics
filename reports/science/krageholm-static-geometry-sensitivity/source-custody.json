@@ -1,0 +1,22 @@
+{
+  "inputs/dataset-23013-sample-eligibility.json": {
+    "sha256": "b3cc484f4d9e427cfa46cbae6a1b567cf30e7cad03d232c54b0e4a05b24a7d2c",
+    "bytes": 182173
+  },
+  "inputs/native-results.json": {
+    "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+    "bytes": 7105291
+  },
+  "inputs/native-terminal.json": {
+    "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+    "bytes": 3064
+  },
+  "inputs/protocol.json": {
+    "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+    "bytes": 40951
+  },
+  "inputs/source-terminal.json": {
+    "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+    "bytes": 12823
+  }
+}

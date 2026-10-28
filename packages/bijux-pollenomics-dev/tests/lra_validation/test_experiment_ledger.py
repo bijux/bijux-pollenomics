@@ -12,6 +12,12 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics_dev.lra_validation.development_design import (
+    DevelopmentDesignError,
+    FrozenDevelopmentDesign,
+    validate_attempt_against_design,
+    validate_development_design,
+)
 from bijux_pollenomics_dev.lra_validation.experiment_ledger import (
     ExperimentLedgerError,
     finish_development_attempt,
@@ -575,3 +581,79 @@ def test_dead_reservation_and_incomplete_attempt_are_preserved_but_recoverable(
         path.name.startswith(".development-reservation-stale-99999998-")
         for path in interrupted_root.iterdir()
     )
+
+
+@pytest.mark.parametrize(
+    "case",
+    [
+        "candidate_parameters",
+        "new_seed",
+        "new_fold",
+        "new_metric",
+        "expanded_budget",
+        "selection_direction",
+    ],
+)
+def test_direct_attempt_refuses_mutated_frozen_design_snapshot(case: str) -> None:
+    """Decoded convenience data cannot alter choices under unchanged frozen design bytes."""
+    attempt = _spec()
+    binding = attempt["development_design"]
+    design = validate_development_design(
+        binding["canonical_design_json"], binding["design_sha256"]
+    )
+    assert validate_attempt_against_design(
+        design, attempt, verify_executable_bytes=False
+    ) == ("vegetation_mae",)
+    if case == "candidate_parameters":
+        attempt["hyperparameters"]["radius_m"] = 7500
+        design.payload["candidates"][0]["hyperparameters"]["radius_m"] = 7500
+    elif case == "new_seed":
+        attempt["seed"] = 99
+        design.payload["seeds"].append(99)
+    elif case == "new_fold":
+        attempt["fold_id"] = "additional-development-fold"
+        design.payload["fold_ids"].append(attempt["fold_id"])
+    elif case == "new_metric":
+        design.payload["metric_ids"]["vegetation_cover"] = ["different_loss"]
+    elif case == "expanded_budget":
+        attempt["budget"]["seconds"] = 600
+        design.payload["resource_budget"]["maximum_seconds_per_trial"] = 600
+    else:
+        design.payload["selection_rule"]["direction_by_metric"]["vegetation_mae"] = (
+            "maximize"
+        )
+    assert design.canonical_design_json == binding["canonical_design_json"]
+    assert design.design_sha256 == binding["design_sha256"]
+    with pytest.raises(DevelopmentDesignError, match="frozen_design_payload_mismatch"):
+        validate_attempt_against_design(design, attempt, verify_executable_bytes=False)
+
+
+def test_direct_attempt_reauthenticates_frozen_design_digest() -> None:
+    """A constructed design object cannot bypass authentication at the actual consumer."""
+    attempt = _spec()
+    binding = attempt["development_design"]
+    design = validate_development_design(
+        binding["canonical_design_json"], binding["design_sha256"]
+    )
+    mismatched = FrozenDevelopmentDesign(
+        design.canonical_design_json, "0" * 64, design.payload
+    )
+    with pytest.raises(DevelopmentDesignError, match="design_digest_mismatch"):
+        validate_attempt_against_design(
+            mismatched, attempt, verify_executable_bytes=False
+        )
+
+
+def test_direct_attempt_reuses_unmodified_frozen_design() -> None:
+    """Repeated frozen design use keeps declared fold, parameters, loss and budgets."""
+    attempt = _spec()
+    binding = attempt["development_design"]
+    design = validate_development_design(
+        binding["canonical_design_json"], binding["design_sha256"]
+    )
+    before = _canonical(design.payload)
+    for _ in range(2):
+        assert validate_attempt_against_design(
+            design, attempt, verify_executable_bytes=False
+        ) == ("vegetation_mae",)
+    assert _canonical(design.payload) == before == design.canonical_design_json

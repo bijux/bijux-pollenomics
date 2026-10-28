@@ -1,0 +1,206 @@
+{
+  "actual_terminal": {
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/bootstrap.py"
+    ],
+    "candidate": "159d541e7b86442728b9d540ebec93588eba54eb",
+    "cwd": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity",
+    "log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "native_exit_code": 0,
+    "output_bytes": 137509,
+    "outputs": {
+      "comparison/independent-audit.json": {
+        "bytes": 2230,
+        "sha256": "a4b3e6e3c7026d34a34a6f35d83eb840ea6e71d7d907992b5aa42031e2d9f199"
+      },
+      "native/geometry-sensitivity.json": {
+        "bytes": 68449,
+        "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7"
+      },
+      "native/private-source-support.json": {
+        "bytes": 57169,
+        "sha256": "5cf1d2562609bfc17c70a8ecb7cefafd77ac90944f6de64b8211843abc2c22ed"
+      },
+      "native/runtime-custody.json": {
+        "bytes": 9661,
+        "sha256": "e78f75e7e3d5e67ec86fd31c6c8c1bb94addbc591cce994bacc0556a81729e53"
+      }
+    },
+    "peak_rss_bytes": 199000064,
+    "plan_sha256": "cf2e8f659193caeb739e93079f82a797a9107c35b3554a3266e4d87ee89193ea",
+    "resources_pass": true,
+    "runtime_binary_before_after_unchanged": true,
+    "scope": "Onefixed95selected/96originalsample nativeCalBP13366core/unit16622,25fullslots/24occupied. Explicit837m workbookcircle versus analyst186ha area-equivalentcircle. Keep sourcecalBP distinctfromoriginalCAA uncalBP, historicalNRmetadata, unmatcheddatedbasin, rawnegativebounds/two youngerbounds and excludedpoint. Nohistorical sourceidentity, wholevegetation, measuredfield/untouchedaccuracy, pairedSE or scientificgateclosure.",
+    "source_inputs_before_after_unchanged": true,
+    "status": "passed",
+    "wall_seconds": 3.3093443749821745
+  },
+  "evidence_receipt_sha256": {
+    "comparison/independent-audit.json": "a4b3e6e3c7026d34a34a6f35d83eb840ea6e71d7d907992b5aa42031e2d9f199",
+    "maintained-replay/comparison/byte-identity.json": "a0e4d5f0de103107d7e2a6f035f3e60d003920ed54eb13e920c0ca078ce90361",
+    "maintained-replay/terminal.json": "b473aa3efb2862b932da2a66fcddf9d3c8755d0f3fba2a7d162239e707daffb3",
+    "native/runtime-custody.json": "e78f75e7e3d5e67ec86fd31c6c8c1bb94addbc591cce994bacc0556a81729e53",
+    "terminal.json": "48416d783cad654aee7539e64ed652f6704600fb3074ac7434dfd2f8fae94d71"
+  },
+  "independent_audit": {
+    "decimal_scalar_covariance_cover_and_contrast_checks": 816,
+    "empty_refusals": 1,
+    "full_window_domain": 25,
+    "independent_geometry_method": "Analytical circle-lens area integrated against explicitly derived GPM radial survival density, one-dimensional scalar adaptive quadrature. Maintained consumer instead uses nested receiver-offset angular fractions. No maintained engine/oracle import.",
+    "limitations": "SamePython/SciPy runtime; independent geometry and scalar arithmetic only. No originalR/historical basin, empirical coverage, paired-geometry SE or independent field accuracy.",
+    "maximum_absolute_decimal_difference": "1.4312308602670141028719796767784221E-16",
+    "paired_windows": 24,
+    "physical_absolute_plus_relative_tolerance": [
+      2e-08,
+      2e-08
+    ],
+    "physical_factor_checks": [
+      {
+        "absolute_difference": 3.0693947383753084e-11,
+        "independent_adaptive_nonrigorous_error_estimate": 9.211095662389092e-12,
+        "independent_lens_factor": 0.19112187304998646,
+        "maintained_factor": 0.1911218730806804,
+        "scenario": "workbook_static_circle",
+        "taxon_index": 0
+      },
+      {
+        "absolute_difference": 4.502627437563689e-11,
+        "independent_adaptive_nonrigorous_error_estimate": 3.5494362331443667e-12,
+        "independent_lens_factor": 0.12498007026839346,
+        "maintained_factor": 0.12498007031341973,
+        "scenario": "workbook_static_circle",
+        "taxon_index": 1
+      },
+      {
+        "absolute_difference": 7.122077927412818e-11,
+        "independent_adaptive_nonrigorous_error_estimate": 5.984345132711141e-12,
+        "independent_lens_factor": 0.19480856678956282,
+        "maintained_factor": 0.1948085668607836,
+        "scenario": "paper_area_declared_circle",
+        "taxon_index": 0
+      },
+      {
+        "absolute_difference": 4.840094991465094e-11,
+        "independent_adaptive_nonrigorous_error_estimate": 9.009056403125316e-12,
+        "independent_lens_factor": 0.12793608440706034,
+        "maintained_factor": 0.12793608445546129,
+        "scenario": "paper_area_declared_circle",
+        "taxon_index": 1
+      }
+    ],
+    "scalar_absolute_tolerance": "2e-13",
+    "selected_samples": 95,
+    "source_refusals": 1,
+    "source_sample_and_age_checks": 96,
+    "status": "passed"
+  },
+  "maintained_replay_byte_identity": {
+    "output_sha256": {
+      "geometry-sensitivity.json": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7",
+      "private-source-support.json": "5cf1d2562609bfc17c70a8ecb7cefafd77ac90944f6de64b8211843abc2c22ed"
+    },
+    "status": "passed"
+  },
+  "maintained_replay_terminal": {
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/maintained-replay/bootstrap.py"
+    ],
+    "candidate": "159d541e7b86442728b9d540ebec93588eba54eb",
+    "cwd": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity",
+    "log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "native_exit_code": 0,
+    "output_bytes": 125872,
+    "outputs": {
+      "comparison/byte-identity.json": {
+        "bytes": 254,
+        "sha256": "a0e4d5f0de103107d7e2a6f035f3e60d003920ed54eb13e920c0ca078ce90361"
+      },
+      "native/geometry-sensitivity.json": {
+        "bytes": 68449,
+        "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7"
+      },
+      "native/private-source-support.json": {
+        "bytes": 57169,
+        "sha256": "5cf1d2562609bfc17c70a8ecb7cefafd77ac90944f6de64b8211843abc2c22ed"
+      }
+    },
+    "peak_rss_bytes": 192921600,
+    "plan_sha256": "1d53e39bfe31bf367306507b1e5275c786c4e21ed8046b0510368dc35f8dc252",
+    "resources_pass": true,
+    "runtime_binary_before_after_unchanged": true,
+    "scope": "Onefixed95selected/96originalsample nativeCalBP13366core/unit16622,25fullslots/24occupied. Explicit837m workbookcircle versus analyst186ha area-equivalentcircle. Keep sourcecalBP distinctfromoriginalCAA uncalBP, historicalNRmetadata, unmatcheddatedbasin, rawnegativebounds/two youngerbounds and excludedpoint. Nohistorical sourceidentity, wholevegetation, measuredfield/untouchedaccuracy, pairedSE or scientificgateclosure.",
+    "source_inputs_before_after_unchanged": true,
+    "status": "passed",
+    "wall_seconds": 2.657286249974277
+  },
+  "publication_scope": "Aggregate derived model outputs only. Original native source tables, detailed sample/depth/age/count associations and archives remain private. Scientific numerical qualification does not assign rights to original historical workbook or paper data.",
+  "runtime_custody": {
+    "actual_numpy_version": "2.4.6",
+    "actual_scipy_version": "1.17.1",
+    "first_party_import_origins": {
+      "bijux_pollenomics_lra": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/__init__.py",
+      "bijux_pollenomics_lra.api": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/api.py",
+      "bijux_pollenomics_lra.dispersal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/__init__.py",
+      "bijux_pollenomics_lra.dispersal.kernels": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/kernels.py",
+      "bijux_pollenomics_lra.dispersal.loess": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/loess.py",
+      "bijux_pollenomics_lra.dispersal.publication": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/publication.py",
+      "bijux_pollenomics_lra.dispersal.receiver_annulus": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/receiver_annulus.py",
+      "bijux_pollenomics_lra.dispersal.rounding": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/dispersal/rounding.py",
+      "bijux_pollenomics_lra.models": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/__init__.py",
+      "bijux_pollenomics_lra.models.configuration": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/configuration.py",
+      "bijux_pollenomics_lra.models.errors": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/errors.py",
+      "bijux_pollenomics_lra.models.observation": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/observation.py",
+      "bijux_pollenomics_lra.models.publication": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/publication.py",
+      "bijux_pollenomics_lra.models.regional_draw_source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/regional_draw_source.py",
+      "bijux_pollenomics_lra.models.results": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/results.py",
+      "bijux_pollenomics_lra.models.validation": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/models/validation.py",
+      "bijux_pollenomics_lra.optimization": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/optimization/__init__.py",
+      "bijux_pollenomics_lra.optimization.solver": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/optimization/solver.py",
+      "bijux_pollenomics_lra.provenance": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/provenance/__init__.py",
+      "bijux_pollenomics_lra.provenance.identity": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/provenance/identity.py",
+      "bijux_pollenomics_lra.provenance.manifest": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/provenance/manifest.py",
+      "bijux_pollenomics_lra.reconstruction": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/__init__.py",
+      "bijux_pollenomics_lra.reconstruction.analytical": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/analytical.py",
+      "bijux_pollenomics_lra.reconstruction.draws": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/draws.py",
+      "bijux_pollenomics_lra.reconstruction.fixed_site_covariance": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+      "bijux_pollenomics_lra.reconstruction.forward": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/forward.py",
+      "bijux_pollenomics_lra.reconstruction.inputs": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/inputs.py",
+      "bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/joint_fixed_site_covariance.py",
+      "bijux_pollenomics_lra.reconstruction.joint_site_draws": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "bijux_pollenomics_lra.reconstruction.likelihood": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
+      "bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+      "bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
+      "bijux_pollenomics_lra.reconstruction.optimized": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "bijux_pollenomics_lra.reconstruction.preparation": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/preparation.py",
+      "bijux_pollenomics_lra.reconstruction.publication": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/publication.py",
+      "bijux_pollenomics_lra.reconstruction.regional": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/reconstruction/regional.py",
+      "bijux_pollenomics_lra.version": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/version.py",
+      "bijux_pollenomics_lra.workflows": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/__init__.py",
+      "bijux_pollenomics_lra.workflows.forward": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/forward.py",
+      "bijux_pollenomics_lra.workflows.local": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/local.py",
+      "bijux_pollenomics_lra.workflows.multisite": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/multisite.py",
+      "bijux_pollenomics_lra.workflows.observation": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/observation.py",
+      "bijux_pollenomics_lra.workflows.paired": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/paired.py",
+      "bijux_pollenomics_lra.workflows.regional": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/regional.py",
+      "bijux_pollenomics_lra.workflows.series": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-static-geometry-sensitivity/engine/bijux_pollenomics_lra/workflows/series.py"
+    },
+    "frozen_numpy_scipy_members": 1592,
+    "numpy_origin": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/__init__.py",
+    "runtime_before_after_unchanged": true,
+    "scipy_origin": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/scipy/__init__.py",
+    "scope": "Python/NumPy/SciPy source/binaries and owned maintained-engine snapshot; system/BLAS/OS libraries outside this closure. No originalR or platformmatrix certification."
+  },
+  "schema_version": "krageholm-static-geometry-source-account.v1"
+}
