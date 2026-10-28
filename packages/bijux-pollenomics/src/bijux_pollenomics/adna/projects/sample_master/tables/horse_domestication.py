@@ -126,9 +126,13 @@ def _horse_domestication_primary_rows(
             sample_basis="primary_supplement_archive_filename_join",
             sample_evidence_status="direct_table_extracted",
             sample_lineage_path=f"{HORSE_DOMESTICATION_SUPPLEMENT} | {HORSE_DOMESTICATION_ARCHIVE}",
-            sample_lineage_locator=f"PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | {archive_locator}",
+            sample_lineage_locator=f"PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | {archive_locator}",
             sample_lineage_excerpt=(
                 "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. "
+                "PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L "
+                "among its eleven genome-appropriate samples after thirteen "
+                "Berel horses were screened. These are site-level study stages, "
+                "not the project-wide or independent-animal denominator. "
                 "The caption defines yBP as years Before Present. PDF p.2 assigns "
                 "shotgun data to PRJEB19970. Thirteen distinct archive runs "
                 "(eleven FASTQ and two aligned BAM records) bind BER11_L filenames "
@@ -139,7 +143,7 @@ def _horse_domestication_primary_rows(
             sample_identity_resolution="final",
             sample_ambiguity_note="",
             locality_text="Berel'",
-            political_entity="",
+            political_entity="Kazakhstan",
             latitude_text="",
             longitude_text="",
             chronology_text="2,300 yBP",
