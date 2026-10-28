@@ -12,6 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Preserve propagation projection identity and physical BIFF evidence; bind scientific account routes and paper/briefing exports to retained source custody ([#262](https://github.com/bijux/bijux-pollenomics/pull/262)).
 - Bind source-qualified chronology, taxon imports, exposed development ledgers, experiment splits and shared covariance evidence; retire human registers and preserve scientific reader/download custody ([#261](https://github.com/bijux/bijux-pollenomics/pull/261)).
 - Authenticate retained native R control sources through reachable Git history; qualify Nordic chronology windows, synthetic coverage diagnostics and declared basin-area sensitivity ([#260](https://github.com/bijux/bijux-pollenomics/pull/260)).
 - Lock audited fixed versions of development-tool dependencies while retaining scientific runtime versions ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
