@@ -25,6 +25,9 @@ from bijux_pollenomics.adna.projects.sample_master.tables.horse_domestication im
     HORSE_DOMESTICATION_ARCHIVE,
     _berel_archive_locator,
 )
+from bijux_pollenomics.adna.workflow.normalization import (
+    build_species_normalization_bundle,
+)
 from bijux_pollenomics.adna.workflow.normalization.samples import (
     _sample_record_is_admissible,
 )
@@ -114,6 +117,26 @@ def test_table_identity_retains_missing_spatial_context() -> None:
     assert row.latitude_text == row.longitude_text == ""
     assert row.time_start_bp is None and row.time_end_bp is None
     assert row.inclusion_status == "sample_context_blocked"
+
+
+def test_same_locality_name_does_not_merge_unknown_and_known_countries() -> None:
+    bundle = build_species_normalization_bundle("horse")
+    berel = {
+        row.identity.political_entity: row
+        for row in bundle.locality_records
+        if row.identity.stable_token.startswith(
+            "equus_caballus:locality:prjeb19970:berel"
+        )
+    }
+    assert set(berel) == {"", "Kazakhstan"}
+    unknown = berel[""]
+    assert unknown.sample_ids == ("prjeb19970:samea103910520",)
+    assert unknown.sample_count == 1
+    known = berel["Kazakhstan"]
+    assert known.sample_count == 10
+    assert "prjeb19970:samea103910520" not in known.sample_ids
+    assert set(unknown.sample_ids).isdisjoint(known.sample_ids)
+    assert len(unknown.sample_chronologies) == 1
 
 
 @pytest.mark.parametrize(

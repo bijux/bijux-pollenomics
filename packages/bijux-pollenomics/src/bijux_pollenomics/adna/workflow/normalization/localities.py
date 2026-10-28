@@ -149,6 +149,8 @@ def build_species_project_locality_records(
             for row in sample_rows_by_project.get(lead.project_accession, [])
             if _normalize_sample_label(row.site_label)
             == _normalize_sample_label(lead.locality_text)
+            and _normalize_sample_label(row.political_entity or "")
+            == _normalize_sample_label(lead.political_entity or "")
         ]
         if not matched_sample_rows:
             if _normalize_sample_label(
