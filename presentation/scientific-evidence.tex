@@ -308,6 +308,25 @@ Sweden & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/landclim-paper.md; reports/science/publication-correspondence.md}
 \end{frame}
 
+\begin{frame}{Matched Nordic physical transfer: pooling lowers error}
+\small
+\begin{tabular}{lrr}
+\toprule
+Training scope & Physical MAE & Direct MAE \\
+\midrule
+Sweden only & 0.242912 & 0.242412 \\
+Nordic pool & 0.198419 & 0.197962 \\
+\bottomrule
+\end{tabular}
+\begin{itemize}
+\item Same three Swedish targets, 18 windows and 78 native owners; two author taxa, Betula/Pinus. Site-macro fraction errors; lower is better.
+\item Physical is slightly better at two targets, poorer at B\"okesj\"on. Country weighting and core substitution retain different rankings and common support.
+\item Three profiles retain 414 scored, 16 refused and two unscorable outcomes; saved predictions precede scoring. Independent Decimal and R checks pass.
+\end{itemize}
+\scope{Conditional fixed-geometry inverse-to-forward development result. No local LOVE, historical basin admission, calibrated uncertainty, measured vegetation or untouched confirmation.}
+\evidence{reports/science/nordic-pollen-study.md}
+\end{frame}
+
 \begin{frame}{Curation: 79 workbooks do not establish 5,153 pollen samples}
 \small
 All 79 original Rootsi workbooks were read without recalculating formulas.
