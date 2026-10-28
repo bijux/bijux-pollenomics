@@ -12,8 +12,10 @@ from pyproj import Geod
 import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.author_lra_spatial.blocks.audit import (
-    LOWER_METRIC,
     audit_block_screen,
+)
+from bijux_pollenomics_dev.lra_validation.spatial_reference.geodesic import (
+    LOWER_METRIC,
     distance_bounds,
 )
 
