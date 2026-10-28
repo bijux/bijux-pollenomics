@@ -46892,8 +46892,8 @@
       "owner_id": "synthetic-validation/site-leakage/development-input-isolation",
       "role": "retained_source",
       "paths": [
-        "docs/report/synthetic-validation/site-leakage/development-input-isolation.json",
-        "docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json"
+        "docs/report/synthetic-validation/site-leakage/development-input-isolation-source-account.json",
+        "docs/report/synthetic-validation/site-leakage/development-input-isolation.json"
       ],
       "producer_paths": [],
       "producer_inputs": [],
@@ -46903,16 +46903,16 @@
       "owner_id": "pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance",
       "role": "retained_source",
       "paths": [
-        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json",
-        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json"
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json",
+        "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json"
       ],
       "producer_paths": [
         "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py"
       ],
       "producer_inputs": [
-        "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py",
         "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-custody.json",
-        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+        "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json"
       ],
       "verification": "Actual public joint covariance preserves shared native counts and declared global PPE covariance; 39552 Decimal50 comparisons <=2.43e-15, maintained byte equality, seven custody tests and strict checks. No empirical covariance/coverage, chronology or geometry distribution, historical basin, human/rights admission."
     }
