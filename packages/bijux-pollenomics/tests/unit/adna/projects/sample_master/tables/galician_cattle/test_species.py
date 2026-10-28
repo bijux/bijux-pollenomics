@@ -41,6 +41,9 @@ ARCHIVE = (
 def test_public_sample_master_distinguishes_aurochs_and_domestic_cattle() -> None:
     master = build_project_sample_master(ROOT / "data", "PRJNA705960")
     assert master.species_latin_name == "Bos taurus"
+    assert master.expected_sample_count is None
+    assert master.unresolved_sample_count is None
+    assert master.expected_sample_count_status == "source_population_unresolved"
     assert len(master.rows) == 11
     assert Counter(row.species_latin_name for row in master.rows) == {
         "Bos primigenius": 3,

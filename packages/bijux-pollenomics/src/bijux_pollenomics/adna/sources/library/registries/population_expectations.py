@@ -9,6 +9,64 @@ from ..models import _ProjectIntakeExpectation
 
 def population_expectation(project_accession: str) -> _ProjectIntakeExpectation | None:
     """Keep source-population authority separate from archive capture counts."""
+    if project_accession == "PRJNA1328209":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=5,
+            expected_sample_count_status="known_from_source_table",
+            expected_sample_count_provenance=(
+                "The retained primary article reports genomic data generated "
+                "from five Lake Qinghai Basin goat remains, with three retained "
+                "after authentication and filtering for population analysis. "
+                "Supplementary Table S2 lists all five source sample labels. "
+                "This generated-source population is not the three-genome "
+                "analysis subset or an authenticated native-accession crosswalk."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.24272-j.issn.2095-8137.2025.080/"
+                "supplementary/Supplementary_tables.xlsx"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve the five Table S2 source labels, three-genome analysis "
+                "subset and four marked archaeological-context dates. Recover "
+                "explicit archive-to-specimen bindings before filling native IDs; "
+                "administrative recovery does not establish independent animals."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
+    if project_accession == "PRJNA705960":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained primary article DOI 10.1371/journal.pone.0249537 "
+                "assigns original Illumina reads to PRJNA705960. Eighteen bone "
+                "samples were processed; eleven yielded consensus sequences "
+                "and seven failed mapping or quality criteria. Nine consensus "
+                "sequences met GenBank submission criteria. The eleven reviewed "
+                "ENA BioSample aliases do not establish whether unsuccessful "
+                "libraries were deposited or close the project specimen roster."
+            ),
+            expected_sample_count_artifact_path=(
+                "adna/review/galician_cattle/article.html"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Bind the primary paper and retained S1/S2 tables without "
+                "reacquisition. Preserve eighteen processed specimens, eleven "
+                "consensus sequences, seven quality failures and nine GenBank "
+                "submissions as separate stages. Recover a closed deposition "
+                "roster; do not infer seven missing BioSamples or independent "
+                "animals, or replace sample-owned aurochs taxonomy."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
     if project_accession == "PRJEB41594":
         return _ProjectIntakeExpectation(
             expected_sample_count=None,
