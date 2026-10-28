@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source.generated import (
