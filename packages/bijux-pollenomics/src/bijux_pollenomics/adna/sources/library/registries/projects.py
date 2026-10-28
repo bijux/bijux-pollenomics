@@ -135,6 +135,61 @@ def _project_intake_expectation(
             blocker_categories=("missing_sample_identifiers",),
         )
 
+    if project.project_accession == "PRJEB31621":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=None,
+            expected_sample_count_status="source_population_unresolved",
+            expected_sample_count_provenance=(
+                "The retained Science Supplementary Table S1 lists 66 ancient "
+                "sample IDs; Table S6 separates nine new modern genomes from "
+                "reused comparators. The project capture has 77 BioSample "
+                "owners across 364 runs, while the 78-row master additionally "
+                "retains provisional Men1. These populations do not establish "
+                "a closed project specimen denominator or an MV013-to-Men1 join."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aav1002/"
+                "supplementary/aav1002_verdugo_sm.pdf"
+            ),
+            sample_identifier_status="manual_curation_required",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Recover explicit Men1/MV013 specimen correspondence and the "
+                "modern ERS-to-SAMEA crosswalk with project/reused-data scope. "
+                "Keep the 66 ancient source IDs, 77 captured archive owners "
+                "and 78-row curated union distinct."
+            ),
+            blocker_categories=("missing_sample_identifiers",),
+        )
+
+    if project.project_accession == "PRJEB75467":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=50,
+            expected_sample_count_status="known_from_source_table",
+            expected_sample_count_provenance=(
+                "The retained Nature supplement physical p. 3 identifies 50 "
+                "new samples, listed as 50 unique Analysis IDs in Supplementary "
+                "Data 1!A2:AB51. Final Data Availability assigns new reads and "
+                "alignments to PRJEB75467, separately from reused data. This "
+                "mixed-taxon source-sample denominator does not imply 50 "
+                "independent individuals or complete archive identity recovery."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41586-024-08112-6/"
+                "supplementary/41586_2024_8112_MOESM3_ESM.xlsx"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Reconcile all 50 source Analysis IDs with captured BioSamples "
+                "and submitted filenames. Preserve provisional Fre1, the six "
+                "unmatched source IDs, Borly4a/Borlya alias ambiguity, literal "
+                "taxa and sample-specific source-use restrictions."
+            ),
+        )
+
     if project.project_accession == "PRJEB59481":
         return _ProjectIntakeExpectation(
             expected_sample_count=5,
