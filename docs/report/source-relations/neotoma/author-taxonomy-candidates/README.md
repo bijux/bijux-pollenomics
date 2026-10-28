@@ -90,7 +90,8 @@ account remains 88,004 native NISP = 86,691 author-assigned + 1,311 excluded +
 two unmapped. All 34 screened counts remain unmapped and no LRA sample is
 admitted by this review preparation.
 
-The unresolved Rhododendron pollen-synonym question needs
+The unsent request `rhododendron-pollen-synonym` in the
+source register asks for
 the native determination and its source-specific pollen concept, lookup/use
 authority, and a qualified decision on the proposed Ericaceae aggregation.
 The matching review question asks whether that
@@ -99,3 +100,16 @@ Its decision is `not_received`; the reviewer is unassigned. An answer for the
 two Abborrtjärnen counts would not automatically approve the other Swedish or
 Norwegian occurrences. A returned scoped decision must precede any change to
 the mapping, denominator or affected prediction.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

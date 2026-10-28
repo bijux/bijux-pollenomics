@@ -76,3 +76,20 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 - Nordic-specific overlays describe the current Nordic recovery slice and must not be generalized outward.
 - Animal points can remain visible even when their Nordic relevance is regional rather than one exact country.
 - Approximate or inferred coordinates remain visible with explicit warnings instead of being silently dropped.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

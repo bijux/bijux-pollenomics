@@ -123,3 +123,31 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 The [governed source page](../../docs/report/countries/denmark/solsoe-source-lineage/README.md)
 routes each primary control, count and age check. Its machine report pins
 the released LandClim and Neotoma input hashes.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Solsø source site/two-core lead and 92-depth exact LegacyAge alternative join are documented.
+
+**Unsupported claim.** Historical LandClim 79-row LRA input or age-specific shoreline.
+
+**Actual verification performed.** Retained PANGAEA count/control, final-age and LegacyAge lineage checks are cited; index did not rerun.
+
+**Remaining input or review.** LandClim names 79 Solsø rows but Neotoma has 92; age-span filtering retains 90. Selected rows/chronology, age-specific shoreline, eligible denominator, parameter mapping and R-marked rights remain open. Resolver: Solsø/LandClim source custodians and qualified Danish chronology/basin reviewer Reopen when: Actual 79-row same-core source packet with selected ages, geometry, counts, PPE and terms passes admission.
+
+**Cause category.** data|assumption|access/rights|qualified review
+
+**Consequence.** Do not substitute complete alternate chronology or 2.5 ha/89 m modern area for selected historical basin.
+
+**Precise next acceptance route.** Authenticate the historical SOLSOE81/SOLSOE83 selection and exact 79-row same-core age, basin, count, PPE and rights packet; rerun the LRA prerequisite screen before revising this account or admitting historical inputs.
+
+**Negative or refused result.** Zero Solsø LRA samples admitted; age-span filter yields 90, not 79 historical rows.
+
+**Matched denominator.** 66 SOLSOE81 +26 SOLSOE83 =92 Neotoma samples; 91 selected observed-pollen samples; LandClim names 79.
+
+Retained evidence: [docs/report/countries/denmark/solsoe-source-lineage/report.json](../../docs/report/countries/denmark/solsoe-source-lineage/report.json), [docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md](../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

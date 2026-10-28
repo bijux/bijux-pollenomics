@@ -111,3 +111,31 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 The producer requires an absent output directory. Compare its `controls.csv`
 and `report.json` byte for byte with the governed files beside this page.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** One DALMUT 72-sample source lineage and 11 published radiocarbon lab/depth/age/error controls match.
+
+**Unsupported claim.** Time-matched Norwegian LRA reconstruction for the 72 samples.
+
+**Actual verification performed.** Retained 11-row controls and source-bound machine report are cited; index did not rerun source PDF or replay.
+
+**Remaining input or review.** The 72-sample core and 11 lab/depth/age/error controls are matched; historical basin differs across 7.2/8.00 ha claims, two printed intervals exclude their centres, and selected denominator/PPE/rights are unbound. Resolver: DALMUT core/author custodian and qualified chronology/basin reviewer Reopen when: Same-core selected sample/window packet disposes basin and printed-interval differences and binds count, parameter and use rights.
+
+**Cause category.** data|assumption|access/rights|qualified review
+
+**Consequence.** Observed-pollen count assignment does not authenticate LRA denominator or historical 7.2/8.00 ha basin.
+
+**Precise next acceptance route.** Resolve the same-core historical basin and two printed interval discrepancies in a versioned DALMUT sample/window packet, bind denominator, PPE and rights, then rerun the LRA prerequisite screen before admission.
+
+**Negative or refused result.** Zero DALMUT LRA samples admitted; two printed calibrated intervals exclude their centres.
+
+**Matched denominator.** 72 pollen samples, 23 LandClim windows; 46,477/47,085 native counts map to 19 author targets in observed-pollen ledger.
+
+Retained evidence: [reports/science/dalmutladdo-lra-input/controls.csv](controls.csv), [reports/science/dalmutladdo-lra-input/report.json](report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

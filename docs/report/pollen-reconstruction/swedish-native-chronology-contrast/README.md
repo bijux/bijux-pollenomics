@@ -33,3 +33,16 @@ The actual bounded reader reconciled every selected native sample identity and p
 The [common-panel source attribution](../swedish-observed-common-panel/attribution.json) retains native dataset DOIs, original investigator and EPD credit, and source publication relationships for these exact datasets. Current public analytical-use attribution remains distinct from historical/private-author-copy permissions and redistribution decisions. This account publishes aggregate derived comparisons; it does not redistribute individual source sample/depth/age associations or original archives.
 
 The [aggregate report](report.json) retains every pair/window slot, model identity, source-custody hashes, cohort/refusal totals and scientific limitations. The maintained [source reader](../../../../reports/science/swedish-native-chronology-contrast/qualify.py) and [frozen comparison protocol](../../../../reports/science/swedish-native-chronology-contrast/protocol.json) consume the exact retained source packet to reproduce the aggregate. The completed [Tibetanus TP/native sensitivity](../tibetanus-point-age-sensitivity/README.md) is a separate study and was not rerun here.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

@@ -518,7 +518,7 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract(
     assert {row["id"] for row in rows} == {
         row["owner_id"] for row in configured["owners"]
     }
-    assert set(matrix["lane"]) == {"reference", "replay"}
+    assert set(matrix) == {"owner"}
     assert len({row["id"] for row in rows}) == len(rows)
     assert len({row["artifact"] for row in rows}) == len(rows)
     plan_outputs = workflow["jobs"]["rebuild-plan"]["outputs"]
@@ -526,30 +526,44 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract(
     assert plan_outputs["owner_ids"] == "${{ steps.plan.outputs.owner_ids }}"
     assert set(owner_job["needs"]) == {"impact", "rebuild-plan"}
     assert owner_job["strategy"]["fail-fast"] == "false"
-    assert int(owner_job["timeout-minutes"]) == 10
-    build = next(
+    assert int(owner_job["timeout-minutes"]) == 30
+    assert len(rows) == len(configured["owners"]) <= 256
+    builds = [
         step
         for step in owner_job["steps"]
         if step.get("run") == "make build-report-rebuild-owner"
+    ]
+    assert [step["env"]["REBUILD_LANE"] for step in builds] == ["reference", "replay"]
+    assert "if" not in builds[0]
+    assert builds[1]["if"] == (
+        "${{ always() && !cancelled() && steps.verification-environment.outcome == 'success' "
+        "&& steps.report-plan.outcome == 'success' }}"
     )
-    assert build["env"]["REBUILD_OWNER_ID"] == "${{ matrix.owner.id }}"
-    assert build["env"]["REBUILD_EVIDENCE_ROOT"].endswith(
-        "/${{ matrix.lane }}/${{ matrix.owner.id }}"
-    )
-    upload = next(
+    uploads = [
         step
         for step in owner_job["steps"]
-        if step.get("name") == "Upload owner output and diagnostics"
-    )
-    assert upload["with"]["name"].startswith("report-owner-")
-    assert upload["if"] == "always()"
-    assert upload["with"]["if-no-files-found"] == "error"
-    assert upload["with"]["name"] == (
-        "report-owner-${{ matrix.lane }}-${{ matrix.owner.artifact }}"
-    )
-    assert upload["with"]["path"] == (
-        "artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}"
-    )
+        if step.get("name", "").startswith(
+            ("Upload reference owner", "Upload replay owner")
+        )
+    ]
+    assert len(uploads) == 2
+    for lane, build, upload in zip(
+        ("reference", "replay"), builds, uploads, strict=True
+    ):
+        assert build["env"]["REBUILD_OWNER_ID"] == "${{ matrix.owner.id }}"
+        assert build["env"]["REBUILD_EVIDENCE_ROOT"] == (
+            f"artifacts/execution-control/report-rebuild-owner/{lane}/${{{{ matrix.owner.id }}}}"
+        )
+        assert upload["if"] == "always()"
+        assert upload["with"]["if-no-files-found"] == "error"
+        assert (
+            upload["with"]["name"]
+            == f"report-owner-{lane}-${{{{ matrix.owner.artifact }}}}"
+        )
+        assert (
+            upload["with"]["path"]
+            == f"artifacts/execution-control/report-rebuild-owner/{lane}"
+        )
 
 
 def test_report_owner_ci_downloads_preserve_exact_nested_identities(
@@ -625,7 +639,14 @@ def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
     owner_job = workflow["jobs"]["rebuild-owners"]
-    assert owner_job["steps"][-1]["with"]["path"].endswith("/${{ matrix.lane }}")
+    assert {
+        step["with"]["path"]
+        for step in owner_job["steps"]
+        if step.get("uses", "").startswith("actions/upload-artifact")
+    } == {
+        "artifacts/execution-control/report-rebuild-owner/reference",
+        "artifacts/execution-control/report-rebuild-owner/replay",
+    }
     owners = configured_owner_rows
     assert isinstance(owners, list)
     same_leaf = [row for row in owners if row["id"].endswith("/report-products")]

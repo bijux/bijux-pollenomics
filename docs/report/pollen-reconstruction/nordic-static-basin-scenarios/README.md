@@ -68,3 +68,16 @@ The separate [native publication acquisition](verification/publication-metadata/
 `attribution_complete` now describes those four returned native inventories only: four primary relations to three distinct publication IDs, with no empty or refused returned relation. It does not authenticate the article contents, establish historical selected-record membership, validate chronology or broaden permissions. The acquisition and qualification have their own candidate, plan, terminal and output identities; they do not borrow the original mathematical authority. All fourteen original scientific/source captures remain unchanged, including the source-census receipt's pending capture-admission status. The earlier producer proposal and failed qualification retain their incomplete-attribution scope; that failed run did not reach native reference/replay.
 
 The captured Neotoma policy supplies the preferred database references: Williams, Grimm et al. (2018), *The Neotoma Paleoecology Database: A multi-proxy, international community-curated data resource*, Quaternary Research 89, 156–177; and Fyfe et al. (2009), *The European Pollen Database: past efforts and current activities*, Vegetation History and Archaeobotany 18, 417–424. It also recommends Giesecke et al. (2014), *Towards mapping the late Quaternary vegetation change of Europe*, Vegetation History and Archaeobotany 23, 75–86, for use of those chronologies. Here that chronology attribution is limited to the two actually named Solsø MADCAP models (25732 and 25740). These are policy-supplied references; this account does not claim to have acquired those articles or established chronology accuracy from a citation.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

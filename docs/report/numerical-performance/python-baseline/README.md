@@ -76,3 +76,16 @@ This result establishes a bounded Python baseline. A later
 [isolated worker measurement](../native-memory/README.md) make a scoped
 non-adoption decision for one C++ batch boundary. This baseline alone does not
 certify source-R/C++ parity, parallel scaling or the full backend investigation.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Numerical/runtime comparison reader; method correspondence and empirical/historical accuracy acceptance remain separate even when performance measurements pass.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

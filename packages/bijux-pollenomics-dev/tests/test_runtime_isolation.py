@@ -14,6 +14,11 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    "bijux_pollenomics_dev/reader_reports/scientific_routes.py": {
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
+            {"Route", "load_routes", "render_route"}
+        ),
+    },
     "bijux_pollenomics_dev/ci/atlas_browser/artifact_candidate.py": {
         "bijux_pollenomics.analysis.lra.api": frozenset({"read_lra_product"}),
     },
@@ -1096,6 +1101,10 @@ def test_dev_package_uses_only_reviewed_host_imports() -> None:
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
     """An admitted source import must not authorize sibling files or symbols."""
     approved = {
+        "bijux_pollenomics_dev/reader_reports/scientific_routes.py": (
+            "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts",
+            "Route",
+        ),
         "bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py": (
             "bijux_pollenomics.reporting.context.polygons",
             "build_external_polygon_layer",

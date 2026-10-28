@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- Reject nonfinite propagated covariance and account separately for declared
+  count, PPE and shared-input contributions instead of treating small numerical
+  residuals as valid uncertainty.
+- Preserve source-compatible dimension refusals for unsupported optimized LOVE
+  ring shapes and single-taxon REVEALS wrappers; analytical and explicitly
+  dimensioned forward models retain their separately qualified contracts.
+- Provide outcome-free target preparation and retain optimizer convergence,
+  declared support and negative estimates in the scientific result contract.
+- Keep synthetic recovery/coverage checks and native R comparisons conditional
+  on their actual equations and inputs; they do not certify field accuracy or
+  undocumented biological parameter transfer.
+
 - Adopt reviewed DISQOVER-derived numerical modules into the host workspace.
 - Align package builds and release identity with host Hatch/VCS conventions.
 - Introduce a narrow application facade and explicit numerical backend metadata.

@@ -1,0 +1,53 @@
+{
+  "schema_version": "rootsi-physical-biff-custody.v1",
+  "candidate": "04dd2d01abf75537b0076545f77d5496dbb03991",
+  "plan_sha256": "10751bc66cc2130fa909324d33dbcaeea6da3c4c02b04d38f7085c62bf55afef",
+  "archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+  "workbooks": 79,
+  "all_native_boundsheet_tabs": 107,
+  "worksheet_tabs_matched_existing_capture": 107,
+  "biff_grammar_counts": {
+    "BIFF5_or_7": 62,
+    "BIFF8": 17
+  },
+  "mixed_global_sheet_bof_workbooks": 2,
+  "mixed_bof_posture": "Native global-versus-sheet versions are retained independently; name grammar uses globals, physical record-address bounds use each local BOF. Mixed versions do not certify source cached interpretation.",
+  "all_sheet_visibility_code_counts": {
+    "0": 107
+  },
+  "all_sheet_type_code_counts": {
+    "0": 107
+  },
+  "physical_BIFF_records": 54419,
+  "formula_record_occurrences": 63,
+  "reference_record_occurrences_by_code": {},
+  "cached_cell_rectangles_redecoded": 0,
+  "cached_cells_recounted": 0,
+  "independent_globals_oracle_cached_sheets_loaded": 0,
+  "retained_cached_census": {
+    "identity": "2e5b5a3a10cec59fc8086c0c99db56bb394e9d1f180bbd5571c1098c262c9179",
+    "workbooks": 79,
+    "sheets": 107,
+    "empty_sheets": 28,
+    "rectangle_positions": 547330,
+    "cached_type_counts": {
+      "0": 12642,
+      "1": 7498,
+      "2": 527072,
+      "6": 118
+    },
+    "source_numeric_values_not_pollen_counts": true,
+    "newly_recomputed": false
+  },
+  "retained_merged_ranges": {
+    "sheets_with_ranges": 0,
+    "newly_recomputed": false
+  },
+  "formula_posture": "Physical FORMULA row/column/record hash retained privately; no token interpretation, evaluation, cache recalculation or scientific derived-cell admission.",
+  "reference_posture": "Physical reference records may denote internal/external/add-in or DDE/OLE associations. No target decoding/resolution, external access, link absence or security certification.",
+  "native_stream_scope": "Only one exact root Workbook or Book CFB3 stream and its BIFF5/7/8 globals plus bounded declared substreams; no all-CFB-stream or malware/macros absence certification.",
+  "original_archive_intake_replayed": false,
+  "scientific_admission": "refused",
+  "source_rights_admission": false,
+  "historical_input_identity_authenticated": false
+}

@@ -4,6 +4,25 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ## Unreleased
 
+### Added
+
+- Expose supported claims, actual verification, denominators, negative outcomes
+  and precise remaining acceptance on scientific primary reports, with explicit
+  source-bound reading routes from scientific wrappers.
+- Retain source-qualified Namibia and Pyrenean alternatives, synthetic coverage
+  failures, prefit isolation witnesses and exposed English experiment-ledger
+  audits as distinct scientific accounts.
+- Validate distribution-internal names, versions and complete wheel RECORD
+  identities before accepting release archives.
+
+### Changed
+
+- Preserve numerical operands and TeX escaping while offering safe breaks in long
+  formulas and repository paths. Actual export/layout checks remain separate
+  from human comprehension and scientific review.
+- Keep installed-engine qualification, accepted publication configuration and
+  same-revision hosted Linux/R admission separate from local numerical success.
+
 ## 0.1.8 - 2026-09-08
 
 ### Added

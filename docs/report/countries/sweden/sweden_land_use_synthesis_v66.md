@@ -46,3 +46,18 @@ context. They are excluded only from the lake-sampling ranking.
 This compact table shows one recent modeled window per covered target. The
 machine-readable JSON and CSV retain all **150** published
 target-window rows for time navigation and analysis.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

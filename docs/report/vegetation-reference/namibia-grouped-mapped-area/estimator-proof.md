@@ -32,3 +32,16 @@ Training minimizes the stated centered log-residual objective. Held-out evaluati
 This proof concerns a conditional point estimator for five listed source quantities. It supplies no stochastic likelihood, uncertainty distribution, calibrated chronology, taxonomy equivalence, physical transport, identifiable PPE/ERV parameter or environmental validity theorem.
 
 Exact source authority: experiment protocol SHA256 `a1662a4d5327e13e1d59cc1492ebdfdfcaccb8ffa67558ed6bbf51b4539a34ea`; prediction source `16cf4a30e8702202c81f56d2cd543492ba05c0931412d74306e0893a14c82ec8`; native ledger `0fa469e4cf60708ee958edff9188393d90a0f21f7f8312c6e7be26bb98b962c9`. The [saved-result qualification](source-account.json) retains source and actual numerical authority separately.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

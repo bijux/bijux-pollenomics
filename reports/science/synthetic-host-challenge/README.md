@@ -57,3 +57,31 @@ has an owned producer for calculation controls under declared source limits.
 The separate [development sweep](../synthetic-model-selection/README.md)
 used this oracle to compare twelve synthetic PPE/transport candidates. Neither
 study chooses parameters for a real core.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** One source-bound synthetic host exercise checks input validation, output reading and PPE sensitivity.
+
+**Unsupported claim.** Real-core parameter superiority or measured ecological accuracy.
+
+**Actual verification performed.** Retained arithmetic/replay check is reported; index did not rerun original numerical host or tamper experiment.
+
+**Remaining input or review.** Retained arithmetic and tamper receipt are bounded; the oracle inverse-square law differs from REVEALS, original private engine inputs are not public and synthetic truth is not measured vegetation. Resolver: Synthetic source custodian and qualified transport/ecology reviewer Reopen when: For a stronger calculation claim, authenticated original envelopes are replayed; for ecology, use a transport-matched and independently measured case.
+
+**Cause category.** assumption|comparability|access/rights
+
+**Consequence.** Different oracle/REVEALS transport laws prevent physical calibration from these residuals.
+
+**Precise next acceptance route.** For a stronger calculation claim, authenticated original envelopes are replayed; for ecology, use a transport-matched and independently measured case. Then update reports/science/synthetic-model-selection/README.md.
+
+**Negative or refused result.** One tampered request refused evidence_digest_mismatch; both synthetic host runs completed.
+
+**Matched denominator.** One three-taxon case, one-million integer grains, 175 m oracle radius versus 350 m host diameter; original/altered PPE MAE 0.039940/0.226457.
+
+Retained evidence: [reports/science/synthetic-host-challenge/report.json](report.json), [docs/report/synthetic-validation/reconstruction/README.md](../../../docs/report/synthetic-validation/reconstruction/README.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

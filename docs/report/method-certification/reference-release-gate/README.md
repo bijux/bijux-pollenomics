@@ -7,3 +7,18 @@ The [original 25-case certificate](../original-r-reference/reference-bundle/cert
 The release check also requires a successful native/live-R parity job from that same run attempt. It retrieves the parity artifact by provider digest and verifies its 43 case IDs, input and Python expectation hashes, source lock, and live-R certificate hash against the certified R bundle. A successful R job alone cannot satisfy this release check. The parity receipt is retained beside the release evidence for an accepted candidate.
 
 The focused certificate and release-gate selection passed **56 tests** in 1.12 seconds. The full `lra_reference` test package then passed **90 tests** in 1.03 seconds. Strict mypy passed for the changed source/test files; Ruff check and formatting passed after formatting the adjacent R comparison reporter. The tests cover old-certificate preservation, a complete 43-case synthetic validator fixture, missing prospective cases, changed input declaration, missing exact-coordinate evidence, missing bundle members and stale/forged release artifacts. Synthetic fixtures are validator tests; only an actual locked CI R execution can create a release certificate.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

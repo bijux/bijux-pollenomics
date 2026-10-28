@@ -1,3 +1,5 @@
+"""Bind classification events to their admitted evidence and release authority."""
+
 from __future__ import annotations
 
 from collections import defaultdict
@@ -37,7 +39,7 @@ class _ClassificationAuthorityReceipt:
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     manifest_sha256=(
-        "ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a"
+        "444ae81c876b11e090741195ba77d592b07ce849fd5c2a0a370ef79ddf28578f"
     ),
     source_family="neotoma",
     source_snapshot_id=(
@@ -53,7 +55,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthorityReceipt(
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
     producer_digest=(
-        "sha256:efb43ee09bb2f08e9e6e170aa5f875e94f8db1a37a167678dcc7f123b7e3b6c3"
+        "sha256:6665be4e449e400cddebf1f7bc54020b8793ad7820890fb731f49d217e3ac726"
     ),
     accepted_mapping_count=0,
     accepted_mapping_sha256_by_concept=(),

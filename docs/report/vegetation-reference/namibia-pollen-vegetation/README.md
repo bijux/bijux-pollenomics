@@ -86,3 +86,16 @@ cmp artifacts/jobs/namibia-radius-sensitivity-replay/radius-sensitivity.csv \
 cmp artifacts/jobs/namibia-radius-sensitivity-replay/radius-sensitivity.json \
   docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json
 ```
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/namibia-pollen-vegetation-paper.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

@@ -29,3 +29,31 @@ archive-producing postprocessing source or version and no explanation for the
 extra `ISTS` code. It therefore strengthens the paper/archive discrepancy;
 it does not authorize relabeling `ISTS` or aggregating its standard errors by
 sum.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Publisher Table 1 taxon/PFT assignments are checked against archived mean arithmetic.
+
+**Unsupported claim.** An agreed biological deciduous-Quercus PFT classification across paper and archive.
+
+**Actual verification performed.** Retained publisher XLSX and archived taxon arithmetic review are cited; index did not reread remote source.
+
+**Remaining input or review.** Publisher Table 1 assigns deciduous Quercus to TBS while archived arithmetic places its mean in ISTS; the source-specific biological naming/producer route is unresolved. Resolver: LandClim table/archive source owner and qualified taxon reviewer Reopen when: Versioned Quercus concept crosswalk and archive transformation explain the two classifications.
+
+**Cause category.** data|qualified review
+
+**Consequence.** Preserve both published and archive claims without silently relabeling the output.
+
+**Precise next acceptance route.** Versioned Quercus concept crosswalk and archive transformation explain the two classifications. Then update reports/science/publication-correspondence/pft-crosswalk/README.md.
+
+**Negative or refused result.** Publisher assigns Quercus to TBS while archived mean split contributes it to ISTS.
+
+**Matched denominator.** 31 parameter-table taxon rows; 12 PFT codes; nine paper TBS taxa with a three-taxon archived ISTS split.
+
+Retained evidence: [reports/science/publication-correspondence/pft-crosswalk/tbs-taxon-arithmetic/report.json](tbs-taxon-arithmetic/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

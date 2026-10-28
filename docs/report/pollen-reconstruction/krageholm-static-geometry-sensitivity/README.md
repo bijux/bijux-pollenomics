@@ -23,3 +23,31 @@ The alternative-minus-reference conditional standard errors range from **0.00152
 An independent implementation uses 50-digit Decimal arithmetic, explicit two-taxon quotient derivatives and fixed-total multinomial covariance. It checks all 96 × 96 covariance entries, all 48 × 48 contrast entries, covers, Jacobians and conditional paired standard errors: **39,552 scalar comparisons**, maximum absolute difference 2.43 × 10⁻¹⁵ against the unchanged 2 × 10⁻¹³ tolerance. It imports neither the reconstruction engine nor NumPy, while sharing the interpreter and source numbers. Ten public-API negative controls retain refusals for incompatible count supports, panels, chronology, windows, parameter identities and invalid counts.
 
 The maintained derived producer is `reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py`, with `--source-root` for its exact nine-file retained source packet and `--output-root` for an absent, separate artifact destination. Its [source and execution account](paired-covariance-source.json) binds the protocol, sources, native receipts, independent review and maintained output equality. Detailed joint matrices and native membership remain private. This calculation supplies a conditional paired count/PPE contrast; it does not establish empirical interval coverage, source-use permission, a time-varying basin reconstruction or completed chronology and geometry uncertainty propagation.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Same 95 selected samples and literal two-taxon panel: two fixed geometries differ by at most 0.10518 percentage points. A declared count/PPE scenario preserves shared counts across alternatives and shared PPE across windows, producing conditional paired SE 0.001525–0.006552 percentage points.
+
+**Unsupported claim.** Historical Krageholm reproduction, accepted time-varying geometry, field vegetation accuracy, significant paired difference or empirically calibrated uncertainty.
+
+**Actual verification performed.** Original lens-factor and 816-scalar audit retained. Actual public joint API and independent Decimal50 quotient/multinomial implementation agree over 39,552 scalar comparisons within 2.43e-15 <=2e-13. Maintained producer report and private matrix match byte for byte; 33 joint API tests, ten negative API controls, seven custody tests, configured Ruff/format and strict typing pass.
+
+**Remaining input or review.** Two static geometries are analyst-declared alternatives. Historical basin/core correspondence and time-specific geometry remain unauthenticated; a conditional shared-count/PPE scenario now supplies paired covariance without a geometry or chronology probability distribution. Resolver: Krageholm source custodian and independent chronology, historical-basin and statistical reviewer Reopen when: Source-qualified original core, dated basin geometry, chronology uncertainty and parameter/use terms, plus independent review of the declared joint dependence model.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Use conditional paired count/PPE contrasts under explicit shared-support and independence assumptions, preserving source scope and the empty-window refusal. PPE SD 0.303/0 is a declared scenario, not newly estimated or calibrated uncertainty.
+
+**Precise next acceptance route.** Authenticate original core, dated geometry and intended-use terms; supply and review chronology/geometry uncertainty and cross-profile parameter authority before historical, empirical coverage or joint ensemble claims.
+
+**Negative or refused result.** One source point outside the domain; one of 25 windows remains empty. Alternate chronologies, overlapping support, incompatible counts/panels/parameter identities and invalid count inputs are refused. No historical basin or empirical uncertainty admission.
+
+**Matched denominator.** 96 native samples; 95 selected in 24 of 25 slots; two taxa and two fixed geometries; 48 vectors, 96 axes, 24 distinct count supports; 39,552 independent scalar comparisons.
+
+Retained evidence: [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json](report.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-account.json](source-account.json), [reports/science/krageholm-static-geometry-sensitivity/source-custody.json](../../../../reports/science/krageholm-static-geometry-sensitivity/source-custody.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json](paired-covariance.json), [docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json](paired-covariance-source.json), [reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json](../../../../reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

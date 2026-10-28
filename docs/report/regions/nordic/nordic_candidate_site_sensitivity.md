@@ -453,3 +453,20 @@ fieldwork-triage weighting.
 | Ytre Kvaroy, Lurøy (Northern Norway/ Nordland) | 445 | 445 | 434 | 445 | 11 | none |
 | Ytterstad (17/-) (Nordland, Lødingen) | 446 | 446 | 435 | 446 | 11 | none |
 | Østråt (Austrått) (82/91) (Sør-Trøndelag, Ørlandet) | 447 | 447 | 436 | 447 | 11 | none |
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

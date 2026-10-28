@@ -97,4 +97,32 @@ We have not authenticated the full historical input revisions, resolved
 the paper/archive PFT disagreement, cleared private-input redistribution
 rights or compared our output with independent measured vegetation. Those
 questions remain in our [publication account](../publication-correspondence.md)
-and the unresolved source requirements described here.
+and research-needs register.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Released 2016 author-R and installed native REVEALS example grids execute on the same prepared source profile.
+
+**Unsupported claim.** Historical June 2021 archive production or independent ecological accuracy.
+
+**Actual verification performed.** Retained reexecution receipt, source manifest and paired values/log hashes are reported; index did not install R or rerun.
+
+**Remaining input or review.** The 17-site author R/native example calculation is reproduced, but it does not bind historical archive source revisions, other windows or independent vegetation truth. Resolver: LandClim historical producer and qualified publication reviewer Reopen when: An authenticated production input snapshot links a named published grid/window to the author computation.
+
+**Cause category.** data|comparability
+
+**Consequence.** Treat the exact example as a calculation control, not proof of historical input identity.
+
+**Precise next acceptance route.** An authenticated production input snapshot links a named published grid/window to the author computation. Then update reports/science/publication-correspondence.md.
+
+**Negative or refused result.** No paired example mismatch within declared tolerance; historical archive gaps remain separately observed.
+
+**Matched denominator.** 17 prepared site files; grid 512 nine sites, grid 562 eight sites; 25 time bins and 31 taxa.
+
+Retained evidence: [docs/report/publication-replay/landclim-example-reexecution/report.json](../../../docs/report/publication-replay/landclim-example-reexecution/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

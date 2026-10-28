@@ -31,3 +31,18 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREA
 The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py) validates the original bundle before computation, records its current dependency hashes and installed numerical versions, and rechecks the hashes afterward. Failed numerical comparisons remain in the denominator. A changed source expression or altered reference certificate refuses reuse.
 
 The bundled original DISQOVER source archive and its license remain governed by the [LRA NOTICE](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/NOTICE). Preserving this bounded certificate transfers numerical evidence out of disposable run directories; it does not copy the installed R runtime or library into the repository.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

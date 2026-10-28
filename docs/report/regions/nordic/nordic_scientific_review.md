@@ -358,3 +358,20 @@
 | pastoral_species_turnover | comparative | comparative_with_locality_caveats | Bos taurus, Ovis aries, Sus scrofa domesticus | species_support_asymmetry, mapped_animal_precision_caveats |
 | cattle_management_split | descriptive | descriptive_only | bovine_support_program | species_split_default, wild_or_progenitor_context_present, no_explicit_joint_taurine_indicine_project_manifest |
 | lake_selection_for_domestication_signal | exploratory | exploratory_only | human_context_overlap | field_sampling_gate_not_cleared, animal_evidence_not_yet_dense_enough_for_fieldwork_recommendation |
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

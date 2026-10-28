@@ -36,3 +36,31 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREA
 Use a new absent output directory for each run. The producer checks invalid
 ring masking, finite valid-ring outputs and identical deterministic draws
 before writing the table.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Deterministic ten-taxon packaged LOVE ring output and invalid-composition diagnosis.
+
+**Unsupported claim.** A physical relevant source area or measured vegetation accuracy.
+
+**Actual verification performed.** Retained producer, R C0023 comparison and byte-matched replay are reported; index did not rerun them.
+
+**Remaining input or review.** The 30 finite fixture cells include negative and greater-than-one outputs, so they are not valid cover compositions; the source basin boundary and example rings do not establish a physical RSAP or observed vegetation match. Numerical replay within the declared fixture is complete. Resolver: Local-basin source owner and qualified LOVE/ecology reviewer Reopen when: A real site has dated basin/ring support and independent local vegetation paired to admissible output.
+
+**Cause category.** assumption|comparability
+
+**Consequence.** Raw values remain diagnostics and cannot be closed into plausible vegetation without changing the method.
+
+**Precise next acceptance route.** Bind a real dated basin/ring and regional input, obtain an admissible local-cover method and independent same-support vegetation, then rerun the ring comparison before revising reports/science/model-use.md.
+
+**Negative or refused result.** Only 3/10 rings pass the basin mask; 16/30 finite output cells are negative and six >1; seven rings masked.
+
+**Matched denominator.** Ten taxa × ten rings = 100 table cells; 30 finite cells on three unmasked rings, none a validated vegetation composition.
+
+Retained evidence: [reports/science/analytical-love-ring-sensitivity/report.json](report.json), [reports/science/analytical-love-ring-sensitivity/ring-cover.csv](ring-cover.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

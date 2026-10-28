@@ -158,3 +158,16 @@ publication follow-through.
 The [167 plotted core-window-taxon points](figures/panel-comparison.csv) come from the baseline profiles of the retained numerical captures. Open markers show direct pollen panel fractions; filled markers and bars show corrected fractions and conditional one standard error. Each core has its own taxon panel. The actual R Quartz capture and layout inspection are recorded in [figure-capture.json](execution/figure-capture.json); this figure supplies no numerical R/Python parity or reader-feedback claim.
 
 The [maintained producer capture](execution/maintained-producer-capture.json) records actual independent reference and replay directories with identical report bytes and exact agreement with the original scoped numerical captures. The [observed import closure](execution/observed-imports.json) and [capture receipt](execution/import-observation-capture.json) retain 59 actual project module origins from a separate cold import and callable observation. That observation establishes import source identities; it does not trace every dynamic scientific file read or establish platform completeness.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

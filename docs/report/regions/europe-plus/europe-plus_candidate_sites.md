@@ -457,3 +457,20 @@ Species-aware evidence boundary: mapped Homo sapiens localities are direct atlas
 | Østråt (Austrått) (82/91) (Sør-Trøndelag, Ørlandet) | downgraded | 0.0547 | 0.4858 | 1.0000 | 0.3467 | 0.0000 | 0.3500 | exploratory_only | profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly; 1 direct ancient-DNA samples support 1 species at this locality anchor; 0 nearby context points across 0 context layers shape the support surface; score families: evidence=0.4858; chronology=1.0000; species=0.3467; context=0.0000; missingness penalty=0.3500; ranking status=downgraded; recommendation posture=exploratory_only |
 | Assistens Kirkegård (Zealand/ Sokkelund) | downgraded | 0.0000 | 0.5692 | 0.0000 | 0.3467 | 0.0000 | 0.3500 | exploratory_only | profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly; 2 direct ancient-DNA samples support 1 species at this locality anchor; 0 nearby context points across 0 context layers shape the support surface; score families: evidence=0.5692; chronology=0.0000; species=0.3467; context=0.0000; missingness penalty=0.3500; ranking status=downgraded; recommendation posture=exploratory_only |
 | Kongens Nytorv (Zealand) | downgraded | 0.0000 | 0.4858 | 0.0000 | 0.3467 | 0.0000 | 0.3500 | exploratory_only | profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly; 1 direct ancient-DNA samples support 1 species at this locality anchor; 0 nearby context points across 0 context layers shape the support surface; score families: evidence=0.4858; chronology=0.0000; species=0.3467; context=0.0000; missingness penalty=0.3500; ranking status=downgraded; recommendation posture=exploratory_only |
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

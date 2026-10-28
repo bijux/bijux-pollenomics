@@ -79,7 +79,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
     )
     assert artifacts["classification"]["path"] == (
         "artifacts/release-verification/classification/"
-        "neotoma-audit-visual-profile-efb43ee0/manifest.json"
+        "neotoma-audit-visual-profile-6665be4e/manifest.json"
     )
     assert artifacts["country-coverage"]["schema_version"] == (
         "country-dimension-coverage-ledger.v1"
@@ -121,6 +121,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         f"{classification_root}/audit_outputs/queues.py",
         f"{classification_root}/audit_outputs/values.py",
         f"{classification_root}/audit_outputs/workflow.py",
+        f"{classification_root}/review.py",
     ]
     assert embedded_producers["propagation"]["producer_artifact_identity"] == (
         "producer-analysis"

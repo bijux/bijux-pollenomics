@@ -121,3 +121,16 @@ The alternate `native ID + 20000` hypothesis found 218 curated IDs with differen
 The [published method](https://onlinelibrary.wiley.com/doi/10.1111/jbi.14448) names Table S1 as taxon-amalgamation authority. The exact publisher supplement request returned HTTP 403 with a complete retained HTML response, rather than a DOCX. Scoped inspection of the primary deposits, author repository and local bundles found no exact named alternative. This is an access and mapping gap, not evidence that all input data are absent. The sample-ID crosswalk, denominator/exclusion rules, missing/zero rules and exact raw-release/age selector remain unauthenticated. Conditional literal agreement cannot supply those decisions, source-use rights, historical reproduction or scientific review.
 
 The maintained [correspondence account](../embsecbio-literal-correspondence/README.md) replays only these retained source/result associations into compact aggregate products. Original per-sample counts, curated tokens and refusal rows stay in the private qualified source packet. It does not repeat the biome equation, training or native R study.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

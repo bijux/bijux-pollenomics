@@ -36,3 +36,31 @@ Different cores' calendar-age uncertainty can overlap despite separated bin
 labels. We did not propagate age-model uncertainty, establish independent
 confirmation, run LRA reconstruction or score measured vegetation. Three
 correlated Swedish targets cannot establish Nordic temporal generalization.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Frozen older-source-bin pollen sensitivity is compared on exact matched targets.
+
+**Unsupported claim.** Chronology-aware temporal transfer or future/past generalization.
+
+**Actual verification performed.** Retained prepared, frozen and paired-score receipts are cited; index did not rerun.
+
+**Remaining input or review.** The 1,000-BP older-source result uses nominal bins on three exposed sites; no joint age posterior or independently dated temporal holdout supports general time transfer. Resolver: Core age-model owner and independent temporal-cohort reviewer Reopen when: Source-qualified joint chronology and untouched temporal targets permit a predeclared forward-time comparison.
+
+**Cause category.** assumption|comparability|qualified review
+
+**Consequence.** A +0.000375 IDW MAE shift under older bins is not a source-qualified time forecast.
+
+**Precise next acceptance route.** Source-qualified joint chronology and untouched temporal targets permit a predeclared forward-time comparison. Then update reports/science/pollen-prediction.md.
+
+**Negative or refused result.** Zero prediction refusals on this nominal-bin run; age uncertainty not propagated.
+
+**Matched denominator.** Three prior-exposed sites, 54/54 bins, 162 three-method scores on a closed 31-target axis.
+
+Retained evidence: [docs/report/regions/nordic/swedish-chronology-block/report.json](../../docs/report/regions/nordic/swedish-chronology-block/report.json), [docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv](../../docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

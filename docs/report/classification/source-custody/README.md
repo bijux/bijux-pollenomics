@@ -1,0 +1,17 @@
+# Classification source custody
+
+The product classification authority admits a complete zero-mapping Neotoma bundle. All 1,351 source concepts and 370,936 observation memberships remain accounted for; accepted mappings remain **zero** and public release remains refused. [The retained account](native-captures.json) records the actual captures, source hashes, comparison and consumer checks. It does not contain the source observations.
+
+| Identity | Executed accounting | Manifest SHA-256 |
+| --- | --- | --- |
+| Historical `b0ff74ad281fcf3b76ce29b514d44f604073d105`, 17 declared source files | Yes | `ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a` |
+| Current-source `f02670c3e123effe1a277b3de422247e575d0ded`, 17 declared source files | Yes | `dc27649646c6b098441d2a5493319e3c5b2841ce9943953c904b33ffae269bec` |
+| Explicit 18-file source-custody derivative | No; metadata-only publication from the preceding native capture | `444ae81c876b11e090741195ba77d592b07ce849fd5c2a0a370ef79ddf28578f` |
+
+Both native captures consumed the same retained relational snapshot. All 30 original-provider/relational Git objects were unchanged between their source candidates. An exact comparison checked 1,924,157 original scalar values, including every observation membership, and retained every value. The current code additionally emits exactly 5,298 false `context_review_complete` and `context_release_eligible` fields across the unmapped, not-applicable and review queues. Their source concepts remain unmapped or not applicable. These false refusal fields confer no review approval.
+
+The current native run physically pinned and imported `evidence/classification/review.py`, although its declared producer footprint omitted that helper. The derivative includes the helper in the 18-file declaration; every adopted byte hash equals the already observed native execution. It replaces only producer identity metadata and dependent payload/bundle hashes, uses maintained canonical serialization and atomic publication, and preserves the original `input_accounting_sha256` of `02a4c8141c0d60affb8009150d7912288cda7b771d462b2c6ccf22938f3ae978`. The full accounting object was not separately saved; no replacement object or accounting digest was invented. No third full accounting run is claimed.
+
+The subsequent native consumer accepted this exact derivative for propagation, confirmed that both product authority receipts bind its identity, and refused both obsolete full identities. It replayed the changed 33-file propagation producer with zero events and produced a complete 11-file refused bundle. The full configured inventory, producer identity and manifest closure contract passed with the unchanged country ledger, alongside 96 focused authority, lineage and scientific-policy tests; strict typing and configured lint/format checks passed. These are local software and custody checks. They do not establish positive taxon/context review, scientific input admission, source publication rights, empirical propagation or a hosted release.
+
+The preserved failed comparison first assumed producer identity was the only change; it stopped when the new false context fields were found. Its receipt remains distinct from the subsequent explicit field-evolution comparison and passed consumer receipts. The JSON records their identities and local artifact locators. Historical captures retain their original candidates and producer declarations.

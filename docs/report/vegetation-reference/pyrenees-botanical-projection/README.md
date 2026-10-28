@@ -101,3 +101,31 @@ It acquires no data, refits no model and reuses the admitted 183 saved native
 identifier chains per taxonomy. No historical reproduction, untouched test,
 calibrated uncertainty, matched-pollen prediction or independent vegetation
 accuracy is established. Those channels remain unadmitted and unscored.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** The recovered source supports 17-axis botanical composition under all sixteen declared taxonomy, parent and blank alternatives; every positive native observation has a preserved scenario account.
+
+**Unsupported claim.** Full 116-plot/18-axis paper reproduction, independently measured whole-landscape fractions, matched-pollen validation, biological absence from blanks or approved detailed taxonomy redistribution.
+
+**Actual verification performed.** Native and maintained producers retain 54 guards, all positive-observation accounts and 64,424 independent Decimal comparisons; maximum difference 1e-14 under unchanged 2e-13 tolerance.
+
+**Remaining input or review.** Recovered 125 plots differ from the author 116 selection; the full 18-axis panel and historical taxonomy are unavailable. Blank, parent and name/code rules are explicit assumptions and detailed taxonomy redistribution terms remain unresolved. Resolver: Botanical source custodian and independent taxonomy, spatial-support and rights reviewers Reopen when: Exact author plot selection, complete panel, historical source taxonomy and qualified blank/parent/crosswalk decisions become available with compatible intended-use terms.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Keep conditional botanical transformation separate from historical source selection, original strata, paired pollen and ecological accuracy; private detailed source vectors retain separate rights limits.
+
+**Precise next acceptance route.** Obtain the author plot selection and complete source crosswalk, qualify taxonomy, parent and blank assumptions and derivative rights, then independently pair compatible pollen and vegetation support before scoring accuracy.
+
+**Negative or refused result.** Eight unknown-blank scenarios refuse all 1,000 complete vectors; eight declared-zero scenarios yield 1,000 conditional vectors. Cichorioideae is absent, Potentilla is a genus proxy and three name/code accepted-ID conflicts remain.
+
+**Matched denominator.** 125 recovered plots, 208 taxon rows, 1,757 positive observations; sixteen scenarios create 2,000 repeated plot contexts and 34,000 raw axis cells, not additional independent observations.
+
+Retained evidence: [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](source-account.json), [reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json](../../../../reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

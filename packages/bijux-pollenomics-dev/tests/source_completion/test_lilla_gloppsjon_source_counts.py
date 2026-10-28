@@ -30,13 +30,17 @@ def test_scoring_manifest_requires_object(tmp_path: Path, payload: object) -> No
         scoring._verify_scoring_source(tmp_path, protocol)
 
 
-@pytest.mark.parametrize("payload", (None, [], "training"))
+@pytest.mark.parametrize(
+    "payload", (None, [], "training", {"profile": None}, {"profile": []})
+)
 def test_training_profiles_require_object(
     monkeypatch: pytest.MonkeyPatch, payload: object
 ) -> None:
     protocol, _ = study._protocol(REPOSITORY)
     monkeypatch.setattr(study, "_compressed_read", lambda _: payload)
-    with pytest.raises(ValueError, match="training profiles must be an object"):
+    with pytest.raises(
+        ValueError, match="governed training must map profiles to objects"
+    ):
         study._training(REPOSITORY, protocol)
 
 

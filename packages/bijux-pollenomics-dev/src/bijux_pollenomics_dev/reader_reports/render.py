@@ -10,11 +10,30 @@ from markdown_it import MarkdownIt
 from markdown_it.token import Token
 
 from .diagram import mermaid_to_dot
+from .scientific_limits import validate_embedded_report
 from .source import portable_link
 
 
 class RenderError(ValueError):
     """Markdown contains a construct outside the report PDF grammar."""
+
+
+def _verified_scientific_comments(markdown: str, root: Path, source: Path) -> str:
+    """Suppress only structural markers while rendering every scientific statement."""
+    if "scientific-verification-and-limits:" not in markdown:
+        return markdown
+    try:
+        validate_embedded_report(markdown.encode("utf-8"))
+        pattern = re.compile(
+            r"^<!-- scientific-verification-and-limits:(?:begin|end) -->\n",
+            re.MULTILINE,
+        )
+        result, count = pattern.subn("", markdown)
+        if count != 2:
+            raise ValueError("Scientific custody comment count differs")
+        return result
+    except (ValueError, OSError, KeyError) as error:
+        raise RenderError(str(error)) from error
 
 
 _ESCAPE = {
@@ -47,9 +66,9 @@ def _inline_code(value: str) -> str:
     if len(value) <= 28:
         return r"\texttt{" + escape_latex(value) + "}"
     pieces: list[str] = []
-    for part in re.split(r"(\s+|[/=*,;])", value):
+    for part in re.split(r"(\s+|[/=*,;)])", value):
         escaped = escape_latex(part)
-        if part in {"/", "=", "*", ",", ";"}:
+        if part in {"/", "=", "*", ",", ";", ")"}:
             pieces.append(escaped + r"\allowbreak{}")
         elif (
             len(part) > 28
@@ -62,6 +81,19 @@ def _inline_code(value: str) -> str:
         else:
             pieces.append(escaped)
     return r"\texttt{" + "".join(pieces) + "}"
+
+
+def _inline_text(value: str) -> str:
+    """Offer path delimiter breaks without splitting ordinary prose or numbers."""
+    result: list[str] = []
+    for part in re.split(r"(\s+)", value):
+        escaped = escape_latex(part).replace("/", r"/\allowbreak{}")
+        if "/" in part and re.search(r"\.[A-Za-z]{1,12}[.,;:!?)}\]]*\Z", part):
+            escaped = escaped.replace("-", r"-\allowbreak{}").replace(
+                r"\_", r"\_\allowbreak{}"
+            )
+        result.append(escaped)
+    return "".join(result)
 
 
 def _url_argument(value: str) -> str:
@@ -108,19 +140,43 @@ class ReportRenderer:
         self.code_blocks = 0
         self.parser = MarkdownIt("commonmark").enable("table")
 
-    def _inline(self, children: list[Token] | None) -> str:
+    def _inline(
+        self, children: list[Token] | None, *, compound_lines: bool = False
+    ) -> str:
         if children is None:
             raise RenderError("missing inline content")
         output: list[str] = []
         link_depth = 0
-        for token in children:
+        punctuation_prefix = 0
+        for index, token in enumerate(children):
             kind = token.type
             if kind == "text":
-                output.append(
-                    escape_latex(token.content).replace("/", r"/\allowbreak{}")
-                )
+                output.append(_inline_text(token.content[punctuation_prefix:]))
+                punctuation_prefix = 0
             elif kind == "code_inline":
-                output.append(_inline_code(token.content))
+                code = _inline_code(token.content)
+                if (
+                    compound_lines
+                    and len(token.content) > 28
+                    and token.content.count("(") > 1
+                    and token.content.count(")") > 1
+                    and re.search(r"\s[+*/−-]\s", token.content)
+                ):
+                    punctuation = ""
+                    if index + 1 < len(children):
+                        following = children[index + 1]
+                        if following.type == "text":
+                            match = re.match(r"[.,;:!?]+", following.content)
+                            if match is not None:
+                                punctuation = match[0]
+                                punctuation_prefix = len(punctuation)
+                    code = (
+                        r"\linebreak[4]"
+                        + code
+                        + escape_latex(punctuation)
+                        + r"\linebreak[4]"
+                    )
+                output.append(code)
             elif kind == "strong_open":
                 output.append(r"\textbf{")
             elif kind == "strong_close":
@@ -270,6 +326,7 @@ class ReportRenderer:
     def render(self, markdown: str) -> RenderedReport:
         """Render supported Markdown and count links, diagrams, and code blocks."""
         pieces: list[str] = []
+        markdown = _verified_scientific_comments(markdown, self.root, self.source)
         tokens = self.parser.parse(markdown)
         index = 0
         pending_heading: str | None = None
@@ -287,7 +344,13 @@ class ReportRenderer:
                 if pending_heading is not None:
                     raise RenderError("heading is missing inline text")
             elif kind == "inline":
-                body = self._inline(token.children)
+                body = self._inline(
+                    token.children, compound_lines=pending_heading is None
+                )
+                if pending_heading is None and token.content.startswith(
+                    "Retained evidence: "
+                ):
+                    body = body.replace(r"}, \href", r"}, \par\noindent\href")
                 if pending_heading:
                     if pending_heading == "h1":
                         pieces.append(

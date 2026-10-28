@@ -5,3 +5,16 @@ Pinned Neotoma dataset 19913 and PANGAEA 937075 LandClim II metadata both name A
 Neotoma sample 173174 has 23 labeled pollen NISP observations totaling 1206, including 4 Indeterminable grains, and 6 nonpollen observations totaling 57. Its only retained candidate age is 19 calibrated BP without younger/older bounds. The original categories are preserved; no compatible pollen denominator or taxon/PPE mapping is selected.
 
 LandClim row 968 reports a 98 m site radius, chronology source `Authors chronology`, TopBP/BottomBP labels 3/9799, and restriction label `NR`. Neotoma's downloaded dataset reports an age range -52 to 9815 calibrated radiocarbon years BP. These series-end values differ and are not treated as a matched chronology. Neotoma's core water depth is not basin radius; LandClim's radius is not transferred. Core identity, time support, denominator, source-backed method parameters and analytical-use rights remain decisions before an LRA request. Zero samples are admitted.
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Native source hierarchy, chronology, units, taxon/count/parameter correspondence and unresolved physical/historical/review acceptance.
+
+The linked canonical accounts state the supported and unsupported claim, actual verification performed, remaining input or review, cause category, consequence, precise next acceptance route, negative or refused result and matched denominator. Read those limits alongside this page's own source population; an account link does not substitute another study's denominator or establish scientific validity.
+
+- [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

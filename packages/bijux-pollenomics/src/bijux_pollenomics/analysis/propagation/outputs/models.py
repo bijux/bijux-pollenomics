@@ -22,6 +22,9 @@ _OUTPUT_NAMES = (
     "primary_scenario_reconciliation.json",
     "release_metadata.json",
     "sensitivity_summary.json",
+    "directed_candidates.geojson",
+    "indeterminate_pairs.geojson",
+    "lower_level_edge_union.json",
 )
 PROPAGATION_PRODUCER_ID = "bijux-pollenomics.propagation-output-materializer"
 PROPAGATION_PRODUCER_VERSION = "1"
@@ -52,6 +55,11 @@ PROPAGATION_PRODUCER_SOURCE_PATHS = (
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/rules.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/scoring.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/__init__.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/geojson.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/selection.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/service.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/union.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
 )
@@ -119,6 +127,7 @@ class PropagationOutputRefusalError(ValueError):
     """Refuse materialization that cannot preserve governed output invariants."""
 
     def __init__(self, reason_code: str, detail: str) -> None:
+        """Retain the stable refusal code alongside its explanatory detail."""
         self.reason_code = reason_code
         super().__init__(detail)
 
@@ -153,7 +162,7 @@ class _ClassificationAuthority:
 
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
-    manifest_sha256="ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a",
+    manifest_sha256="444ae81c876b11e090741195ba77d592b07ce849fd5c2a0a370ef79ddf28578f",
     source_family="neotoma",
     source_snapshot_id=(
         "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
@@ -166,7 +175,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
     producer_digest=(
-        "sha256:efb43ee09bb2f08e9e6e170aa5f875e94f8db1a37a167678dcc7f123b7e3b6c3"
+        "sha256:6665be4e449e400cddebf1f7bc54020b8793ad7820890fb731f49d217e3ac726"
     ),
     accepted_mapping_count=0,
 )

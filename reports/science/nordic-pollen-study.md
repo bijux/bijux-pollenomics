@@ -112,8 +112,8 @@ code's RPP, fall-speed and covariance files. A 1986 field study maps an
 approximately 0.3 ha Bussjösjön and an older gyttja edge, while a later
 3 ha inventory point lies 2.5264 km from the Neotoma site point. We cannot
 bind a calibrated historical basin outline to those pollen samples. Our
-[source cohort account](source-cohorts.md) records the same-core decisions needed
-before Swedish LRA.
+[source cohort account](source-cohorts.md) and open needs
+retain the same-core decisions needed before Swedish LRA.
 
 The separate [30-taxon optimized LOVE feasibility pilot](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md)
 retained the excluded `Filipendula` count mass and source request identities. Its
@@ -276,3 +276,31 @@ exposed 17-site author cohort, exploratory Swedish and other Nordic
 observed-pollen transfer, source-bound English LRA forward-pollen prediction
 and bounded paper numerical correspondence. We do not certify completion
 of the full Nordic LRA and vegetation-validation objective.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results.
+
+**Unsupported claim.** Full historical LandClim reproduction, Nordic LRA/vegetation accuracy or causal multi-evidence history.
+
+**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them.
+
+**Remaining input or review.** The broad synthesis retains zero admitted Nordic LRA inputs, no independent Nordic vegetation pairs, unresolved historical LandClim inputs, selective source rights and prior-exposed pollen outcomes despite bounded numeric receipts. Resolver: Country core/archive/reference custodians and qualified scientific reviewers Reopen when: Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation.
+
+**Cause category.** data|assumption|comparability|access/rights|qualified review
+
+**Consequence.** Keep modeled maps, aDNA/SEAD context and observed pollen in separate evidence units.
+
+**Precise next acceptance route.** Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation. Then update reports/science/model-use.md.
+
+**Negative or refused result.** Zero historical authenticated primary inputs, zero admitted Nordic LRA cores and zero measured-cover pairs; country bins include refusals.
+
+**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins.
+
+Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->
