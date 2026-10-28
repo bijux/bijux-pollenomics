@@ -5,6 +5,8 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import posixpath
+import re
 from types import ModuleType
 
 import pytest
@@ -233,17 +235,25 @@ def test_primary_reader_evidence_uses_sealed_public_attachments(
 ) -> None:
     """First-party source custody remains downloadable inside the documentation site."""
     api = module()
-    with (ROOT / "reports/needed/report-claims.csv").open() as handle:
-        claim = next(
-            row for row in csv.DictReader(handle) if row["report_path"] == report_path
-        )
     raw = (ROOT / report_path).read_bytes()
-    api.validate_report(raw, claim)
+    api.validate_embedded_report(raw)
+    block = raw[len(api.authored_bytes(raw)) :].decode("utf-8")
+    evidence_line = next(
+        line for line in block.splitlines() if line.startswith("Retained evidence: ")
+    )
+    links = re.findall(r"\[([^]\n]+)\]\(([^)\n]+)\)", evidence_line)
+    assert links
+    for label, target in links:
+        assert (
+            posixpath.normpath(posixpath.join(posixpath.dirname(report_path), target))
+            == label
+        )
+        assert not label.startswith(("/", "../"))
     manifest = json.loads(
         (ROOT / "configs/docs/scientific-source-files.json").read_bytes()
     )
     sources = {row["source"] for row in manifest["files"]}
-    evidence = claim["retained_evidence_paths"].split(";")
+    evidence = [label for label, _target in links]
     assert not sources.intersection(evidence)
     public = {row["destination"]: row for row in manifest["files"]}
     selected = [path for path in evidence if path in public]

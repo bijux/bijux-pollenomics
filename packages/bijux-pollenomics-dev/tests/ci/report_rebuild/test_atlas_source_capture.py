@@ -1510,6 +1510,7 @@ def test_projected_metadata_preserves_exact_capture_source_epoch(
             "capture_sha256": digest,
         }
     else:
+        _refresh_transport(root, monkeypatch)
         monkeypatch.setattr(capture, "CAPTURE_SHA256", digest)
         monkeypatch.setattr(publication, "CAPTURE_SHA256", digest)
         selection = {

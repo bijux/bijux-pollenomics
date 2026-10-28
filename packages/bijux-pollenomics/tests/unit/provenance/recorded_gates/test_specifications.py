@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import shlex
 import subprocess
 
 from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
@@ -175,7 +176,14 @@ def test_make_release_evidence_does_not_rerun_recorded_gates() -> None:
     )
 
     assert " -m pytest" not in completed.stdout
-    assert "provenance.gates" not in completed.stdout
+    modules = [
+        words[words.index("-m") + 1]
+        for line in completed.stdout.replace("\\\n", " ").splitlines()
+        if "-m" in (words := shlex.split(line))
+    ]
+    assert "bijux_pollenomics.provenance.gates.temporary" in modules
+    assert "bijux_pollenomics.provenance.gates" not in modules
+    assert "bijux_pollenomics.provenance.gate_runner" not in modules
     assert "provenance request" in completed.stdout
     assert "provenance write" in completed.stdout
 
