@@ -1,0 +1,403 @@
+{
+  "schema_version": "krageholm-paired-static-geometry-source.v1",
+  "candidate": "cbdf31dcaa273936c63454e345fea12de69e81fe",
+  "source_status": "Existing retained native source packet; no recapture or new source admission. Maintained producer executed from an artifact source overlay and qualified by exact source hashes, not claimed committed at execution.",
+  "source_packet": {
+    "comparison/independent-audit.json": {
+      "sha256": "a4b3e6e3c7026d34a34a6f35d83eb840ea6e71d7d907992b5aa42031e2d9f199",
+      "bytes": 2230
+    },
+    "inputs/dataset-23013-sample-eligibility.json": {
+      "sha256": "b3cc484f4d9e427cfa46cbae6a1b567cf30e7cad03d232c54b0e4a05b24a7d2c",
+      "bytes": 182173
+    },
+    "inputs/native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "inputs/native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "inputs/protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "inputs/source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    },
+    "native/geometry-sensitivity.json": {
+      "sha256": "07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7",
+      "bytes": 68449
+    },
+    "native/private-source-support.json": {
+      "sha256": "5cf1d2562609bfc17c70a8ecb7cefafd77ac90944f6de64b8211843abc2c22ed",
+      "bytes": 57169
+    },
+    "terminal.json": {
+      "sha256": "48416d783cad654aee7539e64ed652f6704600fb3074ac7434dfd2f8fae94d71",
+      "bytes": 1948
+    }
+  },
+  "protocol": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/proposal/reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json",
+    "sha256": "184ca490822dcd396d4eed0a1546e292541bb41dc48c1d4e4a30aecb5f13fee4",
+    "bytes": 3242
+  },
+  "producer": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/proposal/reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+    "sha256": "d0c069a47853036d16e1e87977de6d032af2e0536d16c48602ed77e3697e2be0",
+    "bytes": 17665
+  },
+  "public_api": "bijux_pollenomics_lra.api.joint_fixed_site_covariance",
+  "original_actual_terminal": {
+    "candidate": "cbdf31dcaa273936c63454e345fea12de69e81fe",
+    "plan_sha256": "57bf34712a7a742c5d4914617f49307bed2c1f955dd430e0a962efe4a674a2f8",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/run.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/produce.py"
+        ],
+        "native_exit": 0,
+        "seconds": 2.08936033397913,
+        "stdout": "{\"result_axes\": 96, \"count_supports\": 24, \"paired_windows\": 24, \"refused\": 1, \"negative_controls_refused\": 10, \"marginals_match\": true}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/independent.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.09403320803539827,
+        "stdout": "{\"native_exit\": 0, \"profile\": \"Independent Decimal50 two-taxon quotient derivatives and fixed-total multinomial scalar covariance,including cross-window shared PPE and all linear contrasts. No engine or numpy import.\", \"checks_by_quantity\": {\"cover\": 96, \"count_jacobian\": 4608, \"ppe_jacobian\": 192, \"counting_covariance\": 9216, \"ppe_covariance\": 9216, \"total_covariance\": 9216, \"contrast_cover\": 48, \"contrast_counting_covariance\": 2304, \"contrast_ppe_covariance\": 2304, \"contrast_total_covariance\": 2304, \"conditional_paired_standard_error\": 48}, \"scalar_checks\": 39552, \"maximum_absolute_difference\": \"2.427879499240039713307983194235688494472E-15\", \"absolute_tolerance\": \"2E-13\", \"all_96x96_matrices_checked\": true, \"all_48x48_contrast_matrices_checked\": true, \"source_profile_scope\": \"Explicit analyst-declared conditional delta-method scenario reusing exactly the prior retained diagonal marginal configuration. Values0.303 and0 are retained source input magnitudes; no new estimated PPE,source uncertainty calibration or taxon correlation is inferred. The zero-variance axis forces zero cross-covariance for PSD consistency. One common PPE latent parameter spans all windows/geometries by declared working model.\", \"same_interpreter_and_source_number_limit\": true, \"scientific_or_coverage_admission\": false, \"input_hashes\": {\"joint-matrices.json\": \"acd99feb05dc7f230c491e6add0273a2b1fe16975bd4147c492c195f57abe316\", \"report.json\": \"2038c2ac4332fac2e4d3dc46493f36662259a86a56d19e918e9f83a50adb8d14\", \"protocol.json\": \"184ca490822dcd396d4eed0a1546e292541bb41dc48c1d4e4a30aecb5f13fee4\"}}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "pytest",
+          "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_joint_fixed_site_covariance.py",
+          "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_joint_covariance_public_contract.py",
+          "-q",
+          "-o",
+          "addopts=",
+          "-o",
+          "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/checks/pytest-cache",
+          "--basetemp",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/checks/test-products"
+        ],
+        "native_exit": 0,
+        "seconds": 2.3589066669810563,
+        "stdout": ".................................                                        [100%]\n33 passed in 1.94s\n",
+        "stderr": ""
+      }
+    ],
+    "exception": null,
+    "source_pins_unchanged": true,
+    "source_pin_count": 2059,
+    "runtime_pin_count": 1,
+    "wall_seconds": 4.614122416998725,
+    "child_peak_rss_bytes": 197804032,
+    "output_bytes": 1018843,
+    "native_exit": 0,
+    "scientific_or_rights_admission": false,
+    "scope": "Existing public joint_fixed_site_covariance on24same-source count windows\u00d72declared static geometries\u00d72literal taxa=96axes. Exact previous count/PPE marginal configuration; PPE variance is explicitly analyst-declared conditional reuse of retained SD input magnitudes,not estimated/empirically calibrated PPE. Full96x96 count/PPE/total matrices and48x48 alt\u2212ref contrast matrices. Decimal50 quotient/multinomial independent scalar oracle for all Jacobians/matrices/SE,10actual refusal controls; one25th empty slot retained. SharedPPE cross-window dependence,disjoint count-window working assumption. No new source,physical quadrature,chronology/basin distribution,historical identity,fieldaccuracy,significance,coverage,rights/human approval."
+  },
+  "original_terminal": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/checks/terminal.json",
+    "sha256": "58ce8291afbf6078842f2206365fa879f9f7cb91b3286c4438368975a3cfef5b",
+    "bytes": 4844
+  },
+  "maintained_actual_terminal": {
+    "candidate": "cbdf31dcaa273936c63454e345fea12de69e81fe",
+    "plan_sha256": "997b29005e73b01308cf6d630745c1c1c0b5f892de3c677a913ce0419cd7c0ed",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/run-maintained-typed.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-typed-bootstrap.py"
+        ],
+        "native_exit": 0,
+        "seconds": 2.6452094999840483,
+        "stdout": "{\"paired_windows\": 24, \"refused_windows\": 1, \"scientific_admission\": false}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-I",
+          "-B",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/compare-maintained-typed.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.034657875017728657,
+        "stdout": "{\"report.json\": {\"sha256\": \"2038c2ac4332fac2e4d3dc46493f36662259a86a56d19e918e9f83a50adb8d14\", \"bytes\": 30528, \"byte_identical\": true}, \"joint-matrices.json\": {\"sha256\": \"acd99feb05dc7f230c491e6add0273a2b1fe16975bd4147c492c195f57abe316\", \"bytes\": 978428, \"byte_identical\": true}}\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "pytest",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py",
+          "-q",
+          "-o",
+          "addopts=",
+          "-o",
+          "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-typed-checks/pytest-cache",
+          "--basetemp",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-typed-checks/test-products"
+        ],
+        "native_exit": 0,
+        "seconds": 2.7106432909495197,
+        "stdout": ".......                                                                  [100%]\n7 passed in 2.20s\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "--config",
+          "configs/ruff.toml",
+          "--no-cache",
+          "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+        ],
+        "native_exit": 1,
+        "seconds": 0.05439179204404354,
+        "stdout": "I001 [*] Import block is un-sorted or un-formatted\n  --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:3:1\n   |\n 1 |   \"\"\"Preserve shared counts and declared PPE across two fixed Krageholm geometries.\"\"\"\n 2 |\n 3 | / from __future__ import annotations\n 4 | | import argparse\n 5 | | from bisect import bisect_right\n 6 | | from dataclasses import replace\n 7 | | import hashlib\n 8 | | import json\n 9 | | from pathlib import Path, PurePosixPath\n10 | | from typing import Any\n11 | | import numpy as np\n12 | | from bijux_pollenomics_lra import api\n   | |_____________________________________^\n13 |\n14 |   JsonMap = dict[str, Any]\n   |\nhelp: Organize imports\n\nUP034 [*] Avoid extraneous parentheses\n  --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:41:13\n   |\n39 |     \"\"\"Keep selected source identities exact without granting source-use authority.\"\"\"\n40 |     if (\n41 |         any((p.is_symlink() for p in (source_root, *source_root.parents)))\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n42 |         or not source_root.is_dir()\n43 |     ):\n   |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n  --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:51:17\n   |\n49 |         path = source_root / relative\n50 |         if (\n51 |             any((p.is_symlink() for p in (path, *path.parents)))\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n52 |             or not path.is_file()\n53 |             or (not path.resolve().is_relative_to(source_root.resolve()))\n   |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n  --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:74:16\n   |\n72 |         or output_root.is_symlink()\n73 |         or output_root.resolve().is_relative_to(source_root)\n74 |         or any((p.is_symlink() for p in output_root.parents))\n   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n75 |     ):\n76 |         raise ValueError(\"Output must be absent and separate from source\")\n   |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:147:17\n    |\n145 |           require(\n146 |               all(\n147 | /                 (\n148 | |                     t in counts\n149 | |                     and type(counts[t][\"count\"]) is int\n150 | |                     and (counts[t][\"count\"] >= 0)\n151 | |                     for t in axis\n152 | |                 )\n    | |_________________^\n153 |               )\n154 |           )\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:155:21\n    |\n153 |             )\n154 |         )\n155 |         require(sum((counts[t][\"count\"] for t in axis)) > 0)\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n156 |         if w is None:\n157 |             refused.append(sample[\"native_sample_id\"])\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:178:20\n    |\n176 |         }\n177 |     )\n178 |     params = tuple((f\"krageholm:{t}:{ppeprofile}\" for t in axis))\n    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n179 |     ppe = np.asarray(native[\"ppe\"])\n180 |     cp = np.diag(np.square(np.asarray(native[\"ppe_SD\"])))\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:188:9\n    |\n186 |       ).hexdigest()\n187 |       profile = next(\n188 | /         (\n189 | |             x\n190 | |             for x in native[\"single_dataset_profiles\"]\n191 | |             if x[\"selected_source_profile\"][\"native_dataset_id\"] == 23013\n192 | |             and x[\"selected_source_profile\"][\"native_chronology_id\"] == 13366\n193 | |         )\n    | |_________^\n194 |       )\n195 |       saved = {\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:215:17\n    |\n213 |         counts = [\n214 |             sum(\n215 |                 (x[\"strict_unique_literal_parameter_counts\"][t][\"count\"] for x in group)\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n216 |             )\n217 |             for t in axis\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:219:22\n    |\n217 |             for t in axis\n218 |         ]\n219 |         ids = sorted((x[\"native_sample_id\"] for x in group))\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n220 |         require(\n221 |             counts == saved[w][\"source_support\"][\"counts\"]\n    |\nhelp: Remove extraneous parentheses\n\nUP034 [*] Avoid extraneous parentheses\n   --> reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py:309:17\n    |\n307 |         ]\n308 |     }\n309 |     require(all((np.diag(x).min() >= -2e-13 for x in contrasts.values())))\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n310 |     contrastcover = L @ joint.cover\n311 |     for c, row in enumerate(occupied):\n    |\nhelp: Remove extraneous parentheses\n\nFound 11 errors.\n[*] 11 fixable with the `--fix` option.\n",
+        "stderr": ""
+      }
+    ],
+    "exception": null,
+    "source_pins_unchanged": true,
+    "source_pin_count": 2065,
+    "runtime_pin_count": 1,
+    "wall_seconds": 5.52384408301441,
+    "child_peak_rss_bytes": 198279168,
+    "output_bytes": 1017436,
+    "native_exit": 1,
+    "scientific_or_rights_admission": false,
+    "scope": "Maintained CLI of same publicAPI paired geometry consumer,exact frozen9file source packet and declaredPPE0.303/0 scenario. Require both report/fulljointmatrix byte-identical to original native0+39552Decimal checks; seven source-custody refusal controls,Ruff/format/strict source+test. No quadrature/source capture or new protocol/model."
+  },
+  "maintained_terminal": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/maintained-typed-checks/terminal.json",
+    "sha256": "4aba6ddfc0dbb9493ab280054c9436b9a8033cdfd041b340ace2a85e4bd28fcb",
+    "bytes": 9351
+  },
+  "maintained_qualification_terminal": {
+    "candidate": "cbdf31dcaa273936c63454e345fea12de69e81fe",
+    "plan_sha256": "a43855e39515b40dd9621bc02882f2a59b2e676e45f93740eb25b19ae46c3cd3",
+    "actual_argv": [
+      "python3",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/run-maintained-style.py"
+    ],
+    "native_results": [
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "pytest",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py",
+          "-q",
+          "-o",
+          "addopts=",
+          "-o",
+          "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-style-checks/pytest-cache",
+          "--basetemp",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-style-checks/test-products"
+        ],
+        "native_exit": 0,
+        "seconds": 2.57601474999683,
+        "stdout": ".......                                                                  [100%]\n7 passed in 2.15s\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "--config",
+          "configs/ruff.toml",
+          "--no-cache",
+          "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.03818558400962502,
+        "stdout": "All checks passed!\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "--config",
+          "configs/ruff.toml",
+          "--no-cache",
+          "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+        ],
+        "native_exit": 0,
+        "seconds": 0.03584999998565763,
+        "stdout": "2 files already formatted\n",
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+          "-m",
+          "mypy",
+          "--config-file",
+          "configs/mypy.ini",
+          "--strict",
+          "--cache-dir",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/krageholm-paired-geometry-covariance/maintained-style-checks/mypy-cache",
+          "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+          "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_krageholm_paired_geometry.py"
+        ],
+        "native_exit": 0,
+        "seconds": 4.458643042016774,
+        "stdout": "Success: no issues found in 2 source files\n",
+        "stderr": ""
+      }
+    ],
+    "exception": null,
+    "source_pins_unchanged": true,
+    "source_pin_count": 2051,
+    "runtime_pin_count": 1,
+    "wall_seconds": 7.180418792006094,
+    "child_peak_rss_bytes": 444121088,
+    "output_bytes": 38558565,
+    "native_exit": 0,
+    "scientific_or_rights_admission": false,
+    "scope": "Seven maintained source-custody regression tests plus configured Ruff/check format and strict source/test typing. Scientific producer and report/matrix byte equality already actual native0 in preserved predecessor; no numerical or source consumer rerun. Imports sorted and extraneous generator parentheses removed, normalized AST independently equal."
+  },
+  "maintained_qualification_receipt": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/maintained-style-checks/terminal.json",
+    "sha256": "36d3830c85867763ed5d88edd377248d1c6b3e98f5c64289d22e0a1293c9d5ab",
+    "bytes": 3771
+  },
+  "maintained_output_equality": {
+    "report.json": {
+      "sha256": "2038c2ac4332fac2e4d3dc46493f36662259a86a56d19e918e9f83a50adb8d14",
+      "bytes": 30528,
+      "byte_identical": true
+    },
+    "joint-matrices.json": {
+      "sha256": "acd99feb05dc7f230c491e6add0273a2b1fe16975bd4147c492c195f57abe316",
+      "bytes": 978428,
+      "byte_identical": true
+    }
+  },
+  "formatting_successor": "Only sorted imports and redundant generator parentheses changed after numerical byte equality; normalized AST equal after import-order normalization. Successor reruns focused tests, Ruff and strict typing; no unchanged numerical rerun.",
+  "independent_review": {
+    "native_exit": 0,
+    "profile": "Independent Decimal50 two-taxon quotient derivatives and fixed-total multinomial scalar covariance,including cross-window shared PPE and all linear contrasts. No engine or numpy import.",
+    "checks_by_quantity": {
+      "cover": 96,
+      "count_jacobian": 4608,
+      "ppe_jacobian": 192,
+      "counting_covariance": 9216,
+      "ppe_covariance": 9216,
+      "total_covariance": 9216,
+      "contrast_cover": 48,
+      "contrast_counting_covariance": 2304,
+      "contrast_ppe_covariance": 2304,
+      "contrast_total_covariance": 2304,
+      "conditional_paired_standard_error": 48
+    },
+    "scalar_checks": 39552,
+    "maximum_absolute_difference": "2.427879499240039713307983194235688494472E-15",
+    "absolute_tolerance": "2E-13",
+    "all_96x96_matrices_checked": true,
+    "all_48x48_contrast_matrices_checked": true,
+    "source_profile_scope": "Explicit analyst-declared conditional delta-method scenario reusing exactly the prior retained diagonal marginal configuration. Values0.303 and0 are retained source input magnitudes; no new estimated PPE,source uncertainty calibration or taxon correlation is inferred. The zero-variance axis forces zero cross-covariance for PSD consistency. One common PPE latent parameter spans all windows/geometries by declared working model.",
+    "same_interpreter_and_source_number_limit": true,
+    "scientific_or_coverage_admission": false,
+    "input_hashes": {
+      "joint-matrices.json": "acd99feb05dc7f230c491e6add0273a2b1fe16975bd4147c492c195f57abe316",
+      "report.json": "2038c2ac4332fac2e4d3dc46493f36662259a86a56d19e918e9f83a50adb8d14",
+      "protocol.json": "184ca490822dcd396d4eed0a1546e292541bb41dc48c1d4e4a30aecb5f13fee4"
+    }
+  },
+  "independent_review_identity": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/independent-review.json",
+    "sha256": "a50c2768308b4b52089af6e47b3c5a5643cfb76e02a962351dfe8250dfed5062",
+    "bytes": 1682
+  },
+  "independent_producer": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/independent.py",
+    "sha256": "10fa827dea7612184ca9f1b3982b75d254e3da12e29c5aad8c3b0db6c5306caf",
+    "bytes": 4189
+  },
+  "public_result": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/native/report.json",
+    "sha256": "2038c2ac4332fac2e4d3dc46493f36662259a86a56d19e918e9f83a50adb8d14",
+    "bytes": 30528
+  },
+  "private_matrix_identity": {
+    "path": "artifacts/science/krageholm-paired-geometry-covariance/native/joint-matrices.json",
+    "sha256": "acd99feb05dc7f230c491e6add0273a2b1fe16975bd4147c492c195f57abe316",
+    "bytes": 978428
+  },
+  "source_and_runtime_pins_unchanged": true,
+  "reproduction": {
+    "producer": "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+    "argv": [
+      "python",
+      "reports/science/krageholm-static-geometry-sensitivity/paired_covariance.py",
+      "--source-root",
+      "<exact-private-nine-file-packet>",
+      "--output-root",
+      "<absent-owned-artifact-destination>"
+    ],
+    "source_layout": "Exact paths and identities in paired-covariance-custody.json. Preserve the packet inputs/, native/, comparison/ and terminal.json layout."
+  },
+  "qualification_scope": {
+    "fixed_geometry_scenarios": 2,
+    "selected_native_samples": 95,
+    "original_native_samples": 96,
+    "window_slots": 25,
+    "occupied_windows": 24,
+    "empty_window_refusals": 1,
+    "conditional_result_vectors": 48,
+    "result_axes": 96,
+    "distinct_count_supports": 24,
+    "negative_public_api_controls": 10,
+    "maintained_custody_tests": 7
+  },
+  "limits": [
+    "PPE covariance is an analyst-declared conditional delta scenario using retained SD magnitudes 0.303/0, not estimated or empirically calibrated source PPE covariance.",
+    "Shared counts across geometry alternatives and shared PPE across all windows are preserved. Counting independence between disjoint windows and count-PPE independence are declared working assumptions.",
+    "Original fixed geometry report and its execution/source-account.json remain unchanged and retain their original no-paired-SE scope.",
+    "No random basin geometry, chronology posterior, historical basin/source-core authentication, field accuracy, significance, empirical interval coverage, human review or rights admission.",
+    "Public outputs contain aggregate conditional model results. Native ages, counts, individual membership and detailed joint matrices remain private."
+  ],
+  "scientific_admission": false,
+  "source_rights_admission": false
+}

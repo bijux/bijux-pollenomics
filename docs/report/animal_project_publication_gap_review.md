@@ -1,6 +1,6 @@
 # Animal project publication gap review
 
-- Non-published project count: `31`
+- Non-published project count: `32`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
@@ -19,6 +19,7 @@
 | PRJEB10854 | Equus caballus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB19970 | Equus caballus | site_extraction | sample_context_blocked |
 | PRJEB22390 | Equus caballus | not_point_publishable |  |
+| PRJEB31613 | Equus caballus | not_point_publishable |  |
 | PRJEB56293 | Equus caballus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB7537 | Equus caballus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB9799 | Equus caballus | paper_or_metadata_capture | paper_linkage_not_curated |

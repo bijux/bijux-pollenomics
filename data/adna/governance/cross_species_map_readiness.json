@@ -11,8 +11,8 @@
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 208,
-      "publication_candidate_count": 78,
-      "not_materialized_count": 130
+      "publication_candidate_count": 73,
+      "not_materialized_count": 135
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -141,8 +141,8 @@
     "unresolved_location_coordinate_refusal_count": 0,
     "coordinate_provenance_mappable_count": 304,
     "coordinate_provenance_row_count": 308,
-    "publication_candidate_count": 170,
-    "not_materialized_count": 134
+    "publication_candidate_count": 165,
+    "not_materialized_count": 139
   },
   "not_materialized_rows": [
     {
@@ -274,6 +274,16 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row23",
       "reason_code": "sample_scope_not_evidenced"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Batagai",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row24",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     },
     {
       "species_latin_name": "Equus caballus",
@@ -569,6 +579,16 @@
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "project_accession": "PRJEB31613",
+      "site_label": "Goyet",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row137",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
       "site_label": "Granastaðir",
       "coordinate_basis": "supplementary_table_coordinates",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
@@ -634,6 +654,16 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row147",
       "reason_code": "sample_scope_not_evidenced"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Kokorevo",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row148",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     },
     {
       "species_latin_name": "Equus caballus",
@@ -714,6 +744,16 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row157",
       "reason_code": "sample_scope_not_evidenced"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Merzly Yar",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row166",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     },
     {
       "species_latin_name": "Equus caballus",
@@ -954,6 +994,16 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row209",
       "reason_code": "sample_scope_not_evidenced"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Taymyr",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row212",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     },
     {
       "species_latin_name": "Equus caballus",

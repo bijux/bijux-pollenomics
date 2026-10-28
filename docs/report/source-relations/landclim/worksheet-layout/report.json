@@ -1,0 +1,58 @@
+{
+  "schema_version": "selected-rootsi-worksheet-layout-account.v1",
+  "candidate": "ca97ec6d1e157d7682ce01535e197720b9928680",
+  "plan_sha256": "09775f0fd3577e664cc8d31c0c7005c104d640cd247f5e61090ff69a2ac9b417",
+  "selected_workbooks": 4,
+  "selected_sheets": 8,
+  "worksheet_visibility_counts": {
+    "visible": 8
+  },
+  "retained_cached_cells_compared": 27325,
+  "native_layout_field_checks": 16,
+  "exact_member_case_refusal": {
+    "exception": "IntakeRefusal",
+    "reason": "rootsi_cells_unknown_selection: {'rootsi/KRO_ny.xls'}"
+  },
+  "cached_decoded_values_preserved": true,
+  "native_sheet_records_unchanged": true,
+  "retained_eke_row_account": {
+    "terminal_sha256": "2aabf9647052c4b2548875e39519b59a55875b004a5a65a13fd5a2a96b5044f1",
+    "native_exit": 0,
+    "original_candidate": "08f5f755ff7ffe87e404718b151f0aba542dfc5e",
+    "mechanical_rows": 5170,
+    "zero_feature_rows": 17,
+    "declared_rows_after_partition": 5153,
+    "other78feature_census_repeated": false
+  },
+  "formula_origin": "unavailable",
+  "full_physical_biff_record_census": "unavailable",
+  "external_links": "not_inspected_for_native_xls",
+  "macro_execution": "never",
+  "scientific_admission": "refused",
+  "source_rights_status": "unapproved_for_analytical_reuse",
+  "historical_primary_input_authentication": "not_established",
+  "seconds": 1.4145403750007972,
+  "scope": "Selected four native workbook worksheet layouts and retained typed-cell consistency; no source or scientific admission.",
+  "execution_chain": {
+    "original_oracle_attempt": {
+      "terminal_sha256": "43eaf6052faa601f04521def54894e30eeb9b7aa30c4333e2cf2de452bd07831",
+      "native_exit": 1,
+      "reason": "Raw BOUNDSHEET oracle assumed BIFF8 for legacy BIFF5/7 name bytes."
+    },
+    "corrected_native_attempt": {
+      "terminal_sha256": "a243a040c206427d4885e5e2e36f539fb318e512e6cd466515dfb20324c2bcba",
+      "whole_job_native_exit": 1,
+      "scientific_stage_native_exit": 0,
+      "failed_check": "Redundant cast in the positive typed test; other native and focused checks passed."
+    },
+    "final_focused_regression": {
+      "terminal_sha256": "d1366b4b5b3be3992f6a72c19267a52a4bca06a47031e6082e8a96afc3b83e34",
+      "native_exit": 0,
+      "producer_unchanged": true,
+      "native_workbooks_replayed": 0,
+      "focused_layout_tests": 9,
+      "strict_source_files": 2,
+      "ruff_and_format_passed": true
+    }
+  }
+}

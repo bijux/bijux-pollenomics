@@ -21,6 +21,7 @@ from .inputs import verify_consumed_sources
 from .outputs import ExperimentProduct, publish_phase, stage_directory, write_json
 from .prediction import predict_fold
 from .reconstruction import reconstruct_fold
+from .split_authority import freeze_experiment_split
 
 
 def _implementation() -> dict[str, str]:
@@ -61,6 +62,7 @@ def prepare_experiment_predictions(
     binding = load_engine()
     identity = capture_code_identity(binding)
     stage = stage_directory(destination)
+    split_authority = freeze_experiment_split(stage, folds)
     predictions: list[dict[str, object]] = []
     failures: list[dict[str, object]] = []
     fit_rows: list[dict[str, object]] = []
@@ -70,6 +72,7 @@ def prepare_experiment_predictions(
     consumed_pollen: set[str] = set()
     consumed_geometry: set[str] = set()
     for index, fold in enumerate(folds):
+        split_authority.verify()
         if interrupted:
             failures.append(
                 {
@@ -97,6 +100,7 @@ def prepare_experiment_predictions(
                 consumed_pollen=consumed_pollen,
                 consumed_geometry=consumed_geometry,
             )
+            split_authority.verify()
             rows, geometry = predict_fold(
                 spec,
                 fold,
@@ -196,7 +200,6 @@ def prepare_experiment_predictions(
         },
     )
     for name, value in (
-        ("folds.json", fold_rows),
         ("predictions.json", predictions),
         ("training.json", fit_rows),
         ("preparations.json", preparations),
@@ -212,6 +215,7 @@ def prepare_experiment_predictions(
         geometry_record_ids=consumed_geometry,
         template_used=bool(consumed_pollen),
     )
+    split_authority.verify()
     return publish_phase(
         stage,
         destination,

@@ -71,11 +71,11 @@ foundation row has enough attributed evidence to support downstream curation:
 
 | Foundation posture | Rows | Intake meaning |
 | --- | ---: | --- |
-| fully grounded | 557 | identity and required evidence dimensions are attributable at the declared scope |
-| partially grounded | 371 | useful evidence exists, but one or more dimensions remain materially limited |
+| fully grounded | 323 | identity and required evidence dimensions are attributable at the declared scope |
+| partially grounded | 355 | useful evidence exists, but one or more dimensions remain materially limited |
 | blocked: missing metadata | 11 | source metadata required to establish the governed row is absent |
 | blocked: missing location detail | 367 | locality evidence cannot support the requested spatial claim |
-| blocked: weak chronology | 162 | temporal evidence remains too weak for the stronger chronology claim |
+| blocked: weak chronology | 412 | temporal evidence remains too weak for the stronger chronology claim |
 
 The 1,468 final foundation rows are not interchangeable with the 1,475
 recovered raw project sample-master rows. The foundation classifies admitted
@@ -83,8 +83,8 @@ sample evidence; the sample master also preserves rows that do not enter the
 final identity population.
 
 Our [animal entity account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md)
-checks that every final foundation ID has exactly one map decision: 331 IDs
-occur in 170 point features and 1,137 are retained in the existing map
+checks that every final foundation ID has exactly one map decision: 322 IDs
+occur in 165 point features and 1,146 are retained in the existing map
 exclusion rows. Eight Nordic-labeled features contain 12 of the mapped IDs.
 The exclusion reasons concern map placement and do not reject the underlying
 source records. Mapped IDs do not acquire qualified country or ecological
@@ -114,8 +114,8 @@ while requiring admitted sample backing for every feature:
 | Population | Count | Intake basis | Permitted description |
 | --- | ---: | --- | --- |
 | domesticated-core locality features | 117 | admitted samples with locality, coordinate, chronology, and scope support | domesticated-animal publication points |
-| wild or progenitor context locality features | 53 | admitted samples with the same evidence chain and an explicit context role | wild/progenitor-context publication points |
-| distinct samples represented | 331 | final admitted sample identities aggregated into the 170 locality features | sample denominator for the published layer |
+| wild or progenitor context locality features | 48 | admitted samples with the same evidence chain and an explicit context role | wild/progenitor-context publication points |
+| distinct samples represented | 322 | final admitted sample identities aggregated into the 165 locality features | sample denominator for the published layer |
 
 Wadi Halfa is not part of this point surface. Its stable project and place
 evidence remain in readiness accounting, but the current publication decision

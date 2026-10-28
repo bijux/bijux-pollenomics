@@ -3,28 +3,28 @@
 We group the current `docs/report/` tree by reader question. Start at the
 [report portal](index.md) for an explanation of the results and their limits.
 The [machine-readable registry](report_surface_registry.json) lists every path
-with its family, audience, geography and format. Markdown rows also identify
-the exact bytes used for the layout review; machine-readable outputs retain
-their domain manifests. It excludes the four registry/review metadata
+with its family, audience, geography and format. Markdown layout is checked
+directly against current pages; machine-readable outputs retain their domain
+manifests. It excludes the four registry/review metadata
 files themselves; its count is a scoped subset of the complete report tree.
 
-- Surface count: `2069`
+- Surface count: `2078`
 
 ## Report families
 
 | Family | Count |
 | --- | ---: |
 | [Scientific caveats](caveats/index.md) | 10 |
-| [Maintainer truth surfaces](maintenance/index.md) | 1161 |
+| [Maintainer truth surfaces](maintenance/index.md) | 1179 |
 | [Map surfaces](maps/index.md) | 88 |
 | [Portal guidance](index.md) | 2 |
-| [Evidence reviews](reviews/index.md) | 34 |
-| [Scope-filtered outputs](scopes/index.md) | 774 |
+| [Evidence reviews](reviews/index.md) | 39 |
+| [Scope-filtered outputs](scopes/index.md) | 760 |
 
 ## Audience counts
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1163 |
-| Public reading surface | 783 |
-| Scientific review surface | 123 |
+| Maintainer diagnostic | 1181 |
+| Public reading surface | 769 |
+| Scientific review surface | 128 |

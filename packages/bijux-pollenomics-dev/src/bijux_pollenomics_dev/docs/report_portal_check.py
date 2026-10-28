@@ -1,11 +1,10 @@
-"""Check the published report portal's file inventory and Markdown identity."""
+"""Check the published report portal's file inventory and Markdown structure."""
 
 from __future__ import annotations
 
 import argparse
 from collections import Counter
 from dataclasses import asdict, dataclass
-import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -13,6 +12,13 @@ import re
 import stat
 import sys
 from typing import Any
+
+from bijux_pollenomics.reporting.presentation.report_portal.narrative_quality import (
+    _build_quality_row,
+)
+from bijux_pollenomics.reporting.presentation.report_portal.pages import (
+    _render_portal_pages,
+)
 
 REPORT_ROOT = Path("docs/report")
 REGISTRY = REPORT_ROOT / "report_surface_registry.json"
@@ -25,7 +31,17 @@ EXCLUDED = frozenset(
         "docs/report/report_surface_registry.md",
     }
 )
-SHA256 = re.compile(r"[0-9a-f]{64}\Z")
+_NAVIGATION_PATHS = frozenset(
+    {
+        "index.md",
+        "how-to-read.md",
+        "maps/index.md",
+        "scopes/index.md",
+        "reviews/index.md",
+        "caveats/index.md",
+        "maintenance/index.md",
+    }
+)
 
 
 class ReportPortalCheckError(ValueError):
@@ -87,13 +103,6 @@ def _repository_path(row: dict[str, Any], owner: str) -> str:
             f"{owner}.repository_path is not canonical: {value}"
         )
     return value
-
-
-def _sha256(path: Path) -> str:
-    try:
-        return hashlib.sha256(path.read_bytes()).hexdigest()
-    except OSError as error:
-        raise ReportPortalCheckError(f"cannot hash {path}: {error}") from error
 
 
 def _regular_files(report_root: Path) -> dict[str, Path]:
@@ -161,20 +170,18 @@ def _counter_matches(
         raise ReportPortalCheckError(f"{key} does not match registry rows")
 
 
-def _checked_hash(row: dict[str, Any], path: Path, owner: str) -> str:
-    declared = row.get("content_sha256")
-    if not isinstance(declared, str) or SHA256.fullmatch(declared) is None:
-        raise ReportPortalCheckError(f"{owner} lacks a valid content_sha256: {path}")
-    if declared != _sha256(path):
-        raise ReportPortalCheckError(f"{owner} content_sha256 is stale: {path}")
-    return declared
+def _markdown_structure(text: str) -> tuple[list[str], list[str]]:
+    """Compare rendered navigation headings and destinations without prose pins."""
+    headings = [line.strip() for line in text.splitlines() if line.startswith("#")]
+    destinations = re.findall(r"\[[^]\n]+\]\(([^)\n]+)\)", text)
+    return headings, destinations
 
 
 def check_report_portal(repository: Path) -> ReportPortalCheckResult:
-    """Reconcile portal metadata with real files and all Markdown bytes.
+    """Reconcile portal metadata with real files and current Markdown structure.
 
     Machine-output content remains governed by its domain manifests. The
-    narrative-quality inventory binds page identity and layout coverage; it
+    narrative-quality inventory checks page paths and layout coverage; it
     does not assert human or scientific review.
     """
     repository = repository.resolve()
@@ -183,18 +190,22 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
     registry = _load_object(files.get(REGISTRY.as_posix(), repository / REGISTRY))
     quality = _load_object(files.get(QUALITY.as_posix(), repository / QUALITY))
 
-    if registry.get("schema_version") != "report-surface-registry.v1":
+    if registry.get("schema_version") != "report-surface-registry.v2":
         raise ReportPortalCheckError("unsupported report surface registry schema")
     if registry.get("inventory_scope") != (
         "all input files plus generated navigation pages; registry metadata excluded"
     ):
         raise ReportPortalCheckError("registry inventory scope has changed")
-    if registry.get("content_identity_scope") != (
-        "Markdown pages; machine outputs retain their domain manifests"
+    if registry.get("validation_scope") != (
+        "path inventory and Markdown structure; machine outputs retain their domain manifests"
     ):
-        raise ReportPortalCheckError("registry content identity scope has changed")
-    if quality.get("schema_version") != "report-narrative-quality-review.v1":
+        raise ReportPortalCheckError("registry validation scope has changed")
+    if quality.get("schema_version") != "report-narrative-quality-review.v2":
         raise ReportPortalCheckError("unsupported narrative quality schema")
+    if quality.get("review_scope") != (
+        "automated layout signals; no human or scientific review"
+    ):
+        raise ReportPortalCheckError("narrative quality review scope has changed")
 
     excluded = registry.get("excluded_metadata_paths")
     if (
@@ -211,7 +222,7 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
 
     registry_rows = _rows(registry, "registry")
     registry_paths: dict[str, dict[str, Any]] = {}
-    markdown_hashes: dict[str, str] = {}
+    markdown_paths: set[str] = set()
     for row in registry_rows:
         path = _repository_path(row, "registry row")
         if path in registry_paths:
@@ -223,12 +234,12 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
         expected_format = actual_file.suffix.lstrip(".") or "none"
         if row.get("format") != expected_format:
             raise ReportPortalCheckError(f"registry format diverges: {path}")
-        if expected_format == "md":
-            markdown_hashes[path] = _checked_hash(row, actual_file, "registry")
-        elif "content_sha256" in row:
+        if "content_sha256" in row:
             raise ReportPortalCheckError(
-                f"non-Markdown registry row owns content hash: {path}"
+                f"registry row owns generic content hash: {path}"
             )
+        if expected_format == "md":
+            markdown_paths.add(path)
 
     actual_paths = files.keys() - EXCLUDED
     if registry_paths.keys() != actual_paths:
@@ -254,19 +265,33 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
         if path in quality_paths:
             raise ReportPortalCheckError(f"duplicate quality path: {path}")
         quality_paths.add(path)
-        if path not in markdown_hashes:
+        if path not in markdown_paths:
             raise ReportPortalCheckError(
                 f"quality path is not registered Markdown: {path}"
             )
-        _checked_hash(row, files[path], "quality")
-        if row["content_sha256"] != markdown_hashes[path]:
-            raise ReportPortalCheckError(f"quality and registry hashes differ: {path}")
+        if "content_sha256" in row:
+            raise ReportPortalCheckError(
+                f"quality row owns generic content hash: {path}"
+            )
+        for field in (
+            "prose_paragraph_count",
+            "link_bullet_count",
+            "bullet_sentence_count",
+            "heading_count",
+            "table_line_count",
+        ):
+            _count(row, field, f"quality row {path}")
+        expected = _build_quality_row(
+            path.removeprefix("docs/report/"), files[path].read_text(encoding="utf-8")
+        )
+        if row != expected:
+            raise ReportPortalCheckError(f"quality layout signals are stale: {path}")
         posture = row.get("quality_posture")
         if not isinstance(posture, str) or not posture:
             raise ReportPortalCheckError(f"quality posture is missing: {path}")
         quality_postures[posture] += 1
-    if quality_paths != markdown_hashes.keys():
-        missing = sorted(markdown_hashes.keys() - quality_paths)
+    if quality_paths != markdown_paths:
+        missing = sorted(markdown_paths - quality_paths)
         raise ReportPortalCheckError(
             f"quality Markdown coverage is incomplete: {missing}"
         )
@@ -275,16 +300,30 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
     if _count_map(quality, "quality_posture_counts") != dict(quality_postures):
         raise ReportPortalCheckError("quality posture counts diverge")
 
+    existing_rows = [
+        row
+        for path, row in registry_paths.items()
+        if path.removeprefix("docs/report/") not in _NAVIGATION_PATHS
+    ]
+    for relative_path, expected_text in _render_portal_pages(
+        report_root, existing_rows
+    ).items():
+        actual = files[f"docs/report/{relative_path}"].read_text(encoding="utf-8")
+        if _markdown_structure(actual) != _markdown_structure(expected_text):
+            raise ReportPortalCheckError(
+                f"portal navigation structure is stale: {relative_path}"
+            )
+
     return ReportPortalCheckResult(
         report_file_count=len(files),
         excluded_metadata_count=len(EXCLUDED),
         registered_surface_count=len(registry_rows),
-        markdown_page_count=len(markdown_hashes),
+        markdown_page_count=len(markdown_paths),
     )
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Check the published report portal's file inventory and Markdown identity."""
+    """Check the published report portal's file inventory and Markdown structure."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repository",

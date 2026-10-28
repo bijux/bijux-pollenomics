@@ -13,13 +13,13 @@
     },
     "publication": {
       "denominator": 304,
-      "published": 170,
-      "not_materialized": 134
+      "published": 165,
+      "not_materialized": 139
     },
     "samples": {
       "denominator": 1468,
-      "mapped": 331,
-      "blocked": 1137,
+      "mapped": 322,
+      "blocked": 1146,
       "unresolved_subset_of_blocked": 378
     }
   },
@@ -34,19 +34,19 @@
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 208,
-      "publication_candidate_count": 78,
-      "not_materialized_count": 130,
-      "candidate_point_count": 78,
-      "mapped_sample_count": 157,
-      "blocked_sample_count": 393,
+      "publication_candidate_count": 73,
+      "not_materialized_count": 135,
+      "candidate_point_count": 73,
+      "mapped_sample_count": 148,
+      "blocked_sample_count": 402,
       "tracked_sample_count": 550,
       "coordinate_mappable_provenance_count": 208,
       "coordinate_refused_provenance_count": 0,
       "coordinate_provenance_denominator": 208,
       "coordinate_mappable_share": 1.0,
-      "publication_share_of_mappable_coordinates": 0.375,
+      "publication_share_of_mappable_coordinates": 0.351,
       "readiness_status": "publishable",
-      "status_reason": "78 candidate point rows now survive the current atlas contract.",
+      "status_reason": "73 candidate point rows now survive the current atlas contract.",
       "country_mapped_locality_counts": {}
     },
     {

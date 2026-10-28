@@ -240,6 +240,8 @@ def _evidence_class_for(
     text = chronology_text.strip()
     if not text and getattr(chronology, "time_start_bp", None) is None:
         return "unresolved"
+    if chronology.refusal_reason_code == "source_age_epoch_or_scale_unresolved":
+        return "unresolved"
     lowered_basis = dating_basis.casefold()
     if _MODELED_DATE_RE.search(text):
         return "modeled_sample_date"

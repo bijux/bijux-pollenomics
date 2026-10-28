@@ -1,0 +1,66 @@
+{
+  "schema_version": "krageholm-paired-static-geometry-covariance-protocol.v1",
+  "native_dataset_id": 23013,
+  "native_collection_unit_id": 16622,
+  "native_chronology_id": 13366,
+  "age_epoch": "AD1950 source-qualified Neotoma calibrated-BP point ages; original CAA uncalibrated radiocarbon profile is distinct",
+  "domain_slots": 25,
+  "expected_occupied_windows": 24,
+  "original_samples": 96,
+  "selected_samples": 95,
+  "literal_axis": [
+    "Betula",
+    "Poaceae"
+  ],
+  "static_scenarios": [
+    "workbook_static_circle",
+    "paper_area_declared_circle"
+  ],
+  "ppe": [
+    5.106,
+    1.0
+  ],
+  "ppe_sd_input_magnitudes": [
+    0.303,
+    0.0
+  ],
+  "ppe_covariance": [
+    [
+      0.091809,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "ppe_covariance_authority": "Explicit analyst-declared conditional delta-method scenario reusing exactly the prior retained diagonal marginal configuration. Values0.303 and0 are retained source input magnitudes; no new estimated PPE,source uncertainty calibration or taxon correlation is inferred. The zero-variance axis forces zero cross-covariance for PSD consistency. One common PPE latent parameter spans all windows/geometries by declared working model.",
+  "count_ppe_cross_covariance": "zero under declared working independence; not observed",
+  "counting_model": "One pooled eligible literal-panel multinomial per occupied window; same actual counts/membership reused across two geometry alternatives, fixed observed point ages and source eligibility. Distinct half-open windows assumed counting-independent, not environmentally independent.",
+  "count_support_digest": "SHA256 of canonical native dataset/unit/chronology/window/sample membership/count vector and original sample-capture hash; per-window derived source digest, identical across geometry alternatives.",
+  "full_result_axis": 96,
+  "distinct_count_supports": 24,
+  "deposition": "Reuse exact four prior independently qualified native fixed-geometry factors; no transport quadrature rerun or random geometry distribution.",
+  "contrast": "Alternative minus reference on both closed axes; preserve global cross-window shared-PPE covariance and conditional count/PPE/total contrasts.",
+  "independent_math": "Decimal50 two-taxon quotient-rule Jacobians,scalar fixed-total multinomial covariance and all full matrix/contrast entries; no engine import. Same interpreter/source numbers limitation explicit.",
+  "absolute_tolerance": 2e-13,
+  "negative_controls": [
+    "same_support_changed_counts",
+    "same_support_different_panel",
+    "different_support_reused_digest",
+    "overlapping_same_unit_windows",
+    "alternate_chronology_same_unit",
+    "disjoint_count_independence_undeclared",
+    "foreign_parameter_identity",
+    "unmeasured_axis",
+    "noninteger_counts",
+    "zero_panel_total"
+  ],
+  "limits": [
+    "No empirical covariance or interval coverage calibration.",
+    "No geometry/chronology uncertainty distributions or joint age posterior.",
+    "No observed field vegetation,historical basin reproduction,paired significance or rights/human admission.",
+    "Earlier source restrictions and empty-window refusal preserved."
+  ],
+  "candidate": "cbdf31dcaa273936c63454e345fea12de69e81fe"
+}

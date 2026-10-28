@@ -10,8 +10,8 @@ entity ledger instead of copying them into a second list. The
 
 | Map decision | Sample IDs | Meaning |
 | --- | ---: | --- |
-| In 170 point features | 331 | Source-backed map candidate membership; no scientific admission |
-| Excluded from point map | 1,137 | 378 unresolved locality, 409 without coordinate provenance, 326 failing the point contract, 24 with unresolved chronology |
+| In 165 point features | 322 | Source-backed map candidate membership; no scientific admission |
+| Excluded from point map | 1,146 | 378 unresolved locality, 409 without coordinate provenance, 333 failing the point contract, 26 with unresolved chronology |
 | **Normalized foundation** | **1,468** | Every ID has exactly one map decision |
 
 Eight candidate features carry a Nordic inclusion label and refer to 12

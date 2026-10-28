@@ -65,44 +65,99 @@
       "source_sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5"
     },
     {
-      "bytes": 66530,
+      "bytes": 69631,
       "canonical_source": "reports/science/namibia-pollen-vegetation-paper.md",
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
+      "sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
       "site_uri": "assets/science/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "source_sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1"
+      "source_sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0"
     },
     {
-      "bytes": 176547,
+      "bytes": 175459,
       "canonical_source": "presentation/big-picture.tex",
       "path": "presentation/big-picture.pdf",
-      "sha256": "4933af24c4eba32acfb23b36b0d15ffe304b0a0a73fa5dca0e9fcb9a6f81648c",
-      "site_uri": "assets/science/presentations/big-picture.pdf",
-      "source_sha256": "24fe37b4bc56f66a9c9305da0adf2b02164ae2257628bee56abe2bc337289609"
+      "sha256": "6863a129dfe9d3bf2ca748f46d44193aa6c7eae38216cdd7517e5892e55e3dad",
+      "site_uri": "assets/science/presentations/big-picture.pdf"
     },
     {
-      "bytes": 159027,
+      "bytes": 158987,
       "canonical_source": "presentation/developer.tex",
       "path": "presentation/developer.pdf",
-      "sha256": "3723c3d0b37177ab7d6cd83c9e2958b095c6751169477c294251afa94de73345",
-      "site_uri": "assets/science/presentations/developer.pdf",
-      "source_sha256": "2be5a3802da2252affa40db019f3faf229eb8811714f7ab30f416d65390d4f53"
+      "sha256": "2cf82113cf677869d7a9ee62b3bd10b41b29a6146a62731d8bd30eec9e6fab2c",
+      "site_uri": "assets/science/presentations/developer.pdf"
     },
     {
       "bytes": 212688,
       "canonical_source": "presentation/scientific-evidence.tex",
       "path": "presentation/scientific-evidence.pdf",
-      "sha256": "9c79eb12e8502c46c66a27f0ffcdb0e6e740f6627fae87ac95fae165019fa570",
-      "site_uri": "assets/science/presentations/scientific-evidence.pdf",
-      "source_sha256": "0e5f0430468f79b7832aa25258fe929a8bec482f40bd07f94d42440066a2dac6"
+      "sha256": "038d7a0c16d27c456f0852bf2ffc2512f446ab54f0a720ba0303021c5e9553ce",
+      "site_uri": "assets/science/presentations/scientific-evidence.pdf"
     }
   ],
   "inputs": {
-    "presentation/source-lock.json": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
-    "reports/exports/papers/manifest.json": "9faaaf74f85ced515c849facaf43944a2e545152f2a07eca8524f4c1173b0c50",
-    "reports/exports/papers/visual-review.json": "5a0639e613ba00c9600ba613642f3d16eafe1eb131368185922b33f2f1869393",
-    "reports/science/paper-accounts.csv": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9"
+    "reports/exports/papers/manifest.json": "89ea6a0fed12f3fbbb1b312081a615b74024b0efc473db5f2f7e3eaa78294ac3",
+    "reports/exports/papers/visual-review.json": "e6a108afcb97fb70f942e0df7752237effca5511073d740211facf9548ad047a",
+    "reports/science/paper-accounts.csv": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447"
   },
   "schema_version": "scientific-reader-downloads.v1",
-  "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement."
+  "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
+  "deck_build": {
+    "schema_version": "git-compiled-deck-inputs.v1",
+    "source_revision": "34a585ad7c06354d6fad325d63bd6a7d9efe54a0",
+    "source_date_epoch": 1793186840,
+    "inputs": [
+      "presentation/big-picture.tex",
+      "presentation/developer.tex",
+      "presentation/scientific-evidence.tex",
+      "presentation/shared.tex",
+      "presentation/build.py"
+    ],
+    "compilers": [
+      {
+        "deck": "big-picture",
+        "argv": [
+          "latexmk",
+          "-pdf",
+          "-g",
+          "-recorder",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-file-line-error",
+          "-outdir=artifacts/jobs/presentation/big-picture",
+          "presentation/big-picture.tex"
+        ],
+        "actual_exit": 0
+      },
+      {
+        "deck": "developer",
+        "argv": [
+          "latexmk",
+          "-pdf",
+          "-g",
+          "-recorder",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-file-line-error",
+          "-outdir=artifacts/jobs/presentation/developer",
+          "presentation/developer.tex"
+        ],
+        "actual_exit": 0
+      },
+      {
+        "deck": "scientific-evidence",
+        "argv": [
+          "latexmk",
+          "-pdf",
+          "-g",
+          "-recorder",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-file-line-error",
+          "-outdir=artifacts/jobs/presentation/scientific-evidence",
+          "presentation/scientific-evidence.tex"
+        ],
+        "actual_exit": 0
+      }
+    ]
+  }
 }

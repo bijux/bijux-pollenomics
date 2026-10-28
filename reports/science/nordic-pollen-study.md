@@ -112,8 +112,8 @@ code's RPP, fall-speed and covariance files. A 1986 field study maps an
 approximately 0.3 ha Bussjösjön and an older gyttja edge, while a later
 3 ha inventory point lies 2.5264 km from the Neotoma site point. We cannot
 bind a calibrated historical basin outline to those pollen samples. Our
-[source cohort account](source-cohorts.md) and [open needs](../needed/README.md)
-retain the same-core decisions needed before Swedish LRA.
+[source cohort account](source-cohorts.md) records the same-core decisions needed
+before Swedish LRA.
 
 The separate [30-taxon optimized LOVE feasibility pilot](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md)
 retained the excluded `Filipendula` count mass and source request identities. Its

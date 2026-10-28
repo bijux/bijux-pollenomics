@@ -13,7 +13,7 @@ for LRA. We therefore do not claim a universally ideal LRA parameter set.
 | Can another site's pollen predict target pollen? | Fixed site mean, nearest or inverse-distance-squared on a declared closed taxon axis; compare a bounded tuned candidate only within training folds. | Observed-pollen composition error on eligible withheld sites/bins. |
 | Can source pollen yield a reconstructed vegetation vector? | REVEALS/LOVE only after site, chronology, basin geometry, taxon denominator, PPE and fall speeds are jointly qualified. | A numerical reconstruction with source assumptions; no accuracy score without independent vegetation. |
 | Can LRA-derived vegetation predict target pollen? | Freeze an LRA-based withheld-site vegetation prediction and forward pollen before opening target counts. | Forward-pollen error on matched support, distinct from vegetation accuracy. |
-| How accurate is reconstructed vegetation? | Match independent measured vegetation with site/time/taxon/spatial support. | No admitted repository score yet; the [open reference need](../needed/README.md) remains. |
+| How accurate is reconstructed vegetation? | Match independent measured vegetation with site/time/taxon/spatial support. | No admitted repository score yet; the open reference need remains. |
 
 We list current Nordic count mass and LRA source gates in our
 [source/cohort account](source-cohorts.md). We kept the engine separate for the reasons in our
@@ -161,5 +161,6 @@ our [distribution decision](../architecture/lra-distribution.md). We keep
 no-support bins, missing measurement masks and nonconvergent optimizations
 as explicit refusals. We freeze predictions before outcome access, score
 every eligible or refused fold, and report site/country/taxon support beside
-the metric. For the Swedish ABB candidate, our [research-needs
-register](../needed/README.md) names the fields still preventing LRA use.
+the metric. For the Swedish ABB candidate, our
+[Abborrtjärnen source and method account](abborrtjarnen-source-method.md) names the
+fields still preventing LRA use.

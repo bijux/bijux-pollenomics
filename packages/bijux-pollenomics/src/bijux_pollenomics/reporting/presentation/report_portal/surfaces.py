@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections import Counter
-import hashlib
 from pathlib import Path
 
 _PORTAL_FILES = {
@@ -53,15 +52,6 @@ def _classify_surface(output_root: Path, relative_path: str) -> dict[str, object
     caution = _caution_level_for_path(path, family)
     return {
         "repository_path": f"docs/report/{relative_path}",
-        **(
-            {
-                "content_sha256": hashlib.sha256(
-                    (output_root / relative_path).read_bytes()
-                ).hexdigest()
-            }
-            if path.suffix == ".md"
-            else {}
-        ),
         "family": family,
         "family_label": _FAMILY_LABELS[family],
         "audience": audience,
@@ -209,9 +199,6 @@ def _build_portal_rows(
         rows.append(
             {
                 "repository_path": f"docs/report/{relative_path}",
-                "content_sha256": hashlib.sha256(
-                    portal_pages[relative_path].encode()
-                ).hexdigest(),
                 "family": family,
                 "family_label": _FAMILY_LABELS.get(family, "Portal guidance"),
                 "audience": "public_reading_surface",
@@ -231,10 +218,10 @@ def _build_report_surface_registry(rows: list[dict[str, object]]) -> dict[str, o
     audience_counts = Counter(str(row["audience"]) for row in rows)
     geography_counts = Counter(str(row["geography"]) for row in rows)
     return {
-        "schema_version": "report-surface-registry.v1",
+        "schema_version": "report-surface-registry.v2",
         "surface_count": len(rows),
         "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
-        "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
+        "validation_scope": "path inventory and Markdown structure; machine outputs retain their domain manifests",
         "excluded_metadata_paths": sorted(
             f"docs/report/{p}" for p in _PORTAL_FILES if p.startswith("report_")
         ),

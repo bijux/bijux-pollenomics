@@ -1,4 +1,4 @@
-"""Guard the portal namespace and Markdown identity against stale publication."""
+"""Guard the portal namespace and Markdown structure against stale publication."""
 
 from __future__ import annotations
 
@@ -18,9 +18,9 @@ from bijux_pollenomics_dev.docs.report_portal_check import (
 @pytest.fixture
 def repository(tmp_path: Path) -> Path:
     report_root = tmp_path / "docs/report"
-    (report_root / "world").mkdir(parents=True)
-    (report_root / "world/README.md").write_text(
-        "# World\n\nA bounded description of this report surface.\n",
+    (report_root / "regional-account").mkdir(parents=True)
+    (report_root / "regional-account/README.md").write_text(
+        "# Regional account\n\nA bounded description of this report surface.\n",
         encoding="utf-8",
     )
     (report_root / "machine.csv").write_text("id,value\na,1\n", encoding="utf-8")
@@ -54,13 +54,34 @@ def test_checks_real_producer_population_and_cli(
     assert emitted["registered_surface_count"] == result.registered_surface_count
 
 
-def test_rejects_modified_markdown(repository: Path) -> None:
-    with (repository / "docs/report/world/README.md").open(
+def test_accepts_editorial_change_with_same_layout(repository: Path) -> None:
+    path = repository / "docs/report/regional-account/README.md"
+    path.write_text(path.read_text().replace("bounded description", "careful account"))
+    check_report_portal(repository)
+
+
+def test_rejects_changed_layout(repository: Path) -> None:
+    with (repository / "docs/report/regional-account/README.md").open(
         "a", encoding="utf-8"
     ) as stream:
-        stream.write("A changed interpretation.\n")
+        stream.write("\n## New section\n")
     with pytest.raises(
-        ReportPortalCheckError, match="registry content_sha256 is stale"
+        ReportPortalCheckError, match="quality layout signals are stale"
+    ):
+        check_report_portal(repository)
+
+
+@pytest.mark.parametrize(
+    ("old", "new"),
+    [("# Report Portal", "# Broken Portal"), ("./maps/index.md", "./missing/index.md")],
+)
+def test_rejects_changed_rendered_navigation(
+    repository: Path, old: str, new: str
+) -> None:
+    path = repository / "docs/report/index.md"
+    path.write_text(path.read_text().replace(old, new))
+    with pytest.raises(
+        ReportPortalCheckError, match="portal navigation structure is stale"
     ):
         check_report_portal(repository)
 
@@ -101,10 +122,12 @@ def test_rejects_incomplete_or_stale_quality_coverage(repository: Path) -> None:
         check_report_portal(repository)
 
     rows.append(row)
-    row["content_sha256"] = "0" * 64
+    row["heading_count"] += 1
     payload["page_count"] = len(rows)
     _write_payload(repository, "report_narrative_quality_review.json", payload)
-    with pytest.raises(ReportPortalCheckError, match="quality content_sha256 is stale"):
+    with pytest.raises(
+        ReportPortalCheckError, match="quality layout signals are stale"
+    ):
         check_report_portal(repository)
 
 
@@ -129,7 +152,7 @@ def test_rejects_wrong_exclusion_and_aggregate_count(repository: Path) -> None:
         check_report_portal(repository)
 
 
-def test_rejects_hash_ownership_on_machine_output(repository: Path) -> None:
+def test_rejects_generic_hash_ownership(repository: Path) -> None:
     payload = _payload(repository, "report_surface_registry.json")
     rows = payload["rows"]
     assert isinstance(rows, list)
@@ -139,7 +162,7 @@ def test_rejects_hash_ownership_on_machine_output(repository: Path) -> None:
     machine["content_sha256"] = "0" * 64
     _write_payload(repository, "report_surface_registry.json", payload)
     with pytest.raises(
-        ReportPortalCheckError, match="non-Markdown registry row owns content hash"
+        ReportPortalCheckError, match="registry row owns generic content hash"
     ):
         check_report_portal(repository)
 
@@ -179,4 +202,12 @@ def test_rejects_symlinked_docs_ancestor_within_repository(repository: Path) -> 
     with pytest.raises(
         ReportPortalCheckError, match="ancestor is not a real directory"
     ):
+        check_report_portal(repository)
+
+
+def test_rejects_fabricated_reader_review(repository: Path) -> None:
+    payload = _payload(repository, "report_narrative_quality_review.json")
+    payload["review_scope"] = "human scientific approval"
+    _write_payload(repository, "report_narrative_quality_review.json", payload)
+    with pytest.raises(ReportPortalCheckError, match="review scope has changed"):
         check_report_portal(repository)

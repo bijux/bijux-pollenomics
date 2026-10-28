@@ -28,8 +28,8 @@
     },
     {
       "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
-      "bytes": 565888,
-      "sha256": "e20b66653cf4154509eb21d1441991fbc06a438bc80d1f99a60ce40bc4db7181"
+      "bytes": 560906,
+      "sha256": "6d09f96168d449e69f728e6270a248f686b7a3152af4c42f4dffae85553ecb38"
     },
     {
       "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
@@ -53,28 +53,28 @@
     },
     {
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "bytes": 18126,
-      "sha256": "cd046f56ea558e349eacd1b39c24941e93aaaac4840a4250779c0e51659f32a8"
+      "bytes": 18127,
+      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099"
     },
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "bytes": 700614,
-      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc"
+      "bytes": 681283,
+      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6"
     },
     {
       "path": "docs/report/animal_atlas_exclusion_report.json",
-      "bytes": 1392865,
-      "sha256": "c6f40b744adb04cf9e1fadb481574ca7be7d05b23663a8c01827259b3dfa1eb8"
+      "bytes": 1401887,
+      "sha256": "7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb"
     }
   ],
   "normalized_sample_ids": 1468,
-  "map_feature_count": 170,
-  "mapped_sample_ids": 331,
-  "excluded_sample_ids": 1137,
+  "map_feature_count": 165,
+  "mapped_sample_ids": 322,
+  "excluded_sample_ids": 1146,
   "map_exclusion_reasons": {
-    "chronology remains unresolved enough that the sample stays out of the public map": 24,
+    "chronology remains unresolved enough that the sample stays out of the public map": 26,
     "no coordinate provenance row currently supports point publication": 409,
-    "sample is tracked but does not yet satisfy the full atlas point contract": 326,
+    "sample is tracked but does not yet satisfy the full atlas point contract": 333,
     "sample locality remains unresolved and cannot be mapped honestly": 378
   },
   "nordic_map_feature_count": 8,

@@ -1,0 +1,30 @@
+{
+  "schema_version": "english-author-development-splits.v1",
+  "folds": {
+    "site-fold-1": [
+      "BECKHAM",
+      "BROADOWN",
+      "GOURTEMIRES",
+      "HARESDOWN",
+      "MOLECHAM",
+      "WHH11"
+    ],
+    "site-fold-2": [
+      "COMERSLA",
+      "CUTHILL2",
+      "LARKBARR",
+      "LOBBSBOG",
+      "NTWITCHEN",
+      "WINDMILL"
+    ],
+    "site-fold-3": [
+      "EXEBRID",
+      "HANGINGS",
+      "LONGBREACH",
+      "WHH05",
+      "WINNEYS"
+    ]
+  },
+  "grouping": "whole author site IDs; no reviewed cross-database alias closure",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb"
+}

@@ -53,8 +53,8 @@ matches 72 samples and all 11 radiocarbon source controls, while conflicting
 reported areas and missing time-matched basin and analytical-use fields still
 prevent LRA admission. Finnish Laihalampi has an exact 150-sample, single-core
 lead and consistent modern area claims, but its [source decision](laihalampi-lra-input/README.md)
-still needs the selected age vector and dated basin. We recorded these exact gaps in
-[research needs](../needed/README.md); we have not substituted study-wide
+still needs the selected age vector and dated basin. These exact gaps remain in
+the respective source decisions; we have not substituted study-wide
 assumptions for a named core's missing evidence.
 
 The existing [site-level author-taxonomy mass ledger](../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
@@ -76,8 +76,8 @@ metadata rows do not contribute pollen or vegetation observations.
 
 We also checked [animal sample map membership](animal-entity-capability/README.md)
 without duplicating the existing per-ID decisions. Ten normalized species
-tables contain 1,468 sample IDs; 331 appear in 170 point features and all
-other 1,137 have a named map exclusion. Twelve mapped IDs occur in eight
+tables contain 1,468 sample IDs; 322 appear in 165 point features and all
+other 1,146 have a named map exclusion. Twelve mapped IDs occur in eight
 Nordic-labeled features. Their map placement and source labels are context,
 not a qualified source-country, pollen or ecological cohort.
 

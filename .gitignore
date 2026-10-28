@@ -60,3 +60,6 @@ packages/*/artifacts
 
 # Repo-specific
 data/**/~$*.xlsx
+
+# Human request and review registers are maintained outside the repository.
+/reports/needed/

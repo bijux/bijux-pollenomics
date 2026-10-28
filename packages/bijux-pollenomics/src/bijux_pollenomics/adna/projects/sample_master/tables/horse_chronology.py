@@ -9,9 +9,17 @@ from ..identity import (
     _cell_value,
     _clean_coordinate_text,
     _clean_optional_source_text,
-    _format_horse_age_text,
+    _is_missing_source_value,
 )
 from ..models import AdnaProjectSampleMasterRow
+
+
+def _source_elapsed_age_text(value: str) -> str:
+    """Retain the native years-ago field without declaring a BP age scale."""
+    text = value.strip()
+    if _is_missing_source_value(text):
+        return ""
+    return f"Age (years ago): {text}"
 
 
 def _build_horse_time_series_rows(
@@ -80,7 +88,7 @@ def _build_horse_time_series_rows(
                 else _clean_coordinate_text(_cell_value(row, longitude_index)),
                 chronology_text=""
                 if age_index is None
-                else _format_horse_age_text(_cell_value(row, age_index)),
+                else _source_elapsed_age_text(_cell_value(row, age_index)),
             )
         )
     return tuple(built_rows)
@@ -146,7 +154,7 @@ def _build_horse_comparative_panel_rows(
                 longitude_text="",
                 chronology_text=""
                 if age_index is None
-                else _format_horse_age_text(_cell_value(row, age_index)),
+                else _source_elapsed_age_text(_cell_value(row, age_index)),
             )
         )
     return tuple(built_rows)

@@ -28,17 +28,26 @@ The governed chronology audit covers 1,475 recovered raw sample rows:
 
 | Normalization result | Samples | Interpretation |
 | --- | ---: | --- |
-| numeric point | 528 | one defensible BP value is available |
-| numeric interval | 404 | comparison must preserve interval width |
-| text only | 136 | wording is useful but is not safely parsed into BP bounds |
-| unresolved | 407 | no trustworthy chronology claim has been recovered |
+| numeric point | 368 | one defensible BP value is available |
+| numeric interval | 315 | comparison must preserve interval width |
+| text only | 386 | wording is useful but is not safely parsed into BP bounds |
+| unresolved | 406 | no trustworthy chronology claim has been recovered |
 
 Evidence class and comparison precision cut across those normalization counts.
-Its precision postures include 468 sample-precise points, 328 sample-precise
+Its precision postures include 308 sample-precise points, 239 sample-precise
 intervals, 200 approximate or modeled sample claims, 32 contextual intervals,
-40 broad-period-only claims, and 407 unresolved claims. These chronology rows
+40 broad-period-only claims, and 656 unresolved claims. These chronology rows
 are the raw recovered review population; the final sample foundation contains
 1,468 rows after identity admission.
+
+The native horse `Age (years ago)` field remains source text. The article
+relates specimen-name ages to 2017, while its tables contain separate
+radiocarbon and calibrated-date fields. We refuse BP conversion until the
+field-specific epoch and scale are established, and do not infer direct
+radiocarbon evidence from a mixed project description. All 260 imported
+elapsed-age rows have unresolved dating evidence and precision; 250 previously
+inferred intervals are removed. The [source-age account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md)
+records the preserved source tokens and qualification.
 
 These views are deliberately different. A row may contain numbers and still be
 contextual or approximate; numeric normalization does not confer sample-level

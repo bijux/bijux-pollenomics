@@ -1,6 +1,6 @@
 # Animal point evidence review
 
-- Published point count: `170`
+- Published point count: `165`
 
 ## animal-atlas-feature:bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy
 
@@ -442,51 +442,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `5`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-batagai-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-goyet-belgium
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-kokorevo-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-merzlyyar-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-taymyr-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-acemhoyuk-turkey
 

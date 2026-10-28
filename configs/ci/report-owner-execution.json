@@ -1921,11 +1921,21 @@
     },
     {
       "owner_id": "synthetic-validation/recovery-evidence/report-products",
-      "module": "bijux_pollenomics_dev.lra_validation.recovery_evidence",
+      "module": "bijux_pollenomics_dev.source_completion.model_validation.synthetic_recovery_evidence",
       "output_mode": "single_file",
       "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/synthetic-validation/recovery-evidence/report.json"
+      },
+      "timeout_seconds": 30
+    },
+    {
+      "owner_id": "model-development/english-retained-score-audit/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.model_development.english_retained_score_audit",
+      "output_mode": "single_file",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/model-development/english-retained-score-audit/report.json"
       },
       "timeout_seconds": 30
     }

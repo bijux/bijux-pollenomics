@@ -71,7 +71,7 @@ country membership, cell area or historical date conversion.
 We therefore admit the bounded source-reported country totals and internal
 grid conservation below as **modeled-source accounting only**. We do not yet
 admit a release-wide native-grid product, public cell redistribution or a
-matched pollen-model HYDE comparison. The [open evidence request](../needed/README.md)
+matched pollen-model HYDE comparison. The open evidence request
 asks for provider binding of file identity, rights, CRS, dates, units and
 scenario meaning. This report owns our current decision.
 

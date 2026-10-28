@@ -116,7 +116,7 @@ source-specific analytical rights. The paper explains
 Hela-4421's exclusion; a qualified source packet must still identify the
 exact age vector and uncertainty applied by LandClim II, including how the
 assumed 11,000 BP base entered its selected model. The
-[Nordic LRA need](../../needed/README.md)
+Nordic LRA need
 keeps those fields open. Once bound, run actual reconstruction and withheld
 forward-pollen prediction before comparing methods.
 

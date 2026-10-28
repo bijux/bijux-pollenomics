@@ -5,15 +5,15 @@ identify pages that merit editorial reading. These automated layout signals
 do not establish scientific validity or decide whether a reference table needs
 more prose. Start with the [report portal](index.md) for the results and their
 limits; use the [machine-readable review](report_narrative_quality_review.json)
-for an exact page lookup and the content identity reviewed. A `reader_ready`
+for page paths and their current structural counts. A `reader_ready`
 layout signal does not record an actual reader or qualified scientific review.
 
-- Reviewed markdown pages: `314`
+- Reviewed markdown pages: `320`
 
 ## Layout signals
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 121 |
+| `reader_ready` | 128 |
 | `structured_reference` | 20 |
-| `thin_structure` | 173 |
+| `thin_structure` | 172 |

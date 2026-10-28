@@ -1,0 +1,95 @@
+{
+  "schema_version": "selected-rootsi-worksheet-layout-custody.v1",
+  "published_scope": "Aggregate scientific/source refusal account only; original cached cells, individual typed rows, native sidecar and controlled fixtures remain private local products.",
+  "selected_members": [
+    {
+      "archive_member": "rootsi/EKE.xls",
+      "bytes": 27648,
+      "sha256": "f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e"
+    },
+    {
+      "archive_member": "rootsi/GIL.xls",
+      "bytes": 159232,
+      "sha256": "8803c91e4d1ccde5a1f4778a62860173e5637e5223736b762079fa19a7ea526d"
+    },
+    {
+      "archive_member": "rootsi/KRO_NY.xls",
+      "bytes": 21504,
+      "sha256": "81c950ca0881c5f17bdcffbc3e0b9804511af5fb6befce83fbd64dcdc7eb9d17"
+    },
+    {
+      "archive_member": "rootsi/RASH.xls",
+      "bytes": 40960,
+      "sha256": "33bc384d8c508fa9f79162be61ee3cd289328be74fe20999b553c8a4285e2d1c"
+    }
+  ],
+  "native_source_archive_sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+  "archive_membership_verification": "retained_receipt_bound_not_replayed",
+  "native_workbook_source_manifest_sha256": "dde88290dbdeca7a1047db74d5fb55a85c03a68daaef53795c5da9c1aebbd510",
+  "typed_capture_inventory_sha256": "3353156471c2d04f2dce4138d29ad1a4891896d223c2c37dd5c531ba51c17b5a",
+  "typed_capture_cached_cells_sha256": "d9b2d77d461eb859eec96ea709dcca6a5b9d8cda8136d0002bb5b610d255c0ac",
+  "producer": {
+    "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/layout.py",
+    "sha256": "cfda990ae91ec2a9b6686ac2b7ec26d54d67d3f4a83ba62b27cc8782c64c23e4"
+  },
+  "candidate": "ca97ec6d1e157d7682ce01535e197720b9928680",
+  "native_plan_sha256": "09775f0fd3577e664cc8d31c0c7005c104d640cd247f5e61090ff69a2ac9b417",
+  "native_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/.venv/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-worksheet-custody/consume-native-encodings.py"
+  ],
+  "scientific_native_exit": 0,
+  "native_stage_seconds": 2.72085441701347,
+  "independent_oracle": "Raw BOF-specific BOUNDSHEET name and visibility fields with native CODEPAGE distinction; same xlrd CompDoc container decoder. Sixteen field comparisons; no complete physical BIFF or formula-token census.",
+  "native_output_hashes": {
+    "independent-layout-audit.json": "64fd0374c6607b670f61cbfd148ad2c194acaede09f4a0959683ce4bd5409900",
+    "report.json": "04386449ea32f32baf09fc7739d8daafe6088d4eb7156d364ee3ee249c859302",
+    "worksheet-layout.jsonl": "16096f556c41bac4a2a1079e3a7d3c01c944975a5bcf62fa1e4207680da29dcd",
+    "cached-value-parity.json": "6fa32678f5510182edd900dc88fb222a0d8a1fee893657b49aa46b1458de56f5"
+  },
+  "native_terminal": {
+    "path": "artifacts/science/rootsi-worksheet-custody/checks-native-encodings/terminal.json",
+    "sha256": "a243a040c206427d4885e5e2e36f539fb318e512e6cd466515dfb20324c2bcba",
+    "whole_job_native_exit": 1,
+    "scientific_stage_native_exit": 0
+  },
+  "focused_regression_terminal": {
+    "path": "artifacts/science/rootsi-worksheet-custody/checks-layout-regression/terminal.json",
+    "sha256": "d1366b4b5b3be3992f6a72c19267a52a4bca06a47031e6082e8a96afc3b83e34",
+    "native_exit": 0,
+    "source_and_runtime_pins_unchanged": true
+  },
+  "retained_eke_original": {
+    "candidate": "08f5f755ff7ffe87e404718b151f0aba542dfc5e",
+    "actual_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/neotoma-owner-publication/root-runtime-isolated-source/runtime/check-venv/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/rootsi-eke-source-row-account/account.py"
+    ],
+    "native_exit": 0,
+    "terminal_sha256": "2aabf9647052c4b2548875e39519b59a55875b004a5a65a13fd5a2a96b5044f1",
+    "report_sha256": "cec68e741812fb32752f914b016c39e3e2cf8a794f243cd1d047d04814ab4468",
+    "global_79_count_ledger_sha256": "afd0b62a8d0f23c61bdc139f07ab9516a24cfbffa4a4009285f439162dd4f2e7",
+    "typed_cells_checked": 1376,
+    "other78_feature_census_repeated": false
+  },
+  "limits": [
+    "All79 native visibility/encoding census not performed.",
+    "Selected eight visible sheets do not establish absence of hidden sheets elsewhere.",
+    "Formula origin, derived-column semantics and native external-link presence remain unavailable or not inspected.",
+    "Fresh7z membership or malware/signature validation not performed.",
+    "No interpolation, feature units, taxa, chronology, PPE, analytical rights, historical identity or ecological admission."
+  ],
+  "prepared_source_overlay": "Native consumer imported the exact copied first-party source plus the physically pinned layout proposal. Layout.py was not tracked in the recorded candidate baseline.",
+  "native_consumer_sha256": "64fc82bae1c9045f5e2ecedf9573ccd9f47bf5faf2c85b69c840148060fcc290",
+  "parser": {
+    "name": "xlrd",
+    "version": "2.0.2",
+    "formatting_info": true
+  },
+  "scientific_admission": "refused",
+  "source_rights_status": "unapproved_for_analytical_reuse",
+  "historical_primary_input_authentication": "not_established"
+}

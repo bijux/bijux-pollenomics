@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections import Counter
-import hashlib
 from pathlib import Path
 from typing import cast
 
@@ -28,7 +27,8 @@ def _build_report_narrative_quality_review(
 
     posture_counts = Counter(str(row["quality_posture"]) for row in review_rows)
     return {
-        "schema_version": "report-narrative-quality-review.v1",
+        "schema_version": "report-narrative-quality-review.v2",
+        "review_scope": "automated layout signals; no human or scientific review",
         "page_count": len(review_rows),
         "quality_posture_counts": dict(sorted(posture_counts.items())),
         "rows": review_rows,
@@ -70,7 +70,6 @@ def _build_quality_row(relative_path: str, text: str) -> dict[str, object]:
         note = "Page explains itself but still needs stronger internal wayfinding."
     return {
         "repository_path": f"docs/report/{relative_path}",
-        "content_sha256": hashlib.sha256(text.encode()).hexdigest(),
         "prose_paragraph_count": prose_paragraph_count,
         "link_bullet_count": link_bullet_count,
         "bullet_sentence_count": bullet_sentence_count,

@@ -9,8 +9,21 @@ import gzip
 import hashlib
 import json
 import math
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import re
 from typing import Any
+
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import read_source_path
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    read_historical_python_correspondence,
+)
+from bijux_pollenomics_dev.reader_reports.source import (
+    MAINTAINED_PRESENTATION_INPUTS,
+    MAINTAINED_READER_BOOKKEEPING,
+    MAINTAINED_REPORT_ENTRYPOINTS,
+)
 
 REPORT_DIR = Path(__file__).resolve().parent
 REPOSITORY_ROOT = REPORT_DIR.parents[2]
@@ -370,6 +383,18 @@ def verify_publication_input_inventory(scope: dict[str, Any]) -> None:
         raise ValueError("publication input inventory differs from retained claims")
 
 
+def _buffered_reader_markdown(raw: bytes) -> bytes:
+    """Preserve sealed output identity across one exact historical code-link alias."""
+    current = (
+        b"[family replay](https://github.com/bijux/bijux-pollenomics/blob/"
+        b"6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/"
+        b"pollen-reconstruction/author-buffered-pollen/replay.py)"
+    )
+    if raw.count(current) > 1:
+        raise ValueError("buffered author replay navigation is ambiguous")
+    return raw.replace(current, b"[family replay](replay.py)", 1)
+
+
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     """Bind the buffered four-method diagnostic to frozen source and scores."""
     declared = scope["author_buffered_spatial_pollen"]
@@ -383,7 +408,13 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
         path = directory / item["path"]
-        if path.stat().st_size != item["bytes"] or sha256(path) != item["sha256"]:
+        raw = path.read_bytes()
+        if item["path"] == "README.md":
+            raw = _buffered_reader_markdown(raw)
+        if (
+            len(raw) != item["bytes"]
+            or hashlib.sha256(raw).hexdigest() != item["sha256"]
+        ):
             raise ValueError(f"buffered author output differs: {item['path']}")
     for relative, digest in manifest["producer_sha256"].items():
         if sha256(REPOSITORY_ROOT / relative) != digest:
@@ -766,6 +797,21 @@ def verify_sambosjon_contained_age_support(
     interval_scope = scope["sambosjon_contained_age_support"]
     interval_dir = REPOSITORY_ROOT / Path(interval_scope["report"]).parent
     interval = json.loads((interval_dir / "report.json").read_text())
+    recorded_producer = read_historical_python_correspondence(
+        REPOSITORY_ROOT,
+        GitSourceMember(
+            member=interval_scope["producer"],
+            repository_path=(
+                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+                "source_completion/pollen_age_support/sambosjon.py"
+            ),
+            source_revision="1a3f44530170d81b38317760d86d766ec418a03f",
+            git_blob="3cff8d67f68b6ea630e167159887e9f3d3fd4e25",
+            sha256=interval["producer_sha256"],
+            bytes=17278,
+        ),
+        function_docstring="main",
+    )
     with (interval_dir / "coverage.csv").open(newline="") as stream:
         interval_coverage = list(csv.DictReader(stream))
     with (interval_dir / "scores.csv").open(newline="") as stream:
@@ -773,8 +819,7 @@ def verify_sambosjon_contained_age_support(
     with (interval_dir / "samples.csv").open(newline="") as stream:
         interval_samples = list(csv.DictReader(stream))
     if (
-        interval["producer_sha256"]
-        != sha256(REPOSITORY_ROOT / interval_scope["producer"])
+        interval["producer_sha256"] != hashlib.sha256(recorded_producer).hexdigest()
         or interval_scope["status"] != interval["status"]
         or interval_scope["confirmatory_result"] is not False
         or interval_scope["independent_vegetation_comparison"] is not False
@@ -833,6 +878,138 @@ def verify_sambosjon_contained_age_support(
             raise ValueError("Sämbosjön pinned interval input changed")
 
 
+MAINTAINED_FAMILY_SOURCES = frozenset(
+    {
+        "makes/packages/bijux-pollenomics-dev.mk",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "ci/atlas_browser/probe.mjs",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/"
+        "map_document/assets/document.html",
+    }
+)
+
+
+HISTORICAL_SOURCE_PARTS = {
+    "reference-bundle",
+    "reference",
+    "retained",
+    "historical",
+    "source-snapshot",
+    "source-capture",
+    "original-source",
+}
+
+
+def _manifest_file(repository: Path, relative: str) -> Path:
+    native = PurePosixPath(relative)
+    if relative.startswith("artifacts/"):
+        raise ValueError(f"durable report depends on disposable output: {relative}")
+    path = repository / relative
+    if (
+        not native.parts
+        or native.is_absolute()
+        or ".." in native.parts
+        or "\\" in relative
+        or native.as_posix() != relative
+        or not path.is_file()
+        or not path.resolve().is_relative_to(repository.resolve())
+    ):
+        raise ValueError(f"invalid report evidence path: {relative}")
+    return path
+
+
+def _manifest_bytes(root: Path, relative: str) -> bytes:
+    """Read named finite native controls from their authenticated Git custody."""
+    native = PurePosixPath(relative)
+    if relative.startswith(
+        "data/method-certification/native-r-finite-covariance/"
+    ) and native.suffix in {".py", ".R"}:
+        if ".." in native.parts or "\\" in relative or native.as_posix() != relative:
+            raise ValueError(f"Research source is unavailable or unsafe: {relative}")
+        try:
+            return read_source_path(root, relative)
+        except ReportRebuildError as error:
+            raise ValueError(
+                f"Research source is unavailable or unsafe: {relative}"
+            ) from error
+    return _manifest_file(root, relative).read_bytes()
+
+
+def verify_report_manifest(
+    repository: Path, manifest: dict[str, Any]
+) -> tuple[int, int]:
+    """Keep scientific evidence byte-bound and ordinary prose/code Git-owned.
+
+    Maintained paths retain existence and ownership checks. Raw data and literal
+    historical/reference source paths never gain an editorial exemption.
+    """
+    if (
+        set(manifest)
+        != {
+            "schema_version",
+            "status",
+            "repository",
+            "as_of",
+            "files",
+            "maintained_paths",
+        }
+        or manifest.get("schema_version") != "pollen-reconstruction-report-manifest.v2"
+    ):
+        raise ValueError("unexpected pollen reconstruction manifest schema")
+    files = manifest["files"]
+    maintained = manifest["maintained_paths"]
+    if not isinstance(files, list) or not isinstance(maintained, list):
+        raise ValueError("report manifest inventories must be lists")
+    if not all(isinstance(path, str) for path in maintained) or maintained != sorted(
+        set(maintained)
+    ):
+        raise ValueError("maintained report inventory is invalid or duplicated")
+    paths = []
+    for item in files:
+        if (
+            not isinstance(item, dict)
+            or set(item) != {"path", "sha256", "bytes"}
+            or not isinstance(item["path"], str)
+            or not isinstance(item["sha256"], str)
+            or re.fullmatch(r"[0-9a-f]{64}", item["sha256"]) is None
+            or type(item["bytes"]) is not int
+            or item["bytes"] < 0
+        ):
+            raise ValueError("report evidence identity is invalid")
+        paths.append(item["path"])
+    if len(paths) != len(set(paths)):
+        raise ValueError("report evidence paths are duplicated")
+    if set(paths) & set(maintained):
+        raise ValueError("report evidence and maintained source roles overlap")
+    for item in files:
+        raw = _manifest_bytes(repository, item["path"])
+        if (
+            len(raw) != item["bytes"]
+            or hashlib.sha256(raw).hexdigest() != item["sha256"]
+        ):
+            raise ValueError(f"report evidence digest mismatch: {item['path']}")
+    for relative in maintained:
+        path = _manifest_file(repository, relative)
+        native = PurePosixPath(relative)
+        if relative not in (
+            MAINTAINED_REPORT_ENTRYPOINTS
+            | MAINTAINED_PRESENTATION_INPUTS
+            | MAINTAINED_READER_BOOKKEEPING
+            | MAINTAINED_FAMILY_SOURCES
+        ) and (
+            native.parts[0] not in {"docs", "packages", "reports", "configs"}
+            or (
+                path.suffix not in {".md", ".py"}
+                and relative not in MAINTAINED_READER_BOOKKEEPING
+            )
+            or set(native.parts) & HISTORICAL_SOURCE_PARTS
+        ):
+            raise ValueError(
+                f"report source is not maintained prose or code: {relative}"
+            )
+    return len(files), len(maintained)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -842,17 +1019,7 @@ def main() -> None:
     )
     args = parser.parse_args()
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    if manifest.get("schema_version") != "pollen-reconstruction-report-manifest.v1":
-        raise ValueError("unexpected pollen reconstruction manifest schema")
-    for item in manifest["files"]:
-        relative = item["path"]
-        if relative.startswith("artifacts/"):
-            raise ValueError(f"durable report depends on disposable output: {relative}")
-        path = (REPOSITORY_ROOT / relative).resolve()
-        if not path.is_relative_to(REPOSITORY_ROOT) or not path.is_file():
-            raise ValueError(f"invalid report evidence path: {relative}")
-        if path.stat().st_size != item["bytes"] or sha256(path) != item["sha256"]:
-            raise ValueError(f"report evidence digest mismatch: {relative}")
+    retained_count, maintained_count = verify_report_manifest(REPOSITORY_ROOT, manifest)
 
     results_path = REPORT_DIR / "results.csv"
     with results_path.open(newline="", encoding="utf-8") as stream:
@@ -1081,7 +1248,7 @@ def main() -> None:
         raise ValueError("PFT uncertainty scope differs from retained result")
 
     print(
-        f"verified {len(manifest['files'])} retained files, "
+        f"verified {retained_count} retained files, {maintained_count} maintained paths, "
         f"{len(results) - 1} scientific result rows and Swedish/Nordic source manifests"
     )
     if args.author_source_root is not None:

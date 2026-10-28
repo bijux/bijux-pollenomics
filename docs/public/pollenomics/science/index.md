@@ -28,9 +28,7 @@ on its tested sites; neither measures vegetation accuracy.
 The public pages summarize governed tables without distributing private raw
 sources. Exact rows, producer commands and limitations are linked from each
 page. The repository's [claim-to-evidence index](https://github.com/bijux/bijux-pollenomics/blob/main/reports/evidence-index.md)
-connects headline findings to numeric tables, manifests and producers. Open
-source questions remain visible in the repository's
-[`reports/needed` register](https://github.com/bijux/bijux-pollenomics/tree/main/reports/needed).
+connects headline findings to numeric tables, manifests and producers. Each scientific account records its unresolved source questions and limitations.
 
 ## Use the application
 

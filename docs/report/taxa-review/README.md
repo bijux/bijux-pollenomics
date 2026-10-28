@@ -7,8 +7,14 @@ separate proposed group, LRA taxon, PFT, PPE and fall-speed fields. Every row
 remains `needs_discussion`; all proposed mappings start unset. The package is
 for qualified review, with no classification admission or publication right.
 The completed projection has bundle SHA-256
-`1220483aa405b55aa08da56175d568ba7d3f31bed6f7f9095e804cb3551c5cfb`;
+`74df58ba0befcf51b3d78937dc9c8ec2f3b078552c8026c1477a0316e79a76f5`;
 the completion reader verified all three payload members and their byte counts.
+The physical JSON SHA-256 is
+`d4f56ef2128fa395d91d422e80dbf0d40533e487c392561b49fa6f356bdcff26`.
+This identifies the retained capture, including its inventory locator and
+working-source overlay; rebuilding with another locator can change its bundle
+identity. The [readiness account](readiness.json) and
+[source account](source-account.json) record the actual execution scope.
 
 | Source family | Review rows | Scope |
 | --- | ---: | --- |
@@ -69,26 +75,25 @@ The current governed Neotoma source screen yields 10,637 prerequisite samples,
 concepts across 169 datasets. The country partition and exact source-unit sums
 are reported on the [Neotoma source page](../../public/pollenomics-data/sources/neotoma.md).
 The replay binds the full private review bundle to the governed raw and
-relational Neotoma manifests. Its priority, dataset attribution and screen
-SHA-256 values are respectively:
+relational Neotoma manifests. The SHA-256 values for the native priority
+and dataset attribution in the retained
+full-review capture are respectively:
 
-- `68cc019466e4e251e66bff0cdeb6627419b6e6444d844cf5cd01eed25ee2054c`
-- `9bb1bebdf9155fa8ba2ebb7afb5b743258730aad967201fba6c0bdef13a5eb63`
-- `7d1ec565e9eec4317c61414b553a05b43cfd476a6fd0c087f0a536da8f2554ee`
+- `fce4fd4d80397df99210f7fc48357029239f0a3afe2965daaf5068bc3712be7d`
+- `afc74c40713040f1429468c3dea66d76af857b80d2a1ac93affad85a8b5d180d`
 
-All 1,006 priority rows and all 169 dataset-attribution rows equal the
+These projections bind the full 10,908-row private package. The
 [governed scoped review](../source-relations/neotoma/taxon-priority/README.md)
-exactly. Their whole-file hashes differ because the private replay binds the
-10,908-row full review bundle while the public table binds only its 1,351
-Neotoma concepts.
+binds only its 1,351 Neotoma concepts. File and bundle identities are distinct;
+current whole-file equality to the earlier full-review capture is not claimed.
 
 The exact dataset-publication responses reside in the private source store at
 `neotoma/publication-links/2026-09-29/`. Its 169-response capture manifest has
 SHA-256 `d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da`.
 The manifest retains each source URL, retrieval time, byte count and digest;
 58 prior exact responses were reused and 111 additional datasets were queried.
-The replayed citation report has SHA-256
-`9f37bb406b30beef6d8a2f274cc27ec509441c6c5b0d4d3a31c87aca6e93e24d`.
+The current retained citation report has SHA-256
+`ee7938ed84e97f2f208bb6e720c1f0bdef697c5b76de1bd0482c00c4fdbcb1e9`.
 It records 223 linked publication records across 169 datasets: 149 with one
 provider-primary publication, seven with multiple provider-primary links, two
 with links but no primary flag and eleven without a linked publication.
@@ -96,22 +101,89 @@ Publication DOI is null on 172 records. All 169 datasets identify the European
 Pollen Database as their constituent database. The citation leads have not
 been independently checked against original publications.
 
-Set `NEOTOMA_PUBLICATION_ROOT` to the private
-`neotoma/publication-links/2026-09-29` directory. After building the private
-review package as above, reproduce the current source replay with an absent
-output directory:
+The capture manifest names the earlier full-review attribution digest
+`9bb1bebdf9155fa8ba2ebb7afb5b743258730aad967201fba6c0bdef13a5eb63`.
+Those attribution bytes were unavailable during the current qualification.
+The current capture independently checked all 169 response files, digests,
+native dataset identities and links against the current candidate datasets.
+The old attribution digest is retained lineage only. The existing
+`taxa_review.neotoma_priority` replay requires an exact original attribution
+binding and refuses this newly rebuilt package against the old manifest;
+its strict refusal remains in place. No fresh source request, original-paper
+verification or rights admission was performed.
+
+## Parameter, chronology and basin review intake
+
+The parameter consumer needs the physical completed-review hash, the physical
+priority hash and the physical provenance hash as well as native source
+identities. Native priority and attribution projections do not provide those
+file bindings themselves. The maintained IO adapter verifies the completed
+package and both native files, checks their semantic identity and writes
+separate bound projections into a fresh directory. It preserves all original
+files and refuses mismatched hashes, incomplete completion receipts, foreign
+source snapshots and pre-existing unsupported bindings.
+
+Set `PRIVATE_REVIEW_DIRECTORY`, `NATIVE_PRIORITY`, `NATIVE_PROVENANCE` and the
+three expected SHA-256 variables to exact private captured files and their
+trusted hashes. Bind the files with:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.taxa_review.neotoma_priority \
-  --repository . \
-  --review-directory artifacts/jobs/taxa-review/complete-review \
-  --capture-root "$NEOTOMA_PUBLICATION_ROOT" \
-  --output artifacts/jobs/taxa-review/neotoma-replay
+  bijux_pollenomics_dev.taxa_review.lra_parameters.intake \
+  --review-directory "$PRIVATE_REVIEW_DIRECTORY" \
+  --priority "$NATIVE_PRIORITY" --provenance "$NATIVE_PROVENANCE" \
+  --review-sha256 "$REVIEW_SHA256" --priority-sha256 "$PRIORITY_SHA256" \
+  --provenance-sha256 "$PROVENANCE_SHA256" \
+  --output-directory artifacts/jobs/taxa-review/parameter-file-bindings
 ```
 
-The replay verifies every capture member, source manifest and candidate
-dataset identity before writing its four reports and receipt. All outputs
-remain private review projections (`publication_allowed=false`,
-`scientific_admission_allowed=false`). The old 3,538-sample, 58-dataset
-projection used an earlier source screen and is not the current cohort.
+The 112 LandClim/LRA source rows yield 72 parameter authority rows: 62
+have parseable PPE candidates and 70 have parseable fall-speed candidates.
+These counts overlap and do not signify accepted taxon/parameter bindings.
+
+The full review package includes unresolved taxon concepts, source citations,
+proposed classification fields and source-native PPE/fall-speed candidates.
+The chronology/basin projection separately provides the complete candidate
+sample and site denominators, original age claims, observed area/unit candidates
+and missing or conflicting evidence. The actual qualification used the
+[source-authenticated prerequisite projection](../source-relations/neotoma/lra-prerequisites/README.md)
+and retained its exact governed bytes. No basin scale or chronology was
+accepted to make a row executable.
+
+The returned-decision routes are:
+
+| Review surface | Maintained import validator | Required scope |
+| --- | --- | --- |
+| Full taxon package | `taxa_review validate-return` | Every 10,908-row source identity and current bundle |
+| Taxon/PPE/fall speed | `lra_parameters.decisions.validate_lra_parameter_decisions` | Every 1,006 concept, exact bound priority/provenance/review and parameter evidence |
+| Chronology/basin | `lra_prerequisites.decisions.validate_returned_prerequisite_decisions` | Every 10,637 sample and 163 site, rebuilt native authorities and exact selected evidence |
+
+For the taxon CLI, set `RETURNED_TAXON_DECISIONS` to the reviewer-return JSON:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.taxa_review validate-return \
+  --bundle "$PRIVATE_REVIEW_DIRECTORY/taxa-review.json" \
+  --decisions "$RETURNED_TAXON_DECISIONS" \
+  --output artifacts/jobs/taxa-review/taxon-return-intent.json
+```
+
+The parameter validator receives the generated review projection, returned
+JSON and exact bound `priority`, `provenance`, `review` and
+`provenance_file_sha256`. The chronology/basin validator receives its
+source-authenticated projection, returned JSON, original native `evidence`,
+`lakeparameter_capture_root` and expected capture digest. These are intent
+validation paths: a valid return does not grant reviewer authentication,
+biological acceptance, source rights or canonical import.
+
+The current qualification exercises these three routes with complete,
+explicitly controlled unresolved fixtures. They are not received human
+reviews. Stale bundle/source identities, duplicate taxon identities, incomplete
+parameter denominators and incomplete chronology denominators are refused.
+The exact execution, focused checks and independent structural audit are
+recorded in the [source account](source-account.json). Detailed vectors, source
+records, CSV review rows and controlled returns remain private; only this
+aggregate account is public.
+
+The old 3,538-sample, 58-dataset projection used an earlier source screen and
+is not the current cohort.

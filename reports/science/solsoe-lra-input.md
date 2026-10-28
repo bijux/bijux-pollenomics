@@ -108,7 +108,7 @@ historical basin outlines or justified age-specific radii. We also need the
 eligible terrestrial count denominator, reviewed taxon/PPE/fall-speed
 mapping and permitted analytical use for the `R` marked record. Those fields
 must refer to the same samples and windows. The
-[open Nordic LRA need](../needed/README.md) records the resolver and reopening
+open Nordic LRA need records the resolver and reopening
 rule. Once the packet is qualified, rerun admission, the real LRA consumer and
 held-out pollen prediction before scoring the target pollen.
 

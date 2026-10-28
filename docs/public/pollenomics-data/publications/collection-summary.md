@@ -107,7 +107,7 @@ The `v66` summary records seven collector-managed families:
 
 Animal aDNA is governed separately under `data/adna/`. Its 40-project intake
 contains 1,475 recovered raw rows and 1,468 final sample rows; its publication
-surface contains 170 locality features representing 331 distinct admitted
+surface contains 165 locality features representing 322 distinct admitted
 samples. None of these counts may be inferred from `collected_sources`.
 Conversely, the seven-family collection summary does not grant any member
 automatic map or report admission.

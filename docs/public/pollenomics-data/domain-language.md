@@ -99,7 +99,7 @@ their observation units, precision, or inferential strength equivalent.
 
 Every count should therefore read as a typed statement, for example:
 
-> 170 animal locality features, representing 331 distinct admitted samples,
+> 165 animal locality features, representing 322 distinct admitted samples,
 > published under the checked-in point-product contract.
 
 That wording names both observation units, the decision, the product, and the

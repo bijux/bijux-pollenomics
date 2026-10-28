@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import ast
 from dataclasses import dataclass
 import hashlib
 import os
@@ -454,3 +455,67 @@ def read_blobs(repository: Path, members: list[GitSourceMember]) -> dict[str, by
     return _validate_objects(
         repository, members, frozenset(row.member for row in members)
     )
+
+
+def read_historical_python_correspondence(
+    repository: Path,
+    member: GitSourceMember,
+    *,
+    function_docstring: str | None = None,
+) -> bytes:
+    """Authenticate historical Python bytes and reject current executable drift.
+
+    The returned body retains its original source identity. Current source is
+    checked separately for syntax correspondence; it is never assigned the
+    historical byte digest or presented as a new scientific execution.
+    """
+    require(
+        member.member == member.repository_path
+        and Path(member.repository_path).suffix == ".py"
+        and function_docstring in {None, "main"}
+        and type(member.bytes) is int
+        and 0 <= member.bytes <= 128 * 1024,
+        "Python correspondence requires one exact source path and document scope",
+    )
+    historical = read_blob(repository, member)
+    current_path = repository / member.repository_path
+    physical(current_path)
+    require(
+        current_path.is_file()
+        and current_path.stat().st_nlink == 1
+        and current_path.stat().st_size <= 128 * 1024
+        and len(historical) <= 128 * 1024,
+        "Python correspondence requires bounded regular source bodies",
+    )
+    current = current_path.read_bytes()
+
+    def syntax(raw: bytes) -> str:
+        tree = ast.parse(raw)
+        if function_docstring is not None:
+            functions = [
+                node
+                for node in tree.body
+                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+                and node.name == function_docstring
+            ]
+            require(len(functions) == 1, "documented source function is ambiguous")
+            body = functions[0].body
+            require(
+                bool(body)
+                and isinstance(body[0], ast.Expr)
+                and isinstance(body[0].value, ast.Constant)
+                and isinstance(body[0].value.value, str),
+                "declared source function lacks its literal docstring",
+            )
+            body.pop(0)
+        return ast.dump(tree, include_attributes=False)
+
+    try:
+        require(
+            syntax(current) == syntax(historical),
+            "current Python executable source differs from historical witness",
+        )
+    except (SyntaxError, UnicodeError, RecursionError) as error:
+        raise ReportRebuildError("Retained Python source syntax is invalid") from error
+    physical(current_path)
+    return historical
