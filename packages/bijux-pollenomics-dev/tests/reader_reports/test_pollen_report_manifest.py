@@ -123,17 +123,24 @@ def test_repository_make_entrypoint_has_no_evidence_byte_pin() -> None:
 def test_detached_finite_oracle_references_retain_exact_evidence_bytes(
     verifier: ModuleType, member: str
 ) -> None:
+    capture_root = "data/method-certification/native-r-finite-covariance"
+    raw = (ROOT / capture_root / "capture/capture.json").read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == (
+        "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b"
+    )
+    identity = json.loads(raw)["raw_members"]["source-domains/" + member]
+    relative = capture_root + "/capture/source-domains/" + member
+    assert not (ROOT / relative).exists()
     manifest = json.loads(
         (ROOT / "docs/report/pollen-reconstruction/manifest.json").read_text()
     )
-    relative = (
-        "data/method-certification/native-r-finite-covariance/"
-        "capture/source-domains/" + member
-    )
-    assert relative not in manifest["maintained_paths"]
-    assert not (ROOT / relative).exists()
-    (row,) = [item for item in manifest["files"] if item["path"] == relative]
-    manifest["files"] = [row.copy()]
+    manifest["files"] = [
+        {
+            "path": relative,
+            "sha256": identity["sha256"],
+            "bytes": identity["size"],
+        }
+    ]
     manifest["maintained_paths"] = []
     assert verifier.verify_report_manifest(ROOT, manifest) == (1, 0)
     manifest["files"][0]["sha256"] = "0" * 64
