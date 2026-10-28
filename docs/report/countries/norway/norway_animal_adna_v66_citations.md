@@ -17,7 +17,7 @@ Country animal sample/context wrapper; broader entity ledger is not an ecologica
 
 **Unsupported claim.** Publication traceability and modern country placement do not establish an exact specimen findspot, domestication, a farming event, inferred population prevalence or qualified scientific country assignment.
 
-**Actual verification performed.** Read this citations appendix and machine summary; reconciled 0 sample CSV rows, native sample IDs, 0 localities and 0 project citations. Checked the listed warning population; no paper extraction, chronology review or model was rerun.
+**Actual verification performed.** Read this citations appendix and machine summary; reconciled 0 sample CSV rows, native sample IDs, 0 localities and 0 project citations. Checked the listed warning population; no paper extraction, chronology review or model was rerun. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
 
 **Remaining input or review.** Review the native evidence excerpt, taxonomy, dating basis and coordinate precision for each Norway sample before scientific use; missing country rows require source-backed evidence, not inferred placement.
 
@@ -35,7 +35,7 @@ Country animal sample/context wrapper; broader entity ledger is not an ecologica
 
 - [Retained qualification evidence: docs/report/countries/norway/norway_animal_adna_v66_samples.csv](norway_animal_adna_v66_samples.csv) (SHA-256 `53908372b493330ae91d166a64c2ee533fd73df20c558fd2785af80dec40dbee`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `a397c3e5d71adb1b77f3aca3a0f0e991dbac4e81f0946554b5b78ee9228089e4`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

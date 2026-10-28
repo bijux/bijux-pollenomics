@@ -31,7 +31,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A generic BP label, publication-map membership or country annotation does not establish calibrated sample chronology, biological domestication, country-assignment admission or historical first appearance.
 
-**Actual verification performed.** Read the authored support/non-support statements and retained farming JSON alongside the current animal entity capability account; bound those bytes. No dating, source acquisition, map replay or historical inference was performed.
+**Actual verification performed.** Read the authored support/non-support statements and retained farming JSON alongside the current animal entity capability account; bound those bytes. No dating, source acquisition, map replay or historical inference was performed. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
 
 **Remaining input or review.** The named PRJEB30282 signal requires sample-level source dating with documented epoch and scale, accepted taxonomy/evidence class, reviewed country provenance and qualified historical interpretation.
 
@@ -43,11 +43,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Bos taurus wild/progenitor context remains outside domesticated-core support; seven named country-localized species claims remain unsupported. The current animal account explicitly sets scientific and country admission false.
 
-**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current animal account: 1464 normalized IDs, 324 mapped across 163 features, 1140 excluded; Nordic 12 mapped IDs across 8 features are not 12 admitted farming events.
+**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current linked animal accounting: 1,481 normalized IDs, 335 mapped in 167 features, 1,146 excluded; twelve Nordic mapped IDs/eight localities are not twelve admitted farming events.
 
 - [Retained qualification evidence: docs/report/nordic_farming_history_scenario.json](nordic_farming_history_scenario.json) (SHA-256 `62736772e789063f7f7eac3657ef418e0777b1a4ad3363a359327919d5604b56`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `a397c3e5d71adb1b77f3aca3a0f0e991dbac4e81f0946554b5b78ee9228089e4`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

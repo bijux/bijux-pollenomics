@@ -18,8 +18,8 @@
     },
     {
       "path": "data/adna/species/capra_hircus/normalized/sample_records.csv",
-      "bytes": 82203,
-      "sha256": "cff69afe2e05cfdd05fb0fd9ac662370812285cd889663eb437002f37608e070"
+      "bytes": 83012,
+      "sha256": "00b4509df529d4a08219387572b4f16a3c6cc730c1dfd02e622169919336be95"
     },
     {
       "path": "data/adna/species/equus_asinus/normalized/sample_records.csv",
@@ -28,8 +28,8 @@
     },
     {
       "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
-      "bytes": 560906,
-      "sha256": "6d09f96168d449e69f728e6270a248f686b7a3152af4c42f4dffae85553ecb38"
+      "bytes": 576948,
+      "sha256": "a3d90e6a94716a0960b549df4a101442188bcadb4702a71b6f0e5508393001fa"
     },
     {
       "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
@@ -54,27 +54,27 @@
     {
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
       "bytes": 17540,
-      "sha256": "833029f796f6bc9f518db1e48c676467f39a880a1cc86cac80abab89acc8dd7e"
+      "sha256": "25e6d8e50d721173fe8e5209ca3bb94d281d95cd98458391f2d3ad123e0e2fe3"
     },
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "bytes": 1238007,
-      "sha256": "9278b4944501d15c903f0a309a224e441b378103424f52a42af3d9734f308a5e"
+      "bytes": 1272781,
+      "sha256": "2996cafe5076ced315d4f983ba97a72f47f82de9184955e04dfacdd707a87bfc"
     },
     {
       "path": "docs/report/animal_atlas_exclusion_report.json",
-      "bytes": 1390530,
-      "sha256": "c26058c1db2e17a99f3afe94c4b206622a7684979f5d221c848f8ffa871877fe"
+      "bytes": 1398318,
+      "sha256": "8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc"
     }
   ],
-  "normalized_sample_ids": 1464,
-  "map_feature_count": 163,
-  "mapped_sample_ids": 324,
-  "excluded_sample_ids": 1140,
+  "normalized_sample_ids": 1481,
+  "map_feature_count": 167,
+  "mapped_sample_ids": 335,
+  "excluded_sample_ids": 1146,
   "map_exclusion_reasons": {
-    "chronology remains unresolved enough that the sample stays out of the public map": 26,
+    "chronology remains unresolved enough that the sample stays out of the public map": 27,
     "no coordinate provenance row currently supports point publication": 409,
-    "sample is tracked but does not yet satisfy the full atlas point contract": 327,
+    "sample is tracked but does not yet satisfy the full atlas point contract": 332,
     "sample locality remains unresolved and cannot be mapped honestly": 378
   },
   "nordic_map_feature_count": 8,
