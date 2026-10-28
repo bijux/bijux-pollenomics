@@ -1,13 +1,13 @@
 # Source storage audit
 
-- Archived artifacts: `224`
-- Archived HTML artifacts: `54`
+- Archived artifacts: `228`
+- Archived HTML artifacts: `56`
 - Compressed HTML artifacts: `54`
-- Uncompressed HTML artifacts: `0`
-- Archived payload bytes: `400005373`
-- Archived storage bytes: `392336068`
-- HTML payload bytes: `9222810`
-- HTML storage bytes: `1553505`
+- Uncompressed HTML artifacts: `2`
+- Archived payload bytes: `400321477`
+- Archived storage bytes: `392652172`
+- HTML payload bytes: `9524090`
+- HTML storage bytes: `1854785`
 
 | Artifact id | Kind | Local path | Storage path | Encoding | Payload bytes | Storage bytes |
 | --- | --- | --- | --- | --- | ---: | ---: |
@@ -26,7 +26,6 @@
 | PRJEB9799:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB9799/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB9799/archive_metadata.html.gz` | `gzip` | 2963 | 754 |
 | PRJNA421430:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA421430/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA421430/archive_metadata.html.gz` | `gzip` | 4411 | 918 |
 | PRJNA634908:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA634908/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA634908/archive_metadata.html.gz` | `gzip` | 56901 | 13676 |
-| PRJNA705960:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA705960/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz` | `gzip` | 3535 | 808 |
 | PRJNA788987:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA788987/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA788987/archive_metadata.html.gz` | `gzip` | 1638 | 525 |
 | PRJNA878488:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA878488/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA878488/archive_metadata.html.gz` | `gzip` | 3950 | 856 |
 | 10.1016-j.cell.2019.03.049:article.html | article_html | `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html` | `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html.gz` | `gzip` | 551817 | 125457 |
@@ -63,5 +62,8 @@
 | PRJEB31621:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB31621/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB31621/archive_metadata.html.gz` | `gzip` | 99850 | 14596 |
 | 10.1126-science.adt2642:article.html | article_html | `adna/governance/source_library/papers/10.1126-science.adt2642/article.html` | `adna/governance/source_library/papers/10.1126-science.adt2642/article.html.gz` | `gzip` | 357353 | 83336 |
 | PRJEB81815:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB81815/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz` | `gzip` | 34592 | 5032 |
+| 10.1371-journal.pone.0249537:article.html | article_html | `adna/review/galician_cattle/article.html` | `adna/review/galician_cattle/article.html` | `identity` | 226377 | 226377 |
+| 10.1371-journal.pone.0249537:correction.html | paper_correction_html | `adna/review/galician_cattle/correction.html` | `adna/review/galician_cattle/correction.html` | `identity` | 74903 | 74903 |
+| PRJNA705960:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA705960/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz` | `gzip` | 3535 | 808 |
 | 10.24272-j.issn.2095-8137.2025.080:article.html | article_html | `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html` | `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html.gz` | `gzip` | 342896 | 75226 |
 | PRJNA1328209:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html` | `adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html.gz` | `gzip` | 221 | 140 |

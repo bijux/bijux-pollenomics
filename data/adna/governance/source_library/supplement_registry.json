@@ -879,6 +879,30 @@
       "purpose": "sample_or_site_support"
     },
     {
+      "artifact_id": "10.1371-journal.pone.0249537:dating-table.xlsx",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s001&type=supplementary",
+      "local_path": "adna/review/galician_cattle/dating-table.xlsx",
+      "artifact_kind": "supplementary_xlsx",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:mapping-table.xlsx",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s002&type=supplementary",
+      "local_path": "adna/review/galician_cattle/mapping-table.xlsx",
+      "artifact_kind": "supplementary_xlsx",
+      "fetch_status": "archived",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "purpose": "sample_or_site_support"
+    },
+    {
       "artifact_id": "10.24272-j.issn.2095-8137.2025.080:Supplementary_tables.xlsx",
       "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
       "source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",

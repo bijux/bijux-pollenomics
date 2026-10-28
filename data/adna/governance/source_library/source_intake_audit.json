@@ -1,13 +1,13 @@
 {
   "schema_version": "adna-source-library.v1",
-  "sample_extractable_paper_count": 18,
-  "supplementary_manifested_paper_count": 18,
+  "sample_extractable_paper_count": 19,
+  "supplementary_manifested_paper_count": 19,
   "supplement_zip_member_count": 15,
   "blocker_counts": {
-    "missing_paper_capture_count": 14,
+    "missing_paper_capture_count": 13,
     "missing_supplementary_capture_count": 0,
-    "missing_readable_tables_count": 14,
-    "missing_sample_identifier_count": 29
+    "missing_readable_tables_count": 13,
+    "missing_sample_identifier_count": 25
   },
   "sample_extractable_violations": [],
   "rows": [
@@ -16,7 +16,7 @@
       "species_latin_name": "Bos taurus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "manual_curation_required",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -26,24 +26,20 @@
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
       "inventory_disposition": "tracked_intake_candidate",
-      "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count": 50,
+      "expected_sample_count_status": "known_from_source_table",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "blocker_categories": [
-        "missing_sample_identifiers"
-      ]
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
-      "sample_identifier_status": "missing_primary_paper_linkage",
+      "expected_sample_count_status": "source_population_unresolved",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
-        "missing_paper_capture",
-        "missing_sample_identifiers",
-        "missing_readable_tables"
+        "missing_sample_identifiers"
       ]
     },
     {
@@ -60,7 +56,7 @@
       "species_latin_name": "Camelus dromedarius",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -121,12 +117,10 @@
       "project_accession": "PRJNA1328209",
       "species_latin_name": "Capra hircus",
       "inventory_disposition": "tracked_intake_candidate",
-      "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count": 5,
+      "expected_sample_count_status": "known_from_source_table",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "blocker_categories": [
-        "missing_sample_identifiers"
-      ]
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB43564",
@@ -286,7 +280,7 @@
       "species_latin_name": "Felis catus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -296,19 +290,17 @@
       "project_accession": "PRJNA1178732",
       "species_latin_name": "Felis catus",
       "inventory_disposition": "tracked_intake_candidate",
-      "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count": 22,
+      "expected_sample_count_status": "known_from_source_table",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "blocker_categories": [
-        "missing_sample_identifiers"
-      ]
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -319,7 +311,7 @@
       "species_latin_name": "Ovis aries",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -329,12 +321,10 @@
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
       "inventory_disposition": "tracked_intake_candidate",
-      "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count": 5,
+      "expected_sample_count_status": "known_from_source_table",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
-      "blocker_categories": [
-        "missing_sample_identifiers"
-      ]
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB61808",
@@ -416,7 +406,7 @@
       "species_latin_name": "Sus scrofa domesticus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"

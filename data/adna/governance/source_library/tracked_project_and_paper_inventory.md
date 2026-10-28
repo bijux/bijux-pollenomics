@@ -1,7 +1,7 @@
 # Tracked animal aDNA project and paper inventory
 
 - Tracked projects: `40`
-- Tracked papers: `18`
+- Tracked papers: `19`
 
 ## Materialized source-library artifacts
 
@@ -33,17 +33,17 @@
 
 | Species | Project accession | Archive status | Inventory disposition | Expected sample count | Sample count status | Primary paper DOI |
 | --- | --- | --- | --- | ---: | --- | --- |
-| Bos taurus | PRJEB31621 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1126/science.aav1002 |
-| Bos taurus | PRJEB75467 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1038/s41586-024-08112-6 |
-| Bos taurus | PRJNA705960 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
+| Bos taurus | PRJEB31621 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1126/science.aav1002 |
+| Bos taurus | PRJEB75467 | paper_pinned_core | tracked_intake_candidate | 50 | known_from_source_table | 10.1038/s41586-024-08112-6 |
+| Bos taurus | PRJNA705960 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1371/journal.pone.0249537 |
 | Camelus dromedarius | KU605068-KU605080 | paper_pinned_core | tracked_intake_candidate | 13 | known_from_archive_accession_scope | 10.1111/1755-0998.12551 |
-| Camelus dromedarius | SRP073444 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1111/1755-0998.12551 |
+| Camelus dromedarius | SRP073444 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1111/1755-0998.12551 |
 | Canis lupus familiaris | KX379528-KX379529 | paper_pinned_core | tracked_intake_candidate | 2 | known_from_archive_accession_scope | 10.1038/ncomms16082 |
 | Canis lupus familiaris | SRS1407451 | paper_pinned_core | tracked_intake_candidate | 1 | known_from_archive_accession_scope | 10.1038/ncomms16082 |
 | Canis lupus familiaris | SRS1407453 | paper_pinned_core | tracked_intake_candidate | 1 | known_from_archive_accession_scope | 10.1038/ncomms16082 |
 | Capra hircus | PRJEB90141 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1093/gbe/evaf181 |
 | Capra hircus | PRJEB90261 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1016/j.isci.2025.113771 |
-| Capra hircus | PRJNA1328209 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.24272/j.issn.2095-8137.2025.080 |
+| Capra hircus | PRJNA1328209 | paper_pinned_core | tracked_intake_candidate | 5 | known_from_source_table | 10.24272/j.issn.2095-8137.2025.080 |
 | Equus asinus | PRJEB43564 | comparator_only | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus asinus | PRJEB50952 | comparator_only | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus asinus | PRJEB52590 | comparator_only | tracked_intake_candidate | - | not_yet_curated | - |
@@ -57,11 +57,11 @@
 | Equus caballus | PRJEB56293 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus caballus | PRJEB7537 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus caballus | PRJEB9799 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
-| Felis catus | PRJEB81815 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1126/science.adt2642 |
-| Felis catus | PRJNA1178732 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1016/j.xgen.2025.101099 |
-| Ovis aries | PRJEB36540 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1038/s42003-021-02794-8 |
-| Ovis aries | PRJEB41594 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1038/s41562-021-01083-y |
-| Ovis aries | PRJEB59481 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1093/gbe/evae114 |
+| Felis catus | PRJEB81815 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1126/science.adt2642 |
+| Felis catus | PRJNA1178732 | paper_pinned_core | tracked_intake_candidate | 22 | known_from_source_table | 10.1016/j.xgen.2025.101099 |
+| Ovis aries | PRJEB36540 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1038/s42003-021-02794-8 |
+| Ovis aries | PRJEB41594 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1038/s41562-021-01083-y |
+| Ovis aries | PRJEB59481 | paper_pinned_core | tracked_intake_candidate | 5 | known_from_source_table | 10.1093/gbe/evae114 |
 | Ovis aries | PRJEB61808 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Ovis aries | PRJEB69690 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Ovis aries | PRJEB81145 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
@@ -69,7 +69,7 @@
 | Rangifer tarandus | PRJEB60484 | comparator_only | tracked_intake_candidate | 20 | known_from_source_table | 10.1111/mec.17274 |
 | Rangifer tarandus | PRJEB61721 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
 | Rangifer tarandus | PRJNA634908 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
-| Sus scrofa domesticus | PRJEB30282 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1073/pnas.1901169116 |
+| Sus scrofa domesticus | PRJEB30282 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1073/pnas.1901169116 |
 | Sus scrofa domesticus | PRJNA421430 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
 | Sus scrofa domesticus | PRJNA788987 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Sus scrofa domesticus | PRJNA878488 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
@@ -95,4 +95,5 @@
 | 10.1126/science.aao3297 | Ancient genomes revisit the ancestry of domestic and Przewalski's horses | PRJEB22390 | supplement_extractable | 12 |
 | 10.1126/science.aav1002 | Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent | PRJEB31621 | supplement_extractable | 1 |
 | 10.1126/science.adt2642 | The dispersal of domestic cats from North Africa to Europe around 2000 years ago | PRJEB81815 | supplement_extractable | 3 |
+| 10.1371/journal.pone.0249537 | Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence | PRJNA705960 | supplement_extractable | 2 |
 | 10.24272/j.issn.2095-8137.2025.080 | Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago | PRJNA1328209 | supplement_extractable | 2 |
