@@ -2,24 +2,25 @@
 
 from __future__ import annotations
 
-import ast
 import hashlib
 import json
-from collections.abc import Callable
 from dataclasses import dataclass
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 from typing import Any
 
 import pytest
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
+    linux_r_reference as linux,
+)
 
-ROOT = Path(__file__).resolve().parents[4]
-MODULE = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py"
 EPOCH = "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36"
 
 
 @dataclass
 class NativeEvidence:
+    """Invented receipt bodies and explicit source reads for native contract controls."""
+
     packet: Path
     capture: dict[str, Any]
     objects: dict[str, dict[str, Any]]
@@ -27,47 +28,24 @@ class NativeEvidence:
     calls: list[str]
 
     def read(self, name: str) -> bytes:
+        """Return only the declared invented callback body and record its member name."""
         self.calls.append(name)
         assert name.startswith("source/packages/synthetic/")
         assert not (self.packet / name).exists()
         return self.body
 
     def publish(self) -> None:
+        """Write the constructed receipt objects without copying a retained packet."""
         for name, value in self.objects.items():
             target = self.packet / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(json.dumps(value))
 
 
-def native_helpers(source: str) -> dict[str, Any]:
-    """Load only the native-reference function AST for source-free controls."""
-    tree = ast.parse(source)
-    tree.body = [
-        node
-        for node in tree.body
-        if isinstance(node, ast.FunctionDef)
-        and node.name in {"_object", "_json", "_zero", "_native_references"}
-    ]
-    assert len(tree.body) == 4
-    values: dict[str, Any] = {
-        "Path": Path,
-        "PurePosixPath": PurePosixPath,
-        "Any": Any,
-        "JsonObject": dict[str, Any],
-        "Callable": Callable,
-        "ReportRebuildError": ReportRebuildError,
-        "json": json,
-        "hashlib": hashlib,
-        "SOURCE_CANDIDATE": EPOCH,
-    }
-    exec(compile(tree, MODULE, "exec"), values)
-    return values
-
-
 @pytest.fixture
 def helpers() -> dict[str, Any]:
-    """Expose native custody helpers without importing scientific producers."""
-    return native_helpers((ROOT / MODULE).read_text())
+    """Call the normal candidate native-reference implementation."""
+    return {"_native_references": linux._native_references}
 
 
 @pytest.fixture
@@ -229,35 +207,18 @@ def test_transport_preserves_the_original_native_evidence_refusals(
         helpers["_native_references"](evidence.packet, evidence.capture, evidence.read)
 
 
-def projection_helpers(source: str) -> dict[str, Any]:
-    """Load the reviewed current-source projection helpers in isolation."""
-    tree = ast.parse(source)
-    tree.body = [
-        node
-        for node in tree.body
-        if isinstance(node, ast.FunctionDef)
-        and node.name
-        in {"_named_documentation_insertions", "_require_scientific_projection"}
-    ]
-    assert len(tree.body) == 2
-    values: dict[str, Any] = {
-        "Path": Path,
-        "Any": Any,
-        "ast": ast,
-        "hashlib": hashlib,
-        "ReportRebuildError": ReportRebuildError,
-        "_file": lambda repository, name, label: repository / name,
-        "_CURRENT_READER_CORRESPONDENCE": {},
-        "_DOCUMENTED_NUMERIC_DEFINITIONS": {},
-    }
-    exec(compile(tree, MODULE, "exec"), values)
-    return values
-
-
 @pytest.fixture
-def projection() -> dict[str, Any]:
-    """Construct historical and current source identities from invented bytes."""
-    return projection_helpers((ROOT / MODULE).read_text())
+def projection(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
+    """Patch only finite authority tables while calling the normal candidate helper."""
+    readers: dict[str, Any] = {}
+    documentation: dict[str, Any] = {}
+    monkeypatch.setattr(linux, "_CURRENT_READER_CORRESPONDENCE", readers)
+    monkeypatch.setattr(linux, "_DOCUMENTED_NUMERIC_DEFINITIONS", documentation)
+    return {
+        "_require_scientific_projection": linux._require_scientific_projection,
+        "_CURRENT_READER_CORRESPONDENCE": readers,
+        "_DOCUMENTED_NUMERIC_DEFINITIONS": documentation,
+    }
 
 
 def test_ordinary_exact_source_retains_its_original_size_bound(

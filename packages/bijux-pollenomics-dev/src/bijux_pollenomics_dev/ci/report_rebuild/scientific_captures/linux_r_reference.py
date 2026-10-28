@@ -14,13 +14,20 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
 from ..retained_source.descriptor import normalize_members
-from ..retained_source.index import validated_descriptor
+from ..retained_source.generated import reconstruct
+from ..retained_source.index import SourceCapsule, validated_descriptor
 
 OWNER = "method-certification/linux-r-oracle/report-products"
 FAMILY = "docs/report/method-certification/linux-r-oracle/"
 CAPTURE = "data/method-certification/linux-r-source-capture/capture.json"
 CAPTURE_SHA256 = "fa6e9a4fa9c12013a04cc461fef52d0fd54044d517e132e802a9c176def2a913"
 SOURCE_CANDIDATE = "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36"
+VERSION_SOURCE = (
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+)
+VERSION_MEMBER = "source/" + VERSION_SOURCE
+VERSION_SHA256 = "84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5"
+VERSION_BYTES = 539
 
 
 def _file(repository: Path, name: str, label: str) -> Path:
@@ -259,6 +266,26 @@ def _require_scientific_projection(
     raise ReportRebuildError("Linux current scientific implementation changed")
 
 
+def _historical_version_metadata(
+    source_buffer: SourceCapsule, identity: dict[str, Any], historical: bytes
+) -> None:
+    """Authenticate the one original generated member without current-file authority."""
+    generated = source_buffer.descriptor.generated
+    if (
+        len(generated) != 1
+        or type(generated[0]) is not dict
+        or generated[0].get("member") != VERSION_MEMBER
+        or type(identity.get("bytes")) is not int
+        or identity.get("bytes") != VERSION_BYTES
+        or identity.get("sha256") != VERSION_SHA256
+        or len(historical) != VERSION_BYTES
+        or hashlib.sha256(historical).hexdigest() != VERSION_SHA256
+    ):
+        raise ReportRebuildError("Linux historical generated metadata identity differs")
+    if reconstruct(generated[0], identity) != historical:
+        raise ReportRebuildError("Linux historical generated metadata content differs")
+
+
 def validated_linux_r_reference_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -328,6 +355,7 @@ def validated_linux_r_reference_capture(
     scientific = projection.get("members")
     if not isinstance(scientific, list) or len(scientific) != 127:
         raise ReportRebuildError("Linux scientific projection differs")
+    historical_generated = 0
     for raw in scientific:
         item = _object(raw, "Linux source projection malformed")
         name = item.get("relative_path")
@@ -342,9 +370,14 @@ def validated_linux_r_reference_capture(
             raise ReportRebuildError(
                 "Linux original source projection membership differs"
             )
-        _require_scientific_projection(
-            repository, name, item, source_buffer.read_source("source/" + name)
-        )
+        historical = source_buffer.read_source("source/" + name)
+        if name == VERSION_SOURCE:
+            _historical_version_metadata(source_buffer, item, historical)
+            historical_generated += 1
+        else:
+            _require_scientific_projection(repository, name, item, historical)
+    if historical_generated != 1:
+        raise ReportRebuildError("Linux historical generated source membership differs")
     lock_name = "configs/ci/lra-r-source-lock.v1.json"
     current_lock = _file(repository, lock_name, "Linux current R source lock")
     if hashlib.sha256(current_lock.read_bytes()).hexdigest() != files.get(
@@ -403,10 +436,12 @@ def validated_linux_r_reference_capture(
         "executed_source_candidate": SOURCE_CANDIDATE,
         "assembly_candidate": capture.get("assembly_candidate"),
         "source_files": 2148,
-        "scientific_current_projection": 127,
+        "scientific_current_projection": 126,
+        "historical_generated_metadata_members": 1,
+        "historical_generated_metadata_sha256": VERSION_SHA256,
         "retained_execution_files": 140,
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection retains120exact tracked inputs, four fixed historical/current reader correspondences, two exact named numeric-documentation insertions, and one unchanged physical generated-metadata input. The six declared current reader/documentation bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:120exact tracked inputs, four fixed historical/current reader correspondences and two exact named numeric-documentation insertions. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The six declared current reader/documentation bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
     }

@@ -13,6 +13,12 @@ from typing import Any
 import pytest
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.generated import (
+    reconstruct,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.index import (
+    validated_descriptor,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     linux_r_reference as linux,
 )
@@ -28,7 +34,7 @@ def constructed_reader(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Fixtu
     members: list[dict[str, Any]] = []
     scientific: list[dict[str, Any]] = []
     payloads: dict[str, bytes] = {}
-    for index in range(127):
+    for index in range(126):
         name = (
             "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/"
             f"reader_fixture_{index}.py"
@@ -39,6 +45,29 @@ def constructed_reader(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Fixtu
         scientific.append({"relative_path": name, "sha256": digest, "bytes": len(body)})
         members.append({"path": "source/" + name, "sha256": digest, "bytes": len(body)})
         payloads["source/" + name] = body
+    generated_row: dict[str, Any] = {
+        "member": linux.VERSION_MEMBER,
+        "generator": {
+            "provider": "vcs-versioning.default-python",
+            "sha256": "dd7ded849d3bacc8e13b0b675ed991904eb896fc79b4607f4f70ee32e47171d9",
+            "bytes": 4479,
+        },
+        "scalars": {
+            "version": "0.1.9.dev1462",
+            "version_tuple": [0, 1, 9, "dev1462"],
+            "short_node": None,
+        },
+        "original_generator_execution_claimed": False,
+        "original_version_derivation_claimed": False,
+    }
+    version_identity = {"sha256": linux.VERSION_SHA256, "bytes": linux.VERSION_BYTES}
+    historical_version = reconstruct(generated_row, version_identity)
+    scientific.append({"relative_path": linux.VERSION_SOURCE, **version_identity})
+    members.append({"path": linux.VERSION_MEMBER, **version_identity})
+    payloads[linux.VERSION_MEMBER] = historical_version
+    current_version = tmp_path / linux.VERSION_SOURCE
+    current_version.parent.mkdir(parents=True, exist_ok=True)
+    current_version.write_bytes(b"invented current ignored version metadata\n")
     lock_name = "configs/ci/lra-r-source-lock.v1.json"
     lock = tmp_path / lock_name
     lock.parent.mkdir(parents=True)
@@ -84,7 +113,13 @@ def constructed_reader(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Fixtu
     encoded = json.dumps(capture).encode()
     capture_path.write_bytes(encoded)
     monkeypatch.setattr(linux, "CAPTURE_SHA256", hashlib.sha256(encoded).hexdigest())
-    calls: dict[str, Any] = {"descriptor": [], "native": [], "fresh": 0}
+    calls: dict[str, Any] = {
+        "descriptor": [],
+        "native": [],
+        "fresh": 0,
+        "generated_rows": [generated_row],
+        "payloads": payloads,
+    }
 
     def descriptor(repository: Path, prefix: str, normalized: Any) -> SimpleNamespace:
         calls["descriptor"].append((repository, prefix, normalized))
@@ -92,14 +127,19 @@ def constructed_reader(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Fixtu
         def fresh() -> None:
             calls["fresh"] += 1
 
-        return SimpleNamespace(read_source=payloads.__getitem__, fresh=fresh)
+        return SimpleNamespace(
+            descriptor=SimpleNamespace(generated=tuple(calls["generated_rows"])),
+            read_source=payloads.__getitem__,
+            fresh=fresh,
+        )
 
     def native(packet: Path, authority: dict[str, Any], read_member: Any) -> None:
         calls["native"].append(
             (packet, authority["member_count"] == 2311, callable(read_member))
         )
 
-    monkeypatch.setattr(linux, "validated_descriptor", descriptor)
+    monkeypatch.setattr(linux, validated_descriptor.__name__, descriptor)
+    calls["descriptor_factory"] = descriptor
     monkeypatch.setattr(linux, "_native_references", native)
     owners: list[dict[str, Any]] = [
         {
@@ -120,7 +160,9 @@ def test_owner_output_contract_with_constructed_member_reader(
     root, tracked, owners, calls = constructed_reader
     entries, evidence = linux.validated_linux_r_reference_capture(root, tracked, owners)
     assert len(entries) == 137
-    assert evidence["scientific_current_projection"] == 127
+    assert evidence["scientific_current_projection"] == 126
+    assert evidence["historical_generated_metadata_members"] == 1
+    assert evidence["historical_generated_metadata_sha256"] == linux.VERSION_SHA256
     assert len(calls["descriptor"]) == len(calls["native"]) == calls["fresh"] == 1
     repository, prefix, normalized = calls["descriptor"][0]
     assert repository == root and prefix == str(Path(linux.CAPTURE).parent)
@@ -198,8 +240,8 @@ def test_capsule_refusal_propagates_without_fallback(
     operation: str,
 ) -> None:
     """Propagate descriptor and final freshness refusals without a fallback."""
-    root, tracked, owners, _ = constructed_reader
-    original = linux.validated_descriptor
+    root, tracked, owners, calls = constructed_reader
+    original = calls["descriptor_factory"]
 
     def refuse() -> None:
         raise ReportRebuildError("invented capsule refusal")
@@ -208,9 +250,11 @@ def test_capsule_refusal_propagates_without_fallback(
         if operation == "descriptor":
             refuse()
         capsule = original(repository, prefix, normalized)
-        return SimpleNamespace(read_source=capsule.read_source, fresh=refuse)
+        return SimpleNamespace(
+            descriptor=capsule.descriptor, read_source=capsule.read_source, fresh=refuse
+        )
 
-    monkeypatch.setattr(linux, "validated_descriptor", descriptor)
+    monkeypatch.setattr(linux, validated_descriptor.__name__, descriptor)
     with pytest.raises(ReportRebuildError, match="invented capsule refusal"):
         linux.validated_linux_r_reference_capture(root, tracked, owners)
 
@@ -225,3 +269,82 @@ def test_native_zero_is_exact_integer(value: object) -> None:
 def test_inactive_unrelated_repository_has_no_invented_capture(tmp_path: Path) -> None:
     """Return no invented retained evidence for an inactive unrelated repository."""
     assert linux.validated_linux_r_reference_capture(tmp_path, {}, []) == ((), {})
+
+
+@pytest.mark.parametrize(
+    "damage",
+    [
+        "provider",
+        "generator_sha",
+        "generator_bytes",
+        "member",
+        "duplicate",
+        "old_sha",
+        "old_bytes",
+        "old_body",
+        "scalars",
+        "execution_claim",
+    ],
+)
+def test_main_authenticates_the_exact_historical_generated_role(
+    constructed_reader: Fixture,
+    monkeypatch: pytest.MonkeyPatch,
+    damage: str,
+) -> None:
+    """Reject forged generator, member, original identity and genesis declarations."""
+    root, tracked, owners, calls = constructed_reader
+    row = calls["generated_rows"][0]
+    if damage == "provider":
+        row["generator"]["provider"] = "unregistered-provider"
+    elif damage == "generator_sha":
+        row["generator"]["sha256"] = "0" * 64
+    elif damage == "generator_bytes":
+        row["generator"]["bytes"] += 1
+    elif damage == "member":
+        row["member"] = "source/packages/bijux-pollenomics-lra/src/other.py"
+    elif damage == "duplicate":
+        calls["generated_rows"].append(copy.deepcopy(row))
+    elif damage == "old_body":
+        calls["payloads"][linux.VERSION_MEMBER] += b" changed"
+    elif damage == "scalars":
+        row["scalars"]["version"] = "0.1.9.dev1463"
+    elif damage == "execution_claim":
+        row["original_generator_execution_claimed"] = True
+    else:
+        path = root / linux.CAPTURE
+        capture = json.loads(path.read_bytes())
+        field = "sha256" if damage == "old_sha" else "bytes"
+        replacement = "0" * 64 if field == "sha256" else linux.VERSION_BYTES + 1
+        for item in capture["current_scientific_source_projection"]["members"]:
+            if item["relative_path"] == linux.VERSION_SOURCE:
+                item[field] = replacement
+        for item in capture["members"]:
+            if item["path"] == linux.VERSION_MEMBER:
+                item[field] = replacement
+        encoded = json.dumps(capture).encode()
+        path.write_bytes(encoded)
+        monkeypatch.setattr(
+            linux, "CAPTURE_SHA256", hashlib.sha256(encoded).hexdigest()
+        )
+    with pytest.raises(ReportRebuildError):
+        linux.validated_linux_r_reference_capture(root, tracked, owners)
+
+
+def test_historical_version_role_does_not_read_or_replace_current_metadata(
+    constructed_reader: Fixture,
+) -> None:
+    """Keep explicit historical byte authority separate from current ignored metadata."""
+    root, tracked, owners, calls = constructed_reader
+    path = root / linux.VERSION_SOURCE
+    current = path.read_bytes()
+    historical = calls["payloads"][linux.VERSION_MEMBER]
+    assert current != historical
+    linux.validated_linux_r_reference_capture(root, tracked, owners)
+    assert path.read_bytes() == current
+    with pytest.raises(ReportRebuildError, match="current scientific implementation"):
+        linux._require_scientific_projection(
+            root,
+            linux.VERSION_SOURCE,
+            {"sha256": linux.VERSION_SHA256, "bytes": linux.VERSION_BYTES},
+            historical,
+        )

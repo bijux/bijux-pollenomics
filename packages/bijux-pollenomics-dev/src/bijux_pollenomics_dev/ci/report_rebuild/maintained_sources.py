@@ -6,8 +6,8 @@ import ast
 import hashlib
 import json
 import math
-import subprocess
 from pathlib import Path
+import subprocess
 from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import (
