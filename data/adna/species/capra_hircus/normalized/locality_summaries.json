@@ -3552,6 +3552,100 @@
     {
       "identity": {
         "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:tubovolcnicolosroquesdegarca:tenerife",
+        "locality_text": "Tubo Volcánico - Los Roques de García",
+        "political_entity": "Tenerife",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.224651999999999",
+          "-16.631799999999998"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tubo Volcánico - Los Roques de García",
+      "coordinates": {
+        "latitude": 28.224652,
+        "longitude": -16.6318,
+        "latitude_text": "28.224651999999999",
+        "longitude_text": "-16.631799999999998",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2131"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
+        "refusal_reason_code": ""
+      },
+      "chronology_role": "locality_sample_coverage_hull",
+      "sample_chronologies": [
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb90261:pgull-2131",
+          "chronology": {
+            "original_text": "",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "historical_and_archaeological_context",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB90261",
+          "provenance_path": "",
+          "provenance_locator": "",
+          "provenance_excerpt": "",
+          "provenance_kind": "",
+          "chronology_strength": "unresolved",
+          "normalization_status": "unresolved",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        }
+      ],
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Tubo Volcánico - Los Roques de García",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
         "stable_token": "capra_hircus:locality:prjna1328209:lakeqinghaibasin:china",
         "locality_text": "Lake Qinghai basin",
         "political_entity": "China",

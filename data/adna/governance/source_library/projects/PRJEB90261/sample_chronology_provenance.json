@@ -2,7 +2,7 @@
   "schema_version": "animal-project-sample-chronology-provenance.v1",
   "project_accession": "PRJEB90261",
   "species_latin_name": "Capra hircus",
-  "row_count": 73,
+  "row_count": 74,
   "rows": [
     {
       "species_latin_name": "Capra hircus",
@@ -2475,6 +2475,49 @@
         "original_labels": [
           "5th - 6th centuries (C; SU12)"
         ],
+        "normalized_labels": [],
+        "uncertainty_notes": []
+      }
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "project_accession": "PRJEB90261",
+      "repo_stable_sample_id": "prjeb90261:pgull-2131",
+      "preferred_sample_label": "PGULL-2131",
+      "published_wording": "",
+      "source_wording_excerpt": "",
+      "provenance_surface": "",
+      "provenance_kind": "",
+      "provenance_locator": "",
+      "dating_basis": "historical_and_archaeological_context",
+      "evidence_class": "unresolved",
+      "precision_posture": "unresolved",
+      "normalization_status": "unresolved",
+      "normalization_rule": "keep the row unresolved until stronger chronology evidence exists",
+      "uncertainty_note": "No chronology claim has been recovered yet for this sample row.",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
+      "temporal_semantics": {
+        "schema_version": "temporal-semantics.v1",
+        "source_family": "animal_adna",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved",
+        "comparability_posture": "unresolved",
+        "summary_label": "Unresolved time semantics",
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "duration_years": null,
+        "comparison_note": "No chronology claim has been recovered yet for this sample row.",
+        "refusal_reason_code": "",
+        "provenance_path": "",
+        "provenance_locator": "",
+        "provenance_excerpt": "",
+        "original_labels": [],
         "normalized_labels": [],
         "uncertainty_notes": []
       }

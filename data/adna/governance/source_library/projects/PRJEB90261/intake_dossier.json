@@ -12,20 +12,22 @@
     "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
-    "chronology_recovery": "complete",
+    "chronology_recovery": "in_progress",
     "coordinate_derivation": "complete",
-    "publication_readiness": "complete"
+    "publication_readiness": "blocked"
   },
-  "blocking_stages": [],
-  "next_required_stage": null,
-  "publication_readiness_status": "complete",
+  "blocking_stages": [
+    "publication_readiness"
+  ],
+  "next_required_stage": "chronology_recovery",
+  "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 73,
-  "final_sample_count": 73,
+  "recovered_sample_count": 74,
+  "final_sample_count": 74,
   "unresolved_sample_count": null,
   "material_evidence_expected_count": 0,
   "material_evidence_conflict_count": 0,
@@ -46,10 +48,13 @@
     "data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB90261/sample_locality_evidence.json"
   ],
-  "missing_assets": [],
+  "missing_assets": [
+    "Some recovered sample rows still lack sample-level chronology."
+  ],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context"
+    "taxonomic_context",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB90261/archive_metadata.html",
@@ -61,6 +66,22 @@
   ],
   "contradictory_evidence": [],
   "inferred_claims": [],
-  "manual_curation_work_units": [],
-  "major_deficit_reasons": []
+  "manual_curation_work_units": [
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 75,
+      "rationale": "missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB90261/intake_dossier.json"
+      ]
+    }
+  ],
+  "major_deficit_reasons": [
+    "chronology_gap"
+  ]
 }
