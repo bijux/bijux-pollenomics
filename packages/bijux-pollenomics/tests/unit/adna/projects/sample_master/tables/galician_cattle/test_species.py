@@ -84,7 +84,7 @@ def test_pinned_paper_ena_crosswalk_accounts_for_each_sample_without_admission()
     assert report["paper_specimen_count"] == 18
     assert report["admission_posture"] == {
         "sample_species_resolved": True,
-        "project_paper_linkage_promoted": False,
+        "project_paper_linkage_promoted": True,
         "sample_site_resolved": False,
         "sample_chronology_resolved": False,
         "atlas_point_admitted": False,

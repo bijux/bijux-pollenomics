@@ -28,11 +28,11 @@ CORE_PATH = Path(
     "packages/bijux-pollenomics/src/bijux_pollenomics/"
     "adna/projects/sample_master/tables/galician_cattle/species.py"
 )
-CORE_SHA256 = "9e951ba34d1ec8a34318a2ba1361e08e6b9b015bb0bc3a1b50528fb84863b0e6"
+CORE_SHA256 = "9edcf344c8e2c563b41e27b53c3d8909d599c5bcd7c30caf8fae22cfd97ad091"
 OUTPUTS = frozenset({"report.json", "samples.csv"})
 ADMISSION = {
     "sample_species_resolved": True,
-    "project_paper_linkage_promoted": False,
+    "project_paper_linkage_promoted": True,
     "sample_site_resolved": False,
     "sample_chronology_resolved": False,
     "atlas_point_admitted": False,
