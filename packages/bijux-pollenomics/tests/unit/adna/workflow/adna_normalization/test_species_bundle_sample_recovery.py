@@ -45,10 +45,10 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if item.project_accession == "PRJNA1328209"
         )
         self.assertEqual(
-            qinghai_sample.chronology.evidence_class, "direct_radiocarbon_date"
+            qinghai_sample.chronology.evidence_class, "archaeological_context_date"
         )
         self.assertEqual(
-            qinghai_sample.chronology.precision_posture, "sample_precise_interval"
+            qinghai_sample.chronology.precision_posture, "contextual_interval"
         )
         self.assertEqual(
             (qinghai_sample.time_start_bp, qinghai_sample.time_end_bp),
