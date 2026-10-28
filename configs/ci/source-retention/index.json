@@ -25,6 +25,11 @@
       "descriptor": "source-transport.json",
       "sha256": "a0c3bd883bde0aa55b82bde5d5551ea4ced47b5bdc8576727273690451b7e8d3",
       "bytes": 2778
+    },
+    "data/surface-reference/hyde-country-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "bf81b148d1dcc372f757f39cc8ff04c86f5385597e3948ba4695232041c8efbb",
+      "bytes": 3894
     }
   },
   "source_revisions": {

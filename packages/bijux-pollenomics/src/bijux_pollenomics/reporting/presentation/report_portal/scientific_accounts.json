@@ -5280,7 +5280,7 @@
         "fields": {
           "supported_claim": "This citation pointer identifies the retained country cropland account and governed result; it reports zero new observations, fits or independent scientific checks.",
           "unsupported_claim": "It neither reproduces native grids nor establishes formal CRS/BP timing, redistribution rights or independent vegetation truth.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately completed source execution on97be88f37a117a518c8c4639ccca98927e13cb24 ran the unchanged HYDE country-table producer and an independent original-XML/Decimal arithmetic observer:two native exits0, with both full public products byteexact. The authored30member capsule preserves3506original identities; four private country-source files, two private licence/version context files and3482runtime payloads remain omitted. Source84 modeled rows/28country-years/seven literalCElabels/three scenario names retain their original scope. No source-grid reread/overlay, confidence intervals, independent vegetation, pollen covariates, CE/BP/calendar conversion, release/rights resolution, matched HYDE ablation, human/ecological or LRA acceptance, and no new retention-native outcome. The original HYDE country ownership criterion remains verbatim and unresolved: exact arithmetic and current byte comparisons do not establish the governed release/provider custody and effective permitted-use statement required by that owner. Retained results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.",
           "remaining_input_or_review": "The linked HYDE account retains conflicting release licence/version/coverage declarations and requires their source-owner resolution before stronger use.",
           "cause_category": "Citation-only pointer to modeled source totals.",
           "consequence": "Source-modeled cropland remains contextual model output; lower/upper source alternatives are not confidence intervals.",
@@ -5292,6 +5292,14 @@
           {
             "path": "docs/report/regions/nordic/hyde-country-cropland/report.json",
             "sha256": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb"
+          },
+          {
+            "path": "reports/science/source-lineage/hyde-country-totals.json",
+            "sha256": "4cca6c30896d42db5c0578394a880ce6c0e1c3806a21c1c3083bdcc9e3184a76"
+          },
+          {
+            "path": "reports/science/source-cohorts/hyde-country-original-acceptance.json",
+            "sha256": "5fc1b56bb41ed9e2892baaaff4dfec6484fa7cae4e57e3069eb900f8c134377f"
           }
         ]
       }

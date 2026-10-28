@@ -1,0 +1,97 @@
+{
+  "schema_version": "hyde-country-source-controller-manifest.v1",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "4c2334fbe5ba6c03aa71ae61d4fbd62739f0876cdf219473485036c4f3cb7c6b",
+      "bytes": 8914
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "consumer-protocol.json",
+      "sha256": "38e7c0b8efeb8464def29307cf5c35421a7b1af735d37c574951ab16e04b8cfa",
+      "bytes": 5644
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "f949760e798f7f433c36b3a751a3ac42ce0b92154397e0686dfc42fb28e03fcb",
+      "bytes": 7299
+    },
+    {
+      "path": "declared-inputs.json",
+      "sha256": "a1f6558bea373955a6e26d5d4a15a8808c651b64dfa7b338a8c807dc6925e7b3",
+      "bytes": 3647
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "bb79f09f15dd18bdb0a3ac8a594b084f4786d889a7274f835e4faf0995c28431",
+      "bytes": 4058
+    },
+    {
+      "path": "metadata.py",
+      "sha256": "db73c077055af336c9ff739e406714e72b5e2e4b3defbab6677534c186e273b2",
+      "bytes": 6954
+    },
+    {
+      "path": "observe.py",
+      "sha256": "7afb4284268ec950014a957323093bd123fbc5e91f6a4bc2de1221610d967450",
+      "bytes": 5337
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "13339b2cb998320bd6ef5d5dea5c56c57b92f13cc4a85a7ce77de0e06a3aa13e",
+      "bytes": 8512
+    },
+    {
+      "path": "run.py",
+      "sha256": "e9aa60b3d4a935214cdb5e1da02b2192bdc0a69c37ebee89fe3f00e385b4b39a",
+      "bytes": 8214
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "2384d1e840e31596f4d0794dbd2f4d157dd9f69e9147a1ef0d90b872489fdf35",
+      "bytes": 7074
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/source-qualification.json",
+    "sha256": "2384d1e840e31596f4d0794dbd2f4d157dd9f69e9147a1ef0d90b872489fdf35",
+    "bytes": 7074
+  },
+  "scope": "Source-only controls for actual maintained stdlib HYDE producer plus separate original-source Decimal/XML observer. No actual preparation/native work. Root alone prepares from a future exact clean dynamic candidate after independent source approval, registers/readbacks and separately launches.",
+  "immutable_qualified_predecessors": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "native_products": 2,
+  "future_preparation_argv": [
+    "PINNED_BASE",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/prepare.py",
+    "--candidate",
+    "ACTUAL_FUTURE_CLEAN_GIT_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA"
+  ]
+}

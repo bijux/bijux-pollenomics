@@ -1,0 +1,150 @@
+{
+  "schema_version": "hyde-country-source-controller-qualification.v1",
+  "source_only_actual_exit": 0,
+  "pure_control_groups": 20,
+  "strict_source_files": 8,
+  "configured_Ruff_files": 8,
+  "configured_format_files": 8,
+  "AST_files": 9,
+  "entrypoint_help_commands": 4,
+  "tools_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/qualified-controls.log",
+      "sha256": "de7c8704ffe50ecf6f3bf3ddb2994ebc60bacc98d1df3c1a0d4d3518eb53ff24",
+      "bytes": 33,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/qualified-source-controls/receipt.json",
+      "sha256": "878af62ece9080525b5a4ed2250dc5b8d12ea284052faf430852f589f4ab6fe0",
+      "bytes": 1225,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/final-strict.log",
+      "sha256": "157a09cfcdfdfb5977479c5a1c08345149263a3e990a2ec976ef28aaeec9cae6",
+      "bytes": 43,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/final-Ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/final-format.log",
+      "sha256": "8e93d18ae56550d4eef2feac77e6630617c7e169246e56e39c75d58b46167985",
+      "bytes": 26,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/final-AST.json",
+      "sha256": "9f67d81c06f7483faee8d61e06e7af0e3a12027b63aa2ade14ce971016c82001",
+      "bytes": 2276,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/help-prepare.py.log",
+      "sha256": "2a96dc2d76c1fd7e2fbe20a78d05bead3e8002bdbea50d37b15b22c6af4e0188",
+      "bytes": 249,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/help-run.py.log",
+      "sha256": "f24b9f9cd01ffaccb59298d9e137ba29ad261eb2c9f5017970d7a7ecb54fd2b1",
+      "bytes": 289,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/help-execute_source.py.log",
+      "sha256": "b61d26d171d1bf99c98aca178fdc301fc89dcdf7d777cdd984548af17bd949c7",
+      "bytes": 205,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/preflight/help-observe.py.log",
+      "sha256": "0964ff9cbc5c8a77a3e772d72a273c6932c1d747fb49f9b185cda8b117173a03",
+      "bytes": 196,
+      "actual_exit": 0
+    }
+  ],
+  "source_identities": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/check_contracts.py",
+      "sha256": "4c2334fbe5ba6c03aa71ae61d4fbd62739f0876cdf219473485036c4f3cb7c6b",
+      "bytes": 8914
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/contracts.py",
+      "sha256": "f949760e798f7f433c36b3a751a3ac42ce0b92154397e0686dfc42fb28e03fcb",
+      "bytes": 7299
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/execute_source.py",
+      "sha256": "bb79f09f15dd18bdb0a3ac8a594b084f4786d889a7274f835e4faf0995c28431",
+      "bytes": 4058
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/metadata.py",
+      "sha256": "db73c077055af336c9ff739e406714e72b5e2e4b3defbab6677534c186e273b2",
+      "bytes": 6954
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/observe.py",
+      "sha256": "7afb4284268ec950014a957323093bd123fbc5e91f6a4bc2de1221610d967450",
+      "bytes": 5337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/prepare.py",
+      "sha256": "13339b2cb998320bd6ef5d5dea5c56c57b92f13cc4a85a7ce77de0e06a3aa13e",
+      "bytes": 8512
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/run.py",
+      "sha256": "e9aa60b3d4a935214cdb5e1da02b2192bdc0a69c37ebee89fe3f00e385b4b39a",
+      "bytes": 8214
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    }
+  ],
+  "declaration": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/declared-inputs.json",
+    "sha256": "a1f6558bea373955a6e26d5d4a15a8808c651b64dfa7b338a8c807dc6925e7b3",
+    "bytes": 3647
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/consumer-protocol.json",
+    "sha256": "38e7c0b8efeb8464def29307cf5c35421a7b1af735d37c574951ab16e04b8cfa",
+    "bytes": 5644
+  },
+  "historical_qualified_runtime_sources": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "private_current_source_or_XLS_or_ZIP_table_decode_calls": 0,
+  "actual_runtime_native_inspector_prepare_producer_model_R_or_install_calls": 0,
+  "scoped_science": "Four private country-table identities plus two license/version identities; two current output identities exact. Actual native source/independent arithmetic and whole bytes are future registered work, not performed by these source controls.",
+  "first_source_authoring_checks": "Pre-format authored synthetic guard/layout Ruff reported style findings; formatter and exact observer import-order correction resolved them. Initial17groups/strict8 and expanded20groups/strict8 passed; old logs retained. No science/native refusal or runtime identity relabeling."
+}

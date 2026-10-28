@@ -49,6 +49,10 @@ from .scientific_captures.vegetation_reference.slu_guide import (
     validated_slu_guide_capture,
 )
 
+from .scientific_captures.land_use.hyde_country import (
+    validated_hyde_country_capture,
+)
+
 # This independent admission set is reviewed separately from mutable role labels.
 # Updating a maintained report path requires an explicit transport-contract change.
 MAINTAINED_ROLE_PATHS = {
@@ -232,6 +236,11 @@ def validated_maintained_report_sources(
     )
     if slu_guide_entries:
         raise ReportRebuildError("Original owner acceptance remains unresolved")
+    hyde_entries, hyde_evidence = validated_hyde_country_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    if hyde_entries:
+        raise ReportRebuildError("Original owner acceptance remains unresolved")
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -280,4 +289,6 @@ def validated_maintained_report_sources(
         evidence["retained_linux_r_reference_capture"] = linux_evidence
     if slu_guide_evidence:
         evidence["current_slu_guide_partial_evidence"] = slu_guide_evidence
+    if hyde_evidence:
+        evidence["current_hyde_country_partial_evidence"] = hyde_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

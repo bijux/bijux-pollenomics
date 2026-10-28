@@ -1,0 +1,11 @@
+{
+  "actual_exit": 0,
+  "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/plan.json",
+    "sha256": "44666c0828ef818488f220b896e08abd3831f9b7959f9f47af34f7c4c4fc162b",
+    "bytes": 1450565
+  },
+  "protected_input_count": 3506,
+  "native_consumers_launched": 0
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "hyde-country-source-replay-protocol.v1",
+  "execution_state": "source-only; no actual preparation, namespace/native census, source ZIP/table decoding or maintained producer launched",
+  "resources": {
+    "native_stage_seconds": [
+      45,
+      45
+    ],
+    "completed_whole_seconds": 120,
+    "outer_timeout_seconds": 140,
+    "completed_child_peak_rss_bytes": 1073741824,
+    "logical_output_bytes": 67108864,
+    "own_outer_receipt_reserve_bytes": 16384,
+    "sequential_native_consumers": 2,
+    "declared_native_children_at_once": 1,
+    "limits_are_postchecks_not_enforced_OS_quotas": true
+  },
+  "source_input_roles": {
+    "private_consumed_exact": 4,
+    "private_rights_context_identity_only": 2,
+    "current_source_module": 1,
+    "retained_public_output_comparison": 2,
+    "no_private_raw_redistribution": true
+  },
+  "maintained_API": "bijux_pollenomics_dev.source_completion.hyde_country_cropland.publish(source_root: Path, output: Path) -> dict[str, object]",
+  "actual_source_execution": "Canonical physical __file__ via runpy.run_path(...,run_name=__main__), original unmodified CLI --source-root <exact HYDE-3.5 private root> --output <fresh owned producer directory>; producer stdout/exit and interpreter/runtime scope exits recorded separately.",
+  "independent_science": "Native XLSX XML exact4ISO, seven literal CE columns, three source scenario names,84source-modeled rows/28country-years, Decimal source values/base differences and complete CSV bytes. Fulltyped/byte JSON report equality including all source SHA and all rights/calendar limits. No producer import or copied numeric result baseline.",
+  "observed_native_expected_outputs": [
+    "producer/report.json",
+    "producer/country-years.csv",
+    "source-runtime-observation.json",
+    "independent-source-review.json"
+  ],
+  "original_native_result_not_claimed": true,
+  "qualification_source_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "qualified_runtime_predecessor": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "runtime_scope": "Source-bound copied stdlib/framework/native/OS inspector role from genuinely completed isolated Swedish source consumer. Actual future preparation resolves/pins complete framework files and namespace, selected native closure, aliases/absent ZIP, system identity before plan creation. No use of cached147 or SOURCE3331 as native execution authority; SOURCE3331 is source-tool-only.",
+  "before_write_guards": [
+    "exact clean dynamic candidate and branch/main inventory identity",
+    "held manifest/review/declarations and exact science/report/policy pins frozen before runtime census",
+    "no controller helper imported before physical namespace and entrypoint-alias checks",
+    "conflict-rejecting exact pin union; final all-original-pin/source namespace/framework membership/alias/absence/Git revalidation before mkdir",
+    "fresh normalized physical artifact output path and free capacity reserve"
+  ],
+  "run_guards": [
+    "registered plan SHA",
+    "BASE -I -S -B for both native consumers and common runner",
+    "no HOME override or site/installed packages",
+    "complete before/after runtime snapshots and raw namespace/alias/absence/system/full input pins",
+    "every output entry regular/directory; alias/special refusal and self-reserve",
+    "literal failed native exits and resource/timeout statuses preserved"
+  ],
+  "retained_limits": [
+    "HYDE modeled country aggregates, no grid overlay",
+    "base/lower/upper scenarios are not scientific confidence intervals",
+    "CE lexical labels preserved, no BP/NetCDF/calendar conversion",
+    "source release2025coverage/license conflicts remain",
+    "no independent vegetation observation, pollen covariate, no-HYDE/HYDE ablation, public-rights/human/ecology or LRA admission"
+  ],
+  "future_root_recipe": {
+    "preparation": [
+      "PINNED_BASE",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/prepare.py",
+      "--candidate",
+      "ACTUAL_FUTURE_CLEAN_GIT_SHA",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay",
+      "--review-sha256",
+      "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA"
+    ],
+    "registration": "Root alone records and reads back actual plan SHA/protected pins, separately after preparation0.",
+    "launch": [
+      "PINNED_BASE",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/run.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/plan.json",
+      "--registered-plan-sha256",
+      "ACTUAL_REGISTERED_PLAN_SHA"
+    ]
+  },
+  "feasibility_reference": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-openland-source-feasibility/feasibility-review.json",
+    "sha256": "2deeb7434808ca76fd67083e7600302e281eaf786780a1298c464a64e570191c",
+    "bytes": 15554
+  }
+}
