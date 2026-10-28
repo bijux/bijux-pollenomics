@@ -5,7 +5,9 @@ from __future__ import annotations
 import csv
 import io
 import json
+import math
 from pathlib import Path
+import subprocess
 from typing import Any
 
 import pytest
@@ -139,6 +141,7 @@ def test_absolute_agreement_boundary(factor: str, passed: bool) -> None:
         ("absolute_tolerance", "1e-9"),
         ("relative_tolerance", "1e-8"),
         ("quadrature_limit", "100"),
+        ("quadrature_limit", "1000.00000000000001"),
         ("method", "analytic_point_limit"),
         ("exponent", ".25"),
         ("coefficient_from_parameters", "0"),
@@ -248,6 +251,19 @@ def saved(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> dict[str, Path]:
     checker.write_text("# artificial checker identity\n")
     checker.with_suffix(".R").write_text("# artificial wrapper identity\n")
     monkeypatch.setattr(reference, "__file__", str(checker))
+    committed_body = checker.read_bytes()
+    monkeypatch.setattr(
+        reference,
+        "_epoch",
+        lambda repository: {
+            "source_commit": "a" * 40,
+            "index_sha256": "e" * 64,
+        },
+    )
+    monkeypatch.setattr(
+        reference, "_blob", lambda repository, commit, path: committed_body
+    )
+    monkeypatch.setattr(reference, "_ancestor", lambda repository, earlier, later: None)
     rpin = _save(repo / "receiver_reference.R", {"artificial": "no numerical function"})
     p = contract()
     p["scientific_sources"] = {"independent_receiver_reference": rpin}
@@ -415,6 +431,166 @@ def test_invalid_tsv_shape() -> None:
     csv.writer(stream, delimiter="\t").writerow(["tuple_id", "status"])
     with pytest.raises(ValueError):
         reference._table(stream.getvalue().encode(), reference.OUTCOME_COLUMNS)
+
+
+@pytest.mark.parametrize("mutation", ["duplicate", "missing", "extra"])
+def test_outcome_field_set_remains_exact(mutation: str) -> None:
+    header = list(reference.OUTCOME_COLUMNS)
+    if mutation == "duplicate":
+        header[-1] = header[-2]
+    elif mutation == "missing":
+        header.pop()
+    else:
+        header.append("foreign")
+    with pytest.raises(ValueError, match="header"):
+        reference._table(("\t".join(header) + "\n").encode(), reference.OUTCOME_COLUMNS)
+
+
+def test_only_outcomes_allow_header_permutation() -> None:
+    columns = tuple(reversed(reference.OUTCOME_COLUMNS))
+    assert (
+        reference._table(reference._tsv(columns, outcomes()), reference.OUTCOME_COLUMNS)
+        == outcomes()
+    )
+    with pytest.raises(ValueError, match="header"):
+        reference._table(b"status\ttuple_id\n", ("tuple_id", "status"))
+
+
+@pytest.mark.parametrize("field", ["absolute_tolerance", "relative_tolerance"])
+def test_adjacent_binary64_control_is_not_accepted(field: str) -> None:
+    rows = outcomes()
+    current = float(rows[0][field])
+    rows[0][field] = format(math.nextafter(current, math.inf), ".17g")
+    with pytest.raises(ValueError, match="integration control"):
+        reference.audit_outcomes(reference._requests(contract()), rows, producer())
+
+
+def test_authentic_r_metadata_serialization_without_kernel() -> None:
+    executable = Path("/usr/local/bin/Rscript")
+    if not executable.is_file():
+        pytest.skip("Rscript unavailable for source-free serialization control")
+    # This evaluates only base-R list insertion and sprintf; no source() or kernel call.
+    program = """
+fields <- c("factor", "raw_factor", "estimated_absolute_error", "tail_mass_bound", "method",
+ "coefficient_from_parameters", "exponent", "absolute_tolerance", "relative_tolerance",
+ "quadrature_limit", "subdivisions_used")
+values <- list(.2,.2,1e-12,0,"displacement_circle_overlap_one_dimensional",.777,.125,1e-11,1e-10,1000L,12L)
+rows <- lapply(c(80,69,89),function(r) {
+ row <- list(tuple_id=paste0("pinus-radius:",r),status="completed")
+ for(i in seq_along(fields)) row[[fields[i]]] <- if(is.numeric(values[[i]])) sprintf("%.17g",values[[i]]) else values[[i]]
+ row$error_class <- row$reason_code <- row$error_message <- ""
+ row$warnings <- ""
+ as.data.frame(row,stringsAsFactors=FALSE)
+})
+write.table(do.call(rbind,rows),stdout(),row.names=FALSE,quote=TRUE,sep="\\t")
+"""
+    completed = subprocess.run(
+        [str(executable), "--vanilla", "-e", program],
+        capture_output=True,
+        timeout=15,
+        check=True,
+    )
+    assert len(completed.stdout) < 8192
+    header = next(csv.reader(io.StringIO(completed.stdout.decode()), delimiter="\t"))
+    assert header[-4:] == ["error_message", "reason_code", "error_class", "warnings"]
+    rows = reference._table(completed.stdout, reference.OUTCOME_COLUMNS)
+    assert rows[0]["absolute_tolerance"] == "9.9999999999999994e-12"
+    assert (
+        reference.audit_outcomes(reference._requests(contract()), rows, producer())[
+            "status"
+        ]
+        == "passed"
+    )
+
+
+def test_historical_python_builder_bound_without_rewriting_manifest(
+    saved: dict[str, Path],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repository, output = saved["repository"], saved["output"]
+    before = (output / "manifest.json").read_bytes()
+    checker = repository / "kernel_reference.py"
+    original = checker.read_bytes()
+    checker.write_text("# committed corrected observer\n")
+    current = checker.read_bytes()
+    monkeypatch.setattr(
+        reference,
+        "_epoch",
+        lambda repository: {
+            "source_commit": "b" * 40,
+            "index_sha256": "f" * 64,
+        },
+    )
+
+    def blob(repository: Path, commit: str, path: str) -> bytes:
+        assert path == "kernel_reference.py"
+        return {"a" * 40: original, "b" * 40: current}[commit]
+
+    monkeypatch.setattr(reference, "_blob", blob)
+    facts = reference.check(**saved)
+    assert facts["source_commit"] == "a" * 40
+    assert facts["observer_source_commit"] == "b" * 40
+    assert facts["historical_builder_authenticated"] is True
+    assert facts["checker_sources"][0] != facts["observer_checker_source"]
+    assert (output / "manifest.json").read_bytes() == before
+
+
+def test_historical_python_builder_requires_original_blob(
+    saved: dict[str, Path],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    checker = saved["repository"] / "kernel_reference.py"
+    checker.write_text("# new corrected committed observer\n")
+    monkeypatch.setattr(
+        reference,
+        "_epoch",
+        lambda repository: {
+            "source_commit": "b" * 40,
+            "index_sha256": "f" * 64,
+        },
+    )
+    monkeypatch.setattr(
+        reference,
+        "_blob",
+        lambda repository, commit, path: (
+            checker.read_bytes() if commit == "b" * 40 else b"wrong original blob"
+        ),
+    )
+    with pytest.raises(ValueError, match="committed builder"):
+        reference.check(**saved)
+
+
+def test_original_r_wrapper_never_gets_historical_exception(
+    saved: dict[str, Path],
+) -> None:
+    (saved["repository"] / "kernel_reference.R").write_text("# altered R wrapper\n")
+    with pytest.raises(ValueError, match="Foreign checker"):
+        reference.check(**saved)
+
+
+@pytest.mark.parametrize("change", ["head", "index", "ancestry"])
+def test_observer_epoch_stable_and_ancestral(
+    saved: dict[str, Path],
+    monkeypatch: pytest.MonkeyPatch,
+    change: str,
+) -> None:
+    if change == "ancestry":
+
+        def unrelated(repository: Path, earlier: str, later: str) -> None:
+            raise ValueError("unrelated producer epoch")
+
+        monkeypatch.setattr(reference, "_ancestor", unrelated)
+    else:
+        first = {"source_commit": "a" * 40, "index_sha256": "e" * 64}
+        last = {
+            **first,
+            "source_commit" if change == "head" else "index_sha256": "b"
+            * (40 if change == "head" else 64),
+        }
+        epochs = iter([first, last])
+        monkeypatch.setattr(reference, "_epoch", lambda repository: next(epochs))
+    with pytest.raises(ValueError):
+        reference.check(**saved)
 
 
 def test_producer_refusal_cannot_become_agreement() -> None:

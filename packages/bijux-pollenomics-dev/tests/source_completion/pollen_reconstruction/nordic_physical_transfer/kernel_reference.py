@@ -9,7 +9,10 @@ import hashlib
 import io
 import json
 import math
+import os
 from pathlib import Path
+import re
+import subprocess
 import sys
 from typing import Any
 
@@ -89,6 +92,54 @@ def _bytes(path: Path) -> bytes:
 def _pin(path: Path, relative: str) -> dict[str, Any]:
     b = _bytes(path)
     return {"path": relative, "bytes": len(b), "sha256": hashlib.sha256(b).hexdigest()}
+
+
+def _git(repository: Path, arguments: list[str]) -> bytes:
+    environment = {**os.environ, "GIT_OPTIONAL_LOCKS": "0"}
+    completed = subprocess.run(
+        ["git", "-C", str(repository), *arguments],
+        capture_output=True,
+        timeout=10,
+        check=False,
+        env=environment,
+    )
+    if completed.returncode or len(completed.stdout) > MAX_INPUT_BYTES:
+        raise ValueError("Bounded source-history read failed")
+    return completed.stdout
+
+
+def _epoch(repository: Path) -> dict[str, str]:
+    commit = _git(repository, ["rev-parse", "HEAD"]).decode().strip()
+    if not re.fullmatch("[0-9a-f]{40}", commit):
+        raise ValueError("Exact observer commit required")
+    index = Path(
+        _git(repository, ["rev-parse", "--git-path", "index"]).decode().strip()
+    )
+    if not index.is_absolute():
+        index = repository / index
+    return {
+        "source_commit": commit,
+        "index_sha256": hashlib.sha256(_bytes(index)).hexdigest(),
+    }
+
+
+def _blob(repository: Path, commit: str, path: str) -> bytes:
+    if not re.fullmatch("[0-9a-f]{40}", commit):
+        raise ValueError("Exact builder commit required")
+    _child(repository, path)
+    return _git(repository, ["show", f"{commit}:{path}"])
+
+
+def _ancestor(repository: Path, earlier: str, later: str) -> None:
+    if not all(re.fullmatch("[0-9a-f]{40}", c) for c in (earlier, later)):
+        raise ValueError("Exact source epochs required")
+    _git(repository, ["merge-base", "--is-ancestor", earlier, later])
+
+
+def _committed(repository: Path, commit: str, pin: dict[str, Any]) -> None:
+    body = _blob(repository, commit, pin["path"])
+    if len(body) != pin["bytes"] or hashlib.sha256(body).hexdigest() != pin["sha256"]:
+        raise ValueError("Checker source differs from its committed builder")
 
 
 def _bound(root: Path, pin: dict[str, Any]) -> bytes:
@@ -234,7 +285,14 @@ def _tsv(columns: tuple[str, ...], rows: list[dict[str, str]]) -> bytes:
 
 def _table(body: bytes, columns: tuple[str, ...]) -> list[dict[str, str]]:
     reader = csv.DictReader(io.StringIO(body.decode(), newline=""), delimiter="\t")
-    if reader.fieldnames != list(columns):
+    header = reader.fieldnames
+    known_outcomes = (
+        columns == OUTCOME_COLUMNS
+        and header is not None
+        and len(header) == len(columns)
+        and set(header) == set(columns)
+    )
+    if header != list(columns) and not known_outcomes:
         raise ValueError("Exact TSV header required")
     rows = list(reader)
     if any(set(r) != set(columns) or any(v is None for v in r.values()) for r in rows):
@@ -389,13 +447,12 @@ def audit_outcomes(
                 "exponent"
             ] != Decimal(".125"):
                 raise ValueError("Invalid reference survival diagnostics")
-            for field in (
-                "absolute_tolerance",
-                "relative_tolerance",
-                "quadrature_limit",
-            ):
-                if values[field] != _number(request[field]):
+            for field in ("absolute_tolerance", "relative_tolerance"):
+                actual, expected = float(values[field]), float(_number(request[field]))
+                if not math.isfinite(actual) or actual != expected:
                     raise ValueError("Changed reference integration control")
+            if values["quadrature_limit"] != _number(request["quadrature_limit"]):
+                raise ValueError("Changed reference integration control")
             subdivisions = values["subdivisions_used"]
             if (
                 subdivisions != subdivisions.to_integral_value()
@@ -443,6 +500,7 @@ def check(
     repository: Path, protocol: Path, products: Path, output: Path, execution: Path
 ) -> dict[str, Any]:
     """Authenticate closed artifacts before and after numerical receipt inspection."""
+    observer_epoch = _epoch(repository)
     manifest_pin = _pin(output / "manifest.json", "manifest.json")
     manifest = _json(_bytes(output / "manifest.json"))
     if manifest["schema_version"] != "nordic-physical-kernel-reference-inputs.v1":
@@ -460,17 +518,23 @@ def check(
         output, manifest["request_file"]
     ) != _tsv(REQUEST_COLUMNS, requests):
         raise ValueError("Requests changed")
-    repo_pins = [
-        manifest["protocol"],
-        manifest["reference"],
-        *manifest["checker_sources"],
-    ]
     expected_sources = [
         _pin(p, str(p.relative_to(repository)))
         for p in (Path(__file__), Path(__file__).with_suffix(".R"))
     ]
-    if manifest["checker_sources"] != expected_sources:
+    original_sources = manifest["checker_sources"]
+    if len(original_sources) != 2 or (
+        original_sources[0]["path"] != expected_sources[0]["path"]
+        or original_sources[1] != expected_sources[1]
+    ):
         raise ValueError("Foreign checker source identities")
+    _committed(repository, observer_epoch["source_commit"], expected_sources[0])
+    _ancestor(repository, manifest["source_commit"], observer_epoch["source_commit"])
+    historical = original_sources[0] != expected_sources[0]
+    if historical:
+        # Only this known Python builder may differ; original receipt bytes remain intact.
+        _committed(repository, manifest["source_commit"], original_sources[0])
+    repo_pins = [manifest["protocol"], manifest["reference"], *expected_sources]
     product_pins = [
         manifest[k] for k in ("producer_result", "responses", "prediction_freeze")
     ]
@@ -553,6 +617,10 @@ def check(
         checker_sources=manifest["checker_sources"],
         reference=manifest["reference"],
         source_commit=manifest["source_commit"],
+        observer_source_commit=observer_epoch["source_commit"],
+        observer_index_sha256=observer_epoch["index_sha256"],
+        observer_checker_source=expected_sources[0],
+        historical_builder_authenticated=historical,
         runtime=runtime[0],
         execution={"identity": execution_pin, "facts": resource},
         rscript_executable=executable_pin,
@@ -571,6 +639,8 @@ def check(
         raise ValueError("Checker receipt changed during inspection")
     if _pin(executable, str(executable)) != executable_pin:
         raise ValueError("Rscript executable changed during inspection")
+    if _epoch(repository) != observer_epoch:
+        raise ValueError("Observer HEAD or index changed during inspection")
     body = _encoded(result)
     paths = list(output.rglob("*"))
     if (
