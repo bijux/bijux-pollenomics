@@ -1529,7 +1529,7 @@ def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() 
     selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
     offset = selected.command.index("--capture-profile")
     assert selected.command[offset + 1] == "finite-covariance"
-    assert len(selected.inputs) == 386
+    assert len(selected.inputs) == 392
     assert selected.source_paths == {
         "source-products/report.json": "method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",

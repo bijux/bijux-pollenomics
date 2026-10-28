@@ -14,6 +14,15 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    # Structural portal verification uses these exact host-owned rendering helpers.
+    "bijux_pollenomics_dev/docs/report_portal_check.py": {
+        "bijux_pollenomics.reporting.presentation.report_portal.narrative_quality": frozenset(
+            {"_build_quality_row"}
+        ),
+        "bijux_pollenomics.reporting.presentation.report_portal.pages": frozenset(
+            {"_render_portal_pages"}
+        ),
+    },
     "bijux_pollenomics_dev/reader_reports/scientific_routes.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
             {"Route", "load_routes", "render_route"}

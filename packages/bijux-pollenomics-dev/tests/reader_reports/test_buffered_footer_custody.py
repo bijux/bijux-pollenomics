@@ -23,7 +23,7 @@ def helper(root: Path, routes: dict[str, Route]) -> dict[str, Any]:
         node
         for node in tree.body
         if isinstance(node, ast.FunctionDef)
-        and node.name in {"_buffered_reader_content", "_buffered_reader_markdown"}
+        and node.name in {"_sealed_reader_content", "_buffered_reader_markdown"}
     ]
     namespace: dict[str, Any] = {
         "Path": Path,
@@ -37,12 +37,18 @@ def helper(root: Path, routes: dict[str, Route]) -> dict[str, Any]:
 
 
 @pytest.mark.parametrize(
+    "relative",
+    [
+        "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
+        "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+    ],
+)
+@pytest.mark.parametrize(
     "damage", [None, "managed_claim", "trailing", "malformed", "undeclared", "absent"]
 )
 def test_exact_route_is_validated_before_peeling(
-    tmp_path: Path, damage: str | None
+    tmp_path: Path, damage: str | None, relative: str
 ) -> None:
-    relative = "docs/report/pollen-reconstruction/author-buffered-pollen/README.md"
     route = Route(
         relative,
         (Account("reports/science/conditional.md"),),
@@ -64,11 +70,11 @@ def test_exact_route_is_validated_before_peeling(
     api = helper(tmp_path, routes)
     if damage:
         with pytest.raises(ValueError):
-            api["_buffered_reader_content"](tmp_path / relative, raw)
+            api["_sealed_reader_content"](tmp_path / relative, raw)
     else:
-        assert api["_buffered_reader_content"](tmp_path / relative, raw) == source
+        assert api["_sealed_reader_content"](tmp_path / relative, raw) == source
         assert (
-            api["_buffered_reader_content"](tmp_path / "result.json", b'{"value":12}')
+            api["_sealed_reader_content"](tmp_path / "result.json", b'{"value":12}')
             == b'{"value":12}'
         )
 
@@ -87,10 +93,22 @@ def test_readme_alias_is_applied_only_after_route_admission(tmp_path: Path) -> N
     )
     api = helper(tmp_path, {relative: route})
     raw = render_route(b"# Source\n\n" + link + b"\n", route)
-    peeled = api["_buffered_reader_content"](tmp_path / relative, raw)
+    peeled = api["_sealed_reader_content"](tmp_path / relative, raw)
     assert (
         api["_buffered_reader_markdown"](peeled)
         == b"# Source\n\n[family replay](replay.py)\n"
     )
     with pytest.raises(ValueError, match="ambiguous"):
         api["_buffered_reader_markdown"](link + link)
+
+
+def test_unrouted_plain_markdown_and_machine_payloads_remain_raw(
+    tmp_path: Path,
+) -> None:
+    api = helper(tmp_path, {})
+    for relative, raw in [
+        ("packages/reference/README.md", b"# Raw historical reference\n"),
+        ("docs/report/source/values.csv", b"count,value\n12,0.25\n"),
+        ("docs/report/source/report.json", b'{"count":12,"factor":0.25}'),
+    ]:
+        assert api["_sealed_reader_content"](tmp_path / relative, raw) == raw
