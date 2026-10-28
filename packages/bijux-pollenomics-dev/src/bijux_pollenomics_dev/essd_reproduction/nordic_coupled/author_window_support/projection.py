@@ -17,6 +17,17 @@ from ..regional_source_support import (
 )
 
 
+def pollen_axis_candidate(row: dict[str, Any]) -> bool:
+    """Exclude explicit other elements; retain uncertain roles for refusal."""
+    element, element_type = row.get("element"), row.get("elementtype")
+    return not (
+        type(element) is str
+        and bool(element.strip())
+        and element == element_type
+        and element != "pollen"
+    )
+
+
 def panel(
     datum: list[dict[str, Any]],
     axes: list[dict[str, Any]],
@@ -78,7 +89,8 @@ def panel(
         matches = [
             (i, r)
             for i, r in enumerate(datum)
-            if r.get("taxonid") == code or r.get("variablename") == name
+            if (r.get("taxonid") == code or r.get("variablename") == name)
+            and pollen_axis_candidate(r)
         ]
         count = None
         if not matches:

@@ -228,3 +228,111 @@ def test_projected_evidence_does_not_alias_source() -> None:
     result["samples"][0]["datum_accounting"][0]["native"]["value"] = 999
     result["samples"][0]["native_ages"][0]["age"] = 999
     assert source == before
+
+
+@pytest.mark.parametrize("stomate_count", [0, 10**80, None, True])
+def test_pollen_and_same_taxon_stomate_have_one_pollen_axis_owner(
+    stomate_count: object,
+) -> None:
+    source, core, profile = native_fixture(1)
+    sample = native_samples(source)[0]
+    stomate = {
+        **cell("Pinus", 385, stomate_count),
+        "element": "stomate",
+        "elementtype": "stomate",
+    }
+    sample["datum"].insert(1, stomate)
+    before = deepcopy(source)
+    result = project(source, core, profile, lookup_fixture())
+    row = result["samples"][0]
+    assert source == before
+    assert row["taxa"][1]["status"] == "measured"
+    assert row["taxa"][1]["native_matches"] == [
+        {"datum_index": 2, "native": sample["datum"][2]}
+    ]
+    assert row["panel_counts"] == [4, 2]
+    assert row["panel_N"] == 6 and row["pollen_N"] == 9
+    assert row["excluded_pollen_N"] == 3
+    assert result["windows"][0]["status"] == "supported"
+    assert [r["native"] for r in row["datum_accounting"]] == sample["datum"]
+    assert row["datum_accounting"][1]["disposition"] == "non_pollen"
+    assert row["datum_accounting"][1]["author_target"] == "Pinus"
+    assert row["datum_accounting"][1]["lookup_row_numbers"] == [4, 5]
+    assert row["non_pollen_row_count"] == 2
+
+
+def test_stomate_only_does_not_supply_pollen_count_or_zero() -> None:
+    source, core, profile = native_fixture(1)
+    sample = native_samples(source)[0]
+    sample["datum"][1].update(element="stomate", elementtype="stomate")
+    result = project(source, core, profile, lookup_fixture())
+    row = result["samples"][0]
+    assert row["taxa"][1]["status"] == "missing_native_axis"
+    assert row["taxa"][1]["native_matches"] == []
+    assert row["panel_counts"] == [4, None] and row["panel_N"] is None
+    assert row["pollen_N"] == 7 and row["excluded_pollen_N"] is None
+    assert row["datum_accounting"][1]["native"] == sample["datum"][1]
+    assert row["datum_accounting"][1]["disposition"] == "non_pollen"
+    assert result["windows"][0]["status"] == "suppressed_incomplete_panel"
+
+
+@pytest.mark.parametrize("beside_pollen", [False, True])
+@pytest.mark.parametrize(
+    "roles",
+    [
+        {},
+        {"element": "pollen"},
+        {"elementtype": "pollen"},
+        {"element": None, "elementtype": "pollen"},
+        {"element": "stomate", "elementtype": "pollen"},
+        {"element": "pollen", "elementtype": "stomate"},
+        {"element": "stomate", "elementtype": "volume"},
+        {"element": "", "elementtype": ""},
+        {"element": " ", "elementtype": " "},
+        {"element": 1, "elementtype": 1},
+    ],
+)
+def test_uncertain_or_contradictory_roles_are_not_silently_ignored(
+    roles: dict[str, object],
+    beside_pollen: bool,
+) -> None:
+    source, core, profile = native_fixture(1)
+    sample = native_samples(source)[0]
+    malformed = cell("Pinus", 385, 100)
+    malformed.pop("element")
+    malformed.pop("elementtype")
+    malformed.update(roles)
+    if beside_pollen:
+        sample["datum"].append(malformed)
+    else:
+        sample["datum"][1] = malformed
+    row = project(source, core, profile, lookup_fixture())["samples"][0]
+    assert row["taxa"][1]["status"] == (
+        "duplicate_native_axis" if beside_pollen else "incompatible_metadata"
+    )
+    assert row["panel_counts"] == [4, None]
+    assert row["panel_N"] is None
+    assert row["datum_accounting"][-1 if beside_pollen else 1]["native"] == malformed
+
+
+def test_true_pollen_duplicates_still_refuse_beside_stomate_context() -> None:
+    source, core, profile = native_fixture(1)
+    sample = native_samples(source)[0]
+    sample["datum"].extend(
+        [
+            cell("Pinus", 385, 5),
+            {
+                **cell("Pinus", 385, 10**30),
+                "element": "stomate",
+                "elementtype": "stomate",
+            },
+        ]
+    )
+    result = project(source, core, profile, lookup_fixture())
+    row = result["samples"][0]
+    assert row["taxa"][1]["status"] == "duplicate_native_axis"
+    assert [r["datum_index"] for r in row["taxa"][1]["native_matches"]] == [1, 4]
+    assert row["pollen_N"] is None and row["panel_N"] is None
+    assert row["datum_status_counts"]["duplicate_pollen_identity"] == 2
+    assert row["datum_accounting"][5]["disposition"] == "non_pollen"
+    assert result["windows"][0]["status"] == "suppressed_incomplete_panel"

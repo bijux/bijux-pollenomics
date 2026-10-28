@@ -193,6 +193,84 @@ def test_missing_native_axis_is_not_source_zero_and_third_concept_is_not_hidden(
         author_panel(datum, core, mapping, [])
 
 
+@pytest.mark.parametrize("stomate_count", [1, 10**80, None, True])
+def test_explicit_stomate_is_not_duplicate_pollen_or_pollen_mass(
+    stomate_count: object,
+) -> None:
+    source, core, profile = native_fixture(1)
+    datum = native_samples(source)[0]["datum"]
+    stomate = deepcopy(datum[1])
+    stomate.update(element="stomate", elementtype="stomate", value=stomate_count)
+    datum.insert(0, stomate)
+    original = deepcopy(datum)
+    row = expected_core(source, core, profile, lookup())["samples"][0]
+    assert row["panel_counts"] == [4, 2] and row["pollen_N"] == 9
+    assert row["taxa"][1]["status"] == "measured"
+    assert row["taxa"][1]["native_matches"] == [{"datum_index": 2, "native": datum[2]}]
+    assert row["datum_accounting"][0]["native"] == stomate
+    assert row["datum_accounting"][0]["disposition"] == "non_pollen"
+    assert datum == original
+
+
+def test_stomate_only_is_missing_pollen_not_zero() -> None:
+    source, core, profile = native_fixture(1)
+    datum = native_samples(source)[0]["datum"]
+    datum[1].update(element="stomate", elementtype="stomate")
+    row = expected_core(source, core, profile, lookup())["samples"][0]
+    assert row["taxa"][1]["status"] == "missing_native_axis"
+    assert row["panel_counts"] == [4, None] and row["panel_N"] is None
+    assert row["datum_accounting"][1]["native"] == datum[1]
+
+
+@pytest.mark.parametrize(
+    "roles",
+    [
+        {},
+        {"element": "pollen"},
+        {"element": "stomate", "elementtype": "pollen"},
+        {"element": "stomate", "elementtype": "unknown"},
+        {"element": None, "elementtype": None},
+        {"element": "", "elementtype": ""},
+        {"element": " ", "elementtype": " "},
+    ],
+)
+@pytest.mark.parametrize("beside_valid", [False, True])
+def test_unknown_or_contradictory_pollen_role_cannot_hide_axis_evidence(
+    roles: dict[str, object], beside_valid: bool
+) -> None:
+    source, core, profile = native_fixture(1)
+    datum = native_samples(source)[0]["datum"]
+    altered = deepcopy(datum[1])
+    altered.pop("element")
+    altered.pop("elementtype")
+    altered.update(roles)
+    if beside_valid:
+        datum.append(altered)
+    else:
+        datum[1] = altered
+    row = expected_core(source, core, profile, lookup())["samples"][0]
+    assert row["taxa"][1]["status"] == (
+        "duplicate_native_axis" if beside_valid else "incompatible_metadata"
+    )
+    assert row["panel_N"] is None
+    assert len(row["datum_accounting"]) == len(datum)
+
+
+def test_true_pollen_duplicate_still_refuses_with_stomate_context() -> None:
+    source, core, profile = native_fixture(1)
+    datum = native_samples(source)[0]["datum"]
+    datum.append(deepcopy(datum[1]))
+    stomate = deepcopy(datum[1])
+    stomate.update(element="stomate", elementtype="stomate")
+    datum.append(stomate)
+    row = expected_core(source, core, profile, lookup())["samples"][0]
+    assert row["taxa"][1]["status"] == "duplicate_native_axis"
+    assert len(row["taxa"][1]["native_matches"]) == 2
+    assert row["panel_N"] is None
+    assert row["pollen_N"] is None
+    assert row["datum_accounting"][-1]["disposition"] == "non_pollen"
+
+
 def test_parameter_full_axis_and_exact_selected_decimal_profile() -> None:
     lut, mean, cov, binding = parameter_fixture()
     out, mapping = parameter_evidence(

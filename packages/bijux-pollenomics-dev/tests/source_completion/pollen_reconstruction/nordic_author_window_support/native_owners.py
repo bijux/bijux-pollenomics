@@ -228,11 +228,21 @@ def author_panel(
         )
     taxa, values = [], []
     for axis in axes:
+        # A declared different element is not another pollen measurement. Unknown
+        # or contradictory roles remain candidates and cannot evade refusal.
         matches = [
             (index, cell)
             for index, cell in enumerate(datum)
-            if cell.get("taxonid") == axis["taxon_id"]
-            or cell.get("variablename") == axis["source_name"]
+            if (
+                cell.get("taxonid") == axis["taxon_id"]
+                or cell.get("variablename") == axis["source_name"]
+            )
+            and not (
+                type(cell.get("element")) is str
+                and bool(cell["element"].strip())
+                and cell["element"] == cell.get("elementtype")
+                and cell["element"] != "pollen"
+            )
         ]
         value = None
         if not matches:
