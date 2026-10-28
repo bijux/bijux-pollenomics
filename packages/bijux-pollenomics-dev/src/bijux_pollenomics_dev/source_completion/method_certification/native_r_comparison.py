@@ -18,6 +18,25 @@ from bijux_pollenomics_dev.lra_validation.native_reference.capture_selection imp
 
 _OWNER = "method-certification/current-r-oracle/report-products"
 _POLICY = "configs/ci/report-ownership.json"
+# These are declared consumer source and authenticated witness roles, rather than
+# a claim about every module that Python imports incidentally.
+_LAYOUT_CODE_INPUTS = frozenset(
+    [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
+    ]
+)
+_LAYOUT_STATIC_DATA = frozenset(
+    [
+        "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+        "configs/ci/report-capture-projections/native-finite-generated-source.json",
+        "configs/ci/source-retention/index.json",
+        "data/atlas/source-view-capture/capture.json",
+        "data/atlas/source-view-capture/source-transport.json",
+    ]
+)
 _OUTPUTS = {
     "docs/report/method-certification/current-r-oracle/report.json",
     "docs/report/method-certification/current-r-oracle/source-replay.json",
@@ -81,6 +100,9 @@ def _consumer_inputs(
     selected_manifest = (
         f"data/method-certification/native-r-{capture_profile}/capture/capture.json"
     )
+    selected_transport = (
+        f"data/method-certification/native-r-{capture_profile}/source-transport.json"
+    )
     if (
         row["role"] != "generated_owner"
         or set(row["paths"]) != _OUTPUTS
@@ -89,11 +111,14 @@ def _consumer_inputs(
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
         or len(code) != 116
+        or not set(code) >= _LAYOUT_CODE_INPUTS
         or len(set(code)) != len(code)
         or len(data) != 290
+        or not set(data) >= _LAYOUT_STATIC_DATA
         or len(set(data)) != len(data)
         or _POLICY not in data
         or selected_manifest not in data
+        or (capture_profile == "finite-covariance" and selected_transport not in data)
         or set(code) & set(data)
         or _OUTPUTS & set(code + data)
         or any(
@@ -161,6 +186,15 @@ def build(
     repository = repository.resolve(strict=True)
     evidence = _evidence_destination(repository, output)
     before = validated_current_capture(repository, profile=capture_profile)
+    if capture_profile == "finite-covariance":
+        declared_programs = {
+            name for name in before.raw_sha256 if Path(name).suffix in {".py", ".R"}
+        }
+        if any(not (before.directory / name).is_file() for name in declared_programs):
+            raise ValueError(
+                "Fresh finite comparison requires physical native program members; "
+                "detached source programs are unsupported until a no-copy consumer is available"
+            )
     consumer = _consumer_inputs(repository, before.manifest_sha256, capture_profile)
     comparison_paths = (
         repository,

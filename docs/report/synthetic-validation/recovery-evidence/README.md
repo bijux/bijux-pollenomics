@@ -4,7 +4,7 @@ The [retained account](report.json) brings together the eight-case
 [public REVEALS reconstruction challenge](../reconstruction/README.md) and
 three conditional counting experiments. The account producer reads exact
 immutable numerical products; it does not rerun transport, reconstruction or
-simulation. [The counting packet](../../../../data/synthetic-validation/finite-count-coverage/manifest.json)
+simulation. [The counting packet](source-files/finite-count-coverage/manifest.json)
 retains its protocol, all actual synthetic count draws, all replicate/taxon
 results and the independent review.
 
@@ -86,7 +86,7 @@ account does not authorize relabelling historical results as a fresh study.
 
 The maintained counting producer was executed against numerical source candidate
 `159d541e7b86442728b9d540ebec93588eba54eb` using the exact prepared producer
-code recorded in the [execution custody](../../../../data/synthetic-validation/finite-count-coverage/execution-custody.json).
+code recorded in the [execution custody](source-files/finite-count-coverage/execution-custody.json).
 That producer/verifier code was an artifact proposal at execution time and is
 identified by its own physical hashes; it was not already tracked in that baseline
 commit. The new native consumer completed in `7.57752462499775` seconds; the
@@ -185,7 +185,7 @@ python -m bijux_pollenomics_dev.lra_validation.two_taxon_counting_verification \
   artifacts/science/two-taxon-counting-independent-review.json
 ```
 
-The [retained numerical packet](../../../../data/synthetic-validation/two-taxon-counting/manifest.json)
+The [retained numerical packet](source-files/two-taxon-counting/manifest.json)
 preserves the exact protocol, compressed full interval rows, complete independent
 coverage review and the prior negative account. Each raw numerical product has
 its own physical hash. This public API does not model shared PPE uncertainty,

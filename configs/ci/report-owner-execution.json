@@ -2174,6 +2174,92 @@
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
       },
       "timeout_seconds": 60
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/current-r-oracle/retained-vector-comparisons",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/retained-vector-diagnostics.json": "docs/report/method-certification/current-r-oracle/retained-vector-diagnostics.json",
+        "source-products/retained-vector-review.json": "docs/report/method-certification/current-r-oracle/retained-vector-review.json"
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "owner_id": "scientific-readers/public-source-files",
+      "module": "bijux_pollenomics_dev.source_completion.scientific_readers.source_files",
+      "output_mode": "directory",
+      "source_paths": {
+        "atlas/source-files/capture.json": "docs/report/atlas/source-files/capture.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json",
+        "synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json",
+        "synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json": "docs/report/synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json",
+        "pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json",
+        "pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt",
+        "vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json",
+        "vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt"
+      },
+      "source_arguments": [],
+      "timeout_seconds": 40
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.chronology_annotations.cli",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/chronology-claim-review/native-annotation-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-claim-review/native-annotations.json"
+      },
+      "timeout_seconds": 60,
+      "artifact_output_flag": "--retained-artifacts-root"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.landscape_context.publication",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "countries/sweden/observed-pollen-trajectory/geodesic-context",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/geodesic-sensitivity.json": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-sensitivity.json",
+        "source-products/geodesic-window-cells.csv": "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/pair-counting",
+      "module": "bijux_pollenomics_dev.source_completion.literal_pair_trajectory.publication",
+      "source_paths": {
+        "pair-counting.json": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json",
+        "pair-counting-source.json": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "external_source_descriptor": "configs/ci/report-sources/swedish-literal-pair-counting.json",
+      "timeout_seconds": 60
+    },
+    {
+      "owner_id": "source-relations/raa/native-lead-support/products",
+      "module": "bijux_pollenomics_dev.source_completion.archaeology.native_lead_support.cli",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/raa-native-lead-support.json",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/raa/native-lead-support/report.json",
+        "source-products/source-account.json": "docs/report/source-relations/raa/native-lead-support/source-account.json"
+      },
+      "artifact_output_flag": "--retained-artifacts-root",
+      "timeout_seconds": 180
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

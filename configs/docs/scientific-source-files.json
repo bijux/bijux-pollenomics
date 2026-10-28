@@ -1,0 +1,111 @@
+{
+  "schema_version": "scientific-source-files.v1",
+  "scope": "Exactly fifteen first-party maintained source/protocol/custody/derived browser-manifest attachments for existing scientific readers. SHA-256, byte length and Git blob IDs describe copied bytes; historical commit/ancestry qualification is retained separately by the actual source execution account. No native raw source/workbook/sample grids/screenshots/download members or source-rights decision.",
+  "files": [
+    {
+      "source": "data/atlas/source-view-capture/capture.json",
+      "destination": "docs/report/atlas/source-files/capture.json",
+      "sha256": "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd",
+      "bytes": 368759,
+      "git_blob": "3b75cc42809b7e357fcdf1e69f7287542cad2aed"
+    },
+    {
+      "source": "data/synthetic-validation/finite-count-coverage/execution-custody.json",
+      "destination": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/execution-custody.json",
+      "sha256": "a99c15d2502ff5fa54f5fc2c0e13c56a368c04af2ffbf2b0e958f5bf6fd833c1",
+      "bytes": 22680,
+      "git_blob": "847c38ed521379f1dc26e41b0021db8c071ca13b"
+    },
+    {
+      "source": "data/synthetic-validation/finite-count-coverage/independent-review.json",
+      "destination": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/independent-review.json",
+      "sha256": "aad55dcb279a33c23ef8fd046e502a1501eb5fe24011ba814494ec46ea0225ce",
+      "bytes": 859,
+      "git_blob": "4aa6f93557b07f4f7e263b6ecdc1417836b3d923"
+    },
+    {
+      "source": "data/synthetic-validation/finite-count-coverage/manifest.json",
+      "destination": "docs/report/synthetic-validation/recovery-evidence/source-files/finite-count-coverage/manifest.json",
+      "sha256": "e26177ae94110418f011a9a3a821ed1a5735dedeb3ec524be36baa8f1d8bdbbc",
+      "bytes": 1799,
+      "git_blob": "6e5b6c2037cd02e78902a0bae5399e3194ab597b"
+    },
+    {
+      "source": "data/synthetic-validation/two-taxon-counting/manifest.json",
+      "destination": "docs/report/synthetic-validation/recovery-evidence/source-files/two-taxon-counting/manifest.json",
+      "sha256": "d37be762b00efcb2dfaa4aab45e05fe0d65b9641f2b69670118238b313889a94",
+      "bytes": 1774,
+      "git_blob": "489f83fe5df6e0b98dde3ab93293499057698f51"
+    },
+    {
+      "source": "reports/science/krageholm-static-geometry-sensitivity/counting-protocol.json",
+      "destination": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/counting-protocol.json",
+      "sha256": "6462917728217efebdd832da111e0c9ea24120aa0638a36653847c67de03a425",
+      "bytes": 5789,
+      "git_blob": "c45758904859be35e1812e335c2d3f907aa742c3"
+    },
+    {
+      "source": "reports/science/krageholm-static-geometry-sensitivity/paired-covariance-protocol.json",
+      "destination": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/paired-covariance-protocol.json",
+      "sha256": "184ca490822dcd396d4eed0a1546e292541bb41dc48c1d4e4a30aecb5f13fee4",
+      "bytes": 3242,
+      "git_blob": "2783cfcf5f19d9bead8bdab3dc7a103172dde5ac"
+    },
+    {
+      "source": "reports/science/krageholm-static-geometry-sensitivity/source-custody.json",
+      "destination": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/source-custody.json",
+      "sha256": "0abd87a5a74335501b538c238cd04f7cc5300b7d0da708d4b3bdcc5b27ce8b54",
+      "bytes": 719,
+      "git_blob": "8f3c8e8baa3f2ec895322ad8f0d50391a1c24797"
+    },
+    {
+      "source": "reports/science/krageholm-static-geometry-sensitivity/wind-protocol.json",
+      "destination": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json",
+      "sha256": "2152fde730bc4a80ba7b919ece7351a89bc3d4c1a947b27a660b2245be8e7b90",
+      "bytes": 5249,
+      "git_blob": "338e1fb69dd4e8edbf9861bba3afeaaf61d797d3"
+    },
+    {
+      "source": "reports/science/swedish-native-chronology-contrast/aliquot-protocol.json",
+      "destination": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/aliquot-protocol.json",
+      "sha256": "40ae33ff37f64253b317e8aadfe59f4ffbacc00a2c9c32c4564ae2460fe8ed74",
+      "bytes": 21672,
+      "git_blob": "3b8f00c84f362a375669905c98be78dda73acef1"
+    },
+    {
+      "source": "reports/science/swedish-native-chronology-contrast/paired_uncertainty.py",
+      "destination": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/paired_uncertainty.py.txt",
+      "sha256": "c4a29c317ca818e8a1a8f3a36db0016efc5bdb56de439d70588e3102575085ba",
+      "bytes": 13053,
+      "git_blob": "9a2fd6527cd3356fbf9d5b4d56a56649f0c9372f"
+    },
+    {
+      "source": "reports/science/swedish-native-chronology-contrast/protocol.json",
+      "destination": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/protocol.json",
+      "sha256": "0a946428c5bbe139e3f58d38d5977b0597c56f302b02fde84ac6c41b42d9d503",
+      "bytes": 1219,
+      "git_blob": "bbb47b8f3faa503d685e3ac8fd9e7c3cf18b62b7"
+    },
+    {
+      "source": "reports/science/swedish-native-chronology-contrast/qualify.py",
+      "destination": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/source-files/qualify.py.txt",
+      "sha256": "4d06db4ce402507800deed94b91cebc0f929e66ae8d8c8f0239014267e65b779",
+      "bytes": 16869,
+      "git_blob": "370d4c9bf2a67bc180313e1bb41444684c9fb822"
+    },
+    {
+      "source": "reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json",
+      "destination": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/input-custody.json",
+      "sha256": "c46b404ccaab62a88adc9616f3c2e42aed8fc83e9055934379e08ab2e74d9be4",
+      "bytes": 2200,
+      "git_blob": "5c2f03cc40c916e10c2b15aeba85e7352fe597da"
+    },
+    {
+      "source": "reports/science/vegetation-reference/pyrenees-botanical-projection/replay.py",
+      "destination": "docs/report/vegetation-reference/pyrenees-botanical-projection/source-files/replay.py.txt",
+      "sha256": "7e04d9d37956bd3dba32952502b567dbfc7aa4354e9115ef5cda3b27f680210f",
+      "bytes": 12027,
+      "git_blob": "d8e0d5e29b5a6706a39ad7d08a0dc2a62c475158"
+    }
+  ]
+}

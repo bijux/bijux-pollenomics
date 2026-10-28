@@ -6,6 +6,8 @@ from types import SimpleNamespace
 
 import pytest
 
+from bijux_pollenomics.adna.domain.models.chronology import AdnaChronology
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.analysis.fieldwork import land_use
 
 
@@ -67,6 +69,13 @@ def test_composite_helpers_resolve_facade_helpers(
                 coordinates=SimpleNamespace(latitude=0.0, longitude=0.0),
                 chronology=SimpleNamespace(time_start_bp=0, time_end_bp=100),
                 sample_count=2,
+                sample_ids=("one", "two"),
+                sample_chronologies=tuple(
+                    AdnaSampleChronologySupport(
+                        sample_id, AdnaChronology("source", 0, 100, 50)
+                    )
+                    for sample_id in ("one", "two")
+                ),
             ),
         ),
         time_start_bp=0,

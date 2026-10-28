@@ -1,0 +1,66 @@
+{
+  "lineage-three-zero.json": {
+    "sha256": "a78db4e8aea1d975cb513a6bc179fff8b8625d140d9a783b6a5577f81a8d67b8",
+    "bytes": 1618782
+  },
+  "lineage-three-one.json": {
+    "sha256": "46c18d0dc4eb13dbf22264864f5a2e7dfd4fc6713506902f94c6af44a56176b7",
+    "bytes": 1616220
+  },
+  "lineage-plan.json": {
+    "sha256": "862ee6f68a982e73f5a22b6356324b47b9b71b1a365de52804aa9ce4b546bcd7",
+    "bytes": 619163
+  },
+  "lineage-terminal.json": {
+    "sha256": "bf45e3c6a3bc78f9128498b7d6c31a50868e6903b33cf3a3d918321304cc065c",
+    "bytes": 2474
+  },
+  "lineage-result.json": {
+    "sha256": "66cf4b8ab8b220ff540c32110c93de38f6b0d7765369eb3260bf9d6f4bb91bfd",
+    "bytes": 31564
+  },
+  "archive-metadata.json": {
+    "sha256": "8f7dc38fad31080a3df2256a06d3229d1b94659d591f7cdb8358ef6ca3260883",
+    "bytes": 8387
+  },
+  "bdtfx-three-zero.zip": {
+    "sha256": "54d02b8ea2148417d873ce1a4084b8ab9f44c6f72068f5a4b9497444267ab40f",
+    "bytes": 7507992
+  },
+  "bdtfx-three-one.zip": {
+    "sha256": "a0403035ee524a5a9d02e234716c8cbfc601ddc58506980c9320699321718b05",
+    "bytes": 6961338
+  },
+  "original-taxa-classes.json": {
+    "sha256": "d2ed436ebfba8e03144c6b7796848b8e73471a241545cf66a52e4c27c1a64c46",
+    "bytes": 132183
+  },
+  "stored-source-cells.json": {
+    "sha256": "477e3d3a16ea46a17cf97443a42d479a34f3adb7afa677ef2de5bbd8e2a977a3",
+    "bytes": 11898447
+  },
+  "stored-source-receipt.json": {
+    "sha256": "b4e0aecc1b97b5314cb26987580fc121efcb151a5a8f7707f072dd0f439d9a40",
+    "bytes": 1158
+  },
+  "literal-source-join.json": {
+    "sha256": "5f61866030b796259c090a5b736b60d00dadd67c33ef15de5cf38c3250445b18",
+    "bytes": 5330
+  },
+  "literal-source-join-receipt.json": {
+    "sha256": "b15c83b4a2b6db304ef9b2bf8956407dae8752dbd7d2e997bbd174d9912a395a",
+    "bytes": 1530
+  },
+  "original-botanical.ods": {
+    "sha256": "872b19e36745757d57ff6bf44f0efa9f7315c7184c4019cb00517606ab1956c0",
+    "bytes": 117076
+  },
+  "source-interpretation.json": {
+    "sha256": "28f2e8f16bbee99225151db065309abddeb99acb5c9989a60fe85558df92c787",
+    "bytes": 187870
+  },
+  "approved-prospect.json": {
+    "sha256": "614399d286aeb1345330a8ca2a324fc07977e95d0528db34344ce12b8638f2b0",
+    "bytes": 7001
+  }
+}

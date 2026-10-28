@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
+from dataclasses import replace
 import json
 from pathlib import Path
-from typing import Any, TypedDict
+from typing import Any
 
 import pytest
 
@@ -16,12 +18,54 @@ from bijux_pollenomics_dev.source_completion.method_certification import (
 )
 
 
-class _ConsumerDeclaration(TypedDict):
-    owner_id: str
-    role: str
-    paths: list[str]
-    producer_paths: list[str]
-    producer_inputs: list[str]
+def _consumer_declaration(profile: str = "annulus") -> dict[str, Any]:
+    """Declare own code/data strings with the real role classes and no retained payload."""
+    code = sorted(
+        {
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py",
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
+            "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
+            "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
+            *[f"packages/constructed/input_{index:03d}.py" for index in range(109)],
+        }
+    )
+    data = sorted(
+        {
+            "configs/ci/report-ownership.json",
+            "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+            "configs/ci/report-capture-projections/native-finite-generated-source.json",
+            "configs/ci/source-retention/index.json",
+            "data/atlas/source-view-capture/capture.json",
+            "data/atlas/source-view-capture/source-transport.json",
+            f"data/method-certification/native-r-{profile}/capture/capture.json",
+            f"data/method-certification/native-r-{profile}/capture/oracle/C0000.csv",
+            *(
+                [
+                    "data/method-certification/native-r-finite-covariance/source-transport.json"
+                ]
+                if profile == "finite-covariance"
+                else []
+            ),
+            *[
+                f"data/constructed/input_{index:03d}.json"
+                for index in range(281 if profile == "finite-covariance" else 282)
+            ],
+        }
+    )
+    assert (len(code), len(data)) == (116, 290)
+    return {
+        "owner_id": "method-certification/current-r-oracle/report-products",
+        "role": "generated_owner",
+        "paths": [
+            "docs/report/method-certification/current-r-oracle/report.json",
+            "docs/report/method-certification/current-r-oracle/source-replay.json",
+        ],
+        "producer_paths": code,
+        "producer_inputs": data,
+    }
 
 
 @pytest.fixture
@@ -31,21 +75,7 @@ def comparison(
     """Provide comparison for the retained source contract."""
     repository = tmp_path / "repository"
     repository.mkdir()
-    maintained = (
-        Path(__file__).resolve().parents[5] / "configs/ci/report-ownership.json"
-    )
-    policy = json.loads(maintained.read_text())
-    declaration: _ConsumerDeclaration = next(
-        row
-        for row in policy["owners"]
-        if row["owner_id"] == "method-certification/current-r-oracle/report-products"
-    )
-    assert len(declaration["producer_paths"]) == 99
-    assert len(declaration["producer_inputs"]) == 287
-    assert {name for name in declaration["producer_paths"] if name.endswith(".R")} == {
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
-    }
+    declaration = _consumer_declaration()
     # Exercise the default historical profile independently of the configured
     # current-owner profile; both contracts declare their actual selected packet.
     declaration["producer_inputs"] = [
@@ -55,7 +85,7 @@ def comparison(
     for name in declaration["producer_paths"] + declaration["producer_inputs"]:
         path = repository / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(b"synthetic declared input")
+        path.write_bytes(b"")
     (repository / "configs/ci/report-ownership.json").write_text(
         json.dumps({"owners": [declaration]})
     )
@@ -123,7 +153,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         )
         assert "consumer_source_revision" not in report
         assert "source_revision" not in report
-        assert len(report["consumer_inputs"]["code_sha256"]) == 99
+        assert len(report["consumer_inputs"]["code_sha256"]) == 116
         assert (
             report["consumer_inputs"]["capture_manifest_sha256"]
             == source.manifest_sha256
@@ -345,6 +375,8 @@ def test_protected_consumer_mutation_refuses_publication(
         "data-count",
         "alias",
         "escape",
+        "layout-code-role",
+        "layout-data-role",
     ],
 )
 def test_consumer_contract_refuses_before_comparison(
@@ -368,6 +400,16 @@ def test_consumer_contract_refuses_before_comparison(
         row["producer_inputs"].remove("configs/ci/report-ownership.json")
     elif condition == "data-count":
         row["producer_inputs"].pop()
+    elif condition == "layout-code-role":
+        source = next(iter(producer._LAYOUT_CODE_INPUTS))
+        row["producer_paths"][row["producer_paths"].index(source)] = (
+            "packages/unrelated.py"
+        )
+    elif condition == "layout-data-role":
+        source = next(iter(producer._LAYOUT_STATIC_DATA))
+        row["producer_inputs"][row["producer_inputs"].index(source)] = (
+            "data/unrelated.json"
+        )
     elif condition == "escape":
         row["producer_inputs"][1] = "../outside"
     else:
@@ -394,14 +436,13 @@ def test_selected_capture_profile_binds_consumer_data_and_output(
     repository, output, source, _ = comparison
     policy_path = repository / "configs/ci/report-ownership.json"
     policy = json.loads(policy_path.read_text())
-    inputs = policy["owners"][0]["producer_inputs"]
-    for index, name in enumerate(inputs):
-        selected = name.replace("native-r-annulus/", f"native-r-{profile}/")
-        if selected != name:
-            path = repository / selected
+    inputs = _consumer_declaration(profile)["producer_inputs"]
+    policy["owners"][0]["producer_inputs"] = inputs
+    for name in inputs:
+        path = repository / name
+        if not path.exists():
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes((repository / name).read_bytes())
-            inputs[index] = selected
+            path.write_bytes(b"")
     policy_path.write_text(json.dumps(policy))
     selected_profiles: list[str] = []
 
@@ -410,6 +451,16 @@ def test_selected_capture_profile_binds_consumer_data_and_output(
         return source
 
     monkeypatch.setattr(producer, "validated_current_capture", validate)
+    if profile == "finite-covariance":
+        original: Callable[..., dict[str, Any]] = vars(producer)["summarize"]
+
+        def retained_summary(
+            *paths: Path, retained_capture_profile: str
+        ) -> dict[str, Any]:
+            assert retained_capture_profile == "finite-covariance"
+            return original(*paths)
+
+        monkeypatch.setattr(producer, "summarize", retained_summary)
     result = producer.build(repository, output, capture_profile=profile)  # type: ignore[arg-type]
     assert selected_profiles == [profile, profile]
     assert result["native_capture_profile"] == profile
@@ -418,3 +469,139 @@ def test_selected_capture_profile_binds_consumer_data_and_output(
         f"data/method-certification/native-r-{profile}/capture/capture.json"
         in result["consumer_inputs"]["data_sha256"]
     )
+
+
+def test_configured_finite_comparison_explicitly_selects_source_authentication(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The configured finite recipe opts in while legacy profiles keep strict defaults."""
+    repository, output, _, calls = comparison
+    policy_path = repository / "configs/ci/report-ownership.json"
+    policy = json.loads(policy_path.read_text())
+    declaration = policy["owners"][0]
+    declaration["producer_inputs"] = _consumer_declaration("finite-covariance")[
+        "producer_inputs"
+    ]
+    for name in declaration["producer_inputs"]:
+        path = repository / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"")
+    policy_path.write_text(json.dumps(policy))
+    original: Callable[..., dict[str, Any]] = vars(producer)["summarize"]
+    selectors = []
+
+    def summarize(*paths: Path, retained_capture_profile: str) -> dict[str, Any]:
+        selectors.append(retained_capture_profile)
+        return original(*paths)
+
+    monkeypatch.setattr(producer, "summarize", summarize)
+    result = producer.build(repository, output, capture_profile="finite-covariance")
+    assert selectors == ["finite-covariance"]
+    assert len(calls) == 1
+    assert result["native_capture_profile"] == "finite-covariance"
+    assert result["fresh_R_executed_for_this_comparison"] is False
+
+
+@pytest.mark.parametrize("defect", ["missing_file", "replaced_declaration"])
+def test_finite_source_transport_is_required_without_changing_cardinality(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    defect: str,
+) -> None:
+    """Only finite covariance uses the installed descriptor; its role is mandatory."""
+    repository, output, _, calls = comparison
+    declaration = _consumer_declaration("finite-covariance")
+    for name in declaration["producer_inputs"]:
+        path = repository / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"")
+    descriptor = (
+        "data/method-certification/native-r-finite-covariance/source-transport.json"
+    )
+    if defect == "missing_file":
+        (repository / descriptor).unlink()
+    else:
+        replacement = "data/constructed/other-transport.json"
+        (repository / replacement).write_bytes(b"{}")
+        inputs = declaration["producer_inputs"]
+        inputs[inputs.index(descriptor)] = replacement
+    (repository / "configs/ci/report-ownership.json").write_text(
+        json.dumps({"owners": [declaration]})
+    )
+    with pytest.raises(ValueError):
+        producer.build(repository, output, capture_profile="finite-covariance")
+    assert calls == []
+
+
+@pytest.mark.parametrize("missing", ["one", "all"])
+def test_detached_finite_programs_refuse_before_source_collection_or_copy(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+    missing: str,
+) -> None:
+    """Refuse before either callback can write a partial evidence/output tree."""
+    repository, output, original, calls = comparison
+    names = [
+        "oracle/oracle.R",
+        "source-domains/r_support.R",
+        "source-domains/run_source_domains.py",
+        "source-domains/source_domains.R",
+    ]
+    source = replace(original, raw_sha256=dict.fromkeys(names, "a" * 64))
+    if missing == "one":
+        for name in names[1:]:
+            path = source.directory / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"# own native program fixture\n")
+    monkeypatch.setattr(
+        producer, "validated_current_capture", lambda _, *, profile: source
+    )
+    source_calls: list[object] = []
+
+    def forbidden(*args: object, **kwargs: object) -> Any:
+        source_calls.append((args, kwargs))
+        pytest.fail(
+            "detached program refusal must precede input collection and comparison/copy"
+        )
+
+    monkeypatch.setattr(producer, "_consumer_inputs", forbidden)
+    monkeypatch.setattr(producer, "summarize", forbidden)
+    with pytest.raises(ValueError, match="detached source programs are unsupported"):
+        producer.build(repository, output, capture_profile="finite-covariance")
+    assert source_calls == []
+    assert calls == []
+    assert not output.exists()
+    assert not (output.parent.parent / "native-comparison").exists()
+
+
+@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+def test_complete_legacy_profiles_keep_ordinary_comparison_callbacks(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+    profile: str,
+) -> None:
+    """The finite-only source boundary does not change legacy validated captures."""
+    repository, output, _, calls = comparison
+    declaration = _consumer_declaration(profile)
+    for name in declaration["producer_inputs"]:
+        path = repository / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"")
+    (repository / "configs/ci/report-ownership.json").write_text(
+        json.dumps({"owners": [declaration]})
+    )
+    collected: list[str] = []
+    original = producer._consumer_inputs
+
+    def observed(root: Path, digest: str, selected: Any) -> Any:
+        collected.append(selected)
+        return original(root, digest, selected)
+
+    monkeypatch.setattr(producer, "_consumer_inputs", observed)
+    producer.build(repository, output, capture_profile=profile)  # type: ignore[arg-type]
+    assert collected == [profile, profile]
+    assert len(calls) == 1
+    assert output.is_dir()

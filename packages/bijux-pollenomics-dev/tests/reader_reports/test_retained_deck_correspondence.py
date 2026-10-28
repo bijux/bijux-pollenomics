@@ -50,15 +50,50 @@ class _Fixture:
             f"presentation/{name}.pdf": ("%PDF-" + name).encode()
             for name in ("a", "b", "c")
         }
+        for name in ("readers/reader-0.md", "readers/reader-1.md"):
+            self.current[name] += b" own committed review wording"
+        self.build_record = {
+            "accepted_revision": "d" * 40,
+            "source_revision": "e" * 40,
+            "source_lock_path": "presentation/source-lock.json",
+            "source_lock_sha256": self.sha(self.lock),
+            "source_count": 121,
+            "native_terminal_sha256": "f" * 64,
+            "pdf_sha256": {p: self.sha(v) for p, v in self.pdfs.items()},
+            "scope": "Own declared retained PDF byte fixture; no compiler execution.",
+        }
+        self.previous_record = {
+            "context_path": "presentation/retained-source-context.json",
+            "context_sha256": self.sha(self.previous_raw),
+            "source_revision": self.previous["source_revision"],
+            "source_lock_sha256": self.sha(self.previous_lock),
+            "source_count": 98,
+            "scope": "Own original source epoch metadata; no captured source input.",
+        }
         self.context = {
+            "schema_version": "retained-deck-current-source-correspondence.v1",
+            "previous_deck_epoch": self.previous_record,
+            "qualification": "Own descriptive review text grants no scientific or publication admission.",
+            "reviewed_deltas": [
+                {
+                    "path": p,
+                    "retained_sha256": self.sha(self.historical[p]),
+                    "current_sha256": self.sha(self.current[p]),
+                    "review": "Own controlled maintained-reader wording change only.",
+                }
+                for p in sorted(self.current)
+                if self.current[p] != self.historical[p]
+            ],
             "current_source_sha256": {
-                p: self.sha(v) for p, v in self.historical.items()
+                p: self.sha(self.current.get(p, v)) for p, v in self.historical.items()
             },
-            "retained_build": {
-                "pdf_sha256": {p: self.sha(v) for p, v in self.pdfs.items()}
-            },
+            "retained_build": self.build_record,
         }
         self.context_raw = json.dumps(self.context).encode()
+        self.committed_context_raw = self.context_raw
+        self.head_calls = 0
+        self.head_changes = False
+        self.context_changes = False
         self.witness_lock = self.lock
         self.witness = "b" * 40
         self.head = "c" * 40
@@ -76,7 +111,9 @@ class _Fixture:
             target.write_bytes(v)
         self.scope.update(
             RETAINED_BUILD_CONTEXT_PATH="presentation/retained-build-source-context.json",
-            RETAINED_BUILD_CONTEXT_SHA256=self.sha(self.context_raw),
+            RETAINED_BUILD_CONTEXT_SCHEMA="retained-deck-current-source-correspondence.v1",
+            RETAINED_BUILD_RECORD=self.build_record,
+            RETAINED_PREVIOUS_DECK_EPOCH=self.previous_record,
             RETAINED_BUILD_LOCK_SHA256=self.sha(self.lock),
             RETAINED_BUILD_WITNESS=self.witness,
             RETIRED_DECK_REGISTER="reports/needed/README.md",
@@ -105,7 +142,12 @@ class _Fixture:
                 for p in paths
             }
         assert revision == self.head
-        return {p: self.current[p] for p in paths}
+        return {
+            p: self.committed_context_raw
+            if p == "presentation/retained-build-source-context.json"
+            else self.current[p]
+            for p in paths
+        }
 
     def git(self, root: Path, *args: str) -> bytes:
         if args[0] == "merge-base":
@@ -113,8 +155,15 @@ class _Fixture:
                 raise subprocess.CalledProcessError(1, ["git", *args])
             return b""
         if args[0] == "rev-parse":
-            return self.head.encode() + b"\n"
+            self.head_calls += 1
+            selected = (
+                "0" * 40 if self.head_changes and self.head_calls > 1 else self.head
+            )
+            return selected.encode() + b"\n"
         assert args[0] == "ls-tree"
+        if self.context_changes:
+            path = self.root / "presentation/retained-build-source-context.json"
+            path.write_bytes(path.read_bytes() + b"\n")
         return b"".join(
             (
                 ("100755" if self.mode_changed and i == 0 else "100644")
@@ -236,8 +285,7 @@ def test_retained_build_context_custody_is_independent_of_current_dispatch(
     elif mutation == "duplicate":
         raw = deck.context_raw.replace(b"{", b'{"current_source_sha256":{},', 1)
         path.write_bytes(raw)
-        # Isolate the duplicate-object contract after byte authentication.
-        deck.scope["RETAINED_BUILD_CONTEXT_SHA256"] = deck.sha(raw)
+        # The finite JSON parser refuses duplicates before consulting Git custody.
     else:
         changed = json.loads(deck.context_raw)
         if mutation == "unknown":
@@ -290,4 +338,100 @@ def test_original_and_build_source_locks_preserve_exact_population(
         (deck.root / "presentation/source-lock.json").write_bytes(deck.lock)
         deck.scope["RETAINED_BUILD_LOCK_SHA256"] = deck.sha(deck.lock)
     with pytest.raises(ValueError):
+        deck.call()
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "unknown_leaf",
+        "build_leaf",
+        "build_count_float",
+        "epoch_count_float",
+        "epoch_leaf",
+        "source_path",
+        "source_hash",
+        "source_map_type",
+        "review_leaf",
+        "review_type",
+        "review_hash",
+        "delta_duplicate",
+        "delta_order",
+        "qualification_type",
+    ],
+)
+def test_committed_source_context_has_strict_finite_schema(
+    deck: _Fixture, mutation: str
+) -> None:
+    context = json.loads(deck.context_raw)
+    if mutation == "unknown_leaf":
+        context["unknown"] = True
+    elif mutation == "build_leaf":
+        context["retained_build"]["unknown"] = True
+    elif mutation == "build_count_float":
+        context["retained_build"]["source_count"] = 121.0
+    elif mutation == "epoch_count_float":
+        context["previous_deck_epoch"]["source_count"] = 98.0
+    elif mutation == "epoch_leaf":
+        context["previous_deck_epoch"]["unknown"] = True
+    elif mutation == "source_path":
+        context["current_source_sha256"]["../private.json"] = "0" * 64
+    elif mutation == "source_hash":
+        context["current_source_sha256"]["reports/README.md"] = True
+    elif mutation == "source_map_type":
+        context["current_source_sha256"] = []
+    elif mutation == "review_leaf":
+        context["reviewed_deltas"][0]["unknown"] = True
+    elif mutation == "review_type":
+        context["reviewed_deltas"][0]["review"] = True
+    elif mutation == "review_hash":
+        context["reviewed_deltas"][0]["current_sha256"] = "0" * 64
+    elif mutation == "delta_duplicate":
+        context["reviewed_deltas"].append(context["reviewed_deltas"][0])
+    elif mutation == "delta_order":
+        context["reviewed_deltas"].reverse()
+    else:
+        context["qualification"] = True
+    with pytest.raises(ValueError, match="source context"):
+        deck.scope["_validated_retained_build_context"](json.dumps(context).encode())
+
+
+def test_finite_context_retains_original_epochs_without_digest_constant(
+    deck: _Fixture,
+) -> None:
+    """Fixed native epoch leaves are typed; ordinary context prose is not a digest gate."""
+    context = deck.scope["_validated_retained_build_context"](deck.context_raw)
+    assert context["retained_build"] == deck.build_record
+    assert context["previous_deck_epoch"] == deck.previous_record
+    assert "RETAINED_BUILD_CONTEXT_SHA256" not in deck.scope
+    assert "CURRENT_DECK_CONTEXT_SHA256" not in deck.scope
+
+
+@pytest.mark.parametrize(
+    "mutation", ["committed_context", "head", "context_in_flight", "context_during_pdf"]
+)
+def test_context_custody_refuses_committed_or_in_flight_changes(
+    deck: _Fixture,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    """The same context object and HEAD cover the complete read, including PDFs."""
+    if mutation == "committed_context":
+        deck.committed_context_raw += b"\n"
+    elif mutation == "head":
+        deck.head_changes = True
+    elif mutation == "context_in_flight":
+        deck.context_changes = True
+    else:
+        original = deck.scope["_read"]
+
+        def changed(root: Path, relative: str) -> bytes:
+            raw = cast(bytes, original(root, relative))
+            if relative == "presentation/c.pdf":
+                path = root / "presentation/retained-build-source-context.json"
+                path.write_bytes(path.read_bytes() + b"\n")
+            return raw
+
+        monkeypatch.setitem(deck.scope, "_read", changed)
+    with pytest.raises(ValueError, match="source context"):
         deck.call()

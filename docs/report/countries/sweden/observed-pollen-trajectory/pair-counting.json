@@ -1,0 +1,1021 @@
+{
+  "source": {
+    "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+    "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+    "datasets": {
+      "53995": "28869",
+      "54001": "28872"
+    }
+  },
+  "taxa": [
+    "Alnus",
+    "Plantago lanceolata"
+  ],
+  "family_native_sample_population": 121,
+  "family_exact_max_error": "1/20",
+  "binary64_confidence": 0.9995867768595041,
+  "actual_union_bound_fraction": "112589990684259/2251799813685248",
+  "coverage": [
+    {
+      "dataset_id": "53995",
+      "all_native_samples": 69,
+      "admitted_samples": 37,
+      "unresolved_age_samples": 0,
+      "outside_declared_bins": 21,
+      "refusal_reason_occurrences": {
+        "Alnus:absent_native_datum": 5,
+        "Plantago lanceolata:absent_native_datum": 32,
+        "native_point_outside_declared_bins": 21
+      },
+      "observed_complete_pair_count_mass": 7931,
+      "admitted_pair_count_mass": 7931
+    },
+    {
+      "dataset_id": "54001",
+      "all_native_samples": 52,
+      "admitted_samples": 43,
+      "unresolved_age_samples": 0,
+      "outside_declared_bins": 0,
+      "refusal_reason_occurrences": {
+        "Plantago lanceolata:absent_native_datum": 9
+      },
+      "observed_complete_pair_count_mass": 5484,
+      "admitted_pair_count_mass": 5484
+    }
+  ],
+  "transitions": [
+    {
+      "dataset_id": "53995",
+      "before_bin": -1,
+      "after_bin": 0,
+      "available": true,
+      "lower": -0.6244531801183828,
+      "upper": 0.395741579837874,
+      "point": -0.18911882058564955,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 0,
+      "after_bin": 1,
+      "available": true,
+      "lower": -0.30363044588807775,
+      "upper": 0.42342874098543754,
+      "point": 0.0574827725601903,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 1,
+      "after_bin": 2,
+      "available": true,
+      "lower": -0.24218334306274436,
+      "upper": 0.3290397673411676,
+      "point": 0.041936789642457284,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 2,
+      "after_bin": 3,
+      "available": true,
+      "lower": -0.15696171632288758,
+      "upper": 0.3114895083706408,
+      "point": 0.08066495866883294,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 3,
+      "after_bin": 4,
+      "available": true,
+      "lower": -0.2374829882644779,
+      "upper": 0.23509507402868757,
+      "point": 0.002582686810943202,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 4,
+      "after_bin": 5,
+      "available": true,
+      "lower": -0.19196370412957653,
+      "upper": 0.24938166323556754,
+      "point": 0.023821339950372167,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 5,
+      "after_bin": 6,
+      "available": true,
+      "lower": 0.12710543663138119,
+      "upper": 0.3569598510001333,
+      "point": 0.24380863695817168,
+      "direction": "positive"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 6,
+      "after_bin": 7,
+      "available": true,
+      "lower": -0.03677247249105231,
+      "upper": 0.041735396379669276,
+      "point": 0.002698308921203929,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 7,
+      "after_bin": 8,
+      "available": false,
+      "direction": "unavailable"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 8,
+      "after_bin": 9,
+      "available": false,
+      "direction": "unavailable"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 9,
+      "after_bin": 10,
+      "available": true,
+      "lower": -0.1132530771875202,
+      "upper": 0.015962129142306325,
+      "point": -0.041607023570951474,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "53995",
+      "before_bin": 10,
+      "after_bin": 11,
+      "available": false,
+      "direction": "unavailable"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": -1,
+      "after_bin": 0,
+      "available": true,
+      "lower": -0.2990350919787279,
+      "upper": 0.2152797361075509,
+      "point": -0.03866019417475719,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 0,
+      "after_bin": 1,
+      "available": true,
+      "lower": -0.22598512366639023,
+      "upper": 0.2846778271575384,
+      "point": 0.009914431462892836,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 1,
+      "after_bin": 2,
+      "available": true,
+      "lower": -0.1420356560687578,
+      "upper": 0.22960414302604215,
+      "point": 0.03346371142981308,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 2,
+      "after_bin": 3,
+      "available": true,
+      "lower": -0.09016960103032234,
+      "upper": 0.1590823187250201,
+      "point": 0.029567765567765636,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 3,
+      "after_bin": 4,
+      "available": true,
+      "lower": -0.1365914982047507,
+      "upper": 0.09024490902373705,
+      "point": -0.026362637362637442,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 4,
+      "after_bin": 5,
+      "available": true,
+      "lower": -0.098053828485418,
+      "upper": 0.13632263316659843,
+      "point": 0.02534965034965042,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 5,
+      "after_bin": 6,
+      "available": true,
+      "lower": -0.07623643415770776,
+      "upper": 0.10653841045077028,
+      "point": 0.006598240469208205,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 6,
+      "after_bin": 7,
+      "available": true,
+      "lower": -0.10087686820832586,
+      "upper": 0.07822716705480981,
+      "point": 0.006420294393986836,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 7,
+      "after_bin": 8,
+      "available": true,
+      "lower": -0.08436746444071663,
+      "upper": 0.1013352117109847,
+      "point": -0.003759275603935852,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 8,
+      "after_bin": 9,
+      "available": true,
+      "lower": -0.059860576797550746,
+      "upper": 0.08401870362868757,
+      "point": 0.004793911857108979,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 9,
+      "after_bin": 10,
+      "available": true,
+      "lower": -0.06194064219250395,
+      "upper": 0.05876646769653748,
+      "point": -0.005495938874925388,
+      "direction": "indeterminate"
+    },
+    {
+      "dataset_id": "54001",
+      "before_bin": 10,
+      "after_bin": 11,
+      "available": false,
+      "direction": "unavailable"
+    }
+  ],
+  "joint_lake_relations": [
+    {
+      "before_bin": -1,
+      "after_bin": 0,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 0,
+      "after_bin": 1,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 1,
+      "after_bin": 2,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 2,
+      "after_bin": 3,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 3,
+      "after_bin": 4,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 4,
+      "after_bin": 5,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 5,
+      "after_bin": 6,
+      "directions": [
+        "positive",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 6,
+      "after_bin": 7,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 7,
+      "after_bin": 8,
+      "directions": [
+        "unavailable",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 8,
+      "after_bin": 9,
+      "directions": [
+        "unavailable",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 9,
+      "after_bin": 10,
+      "directions": [
+        "indeterminate",
+        "indeterminate"
+      ],
+      "relation": "unsupported"
+    },
+    {
+      "before_bin": 10,
+      "after_bin": 11,
+      "directions": [
+        "unavailable",
+        "unavailable"
+      ],
+      "relation": "unsupported"
+    }
+  ],
+  "scenario": {
+    "fixed_deposition": [
+      1,
+      1
+    ],
+    "fixed_ppe": [
+      1,
+      1
+    ],
+    "weights": "original aliquot pair-count mass",
+    "sampling_model": "conditional per-aliquot two-taxon binomial; no homogeneous pooled probability assumed",
+    "selection_limit": "Simultaneous intervals under declared binomial model; no nominal coverage conditional on data-dependent admission, random observed totals or source representativeness is established.",
+    "comparison_limit": "Different panel, support and uncertainty target from the original48all-NISP/closed16threshold classes; no recertification."
+  },
+  "admissions": {
+    "ecological_accuracy": false,
+    "total_vegetation": false,
+    "physical_LRA": false,
+    "chronology_uncertainty": false,
+    "independent_validation": false,
+    "rights": false,
+    "release": false
+  },
+  "schema_version": "literal-pair-count-trajectory-public.v1",
+  "bins": [
+    {
+      "dataset_id": "53995",
+      "bin_id": -1,
+      "native_sample_count": 3,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 62,
+      "counts": [
+        45,
+        17
+      ],
+      "point": [
+        0.7258064516129032,
+        0.27419354838709675
+      ],
+      "lower": [
+        0.3335605490161225,
+        0.0502472265113279
+      ],
+      "upper": [
+        0.9497527734886722,
+        0.6664394509838776
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 0,
+      "native_sample_count": 8,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 8,
+      "pair_total": 477,
+      "counts": [
+        256,
+        221
+      ],
+      "point": [
+        0.5366876310272537,
+        0.46331236897274636
+      ],
+      "lower": [
+        0.3252995933702894,
+        0.2706978711460036
+      ],
+      "upper": [
+        0.7293021288539965,
+        0.6747004066297106
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 1,
+      "native_sample_count": 4,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 4,
+      "pair_total": 446,
+      "counts": [
+        265,
+        181
+      ],
+      "point": [
+        0.594170403587444,
+        0.40582959641255606
+      ],
+      "lower": [
+        0.42567168296591873,
+        0.2512716656442731
+      ],
+      "upper": [
+        0.7487283343557269,
+        0.5743283170340813
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 2,
+      "native_sample_count": 4,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 4,
+      "pair_total": 709,
+      "counts": [
+        451,
+        258
+      ],
+      "point": [
+        0.6361071932299013,
+        0.3638928067700987
+      ],
+      "lower": [
+        0.5065449912929826,
+        0.24528854969291372
+      ],
+      "upper": [
+        0.7547114503070863,
+        0.4934550087070174
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 3,
+      "native_sample_count": 3,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 632,
+      "counts": [
+        453,
+        179
+      ],
+      "point": [
+        0.7167721518987342,
+        0.28322784810126583
+      ],
+      "lower": [
+        0.5977497339841987,
+        0.18196550033637665
+      ],
+      "upper": [
+        0.8180344996636234,
+        0.4022502660158012
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 4,
+      "native_sample_count": 2,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 2,
+      "pair_total": 310,
+      "counts": [
+        223,
+        87
+      ],
+      "point": [
+        0.7193548387096774,
+        0.2806451612903226
+      ],
+      "lower": [
+        0.5805515113991455,
+        0.1671551919871138
+      ],
+      "upper": [
+        0.8328448080128863,
+        0.41944848860085443
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 5,
+      "native_sample_count": 3,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 806,
+      "counts": [
+        599,
+        207
+      ],
+      "point": [
+        0.7431761786600496,
+        0.25682382133995035
+      ],
+      "lower": [
+        0.6408811038833098,
+        0.17006682536528694
+      ],
+      "upper": [
+        0.8299331746347131,
+        0.3591188961166902
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 6,
+      "native_sample_count": 3,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 1383,
+      "counts": [
+        1365,
+        18
+      ],
+      "point": [
+        0.9869848156182213,
+        0.013015184381778741
+      ],
+      "lower": [
+        0.9570386112660942,
+        0.0021590451165569703
+      ],
+      "upper": [
+        0.997840954883443,
+        0.04296138873390572
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 7,
+      "native_sample_count": 3,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 1357,
+      "counts": [
+        1343,
+        14
+      ],
+      "point": [
+        0.9896831245394252,
+        0.010316875460574797
+      ],
+      "lower": [
+        0.9610684823923907,
+        0.0012259923542365914
+      ],
+      "upper": [
+        0.9987740076457635,
+        0.03893151760760919
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 8,
+      "native_sample_count": 3,
+      "refused_sample_count": 3,
+      "available": false,
+      "sample_count": 0,
+      "pair_total": 0
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 9,
+      "native_sample_count": 4,
+      "refused_sample_count": 1,
+      "available": true,
+      "sample_count": 3,
+      "pair_total": 1497,
+      "counts": [
+        1488,
+        9
+      ],
+      "point": [
+        0.9939879759519038,
+        0.006012024048096192
+      ],
+      "lower": [
+        0.9704556845191612,
+        0.0003762685404999998
+      ],
+      "upper": [
+        0.9996237314595,
+        0.029544315480838742
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 10,
+      "native_sample_count": 5,
+      "refused_sample_count": 4,
+      "available": true,
+      "sample_count": 1,
+      "pair_total": 252,
+      "counts": [
+        240,
+        12
+      ],
+      "point": [
+        0.9523809523809523,
+        0.047619047619047616
+      ],
+      "lower": [
+        0.8863706542719798,
+        0.013582186338532476
+      ],
+      "upper": [
+        0.9864178136614675,
+        0.11362934572802019
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "bin_id": 11,
+      "native_sample_count": 3,
+      "refused_sample_count": 3,
+      "available": false,
+      "sample_count": 0,
+      "pair_total": 0
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": -1,
+      "native_sample_count": 2,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 2,
+      "pair_total": 125,
+      "counts": [
+        118,
+        7
+      ],
+      "point": [
+        0.944,
+        0.056
+      ],
+      "lower": [
+        0.7719446482390417,
+        0.004413271836838991
+      ],
+      "upper": [
+        0.9955867281631611,
+        0.2280553517609582
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 0,
+      "native_sample_count": 8,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 8,
+      "pair_total": 412,
+      "counts": [
+        373,
+        39
+      ],
+      "point": [
+        0.9053398058252428,
+        0.09466019417475728
+      ],
+      "lower": [
+        0.6965516361844332,
+        0.012775615653407355
+      ],
+      "upper": [
+        0.9872243843465927,
+        0.3034483638155669
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 1,
+      "native_sample_count": 5,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 5,
+      "pair_total": 413,
+      "counts": [
+        378,
+        35
+      ],
+      "point": [
+        0.9152542372881356,
+        0.0847457627118644
+      ],
+      "lower": [
+        0.7612392606802024,
+        0.0187705366580285
+      ],
+      "upper": [
+        0.9812294633419716,
+        0.2387607393197975
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 2,
+      "native_sample_count": 6,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 6,
+      "pair_total": 702,
+      "counts": [
+        666,
+        36
+      ],
+      "point": [
+        0.9487179487179487,
+        0.05128205128205128
+      ],
+      "lower": [
+        0.8391938072732138,
+        0.009156596293755453
+      ],
+      "upper": [
+        0.9908434037062446,
+        0.16080619272678617
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 3,
+      "native_sample_count": 6,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 6,
+      "pair_total": 875,
+      "counts": [
+        856,
+        19
+      ],
+      "point": [
+        0.9782857142857143,
+        0.021714285714285714
+      ],
+      "lower": [
+        0.9006738026759222,
+        0.0017238740017661454
+      ],
+      "upper": [
+        0.9982761259982339,
+        0.09932619732407773
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 4,
+      "native_sample_count": 5,
+      "refused_sample_count": 3,
+      "available": true,
+      "sample_count": 2,
+      "pair_total": 312,
+      "counts": [
+        297,
+        15
+      ],
+      "point": [
+        0.9519230769230769,
+        0.04807692307692308
+      ],
+      "lower": [
+        0.8616846277934832,
+        0.009081288300340754
+      ],
+      "upper": [
+        0.9909187116996593,
+        0.13831537220651677
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 5,
+      "native_sample_count": 2,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 2,
+      "pair_total": 264,
+      "counts": [
+        258,
+        6
+      ],
+      "point": [
+        0.9772727272727273,
+        0.022727272727272728
+      ],
+      "lower": [
+        0.8928648832142413,
+        0.001992739039918411
+      ],
+      "upper": [
+        0.9980072609600816,
+        0.10713511678575871
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 6,
+      "native_sample_count": 2,
+      "refused_sample_count": 1,
+      "available": true,
+      "sample_count": 1,
+      "pair_total": 186,
+      "counts": [
+        183,
+        3
+      ],
+      "point": [
+        0.9838709677419355,
+        0.016129032258064516
+      ],
+      "lower": [
+        0.9217708268023739,
+        0.0005967063349884283
+      ],
+      "upper": [
+        0.9994032936650116,
+        0.07822917319762612
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 7,
+      "native_sample_count": 1,
+      "refused_sample_count": 0,
+      "available": true,
+      "sample_count": 1,
+      "pair_total": 103,
+      "counts": [
+        102,
+        1
+      ],
+      "point": [
+        0.9902912621359223,
+        0.009708737864077669
+      ],
+      "lower": [
+        0.8985264254566857,
+        2.0061428163131723e-06
+      ],
+      "upper": [
+        0.9999979938571837,
+        0.1014735745433143
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 8,
+      "native_sample_count": 3,
+      "refused_sample_count": 1,
+      "available": true,
+      "sample_count": 2,
+      "pair_total": 297,
+      "counts": [
+        293,
+        4
+      ],
+      "point": [
+        0.9865319865319865,
+        0.013468013468013467
+      ],
+      "lower": [
+        0.915630529416467,
+        0.0001383628323296487
+      ],
+      "upper": [
+        0.9998616371676704,
+        0.08436947058353285
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 9,
+      "native_sample_count": 5,
+      "refused_sample_count": 1,
+      "available": true,
+      "sample_count": 4,
+      "pair_total": 807,
+      "counts": [
+        800,
+        7
+      ],
+      "point": [
+        0.9913258983890955,
+        0.008674101610904586
+      ],
+      "lower": [
+        0.9400010603701197,
+        0.00035076695484545457
+      ],
+      "upper": [
+        0.9996492330451546,
+        0.059998939629880337
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 10,
+      "native_sample_count": 5,
+      "refused_sample_count": 1,
+      "available": true,
+      "sample_count": 4,
+      "pair_total": 988,
+      "counts": [
+        974,
+        14
+      ],
+      "point": [
+        0.9858299595141701,
+        0.01417004048582996
+      ],
+      "lower": [
+        0.9377085908526507,
+        0.0012324719333429426
+      ],
+      "upper": [
+        0.9987675280666571,
+        0.062291409147349285
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "bin_id": 11,
+      "native_sample_count": 2,
+      "refused_sample_count": 2,
+      "available": false,
+      "sample_count": 0,
+      "pair_total": 0
+    }
+  ],
+  "contrast_direction": {
+    "taxon": "Alnus",
+    "axis": "increasing native calendar BP, younger to older",
+    "formula": "older-bin pair probability minus younger-bin pair probability",
+    "complement": "Plantago lanceolata is the complementary second axis, not an independent extra family"
+  },
+  "private_detail_boundary": "Native aliquot objects, sample identifiers, source pointers, request journal and per-aliquot interval/tail certificates remain private artifacts."
+}

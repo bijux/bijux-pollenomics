@@ -13,7 +13,7 @@ from ..models import AtlasEvidenceSpeciesRow
 from .models import ChronologyOverlapRow
 from .temporal import (
     _context_point_interval,
-    _locality_interval,
+    _locality_intervals,
 )
 
 
@@ -62,11 +62,11 @@ def _build_chronology_overlaps(
         non_overlapping = 0
         noncomparable = 0
         for locality in direct_localities:
-            locality_interval = _locality_interval(locality)
-            if locality_interval is None or not intervals.starts:
+            locality_intervals = _locality_intervals(locality)
+            if not locality_intervals or not intervals.starts:
                 noncomparable += 1
                 continue
-            if intervals.overlaps(locality_interval):
+            if any(intervals.overlaps(interval) for interval in locality_intervals):
                 overlapping += 1
             else:
                 non_overlapping += 1
@@ -96,11 +96,13 @@ def _build_chronology_overlaps(
                 noncomparable = 0
                 intervals = layer_intervals[layer_key]
                 for locality in species_animal_localities:
-                    locality_interval = _locality_interval(locality)
-                    if locality_interval is None or not intervals.starts:
+                    locality_intervals = _locality_intervals(locality)
+                    if not locality_intervals or not intervals.starts:
                         noncomparable += 1
                         continue
-                    if intervals.overlaps(locality_interval):
+                    if any(
+                        intervals.overlaps(interval) for interval in locality_intervals
+                    ):
                         overlapping += 1
                     else:
                         non_overlapping += 1

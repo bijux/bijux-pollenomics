@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v2",
-  "page_count": 321,
+  "page_count": 322,
   "quality_posture_counts": {
-    "reader_ready": 304,
+    "reader_ready": 305,
     "structured_reference": 8,
     "thin_structure": 9
   },
@@ -639,10 +639,10 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
-      "prose_paragraph_count": 12,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 9,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 4,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -719,10 +719,10 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
-      "prose_paragraph_count": 13,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 18,
+      "link_bullet_count": 6,
       "bullet_sentence_count": 9,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 3,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -769,11 +769,11 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "prose_paragraph_count": 32,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 43,
+      "link_bullet_count": 7,
       "bullet_sentence_count": 0,
-      "heading_count": 10,
-      "table_line_count": 0,
+      "heading_count": 11,
+      "table_line_count": 6,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -2749,11 +2749,11 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
-      "prose_paragraph_count": 16,
-      "link_bullet_count": 3,
+      "prose_paragraph_count": 21,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 9,
+      "heading_count": 3,
+      "table_line_count": 15,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -3216,6 +3216,16 @@
       "table_line_count": 5,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "prose_paragraph_count": 18,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     }
   ],
   "review_scope": "automated layout signals; no human or scientific review"

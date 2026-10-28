@@ -1,0 +1,152 @@
+{
+  "schema": "archaeology-native-lead-support.v1",
+  "status": "frozen_protocol_actual_scientific_execution_separately_recorded",
+  "candidate": "22499eadfdf25afc44ccb46968c6ecdce7c77324",
+  "requirement_ids": [
+    "WP07-RAA",
+    "LANDSCAPE-CONTEXT-INTEGRATION",
+    "V3-21"
+  ],
+  "scope": "Local source-native archaeological field availability and projected geometry support only. No full-clause closure, historical WFS equivalence, archaeological event chronology, field access/permits, ecological ranking, model, rights or scientific admission.",
+  "source": {
+    "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+    "bytes": 2291224576,
+    "recorded_capture": "2026-09-13T01:14:04.983494+00:00",
+    "mode": "readonly immutable finalized SQLite, original byte hash and source inode/stat checked before and after; no extension loading or views",
+    "builtin_rtree_boundary": "Consumer-only authorizer permits INSERT/DELETE statement preparation on twelve exact native RTree shadow tables after validating their exact USING rtree declaration. The unchanged maintained context still enforces file mode=ro/immutable, query_only, no transactions/schema/extension loading; no shadow write executes.",
+    "source_id": "raa/lamningar-v1",
+    "relative_path": "lamningar_sverige.gpkg"
+  },
+  "inputs": [
+    {
+      "path": "data/raa/raw/national_geopackage_source.json",
+      "sha256": "9ba437ea5d8e075a2509ab5fdec1233d529a0ce498cdf21183020737a42be8d0",
+      "bytes": 1400
+    },
+    {
+      "path": "reports/needed/field-decisions.json",
+      "sha256": "a7cfb5a9521c17e56cbb96f113ab6a7b3619f4047000de0690718ff7b364eda5",
+      "bytes": 64527
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380",
+      "bytes": 191624
+    }
+  ],
+  "lead_population": [
+    {
+      "lead_id": "finjasjon",
+      "requested_name": "Finjasjön",
+      "field_decision": "not_received",
+      "source_pointer": "/target_decisions/0",
+      "source_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "coordinate_status": "source_brief_coordinate_modern_reference_only",
+      "latitude": 56.133926,
+      "longitude": 13.703841,
+      "coordinate_source": "project brief coordinate; official registry identity published separately",
+      "source_registry_id": "622731-136920",
+      "physical_core_identity": "not_established"
+    },
+    {
+      "lead_id": "ostra-ringsjon",
+      "requested_name": "Östra Ringsjön",
+      "field_decision": "not_received",
+      "source_pointer": "/target_decisions/1",
+      "source_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "coordinate_status": "source_brief_coordinate_modern_reference_only",
+      "latitude": 55.872216,
+      "longitude": 13.536269,
+      "coordinate_source": "project brief coordinate; official registry identity published separately",
+      "source_registry_id": "619626-135565",
+      "physical_core_identity": "not_established"
+    },
+    {
+      "lead_id": "havgardssjon",
+      "requested_name": "Havgårdssjön",
+      "field_decision": "not_received",
+      "source_pointer": "/target_decisions/2",
+      "source_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "coordinate_status": "source_brief_coordinate_modern_reference_only",
+      "latitude": 55.485801,
+      "longitude": 13.354724,
+      "coordinate_source": "project brief coordinate; official registry identity published separately",
+      "source_registry_id": "615365-134524",
+      "physical_core_identity": "not_established"
+    },
+    {
+      "lead_id": "bjaresjosjon",
+      "requested_name": "Bjäresjösjön",
+      "field_decision": "not_received",
+      "source_pointer": "/target_decisions/3",
+      "source_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "coordinate_status": "source_brief_coordinate_modern_reference_only",
+      "latitude": 55.45927,
+      "longitude": 13.751909,
+      "coordinate_source": "project brief coordinate; official registry identity published separately",
+      "source_registry_id": "614958-137018",
+      "physical_core_identity": "not_established"
+    },
+    {
+      "lead_id": "uppakra-lund",
+      "requested_name": "Uppåkra/Lund",
+      "field_decision": "not_received",
+      "source_pointer": null,
+      "source_path": null,
+      "coordinate_status": "refused_physical_study_object_unresolved",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_source": null,
+      "source_registry_id": null,
+      "physical_core_identity": "not_established"
+    }
+  ],
+  "radii_metres": [
+    10000,
+    20000
+  ],
+  "distance_definition": {
+    "coordinate_transform": "pyproj Transformer EPSG4326 to EPSG3006 always_xy=True; native projected metres. Original source coordinates retained.",
+    "spatial_query": "Use each native base geometry table RTree bounding-square overlap, finite LIMIT. No national table count/row scan; reject missing/unusable index and unsupported CRS. RTree bounding boxes are conservative candidates only. Provider index completeness is not globally established; this is the preserved native indexed-candidate population, not a census of all nearby records.",
+    "point_support": "For a valid source POINT, Euclidean native projected distance from exact source coordinate_extrema; no centroid invented. Boundary class uses closed <= radius, retaining float.hex.",
+    "line_polygon_support": "Retain source binary hash, geometry type, role and exact vertex bounds. Envelope minimum distance is a lower bound; maximum corner distance an upper bound. Explicit within_entire_envelope/outside_envelope/ambiguous_envelope_overlap; never claim exact polygon/line circle intersection.",
+    "uncertainty_geometry": "Native lägesosäkerhet MULTIPOLYGON is a positional-uncertainty representation; occurrences/UUIDs kept separate from event geometry and never added as independent sites.",
+    "precision": "Projected radius scenario; no geodesic, historical basin edge or coordinate accuracy admission. Preserve all raw distance bounds and classifications; no clipping or tolerance-based inclusion."
+  },
+  "native_fields": {
+    "source_record": "All selected lamning row fields, source native UUID/record IDs/category/status/date/reference strings preserved with SQLite storage type, null, real.hex or blob digest.",
+    "child_rows": "Selected ingaendelamning and egenskap rows only when corresponding UUID lookup is demonstrably indexed. Missing index is an explicit unresolved field-family refusal, never a nationwide fallback scan. Only direct lamning_uuid matches are queried; indirectly owned attributes with only ingaendelamning_id are not represented, so no complete nested bibliography or dating extraction is claimed. A direct ancillary family exceeding500rows is explicitly refused in full with a source lower bound of501, never truncated or admitted as500; geometry and UUID populations remain complete for the declared finite indexed queries.",
+    "time": "publiceringsdatum and uttagsdatum retain record publication/extraction roles. Source textual dating/period attributes remain verbatim text, with no numeric age/calibration/epoch inferred. Created/updated dates are never archaeological event dates.",
+    "references": "Native URL/description/attribute payloads retained as fields only; external linked documents/media are not retrieved or licensed by this check."
+  },
+  "bounds": {
+    "max_geometry_candidates_per_table_per_lead": 20001,
+    "max_total_selected_geometry_occurrences": 320016,
+    "max_unique_native_owners": 320016,
+    "max_indexed_children_per_owner": 500,
+    "max_native_value_bytes": 1048576,
+    "max_private_output_bytes": 268435456,
+    "sqlite_vm_progress_steps": 50000000,
+    "sqlite_timeout_seconds": 5,
+    "wall_seconds": 240,
+    "peak_rss_bytes": 2147483648,
+    "generated_output_bytes": 268435456,
+    "max_candidate_support_links": 320016,
+    "max_decoded_witness_bytes": 2147483648
+  },
+  "independent_checks": [
+    "Synthetic exact projected point and envelope distance bounds, including boundary and inside-polygon envelope ambiguity; no independent source truth claim.",
+    "Independent set reconstruction of saved per-lead/per-radius native UUID and geometry-occurrence denominators.",
+    "Negative missing-RTree/index, unsupported CRS, malformed WKB, changed hash, forbidden writes/extensions, null/period-text, unresolved fifth coordinate and oversized output controls.",
+    "Direct main/shadow/temp writes, ATTACH, extension loading and guard-disabling PRAGMA calls remain actual fixture refusals after built-in RTree preparation."
+  ],
+  "original_evidence_preservation": "Existing106-cell RAÄ degraded/refusal pair, historical WFS populations and all unsent40field questions/zero governed candidates remain unchanged. Four source coordinates are rounded source-owned brief values, not newly authenticated lake centers.",
+  "source_adaptation_delta": {
+    "predecessor_plan_sha256": "cabf9cdf42d54ade3fee38efbf80a2ce8e303db4f3212a2cdca850bd23cead38",
+    "predecessor_terminal_sha256": "cfa1986af00c5b31b636634da546e2c641e6e7c2a0faeab8224f660f62a79dfb",
+    "actual_failure": "global finite geometry limit exceeded at25000unique occurrences before outputs; two preceding source-only stages passed",
+    "native_query_and_distance_support": "Unchanged four coordinates,20kmRTree queries,10/20km projected point/envelope classifications; fifthlead unresolved. Current maintained reproduction retains source and all three private gzip byte identities; protocol metadata owns portable source paths only.",
+    "storage": "Deterministic streaming gzipNDJSON; no truncation, selectedradius narrowing, scientific admission or national scan. Geometry/UUID and occurrence-link ceilings derive directly from sixteen existing finite queries ×20001."
+  },
+  "witness_format": "Private deterministic gzipNDJSON (mtime0,empty gzip filename), raw typedfields unchanged after decompression; physical and decoded byte caps separate."
+}

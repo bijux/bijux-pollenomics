@@ -50,18 +50,69 @@ claims, denominator drift, or any contextual/unresolved claim promoted to a
 numeric interval. It does not reacquire a changing source snapshot.
 
 
+## Native annotation custody
+
+The [all-field audit](native-annotations.json) independently checks all **25,109**
+captured native date rows across five date kinds, **202,546** original field
+cells and their physical, method and reference ownership across **17** tables.
+The private typed witness retains every original field and value, including
+**56,721** null cells. The source archive and normalized chronology remain
+unchanged. The [source account](native-annotations-source.json) binds the actual
+producer, independent comparison, resource observations and preserved failed
+verification receipts.
+
+| Native field comparison | Cells |
+| --- | ---: |
+| Exact JSON value and type | 186,797 |
+| Native null stored as an empty string | 14,230 |
+| Numeric type differs but exact rational value agrees | 1,519 |
+| **All native field cells** | **202,546** |
+
+**8,678** claims have at least one stored representation difference. Native
+method and uncertainty-label lookups separately have **11,923** exact comparisons
+and **47,070** null-to-empty-string comparisons. These are different populations
+from native field cells. This audit approves none of these changes as
+scientifically harmless. This capture has no null uncertainty-flag cells; the
+guards retain such unknown flags in controlled examples instead of silently
+converting them into known false values.
+
+The six captured uncertainty definitions and native method/reference relations
+are retained explicitly. There are **1,097** `From` uncertainty-label occurrences
+across all date kinds; the earlier **1,094** open-ended dendrochronology claims
+remain their own population. Missing calibration and model authority, qualified
+uncertainty decisions and biological interpretation remain unresolved. All
+**25,109** propagation statuses remain refused, with **zero** admitted events.
+
+The maintained producer is
+`bijux_pollenomics_dev.source_completion.sead.chronology_annotations`.
+With absent public and private artifact destinations, it can replay the aggregate
+while keeping the detailed witness outside the public output tree:
+
+```sh
+python -m bijux_pollenomics_dev.source_completion.sead.chronology_annotations \
+  --repository . --output artifacts/jobs/sead-native-annotations/public \
+  --retained-artifacts-root artifacts/jobs/sead-native-annotations/private
+```
+
+The configured report owner supplies these paths independently. It refuses
+changed source pins, native-row additions/omissions, duplicate or noninteger
+native keys, mismatched ownership/reference relations and overlapping or escaped
+public/private output destinations. Private witness data is not a report
+publication output.
+
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-**Supported claim.** All 25,109 captured chronology claims retain a native-age review with explicit display-only eligibility and refusal bases.
+**Supported claim.** All 25,109 captured chronology claims retain a native-age review and an independent comparison of 202,546 original typed fields, physical ownership and method/reference relations; display and propagation refusals remain explicit.
 
 **Unsupported claim.** Synthetic calibrated-BP/BCE branch tests do not certify native SEAD rows, and display eligibility is not ecological/scientific chronology admission.
 
-**Actual verification performed.** Read all age-basis totals and seven native-backed gold examples in report.json plus per-claim decision schema; no calibration or chronology replay.
+**Actual verification performed.** Actual source-bound producer and independent all-row/type/ownership/aggregate verifier passed; 83 annotation, runtime-isolation, receipt and result-schema guards, configured strict typing and lint passed. No calibration, age-model fit or new event admission. Two actual maintained configured reference/replay commands independently reproduced the public aggregate and private witness byte-for-byte; 71 producer/public-private isolation guards and strict10/source lint passed. Canonical ownership and reader validation are separate.
 
-**Remaining input or review.** Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty and qualified scientific use remain unresolved.
+**Remaining input or review.** Relative-period mapping, unspecified radiometric/modelled bases, open-ended uncertainty, scientific equivalence of stored representations and qualified scientific use remain unresolved.
 
 **Cause category.** Source-backed AD conversion is narrower than chronology/event approval.
 
@@ -69,13 +120,17 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Precise next acceptance route.** Obtain source-specific age/calibration/uncertainty decisions and classification authority before changing claim or propagation admission.
 
-**Negative or refused result.** 11,939 claims not display eligible; all 25,109 propagation statuses refused; 1,094 From dates lack bounded intervals.
+**Negative or refused result.** 8,678 claims differ in stored representation: 14,230 native null field cells become empty strings and 1,519 numeric representations change at equal exact value. No harmlessness approval; all 25,109 propagation statuses remain refused, including 1,094 unbounded dendrochronology From claims.
 
-**Matched denominator.** 25,109 claims: 13,170 bounded nonnegative AD conversions, 1,094 open-ended, 60 negative BP, 10,057 periods, 87 radiometric, 641 modelled unresolved; 1 native AD type.
+**Matched denominator.** 25,109 claims / 202,546 native field cells across five date kinds and 17 source tables; 186,797 exact cells, 14,230 null-to-empty and 1,519 numeric-type changes. Original age-basis totals and 13,170 display-only claims remain unchanged.
 
 - [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/report.json](report.json) (SHA-256 `6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9`).
 
 - [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/claims.csv](claims.csv) (SHA-256 `e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/native-annotations.json](native-annotations.json) (SHA-256 `09940763f6124591f1696fa253d52b259ff410d79798abcb82d56d4868e3f240`).
+
+- [Retained qualification evidence: docs/report/source-relations/sead/chronology-claim-review/native-annotations-source.json](native-annotations-source.json) (SHA-256 `9c252ea5104c0c79de757b659db60db9c59e43d8deadc501e0ca4be5a821311e`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -1,0 +1,37 @@
+{
+  "schema_version": "qualified-swedish-literal-pair-counting-capture.v1",
+  "source_id": "science/swedish-literal-pair-counting",
+  "files": [
+    {
+      "path": "independent-verification.json",
+      "sha256": "ece762411f867b852ab20b3182ebad2c7521dddd8a1431d0bf9541a50fbd0a84",
+      "size": 452
+    },
+    {
+      "path": "method.md",
+      "sha256": "dfbe9950d9ce41f79131354960367d5d3434fbca1261bf17b2279a9c251d4583",
+      "size": 3607
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "0a93de9e717f584d143b1d36fa34ab33a8c812fc5337ee37dfd11e019f23fc9f",
+      "size": 4539
+    },
+    {
+      "path": "report.json",
+      "sha256": "5d7752d21f0d17b81991f35c0f52095b8f66a3510ec64bb6e7dfb0a6ab077f4b",
+      "size": 27703
+    },
+    {
+      "path": "terminal.json",
+      "sha256": "50066bd9c4176e1492c6404a73aaeb48683c66062ca6c57006332017a23e5599",
+      "size": 19084
+    }
+  ],
+  "native_plan_sha256": "c0e52eeac4ca792f2d41211d63780d9a67c53e7dee003b1b42d440cae8ef2e4d",
+  "custody": "retained-local-native-execution",
+  "http_retrieval_claim": false,
+  "scientific_admission": false,
+  "rights_admission": false,
+  "release_admission": false
+}

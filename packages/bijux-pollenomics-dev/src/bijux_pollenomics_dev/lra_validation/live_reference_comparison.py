@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
-from typing import Any
+from typing import Any, Literal
 
 import numpy as np
 import pandas as pd
@@ -63,13 +63,13 @@ def _require_current_inputs(
     private_sources: Path,
     receipt: dict[str, Any],
     *,
-    retained_capture_profile: str | None = None,
+    retained_capture_profile: Literal["finite-covariance"] | None = None,
 ) -> None:
-    """Keep direct inputs strict or authenticate the exact retained finite packet."""
+    """Keep direct-source comparison strict or authenticate the exact retained packet."""
     if retained_capture_profile is None:
         if any(
-            hashlib.sha256((repository / path).read_bytes()).hexdigest() != digest
-            for path, digest in receipt["current_inputs_sha256"].items()
+            hashlib.sha256((repository / p).read_bytes()).hexdigest() != h
+            for p, h in receipt["current_inputs_sha256"].items()
         ):
             raise ValueError("Current R/Python input changed")
         return
@@ -80,10 +80,13 @@ def _require_current_inputs(
     if (
         run != capture.directory
         or private_sources != capture.source_archives
+        or len(expected) != 68
         or json.dumps(receipt["current_inputs_sha256"], sort_keys=True, allow_nan=False)
         != json.dumps(expected, sort_keys=True, allow_nan=False)
     ):
-        raise ValueError("Retained comparison source routes or sealed hashes differ")
+        raise ValueError(
+            "Retained comparison source routes or sealed source hashes differ"
+        )
 
 
 def summarize(
@@ -93,7 +96,7 @@ def summarize(
     output: Path,
     private_sources: Path,
     *,
-    retained_capture_profile: str | None = None,
+    retained_capture_profile: Literal["finite-covariance"] | None = None,
 ) -> dict[str, Any]:
     """Validate exact inputs and all output denominators before retaining raw R."""
     repository, run, original, output = (

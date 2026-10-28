@@ -1,0 +1,22 @@
+{
+  "schema_version": "fixed-two-taxon-retained-numerical-products.v1",
+  "profile": "fixed-two-taxon-binomial-equal-tail-v1",
+  "source_candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "plan_sha256": "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f",
+  "actual_terminal_sha256": "b4ef5f89e7f22fb220fcb57624976cd15062ed54b867cae2dc8f83f42f9a2a7c",
+  "api_source_sha256": "05921ff27b6a0c28c89c9727573cedd04723f9dbec9a96e4b8e6e0771b83cf17",
+  "producer_source_sha256": "ef3cc697d04a7d513e450f176ef515cd3ec3ed1c82391e19db597600a1ffba2a",
+  "independent_source_sha256": "095253b3b5a0093b99a9e27ce224887c092458da107f34557d7a63d29dd9e79c",
+  "producer_maintained_path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting.py",
+  "independent_maintained_path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting_verification.py",
+  "files": {
+    "protocol.json": "0588a40f5f4b0819e75dc6b6c145a146a35911d3244e7ee4981c639d378b68e7",
+    "intervals.json.gz": "661b88b4072861fb4a1e3f8be1411634e7a985517b460aba3093575ee04ff7a1",
+    "independent-review.json": "6c2c46cc19e1d446ae346ab087c533be870e9c9c5d1be181d1044ea8ef0cc81a",
+    "preserved-negative-account.md": "09ee85ad714e486bd9d64d0c325b6db2dab5e3e9ba0f25013ff67c1a40055c64"
+  },
+  "intervals_uncompressed_sha256": "0af92e4334e54cb4bbe903806a6e326f227f960fd8a33b7e7e0a43bfeb53ad75",
+  "first_party_synthetic_inputs": true,
+  "scope": "One fixed-N aliquot and exactly two measured taxa with fixed positive known deposition/PPE; conditional counting inference only, no unknown-response/PPE/chronology/basin/repeated-sample/general-multinomial/field coverage or historical-R equivalence.",
+  "scientific_admission": false
+}

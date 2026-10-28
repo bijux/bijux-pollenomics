@@ -33,6 +33,7 @@ DOC_SOURCES = frozenset(
 RETAINED_METADATA_PATHS = frozenset(
     {
         "configs/ci/report-ownership.json",
+        "reports/needed/field-decisions.json",
         "data/source-custody/neotoma/lakeparameters/runtime-authority/plan.json",
         "data/method-certification/source-locked-linux-r/reference-bundle/"
         "generated-sources/packages/bijux-pollenomics-lra/src/"

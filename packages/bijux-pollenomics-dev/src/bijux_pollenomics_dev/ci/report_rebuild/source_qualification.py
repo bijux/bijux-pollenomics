@@ -87,4 +87,14 @@ def validated_external_report_sources(
         from .source_contracts.pangaea_abbo_age_controls import validated_abbo_age_table
 
         return validated_abbo_age_table(repository, source_root, descriptor_path)
+    if schema == "qualified-swedish-literal-pair-counting-capture.v1":
+        from .source_contracts.literal_pair_counting import (
+            validated_pair_counting_capture,
+        )
+
+        return validated_pair_counting_capture(repository, source_root, descriptor_path)
+    if schema == "qualified-raa-native-geopackage.v1":
+        from .source_contracts.raa_native_geopackage import validated_raa_geopackage
+
+        return validated_raa_geopackage(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")

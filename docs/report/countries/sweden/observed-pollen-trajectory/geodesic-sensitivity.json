@@ -1,0 +1,922 @@
+{
+  "schema_version": "landscape-geodesic-sensitivity.v1",
+  "source_feature_count": 8799,
+  "source_numeric_feature_count": 7244,
+  "source_unresolved_feature_count": 1555,
+  "centre_count": 3,
+  "bin_count": 13,
+  "radius_count": 2,
+  "method_count": 2,
+  "window_cell_count": 156,
+  "original_spherical_cells_verified": 78,
+  "membership_change_count": 29,
+  "window_differences": [
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 0,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 0,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 0,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 0,
+      "feature_count_delta": -14,
+      "site_count_delta": -1,
+      "claim_count_delta": -18,
+      "feature_membership_changed": true
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 1,
+      "feature_count_delta": -14,
+      "site_count_delta": -1,
+      "claim_count_delta": -16,
+      "feature_membership_changed": true
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 0,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": -1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 0,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 1,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 2,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 3,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 4,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 5,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 6,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 7,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 8,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 9,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 10,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "bin_id": 11,
+      "feature_count_delta": 0,
+      "site_count_delta": 0,
+      "claim_count_delta": 0,
+      "feature_membership_changed": false
+    }
+  ],
+  "spatial_membership": [
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "method": "retained_sphere",
+      "feature_count": 279,
+      "site_count": 19,
+      "distinct_claim_count": 368,
+      "feature_ids_sha256": "6f6b5b478536b63abb104eda9f7d605cda5c7f0ba9a18d11103b716909abcf91",
+      "site_ids_sha256": "92580f288386a54787e23cab24ef243d213ad6993240452f9fef2fa0771faa19",
+      "claim_ids_sha256": "3f22c55e06b47088d36a041cde52c8c5c5e63628cd5bc011d776c2842d9b8984",
+      "qualified_or_uncertain_feature_count": 45,
+      "numeric_feature_count": 269,
+      "unresolved_feature_count": 10
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 10,
+      "method": "WGS84",
+      "feature_count": 279,
+      "site_count": 19,
+      "distinct_claim_count": 368,
+      "feature_ids_sha256": "6f6b5b478536b63abb104eda9f7d605cda5c7f0ba9a18d11103b716909abcf91",
+      "site_ids_sha256": "92580f288386a54787e23cab24ef243d213ad6993240452f9fef2fa0771faa19",
+      "claim_ids_sha256": "3f22c55e06b47088d36a041cde52c8c5c5e63628cd5bc011d776c2842d9b8984",
+      "qualified_or_uncertain_feature_count": 45,
+      "numeric_feature_count": 269,
+      "unresolved_feature_count": 10
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "method": "retained_sphere",
+      "feature_count": 395,
+      "site_count": 37,
+      "distinct_claim_count": 527,
+      "feature_ids_sha256": "de0c5dec4e69011bf47686168fbbfe7d908c1a231779c3c9b04a219e54daaaf3",
+      "site_ids_sha256": "8e2d6c434589fdc0d01c8cefaef08b7a32934bea36a86adac751c4118684d2f8",
+      "claim_ids_sha256": "701a0552dece728366800f5200398a73917a44292cdd029db6f9ef46be8ebf8b",
+      "qualified_or_uncertain_feature_count": 69,
+      "numeric_feature_count": 371,
+      "unresolved_feature_count": 24
+    },
+    {
+      "centre": "BUS",
+      "radius_km": 20,
+      "method": "WGS84",
+      "feature_count": 395,
+      "site_count": 37,
+      "distinct_claim_count": 527,
+      "feature_ids_sha256": "de0c5dec4e69011bf47686168fbbfe7d908c1a231779c3c9b04a219e54daaaf3",
+      "site_ids_sha256": "8e2d6c434589fdc0d01c8cefaef08b7a32934bea36a86adac751c4118684d2f8",
+      "claim_ids_sha256": "701a0552dece728366800f5200398a73917a44292cdd029db6f9ef46be8ebf8b",
+      "qualified_or_uncertain_feature_count": 69,
+      "numeric_feature_count": 371,
+      "unresolved_feature_count": 24
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "method": "retained_sphere",
+      "feature_count": 60,
+      "site_count": 4,
+      "distinct_claim_count": 75,
+      "feature_ids_sha256": "ba02dd32cffae2ff4108c0a70cfb4030f33a0293d5952b31ca47b49972ca363c",
+      "site_ids_sha256": "59ed6d316126f86b5a5910d18d775d886fbf860b02017046118b9b528e8c776c",
+      "claim_ids_sha256": "2e4f5ff5cbfbae0bbe6a00ce069de1fae9819e14006c37d0f00ce104e9dd22a4",
+      "qualified_or_uncertain_feature_count": 6,
+      "numeric_feature_count": 58,
+      "unresolved_feature_count": 2
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 10,
+      "method": "WGS84",
+      "feature_count": 60,
+      "site_count": 4,
+      "distinct_claim_count": 75,
+      "feature_ids_sha256": "ba02dd32cffae2ff4108c0a70cfb4030f33a0293d5952b31ca47b49972ca363c",
+      "site_ids_sha256": "59ed6d316126f86b5a5910d18d775d886fbf860b02017046118b9b528e8c776c",
+      "claim_ids_sha256": "2e4f5ff5cbfbae0bbe6a00ce069de1fae9819e14006c37d0f00ce104e9dd22a4",
+      "qualified_or_uncertain_feature_count": 6,
+      "numeric_feature_count": 58,
+      "unresolved_feature_count": 2
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "method": "retained_sphere",
+      "feature_count": 457,
+      "site_count": 38,
+      "distinct_claim_count": 572,
+      "feature_ids_sha256": "bf3899a6a82717d5141c694b5ab6095708a56461c6b6640b3fbc2878e85f0ccf",
+      "site_ids_sha256": "f53b42e1ca10c9d106cee5042618b691ee75c7dd94eef3c5919bc9b8bdf4e604",
+      "claim_ids_sha256": "9c039e371a61cbb4c04688f40ff7035bfba8d72870ad8c7732cb7a138fbf1729",
+      "qualified_or_uncertain_feature_count": 76,
+      "numeric_feature_count": 432,
+      "unresolved_feature_count": 25
+    },
+    {
+      "centre": "BOKE",
+      "radius_km": 20,
+      "method": "WGS84",
+      "feature_count": 428,
+      "site_count": 36,
+      "distinct_claim_count": 538,
+      "feature_ids_sha256": "4bbdf40e7dbea4161d1befcad26d998ab93f241aac8621e175ba2dd113100d9c",
+      "site_ids_sha256": "68f932bea4aaf2d01866c49c4fe52cb92486c66fda9a12a221f952872494f1bf",
+      "claim_ids_sha256": "d36929910b41e147bf8be6c597a9644e3953bbe6fc1a21c4b2956f3555120d49",
+      "qualified_or_uncertain_feature_count": 66,
+      "numeric_feature_count": 404,
+      "unresolved_feature_count": 24
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "method": "retained_sphere",
+      "feature_count": 265,
+      "site_count": 18,
+      "distinct_claim_count": 344,
+      "feature_ids_sha256": "4355b62c5c99ec53ea633f7a9e764c9c8760cd2609e047894e3716222a1ac95a",
+      "site_ids_sha256": "774b4d1a522abd8d6eacdb1234e6564e2f76a0e6d97d97d8ecf5366bfb8ab9aa",
+      "claim_ids_sha256": "26f127ed0675771e8ed4e76c100a78e4afb1c6ebbca0f302fa81bc0212f82175",
+      "qualified_or_uncertain_feature_count": 45,
+      "numeric_feature_count": 255,
+      "unresolved_feature_count": 10
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 10,
+      "method": "WGS84",
+      "feature_count": 265,
+      "site_count": 18,
+      "distinct_claim_count": 344,
+      "feature_ids_sha256": "4355b62c5c99ec53ea633f7a9e764c9c8760cd2609e047894e3716222a1ac95a",
+      "site_ids_sha256": "774b4d1a522abd8d6eacdb1234e6564e2f76a0e6d97d97d8ecf5366bfb8ab9aa",
+      "claim_ids_sha256": "26f127ed0675771e8ed4e76c100a78e4afb1c6ebbca0f302fa81bc0212f82175",
+      "qualified_or_uncertain_feature_count": 45,
+      "numeric_feature_count": 255,
+      "unresolved_feature_count": 10
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "method": "retained_sphere",
+      "feature_count": 397,
+      "site_count": 39,
+      "distinct_claim_count": 527,
+      "feature_ids_sha256": "091c37ec6b437d18a7b3f9ddb4a2049eb932de84fb497a961fd4fb4bd9df66c8",
+      "site_ids_sha256": "49966ae2963654d2f8c9827ddf94b4065089662c97a343c6d125d184586d735c",
+      "claim_ids_sha256": "701a0552dece728366800f5200398a73917a44292cdd029db6f9ef46be8ebf8b",
+      "qualified_or_uncertain_feature_count": 71,
+      "numeric_feature_count": 371,
+      "unresolved_feature_count": 26
+    },
+    {
+      "centre": "BUS_inventory",
+      "radius_km": 20,
+      "method": "WGS84",
+      "feature_count": 397,
+      "site_count": 39,
+      "distinct_claim_count": 527,
+      "feature_ids_sha256": "091c37ec6b437d18a7b3f9ddb4a2049eb932de84fb497a961fd4fb4bd9df66c8",
+      "site_ids_sha256": "49966ae2963654d2f8c9827ddf94b4065089662c97a343c6d125d184586d735c",
+      "claim_ids_sha256": "701a0552dece728366800f5200398a73917a44292cdd029db6f9ef46be8ebf8b",
+      "qualified_or_uncertain_feature_count": 71,
+      "numeric_feature_count": 371,
+      "unresolved_feature_count": 26
+    }
+  ],
+  "minimum_wgs84_boundary_margin_metres": 4.7554183578562,
+  "numerically_near_boundary_feature_centre_pairs_1mm": 0,
+  "centres": {
+    "BUS": [
+      55.46667,
+      13.81667
+    ],
+    "BOKE": [
+      55.57556,
+      13.4375
+    ],
+    "BUS_inventory": [
+      55.44559,
+      13.80172
+    ]
+  },
+  "source_model_grid": 779,
+  "shared_lineage_target_count": 5,
+  "ecological_event_admission": false,
+  "rights_admission": false,
+  "untouched_confirmation": false,
+  "chronology_refit": false,
+  "interpretation": "Geography-method/coordinate sensitivity of dated source-feature context only. Original half-open bins and per-record intervals remain unchanged; no site hull, new event, land-use magnitude, vegetation measurement, selected best centre or right to scientific reuse.",
+  "geodesic": {
+    "library": "pyproj",
+    "version": "3.7.2",
+    "PROJ": "9.5.1",
+    "ellipsoid": "WGS84",
+    "semi_major_axis_metres": 6378137.0,
+    "inverse_flattening": 298.257223563,
+    "coordinate_order": "longitude, latitude",
+    "units_returned": "metres",
+    "retained_sphere_radius_km": 6371.0088,
+    "eligibility": "full returned distance<=radius; no rounding or tolerance changes membership"
+  }
+}

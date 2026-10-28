@@ -88,8 +88,9 @@ older, higher BP bound. For eligible intervals `[a_start, a_end]` and
 | duration | older bound minus younger bound |
 
 Touching endpoints count as overlap at the represented precision. Reversed
-source bounds are normalized before comparison; missing bounds do not become
-zero-width intervals. The result inherits the weaker comparability posture of
+source bounds are refused by canonical comparison, while the original source
+values remain available for review. Missing bounds do not become zero-width
+intervals. The result inherits the weaker comparability posture of
 its inputs and retains both original intervals, because an overlap label alone
 cannot communicate width or uncertainty.
 
@@ -200,8 +201,8 @@ rows in the same broad window can remain thousands of years apart. The window
 key supports browsing; the source bounds and comparability posture govern
 analysis.
 
-For example, an animal sample interval of 2500–2200 BP and a pollen sequence
-interval of 2300–1800 BP overlap from 2300 to 2200 BP. Their midpoints alone
+For example, an animal sample interval of 2200–2500 BP and a pollen sequence
+interval of 1800–2300 BP overlap from 2200 to 2300 BP. Their midpoints alone
 would obscure that shared range. If the archaeology layer nearby carries only
 a textual period, it remains contextual beside the numeric overlap; it does
 not acquire the same interval.
