@@ -14,20 +14,20 @@
       "scope_reason": "Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.",
       "qualification": {
         "fields": {
-          "supported_claim": "All 1,481 current normalized animal source records have exactly one source-bound map disposition: 335 mapped records in 167 locality features and 1,146 explicitly reason-coded exclusions.",
+          "supported_claim": "The current savedatlas partitions1482normalized source records into335mapped owners and1147explicit exclusions across167unchangedlocalityfeatures. OnlyBER11_L is added as an exclusion; allprior1146exclusions/mappedidentities areexact.",
           "unsupported_claim": "An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.",
-          "actual_verification_performed": "The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.",
+          "actual_verification_performed": "Unchanged savedatlasproducer at7e1f7bd8a38283decbf76401092fb64b8bf74c5b emits40files in4.514s/RSS155942912B/16729101B. Independent2.645s/RSS107331584B source/child/support/CSV/output comparisonPASS. HEAD/index/trackedresources/saveddata/reads stable; all21scopedlocalityoutputs andmappedcandidateJSON/CSV exact. No newsource/date/model/map/index generation.",
           "remaining_input_or_review": "Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.",
           "cause_category": "Sample-owned publication refusals from incomplete source evidence or chronology.",
           "consequence": "The atlas remains a selected 324-sample subset; plotting an excluded row would exceed its governed identity/time support.",
           "precise_next_acceptance_route": "Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.",
           "negative_or_refused_result": "The 1,146 exclusions remain explicit. Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.",
-          "matched_denominator": "1,481 normalized source records = 335 mapped + 1,146 excluded; 167 locality features. Source taxonomy can differ from the owning normalization bundle, including the existing Obishir Capra/Ovis mismatch. These are not independent biological observations."
+          "matched_denominator": "1482normalized source records=335mapped+1147excluded;167localityfeatures. World236individualintervals/67gaps and regional8features/12owners/11intervals unchanged. Existingtaxonomic disagreements and scientific/field/biological refusals remain; these are not independentanimals."
         },
         "evidence_pins": [
           {
             "path": "docs/report/animal_atlas_exclusion_report.json",
-            "sha256": "8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc"
+            "sha256": "0dfe52030955bdd0988117e8e73947b521f946742f9128e435b5ad1c2024eada"
           },
           {
             "path": "reports/science/animal-entity-capability/report.json",
